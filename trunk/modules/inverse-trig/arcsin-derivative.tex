@@ -2,19 +2,52 @@
 \begin{frame}
 \begin{theorem}[The Derivative of $\sin^{-1} x$]
 \[
-\frac{\diff}{\diff x} \left( \sin^{-1} x\right) = \frac{1}{\sqrt{1-x^2}} \qquad -1 < x < 1.
+\frac{\diff}{\diff x} \left( \sin^{-1} x\right) = \frac{1}{\sqrt{1-x^2}}, \qquad -1 < x < 1.
 \]
 \end{theorem}
 \begin{proof}
-\begin{itemize}
-\item  $\sin$ is differentiable, so $\sin^{-1}$ is too.
-\item<2->  Let $y = \sin^{-1} x$.  Then $\alert<handout:0| 3,7>{\sin y = x}$ and $\alert<handout:0| 8>{-\pi /2 \leq y \leq \pi /2}$.
-\item<3->  Differentiate implicitly with respect to $x$:
-\item<4->  $\cos y \frac{\diff y}{\diff x} = 1$.
-\item<5->  $ \frac{\diff y}{\diff x} = \frac{1}{\cos y}$.
-\item<6->  \uncover<8->{\alert<handout:0| 8>{$\cos y \geq 0$}, so} $\alert<handout:0| 11>{\cos y =} \only<handout:0| -8>{\alert<handout:0| 8>{\pm}}\sqrt{1 - \alert<handout:0| 7>{\sin^2 y}} \uncover<7->{ = \only<handout:0| -8>{\alert<handout:0| 8>{\pm}}\alert<handout:0| 11>{\sqrt{1-\alert<handout:0| 7>{x^2}}}.}$
-\item<10->  $ \frac{\diff y}{\diff x} = \frac{1}{\alert<handout:0| 11>{\cos y}} \uncover<11->{ = \frac{1}{\alert<handout:0| 11>{\sqrt{1-x^2}}}.\qedhere}$
-\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<2->{%
+\text{Let}\quad y %
+}%
+& \uncover<2->{%
+ = \sin^{-1} x.
+}\\%
+\uncover<2->{%
+\text{Then}\quad \alert<handout:0| 3-4,10>{\sin y} %
+}%
+& \uncover<2->{%
+ \alert<handout:0| 10>{=}  \alert<handout:0| 5-6,10>{x}\quad \text{and} \quad \alert<handout:0| 9>{-\pi/2 \leq y \leq \pi/2}.
+}\\%
+\uncover<3->{%
+\text{Differentiate implicitly:}\quad \alert<handout:0| 3-4>{\uncover<4->{\cos y \cdot y'}} %
+}%
+& \uncover<3->{%
+ = \uncover<6->{\alert<handout:0| 6>{1}} 
+}\\%
+\uncover<7->{%
+y' %
+}%
+& \uncover<7->{%
+ = \frac{1}{\alert<handout:0| 8>{\cos y}} %
+}\\%
+& \uncover<8->{%
+ = \frac{1}{\alert<handout:0| 8>{\alert<handout:0| 9>{\pm}\sqrt{1-\sin^2y}}} %
+}\\%
+\uncover<9->{%
+\text{But \alert<handout:0| 9>{$\cos y > 0$}:}\quad %
+}%
+& \uncover<9->{%
+ = \frac{1}{\sqrt{1-\alert<handout:0| 10>{\sin^2y}}} %
+}%
+\uncover<10->{%
+ = \frac{1}{\sqrt{1-\alert<handout:0| 10>{x^2}}}. \qedhere%
+}%
+\end{align*}
 \end{proof}
 \end{frame}
 % end module arcsin-derivative
