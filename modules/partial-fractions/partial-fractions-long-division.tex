@@ -1,0 +1,25 @@
+% begin module partial-fractions-long-division
+\begin{frame}
+Consider a rational function
+\[
+f(x) = \frac{P(x)}{Q(x)}
+\]
+where $P$ and $Q$ are polynomials.  Recall that the degree of $P$ is the highest power of $x$ in $P$ that has a non-zero coefficient.  That is, if
+\[
+P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
+\]
+where $a_n \neq 0$, then the degree of $P$ is $n$, and we write deg$(P) = n$.
+
+\uncover<2->{%
+The first step is to make sure that the degree of $P$ is strictly less than the degree of $Q$.  If it isn't, that is, if deg$(P) \geq $ deg$(Q)$, then divide $Q$ into $P$ by long division to get a remainder $R(X)$ such that deg$(R) < $ deg$(Q)$.
+\[
+f(x) = \frac{P(x)}{Q(x)} = S(x) + \frac{R(x)}{Q(x)}
+\]
+Here $S(x)$ and $R(x)$ are also polynomials.
+}%
+
+\uncover<3->{%
+As this first example shows, sometimes long division is all that is required.
+}%
+\end{frame}
+% end module partial-fractions-long-division

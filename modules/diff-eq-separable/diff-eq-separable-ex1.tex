@@ -1,0 +1,58 @@
+% begin module diff-eq-separable-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 617]
+Solve the differential equation $\frac{\diff y}{\diff x} = \frac{x^2}{y^2}$, and find the solution that satisfies the intial condition $y(0) = 2$.
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+y^2 \diff y %
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+x^2 \diff x %
+}\\%
+\uncover<3->{%
+\int y^2 \diff y %
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+\int x^2 \diff x %
+}\\%
+\uncover<4->{%
+\frac{y^3}{3}%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\frac{x^3}{3} + C
+}\\%
+\uncover<5->{%
+y%
+}%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\sqrt[3]{x^3 + 3C}%
+}\\%
+\uncover<6->{%
+y%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\sqrt[3]{x^3 + K}%
+}%
+\end{eqnarray*}
+\uncover<7->{%
+To find the solution satisfying the initial condition, set $2 = y(0) = \sqrt[3]{0^3 + K} = \sqrt[3]{K}$.  %
+}%
+\uncover<8->{%
+Then $\sqrt[3]{K} = 2$, so $K = 8$.%
+}%
+\uncover<9->{%
+\belowdisplayskip=0pt
+\abovedisplayskip=0pt
+\[
+y = \sqrt[3]{x^3 + 8}.
+\]
+}%
+\end{example}
+\end{frame}
+% end module diff-eq-separable-ex1

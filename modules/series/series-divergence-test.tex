@@ -1,0 +1,34 @@
+% begin module series-divergence-test
+\begin{frame}[t]
+\begin{theorem}
+If the series $\sum_{n=1}^\infty a_n$ is convergent, then $\lim_{n\to\infty}a_n = 0$.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item<2->  Let $s_n = a_1 + a_2 + \cdots + a_n$.
+\item<3->  Then \alert<handout:0| 8>{$a_n = s_n - s_{n-1}$}.
+\item<4->  Since $\sum_{n=1}^\infty a_n$ is convergent, the sequence $\{ s_n\}$ is convergent.
+\item<5->  Let \alert<handout:0| 9>{$\lim_{n\to\infty} s_n = s$.}
+\item<6->  Then \alert<handout:0| 6-7,9>{$\lim_{n\to\infty} s_{n-1} =$ \uncover<7->{$s$.}}
+\item<8->  Therefore
+\end{itemize}
+\[
+\uncover<8->{\lim_{n\to\infty}\alert<handout:0| 8>{a_n}} %
+\uncover<8->{= \lim_{n\to\infty}\alert<handout:0| 8>{(\alert<handout:0| 9>{s_n}-\alert<handout:0| 9>{s_{n-1}})}} %
+\uncover<9->{= \alert<handout:0| 9>{s} - \alert<handout:0| 9>{s}} %
+\uncover<10->{= 0\qedhere}%
+\]
+\end{proof}
+\end{frame}
+
+
+\begin{frame}[t]
+\begin{theorem}
+If the series $\sum_{n=1}^\infty a_n$ is convergent, then $\lim_{n\to\infty}a_n = 0$.
+\end{theorem}
+This is just a restatement of the previous theorem:
+\begin{theorem}[The Divergence Test]
+If $\lim_{n\to\infty} a_n$ doesn't exist or if $\lim_{n\to\infty}a_n \neq 0$, then the series $\sum_{n=1}^\infty a_n$ is divergent.
+\end{theorem}
+\end{frame}
+% end module series-divergence-test

@@ -1,0 +1,35 @@
+% begin module integral-test-ex4
+\begin{frame}
+\begin{example}[Example 4, p. 736]
+Test the series $\displaystyle \sum_{n=1}^\infty \frac{\ln n}{n}$ for convergence.
+\begin{itemize}
+\item<2->  $f(x) = \frac{\ln x}{x}$ is continuous and positive.
+\item<3->  It's not obvious if it's decreasing, so take the derivative.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\uncover<4->{%
+\[
+f'(x) = \frac{\left(\frac{1}{x}\right)(x) - (\ln x)(1)}{x^2} %
+\uncover<5->{ = \frac{1-\ln x}{x^2}}
+\]
+}%
+\item<6->  This is negative for all \alert<handout:0| 6-7>{$x >$ \uncover<7->{$e$.}}
+\item<8->  Therefore $f$ is decreasing for all $x > e$.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<9->{\int_1^\infty \frac{\ln x}{x}\diff x} & \uncover<9->{ = } & \uncover<9->{\lim_{t\to\infty} \int_1^t \alert<handout:0| 10-11>{\frac{\ln x}{x}}\diff x} %
+ \uncover<10->{ = } %
+\uncover<10->{\lim_{t\to\infty}\left[ \uncover<11->{\alert<handout:0| 11>{\frac{(\ln x)^2}{2}}}\right]_{\alert<handout:0| 13-14>{1}}^{\alert<handout:0| 12>{t}}}\\
+ & \uncover<12->{ = } & %
+\uncover<12->{\alert<handout:0| 15-16>{\lim_{t\to\infty}}\left( \alert<handout:0| 12,15-16>{\frac{1}{2}(\ln t)^2} - \uncover<14->{\alert<handout:0| 14>{0}} \right)} %
+ \uncover<15->{ = } %
+\uncover<16->{\alert<handout:0| 16>{\infty}}
+\end{eqnarray*}
+\uncover<17->{%
+Therefore $\sum_{n=1}^\infty \frac{\ln n}{n}$ is \uncover<18->{divergent.}%
+}%
+\end{example}
+\end{frame}
+% end module integral-test-ex4

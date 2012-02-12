@@ -1,0 +1,77 @@
+% begin module arc-length-half
+\begin{frame}
+The previous example has a property that is common to many arc length questions.
+
+In particular, $y'$ has the form $a - b$, where $2ab = \frac{1}{2}$.
+\end{frame}
+% end module arc-length-half
+
+
+
+Sometimes an arc length problem can be simplified significantly if the function $y = f(x)$ has a certain form.  In particular, if $y' = a - b$, where $2ab = \frac{1}{2}$, then a shortcut is possible.  Consider the following example:
+
+\textbf{Example:}  Find the arc length of $\displaystyle y = \frac{x^7}{14} + \frac{1}{10x^5}$ between $x = 1$ and $x = 2$.
+
+The arc length formula is $L = \int_1^2 \sqrt{1 + (y')^2}\diff x$, so we need to know $(y')^2$.
+\begin{eqnarray*}
+y' & = & 7\frac{x^6}{14} + (-5)\frac{1}{10x^6}\\
+& = & \frac{1}{2} x^6 - \frac{1}{2}x^{-6}
+\end{eqnarray*}
+
+Let $a = \frac{1}{2}x^6$ and $b = \frac{1}{2}x^{-6}$.  Then $2ab = 2\left( \frac{1}{2}x^6\right) \left(\frac{1}{2}x^{-6}\right) = \frac{1}{2}$, and, when we square $y'$, this is what we get:
+\[
+\begin{array}{rcl@{}c@{}rcc@{}c@{}c@{}c@{}ccc@{}c@{}c@{}c@{}c@{}c}
+(y')^2 & = & %
+\left( \frac{1}{2}x^6 \right. & - & \left. \frac{1}{2}x^{-6}\right)^2 %
+ & = & \left( \frac{1}{2}x^6 \right)^2 & - & 2  \left(\frac{1}{2}x^6\right)  \left(\frac{1}{2}x^{-6}\right) & + & \left( \frac{1}{2}x^{-6}\right)^2 %
+ & = & \frac{1}{4}x^{12} & - & \frac{1}{2} & + & \frac{1}{4}x^{-12} \\%
+ & & & & & & & & & & & & & & & & \\
+ &  & %
+\left( a \right. & - & \left. b \right)^2 %
+ & = & a^2 & - & 2  a  b & + & b^2 %
+ & = & a^{2} & - & \frac{1}{2} & + & b^{2} %
+\end{array}
+\]
+
+The simplification comes after we substitute this into the arc length formula.  Notice that, if $2ab = \frac{1}{2}$, then
+\[
+\begin{array}{rcc@{\ }c@{\ }c@{\ }c@{\ }ccc@{\ }c@{\ }c@{\ }c@{\ }c}
+(a-b)^2 & = & a^2 & - & 2ab & + & b^2 
+ & = & a^2 & - & \frac{1}{2} & + & b^2 \\
+(a+b)^2 & = & a^2 & + & 2ab & + & b^2 
+ & = & a^2 & + & \frac{1}{2} & + & b^2 
+\end{array}
+\]
+and then
+\begin{eqnarray*}
+1 + (a-b)^2 & = & 1 + \left( a^2 - \frac{1}{2} + b^2\right)\\
+& = & a^2 + \frac{1}{2} + b^2 \\
+& = & (a+b)^2.
+\end{eqnarray*}
+
+Therefore, in the example,
+\begin{eqnarray*}
+1 + (y')^2 & = & 1 + \left( \frac{1}{2}x^6 - \frac{1}{2}x^{-6}\right)^2\\
+ & = & \left( \frac{1}{2}x^6 + \frac{1}{2}x^{-6}\right)^2.
+\end{eqnarray*}
+
+Apply this to the arc length formula:
+\begin{eqnarray*}
+L & = & \int_1^2 \sqrt{1 + (y')^2}\diff x\\
+& = & \int_1^2 \sqrt{1 + \left( \frac{1}{2}x^6 - \frac{1}{2}x^{-6}\right)^2}\diff x\\
+& = & \int_1^2 \sqrt{\left(\frac{1}{2}x^6 + \frac{1}{2}x^{-6}\right)^2}\diff x\\
+& = & \int_1^2 \left( \frac{1}{2}x^6 + \frac{1}{2}x^{-6}\right)\diff x\\
+& = & \left[ \frac{1}{2}\cdot \frac{1}{7}x^7 + \frac{1}{2} \cdot \frac{1}{-5}x^{-5}\right]_1^2\\
+& = & \left[ \frac{1}{14}x^7 - \frac{1}{10}x^{-5}\right]_1^2\\
+& = & \left( \frac{128}{14} - \frac{1}{10}\cdot \frac{1}{32}\right) - \left( \frac{1}{14} - \frac{1}{10}\right) \\
+& = & \frac{20537}{2240}.
+\end{eqnarray*}
+
+There are several examples like this in the textbook and on WebWork.
+
+In chapter 9.1 of the textbook, exercises 9, 10, and 22 are all of this type.
+
+In the WebWork set \texttt{09-arc-length-S3}, question 4 is of this type.
+
+
+\end{document}

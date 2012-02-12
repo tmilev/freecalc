@@ -1,0 +1,24 @@
+% begin module integration-by-parts-intro
+\begin{frame}
+\frametitle{(8.1) Integration by Parts}
+\begin{itemize}
+\item  Every differentiation rule has a corresponding integration rule.
+\item<2->  The rule that corresponds to the Product Rule for differentiation is called the rule of Integration by Parts.
+\item<3->  Product Rule: $\frac{\diff}{\diff x} [f(x)g(x)] = f(x)g'(x) + g(x)f'(x)$.
+\item<4->  In the notation for indefinite integrals:
+\end{itemize}
+\belowdisplayskip=0pt
+\abovedisplayskip=0pt
+\begin{eqnarray*}
+\uncover<5->{\int [f(x)g'(x) + g(x)f'(x)]\diff x} & \uncover<5->{ = } & \uncover<5->{f(x)g(x)}\\
+\uncover<6->{\int f(x)g'(x)\diff x + \int g(x)f'(x)\diff x} & \uncover<6->{ = } & \uncover<6->{f(x)g(x)}\\
+\uncover<7->{\int \alert<handout:0| 10>{f(x)}\alert<handout:0| 11>{g'(x)\diff x}} & \uncover<7->{ = } & \uncover<7->{\alert<handout:0| 12>{f(x)}\alert<handout:0| 13>{g(x)} - \int \alert<handout:0| 14>{g(x)}\alert<handout:0| 15>{f'(x)\diff x}}\\
+\end{eqnarray*}
+\uncover<8->{Let $\alert<handout:0| 10,12>{f(x) = u}$ and $\alert<handout:0| 13-14>{g(x) = v}$, so that $\alert<handout:0| 15>{\diff u = f'(x)\diff x}$ and $\alert<handout:0| 11>{\diff v = g'(x) \diff x}$. }
+\uncover<9->{%
+\[
+\int \alert<handout:0| 10>{u}\alert<handout:0| 11>{\diff v} = \alert<handout:0| 12>{u}\alert<handout:0| 13>{v} - \int \alert<handout:0| 14>{v} \alert<handout:0| 15>{\diff u}.
+\]
+}%
+\end{frame}
+% end module integration-by-parts-intro

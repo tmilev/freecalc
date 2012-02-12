@@ -1,0 +1,23 @@
+% begin module limit-laws-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 106]
+Evaluate the limit and justify each step:
+\begin{align*}
+& \invisible{=} \lim_{x\to 5} (2x^2 - 3x \alert<handout:0| 2-3>{+} 4) & \\
+& \uncover<2-> { = } %
+\uncover<2->{\lim_{x\to 5}(2x^2 \alert<handout:0| 4-5>{-} 3x) \alert<handout:0| 2-3>{+} \lim_{x\to 5}4}%
+& \invisible{=} \uncover<2->{\alert<handout:0| 2-3>{\text{Law \uncover<handout:0| 3->{1}}}}\\
+& \uncover<4-> { = } %
+\uncover<4->{\lim_{x\to 5}(\alert<handout:0| 6-7>{2}x^2) \alert<handout:0| 4-5>{-} \lim_{x\to 5}(\alert<handout:0| 6-7>{3}x) + \lim_{x\to 5}4}%
+& \invisible{=} \uncover<4->{\alert<handout:0| 4-5>{\text{Law \uncover<handout:0| 5->{2}}}}\\
+& \uncover<6-> { = } %
+\uncover<6->{\alert<handout:0| 6-7>{2}\lim_{x\to 5}\alert<handout:0| 12-13>{x^2} - \alert<handout:0| 6-7>{3}\lim_{x\to 5}\alert<handout:0| 10-11>{x} + \lim_{x\to 5}\alert<handout:0| 8-9>{4}}%
+& \invisible{=} \uncover<6->{\alert<handout:0| 6-7>{\text{Law \uncover<handout:0| 7->{3}}}}\\
+& \uncover<8-> { = } %
+\uncover<8->{2\cdot \alert<handout:0| 12-13>{5^2} - 3\cdot \alert<handout:0| 10-11>{5} + \alert<handout:0| 8-9>{4}}%
+& \invisible{=} \uncover<8->{\alert<handout:0| 8-13>{\text{Laws \uncover<handout:0| 9->{7}\uncover<handout:0| 11->{, 8}\uncover<handout:0| 13->{, and 9}}}}\\
+& \uncover<14->{= 39.} &%
+\end{align*}
+\end{example}
+\end{frame}
+% end module limit-laws-ex2

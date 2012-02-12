@@ -1,0 +1,35 @@
+% begin module power-series-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 759]
+For what values of $x$ is the series $\sum_{n=0}^\infty n! x^n$ convergent?
+\begin{itemize}
+\item<2->  Use the Ratio Test.
+\item<3->  The $n$th term is $a_n = n! x^n$.
+\item<4->  If $x\neq 0$, then
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<4->{%
+\lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n}\right|%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\lim_{n\to\infty} \left| \frac{\alert<handout:0| 5-6>{(n+1)!}\alert<handout:0| 7-8>{x^{n+1}}}{\alert<handout:0| 5-6>{n!}\alert<handout:0| 7-8>{x^n}}\right|%
+}\\%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\lim_{n\to\infty} \alert<handout:0| 6>{\uncover<6->{(n+1)}}\alert<handout:0| 8>{\uncover<8->{|x|}}%
+}\\%
+& \uncover<9->{ = } &%
+\uncover<9->{%
+\infty%
+}%
+\end{eqnarray*}
+\begin{itemize}
+\item<10->  Therefore by the Ratio Test the series diverges for all $x\neq 0$.
+\item<11->  Therefore the series only converges for $x = 0$.
+\end{itemize}
+\end{example}
+\end{frame}
+% end module power-series-ex1

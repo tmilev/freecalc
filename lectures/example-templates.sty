@@ -1,0 +1,1137 @@
+\ProvidesPackage{example-templates}
+\usepackage{ifthen}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\RequirePackage{xstring}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% List of commands in this document
+%
+%
+% \logdiffbaseandexp
+% \logdifftwouponedown
+% \chainruley
+% \productrulefofx
+% \quotientruley
+% \limitradical  (broken)
+% \limitsub
+% \chainrulefofx
+% \infinitelimit
+% \limitfactor
+% \newtonsmethod
+% \constantmultiple
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%
+%  An example of logarithmic differentiation of a function with a 
+%  variable base and exponent.
+%  #1 is the base.
+%  #2 is the exponent.
+%  #3 is the derivative of the natural logarithm of the base.
+%  #4 is the derivative of the exponent.
+%  #5 is (base)(exponent)' + (exponent)(base)' after simplification.
+%
+\newcommand{\logdiffbaseandexp}[5]{
+\begin{example}[Variable base and exponent]
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad \alert<handout:0| 13>{y} %
+ & \alert<handout:0| 13>{=} %
+\alert<handout:0| 13>{%
+#1^{#2}%
+}.\\%
+\uncover<2->{%
+\intertext{
+Take logarithms of both sides:%
+}
+}%
+\uncover<2->{%
+\ln y
+}%
+ & \uncover<2->{ = } %
+\uncover<2->{%
+\ln #1^{\alert<handout:0| 3>{#2}}%
+}\\%
+\uncover<3->{%
+\alert<handout:0| 4-5>{\ln y}%
+}%
+ & \uncover<3->{ = } %
+\uncover<3->{%
+\alert<handout:0| 6-7>{%
+\alert<handout:0| 3>{#2} \ln #1%
+}}\\%
+\uncover<4->{%
+\intertext{
+Differentiate implicitly with respect to $x$:%
+}%
+}%
+\uncover<5->{%
+\alert<handout:0| 5>{\frac{1}{y} y'}%
+}%
+ & \uncover<4->{ = } %
+\uncover<7->{%
+\alert<handout:0| 7>{%
+\left( #2 \right) \alert<handout:0| 8-9>{\frac{\diff}{\diff x} \left( \ln #1 \right)} + \left( \ln #1 \right)\alert<handout:0| 10-11>{\frac{\diff}{\diff x}\left( #2 \right)} %
+}%
+}\\%
+\uncover<8->{%
+\frac{1}{\alert<handout:0| 12>{y}} y'%
+}%
+ & \uncover<8->{ = } %
+\uncover<8->{%
+( #2 ) \alert<handout:0| 8-9>{\left( \uncover<9->{ #3 }\right)} + \left( \ln #1 \right) \alert<handout:0| 10-11>{ \left( \uncover<11->{ #4 } \right) }
+}\\%
+\uncover<12->{%
+y'%
+}%
+ & \uncover<12->{ = } %
+\uncover<12->{%
+\alert<handout:0| 12-13>{y} \left( #5 \right)%
+}\\%
+ & \uncover<13->{ = } %
+\uncover<13->{%
+\alert<handout:0| 13>{#1^{#2}} \left( #5 \right)%
+}%
+\end{align*}
+\end{example}
+}
+
+
+%
+%  An example of logarithmic differentiation of a function.
+%  It looks as follows:
+%
+%  Differentiate y = (#1 #2)/#3.
+%  Take logarithms of both sides:
+%  ln y = ln((#1 #2)/#3)
+%  ln y = ln#1 + ln#2 - ln#3
+%  ln y = #4 + #5 - #6
+%  Differentiate implicitly with respect to x:
+%  (1/y)y' = #7 + #8 - #9
+%  y' = y(#7 + #8 - #9)
+%  y' = ((#1 #2)/#3)(#7 + #8 - #9)
+%
+\newcommand{\logdifftwouponedown}[9]{
+\begin{example}[Logarithmic Differentiation%
+]
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad \alert<handout:0| 18>{y} %
+ & \alert<handout:0| 18>{=} %
+\alert<handout:0| 18>{%
+\frac{#1 #2}{#3}%
+}.\\%
+\uncover<2->{%
+\intertext{
+Take logarithms of both sides:%
+}
+}%
+\uncover<2->{%
+\ln y
+}%
+ & \uncover<2->{ = } %
+\uncover<2->{%
+\ln \frac{\alert<handout:0| 3-4>{#1}\alert<handout:0| 5-6>{#2}}{\alert<handout:0| 7-8>{#3}}%
+}\\%
+\uncover<2->{%
+\ln y
+}%
+ & \uncover<2->{ = } %
+\uncover<2->{%
+\ln \alert<handout:0| 3-4>{#1} + \ln \alert<handout:0| 5-6>{#2} -  \ln \alert<handout:0| 7-8>{#3}%
+}\\%
+\uncover<3->{%
+\alert<handout:0| 9-10>{\ln y}%
+}%
+ & \uncover<3->{ = } %
+\uncover<3->{%
+\alert<handout:0| 3-4,11-12>{%
+\left( \uncover<4->{#4}\right) %
+}%
+\alert<handout:0| 5-6>{%
+\uncover<6->{+} \alert<handout:0| 13-14>{\left( \uncover<6->{#5}\right)} %
+}%
+\alert<handout:0| 7-8>{%
+\uncover<8->{-} \alert<handout:0| 15-16>{\left( \uncover<8->{#6}\right)} %
+}%
+}\\%
+\uncover<9->{%
+\intertext{
+Differentiate implicitly with respect to $x$:%
+}%
+}%
+\uncover<10->{%
+\alert<handout:0| 10>{\frac{1}{\alert<handout:0| 17>{y}} y'}%
+}%
+ & \uncover<9->{ = } %
+\uncover<9->{%
+\alert<handout:0| 11-12>{\left( \uncover<12->{#7} \right)} + %
+\alert<handout:0| 13-14>{\left( \uncover<14->{#8} \right)} - %
+\alert<handout:0| 15-16>{\left( \uncover<16->{#9} \right)} %
+}\\%
+\uncover<17->{%
+y'%
+}%
+ & \uncover<17->{ = } %
+\uncover<17->{%
+\alert<handout:0| 17-18>{y} \left( #7 + #8 - #9 \right)%
+}\\%
+ & \uncover<18->{ = } %
+\uncover<18->{%
+\alert<handout:0| 18>{\frac{#1 #2}{#3}} \left( #7 + #8 - #9 \right)%
+}%
+\end{align*}
+\end{example}
+}
+
+
+%
+%  An example of a derivative with the Product Rule, using the symbol f(x).
+%  It looks as follows:
+%  
+%  Differentiate f(x) = #1 #2.
+%  Product Rule: f'(x) = (#1)(d/dx)(#2) + (#2)(d/dx)(#1)
+%   = (#1)(#4) + (#2)(#3)
+%   = #5.
+%
+%  #6 appears in the subtitle of the example.
+%
+\newcommand{\productrulefofx}[6]{%
+\begin{example}[Product Rule%
+\ifthenelse{\equal{#6}{0}}%
+{}%
+{, #6}%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad f(x) & = #1 #2.\\%
+\uncover<2->{%
+\text{Product Rule:}\quad f'(x)%
+}%
+& \uncover<2->{%
+ = \left( #1 \right) \alert<handout:0| 3-4>{\frac{\diff}{\diff x}\left( #2 \right)} + \left( #2 \right) \alert<handout:0| 5-6>{\frac{\diff}{\diff x}\left( #1 \right)}%
+}\\%
+& \uncover<3->{%
+ = \left( #1 \right) \alert<handout:0| 3-4>{\left(\uncover<4->{ #4 }\right)} + \left( #2 \right) \alert<handout:0| 5-6>{\left( \uncover<6->{#3} \right)}%
+}\\%
+& \uncover<7->{%
+ = #5.%
+}%
+\end{align*}
+\end{example}
+}
+
+%
+%  An example of a derivative with the Constant Multiple Rule. 
+%  It looks as follows:
+%  
+%  Find the derivative of #1 = #2.
+%   #1 = (#3)(#4).
+%   d#1/dx = (d/dx)((#3)(#4))
+% Constant Multiple Rule: = (#3)(d/dx)(#4)
+%   = (#3)(#5)
+%   = #6.
+%
+%  #7 appears in the subtitle of the example.
+%
+\newcommand{\constantmultiple}[7]{%
+\begin{example}[Constant Multiple Rule%
+\ifthenelse{\equal{#7}{0}}%
+{}%
+{, #7}%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find the derivative of}\quad #1 & = #2.\\%
+\uncover<2->{%
+#1 %
+}%
+& \uncover<2->{%
+ = \left( #3\right)\left( #4\right).
+}\\%
+\uncover<3->{%
+\frac{\diff #1}{\diff x} %
+}%
+& \uncover<3->{%
+ = \frac{\diff}{\diff x}\left[ \alert<handout:0| 4>{\left( #3\right)}\left( #4\right)\right]
+}\\%
+\uncover<4->{%
+\text{Constant Multiple Rule:}\quad %
+}%
+& \uncover<4->{%
+ =  \alert<handout:0| 4>{\left( #3\right)}\alert<handout:0| 5-6>{\frac{\diff}{\diff x}\left( #4\right)}
+}\\%
+& \uncover<5->{%
+ =  \left( #3\right)\alert<handout:0| 5-6>{\left( \uncover<6->{#5}\right)}
+}\\%
+& \uncover<7->{%
+ =  #6.
+}%
+\end{align*}
+\end{example}
+}
+
+
+%
+%  An example of a derivative with the Quotient Rule, using the symbol y.
+%  It looks as follows:
+%  
+%  Differentiate y = #1 / #2.
+%  Quotient Rule: dy/dx = ((#2)(d/dx)(#1)-(#1)(d/dx)(#2))/(#2)^2
+%   = ((#2)(#3)-(#1)(#4))/(#2)^2
+%   = #5
+%   = #6.
+%
+%  #7 appears in the subtitle of the example.
+%
+\newcommand{\quotientruley}[7]{%
+\begin{example}[Quotient Rule%
+\ifthenelse{\equal{#7}{0}}%
+{}%
+{, #7}%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad y & = \frac{#1}{#2}.\\%
+\uncover<2->{%
+\intertext{Quotient Rule:}%
+}%
+%&\\%
+\uncover<2->{%
+\frac{\diff y}{\diff x}%
+}%
+& \uncover<2->{%
+ = \frac%
+{\left( #2 \right) \alert<handout:0| 3-4>{\frac{\diff}{\diff x}\left( #1 \right)} - \left( #1 \right) \alert<handout:0| 5-6>{\frac{\diff}{\diff x}\left( #2 \right)}}%
+{\left( #2\right)^2}%
+}\\%
+& \uncover<3->{%
+ = \frac%
+{\left( #2 \right) \alert<handout:0| 3-4>{\left(\uncover<4->{ #3 }\right)} + \left( #1 \right) \alert<handout:0| 5-6>{\left( \uncover<6->{#4} \right)}}%
+{\left( #2\right)^2}%
+}\\%
+& \uncover<7->{%
+ = #5%
+}\\%
+& \uncover<8->{%
+ = #6.%
+}%
+\end{align*}
+\end{example}
+}
+
+%
+%  An example of an indefinite integral with the Substitution Rule.
+%  It looks as follows:
+%  
+%  Find \int (#1, with nothing substituted for UU and VV).
+%  Let u = #2
+%  Then du = #3.
+%  Therefore #4 = #5.
+%  Substitute: \int (#1, with the alert command for u and du 
+%          substituted for UU and VV respectively) 
+%  = \int (#6, with the alert command for u and du substituted for UU and VV)
+%  = (#7, with u substituted for UU) + C
+%  = (#8, with #2 substituted for UU) + C
+%
+%  #9 appears in the subtitle of the example.
+%
+\newcommand{\subrule}[9]{%
+\begin{example}[Substitution Rule%
+\ifthenelse{\equal{#9}{0}}%
+{}%
+{, #9}%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \int %
+ \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{3}}{VV}{6-7}\noexploregroups\expandarg. & \\%
+\uncover<2->{%
+\text{Let}\quad\alert<handout:0| 2-3,8,13>{u}%
+}%
+& \uncover<2->{%
+\alert<handout:0| 2-3,8,13>{ = \uncover<3->{#2.}}%
+}\\%
+\uncover<4->{%
+\text{Then}\quad \alert<handout:0| 4-5>{\diff u}%
+}%
+& \uncover<4->{%
+\alert<handout:0| 4-5>{ = \uncover<5->{#3}}%
+}\\%
+\uncover<6->{%
+\alert<handout:0| 6-7,9>{#4}%
+}%
+& \uncover<6->{%
+\alert<handout:0| 6-7,9>{ = \uncover<7->{#5.}}%
+}\\%
+\uncover<8->{%
+\text{Substitute:}\quad \int%
+ \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{8}}{VV}{9}\noexploregroups\expandarg}%
+& \uncover<8->{= \alert<handout:0| 10-11>{\int\noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#6}{UU}{8}}{VV}{9}\noexploregroups\expandarg %
+}}\\%
+& \uncover<10->{\alert<handout:0| 10-11>{%
+ = \uncover<11->{\noexpandarg\exploregroups \StrSubstitute{#7}{UU}{\alert<handout:0| 13>{u}}\noexploregroups\expandarg} \uncover<12->{\alert<handout:0| 12>{+C}}%
+}}\\%
+& \uncover<13->{%
+ = \noexpandarg\exploregroups \StrSubstitute{#8}{UU}{\alert<handout:0| 13>{#2}}\noexploregroups\expandarg +C.%
+}%
+\end{align*}
+\end{example}
+}
+
+%
+%  An example of a definite integral with the Substitution Rule.
+%  There are nine arguments to the function.  The ninth is a string of four 
+%  groups of the form {AA}{BB}{CC}{DD} where AA is the lower limit of 
+%  integration, BB is the upper limit of integration, CC is the lower limit
+%  of integration with respect to u, and DD is the upper limit of integration
+%  with respect to u.
+%  It looks as follows:
+%  
+%  Find \int_{AA}^{BB} (#1, with nothing substituted for UU and VV).
+%  Let u = #2
+%  Then du = #3.
+%  #4 = #5.
+%  When x = AA, u = CC.
+%  When x = BB, u = DD.
+%  Substitute: \int_{AA}^{BB} (#1, with the alert command for u and du 
+%          substituted for UU and VV respectively) 
+%  = \int_{CC}^{DD} (#6, with the alert command for u and du substituted for UU and VV)
+%  = [#7, with u substituted for UU]_{CC}^{DD}
+%  = #8.
+%
+%
+\newcommand{\subruledefbounds}[9]{%
+\begin{example}[Substitution Rule, Definite Integral%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \int%
+_{\StrMid{#9}{1}{1}}%
+^{\StrMid{#9}{2}{2}} %
+ \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{3}}{VV}{6-7}\noexploregroups\expandarg. & \\%
+\uncover<2->{%
+\text{Let}\quad\alert<handout:0| 2-3,8-12>{u}%
+}%
+& \uncover<2->{%
+\alert<handout:0| 2-3,8-12>{ = \uncover<3->{#2.}}%
+}\\%
+\uncover<4->{%
+\text{Then}\quad \alert<handout:0| 4-5>{\diff u}%
+}%
+& \uncover<4->{%
+\alert<handout:0| 4-5>{ = \uncover<5->{#3}}%
+}\\%
+\uncover<6->{%
+\alert<handout:0| 6-7,13>{#4}%
+}%
+& \uncover<6->{%
+\alert<handout:0| 6-7,13>{ = \uncover<7->{#5.}}%
+}\\%
+\uncover<8->{%
+\alert<handout:0| 8-9,14>{\text{When } x = \StrMid{#9}{1}{1}, \quad u }%
+}%
+& \uncover<8->{%
+\alert<handout:0| 8-9,14>{ = \uncover<9->{\StrMid{#9}{3}{3}.}}%
+}\\%
+\uncover<10->{%
+\alert<handout:0| 10-11,15>{\text{When } x = \StrMid{#9}{2}{2}, \quad u }%
+}%
+& \uncover<10->{%
+\alert<handout:0| 10-11,15>{ = \uncover<11->{\StrMid{#9}{4}{4}.}}%
+}\\%
+\uncover<12->{%
+\text{Substitute:}\quad \int%
+_{\alert<handout:0| 14>{\StrMid{#9}{1}{1}}}%
+^{\alert<handout:0| 15>{\StrMid{#9}{2}{2}}} %
+ \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{12}}{VV}{13}\noexploregroups\expandarg}%
+& \uncover<12->{= \alert<handout:0| 16-17>{{\int}%
+_{\uncover<14->{\alert<handout:0| 14>{
+\StrMid{#9}{3}{3}}}}%
+^{\uncover<15->{
+\alert<handout:0| 15>{
+\StrMid{#9}{4}{4}}}} %
+\noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#6}{UU}{12}}{VV}{13}\noexploregroups\expandarg %
+}}\\%
+& \uncover<16->{\alert<handout:0| 16-17>{%
+ = {\left[ \uncover<17->{%
+\noexpandarg\exploregroups\StrSubstitute{#7}{UU}{u}\noexploregroups\expandarg %
+}\right]}_{\StrMid{#9}{3}{3}}^{\StrMid{#9}{4}{4}}%
+}}\\%
+& \uncover<18->{%
+ = #8.
+}%
+\end{align*}
+\end{example}
+}
+
+
+%
+%  An example of a definite integral with the Substitution Rule.
+%  There are nine arguments to the function.  The ninth is a string of two 
+%  groups of the form {AA}{BB} where AA is the lower limit of 
+%  integration and BB is the upper limit of integration.  
+%  It looks as follows:
+%  
+%  Find \int_{AA}^{BB} (#1, with nothing substituted for UU and VV).
+%  Let u = #2
+%  Then du = #3.
+%  #4 = #5.
+%  Substitute: \int (#1, with the alert command for u and du 
+%          substituted for UU and VV respectively) 
+%  = \int (#6, with the alert command for u and du substituted for UU and VV)
+%  = #7, with u substituted for UU
+%  = #8.
+%  Therefore int_{AA}^{BB} (#1, with nothing substituted for UU and VV)
+%      = [#8]_{AA}^{BB}
+%  = #9.
+%
+%
+\newcommand{\subruledefvar}[9]{%
+\begin{example}[Substitution Rule, Definite Integral%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \int%
+_{\StrMid{#9}{1}{1}}%
+^{\StrMid{#9}{2}{2}} %
+ \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{3}}{VV}{6-7}\noexploregroups\expandarg. & \\%
+\uncover<2->{%
+\text{Let}\quad\alert<handout:0| 2-3,8,12>{u}%
+}%
+& \uncover<2->{%
+\alert<handout:0| 2-3,8,12>{ = \uncover<3->{#2.}}%
+}\\%
+\uncover<4->{%
+\text{Then}\quad \alert<handout:0| 4-5>{\diff u}%
+}%
+& \uncover<4->{%
+\alert<handout:0| 4-5>{ = \uncover<5->{#3}}%
+}\\%
+\uncover<6->{%
+\alert<handout:0| 6-7,9>{#4}%
+}%
+& \uncover<6->{%
+\alert<handout:0| 6-7,9>{ = \uncover<7->{#5.}}%
+}\\%
+\uncover<8->{%
+\text{Substitute:}\quad \int%
+ \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{8}}{VV}{9}\noexploregroups\expandarg}%
+& \uncover<8->{= \alert<handout:0| 10-11>{{\int}%
+\noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#6}{UU}{8}}{VV}{9}\noexploregroups\expandarg %
+}}\\%
+& \uncover<10->{%
+ \alert<handout:0| 10-11>{ = \uncover<11->{%
+\noexpandarg\exploregroups{\StrSubstitute{#7}{UU}{\alert<handout:0| 12>{u}}}\noexploregroups\expandarg%
+}}%
+  \uncover<12->{%
+ = \noexpandarg\exploregroups{\StrSubstitute{#7}{UU}{\alert<handout:0| 12>{#2}}}\noexploregroups\expandarg.%
+}%
+}\\%
+\uncover<13->{%
+\text{Therefore}\quad \int%
+_{\StrMid{#9}{1}{1}}%
+^{\StrMid{#9}{2}{2}} %
+ \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{0}}{VV}{0}\noexploregroups\expandarg}%
+& \uncover<13->{%
+ = \left[%
+ \noexpandarg\exploregroups{\StrSubstitute{#7}{UU}{#2}}\noexploregroups\expandarg%
+\right]%
+_{\StrMid{#9}{1}{1}}%
+^{\StrMid{#9}{2}{2}} %
+}\\%
+& \uncover<14->{%
+ = #8.
+}%
+\end{align*}
+\end{example}
+}
+
+%
+%  An example of a derivative with the Chain Rule, using the symbol y.
+%  It looks as follows:
+%  
+%  Differentiate y = #1.
+%  Let u = #2
+%  Then y = #3
+%  Chain Rule: dy/dx = (dy/du)(du/dx)
+%  = (#4, with u substituted for UU)(#5)
+%  = #6, with #2 substituted for UU
+%
+%  #7 appears in the subtitle of the example.
+%
+\newcommand{\chainruley}[7]{%
+\begin{example}[Chain Rule%
+\ifthenelse{\equal{#7}{0}}%
+{}%
+{, #7}%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad y & = #1.\\%
+\uncover<2->{%
+\text{Let}\quad\alert<handout:0| 2-3,8-10>{u}%
+}%
+& \uncover<2->{%
+\alert<handout:0| 2-3,8-10>{ = \uncover<3->{#2.}}%
+}\\%
+\uncover<4->{%
+\text{Then}\quad \alert<handout:0| 6-7>{y}%
+}%
+& \uncover<4->{%
+\alert<handout:0| 6-7>{ = #3.}%
+}\\%
+\uncover<5->{%
+\text{Chain Rule:}\quad%
+\frac{\diff y}{\diff x}%
+}%
+& \uncover<5->{%
+ = \alert<handout:0| 6-7>{\frac{\diff y}{\diff u}}%
+\alert<handout:0| 8-9>{\frac{\diff u}{\diff x}}%
+}\\%
+& \uncover<6->{%
+ = \alert<handout:0| 6-7>{\left( \uncover<7->{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alert<handout:0| 10>{u}}\noexploregroups\expandarg}\right)}%
+\alert<handout:0| 8-9>{\left( \uncover<9->{#5}\right)}%
+}\\%
+& \uncover<10->{%
+ = \noexpandarg\exploregroups \StrSubstitute{#6}{UU}{\alert<handout:0| 10>{#2}}.\noexploregroups\expandarg%
+}%
+\end{align*}
+\end{example}
+}
+
+
+
+
+
+%
+%  An example of a derivative with the Chain Rule, using the symbol f(x).
+%  It looks as follows:
+%  
+%  Differentiate f(x) = #1.
+%  Let h(x) = #2
+%  Let g(x) = #3
+%  Then f(x) = g(h(x))
+%  f'(x) = g'(h(x))h'(x)
+%  = (#4, with h(x) substituted for UU)(#5)
+%  = #6, with #2 substituted for UU
+%
+%  #7 appears in the subtitle of the example.
+%
+\newcommand{\chainrulefofx}[7]{%
+\begin{example}[Chain Rule%
+\ifthenelse{\equal{#7}{0}}%
+{}%
+{, #7}%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad f(x) & = #1.\\%
+\uncover<2->{%
+\text{Let}\quad\alert<handout:0| 2-3,9-11>{h(x)}%
+}%
+& \uncover<2->{%
+\alert<handout:0| 2-3,9-11>{ = \uncover<3->{#2.}}%
+}\\%
+\uncover<2->{%
+\text{Let}\quad\alert<handout:0| 4-5,7-8>{g(x)}%
+}%
+& \uncover<2->{%
+\alert<handout:0| 4-5,7-8>{ = \uncover<5->{#3.}}%
+}\\%
+\uncover<2->{%
+\text{Then}\quad f(x)%
+}%
+& \uncover<2->{%
+ = g(h(x)).%
+}\\%
+\uncover<6->{%
+\text{Chain Rule:}\quad%
+f'(x)%
+}%
+& \uncover<6->{%
+ = \alert<handout:0| 7-8>{g'(h(x))}%
+\alert<handout:0| 9-10>{h'(x)}%
+}\\%
+& \uncover<7->{%
+ = \alert<handout:0| 7-8>{\left( \uncover<8->{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alert<handout:0| 11>{h(x)}}\noexploregroups\expandarg}\right)}%
+\alert<handout:0| 9-10>{\left( \uncover<10->{#5}\right)}%
+}\\%
+& \uncover<11->{%
+ = \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alert<handout:0| 11>{#2}}.\noexploregroups \expandarg%
+}%
+\end{align*}
+\end{example}
+}
+
+
+
+%
+%  An example of an infinite limit calculation. 
+%  There are nine arguments to the function.  The ninth is a string of six
+%  plus and minus signs.  Let AA, BB, CC, DD, EE, and FF denote these plus
+%  and minus signs.  Then the output of the function looks as follows:
+%  
+%  Find lim_{x \to #1^AA} (#2, with x substituted for UU)/(#3, with x substituted for UU).
+%  Plug in #1.
+%  (#2, with (#1) substituted for UU)/(#3, with (#1) substituted for UU) = #4/0.
+%  The numerator is non-zero and the denominator is zero.  
+%  Therefore the answer is DNE, infty, or -infty.
+%  Factor: (#3, with x substituted for UU)/(#4, with x substituted for UU) = (#5 #6)/(#7 #8)
+%  \to ((BB)(CC))/((DD)(EE))
+%  = (FF).
+%  Therefore lim_{x \to #1^AA} (#2, with x substituted for UU)/(#3, with x substituted for UU) = FF infty.
+%
+\newcommand{\infinitelimit}[9]{%
+\begin{example}[Infinite Limit]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \lim_{x\to #1^{\StrMid{#9}{1}{1}}}
+\frac%
+{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
+{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}%
+& \\%
+\uncover<2->{%
+\text{Plug in $#1$:}\quad%
+\frac%
+{\alert<handout:0| 2-3>{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
+{\alert<handout:0| 4-5>{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
+}%
+& \uncover<2->{= \frac{\uncover<3->{\alert<handout:0| 3>{#4}}}{\uncover<5->{\alert<handout:0| 5>{0}}}}\\%
+\uncover<6->{%
+\intertext{The numerator is non-zero and the denominator is zero.  %}
+Therefore the answer is DNE, $\infty$, or $-\infty$.}
+}%
+\uncover<7->{%
+\text{Factor:}\quad
+}%
+\uncover<7->{%
+\lim_{x\to #1^{\StrMid{#9}{1}{1}}}%
+\frac%
+{\alert<handout:0| 8-9>{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}}%
+{\alert<handout:0| 10-11>{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
+}%
+& \uncover<8->{%
+ = \lim_{x\to #1^{\StrMid{#9}{1}{1}}}%
+\frac%
+{%
+\uncover<handout:0| 9->{\alert<handout:0| 9>{%
+\alert<handout:0| 12-13>{%
+#5%
+}%
+\alert<handout:0| 14-15>{%
+#6%
+}%
+}}%
+}{%
+\uncover<handout:0| 11->{\alert<handout:0| 11>{%
+\alert<handout:0| 16-17>{%
+#7%
+}%
+\alert<handout:0| 18-19>{%
+#8%
+}%
+}}%
+}%
+}\\%
+& \uncover<12->{%
+ \to \alert<handout:0| 20-21>{\frac%
+{%
+\alert<handout:0| 12-13>{(\uncover<handout:0| 13->{%
+\StrMid{#9}{2}{2}%
+})}%
+\alert<handout:0| 14-15>{(\uncover<handout:0| 15->{%
+\StrMid{#9}{3}{3}%
+})}%
+}{%
+\alert<handout:0| 16-17>{(\uncover<handout:0| 17->{%
+\StrMid{#9}{4}{4}%
+})}%
+\alert<handout:0| 18-19>{(\uncover<handout:0| 19->{%
+\StrMid{#9}{5}{5}%
+})}%
+}%
+}%
+}\\%
+& \uncover<20->{\alert<handout:0| 20-21>{ = \uncover<handout:0| 21->{\alert<handout:0| 22>{(\StrMid{#9}{6}{6})}}}}\\%
+\uncover<22->{%
+\text{Therefore}\quad\lim_{x\to #1^{\StrMid{#9}{1}{1}}}%
+\frac%
+{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
+{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}%
+}%
+& \uncover<22->{ = } \uncover<handout:0| 22->{ \alert<handout:0| 22>{\StrMid{#9}{6}{6}}\infty.}
+\end{align*}
+\end{example}
+}
+
+
+
+
+%
+%  An example of a limit calculation with factoring. 
+%  
+%  It looks as follows.  
+%  
+%  Find lim_{x \to #1} (#2, with x substituted for UU)/(#3, with x substituted for UU).
+%  Plug in #1.
+%  (#2, with (#1) substituted for UU)/(#3, with (#1) substituted for UU) = 0/0.
+%  Zero over zero gives no information.
+%  Factor: (#2, with x substituted for UU)/(#3, with x substituted for UU) = ((#4, with x substituted for UU) #6)/((#5, with x substituted for UU) #6)
+%  = (#4, with x substituted for UU)/(#5, with x substituted for UU)
+%  Plug in #1: = (#4, with (#1) substituted for UU)/(#5, with (#1) substituted for UU)
+%  = #7
+%  = #8
+%
+\newcommand{\limitfactor}[8]{%
+\begin{example}[Limit with Factoring]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \lim_{x\to #1}
+\frac%
+{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
+{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}%
+& \\%
+\uncover<2->{%
+\text{Plug in $#1$:}\quad%
+\frac%
+{\alert<handout:0| 2-3>{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
+{\alert<handout:0| 4-5>{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
+}%
+& \uncover<2->{%
+= \frac%
+{\uncover<3->{\alert<handout:0| 3>{0}}}%
+{\uncover<5->{\alert<handout:0| 5>{0}}}%
+}\\%
+\uncover<6->{%
+\intertext{Zero over zero is undefined, so we can't use direct substitution.}
+}%
+\uncover<7->{%
+\text{Factor:}\quad%
+\lim_{x\to #1} \frac%
+{\alert<handout:0| 8-9>{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}}%
+{\alert<handout:0| 10-11>{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
+}%
+& \uncover<8->{%
+ = \lim_{x\to #1} \frac%
+{%
+\uncover<handout:0| 9->{\alert<handout:0| 9>{%
+(\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg)%
+\alert<handout:0| 12>{#6}%
+}}%
+}{%
+\uncover<handout:0| 11->{\alert<handout:0| 11>{%
+(\noexpandarg\StrSubstitute{#5}{UU}{x}\expandarg)%
+\alert<handout:0| 12>{#6}%
+}}%
+}%
+}\\%
+& \uncover<12->{%
+ = \lim_{x\to #1} \frac%
+{\uncover<handout:0| 12->{\noexpandarg\StrSubstitute{#4}{UU}{\alert<handout:0| 13>{x}}\expandarg}}%
+{\uncover<handout:0| 12->{\noexpandarg\StrSubstitute{#5}{UU}{\alert<handout:0| 13>{x}}\expandarg}}%
+}\\%
+\uncover<13->{%
+\text{Plug in $#1$:}\quad%
+\lim_{x\to #1} \frac%
+{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
+{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}%
+}%
+& \uncover<13->{%
+ = \frac%
+{\uncover<handout:0| 13->{\noexpandarg\StrSubstitute{#4}{UU}{(\alert<handout:0| 13>{#1})}\expandarg}}%
+{\uncover<handout:0| 13->{\noexpandarg\StrSubstitute{#5}{UU}{(\alert<handout:0| 13>{#1})}\expandarg}}%
+}\\%
+& \uncover<14->{%
+= \uncover<handout:0| 14->{#7}%
+}\\%
+& \uncover<15->{%
+= \uncover<handout:0| 14->{#8.}%
+}%
+\end{align*}
+\end{example}
+}
+
+
+
+
+%
+%  An example of a limit calculation with a conjugate radical. 
+%  
+%  It looks as follows.  
+%  
+%  Find lim_{x \to #1} (#2, with x substituted for UU)/(#3, with x substituted for UU).
+%  Plug in #1.
+%  (#2, with (#1) substituted for UU)/(#3, with (#1) substituted for UU) = 0/0.
+%  Zero over zero gives no information.
+%  Factor: (#2, with x substituted for UU)/(#3, with x substituted for UU) = ((#4, with x substituted for UU) #6)/((#5, with x substituted for UU) #6)
+%  = (#4, with x substituted for UU)/(#5, with x substituted for UU)
+%  Plug in #1: = (#4, with (#1) substituted for UU)/(#5, with (#1) substituted for UU)
+%  = #7
+%  = #8
+%
+\newcommand{\limitradical}[9]{%
+\begin{example}[Limit with Conjugate Radical]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+& \text{Find}\quad \lim_{x\to #1}
+\frac%
+{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
+{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}%
+ \\%
+\uncover<2->{%
+& \text{Plug in $#1$:}\quad%
+\frac%
+{\alert<handout:0| 2-3>{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
+{\alert<handout:0| 4-5>{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
+}%
+ \uncover<2->{%
+= \frac%
+{\uncover<3->{\alert<handout:0| 3>{0}}}%
+{\uncover<5->{\alert<handout:0| 5>{0}}}%
+}\\%
+\uncover<6->{%
+\intertext{Zero over zero gives no information.  Use a conjugate radical.}
+}%
+& \uncover<7->{%
+\lim_{x\to #1} \frac%
+{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
+{\alert<handout:0| 7-8>{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
+\cdot %
+\frac%
+{\uncover<8->{\alert<8>{\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg}}}%
+{\uncover<8->{\alert<8>{\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg}}}%
+}\\%
+& \uncover<9->{%
+ = \lim_{x\to #1} \frac%
+{(\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg)%
+\left(\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg\right)}%
+{#5}%
+}\\%
+& \uncover<10->{%
+ = \lim_{x\to #1} \frac%
+{(\alert<11-12>{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg})%
+\left(\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg\right)}%
+{\alert<13-14>{#6}}%
+}\\%
+\uncover<11->{%
+\text{Factor:}\quad%
+}%
+& \uncover<11->{%
+ = \lim_{x\to #1} \frac%
+{\uncover<12->{\alert<12>{(\noexpandarg\StrSubstitute{#7}{UU}{x}\expandarg)(x-#1)}}%
+\left(\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg\right)}%
+{\uncover<14->{\alert<14>{(\noexpandarg\StrSubstitute{#8}{UU}{x}\expandarg)(x-#1)}}}%
+}\\%
+& \uncover<15->{%
+ = \lim_{x\to #1} \frac%
+{(\noexpandarg\StrSubstitute{#7}{UU}{x}\expandarg)%
+\left(\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg\right)}%
+{\noexpandarg\StrSubstitute{#8}{UU}{x}\expandarg}%
+}\\%
+\uncover<16->{%
+\text{Plug in $#1$:}\quad%
+}%
+& \uncover<16->{%
+ = \frac%
+{(\noexpandarg\StrSubstitute{#7}{UU}{(#1)}\expandarg)%
+\left(\noexpandarg\StrSubstitute{#4}{UU}{(#1)}\expandarg\right)}%
+{\noexpandarg\StrSubstitute{#8}{UU}{(#1)}\expandarg}%
+}\\%
+& \uncover<17->{%
+#9.
+}%
+\end{align*}
+\end{example}
+}
+
+
+%
+%  An example of a limit calculation with direct substitution.  
+%  
+%  It looks as follows.  
+%  
+%  Find lim_{x \to #1} (#2, with x substituted for UU)/(#3, with x substituted for UU).
+%  Plug in #1.
+%  (#2, with (#1) substituted for UU)/(#3, with (#1) substituted for UU) = 0/0.
+%  Zero over zero gives no information.
+%  Factor: (#2, with x substituted for UU)/(#3, with x substituted for UU) = ((#4, with x substituted for UU) #6)/((#5, with x substituted for UU) #6)
+%  = (#4, with x substituted for UU)/(#5, with x substituted for UU)
+%  Plug in #1: = (#4, with (#1) substituted for UU)/(#5, with (#1) substituted for UU)
+%  = #7
+%  = #8
+%
+\newcommand{\limitsub}[7]{%
+\begin{example}[%
+\ifthenelse{\equal{#6}{0}}%
+{Limit in Which Direct Substitution Doesn't Work}%
+{Limit with Direct Substitution}%
+]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \lim_{x\to #1}
+\frac%
+{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
+{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}%
+& \\%
+\uncover<2->{%
+\text{Plug in $#1$:}\quad%
+\frac%
+{\alert<handout:0| 2-3>{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
+{\alert<handout:0| 4-5>{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
+}%
+& \uncover<2->{%
+= \frac%
+{\uncover<3->{\alert<handout:0| 3>{#4}}}%
+{\uncover<5->{\alert<handout:0| 5>{#5}}}%
+}\\%
+\ifthenelse{\equal{#6}{0}}%
+{ }%
+{&}%
+\uncover<6->{%
+\ifthenelse{\equal{#6}{0}}%
+{\intertext{Dividing by zero is undefined, so we can't use direct substitution.}}%
+{ = #7.}%
+}%
+\ifthenelse{\equal{#6}{0}}%
+{ }%
+{ \text{Therefore}= #7.}%
+\end{align*}
+\end{example}
+}
+
+
+
+%
+%  An example Newton's Method.  
+%  
+%  It looks as follows.  
+%  
+%  Starting with x_1 = #1, find the third approximation x_3 to the root of the equation #2.  
+%  
+%  f(x) = (#3, with x substituted for UU).
+%  f'(x) = (#4, with x substituted for UU).
+%  Newton's Method: x_{n+1} = x_n - f(x_n)/f'(x_n) = x_n - (#3, with x_n substituted for UU)/(#4, with x_n substituted for UU).
+%  
+%  x_2 = x_1 - (#3, with x_1 substituted for UU)/(#4, with x_1 substituted for UU)     x_3 = x_2 - (#3, with x_2 substituted for UU)/(#4, with x_2 substituted for UU)     
+%   = (#1) - (#3, with (#1) substituted for UU)/(#4, with (#1) substituted for UU)     = (#5) - (#3, with (#5) substituted for UU)/(#4, with (#5) substituted for UU)
+%  = #5.      = #6.
+%
+\newcommand{\newtonsmethod}[8]{%
+\begin{example}[Newton's Method%
+\ifthenelse{\equal{#8}{0}}%
+{}%
+{, #8}%
+]%
+\ifthenelse{\equal{#7}{0}}%
+{%
+Starting with $x_1 = #1$, find the third approximation $x_3$ to the root of the equation $#2$.  
+}%
+{#7}%
+\abovedisplayskip=0pt
+\belowdisplayskip=10pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<2->{%
+\alert<handout:0| 2-3,7>{f(x)}%
+& \alert<handout:0| 2-3,7>{ = \uncover<3->{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{x}.\noexploregroups \expandarg}}%
+}\\%
+\uncover<4->{%
+\alert<handout:0| 4-5,8>{f'(x)}%
+& \alert<handout:0| 4-5,8>{ = \uncover<5->{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{x}.\noexploregroups \expandarg}}%
+}\\%
+\uncover<6->{%
+\text{Newton's Method:}\quad %
+x_{n+1} & = x_n - \frac{\alert<handout:0| 7>{f(x_n)}}{\alert<handout:0| 8>{f'(x_n)}}%
+}
+\uncover<7->{%
+ = x_n - \frac%
+{\alert<handout:0| 7>{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{x_n}\noexploregroups \expandarg}}%
+{\alert<handout:0| 8>{\uncover<8->{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{x_n}\noexploregroups \expandarg}}}%
+}
+\end{align*}
+\begin{align*}
+\uncover<9->{%
+x_2 %
+}%
+& \uncover<9->{%
+ = \alert<handout:0| 10>{x_1} - \frac%
+{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 10>{x_1}}\noexploregroups \expandarg}%
+{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 10>{x_1}}\noexploregroups \expandarg}%
+}%
+& \uncover<12->{%
+x_3 %
+}%
+& \uncover<12->{%
+ = \alert<handout:0| 13>{x_2} - \frac%
+{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 13>{x_2}}\noexploregroups \expandarg}%
+{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 13>{x_2}}\noexploregroups \expandarg}%
+}\\%
+& \uncover<10->{%
+ = \alert<handout:0| 10>{(#1)} - \frac%
+{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 10>{(#1)}}\noexploregroups \expandarg}%
+{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 10>{(#1)}}\noexploregroups \expandarg}%
+}%
+& % 
+& \uncover<13->{%
+ = \alert<handout:0| 13>{(#5)} - \frac%
+{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 13>{(#5)}}\noexploregroups \expandarg}%
+{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 13>{(#5)}}\noexploregroups \expandarg}%
+}\\%
+& \uncover<11->{%
+ = #5.%
+}%
+& % 
+& \uncover<14->{%
+ = #6.
+}%
+\end{align*}
+\end{example}
+}

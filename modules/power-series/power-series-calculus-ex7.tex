@@ -1,0 +1,55 @@
+% begin module power-series-calculus-ex7
+\begin{frame}
+\begin{example}[Example 7, p. 767]
+Find a power series for $\tan^{-1} x$ and state its radius of convergence.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<2->{%
+\alert<handout:0| 2-3>{\frac{\diff}{\diff x} \tan^{-1} x}
+}%
+  \uncover<2->{ \alert<handout:0| 2-3>{=} } %
+\uncover<3->{%
+\alert<handout:0| 2-3>{\frac{1}{1+x^2}}%
+}%
+\]
+\uncover<4->{Therefore}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<4->{%
+\alert<handout:0| 13-14>{\tan^{-1}x}%
+}%
+ & \uncover<4->{ = } &%
+\uncover<4->{%
+\int \alert<handout:0| 5>{\frac{1}{1+x^2}} \diff x%
+}%
+  \uncover<5->{ \ = \ } %
+\uncover<5->{%
+\int \alert<handout:0| 5>{(1-x^2+x^4-x^6+\cdots) } \diff x%
+}\\%
+ & \uncover<6->{ = } &%
+\uncover<6->{%
+\left( \alert<handout:0| 10-11>{x} \alert<handout:0| 8-9>{-} \frac{x^{\alert<handout:0| 10-11>{3}}}{\alert<handout:0| 10-11>{3}} + \frac{x^{\alert<handout:0| 10-11>{5}}}{\alert<handout:0| 10-11>{5}} \alert<handout:0| 8-9>{-} \frac{x^{\alert<handout:0| 10-11>{7}}}{\alert<handout:0| 10-11>{7}} + \cdots \right) \uncover<7->{\alert<handout:0| 7>{+C}}%
+}\\%
+&  \uncover<8->{  \alert<handout:0| 13-14>{=}  } &%
+\uncover<8->{%
+\alert<handout:0| 13-14>{C + \sum_{n=0}^\infty \uncover<9->{\alert<handout:0| 9>{(-1)^n}} \frac{\uncover<11->{x^{\alert<handout:0| 11>{2n+1}}}}{\uncover<11->{\alert<handout:0| 11>{2n+1}}}}%
+}%
+\end{eqnarray*}
+\begin{itemize}
+\item<12->  The radius is the same as for the original series: $R = 1$.
+\item<13->  To find $C$, plug in $x = 0$: \uncover<14->{\alert<handout:0| 14>{$0 = C$}.}
+\end{itemize}
+%\uncover<15->{Therefore}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<15->{%
+\tan^{-1} x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}%
+}%
+\]
+\vspace{-.1in}
+\end{example}
+\end{frame}
+% end module power-series-calculus-ex7

@@ -1,0 +1,89 @@
+% begin module orthogonal-trajectory-ex5
+\begin{frame}
+\begin{example}[Example 5, p. 619]
+Find the orthogonal trajectories of the family $x = ky^2$, where $k$ is an arbitrary constant.  \uncover<3->{\alert<handout:0| 3>{Differentiate implicitly:}}
+\begin{columns}[c]
+\column{.5\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\alert<handout:0| 5>{x}%
+}%
+& \uncover<2->{ \alert<handout:0| 5>{=} } &%
+\uncover<2->{%
+\alert<handout:0| 5>{ky^2}%
+}\\%
+\uncover<3->{%
+1%
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+2\alert<handout:0| 4-5>{k}y\frac{\diff y}{\diff x}%
+}\\%
+\uncover<4->{%
+1%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+2\left(\alert<handout:0| 4-5>{\uncover<5->{\frac{x}{y^2}}}\right) y\frac{\diff y}{\diff x}%
+}\\%
+\uncover<6->{%
+\frac{\diff y}{\diff x}%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\frac{y}{2x}%
+}%
+\end{eqnarray*}
+\begin{center}
+\ \only<handout:0| -10>{%
+\includegraphics[height=3cm]{diff-eq-separable/pictures/10-03-ex5a.pdf}%
+}%
+\only<11->{%
+\includegraphics[height=3cm]{diff-eq-separable/pictures/10-03-ex5b.pdf}%
+}%
+\end{center}
+\column{.5\textwidth}
+\uncover<7->{%
+An orthogonal trajectory will have a slope that is the negative reciprocal of the slope of the curve.
+}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<7->{%
+\frac{\diff y}{\diff x}%
+}%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+-\frac{2x}{y}%
+}\\%
+\uncover<8->{%
+\int y \diff y%
+}%
+& \uncover<8->{ = } &%
+\uncover<8->{%
+-\int 2x\diff x%
+}\\%
+\uncover<9->{%
+y^2/2%
+}%
+& \uncover<9->{ = } &%
+\uncover<9->{%
+-x^2 + C%
+}\\%
+\uncover<10->{%
+x^2 + \frac{y^2}{2} %
+}%
+& \uncover<10->{ = } &%
+\uncover<10->{%
+C%
+}%
+\end{eqnarray*}
+\uncover<11->{%
+The ellipses $x^2 + y^2/2 = C$ are all orthogonal trajectories to $x = ky^2$.
+}%
+\end{columns}
+\end{example}
+\end{frame}
+% end module orthogonal-trajectory-ex5

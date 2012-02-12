@@ -1,0 +1,42 @@
+% begin module cylindrical-shells-otherline
+\begin{frame}
+\begin{example}[Rotated About a Line Other Than the $y$-axis]
+Find the volume of the solid obtained by rotating about \alert<handout:0| handout:0| 5>{the line $x = 1$} \alert<handout:0| handout:0| 4>{the region to the right of $x = 1$ bounded by \alert<handout:0| handout:0| 2>{$y = x^3 - 4x^2 + 3x$} and \alert<handout:0| handout:0| 3>{the $x$-axis}}.
+
+\uncover<6->{%
+The radius of the typical cylindrical shell is $x - 1$.%
+}%
+\begin{columns}
+\column{0.4\textwidth}
+\only<handout:0| -1>{%
+\includegraphics[width=5cm]{volumes/pictures/06-03-otherlinea.pdf} %
+}%
+\only<handout:0| 2>{%
+\includegraphics[width=5cm]{volumes/pictures/06-03-otherlineb.pdf} %
+}%
+\only<handout:0| 3>{%
+\includegraphics[width=5cm]{volumes/pictures/06-03-otherlinec.pdf} %
+}%
+\only<handout:0| 4>{%
+\includegraphics[width=5cm]{volumes/pictures/06-03-otherlined.pdf} %
+}%
+\only<handout:0| 5>{%
+\includegraphics[width=5cm]{volumes/pictures/06-03-otherlinee.pdf} %
+}%
+\only<6->{%
+\includegraphics[width=5cm]{volumes/pictures/06-03-otherlinef.pdf} %
+}%
+\column{0.6\textwidth}
+\begin{eqnarray*}
+%\uncover<7->{V}%
+& \uncover<7->{  } & \uncover<7->{\int_1^3 2\pi (x-1)(-x^3 + 4x^2- 3x)\diff x} \\
+& \uncover<8->{ = } &  \uncover<8->{2\pi \int_1^3 (-\alert<handout:0| 9-10>{x^4} + \alert<handout:0| 11-12>{5x^3} - \alert<handout:0| 13-14>{7x^2} + \alert<handout:0| 15-16>{3x})\diff x} \\
+ & \uncover<9->{ = } & \uncover<9->{2\pi \left[ -\alert<handout:0| 10>{\uncover<10->{\frac{x^5}{5}}} + \alert<handout:0| 12>{\uncover<12->{\frac{5x^4}{4}}} - \alert<handout:0| 14>{\uncover<14->{\frac{7x^3}{3}}} + \alert<handout:0| 16>{\uncover<16->{\frac{3x^2}{2}}} \right]_1^3 } \\
+& \uncover<17->{ = } & \uncover<17->{2\pi \left( \left( -\frac{243}{5} + \frac{405}{4} - 63 + \frac{27}{2} \right) \right.} \\
+& & \uncover<17->{\left. - \left( -\frac{1}{5} + \frac{5}{4} - \frac{7}{3} + \frac{3}{2} \right) \right)} %\\
+ \uncover<18->{ = }  \uncover<18->{\frac{88}{15}\pi }
+\end{eqnarray*}
+\end{columns}
+\end{example}
+\end{frame}
+% end module cylindrical-shells-otherline

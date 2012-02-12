@@ -1,0 +1,57 @@
+% begin module polar-arc-length-formula
+\begin{frame}
+\frametitle{Arc Length}
+To find the arc length of a polar curve $r = f(\theta )$, $a\leq \theta \leq b$, regard $\theta$ as a parameter.  
+\uncover<2->{%
+Then the derivatives of the parametric equations are%
+}%
+\uncover<2->{%
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\[
+\alert<handout:0| 4>{\frac{\diff x}{\diff \theta} = \frac{\diff r}{\diff \theta}\cos \theta - r\sin \theta} \qquad%
+\alert<handout:0| 5>{\frac{\diff y}{\diff \theta} = \frac{\diff r}{\diff \theta}\sin \theta + r\cos \theta}%
+\]
+}%
+\uncover<3->{%
+and%
+}%
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\begin{eqnarray*}
+\uncover<3->{%
+\alert<handout:0| 11>{%
+\alert<handout:0| 4>{\left( \frac{\diff x}{\diff \theta}\right)^2}%
+ + \alert<handout:0| 5>{\left( \frac{\diff y}{\diff \theta}\right)^2}%
+}%
+}%
+& \uncover<3->{ = } &%
+\uncover<4->{%
+\alert<handout:0| 4>{%
+\alert<handout:0| 6-7>{\left( \frac{\diff r}{\diff \theta}\right)^2 \cos^2\theta} \alert<handout:0| 8>{- 2r\frac{\diff r}{\diff \theta}\cos \theta\sin\theta} + \alert<handout:0| 9-10>{r^2\sin^2\theta}%
+}%
+}\\%
+%& \uncover<1->{ = } &%
+&  &%
+\uncover<3->{\ + }%
+\uncover<5->{%
+\alert<handout:0| 5>{%
+\alert<handout:0| 6-7>{\left( \frac{\diff r}{\diff \theta}\right)^2 \sin^2\theta} \alert<handout:0| 8>{+ 2r\frac{\diff r}{\diff \theta}\sin \theta\cos\theta} + \alert<handout:0| 9-10>{r^2\cos^2\theta}%
+}%
+}\\%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\alert<handout:0| 11>{%
+\uncover<7->{\alert<handout:0| 7>{\left( \frac{\diff r}{\diff \theta}\right)^2}} \uncover<10->{+ \alert<handout:0| 10>{r^2}}%
+}%
+}%
+\end{eqnarray*}
+The arc length is
+\[
+L = \int_a^b \sqrt{\alert<handout:0| 11>{\left(\frac{\diff x}{\diff \theta}\right)^2 + \left( \frac{\diff y}{\diff \theta}\right)^2}}\diff \theta%
+\uncover<11->{%
+ = \int_a^b\sqrt{\alert<handout:0| 11>{r^2 + \left( \frac{\diff r}{\diff \theta}\right)^2}}\diff \theta
+}%
+\]
+\end{frame}
+% end module polar-arc-length-formula

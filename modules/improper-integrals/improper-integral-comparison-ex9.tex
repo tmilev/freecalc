@@ -1,0 +1,44 @@
+% begin module improper-integral-comparison-ex9
+\begin{frame}
+\begin{example}[Example 9, p. 550]
+Show that $\int_0^\infty e^{-x^2}\diff x$ is convergent.
+\begin{itemize}
+\item<2->  The antiderivative isn't an elementary function.
+\item<3->  $\int_0^\infty e^{-x^2}\diff x = \int_0^1 e^{-x^2}\diff x + \int_1^\infty e^{-x^2}\diff x$.
+\item<4->  The first integral on the right hand side is a proper integral.
+\item<5-| alert@10>  Notice that $e^{-x^2} \leq e^{-x}$ for $x\geq 1$.
+\end{itemize}
+\begin{columns}[c]
+\column{.5\textwidth}
+\ \uncover<5->{%
+\includegraphics[height=3cm]{improper-integrals/pictures/08-08-ex9.pdf}%
+}%
+\column{.5\textwidth}
+\begin{eqnarray*}
+\uncover<6->{%
+\alert<handout:0| 10>{\int_1^\infty e^{-x}\diff x}%
+}%
+& \uncover<6->{ = } & %
+\uncover<6->{%
+\lim_{t\rightarrow \infty} \int_1^t e^{-x}\diff x%
+}\\%
+& \uncover<7->{ = } & %
+\uncover<7->{%
+\lim_{t\rightarrow \infty} \left[ -e^{-x}\right]_1^t
+}\\%
+& \uncover<8->{ = } & %
+\uncover<8->{%
+\lim_{t\rightarrow \infty} (e^{-1} - e^{-t})%
+}\\%
+& \uncover<9->{ = } & %
+\uncover<9->{%
+\alert<handout:0| 10>{e^{-1}}
+}%
+\end{eqnarray*}
+\end{columns}
+\uncover<10->{%
+Therefore by the Comparison Theorem, $\int_0^\infty e^{-x^2}\diff x$ converges.
+}%
+\end{example}
+\end{frame}
+% end module improper-integral-comparison-ex9

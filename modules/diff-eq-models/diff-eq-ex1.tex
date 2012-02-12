@@ -1,0 +1,53 @@
+% begin module diff-eq-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 606]
+Show that every member of the family of functions 
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+y = \frac{1 + ce^t}{1-ce^t}
+\]
+is a solution of the differential equation $\alert<handout:0| 2-4>{y'} = \alert<handout:0| 5->{\frac{1}{2} (y^2 - 1)}$.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\textrm{LHS} %
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+\frac{(1-ce^t)(ce^t) - (1+ce^t)(-ce^t)}{(1-ce^t)^2}%
+}\\%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+\frac{ce^t - c^2 e^{2t} + ce^t + c^2 e^{2t}}{(1-ce^t)^2}%
+}  \uncover<4->{ = } \uncover<4->{%
+\alert<handout:0| 9>{\frac{2ce^t}{(1-ce^t)^2}}%
+}\\%
+\end{eqnarray*}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<5->{%
+\textrm{RHS} %
+} 
+& \uncover<5->{ = } & 
+\uncover<5->{%
+\frac{1}{2}\left[ \left( \frac{1+ce^t}{1-ce^t}\right)^2 - 1\right]
+} \uncover<6->{ = } \uncover<6->{%
+\frac{1}{2}\left[  \frac{(1+ce^t)^2 - (1-ce^t)^2}{(1-ce^t)^2} \right]
+}\\ 
+& \uncover<7->{ = } &
+\uncover<7->{%
+\frac{1}{2}\left[  \frac{1+2ce^t +c^2e^{2t} - 1 + 2ce^t - c^2e^{2t}}{(1-ce^t)^2} \right]
+}\\
+ & \uncover<8->{ = } & %
+\uncover<8->{%
+\frac{1}{2}  \frac{4ce^t }{(1-ce^t)^2} 
+} \uncover<9->{ = } \uncover<9->{%
+  \alert<handout:0| 9>{\frac{2ce^t }{(1-ce^t)^2}} \uncover<10->{= \textrm{LHS}}
+}\\%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module diff-eq-ex1

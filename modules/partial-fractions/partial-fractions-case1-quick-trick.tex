@@ -1,0 +1,97 @@
+% begin module partial-fractions-case1-quick-trick
+\begin{frame}
+NOTE:  There is a quick trick to find $A, B$, and $C$.
+\abovedisplayskip=2pt
+\belowdisplayskip=0pt
+\[
+x^2 + 2x - 1 = A(\alert<handout:0| 3>{2x-1})(\alert<handout:0| 4>{x+2}) + B\alert<handout:0| 2>{x}(\alert<handout:0| 4>{x+2}) + C\alert<handout:0| 2>{x}(\alert<handout:0| 3>{2x-1})
+\]
+\begin{columns}[t]
+\column{.4\textwidth}
+\begin{itemize}
+\item<2-| alert@5-7>  To find $A$, plug in \alert<handout:0| 2>{$0$}.
+\item<3-| alert@8-10>  To find $B$, plug in \alert<handout:0| 3>{$\frac{1}{2}$}.
+\item<4-| alert@11-13>  To find $C$, plug in \alert<handout:0| 4>{$-2$}.
+\end{itemize}
+\column{.6\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<8->{%
+\left( \frac{1}{2}\right)^2 + 2\cdot \frac{1}{2} - 1%
+}%
+& \uncover<8->{ = } & %
+\uncover<8->{%
+B\left( \frac{1}{2}\right)\left(\frac{1}{2} + 2\right)%
+}\\%
+\uncover<9->{%
+ \frac{1}{4}%
+}%
+& \uncover<9->{ = } & %
+\uncover<9->{%
+\frac{5}{4} B%
+}\\%
+\uncover<10->{%
+ B%
+}%
+& \uncover<10->{ = } & %
+\uncover<10->{%
+\frac{1}{5}%
+}\\%
+\end{eqnarray*}
+
+\end{columns}
+\begin{columns}[t]
+\column{.3\textwidth}
+\begin{eqnarray*}
+\uncover<5->{%
+0^2 + 2\cdot 0 - 1%
+}%
+& \uncover<5->{ = } & %
+\uncover<5->{%
+A(2\cdot 0 - 1)(0 + 2)%
+}\\%
+\uncover<6->{%
+ - 1%
+}%
+& \uncover<6->{ = } & %
+\uncover<6->{%
+-2 A%
+}\\%
+\uncover<7->{%
+ A%
+}%
+& \uncover<7->{ = } & %
+\uncover<7->{%
+\frac{1}{2}%
+}\\%
+\end{eqnarray*}
+
+\column{.7\textwidth}
+\vspace{.5in}
+\begin{eqnarray*}
+\uncover<11->{%
+(-2)^2 + 2(-2) - 1%
+}%
+& \uncover<11->{ = } & %
+\uncover<11->{%
+C(-2)(2(-2) - 1)%
+}\\%
+\uncover<12->{%
+ - 1%
+}%
+& \uncover<12->{ = } & %
+\uncover<12->{%
+10C%
+}\\%
+\uncover<13->{%
+ C%
+}%
+& \uncover<13->{ = } & %
+\uncover<13->{%
+-\frac{1}{10}%
+}\\%
+\end{eqnarray*}
+\end{columns}
+\end{frame}
+% end module partial-fractions-case1-quick-trick

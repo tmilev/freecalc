@@ -1,0 +1,35 @@
+% begin module trig-integrals-sin-cos
+\begin{frame}
+\frametitle{Strategy for Evaluating $\int \sin^m x \cos^n x \diff x$}
+\only<handout:1| -1>{%
+\begin{enumerate}
+\item  If the power of cosine is odd ($n = 2k+1$), save one cosine factor and use $\cos^2 x = 1 - \sin^2 x$ to express the remaining factors in terms of sine:
+\begin{eqnarray*}
+\int \sin^m x \cos^{2k+1} x \diff x & = & \int \sin^m x (\cos^2 x)^k \cos x \diff x\\
+& = & \int \sin^m x (1 - \sin^2 x)^k\cos x \diff x
+\end{eqnarray*}
+Then substitute $u = \sin x$.
+\end{enumerate}
+}%
+\only<handout:2| 2>{%
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item  If the power of sine is odd ($m = 2k+1$), save one sine factor and use $\sin^2 x = 1 - \cos^2 x$ to express the remaining factors in terms of cosine:
+\begin{eqnarray*}
+\int \sin^{2k+1} x \cos^{n} x \diff x & = & \int (\sin^2 x)^k \cos^n x \sin x \diff x\\
+& = & \int (1 - \cos^2 x)^k\cos^n x\sin x \diff x
+\end{eqnarray*}
+Then substitute $u = \cos x$.
+\end{enumerate}
+}%
+\only<handout:3| 3->{%
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item  If the powers of both sine and cosine are even, use the half-angle identities
+\[
+\sin^2 x = \frac{1}{2}(1 - \cos 2x) \qquad \cos^2 x = \frac{1}{2}(1 + \cos 2x)
+\]
+\end{enumerate}
+}%
+\end{frame}
+% end module trig-integrals-sin-cos

@@ -1,0 +1,58 @@
+% begin module composition-example
+\begin{frame}
+\begin{example}[Example 7, p. 42]
+If \alert<handout:0| 5,10>{$f(x) = \sqrt{x}$} and \alert<handout:0| 4,11,15-16>{$g(x) = \sqrt{2 - x}$}, find each function and its domain.
+\begin{columns}[t]
+\column{.33\textwidth}
+\begin{eqnarray*}
+& & f\circ g \\
+& & \uncover<2->{(f\circ g)(x)}\\
+& \uncover<3->{ = } & \uncover<3->{f(\alert<handout:0| 4>{g(x)})}\\
+& \uncover<4->{ = } & \uncover<4->{\alert<handout:0| 5>{f(}\alert<handout:0| 4-5>{\sqrt{2 - x}}\alert<handout:0| 5>{)}}\\
+& \uncover<5->{ = } & \uncover<5->{\alert<handout:0| 5>{\sqrt{\sqrt{2-x}}}}\\
+& \uncover<6->{ = } & \uncover<6->{\alert<handout:0| 5>{\sqrt[4]{2-x}}}\\
+&& \uncover<7->{
+\textrm{Domain}:}\\
+&& \uncover<7->{
+(-\infty , 2].
+}
+\end{eqnarray*}
+\column{.33\textwidth}
+\begin{eqnarray*}
+& &  g \circ f  \\
+& & \uncover<8->{(g\circ f)(x)}\\
+& \uncover<9->{ = } & \uncover<9->{g(\alert<handout:0| 10>{f(x)})}\\
+& \uncover<10->{ = } & \uncover<10->{\alert<handout:0| 11>{g(}\alert<handout:0| 10-11>{\sqrt{x}}\alert<handout:0| 11>{)}}\\
+& \uncover<11->{ = } & \uncover<11->{\alert<handout:0| 11>{\sqrt{2 - \sqrt{x}}}}\\
+&& \uncover<12->{
+\textrm{Domain}:}\\
+&& \uncover<12->{
+[0 , 4].
+}
+\end{eqnarray*}
+%\column{.2\textwidth}
+%\begin{eqnarray*}
+%& & f\circ f  \\
+%& & \uncover<2->{(f\circ f)(x)}\\
+%& \uncover<3->{ = } & \uncover<3->{f(\alert<handout:0| 4>{f(x)})}\\
+%& \uncover<4->{ = } & \uncover<4->{\alert<handout:0| 5>{f(}\alert<handout:0| 4-5>{\sqrt{x}}\alert<handout:0| 5>{)}}\\
+%& \uncover<5->{ = } & \uncover<5->{\alert<handout:0| 5>{\sqrt{\sqrt{x}}}}\\
+%& \uncover<6->{ = } & \uncover<6->{\alert<handout:0| 5>{\sqrt[4]{x}}}\\
+%\end{eqnarray*}
+\column{.33\textwidth}
+\begin{eqnarray*}
+& &  g\circ g \\
+& & \uncover<13->{(g\circ g)(x)}\\
+& \uncover<14->{ = } & \uncover<14->{g(\alert<handout:0| 15>{g(x)})}\\
+& \uncover<15->{ = } & \uncover<15->{\alert<handout:0| 16>{g(}\alert<handout:0| 15-16>{\sqrt{2 - x}}\alert<handout:0| 5>{)}}\\
+& \uncover<16->{ = } & \uncover<16->{\alert<handout:0| 16>{\sqrt{2 - \sqrt{2-x}}}}\\
+&&\uncover<17->{
+\textrm{Domain}:}\\
+&&\uncover<17->{
+[-2 , 2].
+}
+\end{eqnarray*}
+\end{columns}
+\end{example}
+\end{frame}
+% end module composition-example

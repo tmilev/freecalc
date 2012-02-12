@@ -1,0 +1,50 @@
+% begin module MVT-corollary1
+\begin{frame}
+\begin{theorem}
+If \alert<handout:0| 3,7>{$f'(x) = 0$ for all $x$ in an interval $(a,b)$}, then $f$ is constant on $(a,b)$.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item<2-| alert@9>  Let $x_1$ and $x_2$ be any numbers in $(a,b)$ with $x_1 < x_2$.
+\item<3->  $f$ is differentiable on $(a,b)$.
+\item<4->  Therefore $f$ is differentiable on $(x_1, x_2)$ and continuous on $[x_1, x_2]$.
+\item<5->  Mean Value Theorem: There exists $c$ in $(x_1, x_2)$ such that
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<5->{%
+f'(c)%
+}%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\frac{f(x_2)-f(x_1)}{x_2-x_1}%
+}\\%
+\uncover<6->{%
+\alert<handout:0| 7>{f'(c)}(x_2-x_1)%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+f(x_2)-f(x_1)%
+}\\%
+\uncover<7->{%
+\alert<handout:0| 7>{0}%
+}%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+f(x_2)-f(x_1)%
+}\\%
+\uncover<8->{%
+\alert<handout:0| 9>{f(x_1)}%
+}%
+& \uncover<8->{\alert<handout:0| 9>{ = }} &%
+\uncover<8->{%
+\alert<handout:0| 9>{f(x_2)}%
+}%
+\end{eqnarray*}
+\uncover<9->{%
+Therefore $f$ is constant on $(a,b)$.\qedhere
+}%
+\end{proof}
+\end{frame}
+% end module MVT-corollary1

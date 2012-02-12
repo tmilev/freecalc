@@ -1,0 +1,52 @@
+% begin module substitution-rule-definite-integrals
+\begin{frame}
+\frametitle{Definite Integrals}
+There are two ways to find a definite integral with the Substitution Rule:
+\vspace{-.2in}
+\begin{enumerate}
+\item  First evaluate the indefinite integral, then use the FTC.
+\end{enumerate}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\int_{\alert<handout:0| 2>{0}}^{\alert<handout:0| 2>{4}} \sqrt{2x+1} \ \diff x%
+}%
+ & \uncover<2->{ = } &%
+\uncover<2->{%
+\left[ \int \sqrt{2x+1} \ \diff x \right]_{\alert<handout:0| 2>{0}}^{\alert<handout:0| 2>{4}}%
+}%
+  \uncover<3->{ = } %
+\uncover<3->{%
+\left[ \frac{1}{3}(2x+1)^{3/2} \right]_{\alert<handout:0| 2>{0}}^{\alert<handout:0| 2>{4}}%
+}\\%
+ & \uncover<4->{ = } &%
+\uncover<4->{%
+\frac{1}{3}(2\cdot 4 + 1)^{3/2} - \frac{1}{3}(2\cdot 0 + 1)^{3/2}%
+}\\%
+ & \uncover<5->{ = } &%
+\uncover<5->{%
+\frac{1}{3}(9)^{3/2} - \frac{1}{3}(1)^{3/2}%
+}%
+  \uncover<5->{ = } %
+\uncover<5->{%
+\frac{1}{3}(27 - 1) = \frac{26}{3}%
+}%
+\end{eqnarray*}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item<6->  Change the limits of integration when the variable is changed.
+\end{enumerate}
+\uncover<7->{%
+\begin{theorem}[The Substitution Rule for Definite Integrals]
+%If $g'$ is continuous on $[a,b]$ and $f$ is continuous on the range of $u = g(x)$, then
+If $u = g(x)$ and $g$ and $f$ are continuous, then
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_{\alert<handout:0| 7>{a}}^{\alert<handout:0| 7>{b}} f(g(x))g'(x) \ \diff x = \int_{\alert<handout:0| 7>{g(a)}}^{\alert<handout:0| 7>{g(b)}} f(u) \ \diff u%
+\]
+\end{theorem}
+}%
+\end{frame}
+% end module substitution-rule-definite-integrals

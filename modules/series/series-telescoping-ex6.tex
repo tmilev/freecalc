@@ -1,0 +1,51 @@
+% begin module series-telescoping-ex6
+\begin{frame}
+\begin{example}[Example 6, p. 727]
+Show that the series $\sum_{n=1}^\infty \frac{1}{n(n+1)}$ is convergent and find its sum.
+\begin{itemize}
+\item<2-| alert@2-3>  Is this a geometric series?  \uncover<3->{No.}%
+\item<4->  Use partial fractions:
+\end{itemize}
+\uncover<4->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+a_n = \alert<handout:0| 7>{\frac{1}{n(n+1)} \uncover<5->{ = \frac{1}{n} - \frac{1}{n+1}}}%
+\]
+}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<6->{%
+\alert<handout:0| 15>{s_n}%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\sum_{i=1}^n \alert<handout:0| 7>{\frac{1}{i(i+1)}}%
+}  \uncover<7->{ = } \uncover<7->{%
+\sum_{i=1}^n \alert<handout:0| 7>{\left( \frac{1}{i} - \frac{1}{i+1}\right)}%
+}\\%
+& \uncover<8->{ = } &%
+\uncover<8->{%
+\left( \alert<handout:0| 13>{1} - \alert<handout:0| 9>{\frac{1}{2}}\right) %
++ \left( \alert<handout:0| 9>{\frac{1}{2}} - \alert<handout:0| 10>{\frac{1}{3}}\right) %
++ \left( \alert<handout:0| 10>{\frac{1}{3}} - \alert<handout:0| 11>{\frac{1}{4}}\right) %
++ \alert<handout:0| 11-12>{\cdots} %
++ \left( \alert<handout:0| 12>{\frac{1}{n}} \alert<handout:0| 13>{- \frac{1}{n+ 1}}\right) %
+}\\%
+& \uncover<13->{\alert<handout:0| 15>{ = }} &%
+\uncover<13->{%
+\alert<handout:0| 13,15>{1 - \frac{1}{n+1}}%
+}%
+\end{eqnarray*}
+\uncover<14->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\textrm{Therefore}\quad \sum_{i=1}^\infty \frac{1}{i(i+1)} = \lim_{n\to\infty} \alert<handout:0| 15>{s_n} \uncover<15->{= \lim_{n\to\infty} \alert<handout:0| 15>{\left( 1 - \frac{1}{n+1}\right)}} \uncover<16>{= 1}%
+\]
+}%
+\vspace{-.1in}
+\end{example}
+\end{frame}
+% end module series-telescoping-ex6

@@ -1,0 +1,42 @@
+% begin module chain-rule-ex8
+\begin{frame}
+\begin{example}[Example 8, p. 160]
+Differentiate $y = \alert<handout:0| 8>{\sqrt{\alert<handout:0| 6-8>{\sec} \alert<handout:0| 4-8>{t^3}}}$.
+\begin{itemize}
+\item<2-| alert@3-4,14-15,17>  Inner function: $x = \uncover<4->{t^3}$.
+\item<2-| alert@5-6,12-13,16>  Middle function: $u = \uncover<6->{\sec x}$.
+\item<2-| alert@7-8,10-11>  Outer function: $y = \uncover<8->{\sqrt{u}}$.
+\item<9->  Chain Rule:
+\end{itemize}
+\begin{eqnarray*}
+\uncover<9->{%
+\frac{\diff y}{\diff t}%
+}%
+& \uncover<9->{ = } &%
+\uncover<9->{%
+\alert<handout:0| 10-11>{\frac{\diff y}{\diff u}}%
+\alert<handout:0| 12-13>{\frac{\diff u}{\diff x}}%
+\alert<handout:0| 14-15>{\frac{\diff x}{\diff t}}%
+}\\%
+& \uncover<10->{ = } &%
+\uncover<11->{%
+\alert<handout:0| 11>{\frac{1}{2\sqrt{\alert<handout:0| 16>{u}}}}%
+}%
+\uncover<13->{%
+\cdot \alert<handout:0| 13>{\sec x \tan x}%
+}%
+\uncover<15->{%
+\cdot \alert<handout:0| 15>{3t^2}%
+}\\%
+& \uncover<16->{ = } &%
+\uncover<16->{%
+\frac{1}{2\sqrt{\alert<handout:0| 16>{\sec \alert<handout:0| 17>{x}}}} \sec \alert<handout:0| 17>{x} \tan \alert<handout:0| 17>{x} \cdot 3t^2%
+}\\%
+& \uncover<17->{ = } &%
+\uncover<17->{%
+\frac{3t^2 \sec \alert<handout:0| 17>{t^3} \tan \alert<handout:0| 17>{t^3}}{2\sqrt{\sec \alert<handout:0| 17>{t^3}}}%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module chain-rule-ex8

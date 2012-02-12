@@ -1,0 +1,39 @@
+% begin module arc-length-flip-xy-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 563]
+Find the length of the arc of $x = y^2$ from $(0,0)$ to $(1,1)$.
+\begin{itemize}
+\item<2->  $x = y^2$, so \alert<handout:0| 3-4>{$\diff x / \diff y = \uncover<4->{2y}$}.
+\item<5->  Substitute \alert<handout:0| 6-7>{$y = \uncover<7->{\frac{1}{2}\tan \theta}$}, so  \alert<handout:0| 8-9>{$\diff y = \uncover<9->{\frac{1}{2}\sec^2 \theta \diff\theta}$}, and  \alert<handout:0| 10-11>{$\sqrt{1+4y^2} =  \uncover<11->{\sec \theta}$}.
+\item<12->  When $y = 0$, \alert<handout:0| 12-13>{$\tan \theta = \uncover<13->{0}$}, so \alert<handout:0| 14-15>{$\theta = \uncover<15->{0}$}.
+\item<12->  When $y = 1$, \alert<handout:0| 16-17>{$\tan \theta = \uncover<17->{2}$}, so \alert<handout:0| 18-19,23-26>{$\theta = \uncover<19->{\tan^{-1} (2)}$ \uncover<19->{(call this $\alpha$)}}.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+L &  = & \int_0^1 \sqrt{1 + \alert<handout:0| 3-4>{\left(\diff x / \diff y\right)^2}} \ \diff y  \uncover<2->{ = } \uncover<2->{%
+\int_{\alert<handout:0| 12-15>{0}}^{\alert<handout:0| 16-19>{1}} \alert<handout:0| 10-11>{\sqrt{1 + \alert<handout:0| 4>{\uncover<4->{4y^2}}}}\ \alert<handout:0| 8-9>{\diff y}%
+}\\%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\int_{\alert<handout:0| 15>{\uncover<15->{0}}}^{\alert<handout:0| 19>{\uncover<19->{\alpha}}} \alert<handout:0| 11>{\uncover<11->{\sec \theta }}\uncover<11->{\cdot} \alert<handout:0| 9>{\uncover<9->{\frac{1}{2}\sec^2 \theta \ \diff \theta}}%
+} \uncover<20->{ = } \uncover<20->{%
+\frac{1}{2}\int_0^{\alpha} \sec^3 \theta \ \diff \theta%
+}\\%
+& \uncover<21->{ = } &%
+\uncover<21->{%
+\frac{1}{2}\cdot \frac{1}{2}\left[ \sec \theta \tan \theta +\ln| \sec \theta + \tan \theta | \right]_0^\alpha%
+}\\%
+& \uncover<22->{ = } &%
+\uncover<22->{%
+\frac{1}{4}\left( \alert<handout:0| 25-26>{\sec \alpha} \alert<handout:0| 23-24>{\tan \alpha} +\ln| \alert<handout:0| 25-26>{\sec \alpha} + \alert<handout:0| 23-24>{\tan \alpha} | \right)%
+}\\%
+& \uncover<23->{ = } &%
+\uncover<23->{%
+\frac{1}{4}\left( \alert<handout:0| 23-24>{\uncover<24->{2}}\alert<handout:0| 25-26>{\uncover<26->{\sqrt{5}}}  +\ln| \alert<handout:0| 25-26>{\uncover<26->{\sqrt{5}}} + \alert<handout:0| 23-24>{\uncover<24->{2}} | \right)%
+}\\%
+\end{eqnarray*}
+\vspace{-.3in}
+\end{example}
+\end{frame}
+% end module arc-length-flip-xy-ex2

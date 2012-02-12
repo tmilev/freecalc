@@ -1,0 +1,29 @@
+% begin module net-change-intro
+\begin{frame}
+\begin{itemize}
+\item  Part 2 of the Fundamental Theorem says that, if $f$ is continuous on $[a,b]$, then
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_a^b f(x)\diff x = F(b) - F(a),
+\]
+where $F(x)$ is an antiderivative of $f(x)$.
+\item  This means $F' = f$, so
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_a^b F'(x)\diff x = F(b) - F(a),
+\]
+\item<2->  $F'(x)$ is the rate of change of $y = F(x)$ with respect to $x$.
+\item<3->  $F(b) - F(a)$ is the net change in $y$ as $x$ changes from $a$ to $b$.
+\end{itemize}
+\uncover<4->{%
+\begin{theorem}[The Net Change Theorem]
+The integral of the rate of change is the net change:
+\[
+\int_a^b F'(x) \diff x = F(b) - F(a).
+\]
+\end{theorem}
+}%
+\end{frame}
+% end module net-change-intro

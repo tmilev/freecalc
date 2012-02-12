@@ -1,0 +1,34 @@
+% begin module radius-of-convergence
+\begin{frame}[t]
+\begin{theorem}[Convergence of Power Series]
+For a power series $\displaystyle \sum c_n (x-a)^n$, there are three possibilities:
+\begin{enumerate}
+\item<1-| alert@3,6>  The series converges only when $x = a$.
+\item<1-| alert@4,7>  The series converges for all $x$.
+\item<1-| alert@2,8>  There is a positive number $R$ such that the series converges if $|x-a| < R$ and diverges if $|x-a|>R$.
+\end{enumerate}
+\end{theorem}
+
+\uncover<2->{%
+\only<handout:1| 1-4>{%
+\begin{definition}[Radius of Convergence]
+The number $R$ in case three of the theorem is called the radius of convergence of the power series.
+\end{definition}
+\begin{enumerate}
+\item<3-| alert@3>  In the first case, we say $R = 0$.
+\item<4-| alert@4>  In the second case, we say $R = \infty$.
+\end{enumerate}
+}%
+\only<handout:2| 5->{%
+\begin{definition}[Interval of Convergence]
+The interval of convergence of a power series is the interval consisting of all numbers $x$ for which the series converges.
+\end{definition}
+\begin{enumerate}
+\item<6-| alert@6>  In the first case, the interval contains the single point $ a$.
+\item<7-| alert@7>  In the second case, the interval is $( - \infty , \infty )$.
+\item<8-| alert@8>  In the third case, the inequality $|x - a| < R$ can be rewritten $a - R < x < a + R$.
+\end{enumerate}
+}%
+}%
+\end{frame}
+% end module radius-of-convergence

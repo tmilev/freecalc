@@ -1,0 +1,154 @@
+% begin module partial-fractions-long-division-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 510]
+Find $\int \frac{x^3 + x}{x - 1}\diff x$.
+\begin{columns}[t]
+\column{.45\textwidth}
+\uncover<2->{%
+\[
+\begin{array}{r@{}r@{}c@{}r@{}c@{}c@{}c@{}r@{}r@{}}
+& & & %
+\uncover<4->{\alert<handout:0| 4-6,23>{x^2}} & %
+\uncover<11->{\alert<handout:0| 11-13,23>{+}} & %
+\uncover<11->{\alert<handout:0| 11-13,23>{ x}} & %
+\uncover<17->{\alert<handout:0| 17-19,23>{+}} & %
+\uncover<17->{\alert<handout:0| 17-19,23>{ 2}} & \\%
+\cline{3-8}
+\alert<handout:0| 3-6,10-13,16-19>{x} & %
+\alert<handout:0| 5-6,12-13,18-19>{-1} & %
+\Big) & %
+\alert<handout:0| 3-4,7-8>{x^3} & %
+ & %
+ & %
+\alert<handout:0| 9>{+} & %
+\alert<handout:0| 9>{ x} & \\%
+& & & %
+\uncover<6->{\alert<handout:0| 6-8>{x^3}} & %
+\uncover<6->{\alert<handout:0| 6-8>{-}} & %
+\uncover<6->{\alert<handout:0| 6-8>{ x^2}} & %
+&  & \\%
+\cline{4-6}%
+& & & %
+&  & %
+\uncover<8->{\alert<handout:0| 8,10-11,14-15>{x^2}} & %
+\uncover<9->{\alert<handout:0| 9,14-15>{+}} & %
+\uncover<9->{\alert<handout:0| 9,14-15>{ x}} & \\%
+& & & %
+&  & %
+\uncover<13->{\alert<handout:0| 13-15>{x^2}} & %
+\uncover<13->{\alert<handout:0| 13-15>{-}} & %
+\uncover<13->{\alert<handout:0| 13-15>{ x}} & \\%
+\cline{6-8}
+& & & %
+ & %
+ & %
+ & %
+ & %
+\uncover<15->{\alert<handout:0| 15-17,20-21>{2x}} & \\%
+& & & %
+ & %
+ & %
+ & %
+ & %
+\uncover<19->{\alert<handout:0| 19-21>{2x}} & %
+\uncover<19->{\alert<handout:0| 19-21>{- 2}} \\%
+\cline{8-9}%
+& & & %
+ & %
+ & %
+ & %
+ & %
+ & %
+\uncover<21->{\alert<handout:0| 21,24>{2}} \\%
+\end{array}
+\]
+}%
+
+\only<handout:0| -4,10-11,16-17>{\uncover<3->{%
+Divide %
+}}%
+\only<handout:0| 5-6,12-13,18-19>{%
+Multiply %
+}%
+\only<handout:0| 7-8,14-15,20-21>{%
+Subtract %
+}%
+\only<handout:0| 3-4>{%
+$x^3$ %
+}%
+\only<handout:0| 10-11>{%
+$x^2$ %
+}%
+\only<handout:0| 16-17>{%
+$2x$ %
+}%
+\only<handout:0| 5-6>{%
+$x^2$ %
+}%
+\only<handout:0| 12-13>{%
+$x$ %
+}%
+\only<handout:0| 18-19>{%
+$2$ %
+}%
+\only<handout:0| 7-8>{%
+$x^3-x^2$ %
+}%
+\only<handout:0| 14-15>{%
+$x^2-x$ %
+}%
+\only<handout:0| 20-21>{%
+$2x-2$ %
+}%
+\only<handout:0| -4,10-11,16-17>{\uncover<3->{%
+by %
+}}%
+\only<handout:0| 5-6,12-13,18-19>{%
+by %
+}%
+\only<handout:0| 7-8,14-15,20-21>{%
+from %
+}%
+\only<handout:0| 3-4,10-11,16-17>{%
+$x$ %
+}%
+\only<handout:0| 5-6,12-13,18-19>{%
+$x-1$ %
+}%
+\only<handout:0| 7-8>{%
+$x^3$ %
+}%
+\only<handout:0| 14-15>{%
+$x^2+x$ %
+}%
+\only<handout:0| 20-21>{%
+$2x$ %
+}%
+\only<handout:0| 9>{%
+Bring down the $x$%
+}%
+\invisible<1->{%
+y%
+}%
+\column{.55\textwidth}
+\begin{eqnarray*}
+& & %
+\uncover<22->{%
+\int \frac{x^3 + x}{x - 1}\diff x %
+}\\%
+& \uncover<22->{ = } & %
+\uncover<22->{%
+\int \left( \alert<handout:0| 23>{x^2 + x + 2} + \frac{\alert<handout:0| 24>{2}}{x - 1}\right) \diff x
+}\\%
+& \uncover<25->{ = } & %
+\uncover<25->{%
+\frac{x^3}{3} + \frac{x^2}{2} + 2x %
+}\\%
+& & \uncover<25->{%
+\qquad + 2\ln | x - 1 | + C %
+}%
+\end{eqnarray*}
+\end{columns}
+\end{example}
+\end{frame}
+% end module partial-fractions-long-division-ex1

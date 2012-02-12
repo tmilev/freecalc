@@ -1,0 +1,33 @@
+% begin module power-series-calculus
+\begin{frame}
+\frametitle{Differentiation and Integration of Power Series}
+\begin{theorem}[Differentiation and Integration of Power Series]
+If a power series $\sum c_n (x-a)^n$ has radius of convergence $R >0$, then the function $f$ defined by
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+f(x) = c_0 + c_1(x-a) + c_2(x-a)^2 + c_3(x-a)^3 +\cdots  = \sum_{n=0}^\infty c_n(x-a)^n%
+\]
+is differentiable (and therefore continuous) on the interval $(a-R, a+R)$ and
+\begin{enumerate}
+\item  $\displaystyle f'(x) = c_1 + 2c_2(x-a) + 3c_3(x-a)^2 + \cdots = \sum_{n=1}^\infty nc_n(x-a)^{n-1}$.
+\item  $\displaystyle \int f(x) \ \diff x  = C + c_0(x-a) + c_1\frac{(x-a)^2}{2} + c_2\frac{(x-a)^3}{3} + \cdots $ $= C + \sum_{n=0}^\infty c_n\frac{(x-a)^{n+1}}{n+1}$.
+\end{enumerate}
+\end{theorem}
+\end{frame}
+
+
+\begin{frame}
+\begin{itemize}
+\item  This is called term-by-term differentiation and integration.
+\item  Another way of saying it is
+\end{itemize}
+\begin{eqnarray*}
+\frac{\diff}{\diff x} \left[ \sum_{n=0}^\infty c_n (x-a)^n\right] & = & \sum_{n=0}^\infty \frac{\diff}{\diff x} \left[ c_n (x-a)^n\right]\\
+\int \left[ \sum_{n=0}^\infty c_n (x-a)^n\right] \diff x & = & \sum_{n=0}^\infty \int \left[ c_n (x-a)^n\right] \diff x
+\end{eqnarray*}
+\begin{itemize}
+\item  We can treat power series like polynomials with infinitely many terms.
+\end{itemize}
+\end{frame}
+% end module power-series-calculus

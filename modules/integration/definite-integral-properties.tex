@@ -1,0 +1,47 @@
+% begin module definite-integral-properties
+\begin{frame}
+\frametitle{Properties of the Definite Integral}
+\begin{itemize}
+\item  So far when we have calculated $\int_a^b f(x)\diff x$, we have assumed that $a < b$.
+\item  The definition as a limit of Riemann sums will still work even if we don't assume this.
+\item<2->  If we reverse $a$ and $b$, then $\Delta x$ changes from $\frac{b-a}{n}$ to $\frac{a-b}{n}$.
+\end{itemize}
+\[
+\uncover<3->{%
+\alert<handout:0| 3-4>{%
+\int_b^a f(x)\diff x = %
+}%
+}%
+\uncover<4->{%
+\alert<handout:0| 3-4>{%
+- \int_a^b f(x)\diff x %
+}%
+}%
+\]
+\begin{itemize}
+\item<5-| alert@5-6>  If $a = b$, then $\Delta x = $ \uncover<6->{$0$.}
+\end{itemize}
+\[
+\uncover<7->{%
+\alert<handout:0| 7-8>{%
+\int_a^a f(x) \diff x = %
+}%
+}%
+\uncover<8->{%
+\alert<handout:0| 7-8>{%
+0 %
+}%
+}%
+\]
+\end{frame}
+
+\begin{frame}
+Properties of the Integral
+\begin{enumerate}
+\item<1-| alert@2>  $\int_a^b c\diff x = c(b-a)$, where $c$ is any constant.
+\item<1-| alert@3>  $\int_a^b [f(x)+g(x)] \diff x = \int_a^b f(x)\diff x + \int_a^b g(x) \diff x$.
+\item<1-| alert@4>  $\int_a^b cf(x) \diff x = c\int_a^b f(x)\diff x$, where $c$ is any constant.
+\item<1-| alert@5>  $\int_a^b [f(x)-g(x)] \diff x = \int_a^b f(x)\diff x - \int_a^b g(x) \diff x$.
+\end{enumerate}
+\end{frame}
+% end module definite-integral-properties

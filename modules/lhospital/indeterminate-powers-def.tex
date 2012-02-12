@@ -1,0 +1,25 @@
+% begin module indeterminate-powers-def
+\begin{frame}
+\frametitle{Indeterminate Powers}
+Several indeterminate forms arise from the limit $\lim_{x\rightarrow a} f(x)^{g(x)}$.
+\[
+\begin{array}{l@{\ \ }c@{\ \ }l@{\qquad}l}
+\lim_{x\rightarrow a} f(x) = 0 & \textrm{and} & \lim_{x\rightarrow a}g(x) = 0 & \textrm{type } 0^0 \\
+& & & \\
+\lim_{x\rightarrow a} f(x) = \infty & \textrm{and} & \lim_{x\rightarrow a}g(x) = 0 & \textrm{type } \infty^0 \\
+& & & \\
+\lim_{x\rightarrow a} f(x) = 1 & \textrm{and} & \lim_{x\rightarrow a}g(x) = \pm \infty & \textrm{type } 1^{\infty} 
+\end{array}
+\]
+\uncover<2->{
+These can all be solved either by taking the natural logarithm:
+\[
+\textrm{let} \ \ y = [f(x)]^{g(x)}, \ \ \textrm{then} \ \ \ln y = g(x) \ln f(x)
+\]
+or by writing the function as an exponential:
+\[
+[f(x)]^{g(x)} = e^{g(x)\ln f(x)} .
+\]
+}
+\end{frame}
+% end module indeterminate-powers-def

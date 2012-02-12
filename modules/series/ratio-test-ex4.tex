@@ -1,0 +1,41 @@
+% begin module ratio-test-ex4
+\begin{frame}
+\begin{example}[Example 4, p. 753]
+Test the series $\displaystyle \sum_{n=1}^\infty (-1)^n \frac{n^3}{3^n}$ for absolute convergence.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\left| \frac{a_{n+1}}{a_n}\right| %
+}%
+ & \uncover<2->{=} & %
+\uncover<2->{%
+\left| \frac{(-1)^{n+1}\frac{(n+1)^3}{3^{n+1}}}{(-1)^n\frac{n^3}{3^n}}\right| %
+}\\%
+ & \uncover<3->{=} & %
+\uncover<3->{%
+\frac{(n+1)^3}{3^{n+1}}\cdot \frac{3^n}{n^3}%
+}\\%
+ & \uncover<4->{=} & %
+\uncover<4->{%
+\frac{1}{3} \left( \frac{n+1}{n}\right)^3%
+}\\%
+ & \uncover<5->{=} & %
+\uncover<5->{%
+\alert<handout:0| 6-7>{%
+\frac{1}{3} \left( 1 + \frac{1}{n}\right)^3%
+}%
+}\\%
+ & \uncover<6->{\alert<handout:0| 6-7>{\to}} & %
+\uncover<7->{%
+\alert<handout:0| 6-7,9>{%
+\frac{1}{3} \uncover<9->{ < 1 }
+}%
+}%
+\end{eqnarray*}
+\uncover<8->{%
+Therefore the series is \uncover<9->{\alert<handout:0| 9>{absolutely convergent}} by the Ratio Test.%
+}%
+\end{example}
+\end{frame}
+% end module ratio-test-ex4

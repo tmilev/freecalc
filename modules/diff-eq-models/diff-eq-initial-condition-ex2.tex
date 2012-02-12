@@ -1,0 +1,60 @@
+% begin module diff-eq-initial-condition-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 606]
+Find a solution of the differential equation $y' = \frac{1}{2}(y^2 - 1)$ that satisfies the initial condition $y(0) = 2$.
+
+\uncover<2->{%
+Substitute $t = 0$ and $y = 2$ into the formula 
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+y = \frac{1+ce^t}{1-ce^t}
+\]
+from Example 1.
+}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<3->{%
+2 %
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+\frac{1+ce^0}{1-ce^0}
+} \uncover<4->{ = } \uncover<4->{%
+\frac{1+c}{1-c}
+}\\%
+\uncover<5->{%
+2(1-c) %
+}%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+1+c%
+}\\%
+\uncover<6->{%
+2-2c %
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+1+c%
+}\\%
+\uncover<7->{%
+c %
+}%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+1 / 3
+}\\%
+\end{eqnarray*}
+
+\uncover<8->{%
+Therefore the solution to the initial-value problem is
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+y = \frac{1+\frac{1}{3}e^t}{1 - \frac{1}{3} e^t} = \frac{3 + e^t}{3 - e^t}.
+\]
+}%
+\end{example}
+\end{frame}
+% end module diff-eq-initial-condition-ex2

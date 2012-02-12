@@ -1,0 +1,40 @@
+% begin module trig-integrals-ex8
+\begin{frame}
+\begin{example}[Example 8, p. 500]
+Find $\int \sec^3 x \diff x$.
+
+\uncover<2->{%
+Integrate by parts:
+\[
+\begin{array}{l@{\qquad}l}
+u = \sec x & \diff v = \sec^2 x \diff x\\
+\alert<handout:0| 3-4>{\diff u = \uncover<4->{\sec x \tan x\diff x}} & \alert<handout:0| 5-6>{v = \uncover<6->{\tan x}}
+\end{array}
+\]
+}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<7->{%
+\alert<handout:0| 10>{\int \sec^3 x \diff x}
+}%
+& \uncover<7->{ = } & %
+\uncover<7->{\sec x \tan x - \int \sec x \tan^2 x\diff x}\\%
+& \uncover<8->{ = } & %
+\uncover<8->{\sec x \tan x - \int \sec x (\sec^2 x - 1)\diff x}\\%
+& \uncover<9->{ = } & %
+\uncover<9->{\sec x \tan x \alert<handout:0| 10>{- \int \sec^3 x\diff x} + \int \sec x \diff x}\\%
+\uncover<10->{%
+\alert<handout:0| 10>{2 \int \sec^3 x \diff x}
+}%
+& \uncover<10->{ = } & %
+\uncover<10->{\sec x \tan x + \int \sec x \diff x}\\%
+\uncover<11->{%
+\int \sec^3 x \diff x
+}%
+& \uncover<11->{ = } & %
+\uncover<11->{\frac{1}{2}(\sec x \tan x +\ln| \sec x +\tan x|)+ C}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module trig-integrals-ex8

@@ -1,0 +1,53 @@
+% begin module partial-fractions-case2-ex4
+\begin{frame}
+\begin{example}[Example 4, p. 513]
+Find $\int \frac{x^4-2x^2+4x+1}{x^3-x^2-x+1}\diff x$.
+\begin{itemize}
+\item<2->  Divide: $\frac{x^4-2x^2+4x+1}{x^3-x^2-x+1} = x + 1 + \frac{4x}{x^3-x^2-x+1}$.
+\item<3->  Factor denominator: $x^3-x^2-x+1 = (x-1)^2(x+1)$.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<4->{%
+\frac{4x}{(x-1)^2(x+1)}%
+}%
+& \uncover<4->{ = } & %
+\uncover<4->{%
+\frac{A}{x-1} + \frac{B}{(x-1)^2} + \frac{C}{x+1}%
+}\\%
+\uncover<5->{%
+4x%
+}%
+& \uncover<5->{ = } & %
+\uncover<5->{%
+A(\alert<handout:0| 8>{x-1})(\alert<handout:0| 6>{x+1}) + B(\alert<handout:0| 6>{x+1}) + C(\alert<handout:0| 8>{x-1})^2%
+}\\%
+\end{eqnarray*}
+\vspace{-.4in}
+\begin{itemize}
+\item<6->  Plug in $-1$: \uncover<7->{$4(-1) = C(-1-1)^2$, therefore $C = -1$.}
+\item<8->  Plug in $1$: \uncover<9->{$4(1) = B(1+1)$ therefore $B = 2$.}
+\item<10->  Plug in $0$: $4(0) = A(0-1)(0+1) + 2(0+1) + (-1)(0-1)^2$.
+\item<11->  Therefore $A = 1$.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\begin{array}{r@{ \ }c@{ \ }l}
+\uncover<12->{%
+\int \frac{x^4-2x^2+4x+1}{x^3-x^2-x+1}\diff x%
+}%
+& \uncover<12->{ = } & %
+\uncover<12->{%
+\int \left( x + 1 + \frac{1}{x-1} + \frac{2}{(x-1)^2} - \frac{1}{x+1}\right) \diff x%
+}\\%
+& \uncover<13->{ = } & %
+\uncover<13->{%
+\frac{x^2}{2} + x + \ln |x-1| - \frac{2}{x-1} -\ln |x+1| + K%
+}%
+\end{array}
+\]
+\end{example}
+\end{frame}
+% end module partial-fractions-case2-ex4

@@ -1,0 +1,59 @@
+% begin module improper-integral-type1-ex3
+\begin{frame}
+\begin{example}[Example 3, p. 546]
+Evaluate $\int_{-\infty}^\infty \frac{1}{1+x^2}\diff x$.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\uncover<2->{%
+\[
+\int_{-\infty}^\infty \frac{1}{1+x^2}\diff x = \alert<handout:0| 4-8>{\int_{-\infty}^0 \frac{1}{1+x^2}\diff x} + \alert<handout:0| 9-12>{\int_0^\infty \frac{1}{1+x^2}\diff x}%
+\]
+}%
+\uncover<3->{Evaluate the two integrals separately:}
+\begin{eqnarray*}
+\uncover<4->{%
+\int_{-\infty}^0 \frac{1}{1+x^2}\diff x%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\lim_{t\rightarrow -\infty} \int_{t}^0 \frac{1}{1+x^2}\diff x%
+}%
+\uncover<5->{%
+ = \lim_{t\rightarrow -\infty} \left[ \tan^{-1} x\right]_t^0%
+}\\%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\lim_{t\rightarrow -\infty} (\tan^{-1} 0 - \tan^{-1} t)%
+}%
+\uncover<7->{%
+ = \lim_{t\rightarrow -\infty}  (0 -\tan^{-1} t) %
+}\\%
+& \uncover<8->{ = } &%
+\uncover<8->{%
+0 - \left( -\frac{\pi}{2}\right) = \frac{\pi}{2}%
+}\\%
+\uncover<4->{%
+\int_0^{\infty} \frac{1}{1+x^2}\diff x%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\lim_{t\rightarrow \infty} \int_{0}^t \frac{1}{1+x^2}\diff x%
+}%
+\uncover<9->{%
+ = \lim_{t\rightarrow \infty} \left[ \tan^{-1} x\right]_0^t%
+}\\%
+& \uncover<10->{ = } &%
+\uncover<10->{%
+\lim_{t\rightarrow \infty} (\tan^{-1} t - \tan^{-1} 0)%
+}%
+\uncover<11->{%
+ = \lim_{t\rightarrow \infty} \tan^{-1} t %
+}%
+\uncover<12->{%
+ = \frac{\pi}{2}
+}%
+\end{eqnarray*}
+\uncover<13->{Therefore $\int_{-\infty}^\infty \frac{1}{1+x^2}\diff x = \frac{\pi}{2} + \frac{\pi}{2} = \pi$.}
+\end{example}
+\end{frame}
+% end module improper-integral-type1-ex3

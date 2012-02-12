@@ -1,0 +1,21 @@
+% begin module diff-eq-logistic
+\begin{frame}
+\begin{itemize}
+\item  This model works well under ideal conditions.
+\item  In real life, most populations are constrained by the environment, the amount of food, etc.
+\item  Many populations start by increasing exponentially, but then level off when they approach some upper bound, called the carrying capacity $K$.
+\item<2->  To take this into account, make two assumptions:
+\begin{itemize}
+\item<2->  $\frac{\diff P}{\diff t} \approx kP$ if $P$ is small (Initially, the growth rate is proportional to $P$).
+\item<2->  $\frac{\diff P}{\diff t} < 0$ if $P > K$ ($P$ decreases if it ever exceeds $K$).
+\end{itemize}
+\item<3->  Here is an expression that takes both assumptions into account:
+\[
+\uncover<3->{%
+\frac{\diff P}{\diff t} = kP\left( 1 - \frac{P}{K}\right)
+}%
+\]
+\item<4->  This is called the logistic differential equation.
+\end{itemize}
+\end{frame}
+% end module diff-eq-logistic

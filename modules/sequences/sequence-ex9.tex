@@ -1,0 +1,50 @@
+% begin module sequence-ex9
+\begin{frame}
+\begin{example}[Example 9, p. 716]
+Discuss the convergence of the sequence $a_n = \frac{n!}{n^n}$, where $n! = 1\cdot 2 \cdot 3 \cdot \cdots \cdot n$.
+\begin{itemize}
+\item<2->  Both the top and the bottom go to infinity as $n \to\infty$.
+\item<3->  We can't use L'Hospital's Rule, because we have no function corresponding to $n!$ ($x!$ isn't defined if $x$ isn't an integer).
+%\item<4->  Look at the first few terms to find a pattern:
+\end{itemize}
+\uncover<4->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+a_1 = 1 \qquad a_2 = \frac{1\cdot 2}{2\cdot 2} \qquad a_3 = \frac{1\cdot 2\cdot 3}{3\cdot 3\cdot 3}%
+\]
+}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<5->{%
+a_n%
+}%
+& \uncover<5->{ = }&%
+\uncover<5->{%
+\frac{\alert<handout:0| 6>{1}\cdot 2\cdot 3 \cdot 4 \cdot \cdots \cdot n}{\alert<handout:0| 6>{n}\cdot n\cdot n \cdot n \cdot \cdots \cdot n}%
+}\\%
+& \uncover<6->{ = }&%
+\uncover<6->{%
+\alert<handout:0| 6>{\frac{1}{n}}\left(\frac{
+\alert<handout:0| 7>{2}\cdot 
+\alert<handout:0| 8>{3} \cdot 
+\alert<handout:0| 9>{4} \cdot \cdots \cdot 
+\alert<handout:0| 10>{n}}{
+\alert<handout:0| 7>{n}\cdot 
+\alert<handout:0| 8>{n} \cdot 
+\alert<handout:0| 9>{n} \cdot \cdots \cdot 
+\alert<handout:0| 10>{n}}\right)%
+}%
+\end{eqnarray*}
+\begin{itemize}
+\item<7->  %
+\uncover<7->{\alert<handout:0| 7>{$\frac{2}{n}\leq 1$},} %
+\uncover<8->{\alert<handout:0| 8>{$\frac{3}{n}\leq 1$},} %
+\uncover<9->{\alert<handout:0| 9>{$\frac{4}{n}\leq 1$},$\ldots$} %
+\uncover<10->{\alert<handout:0| 10>{$\frac{n}{n}\leq 1$}.} \uncover<11->{Therefore $0\leq a_n \leq \frac{1}{n}$.}%
+\item<12->  Since $\frac{1}{n}\to 0$ as $n\to \infty$, by the Squeeze Theorem $a_n \to 0$ as $n\to \infty$.
+\end{itemize}
+\end{example}
+\end{frame}
+% end module sequence-ex9

@@ -1,0 +1,38 @@
+% begin module chain-rule-box
+\begin{frame}
+\frametitle{How to Think About the Chain Rule}
+\begin{itemize}
+\item  Always ask ``what is the last operation you do?''
+\item  Everything else gets put in a box $\square$, and you apply that operation to $\square$.
+\item  To take the derivative: 
+\begin{enumerate}
+\item  Take the derivative of the last operation.
+\item  Evaluate it on the box.
+\item  Multiply by the derivative of the box.
+\end{enumerate}
+\end{itemize}
+\uncover<2->{%
+\begin{example}
+Differentiate $y = \tan (x^3)$.
+\begin{itemize}
+\item<3-| alert@4-5>  Last operation:  \uncover<5->{tangent.}
+\item<3-| alert@6-7,10>  $\square = \uncover<7->{x^3}$\uncover<7->{.}
+\end{itemize}
+\[
+\uncover<8->{%
+y' = \left(\tan \square \right)'%
+}%
+\uncover<9->{%
+ = \left( \sec^2 \alert<handout:0| 10>{\square} \right) \alert<handout:0| 10>{\square}'%
+}%
+\uncover<10->{%
+ = \left( \sec^2 ( \alert<handout:0| 10>{x^3} )\right) \alert<handout:0| 10-11>{(x^3)}\alert<handout:0| 11>{'}%
+}%
+\uncover<11->{%
+ = \alert<handout:0| 11>{3x^2} \sec^2 \left( x^3 \right) 
+}%
+\]
+\end{example}
+}%
+\end{frame}
+% end module chain-rule-box

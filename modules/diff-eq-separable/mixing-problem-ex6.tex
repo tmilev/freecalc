@@ -1,0 +1,116 @@
+% begin module mixing-problem-ex6
+\begin{frame}[t]
+\begin{example}[Example 6, p. 621]
+\alert<handout:0| 5>{A tank contains 20 kg of salt} dissolved in 5000 L of water.  \alert<handout:0| 11>{Brine that contains 0.03 kg of salt per liter of water enters the tank} \alert<handout:0| 13>{at a rate of 25 L/min}.  \alert<handout:0| 16>{The solution is kept thoroughly mixed} and \alert<handout:0| 18>{drains from the tank at the same rate}.  \alert<handout:0| 7>{How much salt is in the tank after half an hour?}
+\begin{itemize}
+\item<2->  Let $y(t)$ denote the amount of salt (in kg) after $t$ minutes.
+\item<3->  \alert<handout:0| 4-5>{Given: $y(0) = \uncover<5->{20.}$}  \alert<handout:0| 6-7>{We want to know: $\uncover<7->{y(30).}$}
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<8->{%
+\frac{\diff y}{\diff t}%
+}%
+& \uncover<8->{ = } &%
+\uncover<8->{%
+\textrm{(rate in) $-$ (rate out)}%
+} \uncover<20->{ = 0.75 - \frac{y(t)}{200} = \frac{150 - y(t)}{200}}\\%
+\uncover<9->{%
+\textrm{rate in}%
+}%
+& \uncover<9->{ = } &%
+\uncover<9->{%
+\textrm{(\alert<handout:0| 10-11>{concentration in})(\alert<handout:0| 12-13>{rate of volume in})}%
+}\\%
+& \uncover<10->{ = } &%
+\uncover<10->{%
+\left(\alert<handout:0| 10-11>{\uncover<11->{0.03 \frac{\textrm{kg}}{\textrm{L}}}}\right)\left(\alert<handout:0| 12-13>{\uncover<13->{25 \frac{\textrm{L}}{\textrm{min}}}}\right)%
+} \uncover<14->{ = } \uncover<14->{%
+0.75 \frac{\textrm{kg}}{\textrm{min}}%
+}\\%
+\uncover<9->{%
+\textrm{rate out}%
+}%
+& \uncover<9->{ = } &%
+\uncover<9->{%
+\textrm{(\alert<handout:0| 15-16>{concentration out})(\alert<handout:0| 17-18>{rate of volume out})}%
+}\\%
+& \uncover<15->{ = } &%
+\uncover<15->{%
+\left(\alert<handout:0| 15-16>{\uncover<16->{\frac{y(t)}{5000} \frac{\textrm{kg}}{\textrm{L}}}}\right)\left(\alert<handout:0| 17-18>{\uncover<18->{25 \frac{\textrm{L}}{\textrm{min}}}}\right)%
+} \uncover<19->{ = } \uncover<19->{%
+\frac{y(t)}{200} \frac{\textrm{kg}}{\textrm{min}}%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+
+
+
+
+
+\begin{frame}[t]
+\begin{example}[Example 6, p. 621]
+A tank contains 20 kg of salt dissolved in 5000 L of water.  Brine that contains 0.03 kg of salt per liter of water enters the tank at a rate of 25 L/min.  The solution is kept thoroughly mixed and drains from the tank at the same rate.  \alert<handout:0| 11>{How much salt is in the tank after half an hour?}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<1->{%
+\frac{\diff y}{\diff t}%
+}%
+& \uncover<1->{ = } &%
+\uncover<1->{%
+\frac{150 - y(t)}{200}%
+}\\%
+\uncover<2->{%
+\int \frac{\diff y}{150-y}%
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+\int \frac{\diff t}{200}%
+}\\%
+\uncover<3->{%
+-\ln |150 - y|%
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+t /200 \alert<handout:0| 6>{+ C}%
+}  \qquad \uncover<4->{%
+y(0) = 20, \textrm{ so } \alert<handout:0| 4-6>{C = \uncover<5->{-\ln 130}}%
+}\\%
+\uncover<6->{%
+-\ln |150 - y|%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+t /200 \alert<handout:0| 6>{- \ln 130}%
+}\\%
+\uncover<7->{%
+\uncover<-8>{\alert<handout:0| 8>{|}}150 - y\uncover<-8>{\alert<handout:0| 8>{|}}%
+}%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+130e^{-t/200}%
+}\\%
+& & \uncover<8->{%
+y < 150 = (0.03)(5000), \textrm{ so } \alert<handout:0| 8-9>{|150 - y| = 150 - y}%
+}\\%
+\uncover<10->{%
+y%
+}%
+& \uncover<10->{ = } &%
+\uncover<10->{%
+150 - 130e^{-t/200}%
+}\\%
+\uncover<11->{%
+y(30)%
+}%
+& \uncover<11->{ = } &%
+\uncover<11->{%
+150 - 130e^{-30/200} \approx 38.1 \textrm{kg}%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module mixing-problem-ex6

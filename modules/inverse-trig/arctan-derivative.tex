@@ -1,0 +1,18 @@
+% begin module arctan-derivative
+\begin{frame}
+\begin{theorem}[The Derivative of $\tan^{-1} x$]
+\[
+\frac{\diff}{\diff x} (\tan^{-1} x) = \frac{1}{1 + x^2}.
+\]
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item  $\tan$ is differentiable, so $\tan^{-1}$ is too.
+\item<2->  Let $y = \tan^{-1} x$.  Then $\alert<handout:0| 3,7>{\tan y = x}$.
+\item<3->  Differentiate implicitly with respect to $x$:
+\item<4->  $\sec^2 y \frac{\diff y}{\diff x} = 1$.  
+\item<5->  $\frac{\diff y}{\diff x} = \frac{1}{\sec^2 y} \uncover<6->{= \frac{1}{1+\alert<handout:0| 7>{\tan^2y}}} \uncover<7->{= \frac{1}{1 + \alert<handout:0| 7>{x^2}}.}$  
+\end{itemize}
+\end{proof}
+\end{frame}
+% end module arctan-derivative

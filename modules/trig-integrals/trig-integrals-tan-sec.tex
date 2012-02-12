@@ -1,0 +1,67 @@
+% begin module trig-integrals-tan-sec
+\begin{frame}
+\frametitle{Strategy for Evaluating $\int \tan^m x \sec^n x \diff x$}
+\only<handout:1| -1>{%
+\begin{enumerate}
+\item  If the power of secant is even ($n = 2k$), save a factor of $\sec^2 x$ and use $\sec^2 x = 1 + \tan^2 x$ to express the remaining factors in terms of tangent:
+\begin{eqnarray*}
+\int \tan^m x \sec^{2k} x \diff x & = & \int \tan^m x (\sec^2 x)^{k-1} \sec^2 x \diff x\\
+& = & \int \tan^m x (1 + \tan^2 x)^{k-1}\sec^2 x \diff x
+\end{eqnarray*}
+Then substitute $u = \tan x$.
+\end{enumerate}
+}%
+\only<handout:2| 2>{%
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item  If the power of tangent is odd ($m = 2k+1$), save one factor of $\sec x \tan x$ and use $\tan^2 x =  \sec^2 x - 1$ to express the remaining factors in terms of secant:
+\begin{eqnarray*}
+\int \tan^{2k+1} x \sec^{n} x \diff x & = & \int (\tan^2 x)^k \sec^{n-1} x \sec x\tan x \diff x\\
+& = & \int (\sec^2 x - 1)^k\sec^{n-1} x\sec x\tan x \diff x
+\end{eqnarray*}
+Then substitute $u = \sec x$.
+\end{enumerate}
+}%
+\only<handout:3| 3->{%
+For other cases, more creativity is required.  We may need to use identities or integration by parts.  We will also need to know the indefinite integrals of tangent and secant.
+
+\begin{columns}[t]
+\column{.5\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+& & \int \tan x \diff x\\
+& \uncover<4->{ = } & %
+\uncover<4->{\int \frac{\sin x}{\cos x}\diff x}\\
+& & \uncover<5->{\textrm{Let $u = \cos x$, so }}\\
+& & \uncover<5->{\diff u = -\sin x \diff x}\\
+& \uncover<6->{ = } & %
+\uncover<6->{-\int \frac{\diff u}{u}}\\
+& \uncover<7->{ = } & %
+\uncover<7->{-\ln |u| + C}\\
+& \uncover<8->{ = } & %
+\uncover<8->{-\ln |\cos x| + C}\\
+& \uncover<9->{ = } & %
+\uncover<9->{\ln |\sec x| + C}\\
+\end{eqnarray*}
+\column{.5\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+& & \int \sec x \diff x\\
+& \uncover<10->{ = } & %
+\uncover<10->{\int \sec x\frac{\sec x + \tan x}{\sec x + \tan x}\diff x}\\
+& \uncover<11->{ = } & %
+\uncover<11->{\int \frac{\sec^2 x + \sec x \tan x}{\sec x + \tan x}\diff x}\\
+& & \uncover<12->{\textrm{Let $u = \sec x + \tan x$:}}\\
+& \uncover<13->{ = } & %
+\uncover<13->{\int \frac{\diff u}{u}}\\
+& \uncover<14->{ = } & %
+\uncover<14->{\ln |u| + C}\\
+& \uncover<15->{ = } & %
+\uncover<15->{\ln |\sec x + \tan x| + C}\\
+\end{eqnarray*}
+\end{columns}
+}%
+\end{frame}
+% end module trig-integrals-tan-sec

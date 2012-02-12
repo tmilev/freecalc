@@ -1,0 +1,25 @@
+% begin module differentiable-implies-continuous
+\begin{frame}
+\begin{theorem}[Differentiability Implies Continuity]
+If \alert<handout:0| 6>{$f$ is differentiable at $a$}, then $f$ is continuous at $a$.
+\end{theorem}
+\begin{proof}
+\begin{eqnarray*}
+\uncover<2->{\lim_{x\rightarrow a}f(x)}%
+ &\uncover<2->{ = } & %
+\uncover<2->{\lim_{x\rightarrow a}f(a) + \lim_{x\rightarrow a}[f(x) - f(a)]}\\%
+ &\uncover<3->{ = } & %
+\uncover<3->{\lim_{x\rightarrow a}f(a) + \lim_{x\rightarrow a}\frac{f(x) - f(a)}{x-a} (x-a)}\\%
+ &\uncover<4->{ = } & %
+\uncover<4->{\lim_{x\rightarrow a}f(a) + \alert<handout:0| 6>{\lim_{x\rightarrow a}\frac{f(x) - f(a)}{x-a}}\cdot \alert<handout:0| 7>{\lim_{x\rightarrow a}(x-a)}}\\%
+ &\uncover<5->{ = } & %
+\uncover<5->{\alert<handout:0| 8>{\lim_{x\rightarrow a}f(a)} + \alert<handout:0| 6>{f'(a)} \cdot \alert<handout:0| 7>{0}}\\%
+ &\uncover<8->{ = } & %
+\uncover<8->{\alert<handout:0| 8>{f(a)}}%
+\end{eqnarray*}
+\uncover<9->{%
+Therefore $f$ is continuous at $a$. \qedhere
+}%
+\end{proof}
+\end{frame}
+% end module differentiable-implies-continuous

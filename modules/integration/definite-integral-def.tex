@@ -1,0 +1,36 @@
+% begin module definite-integral-def
+\begin{frame}\frametitle{(5.2) The Definite Integral}
+\begin{definition}[Definite Integral]
+\begin{itemize}
+\item  Let $f$ be a function defined for $a\leq x\leq b$.
+\item  Divide the interval $[a,b]$ into $n$ subintervals of equal width $\Delta x = (b-a)/n$.  
+\item  Let $x_0 (=a)$, $x_1, x_2$, $\ldots ,$ $x_n (=b)$ be the endpoints of these subintervals.
+\item  Let $x_1^*, x_2^*, \ldots , x_n^*$ be any sample points in these subintervals; that is, $x_i^*$ is in $[x_{i-1},x_i]$.  
+\end{itemize}
+Then the definite integral of $f$ from $a$ to $b$ is
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_a^b f(x) \diff x = \lim_{n\to \infty} \sum_{i=1}^n f(x_i^*)\Delta x,
+\]
+provided that the limit exists.  If the limit exists, we say that $f$ is integrable on $[a,b]$.
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\[
+\mathop{\alert<handout:0| 2>{\int}}_{\alert<handout:0| 4>{a}}^{\alert<handout:0| 4>{b}} \alert<handout:0| 3>{f(x)} \alert<handout:0| 0>{\diff x} = \lim_{n\to \infty} \sum_{i=1}^n f(x_i^*)\Delta x,
+\]
+\begin{itemize}
+\item<1-| alert@2>  $\int$ is called the integration sign.
+\item<1-| alert@3>  $f(x)$ is called the integrand.
+\item<1-| alert@4>  $a$ and $b$ are called the limits of integration.
+\item<5->  The definite integral is a number.  It does not depend on $x$.  We could use any variable instead of $x$.
+\end{itemize}
+\uncover<5->{%
+\[
+\int_a^b f(x) \diff x = \int_a^b f(t)\diff t = \int_a^b f(r)\diff r = \int_a^b f(\theta )\diff \theta
+\]
+}%
+\end{frame}
+% end module definite-integral-def

@@ -1,0 +1,36 @@
+% begin module indeterminate-differences-ex8
+\begin{frame}
+\begin{example}[Example 8, p. 475]
+Evaluate $\lim_{x\rightarrow (\pi /2)^-} (\alert<handout:0| 3-4>{\sec x} - \alert<handout:0| 5-6>{\tan x})$.
+\begin{itemize}
+\item<2-| alert@3-4>  $\lim_{x\rightarrow (\pi / 2)^-} \sec x = $ \uncover<4->{$\infty$.}
+\item<2-| alert@5-6>  $\lim_{x\rightarrow (\pi / 2)^-} \tan x = $ \uncover<6->{$\infty$.}
+\item<7->  This is an indeterminate form of type $\infty - \infty$.
+\item<8->  Apply L'Hospital's rule:
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<9->{%
+\lim_{x\rightarrow (\pi / 2)^-} ( \sec x - \tan x) & \uncover<9->{=} & %
+}%
+\uncover<9->{%
+\lim_{x\rightarrow (\pi / 2)^-} \left( \frac{1}{\cos x} - \frac{\sin x}{\cos x}\right)%
+}\\%
+& \uncover<10->{ = } & %
+\uncover<10->{%
+\lim_{x\rightarrow (\pi / 2)^-} \frac{1 - \sin x}{\cos x} %
+}\\%
+& & \uncover<11->{\textrm{(indeterminate form of type $0/0$.)}}\\
+& \uncover<12->{ = } & %
+\uncover<12->{%
+\lim_{x\rightarrow (\pi / 2)^-} \frac{\alert<handout:0| 14-15>{\frac{\diff}{\diff x} (1 - \sin x)}}{\alert<handout:0| 16-17>{\frac{\diff}{\diff x} \cos x}} %
+}\\%
+& \uncover<13->{ = } & %
+\uncover<13->{%
+\lim_{x\rightarrow (\pi / 2)^-} \frac{\uncover<15->{\alert<handout:0| 15>{- \cos x}}}{\uncover<17->{\alert<handout:0| 17>{ -\sin x}}} %
+}  \uncover<18->{ = }  \uncover<18->{0}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module indeterminate-differences-ex8

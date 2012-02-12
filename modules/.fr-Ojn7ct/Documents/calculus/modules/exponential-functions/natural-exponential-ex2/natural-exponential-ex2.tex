@@ -1,0 +1,25 @@
+% begin module natural-exponential-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 398]
+Differentiate the function $y = e^{\tan x}$.
+\begin{itemize}
+\item<2->  Let $\alert<6-8>{u = \tan x}$.
+\item<3->  Then $\alert<5>{y = e^u}$.
+\item<4->  $\frac{\diff y}{\diff x} = \alert<5>{\frac{\diff y}{\diff u}}\ \frac{\diff u}{\diff x}%
+ \uncover<5->{ = \alert<5>{e^{\alert<7-8>{u}}}\alert<6>{\frac{\diff u}{\diff x}}}%
+ \uncover<6->{ = e^{\only<-7>{\alert<7>{u}}\only<8->{\alert<8>{\tan x}}}  \alert<6>{\sec^2 x}.}$
+\end{itemize}
+\end{example}
+\begin{example}[Example 3, p. 398]
+Find $y'$ if $y = e^{-4x}\sin 5x$.
+\begin{eqnarray*}
+\uncover<10->{y'}& \uncover<10->{=} & %
+\uncover<10->{e^{-4x}\ \alert<11>{\frac{\diff}{\diff x}(\sin 5x)} + (\sin 5x)\ \alert<11>{\frac{\diff}{\diff x} (e^{-4x})} }\\
+& \uncover<11->{=} & %
+\uncover<11->{e^{-4x}\ \alert<11>{(5\cos 5x)} + (\sin 5x)\ \alert<11>{(-4e^{-4x})} }\\
+& \uncover<11->{=} & %
+\uncover<11->{e^{-4x} (5\cos 5x - 4 \sin 5x )}
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module natural-exponential-ex2

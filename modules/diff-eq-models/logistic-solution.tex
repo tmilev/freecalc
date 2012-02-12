@@ -1,0 +1,87 @@
+% begin module logistic-solution
+\begin{frame}
+\begin{columns}[c]
+\column{.6\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\frac{\diff P}{\diff t} & = & kP\left( 1 - \frac{P}{K}\right)\\
+\uncover<2->{%
+\int \frac{1}{P(1-P/K)}\diff P%
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+\int k\diff t%
+}\\%
+\uncover<3->{%
+\int \frac{K}{P(K-P)}\diff P%
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+\int k\diff t%
+}\\%
+\uncover<4->{%
+\int \left( \frac{1}{P} + \frac{1}{K-P}\right)\diff P%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\int k\diff t%
+}\\%
+\uncover<5->{%
+\ln |P| - \ln |K-P|%
+}%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+kt + C%
+}\\%
+\uncover<6->{%
+\ln  \left| \frac{K-P}{P}\right|%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+-kt - C%
+}\\%
+\uncover<7->{%
+\alert<handout:0| 11>{ \frac{K-P}{P}}%
+}%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+\alert<handout:0| 8>{\pm e^{-C}}e^{-kt}%
+}\uncover<8->{\alert<handout:0| 11>{ = \alert<handout:0| 8>{A} e^{-kt}}}\\%
+\uncover<9->{%
+K%
+}%
+& \uncover<9->{ = } &%
+\uncover<9->{%
+P(1+Ae^{-kt})%
+}\\%
+\uncover<10->{%
+P%
+}%
+& \uncover<10->{ = } &%
+\uncover<10->{%
+\frac{K}{1+Ae^{-kt}}%
+}\\%
+\end{eqnarray*}
+\column{.4\textwidth}
+\uncover<11->{%
+Plug in $P(0) = P_0$:
+\[
+\frac{K - P_0}{P_0} = Ae^{-k\cdot 0} = A.
+\]
+}%
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+The solution to the initial value problem
+\[
+\frac{\diff P}{\diff t} = kP\left( 1 - \frac{P}{K}\right), \qquad P(0) = P_0
+\]
+is
+\[
+P = \frac{K}{1+Ae^{-kt}},\qquad A = \frac{K-P_0}{P_0}.
+\]
+\end{frame}
+% end module logistic-solution

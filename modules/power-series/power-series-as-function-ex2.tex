@@ -1,0 +1,54 @@
+% begin module power-series-as-function-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 765]
+Find a power series representation for $\frac{1}{x+2}$.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\frac{1}{2+x}%
+}%
+ & \uncover<2->{ = } &%
+\uncover<2->{%
+\frac{1}{2\left( 1 \alert<handout:0| 3>{+} \frac{x}{2}\right)}%
+}%
+  \uncover<3->{ = } %
+\uncover<3->{%
+\frac{1}{2}\cdot \frac{1}{\left[ 1 \alert<handout:0| 3>{-} \alert<handout:0| 4>{\left( \alert<handout:0| 3>{-}\frac{x}{2}\right)} \right]}%
+}\\%
+ & \uncover<4->{ = } &%
+\uncover<4->{%
+\frac{1}{\alert<handout:0| 9-10>{2}}\sum_{n=0}^\infty \left( \alert<handout:0| 4>{\alert<handout:0| 5-6>{-}\frac{\alert<handout:0| 7-8>{x}}{\alert<handout:0| 9-10>{2}}}\right)^{\alert<handout:0| 5-10>{n}}%
+}%
+  \uncover<5->{ = } %
+\uncover<5->{%
+\sum_{n=0}^\infty \frac{\alert<handout:0| 6>{\uncover<6->{(-1)^n}}}{\alert<handout:0| 10>{\uncover<10->{2^{n+1}}}}\alert<handout:0| 8>{\uncover<8->{x^n}}%
+}\\%
+ & \uncover<11->{ = } &%
+\uncover<11->{%
+\frac{1}{2} - \frac{x}{4} + \frac{x^2}{8} - \frac{x^3}{16} + \cdots%
+}%
+\end{eqnarray*}
+\uncover<12->{Interval of convergence:}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<13->{%
+\alert<handout:0| 13>{\left| - \frac{x}{2}\right|}%
+}%
+ & \uncover<12->{ \alert<handout:0| 12-13>{<} } &%
+\uncover<12->{%
+\alert<handout:0| 12-13>{1}%
+}\\%
+\uncover<14->{%
+|x|%
+}%
+ & \uncover<14->{ \alert<handout:0| 12-13>{<} } &%
+\uncover<14->{%
+\alert<handout:0| 12-13>{2}%
+}%
+\end{eqnarray*}
+\uncover<15->{Therefore the interval of convergence is $(-2, 2)$.}%
+\end{example}
+\end{frame}
+% end module power-series-as-function-ex2

@@ -1,0 +1,48 @@
+% begin module series-geometric-ex4
+\begin{frame}
+\begin{example}[Example 4, p. 726]
+Write the number $2.3\overline{17} = 2.3171717\ldots$ as a quotient of integers.
+\uncover<2->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\alert<handout:0| 3>{2.3}%
+\alert<handout:0| 4>{17}%
+\alert<handout:0| 5>{17}%
+\alert<handout:0| 6>{17}%
+\ldots = 
+\alert<handout:0| 3>{2.3}%
++ \alert<handout:0| 7-11>{\alert<handout:0| 4>{\frac{17}{10^3}}%
++ \alert<handout:0| 5>{\frac{17}{10^5}}%
++ \alert<handout:0| 6>{\frac{17}{10^7}}%
++ \cdots}%
+\]
+}%
+\begin{itemize}
+\item<7->  After the first term, we have a geometric series.
+\item<8->  \alert<handout:0| 8-9,12-13>{$a =$ \uncover<9->{$\frac{17}{10^3}$}} and \alert<handout:0| 10-11,14-15>{$r =$ \uncover<11->{$\frac{1}{10^2}$.}}
+\end{itemize}
+\begin{eqnarray*}
+\uncover<12->{%
+2.3171717\ldots%
+}%
+& \uncover<12->{ = } &%
+\uncover<12->{%
+2.3 + \frac{\uncover<13->{\alert<handout:0| 13>{\frac{17}{10^3}}}}{1- \uncover<15->{\alert<handout:0| 15>{\frac{1}{10^2}}}}%
+}%
+ \uncover<16->{ = } %
+\uncover<16->{%
+2.3 + \frac{\uncover<13->{\alert<handout:0| 13>{\frac{17}{1000}}}}{\uncover<15->{\alert<handout:0| 15>{\frac{99}{100}}}}%
+}\\%
+& \uncover<17->{ = } &%
+\uncover<17->{%
+\frac{23}{10} + \frac{17}{990}%
+}%
+ \uncover<18->{ = } %
+\uncover<18->{%
+\frac{1147}{495}%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module series-geometric-ex4

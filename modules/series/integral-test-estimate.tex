@@ -1,0 +1,26 @@
+% begin module integral-test-estimate
+\begin{frame}
+\frametitle{Estimating the Sum of a Series}
+\begin{itemize}
+\item  Suppose we have already used the Integral Test to show that $\sum a_n$ converges.
+\item  Now we want to find an approximation to the sum of the series.
+\item<2->  Any partial sum $s_n$ is an approximation.  But how good?
+\item<3->  Estimate the size of the remainder $R_n = s - s_n = a_{n+1}+a_{n+2}+a_{n+3}+\cdots $.
+\item<4->  Suppose $f(n) = a_n$.  Draw rectangles with heights $a_{n+1}, a_{n+2}, \ldots$.
+\item<5->  Use the right endpoints to find the height: then the rectangles are under the curve $y = f(x)$.
+\item<6->  $R_n = a_{n+1}+a_{n+2}+a_{n+3}+\cdots \leq \int_n^\infty f(x)\diff x$.
+\item<5->  Use the left endpoints to find the height: then the rectangles are above the curve $y = f(x)$.
+\item<7->  $R_n = a_{n+1}+a_{n+2}+a_{n+3}+\cdots \geq \int_{n+1}^\infty f(x)\diff x$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+Remainder Estimate for the Integral Test
+
+Suppose $f(k) = a_k$, where $f$ is continuous, positive, and decreasing for $x\geq n$, and $\sum a_k$ is convergent with sum $s$.  If $R_n = s - s_n$, then
+\[
+\int_{n+1}^\infty f(x)\diff x \leq R_n \leq \int_n^\infty f(x)\diff x%
+\]
+\end{frame}
+% end module integral-test-estimate

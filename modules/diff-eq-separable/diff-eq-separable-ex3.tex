@@ -1,0 +1,70 @@
+% begin module diff-eq-separable-ex3
+\begin{frame}
+\begin{example}[Example 3, p. 617]
+Solve the equation $\alert<handout:0| 9>{y' =} \alert<handout:0| 9>{x^2y}$.
+\belowdisplayskip=0pt
+\abovedisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\frac{\diff y}{\diff x}%
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+x^2y%
+}\\%
+\uncover<3->{%
+\frac{1}{y}\diff y%
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+x^2\diff x \qquad y\neq 0%
+}\\%
+\uncover<4->{%
+\int \frac{1}{y}\diff y%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\int x^2\diff x%
+}\\%
+\uncover<5->{%
+\ln |y|%
+}%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\frac{1}{3}x^3 + C%
+}\\%
+\uncover<6->{%
+e^{\ln |y|}%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+e^{x^3/3 + C}%
+}\\%
+\uncover<7->{%
+\alert<handout:0| 8>{|}y\alert<handout:0| 8>{|}%
+}%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+e^Ce^{x^3/3}%
+}\\%
+\uncover<8->{%
+y%
+}%
+& \uncover<8->{ = } &%
+\uncover<8->{%
+\alert<handout:0| 8,10>{\pm} \alert<handout:0| 10>{e^C}e^{x^3/3}%
+}%
+\end{eqnarray*}
+\uncover<9->{%
+The function $y = 0$ satisfies the equation.  }%
+\uncover<10->{ General solution:
+\belowdisplayskip=0pt
+\abovedisplayskip=0pt
+\[
+y = \alert<handout:0| 10>{A}e^{x^3/3}.
+\]
+\vspace{-.2in}
+}%
+\end{example}
+\end{frame}
+% end module diff-eq-separable-ex3

@@ -1,0 +1,74 @@
+% begin module series-convergence
+\begin{frame}
+\begin{itemize}
+\item  Does it make sense to add infinitely many numbers?
+\item<2->  Sometimes yes, sometimes no.
+\item<3->  Consider the series $\sum_{n=1}^\infty n$.
+\end{itemize}
+\uncover<3->{%
+\abovedisplayskip=2pt
+\[
+\alert<handout:0| 4-15>{ 1}%
+\alert<handout:0| 6-15>{+2}%
+\alert<handout:0| 8-15>{+3}%
+\alert<handout:0| 10-15>{+4}%
+\alert<handout:0| 12-15>{+5}%
+\alert<handout:0| 14-15>{+ \cdots + n}%
++ \cdots 
+\]
+\belowdisplayskip=2pt
+}%
+\begin{itemize}
+\item<4->  If we add the terms, we get the partial sums %
+\uncover<5->{\alert<handout:0| 5>{$1$},}%
+\uncover<7->{\alert<handout:0| 7>{$3$},}%
+\uncover<9->{\alert<handout:0| 9>{$6$},}%
+\uncover<11->{\alert<handout:0| 11>{$10$},}%
+\uncover<13->{\alert<handout:0| 13>{$15$}.}
+\item<14->  After the $n$th term, we get \uncover<15->{\alert<handout:0| 15>{$\frac{n(n+1)}{2}$}.}%
+\item<16->  This goes to $\infty$ as $n$ gets bigger.
+\item<17->  Now consider the series $\sum_{n=1}^\infty \frac{1}{2^n}$.
+\end{itemize}
+\uncover<17->{%
+\abovedisplayskip=2pt
+\[
+\alert<handout:0| 18-29>{ \frac{1}{2}}%
+\alert<handout:0| 20-29>{+\frac{1}{4}}%
+\alert<handout:0| 22-29>{+\frac{1}{8}}%
+\alert<handout:0| 24-29>{+\frac{1}{16}}%
+\alert<handout:0| 26-29>{+\frac{1}{32}}%
+\alert<handout:0| 28-29>{+ \cdots + \frac{1}{2^n}}%
++ \cdots 
+\]
+\belowdisplayskip=2pt
+}%
+\begin{itemize}
+\item<18->  If we add the terms, we get the partial sums %
+\uncover<19->{\alert<handout:0| 19>{$\frac{1}{2}$},}%
+\uncover<21->{\alert<handout:0| 21>{$\frac{3}{4}$},}%
+\uncover<23->{\alert<handout:0| 23>{$\frac{7}{8}$},}%
+\uncover<25->{\alert<handout:0| 25>{$\frac{15}{16}$},}%
+\uncover<27->{\alert<handout:0| 27>{$\frac{31}{32}$}.}
+\item<28->  After the $n$th term, we get \uncover<29->{\alert<handout:0| 29>{$1-\frac{1}{2^n}$}.}%
+\item<30->  This gets closer and closer to $1$.  We write $\sum_{n=1}^\infty \frac{1}{2^n} = 1$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{definition}[Partial Sum, Convergent, Divergent, Sum]
+Given a series $\sum_{i=1}^\infty a_i = a_1 + a_2 + a_3 + \cdots$, let $s_n$ denote the $n$th partial sum:
+\[
+s_n = \sum_{i=1}^n a_i = a_1 + a_2 + \cdots + a_n
+\]
+
+If the sequence $\{ s_n\}$ is convergent and $\lim_{n\to \infty} s_n = s$, then we say that the series $\sum_{i=1}^\infty a_i$ is convergent, and we write
+\[
+\sum_{i=1}^\infty a_i = s.
+\]
+In this case, we call $s$ the sum of the series.
+
+If the sequence $\{ s_n\}$ is divergent, then we say that the series $\sum_{i=1}^\infty a_i$ is divergent.
+\end{definition}
+\end{frame}
+% end module series-convergence

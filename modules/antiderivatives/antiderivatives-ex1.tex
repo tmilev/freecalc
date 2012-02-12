@@ -1,0 +1,46 @@
+% begin module antiderivatives-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 275]
+Find the most general antiderivative of each of the following functions.
+\begin{columns}[c]
+\column{.5\textwidth}
+\[
+f(x) = \sin x%
+\]
+\begin{itemize}
+\item<2->  If \alert<handout:0| 3-4>{$F(x) = \uncover<4->{-\cos x}$}, then $F'(x) = \sin x$.
+\item<5->  Therefore the most general antiderivative is $G(x) = -\cos x + C$.
+\end{itemize}
+\column{.5\textwidth}
+\[
+f(x) = x^n, n\geq 0%
+\]
+\begin{itemize}
+\item<6->  If \alert<handout:0| 7-8>{$F(x) = \uncover<8->{\frac{x^{n+1}}{n+1}}$}, then $F'(x) = x^n$.
+\item<9->  Therefore the most general antiderivative is $G(x) = \frac{x^{n+1}}{n+1} + C$.
+\end{itemize}
+\end{columns}
+\end{example}
+\end{frame}
+
+
+\begin{frame}
+\begin{example}[Example 1c, p. 275]
+Find the most general antiderivative of $f(x) = x^{-3}$.%
+\begin{itemize}
+\item<2->  If \alert<handout:0| 3-4>{$F(x) = \uncover<4->{\frac{x^{-2}}{(-2)} = -\frac{1}{2x^2}}$}, then $F'(x) = x^{-3}$.
+\item<5->  This is valid for any interval on which $x^{-3}$ is defined.
+\item<6-| alert@6-7>  $x^{-3}$ is defined \uncover<7->{everywhere except at $0$.}
+\item<8->  The most general answer needs two different constants, one for $(-\infty , 0)$ and one for $(0, \infty )$.
+\end{itemize}
+\uncover<9->{%
+\[
+G(x) = \left\{ \begin{array}{lll}
+-\frac{1}{2x^2} + C_1 & \textrm{if} & x > 0\\
+-\frac{1}{2x^2} + C_2 & \textrm{if} & x < 0
+\end{array}\right.
+\]
+}%
+\end{example}
+\end{frame}
+% end module antiderivatives-ex1

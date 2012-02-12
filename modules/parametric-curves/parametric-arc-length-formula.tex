@@ -1,0 +1,27 @@
+% begin module parametric-arc-length-formula
+\begin{frame}
+\frametitle{Arc Length}
+\begin{itemize}
+\item  We already know how to find the length $L$ of a curve $C$ given in the form $y = F(x)$, $a\leq x \leq b$.
+\item<2->  Suppose $C$ can also be described by parametric equations $x = f(t)$, $y = g(t)$, for $\alpha \leq t \leq \beta$.
+\item<3-| alert@10>  Suppose further that $\diff x/\diff t = f'(t) > 0$.
+\item<4->  This means that $C$ is traversed once, from left to right, as $t$ goes from $\alpha$ to $\beta$.
+\item<5->  Then the arc length is
+\end{itemize}
+\begin{eqnarray*}
+\uncover<5->{%
+&  & \ \ \int_a^b \sqrt{1+\left( \alert<handout:0| 6-7>{\frac{\diff y}{\diff x}}\right)^2} \alert<handout:0| 8-9>{\diff x}%
+} \uncover<5->{ = } \uncover<5->{%
+\int_\alpha^\beta \sqrt{1+\left( \alert<handout:0| 6-7>{\uncover<7->{\frac{\diff y/ \diff t}{\diff x/ \diff t}}}\right)^2} \alert<handout:0| 8-9>{\uncover<9->{\alert<handout:0| 10>{\frac{\diff x}{\diff t}}\diff t}}%
+}\\%
+& \uncover<10->{  } &%
+\uncover<10->{%
+ = \int_\alpha^\beta \sqrt{1+\left( \frac{\diff y/ \diff t}{\diff x/ \diff t}\right)^2}\alert<handout:0| 10>{\sqrt{\left( \frac{\diff x}{\diff t}\right)^2}} \diff t%
+}%
+ \uncover<11->{  } %
+\uncover<11->{%
+ = \int_\alpha^\beta \sqrt{\left( \frac{\diff x}{\diff t}\right)^2+\left( \frac{\diff y}{\diff t}\right)^2} \diff t%
+}%
+\end{eqnarray*}
+\end{frame}
+% end module parametric-arc-length-formula

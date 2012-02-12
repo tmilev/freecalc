@@ -1,0 +1,49 @@
+% begin module series-geometric-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 724]
+An important example is the geometric series
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\[
+a + ar + ar^2 + ar^3 + \cdots + ar^{n-1} + \cdots = \sum_{n = 1}^\infty ar^{n-1}, \qquad a\neq 0
+\]
+\begin{itemize}
+\item<2->  If $r = 1$, then $s_n = a + a + \cdots + a = na \to \pm\infty$.
+\item<3->  Since $\lim_{n\to\infty} s_n$ doesn't exist, the series is divergent when $r = 1$.
+\item<4->  If $r\neq 1$, then
+\end{itemize}
+\only<handout:0| -5>{%
+\uncover<4->{%
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\[
+\begin{array}{rcrrrrrr}
+s_n & = & a & + ar & + ar^2 & + \cdots & + ar^{n-1} & \\
+\invisible<1->{-}\qquad \uncover<5->{rs_n} & \uncover<5->{=} &  &  \uncover<5->{ar} & \uncover<5->{+ ar^2} & \uncover<5->{+ \cdots} & \uncover<5->{+ ar^{n-1}} & \uncover<5->{+ ar^n}\\
+%\hline
+\uncover<6->{s_n - rs_n} & \uncover<6->{=} & \multicolumn{6}{l}{\uncover<6->{a-ar^n}}\\
+\uncover<7->{s_n} & \uncover<7->{=} & \multicolumn{6}{l}{\uncover<7->{\frac{a(1-r^n)}{1-r}}}
+\end{array}
+\]
+}}%
+\only<handout:1| 6->{%
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\[
+\begin{array}{rcrrrrrr}
+\alert<handout:0| 8>{s_n} & = & \alert<handout:0| 9>{a} & + ar & + ar^2 & + \cdots & + ar^{n-1} & \\
+\alert<handout:0| 8>{-\qquad \uncover<5->{rs_n}} & \uncover<5->{=} &  &  \uncover<5->{ar} & \uncover<5->{+ ar^2} & \uncover<5->{+ \cdots} & \uncover<5->{+ ar^{n-1}} & \uncover<5->{+ \alert<handout:0| 9>{ar^n}}\\
+\hline
+\uncover<7->{\alert<handout:0| 8>{s_n - rs_n}} & \uncover<7->{=} & \multicolumn{6}{l}{\uncover<7->{\alert<handout:0| 9>{a-ar^n}}}\\
+\uncover<10->{s_n} & \uncover<10->{=} & \multicolumn{6}{l}{\uncover<10->{\frac{a(1-r^n)}{1-r}}}
+\end{array}
+\]
+}%
+
+\begin{itemize}
+\item<11->  If $-1 < r < 1$, then $r^n\to 0$, so the geometric series is convergent and its sum is $a/(1-r)$.
+\item<12->  If $r > 1$ or $r \leq -1$, then $r^n$ is divergent, so $\sum_{n=1}^\infty ar^{n-1}$ diverges.
+\end{itemize}
+\end{example}
+\end{frame}
+% end module series-geometric-ex1

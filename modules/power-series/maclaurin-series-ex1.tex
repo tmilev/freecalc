@@ -1,0 +1,48 @@
+% begin module maclaurin-series-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 772]
+Find the Maclaurin series of $f(x) = e^x$ and its radius of convergence.
+\begin{itemize}
+\item<2-| alert@2-3>  $f^{(n)}(x) = $ \uncover<3->{$e^x$.}
+\item<4-| alert@4-6>  $f^{(n)}(0) = $ \uncover<5->{$e^0 = 1$.}
+\item<6->  Therefore the Maclaurin series is
+\end{itemize}
+\uncover<6->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=0}^\infty \frac{\alert<handout:0| 6>{f^{(n)}(0)}}{n!}x^n = \sum_{n=0}^\infty \frac{\alert<handout:0| 6>{1}}{n!}x^n = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots%
+\]
+}%
+\begin{itemize}
+\item<7->  To find the radius of convergence, let $a_n = \frac{x^n}{n!}$.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+%\begin{eqnarray*}
+\[
+\uncover<8->{%
+\lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n}\right|%
+}%
+ \uncover<8->{ = } %
+\uncover<8->{%
+\lim_{n\to\infty} \left| \frac{\alert<handout:0| 9-10>{x^{n+1}}}{\alert<handout:0| 11-12>{(n+1)!}}\cdot \frac{\alert<handout:0| 11-12>{n!}}{\alert<handout:0| 9-10>{x^n}}\right|%
+}%
+ \uncover<9->{ = } %
+\uncover<9->{%
+\alert<handout:0| 13-14>{\lim_{n\to\infty} \frac{\uncover<10->{\alert<handout:0| 10>{|x|}}}{\uncover<12->{\alert<handout:0| 12>{n+1}}}}%
+}%
+ \uncover<13->{\alert<handout:0| 13-14>{ = }} %
+\uncover<14->{%
+\alert<handout:0| 14-15>{0}%
+}%
+ \uncover<15->{\alert<handout:0| 15>{ < 1}} %
+%\end{eqnarray*}
+\]
+\begin{itemize}
+\item<16->  Therefore by the Ratio Test the series converges for all $x$.
+\item<17->  Therefore $R = \infty$.
+\end{itemize}
+\end{example}
+\end{frame}
+% end module maclaurin-series-ex1

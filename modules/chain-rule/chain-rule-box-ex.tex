@@ -1,0 +1,51 @@
+% begin module chain-rule-box-ex
+\begin{frame}
+\begin{example}
+Differentiate $y = \sqrt{\alert<handout:0| 7>{\sin (x^2+1)}}$.
+\begin{columns}[t]
+\column{.3\textwidth}
+\begin{itemize}
+\item<2-| alert@3-4>  Last operation: \uncover<4->{square root.}
+\item<2-| alert@5-7,9>  $\square = \uncover<6->{\sin (x^2+1)}$.
+%\vspace{1in}
+\item<10-| alert@11-12>  Last operation: \uncover<12->{sine.}
+\item<10-| alert@13-15,17>  New $\square = \uncover<14->{x^2+1}$.
+\end{itemize}
+\column{.7\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<7->{%
+y'%
+}%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+\left( \alert<handout:0| 7>{\sqrt{\square}}\right)'%
+}  \uncover<8->{ = } \uncover<8->{%
+\frac{1}{2\sqrt{\alert<handout:0| 9>{\square}}}\cdot \alert<handout:0| 9>{\square}'%
+}\\%
+& \uncover<9->{ = } &%
+\uncover<9->{%
+\frac{1}{2\sqrt{\alert<handout:0| 9>{\sin (x^2+1)}}}\cdot \alert<handout:0| 9-14>{(\sin \alert<handout:0| 15>{(x^2+1)})}\alert<handout:0| 10-14>{'}%
+}\\%
+& \uncover<15->{ = } &%
+\uncover<15->{%
+\frac{1}{2\sqrt{\sin (x^2+1)}}\cdot (\sin \alert<handout:0| 15>{\square})'%
+}\\%
+& \uncover<16->{ = } &%
+\uncover<16->{%
+\frac{1}{2\sqrt{\sin (x^2+1)}}\cdot (\cos\alert<handout:0| 17>{\square} )\cdot \alert<handout:0| 17>{\square}'%
+}\\%
+& \uncover<17->{ = } &%
+\uncover<17->{%
+\frac{\cos\alert<handout:0| 17>{(x^2+1)}}{2\sqrt{\sin (x^2+1)}}\cdot \alert<handout:0| 17>{(x^2+1)}'%
+}\\%
+& \uncover<18->{ = } &%
+\uncover<18->{%
+\frac{\cos (x^2+1)}{2\sqrt{\sin (x^2+1)}}\cdot 2x%
+} \uncover<19->{ = \frac{x\cos (x^2+1)}{\sqrt{\sin (x^2+1)}}}%
+\end{eqnarray*}
+\end{columns}
+\end{example}
+\end{frame}
+% end module chain-rule-box-ex

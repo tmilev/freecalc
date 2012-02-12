@@ -1,0 +1,32 @@
+% begin module sequence-ex4
+\begin{frame}
+\begin{example}[Example 4, p. 715]
+Find $\lim_{n\to\infty} \frac{n}{n+1}$.
+
+\uncover<2->{%
+Divide numerator and denominator by \alert<handout:0| 3>{the highest power of $n$}, and use the limit laws:
+}%
+\begin{eqnarray*}
+\uncover<2->{%
+\lim_{n\to\infty} \frac{n}{\alert<handout:0| 3>{n}+1}\uncover<3->{\cdot \alert<handout:0| 3>{\frac{\frac{1}{n}}{\frac{1}{n}}}}%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\lim_{n\to\infty} \frac{1}{1+\frac{1}{n}}%
+}\\%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\frac{\displaystyle \lim_{n\to\infty}1}{\displaystyle \lim_{n\to\infty}1+\displaystyle \lim_{n\to\infty}\frac{1}{n}}%
+}\\%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\frac{1}{1+0}%
+}\\%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+1%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module sequence-ex4

@@ -1,0 +1,33 @@
+% begin module e-limit
+\begin{frame}
+\frametitle{The Number $e$ as a Limit}
+\begin{theorem}[The Number $e$ as a Limit]
+\[
+e = \lim_{x\rightarrow 0} (1 + x)^{1/x}.
+\]
+\end{theorem}
+\begin{proof}
+\uncover<2->{Let $f(x) = \ln x$.  }%
+\uncover<3->{Then $f'(x) = 1/x$, so $f'(1) = 1$.}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<4->{\alert<handout:0| 10>{1} = f'(1)} & \uncover<4->{=} &%
+\uncover<4->{\lim_{h\rightarrow 0}\frac{f(1+h)-f(1)}{h}}%
+\uncover<5->{ = \lim_{x\rightarrow 0}\frac{f(1+x)-f(1)}{x}}\\%
+& \uncover<6->{=} & %
+\uncover<6->{\lim_{x\rightarrow 0}\frac{\ln (1+x)-\ln (1)}{x}}%
+\uncover<7->{ = \lim_{x\rightarrow 0}\frac{1}{x}\ln (1 + x)}\\%
+& \uncover<8->{\alert<handout:0| 10>{=}} & %
+\uncover<8->{\alert<handout:0| 10>{\lim_{x\rightarrow 0}\ln (1+x)^{1/x}}.}
+\end{eqnarray*}
+\uncover<9->{Then use the fact that \alert<handout:0| 11>{the exponential function is continuous}:}
+\[
+\uncover<9->{e = e^{\alert<handout:0| 10>{1}} =}%
+\uncover<10->{\alert<handout:0| 11>{e^{\alert<handout:0| 10>{\lim_{x\rightarrow 0}\ln (1+x)^{1/x}}} =}}%
+\uncover<11->{\alert<handout:0| 11>{\lim_{x\rightarrow 0}e^{\ln (1+x)^{1/x}}} =}%
+\uncover<12->{\lim_{x\rightarrow 0} (1+x)^{1/x}.}\qedhere
+\]
+\end{proof}
+\end{frame}
+% end module e-limit

@@ -1,0 +1,21 @@
+% begin module indeterminate-powers-ex10
+\begin{frame}
+\begin{example}[Example 10, p. 477]
+Find $\lim_{x\rightarrow 0^+} x^x$.
+\begin{itemize}
+\item<2->  $0^x = 0$ for any $x > 0$.
+\item<3->  $x^0 = 1$ for any $x \neq 0$.
+\item<4->  This is an indeterminate form of type $0^0$.
+\item<5->  Write as an exponential:
+\item<6->  $x^x = e^{x\ln x}$.
+\item<7->  Recall from Example 6, p. 474 that $\lim_{x\rightarrow 0^+} x\ln x = 0$.
+\item<8->  Therefore
+\end{itemize}
+\[
+\uncover<8->{ \lim_{x\rightarrow 0^+} x^x = }%
+\uncover<9->{ \lim_{x\rightarrow 0^+} e^{x\ln x} = }%
+\uncover<10->{  e^{0} = 1}%
+\]
+\end{example}
+\end{frame}
+% end module indeterminate-powers-ex10
