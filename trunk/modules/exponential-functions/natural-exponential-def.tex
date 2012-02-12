@@ -1,0 +1,21 @@
+% begin module natural-exponential-def
+\begin{frame}
+\begin{definition}[Natural Exponential Function]
+$e^x$ is called the natural exponential function.  Its derivative is
+\[
+\frac{\diff}{\diff x} e^x = e^x .
+\]
+\end{definition}
+\uncover<2->{
+We can use this fact to find an approximation for $e$:
+}
+\begin{itemize}
+\item<3->  Let $\alert<handout:0| 7,12>{e = 2^c}$.
+\item<4->  Let $f(x) = 2^x$.  Then $\alert<handout:0| 8>{f'(x) = k2^x}$, where $\alert<handout:0| 13>{k = f'(0) \approx 0.693147}$.
+\item<5->  $\alert<handout:0| 6>{e^x = \uncover<6->{\frac{\diff}{\diff x} (\alert<handout:0| 7>{e^x})}} \uncover<7->{ = \alert<handout:0| 8>{\frac{\diff}{\diff x} (\alert<handout:0| 7>{2^{cx}})}} \uncover<8->{\alert<handout:0| 8>{= k2^{cx}\frac{\diff}{\diff x} (cx) }} \uncover<9->{= ck 2^{cx}.}$
+\item<10->  Substitute $x = 0$: $1 = e^0 = ck2^0 = ck$.
+\item<11->  Therefore $\alert<handout:0| 12>{c = 1/k}$.
+\item<12->  $\alert<handout:0| 12>{e = 2^{1/\alert<handout:0| 13>{k}}} \uncover<13->{ \approx 2^{1/\alert<handout:0| 13>{0.693147}}} \uncover<14->{\approx 2.71828 .}$
+\end{itemize}
+\end{frame}
+% end module natural-exponential-def

@@ -1,0 +1,32 @@
+% begin module taylor-series-def
+\begin{frame}
+\begin{theorem}[Coefficients of a Power Series]
+If $f$ has a power series representation at $a$, that is, if
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+f(x) = \sum_{n=0}^\infty c_n (x-a)^n, \qquad |x-a| < R,
+\]
+then its coefficients are given by the formula
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\alert<handout:0| 2>{c_n = \frac{f^{(n)}(a)}{n!}}.
+\]
+\end{theorem}
+\uncover<2->{%
+Here is what we get if we plug these coefficients into the power series:
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+f(x) & = & \sum_{n=0}^\infty \alert<handout:0| 2>{\frac{f^{(n)}(a)}{n!}} (x-a)^n\\
+& = & f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + \cdots 
+\end{eqnarray*}
+}%
+\uncover<3->{%
+\begin{definition}[Taylor Series]
+This series is called the Taylor series of $f$.
+\end{definition}
+}%
+\end{frame}
+% end module taylor-series-def

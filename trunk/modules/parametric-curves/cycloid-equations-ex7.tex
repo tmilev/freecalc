@@ -1,0 +1,96 @@
+% begin module cycloid-equations-ex7
+\begin{frame}
+\begin{example}[Example 7, p. 660]
+Find parametric equations of a cycloid made using a circle with radius $r$ that rolls along the $x$-axis such that $P$ hits the origin.
+\begin{columns}[c]
+\column{.4\textwidth}
+\ \only<handout:0| -2>{%
+\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqa.pdf}%
+}%
+\only<handout:0| 3>{%
+\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqb.pdf}%
+}%
+\only<handout:0| 4>{%
+\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqc.pdf}%
+}%
+\only<handout:0| 5>{%
+\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqd.pdf}%
+}%
+\only<handout:0| 6>{%
+\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqe.pdf}%
+}%
+\only<7->{%
+\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqf.pdf}%
+}%
+\column{.6\textwidth}
+\begin{itemize}
+\item<2->  We choose our parameter to be $\theta$, the angle of rotation of the circle.
+\item<3->  How far has the circle moved if it has rolled through $\theta$ radians?
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<3->{%
+|OT| = \alert<handout:0| 4>{\textrm{arc} PT }%
+}%
+\uncover<4->{%
+\alert<handout:0| 4>{ = r\theta}%
+}%
+\]
+\item<5->  Then the center is $C = (r\theta , r)$.
+\item<6->  Let the coordinates of $P$ be $(x,y)$.
+\end{itemize}
+\[
+\begin{array}{cccccc}
+\uncover<6->{%
+\alert<handout:0| 8>{x}%
+}&%
+\uncover<6->{%
+\alert<handout:0| 8>{=}%
+}&%
+\uncover<8->{%
+\alert<handout:0| 8>{\alert<handout:0| 9-10>{|OT|} - \alert<handout:0| 11-12>{|PQ|}}%
+}&%
+\uncover<9->{%
+=%
+}&%
+\uncover<10->{%
+\alert<handout:0| 10>{r\theta}%
+}%
+\uncover<9->{-}%
+\uncover<12->{%
+\alert<handout:0| 12>{r\sin \theta}%
+}\\%
+
+\uncover<6->{%
+\alert<handout:0| 13>{y}%
+}&%
+\uncover<6->{%
+\alert<handout:0| 13>{=}%
+}&%
+\uncover<13->{%
+\alert<handout:0| 13>{\alert<handout:0| 14-15>{|CT|} - \alert<handout:0| 16-17>{|CQ|}}%
+}&%
+\uncover<14->{%
+=%
+}&%
+\uncover<15->{%
+\alert<handout:0| 15>{r}%
+}%
+\uncover<14->{-}%
+\uncover<17->{%
+\alert<handout:0| 17>{r\cos \theta}%
+}\\%
+\end{array}
+\]
+\end{columns}
+\uncover<18->{%
+Therefore the equations are
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+x = r(\theta - \sin \theta ),\qquad y = r(1-\cos \theta ),\qquad \theta \in \mathbb{R}
+\]
+}%
+\end{example}
+\end{frame}
+% end module cycloid-equations-ex7

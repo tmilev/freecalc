@@ -1,0 +1,20 @@
+% begin module integral-test-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 735]
+Test the series $\displaystyle \sum_{n=1}^\infty \frac{1}{n^2+1}$ for convergence.
+
+\uncover<2->{%
+$f(x) = \frac{1}{x^2+1}$ is continuous, positive, and decreasing on $[1,\infty )$, so use the Integral Test.
+}%
+\begin{eqnarray*}
+\uncover<3->{\int_1^\infty \frac{1}{x^2+1}\diff x} & \uncover<3->{ = } & \uncover<3->{\lim_{t\to\infty} \int_1^t \alert<handout:0| 4-5>{\frac{1}{x^2+1}}\diff x} \\
+& \uncover<4->{ = } & \uncover<4->{\lim_{t\to\infty}\left[ \uncover<5->{\alert<handout:0| 5>{\arctan x}}\right]_{\alert<handout:0| 7-8>{1}}^{\alert<handout:0| 6>{t}}}\\
+& \uncover<6->{ = } & \uncover<6->{\alert<handout:0| 9-10>{\lim_{t\to\infty}}\left( \alert<handout:0| 6,9-10>{\arctan t} - \uncover<8->{\alert<handout:0| 8>{\pi/4}} \right)}\\
+& \uncover<9->{ = } &  \uncover<10->{\alert<handout:0| 10>{\pi/2}} \uncover<9->{- \pi/4} \uncover<11->{= \pi/4} 
+\end{eqnarray*}
+\uncover<12->{%
+Therefore $\sum_{n=1}^\infty \frac{1}{n^2+1}$ is \uncover<13->{convergent.}%
+}%
+\end{example}
+\end{frame}
+% end module integral-test-ex1

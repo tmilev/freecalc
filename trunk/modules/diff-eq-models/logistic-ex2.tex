@@ -1,0 +1,71 @@
+% begin module logistic-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 631]
+Write the solution of the initial value problem
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\frac{\diff P}{\diff t} = 0.08P\left( 1 - \frac{P}{1000}\right),\qquad P(0) = 100
+\]
+and use it to \alert<handout:0| 8>{find when the population reaches 900}.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<2->{%
+P(t) = %
+\frac{1000}{1+Ae^{-0.08t}},\qquad %
+}%
+\uncover<2->{%
+A = \alert<handout:0| 5-6>{\frac{\uncover<3->{\alert<handout:0| 3>{1000}} - \uncover<4->{\alert<handout:0| 4>{100}}}{\uncover<4->{\alert<handout:0| 4>{100}}} \uncover<5->{ = } \uncover<6->{ 9}}
+}%
+\]
+\uncover<7->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\textrm{Therefore}\qquad  P(t) = \frac{1000}{1+9e^{-0.08t}}.
+\]
+}%
+%\uncover<8->{%
+%The population reaches 900 when
+%}%
+\begin{eqnarray*}
+\uncover<8->{%
+\textrm{Set } \ P(t) = 900:\qquad \frac{1000}{1+9e^{-0.08t}}%
+}%
+& \uncover<8->{ = } & %
+\uncover<8->{%
+900 %
+}\\%
+\uncover<9->{%
+1+9e^{-0.08t}%
+}%
+& \uncover<9->{ = } & %
+\uncover<9->{%
+1000/ 900 %
+}\\%
+\uncover<10->{%
+e^{-0.08t}%
+}%
+& \uncover<10->{ = } & %
+\uncover<10->{%
+\frac{1000/ 900-1}{9}  = \frac{1}{81}%
+}\\%
+\uncover<11->{%
+-0.08t%
+}%
+& \uncover<11->{ = } & %
+\uncover<11->{%
+-\ln 81%
+}\\%
+\uncover<12->{%
+t%
+}%
+& \uncover<12->{ = } & %
+\uncover<12->{%
+\frac{\ln 81}{0.08} \approx 54.9%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module logistic-ex2

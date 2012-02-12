@@ -1,0 +1,21 @@
+% begin module derivatives-ex4
+\begin{frame}
+\begin{example}[Example 4, p. 116]
+Find the derivative of the function $f(x) = x^2 -8x + 9$ at the number $a$.
+\begin{eqnarray*}
+\uncover<2->{f'(a)} & \uncover<2->{=} & %
+\uncover<3->{\lim_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h}}\\
+ & \uncover<4->{=} & %
+\uncover<4->{\lim_{h\rightarrow 0}\frac{[(a+h)^2-8(a+h)+9]-[a^2-8a+9]}{h}}\\
+ & \uncover<5->{=} & %
+\uncover<5->{\lim_{h\rightarrow 0}\frac{[a^2 + 2ah + h^2-8a-8h+9]-[a^2-8a+9]}{h}}\\
+ & \uncover<6->{=} & %
+\uncover<6->{\lim_{h\rightarrow 0}\frac{2ah + h^2-8h}{h}}\\
+ & \uncover<7->{=} & %
+\uncover<7->{\lim_{h\rightarrow 0}\frac{h(2a + h-8)}{h}}\\
+ & \uncover<8->{=} & %
+\uncover<8->{\lim_{h\rightarrow 0}(2a + h-8)} \uncover<9->{ = 2a-8.}\\
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module derivatives-ex4

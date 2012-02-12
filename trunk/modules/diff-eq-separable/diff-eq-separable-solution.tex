@@ -1,0 +1,58 @@
+% begin module diff-eq-separable-solution
+\begin{frame}
+\[
+\frac{\diff y}{\diff x} = \frac{g(x)}{h(y)}.
+\]
+\begin{itemize}
+\item<2->  To solve, write this in differential form:
+\uncover<2->{%
+\abovedisplayskip=0pt
+\belowdisplayshortskip=0pt
+\belowdisplayskip=0pt
+\[
+h(y) \diff y = g(x)\diff x
+\]
+}%
+\item<3->  Now integrate:
+\uncover<3->{%
+\abovedisplayskip=0pt
+\belowdisplayshortskip=0pt
+\belowdisplayskip=0pt
+\[
+\int h(y) \diff y = \int g(x)\diff x
+\]
+}%
+\item<4->  This defines $y$ implicitly as a function of $x$.
+\item<5->  Sometimes we might be able to solve explicitly for $y$ in terms of $x$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Why does this process yield a function that satisfies the original differential equation?  Suppose that $\int h(y) \diff y = \int g(x) \diff x$.  Then we will use the Chain Rule to show that $y$ satisfies the original equation.
+\begin{eqnarray*}
+\int h(y) \diff y & = & \int g(x) \diff x\\
+\uncover<2->{%
+\frac{\diff}{\diff x}\left( \int h(y)\diff y\right)%
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+\frac{\diff}{\diff x}\left( \int g(x)\diff x\right)%
+}\\%
+\uncover<3->{%
+\frac{\diff}{\diff y}\left( \int h(y)\diff y\right)\frac{\diff  y}{\diff x}%
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+\frac{\diff}{\diff x}\left( \int g(x)\diff x\right)%
+}\\%
+\uncover<4->{%
+h(y) \frac{\diff y}{\diff x}%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+g(x)%
+}\\%
+\frac{\diff y}{\diff x} & = & \frac{g(x)}{h(y)}
+\end{eqnarray*}
+\end{frame}
+% end module diff-eq-separable-solution

@@ -1,0 +1,40 @@
+% begin module differentiation-laws-polynomial
+\begin{frame}
+The \alert<handout:0| 4>{Constant Multiple Rule}, the \alert<handout:0| 3>{Sum Rule}, the \alert<handout:0| 3>{Difference Rule}, and the \alert<handout:0| 5-14>{Power Rule} can be combined to differentiate any polynomial.
+\begin{example}[Derivative of a Polynomial]
+\begin{align*}
+\text{If}\quad y  & = x^{16} + 2\sqrt{3}x^7 - 4x^3 + \frac{x}{8} - 5,\\%
+\uncover<1->{%
+\text{Then}\quad \frac{\diff y}{\diff x}%
+}% 
+& = \uncover<2->{%
+ \frac{\diff}{\diff x}\left( x^{16} + 2\sqrt{3}x^7 - 4x^3 + \frac{x}{8} - 5 \right) %
+}\\%
+& \uncover<3->{%
+ = \frac{\diff}{\diff x}\left( x^{16}\right)%
+ + \frac{\diff}{\diff x}\left( 2\sqrt{3}x^7 \right)%
+ - \frac{\diff}{\diff x}\left( 4x^3 \right)%
+ + \frac{\diff}{\diff x}\left( \frac{x}{8} \right)%
+ - \frac{\diff}{\diff x}\left( 5 \right) %
+}\\%
+& \uncover<4->{%
+ = \alert<handout:0| 5-6>{\frac{\diff}{\diff x}\left( x^{16}\right)}%
+ + 2\sqrt{3}\alert<handout:0| 7-8>{\frac{\diff}{\diff x}\left( x^7 \right)}%
+ - 4\alert<handout:0| 9-10>{\frac{\diff}{\diff x}\left( x^3 \right)}%
+ + \frac{1}{8}\alert<handout:0| 11-12>{\frac{\diff}{\diff x}\left( x \right)}%
+ - \alert<handout:0| 13-14>{\frac{\diff}{\diff x}\left( 5 \right)} %
+}\\%
+& \uncover<5->{%
+ = \alert<handout:0| 5-6>{(\uncover<6->{16x^{15}})}%
+ + 2\sqrt{3}\alert<handout:0| 7-8>{\left( \uncover<8->{7x^6} \right)}%
+ - 4\alert<handout:0| 9-10>{\left( \uncover<10->{3x^2} \right)}%
+ + \frac{1}{8}\alert<handout:0| 11-12>{\left( \uncover<12->{1} \right)}%
+ - \alert<handout:0| 13-14>{\left( \uncover<14->{0} \right)} %
+}\\%
+& \uncover<15->{%
+ = 16x^{15} + 14\sqrt{3}x^6 - 12x^2 + \frac{1}{8}.
+}%
+\end{align*}
+\end{example}
+\end{frame}
+% end module differentiation-laws-polynomial

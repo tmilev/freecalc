@@ -1,0 +1,53 @@
+% begin module integration-by-parts-ex5
+\begin{frame}
+\begin{example}[Example 5, p. 492]
+Find $\int_0^1  \tan^{-1} x \diff x$.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\uncover<2->{%
+\[
+\begin{array}{l@{\qquad}l}
+\alert<handout:0| 3-4>{u = \uncover<4->{\tan^{-1} x}} & \alert<handout:0| 5-6>{\diff v = \uncover<6->{\diff x}}\\
+\alert<handout:0| 7-8>{\diff u = \uncover<8->{\frac{\diff x}{1+x^2}}} & \alert<handout:0| 9-10>{v = \uncover<10->{x}}
+\end{array}  
+\alert<handout:0| 11-12,23>{%
+\uncover<2->{\int_0^1 \tan^{-1} x \diff x}  \uncover<2->{ = }  \uncover<12->{\left[x\tan^{-1}x\right]_0^1 -  \int_0^1 \frac{x}{1+x^2} \diff x}
+}%
+\]
+}%
+\begin{itemize}
+\item<13->  Substitute $\alert<handout:0| 13-14>{t = \uncover<14->{1+x^2}}$.  Then $\alert<handout:0| 15-16>{\diff t = \uncover<16->{2x\diff x}}$\uncover<16->{, so $x\diff x = \frac{1}{2}\diff t$.}
+\item<17->  When $x = 0$, $\alert<handout:0| 17-18>{t = \uncover<18->{1.}}$  When $x = 1$, $\alert<handout:0| 19-20>{t = \uncover<20->{2.}}$
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\alert<handout:0| 24>{%
+\uncover<13->{%
+\int_0^1\frac{x}{1+x^2}\diff x = 
+}%
+\uncover<21->{%
+\frac{1}{2}\int_1^2\frac{\diff t}{t} = 
+}%
+\uncover<22->{%
+\frac{1}{2}\left[ \ln |t|\right]_1^2
+}%
+}%
+\]
+\begin{eqnarray*}
+\uncover<23->{%
+\alert<handout:0| 23>{
+\int_0^1 \tan^{-1} x\diff x
+}}%
+& \uncover<23->{\alert<handout:0| 23>{ = }} &%
+\uncover<23->{\alert<handout:0| 23>{\left[ x\tan^{-1} x\right]_0^1 -  \alert<handout:0| 24>{\int_0^1 \frac{x}{1+x^2}\diff x}}}\\
+& \uncover<24->{ = } &%
+\uncover<24->{\left[ x\tan^{-1} x\right]_0^1 -  \alert<handout:0| 24>{\frac{1}{2}\left[ \ln |t|\right]_1^2}}\\
+& \uncover<25->{ = } &%
+\uncover<25->{%
+1\cdot \tan^{-1}1 - 0\cdot \tan^{-1}0 - \frac{1}{2}(\ln 2 - \ln 1)
+}\uncover<26->{ = \frac{\pi}{4} - \frac{\ln 2}{2}}\\%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex5

@@ -1,0 +1,48 @@
+% begin module differentiation-laws-constant
+\begin{frame}
+\begin{theorem}[The Constant Multiple Rule]
+If $c$ is a constant and $f$ is a differentiable function, then
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\frac{\diff}{\diff x} [cf(x)] = c\frac{\diff}{\diff x}f(x).
+\]
+\end{theorem}
+\begin{proof}
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<2->{%
+\text{Let}\quad \alert<handout:0| 4>{g(x)} %
+}%
+ & \uncover<2->{%
+ \alert<handout:0| 4>{= cf(x)}.  %
+}\\%
+\uncover<3->{%
+\text{Then}\quad g'(x)%
+}%
+ & \uncover<3->{%
+ = \lim_{h\rightarrow 0}\frac{g(x+h)-g(x)}{h}%
+}\\%
+ & \uncover<4->{%
+ = \lim_{h\rightarrow 0}\frac{cf(x+h)-cf(x)}{h}%
+}\\%
+ & \uncover<5->{%
+ = \lim_{h\rightarrow 0}\frac{\alert<handout:0| 6>{c}(f(x+h)-f(x))}{h}%
+}\\%
+\uncover<6->{%
+\text{Limit Law 3:}\quad %
+}%
+ & \uncover<6->{%
+ = \alert<handout:0| 6>{c}\alert<handout:0| 7-8>{\lim_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h}}%
+}\\%
+ & \uncover<7->{%
+ = c\alert<handout:0| 7-8>{\uncover<8->{f'(x).}}%
+}%
+\uncover<8->{\qedhere}
+\end{align*}
+\end{proof}
+\end{frame}
+% end module differentiation-laws-constant

@@ -1,0 +1,36 @@
+% begin module tangents-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 113]
+\begin{columns}[c]
+\column{.55\textwidth}
+Find an equation for the tangent line to the hyperbola $y = 3/x$ at the point $(3,1)$.
+
+\ \only<handout:0| -8>{%
+\includegraphics[height=4cm]{derivatives/pictures/03-01-ex2a.pdf}%
+}%
+\only<9->{%
+\includegraphics[height=4cm]{derivatives/pictures/03-01-ex2b.pdf}%
+}%
+
+\uncover<9->{
+Point-slope form: $y - 1 = -\frac{1}{3}(x - 3)$, or $x + 3y - 6 = 0$.
+}
+\column{.45\textwidth}
+\uncover<2->{%
+Here $a = 3$ and $f(x) = 3/x$.
+}%
+\begin{eqnarray*}
+\uncover<3->{m} & \uncover<3->{ = } & \uncover<3->{\lim_{h\rightarrow 0} \frac{f(3+ h)-f(3)}{h}}\\
+& \uncover<4->{ = } & %
+\uncover<4->{\lim_{h\rightarrow 0}\frac{\frac{3}{3+h} - 1}{h}}\\
+& \uncover<5->{ = } & %
+\uncover<5->{\lim_{h\rightarrow 0}\frac{\frac{3-(3+h)}{3+h}}{h}}\\
+& \uncover<6->{ = } & %
+\uncover<6->{\lim_{h\rightarrow 0}\frac{-h}{h(3+h)}}\\
+& \uncover<7->{ = } & %
+\uncover<7->{\lim_{h\rightarrow 0}-\frac{1}{3+h}}\uncover<9->{ = -\frac{1}{3}}
+\end{eqnarray*}
+\end{columns}
+\end{example}
+\end{frame}
+% end module tangents-ex2

@@ -1,0 +1,24 @@
+% begin module comparison-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 742]
+Determine if $\sum_{n=1}^\infty \frac{\ln n}{n}$ converges or diverges.
+\begin{itemize}
+\item<2->  We could use the Integral Test to find this.
+\item<3->  The Comparison Test is even easier.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<4->{%
+\alert<handout:0| 4-5>{%
+\frac{\ln n}{n} \uncover<5->{ > } \frac{1}{n} \qquad \textrm{if} \ n \geq 3
+}}%
+\]
+\begin{itemize}
+\item<6->  $\sum_{n=1}^\infty \frac{1}{n}$ is a $p$-series with \alert<handout:0| 6-7>{$p = $ \uncover<7->{1.}}
+\item<8-| alert@8-9>  Therefore $\sum_{n=1}^\infty \frac{1}{n}$ is \uncover<9->{divergent.}
+\item<10-| alert@10-11>  Therefore $\sum_{n=1}^\infty \frac{\ln n}{n}$ is \uncover<11->{divergent} by the Comparison Test.
+\end{itemize}
+\end{example}
+\end{frame}
+% end module comparison-ex2

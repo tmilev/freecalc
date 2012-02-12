@@ -1,0 +1,28 @@
+% begin module not-product-rule
+\begin{frame}
+Now we need a formula for the derivative of the product of two functions.  One might guess that the derivative of a product is the product of the derivatives; however, this is wrong.
+\uncover<2->{%
+\begin{example}[Not the Product Rule]
+Let $f(x) = x$ and $g(x) = x^2$.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+  \alert<handout:0| 3-4>{f'(x)} & \alert<handout:0| 3-4>{ = \uncover<4->{1.}}  %
+& \alert<handout:0| 9-10>{(fg)(x)} & \alert<handout:0| 9-10>{ = \uncover<10->{x^3.}}\\%
+  \alert<handout:0| 5-6>{g'(x)} & \alert<handout:0| 5-6>{ = \uncover<6->{2x.}}  %
+& \alert<handout:0| 11-12>{(fg)'(x)} & \alert<handout:0| 11-12>{ = \uncover<12->{3x^2.}}\\%
+  \alert<handout:0| 7-8>{f'(x)g'(x)} & \alert<handout:0| 7-8>{ = \uncover<8->{2x.}}  %
+&  & %
+\end{align*}
+\uncover<13->{%
+Therefore $f'(x)g'(x) \neq (fg)'(x)$.%
+}%
+\end{example}
+}%
+\uncover<14->{%
+The correct formula is called the Product Rule.
+}%
+\end{frame}
+% end module not-product-rule

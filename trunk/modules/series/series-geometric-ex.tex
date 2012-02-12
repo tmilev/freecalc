@@ -1,0 +1,32 @@
+% begin module series-geometric-ex
+\begin{frame}
+\begin{example}
+Find the sum of the geometric series
+\[
+-2 + \frac{6}{5} - \frac{18}{25} + \frac{54}{125} - \cdots
+\]
+\begin{itemize}
+\item<2-| alert@2-3>  The first term is $a = $ \uncover<3->{$-2$.}
+\item<2-| alert@4-5>  The common ratio is $r = $ \uncover<5->{$-\frac{3}{5}$.}
+\item<6->  Therefore the sum is
+\end{itemize}
+\begin{eqnarray*}
+\uncover<6->{%
+\sum_{n=1}^\infty (-2)\left( - \frac{3}{5}\right)^{n-1}%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\frac{(-2)}{1-\left( - \frac{3}{5}\right)}%
+}\\%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+-\frac{2}{\frac{8}{5}}%
+}\\%
+& \uncover<8->{ = } &%
+\uncover<8->{%
+-\frac{5}{4}%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module series-geometric-ex

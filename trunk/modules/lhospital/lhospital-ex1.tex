@@ -1,0 +1,30 @@
+% begin module lhospital-ex1
+\begin{frame}
+\begin{example}[Example 1, p. 472]
+Find $\lim_{x\rightarrow 1}\frac{\ln x}{x - 1}$.
+\begin{itemize}
+\item  $\lim_{x\rightarrow 1} \ln x = $ \uncover<1->{$0$.}
+\item  $\lim_{x\rightarrow 1} (x - 1) = $ \uncover<1->{$0$.}
+\item<2->  This is an indeterminate form of type $0/0$.
+\item<3->  Apply L'Hospital's rule:
+\end{itemize}
+\[
+\uncover<4->{%
+\lim_{x\rightarrow 1} \frac{\ln x}{x - 1} = %
+}%
+\uncover<5->{%
+\lim_{x\rightarrow 1} \frac{\alert<handout:0| 7-8>{\frac{\diff}{\diff x} (\ln x)}}{\alert<handout:0| 9-10>{\frac{\diff}{\diff x} (x - 1)}} = %
+}%
+\uncover<6->{%
+\lim_{x\rightarrow 1} \frac{\uncover<8->{\alert<handout:0| 8>{1/x}}}{\uncover<10->{\alert<handout:0| 10>{1}}} = %
+}%
+\uncover<11->{%
+\lim_{x\rightarrow 1} \frac{1}{x} = %
+}%
+\uncover<12->{%
+1.
+}%
+\]
+\end{example}
+\end{frame}
+% end module lhospital-ex1

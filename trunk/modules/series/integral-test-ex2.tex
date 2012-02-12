@@ -1,0 +1,16 @@
+% begin module integral-test-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 735]
+For which values of $p$ is the series $\displaystyle \sum_{n=1}^\infty \frac{1}{n^p}$ convergent?
+\begin{itemize}
+\item<2-| alert@2-3>  If $p < 0$, then $\lim_{n\to\infty}\frac{1}{n^p} = $\uncover<3->{$\infty$.}
+\item<4-| alert@4-5>  If $p = 0$, then $\lim_{n\to\infty}\frac{1}{n^p} = $\uncover<5->{$1$.}
+\item<6-| alert@6-7>  In either case, the series is \uncover<7->{divergent.}
+\item<8->  If $p > 0$, then $f(x) = \frac{1}{x^p}$ is continuous, positive, and decreasing on $[1, \infty)$, so we can use the Integral Test.
+\item<9->  $\displaystyle \int_1^\infty \frac{1}{x^p}\diff x$ is \alert<handout:0| 9-10>{convergent if \uncover<10->{$p > 1$.}}
+\item<9->  $\displaystyle \int_1^\infty \frac{1}{x^p}\diff x$ is \alert<handout:0| 11-12>{divergent if \uncover<12->{$p \leq 1$.}}
+\item<13->  Therefore $\displaystyle \sum_{n=1}^\infty \frac{1}{n^p}$ is convergent if $p > 1$ and divergent if $p \leq 1$.
+\end{itemize}
+\end{example}
+\end{frame}
+% end module integral-test-ex2

@@ -1,0 +1,72 @@
+% begin module power-series-calculus-ex6
+\begin{frame}
+\begin{example}[Example 6, p. 767]
+Find a power series for $\ln (1-x)$ and state its radius of convergence.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<2->{%
+\alert<handout:0| 2-3>{\frac{\diff}{\diff x} \ln (1-x)}
+}%
+  \uncover<2->{ \alert<handout:0| 2-3>{=} } %
+\uncover<3->{%
+\alert<handout:0| 2-3>{-\frac{1}{1-x}}%
+}%
+\]
+\uncover<4->{Therefore}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<4->{%
+\alert<handout:0| 10-11>{\ln (1-x)}%
+}%
+ & \uncover<4->{ = } &%
+\uncover<4->{%
+- \int \alert<handout:0| 5>{\frac{1}{1-x}} \diff x%
+}%
+  \uncover<5->{ \ = \ } %
+\uncover<5->{%
+- \int \alert<handout:0| 5>{(1+x+x^2+x^3+\cdots) } \diff x%
+}\\%
+ & \uncover<6->{ = } &%
+\uncover<6->{%
+-\left( x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \cdots \right) \uncover<7->{\alert<handout:0| 7>{+C}}%
+}%
+  \uncover<8->{ \ \alert<handout:0| 10-11>{=} \ } %
+\uncover<8->{%
+\alert<handout:0| 10-11>{C - \sum_{n=1}^\infty \frac{1}{n} x^n}%
+}%
+\end{eqnarray*}
+\begin{itemize}
+\item<9->  The radius is the same as for the original series: $R = 1$.
+\item<10->  To find $C$, plug in $x = 0$: \uncover<11->{\alert<handout:0| 11>{$0 = C$}.}
+\end{itemize}
+%\abovedisplayskip=0pt
+%\belowdisplayskip=0pt
+%\begin{eqnarray*}
+%\uncover<10->{%
+%\ln (1-0)%
+%}%
+%& \uncover<10->{ = } &%
+%\uncover<10->{%
+%C - \sum_{n=1}^\infty \frac{1}{n} 0^n%
+%}\\%
+%\uncover<11->{%
+%0%
+%}%
+%& \uncover<11->{ = } &%
+%\uncover<11->{%
+%C %
+%}%
+%\end{eqnarray*}
+\uncover<12->{Therefore}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<12->{%
+\ln (1-x) = - \sum_{n=1}^\infty \frac{1}{n}x^n%
+}%
+\]
+\end{example}
+\end{frame}
+% end module power-series-calculus-ex6

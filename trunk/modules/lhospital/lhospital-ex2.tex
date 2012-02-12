@@ -1,0 +1,45 @@
+% begin module lhospital-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 473]
+Find $\lim_{x\rightarrow \infty}\frac{\alert<handout:0| 3-4>{e^x}}{\alert<handout:0| 5-6>{x^2}}$.
+\begin{itemize}
+\item<2-| alert@3-4,18>  $\lim_{x\rightarrow \infty} e^x = $ \uncover<4->{$\infty$.}
+\item<2-| alert@5-6>  $\lim_{x\rightarrow \infty} x^2 = $ \uncover<6->{$\infty$.}
+\item<7->  This is an indeterminate form of type $\infty /\infty$.
+\item<8->  Apply L'Hospital's rule:
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<9->{%
+\lim_{x\rightarrow \infty} \frac{e^x}{x^2} = %
+}%
+\uncover<10->{%
+\lim_{x\rightarrow \infty} \frac{\alert<handout:0| 12-13>{\frac{\diff}{\diff x} (e^x)}}{\alert<handout:0| 14-15>{\frac{\diff}{\diff x} (x^2)}} = %
+}%
+\uncover<11->{%
+\lim_{x\rightarrow \infty} \frac{\uncover<13->{\alert<handout:0| 13,18>{e^x}}}{\uncover<15->{\alert<handout:0| 15-17>{2x}}} %
+}%
+\]
+\begin{itemize}
+\item<16-| alert@16-17>  $\lim_{x\rightarrow \infty} 2x = $ \uncover<17->{$\infty$.}
+\item<19->  This is an inderminate form of type $\infty /\infty$.
+\item<20->  Apply L'Hospital's rule again:
+\end{itemize}
+\[
+\uncover<21->{%
+\lim_{x\rightarrow \infty} \frac{e^x}{x^2} = %
+}%
+\uncover<21->{%
+\lim_{x\rightarrow \infty} \frac{e^x}{2x} = %
+}%
+\uncover<22->{%
+\lim_{x\rightarrow \infty} \frac{e^x}{2} = %
+}%
+\uncover<23->{%
+\infty .%
+}%
+\]
+\end{example}
+\end{frame}
+% end module lhospital-ex2

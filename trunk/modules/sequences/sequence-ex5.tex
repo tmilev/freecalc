@@ -1,0 +1,31 @@
+% begin module sequence-ex5
+\begin{frame}
+\begin{example}[Example 5, p. 715]
+Calculate $\lim_{n\to\infty} \frac{\ln n}{n}$.
+\begin{itemize}
+\item<2->  Both $\ln n$ and $n$ go to $\infty$ as $n$ gets bigger.
+\item<3->  We can't use L'Hospital's Rule directly, because L'Hospital's Rule is for functions.
+\item<4->  Define $f(x) = \frac{\ln x}{x}$.  Now \alert<handout:0| 5-8>{use L'Hospital's Rule}:
+\end{itemize}
+\[
+\uncover<4->{%
+\lim_{x\to\infty}\frac{\alert<handout:0| 5-6>{\ln x}}{\alert<handout:0| 7-8>{x}}%
+}%
+\uncover<4->{%
+ = \lim_{x\to\infty}\frac{\uncover<6->{\alert<handout:0| 6>{1/x}}}{\uncover<8->{\alert<handout:0| 8>{1}}}%
+}%
+\uncover<9->{%
+ = 0%
+}%
+\]
+\begin{itemize}
+\item<10->  Therefore
+\end{itemize}
+\[
+\uncover<10->{%
+\lim_{n\to\infty}\frac{\ln n}{n} = \lim_{x\to\infty}f(x) = 0
+}%
+\]
+\end{example}
+\end{frame}
+% end module sequence-ex5

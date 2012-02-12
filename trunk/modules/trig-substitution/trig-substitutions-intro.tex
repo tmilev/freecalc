@@ -1,0 +1,31 @@
+% begin module trig-substitutions-intro
+\begin{frame}
+\frametitle{(8.3) Trigonometric Substitution}
+\begin{itemize}
+\item  In finding the area of a circle or ellipse, the integral $\int \sqrt{a^2 - x^2} \diff x$ arises.
+\item<2->  For $\int x\sqrt{a^2 - x^2}\diff x$, the substitution $u = a^2 - x^2$ would work.
+\item<3->  For $\int \sqrt{a^2 - x^2}\diff x$, it is more difficult.
+\item<4-| alert@6>  Instead, substitute $x = a\sin \theta$.
+\end{itemize}
+\[
+\uncover<5->{%
+\sqrt{a^2-\alert<handout:0| 6>{x^2}} = %
+}%
+\uncover<6->{%
+\sqrt{a^2-\alert<handout:0| 6>{a^2\sin^2 \theta}} = %
+}%
+\uncover<7->{%
+\sqrt{a^2(1 - \sin^2 \theta )} = %
+}%
+\uncover<8->{%
+\sqrt{a^2\cos^2 \theta} = a|\cos \theta |.%
+}%
+\]
+\begin{itemize}
+\item<9->  With $u = a^2 - x^2$, the new variable is a function of the old one.
+\item<10->  With $x = a\sin \theta$, the old variable is a function of the new one.
+\item<11->  To make a substitution of the form $x = g(t)$, use the substitution rule in reverse.
+\item<12->  We call this inverse substitution.
+\end{itemize}
+\end{frame}
+% end module trig-substitutions-intro

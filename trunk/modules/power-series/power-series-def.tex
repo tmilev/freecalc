@@ -1,0 +1,44 @@
+% begin module power-series-def
+\begin{frame}
+\frametitle{(12.8)  Power Series}
+\begin{definition}[Power Series]
+A power series is a series of the form
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=0}^\infty c_n x^n = c_0 + c_1 x + c_2 x^2 + c_3x^3 + \cdots%
+\]
+where $x$ is a variable and the $c_n$'s are constants called the coefficients of the series.
+\end{definition}
+\begin{itemize}
+\item<2->  For each fixed $x$, this is a series of constants which either converges or diverges.
+\item<3->  A power series might converge for some values of $x$ and diverge for others.
+\item<4->  The sum of the series is a function
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<4->{%
+f(x) = c_0 + c_1x + c_2x^2 + c_3x^3 + \cdots %
+}%
+\]
+\uncover<4->{whose domain is the set of all $x$ for which the series converges.}
+\item<5->  $f$ resembles a polynomial, except it has infinitely many terms.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{definition}[Power Series Centered at $a$]
+A series of the form
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=0}^\infty c_n (x-a)^n = c_0 + c_1 (x-a) + c_2 (x-a)^2 + c_3(x-a)^3 + \cdots%
+\]
+is called a power series centered at $a$ or a power series about $a$ or a power series in $(x-a)$.
+\end{definition}
+\begin{itemize}
+\item<2->  We use the convention that $(x-a)^0 = 1$, even if $x = a$.
+\item<3->  If $x = a$, then all terms are $0$ for $n \geq 1$, so the series always converges when $x = a$.
+\end{itemize}
+\end{frame}
+% end module power-series-def

@@ -1,0 +1,54 @@
+% begin module limit-at-infinity-ex5
+\begin{frame}
+\begin{example}[Example 5, p. 235]
+\begin{columns}[c]
+\column{.45\textwidth}
+Evaluate $\lim_{x\to \infty} \sqrt{x^2+1}-x$.
+
+\ \only<handout:0| -8>{%
+\includegraphics[width=5cm]{curve-sketching/pictures/04-04-ex5a.pdf}%
+}%
+\only<9->{%
+\includegraphics[width=5cm]{curve-sketching/pictures/04-04-ex5b.pdf}%
+}%
+\begin{itemize}
+\item<2->  $\sqrt{x^2+1}\to \infty$ and $x\to \infty$ as $x\to \infty$.
+\item<2->  It isn't clear what happens to the difference.
+\item<7-| alert@7>  Divide top and bottom by $x$.
+\end{itemize}
+\column{.55\textwidth}
+\begin{itemize}
+\item<3-| alert@3-4>  Standard approach: multiply top and bottom by conjugate radical.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+&&%
+\uncover<2->{%
+\lim_{x\to \infty} \left( \sqrt{x^2+1}-x\right) \uncover<4->{\alert<handout:0| 4>{\frac{\sqrt{x^2+1}+x}{\sqrt{x^2+1}+x}}}%
+}%
+\\%
+&&%
+\uncover<5->{%
+ = \lim_{x\to \infty} \frac{(x^2+1)-x^2}{\sqrt{x^2+1}+x}%
+}%
+\\%
+&&%
+\uncover<6->{%
+ = \lim_{x\to \infty} \frac{1}{\sqrt{x^2+1}+x}\uncover<7->{\alert<handout:0| 7>{\cdot \frac{\frac{1}{x}}{\frac{1}{x}}}}%
+}%
+\\%
+&&%
+\uncover<8->{%
+ = \lim_{x\to \infty} \frac{\frac{1}{x}}{\sqrt{1+\frac{1}{x^2}}+1}%
+}%
+\\%
+&&%
+\uncover<9->{%
+ = \frac{0}{\sqrt{1+0}+1} = 0%
+}%
+\end{eqnarray*}
+\end{columns}
+\end{example}
+\end{frame}
+% end module limit-at-infinity-ex5

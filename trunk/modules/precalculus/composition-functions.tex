@@ -1,0 +1,20 @@
+% begin module composition-functions
+\begin{frame}
+\begin{definition}[Composition of $f$ and $g$]
+If $f$ and $g$ are two functions, then the composition of $f$ and $g$ is written $f\circ g$ and is defined by the formula
+\[
+(f\circ g)(x) = f(g(x)).
+\]
+\end{definition}
+
+It is helpful to picture $f$ and $g$ as machines, and then $f\circ g$ consists of both machines attached end-to-end so that the output of $g$ becomes the input of $f$.
+\includegraphics[height=2cm]{precalculus/pictures/01-03-machines.pdf}%
+
+\uncover<2->{
+The domain of $f\circ g$ is the set of all numbers $x$ in the domain of $g$ such that $g(x)$ is in the domain of $f$.  If the domain of $f$ is $A$ and the domain of $g$ is $B$, we write this as
+\[
+\{ x\in B |\ g(x) \in A\} .
+\]
+}
+\end{frame}
+% end module composition-functions

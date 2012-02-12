@@ -1,0 +1,35 @@
+% begin module trig-integrals-ex3
+\begin{frame}
+\begin{example}[Example 3, p. 497]
+Evaluate $\int_0^{\pi} \sin^2 x \diff x$.
+\begin{itemize}
+\item<2->  Writing $\sin^2 x = 1 - \cos^2 x$ doesn't make it any easier.
+\item<3->  Instead use the half-angle identity $\sin^2 x = \frac{1}{2}(1-\cos 2x)$.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<4->{%
+\int_0^{\pi} \sin^2 x \diff x 
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\frac{1}{2}\int_0^{\pi} (1-\cos 2x)\diff x
+}\\%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\frac{1}{2}\left[ x - \frac{1}{2}\sin 2x\right]_0^{\pi}
+}\\%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\frac{1}{2}\left( \pi - \frac{1}{2}\sin 2\pi\right) %
+ - \frac{1}{2}\left( 0 - \frac{1}{2}\sin 0\right)
+}\\%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+\frac{\pi}{2}
+}\\%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module trig-integrals-ex3

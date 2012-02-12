@@ -1,0 +1,127 @@
+% begin module infinite-limit-ex3
+\begin{frame}
+\begin{example}[Infinite Two-Sided Limit]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \lim_{x\to 2}
+\frac%
+{x^2-4x+3}%
+{x^3+2x^2-8x}%
+& \\%
+\uncover<2->{%
+\text{Plug in $2$:}\quad%
+\frac%
+{\alert<handout:0| 2-3>{%
+(2)^2-4(2)+3}}%
+{\alert<handout:0| 4-5>{%
+(2)^3+2(2)^2-8(2)}}%
+}%
+& \uncover<2->{= \frac{\uncover<3->{\alert<handout:0| 3>{-1}}}{\uncover<5->{\alert<handout:0| 5>{0}}}}\\%
+\uncover<6->{%
+\intertext{The numerator is non-zero and the denominator is zero.  %}
+Therefore the answer is DNE, $\infty$, or $-\infty$.}
+}%
+\uncover<7->{%
+\text{Factor:}\quad
+}%
+\uncover<7->{%
+\lim_{x\to 2}%
+\frac%
+{\alert<handout:0| 8-9>{x^2-4x+3}}%
+{\alert<handout:0| 10-11>{x^3+2x^2-8x}}%
+}%
+& \uncover<8->{%
+ = \lim_{x\to 2}%
+\frac%
+{%
+\uncover<handout:0| 9->{\alert<handout:0| 9>{%
+\alert<handout:0| 12-13>{%
+(x-1)%
+}%
+\alert<handout:0| 14-15>{%
+(x-3)%
+}%
+}}%
+}{%
+\uncover<handout:0| 11->{\alert<handout:0| 11>{%
+\alert<handout:0| 16-17>{%
+x%
+}%
+\alert<handout:0| 18-19>{%
+(x+4)%
+}%
+\alert<handout:0| 20-21>{%
+(x-2)%
+}%
+}}%
+}%
+}%
+\belowdisplayskip=0pt
+\end{align*}
+
+\begin{flalign*}
+& \uncover<12->{%
+\lim_{x\to 2^+}
+\frac%
+{x^2-4x+3}%
+{x^3+2x^2-8x}%
+}%
+& %
+& \uncover<12->{%
+\lim_{x\to 2^-}
+\frac%
+{x^2-4x+3}%
+{x^3+2x^2-8x}%
+}\\%
+& \uncover<12->{%
+ \to \alert<handout:0| 20-21>{\frac%
+{%
+\alert<handout:0| 12-13>{(\uncover<handout:0| 13->{%
++%
+})}%
+\alert<handout:0| 14-15>{(\uncover<handout:0| 15->{%
+-%
+})}%
+}{%
+\alert<handout:0| 16-17>{(\uncover<handout:0| 17->{%
++%
+})}%
+\alert<handout:0| 18-19>{(\uncover<handout:0| 19->{%
++%
+})}%
+\alert<handout:0| 18-19>{(\uncover<handout:0| 19->{%
++%
+})}%
+}%
+}%
+}%
+& %
+& \uncover<12->{%
+ \to \alert<handout:0| 20-21>{\frac%
+{%
+\alert<handout:0| 12-13>{(\uncover<handout:0| 13->{%
++%
+})}%
+\alert<handout:0| 14-15>{(\uncover<handout:0| 15->{%
+-%
+})}%
+}{%
+\alert<handout:0| 16-17>{(\uncover<handout:0| 17->{%
++%
+})}%
+\alert<handout:0| 18-19>{(\uncover<handout:0| 19->{%
++%
+})}%
+\alert<handout:0| 18-19>{(\uncover<handout:0| 19->{%
++%
+})}%
+}%
+}%
+}%
+\end{flalign*}
+\end{example}
+\end{frame}
+% end module infinite-limit-ex3

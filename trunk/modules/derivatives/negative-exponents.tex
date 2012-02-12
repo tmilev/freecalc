@@ -1,0 +1,45 @@
+% begin module negative-exponents
+\begin{frame}[t]
+\begin{theorem}[The Power Rule for Negative Exponents]
+If $n$ is a positive integer, then %
+\[
+\frac{\diff}{\diff x}(x^{-n}) = -nx^{-n-1}.
+\]
+\end{theorem}
+\begin{proof}
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<2->{%
+\text{Let}\quad y = \alert<handout:0| 2-3>{x^{-n}} %
+}%
+& \uncover<2->{\alert<handout:0| 2-3>{ = \uncover<3->{\frac{1}{x^n}.}}%
+}\\%
+\uncover<4->{%
+\text{Quotient Rule:}\quad%
+}%
+\uncover<4->{%
+\frac{\diff y}{\diff x}%
+}%
+& \uncover<4->{%
+ = \frac%
+{\left( x^{n} \right) \alert<handout:0| 5-6>{\frac{\diff}{\diff x}\left( 1 \right)} - \left( 1 \right) \alert<handout:0| 7-8>{\frac{\diff}{\diff x}\left( x^n \right)}}%
+{\left( x^n\right)^2}%
+}\\%
+& \uncover<5->{%
+ = \frac%
+{\left( x^n \right) \alert<handout:0| 5-6>{\left(\uncover<6->{ 0 }\right)} - \left( 1 \right) \alert<handout:0| 7-8>{\left( \uncover<8->{nx^{n-1}} \right)}}%
+{ x^{2n}}%
+}\\%
+& \uncover<9->{%
+ = -n\alert<handout:0| 10-11>{\frac{x^{n-1}}{x^{2n}}}%
+}\\%
+& \uncover<10->{%
+ = -n\alert<handout:0| 10-11>{\uncover<11->{x^{-n-1}.}}%
+}%
+\end{align*}
+\end{proof}
+\end{frame}
+% end module negative-exponents

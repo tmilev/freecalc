@@ -1,0 +1,42 @@
+% begin module substitution-rule-intro
+\begin{frame}
+\frametitle{(5.5) The Substitution Rule}
+\begin{itemize}
+\item  How do we integrate $\int 2x \sqrt{1+x^2} \ \diff x$?
+\item<2->  Introduce a new variable \alert<handout:0| 5,8>{$u = 1 + x^2$}.
+\item<3-> Then \alert<handout:0| 6>{$\diff u = 2x \ \diff x$}.  (See section 3.9: Linear Approximations and Differentials).
+\item<4->  Then substitute these into the integral:
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<4->{%
+\int \alert<handout:0| 6>{2x} \alert<handout:0| 5>{\sqrt{1+x^2}} \ \alert<handout:0| 6>{\diff x}%
+ = \int \alert<handout:0| 5>{\uncover<5->{\sqrt{u}} \ \alert<handout:0| 6>{\uncover<6->{\diff u}}}%
+}%
+\uncover<7->{%
+ = \frac{2}{3}\alert<handout:0| 8>{u}^{3/2}%
+}%
+\uncover<8->{%
+ = \frac{2}{3}\alert<handout:0| 8>{(1+x^2)}^{3/2}%
+}%
+\]
+\begin{itemize}
+\item<9->  Is this correct?
+\item<10->  Take the derivative using the Chain Rule:
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<11->{%
+\frac{\diff}{\diff x} \left( \frac{2}{3} (1+x^2)^{3/2}\right)%
+}%
+\uncover<12->{%
+ = \frac{3}{2}\cdot \frac{2}{3} (1+x^2)^{1/2} \frac{\diff}{\diff x} \left( 1+x^2\right)%
+}%
+\uncover<13->{%
+ = \sqrt{1+x^2} (2x)%
+}%
+\]
+\end{frame}
+% end module substitution-rule-intro

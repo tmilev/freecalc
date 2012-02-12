@@ -1,0 +1,20 @@
+% begin module arcsin-derivative
+\begin{frame}
+\begin{theorem}[The Derivative of $\sin^{-1} x$]
+\[
+\frac{\diff}{\diff x} \left( \sin^{-1} x\right) = \frac{1}{\sqrt{1-x^2}} \qquad -1 < x < 1.
+\]
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item  $\sin$ is differentiable, so $\sin^{-1}$ is too.
+\item<2->  Let $y = \sin^{-1} x$.  Then $\alert<handout:0| 3,7>{\sin y = x}$ and $\alert<handout:0| 8>{-\pi /2 \leq y \leq \pi /2}$.
+\item<3->  Differentiate implicitly with respect to $x$:
+\item<4->  $\cos y \frac{\diff y}{\diff x} = 1$.
+\item<5->  $ \frac{\diff y}{\diff x} = \frac{1}{\cos y}$.
+\item<6->  \uncover<8->{\alert<handout:0| 8>{$\cos y \geq 0$}, so} $\alert<handout:0| 11>{\cos y =} \only<handout:0| -8>{\alert<handout:0| 8>{\pm}}\sqrt{1 - \alert<handout:0| 7>{\sin^2 y}} \uncover<7->{ = \only<handout:0| -8>{\alert<handout:0| 8>{\pm}}\alert<handout:0| 11>{\sqrt{1-\alert<handout:0| 7>{x^2}}}.}$
+\item<10->  $ \frac{\diff y}{\diff x} = \frac{1}{\alert<handout:0| 11>{\cos y}} \uncover<11->{ = \frac{1}{\alert<handout:0| 11>{\sqrt{1-x^2}}}.\qedhere}$
+\end{itemize}
+\end{proof}
+\end{frame}
+% end module arcsin-derivative

@@ -1,0 +1,33 @@
+% begin module inverse-function-calculus
+\begin{frame}
+\frametitle{The Calculus of Inverse Functions}
+We will need the following theorem to compute the derivative of $f^{-1}$.  Its proof can be found in Appendix F.
+\begin{theorem}
+If $f$ is a one-to-one continuous function, then its inverse $f^{-1}$ is also continuous.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[The Derivative of $f^{-1}$]
+If $f$ is a one-to-one differentiable function with inverse function $f^{-1}$ and $f'(f^{-1}(a)) \neq 0$, then the inverse function is differentiable at $a$ and
+\[
+(f^{-1})'(a) = \frac{1}{f'(f^{-1}(a))} .
+\]
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item<2->  If $\alert<handout:0| 11>{f(b) = a}$, then $\alert<handout:0| 9,14-15>{f^{-1}(a) = b}$.  
+\item<3->  Let $\alert<handout:0| 8>{y = f^{-1}(x)}$, so that $\alert<handout:0| 10>{f(y) = x}$.  
+\item<4-| alert@12>  Since $f^{-1}$ is continuous, $y \rightarrow b$ as $x \rightarrow a$.
+\end{itemize}
+\begin{eqnarray*}
+\uncover<5->{(f^{-1})'(a)} & \uncover<5->{=} &%
+\uncover<6->{\alert<handout:0| 12>{\lim_{x\rightarrow a}} \frac{\alert<handout:0| 8>{f^{-1}(x)} - \alert<handout:0| 9>{f^{-1}(a)}}{\alert<handout:0| 10>{x} - \alert<handout:0| 11>{a}}}%
+\uncover<7->{= \alert<handout:0| 12>{\lim_{y\rightarrow b}} \frac{\alert<handout:0| 8>{y} - \alert<handout:0| 9>{b}}{\alert<handout:0| 10>{f(y)} - \alert<handout:0| 11>{f(b)}}} \\%
+& \uncover<13->{=} &%
+\uncover<13->{\frac{1}{\lim_{y\rightarrow b} \frac{f(y) - f(b)}{y - b}}}%
+\uncover<14->{= \frac{1}{f'(\only<-14>{\alert<handout:0| 14>{b}}\only<handout:0| 15->{\alert<handout:0| 15>{f^{-1}(a)}})}}\qedhere
+\end{eqnarray*}
+\end{proof}
+\end{frame}
+% end module inverse-function-calculus

@@ -1,0 +1,26 @@
+% begin module alternating-estimate-ex4
+\begin{frame}
+\begin{example}[Example 4, p. 749]
+Find the sum of $\sum_{n=0}^\infty \frac{(-1)^n}{n!}$ correct to three decimal places.  (\alert<handout:0| 10>{$0! = 1$}.)
+\begin{enumerate}
+\item<2->  $\displaystyle b_{n+1} = \frac{1}{(n+1)!} \uncover<3->{ = \frac{1}{n!(n+1)} } \uncover<4->{ < \frac{1}{n!} = b_n.}$
+\item<5->  $\displaystyle 0 < \frac{1}{n!} \uncover<6->{ < \frac{1}{n} }\uncover<7->{ \to 0 }$\uncover<7->{, so } \uncover<7->{$\displaystyle b_n \to 0$ as $n\to \infty$.}
+\end{enumerate}
+\begin{itemize}
+\item<8->  Therefore the series converges by the Alternating Series Test.
+%\item<9->  Compute the first few terms:
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<9->{s} & \uncover<9->{=} & \uncover<9->{\alert<handout:0| 12>{\alert<handout:0| 10>{\frac{1}{0!}} - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} + \frac{1}{6!}} - \alert<handout:0| 11>{\frac{1}{7!}} + \cdots}\\
+ & \uncover<10->{=} & \uncover<10->{\alert<handout:0| 12>{\alert<handout:0| 10>{1} - 1 + \frac{1}{2} - \frac{1}{6} + \frac{1}{24} - \frac{1}{120} + \frac{1}{720}} - \alert<handout:0| 11>{\frac{1}{5040}} + \cdots}
+\end{eqnarray*}
+\begin{itemize}
+\item<11-| alert@11,13>  $|s - s_6| \leq b_7 = \frac{1}{5040} < 0.0002$.
+\item<12-| alert@12>  $s_6 = 1 - 1 + \frac{1}{2} - \frac{1}{6} + \frac{1}{24} - \frac{1}{120} + \frac{1}{720} \approx 0.36\alert<handout:0| 13>{80}56$.
+\item<13->  The error of less than $0.0002$ doesn't affect the third decimal place\uncover<14->{, so $s \approx s_6 \approx 0.368$.}
+\end{itemize}
+\end{example}
+\end{frame}
+% end module alternating-estimate-ex4

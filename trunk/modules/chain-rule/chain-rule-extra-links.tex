@@ -1,0 +1,19 @@
+% begin module chain-rule-extra-links
+\begin{frame}
+\begin{itemize}
+\item  We can add more ``links'' when we use the Chain Rule.
+\item<2-| alert@3>  $y = f(u)$
+\item<2-| alert@4>  $u = g(x)$
+\item<2-| alert@4>  $x = h(t)$
+\item<3->  Use the Chain Rule twice:
+\end{itemize}
+\[
+\uncover<3->{%
+\alert<handout:0| 3>{\frac{\diff y}{\diff t} = \frac{\diff y}{\diff u}\alert<handout:0| 4>{\frac{\diff u}{\diff t}}}%
+}%
+\uncover<4->{%
+ = \frac{\diff y}{\diff u}\alert<handout:0| 4>{\frac{\diff u}{\diff x}\frac{\diff x}{\diff t}}%
+}%
+\]
+\end{frame}
+% end module chain-rule-extra-links

@@ -1,0 +1,47 @@
+% begin module improper-integral-type2
+\begin{frame}
+\frametitle{Type II: Discontinuous Integrands}
+We can use the same approach if the function $f$ is discontinuous at one of the endpoints $a$ and $b$ in the integral $\int_a^b f(x) \diff x$.
+
+For example, $\frac{1}{\sqrt{x - 2}}$ is discontinuous at $2$, so we might wonder if the integral
+\[
+\int_2^5 \frac{1}{\sqrt{x-2}}\diff x
+\]
+exists.
+
+\begin{center}
+\ \includegraphics[height=3cm]{improper-integrals/pictures/08-08-ex5.pdf}%
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{definition}[Improper Integral of Type II]
+\begin{enumerate}
+\item  If $f$ is continuous on $[a, b)$ and discontinuous at $b$, then
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_a^b f(x) \diff x = \lim_{t\rightarrow b^-} \int_a^t f(x) \diff x
+\]
+if the limit exists.
+\item  If $f$ is continuous on $(a, b]$ and discontinuous at $a$, then
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_a^b f(x) \diff x = \lim_{t\rightarrow a^+} \int_t^b f(x) \diff x
+\]
+if the limit exists.
+\end{enumerate}
+$\int_a^bf(x) \diff x$ is called convergent if the corresponding limit exists and divergent if it doesn't exist.
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item  If $f$ has a discontinuity at $c$, where $a < c < b$, and both $\int_a^c f(x)\diff x$ and $\int_c^b f(x)\diff x$ are convergent, then we define 
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_a^b f(x) \diff x = \int_a^c f(x)\diff x + \int_c^b f(x) \diff x
+\]
+\end{enumerate}
+\end{definition}
+\end{frame}
+% end module improper-integral-type2

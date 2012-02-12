@@ -1,0 +1,34 @@
+% begin module arc-length-half-ex
+\begin{frame}
+\begin{example}[$(a+b)^2$, $(a-b)^2$, $2ab=1/2$]
+Find the length of the arc of $x = \frac{1}{6}e^{3x} + \frac{1}{6}e^{-3x}$ from $x = 0$ to $x = 1$.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{\alert<handout:0| 2-3>{y'}} %
+& \uncover<2->{\alert<handout:0| 2-3>{=}} & %
+\uncover<3->{\alert<handout:0| 3>{\frac{1}{2}e^{3x} - \frac{1}{2}e^{-3x}}} \\%
+\uncover<4->{\alert<handout:0| 8>{(y')^2}} %
+& \uncover<4->{=} & %
+\uncover<4->{\frac{1}{4}e^{6x} \alert<handout:0| 5-6>{- \frac{1}{4}e^{3x}e^{-3x} - \frac{1}{4}e^{3x}e^{-3x}} + \frac{1}{4}e^{-6x}} \\%
+& \uncover<6->{\alert<handout:0| 8>{=}} & %
+\uncover<6->{\alert<handout:0| 8>{\frac{1}{4}e^{6x} \alert<handout:0| 6>{- \frac{1}{2}} + \frac{1}{4}e^{-6x}}} \\%
+\uncover<7->{L} %
+& \uncover<7->{=} & %
+\uncover<7->{\int_0^1 \sqrt{1 + \alert<handout:0| 8>{(y')^2}} \diff x} %
+ \uncover<8->{=}  %
+\uncover<8->{\int_0^1 \sqrt{\alert<handout:0| 9>{1} + \alert<handout:0| 8>{\frac{1}{4}e^{6x} \alert<handout:0| 9>{- \frac{1}{2}} + \frac{1}{4}e^{-6x}}} \diff x} \\%
+& \uncover<9->{=} & %
+\uncover<9->{\int_0^1 \sqrt{\frac{1}{4}e^{6x} \alert<handout:0| 9>{+ \frac{1}{2}} + \frac{1}{4}e^{-6x}} \diff x} %
+ \uncover<10->{=}  %
+\uncover<10->{\int_0^1 \sqrt{\left( \frac{1}{2}e^{3x} + \frac{1}{2}e^{-3x}\right)^2} \diff x} \\%
+& \uncover<11->{=} & %
+\uncover<11->{\int_0^1 \left( \alert<handout:0| 12-13>{\frac{1}{2}e^{3x}} + \alert<handout:0| 14-15>{\frac{1}{2}e^{-3x}}\right) \diff x} %
+ \uncover<12->{=}  %
+\uncover<12->{\left[ \uncover<13->{\alert<handout:0| 13>{\frac{1}{6}e^{3x}}} \uncover<15->{\alert<handout:0| 15>{- \frac{1}{6}e^{-3x}}}\right]_0^1} %
+ \uncover<16->{=}  %
+\uncover<16->{\frac{ e^3 - e^{-3}}{6}} %
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module arc-length-half-ex

@@ -1,0 +1,61 @@
+% begin module antiderivatives-ex-initial-value
+\begin{frame}
+\begin{example}
+Find $f$ if $f'(x) = \frac{1}{x\sqrt{x}}$ for $x > 0$, and $f(1) = 1$.
+\begin{columns}[c]
+\column{.4\textwidth}
+\begin{eqnarray*}
+\uncover<2->{%
+f'(x)%
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+\frac{1}{x\sqrt{x}} = x^{-3/2}%
+}\\%
+\uncover<3->{%
+\alert<handout:0| 3-4>{f(x)}%
+}%
+& \uncover<3->{\alert<handout:0| 3-4>{ = }} &%
+\uncover<4->{%
+\alert<handout:0| 4>{\frac{x^{-1/2}}{-\frac{1}{2}}} \uncover<5->{\alert<handout:0| 5>{+C}}%
+}\\%
+& \uncover<6->{\alert<handout:0| 3-4>{ = }} &%
+\uncover<6->{%
+-\frac{2}{\sqrt{x}} +C%
+}%
+\end{eqnarray*}
+\column{.6\textwidth}
+\uncover<7->{To find $C$, use the fact that $f(1) = 1$.}%
+\begin{eqnarray*}
+\uncover<7->{%
+f(1)%
+}%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+1%
+}\\%
+\uncover<8->{%
+-\frac{2}{\sqrt{1}} +C%
+}%
+& \uncover<8->{ = } &%
+\uncover<8->{%
+1%
+}\\%
+\uncover<9->{%
+C%
+}%
+& \uncover<9->{ = } &%
+\uncover<9->{%
+3%
+}%
+\end{eqnarray*}
+\end{columns}
+
+\uncover<10->{Therefore
+\[
+f(x) = -\frac{2}{\sqrt{x}}+3.
+\]
+}%
+\end{example}
+\end{frame}
+% end module antiderivatives-ex-initial-value

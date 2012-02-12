@@ -1,0 +1,110 @@
+% begin module tangent-problem
+\begin{frame}
+\begin{columns}[c]
+\column{.4\textwidth}
+\ \only<handout:1| -5>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secanta.pdf}%
+}%
+\only<handout:0| 6>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secantb.pdf}%
+}%
+\only<handout:2| 7-8>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secantc.pdf}%
+}%
+\only<handout:0| 9-10>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secantd.pdf}%
+}%
+\only<handout:0| 11-12>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secante.pdf}%
+}%
+\only<handout:0| 13-16>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secantf.pdf}%
+}%
+\only<handout:0| 17-18>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secantg.pdf}%
+}%
+\only<handout:0| 19-20>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secanth.pdf}%
+}%
+\only<handout:0| 21-22>{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secanti.pdf}%
+}%
+\only<handout:3| 23->{%
+\includegraphics[height=5cm]{limits/pictures/02-01-secantj.pdf}%
+}%
+\[
+\begin{array}{|r@{}c@{}l|r@{}c@{}l||r@{}c@{}l|r@{}c@{}l|}
+\hline
+\multicolumn{3}{|c|}{x} &
+\multicolumn{3}{|c||}{m_{PQ}} &
+\multicolumn{3}{|c|}{x} &
+\multicolumn{3}{|c|}{m_{PQ}} \\
+\hline
+\alert<handout:2| 7-8>{2} & & &
+\uncover<handout:2-| 8->{\alert<handout:2| 8>{3}} & & &
+\alert<handout:0| 17-18>{0} & & &
+\uncover<handout:3| 18->{\alert<handout:0| 18>{1}} & & \\
+\alert<handout:0| 9-10>{1} & 
+\alert<handout:0| 9-10>{.} &
+\alert<handout:0| 9-10>{5} &
+\uncover<handout:3| 10->{\alert<handout:0| 10>{2}} & 
+\uncover<handout:3| 10->{\alert<handout:0| 10>{.}} & 
+\uncover<handout:3| 10->{\alert<handout:0| 10>{5}} &
+\alert<handout:0| 19-20>{0} & 
+\alert<handout:0| 19-20>{.} &
+\alert<handout:0| 19-20>{5} &
+\uncover<handout:3| 20->{\alert<handout:0| 20>{1}} & 
+\uncover<handout:3| 20->{\alert<handout:0| 20>{.}} & 
+\uncover<handout:3| 20->{\alert<handout:0| 20>{5}} \\
+\alert<handout:0| 11-12>{1} & 
+\alert<handout:0| 11-12>{.} &
+\alert<handout:0| 11-12>{25} &
+\uncover<handout:3| 12->{\alert<handout:0| 12>{2}} & 
+\uncover<handout:3| 12->{\alert<handout:0| 12>{.}} & 
+\uncover<handout:3| 12->{\alert<handout:0| 12>{25}} &
+\alert<handout:0| 21-22>{0} & 
+\alert<handout:0| 21-22>{.} &
+\alert<handout:0| 21-22>{75} &
+\uncover<handout:3| 22->{\alert<handout:0| 22>{1}} & 
+\uncover<handout:3| 22->{\alert<handout:0| 22>{.}} & 
+\uncover<handout:3| 22->{\alert<handout:0| 22>{75}} \\
+\alert<handout:0| 13-14>{1} & 
+\alert<handout:0| 13-14>{.} &
+\alert<handout:0| 13-14>{1} &
+\uncover<handout:3| 14->{\alert<handout:0| 14>{2}} & 
+\uncover<handout:3| 14->{\alert<handout:0| 14>{.}} & 
+\uncover<handout:3| 14->{\alert<handout:0| 14>{1}} &
+\alert<handout:3| 23-24>{0} & 
+\alert<handout:3| 23-24>{.} &
+\alert<handout:3| 23-24>{9} &
+\uncover<handout:3| 24->{\alert<handout:3| 24>{1}} & 
+\uncover<handout:3| 24->{\alert<handout:3| 24>{.}} & 
+\uncover<handout:3| 24->{\alert<handout:3| 24>{9}} \\
+\alert<handout:0| 15-16>{1} & 
+\alert<handout:0| 15-16>{.} &
+\alert<handout:0| 15-16>{01} &
+\uncover<handout:3| 16->{\alert<handout:0| 16>{2}} & 
+\uncover<handout:3| 16->{\alert<handout:0| 16>{.}} & 
+\uncover<handout:3| 16->{\alert<handout:0| 16>{01}} &
+\alert<handout:0| 25-26>{0} & 
+\alert<handout:0| 25-26>{.} &
+\alert<handout:0| 25-26>{99} &
+\uncover<handout:3| 26->{\alert<handout:0| 26>{1}} & 
+\uncover<handout:3| 26->{\alert<handout:0| 26>{.}} & 
+\uncover<handout:3| 26->{\alert<handout:0| 26>{99}} \\
+\hline
+\end{array}
+\]
+\column{.6\textwidth}
+\begin{itemize}
+\item  Find the tangent to $y = x^2$ at $(1,1)$.
+\item<2->  Tangent has equation $y - 1 = m(x - 1)$, where $m$ is its slope.
+\item<3->  If we know the slope, we know the line.
+\item<4->  We know only one point, $P$; we need two points to find the slope.
+\item<handout:2-| 5->  Solution: choose a nearby point $Q = (x, x^2)$ on the parabola and find the slope $m_{PQ}$ of the secant line $PQ$.
+\item<handout:3-| 27->  The closer $x$ is to $1$, the closer $m_{PQ}$ is to $2$.
+\item<handout:3-| 28->  This suggests the slope of the tangent should be $2$.
+\end{itemize}
+\end{columns}
+\end{frame}
+% end module tangent-problem

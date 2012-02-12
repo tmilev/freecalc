@@ -1,0 +1,120 @@
+% begin module differentiable-ex5
+\begin{frame}
+\begin{example}[Example 5, p. 127]
+Where is the function $f(x) = |x|$ differentiable?
+\begin{columns}[c]
+\column{.25\textwidth}
+\ \includegraphics[height=3cm]{derivatives/pictures/03-02-ex5a.pdf}%
+
+\ \only<handout:-2| -30>{%
+\includegraphics[height=3cm]{derivatives/pictures/03-02-ex5b.pdf}%
+}%
+\only<handout:3| 31->{%
+\includegraphics[height=3cm]{derivatives/pictures/03-02-ex5c.pdf}%
+}%
+\column{.75\textwidth}
+\only<handout:1| -10>{%
+\begin{itemize}
+\item<2->  Suppose $x > 0$.
+\item<3-| alert@7>  Then $|x| = x$.
+\item<4->  Pick $h$ small so that $x + h > 0$.
+\item<5-| alert@7>  Then $|x + h| = x+h$.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<6->{f'(x)}%
+ & \uncover<6->{ = } &%
+\uncover<6->{\lim_{h\rightarrow 0} \frac{|x+h|-|x|}{h}}\\%
+ & \uncover<7->{ = } &%
+\uncover<7->{\lim_{h\rightarrow 0} \frac{(x+h)-x}{h}}\\%
+ & \uncover<8->{ = } &%
+\uncover<8->{\lim_{h\rightarrow 0} \frac{h}{h}}\uncover<9->{ = 1}\\%
+\end{eqnarray*}
+\uncover<10->{%
+Therefore $f$ is differentiable for any $x > 0$.
+}%
+}%
+
+\only<handout:2| 11-19>{%
+\begin{itemize}
+\item<11->  Suppose $x < 0$.
+\item<12-| alert@16>  Then $|x| = -x$.
+\item<13->  Pick $h$ small so that $x + h < 0$.
+\item<14-| alert@16>  Then $|x + h| = -(x+h)$.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<15->{f'(x)}%
+ & \uncover<15->{ = } &%
+\uncover<15->{\lim_{h\rightarrow 0} \frac{|x+h|-|x|}{h}}\\%
+ & \uncover<16->{ = } &%
+\uncover<16->{\lim_{h\rightarrow 0} \frac{-(x+h)+x}{h}}\\%
+ & \uncover<17->{ = } &%
+\uncover<17->{\lim_{h\rightarrow 0} \frac{-h}{h}}\uncover<18->{ = -1}\\%
+\end{eqnarray*}
+\uncover<19->{%
+Therefore $f$ is differentiable for any $x < 0$.
+}%
+}%
+
+
+\only<handout:3| 20->{%
+If $f'(0)$ exists, then 
+\[
+f'(0) = \lim_{h\rightarrow 0}\frac{f(0+h) - f(0)}{h} = \lim_{h\rightarrow 0} \frac{|0+h| - |0|}{h}.
+\]
+\uncover<21->{%
+Does this limit exist?
+}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<22->{%
+\lim_{h\rightarrow 0^{\alert<handout:0| 24>{+}}}\frac{|0+h|-|0|}{h}
+}%
+\uncover<23->{%
+ = \lim_{h\rightarrow 0^{\alert<handout:0| 24>{+}}}\frac{\alert<handout:0| 24>{|h|}}{h}
+}%
+\uncover<24->{%
+ = \lim_{h\rightarrow 0^{\alert<handout:0| 24>{+}}}\frac{\alert<handout:0| 24>{h}}{h}
+}%
+\uncover<25->{%
+ = 1
+}%
+\]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<26->{%
+\lim_{h\rightarrow 0^{\alert<handout:0| 28>{-}}}\frac{|0+h|-|0|}{h}
+}%
+\uncover<27->{%
+ = \lim_{h\rightarrow 0^{\alert<handout:0| 28>{-}}}\frac{\alert<handout:0| 28>{|h|}}{h}
+}%
+\uncover<28->{%
+ = \lim_{h\rightarrow 0^{\alert<handout:0| 28>{-}}}\frac{\alert<handout:0| 28>{-h}}{h}
+}%
+\uncover<29->{%
+ = -1
+}%
+\]
+\uncover<30->{%
+Therefore $f$ is not differentiable at $0$.
+}%
+\uncover<31->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+f'(x) = \left\{ \begin{array}{rl}
+1 & \textrm{ if } x > 0\\
+-1 & \textrm{ if } x < 0\\
+\end{array}\right.
+\]
+}%
+}%
+\end{columns}
+\end{example}
+\end{frame}
+% end module differentiable-ex5

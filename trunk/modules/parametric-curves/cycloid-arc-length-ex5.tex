@@ -1,0 +1,76 @@
+% begin module cycloid-arc-length-ex5
+\begin{frame}
+\begin{example}[Example 5, p. 671]
+\begin{columns}[c]
+\column{.4\textwidth}
+\ \includegraphics[height=2.2cm]{parametric-curves/pictures/11-02-ex5.pdf}%
+\column{.6\textwidth}
+Find the length of one arch of the cycloid
+\[
+\alert<handout:0| 3-4>{x = r(\theta - \sin \theta )}, \quad  \alert<handout:0| 5-6>{y = r(1-\cos \theta )}.%
+\]
+\uncover<2->{%
+The first arch is \alert<handout:0| 2,12>{$0\leq \theta \leq 2\pi$}.
+}%
+\end{columns}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<2->{%
+L = \int_{\alert<handout:0| 2>{0}}^{\alert<handout:0| 2>{2\pi}}\sqrt{\left( \alert<handout:0| 3-4>{\frac{\diff x}{\diff \theta}}\right)^2+\left( \alert<handout:0| 5-6>{\frac{\diff y}{\diff \theta}}\right)^2} \diff \theta%
+}%
+\uncover<3->{%
+ = \int_0^{2\pi}\sqrt{\left( \alert<handout:0| 3-4>{\uncover<4->{r(1-\cos \theta )}}\right)^2+\left( \alert<handout:0| 5-6>{\uncover<6->{r\sin \theta}}\right)^2} \diff \theta%
+}%
+\]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<7->{%
+ = \int_0^{2\pi} \sqrt{r^2(1 - 2\cos \theta + \cos^2\theta + \sin^2\theta)}\diff \theta%
+}%
+\uncover<8->{%
+ = r \int_0^{2\pi} \sqrt{2(1 - \cos \theta)}\diff \theta%
+}%
+\]
+\uncover<9->{%
+Use the identity \alert<handout:0| 10>{$\sin^2 x = \frac{1}{2}(1-\cos 2x)$}.  %
+}%
+\uncover<10->{%
+Then %
+}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<9->{%
+\sqrt{\alert<handout:0| 10>{2(1-\cos \theta )}}%
+}%
+\uncover<10->{%
+ = \sqrt{\alert<handout:0| 10>{4\sin^2 (\theta /2) }}%
+}%
+\uncover<11->{%
+ = 2\alert<handout:0| 12>{|}\sin (\theta /2)\alert<handout:0| 12>{|}%
+}%
+\uncover<12->{%
+ = 2\sin (\theta /2)%
+}%
+\]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<13->{%
+L = r\int_0^{2\pi}2\sin (\theta /2)\diff \theta%
+}%
+\uncover<14->{%
+ = r\left[ -4\cos (\theta / 2)\right]_0^{2\pi}%
+}%
+%\uncover<15->{%
+% = r\left( (-4)(-1) - (-4)(1)\right)%
+%}%
+\uncover<15->{%
+ = 8r%
+}%
+\]
+\end{example}
+\end{frame}
+% end module cycloid-arc-length-ex5

@@ -1,0 +1,80 @@
+% begin module ratio-test-inconclusive
+\begin{frame}
+\alert<handout:0| 21>{The Ratio Test is inconclusive if $\displaystyle \lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n}\right| = 1.$}
+
+\uncover<2->{%
+\begin{example}
+\begin{columns}
+\column{.2\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=1}^\infty \frac{1}{n^2}
+\]
+\column{.8\textwidth}
+\begin{itemize}
+\item<3->  This is a $p$-series with \alert<handout:0| 3-4>{$p = \uncover<4->{2.}$}
+\item<3->  Therefore it is \uncover<5->{\alert<handout:0| 5,21>{convergent}.}
+\end{itemize}
+\end{columns}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<6->{%
+\left| \frac{a_{n+1}}{a_n}\right|  = \frac{\frac{1}{(n+1)^2}}{\frac{1}{n^2}}%
+}%
+\uncover<7->{%
+ = \frac{n^2}{(n+1)^2}\uncover<8->{\alert<handout:0| 8>{\cdot \frac{\frac{1}{n^2}}{\frac{1}{n^2}}}}%
+}%
+\uncover<9->{%
+\alert<handout:0| 10-11>{%
+ = \frac{1}{\left( 1 + \frac{1}{n}\right)^2}%
+}%
+}%
+\uncover<10->{%
+\alert<handout:0| 10-11>{%
+ \to \uncover<11->{\alert<handout:0| 21>{1}} \qquad \textrm{ as } n\to\infty
+}%
+}%
+\]
+\end{example}
+
+\begin{example}
+\begin{columns}
+\column{.2\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=1}^\infty \frac{1}{n}
+\]
+\column{.8\textwidth}
+\begin{itemize}
+\item<12->  This is a $p$-series with \alert<handout:0| 12-13>{$p = \uncover<13->{1.}$}
+\item<12->  Therefore it is \uncover<14->{\alert<handout:0| 14,21>{divergent}.}
+\end{itemize}
+\end{columns}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<15->{%
+\left| \frac{a_{n+1}}{a_n}\right|  = \frac{\frac{1}{n+1}}{\frac{1}{n}}%
+}%
+\uncover<16->{%
+ = \frac{n}{n+1}\uncover<17->{\alert<handout:0| 17>{\cdot \frac{\frac{1}{n}}{\frac{1}{n}}}}%
+}%
+\uncover<18->{%
+\alert<handout:0| 19-20>{%
+ = \frac{1}{ 1 + \frac{1}{n}}%
+}%
+}%
+\uncover<19->{%
+\alert<handout:0| 19-20>{%
+ \to \uncover<20->{\alert<handout:0| 21>{1}} \qquad \textrm{ as } n\to\infty
+}%
+}%
+\]
+\end{example}
+
+}%
+\end{frame}
+% end module ratio-test-inconclusive

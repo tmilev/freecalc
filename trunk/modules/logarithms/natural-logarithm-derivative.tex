@@ -1,0 +1,20 @@
+% begin module natural-logarithm-derivative
+\begin{frame}
+\frametitle{The Derivative of the Natural Logarithm}
+\begin{theorem}[The Derivative of $\ln x$]
+\[
+\frac{\diff}{\diff x} (\ln x) = \frac{1}{x} .
+\]
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item<2->  Let $\alert<handout:0| 8,10>{y = \ln x}$.
+\item<3->  Then $e^y = x$.
+\item<4->  Differentiate this implicitly with respect to $x$:
+\item<5->  $e^y \frac{\diff y}{\diff x} = 1$.
+\item<6->  Rearrange:
+\item<7->  $\uncover<10->{\frac{\diff}{\diff x} (\alert<handout:0| 10>{\ln x}) = } \frac{\diff \alert<handout:0| 10>{y}}{\diff x} = \frac{1}{e^{\alert<handout:0| 8>{y}}} \uncover<8->{ = \frac{1}{e^{\alert<handout:0| 8>{\ln x}}}} \uncover<9->{ = \frac{1}{x}.}$
+\end{itemize}
+\end{proof}
+\end{frame}
+% end module natural-logarithm-derivative

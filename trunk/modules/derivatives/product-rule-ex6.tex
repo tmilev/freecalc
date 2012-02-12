@@ -1,0 +1,45 @@
+% begin module product-rule-ex6
+\begin{frame}
+\begin{example}[Example 6, p. 140]
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad F(x) & = (6x^3)(7x^4).\\%
+\uncover<2->{%
+\text{Product Rule:}\quad F'(x)%
+}%
+ & \uncover<2->{%
+ = (6x^3)\alert<handout:0| 3-4>{\frac{\diff}{\diff x}(7x^4)} + (7x^4)\alert<handout:0| 5-6>{\frac{\diff}{\diff x}(6x^3)}%
+}\\%
+ & \uncover<3->{%
+ = (6x^3)\alert<handout:0| 3-4>{(\uncover<4->{28x^3})} + (7x^4)\alert<handout:0| 5-6>{(\uncover<6->{18x^2})}%
+}\\%
+ & \uncover<7->{%
+ = 168x^6 + 126x^6%
+}\\%
+ & \uncover<8->{ = 294x^6.}\\
+\uncover<9->{%
+\intertext{Note: We could have found the answer without using the Product Rule.}%
+}%
+\uncover<10->{%
+F(x)%
+}%
+ & \uncover<10->{%
+ = \alert<handout:0| 10-11>{(6x^3)(7x^4) = \uncover<11->{42\alert<handout:0| 12-13>{x^7}}}%
+}\\%
+\uncover<12->{%
+\text{Power Rule:}\quad F'(x)%
+}%
+ & \uncover<12->{%
+ = 42\alert<handout:0| 12-13>{(\uncover<13->{7x^6})}%
+}\\%
+ & \uncover<14->{%
+ = 294x^6.%
+}\\%
+\uncover<15->{\intertext{Later we will encounter functions, like $y = x^2\sin x$, for which the Product Rule is the only possible method.}}
+\end{align*}
+\end{example}
+\end{frame}
+% end module product-rule-ex6

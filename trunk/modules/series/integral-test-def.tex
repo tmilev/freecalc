@@ -1,0 +1,25 @@
+% begin module integral-test-def
+\begin{frame}
+\begin{theorem}[The Integral Test]
+Let $f$ be a continuous, positive, decreasing function on $[1, \infty )$ and let $a_n = f(n)$.  Then the series $\sum_{n=1}^\infty a_n$ is convergent if and only if the improper integral $\int_1^\infty f(x)\diff x$ is convergent.  In other words,
+\begin{enumerate}
+\item  If $\displaystyle \int_1^\infty f(x)\diff x$ is convergent, then $\displaystyle \sum_{n=1}^\infty a_n$ is convergent.
+\item  If $\displaystyle \int_1^\infty f(x)\diff x$ is divergent, then $\displaystyle \sum_{n=1}^\infty a_n$ is divergent.
+\end{enumerate}
+\end{theorem}
+\uncover<2->{%
+Note that it is not necessary to start the series or the integral at $n = 1$.  For instance, to test the series
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=4}^\infty \frac{1}{(n-3)^2}
+\]
+we would use
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_{4}^\infty \frac{1}{(x-3)^2}\diff x
+\]
+}%
+\end{frame}
+% end module integral-test-def

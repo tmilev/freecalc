@@ -1,0 +1,27 @@
+% begin module trig-substitutions-ex4
+\begin{frame}
+\begin{example}[Example 4, p. 506]
+Find $\int \frac{x}{\sqrt{x^2+4}}\diff x$.
+\begin{itemize}
+\item<2->  We could use the trig substitution $x = 2\tan \theta$.
+\item<3->  But there is an easier way:
+\item<3-| alert@4-5,10,13>  $u = $ \uncover<5->{$x^2+4$.}
+\item<3-| alert@6-7,11>  $\diff u = $ \uncover<7->{$2x\diff x$.}
+\end{itemize}
+\[
+\uncover<8->{%
+\int \frac{\alert<handout:0| 11>{x}}{\sqrt{\alert<handout:0| 10>{x^2+4}}}\alert<handout:0| 11>{\diff x} = %
+}%
+\uncover<9->{%
+\alert<handout:0| 11>{\frac{1}{2}}\int \frac{\alert<handout:0| 11>{\diff u}}{\sqrt{\alert<handout:0| 10>{u}}} = %
+}%
+\uncover<12->{%
+\sqrt{\alert<handout:0| 13>{u}} + C = %
+}%
+\uncover<13->{%
+\sqrt{\alert<handout:0| 13>{x^2 + 4}} + C %
+}%
+\]
+\end{example}
+\end{frame}
+% end module trig-substitutions-ex4

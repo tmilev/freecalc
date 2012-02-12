@@ -1,0 +1,42 @@
+% begin module limit-comparison-ex3
+\begin{frame}
+\begin{example}[Example 3, p. 743]
+Test the series $\sum_{n=1}^\infty \frac{1}{2^n-1}$ for convergence or divergence.
+
+\uncover<2->{%
+Use the Limit Comparison Test with
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+a_n = \frac{1}{2^n-1}, \qquad b_n = \frac{1}{2^n}
+\]
+}%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<3->{%
+\lim_{n\to\infty} \frac{a_n}{b_n}%
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+\lim_{n\to\infty} \frac{\frac{1}{2^n-1}}{\frac{1}{2^n}}%
+}\\%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+\lim_{n\to\infty} \frac{2^n}{\alert<handout:0| 5>{2^n}-1}\uncover<5->{\alert<handout:0| 5>{\cdot \frac{\frac{1}{2^n}}{\frac{1}{2^n}}}}%
+}\\%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\lim_{n\to\infty} \frac{1}{1-\frac{1}{2^n}}%
+}%
+\uncover<7->{%
+ = 1 > 0%
+}%
+\end{eqnarray*}
+\begin{itemize}
+\item<8-| alert@8-9>  $\sum \frac{1}{2^n}$ is a \uncover<9->{convergent} geometric series.
+\item<10->  By the Limit Comparison Test $\sum \frac{1}{2^n-1}$ is convergent too.%
+\end{itemize}
+\end{example}
+\end{frame}
+% end module limit-comparison-ex3

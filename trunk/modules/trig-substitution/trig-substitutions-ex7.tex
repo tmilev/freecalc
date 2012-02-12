@@ -1,0 +1,71 @@
+% begin module trig-substitution-ex7
+\begin{frame}
+\begin{example}[Example 7, p. 507]
+Evaluate $\int \frac{x}{\sqrt{3-2x-x^2}}\diff x$.
+\begin{itemize}
+\item<2->  Complete the square under the root sign:
+\item<3-| alert@38>  $\uncover<3->{%
+3 - 2x - x^2 = %
+}% 
+\uncover<4->{%
+3 \uncover<5->{\alert<handout:0| 5>{ + 1 }} - (x^2 + 2x \uncover<5->{\alert<handout:0| 5>{ + 1}})  = %
+}% 
+\uncover<6->{%
+4 - (x + 1)^2%
+}$
+\item<7->  Substitute \alert<handout:0| 8-9,17,39>{$u = \uncover<9->{x+1}$}.  Then \alert<handout:0| 10-11,16>{$\diff u = \uncover<11->{\diff x}$} and \alert<handout:0| 12-13,15>{$x = \uncover<13->{u - 1}$}.
+\item<7-| alert@27>  $\int \frac{x}{\sqrt{3 - 2x - x^2}}\diff x = \int \frac{\alert<handout:0| 15>{x}}{\sqrt{4 - \alert<handout:0| 17>{(x+1)^2}}}\alert<handout:0| 16>{\diff x} = \uncover<14->{\int \frac{\alert<handout:0| 15>{u-1}}{\sqrt{4 - \alert<handout:0| 17>{u^2}}}\alert<handout:0| 16>{\diff u}}$
+\item<18->  Let \alert<handout:0| 19-20,23,29,36>{$u = \uncover<20->{2\sin \theta}$}\uncover<20->{, where \alert<handout:0| 26>{$-\pi /2 \leq \theta \leq \pi / 2$}.}  Then \alert<handout:0| 21-22,30>{$\diff u = \uncover<22->{2\cos \theta\diff \theta}$}\uncover<22->{.}
+\item<18->  $\uncover<18->{%
+\alert<handout:0| 31,35>{%
+\sqrt{4 - \alert<handout:0| 23>{u^2}} = 
+}%
+}%
+\uncover<23->{%
+\sqrt{4 - \alert<handout:0| 23>{4\sin^2 \theta}} = 
+}%
+\uncover<24->{%
+\sqrt{4 \cos^2 \theta} = 
+}%
+\uncover<25->{%
+2 |\cos  \theta | = 
+}%
+\uncover<26->{%
+\alert<handout:0| 31,35>{%
+2 \cos  \theta  
+}%
+}$%
+\end{itemize}
+%\abovedisplayskip=0pt
+%\belowdisplayskip=0pt
+\[
+\begin{array}{l}
+\uncover<27->{%
+\ \ \int \frac{x}{\sqrt{3-2x-x^2}}\diff x%
+}%
+ \uncover<27->{ = }  %
+\uncover<27->{%
+\int\frac{\alert<handout:0| 29>{u} - 1}{\alert<handout:0| 31>{\sqrt{4-u^2}}}\alert<handout:0| 30>{ \diff u}%
+}%
+\uncover<28->{%
+ = \int\frac{\alert<handout:0| 29>{2\sin \theta} - 1}{\alert<handout:0| 31>{2\cos \theta}}\alert<handout:0| 30>{ 2\cos \theta\diff \theta}%
+}\\%
+ \uncover<32->{ = }  %
+\uncover<32->{%
+ \int (2\sin \theta  - 1)\diff \theta
+}  \uncover<33->{ = }  \uncover<33->{%
+ -\alert<handout:0| 35>{2\cos \theta} - \alert<handout:0| 36>{\theta} + C
+}\\
+ \uncover<34->{ = } \uncover<34->{%
+ -\alert<handout:0| 35>{\sqrt{\alert<handout:0| 38>{4-u^2}}} - \alert<handout:0| 36>{\sin^{-1}\left( \frac{\alert<handout:0| 39>{u}}{2}\right)} + C
+}\\%
+ \uncover<37->{%
+ = } %
+\uncover<37->{%
+ -\sqrt{\alert<handout:0| 38>{3-2x-x^2}} - \alert<handout:0| 36>{\sin^{-1}\left( \frac{\alert<handout:0| 39>{x+1}}{2}\right)} + C
+}%
+\end{array}
+\]
+\end{example}
+\end{frame}
+% end module trig-substitution-ex7

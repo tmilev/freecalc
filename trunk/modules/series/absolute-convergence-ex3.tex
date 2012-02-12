@@ -1,0 +1,52 @@
+% begin module absolute-convergence-ex3
+\begin{frame}
+\begin{example}[Example 3, p. 751]
+Determine whether
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=1}^\infty \frac{\cos n}{n^2} = \frac{\cos 1}{1^2} + \frac{\cos 2}{2^2} + \frac{\cos 3}{3^2} + \frac{\cos 4}{4^2} + \cdots%
+\]
+is convergent or divergent.
+\begin{itemize}
+\item<2->  The series has positive and negative terms, but is not alternating.
+\item<3->  Use the Comparison Test:
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\displaystyle \begin{array}{rcccl}
+\uncover<3->{%
+0%
+}%
+& \uncover<3->{ \leq } & %
+\uncover<3->{%
+| \cos n |%
+}%
+& \uncover<3->{ \leq } & %
+\uncover<3->{%
+1%
+}\\%
+\uncover<4->{%
+0%
+}%
+& \uncover<4->{ \leq } & %
+\uncover<4->{%
+\displaystyle \frac{| \cos n |}{\alert<handout:0| 4>{n^2}}%
+}%
+& \uncover<4->{ \leq } & %
+\uncover<4->{%
+\displaystyle \frac{1}{\alert<handout:0| 4>{n^2}}%
+}%
+\end{array}
+\]
+\vspace{-.5cm}
+\begin{itemize}
+\item<5->  $\sum \frac{1}{n^2}$ is a $p$-series with \alert<handout:0| 5-6>{$p = \uncover<6->{2.}$}
+\item<7->  Therefore $\sum \frac{1}{n^2}$ is \uncover<8->{\alert<handout:0| 8>{convergent},} and so by the Comparison Test, $\sum \frac{|\cos n|}{n^2}$ is also \uncover<8->{\alert<handout:0| 8>{convergent}.}
+\item<9->  Therefore $\sum \frac{\cos n}{n^2}$ is absolutely convergent.
+\item<10->  Therefore by the previous theorem, $\sum \frac{\cos n}{n^2}$ is convergent.
+\end{itemize}
+\end{example}
+\end{frame}
+% end module absolute-convergence-ex3

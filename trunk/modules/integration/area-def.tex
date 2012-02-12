@@ -1,0 +1,77 @@
+% begin module area-def
+\begin{frame}
+Estimate the area under the curve $y = f(x)$ between $a$ and $b$.
+\begin{columns}
+\column{.55\textwidth}
+\only<handout:1| -1>{%
+\includegraphics[height=3.5cm]{integration/pictures/05-01-rectangles-right.pdf}%
+}%
+\only<handout:2| 2->{%
+\includegraphics[height=3.5cm]{integration/pictures/05-01-rectangles-left.pdf}%
+}%
+
+\begin{itemize}
+\item<1->  The width of the interval is $b-a$.
+\item<1->  The width of each of the $n$ strips is $\Delta x = \frac{b-a}{n}$.
+\item<1->  The strips divide $[a,b]$ into $n$ subintervals:\\ $[x_0, x_1]$, $[x_1,x_2]$, $\ldots ,$ $[x_{n-1},x_n]$,\\ where $x_0 = a$ and $x_n = b$.
+\end{itemize}
+\column{.45\textwidth}
+\begin{itemize}
+\item<1->  The \only<handout:1| -1>{right}\only<handout:2| 2->{\alert<handout:2| 2>{left}} endpoints of the subintervals are
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+x_{\only<handout:1| -1>{1}\only<handout:2| 2->{\alert<handout:2| 2>{0}}} & = & a \only<handout:1| -1>{+ \Delta x}\\
+x_{\only<handout:1| -1>{2}\only<handout:2| 2->{\alert<handout:2| 2>{1}}} & = & a + \only<handout:1| -1>{2}\Delta x\\
+x_{\only<handout:1| -1>{3}\only<handout:2| 2->{\alert<handout:2| 2>{2}}} & = & a + \only<handout:1| -1>{3}\only<handout:2| 2->{2}\Delta x\\
+& \vdots & 
+\end{eqnarray*}
+\begin{itemize}
+\item<1->  The height of the $i$th rectangle is $f(x_{i\only<handout:2| 2->{\alert<handout:2| 2>{-1}}})$.
+\item<1->  The area of the $i$th rectangle is $f(x_{i\only<handout:2| 2->{\alert<handout:2| 2>{-1}}})\Delta x$.
+\end{itemize}
+\end{columns}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\only<handout:1| -1>{R_n}\only<handout:2| 2->{\alert<handout:2| 2>{L_n}} = f(x_{\only<handout:1| -1>{1}\only<handout:2| 2->{\alert<handout:2| 2>{0}}})\Delta x + f(x_{\only<handout:1| -1>{2}\only<handout:2| 2->{\alert<handout:2| 2>{1}}})\Delta x + f(x_{\only<handout:1| -1>{3}\only<handout:2| 2->{\alert<handout:2| 2>{2}}})\Delta x + \cdots + f(x_{n\only<handout:2| 2->{\alert<handout:2| 2>{-1}}})\Delta x
+\]
+\end{frame}
+
+\begin{frame}
+\begin{definition}[Area Under a Curve]
+The area of the region $S$ that lies under the curve $y = f(x)$ is the limit of the sum of the areas of the approximating rectangles:
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+A = \lim_{n\to\infty} R_n = \lim_{n\to\infty} [ f(x_1)\Delta x + f(x_2) \Delta x + \cdots + f(x_n) \Delta x]
+\]
+\end{definition}
+\begin{itemize}
+\item<2->  This limit always exists if $f$ is continuous.
+\item<3->  We get the same answer if we use left endpoints:
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+A = \lim_{n\to\infty} L_n = \lim_{n\to\infty} [ f(x_0)\Delta x + f(x_1) \Delta x + \cdots + f(x_{n-1}) \Delta x]
+\]
+\item<4->  We get the same answer if we use any number $x_i^*$ in the interval $[x_{i-1},x_i]$.  $x_i^*$ is called a sample point.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+A = \lim_{n\to\infty} [ f(x_1^*)\Delta x + f(x_2^*) \Delta x + \cdots + f(x_{n}^*) \Delta x]
+\]
+\end{itemize}
+\uncover<5->{%
+\begin{definition}[Riemann Sum]
+A Riemann sum is any sum of the form
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+f(x_1^*)\Delta x + f(x_2^*) \Delta x + \cdots + f(x_{n}^*) \Delta x.
+\]
+\end{definition}
+}%
+\end{frame}
+% end module area-def

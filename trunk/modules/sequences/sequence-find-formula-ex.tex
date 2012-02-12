@@ -1,0 +1,49 @@
+% begin module sequence-find-formula-ex
+\begin{frame}
+\begin{example}
+Find a formula for the general term $a_n$ of the sequence
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\[
+\left\{ %
+0,%
+ \frac{1}{4},%
+-\frac{2}{8},%
+ \frac{3}{16},%
+-\frac{4}{32},%
+ \frac{5}{64},%
+\ldots
+\right\}%
+\]
+\uncover<2->{%
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\[
+a_{\alert<handout:0| 4,13>{1}} = \alert<handout:0| 3-4,12-13,20>{0},%
+\  a_{\alert<handout:0| 5,14>{2}} =  \frac{\alert<handout:0| 3,5>{1}}{\alert<handout:0| 12,14>{4}},%
+\  a_{\alert<handout:0| 6,15>{3}} = \alert<handout:0| 20>{-}\frac{\alert<handout:0| 3,6>{2}}{\alert<handout:0| 12,15>{8}},%
+\  a_{\alert<handout:0| 7,16>{4}} =  \frac{\alert<handout:0| 3,7>{3}}{\alert<handout:0| 12,16>{16}},%
+\  a_{\alert<handout:0| 8,17>{5}} = \alert<handout:0| 20>{-}\frac{\alert<handout:0| 3,8>{4}}{\alert<handout:0| 12,17>{32}},%
+\  a_{\alert<handout:0| 9,18>{6}} =  \frac{\alert<handout:0| 3,9>{5}}{\alert<handout:0| 12,18>{64}},%
+\]
+}%
+\begin{itemize}
+\item<3->  The numerators start at $0$ and go up by one with each term.
+\item<4-| alert@4-11>  The $n$th term has numerator \uncover<11->{$n-1$.}
+\item<12->  The denominators start at $2$ and double with each term.
+\item<13-| alert@13-19>  The $n$th term has denominator \uncover<19->{$2^n$.}
+\item<20->  The signs of the terms alternate between positive and negative.
+\item<21->  We take this into account by multiplying by $(-1)^n$.
+\end{itemize}
+\abovedisplayskip=2pt
+\belowdisplayskip=0pt
+\[
+\uncover<22->{a_n =} %
+\uncover<21->{\alert<handout:0| 21>{(-1)^n}}%
+\only<handout:0| -18>{{\uncover<11->{\alert<handout:0| 11>{n-1}} \atop \invisible<1->{2^n}}}%
+\only<19->{{n-1 \over \alert<handout:0| 19>{2^n}}}%
+\]
+\vspace{-.1in}
+\end{example}
+\end{frame}
+% end module sequence-find-formula-ex

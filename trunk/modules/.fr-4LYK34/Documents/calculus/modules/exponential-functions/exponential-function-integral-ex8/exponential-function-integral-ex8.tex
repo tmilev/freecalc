@@ -1,0 +1,14 @@
+% begin module exponential-function-integral-ex8
+\begin{frame}
+\begin{example}[Example 8, p. 401]
+Evaluate $\int x^2 e^{x^3} \diff x$.
+
+\uncover<2->{
+Let $u = x^3$.  Then $\diff u = 3 x^2 \diff x$, so $\alert<3>{x^2\diff x = \frac{1}{3}\diff u}$.
+}
+\[
+\int \alert<3>{x^2} e^{x^3} \alert<3>{\diff x} \uncover<3->{ = \alert<3>{\frac{1}{3}}\int e^u\alert<3>{\diff u}} \uncover<4->{ = \frac{1}{3}e^{\alert<5>{u}} + C} \uncover<5->{ = \frac{1}{3}e^{\alert<5>{x^3}} + C.}
+\]
+\end{example}
+\end{frame}
+% end module exponential-function-integral-ex8

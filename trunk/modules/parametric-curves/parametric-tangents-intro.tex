@@ -1,0 +1,71 @@
+% begin module parametric-tangents-intro
+\begin{frame}
+\frametitle{Tangents}
+\begin{itemize}
+\item  Suppose we have a parametric curve $\alert<handout:0| 4>{x = f(t)}$, $y = g(t)$.
+\item  We saw in section (11.1) that we can sometimes eliminate the parameter and write $y = F(x)$.
+\item<2->  Substitute $x = f(t)$ and $y = g(t)$ in this:
+\end{itemize}
+\begin{eqnarray*}
+\uncover<2->{%
+g(t)%
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+F(f(t))%
+}\\%
+\uncover<3->{%
+g'(t)%
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+F'(\alert<handout:0| 4>{f(t)})f'(t)%
+}\\%
+\uncover<4->{%
+g'(t)%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+F'(\alert<handout:0| 4>{x})f'(t)%
+}\\%
+\uncover<5->{%
+\textrm{If } f'(t)\neq 0, \ \ F'(x)%
+}%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\frac{g'(t)}{f'(t)}%
+}%
+\end{eqnarray*}
+\uncover<6->{%
+This is easy to remember using Leibniz notation:
+\[
+\frac{\diff y}{\diff x} = \frac{\frac{\diff y}{\diff t}}{\frac{\diff x}{\diff t}} \qquad \textrm{if} \ \frac{\diff x}{\diff t} \neq 0.
+\]
+}%
+\end{frame}
+
+
+\begin{frame}
+\[
+\frac{\diff \alert<handout:0| 7>{y}}{\diff x} = \frac{\alert<handout:0| 3>{\frac{\diff \alert<handout:0| 7>{y}}{\diff t}}}{\alert<handout:0| 5>{\frac{\diff x}{\diff t}}}  \qquad \textrm{if} \ \frac{\diff x}{\diff t} \neq 0.%
+\]
+\begin{itemize}
+\item<1-| alert@2-3>  Horizontal tangent if \uncover<3->{$\frac{\diff y}{\diff t} = 0$ and $\frac{\diff x}{\diff t} \neq 0$.}
+\item<1-| alert@4-5>  Vertical tangent if \uncover<5->{$\frac{\diff x}{\diff t} = 0$ and $\frac{\diff y}{\diff t} \neq 0$.}
+\item<6->  How do we find the second derivative?
+\end{itemize}
+\begin{eqnarray*}
+\uncover<6->{%
+\frac{\diff^2 y}{\diff x^2}%
+}%
+& \uncover<6->{ = } &%
+\uncover<6->{%
+\frac{\diff}{\diff x}\left( \alert<handout:0| 7>{\frac{\diff y}{\diff x}}\right)%
+}\\%
+& \uncover<7->{ = } &%
+\uncover<7->{%
+\frac{\frac{\diff}{\diff t}\left( \alert<handout:0| 7>{\frac{\diff y}{\diff x}}\right)}{\frac{\diff x}{\diff t}}%
+}%
+\end{eqnarray*}
+\end{frame}
+% end module parametric-tangents-intro

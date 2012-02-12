@@ -1,0 +1,47 @@
+% begin module improper-integral-type2-ex7
+\begin{frame}
+\begin{example}[Example 7, p. 549]
+Evaluate $\int_0^3 \frac{1}{x-1}\diff x$.
+
+\uncover<2->{Observe that $x = 1$ is a vertical asymptote for the integrand.}%
+
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<3->{%
+\int_0^3 \frac{1}{x-1}\diff x = \alert<handout:0| 4>{\int_0^1\frac{1}{x-1}\diff x} + \int_1^3 \frac{1}{x-1}\diff x
+}%
+\]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<4->{%
+\int_0^1 \frac{\diff x}{x - 1}%
+}%
+& \uncover<4-> { = } &%
+\uncover<4->{%
+\lim_{t\rightarrow 1^-} \int_0^t \frac{\diff x}{x - 1}%
+}  \uncover<5-> { = } \uncover<5->{%
+\lim_{t\rightarrow 1^-} \left[ \ln| x - 1| \right]_0^t%
+}\\%
+& \uncover<6-> { = } &%
+\uncover<6->{%
+\lim_{t\rightarrow 1^-} \ln|t-1| - \ln 1%
+} \uncover<7-> { = } \uncover<7->{%
+-\infty
+}%
+\end{eqnarray*}
+\begin{itemize}
+\item<8->  Therefore the integral diverges.
+\item<9->  If we had not noticed the vertical asymptote, we might have made the following \alert<1->{mistake}:
+\end{itemize}
+\uncover<9->{\alert<handout:0| 1->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_0^3 \frac{\diff x}{x - 1} = \left[ \ln | x - 1|\right]_0^3 = \ln 2 - \ln 1 = \ln 2.
+\]}}%
+\vspace{-.1in}
+\end{example}
+\end{frame}
+% end module improper-integral-type2-ex7

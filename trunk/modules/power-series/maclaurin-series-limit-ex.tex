@@ -1,0 +1,48 @@
+% begin module maclaurin-series-limit-ex
+\begin{frame}
+\begin{example}
+Use a power series to find $\displaystyle \lim_{x\to 0}\frac{x - \sin x}{x^3}$.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\sin x%
+}%
+& \uncover<2->{=} &%
+\uncover<2->{%
+ x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots %
+}\\%
+\uncover<3->{%
+- \sin x%
+}%
+& \uncover<3->{=} &%
+\uncover<3->{%
+\alert<handout:0| 4>{- x} + \frac{x^3}{3!} - \frac{x^5}{5!} + \frac{x^7}{7!} - \cdots %
+}\\%
+\uncover<4->{%
+\alert<handout:0| 4>{x} - \sin x%
+}%
+& \uncover<4->{=} &%
+\uncover<4->{%
+\frac{x^3}{3!} - \frac{x^5}{5!} + \frac{x^7}{7!} - \cdots %
+}\\%
+\uncover<5->{%
+\frac{x  - \sin x}{x^3}%
+}%
+& \uncover<5->{=} &%
+\uncover<5->{%
+\frac{1}{3!} - \frac{x^2}{5!} + \frac{x^4}{7!} - \cdots %
+}\\%
+\uncover<6->{%
+\lim_{x\to 0}\frac{x  - \sin x}{x^3}%
+}%
+& \uncover<6->{=} &%
+\uncover<6->{%
+\alert<handout:0| 7-8>{%
+\lim_{x\to 0}\left( \frac{1}{6} - \frac{x^2}{5!} + \frac{x^4}{7!} - \cdots \right) \uncover<7->{= \uncover<8->{\frac{1}{6}}} %
+}%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module maclaurin-series-limit-ex

@@ -1,0 +1,41 @@
+% begin module substitution-rule-definite-integrals-ex7
+\begin{frame}
+\begin{example}[Example 7, p. 337]
+Find $\int_{1}^{2} \frac{\diff x}{(\alert<handout:0| 4>{3-5x})^2}$.
+\begin{itemize}
+\item<2->  Let \alert<handout:0| 3-4,14>{$u = $ \uncover<4->{$3-5x$.}}
+\item<2->  Then \alert<handout:0| 5-6>{$\diff u = $ \uncover<6->{$-5 \ \diff x$.}}
+\item<7->  Therefore \alert<handout:0| 7-8,15>{$\diff x = $ \uncover<8->{$-\frac{1}{5}\diff u$.}}
+\item<9->  When $x = 1$, \alert<handout:0| 9-10,16>{$u = $ \uncover<10->{$-2$.}}
+\item<9->  When $x = 2$, \alert<handout:0| 11-12,17>{$u = $ \uncover<12->{$-7$.}}
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<13->{%
+\int_{\alert<handout:0| 16>{1}}^{\alert<handout:0| 17>{2}} \frac{\alert<handout:0| 15>{\diff x}}{\alert<handout:0| 14>{(3-5x)^2}}%
+}%
+& \uncover<13->{ = } &%
+\uncover<13->{%
+ \uncover<15->{\alert<handout:0| 15>{-\frac{1}{5}}}  {\int_{\uncover<16->{\alert<handout:0| 16>{-2}}}}^{\uncover<17->{\alert<handout:0| 17>{-7}}} \frac{\uncover<15->{\alert<handout:0| 15>{\diff u}}}{\uncover<14->{\alert<handout:0| 14>{u^2}}}%
+}\\%
+& \uncover<18->{ = } &%
+\uncover<18->{%
+ -\frac{1}{5}\cdot  \left[ - \frac{1}{u} \right]_{-2}^{-7}%
+}\\%
+& \uncover<19->{ = } &%
+\uncover<19->{%
+\left[ \frac{1}{5u} \right]_{-2}^{-7}%
+}%
+  \uncover<20->{ = } %4yy
+\uncover<20->{%
+\frac{1}{5}\left( -\frac{1}{7} + \frac{1}{2}\right)%
+}%
+  \uncover<21->{ = } %4yy
+\uncover<21->{%
+\frac{1}{14}%
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module substitution-rule-definite-integrals-ex7

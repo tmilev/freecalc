@@ -1,0 +1,38 @@
+% begin module trig-integrals-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 496]
+Evaluate $\int \sin^5 x \cos^2 x \diff x$.
+\begin{itemize}
+\item<2->  We could convert $\cos^2 x$ to $1 - \sin^2 x$, but then we'd have an expression involving $\sin x$ without any $\cos x$.
+\item<3->  Instead split off one $\sin x$ and express the remaining $\sin^4 x$ in terms of $\cos x$:
+\item<4-| alert@10>  $\sin^5 x = (\sin^2 x)^2\sin x = (1 - \cos^2 x)^2\sin x$.
+\item<5->  Now let \alert<handout:0| 6-7,11>{$u = \uncover<7->{\cos x}$}, so \alert<handout:0| 8-9,12>{$\diff u = \uncover<9->{-\sin x \diff x}$}.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<10->{%
+\int \alert<handout:0| 10>{\sin^5 x}\cos^2 x \diff x 
+}%
+& \uncover<10->{ = } &%
+\uncover<10->{%
+\int \alert<handout:0| 10>{(1-\alert<handout:0| 11>{\cos^2 x})^2}\alert<handout:0| 11>{\cos^2 x}\alert<handout:0| 10,12>{\sin x}\alert<handout:0| 12>{\diff x}
+}\\%
+& \uncover<11->{ = } &%
+\uncover<11->{%
+\int (1-\alert<handout:0| 11>{u^2})^2\alert<handout:0| 11>{u^2}\alert<handout:0| 12>{(-\diff u)}
+}  \uncover<13->{ = } \uncover<13->{%
+-\int (u^2 - 2u^4 + u^6)\diff u
+}\\%
+& \uncover<14->{ = } &%
+\uncover<14->{%
+-\left( \frac{u^3}{3} - 2\frac{u^5}{5} +\frac{u^7}{7}\right) + C
+}\\%
+& \uncover<15->{ = } &%
+\uncover<15->{%
+-\frac{1}{3}\cos^3 x + \frac{2}{5}\cos^5 x - \frac{1}{7}\cos^7 x + C
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module trig-integrals-ex2

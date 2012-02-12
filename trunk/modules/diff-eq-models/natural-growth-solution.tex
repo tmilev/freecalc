@@ -1,0 +1,60 @@
+% begin module natural-growth-solution
+\begin{frame}
+\[
+\frac{\diff P}{\diff t} = kP
+\]
+
+This is a separable equation, so we can solve it.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\int \frac{\diff P}{P}%
+}%
+& \uncover<2->{ = } &%
+\uncover<2->{%
+\int k\diff t%
+}\\%
+\uncover<3->{%
+\ln |P|%
+}%
+& \uncover<3->{ = } &%
+\uncover<3->{%
+kt + C%
+}\\%
+\uncover<4->{%
+ |P|%
+}%
+& \uncover<4->{ = } &%
+\uncover<4->{%
+e^Ce^{kt}%
+}\\%
+\uncover<5->{%
+ P%
+}%
+& \uncover<5->{ = } &%
+\uncover<5->{%
+\pm e^Ce^{kt}%
+}%
+\end{eqnarray*}
+\begin{itemize}
+\item<6->  Let $A = \pm e^C$.  Then the solution is $P = A e^{kt}$.
+\item<7->  $A = \pm e^C$ can be any positive or negative number.
+\item<8->  The function $P = 0$ is also a solution, so $A$ can be any number.
+\item<9->  $P(0) = Ae^{k\cdot 0} = A$.
+\end{itemize}
+\uncover<10->{%
+The solution to the initial value problem
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\frac{\diff P}{\diff t} = kP, \qquad P(0) = P_0
+\]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\textrm{is}\qquad P(t) = P_0e^{kt}.
+\]
+}%
+\end{frame}
+% end module natural-growth-solution

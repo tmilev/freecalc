@@ -1,0 +1,45 @@
+% begin module ratio-test-ex5
+\begin{frame}
+\begin{example}[Example 5, p. 754]
+Test the convergence of the series $\displaystyle \sum_{n=1}^\infty \frac{n^n}{n!}$.
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<2->{%
+\left| \frac{a_{n+1}}{a_n}\right| %
+}%
+ & \uncover<2->{=} & %
+\uncover<2->{%
+\left| \frac{\frac{(n+1)^{n+1}}{(n+1)!}}{\frac{n^n}{n!}}\right| %
+}\\%
+ & \uncover<3->{=} & %
+\uncover<3->{%
+\frac{\alert<handout:0| 4>{(n+1)^{n+1}}}{\alert<handout:0| 5>{(n+1)!}}\cdot \frac{n!}{n^n}%
+}\\%
+ & \uncover<4->{=} & %
+\uncover<4->{%
+\frac{\alert<handout:0| 4>{(n+1)(n+1)^{n}}}{\alert<handout:0| 5>{(n+1)n!}}\cdot \frac{n!}{n^n}%
+}\\%
+ & \uncover<6->{=} & %
+\uncover<6->{%
+\left( \frac{n+1}{n}\right)^n%
+}%
+  \uncover<7->{=}  %
+\uncover<7->{%
+\alert<handout:0| 8-9>{%
+\left( 1 + \frac{1}{n}\right)^n%
+}%
+}\\%
+ & \uncover<8->{\alert<handout:0| 8-9>{\to}} & %
+\uncover<9->{%
+\alert<handout:0| 9,11>{%
+e \uncover<11->{ > 1 }
+}%
+}%
+\end{eqnarray*}
+\uncover<10->{%
+Therefore the series is \uncover<11->{\alert<handout:0| 11>{divergent}} by the Ratio Test.%
+}%
+\end{example}
+\end{frame}
+% end module ratio-test-ex5

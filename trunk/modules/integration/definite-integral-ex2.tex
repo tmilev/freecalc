@@ -1,0 +1,36 @@
+% begin module definite-integral-ex2
+\begin{frame}
+\begin{example}[Example 2, p. 303]
+Evaluate $\int_0^3 (x^3 - 6x)\diff x$. \uncover<2->{\alert<handout:0| 2-3,6>{ $\Delta x = \frac{b-a}{n} = \uncover<3->{\frac{3}{n}.}$}}
+\begin{eqnarray*}
+&& \uncover<4->{%
+\int_0^3 (x^3-6x)\diff x%
+}%
+\uncover<4->{%
+ =  \lim_{n\to\infty} \sum_{i=1}^n f(\alert<handout:0| 7-8>{x_i})\alert<handout:0| 5-6>{\Delta x}%
+}%
+\uncover<5->{%
+ = \lim_{n\to\infty} \sum_{i=1}^n f\left(\uncover<8->{\alert<handout:0| 8>{\frac{3i}{n}}}\right)\uncover<6->{\alert<handout:0| 6>{\frac{3}{n}}}%
+}\\%
+ & \uncover<9->{ = } & \uncover<9->{%
+\lim_{n\to\infty} \frac{3}{n}\sum_{i=1}^n \left[ \left(\frac{3i}{n}\right)^3 - 6\left(\frac{3i}{n}\right)\right]%
+}%
+\uncover<10->{%
+  =  \lim_{n\to\infty} \frac{3}{n}\sum_{i=1}^n \left[ \frac{27}{n^3}i^3 - \frac{18}{n}i\right]%
+}\\%
+ & \uncover<11->{ = } & \uncover<11->{%
+\lim_{n\to\infty} \left[ \frac{81}{n^4}\alert<handout:0| 12-13>{\sum_{i=1}^n i^3} - \frac{54}{n^2} \alert<handout:0| 14-15>{\sum_{i=1}^n i}\right]%
+}\\%
+ & \uncover<12->{ = } & \uncover<12->{%
+\lim_{n\to\infty} \left( \frac{81}{n^4}\uncover<13->{\alert<handout:0| 13>{\left[ \frac{n(n+1)}{2}\right]^2}} - \frac{54}{n^2} \uncover<15->{\alert<handout:0| 15>{\frac{n(n+1)}{2}}}\right)%
+}\\%
+ & \uncover<16->{ = } & \uncover<16->{%
+\lim_{n\to\infty} \left[ \frac{81}{4}\left( 1 + \frac{1}{n}\right)^2 - 27 \left( 1 + \frac{1}{n}\right) \right]%
+}%
+\uncover<17->{%
+ = \frac{81}{4} - 27 = -\frac{27}{4}
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module definite-integral-ex2

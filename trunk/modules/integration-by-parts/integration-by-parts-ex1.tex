@@ -1,0 +1,29 @@
+% begin module integration-by-parts-ex1
+\begin{frame}
+Integration by parts:
+\belowdisplayskip=0pt
+\abovedisplayskip=0pt
+\[
+\int u\diff v = uv - \int v\diff u.
+\]
+\begin{example}[Example 1, p. 489]
+Find $\int x\sin x \diff x$.
+
+\uncover<2->{%
+Let $u = x$ and let $\diff v = \sin x\diff x$.  Then $\alert<handout:0| 3-4>{\diff u = \uncover<4->{\diff x}}$ and $\alert<handout:0| 5-6>{v = \uncover<6->{-\cos x}}$.  
+}%
+\begin{eqnarray*}
+\uncover<7->{\int x\sin x\diff x} & \uncover<7->{ = } & \uncover<7->{uv - \int v\diff u}\\
+ & \uncover<8->{ = } & %
+\uncover<8->{x(-\cos x) - \int (-\cos x)\diff x}\\
+ & \uncover<9->{ = } & %
+\uncover<9->{-x\cos x + \int \cos x\diff x}\\
+ & \uncover<10->{ = } & %
+\uncover<10->{-x\cos x + \sin x + C}\\
+\end{eqnarray*}
+\uncover<11->{
+Note:  This choice of $u = x$ was made to obtain a simpler integral.  It worked because $\diff u = \diff x$---the $x$ ``disappeared.''
+}
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex1
