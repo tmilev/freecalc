@@ -1,0 +1,55 @@
+% begin module only-uncover
+\begin{frame}[fragile]
+\frametitle{\texttt{only} versus \texttt{uncover}}
+\begin{columns}[t]
+\column{.45\textwidth}
+\abovedisplayskip=0pt
+\begin{verbatim}
+\uncover<2,4,6,8>{Even}
+\abovedisplayskip=0pt
+\[
+1, \alert<2>{2}, 
+3, \alert<4>{4}, 
+5, \alert<6>{6}, 
+7, \alert<8>{8}. 
+\]
+\end{verbatim}
+\begin{example}[GOOD]
+\uncover<2,4,6,8>{Even}
+\abovedisplayskip=0pt
+\[
+1, \alert<2>{2}, 
+3, \alert<4>{4}, 
+5, \alert<6>{6}, 
+7, \alert<8>{8}. 
+\]
+\end{example}
+\column{.45\textwidth}
+\abovedisplayskip=0pt
+\begin{verbatim}
+\only<2,4,6,8>{Even}
+\abovedisplayskip=0pt
+\[
+1, \alert<2>{2}, 
+3, \alert<4>{4}, 
+5, \alert<6>{6}, 
+7, \alert<8>{8}. 
+\]
+\end{verbatim}
+\begin{example}[BAD]
+\only<2,4,6,8>{Even}
+\abovedisplayskip=0pt
+\[
+1, \alert<2>{2}, 
+3, \alert<4>{4}, 
+5, \alert<6>{6}, 
+7, \alert<8>{8}. 
+\]
+\end{example}
+\end{columns}
+\begin{itemize}
+\item  Use \texttt{uncover} for most reveals.  
+\item  Don't use \texttt{only}.  It makes things jump around.  
+\end{itemize}
+\end{frame}
+% end module only-uncover
