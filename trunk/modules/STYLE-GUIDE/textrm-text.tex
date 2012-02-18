@@ -1,0 +1,43 @@
+% begin module textrm-text
+\begin{frame}[fragile]
+\frametitle{\texttt{textrm} versus \texttt{text}}
+\begin{columns}[t]
+\column{.45\textwidth}
+\begin{verbatim}
+\[
+e^x = y 
+\ \text{if and only if} \ 
+\ln y = x.
+\]
+\end{verbatim}
+\begin{example}[GOOD]
+\abovedisplayskip=0pt
+\[
+e^x = y 
+\ \text{if and only if} \ 
+\ln y = x.
+\]
+\end{example}
+\column{.45\textwidth}
+\begin{verbatim}
+\[
+e^x = y 
+\ \textrm{if and only if} \ 
+\ln y = x.
+\]
+\end{verbatim}
+\begin{example}[BAD]
+\abovedisplayskip=0pt
+\[
+e^x = y 
+\ \textrm{if and only if} \ 
+\ln y = x.
+\]
+\end{example}
+\end{columns}
+\begin{itemize}
+\item  Use \texttt{text} to include text in math mode.
+\item  Don't use \texttt{textrm}.  The font is different.  
+\end{itemize}
+\end{frame}
+% end module textrm-text

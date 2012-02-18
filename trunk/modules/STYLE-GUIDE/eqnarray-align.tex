@@ -1,0 +1,40 @@
+% begin module eqnarray-align
+\begin{frame}[fragile]
+\frametitle{\texttt{eqnarray*} versus \texttt{align*}}
+\begin{columns}[t]
+\column{.45\textwidth}
+\begin{verbatim}
+\begin{align*}
+xy & = -5 + 2x\\
+y & = -\frac{5}{x} + 2.
+\end{align*}
+\end{verbatim}
+\begin{example}[GOOD]
+\abovedisplayskip=0pt
+\begin{align*}
+xy & = -5 + 2x\\
+y & = -\frac{5}{x} + 2.
+\end{align*}
+\end{example}
+\column{.45\textwidth}
+\begin{verbatim}
+\begin{eqnarray*}
+xy & = & -5 + 2x\\
+y & = & -\frac{5}{x} + 2.
+\end{eqnarray*}
+\end{verbatim}
+\begin{example}[BAD]
+\abovedisplayskip=0pt
+\begin{eqnarray*}
+xy & = & -5 + 2x\\
+y & = & -\frac{5}{x} + 2.
+\end{eqnarray*}
+\end{example}
+\end{columns}
+\begin{itemize}
+\item  Use \texttt{align*} to make aligned equations.
+\item  Dont' use \texttt{eqnarray*}.  
+\item  The spacing around the equals signs is bad in \texttt{eqnarray*}.
+\end{itemize}
+\end{frame}
+% end module eqnarray-align
