@@ -2,18 +2,13 @@
 \begin{frame}
 \frametitle{Derivatives of Exponential Functions}
 Compute the derivative of $f(x) = a^x$ using the definition:
-\begin{eqnarray*}
-\uncover<2->{f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}} & \uncover<3->{=} & \uncover<3->{\lim_{h\rightarrow 0} \frac{a^{x+h}-a^x}{h}}\\
- & \uncover<4->{=} & \uncover<4->{\lim_{h\rightarrow 0} \frac{a^x a^h-a^x}{h}}\\
- & \uncover<5->{=} & \uncover<5->{\lim_{h\rightarrow 0} \frac{a^x (a^h- 1)}{h}}\\
- & \uncover<6->{=} & \uncover<6->{a^x \lim_{h\rightarrow 0} \frac{a^h- 1}{h}}\\
-\end{eqnarray*}
-\uncover<7->{%
-Note that the limit is the value of the derivative at 0; that is,
-\[
-f'(0) = \lim_{h\rightarrow 0}\frac{a^h-1}{h} .
-\]
-}%
+\begin{align*}
+\uncover<2->{f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}} & \uncover<3->{=}  \uncover<3->{\lim_{h\to 0} \frac{\alert<handout:0| 4>{a^{x+h}}-a^x}{h}}\\
+ & \uncover<4->{=}  \uncover<4->{\lim_{h\to 0} \frac{\alert<handout:0| 5>{\alert<handout:0| 4>{a^x a^h}-a^x}}{h}}\\
+ & \uncover<5->{=}  \uncover<5->{\lim_{h\to 0} \frac{\alert<handout:0| 5>{\alert<handout:0| 6>{a^x} (a^h- 1)}}{h}}\\
+ & \uncover<6->{=}  \uncover<6->{\alert<handout:0| 6>{a^x} \alert<handout:0| 7>{\lim_{h\to 0} \frac{a^h- 1}{h}}}\\
+ & \uncover<7->{=}  \uncover<7->{a^x \alert<handout:0| 7>{f'(0)}.}
+\end{align*}
 \end{frame}
 
 
