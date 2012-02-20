@@ -1,0 +1,28 @@
+% begin module alert-uncover-combo
+\begin{frame}[fragile]
+\frametitle{\texttt{alert}-\texttt{uncover}}
+{\small
+\begin{verbatim}
+\begin{align*}
+\int_1^3 \frac{1+\sqrt{x}}{x}\diff x
+& \uncover<2->{ = \int_1^3 \left( 
+\alert<3-4>{x^{-1}} + 
+\alert<5-6>{x^{-1/2}}\right)\diff x}\\
+& \uncover<3->{ = \left[ 
+\alert<3-4>{\uncover<4->{\ln |x|}} + 
+\alert<5-6>{\uncover<6->{\frac{x^{1/2}}{1/2}}}\right]_1^3}
+\end{align*}
+\end{verbatim}
+}
+
+\begin{example}[\texttt{alert}-\texttt{uncover}]
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\begin{align*}
+\int_1^3 \frac{1+\sqrt{x}}{x}\diff x%
+& \uncover<2->{ = \int_1^3 \left( \alert<3-4>{x^{-1}} + \alert<5-6>{x^{-1/2}}\right)\diff x}\\%
+& \uncover<3->{ = \left[ \alert<3-4>{\uncover<4->{\ln |x|}} + \alert<5-6>{\uncover<6->{\frac{x^{1/2}}{1/2}}}\right]_1^3}%
+\end{align*}
+\end{example}
+\end{frame}
+% end module alert-uncover-combo
