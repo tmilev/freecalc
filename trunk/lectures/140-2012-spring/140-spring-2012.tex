@@ -1,5 +1,5 @@
 \documentclass%
-%[handout]
+[handout]
 {beamer}
 
 \mode<presentation>
@@ -26,7 +26,7 @@
 \newcommand{\diff}{\text{d}}
 \setbeamertemplate{navigation symbols}{}
 
-\includeonlylecture{9}
+\includeonlylecture{10}
 
 \newcommand{\lect}[3]{
   \date{#1}
@@ -77,7 +77,6 @@
 
 % 6
 % 7
-\lect{March 7, 2012}{Lecture 13}{13}
 % SPRING
 % BREAK
 % MARCH 12, 14, AND 16
@@ -321,6 +320,11 @@
 \input{../../modules/derivatives/derivatives-as-function-ex2}
 \subsection{Other Notations}
 \input{../../modules/derivatives/derivative-notations}
+% end lecture
+
+% begin lecture
+\lect{February 27, 2012}{Lecture 10}{10}
+\section{(2.7) The Derivative as a Function}
 \subsection{Differentiability}
 \input{../../modules/derivatives/differentiable-def}
 \input{../../modules/derivatives/differentiable-ex5}
@@ -330,14 +334,17 @@
 \subsection{Higher Derivatives}
 \input{../../modules/derivatives/higher-derivatives}
 \input{../../modules/derivatives/higher-derivatives-ex6}
-% end lecture
-
-% begin lecture
-\lect{February 27, 2012}{Lecture 10}{10}
-% end lecture
-
-% begin lecture
-\lect{February 29, 2012}{Lecture 11}{11}
+\section{(2.8) How Derivatives Affect the Shape of a Graph}
+\subsection{What Does $f'$ Say About $f$?}
+\input{../../modules/curve-sketching/first-derivative-up-down}
+%\input{../../modules/curve-sketching/first-derivative-up-down-ex}
+%\input{../../modules/curve-sketching/first-derivative-test}
+\subsection{What Does $f''$ Say About $f$?}
+\input{../../modules/curve-sketching/concavity-def}
+\input{../../modules/curve-sketching/second-derivative-concavity}
+\input{../../modules/curve-sketching/inflection-point-def}
+%\input{../../modules/curve-sketching/second-derivative-test}
+%\input{../../modules/curve-sketching/curve-sketching-ex6}
 \section{(3.1) Differentiation Formulas}
 \input{../../modules/derivatives/differentiation-formulas-constant}
 \subsection{Power Functions}
@@ -347,48 +354,59 @@
 \subsection{General Power Functions}
 \input{../../modules/derivatives/arbitrary-exponents}
 \input{../../modules/derivatives/negative-exponents-ex1}
-%\input{../../modules/derivatives/fractional-exponents-ex1}
+\input{../../modules/derivatives/fractional-exponents-ex1}
 \subsection{The Constant Multiple Rule}
 \input{../../modules/derivatives/differentiation-laws-constant}
 \input{../../modules/derivatives/constant-multiple-rule-ex1}
 \input{../../modules/derivatives/constant-multiple-rule-ex2}
 \input{../../modules/derivatives/negative-exponents-ex2}
+% end lecture
+
+% begin lecture
+\lect{February 29, 2012}{Lecture 11}{11}
 \subsection{The Sum and Difference Rules}
 \input{../../modules/derivatives/differentiation-laws-sum}
 \input{../../modules/derivatives/differentiation-laws-difference}
 \input{../../modules/derivatives/differentiation-laws-polynomial}
 \input{../../modules/derivatives/horizontal-tangent-ex4}
+%\input{../../modules/derivatives/tangent-line-polynomial}
 \subsection{Derivatives of Exponential Functions}
 \input{../../modules/exponential-functions/exponential-function-derivative}
 \input{../../modules/exponential-functions/e-def}
 \input{../../modules/exponential-functions/natural-exponential-def}
-%\input{../../modules/derivatives/derivative-e-plus-polynomial}
-% end lecture
-
-% begin lecture
-\lect{March 5, 2012}{Lecture 12}{12}
+\input{../../modules/derivatives/derivative-e-plus-polynomial}
 \section{(3.2) The Product and Quotient Rules}
 \subsection{The Product Rule}
 \input{../../modules/product-quotient/not-product-rule}
 \input{../../modules/product-quotient/product-rule}
 \input{../../modules/product-quotient/product-rule-ex6}
+\input{../../modules/product-quotient/product-rule-e-polynomial}
 \subsection{The Quotient Rule}
 \input{../../modules/product-quotient/quotient-rule}
 \input{../../modules/product-quotient/quotient-rule-ex8}
+%\input{../../modules/product-quotient/quotient-rule-rational}
+% end lecture
+
+% begin lecture
+\lect{March 5, 2012}{Lecture 12}{12}
 \section{(3.3) Derivatives of Trigonometric Functions}
-\input{../../modules/derivatives-trig/sine-derivative-graph}
-\input{../../modules/derivatives-trig/sine-derivative}
+\input{../../modules/derivatives-trig/derivative-sine-graph}
+\input{../../modules/derivatives-trig/derivative-sine}
 \input{../../modules/derivatives-trig/derivatives-trig-ex1}
+%\input{../../modules/derivatives-trig/quotient-rule-e-sin}
+%\input{../../modules/derivatives-trig/trig-limit-ex}
 \input{../../modules/derivatives-trig/derivative-cosine}
+\input{../../modules/derivatives-trig/product-rule-x-cos}
 \input{../../modules/derivatives-trig/derivative-tangent}
 \input{../../modules/derivatives-trig/derivatives-trig-list}
 \input{../../modules/derivatives-trig/derivatives-trig-ex2}
+%\input{../../modules/derivatives-trig/product-rule-twice-poly-e-trig}
 \input{../../modules/derivatives-trig/derivatives-trig-ex4}
 \input{../../modules/derivatives-trig/derivatives-trig-ex5}
 % end lecture
 
 % begin lecture
-\lect{October 12, 2011}{Lecture 14}{14}
+\lect{March 7, 2012}{Lecture 13}{13}
 \section{(3.4) The Chain Rule}
 \input{../../modules/chain-rule/chain-rule-intro}
 \input{../../modules/chain-rule/chain-rule-statement}
@@ -481,17 +499,7 @@
 
 % begin lecture
 \lect{October 26, 2011}{Lecture 20}{20}
-\section{(4.3) How Derivatives Affect the Shape of a Graph}
-\subsection{What Does $f'$ Say About $f$?}
-\input{../../modules/curve-sketching/first-derivative-up-down}
-\input{../../modules/curve-sketching/first-derivative-up-down-ex}
-\input{../../modules/curve-sketching/first-derivative-test}
-\subsection{What Does $f''$ Say About $f$?}
-\input{../../modules/curve-sketching/concavity-def}
-\input{../../modules/curve-sketching/second-derivative-concavity}
-\input{../../modules/curve-sketching/inflection-point-def}
-\input{../../modules/curve-sketching/second-derivative-test}
-\input{../../modules/curve-sketching/curve-sketching-ex6}
+
 % end lecture
 
 % begin lecture
