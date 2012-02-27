@@ -1,47 +1,40 @@
-% begin module sine-derivative
+% begin module derivative-sine
 \begin{frame}
-Let $f(x) = \sin x$.  Then
-\begin{eqnarray*}
-f'(x) & = & %
+\begin{align*}
+\text{Let}\quad f(x) & = \sin x. \\
+\text{Then}\quad f'(x) & =  %
 \uncover<2->{%
 \lim_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h}%
 }%
 \uncover<3->{%
  = \lim_{h\rightarrow 0}\frac{\alert<handout:0| 4>{\sin (x+h)}-\sin x}{h}%
 }\\%
-& \uncover<4->{ = } & %
+& \uncover<4->{ = }  %
 \uncover<4->{%
 \lim_{h\rightarrow 0}\frac{\alert<handout:0| 4>{\sin x \cos h + \cos x \sin h} - \sin x}{h}%
 }\\%
-& \uncover<5->{ = } & %
+& \uncover<5->{ = }  %
 \uncover<5->{%
 \lim_{h\rightarrow 0}\left[ \frac{\sin x \cos h - \sin x}{h} + \frac{\cos x \sin h}{h}\right] %
 }\\%
-& \uncover<6->{ = } & %
+& \uncover<6->{ = }  %
 \uncover<6->{%
 \lim_{h\rightarrow 0}\left[ \sin x\left( \frac{\cos h - 1}{h}\right) + \cos x\left( \frac{\sin h}{h}\right) \right] %
 }\\%
-& \uncover<7->{ = } & %
+& \uncover<7->{ = }  %
 \uncover<7->{%
 \alert<handout:0| 8-9>{\lim_{h\rightarrow 0} \sin x}\cdot \alert<handout:0| 12>{\lim_{h\rightarrow 0} \frac{\cos h - 1}{h}} + \alert<handout:0| 10-11>{\lim_{h\rightarrow 0}\cos x}\cdot \alert<handout:0| 12>{\lim_{h\rightarrow 0}  \frac{\sin h}{h}}  %
-}%
-\end{eqnarray*}
+}\\%
+& \uncover<8->{ = }  %
 \uncover<8->{%
-\[
-\alert<handout:0| 8-9>{%
-\lim_{h\rightarrow 0}\sin x = \uncover<9->{\sin x}%
+\alert<handout:0| 8-9>{\uncover<9->{\sin x}}\cdot \alert<handout:0| 12>{\lim_{h\rightarrow 0} \frac{\cos h - 1}{h}} + \alert<handout:0| 10-11>{\uncover<11->{\cos x}}\cdot \alert<handout:0| 12>{\lim_{h\rightarrow 0}  \frac{\sin h}{h}}  %
 }%
-\qquad %
-\alert<handout:0| 10-11>{%
-\lim_{h\rightarrow 0}\cos x = \uncover<11->{\cos x}%
-}%
-\]
-}%
+\end{align*}
 \uncover<12->{%
 We need to do more work to find the other two limits.
 
 \uncover<13->{
-From Example 3, p. 69, we think $ \lim_{h\rightarrow 0}\frac{\sin h}{h}$  is  1.}
+From Example 3, p. 98, we think $ \lim_{h\rightarrow 0}\frac{\sin h}{h}$  is  1.}
 }%
 \end{frame}
 
@@ -50,7 +43,7 @@ From Example 3, p. 69, we think $ \lim_{h\rightarrow 0}\frac{\sin h}{h}$  is  1.
 \begin{columns}[c]
 \column{.6\textwidth}
 \[
-\textrm{Claim:}\qquad\qquad \lim_{\theta \rightarrow 0}\frac{\sin \theta }{\theta} = 1
+\text{Claim:}\quad \lim_{\theta \rightarrow 0}\frac{\sin \theta }{\theta} = 1
 \]
 First suppose $0 < \theta < \frac{\pi}{2}$.  Then we can write $\sin \theta$ using ratios of side lengths of a triangle.
 \column{.4\textwidth}
@@ -77,7 +70,7 @@ First suppose $0 < \theta < \frac{\pi}{2}$.  Then we can write $\sin \theta$ usi
  < |AB|%
 }%
 \uncover<5->{%
- < \alert<handout:0| 6-7>{\textrm{arc} AB \uncover<6->{ = } \uncover<7->{\theta}}%
+ < \alert<handout:0| 6-7>{\text{arc} AB \uncover<6->{ = } \uncover<7->{\theta}}%
 }%
 \]
 \uncover<8->{%
@@ -85,17 +78,17 @@ Therefore $\alert<handout:0| 18>{\frac{\sin \theta}{\theta} < 1}$.%
 }%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
+\begin{align*}
 \uncover<9->{%
-\theta = \textrm{arc} AB %
+\theta = \text{arc} AB %
 }%
-& \uncover<10->{ < } & %
+& \uncover<10->{ < }  %
 \uncover<10->{%
 |AD| + \alert<handout:0| 11>{|DB|}%
 }  \uncover<11->{ < }  \uncover<11->{%
 |AD| + \alert<handout:0| 11>{|DE|}%
 }\\%
-& \uncover<12->{ = } & %
+& \uncover<12->{ = }  %
 \uncover<12->{%
 |AE|%
 }%
@@ -103,8 +96,8 @@ Therefore $\alert<handout:0| 18>{\frac{\sin \theta}{\theta} < 1}$.%
  = |OA| \tan \theta
 }  \uncover<14->{ = }  \uncover<14->{%
 \tan \theta%
-}\\%
-\end{eqnarray*}
+}%
+\end{align*}
 \uncover<15->{%
 Therefore $\theta < \tan \theta = \frac{\sin \theta}{\cos \theta}$, so $\alert<handout:0| 17>{\cos \theta < \frac{\sin \theta}{\theta}}$.
 }%
@@ -124,49 +117,47 @@ Therefore $\theta < \tan \theta = \frac{\sin \theta}{\cos \theta}$, so $\alert<h
 \end{frame}
 
 \begin{frame}
-Let $f(x) = \sin x$.  Then
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
-f'(x) & = & %
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Let}\quad f(x) & = \sin x. \\
+\text{Then}\quad f'(x) & =  %
 \uncover<1->{%
 \alert<handout:0| 2-3>{\lim_{h\rightarrow 0} \sin x}\cdot \alert<handout:0| 4-5>{\lim_{h\rightarrow 0} \frac{\cos h - 1}{h}} + \alert<handout:0| 6-7>{\lim_{h\rightarrow 0}\cos x}\cdot \alert<handout:0| 8-9>{\lim_{h\rightarrow 0}  \frac{\sin h}{h}}  %
 }\\%
-& \uncover<2->{ = } & %
+& \uncover<2->{ = }  %
 \uncover<2->{%
 \uncover<3->{\alert<handout:0| 3>{ \sin x}} \uncover<5->{\cdot\alert<handout:0| 5,10>{\lim_{h\rightarrow 0} \frac{\cos h - 1}{h}}} \uncover<7->{+ \alert<handout:0| 7>{\cos x}} \uncover<9->{\cdot\alert<handout:0| 9>{1}}  %
 }%
-\end{eqnarray*}
-
-\uncover<10->{We need to find%
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
+\uncover<10->{%
+\intertext{We need to find}%
+}%
 \uncover<10->{%
 \lim_{h\rightarrow 0}\frac{\cos h - 1}{h}%
 }%
-& \uncover<11->{ = } & %
+& \uncover<11->{ = }  %
 \uncover<11->{%
 \lim_{h\rightarrow 0}\left( \frac{\cos h - 1}{h} \cdot \frac{\cos h + 1}{\cos h + 1}\right)%
 }  \uncover<12->{ = } \uncover<12->{%
 \lim_{h\rightarrow 0} \frac{\alert<handout:0| 13>{\cos^2 h - 1}}{h(\cos  h + 1)}%
 }\\%
-& \uncover<13->{ = } & %
+& \uncover<13->{ = }  %
 \uncover<13->{%
 \lim_{h\rightarrow 0} \frac{\alert<handout:0| 13>{-\sin^2 h}}{h(\cos  h + 1)}%
 }  \uncover<14->{ = } \uncover<14->{%
 -\lim_{h\rightarrow 0} \left( \frac{\sin h}{h}\cdot \frac{\sin h}{\cos h + 1}\right)%
 }\\%
-& \uncover<15->{ = } & %
+& \uncover<15->{ = }  %
 \uncover<15->{%
 -\alert<handout:0| 16>{\lim_{h\rightarrow 0}  \frac{\sin h}{h}}\cdot\lim_{h\rightarrow 0} \frac{\sin h}{\cos h + 1}%
 }  \uncover<16->{ = } \uncover<16->{%
 -\alert<handout:0| 16>{1}\cdot \left( \frac{0}{1+1}\right)%
 }  \uncover<17->{ = } \uncover<17->{%
 0
-}\\%
-\end{eqnarray*}
 }%
+\end{align*}
 
 \uncover<18->{%
 \begin{theorem}[The Derivative of $\sin x$]
@@ -176,4 +167,4 @@ f'(x) & = & %
 \end{theorem}
 }%
 \end{frame}
-% end module sine-derivative
+% end module derivative-sine
