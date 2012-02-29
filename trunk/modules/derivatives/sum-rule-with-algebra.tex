@@ -1,0 +1,47 @@
+% begin module sum-rule-with-algebra
+\begin{frame}
+\begin{example}[Difference Rule, Negative Fractional Exponents]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad v & = \frac{3\sqrt{x} - \sqrt[3]{x}}{x}.\\%
+\uncover<2->{%
+v %
+}%
+& \uncover<2->{%
+ = 3 \alert<handout:0| 3-4>{\frac{\sqrt{x}}{x}} - \alert<handout:0| 5-6>{\frac{\sqrt[3]{x}}{x}}
+}\\%
+\uncover<3->{%
+v %
+}%
+& \uncover<3->{%
+ = 3 \alert<handout:0| 3-4>{\uncover<4->{x^{-1/2}}} - \alert<handout:0| 5-6>{\uncover<6->{x^{-2/3}.}}
+}\\%
+\uncover<7->{%
+\text{Difference Rule:}\quad %
+\frac{\diff v}{\diff x} %
+}%
+& \uncover<7->{%
+ = \frac{\diff}{\diff x}(\alert<handout:0| 8>{3}x^{-1/2}) - \frac{\diff}{\diff x}(x^{-2/3})
+}\\%
+\uncover<8->{%
+\text{Constant Multiple Rule:}\quad %
+}%
+& \uncover<8->{%
+ = \alert<handout:0| 8>{3}\alert<handout:0| 9-10>{\frac{\diff}{\diff x}(x^{-1/2})} - \alert<handout:0| 11-12>{\frac{\diff}{\diff x}(x^{-2/3})}
+}\\%
+\uncover<9->{%
+\text{Power Rule:}\quad %
+}%
+& \uncover<9->{%
+ = 3\alert<handout:0| 9-10>{\left( \uncover<10->{-\frac{1}{2}x^{-3/2}}\right)} - \alert<handout:0| 11-12>{\left( \uncover<12->{-\frac{2}{3}x^{-5/3}} \right)}
+}\\%
+& \uncover<13->{%
+ = \frac{2}{3}x^{-5/3} - \frac{3}{2}x^{-3/2}.
+}%
+\end{align*}
+\end{example}
+\end{frame}
+% end module sum-rule-with-algebra
