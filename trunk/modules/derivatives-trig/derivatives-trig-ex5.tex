@@ -1,37 +1,41 @@
 % begin module derivatives-trig-ex5
 \begin{frame}
-\begin{example}[Example 5, p. 153]
+\begin{example}%[Example 5, p. 153]
 Find $\lim_{x\rightarrow 0}\frac{\sin 7x}{4x}$.
-\begin{eqnarray*}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
 \uncover<2->{%
 \lim_{x\rightarrow 0} \frac{\sin 7x}{4x}%
 }%
-& \uncover<2->{ = } & %
+& \uncover<2->{ = }  %
 \uncover<2->{%
 \lim_{x\rightarrow 0} \frac{\sin 7x}{\alert<handout:0| 3>{4}x}\cdot \frac{7}{\alert<handout:0| 3>{7}}%
 }\\%
-& \uncover<3->{ = } & %
+& \uncover<3->{ = }  %
 \uncover<3->{%
 \lim_{x\rightarrow 0} \frac{7}{\alert<handout:0| 3>{4}}\cdot \frac{\sin 7x}{\alert<handout:0| 3>{7}x}%
 }\\%
-& \uncover<4->{ = } & %
+& \uncover<4->{ = }  %
 \uncover<4->{%
 \frac{7}{4}\cdot \alert<handout:0| 6>{\lim_{x\rightarrow 0}  \frac{\sin 7x}{7x}}%
 }\\%
-& & \uncover<5->{\textrm{(Let $\theta = 7x$.)}}\\%
-& \uncover<6->{ = } & %
+&  \uncover<5->{\text{(Let $\theta = 7x$.)}}\\%
+& \uncover<6->{ = }  %
 \uncover<6->{%
 \frac{7}{4}\cdot \alert<handout:0| 6-7>{\lim_{\theta \rightarrow 0}  \frac{\sin \theta}{\theta}}%
 }\\%
-& \uncover<7->{ = } & %
+& \uncover<7->{ = }  %
 \uncover<7->{%
 \frac{7}{4}\cdot \alert<handout:0| 7>{1}%
 }\\%
-& \uncover<8->{ = } & %
+& \uncover<8->{ = }  %
 \uncover<8->{%
 \frac{7}{4}%
 }%
-\end{eqnarray*}
+\end{align*}
 \end{example}
 \end{frame}
 % end module derivatives-trig-ex5
