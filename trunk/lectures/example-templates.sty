@@ -22,6 +22,7 @@
 % \limitfactor
 % \newtonsmethod
 % \constantmultiple
+% \chainruletwice
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -233,6 +234,7 @@ y'%
 \end{align*}
 \end{example}
 }
+
 
 %
 %  An example of a derivative with the Constant Multiple Rule. 
@@ -1132,6 +1134,38 @@ x_3 %
 & \uncover<14->{%
  = #6.
 }%
+\end{align*}
+\end{example}
+}
+
+
+%
+%  An example of a derivative using the Chain Rule twice, using dy/dx.
+%  It looks as follows:
+%  
+%  Differentiate: y = #1.
+%		  dy\dx  = d\dx(#1)
+%  Chain Rule:     = (#2) (d/dx)(#3)
+%  Chain Rule:     = (#2)(#4) d/dx(#5)
+%  #7 [optional]    = (#2)(#3)(#6)
+%                             = (#8)
+%                             = (#9)    [optional]
+%
+
+\newcommand{\chainruletwice}[9]{%
+\begin{example}[Using the Chain Rule twice]%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate:}\quad y & = #1.\\%
+\uncover<2->{\frac{\diff y}{\diff x} & = \alert<handout:0|3-5>{\frac{\diff}{\diff x}(#1)}}\\%
+\uncover<4->{\text{Chain Rule:} \ \ \quad &= \alert<handout:0|4-5>{(\uncover<5->{#2} )\alert<handout:0|6-8>{\frac{\diff}{\diff x} (#3)}}} \\%
+\uncover<7->{\text{Chain Rule:} \ \ \quad &= (#2) \alert<handout:0|7-8>{(\uncover<8->{#4}) \alert<handout:0|9-10>{\frac{\diff}{\diff x}( #5)}}}\\%
+\uncover<9->{\uncover<10->{\ifthenelse{\equal{#7}{}}{}{\text{#7 :} \ \ \quad}}& = (#2) (#4)\alert<handout:0|9-10>{( \uncover<10->{#6})}} \\%
+\uncover<11->{& = #8 \ifthenelse{\equal{#9}{}}{.}{}}\\%
+\ifthenelse{\equal{#9}{}}{}{\uncover<12->{& = #9.}}
 \end{align*}
 \end{example}
 }
