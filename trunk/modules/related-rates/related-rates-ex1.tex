@@ -1,6 +1,6 @@
 % begin module related-rates-ex1
 \begin{frame}
-\begin{example}[Example 1, p. 183]
+\begin{example}[Example 1, p. 256]
 Air is being pumped into a balloon such that \alert<handout:0| 5>{its volume changes at a rate of 100 cm$^3$/s}.  \alert<handout:0| 7>{How fast is the radius of the balloon increasing when the diameter is 50 cm?}
 \begin{columns}[c]
 \column{.5\textwidth}
@@ -20,50 +20,52 @@ Air is being pumped into a balloon such that \alert<handout:0| 5>{its volume cha
 \column{.5\textwidth}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
 \uncover<10->{%
 \alert<handout:0| 10>{V}%
 }%
-& \uncover<10->{\alert<handout:0| 10>{ = }} &%
+& \uncover<10->{\alert<handout:0| 10>{ = }} %
 \uncover<10->{%
 \alert<handout:0| 10>{\frac{4}{3}\pi r^3}%
 }\\%
 \uncover<11->{%
 \frac{\diff V}{\diff t}%
 }%
-& \uncover<11->{ = } &%
+& \uncover<11->{ = } %
 \uncover<11->{%
 \alert<handout:0| 12>{\frac{\diff}{\diff t}\left( \frac{4}{3}\pi r^3\right)}%
 }\\%
 \uncover<12->{%
 \frac{\diff V}{\diff t}%
 }%
-& \uncover<12->{ = } &%
+& \uncover<12->{ = } %
 \uncover<12->{%
 \alert<handout:0| 12>{\alert<handout:0| 13-14>{\frac{\diff}{\diff r}\left( \frac{4}{3}\pi r^3\right)}\frac{\diff r}{\diff t}}%
 }\\%
 \uncover<13->{%
 \frac{\diff V}{\diff t}%
 }%
-& \uncover<13->{ = } &%
+& \uncover<13->{ = } %
 \uncover<13->{%
 \alert<handout:0| 14>{\uncover<14->{ 4\pi r^2}}\frac{\diff r}{\diff t}%
 }\\%
 \uncover<15->{%
 \frac{\diff r}{\diff t}%
 }%
-& \uncover<15->{ = } &%
+& \uncover<15->{ = } %
 \uncover<15->{%
 \frac{1}{4\pi \alert<handout:0| 16>{r}^2}\alert<handout:0| 16>{\frac{\diff V}{\diff t}}%
 }\\%
 \uncover<16->{%
 \frac{\diff r}{\diff t}%
 }%
-& \uncover<16->{ = } &%
+& \uncover<16->{ = } %
 \uncover<16->{%
 \frac{1}{4\pi (\alert<handout:0| 16>{25})^2}\alert<handout:0| 16>{100} \uncover<17->{ = \frac{1}{25\pi}}%
 }\\%
-\end{eqnarray*}
+\end{align*}
 \end{columns}
 \uncover<17->{%
 Therefore the $r$ is increasing at a rate of $1/(25\pi )$ cm/s when $r = 25$ cm.
