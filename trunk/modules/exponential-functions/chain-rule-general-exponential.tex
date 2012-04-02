@@ -1,0 +1,17 @@
+% begin module chain-rule-general-exponential.tex
+\begin{frame}
+\begin{example}[Chain Rule, general exponential function]
+\begin{align*}
+\text{Differentiate}\quad y & = \alert<handout:0|2-3>{2}^x.\\
+\uncover<2->{y} & \uncover<2->{= \alert<handout:0|2-3>{( e^{\uncover<3->{\ln 2}} )}^x}\\
+\uncover<4->{y} & \uncover<4->{= e^{x\ln 2}.}\\
+\uncover<5->{\text{Let} \quad \alert<handout:0|5-6>{\alert<handout:0|13-14>{\alert<handout:0|11-12>{u}}} &\alert<handout:0|5-6>{\alert<handout:0|11-14>{=}} \uncover<6->{\alert<handout:0|6>{\alert<handout:0|11-12>{\alert<handout:0|13-14>{ x\ln 2.}}}}} \\
+\uncover<7->{\text{Then} \quad \alert<handout:0|9-10>{y} &\alert<handout:0|9-10>{= e^u.}} \\
+\uncover<8->{\text{Chain Rule:}\quad \frac{\diff y}{\diff x} &= \alert<handout:0|9-10>{ \frac{\diff y}{\diff u}}\alert<handout:0|11-12>{ \frac{\diff u}{\diff x}}}\\
+\uncover<9->{&= \alert<handout:0|9-10>{(\uncover<10->{e^{\alert<handout:0|13-14>{u}}})}\alert<handout:0|11-12>{(\uncover<12->{\ln 2})} }\\
+\uncover<13->{ &= (e^{\alert<handout:0|13-14>{(\uncover<14->{x\ln2})}})(\ln 2)}\\
+\uncover<15->{& = (2^x)(\ln 2)} 
+\end{align*}
+\end{example}
+\end{frame}
+% begin module chain-rule-general-exponential.tex
