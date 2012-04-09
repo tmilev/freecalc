@@ -1,6 +1,6 @@
 % begin module optimization-ex5
 \begin{frame}
-\begin{example}[Example 5, p. 261]
+\begin{example}[Example 5, p. 303]
 Find the area of the largest rectangle that can be inscribed in a semicircle of radius $r$.
 \begin{columns}[c]
 \column{.5\textwidth}
@@ -36,10 +36,12 @@ Find the area of the largest rectangle that can be inscribed in a semicircle of 
 \uncover<12->{To eliminate $y$, use the fact that $(x,y)$ lies on the semicircle.}%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<12->{y^2} & \uncover<12->{=} & \uncover<12->{r^2-x^2}\\
-\uncover<13->{\alert<handout:0| 15>{y}} & \uncover<13->{\alert<handout:0| 15>{=}} & \uncover<13->{\alert<handout:0| 15>{\sqrt{r^2-x^2}}}%
-\end{eqnarray*}
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<12->{y^2} & \uncover<12->{=}  \uncover<12->{r^2-x^2}\\
+\uncover<13->{\alert<handout:0| 15>{y}} & \uncover<13->{\alert<handout:0| 15>{=}}  \uncover<13->{\alert<handout:0| 15>{\sqrt{r^2-x^2}}}%
+\end{align*}
 %\uncover<20->{%
 %\abovedisplayskip=0pt
 %\belowdisplayskip=0pt
@@ -61,11 +63,13 @@ Let the semicircle have center at the origin.  Let $(x,y)$ be the coordinates of
 \uncover<14->{Notice that $0\leq x \leq r$.}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<11->{A} & \uncover<11->{=} & \uncover<11->{2x\alert<handout:0| 15>{y}}  \uncover<15->{=}  \uncover<15->{2x\alert<handout:0| 15>{\sqrt{r^2-x^2}}}\\
-\uncover<16->{\alert<handout:0| 16-17>{A'}} & \uncover<16->{\alert<handout:0| 16-17>{=}} & \uncover<17->{\alert<handout:0| 17>{2\sqrt{r^2-x^2} - \frac{2x^2}{\sqrt{r^2-x^2}}}}\\
-& \uncover<18->{=} & \uncover<18->{\frac{2(r^2-2x^2)}{\sqrt{r^2-x^2}}}
-\end{eqnarray*}
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<11->{A} & \uncover<11->{=}  \uncover<11->{2x\alert<handout:0| 15>{y}}  \uncover<15->{=}  \uncover<15->{2x\alert<handout:0| 15>{\sqrt{r^2-x^2}}}\\
+\uncover<16->{\alert<handout:0| 16-17>{A'}} & \uncover<16->{\alert<handout:0| 16-17>{=}}  \uncover<17->{\alert<handout:0| 17>{2\sqrt{r^2-x^2} - \frac{2x^2}{\sqrt{r^2-x^2}}}}\\
+& \uncover<18->{=}  \uncover<18->{\frac{2(r^2-2x^2)}{\sqrt{r^2-x^2}}}
+\end{align*}
 
 \uncover<19->{%
 Critical number: \alert<handout:0| 19-20>{$x = $ \uncover<20->{$\frac{r}{\sqrt{2}}$.}} 
