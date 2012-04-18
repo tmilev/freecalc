@@ -1,0 +1,22 @@
+% begin module natural-log-derivative-ex-simplify.tex
+\begin{frame}
+\begin{example}[Chain Rule, Natural Logarithm]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad y &= \ln (e^x \sec x)\\
+\uncover<2->{ &= \alert<handout:0|3-4>{\ln e^x} + \ln \sec x}\\
+\uncover<3->{ &=\uncover<4->{\alert<handout:0|4>{\alert<handout:0|5-6>{ x}}} + \alert<handout:0|7-8>{\ln \sec x.}}\\
+\uncover<5->{\frac{\diff y}{\diff x} & =\alert<handout:0|6>{\uncover<6->{1} }+ \uncover<8->{ \alert<handout:0|8>{\alert<handout:0|12>{\frac{\diff}{\diff x} (\ln \sec x)}}}}\\
+\uncover<9->{\text{Let} \ \ \alert<handout:0|15-18>{u} &  \alert<handout:0|15-18>{= \uncover<10->{ \sec x}}}\\
+\uncover<11->{\text{Then} \ \ \ln \sec x & = { \ln u}.}\\
+\uncover<12->{\text{Chain Rule:} \quad \frac{\diff y}{\diff x} & = 1+  \alert<handout:0|12>{\alert<handout:0|13-14>{\frac{\diff}{\diff u}(\ln u)} \alert<handout:0|15-16>{\frac{\diff u}{\diff x}}}}\\
+\uncover<13->{& = 1+ \uncover<14->{\alert<handout:0|14>{\frac{1}{\alert<handout:0|17-18>{u}}}}\uncover<16->{\alert<handout:0|16>{\sec x \tan x}}}\\
+\uncover<17->{& = 1+ \frac{1}{\alert<handout:0|17-18>{(\uncover<18->{\sec x})}}\sec x \tan x} \\
+\uncover<19->{& = 1+ \tan x}
+\end{align*}
+\end{example}
+\end{frame}
+% begin module natural-log-derivative-ex-simplify.tex
