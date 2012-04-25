@@ -1,6 +1,6 @@
 % begin module net-change-ex6
 \begin{frame}[t]
-\begin{example}[Example 6, p. 328]
+\begin{example}[Example 7, p. 362]
 A particle moves along a line so that its velocity at time $t$ is $v(t) = t^2 - t - 6$ (measured in meters per second).
 \begin{enumerate}
 \item  Find the displacement of the particle during the time period $1\leq t \leq 4$.
@@ -18,13 +18,13 @@ A particle moves along a line so that its velocity at time $t$ is \alert<handout
 The displacement is
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
-s(4) - s(1) & = & \int_1^4 \alert<handout:0| 2>{v(t)} \diff t %
+\begin{align*}
+s(4) - s(1) & =  \int_1^4 \alert<handout:0| 2>{v(t)} \diff t %
  \uncover<2->{=}  \uncover<2->{\int_1^4 \alert<handout:0| 2>{(\alert<handout:0| 3-4>{t^2} - \alert<handout:0| 5-6>{t} - \alert<handout:0| 7-8>{6})}\diff t}\\%
-& \uncover<3->{=} & \uncover<3->{\left[ \uncover<4->{\alert<handout:0| 4>{\frac{t^3}{3}}} - \uncover<6->{\alert<handout:0| 6>{\frac{t^2}{2}}} - \uncover<8->{\alert<handout:0| 8>{6t}}  \right]_1^4 }\\%
-& \uncover<9->{=} & \uncover<9->{ \left( \frac{4^3}{3} - \frac{4^2}{2} - 6\cdot 4 \right) - \left( \frac{1^3}{3} - \frac{1^2}{2} - 6\cdot 1\right)}\\%
-& \uncover<10->{=} & \uncover<10->{-\frac{9}{2}}
-\end{eqnarray*}
+& \uncover<3->{=}  \uncover<3->{\left[ \uncover<4->{\alert<handout:0| 4>{\frac{t^3}{3}}} - \uncover<6->{\alert<handout:0| 6>{\frac{t^2}{2}}} - \uncover<8->{\alert<handout:0| 8>{6t}}  \right]_1^4 }\\%
+& \uncover<9->{=}  \uncover<9->{ \left( \frac{4^3}{3} - \frac{4^2}{2} - 6\cdot 4 \right) - \left( \frac{1^3}{3} - \frac{1^2}{2} - 6\cdot 1\right)}\\%
+& \uncover<10->{=}  \uncover<10->{-\frac{9}{2}}.
+\end{align*}
 \uncover<11->{Therefore the particle moves $4.5$m to the left.}
 \end{example}
 \end{frame}
@@ -46,13 +46,13 @@ The distance is%
 }%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
+\begin{align*}
 \uncover<7->{ \int_1^4 \alert<handout:0| 2>{|v(t)|} \diff t }%
-& \uncover<8->{=} & \uncover<8->{ \int_1^3 [-v(t)]\diff t + \int_3^4 v(t) \diff t}\\%
-& \uncover<9->{=} & \uncover<9->{ \int_1^3 (-t^2 + t + 6 )\diff t + \int_3^4 (t^2 - t - 6) \diff t}\\%
-& \uncover<10->{=} & \uncover<10->{ \left[ -\frac{t^3}{3} + \frac{t^2}{2} + 6t\right]_1^3 + \left[ \frac{t^3}{3} - \frac{t^2}{2} - 6t\right]_3^4}\\%
-& \uncover<11->{=} & \uncover<11->{ \frac{61}{6} \approx 10.17\textrm{m}} 
-\end{eqnarray*}
+& \uncover<8->{=}  \uncover<8->{ \int_1^3 [-v(t)]\diff t + \int_3^4 v(t) \diff t}\\%
+& \uncover<9->{=}  \uncover<9->{ \int_1^3 (-t^2 + t + 6 )\diff t + \int_3^4 (t^2 - t - 6) \diff t}\\%
+& \uncover<10->{=}  \uncover<10->{ \left[ -\frac{t^3}{3} + \frac{t^2}{2} + 6t\right]_1^3 + \left[ \frac{t^3}{3} - \frac{t^2}{2} - 6t\right]_3^4}\\%
+& \uncover<11->{=}  \uncover<11->{ \frac{61}{6} \approx 10.17\text{m}} 
+\end{align*}
 \end{example}
 \end{frame}
 % end module net-change-ex6
