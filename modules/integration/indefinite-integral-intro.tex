@@ -1,8 +1,8 @@
 % begin module indefinite-integral-intro
-\begin{frame}\frametitle{(5.4) Indefinite Integrals}
+\begin{frame}\frametitle{Indefinite Integrals}
 \begin{itemize}
-\item  The Fundamental Theorem establishes a connection between antiderivatives and definite integrals.
-\item  Part 2 says that $\int_a^b f(x)\diff x$ equals $F(b) - F(a)$, where $F$ is an antiderivative of $f$.
+\item  The Evaluation Theorem establishes a connection between antiderivatives and definite integrals.
+\item  It says that $\int_a^b f(x)\diff x$ equals $F(b) - F(a)$, where $F$ is an antiderivative of $f$.
 \item  We need convenient notation for writing antiderivatives.
 \item  This is what the indefinite integral is.
 \end{itemize}
@@ -11,7 +11,7 @@ The indefinite integral of $f$ is another way of saying the antiderivative of $f
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
-\int f(x) \diff x = F(x) \qquad \textrm{means}\qquad F'(x) = f(x).
+\int f(x) \diff x = F(x) \qquad \text{means}\qquad F'(x) = f(x).
 \]
 \end{definition}
 \end{frame}
@@ -32,19 +32,19 @@ The indefinite integral of $f$ is another way of saying the antiderivative of $f
 \end{example}
 \begin{itemize}
 \item<5->  This shows that the indefinite integral is a whole family of functions.
-\item<6->  Example 1c, p. 275:  the general antiderivative of $\frac{1}{x^3}$ is
+\item<6->  Example 1b, p. 318:  the general antiderivative of $\frac{1}{x}$ is
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
 \uncover<6->{%
 F(x) = \left\{ \begin{array}{ccc}
--\frac{1}{2x^2} + C_1 & \textrm{if} & x > 0\\
--\frac{1}{2x^2} + C_2 & \textrm{if} & x < 0
+\ln |x| + C_1 & \text{ if } & x > 0\\
+\ln |x| + C_2 & \text{ if } & x < 0
 \end{array}\right.
 }%
 \]
 \item<7->  We adopt the convention that the formula for an indefinite integral is only valid on one interval.
-\item<8->  $\int \frac{1}{x^3} \diff x = -\frac{1}{2x^2} + C$, and this is valid either on $(-\infty , 0)$ or $(0, \infty)$.
+\item<8->  $\int \frac{1}{x} \diff x = \ln |x| + C$, and this is valid either on $(-\infty , 0)$ or $(0, \infty)$.
 \end{itemize}
 \end{frame}
 % end module indefinite-integral-intro
