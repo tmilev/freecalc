@@ -7,14 +7,14 @@
 \belowdisplayshortskip=0pt
 
 \begin{align*}
-\text{Differentiate} \quad y &= \frac{(x-1)^{\frac{5}{3}} \sin^3 x}{\sqrt{e^x + 1}}.\\
- \uncover<2->{\text{Take the log:} \quad \ln y &= \ln \left( \frac{(x-1)^{\frac{5}{3}} \sin^3 x}{\sqrt{e^x + 1}} \right)}\\
-%&= \ln\left((x-1)^{\frac{5}{3}} \sin^3 x\right)-\ln\left(\sqrt{e^x + 1}\right)\\
-\uncover<3->{\text{Log rules:} \quad \ln y &=\frac{5}{3} \ln(x-1) +3\ln \left( \sin x\right)-\frac{1}{2}\ln\left(e^x + 1\right).}\\
-\uncover<4->{\alert<handout:0|4-5>{\frac {\diff y}{\diff x} (\ln y)} &= \alert<handout:0|6-11>{ \frac{\diff}{\diff x}} \left[ \alert<handout:0|6-7>{ \frac{5}{3} \ln(x-1)} +\alert<handout:0|8-9>{3\ln \left( \sin x\right)}-\alert<handout:0|10-11>{\frac{1}{2}\ln\left(e^x + 1\right)}\right]}\\
+\text{Differentiate} \quad \alert<handout:0|13>{y} &\alert<handout:0|13>{= \frac{(x-1)^{5/3} \sin^3 x}{\sqrt{e^x + 1}}}.\\
+\intertext{\uncover<2->{Take the natural logarithm of both sides:}}
+\uncover<2->{\ln y &= \ln  \frac{(x-1)^{5/3} \sin^3 x}{\sqrt{e^x + 1}} }\\
+\uncover<3->{ \ln y &=(5/3) \ln(x-1) +3\ln \left( \sin x\right)-(1/2)\ln\left(e^x + 1\right).}\\
+\uncover<4->{\alert<handout:0|4-5>{\frac {\diff y}{\diff x} (\ln y)} &= \alert<handout:0|6-11>{ \frac{\diff}{\diff x}} \left[ \alert<handout:0|6-7>{ (5/3) \ln(x-1)} +\alert<handout:0|8-9>{3\ln \left( \sin x\right)}-\alert<handout:0|10-11>{(1/2)\ln\left(e^x + 1\right)}\right]}\\
 \uncover<4->{ \alert<handout:0|4-5>{\left[ \uncover<5->{\frac{1}{y} \left(\frac {\diff y}{\diff x}\right)}\right]} &= \alert<handout:0|6-7>{ \left[\uncover<7->{ \frac{5}{3}\left(\frac{1}{x-1} \right)}  \right] }+ \alert<handout:0|8-9>{ \left[ \uncover<9->{ \frac{3\cos x}{\sin x}} \right] }- \alert<handout:0|10-11>{\left[\uncover<11->{ \frac{1}{2} \left(\frac{e^x}{e^x+1}  \right)} \right]}}\\
- \uncover<12->{\frac {\diff y}{\diff x} &=  \left( \frac{5}{3(x-1)}  + 3\cot x -\frac{e^x}{2(e^x+1)} \right)y}\\
- \uncover<13->{& = \left( \frac{5}{3(x-1)}  + 3\cot x -\frac{e^x}{2(e^x+1)} \right) \frac{(x-1)^{\frac{5}{3}} \sin^3 x}{\sqrt{e^x + 1}}.}
+ \uncover<12->{\frac {\diff y}{\diff x} &=  \left( \frac{5}{3(x-1)}  + 3\cot x -\frac{e^x}{2(e^x+1)} \right)\alert<handout:0|13>{y}}\\
+ \uncover<13->{& = \left( \frac{5}{3(x-1)}  + 3\cot x -\frac{e^x}{2(e^x+1)} \right) \alert<handout:0|13>{\frac{(x-1)^{5/3} \sin^3 x}{\sqrt{e^x + 1}}}.}
 \end{align*}
 
 \end{example}
