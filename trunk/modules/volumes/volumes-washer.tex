@@ -40,27 +40,29 @@ The typical cross-section is a washer centered at $(x, 0)$.
 }%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
 \uncover<12->{%
 V%
 }%
-& \uncover<12->{ = } &%
+& \uncover<12->{ = } %
 \uncover<12->{%
 \int_0^1 \left( \pi (x^2+1)^2 - \pi x^2    \right) \ \diff x%
 }\\%
-& \uncover<13->{ = } &%
+& \uncover<13->{ = } %
 \uncover<13->{%
 \pi \int_0^1 \left( \alert<handout:0| 14-15>{x^4} + \alert<handout:0| 16-17>{x^2} + \alert<handout:0| 18-19>{1} \right) \  \diff x%
 }\\%
-& \uncover<14->{ = } &%
+& \uncover<14->{ = } %
 \uncover<14->{%
 \pi \left[ \alert<handout:0| 15>{\uncover<15->{\frac{x^5}{5}}} + \alert<handout:0| 17>{\uncover<17->{\frac{x^3}{3}}} + \alert<handout:0| 19>{\uncover<19->{x}} \right]_0^1%
 }\\%
-& \uncover<20->{ = } &%
+& \uncover<20->{ = } %
 \uncover<20->{%
 \pi \left( \frac{1}{5} + \frac{1}{3} + 1\right) \uncover<21->{= \frac{23}{15}\pi}
 }%
-\end{eqnarray*}
+\end{align*}
 \end{columns}
 \end{example}
 \end{frame}
