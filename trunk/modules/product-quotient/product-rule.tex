@@ -1,24 +1,5 @@
 % begin module product-rule
 \begin{frame}
-Now we need a formula for the derivative of the product of two functions.  One might guess that the derivative of a product is the product of the derivatives; however, this is wrong.
-\uncover<2->{%
-\begin{example}[Incorrect Product Rule]
-Let $f(x) = x$ and $g(x) = x^2$.
-\begin{itemize}
-\item<3-| alert@4-5>  $f'(x) = \uncover<5->{1.}$
-\item<3-| alert@6-7>  $g'(x) = \uncover<7->{2x.}$
-\item<8-| alert@9-10>  $(fg)(x) = \uncover<10->{x^3.}$
-\item<8-| alert@11-12>  $(fg)'(x) = \uncover<12->{3x^2.}$
-\item<13->  $(fg)'(x) = 3x^2 \neq 1\cdot 2x = f'(x)g'(x).$
-\end{itemize}
-\end{example}
-}%
-\uncover<14->{%
-The correct formula is called the Product Rule.
-}%
-\end{frame}
-
-\begin{frame}
 \begin{theorem}[The Product Rule]
 If $f$ and $g$ are both differentiable, then
 \abovedisplayskip=0pt
@@ -30,21 +11,20 @@ If $f$ and $g$ are both differentiable, then
 \begin{proof}
 \uncover<2->{Let $\alert<handout:0| 4>{F(x) = f(x)g(x)}$.  Then}
 \abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
- \uncover<2->{F'(x)}  \uncover<2->{ = } \uncover<3->{\lim_{h\rightarrow 0}\frac{F(x+h)-F(x)}{h}}  \uncover<4->{ = } \uncover<4->{\lim_{h\rightarrow 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h}}
-\]
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
-& \uncover<5->{ = } & %
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+ \uncover<2->{F'(x)}  & \uncover<2->{ = } \uncover<3->{\lim_{h\rightarrow 0}\frac{F(x+h)-F(x)}{h}}  \uncover<4->{ = } \uncover<4->{\lim_{h\rightarrow 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h}}\\
+& \uncover<5->{ = }  %
 \uncover<5->{\lim_{h\rightarrow 0}\frac{f(x+h)g(x+h) \alert<handout:0| 5>{- f(x+h)g(x) + f(x+h)g(x)} - f(x)g(x)}{h}}\\
-& \uncover<6->{ = } & %
+& \uncover<6->{ = }  %
 \uncover<6->{\lim_{h\rightarrow 0}\left[f(x+h) \frac{g(x+h)- g(x)}{h} + g(x)\frac{f(x+h)- f(x)}{h}\right]}\\
-& \uncover<7->{ = } & %
+& \uncover<7->{ = }  %
 \uncover<7->{\alert<handout:0| 8-9>{\lim_{h\rightarrow 0}f(x+h)}\alert<handout:0| 10-11>{\cdot \lim_{h\rightarrow 0}\frac{g(x+h) - g(x)}{h}}}\\
-& & \ \uncover<7->{ + \alert<handout:0| 12-13>{\lim_{h\rightarrow 0}g(x)}\alert<handout:0| 14-15>{\cdot\lim_{h\rightarrow 0}\frac{f(x+h)- f(x)}{h}} = }\uncover<9->{\alert<handout:0| 9>{f(x)}}\uncover<11->{\alert<handout:0| 11>{g'(x)}} \uncover<13->{ + \alert<handout:0| 13>{g(x)}}\uncover<15->{\alert<handout:0| 15>{f'(x)}\qedhere}
-\end{eqnarray*}
+& \qquad \uncover<7->{ + \alert<handout:0| 12-13>{\lim_{h\rightarrow 0}g(x)}\alert<handout:0| 14-15>{\cdot\lim_{h\rightarrow 0}\frac{f(x+h)- f(x)}{h}} } %
+\uncover<8->{ = } \uncover<9->{ \alert<handout:0| 9>{f(x)}}\uncover<11->{\alert<handout:0| 11>{g'(x)}} \uncover<13->{ + \alert<handout:0| 13>{g(x)}}\uncover<15->{\alert<handout:0| 15>{f'(x)}\mbox{\qedhere}}
+\end{align*}
 \end{proof}
 \end{frame}
 % end module product-rule
