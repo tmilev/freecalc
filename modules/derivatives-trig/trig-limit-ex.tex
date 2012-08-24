@@ -1,0 +1,54 @@
+% begin module trig-limit-ex
+\begin{frame}
+\begin{example}[Trigonometric limit]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \lim_{x\to 0} \frac{2x}{\sin 9x}
+& \uncover<2->{%
+= \lim_{x\to 0} \frac{2x}{\sin 9x} \cdot \frac{9}{9}%
+}\\%
+& \uncover<3->{ = }  %
+\uncover<3->{%
+\lim_{x\to 0} \frac{2}{9} \cdot \alert<handout:0| 4>{\frac{9x}{\sin 9x}} %
+}\\%
+& \uncover<4->{ = }  %
+\uncover<4->{%
+\lim_{x\to 0} \frac{2}{9} \cdot \alert<handout:0| 4>{\frac{1}{\frac{\sin \alert<handout:0| 5>{9x}}{\alert<handout:0| 5>{9x}}}} %
+}%
+ \uncover<5->{ = }  %
+\uncover<5->{%
+\lim_{\alert<handout:0| 6-7>{\theta\to \uncover<7->{0}}} \frac{2}{9} \cdot \frac{1}{\frac{\sin \alert<handout:0| 5>{\theta}}{\alert<handout:0| 5>{\theta}}}. %
+}\\%
+\uncover<5->{%
+\text{Let}\quad \alert<handout:0| 5>{\theta} %
+}%
+& \uncover<5->{%
+\alert<handout:0| 5>{ = 9x.}%
+}\\%
+\uncover<6->{%
+\text{As}\quad x \to 0, \quad \alert<handout:0| 6-7>{\theta} %
+}%
+& \uncover<6->{%
+\alert<handout:0| 6-7>{ \to \uncover<7->{0.}}%
+}\\%
+\uncover<8->{%
+\text{Then}\quad \lim_{x\to 0} \frac{2x}{\sin 9x} %
+}%
+& \uncover<8->{ = }  %
+\uncover<8->{%
+\frac{2}{9} \cdot \frac{1}{\alert<handout:0| 9-10>{\lim_{\theta\to 0}\frac{\sin \theta}{\theta}}} %
+}\\%
+& \uncover<9->{ = }  %
+\uncover<9->{%
+\frac{2}{9} \cdot \frac{1}{\alert<handout:0| 10>{\uncover<10->{1}}} %
+}%
+\uncover<11->{%
+ = \frac{2}{9}. %
+}%
+\end{align*}
+\end{example}
+\end{frame}
+% end module trig-limit-ex
