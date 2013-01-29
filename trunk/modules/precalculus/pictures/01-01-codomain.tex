@@ -1,0 +1,37 @@
+\documentclass{minimal}
+\usepackage{lscape}
+\usepackage{pstricks}
+\usepackage{pst-plot}
+\addtolength{\hoffset}{-0.5cm}
+\addtolength{\textwidth}{6.8cm}
+\addtolength{\voffset}{-0cm}
+\addtolength{\textheight}{6.3cm}
+\begin{document}
+\begin{landscape}
+\pagestyle{empty}
+\scalebox{4}{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-1,-1)(4,3)
+\psaxes[labels=none, ticks=none]{->}(0,0)(-0.5,-0.5)(4,3)
+\rput[r](0,3){$y$}
+\rput[l](4,0){$x$}
+\psplot[linecolor=red]{0.5}{3}{0.2 x 2 exp mul 0.5 180 x mul sin mul 0.333333 add add
+ }
+\rput( 3, 2.7){$y=f(x)$}
+
+%\psline[linecolor=red, linewidth=2pt]{<->}(0.5, 0)(3,0)
+%\rput(1.75, -0.3){ Domain}
+
+%\psline[linecolor=red, linewidth=2pt]{<->}(0, 0.2)(0,2.24)
+%\rput(0.45, 1.1){ Range}
+
+\psline[linecolor=red, linewidth=2pt]{<->}(0, -1)(0,3)
+\rput(0.85, 1.35){ Co-Domain}
+
+%\psline[linewidth=1pt]{<->}(2.166666667, 0)(2.166666667, 1.522222)
+%\rput[l](2.2,0.7){$f(x)$}
+\end{pspicture}
+}
+\end{landscape}
+
+\end{document}
