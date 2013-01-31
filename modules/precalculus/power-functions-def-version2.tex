@@ -1,0 +1,55 @@
+% begin module power-functions-def
+\begin{frame}
+\frametitle{Power Functions}
+\begin{definition}[Power Function]
+Let $x>0$, $a$ - arbitrary real number. The power function is defined as
+\[
+f(x) \uncover<4->{\alert<handout: 0| 4>{=e^{a\ln x} } }= \alert<2>{x}^{\alert<3>{a}} \quad .
+\]
+\uncover<2->{$x$ = \alert<2>{base}. } \uncover<3->{$a$ = \alert<3>{exponent} or \alert<3>{power}. }
+\uncover<4->{\alert<handout:0| 4>{First equality = one {\tiny(the best)} of ways to define for non-integer $a$ (we study $\ln x$, $e^x$ later). } }
+\end{definition}
+\begin{tabular}{l}
+\uncover<5->{
+If $a$ - positive integer ($1, 2, 3, \ldots$) \\
+then $x^a$ = polynomial function.
+}\\
+\uncover<6->{
+Rules (studied in high \\
+school for integer exponents): \\
+$x^{a+b}=x^ax^b $ \\
+$x^{-a}=\frac{1}{x^a}$\\
+$x^{n}=\underbrace{x\dots x }_{n~\mathrm{times}} $ when $n$-integer. \\
+~\\~\\~\\~\\~\\~\\~\\
+}
+\end{tabular}
+\uncover<7-11>{
+\psset{xunit=0.4cm,yunit=0.4cm}
+\begin{pspicture}(-5,-5)(5,5)
+\psaxes[labels=none]{<->}(0,0)(-5,-5)(5,5)
+\rput[r](0,5){\tiny{$y$}}
+\rput[l](5,0){\tiny{$x$}}
+\only<7>{
+\psplot[linecolor=red]{-5}{5}{ x 1 exp }
+\rput( 3, 1){$y=x^{\phantom{1}}$}
+} %only
+\only<8>{
+\psplot[linecolor=red]{-2.23}{2.23}{ x 2 exp }
+\rput( 3, 1){$y=x^2$}
+}
+\only<9>{
+\psplot[linecolor=red]{-1.7}{1.7}{ x 3 exp }
+\rput( 3, 1){$y=x^3$}
+}
+\only<10>{
+\psplot[linecolor=red]{-1.49}{1.49}{ x 4 exp }
+\rput( 3, 1){$y=x^4$}
+}
+\only<11>{
+\psplot[linecolor=red]{-1.37}{1.37}{ x 5 exp }
+\rput( 3, 1){$y=x^5$}
+}
+\end{pspicture}
+}
+\end{frame}
+% end module power-functions-def
