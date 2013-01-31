@@ -2,6 +2,17 @@
 %[handout]
 {beamer}
 
+% % % % % % % %
+% % % % % % % %
+% % % % % % % %
+%IMPORTANT
+%compiles with 
+%pdflatex -shell-escape 
+%IMPORTANT
+% % % % % % % %
+% % % % % % % %
+% % % % % % % %
+
 \mode<presentation>
 {
 \useinnertheme{rounded}
@@ -14,6 +25,9 @@
 \usepackage[latin1]{inputenc}
 \usepackage{times}
 \usepackage{../example-templates}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-plot}
+
 \usepackage[T1]{fontenc}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
@@ -26,7 +40,7 @@
 \newcommand{\diff}{\text{d}}
 \setbeamertemplate{navigation symbols}{}
 
-\includeonlylecture{1}
+\includeonlylecture{2}
 
 \newcommand{\lect}[3]{
   \date{#1}
@@ -106,18 +120,18 @@
 % end lecture
 
 % begin lecture
-\lect{January 25, 2012}{Lecture  2}{2}
+\lect{}{Lecture  2}{2}
 \section{(1.2) A Catalog of Essential Functions}
 \subsection{Power Functions}
-\input{../../modules/precalculus/power-functions-def}
-\input{../../modules/precalculus/root-functions}
+\input{../../modules/precalculus/power-functions-def-version2}
+\input{../../modules/precalculus/root-functions-version2}
 \input{../../modules/precalculus/reciprocal-function}
 \subsection{Rational Functions}
 \input{../../modules/precalculus/rational-functions}
 \subsection{Algebraic Functions}
-\input{../../modules/precalculus/algebraic-functions}
+\input{../../modules/precalculus/algebraic-functions-version2}
 \subsection{Transcendental Functions}
-\input{../../modules/precalculus/transcendental-functions}
+\input{../../modules/precalculus/transcendental-functions-version2}
 \section{(1.3) New Functions from Old Functions}
 \subsection{Transformations of Functions}
 \input{../../modules/precalculus/transformations-shifts}
