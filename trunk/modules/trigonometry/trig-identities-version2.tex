@@ -1,0 +1,309 @@
+% begin module trig-identities
+\begin{frame}
+\frametitle{Trigonometric Identities}
+\begin{definition}[Trigonometric Identity]
+A trigonometric identity is a relationship among the trigonometric functions that is true for any value of the independent variable.
+\end{definition}
+\end{frame}
+
+\newcommand{\trigIdentitiesPicture}{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-4,-0.5)(1,4)
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-4,-0.5)(1,4)
+\pscircle*(-3,2){0.07}
+\psline[linecolor=blue](0,0)(-3,2)
+\psline[linecolor=blue](0,0)(1,0)
+\psarc[linecolor=red](0,0){0.5}{0}{146.3099}
+\rput[br](-3, 2){$(x,y)$}
+\rput[l](0.1, 0.7){$\theta$}
+\rput[lb](-1.55, 1.1){$r$}
+\psline[linestyle=dotted](-3, 2)(-3, 0)
+\psline[linestyle=dotted](-3, 2)(0, 2)
+\psline(-2.7, 0)(-2.7, 0.3)(-3, 0.3)
+\psline(0, 1.7)(-0.3, 1.7)(-0.3, 2)
+\end{pspicture}
+}
+
+\begin{frame}
+\begin{columns}[c]
+\column{.5\textwidth}
+\trigIdentitiesPicture
+\[
+\begin{array}{cc}
+\sin \theta = \frac{ y}{ r} &
+\csc \theta = \frac{ r}{ y} \\
+\cos \theta = \frac{ x}{ r} &
+\sec \theta = \frac{ r}{ x} \\
+\tan \theta = \frac{ y}{ x} &
+\cot \theta = \frac{ x}{ y} \\
+\end{array}
+\]
+\column{.5\textwidth}
+\begin{itemize}
+\item $\csc \theta = \frac{1}{\sin \theta}$
+\item $\sec \theta = \frac{1}{\cos \theta}$
+\item $\cot \theta = \frac{1}{\tan \theta}$
+\item $\tan \theta = \frac{\sin \theta}{\cos \theta}$
+\item $\cot \theta = \frac{\cos \theta}{\sin \theta}$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\begin{columns}[c]
+\column{.5\textwidth}
+\trigIdentitiesPicture
+
+\[
+\begin{array}{cc}
+\sin \theta = \frac{ y}{ r} &
+\csc \theta = \frac{ r}{ y} \\
+\cos \theta = \frac{ x}{ r} &
+\sec \theta = \frac{ r}{ x} \\
+\tan \theta = \frac{ y}{ x} &
+\cot \theta = \frac{ x}{ y} \\
+\end{array}
+\]
+\column{.5\textwidth}
+\begin{eqnarray*}
+& & \uncover<2->{\sin^2 \theta + \cos^2 \theta}\\
+& \uncover<3->{=} & \uncover<3->{\frac{y^2}{r^2} + \frac{x^2}{r^2}}\\
+& \uncover<4->{=} & \uncover<4->{\frac{y^2+x^2}{r^2}}\\
+& \uncover<5->{=} & \uncover<5->{\frac{r^2}{r^2}}\\
+& \uncover<6->{=} & \uncover<6->{1}
+\end{eqnarray*}
+\uncover<7->{%
+Therefore $\sin^2 \theta + \cos^2 \theta = 1$.%
+}%
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\begin{columns}[c]
+\column{.5\textwidth}
+\trigIdentitiesPicture
+\[
+\begin{array}{cc}
+\sin \theta = \frac{ y}{ r} &
+\csc \theta = \frac{ r}{ y} \\
+\cos \theta = \frac{ x}{ r} &
+\sec \theta = \frac{ r}{ x} \\
+\tan \theta = \frac{ y}{ x} &
+\cot \theta = \frac{ x}{ y} \\
+\end{array}
+\]
+\column{.5\textwidth}
+\begin{example}[$\tan^2 \theta + 1 = \sec^2 \theta$]
+Prove the identity $\tan^2 \theta + 1 = \sec^2 \theta$.
+\begin{eqnarray*}
+\uncover<2->{\sin^2 \theta + \cos^2 \theta} & \uncover<2->{=} & \uncover<2->{1}\\
+\uncover<3->{\frac{\sin^2 \theta}{\cos^2\theta} + \frac{\cos^2 \theta}{\cos^2\theta}} & \uncover<3->{=} & \uncover<3->{\frac{1}{\cos^2\theta}}\\
+\uncover<4->{\tan^2 \theta + 1} & \uncover<4->{=} & \uncover<4->{\sec^2\theta}
+\end{eqnarray*}
+\end{example}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{columns}[c]
+\column{.5\textwidth}
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-4,-2.5)(1,4)
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-4.2,-2.5)(1,4)
+\pscircle*(-3,2){0.07}
+\psline[linecolor=blue](0,0)(-3,2)
+\psline[linecolor=blue](0,0)(1,0)
+\rput[br](-3, 2){$(x,y)$}
+\rput[lb](-1.55, 1.1){$r$}
+
+\uncover<1>{
+\psarc[linecolor=red, linewidth=2pt]{->}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$\theta$}
+}
+\uncover<2>{
+\psarc[linecolor=red, linewidth=2pt]{<-}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$-\theta$}
+}
+\uncover<3->{
+\psarc[linecolor=red]{->}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$\theta$}
+}
+\uncover<4->{
+\psarc[linecolor=red]{<-}(0,0){0.5}{-146.3099}{0}
+\rput[lt](0.1, -0.7){$-\theta$}
+\psline[linecolor=blue](0,0)(-3,-2)
+\psline[linecolor=blue](0,0)(1,0)
+\rput[br](-3, -2){$(x,-y)$}
+\rput[lt](-1.55, -1.1){$r$}
+}
+\uncover<5->{\psline(-2.7, 0)(-2.7, -0.3)(-3, -0.3)
+\psline[linestyle=dotted](-3, -2)(-3, 0)
+}
+
+\psline[linestyle=dotted](-3, 2)(-3, 0)
+\psline[linestyle=dotted](-3, 2)(0, 2)
+\psline(-2.7, 0)(-2.7, 0.3)(-3, 0.3)
+\psline(0, 1.7)(-0.3, 1.7)(-0.3, 2)
+\end{pspicture}
+\[
+\begin{array}{cc}
+\sin \theta = \frac{ y}{ r} &
+\csc \theta = \frac{ r}{ y} \\
+\cos \theta = \frac{ x}{ r} &
+\sec \theta = \frac{ r}{ x} \\
+\tan \theta = \frac{ y}{ x} &
+\cot \theta = \frac{ x}{ y} \\
+\end{array}
+\]
+\column{.5\textwidth}
+\begin{itemize}
+\item<1->  Positive angles are obtained by rotating counterclockwise.
+\item<2->  Negative angles are obtained by rotating clockwise.
+\item<3->  If $(x,y)$ is on the terminal arm of the angle $\theta$, \alert<4>{then $(x, -y)$ is on the terminal arm of $-\theta$}.
+\item<5->  $\alert<7>{\sin(-\theta )} = \frac{-y}{r} = -\frac{y}{r} = \alert<7>{-\sin \theta}$.
+\item<6->  $\alert<8>{\cos(-\theta )} = \frac{x}{r} =\alert<8>{\cos \theta}$.
+\item<7->  $\sin$ is an \alert<7>{odd function}.
+\item<8->  $\cos$ is an \alert<8>{even function}.
+\end{itemize}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{columns}[c]
+\column{.5\textwidth}
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-4,-2.5)(1,4)
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-4.2,-2.5)(1,4)
+\pscircle*(-3,2){0.07}
+\psline[linecolor=blue](0,0)(-3,2)
+\psline[linecolor=blue](0,0)(1,0)
+\rput[br](-3, 2){$(x,y)$}
+\rput[lb](-1.55, 1.1){$r$}
+
+\psarc[linecolor=red]{->}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$\theta$}
+
+\uncover<2>{
+\parametricplot[linecolor=red, plotpoints=1000, arrows=->]{0}{360}{0.25 0.000198413 t mul add t cos mul 0.25 0.000198413 t mul add t sin mul}
+}
+
+\uncover<3->{
+\parametricplot[linecolor=red, plotpoints=1000, arrows=->]{0}{506.3099}{0.25 0.000198413 t mul add t cos mul 0.25 0.000198413 t mul add t sin mul}
+}
+
+\psline[linestyle=dotted](-3, 2)(-3, 0)
+\psline[linestyle=dotted](-3, 2)(0, 2)
+\psline(-2.7, 0)(-2.7, 0.3)(-3, 0.3)
+\psline(0, 1.7)(-0.3, 1.7)(-0.3, 2)
+\end{pspicture}
+
+\[
+\begin{array}{cc}
+\sin \theta = \frac{ y}{ r} &
+\csc \theta = \frac{ r}{ y} \\
+\cos \theta = \frac{ x}{ r} &
+\sec \theta = \frac{ r}{ x} \\
+\tan \theta = \frac{ y}{ x} &
+\cot \theta = \frac{ x}{ y} \\
+\end{array}
+\]
+\column{.5\textwidth}
+\begin{itemize}
+\item<2->  $2\pi$ represents a full rotation.
+\item<3->  $\theta + 2\pi$ has the same terminal arm as $\theta$.
+\item<4->  $\theta + 2\pi$ uses the same point $(x,y)$ and the same length $r$.
+\item<5->  $\sin (\theta + 2\pi ) = \sin \theta$.
+\item<5->  $\cos (\theta + 2\pi ) = \cos \theta$.
+\item<6->  We say $\sin$ and $\cos$ are $2\pi$-periodic.
+\end{itemize}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[t]
+The remaining identities are consequences of the addition formulas:
+\[
+\begin{array}{ccccc}
+\sin (x + y) & = & \sin x\cos y & + & \cos x \sin y \\
+\cos (x + y) & = & \cos x\cos y & - & \sin x \sin y 
+\end{array}
+\]
+\uncover<2->{
+Substitute $-y$ for $y$, and use the fact that $\sin(-y) = -\sin y$ and $\cos (-y) = \cos y$:
+\[
+\begin{array}{ccccc}
+\sin (x - y) & = & \sin x\cos y & - & \cos x \sin y \\
+\cos (x - y) & = & \cos x\cos y & + & \sin x \sin y 
+\end{array}
+\]
+}
+\end{frame}
+
+
+\begin{frame}[t]
+The remaining identities are consequences of the addition formulas:
+\[
+\begin{array}{ccccc}
+\sin (x + y) & = & \sin x\cos y & + & \cos x \sin y \\
+\cos (x + y) & = & \cos x\cos y & - & \sin x \sin y 
+\end{array}
+\]
+\uncover<2->{
+To get the double angle formulas, substitute $x$ for $y$:
+\[
+\begin{array}{rcl}
+\sin 2x  & = & 2\sin x\cos x \\
+\cos 2x  & = & \cos^2 x - \sin^2 x
+\end{array}
+\]
+}
+\uncover<3->{
+Rewrite the second double angle formula in two ways, using $\cos^2 x = 1 - \sin^2 x$ and $\sin^2 x = 1 - \cos^2 x$:
+\[
+\begin{array}{rcl}
+\cos 2x  & = & 2\cos^2 x  -1\\
+\cos 2x  & = & 1 - 2\sin^2 x
+\end{array}
+\]
+}
+\uncover<4->{
+To get the half-angle formulas, solve these equations for $\cos^2 x$ and $\sin^2 x$ respectively.
+\[
+\cos^2 x = \frac{1 + \cos 2x}{2}, \qquad \sin^2 x = \frac{1 - \cos 2x}{2} 
+\]
+}
+\end{frame}
+
+
+\begin{frame}[t]
+The remaining identities are consequences of the addition formulas:
+\[
+\begin{array}{ccccc}
+\sin (x + y) & = & \sin x\cos y & + & \cos x \sin y \\
+\cos (x + y) & = & \cos x\cos y & - & \sin x \sin y 
+\end{array}
+\]
+\uncover<2->{
+Divide the first equation by the second, and then cancel $\cos x \cos y$ from the top and bottom:
+\[
+\begin{array}{rcl}
+\tan (x + y)  & = & \frac{\tan x + \tan y}{1 - \tan x \tan y}
+\end{array}
+\]
+}
+\uncover<3->{
+Do the same for the subtraction formulas:
+\[
+\begin{array}{rcl}
+\tan (x - y)  & = & \frac{\tan x - \tan y}{1 + \tan x \tan y}
+\end{array}
+\]
+}
+\end{frame}
+% end module trig-identities
