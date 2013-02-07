@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-plot}
+\usepackage{multicol}
+\addtolength{\hoffset}{-3.5cm}
+\addtolength{\textwidth}{6.8cm}
+\addtolength{\voffset}{-3.3cm}
+\addtolength{\textheight}{6.3cm}
+\renewcommand{\Re}{\mathrm{Re~}}
+\renewcommand{\Im}{\mathrm{Im~}}
+\newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
+
+\date{}
+\newtheorem{problem}{Problem}
+\title{
+Homework Math 140 \\
+Lectures 3 and 4 \\
+Will be quizzed Thursday Feb 14
+}
+\begin{document}
+\maketitle
+\textbf{This homework contains copyrighted material from  James Stewart, Calculus, 7th edition, 2012. 
+You are not permitted to copy this file for any purpose other than completing your homework. You are not allowed to give a copy of this file to anyone outside of our course. 
+}
+
+\begin{problem} (Textbook page A32, problems 1-6). 
+Convert from degrees to radians.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $210^\circ$.
+\item $300^\circ$.
+\item $9^\circ$.
+\item $-315^\circ$.
+\item $900^\circ$.
+\item $36^\circ$.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+\begin{problem} (Textbook page A32, problems 7-12). 
+Convert from radians to degrees.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $4\pi$.
+\item $-7/2\pi$.
+\item $5/12\pi$.
+\item $8/3\pi$.
+\item $-3/8\pi$.
+\item $5$.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+\begin{problem}
+(Textbook page A32-, problems 45, 46, 47, 48, 49, 50, 51, 52, 56, 57, 58).
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\sin \theta\cot \theta =\cos \theta$.
+\item $(\sin x +\cos x)^2=1+\sin(2x)$.
+\item $\sec y - \cos y= \tan y \sin y$.
+\item $\tan^2 \alpha-\sin^2 \alpha=\tan^2\alpha\sin^2\alpha$.
+\item $\cot^2\theta+\sec^2\theta=\tan^2\theta+\csc^2\theta$.
+\item $2\csc 2t= \sec t \csc t$.
+\item $\tan 2\theta =\frac{2\tan \theta}{1-\tan^2\theta} $.
+\item $\frac{1}{1-\sin \theta}+ \frac{1}{1+\sin \theta}=2\sec^2\theta$.
+\item $\tan x + \tan y = \frac{\sin (x+y)}{\cos x \cos y}$.
+\item $\sin 3\theta +\sin \theta = 2 \sin 2\theta \cos \theta $.
+\item $\cos 3\theta = 4\cos^3\theta-3\cos \theta $.
+\end{enumerate} 
+\end{multicols}
+\end{problem}
+\begin{problem}(Textbook page A33, problems 65-72).
+Find all values of $x$ in the interval $[0,2\pi]$ that satisfy the 
+equation.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $2\cos x - 1=0$.
+\item $3\cot^2 x= 1$.
+\item $2\sin^2 x= 1$.
+\item $|\tan x|=1 $.
+\item $\sin 2x = \cos x $.
+\item $2\cos x +\sin 2x=0$.
+\item $\sin x =\tan x$.
+\item $2+\cos 2x = 3 \cos x$.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+
+\begin{problem}(Textbook page 69, problems 3-9). 
+Evaluate the limits. Justify your computations.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\displaystyle\lim\limits_{x\to 3} 5x^3-3x^2+x-6$.
+\item $\displaystyle\lim\limits_{x\to -1} (x^4-3x)(x^2+5x+3)$.
+\item $\displaystyle\lim\limits_{t\to -2}\frac{t^4-2}{2t^2-3t+2} $.
+\item $\displaystyle\lim\limits_{u\to -2}\sqrt{u^4+3u +6}$.
+\item $\displaystyle\lim\limits_{x \to 8}(1+\sqrt[3]{x})(2-6x^2+x^3)$.
+\item $\displaystyle\lim\limits_{t \to 2}\left(\frac{t^2-2}{t^3-3t+5} \right)^2$.
+\item $\displaystyle\lim\limits_{x\to 2}\sqrt{\frac{2x^2+1}{3x-2}}$.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+\begin{problem}(Textbook page 70, problems 11-32). 
+Evaluate the limit if it exists.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\displaystyle\lim\limits_{x\to 5}\frac{x^2-6x+5}{x-5} $.
+\item $\displaystyle\lim\limits_{x\to 4}\frac{x^2-4x}{x^2-3x-4} $.
+\item $\displaystyle\lim\limits_{x\to 5}\frac{x^2-5x+6}{x-5} $.
+\item $\displaystyle\lim\limits_{x\to -1}\frac{x^2-4x}{x^{2}-3x-4} $.
+\item $\displaystyle\lim\limits_{t\to -3}\frac{t^2-9}{2t^2+7t+3} $.
+\item $\displaystyle\lim\limits_{x\to -1}\frac{2x^2+3x+1}{x^2-2x-3} $.
+\item $\displaystyle\lim\limits_{h\to 0}\frac{(-5+h)^2-25}{h} $.
+\item $\displaystyle\lim\limits_{h\to 0}\frac{(2+h)^3-8}{h} $.
+\item $\displaystyle\lim\limits_{x\to -2}\frac{x+2}{x^3+8} $.
+\item $\displaystyle\lim\limits_{t\to 1}\frac{t^4-1}{t^3-1} $.
+\item $\displaystyle\lim\limits_{h\to 0}\frac{\sqrt{9+h}-3}{h} $.
+\item $\displaystyle\lim\limits_{u\to 2} \frac{\sqrt{4u+1}-3}{u-2}$.
+\item $\displaystyle\lim\limits_{x\to -4} \frac{\frac{1}{4}+ \frac{1}{x}} {4+x}$.
+\item $\displaystyle\lim\limits_{x\to -1} \frac{x^2+2x+1}{x^4-1}$.
+\item $\displaystyle\lim\limits_{t\to 0} \frac{\sqrt{1+t}- \sqrt{1-t}}{t}$.
+\item $\displaystyle\lim\limits_{t\to 0}\left(\frac{1}t -\frac{1}{t^2+t}\right)$.
+\item $\displaystyle\lim\limits_{x\to 16} \frac{4-\sqrt{x}}{16x-x^2}$.
+\item $\displaystyle\lim\limits_{h \to 0}\frac{(3+h)^{-1}-3^-1}{h} $.
+\item $\displaystyle\lim\limits_{t\to 0} \left(\frac{1}{t\sqrt{1+t}}-\frac{1}{t} \right)$.
+\item $\displaystyle\lim\limits_{x\to -4} \frac{\sqrt{x^2+9}-5}{x+4}$.
+\item $\displaystyle\lim\limits_{h\to 0}\frac{(x+h)^3-x^3}{h} $.
+\item $\displaystyle\lim\limits_{h\to 0}\frac{\frac{1}{(x+h)^2}-\frac{1}{x^2}}{h} $.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+\end{document}
