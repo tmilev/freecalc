@@ -1,0 +1,43 @@
+% begin module limit-def
+\begin{frame}
+\frametitle{The Limit of a Function}
+\begin{definition}[The Limit of a Function]
+We write
+\[
+\lim_{x\rightarrow a} f(x) = L
+\]
+and say ``the limit of $f(x)$, as $x$ approaches $a$, equals $L$,'' if we can make the values of $f(x)$ \alert<3>{arbitrarily close to $L$} \alert<4>{by taking $x$ to be sufficiently close to $a$} (on either side of $a$) \alert<5>{but not equal to $a$}.
+
+\uncover<2->{Equivalent formulation. \alert<3>{For every $\varepsilon>0$}, there exists $\delta>0$ such that \alert<3>{$|f(x)-L|<\varepsilon$} \alert<4>{for all $x$ with} $\alert<5>{0<} \alert<4-5>{|x-a|} \alert<4>{<\delta}$ }
+\end{definition}
+\begin{center}
+\begin{pspicture}(-0.5,-0.5)(3,2.5)
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-0.5,-0.5)(3,2.5)
+\rput[l](3,0){\tiny $x$}
+\rput[l](0,2.5){\tiny $y$}
+\rput[l](2.8,1.7){\tiny $y=f(x)$}
+
+\psplot[linecolor=red]{-0.5}{3}{x x mul 4 div}
+\pscircle*(2,1){0.05}
+\pscircle*(2,0){0.05}
+\pscircle*(0,1){0.05}
+\rput[b](2,0.1){\tiny $a$}
+\rput[l](0.1,1){\tiny $L$}
+\uncover<3->{
+\psline[linestyle=dotted](-0.5,0.8)(2.5, 0.8)
+\psline[linestyle=dotted](-0.5,1.2)(2.5, 1.2)
+\psline[linecolor=blue]{<->}(-0.5,0.8)(-0.5,1.2)
+\rput[l](-0.4, 1){\tiny $\varepsilon$}
+}
+
+\uncover<4->{
+\psline[linestyle=dotted](1.84,-0.5)(1.84, 2.5)
+\psline[linestyle=dotted](2.16,-0.5)(2.16, 2.5)
+\psline[linecolor=blue]{<->}(1.84,2.5)(2.16,2.5)
+\rput[t](2, 2.4){\tiny $\delta$}
+}
+
+\end{pspicture}
+\end{center}
+\end{frame}
+% end module limit-def
