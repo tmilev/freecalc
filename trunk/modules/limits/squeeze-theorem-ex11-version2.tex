@@ -1,23 +1,37 @@
 % begin module squeeze-theorem-ex11
 \begin{frame}
-\begin{example}[Example 10, p. 110]
-Show that $\lim_{x\rightarrow 0} x^2 \sin \frac{1}{x} = 0$.
+\begin{example}
+Show that $\lim\limits_{x\rightarrow 0} x^2 \sin \frac{8}{x} = 0$.
 \uncover<2->{
 \[
-\text{\alert{WRONG:}} \qquad \lim_{x\rightarrow 0}x^2 \sin \frac{1}{x} = \lim_{x\rightarrow 0}x^2 \cdot \lim_{x\rightarrow 0}\sin \frac{1}{x}
+\text{\alert{WRONG:}} \qquad \lim_{x\rightarrow 0}x^2 \sin \frac{8}{x} = \lim_{x\rightarrow 0}x^2 \cdot \lim_{x\rightarrow 0}\sin \frac{8}{x}
 \]
-Doesn't work because $\lim_{x\rightarrow 0} \sin \frac{1}{x}$ doesn't exist.
+Doesn't work because $\lim\limits_{x\rightarrow 0} \sin \frac{8}{x}$ doesn't exist.
 }
 \begin{columns}[c]
 \column{.4\textwidth}
 \uncover<6->{%
-\ \includegraphics[height=4.5cm]{limits/pictures/02-03-ex11.pdf}%
+\psset{xunit=2cm, yunit=2cm}\begin{pspicture}(-1, -1)(1,1) 
+\psframe*[linecolor=white](-1,-1)(1,1) 
+\pscurve[linestyle=dotted]{->}(0.35, 0.65)(0.4, 0.3)(0.9, 0.413590547)
+
+\psaxes[labels=none]{<->}(0,0)(-1,-1)(1,1)
+\psplot[linecolor=red, plotpoints=1000]{0.1}{1}{8 x div 57.29578 mul sin x 2 exp mul }
+\psplot[linecolor=red, plotpoints=1000]{-1}{-0.1}{8 x div 57.29578 mul sin x 2 exp mul }
+\psplot[plotpoints=1000]{-1}{1}{x 2 exp -1 mul }
+\psplot[plotpoints=1000]{-1}{1}{x 2 exp }
+\rput(0.35, 0.7){\tiny $y=x^2\sin \frac{8}{x}$}
+\rput(-0.3, -0.5){\tiny $y=\pm x^2$}
+\pscurve[linestyle=dotted]{->}(-0.3, -0.5)(-0.55, 0)(-0.6,0.36)
+\pscurve[linestyle=dotted]{->}(-0.3, -0.5)(-0.4, -0.4)(-0.5,-0.25)
+
+\end{pspicture}
 }%
 \column{.6\textwidth}
 \uncover<3->{
 \[
 \begin{array}{rcccl}
--1 & \leq & \sin\frac{1}{x} & \leq & 1.\\
+-1 & \leq & \sin\frac{8}{x} & \leq & 1.\\
 \uncover<4->{%
 -x^2%
 }&%
@@ -25,7 +39,7 @@ Doesn't work because $\lim_{x\rightarrow 0} \sin \frac{1}{x}$ doesn't exist.
 \leq %
 }&%
 \uncover<4->{%
-x^2\sin\frac{1}{x}%
+x^2\sin\frac{8}{x}%
 }&%
 \uncover<4->{%
 \leq %
@@ -44,11 +58,11 @@ x^2.%
 
 \uncover<6->{
 Therefore by the Squeeze Theorem
-%Take $f(x) = -x^2, g(x) = x^2\sin\frac{1}{x}$, and $h(x) = x^2$. 
+%Take $f(x) = -x^2, g(x) = x^2\sin\frac{8}{x}$, and $h(x) = x^2$. 
 \belowdisplayskip=0pt
 \abovedisplayskip=0pt
 \[
-\lim_{x\rightarrow 0}x^2\sin \frac{1}{x} = 0.
+\lim_{x\rightarrow 0}x^2\sin \frac{8}{x} = 0.
 \]
 }
 \end{columns}

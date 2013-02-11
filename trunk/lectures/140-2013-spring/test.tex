@@ -69,7 +69,13 @@
 %\logo{\pgfuseimage{logo}}
 
 \begin{document}
-
+\newcommand{\psHollowDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psFullDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+}
 
 \AtBeginLecture{%
 
@@ -85,7 +91,7 @@
 
 % begin lecture
 \lect{\today}{Sample}{1}
-\input{../../modules/limits/limit-laws-version2}
+\input{../../modules/continuity/continuity-ex1-version2}
 % end lecture
 
 \end{document}
