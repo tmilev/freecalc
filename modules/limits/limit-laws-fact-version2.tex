@@ -1,0 +1,31 @@
+% begin module limit-laws-fact
+\begin{frame}
+When computing a limit as $x$ approaches $a$, we don't care what happens when $x = a$.  This gives the following \alert{useful fact}:
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{If}\quad%
+f(x) & = g(x)\\
+\uncover<1->{%
+\intertext{when $x\neq a$,}
+}%
+\text{then}\quad%
+\lim_{x\to a} f(x) & = \lim_{x\to a} g(x),\\
+\uncover<1->{%
+\intertext{provided the limit exists.}
+}%
+\end{align*}
+\uncover<1->{%
+We can use this fact to find $\lim_{x\to a}f(x)$ when $f(a)$ has the form $\frac{0}{0}$.  
+In such a case, we use algebra to find a function $g(x)$ that agrees with $f(x)$ at all points except $x = a$.  
+There are three common techniques:
+\begin{enumerate}
+\item  Factoring.
+\item  Using a conjugate radical. 
+\item  Finding a common denominator.
+\end{enumerate}
+}%
+\end{frame}
+% end module limit-laws-fact
