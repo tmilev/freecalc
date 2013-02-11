@@ -1,0 +1,51 @@
+% begin module limit-laws-ex6
+\begin{frame}
+\begin{example}[Example 6, p. 108]
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \lim_{t\to 0} \frac{\sqrt{t^2 + 9}-3}{t^2}%
+& \\%
+\uncover<2->{%
+\text{Plug in 0:}\quad%
+\frac%
+{\alert<handout:0| 2-3>{\sqrt{(0)^2+9}-3}}%
+{\alert<handout:0| 4-5>{(0)^2}}%
+}%
+& \uncover<2->{%
+= \frac%
+{\uncover<3->{\alert<handout:0| 3>{0}}}%
+{\uncover<5->{\alert<handout:0| 5>{0}}}%
+}\\%
+\uncover<6->{%
+\intertext{Zero over zero is undefined, so we can't use direct substitution.}
+}%
+\uncover<7->{%
+\intertext{Use a conjugate radical:}%
+}%
+\uncover<7->{%
+\lim_{t\to 0} \frac%
+{\sqrt{t^2+9}-3}%
+{t^2}%
+}%
+& \uncover<7->{%
+= \lim_{t\to 0} \frac%
+{\alert<handout:0| 7-10>{\sqrt{t^2+9}-3}}%
+{t^2}%
+\cdot \frac%
+{\uncover<handout:0| 8->{\alert<handout:0| 8-10>{\sqrt{t^2+9}+3}}}%
+{\uncover<handout:0| 8->{\alert<handout:0| 8>{\sqrt{t^2+9}+3}}}%
+}\\%
+& \uncover<9->{ = \lim_{t\to 0} \frac{\uncover<10->{\uncover<handout:0| 10->{\alert<handout:0| 10>{(t^2+9)-9}}}}{\uncover<handout:0| 9->{t^2(\sqrt{t^2+9}+3)}}}  \uncover<11->{ = \lim_{t\to 0} \frac{\uncover<handout:0| 11->{\alert<handout:0| 12>{t^2}}}{\uncover<handout:0| 11->{\alert<handout:0| 12>{t^2}(\sqrt{t^2+9}+3)}}}\\%
+& \uncover<12->{ = \lim_{t\to 0} \frac{\uncover<handout:0| 12->{1}}{\uncover<handout:0| 12->{\sqrt{\alert<handout:0| 13>{t}^2+9}+3}}}\\%
+\uncover<13->{%
+\text{Plug in 0:}\quad%
+}%
+& \uncover<13->{ = }%
+\uncover<handout:0| 13->{\frac{1}{\sqrt{(\alert<handout:0| 13>{0})^2+9}+3}} \uncover<handout:0| 14->{ = \frac{1}{6}.}
+\end{align*}
+\end{example}
+\end{frame}
+% end module limit-laws-ex6
