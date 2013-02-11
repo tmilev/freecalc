@@ -1,0 +1,152 @@
+% begin module slant-asymptote-ex
+\begin{frame}
+\begin{example}
+Find the slant asymptote of $f(x) = \frac{2x^3 + x^2 - 1}{x^2 - 2}$.
+\begin{columns}[t]
+\column{.5\textwidth}
+\uncover<2->{%
+\[
+\begin{array}{r@{}r@{}c@{}r@{}c@{}c@{}c@{}r@{}r@{}}
+& & & %
+\uncover<4->{\alert<handout:0| 4-6,17>{2x}} & %
+\uncover<11->{\alert<handout:0| 11-13,17>{+}} & %
+\uncover<11->{\alert<handout:0| 11-13,17>{ 1}} & %
+ & %
+ & \\%
+\cline{3-9}
+\alert<handout:0| 3-6,10-13>{x^2} & %
+\alert<handout:0| 5-6,12-13>{-2} & %
+\Big) & %
+\alert<handout:0| 3-4,7-8>{2x^3} & %
+\alert<handout:0| 7-8>{+} & %
+\alert<handout:0| 7-8>{ x^2} & %
+ & %
+ & %
+\alert<handout:0| 9>{-1} \\%
+& & & %
+\uncover<6->{\alert<handout:0| 6-8>{2x^3}} & %
+&  & %
+\uncover<6->{\alert<handout:0| 6-8>{-}} & %
+\uncover<6->{\alert<handout:0| 6-8>{4x}} & \\%
+%\uncover<7->{\alert<handout:0| 7-8>{%
+\cline{4-8}%
+%}}%
+& & & %
+&  & %
+\uncover<8->{\alert<handout:0| 8,10-11,14-15>{x^2}} & %
+\uncover<8->{\alert<handout:0| 8,14-15>{+}} & %
+\uncover<8->{\alert<handout:0| 8,14-15>{4x}} & 
+\uncover<9->{\alert<handout:0| 9,14-15>{-1}} \\%
+& & & %
+&  & %
+\uncover<13->{\alert<handout:0| 13-15>{x^2}} & %
+ & & %
+\uncover<13->{\alert<handout:0| 13-15>{-2}} \\%
+%\uncover<14->{\alert<handout:0| 14-15>{%
+\cline{6-9}
+%}}%
+& & & %
+ & %
+ & %
+ & %
+ & %
+\uncover<15->{\alert<handout:0| 15,18>{4x}} & %
+\uncover<15->{\alert<handout:0| 15,18>{+1}} \\%
+\end{array}
+\]
+}%
+
+\only<handout:0| -4,10-11>{\uncover<3->{%
+Divide %
+}}%
+\only<handout:0| 5-6,12-13>{%
+Multiply %
+}%
+\only<handout:0| 7-8,14-15>{%
+Subtract %
+}%
+\only<handout:0| 3-4>{%
+$2x^3$ %
+}%
+\only<handout:0| 10-11>{%
+$x^2$ %
+}%
+\only<handout:0| 5-6>{%
+$2x$ %
+}%
+\only<handout:0| 12-13>{%
+$1$ %
+}%
+\only<handout:0| 7-8>{%
+$2x^3-4x$ %
+}%
+\only<handout:0| 14-15>{%
+$x^2-2$ %
+}%
+\only<handout:0| -4,10-11>{\uncover<3->{%
+by %
+}}%
+\only<handout:0| 5-6,12-13>{%
+by %
+}%
+\only<handout:0| 7-8,14-15>{%
+from %
+}%
+\only<handout:0| 3-4,10-11>{%
+$x^2$ %
+}%
+\only<handout:0| 5-6,12-13>{%
+$x^2-2$ %
+}%
+\only<handout:0| 7-8>{%
+$2x^3+x^2$ %
+}%
+\only<handout:0| 14-15>{%
+$x^2+4x-1$ %
+}%
+\only<handout:0| 9>{%
+Bring down the $-1$%
+}%
+\invisible<1->{%
+y%
+}%
+\column{.5\textwidth}
+%\begin{eqnarray*}
+\[
+\begin{array}{r@{\ }c@{\ }l}
+\uncover<16->{%
+\displaystyle \frac{2x^3 + x^2-1}{x^2 - 2} %
+}%
+& \uncover<16->{ = } & %
+\uncover<16->{%
+\displaystyle  \alert<handout:0| 17>{2x+1} + \frac{\alert<handout:0| 18>{4x+1}}{x^2 - 2}%
+}\\%
+\end{array}
+\]
+\uncover<19->{Therefore}
+\[
+\begin{array}{r@{\ }c@{\ }l}
+&&%
+\uncover<19->{%
+\displaystyle \lim_{x\to\infty} \left( f(x) - (2x+1)\right)%
+}\\%
+& \uncover<19->{ = } & %
+\uncover<19->{%
+\displaystyle \lim_{x\to\infty} \frac{4x+1}{\alert<handout:0| 20>{x^2}-2}\uncover<20->{\alert<handout:0| 20>{\cdot \frac{\frac{1}{x^2}}{\frac{1}{x^2}}}}%
+}\\%
+& \uncover<21->{ = } & %
+\uncover<21->{%
+\displaystyle \lim_{x\to\infty} \frac{\frac{4}{x}+\frac{1}{x^2}}{1-\frac{2}{x^2}}%
+} \uncover<21->{ = } \uncover<22->{%
+\displaystyle \frac{0+0}{1-0} = 0%
+}%
+\end{array}
+\]
+%\end{eqnarray*}
+\uncover<23->{%
+Therefore $y = 2x+1$ is a slant asymptote of $f$.
+}%
+\end{columns}
+\end{example}
+\end{frame}
+% end module slant-asymptote-ex

@@ -1,6 +1,6 @@
 % begin module continuity-ex2
 \begin{frame}
-\begin{example}[Example 2a, p. 114]
+\begin{example}
 Where is this function discontinuous?
 \begin{columns}[c]
 \column{.4\textwidth}
@@ -8,7 +8,12 @@ Where is this function discontinuous?
 f(x) = \frac{x^2 - x - 2}{\alert<handout:0 |3>{x - 2}}
 \]
 \ \uncover<4->{
-\includegraphics[height=4.5cm]{continuity/pictures/02-05-ex2a.pdf}%
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-3, -2)(3,4)
+ \psframe*[linecolor=white](-3,-2)(3,4) \psaxes[labels=none]{<->}(0,0)(-3,-2)(3,4)
+ \psplot[linecolor=red, plotpoints=1000]{-3}{3}{x 1 add }
+ \psHollowDot{2}{3}
+\end{pspicture} %
 }
 \column{.6\textwidth}
 \begin{itemize}
@@ -23,7 +28,7 @@ f(x) = \frac{x^2 - x - 2}{\alert<handout:0 |3>{x - 2}}
 
 
 \begin{frame}
-\begin{example}[Example 2b, p. 114]
+\begin{example}
 Where is this function discontinuous?
 \begin{columns}[c]
 \column{.4\textwidth}
@@ -33,7 +38,15 @@ f(x) = \left\{ \begin{array}{lcl}
 \alert<handout:0 |4>{1} & \alert<handout:0 |4>{\text{ if }} & \alert<handout:0 |4>{x = 0} \\
 \end{array}\right.
 \]
-\ \includegraphics[height=4.5cm]{continuity/pictures/02-05-ex2b.pdf}%
+
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-3.1, -0.5)(5.1,3.1) \psframe*[linecolor=white](-3.1,-0.5)(3,5) 
+\psaxes[ticks=x, labels=none]{<->}(0,0)(-3,-0.5) (3,5)
+\psplot[linecolor=red, plotpoints=1000]{0.447213595}{3}{1 x 2 exp div }
+\psplot[linecolor=red, plotpoints=1000]{-3}{-0.447213595}{1 x 2 exp div}
+\rput(2,2){$y=\frac{1}{x^2}$}
+\psFullDot{0}{1}
+\end{pspicture} %
 \column{.6\textwidth}
 \begin{itemize}
 \item<2-| alert@3-4>  $f(0)$ \uncover<4->{exists ($f(0) = 1$).}
@@ -47,7 +60,7 @@ f(x) = \left\{ \begin{array}{lcl}
 
 
 \begin{frame}
-\begin{example}[Example 2c, p. 114]
+\begin{example}
 Where is this function discontinuous?
 \begin{columns}[c]
 \column{.4\textwidth}
@@ -57,14 +70,20 @@ f(x) = \left\{ \begin{array}{lcl}
 \alert<handout:0 |4>{1} & \alert<handout:0 |4>{\text{ if }} & \alert<handout:0 |4>{x = 2} \\
 \end{array}\right.
 \]
-\ \includegraphics[height=4.5cm]{continuity/pictures/02-05-ex2c.pdf}%
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-3, -2)(3,4)
+\psframe*[linecolor=white](-3,-2)(3,4) \psaxes[labels=none]{<->}(0,0)(-3,-2)(3,4)
+\psplot[linecolor=red, plotpoints=1000]{-3}{3}{x 1 add }
+\psHollowDot{2}{3}
+\psFullDot{2}{1}
+\end{pspicture} %
 \column{.6\textwidth}
 \begin{itemize}
-\item<2-| alert@3-4>  $f(2)$ \uncover<4->{exists ($f(2) = 1$).}
-\item<2-| alert@5-6>  $\lim_{x\rightarrow 2} f(x)$ \uncover<6->{exists ($3$).}
-\item<7->  $\lim_{x\rightarrow 2}f(x) \neq f(2)$.
+\item<2-| alert@3-4>  $f(2)$ \uncover<4->{is defined ($f(2) = 1$).}
+\item<2-| alert@5-6>  $\lim\limits_{x\rightarrow 2} f(x)$ \uncover<6->{exists ($3$).}
+\item<7->  $\lim\limits_{x\rightarrow 2}f(x) \neq f(2)$.
 \item<8->  Discontinuous at 2.
-\item<9->  This is also a removable discontinuity.
+\item<9->  This is also called a removable discontinuity.
 \end{itemize}
 \end{columns}
 \end{example}
@@ -73,14 +92,39 @@ f(x) = \left\{ \begin{array}{lcl}
 
 
 \begin{frame}
-\begin{example}[Example 2d, p. 114]
+\begin{example}
 Where is this function discontinuous?
 \begin{columns}[c]
 \column{.4\textwidth}
 \[
-f(x) = [[x]]
+f(x) = \lfloor x\rfloor
 \]
-\ \includegraphics[height=4.5cm]{continuity/pictures/02-05-ex2d.pdf}%
+\ \psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.5, -1.5)(3.8,3.8)
+\psframe*[linecolor=white](-1.5,-1.5)(3.8,3.8) 
+\psaxes[labels=x, ticks=x]{<->}(0,0)(-1.5,-1.5)(3.8,3.8)
+\psline(-0.1,1)(0.1,1)
+\rput[b](-0.25, 1){$1$}
+\psline[linecolor=red](-1,-1)(0,-1)
+\psFullDot{-1}{-1}
+\psHollowDot{0}{-1}
+
+\psline[linecolor=red](0,0)(1,0)
+\psFullDot{0}{0}
+\psHollowDot{1}{0}
+
+\psline[linecolor=red](1,1)(2,1)
+\psFullDot{1}{1}
+\psHollowDot{2}{1}
+
+\psline[linecolor=red](2,2)(3,2)
+\psFullDot{2}{2}
+\psHollowDot{3}{2}
+
+\psline[linecolor=red](3,3)(3.8,3)
+\psFullDot{3}{3}
+%\psHollowDot{4}{3}
+\end{pspicture}
 \column{.6\textwidth}
 \begin{itemize}
 \item<2-| alert@3-4>  $f(1)$ \uncover<4->{exists ($f(1) = 1$).}
