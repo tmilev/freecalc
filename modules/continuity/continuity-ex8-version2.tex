@@ -1,0 +1,18 @@
+% begin module continuity-ex8
+\begin{frame}
+\begin{example}%[Example 8, p. 103]
+Where is the function $F(x) = \alert<handout:0 |11>{\frac{1}{\alert<handout:0 |9-11>{\alert<handout:0 |7-11>{\sqrt{\alert<handout:0 |5-11>{x^2+7}}} - 4}}}$ continuous?
+\begin{itemize}
+\item<2->  We can write $F$ as the composition of 4 functions:
+\item<2->  $F = f\circ g\circ h\circ k$, or $F(x) = f(g(h(k(x))))$.
+\item<3-| alert@4-5>  $k(x) = $ \uncover<5->{$x^2 + 7$.}
+\item<3-| alert@6-7>  $h(x) = $ \uncover<7->{$\sqrt{x}$.}
+\item<3-| alert@8-9>  $g(x) = $ \uncover<9->{$x - 4$.}
+\item<3-| alert@10-11>  $f(x) = $ \uncover<11->{$\frac{1}{x}$.}
+\item<12->  These functions are continuous on their domains, so $F$ is continuous on its domain.
+\item<13->  Its domain is \uncover<14->{everything but $3$ and $-3$.}
+\item<15->  Therefore $F$ is continuous on $(-\infty , -3 ) \cup (-3, 3) \cup (3, \infty )$.
+\end{itemize}
+\end{example}
+\end{frame}
+% end module continuity-ex8
