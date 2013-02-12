@@ -18,8 +18,8 @@ Doesn't work because $\lim\limits_{x\rightarrow 0} \sin \frac{8}{x}$ doesn't exi
 \psaxes[labels=none]{<->}(0,0)(-1,-1)(1,1)
 \psplot[linecolor=red, plotpoints=1000]{0.1}{1}{8 x div 57.29578 mul sin x 2 exp mul }
 \psplot[linecolor=red, plotpoints=1000]{-1}{-0.1}{8 x div 57.29578 mul sin x 2 exp mul }
-\psplot[plotpoints=1000]{-1}{1}{x 2 exp -1 mul }
-\psplot[plotpoints=1000]{-1}{1}{x 2 exp }
+\psplot[linecolor=blue, plotpoints=1000]{-1}{1}{x 2 exp -1 mul }
+\psplot[linecolor=blue, plotpoints=1000]{-1}{1}{x 2 exp }
 \rput(0.35, 0.7){\tiny $y=x^2\sin \frac{8}{x}$}
 \rput(-0.3, -0.5){\tiny $y=\pm x^2$}
 \pscurve[linestyle=dotted]{->}(-0.3, -0.5)(-0.55, 0)(-0.6,0.36)

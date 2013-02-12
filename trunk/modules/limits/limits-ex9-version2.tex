@@ -1,6 +1,6 @@
 % begin module limits-ex9
 \begin{frame}
-\begin{example}[Example 1, p. 126]
+\begin{example}
 Find $\lim_{x\rightarrow 3^+} \frac{2x}{x-3}$ and $\lim_{x\rightarrow 3^-}\frac{2x}{x-3}$.
 \begin{columns}[c]
 \column{.42\textwidth}
@@ -13,7 +13,16 @@ $\lim_{x\rightarrow 3^-}2x/(x-3) =-\infty$.
 }
 
 \uncover<8->{%
-\ \ \includegraphics[height=5cm]{limits/pictures/02-02-ex9.pdf}%
+\psset{xunit=0.15cm, yunit=0.15cm}\begin{pspicture}(-2, -5)(5,5) \psframe*[linecolor=white](-2,-9)(30,33) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-4.5)(18,30)
+\psplot[linecolor=red, plotpoints=1000]{3.2}{30}{x 2 mul x -3 add div }
+\psplot[linecolor=red, plotpoints=1000]{-3}{2.6}{x 2 mul x -3 add div }
+\psline(-0.3,5)(0.3,5)
+\rput(-1, 5){$5$}
+\psline[linestyle=dotted](3, -12)(3,33)
+\rput(10, 10){$y=\frac{2x}{x-3}$}
+\rput[lt](3, -4){$x=3$}
+\end{pspicture} 
 }%
 \column{.58\textwidth}
 \begin{itemize}
