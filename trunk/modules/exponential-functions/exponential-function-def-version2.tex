@@ -4,27 +4,32 @@
 The function $f(x) = 2^x$ is called an exponential function because the variable $x$ is the exponent.
 \begin{columns}[c]
 \column{.5\textwidth}
-\only<handout:0| -2>{%
-\includegraphics[height=6cm]{exponential-functions/pictures/twoxa.pdf}%
-}%
-\only<handout:0| 3-4>{%
-\includegraphics[height=6cm]{exponential-functions/pictures/twoxb.pdf}%
-}%
-\only<handout:0| 5-6>{%
-\includegraphics[height=6cm]{exponential-functions/pictures/twoxc.pdf}%
-}%
-\only<handout:0| 7-8>{%
-\includegraphics[height=6cm]{exponential-functions/pictures/twoxd.pdf}%
-}%
-\only<handout:0| 9-10>{%
-\includegraphics[height=6cm]{exponential-functions/pictures/twoxe.pdf}%
-}%
-\only<handout:0| 11>{%
-\includegraphics[height=6cm]{exponential-functions/pictures/twoxf.pdf}%
-}%
-\only<handout:1| 12->{%
-\includegraphics[height=6cm]{exponential-functions/pictures/twoxg.pdf}%
-}%
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[labels=none]{<->}(0,0)(-2.5,-0.5)(2.5,6.25)
+\rput[t](1, -0.2){$1$}
+\uncover<3->{
+\psFullDot{2}{4}
+}
+\uncover<5->{
+\psFullDot{1}{2}
+}
+\uncover<7->{
+\psFullDot{0}{1}
+}
+\uncover<9->{
+\psFullDot{-1}{0.5}
+}
+\uncover<11->{
+\psFullDot{-2}{0.25}
+}
+\uncover<12>{
+\rput[r](-0.5, 1.5){$y=2^x$}
+%Function formula: 2^{x} 
+\psplot[linecolor=red, plotpoints=1000]{-2.5}{2.5}{2 x exp }
+}
+\end{pspicture}
 \column{.5\textwidth}
 \[
 \begin{array}{r|l}
