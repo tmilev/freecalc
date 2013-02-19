@@ -4,20 +4,24 @@
 \begin{enumerate}
 \item<1-| alert@3>  Write $y = f(x)$.
 \item<1-| alert@4-5>  Solve this equation for $x$ in terms of $y$ (if possible).
-\item<1-| alert@6>  Interchange $x$ and $y$.  The resulting equation is $y = f^{-1}(x)$. 
 \end{enumerate}
 \uncover<2->{
 \begin{example}%[Example 4, p. 388]
-If $f(x) = x^3 + 2$, find a formula for $f^{-1}(x)$.
+If $f(x) = x^3 + 2$, find a formula for $f^{-1}(y)$.
 \begin{align*}
 \uncover<3->{y} & \uncover<3->{=}  \uncover<3->{x^3 + 2}\\
 \uncover<4->{x^3} & \uncover<4->{=}  \uncover<4->{y - 2}\\
-\uncover<5->{\alert<handout:0| 6>{x}} & \uncover<5->{=}  \uncover<5->{\sqrt[3]{\alert<handout:0| 6>{y} - 2}}\\% 
-\uncover<6->{\alert<handout:0| 6>{y}} & \uncover<6->{=}  \uncover<6->{\sqrt[3]{\alert<handout:0| 6>{x} - 2}} \qquad \uncover<6->{\alert<handout:0| 6>{\text{(New equation.)}}}
+\uncover<5->{\alert<handout:0| 6>{x}} & \uncover<5->{=}  \uncover<5->{\alert<6>{\sqrt[3]{y - 2}}}
 \end{align*}
-\uncover<7->{
-Therefore $f^{-1}(x) = \sqrt[3]{x - 2}$.
+\uncover<6->{
+Therefore \alert<6,8>{$x=f^{-1}(y) = \sqrt[3]{y - 2}$}.
 }
+\uncover<7->{
+Sometimes we relabel $x$ and $y$ and write \only<7>{ $f^{-1}(x)=\sqrt[3]{x-2}$.} \only<8->{\color{gray!50} $f^{-1}(x)=\sqrt[3]{x-2}$.}
+}
+\uncover<8->{\alert<8>{
+Whenever in doubt, do not relabel anything.
+}}
 \end{example}
 }
 \end{frame}
