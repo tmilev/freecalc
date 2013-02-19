@@ -1,14 +1,24 @@
 % begin module limit-at-infinity-ex2
 \begin{frame}
-\begin{example}[Example 4, p. 129]
+\begin{example} %[Example 4, p. 129]
 \begin{columns}[c]
 \column{.5\textwidth}
-\ \only<handout:0| -5>{%
-\includegraphics[width=5cm]{curve-sketching/pictures/04-04-ex2a.pdf}%
-}%
-\only<6->{%
-\includegraphics[width=5cm]{curve-sketching/pictures/04-04-ex2b.pdf}%
-}%
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-4)(5,4)
+\uncover<4->{
+\rput(2,2){$y=\frac{1}{x}$}
+\psplot[linecolor=red, plotpoints=1000]{0.25}{5}{1 x div }
+}
+\uncover<5->{
+\psplot[linecolor=red, plotpoints=1000]{-5}{-0.25}{1 x div }
+}
+\uncover<6->{
+\psline[linecolor=blue](-5, 0)(5,0)
+}
+\end{pspicture} 
+
 \uncover<2->{%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
@@ -22,12 +32,12 @@
 \]
 }%
 \column{.5\textwidth}
-Find $\lim_{x\to\infty} \frac{1}{x}$ and $\lim_{x\to -\infty} \frac{1}{x}$.
+Find $\lim\limits_{x\to\infty} \frac{1}{x}$ and $\lim\limits_{x\to -\infty} \frac{1}{x}$.
 \begin{itemize}
 \item<2->  When $x$ is large, $\frac{1}{x}$ is small.
 \item<3->  By taking $x$ large enough, we can make $\frac{1}{x}$ as small as we like.
-\item<4->  Therefore $\lim_{x\to \infty} \frac{1}{x} = 0$.
-\item<5->  Similarly, $\lim_{x\to -\infty}\frac{1}{x} = 0$.
+\item<4->  Therefore $\lim\limits_{x\to \infty} \frac{1}{x} = 0$.
+\item<5->  Similarly, $\lim\limits_{x\to -\infty}\frac{1}{x} = 0$.
 \item<6->  $y = 0$ (the $x$-axis) is a horizontal asymptote for the curve $y = \frac{1}{x}$.
 \end{itemize}
 \end{columns}
