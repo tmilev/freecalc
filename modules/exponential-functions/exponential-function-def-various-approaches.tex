@@ -1,0 +1,49 @@
+% begin module exponential-def-various-approaches
+\begin{frame}
+\frametitle{Exponents overview}
+\begin{itemize}
+\item<1-> In preceding lectures for fixed $x$, we learned of $g(a) =a^{x}$ as a function of $a$.
+\item<2-> We promised a construction of $a^x$ in the coming lectures.
+\item<3-> In present lecture we study $f(x)=a^x$ as a function of $x$.
+\item<4-> There are several equivalent ways of defining $a^x$. 
+\item<5-> We give the easiest definition. 
+\item<6->We give a second equivalent definition. The second definition is studied in detail in Calculus II. 
+\item<7->We discuss pros and cons.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Exponent definition approach I}
+\begin{itemize}
+\item<1-> For $p$-integer we know to compute $b^p$.
+\item<2-> Therefore for $q$-integer we know to compute $b^{\frac{1}{q}}= \sqrt[q]{b}=\{x|\text{largest~}x\text{~with~} x^q\leq b\}$.
+\item<3-> Therefore we know to compute $b^{\frac{p}{q}}$ for all rational $\frac{p}{q}$.
+\item<4-> We can then define
+\[
+a^x = \lim\limits_{\substack{b \to a \\ b\text{-rational}}} \lim\limits_{\substack{y \to x \\ y\text{-rational}}} b^y 
+\]
+\item<5-> Not computationally effective. It is not how computers compute.
+\item<6-> Difficult to get derivative, anti-derivative of $a^x$. Will need to take a few facts for granted without proof.
+\item<7-> However is the easiest approach. $a^{x+y}=a^xa^y$ is easiest to prove (follows directly from the $\varepsilon, \delta$-definition of $\lim$ we studied).
+\item<8->\alert<8->{This is the definition we assume in Calculus I.}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Exponent definition approach II }
+\begin{itemize}
+\item<1-> The following definition is equivalent, studied in Calculus II.
+\[
+e^{x}=\alert<4>{\sum_{n=0}^{\infty}} \frac{x^n}{\alert<2>{n!}}= 1+ x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots + \frac{x^{n}}{\alert<2>{n!}}+\dots
+\]
+\uncover<2->{\alert<2>{Here $n!=1*2*3*\dots *(n-1)*n$ and is read ``$n$ factorial''. }}
+\item<3-> For $|x|<1$ define 
+\[
+\ln (1+x)=\alert<4>{\sum_{n=1}^{\infty}} (-1)^n\frac{x^n}{n}=  x-\frac{x^2}{2}+\frac{x^3}{3}-\dots + \frac{(-1)^nx^{n}}{n}+\dots
+\]
+\uncover<4->{\alert<4>{Infinite sum studied in Calc II.}} 
+\item<5-> Disadvantage: more difficult to prove $e^{x+y}=e^{x}e^y$ and $e^{\ln(1+x)}=1+x$, but not too difficult.
+\item<6-> Everything else (including differentiation, integration) is much easier. Can compute $a^x$ as $a^x=e^{a\ln x}$. 
+\item<7-> This is how computers compute.
+\end{itemize}
+\end{frame}
+
+% end module exponential-def-various-approaches
