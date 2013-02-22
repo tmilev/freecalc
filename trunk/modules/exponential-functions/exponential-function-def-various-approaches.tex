@@ -37,13 +37,13 @@ e^{x}=\alert<4>{\sum_{n=0}^{\infty}} \frac{x^n}{\alert<2>{n!}}= 1+ x+\frac{x^2}{
 \uncover<2->{\alert<2>{Here $n!=1*2*3*\dots *(n-1)*n$ and is read ``$n$ factorial''. }}
 \item<3-> For $|x|<1$ define 
 \[
-\ln (1+x)=\alert<4>{\sum_{n=1}^{\infty}} (-1)^n\frac{x^n}{n}=  x-\frac{x^2}{2}+\frac{x^3}{3}-\dots + \frac{(-1)^nx^{n}}{n}+\dots
+\ln (1+x)=\alert<4>{\sum_{n=1}^{\infty}} (-1)^{n+1}\frac{x^n}{n}=  x-\frac{x^2}{2}+\frac{x^3}{3}-\dots + \frac{(-1)^{n+1}x^{n}}{n}+\dots
 \]
 \uncover<4->{\alert<4>{Infinite sum studied in Calc II.}} 
-\item<5-> For arbitrary $a>0$ define $a^x$ as $a^x=e^{a\ln x}$. 
+\item<5-> For arbitrary $a>0$ define $a^x$ as $a^x=e^{x\ln a}$. 
 \item<6-> Disadvantage: more difficult to prove $e^{x+y}=e^{x}e^y$ and $e^{\ln(1+x)}=1+x$, but not too difficult.
 \item<7-> Everything else (including differentiation, integration) is much easier.
-\item<8-> This is how computers compute.
+\item<8-> This is how computers compute $e^x$.
 \end{itemize}
 \end{frame}
 
