@@ -1,0 +1,43 @@
+% begin module differentiation-formulas-square-cube
+\begin{frame}
+\frametitle{Power Functions}
+Now consider functions of the form $f(x) = x^n$, where $n$ is a positive integer.  For $f(x) = x$, the graph is the line $y = x$, which has slope $1$.  So 
+\[
+\frac{\diff}{\diff x} (x) = 1.
+\]
+
+\uncover<2->{%
+What about $n = 2$ and $n = 3$?
+}%
+\begin{columns}[t]
+\column{.4\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{align*}
+& \invisible{ = } \uncover<2->{\frac{\diff}{\diff x} (x^2)}\\
+& \uncover<3->{ = }  %
+\uncover<3->{\lim_{h\rightarrow 0}\frac{\alert<handout:0| 4>{(x+h)^2} - x^2}{h}}\\
+& \uncover<4->{ = }  %
+\uncover<4->{\lim_{h\rightarrow 0}\frac{\alert<handout:0| 4>{\alert<handout:0| 5>{x^2} + 2xh + h^2}  \alert<handout:0| 5>{- x^2}}{h}}\\
+& \uncover<5->{ = }  %
+\uncover<5->{\lim_{h\rightarrow 0}\frac{2xh + h^2}{h}}\\
+& \uncover<6->{ = }  %
+\alert<handout:0| 7-8>{\uncover<6->{\lim_{h\rightarrow 0}(2x + h)}\uncover<7->{ = \uncover<8->{2x.}}}
+\end{align*}
+\column{.6\textwidth}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{align*}
+& \invisible{ = } \uncover<2->{\frac{\diff}{\diff x} (x^3)}\\
+& \uncover<9->{ = }  %
+\uncover<9->{\lim_{h\rightarrow 0}\frac{\alert<handout:0| 10>{(x+h)^3} - x^3}{h}}\\
+& \uncover<10->{ = }  %
+\uncover<10->{\lim_{h\rightarrow 0}\frac{\alert<handout:0| 10>{\alert<handout:0| 11>{x^3} + 3x^2h + 3xh^2 + h^3}  \alert<handout:0| 11>{- x^3}}{h}}\\
+& \uncover<11->{ = }  %
+\uncover<11->{\lim_{h\rightarrow 0}\frac{3x^2h + 3xh^2 + h^3}{h}}\\
+& \uncover<12->{ = }  %
+\alert<handout:0| 13-14>{\uncover<12->{\lim_{h\rightarrow 0}(3x^2 + 3xh + h^2)}\uncover<13->{ = \uncover<14->{3x^2.}}}
+\end{align*}
+\end{columns}
+\end{frame}
+% end module differentiation-formulas-square-cube

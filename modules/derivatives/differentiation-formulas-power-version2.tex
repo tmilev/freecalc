@@ -1,0 +1,40 @@
+% begin module differentiation-formulas-power
+\begin{frame}
+\begin{theorem}[The Power Rule]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\text{If $n$ is a positive integer, then}\qquad \frac{\diff}{\diff x} (x^n) = nx^{n - 1}.
+\]
+\belowdisplayskip=0pt
+\end{theorem}
+\begin{proof}
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<2->{%
+\intertext{Use this formula (which you can verify):}
+}%
+\uncover<2->{%
+\alert<handout:0| 6>{x^n - a^n} %
+}%
+ & \uncover<2->{%
+\alert<handout:0| 6>{= (x-a)(x^{n-1} + x^{n-2}a + \cdots + xa^{n-2} + a^{n-1})}.
+}\\%
+\uncover<3->{%
+\intertext{Let $f(x) = x^n$.  Then}
+}%
+\uncover<3->{f'(a)} & \uncover<3->{ = }  %
+\uncover<4->{\lim_{x\rightarrow a}\frac{f(x) - f(a)}{x-a}} \uncover<5->{ = } \uncover<5->{\lim_{x\rightarrow a}\frac{\alert<handout:0| 6>{x^n - a^n}}{x-a}}\\
+& \uncover<6->{ = }  %
+\uncover<6->{\lim_{x\rightarrow a}\frac{\alert<handout:0| 6>{\alert<handout:0| 7>{(x-a)}(x^{n-1} + x^{n-2}a + \cdots + xa^{n-2} + a^{n-1})}}{\alert<handout:0| 7>{x-a}}}\\
+& \uncover<7->{ = }  %
+\uncover<7->{\lim_{\alert<handout:0| 8>{x\rightarrow a}}(\alert<handout:0| 8>{x^{n-1}} + \alert<handout:0| 8>{x^{n-2}}a + \cdots + \alert<handout:0| 8>{x}a^{n-2} + a^{n-1})}\\
+& \uncover<8->{ = }  %
+\uncover<8->{\alert<handout:0| 8>{a^{n-1}} + \alert<handout:0| 8>{a^{n-2}}a + \cdots + \alert<handout:0| 8>{a}a^{n-2} + a^{n-1}} \uncover<9->{ = na^{n-1}.\qedhere}
+\end{align*}
+\end{proof}
+\end{frame}
+% end module differentiation-formulas-power
