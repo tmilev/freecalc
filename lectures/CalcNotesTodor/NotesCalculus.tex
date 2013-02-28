@@ -212,8 +212,10 @@ Carry out the operations. For items 4-6 review the Newton Binomial formula \eqre
 e^{z}\eqdef \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots \quad .
 }
 
-Theorem. This theorem will be proved in section \ref{secSeriesConvergence}. The infinite sum above is well-defined, i.e., if we define $f(N):=\sum_{n=0}^{N} \frac{z^n}{n!}$, then $\displaystyle\lim_{N\to \infty} f(N)$ exists.
+\item \begin{theorem} The infinite sum above is well-defined, i.e., if we define $f(N):=\sum_{n=0}^{N} \frac{z^n}{n!}$, then $\displaystyle\lim_{N\to \infty} f(N)$ exists.
+\end{theorem}
 
+This theorem will be proved in section \ref{secSeriesConvergence}.
 \item \index{sine function} \index{cosine function} $\sin z$ and $\cos z$ (sine and cosine functions).
 
 \importantFormula{
@@ -2164,32 +2166,34 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 \psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
 \renewcommand{\Dconst}{4}
 \psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
-\rput[l](5,2 ){$\frac{1- \frac{1}4 e^x}{1+\frac 14 e^{2x}}$ }
+\rput[l](5,2 ){$\frac{1- \frac{1}2 e^x}{1+\frac 12 e^{2x}}$ }
 \rput[l](5,0.5 ){$\frac{1- e^x}{1+e^{2x}}$ }
-\rput[l](5,-2 ){$\frac{1- 4e^x}{1+4e^{2x}}$ }
+\rput[l](5,-2 ){$\frac{1- 2e^x}{1+2e^{2x}}$ }
 \psline[arrows=->, linestyle=dotted](5,2)(0,0.6)
 \psline[arrows=->, linestyle=dotted](5,0.5)(0,0)
 \psline[arrows=->, linestyle=dotted](5,-2)(0,-0.6)
 
 \renewcommand{\Dconst}{1}
-\psplot[linecolor=green]{-4}{-0.01}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\psplot[linecolor=green]{0.01}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\psplot[linecolor=green]{-4}{-0.17}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\psplot[linecolor=green]{0.17}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
 \renewcommand{\Dconst}{4}
-\psplot[linecolor=green]{-4}{-0.7}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\psplot[linecolor=green]{-0.65}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+
+\psplot[linecolor=green]{-4}{-0.863147181}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\psplot[linecolor=green]{-0.523147181}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+
 \renewcommand{\Dconst}{0.25}
-\psplot[linecolor=green]{-4}{0.6}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\psplot[linecolor=green]{0.7}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\rput[r](-5,0.5 ){$\frac{1+\frac 14 e^{2x}}{1- \frac{1}4 e^x}$ }
+\psplot[linecolor=green]{-4}{0.523147181}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\psplot[linecolor=green]{0.863147181}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\rput[r](-5,0.5 ){$\frac{1+\frac 12 e^{2x}}{1- \frac{1}2 e^x}$ }
 \rput[r](-5,2 ){$\frac{1+e^{2x}}{1- e^x}$ }
-\rput[r](-5,-2 ){$\frac{1+4e^{2x}}{1- 4e^x}$ }
+\rput[r](-5,-2 ){$\frac{1+2e^{2x}}{1- 2e^x}$ }
 \psline[arrows=->, linestyle=dotted](-5,0.5)(0,1.6667)
 \psline[arrows=->, linestyle=dotted](-5,0.5)(1,-3.360539267)
 \psline[arrows=->, linestyle=dotted](-5,2)(-0.2,5.066489563)
 \psline[arrows=->, linestyle=dotted](-5,2)(0.2,-5.066489563)
 \psline[arrows=->, linestyle=dotted](-5,-2)(0,-1.6667)
 \psline[arrows=->, linestyle=dotted](-5,-2)(-1,3.360539267)
-\psaxes{<->}(0,0)(-6,-2)(6,6)
+\psaxes{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
 \rput (5,5){The direction field  $\frac{dy}{dx}=y^2-1$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
