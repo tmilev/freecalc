@@ -1,0 +1,178 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-plot}
+%\usepackage{pst-solides3d}
+%\usepackage{pst-3dplot}
+\usepackage{pstricks}
+
+\usepackage{multicol}
+\addtolength{\hoffset}{-3.5cm}
+\addtolength{\textwidth}{6.8cm}
+\addtolength{\voffset}{-3.3cm}
+\addtolength{\textheight}{6.3cm}
+\renewcommand{\Re}{\mathrm{Re~}}
+\renewcommand{\Im}{\mathrm{Im~}}
+\newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
+\newcommand{\triplebrace}[6]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \\#5 & #6\end{array} \right.}
+\date{}
+\newtheorem{problem}{Problem}
+\newcommand{\psHollowDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psHollowDotBlue}[2]{
+\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psFullDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+}
+\newcommand{\psFullDotBlack}[2]{
+\pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
+}
+\newcommand{\psLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\footnotesize $1$} }
+\newcommand{\psLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\footnotesize $1$} }
+
+\title{
+Homework Math 140 \\
+Lecture 8, 9,10 \\
+Will be Tested on March 7
+}
+\begin{document}
+\maketitle
+\textbf{This homework contains copyrighted material from  James Stewart, Calculus, 7th edition, 2012. 
+You are not permitted to copy this file for any purpose other than completing your homework. You are not allowed to give a copy of this file to anyone outside of our course. 
+}
+\begin{problem} (Textbook, page 235, problems 9-30).
+Find the limit or show that it does not exist. I the limit does not exist, indicate whether it is $\pm\infty$, or neither. 
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\lim\limits_{x\to\infty }\frac{3x-2}{2x+1}$.
+\item $\lim\limits_{x\to\infty }\frac{1-x^2}{x^3-x+1}$.
+\item $\lim\limits_{x\to-\infty }\frac{x-2}{x^2+1}$.
+\item $\lim\limits_{x\to-\infty }\frac{4x^3+6x^2-2}{2x^3-4x+5}$.
+\item $\lim\limits_{x\to\infty }\frac{\sqrt{t}+t^2}{2t-t^2}$.
+\item $\lim\limits_{x\to\infty }\frac{t-t\sqrt{t}}{2t^{3/2}+3t-5}$.
+\item $\lim\limits_{x\to\infty }\frac{(2x^2+1)^2}{(x-1)^2(x^2+x)}$.
+\item $\lim\limits_{x\to\infty }\frac{x^2}{\sqrt{x^4+1}}$.
+\item $\lim\limits_{x\to\infty }\frac{\sqrt{9x^6-x}}{x^3+1}$.
+\item $\lim\limits_{x\to-\infty }\frac{\sqrt{9x^6-x}}{x^3+1}$.
+\item $\lim\limits_{x\to\infty}\sqrt{9x^2+x}-3x$.
+\item $\lim\limits_{x\to-\infty}x+\sqrt{x^2+2x} $.
+\item $\lim\limits_{x\to\infty}\sqrt{x^2+ax}-\sqrt{x^2+bx}$.
+\item $\lim\limits_{x\to\infty}\cos x$.
+\item $\lim\limits_{x\to\infty}\frac{x^4-3x^2+x}{x^3-x+2}$.
+\item $\lim\limits_{x\to\infty}\sqrt{x^2+1}$.
+\item $\lim\limits_{x\to-\infty}(x^4+x^5)$.
+\item $\lim\limits_{x\to-\infty}\frac{1+x^6}{1+x^4}$.
+\item $\lim\limits_{x\to\infty}(x-\sqrt{x})$.
+\item $\lim\limits_{x\to\infty}(x^2-x^4)$.
+\item $\lim\limits_{x\to\infty}x\sin \frac{1}{x}$.
+\item $\lim\limits_{x\to\infty}\sqrt{x}\sin \frac{1}{x}$.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+\begin{problem}(Textbook, page 235, problems 33-38).
+Find the horizontal and vertical asymptotes of each curve. If you have a graphing device, check your work by graphing the curve and estimating the asymptotes.
+\begin{multicols}{3}
+\begin{enumerate}
+\item $y=\frac{2x+1}{x-2}$.
+\item $y=\frac{x^2+1}{2x^2-3x-2}$.
+\item $y=\frac{2x^2+x-1}{x^2+x-2}$.
+\item $y=\frac{1+x^4}{x^2-x^4}$.
+\item $y=\frac{x^3-x}{x^2-6x+5}$.
+\item $y=\frac{x-9}{\sqrt{4x^2+3x+2}}$.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+\begin{problem}(Textbook, page 122, problem 3)
+Match the graph of each the following functions  
+\begin{multicols}{2}
+\begin{enumerate}
+\item 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-2.5)(2.5,2.5)
+%Function formula: -8 ((x) ((x) (x)))+2 (x) 
+\psplot[linecolor=red, plotpoints=1000]{-0.8}{0.8}{x 2 mul x x mul x mul -8 mul add }
+\end{pspicture} 
+\item 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-2.5)(2.5,2.5)
+%Function formula: -2+x 
+\psplot[linecolor=red, plotpoints=1000]{1}{2.5}{x -2 add } %Function formula: - (x) 
+\psplot[linecolor=red, plotpoints=1000]{-1}{1}{x -1 mul } %Function formula: 2+x 
+\psplot[linecolor=red, plotpoints=1000]{-2.5}{-1}{x 2 add }
+\end{pspicture} 
+\item 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-2.5)(2.5,2.5)
+%Function formula: - ((1)/((x)^{2}+1)) 
+\psplot[linecolor=red, plotpoints=1000]{-2.5}{2.5}{1 1 x 2 exp add div -1 mul }
+\end{pspicture} 
+\item 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-2.5)(2.5,2.5)
+%Function formula: - (((x)^{2}) ((x) (x)))+(x)^{2} 
+\psplot[linecolor=red, plotpoints=1000]{-1.46}{1.46}{x 2 exp x x mul x 2 exp mul -1 mul add }
+\end{pspicture} 
+\end{enumerate}
+\end{multicols}
+to the graph of its derivative among the graphs below
+\begin{multicols}{2}
+\begin{enumerate}
+\item 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-2.5)(2.5,2.5)
+%Function formula: (x)/(((x)^{2}+1)^{2}) 
+\psplot[linecolor=blue, plotpoints=1000]{-2.5}{2.5}{x 1 x 2 exp add 2 exp div }
+\end{pspicture} 
+
+\item \psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-2.5)(2.5,2.5)
+%Function formula: -24 ((x) (x))+2 
+\psplot[linecolor=blue, plotpoints=1000]{-0.427}{0.427}{2 x x mul -24 mul add }
+\end{pspicture} 
+\item 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-2.5)(2.5,2.5)
+%Function formula: -4 ((x)^{3})+2 (x) 
+\psplot[linecolor=blue, plotpoints=1000]{-1.045}{1.045}{x 2 mul x 3 exp -4 mul add }
+\end{pspicture} 
+
+\item 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-2.5)(2.5,2.5)
+%Function formula: 1 
+\psplot[linecolor=blue, plotpoints=1000]{1}{2.5}{1} 
+\psHollowDotBlue{-1}{1}
+%Function formula: -1 
+\psHollowDotBlue{-1}{-1}
+\psplot[linecolor=blue, plotpoints=1000]{-1}{1}{-1} 
+\psHollowDotBlue{1}{-1}
+%Function formula: 1 
+\psHollowDotBlue{1}{1}
+\psplot[linecolor=blue, plotpoints=1000]{-2.5}{-1}{1}
+\end{pspicture} 
+
+\end{enumerate}
+\end{multicols}
+Give reasons for your choices. Can you guess a formulas that would give a similar (or precisely the same) graph, and confirm visually your guess using a graphing device?
+\end{problem}
+\end{document}
