@@ -366,7 +366,7 @@ There are two equivalent ways of defining $\sin z$ and $\cos z$: one given here,
 It is my personal opinion that the approach here - using the power series \eqref{eqExponentFunctionDefinition} of $e^z$ - is ``more advanced'' but at the same time also ``easier'' and ``more elegant''. The approach here provides superior and easy (``on the fly'') access to trigonometric formulas. However, our approach has one disadvantage. The fact that $\varphi$ measures the arc drawn with red in the figure \ref{figUnitCircleSineCosine} is to be taken, for the time being, on ``good faith''. This  will be fixed after studying lengths of curves in Section \ref{secCurveLength}.
 
 
-\begin{figure}[h]\label{figUnitCircleSineCosine}\caption{The $\sin\varphi$ and $\cos\varphi$ as legs of a right angle triangle with other angle $\varphi$.}
+\begin{figure}[h]\caption{The $\sin\varphi$ and $\cos\varphi$ as legs of a right angle triangle with other angle $\varphi$.}
 
 \optionalDisplay{
 \psset{xunit=3cm,yunit=3cm}
@@ -399,6 +399,7 @@ It is my personal opinion that the approach here - using the power series \eqref
 \rput[l](0.84,0.65){$\varphi$}
 \end{pspicture}
 } %end optionalDisplay
+\label{figUnitCircleSineCosine}
 \end{figure} %
 \subsubsection{Exercises}
 \begin{problem}
@@ -2166,9 +2167,9 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 \psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
 \renewcommand{\Dconst}{4}
 \psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
-\rput[l](5,2 ){$\frac{1- \frac{1}2 e^x}{1+\frac 12 e^{2x}}$ }
-\rput[l](5,0.5 ){$\frac{1- e^x}{1+e^{2x}}$ }
-\rput[l](5,-2 ){$\frac{1- 2e^x}{1+2e^{2x}}$ }
+\rput[l](5,2 ){$\frac{1- \frac{1}4 e^{2x}}{1+\frac 14 e^{2x}}$ }
+\rput[l](5,0.5 ){$\frac{1- e^{2x}}{1+e^{2x}}$ }
+\rput[l](5,-2 ){$\frac{1- 4e^{2x}}{1+4e^{2x}}$ }
 \psline[arrows=->, linestyle=dotted](5,2)(0,0.6)
 \psline[arrows=->, linestyle=dotted](5,0.5)(0,0)
 \psline[arrows=->, linestyle=dotted](5,-2)(0,-0.6)
@@ -2184,9 +2185,9 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 \renewcommand{\Dconst}{0.25}
 \psplot[linecolor=green]{-4}{0.523147181}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
 \psplot[linecolor=green]{0.863147181}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\rput[r](-5,0.5 ){$\frac{1+\frac 12 e^{2x}}{1- \frac{1}2 e^x}$ }
-\rput[r](-5,2 ){$\frac{1+e^{2x}}{1- e^x}$ }
-\rput[r](-5,-2 ){$\frac{1+2e^{2x}}{1- 2e^x}$ }
+\rput[r](-5,0.5 ){$\frac{1+\frac 14 e^{2x}}{1- \frac{1}4 e^{2x}}$ }
+\rput[r](-5,2 ){$\frac{1+e^{2x}}{1- e^{2x}}$ }
+\rput[r](-5,-2 ){$\frac{1+4e^{2x}}{1- 4e^{2x}}$ }
 \psline[arrows=->, linestyle=dotted](-5,0.5)(0,1.6667)
 \psline[arrows=->, linestyle=dotted](-5,0.5)(1,-3.360539267)
 \psline[arrows=->, linestyle=dotted](-5,2)(-0.2,5.066489563)
@@ -2209,9 +2210,9 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 \end{pspicture}
 } %optionalDisplay
 
-(b) From the picture drawn above, we may immediately conclude that the answer should be $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$, as we have that $y(0)= \frac{1-4}{1+5}= \frac{-3}{5}= -\frac 35$. Nevertheless, let us pretend to forget that we know the answer and try to prove it. 
+(b) From the computer generated picture above, we may visually estimate that $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ intersects the $x$-axis at $(0, -\frac 35)$. Furthermore, we may and check directly that for $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ we have $y(0)= \frac{1-4}{1+5}= \frac{-3}{5}= -\frac 35$ and that is a solution to our problem (this however does not prove the solution is unique). 
 
-As we are given that $y(0)=-3/5$, the solution we are looking for cannot be given by Case 2. Suppose the solution is of the form given by Case 1. Then $-3/5=y(0)= \frac{1+De^{2*0}}{1- De^{2*0}}= \frac{1+D}{1-D}$ and therefore $1+D=\frac{3}{5}(D-1)$, and so $\frac{2}{5}D= -\frac{8}{3}$, and finally $D=-\frac{20}3$. However, $D=e^{-C}>0$, so negative values for $D$ are not possible.
+Alternatively, let us give an algebraic solution. As we are given that $y(0)=-3/5$, the solution we are looking for cannot be given by Case 2. Suppose the solution is of the form given by Case 1. Then $-3/5=y(0)= \frac{1+De^{2*0}}{1- De^{2*0}}= \frac{1+D}{1-D}$ and therefore $1+D=\frac{3}{5}(D-1)$, and so $\frac{2}{5}D= -\frac{8}{3}$, and finally $D=-\frac{20}3$. However, $D=e^{-C}>0$, so negative values for $D$ are not possible.
 
 Finally, suppose the solution is of the form given by Case 3. We see that then $-3/5=y(0)= \frac{1-De^{2*0}}{1+ De^{2*0}}= \frac{1-D}{1+D}$, and we can compute that $D=4$ is the only solution. Finally, we get the answer
 \[
