@@ -1,0 +1,65 @@
+% begin module differential-def
+\begin{frame}
+
+
+\frametitle{Differentials}
+\begin{itemize}
+\item<1-> From previous slides:
+\[ \only<1-2, 7->{\Delta y} \only<3-6>{\alert<3,6> {dy}} \only<1-3, 7->{\approx}\only<4-6>{\alert<4> =} \only<1-5,7->{\frac{dy}{dx}}
+\only<6>{{\frac{dy}{\cancel{dx}}}}
+\only<1-4, 7->{ \Delta x} 
+\only<5>{\alert<5>{dx}} 
+\only<6>{\alert<5>{\cancel{dx}}} 
+\only<6>{=\alert<6>{dy} }
+\]
+\item<2-> If in the above we \alert<3-6>{formally substitute} \alert<3>{$\Delta y $ by $dy$}, \alert<4>{$=$ by $\approx$} and \alert<5>{$\Delta x$ by $dx$}, we get a \alert<6>{formal identity}.
+\item<7-> Define formally the \emph{differential operator $d$} and the \emph{differential form $dx$} by requesting that $d$ and $dx$ satisfy the transformation law 
+\[
+d(f(x))=f'(x)dx
+\] for any differentiable function $f(x)$. In abbreviated notation:
+\[ df = f' dx
+\]
+\item<8-> Differential forms express the idea of approximating differentiable functions by linear.
+\item<9-> The strict definition of differential forms  is outside of the scope of Calc I and II.
+\end{itemize}
+\end{frame}
+
+
+
+
+
+%\begin{frame}
+%\begin{itemize}
+%\item
+% The rest of this slide is for your information only; you will not be tested on it.
+%\item To define differentials strictly:
+%\begin{itemize}
+%\item Let $\xi$ be a function mapping functions that have first derivative to functions that have first derivative. 
+%\item Define  $\xi$ to be a \emph{differential operator} if it satisfies the Leibniz rule: $\xi (f g)= \xi (f) g+ f\xi (g) $ for any two functions $f,g$ with first derivative evaluated at an arbitrary point $x$.
+%\item Define $w $ to be a differential operator 
+%\end{itemize} 
+
+%\item  $\diff y$ depends on $x$ and $\diff x$.
+%\item  It measures the ``rise'' for the linear approximation $L(x)$:
+%\end{itemize}
+%\begin{align*}
+%\uncover<1->{%
+%\diff y%
+%}%
+%& \uncover<1->{ = } %
+%\uncover<1->{%
+%L(x+\diff x) - L(x)%
+%}%
+%\\%
+%& \uncover<2->{ = } &%
+%\uncover<2->{%
+%[f(x) + f'(x)(x+\diff x - x)] - [f(x) + f'(x)(x-x)]%
+%}\\%
+%& \uncover<2->{ = } &%
+%\uncover<2->{%
+%f'(x)\diff x%
+%}\\%
+%\end{align*}
+%\end{frame}
+
+% end module differential-def
