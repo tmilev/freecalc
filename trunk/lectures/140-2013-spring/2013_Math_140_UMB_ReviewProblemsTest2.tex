@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-plot}
+%\usepackage{pst-solides3d}
+%\usepackage{pst-3dplot}
+\usepackage{pstricks}
+\usepackage{rotating}
+
+\usepackage{multicol}
+\addtolength{\hoffset}{-3.5cm}
+\addtolength{\textwidth}{6.8cm}
+\addtolength{\voffset}{-3.3cm}
+\addtolength{\textheight}{6.3cm}
+\renewcommand{\Re}{\mathrm{Re~}}
+\renewcommand{\Im}{\mathrm{Im~}}
+\newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
+\newcommand{\triplebrace}[6]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \\#5 & #6\end{array} \right.}
+\newtheorem{problem}{Problem}
+\newcommand{\psHollowDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psHollowDotBlue}[2]{
+\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psFullDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+}
+\newcommand{\psFullDotBlack}[2]{
+\pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
+}
+\newcommand{\psLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\footnotesize $1$} }
+\newcommand{\psLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\footnotesize $1$} }
+
+\title{
+Review problems for April 9 Exam\\
+Math 140 \\
+}
+\date{}
+\begin{document}
+\maketitle
+\textbf{Instructor.} Todor Milev
+
+The exam will be closed book, no calculators allowed. Try to solve all theoretical problems without using the lectures/textbook. If you get stuck, read the lectures/textbook, but close the textbook/lectures when going back to the problem. Finally, compare what you wrote with the lectures/textbook.
+\begin{problem}
+Find the equation of the tangent line to the function 
+\begin{enumerate}
+\item $y=x^3+2x^2+3x+1 $ at the point $(-1, -1)$.  \hfill{~}  \rotatebox{180}{
+answer: $y = 2x+1 $. 
+}
+\item $y=x^3+2x^2-3x+1 $ at the point $(1, 1)$. 
+\hfill{~}  \rotatebox{180}{
+answer: $y = 4x-3 $.
+}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}Compute the limit.
+\begin{enumerate}
+\item $\lim\limits_{x\to 0} \frac{x^2}{\sin^2(2x)}$. \hfill{~}  \rotatebox{180}{
+answer: $\frac{1}{4}$ .
+}
+\item $\lim\limits_{x\to 0} \frac{x^2}{ \cos 4x -1} $.
+\hfill{~}  \rotatebox{180}{
+answer: $\frac{1}{8}$.
+}
+\item $\lim\limits_{x\to 0} \frac{x^2}{ \cos 6x -1} $.
+\hfill{~}  \rotatebox{180}{
+answer: $\frac{1}{18}$.
+}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Compute the derivative of the function.
+\begin{itemize}
+\item $f(x)=\frac{1+x }{1+\frac{2}x}$.
+\hfill{~}  \rotatebox{180}{
+answer: $\frac{4 x+x^{2}+2}{(2+x)^{2}}$.
+}
+\item $f(x)=\frac{1+x }{1+\frac{3}x}$.
+\hfill{~}  \rotatebox{180}{
+answer: $\frac{6 x+x^{2}+3}{(3+x)^{2}}$.
+}
+\end{itemize}
+\end{problem}
+\begin{problem}Compute the derivative of the function.
+\begin{enumerate}
+\item $2^{3^x}$.
+\hfill{~}  \rotatebox{180}{
+answer: $2^{3^{x}} 3^{x} (\ln{}2)  (\ln{}3) $.
+}
+\item $3^{2^x}$.
+\hfill{~}  \rotatebox{180}{
+answer: $ 3^{2^{x}} 2^{x}(\ln{}2)(\ln{}3)$.
+}
+\end{enumerate}
+\end{problem}
+\begin{problem}Compute the derivative of the function.
+\begin{enumerate}
+\item $\sec^2 (3x^2)$.
+\hfill{~}  \rotatebox{180}
+{
+answer: $-12 \frac{ x  \cos{}(3 x^{2}) }{(\sin{}(3 x^{2}))^{3}}$.
+}
+\item $\csc^2 (3x^2)$.
+\hfill{~}  \rotatebox{180}
+{
+answer:
+$
+12 \frac{x\sin{}(3 x^{2}) }{(\cos{}(3 x^{2}))^{3}}
+$.
+}
+\end{enumerate}
+\end{problem}
+\begin{problem}
+Use implicit differentiation to express $\frac{dy}{dx}$ via $y $ and $x$, where $x$ and $y$ satisfy the following relation.
+\begin{enumerate}
+\item  $x^4(x+y)=y^2(3x-y)$.
+\item $2x^3+x^2y-xy^3=2$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Use implicit differentiation to find an equation of the tangent line to the curve at the given point.
+\begin{itemize}
+\item $x^{2/3}+y^{2/3}=4$ at $(-3\sqrt{3}, 1)$.
+\item $y^2(y^2-4)= x^2(x^2-5) $ at $(0,-2)$.
+\end{itemize}
+\end{problem}
+\begin{problem}
+Prove that $\lim\limits_{x\to \infty} \left( 1+ \frac{1}x \right)^x=e$. Compute $\lim\limits_{x\to \infty} \left( 1+ \frac{2}{x} \right)^x$. 
+\hfill{~}  \rotatebox{180}
+{
+answer:
+$
+e^2
+$.
+}
+\end{problem}
+
+\begin{problem} ~
+\begin{enumerate}
+\item Define concave up and concave down function. Define what is the connection between concave up/down function and the notion of derivative.
+\item Define differentiable function at a point. Define derivative at a point.
+
+\item Give example of non-differentiable function. Motivate your answer.
+\end{enumerate}
+\end{problem}
+\begin{problem}~
+\begin{enumerate}
+\item For integer $n$, prove the power rule $\frac{d}{dx}(x^n)=n x^{n-1} $ using the definition of limit.
+\item Prove that $\frac{d}{dx} (a^x) = a^x a'(0)$ using the definition of limit.
+\item Prove the product rule $\frac{d}{dx} (f g)= \frac{df}{dx} g+ f \frac{dg}{dx} $ using the definition of limit.
+\end{enumerate}
+\end{problem}
+\begin{problem}
+Prove that $(\sin x)'=\cos x$.
+\end{problem}
+\end{document}
