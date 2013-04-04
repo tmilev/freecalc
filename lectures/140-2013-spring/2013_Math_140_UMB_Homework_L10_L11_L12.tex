@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-plot}
+%\usepackage{pst-solides3d}
+%\usepackage{pst-3dplot}
+\usepackage{pstricks}
+
+\usepackage{multicol}
+\addtolength{\hoffset}{-3.5cm}
+\addtolength{\textwidth}{6.8cm}
+\addtolength{\voffset}{-3.3cm}
+\addtolength{\textheight}{6.3cm}
+\renewcommand{\Re}{\mathrm{Re~}}
+\renewcommand{\Im}{\mathrm{Im~}}
+\newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
+\newcommand{\triplebrace}[6]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \\#5 & #6\end{array} \right.}
+\date{}
+\newtheorem{problem}{Problem}
+\newcommand{\psHollowDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psHollowDotBlue}[2]{
+\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psFullDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+}
+\newcommand{\psFullDotBlack}[2]{
+\pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
+}
+\newcommand{\psLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\footnotesize $1$} }
+\newcommand{\psLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\footnotesize $1$} }
+
+\title{
+Homework Math 140 \\
+Lecture 8, 9,10 \\
+Will be Quizzed on March 28
+}
+\begin{document}
+\maketitle
+\textbf{This homework contains copyrighted material from  James Stewart, Calculus, 7th edition, 2012. 
+You are not permitted to copy this file for any purpose other than completing your homework. You are not allowed to give a copy of this file to anyone outside of our course. 
+}
+\begin{problem} (Textbook, page 136, 1-44).
+Compute the derivative.
+\begin{multicols}{3}
+\begin{enumerate}
+\item $f(x)=2^{40}$.
+\item $f(x)=\pi^2$.
+\item $f(t)=2-\frac{2}{3}t$.
+\item $F(x)=\frac{3}{4}x^8$.
+\item $f(x)=x^3-4x+6$.
+\item $f(t)=\frac{1}{2}t^6-3t^4+t$.
+\item $g(x)=x^2(1-2x)$. 
+\item $h(x)=(x-2)(2x+3)$.
+\item $g(t)=2t^{-3/4}$.
+\item $B(y)=c y^{-6}$.
+\item $A(s)=-\frac{12}{s^5}$.
+\item $y=x^{5/3}-x^{2/3}$.
+\item $S(p)=\sqrt{p}-p$.
+\item $y=\sqrt{x}(x-1)$.
+\item $R(a)=(3a+1)^2$.
+\item $S(R)=4\pi R^2$.
+\item $y=\frac{ x^2+4x+3}{\sqrt{x}}$.
+\item $y=\frac{\sqrt{x}+x}{x^2}$.
+\item $H(x)=(x+x^{-1})^3$.
+\item $g(u)=\sqrt 2 u +\sqrt{3u}$.
+\item $u=\sqrt[5]t+4\sqrt{t^5}$.
+\item $v=\left(\sqrt{x}+\frac{1}{\sqrt[3]{x}}\right)^2$.
+\item $f(x)=(1+2x^2)(x-x^2)$.
+\item $f(x)=\frac{x^4-5x^3+\sqrt{x}}{x^2}$.
+\item $V(x)=(2x^3+3)(x^4-2x)$.
+\item $L(x)=(1+x+x^2)(2-x^4)$.
+\item $F(y)=\left(\frac{1}{y^2}-\frac{3}{y^4} \right)(y+5y^3)$.
+\item $J(v)=(v^3-2v)(v^{-4}+v^{-2})$.
+\item $g(x)=\frac{1+2x}{3=4x}$.
+\item $f(x)=\frac{x-3}{x+3}$.
+\item $y=\frac{x^3}{1-x^2}$.
+\item $y=\frac{x+1}{x^3+x-2}$.
+\item $y=\frac{v^3-2v\sqrt{v}}{v}$.
+\item $y=\frac{t}{(t-1)^2}$.
+\item $y=\frac{t^2+2}{t^4-3t^2+1}$.
+\item $g(t)=\frac{t-\sqrt{t}}{t^{1/3}}$.
+\item $y=a x^2+b x + c$.
+\item $y=A+\frac{B}x +\frac{C}{x^2}$.
+\item $f(t)=\frac{2t}{2+\sqrt{t}}$.
+\item $y=\frac{c x}{1+c x}$.
+\item $y=\sqrt[3]{t}(t^2+t+t^{-1}) $.
+\item $y=\frac{u^6-2u^3+5}{u^2}$.
+\item $f(x)=\frac{x}{x+\frac{c}{x}}$.
+\item $f(x)=\frac{a x+b}{c x+ d}$.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+\begin{problem}(Textbook, page 146, problems 1-19).
+Compute the derivative.
+\begin{multicols}{3}
+\begin{enumerate}
+\item $f(x)= 3x^2 -2 \cos x$.
+\item $f(x)=\sqrt{x}\sin x$.
+\item $f(x)=\sin x +\frac{1}{2}\cot x$.
+\item $y=2\sec x - \csc x$.
+\item $y=\sec \theta \tan \theta$.
+\item $g(t)=4 \sec t + \tan t$.
+\item $y= c\cos t + t^2\sin t$.
+\item $y=u(a\cos u + b \cot u)$.
+\item $y=\frac{x}{2-\tan x}$.
+\item $y=\sin \theta \cos \theta$.
+\item $f(\theta)=\frac{\sec \theta}{1+\sec \theta}$.
+\item $y=\frac{\cos x}{1-\sin x}$.
+\item $y=\frac{t\sin t}{1+t}$.
+\item $y=\frac{1-\sec x}{\tan x}$.
+\item $h(\theta)=\theta \csc \theta -\cot \theta$.
+\item $y=x^2\sin x\tan x$.
+\item $f(x)=\csc x$.
+\item $f(x)=\sec x$.
+\item $f(x)=\cot x$.
+\end{enumerate}
+\end{multicols}
+\end{problem}
+
+\end{document}
