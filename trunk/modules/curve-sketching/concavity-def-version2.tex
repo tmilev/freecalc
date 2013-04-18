@@ -1,16 +1,16 @@
 % begin module concavity-def
 \begin{frame}
 \frametitle{What Does $f''$ Say About $f$?}
-$f$ and $g$ are both increasing functions on $(a,b)$ with the same end points, but they look different because they bend in different directions.
+$f$ and $g$ are both increasing functions on $(a,b)$, but they look different because they bend in different directions.
 \begin{columns}[c]
 \column{.5\textwidth}
-\psset{xunit=0.9cm, yunit=0.9cm}
+\psset{xunit=0.6cm, yunit=0.6cm}
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-5,-5)(5,5) 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4,3.8)
 %Function formula: 1/2+1/4 ((-1+x)^{2})+1/4 (x) 
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{4}{x 0.25 mul x -1 add 2 exp 0.25 mul add 0.5 add }
-
+\tiny
 \rput(1, 2){$y=f(x)$}
 \uncover<3>{
 %Function formula: -1/10 (x)+291/400 
@@ -65,18 +65,18 @@ $f$ and $g$ are both increasing functions on $(a,b)$ with the same end points, b
 \ \ \ \ \ \ \ \ \ \uncover<6->{Concave up}
 %\end{center}
 \column{.5\textwidth}
-\psset{xunit=0.9cm, yunit=0.9cm}
+\psset{xunit=0.6cm, yunit=0.6cm}
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-5,-5)(5,5) 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4,3.8)
-
+\tiny
 \rput(2, 1){$y=g(x)$}
 %Function formula: 11/4-1/4 ((-3+x)^{2})-1/4 (x) 
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{4}{x -0.25 mul x -3 add 2 exp -0.25 mul add 2.75 add }
 
 \uncover<3>{
 %Function formula: 11/10 (x)+209/400 
-\psplot[linecolor=blue, plotpoints=1000]{-0.5}{2.979545455}{0.5225 x 1.1 mul add }
+\psplot[linecolor=blue, plotpoints=1000]{-0.5}{2.979}{0.5225 x 1.1 mul add }
 }
 \uncover<4->{ 
 %Function formula: 11/10 (x)+209/400 
@@ -127,7 +127,8 @@ $f$ and $g$ are both increasing functions on $(a,b)$ with the same end points, b
 \end{columns}
 \uncover<2-7>{%
 \begin{definition}[Concave Up/Concave Down]
-If the graph of $f$ lies above all of its tangents on an interval $I$, then it is called concave up on $I$.  If it lies below all of its tangents on $I$, it is called concave down on $I$.
+\color{gray} A function is called concave up/down if the line segment between any two points lies above/below its graph. \color{black}
+Suppose $f$ is a differentiable function. If $f$ lies above all of its tangents on an interval $I$, then  we call it concave up on $I$.  If $f$ lies below all of its tangents on $I$, it we call it concave down on $I$.
 \end{definition}
 }%
 \end{frame}
