@@ -1,0 +1,54 @@
+% begin module definite-integral-properties-split
+\begin{frame}[t]
+Properties of the Integral
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item  $\displaystyle %
+\alert<handout:0| 1>{\int_a^b f(x) \diff x} %
+= %
+\alert<handout:0| 2>{\int_a^c f(x) \diff x} %
++ %
+\alert<handout:0| 3>{\int_c^b f(x) \diff x} %
+$%
+\end{enumerate}
+\begin{center}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4.5,2.7)\tiny
+%Function formula: 1727/6250+4911/100 ((x)^{3})+110043/5000 (x)+3 ((x)^{5})-201/10 ((x)^{4})-52431/1000 ((x)^{2}) 
+\uncover<1>{
+\pscustom*[linecolor=cyan]{
+\psplot[linecolor=red, plotpoints=1000]{0.1}{2.5}{x 2 exp -52.431 mul x 4 exp -20.1 mul x 5 exp 3 mul x 22.0086 mul x 3 exp 49.11 mul 0.27632 add add add add add }
+\psline(2.5, 0)(0.1,0)
+}
+}
+\uncover<2>{
+\pscustom*[linecolor=cyan]{
+\psplot[linecolor=red, plotpoints=1000]{0.1}{1.7}{x 2 exp -52.431 mul x 4 exp -20.1 mul x 5 exp 3 mul x 22.0086 mul x 3 exp 49.11 mul 0.27632 add add add add add }
+\psline(1.7, 0)(0.1,0)
+}
+}
+\uncover<3>{
+\pscustom*[linecolor=cyan]{
+\psplot[linecolor=red, plotpoints=1000]{1.7}{2.5}{x 2 exp -52.431 mul x 4 exp -20.1 mul x 5 exp 3 mul x 22.0086 mul x 3 exp 49.11 mul 0.27632 add add add add add }
+\psline(2.5, 0)(1.7,0)
+}
+}
+
+\psline(0.1, 0.05)(0.1, -0.05)
+\rput[t](0.1, -0.07){$a$}
+\psline(1.7, 0.05)(1.7, -0.05)
+\rput[t](1.7, -0.07){$c$}
+\psline(2.5, 0.05)(2.5, -0.05)
+\rput[t](2.5, -0.07){$b$}
+\rput(1.5, 2.4 ){$y=f(x)$}
+
+\psplot[linecolor=red, plotpoints=1000]{0.1}{2.5}{x 2 exp -52.431 mul x 4 exp -20.1 mul x 5 exp 3 mul x 22.0086 mul x 3 exp 49.11 mul 0.27632 add add add add add }
+
+\end{pspicture} 
+
+
+\end{center}
+\end{frame}
+% end module definite-integral-properties-split
