@@ -1,18 +1,35 @@
 % begin module transformations-shifts-example
 \begin{frame}
-\begin{example}[Example 2, p. 39]
+\begin{example}
 Draw a graph of the function $f(x) = x^2 + 6x + 10$.
 \begin{columns}[c]
 \column{.5\textwidth}
-\ \only<handout:0| -6>{%
-\includegraphics[height=5cm]{precalculus/pictures/01-03-parabolaa.pdf}%
-}%
-\only<handout:0| 7>{%
-\includegraphics[height=5cm]{precalculus/pictures/01-03-parabolab.pdf}%
-}%
-\only<8->{%
-\includegraphics[height=5cm]{precalculus/pictures/01-03-parabolac.pdf}%
-}%
+
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\tiny
+\psframe*[linecolor=white](-5,-5)(5,6) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-0.5)(3,5)\tiny
+\psLabels{3}{5}
+\rput[rt](-0.1,-0.1){$(0,0)$}
+\psFullDot{0}{0}
+%Function formula: (-3+x)^{2}-9+6 (x) 
+\only<handout:0| 7>{
+\rput(2.5,2){$y=x^2$} 
+\psplot[linecolor=red, plotpoints=1000]{-2.23607}{2.23607}{x 6 mul -9 x -3 add 2 exp add add } %Function formula: (x)^{2}+10+6 (x) 
+}
+\only<handout:0| 8->{
+\rput(2.5,2){\color{gray}$y=x^2$} 
+\psplot[linecolor=gray, plotpoints=1000]{-2.23607}{2.23607}{x 6 mul -9 x -3 add 2 exp add add } %Function formula: (x)^{2}+10+6 (x) 
+\rput[rt](-3.1,0.9){$(-3,1)$}
+\psline{->}(0,0)(-3,1)
+\psFullDot{-3}{1}
+
+\rput[b](-3,4.2){\alert<8->{$y=x^{2}+6x+10$}} 
+\psplot[linecolor=red, plotpoints=1000]{-5}{-1}{x 6 mul 10 x 2 exp add add }
+}
+\end{pspicture} 
+
 \column{.5\textwidth}
 \uncover<2->{
 Complete the square:
@@ -23,6 +40,7 @@ Complete the square:
  & \uncover<6->{ = } & \uncover<6->{(x + 3)^2 + 1} \\
 \end{eqnarray*}
 \end{columns}
+\uncover<7-8>{}
 \end{example}
 \end{frame}
 % end module transformations-shifts-example
