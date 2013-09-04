@@ -115,7 +115,8 @@
 \newcommand{\psLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\footnotesize $1$} }
 \newcommand{\psLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\footnotesize $1$} }
 
-\newcommand{\psLabels}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\footnotesize $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\footnotesize $1$} \rput[t](#1, -0.1){$x$}\rput[r](-0.1, #2){$y$}}
+\newcommand{\psLabels}[2]{\rput[t](#1, -0.1){$x$}\rput[r](-0.1, #2){$y$}}
+\newcommand{\psLabelsWithOnes}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) { $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) { $1$} \psLabels{#1}{#2}}
 
 % begin lecture
 \lect{September 4-6, 2013}{Lecture  1}{1}
@@ -126,11 +127,11 @@
 \input{../../modules/precalculus/vertical-line-test-version2}
 \subsection{Piecewise Defined Functions}
 \input{../../modules/precalculus/function-piecewise-version2}
-\input{../../modules/precalculus/absolute-value}
-\input{../../modules/precalculus/piecewise-formula}
+\input{../../modules/precalculus/absolute-value-version2}
+\input{../../modules/precalculus/piecewise-formula-version2}
 % WARNING: The next two modules have the wrong pictures.
-\input{../../modules/precalculus/piecewise-ex1}
-\input{../../modules/precalculus/piecewise-ex2}
+\input{../../modules/precalculus/piecewise-ex1-version2}
+\input{../../modules/precalculus/piecewise-ex2-version2}
 \subsection{Symmetry}
 \input{../../modules/precalculus/even-and-odd}
 \subsection{Increasing and Decreasing Functions}
@@ -139,7 +140,7 @@
 \input{../../modules/precalculus/domains-version2}
 \section{A Catalog of Essential Functions}
 \subsection{Linear Functions}
-\input{../../modules/precalculus/linear-functions}
+\input{../../modules/precalculus/linear-functions-version2}
 \subsection{Polynomials}
 \input{../../modules/precalculus/polynomials-version2}
 % end lecture
