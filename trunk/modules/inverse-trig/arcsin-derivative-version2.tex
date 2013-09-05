@@ -1,0 +1,53 @@
+% begin module arcsin-derivative
+\begin{frame}
+\begin{theorem}[The Derivative of $\arcsin x$]
+\[
+\frac{\diff}{\diff x} \left( \arcsin x\right) = \frac{1}{\sqrt{1-x^2}}, \qquad -1 < x < 1.
+\]
+\end{theorem}
+\begin{proof}
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<2->{%
+\text{Let}\quad y %
+}%
+& \uncover<2->{%
+ = \arcsin x.
+}\\%
+\uncover<2->{%
+\text{Then}\quad \alert<handout:0| 3-4,10>{\sin y} %
+}%
+& \uncover<2->{%
+ \alert<handout:0| 10>{=}  \alert<handout:0| 5-6,10>{x}\quad \text{and} \quad \alert<handout:0| 9>{-\pi/2 \leq y \leq \pi/2}.
+}\\%
+\uncover<3->{%
+\text{Differentiate implicitly:}\quad \alert<handout:0| 3-4>{\uncover<4->{\cos y \cdot y'}} %
+}%
+& \uncover<3->{%
+ = \uncover<6->{\alert<handout:0| 6>{1}} 
+}\\%
+\uncover<7->{%
+y' %
+}%
+& \uncover<7->{%
+ = \frac{1}{\alert<handout:0| 8>{\cos y}} %
+}\\%
+& \uncover<8->{%
+ = \frac{1}{\alert<handout:0| 8>{\alert<handout:0| 9>{\pm}\sqrt{1-\sin^2y}}} %
+}\\%
+\uncover<9->{%
+\text{But \alert<handout:0| 9>{$\cos y > 0$}:}\quad %
+}%
+& \uncover<9->{%
+ = \frac{1}{\sqrt{1-\alert<handout:0| 10>{\sin^2y}}} %
+}%
+\uncover<10->{%
+ = \frac{1}{\sqrt{1-\alert<handout:0| 10>{x^2}}}. \qedhere%
+}%
+\end{align*}
+\end{proof}
+\end{frame}
+% end module arcsin-derivative
