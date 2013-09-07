@@ -1,0 +1,57 @@
+
+\begin{frame}
+
+\frametitle{Euler's Formula}
+\only<1>{\alert<2>{You are not required to learn the material in this slide. You will not be tested on it.}}
+\uncover<2->{
+\begin{theorem}[Euler's Formula]
+\[
+e^{i x}= \cos x + i\sin x,
+\]
+where $e \approx 2.71828$ is Euler's/Napier's constant .
+\end{theorem}
+\begin{proof}
+
+Recall $n!=1*2*3*\dots *(n-1)*n$. Borrow from Calc II the f-las:
+\only<2>{
+\[
+\sin x= x-\frac{x^3}{3!}+\frac{x^5}{5!}-\dots +\frac{(-1)^nx^{2n+1}}{(2n+1)!}+\dots 
+\]
+\[
+\cos x= 1-\frac{x^2}{2!}+\frac{x^4}{4!}-\dots +\frac{(-1)^nx^{2n}}{(2n)!} +\dots
+\]
+\[
+e^{x}=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots + \frac{x^n}{n!}+\dots 
+\]
+} 
+\only<3->{
+\\~\\
+\begin{tabular}{r|rclllllll}
+&$\sin x$ & $ =$  & & $\phantom{+}\uncover<6>{\alert<6>{i}} x$ & &$-\uncover<6>{\alert<6>{i}}\frac{~~x^3~~}{3!}$ & & $+\uncover<6>{\alert<6>{i}}\frac{~~x^5~~}{5!}$ & $+\dots$ \\
+\uncover<7>{ \alert<7>{\tiny +}} \\
+&$\cos x$ & $ =$  & $1$ &  & $-\frac{~~~x^{2}~~~}{2!}$ & & $+\frac{~~~x^4~~~}{4!}$ &  & $+\dots$ \\\hline
+
+&$e^{\only<3>{z} \only<4->{ \alert<4>{ix}} }$& $= $ & $1$ 
+& $+\only<3>{z} \only<4->{\alert<4>{ix}}  $
+&$\only<-4>{+}\only<5->{\alert<5>{-}} \frac{ 
+\only<3>{z^2}\only<4>{\alert<4>{(ix)^2}}\only<5->{\alert<5>{~~x^2~~}}  \vphantom{(ix)^2}
+}{2!}$ 
+&$\only<-4>{+}\only<5->{\alert<5>{-i}} \frac{ 
+\only<3>{z^3}\only<4>{\alert<4>{(ix)^3}}\only<5->{\alert<5>{~x^3~}}  \vphantom{(ix)^3}
+}{3!}$ 
+& $+ \frac{ 
+\only<3>{z^4}\only<4>{\alert<4>{(ix)^4}}\only<5->{\alert<5>{~~~x^4~~~}}  \vphantom{(ix)^4}
+}{4!}$ 
+&$+ \uncover<5->{\alert<5>{i}}\frac{ 
+\only<3>{z^5}\only<4>{\alert<4>{(ix)^5}}\only<5->{\alert<5>{~~x^5~~}}  \vphantom{(ix)^4}
+}{5!}$ 
+& $+\dots$ 
+\end{tabular}
+\\~ \\~\\
+\alert<3>{Rearrange.} \uncover<4->{\alert<4>{Plug-in ${z=ix}$}.} \uncover<5->{\alert<5>{Use ${i^2=-1}$.}} \uncover<6->{\alert<6>{Multiply $\sin x$ by $i$}.} \uncover<7->{\alert<7>{Add to get $e^{ix}=\cos x+i\sin x$}.}
+}
+\uncover<7->{
+\end{proof}
+}
+}
+\end{frame}
