@@ -4,48 +4,66 @@
 If $\cos \theta = \frac{2}{5}$ and $0 < \theta < \pi /2$, find the other five trigonometric functions of $\theta$.
 \begin{columns}[c]
 \column{.3\textwidth}
-\ \only<handout:0| -1>{%
-\includegraphics[height=6cm]{trigonometry/pictures/app-d-ex4a.pdf}%
-}%
-\only<handout:0| 2-3>{%
-\includegraphics[height=6cm]{trigonometry/pictures/app-d-ex4b.pdf}%
-}%
-\only<4->{%
-\includegraphics[height=6cm]{trigonometry/pictures/app-d-ex4c.pdf}%
-}%
+
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-0.5,0)(2.5,5.5)
+\rput[l](2,2.6){ $x={\sqrt{21}} $}
+\rput[br](0.95,2.5){ $5$}
+\rput[t](1, -0.1){$2$}
+\psframe*[linecolor=white, fillcolor=white](-0.5,-0.5)(4,5.5)
+\uncover<2->{
+\rput[l](2,2.6){ $x=\uncover<5->{\alert<5,7,9,11,15>{\sqrt{21}}} $}
+\rput[br](0.95,2.5){ \alert<7,11,13>{$5$}}
+\rput[t](1, -0.1){\alert<9,13, 15>{$2$}}
+}
+\psline(0,0)(2,0)(2,5)(0,0)
+\psline(1.8,0)(1.8,0.2)(2,0.2)
+\psarc[linecolor=red](0,0){0.3}{0}{68.19859}
+\rput(0.4,0.3){$\theta$}
+\end{pspicture}
+%\column{.3\textwidth}
+%\ \only<handout:0| -1>{%
+%\includegraphics[height=6cm]{trigonometry/pictures/app-d-ex4a.pdf}%
+%}%
+%\only<handout:0| 2-3>{%
+%\includegraphics[height=6cm]{trigonometry/pictures/app-d-ex4b.pdf}%
+%}%
+%\only<4->{%
+%\includegraphics[height=6cm]{trigonometry/pictures/app-d-ex4c.pdf}%
+%}%
 \column{.7\textwidth}
 \begin{itemize}
 \item<2->  Label the hypotenuse with length 5 and the adjacent side with length 2.
 \item<3->  Pythagorean theorem: $x^2 +2^2 = 5^2$.
-\item<4->  Therefore $x^2 = 21$, so $x = \sqrt{21}$.
+\item<4->  Therefore $x^2 = \uncover<5->{\alert<5>{21}}$, so $x = \uncover<5->{\alert<5>{\sqrt{21}}}$.
 \end{itemize}
 \[
 \begin{array}{cc}
-\alert<handout:0| 5-6>{%
+\alert<handout:0| 6-7>{%
 \sin \theta = %
-\uncover<6->{%
+\uncover<7->{%
 \frac{\sqrt{21}}{5}%
 }}&%
-\alert<handout:0| 7-8>{%
+\alert<handout:0| 8-9>{%
 \tan \theta = %
-\uncover<8->{%
+\uncover<9->{%
 \frac{\sqrt{21}}{2}%
 }}\\%
 & \\
-\alert<handout:0| 9-10>{%
+\alert<handout:0| 10-11>{%
 \csc \theta = %
-\uncover<10->{%
+\uncover<11->{%
 \frac{5}{\sqrt{21}}%
 }}&%
-\alert<handout:0| 11-12>{%
+\alert<handout:0| 12-13>{%
 \sec \theta = %
-\uncover<12->{%
+\uncover<13->{%
 \frac{5}{2}%
 }}\\%
 & \\
-\alert<handout:0| 13-14>{%
+\alert<handout:0| 14-15>{%
 \cot \theta = %
-\uncover<14->{%
+\uncover<15->{%
 \frac{2}{\sqrt{21}}%
 }}&%
 \end{array}

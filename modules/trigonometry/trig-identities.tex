@@ -2,17 +2,33 @@
 \begin{frame}
 \frametitle{Trigonometric Identities}
 \begin{definition}[Trigonometric Identity]
-A trigonometric identity is a relationship among the trig functions that is always true for any value of the independent variable.
-
-Some identities are elementary, and some are more difficult and must be derived from the other identities.
+A trigonometric identity is a relationship among the trigonometric functions that is true for any value of the independent variable.
 \end{definition}
 \end{frame}
 
+\newcommand{\trigIdentitiesPicture}{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-4,-0.5)(1,4)
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-4,-0.5)(1,4)
+\pscircle*(-3,2){0.07}
+\psline[linecolor=blue](0,0)(-3,2)
+\psline[linecolor=blue](0,0)(1,0)
+\psarc[linecolor=red](0,0){0.5}{0}{146.3099}
+\rput[br](-3, 2){$(x,y)$}
+\rput[l](0.1, 0.7){$\theta$}
+\rput[lb](-1.55, 1.1){$r$}
+\psline[linestyle=dotted](-3, 2)(-3, 0)
+\psline[linestyle=dotted](-3, 2)(0, 2)
+\psline(-2.7, 0)(-2.7, 0.3)(-3, 0.3)
+\psline(0, 1.7)(-0.3, 1.7)(-0.3, 2)
+\end{pspicture}
+%\includegraphics[width=5cm]{trigonometry/pictures/app-d-ratiosb.pdf}%
+}
 
 \begin{frame}
 \begin{columns}[c]
 \column{.5\textwidth}
-\includegraphics[width=5cm]{trigonometry/pictures/app-d-ratiosb.pdf}%
+\trigIdentitiesPicture
 \[
 \begin{array}{cc}
 \sin \theta = \frac{ y}{ r} &
@@ -38,7 +54,8 @@ Some identities are elementary, and some are more difficult and must be derived 
 \begin{frame}
 \begin{columns}[c]
 \column{.5\textwidth}
-\includegraphics[width=5cm]{trigonometry/pictures/app-d-ratiosb.pdf}%
+\trigIdentitiesPicture
+
 \[
 \begin{array}{cc}
 \sin \theta = \frac{ y}{ r} &
@@ -67,7 +84,7 @@ Therefore $\sin^2 \theta + \cos^2 \theta = 1$.%
 \begin{frame}
 \begin{columns}[c]
 \column{.5\textwidth}
-\includegraphics[width=5cm]{trigonometry/pictures/app-d-ratiosb.pdf}%
+\trigIdentitiesPicture
 \[
 \begin{array}{cc}
 \sin \theta = \frac{ y}{ r} &
@@ -95,7 +112,44 @@ Prove the identity $\tan^2 \theta + 1 = \sec^2 \theta$.
 \begin{frame}
 \begin{columns}[c]
 \column{.5\textwidth}
-\includegraphics[width=5cm]{trigonometry/pictures/app-d-ratiosb.pdf}%
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-4,-2.5)(1,4)
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-4.2,-2.5)(1,4)
+\pscircle*(-3,2){0.07}
+\psline[linecolor=blue](0,0)(-3,2)
+\psline[linecolor=blue](0,0)(1,0)
+\rput[br](-3, 2){$(x,y)$}
+\rput[lb](-1.55, 1.1){$r$}
+
+\uncover<1>{
+\psarc[linecolor=red, linewidth=2pt]{->}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$\theta$}
+}
+\uncover<2>{
+\psarc[linecolor=red, linewidth=2pt]{<-}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$-\theta$}
+}
+\uncover<3->{
+\psarc[linecolor=red]{->}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$\theta$}
+}
+\uncover<4->{
+\psarc[linecolor=red]{<-}(0,0){0.5}{-146.3099}{0}
+\rput[lt](0.1, -0.7){$-\theta$}
+\psline[linecolor=blue](0,0)(-3,-2)
+\psline[linecolor=blue](0,0)(1,0)
+\rput[br](-3, -2){$(x,-y)$}
+\rput[lt](-1.55, -1.1){$r$}
+}
+\uncover<5->{\psline(-2.7, 0)(-2.7, -0.3)(-3, -0.3)
+\psline[linestyle=dotted](-3, -2)(-3, 0)
+}
+
+\psline[linestyle=dotted](-3, 2)(-3, 0)
+\psline[linestyle=dotted](-3, 2)(0, 2)
+\psline(-2.7, 0)(-2.7, 0.3)(-3, 0.3)
+\psline(0, 1.7)(-0.3, 1.7)(-0.3, 2)
+\end{pspicture}
 \[
 \begin{array}{cc}
 \sin \theta = \frac{ y}{ r} &
@@ -108,13 +162,13 @@ Prove the identity $\tan^2 \theta + 1 = \sec^2 \theta$.
 \]
 \column{.5\textwidth}
 \begin{itemize}
-\item<2->  Positive angles are obtained by rotating counterclockwise.
+\item<1->  Positive angles are obtained by rotating counterclockwise.
 \item<2->  Negative angles are obtained by rotating clockwise.
-\item<3->  If $(x,y)$ is on the terminal arm of the angle $\theta$, then $(x, -y)$ is on the terminal arm of $-\theta$.
-\item<4->  $\sin(-\theta ) = \frac{-y}{r} = -\frac{y}{r} = -\sin \theta$.
-\item<5->  $\cos(-\theta ) = \frac{x}{r} = \cos \theta$.
-\item<6->  $\sin$ is an odd function.
-\item<7->  $\cos$ is an even function.
+\item<3->  If $(x,y)$ is on the terminal arm of the angle $\theta$, \alert<4>{then $(x, -y)$ is on the terminal arm of $-\theta$}.
+\item<5->  $\alert<7>{\sin(-\theta )} = \frac{-y}{r} = -\frac{y}{r} = \alert<7>{-\sin \theta}$.
+\item<6->  $\alert<8>{\cos(-\theta )} = \frac{x}{r} =\alert<8>{\cos \theta}$.
+\item<7->  $\sin$ is an \alert<7>{odd function}.
+\item<8->  $\cos$ is an \alert<8>{even function}.
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -124,7 +178,32 @@ Prove the identity $\tan^2 \theta + 1 = \sec^2 \theta$.
 \begin{frame}
 \begin{columns}[c]
 \column{.5\textwidth}
-\includegraphics[width=5cm]{trigonometry/pictures/app-d-ratiosb.pdf}%
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-4,-2.5)(1,4)
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-4.2,-2.5)(1,4)
+\pscircle*(-3,2){0.07}
+\psline[linecolor=blue](0,0)(-3,2)
+\psline[linecolor=blue](0,0)(1,0)
+\rput[br](-3, 2){$(x,y)$}
+\rput[lb](-1.55, 1.1){$r$}
+
+\psarc[linecolor=red]{->}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$\theta$}
+
+\uncover<2>{
+\parametricplot[linecolor=red, plotpoints=1000, arrows=->]{0}{360}{0.25 0.000198413 t mul add t cos mul 0.25 0.000198413 t mul add t sin mul}
+}
+
+\uncover<3->{
+\parametricplot[linecolor=red, plotpoints=1000, arrows=->]{0}{506.3099}{0.25 0.000198413 t mul add t cos mul 0.25 0.000198413 t mul add t sin mul}
+}
+
+\psline[linestyle=dotted](-3, 2)(-3, 0)
+\psline[linestyle=dotted](-3, 2)(0, 2)
+\psline(-2.7, 0)(-2.7, 0.3)(-3, 0.3)
+\psline(0, 1.7)(-0.3, 1.7)(-0.3, 2)
+\end{pspicture}
+
 \[
 \begin{array}{cc}
 \sin \theta = \frac{ y}{ r} &
