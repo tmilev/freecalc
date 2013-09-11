@@ -4,7 +4,17 @@
 \begin{columns}[c]
 \column{.5\textwidth}
 \uncover<6->{
-\ \includegraphics[height=4.5cm]{limits/pictures/02-01-ex1.pdf}%
+\psset{xunit=1.5cm,yunit=1.5cm}
+\begin{pspicture}(-0.5,-0.5)(2,2.5)
+\psframe*[linecolor=white](-0.5, -0.5)(2, 2.5)
+\psaxes[Dy=0.5, labels=none]{<->}(0,0)(-0.5,-0.5)(2,2.5)
+\rput[l](0.1, 0.5){\tiny $0.5$}
+\rput[t](1, -0.1){\tiny $1$}
+\psplot[linecolor=red]{-0.5}{2}{1 1 x add div}
+\pscircle*[fillcolor=white, linecolor=red](1, 0.5){0.07}
+\pscircle*[fillcolor=white, linecolor=white](1, 0.5){0.04}
+
+\end{pspicture}
 }
 \column{.5\textwidth}
 \begin{itemize}
