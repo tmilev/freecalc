@@ -10,23 +10,42 @@ It is called decreasing on the interval $I$ if $f(x_1) > f(x_2)$ whenever $x_1 <
 \begin{example}[Increasing and Decreasing]
 \begin{columns}[t]
 \column{.6\textwidth}
-\ \only<-2>{%
-\includegraphics[height=2.8cm]{precalculus/pictures/01-01-inc-dec-a.pdf}%
-}%
-\only<handout:0| 3>{%
-\includegraphics[height=2.8cm]{precalculus/pictures/01-01-inc-dec-b.pdf}%
-}%
-\only<handout:0| 4>{%
-\includegraphics[height=2.8cm]{precalculus/pictures/01-01-inc-dec-c.pdf}%
-}%
-\only<handout:0| 5->{%
-\includegraphics[height=2.8cm]{precalculus/pictures/01-01-inc-dec-d.pdf}%
-}%
+
+\psset{xunit=3.5cm, yunit=3.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny
+\psaxes[Dx=0.25, Dy=0.25]{<->}(0,0)(-1.1,-0.3)(1.1,0.6)
+\psLabels{1.1}{0.6}
+%Function formula: 7/40+13/10 ((x)^{3})-39/40 (x) 
+\psplot[linecolor=red, plotpoints=1000]{-1}{1}{x -0.975 mul x 3 exp 1.3 mul 0.175 add add }
+\uncover<3>{
+\psplot[linecolor=blue, plotpoints=1000]{-1}{-0.5}{x -0.975 mul x 3 exp 1.3 mul 0.175 add add }
+}
+\uncover<4>{
+\psplot[linecolor=blue, plotpoints=1000]{-0.5}{0.5}{x -0.975 mul x 3 exp 1.3 mul 0.175 add add }
+}
+\uncover<5>{
+\psplot[linecolor=blue, plotpoints=1000]{0.5}{1}{x -0.975 mul x 3 exp 1.3 mul 0.175 add add }
+}
+\end{pspicture} 
+%\ \only<-2>{%
+%\includegraphics[height=2.8cm]{precalculus/pictures/01-01-inc-dec-a.pdf}%
+%}%
+%\only<handout:0| 3>{%
+%\includegraphics[height=2.8cm]{precalculus/pictures/01-01-inc-dec-b.pdf}%
+%}%
+%\only<handout:0| 4>{%
+%\includegraphics[height=2.8cm]{precalculus/pictures/01-01-inc-dec-c.pdf}%
+%}%
+%\only<handout:0| 5->{%
+%\includegraphics[height=2.8cm]{precalculus/pictures/01-01-inc-dec-d.pdf}%
+%}%
 \column{.4\textwidth}
 \begin{itemize}
-\item<3-| alert@3>  $f$ is increasing on $[-1, -\frac{1}{2}]$.
-\item<4-| alert@4>  $f$ is decreasing on $[-\frac{1}{2}, \frac{1}{2}]$.
-\item<5-| alert@5>  $f$ is increasing on $[\frac{1}{2}, 1]$.
+\item<3-| alert@3> \only<3>{\color{blue}} $f$ is increasing on $[-1, -\frac{1}{2}]$.
+\item<4-| alert@4> \only<4>{\color{blue}} $f$ is decreasing on $[-\frac{1}{2}, \frac{1}{2}]$.
+\item<5-| alert@5> \only<5>{\color{blue}} $f$ is increasing on $[\frac{1}{2}, 1]$.
 \end{itemize}
 \end{columns}
 \end{example}

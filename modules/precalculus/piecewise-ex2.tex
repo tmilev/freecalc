@@ -4,15 +4,30 @@
 Sketch the function $\displaystyle f(x)  = \frac{|4x+2|}{2x+1}$.
 \begin{columns}
 \column{.4\textwidth}
-\only<-8| handout:0>{%
-\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex2-1.pdf}%
-}%
-\only<9| handout:0>{%
-\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex2-2.pdf}%
-}%
-\only<10-| handout:1>{%
-\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex2-3.pdf}%
-}%
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-4, -0.5)(4,4) 
+\tiny
+\psframe*[linecolor=white](-5,-5)(5.2,5.2) 
+\psaxes{<->}(0,0)(-3.2,-3.2)(2.2,3.2)
+\psLabels{2.2}{3.2}
+\uncover<9->{
+\psline[linecolor=red](-0.5, 2)(2.2,2)
+\psHollowDot{-0.5}{2}
+}
+\uncover<10->{
+\psline[linecolor=red](-0.5,-2)(-3, -2)
+\psHollowDot{-0.5}{-2}
+}
+\end{pspicture} 
+%\only<-8| handout:0>{%
+%\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex2-1.pdf}%
+%}%
+%\only<9| handout:0>{%
+%\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex2-2.pdf}%
+%}%
+%\only<10-| handout:1>{%
+%\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex2-3.pdf}%
+%}%
 \column{.55\textwidth}
 \abovedisplayskip=0pt
 \belowdisplayskip=-15pt
