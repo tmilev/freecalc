@@ -4,7 +4,17 @@
 \begin{columns}[c]
 \column{.5\textwidth}
 \uncover<6->{
-\ \includegraphics[height=3cm]{limits/pictures/02-01-ex3.pdf}%
+\psset{xunit=1.5cm,yunit=1.5cm}
+\begin{pspicture}(-2,-0.5)(2.2,1.5)
+\psframe*[linecolor=white](-2, -0.5)(2.2, 1.7)
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-0.5)(2,1.5)
+\rput[b](0, 1.52){\tiny $y$}
+\rput[l](2.02, 0){\tiny $x$}
+\rput[br](-0.1,1.1){ $1$}
+\psplot[linecolor=red]{-2}{2}{ x 57.295779513 mul sin x div}
+\psHollowDot{0}{1}
+\end{pspicture}
+%\ \includegraphics[height=3cm]{limits/pictures/02-01-ex3.pdf}%
 }
 \column{.5\textwidth}
 \begin{itemize}
