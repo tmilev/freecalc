@@ -1,0 +1,47 @@
+\ProvidesPackage{pstricks-commands}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-plot}
+\usepackage{pst-math}
+\usepackage{pst-node}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% List of commands in this document
+%
+%
+% \psFullDot        (Default dot to be used for points on graphs of functions).
+% \psHollowDot      (Default dot to be used for points on graphs of functions).
+% \psHollowDotBlue 
+% \psFullDotBlack
+% \psFullDotBlue
+% \psLabelXOne      (labels one on x axis)
+% \psLabelYOne      (labels one on y axis)
+% \psLabels         (writes x and y labels )
+% \psLabelsWithOnes (same as \psLabels + in addition labels 1 on the x and y axis)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\psHollowDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psFullDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+}
+
+\newcommand{\psHollowDotBlue}[2]{
+\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psFullDotBlack}[2]{
+\pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
+}
+\newcommand{\psFullDotBlue}[2]{
+\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
+}
+
+\newcommand{\psLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\tiny $1$} }
+\newcommand{\psLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\tiny $1$} }
+
+\newcommand{\psLabels}[2]{\rput[t](#1, -0.1){$x$}\rput[r](-0.1, #2){$y$}}
+\newcommand{\psLabelsWithOnes}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) { $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) { $1$} \psLabels{#1}{#2}}
