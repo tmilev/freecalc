@@ -4,15 +4,28 @@
 Sketch the function $f(x)  = |2x-3|$.
 \begin{columns}
 \column{.4\textwidth}
-\only<-5| handout:0>{%
-\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex1-1.pdf}%
-}%
-\only<6| handout:0>{%
-\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex1-2.pdf}%
-}%
-\only<7-| handout:1>{%
-\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex1-3.pdf}%
-}%
+\psset{xunit=1.6cm, yunit=1.6cm}
+\begin{pspicture}(-4, -0.5)(4,4) 
+\tiny
+\psframe*[linecolor=white](-5,-5)(5.2,5.2) 
+\psaxes{<->}(0,0)(-0.5,-0.5)(2.75,2.5)
+\psLabels{2.75}{2.5}
+\uncover<6->{
+\psline[linecolor=red](1.5, 0)(2.75,2.5)
+}
+\uncover<7->{
+\psline[linecolor=red](0.25,2.5)(1.5, 0)
+}
+\end{pspicture} 
+%\only<-5| handout:0>{%
+%\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex1-1.pdf}%
+%}%
+%\only<6| handout:0>{%
+%\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex1-2.pdf}%
+%}%
+%\only<7-| handout:1>{%
+%\includegraphics[width=4.5cm]{precalculus/pictures/piecewise-ex1-3.pdf}%
+%}%
 \column{.55\textwidth}
 \abovedisplayskip=0pt
 \belowdisplayskip=-15pt
