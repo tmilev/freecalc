@@ -14,7 +14,6 @@
 % % % % % % % %
 
 
-\usepackage{etex} %avoiding error: too many packages. This is a LaTeX bug (``feature'')
 
 
 \mode<presentation>
@@ -30,11 +29,8 @@
 \usepackage[all,cmtip]{xy}
 \usepackage{times}
 \usepackage{../example-templates}
-\usepackage{auto-pst-pdf}
-\usepackage{pst-plot}
-\usepackage{pst-math}
-\usepackage{pst-node}
-\usepackage{cancel}
+\usepackage{../pstricks-commands}
+
 
 \usepackage[T1]{fontenc}
 % Or whatever. Note that the encoding and the font should match. If T1
@@ -48,7 +44,7 @@
 \newcommand{\diff}{\text{d}}
 \setbeamertemplate{navigation symbols}{}
 
-\includeonlylecture{5}
+\includeonlylecture{2}
 
 \newcommand{\lect}[3]{
   \date{#1}
@@ -96,33 +92,6 @@
 \end{frame}
 }%
 
-
-
-%Don't know where is the proper place to add such commands, adding here for lack of better placement.
-\newcommand{\psHollowDot}[2]{
-\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
-\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
-}
-\newcommand{\psHollowDotBlue}[2]{
-\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
-\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
-}
-\newcommand{\psFullDot}[2]{
-\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
-}
-\newcommand{\psFullDotBlack}[2]{
-\pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
-}
-\newcommand{\psFullDotBlue}[2]{
-\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
-}
-
-\newcommand{\psLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\tiny $1$} }
-\newcommand{\psLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\tiny $1$} }
-
-\newcommand{\psLabels}[2]{\rput[t](#1, -0.1){$x$}\rput[r](-0.1, #2){$y$}}
-\newcommand{\psLabelsWithOnes}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) { $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) { $1$} \psLabels{#1}{#2}}
-
 % begin lecture
 \lect{September 4-6, 2013}{Lecture  1}{1}
 \section{Ways to Represent a Function}
@@ -168,7 +137,7 @@
 \input{../../modules/precalculus/transformations-shifts-example}
 \input{../../modules/precalculus/transformations-magnifications-version2}
 \input{../../modules/precalculus/transformations-horizontal-stretches-version2}
-\input{../../modules/precalculus/transformations-absolute-value-version2}
+\input{../../modules/precalculus/transformations-absolute-value}
 \subsection{Combinations of Functions}
 \input{../../modules/precalculus/combinations-functions}
 \input{../../modules/precalculus/composition-functions-version2}
