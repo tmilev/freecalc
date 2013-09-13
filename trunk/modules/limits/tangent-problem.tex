@@ -8,7 +8,7 @@
 \tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1.05,-0.52)(3.1,4.2)
 \psLabelsWithOnes{3}{4.2}
-\rput(-0.3,0.5){$y=x^{2}$} 
+\rput(-0.35,0.6){$y=x^{2}$} 
 %Function formula: (x)^{2} 
 \psplot[linecolor=red, plotpoints=1000]{-1}{2}{x 2 exp }
 \psFullDot{1}{1}
@@ -21,21 +21,25 @@
 \rput[lt](2.1,4){$Q=(2,4)$}
 \psFullDot{2}{4}
 \psline[linecolor=blue]( 0.5,-0.5)(2.033333333 ,4.1)
+\psLabelNumberXYaxes{2}{4}
 }
 \uncover<9-10>{
 \rput[lt](1.6,2.25){$Q=(1.5,2.25)$}
 \psFullDot{1.5}{2.25}
 \psline[linecolor=blue]( 0.4,-0.5)(2.24 ,4.1)
+\psLabelNumberXYaxes{1.5}{2.25}
 }
 \uncover<11-12>{
 \rput[lt](1.35,1.5625){$Q=(1.25,1.5625)$}
 \psFullDot{1.25}{1.5625}
 \psline[linecolor=blue]( 0.333333333,-0.5)(2.377777778 ,4.1)
+\psXYTick{1.25}{1.5625}
 }
 \uncover<13-16>{
 \rput[lt](1.2,1.21){$Q=(1.1,1.21)$}
 \psFullDot{1.1}{1.21}
 \psline[linecolor=blue]( 0.285714286,-0.5)(2.476190476 ,4.1)
+\psXYTick{1.1}{1.21}
 }
 \uncover<17-18>{
 \rput[lt](0.1,0){$Q=(0,0)$}
@@ -46,16 +50,19 @@
 \rput[lt](0.6,0.25){$Q=(0.5,0.25)$}
 \psFullDot{0.5}{0.25}
 \psline[linecolor=blue]( 0,-0.5)( 3.066666667,4.1)
+\psXYTick{0.5}{0.25}
 }
 \uncover<21-22>{
 \rput[lt](0.85,0.5625){$Q=(0.75,0.5625)$}
 \psFullDot{0.75}{0.5625}
 \psline[linecolor=blue](0.142857143 ,-0.5)( 2.771428571,4.1)
+\psXYTick{0.75}{0.5625}
 }
 \uncover<23->{
 \rput[lt](1,0.81){$Q=(0.9,0.81)$}
 \psFullDot{0.9}{0.81}
 \psline[linecolor=blue](0.210526316 ,-0.5)(2.631578947 ,4.1)
+\psXYTick{0.9}{0.81}
 }
 \end{pspicture} 
 %\ \only<handout:1| -5>{%
@@ -156,8 +163,8 @@
 \item  Find the tangent to $y = x^2$ at $(1,1)$.
 \item<2->  Tangent has equation $y - 1 = m(x - 1)$, where $m$ is its slope.
 \item<3->  If we know the slope, we know the line.
-\item<4->  We know only one point, $P$; we need two points to find the slope.
-\item<handout:2-| 5->  Solution: choose a nearby point $Q = (x, x^2)$ on the parabola and find the slope $m_{PQ}$ of the secant line $PQ$.
+\item<4->  If we know two points, we can find the slope. We know one point, $P$; we need another point.
+\item<handout:2-| 5->  Choose a nearby point $Q = (x, x^2)$ on the parabola and find the slope $m_{PQ}$ of the secant line $PQ$.
 \item<handout:3-| 27->  The closer $x$ is to $1$, the closer $m_{PQ}$ is to $2$.
 \item<handout:3-| 28->  This suggests the slope of the tangent should be $2$.
 \end{itemize}
