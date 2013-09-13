@@ -1,5 +1,5 @@
 \documentclass%
-[handout]
+%[handout]
 {beamer}
 
 \mode<presentation>
@@ -10,10 +10,12 @@
 \usecolortheme{whale}
 }
 
+\usepackage{etex} %avoiding error: too many packages. This is a LaTeX bug (``feature'')
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{times}
 \usepackage{../example-templates}
+\usepackage{../pstricks-commands}
 \usepackage[T1]{fontenc}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
@@ -270,10 +272,10 @@
 \input{../../modules/derivatives/differentiation-laws-sum}
 \input{../../modules/derivatives/differentiation-laws-polynomial}
 \input{../../modules/derivatives/horizontal-tangent-ex4}
-\input{../../modules/derivatives/product-rule}
-\input{../../modules/derivatives/product-rule-ex6}
-\input{../../modules/derivatives/quotient-rule}
-\input{../../modules/derivatives/quotient-rule-ex8}
+\input{../../modules/product-quotient/product-rule}
+\input{../../modules/product-quotient/product-rule-ex6}
+\input{../../modules/product-quotient/quotient-rule}
+\input{../../modules/product-quotient/quotient-rule-ex8}
 \subsection{General Power Functions}
 \input{../../modules/derivatives/negative-exponents}
 \input{../../modules/derivatives/negative-exponents-ex9}
@@ -283,8 +285,8 @@
 % begin lecture
 \lect{October 3, 2011}{Lecture 12}{12}
 \section{(3.4) Derivatives of Trigonometric Functions}
-\input{../../modules/derivatives-trig/sine-derivative-graph}
-\input{../../modules/derivatives-trig/sine-derivative}
+\input{../../modules/derivatives-trig/derivative-sine-graph}
+\input{../../modules/derivatives-trig/derivative-sine}
 \input{../../modules/derivatives-trig/derivatives-trig-ex1}
 \input{../../modules/derivatives-trig/derivative-cosine}
 \input{../../modules/derivatives-trig/derivative-tangent}
