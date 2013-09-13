@@ -3,7 +3,17 @@
 \begin{example}%[Example 8, p. 236]
 \begin{columns}[c]
 \column{.5\textwidth}
-\ \includegraphics[width=5cm]{curve-sketching/pictures/01-02-xcubed.pdf}%
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-3.5)(2,3.5)
+\psLabelXOne
+\psLabelYOne
+%Function formula: (x)^{3} 
+\psplot[linecolor=red, plotpoints=1000]{-1.5}{1.5}{x 3 exp }
+\rput[l] (1.5, 1){\footnotesize $y=x^3$}
+\end{pspicture} 
+%\includegraphics[width=5cm]{curve-sketching/pictures/01-02-xcubed.pdf}
 \uncover<2->{%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
