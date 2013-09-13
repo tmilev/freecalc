@@ -2,7 +2,20 @@
 \begin{frame}
 \begin{columns}
 \column{.5\textwidth}
-\includegraphics[width=5cm]{limits/pictures/graph-ln.pdf}
+
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.1, -5)(5,2) \psframe*[linecolor=white](-0.1,-5)(5,2) \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.1,-3)(4.5,1.8)
+\psline(1,-0.1)(1,0.1)
+\rput[tl](1, -0.15){$1$}
+\rput[r](-0.15,1){$1$}
+\psline(-0.1,1)(0.1,1)
+\rput(3, 0.6){$y=\ln x$}
+\psplot[linecolor=red, plotpoints=1000]{0.048}{5}{ x ln}
+\end{pspicture}
+%\includegraphics[width=5cm]{limits/pictures/graph-ln.pdf}
+
+
+%\includegraphics[width=5cm]{limits/pictures/graph-ln.pdf}
 
 \abovedisplayskip=0pt
 \belowdisplayskip=-15pt
@@ -11,11 +24,31 @@
 \begin{align*}
 \ln x & \invisible{=} \\
 \alert<handout:0| 2-3>{\lim_{x\to 0^+}\ln x} & \alert<handout:0| 2-3>{= \uncover<3->{-\infty}} \\
-\alert<handout:0| 4-5>{\lim_{x\to 0^-}\ln x} & \alert<handout:0| 4-5>{= \uncover<5->{\text{DNE}}} \\
-\alert<handout:0| 6-7>{\lim_{x\to 0}\ln x} & \alert<handout:0| 6-7>{= \uncover<7->{\text{DNE}}} \\
 \end{align*}
 \column{.5\textwidth}
-\includegraphics[width=5cm]{limits/pictures/graph-tan.pdf}
+
+\psset{xunit=0.25cm,yunit=0.25cm}
+\begin{pspicture*}(-7,-10)(7,10)
+\psaxes[labels=none, ticks=x, Dx=1.570796327] {<->}(0,0)(-5.5,-10)(5.5,10)
+\rput[lt](5.5,0){$x$}
+\rput[lb](0.2,9){$y$}
+%\rput[t](1,-0.1){1}
+\psline[linecolor=gray](1,-0.1)(1,0.1) % x unit mark
+\rput[lb](1.570796327,0.1){$\frac{\pi}2$}
+\psline[linecolor=gray](1.570796327,-0.1)(1.570796327,0.1) % pi/2 unit mark
+%\rput[br](0,1){1}
+\psline[linecolor=gray](-0.1,1)(0.1,1) % y unit mark
+
+\psplot[linecolor=red]{-1.57}{1.57}{ 180 x mul  3.1415 div tan} 
+\psplot[linecolor=red]{-4.71}{-1.58}{ 180 x mul  3.1415 div tan} 
+\psplot[linecolor=red]{1.58}{4.71}{ 180 x mul  3.1415 div tan} 
+
+\psline[linestyle=dotted](-4.71238898,-10)(-4.71238898,10)
+\psline[linestyle=dotted](-1.570796327,-10)(-1.570796327,10)
+\psline[linestyle=dotted](1.570796327,-10)(1.570796327,10)
+\psline[linestyle=dotted](4.71238898,-10)(4.71238898,10)
+\end{pspicture*}
+%\includegraphics[width=5cm]{limits/pictures/graph-tan.pdf}
 
 \abovedisplayskip=0pt
 \belowdisplayskip=-15pt

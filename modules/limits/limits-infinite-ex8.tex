@@ -1,11 +1,18 @@
 % begin module limits-infinite-ex8
 \begin{frame}
 \frametitle{Infinite Limits}
-\begin{example}[Example 8, p. 101]
-Find $\lim_{x\rightarrow 0} \frac{1}{x^2}$ if it exists.
+\begin{example} %[Example 8, p. 101]
+Find $\lim\limits_{x\rightarrow 0} \frac{1}{x^2}$ if it exists.
 \begin{columns}[c]
 \column{.6\textwidth}
-\ \includegraphics[height=3.7cm]{limits/pictures/02-02-xminustwo.pdf}%
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-3.1, -0.5)(5.1,3.1) \psframe*[linecolor=white](-3.1,-0.5)(3,5) 
+\psaxes[ticks=x, labels=none]{<->}(0,0)(-3,-0.5) (3,5)
+\psplot[linecolor=red, plotpoints=1000]{0.447213595}{3}{1 x 2 exp div }
+\psplot[linecolor=red, plotpoints=1000]{-3}{-0.447213595}{1 x 2 exp div}
+\rput(2,2){$y=\frac{1}{x^2}$}
+\end{pspicture} %
+%\ \includegraphics[height=3.7cm]{limits/pictures/02-02-xminustwo.pdf}%
 \column{.4\textwidth}
 \uncover<2->{
 \belowdisplayskip=0pt
