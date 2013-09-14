@@ -1,7 +1,7 @@
 % begin module velocity-ex3
 \begin{frame}
 \frametitle{Velocities}
-\begin{example}[Example 3, p. 137]
+\begin{example} %[Example 3, p. 137]
 Suppose a ball is dropped from the upper deck of the CN Tower, 450m above the ground.  What is the velocity of the ball after 5 seconds?
 \end{example}
 \begin{itemize}
@@ -14,13 +14,53 @@ Suppose a ball is dropped from the upper deck of the CN Tower, 450m above the gr
 \begin{columns}[c]
 \column{.4\textwidth}
 \ \uncover<4->{%
-\includegraphics[height=3.5cm]{derivatives/pictures/03-01-secanta.pdf}%
+
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-1.5)(5.4,4.6)
+%Function formula: -11/8+5/18 ((x) ((x) (x)))-1/81 ((x) ((x) ((x) (x))))-73/36 ((x) (x))+43/8 (x) 
+\psplot[linecolor=red, plotpoints=1000]{0}{5}{x 5.375 mul x x mul -2.02778 mul add x x mul x mul x mul -0.0123457 mul add x x mul x mul 0.277778 mul add -1.375 add }
+
+\psFullDotBlack{0.5}{0.839506173}
+
+\rput[rb] (0.6,0.92){\tiny$P=(a, f(a))$}
+\rput[t](0.5, -0.1){\tiny$a$}
+\psline(0.5,0.1)(0.5,0)
+
+\psline[linestyle=dashed](0.5, 0)(0.5, 0.839506173)
+
+\psline[linecolor=blue](0, 0.631173)(5, 2.71451)
+\psFullDotBlack{4}{2.29784}
+\psline[linestyle=dashed](4, 0)(4, 2.29784)
+\psline(0.5, 0.839506173)(4,0.839506173) (4, 2.29784)
+\rput[t](4, -0.1){\tiny$x$}
+\rput[l](4.1, 1.5){\tiny$f(x)-f(a)$}
+\rput[t](2.25, 0.82){\tiny$x-a$}
+\rput[b](4, 4){\tiny $Q=(x,f(x))$}
+\psline[linestyle=dotted]{->}(4,3.9)(4, 2.29784)
+\end{pspicture} 
+%\includegraphics[height=3.5cm]{derivatives/pictures/03-01-secanta.pdf}%
 
 Slope of secant\\ $ = $ average velocity
 }%
 \column{.4\textwidth}
 \ \uncover<5->{%
-\includegraphics[height=3.5cm]{derivatives/pictures/03-01-tangent.pdf}%
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-1.5)(5.4,4.6)
+%Function formula: -11/8+5/18 ((x) ((x) (x)))-1/81 ((x) ((x) ((x) (x))))-73/36 ((x) (x))+43/8 (x) 
+\psplot[linecolor=red, plotpoints=1000]{0}{5}{x 5.375 mul x x mul -2.02778 mul add x x mul x mul x mul -0.0123457 mul add x x mul x mul 0.277778 mul add -1.375 add }
+
+\psline[linecolor=blue](0, -0.935185185)(1.531304348, 4.5)
+\psFullDotBlack{0.5}{0.839506173}
+
+\rput[rb] (0.6,0.92){\tiny$P=(a, f(a))$}
+\rput[t](0.5, -0.1){\tiny$a$}
+\psline(0.5,0.1)(0.5,0)
+\end{pspicture} 
+%\includegraphics[height=3.5cm]{derivatives/pictures/03-01-tangent.pdf}%
 
 Slope of tangent\\ $ = $ instantaneous velocity
 }%
@@ -29,7 +69,7 @@ Slope of tangent\\ $ = $ instantaneous velocity
 \end{frame}
 
 \begin{frame}
-\begin{example}[Example 3, p. 137]
+\begin{example} %[Example 3, p. 137]
 Suppose a ball is dropped from the upper deck of the CN Tower, 450m above the ground.  What is the velocity of the ball after 5 seconds?
 \begin{itemize}
 \item<2->  The distance $f(x)$ (in meters) that the ball has fallen at time $x$ (in seconds) follows Galileo's law: $f(x) = 4.9x^2$.

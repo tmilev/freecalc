@@ -3,12 +3,27 @@
 \frametitle{Logarithmic Functions}
 \begin{columns}[c]
 \column{.3\textwidth}
-\ \only<handout:0| -7>{%
-\includegraphics[height=4cm]{logarithms/pictures/07-03-logandexpa.pdf}%
-}%
-\only<8->{%
-\includegraphics[height=4cm]{logarithms/pictures/07-03-logandexpb.pdf}%
-}%
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-2.1)(4.2, 4.2)
+\psline(-0.1, 1)(0.1,1)
+\rput[r](-0.2, 1){\footnotesize$1$}
+\rput(0.9, 3){\footnotesize$y=a^x$}
+%Function formula: 2^{x} 
+\psplot[linecolor=red, plotpoints=1000]{-2}{2}{2 x exp }
+\uncover<8->{
+\psplot[linecolor=red, plotpoints=1000]{0.25}{4}{x ln 0.693147181 div }
+\psline[linestyle=dashed, linecolor=blue](-1.9, -1.9)(4,4) 
+\rput[tl](2, 0.7){\footnotesize$y=\log_ax$}
+}
+\end{pspicture} 
+%\ \only<handout:0| -7>{%
+%\includegraphics[height=4cm]{logarithms/pictures/07-03-logandexpa.pdf}%
+%}%
+%\only<8->{%
+%\includegraphics[height=4cm]{logarithms/pictures/07-03-logandexpb.pdf}%
+%}%
 \column{.7\textwidth}
 \begin{itemize}
 \item  Suppose $a > 0$, $a\neq 1$.
