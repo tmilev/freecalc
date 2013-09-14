@@ -12,10 +12,34 @@ Find the sum of the areas of the four approximating rectangles obtained using ri
 \end{itemize}
 \column{.5\textwidth}
 \only<handout:1| -8>{%
-\includegraphics[height=4.5cm]{integration/pictures/05-01-rightb.pdf}%
+\psset{xunit=3cm, yunit=3cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.3,-0.3)(1.2,1.2)
+\tiny
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](0.25, 0)(0.25, 0.0625)(0, 0.0625)(0, 0)(0.5, 0)(0.5, 0.25)(0.25, 0.25)(0.25, 0)(0.75, 0)(0.75, 0.5625)(0.5, 0.5625)(0.5, 0)(1, 0)(1, 1)(0.75, 1)(0.75, 0)
+\psline[linecolor=blue, linewidth=0.1pt](0.25, 0)(0.25, 0.0625)(0, 0.0625)(0, 0)(0.5, 0)(0.5, 0.25)(0.25, 0.25)(0.25, 0)(0.75, 0)(0.75, 0.5625)(0.5, 0.5625)(0.5, 0)(1, 0)(1, 1)(0.75, 1)(0.75, 0)
+\rput[t](0.25,-0.03){$\frac{1}{4}$}\rput[t](0.5,-0.03){$\frac{1}{2}$}\rput[t](0.75,-0.03){$\frac{3}{4}$}\rput[t](1,-0.03){$1$}
+%Function formula: (x)^{2} 
+\rput[t](0.5,1){$y=x^{2}$} 
+\psplot[linecolor=red, plotpoints=1000]{0}{1}{x 2 exp }
+\end{pspicture} 
+%\includegraphics[height=4.5cm]{integration/pictures/05-01-rightb.pdf}%
 }%
 \only<handout:2| 9->{%
-\includegraphics[height=4.5cm]{integration/pictures/05-01-leftb.pdf}%
+\psset{xunit=3cm, yunit=3cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.3,-0.3)(1.2,1.2)
+\tiny 
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](0, 0)(0, 0)(0.25, 0)(0.25, 0)(0.25, 0)(0.25, 0.0625)(0.5, 0.0625)(0.5, 0)(0.5, 0)(0.5, 0.25)(0.75, 0.25)(0.75, 0)(0.75, 0)(0.75, 0.5625)(1, 0.5625)(1, 0)
+\psline[linecolor=blue, linewidth=0.1pt](0, 0)(0, 0)(0.25, 0)(0.25, 0)(0.25, 0)(0.25, 0.0625)(0.5, 0.0625)(0.5, 0)(0.5, 0)(0.5, 0.25)(0.75, 0.25)(0.75, 0)(0.75, 0)(0.75, 0.5625)(1, 0.5625)(1, 0)
+\rput[t](0.25,-0.03){$\frac{1}{4}$}\rput[t](0.5,-0.03){$\frac{1}{2}$}\rput[t](0.75,-0.03){$\frac{3}{4}$}\rput[t](1,-0.03){$1$}
+%Function formula: (x)^{2} 
+\rput[t](0.5,1){$y=x^{2}$} 
+\psplot[linecolor=red, plotpoints=1000]{0}{1}{x 2 exp }
+\end{pspicture} 
+%\includegraphics[height=4.5cm]{integration/pictures/05-01-leftb.pdf}%
 }%
 \end{columns}
 \uncover<7->{%

@@ -13,7 +13,37 @@
 \begin{columns}
 \column{.55\textwidth}
 \uncover<4->{%
-\includegraphics[width=6cm]{integration/pictures/05-04-distance.pdf}
+
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.5,-2)(4.7,2.5)\tiny
+%Function formula: 4 (x)+1/2 ((x)^{3})-3 ((x)^{2}) 
+\pscustom*[linecolor=cyan]{ 
+\psplot[linecolor=red, plotpoints=1000]{4}{4.4}{x 2 exp -3 mul x 3 exp 0.5 mul x 4 mul add add } 
+\psline(4.4,0)(4,0)
+}
+%Function formula: 4 (x)+1/2 ((x)^{3})-3 ((x)^{2}) 
+\pscustom*[linecolor=orange]{ 
+\psplot[linecolor=red, plotpoints=1000]{2}{4}{x 2 exp -3 mul x 3 exp 0.5 mul x 4 mul add add } 
+\psline(4,0)(2,0)
+}
+%Function formula: 4 (x)+1/2 ((x)^{3})-3 ((x)^{2}) 
+\pscustom*[linecolor=cyan]{ 
+\psplot[linecolor=red, plotpoints=1000]{0.1}{2}{x 2 exp -3 mul x 3 exp 0.5 mul x 4 mul add add }
+\psline(2,0)(0.1,0)
+}
+\psplot[linecolor=red, plotpoints=1000]{0.1}{4.4}{x 2 exp -3 mul x 3 exp 0.5 mul x 4 mul add add }
+\psline(0.1, -0.1)(0.1, 0.1)
+\psline(4.4, -0.1)(4.4, 0.1)
+\rput[t](0.1, -0.15){$t_1$}
+\rput[t](4.4, -0.15){$t_2$}
+\rput(2, 1){$v(t)$}
+\rput (1, 0.5){$A_1$}
+\rput (3, -0.5){$A_2$}
+\rput[l] (4.2, 0.5){$A_3$}
+\end{pspicture} 
+%\includegraphics[width=6cm]{integration/pictures/05-04-distance.pdf}
 }%
 \column{.45\textwidth}
 \abovedisplayskip=0pt
