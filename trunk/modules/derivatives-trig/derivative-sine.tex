@@ -36,7 +36,6 @@ We need to do more work to find the other two limits.
 }%
 \end{frame}
 
-
 \begin{frame}
 \begin{columns}[c]
 \column{.6\textwidth}
@@ -45,30 +44,121 @@ We need to do more work to find the other two limits.
 \]
 First suppose $0 < \theta < \frac{\pi}{2}$.  Then we can write $\sin \theta$ using ratios of side lengths of a triangle.
 \column{.4\textwidth}
-\ \only<handout:0| -3>{%
-\includegraphics[width=4.5cm]{derivatives-trig/pictures/03-04-proofa.pdf}%
-}%
-\only<handout:0| 4-9>{%
-\includegraphics[width=4.5cm]{derivatives-trig/pictures/03-04-proofb.pdf}%
-}%
-\only<handout:0| 10>{%
-\includegraphics[width=4.5cm]{derivatives-trig/pictures/03-04-proofc.pdf}%
-}%
-\only<11->{%
-\includegraphics[width=4.5cm]{derivatives-trig/pictures/03-04-proofd.pdf}%
-}%
+\psset{xunit=1.2cm, yunit=1.2cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny 
+\psline[linecolor=gray!1](3.2, 2)(3.25, 2.05)
+
+\only<1-4, 8->{\psplot[linewidth=0.3pt]{2.598076211}{3}{9 x x mul sub sqrt}
+}
+\only<5-7>{
+\psplot[linecolor=red, linewidth=0.3pt] {2.598076211}{3}{9 x x mul sub sqrt}
+}
+
+\psline[linewidth=0.3pt](0,0)(3,0)
+\psline[linewidth=0.3pt](0,0)(2.598076211,1.5)
+\psline[linewidth=0.3pt](-0.05,0.08660254)(2.548076211,1.58660254)
+\psline[linewidth=0.3pt](-0.025, 0.04330127) (-0.075, 0.12990381)
+\psline[linewidth=0.3pt](2.573076211, 1.54330127) (2.523076211, 1.62990381)
+\rput[b](1.25,0.9){$1$}
+
+
+\only<1-2, 6-7>{ %line BC
+\psline[linewidth=0.3pt](2.598076211,0)(2.598076211,1.5)
+\psline[linewidth=0.3pt](2.498076211,0)(2.498076211,0.1)(2.598076211,0.1)
+}
+\only<3-5>{ % line BC
+\psline[linecolor=red, linewidth=0.3pt](2.598076211,0)(2.598076211,1.5)
+\psline[linecolor=red, linewidth=0.3pt] (2.498076211,0)(2.498076211,0.1)(2.598076211,0.1)
+}
+\only<8->{ % line BC
+\psline[linecolor=gray, linewidth=0.3pt](2.598076211,0)(2.598076211,1.5)
+\psline[linecolor=gray, linewidth=0.3pt] (2.498076211,0)(2.498076211,0.1)(2.598076211,0.1)
+}
+\only<4-5>{ %line AB
+\psline[linecolor=red, linewidth=0.3pt](2.598076211,1.5)(3,0)
+}
+\only<6-7>{ %line AB
+\psline[linewidth=0.3pt](2.598076211,1.5)(3,0)
+}
+\only<8->{ %line AB
+\psline[linecolor=gray, linewidth=0.3pt] (2.598076211,1.5)(3,0)
+}
+\only<10-11>{ % line BD
+\psline[linewidth=0.3pt, linecolor=red] (2.598076211,1.5)(3,0.866025404)
+}
+\only<12->{ % line BD
+\psline[linewidth=0.3pt](2.598076211,1.5)(3,0.866025404)
+}
+\only<10, 12->{ %line DA
+\psline[linewidth=0.3pt, linecolor=red]
+(3, 0.866025404)(3,0)
+\psline[linewidth=0.3pt, linecolor=red](2.9,0)(2.9,0.1)(3,0.1)
+\rput[l](3.1,0.866025404){$D$}
+}
+\only<11, 15->{ %line DA
+\psline[linewidth=0.3pt]
+(3, 0.866025404)(3,0)
+\psline[linewidth=0.3pt, linecolor=gray](2.9,0)(2.9,0.1)(3,0.1)
+\rput[l](3.1,0.866025404){$D$}
+}
+
+\only<11>{ %line BE
+\psline[linewidth=0.3pt, linecolor=red]
+(2.598076211,1.5)(3,1.732050808)
+\psline[linewidth=0.3pt, linecolor=red]
+(2.684678752, 1.55) (2.734678752,1.46339746) (2.648076211,1.41339746)
+}
+\only<12->{ %line BE
+\psline[linewidth=0.3pt]
+(2.598076211,1.5)(3,1.732050808)
+\psline[linewidth=0.3pt]
+(2.684678752, 1.55) (2.734678752,1.46339746) (2.648076211,1.41339746)
+}
+\only<11-14>{ %line DE
+\psline[linewidth=0.3pt, linecolor=red]
+(3, 1.732050808)(3,0.866025404)
+\rput[l](3.1,1.732050808){$E$}
+}
+\only<15->{ %line DE
+\psline[linewidth=0.3pt]
+(3, 1.732050808)(3,0.866025404)
+\rput[l](3.1,1.732050808){$E$}
+}
+
+\rput[lb](0.3, 0.02){\alert<7>{$\theta$}}
+\psarc[linecolor=red](0,0){0.29}{0}{30}
+\rput[tr] (-0.1,-0.1){$O$}
+\rput[t] (2.598076211,-0.1){$C$}
+\rput[t] (3,-0.1){$A$}
+\rput[b](2.598076211,1.6){$B$}
+\end{pspicture}
+%\ \only<handout:0| -3>{%
+%\includegraphics[width=4.5cm]{derivatives-trig/pictures/03-04-proofa.pdf}%
+%}%
+%\only<handout:0| 4-9>{%
+%\includegraphics[width=4.5cm]{derivatives-trig/pictures/03-04-proofb.pdf}%
+%}%
+%\only<handout:0| 10>{%
+%\includegraphics[width=4.5cm]{derivatives-trig/pictures/03-04-proofc.pdf}%
+%}%
+%\only<11->{%
+%\includegraphics[width=4.5cm]{derivatives-trig/pictures/03-04-proofd.pdf}%
+%}%
+
 \end{columns}
 \[
 \uncover<2->{%
-\alert<handout:0| 2-3>{%
+\alert<handout:0| 2-5>{%
 \sin \theta = \uncover<3->{|BC|} %
 }%
 }%
 \uncover<4->{%
- < |AB|%
+\alert<4-5>{< |AB|}%
 }%
 \uncover<5->{%
- < \alert<handout:0| 6-7>{\text{arc} AB \uncover<6->{ = } \uncover<7->{\theta}}%
+ \alert<5>{<} \alert<handout:0| 5-7>{\text{arc} AB \uncover<6->{ = } \uncover<7->{\theta}}%
 }%
 \]
 \uncover<8->{%
@@ -82,18 +172,22 @@ Therefore $\alert<handout:0| 18>{\frac{\sin \theta}{\theta} < 1}$.%
 }%
 & \uncover<10->{ < }  %
 \uncover<10->{%
-|AD| + \alert<handout:0| 11>{|DB|}%
+\alert<10>{|AD|} + \alert<handout:0| 10,11>{|DB|}%
 }  \uncover<11->{ < }  \uncover<11->{%
 |AD| + \alert<handout:0| 11>{|DE|}%
 }\\%
 & \uncover<12->{ = }  %
 \uncover<12->{%
+\alert<12-14>{
 |AE|%
+}
 }%
 \uncover<13->{%
  = |OA| \tan \theta
 }  \uncover<14->{ = }  \uncover<14->{%
+\alert<14>{
 \tan \theta%
+}
 }%
 \end{align*}
 \uncover<15->{%

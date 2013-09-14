@@ -1,6 +1,6 @@
 % begin module linearization-ex1
 \begin{frame}
-\begin{example}[Example 1, p. 241]
+\begin{example} %[Example 1, p. 241]
 Find the linearization of the function $f(x) = \sqrt{x+3}$ at $a = 1$ and use it to approximate the numbers $\sqrt{3.98}$ and $\sqrt{4.05}$.  Are these approximations overestimates or underestimates?
 \begin{columns}[c]
 \column{.5\textwidth}
@@ -32,12 +32,32 @@ L(x)
 }%
 \end{align*}
 \column{.5\textwidth}
-\ \only<handout:0| -11>{%
-\includegraphics[width=6cm]{differentials/pictures/03-09-ex1a.pdf}%
-}%
-\only<12->{%
-\includegraphics[width=6cm]{differentials/pictures/03-09-ex1b.pdf}%
-}%
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\tiny
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-4,-0.5)(5,3.5)
+%Function formula: sqrt{}(3+x) 
+\psline(-3, -0.1)(-3, 0.1)
+\rput[t](-3, -0.15){$-3$} 
+\psline(1, -0.1)(1, 0.1)
+\rput[t](1, -0.15){$1$} 
+\rput(3.5,2){$y=\sqrt{3+x}$} 
+\psplot[linecolor=red, plotpoints=1000]{-3}{5}{x 3 add sqrt }
+\psFullDotBlack{1}{2}
+\rput[b](1,2.1){$(1,2)$}
+%Function formula: 7/4+1/4 (x) 
+\uncover<12->{
+\rput(-2,2){$y=\frac74+\frac14 x$} 
+\psplot[linecolor=blue, plotpoints=1000]{-4}{5}{x 0.25 mul 1.75 add } 
+}
+\end{pspicture} 
+%\ \only<handout:0| -11>{%
+%\includegraphics[width=6cm]{differentials/pictures/03-09-ex1a.pdf}%
+%}%
+%\only<12->{%
+%\includegraphics[width=6cm]{differentials/pictures/03-09-ex1b.pdf}%
+%}%
 
 \uncover<18->{%
 The linearization is above the curve, so these are overestimates.%

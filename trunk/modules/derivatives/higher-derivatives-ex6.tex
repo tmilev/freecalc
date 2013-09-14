@@ -1,21 +1,43 @@
 % begin module higher-derivatives-ex6
 \begin{frame}
-\begin{example}[Example 7, p. 153]
+\begin{example} %[Example 7, p. 153]
 If $f(x) = x^3-x$, find $f''(x)$.
 \begin{columns}[c]
 \column{.4\textwidth}
-\ \only<handout:0| 1>{%
-\includegraphics[height=4.5cm]{derivatives/pictures/03-02-ex6a.pdf}%
-}%
-\only<handout:0| 2-7>{%
-\includegraphics[height=4.5cm]{derivatives/pictures/03-02-ex6b.pdf}%
-}%
-\only<8->{%
-\includegraphics[height=4.5cm]{derivatives/pictures/03-02-ex6c.pdf}%
-}%
+\psset{xunit=1.2cm, yunit=1.2cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-2)(2,2)
+\psLabelXOne
+\psLabelYOne
+\uncover<8->{
+%Function formula: 6 (x) 
+\psplot[linecolor=green, plotpoints=1000]{-0.333333333}{0.333333333}{x 6 mul } 
+\rput[br](-0.4,-2){$f''(x)$}
+}
+\uncover<2->{
+%Function formula: 3 ((x)^{2})-1 
+\psplot[linecolor=blue, plotpoints=1000]{-1}{1}{-1 x 2 exp 3 mul add } 
+\rput[r](-1, 1){$f'(x)$}
+}
+%Function formula: - (x)+(x)^{3} 
+\psplot[linecolor=red, plotpoints=1000]{-1.521379707}{1.521379707}{x 3 exp x -1 mul add }
+\rput[bl](1.2, 0.1){$f(x)$}
+\end{pspicture} 
+%\ \only<handout:0| 1>{%
+%\includegraphics[height=4.5cm]{derivatives/pictures/03-02-ex6a.pdf}%
+%}%
+%\only<handout:0| 2-7>{%
+%\includegraphics[height=4.5cm]{derivatives/pictures/03-02-ex6b.pdf}%
+%}%
+%\only<8->{%
+%\includegraphics[height=4.5cm]{derivatives/pictures/03-02-ex6c.pdf}%
+%}%
+
 \column{.6\textwidth}
 \uncover<2->{%
-In Example 2 we found that the first derivative is $f'(x) = 3x^2 - 1$.
+In a previous exercise we found that the first derivative is $f'(x) = 3x^2 - 1$.
 }%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
