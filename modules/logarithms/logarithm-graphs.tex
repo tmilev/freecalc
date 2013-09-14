@@ -2,18 +2,44 @@
 \begin{frame}
 \begin{center}
 Graphs of various logarithmic functions with $a > 1$
-\ \only<handout:0| -1>{%
-\includegraphics[height=6cm]{logarithms/pictures/07-03-manylogsa.pdf}%
-}%
-\only<handout:0| 2>{%
-\includegraphics[height=6cm]{logarithms/pictures/07-03-manylogsb.pdf}%
-}%
-\only<handout:0| 3>{%
-\includegraphics[height=6cm]{logarithms/pictures/07-03-manylogsc.pdf}%
-}%
-\only<4->{%
-\includegraphics[height=6cm]{logarithms/pictures/07-03-manylogsd.pdf}%
-}%
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-4.5)(7.5,2.5)
+\psline(1,-0.1)(1,0.1)
+%Function formula: ln(x)/ln(2)
+\psplot[linecolor=red, plotpoints=1000]{0.044194174}{7.5}{x ln 0.693147181 div}
+\rput[r](3, 1.8){\footnotesize $y=log_2 x$}
+\uncover<2->{
+%Function formula: ln{x}/ln(3) 
+\psplot[linecolor=black, plotpoints=1000]{0.007127781}{7.5}{x ln 1.098612289 div}
+\rput[l](3.6, 1.6 ){\footnotesize $y=log_3 x$}
+}
+\uncover<3->{
+%Function formula: ln{x}/ln(5) 
+\psplot[linecolor=blue, plotpoints=1000]{0.000715542}{7.5}{x ln 1.609437912 div}
+\rput[l](3.7, 1.1){\footnotesize $y=log_5 x$}
+}
+\uncover<4->{
+%Function formula: ln{x}/ln(5) 
+\psplot[linecolor=green, plotpoints=1000]{0.000031623}{7.5}{x ln 2.302585093 div}
+\rput[tl](3.6, 0.6){\footnotesize $y=log_{10} x$}
+}
+%\rput(6, 1){\color{red!1} .}
+\end{pspicture} 
+%\ \only<handout:0| -1>{%
+%\includegraphics[height=6cm]{logarithms/pictures/07-03-manylogsa.pdf}%
+%}%
+%\only<handout:0| 2>{%
+%\includegraphics[height=6cm]{logarithms/pictures/07-03-manylogsb.pdf}%
+%}%
+%\only<handout:0| 3>{%
+%\includegraphics[height=6cm]{logarithms/pictures/07-03-manylogsc.pdf}%
+%}%
+%\only<4->{%
+%\includegraphics[height=6cm]{logarithms/pictures/07-03-manylogsd.pdf}%
+%}%
+\pause\pause\pause
 \end{center}
 \end{frame}
 % end module logarithm-graphs
