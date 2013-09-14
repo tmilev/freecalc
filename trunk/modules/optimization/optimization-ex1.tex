@@ -1,34 +1,92 @@
 % begin module optimization-ex1
 \begin{frame}
-\begin{example}[Example 1, p. 300]
+\begin{example} %[Example 1, p. 300]
 \alert<handout:0| 10>{A farmer has 2400 ft of fencing} and wants to fence off a rectangular field that borders a straight river.  He doesn't need to put fencing along the river.  What are the dimensions of the field with the largest area?
 \begin{columns}[c]
 \column{.5\textwidth}
-\ \only<handout:0| -2>{%
-\uncover<2>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex1a.pdf}%
-}}%
-\only<handout:0| 3>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex1b.pdf}%
-}%
-\only<handout:0| 4>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex1c.pdf}%
-}%
-\only<handout:0| 5>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex1d.pdf}%
-}%
-\only<handout:0| 6>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex1e.pdf}%
-}%
-\only<handout:0| 7>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex1f.pdf}%
-}%
-\only<handout:0| 8>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex1g.pdf}%
-}%
-\only<9->{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex1h.pdf}%
-}%
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,6) 
+\psdot[linecolor=red!1](0, 2.6)
+\tiny
+%Function formula: 1/20 (\sin{}(x)) 
+\psplot[linecolor=blue, plotpoints=1000]{-3}{3}{x 57.29578 mul sin 0.05 mul } 
+%Function formula: -1+1/20 (\sin{}(2+6/5*(x))) 
+\psplot[linecolor=blue, plotpoints=1000]{-3}{3}{x 1.2 mul 2 add 57.29578 mul sin 0.05 mul -1 add }
+\uncover<2>{
+\psline[linecolor=red](-2, 0)(-2, 0.4)(2, 0.4)(2, 0)
+\rput[r] (-2.2, 0.2){$200$}
+\rput[l] (2.2, 0.2){$200$}
+\rput[b] (0, 0.6){$2000$}
+} 
+\uncover<3>{
+\psline[linecolor=red](-1.8, 0)(-1.8, 0.6)(1.8, 0.6)(1.8, 0)
+\rput[r] (-2, 0.3){$300$}
+\rput[l] (2, 0.3){$300$}
+\rput[b] (0, 0.8){$1800$}
+} 
+\uncover<4>{
+\psline[linecolor=red](-1.4, 0)(-1.4, 1)(1.4, 1)(1.4, 0)
+\rput[r] (-1.6, 0.5){$500$}
+\rput[l] (1.6, 0.5){$500$}
+\rput[b] (0, 1.2){$1400$}
+} 
+\uncover<5>{
+\psline[linecolor=red](-1.2, 0)(-1.2, 1.2)(1.2, 1.2)(1.2, 0)
+\rput[r] (-1.4, 0.6){$600$}
+\rput[l] (1.4, 0.6){$600$}
+\rput[b] (0, 1.4){$1200$}
+} 
+\uncover<6>{
+\psline[linecolor=red](-0.8, 0)(-0.8, 1.6)(0.8, 1.6)(0.8, 0)
+\rput[r] (-1, 0.8){$800$}
+\rput[l] (1, 0.8){$800$}
+\rput[b] (0, 1.8){$800$}
+} 
+\uncover<7>{
+\psline[linecolor=red](-0.6, 0)(-0.6, 1.8)(0.6, 1.8)(0.6, 0)
+\rput[r] (-0.8, 0.9){$900$}
+\rput[l] (0.8, 0.9){$900$}
+\rput[b] (0, 2){$600$}
+} 
+\uncover<8>{
+\psline[linecolor=red](-0.2, 0)(-0.2, 2.2)(0.2, 2.2)(0.2, 0)
+\rput[r] (-0.4, 1.1){$1100$}
+\rput[l] (0.4, 1.1){$1100$}
+\rput[b] (0, 2.4){$200$}
+} 
+\uncover<9->{
+\psline[linecolor=red](-1.4, 0)(-1.4, 1)(1.4, 1)(1.4, 0)
+\rput[r] (-1.6, 0.5){$x$}
+\rput[l] (1.6, 0.5){$x$}
+\rput[b] (0, 1.2){$y$}
+} 
+\end{pspicture}
+%\ \only<handout:0| -2>{%
+%\uncover<2>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex1a.pdf}%
+%}}%
+%\only<handout:0| 3>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex1b.pdf}%
+%}%
+%\only<handout:0| 4>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex1c.pdf}%
+%}%
+%\only<handout:0| 5>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex1d.pdf}%
+%}%
+%\only<handout:0| 6>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex1e.pdf}%
+%}%
+%\only<handout:0| 7>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex1f.pdf}%
+%}%
+%\only<handout:0| 8>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex1g.pdf}%
+%}%
+%\only<9->{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex1h.pdf}%
+%}%
 
 \uncover<2->{%
 Area $ = %

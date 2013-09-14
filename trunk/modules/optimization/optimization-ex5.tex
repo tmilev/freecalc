@@ -1,38 +1,80 @@
 % begin module optimization-ex5
 \begin{frame}
-\begin{example}[Example 5, p. 303]
-Find the area of the largest rectangle that can be inscribed in a semicircle of radius $r$.
+\begin{example} %[Example 5, p. 303]
+Find the largest possible area of a rectangle inscribed in a semicircle of radius $r$.
 \begin{columns}[c]
 \column{.5\textwidth}
-\ \only<handout:0| -2>{%
-\uncover<2>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5a.pdf}%
-}}%
-\only<handout:0| 3>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5b.pdf}%
-}%
-\only<handout:0| 4>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5c.pdf}%
-}%
-\only<handout:0| 5>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5d.pdf}%
-}%
-\only<handout:0| 6>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5e.pdf}%
-}%
-\only<handout:0| 7>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5f.pdf}%
-}%
-\only<handout:0| 8>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5g.pdf}%
-}%
-\only<handout:0| 9>{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5h.pdf}%
-}%
-\only<10->{%
-\includegraphics[width=5cm]{optimization/pictures/04-07-ex5i.pdf}%
-}%
+\psset{xunit=1.8cm, yunit=1.8cm}
+\begin{pspicture}(0,0)(1,1)
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.5,-0.5)(1.5,1.5)
+\tiny
+%Function formula: sqrt{}(1- ((x)^{2})) 
+\psplot[linecolor=black, plotpoints=1000]{-1}{1}{x 2 exp -1 mul 1 add sqrt }
+\rput[t](1,-0.1){$r$}
+\rput[t](-1,-0.1){$-r$}
 
+\uncover<10->{
+\psline[linecolor=red](-0.866025404, 0.5,)(0.866025404, 0.5)
+\pcline[offset=-5pt]{<->}(-0.866025404, 0.5)(0.866025404, 0.5)
+\lput*{:U}(0.7){$2x$}
+\psline[linecolor=red](-0.866025404, 0)(-0.866025404, 0.5)(0.866025404, 0.5)(0.866025404, 0)
+\psFullDot{0.866025404}{0.5}
+\rput[bl](0.866025404,0.6){$(x,y)$}
+}
+\uncover<2>{
+\psline[linecolor=red](-0.9, 0) (-0.9, 0.43589) (0.9, 0.43589) (0.9, 0)
+}
+\uncover<3>{
+\psline[linecolor=red](-0.8, 0) (-0.8, 0.6) (0.8, 0.6) (0.8, 0)
+}
+\uncover<4>{
+\psline[linecolor=red](-0.7, 0) (-0.7, 0.714143) (0.7, 0.714143) (0.7, 0)
+}
+\uncover<5>{
+\psline[linecolor=red](-0.6, 0) (-0.6, 0.8) (0.6, 0.8) (0.6, 0)
+}
+\uncover<6>{
+\psline[linecolor=red](-0.5, 0) (-0.5, 0.866025) (0.5, 0.866025) (0.5, 0)
+}
+\uncover<7>{
+\psline[linecolor=red](-0.4, 0) (-0.4, 0.916515) (0.4, 0.916515) (0.4, 0)
+}
+\uncover<8>{
+\psline[linecolor=red](-0.3, 0) (-0.3, 0.953939) (0.3, 0.953939) (0.3, 0)
+}
+\uncover<9>{
+\psline[linecolor=red](-0.2, 0) (-0.2, 0.979796) (0.2, 0.979796) (0.2, 0)
+}
+\end{pspicture}
+%\ \only<handout:0| -2>{%
+%\uncover<2>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5a.pdf}%
+%}}%
+%\only<handout:0| 3>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5b.pdf}%
+%}%
+%\only<handout:0| 4>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5c.pdf}%
+%}%
+%\only<handout:0| 5>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5d.pdf}%
+%}%
+%\only<handout:0| 6>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5e.pdf}%
+%}%
+%\only<handout:0| 7>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5f.pdf}%
+%}%
+%\only<handout:0| 8>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5g.pdf}%
+%}%
+%\only<handout:0| 9>{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5h.pdf}%
+%}%
+%\only<10->{%
+%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5i.pdf}%
+%}%
 \uncover<12->{To eliminate $y$, use the fact that $(x,y)$ lies on the semicircle.}%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
@@ -76,7 +118,7 @@ Critical number: \alert<handout:0| 19-20>{$x = $ \uncover<20->{$\frac{r}{\sqrt{2
 }%
 \end{columns}
 \uncover<21->{%
-There is a local max. here because $A(0) = 0 = A(r)$.  Therefore the maximum area is $A(\frac{r}{\sqrt{2}}) = $ $ 2\frac{r}{\sqrt{2}}\sqrt{r^2 - \frac{r^2}{2}} = r^2$.
+There is a local max. here because $A(0) = 0 = A(r)$.  Therefore the maximum area is $A(\frac{r}{\sqrt{2}}) = $ $ 2\frac{r}{\sqrt{2}}\sqrt{r^2 - \frac{r^2}{2}} = r^2$, achieved for $x=y=\frac{r}{\sqrt{2}}$
 }%
 \end{example}
 \end{frame}
