@@ -8,7 +8,16 @@ What does Fermat's Theorem not say?
 \begin{example}
 \begin{columns}[c]
 \column{.4\textwidth}
-\ \includegraphics[width=3cm]{maxima-minima/pictures/01-02-xcubed.pdf}%
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-3.375,-3.375)(3.375,3.375)
+%Function formula: (x)^{3} 
+\rput(2,2){$y=x^{3}$} 
+\psplot[linecolor=red, plotpoints=1000]{-1.5}{1.5}{x 3 exp }
+\end{pspicture} 
+%\ \includegraphics[width=3cm]{maxima-minima/pictures/01-02-xcubed.pdf}%
 \column{.6\textwidth}
 \begin{itemize}
 \item<2->  Let $f(x) = x^3$.
@@ -34,7 +43,17 @@ What does Fermat's Theorem not say?
 \begin{example}
 \begin{columns}[c]
 \column{.45\textwidth}
-\ \includegraphics[width=6cm]{maxima-minima/pictures/04-01-abs.pdf}%
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-0.5)(2.5,2.5)
+%Function formula: (x)^{3} 
+\rput(1,2){$y=|x|$} 
+\psplot[linecolor=red, plotpoints=1000]{-2.5}{0}{-1 x mul  }
+\psplot[linecolor=red, plotpoints=1000]{0}{2.5}{x }
+\end{pspicture} 
+%\ \includegraphics[width=6cm]{maxima-minima/pictures/04-01-abs.pdf}%
 \column{.55\textwidth}
 \begin{itemize}
 \item<2->  Let $f(x) = |x|$.

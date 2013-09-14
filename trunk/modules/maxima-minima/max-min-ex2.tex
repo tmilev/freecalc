@@ -1,10 +1,21 @@
 % begin module max-min-ex2
 \begin{frame}
-\begin{example}[Example 2, p. 263]
+\begin{example} %[Example 2, p. 263]
 Consider the function $y = x^2$.
 \begin{columns}[c]
 \column{.5\textwidth}
-\ \includegraphics[width=6cm]{maxima-minima/pictures/01-02-xsquared.pdf}%
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\tiny
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-3,-0.5)(3,4)
+%Function formula: x^{2} 
+\rput(1,3){$y=x^{2}$} 
+\psplot[linecolor=red, plotpoints=1000]{-2}{2}{x 2 exp }
+\psLabelXOne
+\psLabelYOne
+\end{pspicture} 
+%\ \includegraphics[width=6cm]{maxima-minima/pictures/01-02-xsquared.pdf}%
 \column{.5\textwidth}
 \begin{itemize}
 \item<1-| alert@2-3>  Absolute maximum: \uncover<3->{None}
