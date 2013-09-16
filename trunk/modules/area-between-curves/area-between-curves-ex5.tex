@@ -2,22 +2,60 @@
 \begin{frame}
 \begin{example}%[Example 5, p. 350]
 \begin{columns}
-\column{.35\textwidth}
-\ \ \only<handout:0| -2>{%
-\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5a.pdf}%
-}%  
-\only<handout:0| 3-4>{%
-\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5b.pdf}%
-}%  
-\only<handout:0| 5>{%
-\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5c.pdf}%
-}%  
-\only<handout:0| 6-7>{%
-\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5d.pdf}%
-}%  
-\only<8->{%
-\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5e.pdf}%
-}%  
+\column{.4\textwidth}
+~
+\psset{xunit=1.1cm, yunit=1.1cm}
+\begin{pspicture}(-0.5, -5)(3.5,5) 
+\psframe*[linecolor=white](-0.6,-5)(3.6,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.6,-1.2)(3.5,1.2)
+\psLabels{3.5}{1.1}
+\uncover<3->{ %
+\psXTickWithLabel{0.785398163}{\alert<3>{$\frac{\pi}{4}$}}
+\psFullDot{0.785398163}{0.707106781}
+} %
+\psXTickWithLabel{3.141592654}{$\pi$}
+
+\uncover<8->{
+\rput[r](-0.05,0.5){\alert<8>{$x=0$}}
+\rput[l](1.64,0.5){\alert<8>{$x=\frac{\pi}{2}$}}
+\pscustom*[linecolor=\psColorAreaUnderGraph]{ %
+%Function formula: \sin{}(x) 
+\psplot[plotpoints=1000]{0}{1.570796327}{x 57.29578 mul sin }
+%Function formula: \cos{}(x) 
+\psplot[plotpoints=1000]{1.570796327}{0}{x 57.29578 mul cos }
+} %
+\rput[r](0.470796327, 0.6){$A_1$}
+\rput[l](1.1, 0.6){$A_2$}
+}
+
+\uncover<5->{ %
+%Function formula: \sin{}(x) 
+\rput[tl](2.5,0.8){$y=\sin{}(x)$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-0.5}{3.5}{x 57.29578 mul sin }
+} %
+\uncover<6->{ %
+%Function formula: \cos{}(x) 
+\rput[rb](2.4,-1){$y=\cos{}(x)$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-0.5}{3.5}{x 57.29578 mul cos }
+} %
+\end{pspicture} 
+
+%\ \ \only<handout:0| -2>{%
+%\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5a.pdf}%
+%}%  
+%\only<handout:0| 3-4>{%
+%\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5b.pdf}%
+%}%  
+%\only<handout:0| 5>{%
+%\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5c.pdf}%
+%}%  
+%\only<handout:0| 6-7>{%
+%\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5d.pdf}%
+%}%  
+%\only<8->{%
+%\includegraphics[height=3cm]{area-between-curves/pictures/06-01-ex5e.pdf}%
+%}%  
 \begin{enumerate}
 \item<2->  Find the point of intersection.
 \item<4->  Graph the functions.
@@ -25,7 +63,7 @@
 \item<9->  Integrate.
 \end{enumerate}
 
-\column{.7\textwidth}
+\column{.65\textwidth}
 Find the area of the region enclosed by the curves $\alert<handout:0| 5>{y =} \alert<handout:0| 5>{\sin x}$, $\alert<handout:0| 6>{y =} \alert<handout:0| 6>{\cos x}$, $\alert<handout:0| 8>{x = 0}$ and $\alert<handout:0| 8>{x = \pi/2}$.
 
 \uncover<3->{The only point of intersection in the interval $[0,\pi /2]$ is $(\pi /4, 1/\sqrt{2} )$.}

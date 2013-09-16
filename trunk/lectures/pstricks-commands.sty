@@ -43,14 +43,15 @@
 \newcommand{\psFullDotBlue}[2]{
 \pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
 }
-
 \newcommand{\psXTick}[1]{\psline(#1, -0.1)(#1,0.1)}
 \newcommand{\psYTick}[1]{\psline(-0.1, #1)(0.1, #1)}
 \newcommand{\psXYTick}[2]{\psXTick{#1} \psYTick{#2}}
 
+\newcommand{\psXTickWithLabel}[2]{\psXTick{#1}\rput[t](#1,-0.2){#2}}
+\newcommand{\psYTickWithLabel}[2]{\psYTick{#1}\rput[r](-0.2,#1){#2}}
 
-\newcommand{\psLabelNumberXaxis}[1]{\psXTick{#1} \rput[t](#1, -0.2 ) {\tiny $#1$} }
-\newcommand{\psLabelNumberYaxis}[1]{ \psYTick{#1} \rput[r](-0.2, #1 ) {\tiny $#1$} }
+\newcommand{\psLabelNumberXaxis}[1]{\psXTickWithLabel{#1}{#1}}
+\newcommand{\psLabelNumberYaxis}[1]{\psYTickWithLabel{#1}{#1}}
 
 \newcommand{\psLabelNumberXYaxes}[2]{\psLabelNumberXaxis{#1} \psLabelNumberYaxis{#2} }
 
