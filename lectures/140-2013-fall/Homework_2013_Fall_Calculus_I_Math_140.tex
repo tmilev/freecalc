@@ -1,58 +1,24 @@
 \documentclass{article}
-\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
-\usepackage{auto-pst-pdf}
-\usepackage{pst-plot}
-\usepackage{multicol}
-\addtolength{\hoffset}{-3.5cm}
-\addtolength{\textwidth}{6.8cm}
-\addtolength{\voffset}{-3.3cm}
-\addtolength{\textheight}{6.3cm}
-\renewcommand{\Re}{\mathrm{Re~}}
-\renewcommand{\Im}{\mathrm{Im~}}
-\newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
-%Don't know where is the proper place to add such commands, adding here for lack of better placement.
-\newcommand{\psHollowDot}[2]{
-\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
-\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
-}
-\newcommand{\psHollowDotBlue}[2]{
-\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
-\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
-}
-\newcommand{\psFullDot}[2]{
-\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
-}
-\newcommand{\psFullDotBlack}[2]{
-\pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
-}
-\newcommand{\psFullDotBlue}[2]{
-\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
-}
+\usepackage{../homework-problems}
+\usepackage{../pstricks-commands}
 
-\newcommand{\psLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\footnotesize $1$} }
-\newcommand{\psLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\footnotesize $1$} }
-
-
-\newcommand{\bigFatWarning}{ %\textbf{This homework contains copyrighted material from  James Stewart, Calculus, 7th edition, 2012. You are not permitted to copy this file for any purpose other than completing your homework. You are not allowed to give a copy of this file to anyone outside of our course. }
-}
-\newcommand{\answer}[1]{ \hfill{~} \rotatebox{180}{ answer:#1}}
-\newcommand{\inputOptional}[1]{}
 
 \date{}
 \newtheorem{problem}{Problem}
 \newcommand{\homeworkEnd}{\end{document}}
 \newcommand{\homeworkStart}[1]{\title{#1}\begin{document}\maketitle\bigFatWarning}
 
+
 \begin{comment}
 \homeworkStart{Special homework}
 \input{../../modules/precalculus/homework/adding-fractions-for-students-who-cant}
 \homeworkEnd
-%\homeworkStart{Homework Math 140 on Lectures 1 and 2 \\Will be quizzed Friday September 6}
+\homeworkStart{Homework Math 140 on Lectures 1 and 2 \\Will be quizzed Friday September 6}
 \input{../../modules/precalculus/homework/functions-domains-ranges}
 \input{../../modules/precalculus/homework/functions-evaluate-simplify}
 \input{../../modules/precalculus/homework/functions-piecewise-defined}
 \input{../../modules/precalculus/homework/functions-plot-transformations}
-%\homeworkEnd
+\homeworkEnd
 \homeworkStart{Homework Math 140 on Lectures 3 \\Will be quizzed Friday September 13}
 \input{../../modules/trigonometry/homework/trigonometry-angle-conversion}
 \input{../../modules/trigonometry/homework/trigonometry-identities}
@@ -60,6 +26,12 @@
 \homeworkEnd
 \end{comment}
 \homeworkStart{Homework Math 140, Lectures 4 and 5. \\ Will be quizzed Friday September 20}
-\input{../../modules/limits/homework/limit-x-tends-to-a}
+\input{../../modules/continuity/homework/continuity-with-piecewise-defined-functions}
+\input{../../modules/continuity/homework/IVT-problems}
+\input{../../modules/continuity/homework/continuity-problems-involving-understanding}
 \homeworkEnd
+\homeworkStart{Homework Math 140, Lectures 4 and 5. \\ Will be quizzed beginning of class, Wednesday September 25}
+
+\homeworkEnd
+
 \input{../../modules/integration/homework/net-change-theorem}
