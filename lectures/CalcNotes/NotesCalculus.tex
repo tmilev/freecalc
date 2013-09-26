@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass[12pt]{book}
 %Notes.
 %EITHER 1. Compile with the dvi->ps->pdf toolchain
 %OR     2. Compile with pdflatex -shell-escape 
@@ -15,6 +15,7 @@
 \usepackage{../pstricks-commands}
 
 \usepackage{cancel}
+\usepackage{caption}
 %\usepackage{pstricks}
 
 %\addtolength{\hoffset}{-3.5cm}
@@ -28,6 +29,7 @@
 \newcommand{\eqAttention}{\stackrel{(!)}{=}}
 \newcommand{\importantFormula}[1]{\begin{equation} \boxed{#1} \end{equation}}
 \newcommand{\importantText}[1]{ \framebox{#1}}
+\newenvironment{tableFixed}{~\\~\medskip\begin{minipage}{\textwidth}\captionsetup{type=table} }{\medskip\end{minipage}\medskip }
 
 \newenvironment{proof}[1][]{ \textbf{Proof#1.} }{$\Box$\medskip}
 \newenvironment{proofOptional}[1][]{ \textbf{Proof (optional).}}{$\Box$\medskip}
@@ -113,7 +115,7 @@ we do not deduce the above formula; rather, we \emph{define} the expression $\ta
 \textbf{A note to computer scientists. } In a large portion of the modern computer programming languages (for example, C, C++, java, Python, javascript), the equality sign is used in a way corresponds to neither $=$, nor to $\eqdef$. In those programming languages, the $=$ sign instructs a computer to change the state of a given variable. This operation has no corresponding mathematical notation. 
 \section{Sets and elements}
 
-In mathematics, a \emph{set} is a collection of distinct objects, considered as an object in its own right. The objects contained by a set are also called \emph{elements} of the set. We note that in the definition of a set, the words ``collection'', ``distinct'' and ``object'' are used as English language words, rather than as mathematical terms. In this way, the mathematical notions of a set and an element of a set are based on the common sense and understanding of the reader. 
+In mathematics, a \emph{set} is a collection of distinct objects, considered as an object in its own right. The objects contained by a set are also called \emph{elements} of the set. We note that in the definition of a set, the words ``collection'', ``distinct'' and ``object'' are used as English language words, rather than as mathematical terms. In this way, the mathematical notions of sets and an elements of a set are based on the common sense and understanding of the reader. 
 
 Sets are customarily denoted by using curly brackets enclosing the elements of the set. For example,
 \[
@@ -140,7 +142,7 @@ f: D\to C \quad .
 We call the set $D$ the \emph{domain} of $f$ and $C$ the \emph{codomain} of $f$.
 \end{definition}
 We can imagine a function as a machine that takes input from its domain (``input set''), and produces output located in its codomain (``target set''). Furthermore, for each object at the input, exactly one output object is produced. 
-\begin{center}
+\begin{tableFixed}
 \psset{xunit=0.6cm,yunit=0.6cm}
 \begin{pspicture}(0,0)(5,5)
 \rput[r](-1.2,0){$D$}
@@ -170,7 +172,8 @@ We can imagine a function as a machine that takes input from its domain (``input
 \psline[linestyle=dashed]{->}(0,-1.5)(5,-1.25)
 \psline[linestyle=dashed]{->}(0,-2.5)(5,2.5)
 \end{pspicture}
-\end{center}
+\caption{A function $f$ can be represented as a set of arrows from its domain to its co-domain.}
+\end{tableFixed}
 We call the elements of the domain the \emph{arguments} of the function. For an element $x\in D$, we write $f(x) $ to denote the output of the function $f$ with input $x$. We call $f(x)$ the \emph{image} of $x$ under $f$; we may alternatively say that $f$ \emph{maps} $x$ to $f(x)$.
 
 It is not required that all elements in the codomain be obtainable by applying $f$ to the input. For example, in the graph of the function $f$ above, one of the elements of the codomain $C$ is not the image of any element of the domain $D$. 
