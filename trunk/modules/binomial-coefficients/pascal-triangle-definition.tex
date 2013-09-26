@@ -1,0 +1,57 @@
+\begin{frame}
+\frametitle{Pascal triangle motivation}
+\begin{problem}
+Find a general formula for the expansion of $(a+b)^n$.
+\end{problem}
+\tiny
+\begin{tabular}{ccccccccccccc}
+$a+b$     &$=$&&&&& $\alert<6>{a}$ &$+$& $\alert<6>{b}$ \\
+$(a+b)^2$ &$=$&&&& $\alert<7>{a^2}$ &$+$& $\alert<6,7>{\alert<3>{2}ab}$&$+$&$b^2$ \\
+$(a+b)^3$ &$=$&&& $a^3$ &$+$& $\alert<7,8>{\alert<3>{3}a^2b}$& $+$& $\alert<8>{\alert<3>{3}ab^2}$& $+$&$b^3$ \\
+$(a+b)^4$ &$=$& &$a^4$&$+$&$\alert<9>{\alert<3>{4}a^3b}$ &$+$& $\alert<8,9>{\alert<3>{6}a^2b^2}$&$+$& $\alert<3>{4}ab^3$&$+$&$b^4$ \\
+$(a+b)^5$ &$=$& $a^5$ &$+$& $\alert<3>{5}a^4b$& $+$& $\alert<9>{\alert<3>{10}a^3b^2}$ &$+$&$\alert<3>{10}a^2b^3 $&$+$&$\alert<3>{5}ab^4$&$+$&$b^5$ \\
+&&\multicolumn{11}{c}{$\vdots$}
+\\ \hline \hline
+\uncover<2->{\uncover<14>{row 0}&&&&&&&$\alert<11>{1}$}\\
+\uncover<2->{\uncover<14>{row 1}&&&&&& $\alert<6,11>{1}$&&$\alert<6,11,14>{1}$}\\
+\uncover<2->{\uncover<14>{row 2} &&&&&$\alert<7,11>{1}$&&$\alert<3,6,7,12,14>{2}$&&$\alert<11>{1}$}\\
+\uncover<2->{\uncover<14>{row 3} &&&& $\alert<11>{1}$&&$\alert<3,7,8,12,14>{3}$&&$\alert<3,8,12>{3}$&&$\alert<11>{1}$}\\
+\uncover<2->{\uncover<14>{row 4}&&&$\alert<11>{1}$&&$\alert<3,9,12,14>{4}$&&$\alert<3,8,9,13>{6}$&&$\alert<3,12>{4}$&&$\alert<11>{1}$}\\
+\uncover<2->{\uncover<14>{row 5} &&$\alert<11>{1}$&&$\alert<3,12,14>{5}$&&$\alert<3,9,13>{10}$&&$\alert<3,13>{10}$&&$\alert<3,12>{5}$&&$\alert<11>{1}$}\\
+\uncover<2->{&&\multicolumn{11}{c}{$\vdots$}}\\
+\end{tabular}
+\normalsize
+\begin{itemize}
+\item \uncover<2->{\alert<3>{Arrange the coefficients of the formulas in a triangle.}}
+\item \uncover<4->{{The triangle is named after Blaise Pascal(1623-1662).}}
+\item \uncover<5->{{\alert<5->{Observe:} each entry $=$ sum two entries above. }} \only<6>{\alert<6>{$1+1=2$}}\only<7>{\alert<7>{$1+2=3$}} \only<8>{\alert<8>{$3+3=6$}}\only<9>{\alert<9>{$4+6=10$}} \only<10>{and so on...}
+\item \uncover<11->{\alert<11-13>{Triangle is symmetric. }} \uncover<14->{\alert<14>{Second row entry is the row number. } }
+\end{itemize}
+
+
+\end{frame}
+\begin{frame}
+\frametitle{Pascal triangle definition}
+\begin{itemize}
+\item<1->Previous slide: the coefficients in the expansion of $(a+b)^n$ can be arranged in triangular fashion. This slide we pretend to forget that.
+\item<1-> Define a triangular arrangement of numbers:
+\item<2-> write $1$'s on two sides of triangle arranged as shown below; 
+\item<3-> define the remaining entries by requesting each number is the sum of the two entries above it. 
+\end{itemize}
+\begin{definition} 
+\uncover<4->{ The so defined triangle is called Pascal's triangle. }
+\end{definition}
+\tiny
+\begin{tabular}{ccccccccccccc}
+&&&&&&&$\uncover<2->{\alert<2,4>{1}}$\\
+&&&&&& $\uncover<2->{\alert<2,4>{1}}$&&$\uncover<2->{\alert<2,4>{1}}$\\
+&&&&& $\uncover<2->{\alert<2,4>{1}}$ &&$\uncover<3->{ \alert<4>{2}}$ &&$\uncover<2->{\alert<2,4>{1}}$\\
+&&&& $\uncover<2->{\alert<2,4>{1}}$&& $\uncover<3->{\alert<4>{3}}$ &&$\uncover<3->{\alert<4>{3}}$&&$\uncover<2->{\alert<2,4>{1}}$\\
+&&& $\uncover<2->{\alert<2,4>{1}}$&&$\uncover<3->{\alert<4>{4}}$&&$\uncover<3->{\alert<4>{6}}$&&$\uncover<3->{\alert<4>{4}}$&& $\uncover<2->{\alert<2,4>{1}}$\\
+&&$\uncover<2->{\alert<2,4>{1}}$&&$\uncover<3->{\alert<4>{5}}$&&$\uncover<3->{ \alert<4>{10}}$&&$\uncover<3->{\alert<4>{10}}$&&$\uncover<3->{\alert<4>{5}}$&&$\uncover<2->{\alert<2,4>{1}}$\\
+&&\multicolumn{11}{c}{$\vdots$}\\
+\end{tabular}
+\normalsize
+
+
+\end{frame}
