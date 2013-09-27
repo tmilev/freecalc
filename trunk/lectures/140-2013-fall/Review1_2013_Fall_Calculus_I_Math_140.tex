@@ -92,6 +92,19 @@ Evaluate the limit if it exists.
 \item $\lim\limits_{x\to -2^-} \frac{\sqrt{\frac{x^2}{4}-1 }}{2x^2 +3x-2 }$. \answer{$ \infty$.}
 \end{enumerate}
 \end{problem}
+\textbf{Solution.}  
+ 
+\noindent (1). We have that 
+
+\[
+\begin{array}{rcl}
+\lim_{x\to 3^+}\frac{\sqrt{\frac{x^2}9-1} }{2x^2-3x-9}&=& \lim_{x\to 3^+} \frac{\sqrt{(\frac{x}3-1)(\frac{x}3+1)} }{2(x+\frac{3}2)(x-3)}= \lim_{x\to 3^+}
+\frac{\left(\frac{1}3(x-3)(\frac{x}3+1)\right)^{\frac{1}2}}{2(x+\frac{3}2)(x-3)} \\~\\
+&=& \lim_{x\to 3^+} \frac{\sqrt{\frac{1}3\left(\frac{x}3+1\right)} }{2\left(x+\frac{3}2\right)(x-3)^{\frac12}}= \lim_{x\to 3^+} \frac{\sqrt{\underbrace{ \frac{1}3\left(\frac{x}3+1\right)}_{\to\frac23 }} }{\underbrace{2\left(x+\frac{3}2\right)}_{\to 9}\underbrace{(x-3)^{\frac12}}_{\to 0^+}}=\infty,
+\end{array}
+\]
+where the latest term is $+\infty$ because it is of the form $\frac{(+)}{(+)(+)}$.
+
 \begin{problem}~
 \begin{enumerate}
 \item (a) Solve the equation $x^2+13x+41=1$.  (b) Use the intermediate value theorem to prove that the equation $x^2+13x+41=\sin  x$ has at least two solutions, lying between the two numbers found in (a).
@@ -112,6 +125,31 @@ Find the horizontal and vertical asymptotes of the curve
 \item $y=\frac{3x^2}{\sqrt{x^2+2x+10}-5}$. \answer{Vertical: $x=3, x=-5$, horizontal: none.}
 \end{enumerate}
 \end{problem}
+\textbf{Solution. } 
+\textbf{Vertical asymptotes.} A function $$f(x)$$ has a vertical asymptote at $x=a$ if $\lim_{x\to a} f(x)=\pm \infty$. 
+
+The function is algebraic, and therefore, if it is defined, has a finite limit (i.e., no asymptote). Therefore the function can have vertical asymptotes only for those $x$ for which $f(x)$ is not defined. The function is not defined for $\sqrt{x^2+x+3}-3=0$, which has two solutions, $x=2$ and $x=-3$. These are precisely the vertical asymptotes: indeed, 
+\[
+\lim_{x\to 2^+} \frac{2x}{\sqrt{x^2+x+3}-3}=\infty \quad \quad \quad 
+\lim_{x\to 2^-} \frac{2x}{\sqrt{x^2+x+3}-3}=-\infty 
+\]
+and
+\[
+\lim_{x\to -3^+} \frac{2x}{\sqrt{x^2+x+3}-3}=\infty \quad \quad \quad 
+\lim_{x\to -3^-} \frac{2x}{\sqrt{x^2+x+3}-3}=-\infty 
+\]
+
+\textbf{Horizontal asymptotes.} A function $f(x)$ has a horizontal asymptote if $\lim_{x\to \pm\infty} f(x)$ exists. If that limit exists, and is some number, say, $N$, then $y=N$ is the equation of the corresponding asymptote.
+
+Consider the limit $$x\to -\infty$$. We have that 
+\[
+\lim_{x\to -\infty} \frac{2x}{\sqrt{x^2+3x+3}-3}= \lim_{x\to \pm \infty} \frac{2}{\frac{\sqrt{x^2+x+3}}x-\frac3x}=\lim_{x\to \pm \infty} \frac{2}{-\sqrt{\frac{x^2+3x+3}{x^2}}-\frac3x} =-2\quad . 
+\]
+Therefore $y=-2$ is a horizontal asymptote. 
+
+The case $x\to \infty$, is handled similarly and yields that $y=2$ is a horizontal asymptote.
+
+
 \begin{problem}~
 \begin{enumerate}
 \item State the intermediate value theorem.
