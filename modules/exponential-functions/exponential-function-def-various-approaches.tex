@@ -14,23 +14,22 @@
 \begin{frame}
 \frametitle{Exponent definition approach I}
 \begin{itemize}
-\item<1-> For $p$-integer we know to compute $a^p$.
-\item<2-> Therefore for $q$-integer we know to compute $a^{\frac{1}{q}}= \sqrt[q]{a}=\{x|\text{largest~}x\text{~with~} x^q\leq a\}$.
+\item<1-> For integer $p$ we know to compute $a^p$.
+\item<2-> Therefore for integer $q$ we know to compute $a^{\frac{1}{q}}= \sqrt[q]{a}=\{x|\text{largest~}x\text{~with~} x^q\leq a\}$.
 \item<3-> Therefore we know to compute $a^{\frac{p}{q}}$ for all rational $\frac{p}{q}$.
 \item<4-> We can then define
 \[
 a^x = \lim\limits_{\substack{y \to x \\ y\text{-rational}}} a^y 
 \]
 \item<5-> Not computationally effective. It is not how computers compute.
-\item<6-> Difficult to get derivative, anti-derivative of $a^x$. Will need to take a few facts for granted without proof.
-\item<7-> However is the easiest approach. $a^{x+y}=a^xa^y$ is easiest to prove (follows directly from the $\varepsilon, \delta$-definition of $\lim$ we studied).
-\item<8->\alert<8->{This is the definition we assume in Calculus I.}
+\item<6-> However is the easiest approach. $a^{x+y}=a^xa^y$ is easiest to prove (follows directly from the $\varepsilon, \delta$-definition of $\lim$ we studied).
+\item<7->\alert<7->{This is the definition we assume in Calculus I.}
 \end{itemize}
 \end{frame}
 \begin{frame}
 \frametitle{Exponent definition approach II }
 \begin{itemize}
-\item<1-> The following definition is equivalent, studied in Calculus II.
+\item<1-> The Calc II formula can be used as alternative definition.
 \[
 e^{x}=\alert<4>{\sum_{n=0}^{\infty}} \frac{x^n}{\alert<2>{n!}}= 1+ x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots + \frac{x^{n}}{\alert<2>{n!}}+\dots
 \]
@@ -42,8 +41,7 @@ e^{x}=\alert<4>{\sum_{n=0}^{\infty}} \frac{x^n}{\alert<2>{n!}}= 1+ x+\frac{x^2}{
 \uncover<4->{\alert<4>{Infinite sum studied in Calc II.}} 
 \item<5-> For arbitrary $a>0$ define $a^x$ as $a^x=e^{x\ln a}$. 
 \item<6-> Disadvantage: more difficult to prove $e^{x+y}=e^{x}e^y$ and $e^{\ln(1+x)}=1+x$, but not too difficult.
-\item<7-> Everything else (including differentiation, integration) is much easier.
-\item<8-> This is how computers compute $e^x$.
+\item<7-> This is how computers compute $e^x$ and $a^x$.
 \end{itemize}
 \end{frame}
 
