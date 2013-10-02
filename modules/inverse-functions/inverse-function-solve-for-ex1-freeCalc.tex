@@ -9,52 +9,41 @@ Given: $\alert<2>{f(x) =  3x^2+4x-7}$ \alert<3,16,17>{with domain $x\only<1-16>{
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-10,-10)(6,6) \tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-9,-9)(4.7,4.7)
-%Function formula: -7+4 (x)+3 ((x)^{2}) 
 \uncover<2-16>{ %
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-0.66}{1.401612274}{x 2 exp 3 mul x 4 mul add -7 add }
-\rput[tl](1.8, 4.45){$y=f(x) %=3x^2+4x-7  
-$ %, $x\geq -2/3$
-}
+\psplot[linecolor=\psColorGraph, plotpoints=1000] {-0.66}{1.401612274}{x 2 exp 3 mul x 4 mul add -7 add }
 }
 \uncover<17->{ %
 \psplot[linestyle=dashed, linecolor=gray!50, plotpoints=1000]{-0.66}{1.401612274}{x 2 exp 3 mul x 4 mul add -7 add }
 }
 \uncover<2,17>{ %
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.7349}{-0.67}{x 2 exp 3 mul x 4 mul add -7 add }
-\uncover<17>{ \rput[tr](-3, 4.5){$y=f(x)$}}
 }
 \uncover<3-16>{ %
-\psplot[linestyle=dashed, linecolor=gray!50, plotpoints=1000]{-2.7349}{-0.67}{x 2 exp 3 mul x 4 mul add -7 add }
+\psplot[linestyle=dashed, linecolor=gray!50, plotpoints=1000] {-2.7349}{-0.67}{x 2 exp 3 mul x 4 mul add -7 add }
 }
 \uncover<14->{
 \psline[linecolor=blue, linestyle=dashed](-6.5, -6.5)(4.5,4.5)
 }
 \uncover<15-16>{
-%Function formula: 1/3 (sqrt{}(3 (x)+25))-2/3 
 \psplot[linecolor=red, plotpoints=1000]{-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt 0.333333 mul add }
 }
 \uncover<17->{
-%Function formula: 1/3 (sqrt{}(3 (x)+25))-2/3 
-\psplot[linestyle=dashed, linecolor=gray!50, plotpoints=1000]{-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt 0.333333 mul add }
-\rput[rt](4.5, -3){$y=f^{-1}(x) %= \frac{-2+\sqrt{25+3x}}{3} 
-$}
+\psplot[linestyle=dashed, linecolor=gray!50, plotpoints=1000] {-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt 0.333333 mul add }
 }
 \uncover<15-16>{
-\psplot[linecolor=gray!50, linestyle=dashed, plotpoints=1000]{-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt -0.333333 mul add }
-\rput[lb](-6, 1){$y=f^{-1}(x) %= \frac{-2+\sqrt{25+3x}}{3} 
-$}
+\psplot[linecolor=gray!50, linestyle=dashed, plotpoints=1000] {-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt -0.333333 mul add }
 }
 \uncover<17->{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt -0.333333 mul add }
+\psplot[linecolor=\psColorGraph, plotpoints=1000] {-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt -0.333333 mul add }
 }
+\uncover<15-16>{\rput[lb](-6, 1){$y=f^{-1}(x)$}}
+\uncover<11->{\rput (-3.5, -8 ){$(-\frac{2}{3}, -\frac{25}{3})$}}
+\uncover<2-16>{\rput[tl](1.8, 4.45){$y=f(x)$}}
+\uncover<14->{\rput[l] (-7.8, -2.2 ){$(-\frac{25}{3}, -\frac{2}{3})$}}
+\uncover<17->{\rput[rt](4.5, -3){$y=f^{-1}(x)$}}
+\uncover<17>{ \rput[tr](-3, 4.5){$y=f(x)$}}
+\uncover<14->{\psFullDot{-8.33333}{-0.666667}}
 \psFullDot{-0.666667}{-8.33333}
-\uncover<11->{
-\rput (-3.5, -8 ){$(-\frac{2}{3}, -\frac{25}{3})$}
-}
-\uncover<14->{
-\psFullDot{-8.33333}{-0.666667}
-\rput[l] (-7.8, -2.2 ){$(-\frac{25}{3}, -\frac{2}{3})$}
-}
 \end{pspicture} 
 \uncover<13->{Final }\uncover<12->{answer}\uncover<13->{, \alert<13>{relabelled}:}
 \[
