@@ -3,7 +3,7 @@
 \begin{frame}
 \frametitle{Type I: Infinite Intervals}
 \begin{itemize}
-\item  Consider the region that lies under $y = 1/x^2$, above the $x$-axis, and to the right of $x = 1$.
+\item  Consider the region $A$ that lies under $y = 1/x^2$, above the $x$-axis, and to the right of $x = 1$.
 \item<2->  To find its area, approximate with $A(t)$, the area of the region under $1/x^2$, above the $x$-axis, right of $x = 1$, and left of $x = t$.
 \end{itemize}
 \begin{columns}[c]
@@ -20,30 +20,107 @@ A(t) = \int_1^t \frac{\diff x}{x^2} = %
 }%
 \]
 \column{.5\textwidth}
-\ \only<-1>{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredy.pdf}%
-}%
-\only<handout:0| 2-3>{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredz.pdf}%
-}%
-\only<handout:0| 4-8>{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquareda.pdf}%
-}%
-\only<handout:0| 9>{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredb.pdf}%
-}%
-\only<handout:0| 10>{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredc.pdf}%
-}%
-\only<handout:0| 11>{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredd.pdf}%
-}%
-\only<handout:0| 12>{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquarede.pdf}%
-}%
-\only<handout:0| 13->{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredf.pdf}%
-}%
+
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.5, -5)(3,5) 
+\psframe*[linecolor=white](-0.5,-5)(3,5) 
+\tiny 
+\uncover<1,14->{
+\psline[linewidth=0.5pt](1,0)(1,1)
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{5.5}{1 x 2 exp div }
+\psline(5.5,0.033057851)(5.5, 0)(1,0)
+}
+}
+
+\uncover<2-9>{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{3}{1 x 2 exp div }
+\psline(3,  0.111111)(3, 0)(1,0)
+}
+\psline[linewidth=0.5pt](3,  0.111111)(3, 0)
+\psXTickWithLabel{3}{$t$}
+}
+
+\uncover<10>{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{2}{1 x 2 exp div }
+\psline(2,  0.25)(2, 0)(1,0)
+}
+\psline(2,0)(2, 0.25)
+\psXTickWithLabel{2}{$2$}
+}
+
+\uncover<11>{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{3}{1 x 2 exp div }
+\psline(3,  0)(1,0)
+}
+\psline(3,0)(3, 0.111111)
+\psXTickWithLabel{3}{$3$}
+}
+\uncover<12>{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{4}{1 x 2 exp div }
+\psline(4,  0)(1,0)
+}
+\psline(4,0)(4, 0.0625)
+\psXTickWithLabel{4}{$4$}
+}
+\uncover<13>{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{5}{1 x 2 exp div }
+\psline(5,  0)(1,0)
+}
+\psline(5,0)(5, 0.04)
+\psXTickWithLabel{5}{$5$}
+}
+
+
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(5.5,2)
+\psLabels{5.5}{2}
+%Function formula: (1)/((x)^{2}) 
+\rput[b](5,0.3){$y=\frac{1}{x^2}$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0.75}{5.5}{1 x 2 exp div }
+
+\uncover<1,14->{\rput(1.7, 1.2){$A$}}
+
+\rput(1.7, 1.2){$\displaystyle\uncover<2-9>{ A(t)} \uncover<4-9>{=1-\frac{1}t}$}
+\uncover<10>{\rput(1.7, 1.2){$\displaystyle A(2)=\frac{1}2$}}
+\uncover<11>{\rput(1.7, 1.2){$\displaystyle A(3)=\frac{2}3$}}
+\uncover<12>{\rput(1.7, 1.2){$\displaystyle A(4)=\frac{3}4$}}
+\uncover<13>{\rput(1.7, 1.2){$\displaystyle A(5)=\frac{4}5$}}
+
+%\uncover<2-9>
+{\psline[linewidth=2pt]{->}(1.6, 0.9 )(1.2, 0.3)}
+\psXTickWithLabel{1}{$1$}
+\psline[linewidth=0.5pt](1,  0)(1, 1)
+
+\end{pspicture} 
+%\ \only<-1>{%
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredy.pdf}%
+%}%
+%\only<handout:0| 2-3>{%
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredz.pdf}%
+%}%
+%\only<handout:0| 4-8>{%
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquareda.pdf}%
+%}%
+%\only<handout:0| 9>{%
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredb.pdf}%
+%}%
+%\only<handout:0| 10>{%
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredc.pdf}%
+%}%
+%\only<handout:0| 11>{%
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredd.pdf}%
+%}%
+%\only<handout:0| 12>{%
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquarede.pdf}%
+%}%
+%\only<handout:0| 13->{%
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredf.pdf}%
+%}%
 \end{columns}
 \begin{itemize}
 \item<5->  Notice $A(t) < 1$ no matter how big $t$ is.
