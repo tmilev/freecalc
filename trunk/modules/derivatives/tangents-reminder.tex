@@ -12,7 +12,7 @@
 %Function formula: (x)^{2} 
 \psplot[linecolor=red, plotpoints=1000]{-1}{2.5}{x 2 exp }
 \psline[linecolor=blue](0.25, -0.5)(2.5,4)
-\psFullDotBlack{1}{1}
+\psFullDot{1}{1}
 \rput[lt](1.1, 0.9){$P=(1,1)$}
 \end{pspicture}
 %\includegraphics[height=5cm]{derivatives/pictures/02-01-secanta.pdf}%
@@ -36,7 +36,7 @@
 
 \uncover<1,11->{
 \psline[linecolor=blue](0, -0.935185185)(1.531304348, 4.5)
-\psFullDotBlack{0.5}{0.839506173}
+\psFullDot{0.5}{0.839506173}
 }
 
 \rput[rb] (0.6,0.92){\tiny$P=(a, f(a))$}
@@ -48,7 +48,7 @@
 
 \uncover<10>{
 \psline[linecolor=blue](0, -0.558641975)(1.809050773, 4.5)
-\psFullDotBlack{1}{2.237654321}
+\psFullDot{1}{2.237654321}
 \psline[linestyle=dashed](1, 0)(1, 2.237654321)
 \psline(0.5, 0.839506173)(1,0.839506173) (1, 2.237654321)
 \rput[t](1, -0.1){\tiny$x$}
@@ -60,7 +60,7 @@
 
 \uncover<9>{
 \psline[linecolor=blue](0, -0.240741)(2.19429, 4.5)
-\psFullDotBlack{1.5}{3}
+\psFullDot{1.5}{3}
 \psline[linestyle=dashed](1.5, 0)(1.5, 3)
 \psline(0.5, 0.839506173)(1.5,0.839506173) (1.5, 3)
 \rput[t](1.5, -0.1){\tiny$x$}
@@ -72,7 +72,7 @@
 
 \uncover<8>{
 \psline[linecolor=blue](0, 0.0231481)(2.74197, 4.5)
-\psFullDotBlack{2}{3.28858}
+\psFullDot{2}{3.28858}
 \psline[linestyle=dashed](2, 0)(2, 3.28858)
 \psline(0.5, 0.82)(2,0.839506173) (2, 3.28858)
 \rput[t](2, -0.1){\tiny$x$}
@@ -84,7 +84,7 @@
 
 \uncover<7>{
 \psline[linecolor=blue](0, 0.237654)(3.54103, 4.5)
-\psFullDotBlack{2.5}{3.24691}
+\psFullDot{2.5}{3.24691}
 \psline[linestyle=dashed](2.5, 0)(2.5, 3.24691)
 \psline(0.5, 0.839506173)(2.5,0.839506173) (2.5, 3.24691)
 \rput[t](2.5, -0.1){\tiny$x$}
@@ -96,7 +96,7 @@
 
 \uncover<6>{
 \psline[linecolor=blue](0, 0.407407)(4.73571, 4.5)
-\psFullDotBlack{3}{3}
+\psFullDot{3}{3}
 \psline[linestyle=dashed](3, 0)(3, 3)
 \psline(0.5, 0.839506173)(3,0.839506173) (3, 3)
 \rput[t](3, -0.1){\tiny$x$}
@@ -108,7 +108,7 @@
 
 \uncover<5>{
 \psline[linecolor=blue](0, 0.537037)(5, 3.56173)
-\psFullDotBlack{3.5}{2.65432}
+\psFullDot{3.5}{2.65432}
 \psline[linestyle=dashed](3.5, 0)(3.5, 2.65432)
 \psline(0.5, 0.839506173)(3.5,0.839506173) (3.5, 2.65432)
 \rput[t](3.5, -0.1){\tiny$x$}
@@ -120,7 +120,7 @@
 
 \uncover<2-4>{
 \psline[linecolor=blue](0, 0.631173)(5, 2.71451)
-\psFullDotBlack{4}{2.29784}
+\psFullDot{4}{2.29784}
 \psline[linestyle=dashed](4, 0)(4, 2.29784)
 \psline(0.5, 0.839506173)(4,0.839506173) (4, 2.29784)
 \rput[t](4, -0.1){\tiny$x$}
@@ -158,20 +158,20 @@
 \column{.55\textwidth}
 \begin{itemize}
 \item<1->  How to find the tangent line to the curve $y = f(x)$ at $P = (a, f(a))$?
-\item<2->  Consider a nearby point $Q = (x, f(x))$.
+\item<2->  Consider nearby point $Q = (x, f(x))$.
 \item<3->  Compute slope of secant line $PQ$: $m_{PQ} = \frac{f(x)-f(a)}{x-a}$.
-\item<4->  Let $Q$ approach $P$ along the curve by letting $x$ approach $a$.
+\item<4->  Let $Q$ approach $P$ as $x$ approaches $a$.
 \end{itemize}
 \end{columns}
 \uncover<11->{%
 \small
-\begin{definition}[Tangent Line]
-The tangent line to the curve $y = f(x)$ at the point $P = (a, f(a))$ is the line through $P$ with slope
-\[
-m = \lim_{x\rightarrow a}\frac{f(x) - f(a)}{x-a}
-\]
-provided that the limit exists.
+\begin{definition}[Non-vertical tangent line]
+Let $P = (a, f(a))$. Suppose the limit $\displaystyle m=\lim_{x\rightarrow a}\frac{f(x) - f(a)}{x-a}$
+exists. Define the \alert<11>{tangent to $y=f(x)$ at $P$} to be \alert<12>{the line passing through $P$ with slope $m$}\uncover<12->{, in other words, \alert<12>{the line with equation}} \uncover<13->{$\alert<13>{y-f(a)=m(x-a) }$.}
 \end{definition}
+\uncover<14>{
+\textbf{Note. } If the limit does not exist, we give no definition of a tangent line.
+}
 }%
 \end{frame}
 % end module tangents-reminder
