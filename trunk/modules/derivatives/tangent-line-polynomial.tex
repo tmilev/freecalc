@@ -9,13 +9,15 @@ Find an equation for the tangent line to the parabola $y = x^2 +2x + 1$ at the p
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-5,-5)(5,15) 
 \tiny
-\psaxes{->}(0,0)(-3.2,-0.5)(3.2,12)
+\psaxes[ticks=none, labels=none]{->}(0,0)(-3.2,-0.5)(3.2,12)
+\psXTickWithLabel{2}{$2$}
+\psYTickWithLabel{9}{$9$}
 %Function formula: 1+2 (x)+(x)^{2} 
+\psplot[linecolor=red, plotpoints=1000]{-2.6}{2.4}{x 2 exp x 2 mul add 1 add }
+\psFullDot{2}{9}
 \uncover<8->{
 \psline[linecolor=blue](0.416666667,-0.5)(2.5,12)
 }
-\psplot[linecolor=red, plotpoints=1000]{-2.6}{2.4}{x 2 exp x 2 mul add 1 add }
-\psFullDotBlack{2}{9}
 \rput(-3, 5) {\tiny$y=x^2+2x+1$}
 \end{pspicture} 
 %\only<-7>{%
