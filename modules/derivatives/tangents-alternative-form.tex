@@ -5,6 +5,7 @@
 \psset{xunit=0.8cm, yunit=0.8cm}
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-1.5)(5.4,4.6)
 %Function formula: -11/8+5/18 ((x) ((x) (x)))-1/81 ((x) ((x) ((x) (x))))-73/36 ((x) (x))+43/8 (x) 
 \psplot[linecolor=red, plotpoints=1000]{0}{5}{x 5.375 mul x x mul -2.02778 mul add x x mul x mul x mul -0.0123457 mul add x x mul x mul 0.277778 mul add -1.375 add }
@@ -14,8 +15,8 @@
 \psFullDotBlack{0.5}{0.839506173}
 }
 
-\rput[rb] (0.6,0.92){\tiny$P=(a, f(a))$}
-\rput[t](0.5, -0.1){\tiny$a$}
+\rput[rb] (0.6,0.92){$P=(a, f(a))$}
+\rput[t](0.5, -0.1){$a$}
 \psline(0.5,0.1)(0.5,0)
 \uncover<2-10>{
 \psline[linestyle=dashed](0.5, 0)(0.5, 0.839506173)

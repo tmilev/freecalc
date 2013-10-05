@@ -1,0 +1,31 @@
+% begin module derivatives-rules-relations
+
+\begin{frame}
+\begin{example}
+Let $n$ be a positive integer. Derive the negative integer power rule 
+\[
+(x^{-n})'=\left(\frac{1}{x^n}\right)'= -n x^{-n-1} =-\frac{n}{x^{n+1}}
+\]
+using \alert<5>{the constant derivative rule}, \alert<4>{the product rule} and \alert<6>{the power rule for positive integers}.
+
+\[
+\begin{array}{rcl p{2cm} |r}
+\uncover<2->{\alert<4>{\uncover<3->{(} x^n x^{-n}\uncover<3->{)'}} &=&\alert<5>{\uncover<3->{(} 1\uncover<3->{)'}}  && \uncover<2>{\frac{d}{dx}}}\\
+\uncover<4->{ \alert<4>{ \alert<6>{(x^n)'} x^{-n} + x^n (x^{-n})'}&=&\alert<5>{0}}\\
+\uncover<6->{ \alert<7>{\alert<6>{n x^{n-1}}x^{-n}}+ x^n (x^{-n})'&=&0 }\\
+\uncover<7->{\alert<7>{\frac{n}{x}}+ x^n (x^{-n})'&=&0 }\\
+\uncover<8->{x^n (x^{-n})'&=&-\frac{n}x && :x^n}\\
+\uncover<9->{(x^{-n})'&=&-\frac{n}{x^{n+1}}}
+\end{array}
+\]
+
+\end{example}
+
+
+
+\end{frame}
+
+
+
+
+%end module derivatives-rules-relations
