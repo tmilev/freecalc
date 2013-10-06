@@ -1,9 +1,20 @@
 % begin module power-rule-from-exponent
 \begin{frame}
 \begin{example}
+Derive the power rule
+\[
+\alert<14>{\left(x^{r}\right)'=rx^{r-1}}, \quad \quad \quad \alert<5>{x>0}
+\]
+using the \alert<7>{exponent derivative rule $\left(e^{x}\right)'=e^x$}, \alert<12>{the logarithm derivative rule $(\ln x)'=\frac{1}x$}, \alert<6>{the chain rule} and \alert<10>{the constant multiple derivative rule}.
 
+\[
+\begin{array}{rclp{0.5cm}|l}
+\uncover<2->{ \displaystyle \alert<14>{ \left(\alert<3> { x }^r \right)'} &= & \displaystyle \uncover<3->{ \left( \alert<4>{ (\alert<3>{ e^{\ln x}})^r}\right)' =}\uncover<4->{\left( \alert<4>{ e^{\alert<5>{r \ln x} }} \right)'}&& \uncover<5->{ \alert<5,8>{ \text{Set~}u=r\ln x}}}\\ \\
+\uncover<5->{&=& \displaystyle \alert<6>{ (e^{\alert<5>{u}})'} =\uncover<6->{ \alert<6>{\alert<7>{ \frac{d}{du} \left( e^{u} \right)} u'}=} \uncover<7->{\alert<7>{e^{\alert<8>{u}}} \alert<8>{u}' =}}\\ \\
+\uncover<8->{&=&\displaystyle \alert<9>{e^{\alert<8>{r\ln x}}} \alert<10>{(\alert<8>{r\ln x})'} =} \uncover<9->{\alert<9>{\left(\alert<11>{e^{\ln x}}\right)^r}  \alert<10>{r\alert<12>{(\ln x)'}} } \\ \\\uncover<11->{&=&  \alert<13>{\alert<11>{x}^r } r \alert<12>{ \alert<13>{ \frac{1}x} } = \uncover<13->{\alert<14>{r\alert<13>{ x^{r-1}}}} && \uncover<14->{\alert<14>{\text{as~desired}}}}
+\end{array}
+\]
 \end{example}
-
 \end{frame}
 
 %end module power-rule-from-exponent
