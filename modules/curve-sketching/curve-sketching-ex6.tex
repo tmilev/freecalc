@@ -4,27 +4,69 @@
 Discuss the curve $y = \alert<handout:0| 19-20,39-42>{f(x)}$ \alert<handout:0| 19-20,39-42>{$= x^4 - 4x^3$} with respect to \alert<handout:0| 28-35>{concavity}, \alert<handout:0| 36-42>{points of inflection}, and \alert<handout:0| 10-27>{local maxima and minima}.  \alert<handout:0| 43->{Sketch the curve.}
 \begin{columns}[c]
 \column{.42\textwidth}
-\ \only<handout:0| -19>{%
-\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6a.pdf}%
-}%
-\only<handout:0| 20-39>{%
-\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6b.pdf}%
-}%
-\only<handout:0| 40-41>{%
-\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6c.pdf}%
-}%
-\only<handout:0| 42-43>{%
-\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6d.pdf}%
-}%
-\only<handout:0| 44-45>{%
-\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6e.pdf}%
-}%
-\only<handout:0| 46-47>{%
-\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6f.pdf}%
-}%
-\only<48->{%
-\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6g.pdf}%
-}%
+\psset{xunit=0.8cm, yunit=0.1cm}
+\begin{pspicture}(-1.1, -5)(4.1,5) 
+\psframe*[linecolor=white](-1.2,-32)(4.3,10) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.2,-30)(4.3,9)
+\psLabels{4.3}{9}
+\psYTickWithLabel{-10}{$-10$}
+\psYTickWithLabel{-20}{$-20$}
+\psYTickWithLabel{-30}{$-30$}
+\psline(1, -0.8)(1,0.8)
+\psline(2, -0.8)(2,0.8)
+\psline(3, -0.8)(3,0.8)
+\rput[t](1, -1.6){$1$}
+\rput[t](2, -1.6){$2$}
+\rput[t](3, -1.6){$3$}
+
+%Function formula: (x)^{4}-4 ((x)^{3}) 
+\rput(2,5){$y=x^{4}-4 x^{3}$} 
+\uncover<44->{
+\psplot[linecolor=\psColorGraph, plotpoints=1000] {-1.1} {0} {x 3 exp -4 mul x 4 exp add }
+}
+\uncover<46->{
+\psplot[linecolor=\psColorGraph, plotpoints=1000] {0} {2} {x 3 exp -4 mul x 4 exp add }
+}
+\uncover<48->{
+\psplot[linecolor=\psColorGraph, plotpoints=1000] {2} {4.1} {x 3 exp -4 mul x 4 exp add }
+}
+\uncover<20->{
+\psFullDot{3}{-27}
+\rput[tr](2.8, -27.5){$(3, -27)$}
+}
+\uncover<40->{\psFullDot{0}{0}
+\psFullDot{0}{0}
+\rput[tr](-0.2, -0.5){$(0, 0)$}
+}
+\uncover<42->{
+\psFullDot{2}{-16}
+\rput[tr](1.8, -16.5){$(2, -16)$}
+}
+\end{pspicture} 
+
+%\ \only<handout:0| -19>{%
+%\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6a.pdf}%
+%}%
+%\only<handout:0| 20-39>{%
+%\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6b.pdf}%
+%}%
+%\only<handout:0| 40-41>{%
+%\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6c.pdf}%
+%}%
+%\only<handout:0| 42-43>{%
+%\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6d.pdf}%
+%}%
+%\only<handout:0| 44-45>{%
+%\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6e.pdf}%
+%}%
+%\only<handout:0| 46-47>{%
+%\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6f.pdf}%
+%}%
+%\only<48->{%
+%\includegraphics[height=4.5cm]{curve-sketching/pictures/04-03-ex6g.pdf}%
+%}%
+
 \vspace{.1in}
 
 \uncover<28->{%
