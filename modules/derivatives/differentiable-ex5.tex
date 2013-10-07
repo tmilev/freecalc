@@ -46,8 +46,8 @@ Where is the function $f(x) = |x|$ differentiable?
 \begin{itemize}
 \item<2->  Suppose $x > 0$.
 \item<3-| alert@7>  Then $|x| = x$.
-\item<4->  Pick $h$ small so that $x + h > 0$.
-\item<5-| alert@7>  Then $|x + h| = x+h$.
+\item<4->  If $|h|<x$ it follows that $x + h > 0$.
+\item<5-| alert@7>  Then for $|h|<x$ we have $|x + h| = x+h$.
 \end{itemize}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
@@ -69,7 +69,7 @@ Therefore $f$ is differentiable for any $x > 0$.
 \begin{itemize}
 \item<11->  Suppose $x < 0$.
 \item<12-| alert@16>  Then $|x| = -x$.
-\item<13->  Pick $h$ small so that $x + h < 0$.
+\item<13->  If $|h|<|x|$ it follows that $x + h < 0$.
 \item<14-| alert@16>  Then $|x + h| = -(x+h)$.
 \end{itemize}
 \abovedisplayskip=0pt
@@ -101,7 +101,7 @@ Does this limit exist?
 \belowdisplayskip=0pt
 \[
 \uncover<22->{%
-\lim_{h\rightarrow 0^{\alert<handout:0| 24>{+}}}\frac{|0+h|-|0|}{h}
+\lim_{h\rightarrow 0^{\alert<handout:0| 24>{+}}}\frac{|h|}{h}
 }%
 \uncover<23->{%
  = \lim_{h\rightarrow 0^{\alert<handout:0| 24>{+}}}\frac{\alert<handout:0| 24>{|h|}}{h}
