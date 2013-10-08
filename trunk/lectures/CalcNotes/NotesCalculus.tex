@@ -30,12 +30,14 @@
 \newcommand{\importantFormula}[1]{\begin{equation} \boxed{#1} \end{equation}}
 \newcommand{\importantText}[1]{ \framebox{#1}}
 \newenvironment{tableFixed}{~\\~\medskip\begin{minipage}{\textwidth}\captionsetup{type=table} }{\medskip\end{minipage}\medskip }
+\newenvironment{figureFixed}{~\\~\medskip\begin{minipage}{\textwidth}\captionsetup{type=figure} }{\medskip\end{minipage}\medskip }
 
 \newenvironment{proof}[1][]{ \textbf{Proof#1.} }{$\Box$\medskip}
 \newenvironment{proofOptional}[1][]{ \textbf{Proof (optional).}}{$\Box$\medskip}
 \newenvironment{solution}{\textbf{Solution.} }{$\Box$}
 \newtheorem{problem}{Problem}[section]
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{criterion}[theorem]{Criterion}
 \newtheorem{definition}[theorem]{Definition}
 
 
@@ -78,7 +80,7 @@ For more details see the full text of the license \url{http://creativecommons.or
 \tableofcontents
 
 
-\chapter{Notation, general notes}
+\chapter{Using the textbook}
 
 Some material in this book is marked as (Optional). Such material is considered to be outside of the scope of a regular Calculus course, yet may be needed to either provide a more rigorous exposition, or to provide a broader perspective on the topic. 
 
@@ -103,17 +105,18 @@ While material marked as (Optional) should be accessible to a motivated student,
 
 
 \section{Equalities vs equalities by definition }
-Throughout this text, we use $\eqdef$ to postulate (``take as axiom'', ``assume as given without proof'') a formula, and we use $=$ to derive/deduce a formula. For example, when we write 
+Throughout this textbook, we use $\eqdef$ to postulate (``take as axiom'', ``assume as given without proof'') a formula, and we use $=$ to derive/deduce a formula. For example, when we write 
 \[ 2+2=4
 \]
-we mean that we derive this equality (in this case, through the rules of elementary school arithmetics). On the other hand, when we write 
+we mean that we derive this equality (in this case, through the rules of elementary school arithmetics). When we derive an equality, both sides of the equality are already known objects (in the above case, those are the operation $+$ and the numbers $2$ and $4$).  On the other hand, when we write 
 \[
 \tan x\eqdef\frac{\sin x}{\cos x}\quad ,
 \]
-we do not deduce the above formula; rather, we \emph{define} the expression $\tan x$ via the expression $\frac{\sin x}{\cos x}$.
+we do not deduce the above formula; rather, we \emph{define} the expression $\tan x$ via the expression $\displaystyle\frac{\sin x}{\cos x}$.
 
-\textbf{A note to computer scientists. } In a large portion of the modern computer programming languages (for example, C, C++, java, Python, javascript), the equality sign is used in a way corresponds to neither $=$, nor to $\eqdef$. In those programming languages, the $=$ sign instructs a computer to change the state of a given variable. This operation has no corresponding mathematical notation. 
+\textbf{A note to computer scientists. } In many of the modern computer programming languages (for example, C, C++, java, Python, javascript), the equality sign is used in a way that corresponds to neither $=$, nor to $\eqdef$. In those programming languages, the $=$ sign instructs a computer to change the state of a given variable. This operation has no corresponding mathematical notation. 
 \section{Sets and elements}
+\url{http://en.wikipedia.org/wiki/Set_(mathematics)}
 
 In mathematics, a \emph{set} is a collection of distinct objects, considered as an object in its own right. The objects contained by a set are also called \emph{elements} of the set. We note that in the definition of a set, the words ``collection'', ``distinct'' and ``object'' are used as English language words, rather than as mathematical terms. In this way, the mathematical notions of sets and an elements of a set are based on the common sense and understanding of the reader. 
 
@@ -121,7 +124,7 @@ Sets are customarily denoted by using curly brackets enclosing the elements of t
 \[
 \{1,2,5\}
 \]
-is a the set consisting of the three elements $1,2,5$. When an element $x$ is contained in a set $X$, we write 
+is the set consisting of the three elements $1,2,5$. When an element $x$ is contained in a set $X$, we write 
 \[
 x\in X
 \]
@@ -142,7 +145,8 @@ f: D\to C \quad .
 We call the set $D$ the \emph{domain} of $f$ and $C$ the \emph{codomain} of $f$.
 \end{definition}
 We can imagine a function as a machine that takes input from its domain (``input set''), and produces output located in its codomain (``target set''). Furthermore, for each object at the input, exactly one output object is produced. 
-\begin{tableFixed}
+\begin{figureFixed}
+\optionalDisplay{
 \psset{xunit=0.6cm,yunit=0.6cm}
 \begin{pspicture}(0,0)(5,5)
 \rput[r](-1.2,0){$D$}
@@ -172,11 +176,12 @@ We can imagine a function as a machine that takes input from its domain (``input
 \psline[linestyle=dashed]{->}(0,-1.5)(5,-1.25)
 \psline[linestyle=dashed]{->}(0,-2.5)(5,2.5)
 \end{pspicture}
-\caption{A function $f$ can be represented as a set of arrows from its domain to its co-domain.}
-\end{tableFixed}
+} %end optional display
+\caption{A function $f$ can be represented as a set of arrows from its domain to its co-domain.\label{figFunctionAsArrows}}
+\end{figureFixed}
 We call the elements of the domain the \emph{arguments} of the function. For an element $x\in D$, we write $f(x) $ to denote the output of the function $f$ with input $x$. We call $f(x)$ the \emph{image} of $x$ under $f$; we may alternatively say that $f$ \emph{maps} $x$ to $f(x)$.
 
-It is not required that all elements in the codomain be obtainable by applying $f$ to the input. For example, in the graph of the function $f$ above, one of the elements of the codomain $C$ is not the image of any element of the domain $D$. 
+It is not required that all elements in the codomain be obtainable by applying $f$ to the input. For example, for the function $f$ given in Figure \ref{figFunctionAsArrows}, one of the elements of the codomain $C$ is not the image of any element of the domain $D$ (which element?). 
 
 \begin{definition}\index{function!range}
 Given a function $f:D\to C$, the set 
@@ -197,14 +202,17 @@ A function $f$ is a \emph{surjection (or onto)} if for every element $r$ in the 
 \item \index{bijection} A function is a \emph{bijection (or one to one and onto)} if it is both a surjection and an injection.
 \end{itemize}
 \end{definition}
-In other words, $f$ is injection if it sends different elements to different elements, and $f$ is a surjection if all elements in the its ``target set'' (codomain) are obtained as images of the function $f$. In other words, $f$ is bijection if it sends different elements to different elements and every element in the codomain of $f$ has a preimage.
+In other words, $f$ is injection if it sends different elements to different elements, and $f$ is a surjection if all elements in its  codomain (``target set'') are obtained as images of the function $f$. In this way, $f$ is bijection if it sends different elements to different elements and every element in the codomain of $f$ has a preimage.
 \begin{definition}\index{function!inverse}
 Let $f:X\to Y$ be a function from a set $X$ onto its codomain $Y$, such that $f$ is a bijection (different elements are sent to different ones and every element in the target set has a preimage). Then the function $g: Y\to X$ is called an inverse of $f$ if $g(f(x))=x$ for all $x\in X$ and $f(g(y))=Y$ for all $y\in Y$. 
 \end{definition}
 
-The inverse of $f$ is sometimes denoted as $f^{-1}$. Do not confuse $f^{-1}(x)$ with $\frac{1}{f(x)}$. \textbf{Advice.} Use $f^{-1}(x)$ only to denote inverse functions, never to denote $\frac{1}{f(x)}$. Avoid overall the use of the superscript $-1$ with trigonometric functions: instead of  $\sin^{-1}(x)$ you should either write $\frac{1}{\sin x}$ or $\arcsin x$, depending on which you of the two you have in mind.
+The inverse of $f$ is sometimes denoted as $f^{-1}$. Do not confuse $f^{-1}(x)$ with $\frac{1}{f(x)}$. \textbf{Advice.} Use $f^{-1}(x)$ only to denote inverse functions, never to denote $\frac{1}{f(x)}$. Avoid overall the use of the superscript $-1$ with trigonometric functions: instead of  $\sin^{-1}(x)$ you should write $\arcsin x$.
 
-Let $f: \mathbb R\to \mathbb R$ (``$f$ maps the set of real numbers to the set of real numbers''). Let $y=f(x)$ be the graph of $f$. Then $f$ is injective if every horizontal line $y=const$ intersects the graph $y=f(x)$ no more than once.
+Let $f: \mathbb R\to \mathbb R$ (``$f$ maps the set of real numbers to the set of real numbers''). Let $y=f(x)$ be the graph of $f$.
+\begin{criterion}[Horizontal line test]
+$f$ is injective if every horizontal line $y=const$ intersects the graph $y=f(x)$ no more than once.
+\end{criterion}
 
 
 \chapter{Sequences and numbers}
@@ -222,7 +230,51 @@ In this section we review the notion of a rational number.
 
 \section{Real number axioms}\label{secRealNumbersDef}
 \section{Complex numbers}
-\chapter{A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers }
+\section{A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
+
+\chapter{Limits, continuity, derivatives}
+\section{The tangent problem}
+Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$. In mathematical language, as we will soon learn, we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (in fact, ``tangent'' comes from Latin, ``to touch''). 
+
+\begin{figureFixed}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(3,5) 
+\psframe*[linecolor=white](-1,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+\psLabels{3}{5}
+%Function formula: 1/2 ((x)^{2}) 
+\rput(1,3){$y= \frac{x^2}2$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psFullDot{2}{2}
+\rput[tl](2.1, 1.9){$P=(2,2)$}
+\psline[linecolor=\psColorTangent](0.75,-0.5)(3,4)
+\end{pspicture} 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(3,5) 
+\psframe*[linecolor=white](-1,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+\psLabels{3}{5}
+%Function formula: 1/2 ((x)^{2}) 
+\rput(1,3){$y= \frac{x^2}2$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psFullDot{2}{2}
+\rput[tl](2.1, 1.9){$P=(2,2)$}
+\psFullDot{1}{0.5}
+\rput[tl](1.1, 0.4){$Q=\left(1,\frac{1}2\right)$}
+\psline[linecolor=\psColorTangent](0.3333333,-0.5)(3,3.5)
+\end{pspicture} 
+\caption{A tangent line touches the graph of a function. \label{figTangentIdeaFor}}
+\end{figureFixed}
+
+In the present section we discuss informally the tangent problem - the problem of defining and computing the equation of a tangent line to a graph of a function. In our pursuit of a definition of a tangent line, we will develop the notion of a limit. Armed with the notion of limit we will then revisit the tangent problem in Section \ref{sec}, where we shall give a definition of a tangent line and will give a recipe for computing tangents.
+
+
+
+
+
+\chapter{Complex numbers and trigonometric functions}
 
 \section{Complex numbers and trigonometric functions}
 \subsection{Review: Newton binomial formula}\label{secNewtonBinomialReview}
