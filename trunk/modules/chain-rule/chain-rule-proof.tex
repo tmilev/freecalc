@@ -1,0 +1,24 @@
+% begin module chain-rule-statement
+\begin{frame}
+\begin{theorem}[Chain rule]
+\alert<17>{$g$-diff. near $a$}, \alert<4>{$f$-diff. near $g(a)$} $\Rightarrow$ $\alert<18>{ \left(f(g(a))\right)'= f'(g(a)) g'(a)}$ .
+\end{theorem}
+\begin{proof}
+\uncover<2->{Define $Q(\alert<8>{y})=\left\{\begin{array}{ll}\alert<4>{\frac{f(\alert<8>{y})-f(g(a))}{\alert<3>{\alert<8>{y}-g(a)}}, }&\alert<4>{\alert<3>{\alert<8>{y}\neq g(a)}} \\\alert<5>{f'(g(a)), } &\alert<5>{\alert<8>{y}=g(a)} \end{array} \right.$.} \uncover<3->{\alert<3,6>{$Q(g(x))$ - defined for all $x$ near $a$.}}
+\uncover<4->{Therefore $\alert<4,5,16>{f'(g(a))}\alert<4,5>{=\lim_{y\to a} Q(y)}\alert<6>{= \alert<16>{\lim_{x\to a} Q(g(x))}}$. }
+~\\~\\
+
+$\begin{array}{rcl}
+\uncover<7->{\alert<14>{ Q(\alert<8>{g(x)})\frac{g(x)-g(a)}{x-a}} &=&}\uncover<8->{ \left\{\begin{array}{ll} \frac{\alert<11>{(f(\alert<8>{g(x)})-f(g(a))) }} {\alert<10>{(\alert<8>{g(x)}-g(a))}} \frac{\alert<10>{(g(x)-g(a))}}{\alert<11>{x-a}} , &\alert<8>{g(x)}\neq g(a) \\ f'(\alert<8>{g(a)})\frac{\alert<9>{\alert<8>{g(a)}-g(a)}}{x-a}\uncover<9->{\alert<9>{=0}}, & \alert<8>{g(x)}=g(a) \end{array} \right. }\\\uncover<10->{ &=&\alert<11,14>{\frac{f(g(x))-f(a)}{x-a}.}}
+\end{array}
+$
+~\\~\\~\\
+
+$\begin{array}{rcl}
+\uncover<12->{\alert<18>{ (f \circ g)'(a)} &=&} \uncover<13->{\displaystyle\lim_{x\to a} \alert<14>{\frac{f(g(x)) - f(g(a)) }{x-a}}=} \uncover<14->{\lim_{x\to a} \alert<14>{Q(g(x)) \frac{g(x)-g(a)}{x-a}}}\\
+\uncover<15->{&=&\alert<16>{\displaystyle \lim_{x\to a} Q(g(x))}\alert<17>{\lim_{x\to a} \frac{g(x)-g(a)}{x-a}}} \uncover<16->{=\alert<18>{ \alert<16>{f'(g(a))} \alert<17>{g'(a)}}\quad .}  
+\end{array}
+$
+\end{proof}
+\end{frame}
+% end module chain-rule-statement

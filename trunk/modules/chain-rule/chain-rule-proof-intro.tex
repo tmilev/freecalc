@@ -1,0 +1,23 @@
+% begin module chain-rule-statement
+\begin{frame}
+\begin{theorem}[Chain rule]
+Let \alert<6,11,12>{$g$-differentiable at neighborhood of $a$}, \alert<9,13>{$f$-diff. at neighb. of $g(a)$}.
+\[
+\alert<14>{  \alert<3>{\left(f(g(x))\right)'_{|x=a}}= f'(g(a)) g'(a)}
+\]
+\end{theorem}
+\begin{proof}[Proof with \alert<2>{additional assumptions} -motivation for actual proof]
+\uncover<2->{
+\alert<2>{Suppose that \alert<5>{$g(x)\neq g(a)$ so long as $x\neq a$}}.  \uncover<8->{\alert<8>{Set $G(y)=\frac{f(y)-f(g(a))}{y-g(a)}$.}} \uncover<9->{\alert<9>{ $G(y)$ is continuous at $g(a)$} $\Rightarrow$} \uncover<10->{\alert<10>{$G(g(x))$ is continuous at $a$.}} \uncover<12->{\alert<12>{Furthermore $g(x)$ is continuous at $a$.}}
+
+$\begin{array}{rcl}
+\uncover<3->{\alert<14>{ \alert<3>{(f \circ g)'(a)}} &=& \uncover<4->{\displaystyle\lim_{x\to a} \frac{f(g(x)) - f(g(a)) }{x-a}} }\\
+\uncover<5->{&=&\displaystyle \alert<6,7>{ \lim_{x\to a} } \alert<7>{\left(\frac{f(g(x)) - f(g(a)) }{\alert<5>{g(x)-g(a)}}\right)} \alert<6>{ \left(\frac{ \alert<5>{ g(x)-g(a)} }{x-a}\right)} }\\
+\uncover<6->{&=&\displaystyle \alert<7-10>{\lim_{x\to a}\left( \frac{f(\alert<12>{g(x)}) - f(g(a)) }{\alert<12>{g(x)}-g(a)}\right)}  \alert<6,11>{\lim_{x\to a}\left(\frac{g(x)-g(a)}{x-a}\right)} }\\
+\uncover<11->{&=&\displaystyle \alert<13>{\left(\lim_{\alert<12>{y=g(x),y\to g(a)}} \frac{f(\alert<12>{y}) - f(g(a)) }{\alert<12>{y}-g(a)}\right) } \alert<11>{g'(a)}=\uncover<13->{\alert<14>{ \alert<13>{f'(g(a))}g'(a)}}\quad .}
+\end{array}
+$
+}
+\end{proof}
+\end{frame}
+% end module chain-rule-statement
