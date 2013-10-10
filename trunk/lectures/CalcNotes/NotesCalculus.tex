@@ -221,11 +221,17 @@ In this chapter we define the most common sets of numbers used in mathematics - 
 We may recommend that a Calculus course skip this Chapter as this material should be familiar to the student from a precalculus course. 
 
 \section{Integers and sequences}\label{secSequences}
-In this section we assume knowledge of the set of integers, and use that knowledge to define 
+In this section we assume knowledge of the set of integers, and use that knowledge to define sequences.
 \section{From integers to rational numbers}\label{secRationalNumbers}
-In this section we review the notion of a rational number. 
+\begin{definition}
+A rational number is a number that can be expressed as the quotient of two integers. The set of all rational numbers is denoted by $\mathbb Q$.
+\end{definition}
+As we know from high school arithmetics, if \[\frac{p}{q}=\frac{s}{t}\quad ,\] 
+then $tp=qs$ and so \[tp-qs=0\quad .\] 
+That is why we may view the set of rational number $\mathbb Q $ as the set of pairs of numbers $(p,q)$ with condition that we identify $ (p,q)$ with $(s,t)$ if $tp-qs=0$.
 
 \section{From rational numbers to real numbers}\label{secReals}
+
 
 
 \section{Real number axioms}\label{secRealNumbersDef}
@@ -234,7 +240,7 @@ In this section we review the notion of a rational number.
 
 \chapter{Limits, continuity, derivatives}
 \section{The tangent problem}
-Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$. In mathematical language, as we will soon learn, we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (in fact, ``tangent'' comes from Latin, ``to touch''). 
+Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,2)$. In fact, the blue line has exactly one common point with the graph of $f(x)$. In mathematical language, as we will soon learn, we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (in fact, ``tangent'' comes from Latin, ``to touch''). 
 
 \begin{figureFixed}
 \psset{xunit=1cm, yunit=1cm}
@@ -267,8 +273,16 @@ Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. 
 \end{pspicture} 
 \caption{A tangent line touches the graph of a function. \label{figTangentIdeaFor}}
 \end{figureFixed}
+We need to define tangent at the point $P=(2,2)$ to match the intuition suggested by Figure \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall from high school that every non-vertical line has equation 
+\[
+y=mx+c\quad \quad, 
+\]
+for some numbers $m$ and $c$, where $m$ is called the slope
+of the line and $c$ is called the $y$-intercept of the line. As the line we are interested passes through the point $P=(2,2)$, it has equation $y-2=m(x-2)$ for some unknown slope $m$. Therefore in order to define a (non-vertical) tangent line, it suffices to define its slope $m$. 
 
-In the present section we discuss informally the tangent problem - the problem of defining and computing the equation of a tangent line to a graph of a function. In our pursuit of a definition of a tangent line, we will develop the notion of a limit. Armed with the notion of limit we will then revisit the tangent problem in Section \ref{sec}, where we shall give a definition of a tangent line and will give a recipe for computing tangents.
+
+
+%, as well as the task of computing the equation of a such a line. In our pursuit of such a definition, we will develop the notion of a limit. Armed with limits, we will then revisit the tangent problem in Section \ref{sec}, where we shall define the tangent line at a point and will give a recipe for computing its equation.
 
 
 
