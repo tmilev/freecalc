@@ -1,0 +1,26 @@
+%begin module sin-cos-from-exponent 
+\begin{frame}
+\begin{example}
+Derive the sine and cosine  rules
+\[
+\begin{array}{rcl}
+\left(\sin x\right)'&=&\cos x\\
+\left(\cos x\right)'&=&-\sin x\\
+\end{array}
+\]
+\uncover<2->{\alert<2>{using  Euler's formula}, } \uncover<3->{\alert<3>{the sum rule},} \uncover<7->{\alert<4>{ the exponent derivative rule},} \uncover<7->{\alert<4>{the chain rule},} \uncover<7->{\alert<7>{and the constant multiple rule}.} \uncover<4->{\alert<4>{Assume all rules are valid over the complex numbers $\mathbb C$.}}
+\[
+\begin{array}{rclp{0.5cm}|l}
+\uncover<2->{\alert<2>{e^{ix}}&=&\alert<2>{\cos x+i \sin x }&& \uncover<3->{\alert<3>{\frac{d}{dx}}}}\\
+\uncover<3->{\alert<3>{\frac{d}{dx}} \left(e^{ix}\right)&=&\alert<3>{\frac{d}{dx}}\left(\cos x+i\sin x\right)}\\
+\uncover<4->{\alert<4>{e^{ix} (ix)'}&=&}\uncover<5->{\alert<5>{(\cos x)'+i(\sin x)'}}\\
+ie^{ix}&=&(\cos x)'+i(\sin x)'\\
+i^2\sin x+i\cos x =i(\cos x+i\sin x)&=&(\cos x)'+i(\sin x)'\\
+-\sin x+i\cos x&=&(\cos x)'+i(\sin x)'
+\end{array}
+\]
+Compare real part and coefficient of $i$ to get the desired equalities.
+\end{example}
+\end{frame}
+
+%end module sin-cos-from-exponent
