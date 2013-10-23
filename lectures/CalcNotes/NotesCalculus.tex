@@ -51,9 +51,11 @@
 %\newcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
+\newcommand{\optionalMaterial}{\textbf{(Optional)}}
+
 \makeindex
-\author{Todor Milev}
-\title{Math 141 Calculus II \\ Fall 2012 \\Notes \\Draft version}
+\author{Authors: the freecalc project contributors \\~\\ Notes composition started by Todor Milev.}
+\title{Freecalc \\ Calculus for beginners \\ ~ \\Draft version}
 \begin{document}
 \maketitle
 
@@ -75,16 +77,20 @@
 
 For more details see the full text of the license \url{http://creativecommons.org/licenses/by/3.0/}.
 
-\noindent \textbf{Compiling the .tex file.} If you would like to modify this file, you will need to learn how to use \LaTeX. Note that all graphics in the notes are drawn using commands in the .tex source (the text uses no external images). The .tex file should compile ``out of the box'' on a Linux distribution with .tex installed, however you might experience some difficulties on a less modern OS.
+\noindent \textbf{Compiling the .tex file.} If you would like to modify this file, you will need to learn how to use \LaTeX. Note that all graphics in the notes are drawn using commands in the .tex source (the text uses no external images). The .tex file should compile ``out of the box'' on a Linux distribution with \LaTeX~ installed.
+
+A semi-permanent link of the .tex source of this textbook can be found here. If the link is no longer functioning, please search for ``freecalc'' project on the web.
+
+\url{https://www.assembla.com/code/freecalc/subversion/nodes/202/trunk/lectures/CalcNotes}
 
 \tableofcontents
 
 
 \chapter{Using the textbook}
 
-Some material in this book is marked as (Optional). Such material is considered to be outside of the scope of a regular Calculus course, yet may be needed to either provide a more rigorous exposition, or to provide a broader perspective on the topic. 
+Some material in this book is marked as \optionalMaterial. Such material is considered to be outside of the scope of a regular Calculus course, yet may be needed to either provide a more rigorous exposition, or to provide a broader perspective on the topic. 
 
-While material marked as (Optional) should be accessible to a motivated student, it is expected to be of higher difficulty than the rest of the book, and should not be required for successfully completing a course in Calculus.
+While material marked as \optionalMaterial should be accessible to a motivated student, it is expected to be of higher difficulty than the rest of the book, and should not be required for successfully completing a course in Calculus.
 
 
 %Here is a list of common notation and abbreviations. %This list will grow as the course progresses. Feel free to request additional notation.
@@ -222,7 +228,7 @@ We may recommend that a Calculus course skip this Chapter as this material shoul
 
 \section{Integers and sequences}\label{secSequences}
 In this section we assume knowledge of the set of integers, and use that knowledge to define sequences.
-\section{From integers to rational numbers}\label{secRationalNumbers}
+\section{ \optionalMaterial From integers to rational numbers }\label{secRationalNumbers}
 \begin{definition}
 A rational number is a number that can be expressed as the quotient of two integers. The set of all rational numbers is denoted by $\mathbb Q$.
 \end{definition}
@@ -230,13 +236,13 @@ As we know from high school arithmetics, if \[\frac{p}{q}=\frac{s}{t}\quad ,\]
 then $tp=qs$ and so \[tp-qs=0\quad .\] 
 That is why we may view the set of rational number $\mathbb Q $ as the set of pairs of numbers $(p,q)$ with condition that we identify $ (p,q)$ with $(s,t)$ if $tp-qs=0$.
 
-\section{From rational numbers to real numbers}\label{secReals}
+\section{\optionalMaterial From rational numbers to real numbers}\label{secReals}
 
 
 
-\section{Real number axioms}\label{secRealNumbersDef}
-\section{Complex numbers}
-\section{A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
+\section{\optionalMaterial Real number axioms}\label{secRealNumbersDef}
+\section{ Complex numbers}
+\section{\optionalMaterial A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
 
 \chapter{Limits, continuity, derivatives}
 \section{The tangent problem}
@@ -467,7 +473,7 @@ e^0=1\quad .
 Therefore $e^{-x}=\frac{1}{e^x}.$
 \end{proof}
 
-\item (Optional) For $z\in \mathbb R$, we will be in position to prove  
+\item \optionalMaterial For $z\in \mathbb R$, we will be in position to prove  
 \begin{equation}\label{eq(1+x/n)^n=e^x}
 \lim_{n\to \infty} \left(1+\frac{z}n\right)^n= e^z\quad .
 \end{equation}
@@ -1278,80 +1284,114 @@ $\int x^2\cos^2x dx$ (Can you solve using complex numbers and Problem \ref{eqPro
 \end{enumerate}
 \end{problem}
 
-\subsection{Integration of rational functions}
-\begin{itemize}
-\item Every rational function may be represented as a sum of a polynomial and a proper fraction. A fraction is proper if its numerator is a polynomial of smaller degree than the denominator. 
-\item A non-proper function is transformed to a proper one through polynomial division.
-\item (The fundamental theorem of algebra). Every polynomial $D(x)= a_0x^n+a_{1}x^{n-1}+\dots + a_n$ can be factored over the complex numbers into linear terms 
+\section{Integration of rational functions}
+
+\subsection{A few examples}
+
+\subsection{The theory behind integrating rational functions}
+Every rational function may be represented as a sum of a polynomial and a proper fraction. A fraction is proper if its numerator is a polynomial of smaller degree than the denominator. 
+
+A non-proper function is transformed to a proper one through polynomial 
+division.
+
+(The fundamental theorem of algebra). Every polynomial $D(x)= a_0x^n+a_{1}x^{n-1}+\dots + a_n$ can be factored over the complex numbers into linear terms 
 \begin{equation}\label{eqFundamentaTheoremAlgebra}
 D(x)=a_0(x-x_1)(x-x_2)\dots (x-x_n),
 \end{equation}
 where $x_1,\dots, x_n$ are the roots of $D(x)$. The roots of $D(x)$ are complex numbers.
-\item If all coefficients $a_i$ of the polynomial $D(x)= a_0x^n+a_{1}x^{n-1}+\dots + a_n$ are real numbers, and $z$ is a non-real root of $D(x)$, then the complex conjugate $\bar z$ of $z$ is also a root of $D(x)$. Therefore the terms  $(x-z)(x-\bar z)$ appear in the factorization \eqref{eqFundamentaTheoremAlgebra}. The terms $(x-z)(x-\bar z)$ may be combined to 
+If all coefficients $a_i$ of the polynomial $D(x)= a_0x^n+a_{1}x^{n-1}+\dots + a_n$ are real numbers, and $z$ is a non-real root of $D(x)$, then the complex conjugate $\bar z$ of $z$ is also a root of $D(x)$. Therefore the terms  $(x-z)(x-\bar z)$ appear in the factorization \eqref{eqFundamentaTheoremAlgebra}. The terms $(x-z)(x-\bar z)$ may be combined to 
 \begin{equation}\label{eqCombineConjugateRoots}
 (x-z)(x-\bar z)= x^2- (z+\bar z)x + z\bar z = x^{2}+ (\underbrace{-2\Re z}_{c_j})x+ \underbrace{(\Re z)^2+(\Im z)^2}_{d_j}.
 \end{equation}
 The discriminant of the above quadratic polynomial is negative since it equals $4(\Re z)^2- 4((\Re z)^2+(\Im z)^2)= -4(\Im z)^2<0$. 
-\item If all coefficients $a_i$ of the polynomial $D(x)= a_0x^n+a_{1}x^{n-1}+\dots + a_n$ are real numbers, then $D(x)$ can be factored in the form 
+If all coefficients $a_i$ of the polynomial $D(x)= a_0x^n+a_{1}x^{n-1}+\dots + a_n$ are real numbers, then $D(x)$ can be factored in the form 
 \begin{equation}\label{eqFactorOverReals}
 D(x)= a_0(x-x_1)^{p_1}\dots (x-x_k)^{p_k} (x^2+c_1x+d_1)^{q_1}(x^2+c_2x+d_2)\dots (x^2+c_lx +d_l)^{q_k},
 \end{equation}
 where $x_1, \dots, x_k$ are real numbers, $c_1, \dots, c_l$ and $d_1,\dots, d_l$ are real numbers, $p_1,\dots, p_k, q_1, \dots, q_l$ are positive integers, and there are no repeating terms. Furthermore $c_j^2-4d_j<0$ and each of the terms $x^2+c_j x+d_j$ is formed by combining two  roots of $D(x)$ as indicated in \eqref{eqCombineConjugateRoots}. 
 
-\item Let $\frac{N(x)}{D(x)}$ be a proper fraction, and let $D(x)$ be factorized as indicated in \eqref{eqFactorOverReals}. Then $\frac{N(x)}{D(x)}$ can be written in the form
+Let $\frac{N(x)}{D(x)}$ be a proper fraction, and let $D(x)$ be factorized as indicated in \eqref{eqFactorOverReals}. Then $\frac{N(x)}{D(x)}$ can be written in the form
 \begin{equation}\label{eqSplitPF}
 \begin{array}{rcl}
 \displaystyle\frac{N(x)}{D(x)}&=&\displaystyle \left (\frac{A_{11}}{x-x_1}+\dots +\frac{A_{1p_1}}{(x-x_1)^{p_1}}\right) +\dots + \left (\frac{A_{k1}}{x-x_k}+\dots +\frac{A_{kp_k}}{(x-x_1)^{p_k}}\right) \\
-&&\displaystyle+\left(\frac {B_{11}x+C_{11}}{x^2+c_1x+d_1}+\dots +\frac {B_{1q_1}x+C_{1q_1}}{(x^2+c_1x+d_1)^{q_1}} \right)+\dots +
-\left(\frac {B_{l1}x+C_{l1}}{x^2+c_lx+d_l}+\dots +\frac {B_{lq_l}x+C_{lq_l}}{(x^2+c_lx+d_l)^{q_l}} \right)\\
-&=&(\mathrm{in~}\sum\mathrm{~notation}):\\
+&&\displaystyle+\left(\frac {B_{11}x+C_{11}}{x^2+c_1x+d_1}+\dots +\frac {B_{1q_1}x+C_{1q_1}}{(x^2+c_1x+d_1)^{q_1}} \right)+\dots 
+\\&&\displaystyle +
+\left(\frac {B_{l1}x+C_{l1}}{x^2+c_lx+d_l}+\dots +\frac {B_{lq_l}x+C_{lq_l}}{(x^2+c_lx+d_l)^{q_l}} \right)\\ \\
+&&(\mathrm{in~}\sum\mathrm{~notation}):\\ \\
 &=&\displaystyle \sum_{j=1}^{k}\sum_{s=1}^{p_k} \frac{A_{js}}{(x-x_j)^s}+\sum_{j=1}^{l}\sum_{s=1}^{q_k} \frac{B_{js}x+C_{js}}{(x^2+c_jx+d_j)^s}\quad .
 \end{array}
 \end{equation}
 The constants $A_{js}, B_{js}, C_{js}$ are real numbers and may be extracted by clearing the denominators in the above identity and comparing the coefficients in front of $x$.
-\item Using linear substitutions, integrals of the form $\int \frac{A}{(x-x_j)^s}dx$, $\int \frac{Bx+C}{(x^2+c_jx+d_j)^s}dx$ can be transformed to integrals of one of the forms: $\int \frac{1}{y+a}dy$, $\int \frac{1}{(y+a)^n}dy$, $n\geq 2$, $\int \frac{1}{1+y^2}dy$, $\int \frac{1}{(1+y^2)^n}dy$, $n\geq 2$, $\int \frac{y}{(1+y^2)^n}dy$. Each one of these ``building block'' integrals is solved in the items below.
+Using linear substitutions, integrals of the form 
+\[\displaystyle\int \frac{A}{(x-x_j)^s}dx,
+\] 
+and
+\[
+\int \frac{Bx+C}{(x^2+c_jx+d_j)^s}dx
+\] 
+can be transformed to combinations of integrals of the forms: 
+\[
+\int \frac{1}{(y+a)^n}dy,
+\]  
+\[
+\int \frac{1}{(y^2+1)^n}dy,
+\] 
+\[\int \frac{y}{(y^2+1)^n}dy.
+\] 
+Each of these ``building block'' integrals has different behavior for $n=1$ and for $n\geq 2$. We solve each of the ``building block'' integrals below. 
 
-\item 
-\[
+\subsubsection{Integrals of the form $\displaystyle\int \frac{1}{(x+a)^n}dx$.}
+For $n=1$ we get
+\begin{equation}\label{eqBuildingBlockInt1base}
 \int \frac{1}{x+a}dx=\int {\frac{1}{x+a}d(x+a)}= \ln |x+a| +C\quad .
-\]
-\item  Let $n\neq 1$. Then
-\[
+\end{equation}
+Let $n> 1$. Then
+\begin{equation}\label{eqBuildingBlockInt1N}
 \int \frac{1}{(x+a)^n}dx= -\frac{1}{(n-1)(x+a)^{n-1}}+C \quad .
+\end{equation}
+\subsubsection{Integrals of the form $\displaystyle\int \frac{x}{(1+x ^2)^n} dx $.}
+If we use the substitution $y=x^2$, we get $dy=2xdx $ and so $\displaystyle\int \frac{x}{(1+x ^2)^n} dx = \displaystyle\int \frac{\frac12 dy}{(y+1)^n} dy $, i.e., our integral is transformed to an integral of the form \eqref{eqBuildingBlockInt1base} or  \eqref{eqBuildingBlockInt1N}. In short form, this can be written as follows. 
+
+For $n=1$ we have
+\[
+\int \frac{x}{x^2+1}dx= \int \frac{\frac{1}2 d(x^2+1)}{x^2+1}= \frac{1}{2}\ln (x^2+1) +C\quad .
 \]
-\item 
+For $n>1, n\in \mathbb Z$ we have
+\[
+\int \frac{x}{(x^2+1)^n}dx= \int \frac{\frac{1}2d(x^2+1)}{(x^2+1)^n}= -\frac{1}{2(n-1)(x+a)^{n-1} } +C\quad .
+\]
+\subsubsection {Integrals of the form $\displaystyle\int \frac{1}{(1+x ^2)^n} dx $.}
+For $n=1$ we can recall that the derivative of $\arctan x$ is $\displaystyle\frac{1}{1+x^2}$, in other words
 \[
 \int \frac{1}{x^2+1}dx= \arctan x+C\quad .
 \]
-\item 
-\[
-\int \frac{x}{(x^2+1)^n}dx= \int \frac{\frac{1}2d(x^2+1)}{(x^2+1)^n}= \frac{1}{2}\ln (x^2+1) +C\quad .
-\]
-\item For $n\geq 2$, $n\in \mathbb Z$, we are solving the integral
-\[
+For $n>1, n\in \mathbb Z$, we are solving the integral
+\begin{equation}\label{eqBuildingBlock3N}
 \int \frac{1}{(1+x ^2)^n}dx\quad .
-\]
-There is a trick to it: consider the integral $\int \frac{1}{(1+x ^2)^{n-1}}dx$ and integrate it by parts:
+\end{equation}
+This ``building block'' integral and is considerably more challenging than the preceding ``building blocks''. There is a trick to solving \eqref{eqBuildingBlock3N}. Consider the integral $\displaystyle\int \frac{1}{(1+x ^2)^{n-1}}dx$ and integrate it by parts:
 \[
 \begin{array}{rcl}
 \displaystyle \int \underbrace{\frac{1}{(1+x ^2)^{n-1}}}_{f(x)}d\underbrace{x}_{g(x)}&=&\displaystyle \frac{x}{(1+x ^2)^{n-1}}-\int x d\left(\frac{1}{(1+x ^2)^{n-1}}\right)\\
 &=&\displaystyle\frac{x}{(1+x ^2)^{n-1}}- \int 2(-n+1)\frac{x^2}{(1+x^2)^n}dx\\
 &=&\displaystyle\frac{x}{(1+x ^2)^{n-1}}+2(n-1) \int \frac{(1+x^2-1)}{(1+x^2)^n}dx\\
-&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}} +2(n-1)\int \frac{1}{(1+x^2)^{n-1}}dx -2(n-1) \int \frac{1}{(1+x^2)^n}dx\quad .
+&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}} +2(n-1)\int \frac{1}{(1+x^2)^{n-1}}dx \\&&\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}dx\quad .
 \end{array}
 \]
-We can transfer $\int \frac{1}{(1+x^2)^{n-1}}dx$ and $-2(n-1) \int \frac{1}{(1+x^2)^n}dx$ to the opposite sides to obtain that 
+Transfer the left-hand side term $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}dx$ and the right-hand side term  $\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}dx$ to the opposite sides to obtain that 
 \[
 \int \frac{1}{(1+x^2)^n}dx= \frac{x}{(2n-2)(1+x ^2)^{n-1}}+ \frac{2n-3}{2n-2}\int \frac{1}{(1+x^2)^{n-1}}dx\quad .
 \]
-In this way, we managed to express the integral $\int \frac{1}{(1+x^2)^n}dx$ with a simpler one, $\int \frac{1}{(1+x^2)^{n-1}}dx$. In a similar fashion, we may express $\int \frac{1}{(1+x^2)^{n-1}}dx$ using $\int \frac{1}{(1+x^2)^{n-2}}dx$, and so on, until we reach $\int \frac{1}{(1+x^2)}dx=\arctan x +C$. Our answer may be summarized as
+In this way, we managed to express the integral $\displaystyle\int \frac{1}{(1+x^2)^n}dx$ using a simpler one, $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}dx$. In a similar fashion, we may express $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}dx$ using $\displaystyle\int \frac{1}{(1+x^2)^{n-2}}dx$, and so on, until we reach $\displaystyle\int \frac{1}{(1+x^2)}dx=\arctan x +C$. Our answer may be summarized as
 \[
 \begin{array}{rcl}
-\int \frac{1}{(1+x^2)^n}dx&=& \frac{x}{(1+x ^2)^{n-1}}+\frac{2n-3}{2n-2}\left(\frac{x}{(1+x^2)^{n-2}}+\frac{2n-5}{2n-4}\left(\dots\right)\right)\\
-&=&\frac{(2n-3 )(2n-5)\dots 1}{(2n-2)(2n-4)\dots 2}\arctan x+  \frac{x}{(2n-2)(1+x ^2)^{n-1}}+  \displaystyle\sum_{s=3}^{n} \frac{(2n-3 )(2n-5)\dots (2s-3)}{(2n-2)(2n-4)\dots (2s-2)} \frac{x}{(2s-4)(1+x^2)^{s-2}} \quad .
+\displaystyle \int \frac{1}{(1+x^2)^n}dx&=& \displaystyle  \frac{x}{(1+x ^2)^{n-1}}+\frac{2n-3}{2n-2}\left(\frac{x}{(1+x^2)^{n-2}}+\frac{2n-5}{2n-4}\left(\dots\right)\right)\\ \\ &&\mathrm{using~}\Sigma \mathrm{~notation:}\\ \\
+&=&\displaystyle \frac{(2n-3 )(2n-5)\dots 1}{(2n-2)(2n-4)\dots 2}\arctan x+  \frac{x}{(2n-2)(1+x ^2)^{n-1}} \\&&\displaystyle + \sum_{s=3}^{n} \frac{(2n-3 )(2n-5)\dots (2s-3)}{(2n-2)(2n-4)\dots (2s-2)} \frac{x}{(2s-4)(1+x^2)^{s-2}} \quad .
 \end{array}
 \]
-\item Summary of the algorithm for integrating rational functions $\int \frac{N(x)}{D(x)}dx$.
+
+\subsection{Algorithm for integrating rational functions}
+In this section we summarize the algorithm for integrating rational functions $\int \frac{N(x)}{D(x)}dx$.
 \begin{itemize}
 \item If the degree of $N(x)$ is greater than the degree of $D(x)$, use polynomial division with remainder to transform to proper fraction. In other words, by the algorithm of long division, obtain $Q(x)$ and $R(x)$ such that $N(x)= Q(x)D(x)+R(x)$ and the degree of $R(x)$ is smaller than the degree of $D(x)$. Then use 
 \[
@@ -1364,20 +1404,21 @@ In this way, we managed to express the integral $\int \frac{1}{(1+x^2)^n}dx$ wit
 \item Collect the ``building blocks'' to a single answer.
 \item Check your answer by differentiation!!!
 \end{itemize}
-\item \textbf{(Optional)} A few notes on factoring polynomials are in order. 
+\optionalMaterial A few notes on factoring polynomials are in order. 
 \begin{itemize}
 \item There are algorithms for factoring a polynomial $D(x)$ over the rational numbers.
 \item There is a ``closed form'' formula for finding the roots of an arbitrary polynomial of degree 4 or less. Here, ``closed form'' formula means it is written with finitely many radicals (second, third, \dots roots), addition, subtraction, division and multiplication.
 \item A polynomial of degree 5 will generically have roots not of the above form (i.e., its roots cannot be written using finitely many arithmetic and radical operations). For concrete polynomials, there may be exceptions. All examples in our calculus course will fall under this exception.
 \item One can solve (for tautological reasons) an arbitrary polynomial of degree 5 or more by allowing operations involving additional (transcedental) functions. These functions may be described using infinite power series, just as we will later come to describe the radical function $\sqrt{1+z}$ (see \eqref{eqNewtonBinomialGeneralized}). However, the properties of these transcedental functions (for example, whether one such function may be used for two different polynomials or how to systematically describe them using computer algebra systems) are not completely understood; this is an area of active mathematical research under the general title ``Galois Theory''.
 \end{itemize}
-\end{itemize}
-\subsubsection{Examples of integration of rational functions}
-\begin{itemize}
-\item Split in partial fractions and integrate 
+
+\subsection{A large example illustrating the full algorithm }
+\begin{problem}
+Integrate 
 \[
 \int \frac{x^{6}-x^{5}+9/2x^{4}-4x^{3}+13/2x^{2}-7/2x+11/4}{x^{5}-x^{4}+3x^{3}-3x^{2}+9/4x-9/4} dx\quad .
 \]
+\end{problem}
 
 \begin{solution}
 
@@ -1471,7 +1512,6 @@ The final answer is
 \frac{1}{2}\left(\frac{\sqrt{2/3}x}{2/3x^2+1}\right) +\frac{1}{4}\ln (2x^2+3)\left(\frac{1}2-\frac{\sqrt{6}}{6}\right)\arctan (\sqrt{2/3}x)+\ln|x-1|+\frac{x ^2}2+C\quad .
 \]
 \end{solution}
-\end{itemize}
 \subsubsection{Exercises}
 \begin{problem}
 Evaluate the indefinite integral. 
