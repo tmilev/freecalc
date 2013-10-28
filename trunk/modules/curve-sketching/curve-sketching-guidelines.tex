@@ -1,33 +1,40 @@
 % begin module curve-sketching-guidelines
 \begin{frame}
 \frametitle{Guidelines for Sketching a Curve}
-Consider the following things when asked to sketch a curve.  Not every one of these guidelines is relevant to every function.
+The following items are to be considered when drawing a curve. \alert<2>{Not every item is relevant to every function.}
 \begin{enumerate}
-\item  Domain
-\item  Intercepts
-\item  Symmetry
-\item  Asymptotes
-\item  Intervals of increase or decrease
-\item  Local maxima and minima
-\item  Concavity and points of inflection
+\item  Determine the domain of the function.
+\item  Depending on availability, use computer software to plot. 
+\item  \alert<2>{Compute $x,y$ intercepts.}
+\item  \alert<2>{Determine symmetries, periodicity.}
+\item  \alert<2>{Compute asymptotes - vertical, horizontal, {\color{gray} optional - slanted}.}
+\item  Compute intervals of increase or decrease.
+\item  Compute local and global maxima and minima.
+\item  Compute concavity and points of inflection.
 %\item  Sketch the curve
 \end{enumerate}
 \end{frame}
 
 \begin{frame}[t]
 \begin{enumerate}
-\item  Domain
-\end{enumerate}
+\item  \alert<3>{Domain}
 \begin{itemize}
 \item  Find the domain of the function.  
 \item  Remember the two restrictions: no dividing by $0$, and no taking the even root of a negative number.
 \end{itemize}
+\item<2-> You can use computer software to plot your function.
+\begin{itemize}
+\item<3-> Most computer software will ask you to specify the \alert<3>{domain of the function} explicitly.
+\item<4-> Some software may be able to determine the (implied) domain of your function.
+\item<5-> Software may not be always available (example: Calculus I exams).
+\end{itemize} 
+\end{enumerate}
 \end{frame}
 
 
 \begin{frame}[t]
 \begin{enumerate}
-\setcounter{enumi}{1}
+\setcounter{enumi}{2}
 \item  Intercepts
 \end{enumerate}
 \begin{itemize}
@@ -41,8 +48,8 @@ Consider the following things when asked to sketch a curve.  Not every one of th
 
 \begin{frame}[t]
 \begin{enumerate}
-\setcounter{enumi}{2}
-\item  Symmetry
+\setcounter{enumi}{3}
+\item  Symmetry, Periodicity
 \end{enumerate}
 \begin{itemize}
 \item<1-| alert@2>  \alert<handout:1| 0>{If $f(-x) = f(x)$ for all $x$, then $f$ is even.}
@@ -50,23 +57,100 @@ Consider the following things when asked to sketch a curve.  Not every one of th
 \item<1-| alert@4>  \alert<handout:3| 0>{If there is some number $p$ such that $f(a+p) = f(a)$ for all $a$, then $f$ is called periodic.  The smallest such $p$ is called its period.}
 \end{itemize}
 \begin{center}
+
 \ \only<handout:1| -2>{%
 \uncover<2>{%
-\ \includegraphics[height=5cm]{curve-sketching/pictures/01-01-even.pdf}%
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.7, -5)(1.7,5) 
+\psframe*[linecolor=white](-1.7,-5)(1.7,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.7,-1.5)(1.7,2.5721)
+\psLabels{1.7}{2.5721}
+\psXTickWithLabel{-1}{$-1$}
+\psXTickWithLabel{1}{$1$}
+%Function formula: -2 x^{2}+x^{4} 
+%\rput(1,3){$y=-2 x^{2}+x^{4}$} 
+\psFullDot{-1.5}{0.5625}
+\psFullDot{1.5}{0.5625}
+\rput[r](-1.6, 0.5625){$(-1.5, f(1.5))$}
+\rput[l](1.6, 0.5625){$(1.5, f(1.5))$}
+\psline{<->}(-1.4, 0.5625)(1.4, 0.5625)
+\psFullDot{-1}{-1}
+\psFullDot{1}{-1}
+\rput[rt](-1.1, -1){$(-1, f(1))$}
+\rput[lt](1.1, -1){$(1, f(1))$}
+\psline{<->}(-0.9, -1)(0.9, -1)
+
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.7}{1.7}{x 4 exp x 2 exp -2 mul add }
+\end{pspicture}
 }}%
 \only<handout:2| 3>{%
-\ \includegraphics[height=5cm]{curve-sketching/pictures/01-01-odd.pdf}%
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-3, -5)(3,5) 
+\psframe*[linecolor=white](-3,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-3.2,-2)(3.2,2)
+\psLabels{3.2}{2}
+\psXTickWithLabel{1}{$1$}
+\psXTickWithLabel{-1}{$-1$}
+%Function formula: \sin{}x 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3}{3}{x 57.29578 mul sin }
+%Function formula: \sqrt{- x^{2}+17080660249/10000000000} 
+\psplot[arrows=->, plotpoints=1000]{-1.3068}{0.92}{1.70807 x 2 exp -1 mul add sqrt }
+%Function formula: -\sqrt{- x^{2}+17080660249/10000000000} 
+\psplot[arrows=->, plotpoints=1000]{-1.3068}{-1.08}{1.70807 x 2 exp -1 mul add sqrt -1 mul}
+\psFullDot{1}{0.841471}
+\rput[lt](1,0.741471 ){$(1, f(1))$}
+\psFullDot{-1}{-0.841471}
+\rput[t](-1,-1.05 ){$(-1, -f(1))$}
+\rput[lb](1.5, 1.1){$y=f(x)$}
+\end{pspicture}
 }%
+
 \only<handout:3| 4->{%
-\ \includegraphics[height=5cm]{curve-sketching/pictures/04-05-periodic.pdf}%
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-10, -5)(10,5) 
+\psframe*[linecolor=white](-10,-5)(10,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-6,-0.7)(6,4.5)
+\psLabels{6}{4.5}
+%Function formula: \sin^{2}{}(2 x)+\sin{}(2 x)+1 
+%\rput(1,3){$y=\sin^{2}{}(2 x)+\sin{}(2 x)+1$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-6}{6}{1 x 2 mul 57.29578 mul sin add x 2 mul 57.29578 mul sin 2 exp add }
+
+\psFullDot{0.785398163}{3}
+\psline[linestyle=dashed](0.785398163,0)(0.785398163,3)
+\psXTickWithLabel{0.785398163}{$a+p$}
+\psFullDot{3.926990817}{3}
+\psline[linestyle=dashed](3.926990817,0)(3.926990817,3)
+\psXTickWithLabel{3.926990817}{$a+2p$}
+\psFullDot{-2.35619449}{3}
+\psline[linestyle=dashed](-2.35619449,0)(-2.35619449,3)
+\psXTickWithLabel{-2.35619449}{$a$}
+\psFullDot{-5.497787144}{3}
+\psline[linestyle=dashed](-5.497787144,0)(-5.497787144,3)
+\psXTickWithLabel{-5.497787144}{$a-p$}
+
+\end{pspicture} 
 }
+
+%\ \only<handout:1| -2>{%
+%\uncover<2>{%
+%\ \includegraphics[height=5cm]{curve-sketching/pictures/01-01-even.pdf}%
+%}}%
+%\only<handout:2| 3>{%
+%\ \includegraphics[height=5cm]{curve-sketching/pictures/01-01-odd.pdf}%
+%}%
+%\only<handout:3| 4->{%
+%\ \includegraphics[height=5cm]{curve-sketching/pictures/04-05-periodic.pdf}%
+%}
 \end{center}
 \end{frame}
 
 
 \begin{frame}[t]
 \begin{enumerate}
-\setcounter{enumi}{3}
+\setcounter{enumi}{4}
 \item  Asymptotes
 \end{enumerate}
 \begin{itemize}
@@ -91,7 +175,7 @@ Consider the following things when asked to sketch a curve.  Not every one of th
 
 \begin{frame}[t]
 \begin{enumerate}
-\setcounter{enumi}{4}
+\setcounter{enumi}{5}
 \item  Intervals of increase or decrease
 \end{enumerate}
 \begin{itemize}
@@ -108,7 +192,7 @@ Consider the following things when asked to sketch a curve.  Not every one of th
 
 \begin{frame}[t]
 \begin{enumerate}
-\setcounter{enumi}{5}
+\setcounter{enumi}{6}
 \item  Local maxima and minima
 \end{enumerate}
 \begin{itemize}
@@ -124,7 +208,7 @@ Consider the following things when asked to sketch a curve.  Not every one of th
 
 \begin{frame}[t]
 \begin{enumerate}
-\setcounter{enumi}{6}
+\setcounter{enumi}{7}
 \item  Concavity and points of inflection
 \end{enumerate}
 \begin{itemize}
