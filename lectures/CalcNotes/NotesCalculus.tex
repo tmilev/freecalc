@@ -298,9 +298,8 @@ of the line and $c$ is called the $y$-intercept of the line. As the line we are 
 
 \section{Complex numbers and trigonometric functions}
 \subsection{Review: Newton binomial formula}\label{secNewtonBinomialReview}
-\textbf{Materials.} Wikipedia. \url{http://en.wikipedia.org/wiki/Binomial_theorem}
-\begin{itemize}
-\item \index{factorial} Factorial. Let $n\in \mathbb Z_{\geq 0}$ (non-negative integers).
+\url{http://en.wikipedia.org/wiki/Binomial_theorem}
+\index{factorial} Factorial. Let $n\in \mathbb Z_{\geq 0}$ (non-negative integers).
 \[
 n!\eqdef n*(n-1)*(n-2)*\dots *4*3*2*1 \quad  .
 \]
@@ -309,7 +308,8 @@ n!\eqdef n*(n-1)*(n-2)*\dots *4*3*2*1 \quad  .
 \]
 
 A few factorial values. $0!=1$, $1!=1$, $2!=2$, $3!=6$, $4!=4*3!=24$, $5!=5*4!=120$, $6!=6*5!=720$, $7!=7*6!=5040$  \quad .
-\item \index{binomial!coefficient definition} Let $k\in \mathbb Z_{>0}$. The binomial coefficient $\binom{x}{k}$ is read as ``$x$ choose $k$''.
+
+\index{binomial!coefficient definition} Let $k\in \mathbb Z_{>0}$. The binomial coefficient $\binom{x}{k}$ is read as ``$x$ choose $k$''.
 
 \importantFormula{\label{eqBinomialCoeffDefinition}
 \binom{x}{k}\eqdef \frac{ \overbrace{ x(x-1)(x-2)(x-3)\dots (x-k+1)}^{\mathrm{k~multiplicands~total}} } {k!} \quad .
@@ -318,49 +318,53 @@ A few factorial values. $0!=1$, $1!=1$, $2!=2$, $3!=6$, $4!=4*3!=24$, $5!=5*4!=1
 \[\binom{x}{0}\eqdef 1 \quad .
 \]
 
-\item Suppose $k,n\in \mathbb Z_{\geq 0}$ (non-negative integers). Then
+Suppose $k,n\in \mathbb Z_{\geq 0}$ (non-negative integers). Then
 
 \[\binom{n}{k} = \frac{n!}{(n-k)! k!}\quad .
 \]
-\item \index{binomial!formula} Newton binomial formula.
+\index{binomial!formula} Newton binomial formula.
 
 \importantFormula{\label{eqNewtonBinomialFormula}
 \begin{array}{rcl}
 (a+b)^{n} &\eqReview&\displaystyle \sum\limits_{i=0}^n \binom {n}{k} a^{n-k}b^{k} \\&=& \underbrace{\binom{n}{0}}_{=1} a^n + \underbrace{\binom{n}{1}}_{=n}a^{n-1}b +\dots+ \binom{n}{k}a^{n-k}b^{n}+\dots + \underbrace{\binom{n}{n-1}}_{=n}ab^{n-1} + \underbrace{\binom{n}{n}}_{=1} b^n \quad .
 \end{array}
 }
-\end{itemize}
+
 \subsection{Basic operations with complex numbers}\label{secComplexNumbers}
-\textbf{Materials.} Appendix H from the textbook and Wikipedia.
 
 \noindent \url{http://en.wikipedia.org/wiki/Complex_number}
 \noindent The basic operations with complex numbers follow.
 
-\begin{itemize}
-\item \index{complex!number}\index{imaginary}\index{imaginary!unit} Imaginary unit.
+\index{complex!number}\index{imaginary}\index{imaginary!unit} Imaginary unit.
 \[i^2\eqdef -1\quad .\]
-\item In the complex number $z=a+ib$, $a$ is called \emph{real part of $z$}, $b$ is called \index{imaginary!part}\emph{imaginary part of $z$}. Notation.
+
+In the complex number $z=a+ib$, $a$ is called \emph{real part of $z$}, $b$ is called \index{imaginary!part}\emph{imaginary part of $z$}. Notation.
 \[
 \Re (a+ib)\eqdef a \quad, \quad \quad \Im (a+ib)\eqdef b \quad .
 \]
 Number of the form $ib$ for $b\in \mathbb R$ are called imaginary.
-\item Complex addition.
+
+Complex addition.
 \[(a+i b)+ (c+id)\eqdef (a+c) + i(b+d) \quad .
 \]
-\item Complex multiplication 
+
+Complex multiplication 
 
 \[
 (a+ i b)(c+id)=(ac-bd)+i(bc+ad) \quad .
 \]
-\item \index{complex!conjugation} Complex conjugation.
+
+\index{complex!conjugation} Complex conjugation.
 \[\overline{a+ib}\eqdef a-ib \quad .
 \]
-\item Complex conjugation respects addition.
+
+Complex conjugation respects addition.
 \importantFormula{
 \label{eqComplexConjugationIsAddHMM} 
 \overline {z +w}= \bar z +\bar w\quad .
 }
-\item Complex conjugation respects multiplication.
+
+Complex conjugation respects multiplication.
 \importantFormula{
 \label{eqComplexConjugationIsFieldHMM}  \overline {z w}= \bar z \bar w\quad .
 }
@@ -371,7 +375,8 @@ Let $z= a+ib$ and $w=c+id$. Then
 \end{array}
 \end{equation*}
 \end{proof}
-\item \index{complex!absolute value} Absolute value of a complex number.
+
+\index{complex!absolute value} Absolute value of a complex number.
 
 \[
 |a+ib|^2\eqdef (a+ib)\overline{(a+ib)}=(a+ib)(a-ib)=a^2+b^2 \quad .
@@ -380,15 +385,16 @@ Let $z= a+ib$ and $w=c+id$. Then
 |a+ib|\eqdef \sqrt{a^2+b^2}\quad .
 \]
 
-\item Complex division.
+Complex division.
 \[
 \frac{1}{c+id}= \frac{c-id}{(c+id)(c-id)}=\frac{c}{c^2+d^2}-i\frac{d}{c^2+d^2} \quad .
 \]
-\item Complex division (general).
+
+Complex division (general).
 \[
 \frac{a+ib}{c+id}=(a+ib)\frac{1}{c+id}= \frac{(a+ib)(c-id)}{(c+id)(c-id)}= \frac{ac+bd}{c^2+d^2}+i\frac{(bc-ad)}{c^2+d^2} \quad .
 \]
-\end{itemize}
+
 \subsubsection{Exercises}
 \begin{problem}
 Carry out the operations. For items 4-6 review the Newton Binomial formula \eqref{eqNewtonBinomialFormula}.
@@ -403,18 +409,17 @@ Carry out the operations. For items 4-6 review the Newton Binomial formula \eqre
 \end{problem}
 
 \subsection{Exponent function, $\sin$ and $\cos$}
-\begin{itemize}
-\item \index{exponent function} Exponent function $e^z$. 
+\index{exponent function} Exponent function $e^z$. 
 
 \importantFormula{\label{eqExponentFunctionDefinition}
 e^{z}\eqdef \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots \quad .
 }
 
-\item \begin{theorem} The infinite sum above is well-defined, i.e., if we define $f(N):=\sum_{n=0}^{N} \frac{z^n}{n!}$, then $\displaystyle\lim_{N\to \infty} f(N)$ exists.
+\begin{theorem} The infinite sum above is well-defined, i.e., if we define $f(N):=\sum_{n=0}^{N} \frac{z^n}{n!}$, then $\displaystyle\lim_{N\to \infty} f(N)$ exists.
 \end{theorem}
 
 This theorem will be proved in section \ref{secSeriesConvergence}.
-\item \index{sine function} \index{cosine function} $\sin z$ and $\cos z$ (sine and cosine functions).
+\index{sine function} \index{cosine function} $\sin z$ and $\cos z$ (sine and cosine functions).
 
 \importantFormula{
 \sin z\eqdef \frac{e^{iz}-e^{-iz}}{2i} \quad .
@@ -424,7 +429,8 @@ This theorem will be proved in section \ref{secSeriesConvergence}.
 }
 
 We recall $i$ is the complex unit, $i^2\eqdef -1$.
-\item Euler formula
+
+Euler formula
 
 \importantFormula{\label{eqEulerExp}
 e^{iz}= \cos z+ i\sin z \quad .
@@ -441,7 +447,7 @@ e^{iz}&=& \frac{2}{2}e^{iz}= \frac{2e^{iz} + e^{-iz} - e^{-iz}}{2} = \frac{e^{iz
 \end{proofOptional}
 
 
-\item Exponents add when we multiply exponent functions.
+Exponents add when we multiply exponent functions.
 
 \importantFormula{
 e^{z} e^{w}=e^{z+w}\quad .
@@ -456,7 +462,6 @@ e^{z} e^w&=&\sum_{n=0}^{\infty} \frac{z^n}{n!}\sum_{m=0}^{\infty} \frac{w^m}{m!}
 \end{array}
 \end{equation*}
 \end{proofOptional}
-\item 
 \[
 e^0=1\quad .
 \]
@@ -465,7 +470,7 @@ e^0=1\quad .
 \[ e^0 = 1+ 0+ \frac{0^2}{2}+ \frac{0^3}{6}+\dots +\frac{0^n}{n!}+\dots = 1\quad .
 \]
 \end{proofOptional}
-\item $\frac{1}{e^{x}}= e^{-x}$\quad .
+$\frac{1}{e^{x}}= e^{-x}$\quad .
 
 \begin{proof}
 \[e^{-x}e^x=e^0 = 1\quad .
@@ -473,12 +478,12 @@ e^0=1\quad .
 Therefore $e^{-x}=\frac{1}{e^x}.$
 \end{proof}
 
-\item \optionalMaterial For $z\in \mathbb R$, we will be in position to prove  
+\optionalMaterial For $z\in \mathbb R$, we will be in position to prove  
 \begin{equation}\label{eq(1+x/n)^n=e^x}
 \lim_{n\to \infty} \left(1+\frac{z}n\right)^n= e^z\quad .
 \end{equation}
 in Section \ref{secLHospitalRevisited}. The above holds for arbitrary $z\in \mathbb C$ as well.
-\item 
+
 \importantFormula{\label{eqsinSquaredPlusCosSquared}
 \sin^2 z +\cos^2 z= 1\quad .
 }
@@ -493,20 +498,21 @@ in Section \ref{secLHospitalRevisited}. The above holds for arbitrary $z\in \mat
 \end{array}
 \end{equation*}
 \end{proofOptional}
-\item 
+
 \begin{equation}\label{eqcosPowerSeries} 
 \begin{array}{rcl}
 \cos(x)&=&1-\frac{x^2}{2}+\frac{x^4}{4!}-\frac{x^6}{6!}+\dots -\frac{x^{4n+2}}{(4n+2)!}+ \frac{x^{4n+4}}{(4n+4)!}+\dots\\
 &=&\displaystyle \sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!}
 \end{array}
 \end{equation}
-\item \begin{equation}\label{eqsinPowerSeries}
+
+\begin{equation}\label{eqsinPowerSeries}
 \begin{array}{rcl}
 \sin(x)&=&x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots +\frac{x^{4n+1}}{(4n+1)!}- \frac{x^{4n+3}}{(4n+3)!}+\dots\\
 &=& \displaystyle \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
 \end{array}
 \end{equation}
-\item \begin{proofOptional}
+\begin{proofOptional}
 \[
 \begin{array}{rcl}
 \displaystyle\cos(x)&=& \displaystyle \frac{e^{ix}+e^{-ix}}{2}= \frac 12 \left(\sum_{i=0}^\infty (ix)^{n}+ \sum_{i=0}^\infty (-ix)^{n}\right)\\
@@ -531,8 +537,8 @@ in Section \ref{secLHospitalRevisited}. The above holds for arbitrary $z\in \mat
 \]
 \end{proofOptional}
 
-\item \[\sin(x+ y)=\sin x\cos y +\sin y\cos x  \]\quad .
-\item \[\cos (x+y)= \cos x \cos y - \sin x \sin y\]\quad .
+ \[\sin(x+ y)=\sin x\cos y +\sin y\cos x  \]\quad .
+ \[\cos (x+y)= \cos x \cos y - \sin x \sin y\]\quad .
 Here is a quick way to remember the above formulas. Suppose $x,y\in \mathbb R$. Then
 \[
 \begin{array}{rcl}\cos (x+y) + i\sin (x+y)&\stackrel{\mathrm{Euler~formula~}\eqref{eqEulerExp}}{=}& e^{i(x+y)} =e^{ix}e^{iy}\\&=& (\cos x +i \sin y)(\cos y + i \sin y)\\&=& \cos x \cos y - \sin x \sin y\\&& +i(\sin x \cos y+ \sin y \cos x) \quad .\end{array}
@@ -554,11 +560,10 @@ Now since both $x,y$ are real the only way to satisfy the above equality is to h
 \end{array}
 \]
 \end{proofOptional}
-\item We have that $(e^{iz})^2= e^{2iz}= \cos (2z)+ i\sin(2z)$. On the other hand, $(e^{iz})^2 = (\cos z+i\sin z)^2= \cos^2z+2i\sin z\cos z - \sin^2 z$. Therefore $\cos (2z)+ i\sin(2z)= (\cos^2 z- \sin^2 z)+ i(2\sin z\cos z) $ and therefore we get the formulas 
+We have that $(e^{iz})^2= e^{2iz}= \cos (2z)+ i\sin(2z)$. On the other hand, $(e^{iz})^2 = (\cos z+i\sin z)^2= \cos^2z+2i\sin z\cos z - \sin^2 z$. Therefore $\cos (2z)+ i\sin(2z)= (\cos^2 z- \sin^2 z)+ i(2\sin z\cos z) $ and therefore we get the formulas 
 \begin{equation}\label{eqSin2xCos2x}
 \sin (2z)=2\sin z \cos z \quad\quad \quad \cos(2z)=\cos^2 z- \sin^2 z.
 \end{equation}
-\end{itemize}
 There are two equivalent ways of defining $\sin z$ and $\cos z$: one given here, and one studied in some high schools and in alternative expositions of the calculus course. When using the high school approach, one defines that the functions $\sin \varphi$ and $\cos\varphi$ measure the lengths of the legs of the right angle triangle with another angle $\varphi$ and hypotenuse of length 1, as indicated on figure \ref{figUnitCircleSineCosine}. The angle $\varphi$ is defined as the length of the arc of the unit circle colored in red. 
 
 It is my personal opinion that the approach here - using the power series \eqref{eqExponentFunctionDefinition} of $e^z$ - is ``more advanced'' but at the same time also ``easier'' and ``more elegant''. The approach here provides superior and easy (``on the fly'') access to trigonometric formulas. However, our approach has one disadvantage. The fact that $\varphi$ measures the arc drawn with red in the figure \ref{figUnitCircleSineCosine} is to be taken, for the time being, on ``good faith''. This  will be fixed after studying lengths of curves in Section \ref{secCurveLength}.
@@ -605,21 +610,25 @@ Use the trick used to derive \eqref{eqSin2xCos2x} to derive a formula for $\sin(
 \end{problem}
 \subsection{Definition of $\pi$, polar form of complex numbers}\label{secPolarFormComplexNumbers}
 \label{secDefinitionPi}
-\begin{itemize}
-\item Theorem(!). There exists a positive real number $x$ such that \index{$\pi$}
+
+Theorem(!). There exists a positive real number $x$ such that \index{$\pi$}
 \importantFormula{
 e^{ix}=i\quad .
 }
 
-\item Define $\pi$ to be the smallest positive real number for which
+Define $\pi$ to be the smallest positive real number for which
 
 \importantFormula{
 e^{i\frac{\pi}{2} }\eqdef i\quad .
 }
-\item $e^{i\pi}= e^{i\frac{\pi}2}e^{i\frac{\pi}2}= i^2= -1\quad .$
-\item $e^{2i\pi}= e^{\pi i} e^{\pi i}= (-1)^2=1\quad .$
-\item $\sin \frac{\pi}2 = 1\quad .$
-\item $\cos \frac{\pi}2 = 0\quad .$
+
+$e^{i\pi}= e^{i\frac{\pi}2}e^{i\frac{\pi}2}= i^2= -1\quad .$
+
+$e^{2i\pi}= e^{\pi i} e^{\pi i}= (-1)^2=1\quad .$
+
+$\sin \frac{\pi}2 = 1\quad .$
+
+$\cos \frac{\pi}2 = 0\quad .$
 
 \begin{proofOptional}
 \[
@@ -627,20 +636,21 @@ e^{i\frac{\pi}{2} }\eqdef i\quad .
 \]
 Comparing both sides we see that $0=\cos \frac{\pi}{2}$ and $1=\sin \frac \pi 2$.
 \end{proofOptional}
-\item The length of the circumference of a circle of radius $r$ is $2\pi r$ and the area of a circle of radius $r$ is $\pi r^2$. We will prove these formulas very soon. 
-\item The sine and cosine of real numbers are real numbers.
+
+The length of the circumference of a circle of radius $r$ is $2\pi r$ and the area of a circle of radius $r$ is $\pi r^2$. We will prove these formulas very soon. 
+
+The sine and cosine of real numbers are real numbers.
 
 \begin{proof}
 We look at the power series for $\sin x$ and $\cos x$ given by \eqref{eqcosPowerSeries} and \eqref{eqsinPowerSeries} and see that $i$ does not participate in either expression. Therefore substituting real numbers in the expressions for $\sin x$ and $\cos x$ given by  \eqref{eqcosPowerSeries} and \eqref{eqsinPowerSeries} yields a real number.
 \end{proof}
-\item If $x\in \mathbb R$ then $|\sin x|\leq 1$ and $|\cos x| \leq 1$.
+If $x\in \mathbb R$ then $|\sin x|\leq 1$ and $|\cos x| \leq 1$.
 
 \begin{proof}
 We know that $\sin^2 x+\cos ^2 x=1$ (by \eqref{eqsinSquaredPlusCosSquared}). Since $x$ is a real number, so are $\sin x$ and $\cos x$ and therefore $\sin^2x\leq 1$ and $\cos^2 x$ are positive real numbers. Therefore  $|\sin x|^2\leq 1$ and $|\cos x|^2\leq 1$ and therefore $|\sin x|\leq 1$ and $|\cos x|\leq 1$.
 \end{proof}
-\item For $x\in \mathbb R$, graphs of $\sin x$ and $\cos x$ can be found in section \ref{secGraphsTrigFunc}.
+For $x\in \mathbb R$, graphs of $\sin x$ and $\cos x$ can be found in section \ref{secGraphsTrigFunc}.
 
-\item  
 \[
 \sin \left(x+\frac{\pi}{2}\right)= \cos x \quad .
 \]
@@ -653,17 +663,22 @@ This equality is indicated by the red color in the graphs of $\sin$ and $\cos$ i
 Comparing both sides of the above expression shows that $\cos(x+\frac{\pi}{2})=-\sin x$ and $\sin(x+\frac{\pi}{2})= \cos x$.
 \end{proof}
 
-\item  Recall that $\overline{a+ib}=a-ib$  (complex conjugation). Then recall \eqref{eqComplexConjugationIsFieldHMM}:
+Recall that $\overline{a+ib}=a-ib$  (complex conjugation). Then recall \eqref{eqComplexConjugationIsFieldHMM}:
 \[
 \overline {z w}= \bar z \bar w\quad .
 \]
-\item \[\overline {z^n}= \overline {\underbrace{z*z*\dots*z}_{n\mathrm{~times}}} = \underbrace{\bar z* \bar z *\dots * \bar z}_{n\mathrm{~times}}= \bar {z}^n\]
 
-\item Let $y\in \mathbb R$ (i.e., $y$ is a real number).
+\[
+\overline {z^n}= \overline {\underbrace{z*z*\dots*z}_{n\mathrm{~times}}} = \underbrace{\bar z* \bar z *\dots * \bar z}_{n\mathrm{~times}}= \bar {z}^n
+\]
+
+
+Let $y\in \mathbb R$ (i.e., $y$ is a real number).
 \begin{equation}\label{eqexponentiyconjugateisinverse}
 \overline {e^{iy}}= \sum_{n=0}^\infty \frac{\overbrace{\bar i}^{=-i} \bar y^n}{n!}= \sum_{n=0}^\infty \frac{(i(-y))^n}{n!}=  e^{-iy}= \frac{1}{e^{iy}}\quad .
 \end{equation}
-\item  Let $y\in \mathbb R$. Then $|e^{iy}|=1$. 
+
+Let $y\in \mathbb R$. Then $|e^{iy}|=1$. 
 
 \begin{proof}
 \[
@@ -671,13 +686,13 @@ Comparing both sides of the above expression shows that $\cos(x+\frac{\pi}{2})=-
 \]
 As for arbitrary $z$ we have that $|z|$ is a non-negative real number it follows that $|e^{iy}|=1$. 
 \end{proof}
-\item Let $x\in \mathbb R$. Then $e^x$ is a positive real number.
 
-\item Let $\rho, \varphi\in \mathbb R$ (real numbers). Then the expression
+Let $x\in \mathbb R$. Then $e^x$ is a positive real number.
+
+Let $\rho, \varphi\in \mathbb R$ (real numbers). Then the expression
 \[e^{\rho+i\varphi}=\underbrace{e^{\rho}}_{|e^{\rho+i\varphi}|}(\cos \varphi + i\sin \varphi)
 \]
-is defined to be a polar form of the number $e^{\rho+i\varphi}$. 
-\item  Let $z=a+ib$, where $a, b\in \mathbb R$ (real numbers). Let $w\neq 0$. Suppose $\varphi$ is such a number that
+is defined to be a polar form of the number $e^{\rho+i\varphi}$. Let $z=a+ib$, where $a, b\in \mathbb R$ (real numbers). Let $w\neq 0$. Suppose $\varphi$ is such a number that
 \[
 (a+ib)= \underbrace{\sqrt{a^2+b^2}}_{=|z|}(\cos \varphi + i \sin \varphi)\quad. 
 \]
@@ -685,32 +700,29 @@ Then $\varphi$ is called argument of $a+ib$. We write \[\varphi=\arg z\quad .\] 
 \[z=\underbrace{|z|}_{\sqrt{\Im(z)^2+\Re(z)^2}}\left(\cos(\arg z) + i\sin (\arg z)\right)\quad .
 \]
 Look at figure \ref{figUnitCircleSineCosine}. Identify the parts of figure \ref{figUnitCircleSineCosine} corresponding to every term you see in the above formula.
-\item Let $e^{\rho+i\phi}$ and $e^{\tau+i\psi}$ be two complex numbers. Then $e^{\rho+i\phi}e^{\tau+i\psi} = e^{\rho+\tau+i(\phi+\psi)}$. Therefore 
+Let $e^{\rho+i\phi}$ and $e^{\tau+i\psi}$ be two complex numbers. Then $e^{\rho+i\phi}e^{\tau+i\psi} = e^{\rho+\tau+i(\phi+\psi)}$. Therefore 
 \importantFormula{
 \mathrm{Multiplying~complex~numbers~adds~arguments~and~multiplies~absolute~values.}
 }
 
-
-\end{itemize}
-
-
-\subsection{$\log z$, $\ln x$, $\tan z$, $\arctan z$, $\arcsin x$, $\arccos x$   }
-\begin{itemize}
-\item Consider the exponent function $e: \mathbb R \to \mathbb R$. Then the range of the exponent function is the positive real numbers. Define $\ln y$ to be the inverse of $e^x$ in this range. In other words, $\ln(y)$ is defined when $y$ is a positive real number. In mathematical notation, $\ln: (0,+\infty)\to \mathbb R$. Then we have that
+\subsection{$\log z$, $\ln x$, $\tan z$, $\arctan z$, $\arcsin x$, $\arccos x$}
+Consider the exponent function $e: \mathbb R \to \mathbb R$. Then the range of the exponent function is the positive real numbers. Define $\ln y$ to be the inverse of $e^x$ in this range. In other words, $\ln(y)$ is defined when $y$ is a positive real number. In mathematical notation, $\ln: (0,+\infty)\to \mathbb R$. Then we have that
 \importantFormula{
 \ln (e^x)\eqdef x\quad\quad \quad \quad  e^{\ln y}\eqdef y\quad .
 }
-\item Let $z$ be a complex number for which $\cos z\neq 0$. 
+
+Let $z$ be a complex number for which $\cos z\neq 0$. 
 
 \importantFormula{
 \tan z\eqdef \frac{\sin z}{\cos z}\quad .
 }
-\item Let $x$ be a real number. Consider the tangent function acting in the interval $(-\frac{\pi}{2}, \frac{\pi}{2})$, in mathematical notation, $\tan :(-\frac{\pi}{2}, \frac{\pi}{2})\to \mathbb R$. Then the function $\tan(x)$ has an inverse which is called $\arctan(x)$. In other words,
+
+Let $x$ be a real number. Consider the tangent function acting in the interval $(-\frac{\pi}{2}, \frac{\pi}{2})$, in mathematical notation, $\tan :(-\frac{\pi}{2}, \frac{\pi}{2})\to \mathbb R$. Then the function $\tan(x)$ has an inverse which is called $\arctan(x)$. In other words,
 \[
 \tan (\arctan(x))= x\quad .
 \]
 
-\item Let $D$ be the set of complex numbers which are neither negative real numbers nor zero. Consider the exponent function $e: D\to \mathbb C$ which maps $z\in D$ to $e^z$. Then define $\log_{(-\pi,\pi)} z$, or $\log z$ for short, to be the inverse of this function, that is,
+Let $D$ be the set of complex numbers which are neither negative real numbers nor zero. Consider the exponent function $e: D\to \mathbb C$ which maps $z\in D$ to $e^z$. Then define $\log_{(-\pi,\pi)} z$, or $\log z$ for short, to be the inverse of this function, that is,
 \importantFormula{
 e^{\log z} = z\quad \quad \quad \log (e^w)=w\quad .
 }
@@ -718,10 +730,12 @@ The imaginary part of $\log_{(-\pi,\pi)}(z)$ is a number in the interval $(-\pi,
 \[
 -\pi<\Im(\log z)<\pi\quad . 
 \]
-\item The notation $\ln x$  is used when the argument $x$ is a positive real number. The function $\ln$ is called ``natural logarithm''. The notation $\log z$ is used when the argument $z$ is a complex number. If it so happens that $z$ is a complex number that is also a positive real number, then $\log(z)=\ln(z)$. Therefore the main role of the notation $\log$ and $\ln$ is to remind us of whether we are computing with complex or with real numbers.
+
+The notation $\ln x$  is used when the argument $x$ is a positive real number. The function $\ln$ is called ``natural logarithm''. The notation $\log z$ is used when the argument $z$ is a complex number. If it so happens that $z$ is a complex number that is also a positive real number, then $\log(z)=\ln(z)$. Therefore the main role of the notation $\log$ and $\ln$ is to remind us of whether we are computing with complex or with real numbers.
 
 In non-mathematical texts, the notation $\log_{10} x\eqdef \frac{\ln x}{\ln 10}$ is sometimes used to denote ``logarithm base 10'' (similar notation can be used for other bases as well). In mathematical texts, the notation $\log_{10} x$ is not accepted and should be avoided. Even when writing papers in the natural sciences, where the use of the notation $\log_{10} x$ might be acceptable, I  recommend avoiding this notation.
-\item Let $\varphi\in (-\frac{\pi}{2} ,\frac{\pi}{2})$ (i.e., $\varphi$ is a real number in the interval $(0,\frac{\pi}{2})$). Then 
+
+Let $\varphi\in (-\frac{\pi}{2} ,\frac{\pi}{2})$ (i.e., $\varphi$ is a real number in the interval $(0,\frac{\pi}{2})$). Then 
 \begin{equation}\label{eqSinCosViaTan}
 \begin{array}{rcl}
 \sin \varphi &=& \frac{ \tan \varphi}{\sqrt  {1+\tan^2 \varphi  }}\\
@@ -739,7 +753,8 @@ and as both sides are positive real numbers we can take the square root on both 
 \end{equation}
 where we have used that for an arbitrary real number $t$ we have that $|t|=\sqrt{t^2}=\pm t$. In the interval $\varphi\in (-\frac{\pi}{2} ,\frac{\pi}{2})$, $\sin \varphi$ and $\tan \varphi$ have the same sign. Therefore in \eqref{eqSinViaTanTemp} the expression $\pm(\pm \tan\varphi)$ has the same sign as $\tan \varphi$ and we can omit the $\pm$ signs.
 \end{proof}
-\item Let $z$ be a complex number such that $\Re z>0$. Then
+
+Let $z$ be a complex number such that $\Re z>0$. Then
 \importantFormula{
 \log z = \ln |z| + i\arctan \left(\frac{\Im z}{\Re z}\right)\quad .
 }
@@ -767,7 +782,7 @@ e^{\ln |z| + i\varphi}=\Re z+i\Im z = z\quad ,
 \]
 which completes the proof.
 \end{proofOptional}
-\end{itemize}
+
 \subsubsection{Exercises}
 \begin{problem}\label{probComplexLogs}
 Plot the number $z$ on the complex plane (you may use one drawing only for all the numbers). Find all real numbers $\varphi$ and $\rho$ for which $z=e^{\rho+i\varphi}$. Your answer may contain expressions of the form $\arcsin x$, $\arccos x$, $\arctan x$, $\ln x$, only if $x$ is a real number.
@@ -884,7 +899,7 @@ Find $f^{-1}$.
 If you would like to find about the origin of this problem, google ``fractional linear transformation''. 
 \end{problem}
 \begin{solution}
-\textbf{Solution \ref{probFracLin}.\ref{probFracLinTransfExample}.} Set $f(x)=y$. Then 
+\textbf{\ref{probFracLin}.\ref{probFracLinTransfExample}.} Set $f(x)=y$. Then 
 \[
 \begin{array}{rcl}
 y&=&\displaystyle \frac{5x+6}{4x+5}\\
@@ -902,8 +917,7 @@ g(f(x))=  \frac{-5f(x) +6}{4f(x)-5}=  \frac{-5\frac{(5x+6)}{4x+5} +6}{4\frac{(5x
 as expected.
 \end{solution}
 \subsection{Plots of trigonometric functions and their inverses when $x$ is real}\label{secGraphsTrigFunc}
-\begin{itemize}
-\item Let $x\in \mathbb R$ ($x$- real number). Then $\sin x$ and $\cos x$ can be drawn as follows.
+Let $x\in \mathbb R$ ($x$- real number). Then $\sin x$ and $\cos x$ can be drawn as follows.
 
 \optionalDisplay{
 \psset{xunit=0.5cm,yunit=0.5cm}
@@ -943,7 +957,7 @@ as expected.
 
 \end{pspicture*}
 
-\item Let $x\in \mathbb R$ (i.e., let $x$ be real). Then $e^x$ and $\ln x$ may be plotted as
+ Let $x\in \mathbb R$ (i.e., let $x$ be real). Then $e^x$ and $\ln x$ may be plotted as
 
 \psset{xunit=0.5cm,yunit=0.5cm}
 \begin{pspicture*}(-3,-10)(10,10)
@@ -1005,24 +1019,27 @@ as expected.
 \rput(3,0.5){$y=\arctan x$}
 \end{pspicture*}
 } %end of optionalDisplay
-\end{itemize}
 \section{Differentials, derivatives review}
 \subsection{Review of derivatives.}
-Recall that for a function of a variable $z$, $\frac{d}{dx}(f(x))$ denotes the derivative of $f(x)$. The notations $\frac{d}{dx}(f(x))$ and $f'(x)$ are equivalent.
-\begin{itemize}
-\item Let $n$ be an integer. 
+Recall that for a function of a variable $z$, $\frac{d}{dx}(f(x))$ denotes the derivative of $f(x)$. The notations $\frac{d}{dx}(f(x))$ and $f'(x)$ are equivalent. 
+
+Let $n$ be an integer. 
 \[
 \frac{d}{dx} (x^n)\eqReview n x^{n-1}\quad .
 \]
-\item Derivative of product. 
+
+
+Derivative of product. 
 \[
 \frac{d}{dx} (f(x)g(x)) \eqReview f'(x)g(x)+f(x)g'(x) \quad .
 \]
-\item Chain rule. Let $f(y)$ and $g(x)$ be two functions.  Then
+
+Chain rule. Let $f(y)$ and $g(x)$ be two functions.  Then
 \[
 \frac{d}{dx} \left(f( g(x))\right)\eqReview g'(x) f'(g(x)) \quad .
 \]
-\item \textbf{Optional material.} (!)Holomorphic functions. We say that a function $f$ is \emph{holomorphic} in a neighborhood of  $z$ if the limit 
+
+\textbf{Optional material.} (!)Holomorphic functions. We say that a function $f$ is \emph{holomorphic} in a neighborhood of  $z$ if the limit 
 \[
 f'(z)\eqdef \lim_{\substack{h\to 0\\ h\in \mathbb C}} \frac{ f(z+h)-f(z)}{h}
 \]
@@ -1034,22 +1051,19 @@ You may notice that the above looks very similar to the definition that $f$ be d
 
 \url{http://en.wikipedia.org/wiki/Complex_analysis} \quad .
 
-\item \textbf{Optional material.}(!)\importantFormula{
-\begin{array}{l}
+\optionalMaterial
+\[\begin{array}{l}
 \mathrm{The~derivatives~of~holomorphic~functions~are~computed} \\
 \mathrm{by~the~same~rules~as~those~for~real~functions.} \\
 \end{array}
-}
+\]
 This means you can use identities such as $(ix)'=i$. $(e^{ix})'=ie^{ix}$, $(\cos (ix))'= -i\sin(ix)$. Of the functions we studied so far, $e^z, \sin z, \cos z$ are holomoprhic functions everywhere, the functions $\arctan z$, $\log z$ are holomorphic in neighborhoods of the values of $z$ for which they are defined, and the functions $\Im z, \Re z, |z|$ are not holomorphic.
-\end{itemize}
 
 
-\subsubsection{Derivatives of trigonometric, exponent functions and their inverses, Review}
 
-\begin{itemize}
+\subsubsection{Derivatives of trigonometric, exponent functions and their inverses}
 
-
-\item Derivative of $e^z$.
+Derivative of $e^z$.
 
 \importantFormula{
 \frac{d}{d z} e^z= e^z
@@ -1060,7 +1074,7 @@ This means you can use identities such as $(ix)'=i$. $(e^{ix})'=ie^{ix}$, $(\cos
 \end{array}
 \]
 \end{proofOptional}
-\item Derivative of $\ln x$.
+Derivative of $\ln x$.
 \[
 (\ln x)' = \frac{1}x 
 \]
@@ -1074,7 +1088,7 @@ e^{\ln x}&=& x  \quad \quad \quad \frac {d}{dx}\\
 \]
 \end{proof}
 
-\item Derivative of $x^a$ for $x\in \mathbb R$ and $a\in \mathbb R$, $a\neq 0$. Let $a\in \mathbb R$ and $x\in \mathbb R$. Then
+Derivative of $x^a$ for $x\in \mathbb R$ and $a\in \mathbb R$, $a\neq 0$. Let $a\in \mathbb R$ and $x\in \mathbb R$. Then
 \begin{equation}\label{eqXtotheAthDerivative}
 (x^a)'=ax^{a-1}\quad .
 \end{equation}
@@ -1087,7 +1101,8 @@ Therefore
 (x^{a})'=(e^{a\ln x})'=ae^{a\ln x} (\ln x)' =a x^{a}\frac{1}{x} = ax^{a-1} \quad .
 \]
 \end{proof}
-\item Derivative of $\sin z, \cos z, \tan z, \cot x$.
+
+Derivative of $\sin z, \cos z, \tan z, \cot x$.
 \[
 \begin{array}{rcl}
 (\sin x)'&=&\cos x\\
@@ -1105,7 +1120,8 @@ Therefore
 \end{array}
 \]
 \end{proof}
-\item Derivative of $\arcsin x, \arccos x, \arctan x$.
+
+Derivative of $\arcsin x, \arccos x, \arctan x$.
 \[
 \begin{array}{rcl}
 (\arcsin x)'&=&\frac{1}{\sqrt{1-x^2}} \\
@@ -1140,13 +1156,14 @@ Therefore
 \]
 
 \end{proof}
-\item Definition of hyperbolic sine, hyperbolic cosine and hyperbolic tangent.
-\item Derivative of $\sinh z$, $\cosh z$, $\tanh z$, $\coth z$.
-\item Derivative of $ \arsinh z$, $ \arcosh z$, $ \arctanh z$.
-\end{itemize}
+
+Definition of hyperbolic sine, hyperbolic cosine and hyperbolic tangent.
+
+Derivative of $\sinh z$, $\cosh z$, $\tanh z$, $\coth z$.
+
+Derivative of $ \arsinh z$, $ \arcosh z$, $ \arctanh z$.
 \subsection{Differentials}
-\begin{itemize}
-\item Let $f$ be a differentiable function of a variable $x$. Introduce formal expressions $d(f(x))$ (abbreviated as $df$) and $dx$ so that they obey the following rule.
+Let $f$ be a differentiable function of a variable $x$. Introduce formal expressions $d(f(x))$ (abbreviated as $df$) and $dx$ so that they obey the following rule.
 \importantFormula{
 f'(x)d x\eqdef d(f(x))\quad \quad,
 }
@@ -1154,8 +1171,10 @@ in abbreviated notation
 \importantFormula{
 f'dx = df\quad \quad .
 }
-\item $d(f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)dx$ are called \emph{differential forms}.
-\item Differentials obey the laws
+
+$d(f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)dx$ are called \emph{differential forms}.
+
+Differentials obey the laws
 \[
 \begin{array}{rcll}
 d(f+C)&=&df \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
@@ -1165,8 +1184,9 @@ d(fg)&=&gdf+fdg \quad\quad\quad\quad \quad &(\mathrm{Leibniz~rule})\\
 \end{array}
 \]
 %Try to prove these laws from the definition!
-\item We recall the notation $\int f(x)dx$ stands for the class of anti-derivatives of $f(x)$, i.e., for the functions $F(x)$ for which $F'(x) = f(x)$.
-\item The fact that $f(x)+C=\int f'(x)dx$ is translated into differential notation as 
+We recall the notation $\int f(x)dx$ stands for the class of anti-derivatives of $f(x)$, i.e., for the functions $F(x)$ for which $F'(x) = f(x)$.
+
+The fact that $f(x)+C=\int f'(x)dx$ is translated into differential notation as 
 \importantFormula{
 d \left(\int f(x)dx\right)= f(x)dx\quad ,
 }
@@ -1174,7 +1194,6 @@ and
 \importantFormula{
 \int df(x)= f(x)+C\quad .
 }
-\end{itemize}
 \section{Techniques of integration}
 \subsection{Integration by parts}
 \begin{itemize}
