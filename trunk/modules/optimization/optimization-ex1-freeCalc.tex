@@ -1,0 +1,34 @@
+\begin{frame}
+\begin{example}
+A cone is folded from a wedge-shaped profile of radius $r$. Find the maximal possible volume of such a cone.
+
+\begin{columns}[c]
+\column{.3\textwidth}
+
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(0,0)(1,1)
+\pswedge*[linecolor=cyan!30](0,0){1}{120}{60}
+\pswedge[linecolor=blue](0,0){1}{120}{60}
+\rput[t] (0,-0.2){$O$}
+\rput[b] (0.5,1){$B$}
+\rput[b] (0.15,0.4){$r$}
+\rput[b] (-0.5,1){$A$}
+\end{pspicture}
+
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2, -5)(2,5) 
+\psframe*[linecolor=white](-2,-5)(2,5) 
+\tiny 
+\psparametricplot[algebraic,linewidth=1.5pt,linecolor=red]{0}{5}{2*sqrt(t)|cos(t)+t}
+\psline (-2,0)(0, 2)(2,0)
+
+\end{pspicture} 
+
+\column{.7\textwidth}
+Let $V$ - volume of cone, $B$ - area base, $h$ - height. Then $V=\frac13 Bh$.
+
+\end{columns}
+
+
+\end{example}
+\end{frame}
