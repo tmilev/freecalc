@@ -6,26 +6,46 @@ A cone is folded from a wedge-shaped profile of radius $r$. Find the maximal pos
 \column{.3\textwidth}
 
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(0,0)(1,1)
-\pswedge*[linecolor=cyan!30](0,0){1}{120}{60}
-\pswedge[linecolor=blue](0,0){1}{120}{60}
-\rput[t] (0,-0.2){$O$}
-\rput[b] (0.5,1){$B$}
-\rput[b] (0.15,0.4){$r$}
-\rput[b] (-0.5,1){$A$}
-\end{pspicture}
-
-\psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-2, -5)(2,5) 
-\psframe*[linecolor=white](-2,-5)(2,5) 
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
 \tiny 
-\psparametricplot[algebraic,linewidth=1.5pt,linecolor=red]{0}{5}{2*sqrt(t)|cos(t)+t}
-\psline (-2,0)(0, 2)(2,0)
+\pscustom*[linecolor=cyan!30]{ \psparametricplot[algebraic] {2.35619}{7.06858} {0+1*cos(t)| 0+1*sin(t)} \psline(0.707107, 0.707107)(0, 0)(-0.707107, 0.707107)}
 
+\psparametricplot[algebraic,linecolor=blue]{2.35619}{7.06858}{cos(t)| sin(t)} 
+\psline[linecolor=red](0.707107, 0.707107)(0, 0)(-0.707107, 0.707107)
+
+\psparametricplot[algebraic,linecolor=purple]{2.35619}{7.06858}{0.07*cos(t)| 0.07*sin(t)} 
+\rput[t](0, -0.2){$\theta$}
+\rput[lb](0.8,0.8){$B$}
+\rput[rb](-0.8,0.8){$A$}
+\rput[b](0,0.1){$O$}
 \end{pspicture} 
 
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny 
+\psline[linecolor=black](0,0)(0,4.38529)
+\psline[linecolor=\psColorGraph](1.93494,  0.280659) (0, 4.38529)\psline[linecolor=\psColorGraph](-1.93494, 0.280659)(0, 4.38529)
+\psparametricplot[algebraic,linecolor=blue]{-3.39735}{0.255762}{cos(t)*2 |sin(t)*1.1094}
+\psparametricplot[algebraic, linestyle=dashed, linecolor=blue] {0.255762} {2.88583} {cos(t)*2 |sin(t)*1.1094}
+
+\psline(0,0)(2,0)
+\end{pspicture} 
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny 
+\psline(0,0)(2,0)(0, 4.38529)(0,0)
+\psline[linecolor=red!1](0,-1.1094)(0.01,-1.1094)
+\end{pspicture} 
+
+
+
 \column{.7\textwidth}
-Let $V$ - volume of cone, $B$ - area base, $h$ - height. Then $V=\frac13 Bh$.
+Let $V$ - volume of cone, $B$ - area base, $h$ - height. Then $V=\frac13 Bh$.  We are seeking to maximize $V$. 
+
+Let $\theta$ - angle of the wedge. Then the arclength $\text{arc}{AB}= r\theta=2\pi t$ the circumference of the base of the cone. Then $t=\frac{r\theta}{2\pi}$. Then $h= \sqrt{r^2-t^2 }$
 
 \end{columns}
 
