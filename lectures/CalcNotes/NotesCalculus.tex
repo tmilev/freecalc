@@ -47,8 +47,8 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-%\newcommand{\optionalDisplay}[1]{}
-\newcommand{\optionalDisplay}[1]{#1}
+\newcommand{\optionalDisplay}[1]{}
+%\newcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
 \newcommand{\optionalMaterial}{\textbf{(Optional)}}
@@ -254,38 +254,103 @@ Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. 
 \psframe*[linecolor=white](-1,-5)(3,5) 
 \tiny 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
-\psLabels{3}{5}
 %Function formula: 1/2 ((x)^{2}) 
 \rput(1,3){$y= \frac{x^2}2$} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
 \psFullDot{2}{2}
 \rput[tl](2.1, 1.9){$P=(2,2)$}
-\psline[linecolor=\psColorTangent](0.75,-0.5)(3,4)
+\psXTick{2}
+\psFullDot{0}{0}
+\rput[tl](0.1, -0.1){$Q=\left(0,0\right)$}
+\psplot[linecolor=\psColorTangent, plotpoints=1000]{-0.5}{3}{x}
 \end{pspicture} 
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1, -5)(3,5) 
 \psframe*[linecolor=white](-1,-5)(3,5) 
 \tiny 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
-\psLabels{3}{5}
 %Function formula: 1/2 ((x)^{2}) 
 \rput(1,3){$y= \frac{x^2}2$} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
 \psFullDot{2}{2}
 \rput[tl](2.1, 1.9){$P=(2,2)$}
+\psXTick{2}
 \psFullDot{1}{0.5}
-\rput[tl](1.1, 0.4){$Q=\left(1,\frac{1}2\right)$}
+\rput[tl](1.1, 0.4){$Q=\left(1,0.5\right)$}
+\psXTick{1}
 \psline[linecolor=\psColorTangent](0.3333333,-0.5)(3,3.5)
 \end{pspicture} 
-\caption{A tangent line touches the graph of a function. \label{figTangentIdeaFor}}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(3,5) 
+\psframe*[linecolor=white](-1,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+%Function formula: 1/2 ((x)^{2}) 
+\rput(1,3){$y= \frac{x^2}2$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psFullDot{2}{2}
+\rput[tl](2.1, 1.9){$P=(2,2)$}
+\psXTick{2}
+\psFullDot{1.5}{1.125}
+\rput[tl](1.6, 1.025){$Q=\left(1.5, 1.125\right)$}
+\psXTick{1.5}
+%Function formula: 7/4 x-3/2 
+\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.571428571}{3}{-1.5 x 1.75 mul add }
+\end{pspicture} 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(3,5) 
+\psframe*[linecolor=white](-1,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+%Function formula: 1/2 ((x)^{2}) 
+\rput(1,3){$y= \frac{x^2}2$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psFullDot{2}{2}
+\rput[tl](2.1, 1.9){$P=(2,2)$}
+\psXTick{2}
+\psFullDot{1.9}{1.805}
+\rput[tl](1.9, 1.605){$Q=\left(1.9, 1.805\right)$}
+\psXTick{1.9}
+%Function formula: 39/20 x-19/10 
+\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.717948718}{3}{-1.9 x 1.95 mul add }
+\end{pspicture} 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(3,5) 
+\psframe*[linecolor=white](-1,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+%Function formula: 1/2 ((x)^{2}) 
+\rput(1,3){$y= \frac{x^2}2$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psFullDot{2}{2}
+\rput[tl](2.1, 1.9){$P=(2,2)$}
+\psXTick{2}
+\psline[linecolor=\psColorTangent](0.75,-0.5)(3,4)
+\end{pspicture} 
+\caption{A tangent line touches the graph of a function, and is approximated by secant lines \label{figTangentIdeaFor}}
 \end{figureFixed}
-We need to define tangent at the point $P=(2,2)$ to match the intuition suggested by Figure \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall from high school that every non-vertical line has equation 
+We need to define tangent at the point $P=(2,2)$ to match the intuition suggested by Figure \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall that every non-vertical line has equation 
 \[
 y=mx+c\quad \quad, 
 \]
 for some numbers $m$ and $c$, where $m$ is called the slope
-of the line and $c$ is called the $y$-intercept of the line. As the line we are interested passes through the point $P=(2,2)$, it has equation $y-2=m(x-2)$ for some unknown slope $m$. Therefore in order to define a (non-vertical) tangent line, it suffices to define its slope $m$. 
+of the line and $c$ is called the $y$-intercept of the line. As the line we are interested in passes through the point $P=(2,2)$, it has equation $y-2=m(x-2)$ for some slope $m$ that we yet need to define. 
 
+Let $x$ be a point near $2$. Then $Q=(x, f(x)) = (x, \frac{x^2}2)$ is the point on the graph of $f$ corresponding to $x$. A number of values of $x$ close to $2$ and the corresponding values of $f(x)$ are given in Table \ref{tableTangentIdeaForTable}.
+
+\begin{tableFixed}
+\begin{tabular}{c|c}
+$x$& $f(x)=\frac{x^2}2$\\\hline
+$ 0$ & $0 $\\
+$ 1$ & $0.5 $\\
+$ 1.5$ & $1.125 $\\
+$ 1.9$ & $1.805 $\\
+$ 1.99$ & $1.98005 $\\
+$ 1.999$ & $1.9980005 $\\
+
+\end{tabular}
+\caption{ Values of $f(x)$ and slope $m$. \label{tableTangentIdeaForTable}}
+\end{tableFixed}
 
 
 %, as well as the task of computing the equation of a such a line. In our pursuit of such a definition, we will develop the notion of a limit. Armed with limits, we will then revisit the tangent problem in Section \ref{sec}, where we shall define the tangent line at a point and will give a recipe for computing its equation.
