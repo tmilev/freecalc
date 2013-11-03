@@ -84,7 +84,7 @@ A cone is folded from a wedge-shaped profile of radius $r$. Find the maximal pos
 \psline[linecolor=red!1](0.99, 0.8)(1,0.8)
 \end{pspicture} 
 
-\vspace{0.9cm}
+\vspace{1cm}
 \column{.73\textwidth}
 \only<1-20>{
 \uncover<2->{
@@ -133,8 +133,8 @@ $
 \only<36-44>{
 $
 \begin{array}{rcl}
-V&=&\displaystyle \frac{r^3}{24\pi^2} \theta^2\sqrt{4\pi^2-\theta^2}, \quad \quad \quad \alert<43>{0\leq \theta \leq2\pi} \\
-\displaystyle \frac{dV}{d\theta}&=& \displaystyle\left(\frac{r^3 } {24\pi^2} \right)\frac{\alert<38>{8\theta\pi^2-3\theta^3} }{\sqrt{4\pi^2-\theta^2}}
+V&=&\displaystyle \frac{r^3}{24\pi^2} \theta^2\sqrt{4\pi^2-\theta^2}, \quad \quad \quad \alert<44>{0\leq \theta \leq2\pi} \\
+\displaystyle \frac{dV}{d\theta}&=& \displaystyle\left(\frac{r^3 } {24\pi^2} \right)\frac{\alert<38>{8\theta\pi^2-3\theta^3} }{\sqrt{\alert<43>{4\pi^2-\theta^2}}}
 \end{array}
 $
 
@@ -143,24 +143,24 @@ $
 \begin{array}{rcl}
 \uncover<38->{ \alert<38>{8\theta\pi^2-3\theta^3}&=&0}\\
 \uncover<39->{\theta(8\pi^2-3\theta^2)&=&0}\\
-\uncover<40->{-3\alert<41>{\theta}\alert<42>{\left(\theta-\sqrt{\frac{8}{3}}\pi \right)} \alert<43>{\left(\theta+\sqrt{\frac{8}{3}}\pi \right)}&=&0.}
+\uncover<40->{-3\alert<41>{\theta}\alert<42>{\left(\theta-\sqrt{\frac{8}{3}}\pi \right)} \alert<44>{\left(\theta+\sqrt{\frac{8}{3}}\pi \right)}&=&0.}
 \end{array}
 $
 
-\uncover<41->{Therefore $\theta$ is critical point for $V$ if $\alert<41>{\theta= 0}$ or $\alert<42>{\theta=\sqrt{\frac83}\pi }$,} \uncover<43->{(note $\alert<43>{\theta=-\sqrt{\frac83}\pi}$ is outside of the domain of $V$).} \uncover<44->{For $\theta=0,2\pi$ the volume $V$ is $0$, so the maximum 
+\uncover<41->{Therefore $\theta$ is critical point for $V$ if $\alert<41>{\theta= 0}$, $\alert<42>{\theta=\sqrt{\frac83}\pi }$, or \alert<43>{$\theta=2\pi$}} \uncover<44->{(note $\alert<44>{\theta=-\sqrt{\frac83}\pi}$ is outside of the domain of $V$).} \uncover<45->{For $\theta=0,2\pi$ the volume $V$ is $0$, so the maximum 
 volume is attained at $\theta=\sqrt{\frac83}\pi$.}
 } %frame36
-\only<45->{
+\only<46->{
 \[
-V(\alert<46>{\theta} )=\displaystyle \frac{r^3}{24\pi^2} \alert<46>{\theta}^2 \sqrt{4 \pi^2 - \alert<46>{\theta}^2} 
+V(\alert<47>{\theta} )=\displaystyle \frac{r^3}{24\pi^2} \alert<47>{\theta}^2 \sqrt{4 \pi^2 - \alert<47>{\theta}^2} 
 \]
 Finally, the answer to the problem is
 $
 \begin{array}{rcl}
-V_{max}&=&\displaystyle V\left(\alert<46>{ \sqrt{\frac83} \pi} \right)\\
-\uncover<46->{ &=&\displaystyle \frac{r^3}{\alert<47>{24}\alert<48>{\pi^2}} \left( \alert<46>{ \alert<47>{\sqrt{\frac83}} \alert<48>{\pi}} \right)^{\alert<47,48>{2}} \sqrt{4 \alert<48>{\pi^2} -\left( \alert<46>{ \sqrt{\frac83} \alert<48>{\pi}} \right)^{\alert<48>{2}}}}\\
-\uncover<47->{ &=&\displaystyle \frac{r^3}{\alert<47>{9}} \alert<48>{\pi} \sqrt{\alert<49>{4-\frac{8}3}}}\\
-\uncover<49->{&=& \displaystyle \pi\frac{r^3}9 \sqrt{ \alert<49>{\frac43}}} \uncover<50>{=\frac{2\pi r^3}{9\sqrt3}}
+V_{max}&=&\displaystyle V\left(\alert<47>{ \sqrt{\frac83} \pi} \right)\\
+\uncover<47->{ &=&\displaystyle \frac{r^3}{\alert<48>{24}\alert<49>{\pi^2}} \left( \alert<47>{ \alert<48>{\sqrt{\frac83}} \alert<49>{\pi}} \right)^{\alert<48,49>{2}} \sqrt{4 \alert<49>{\pi^2} -\left( \alert<47>{ \sqrt{\frac83} \alert<49>{\pi}} \right)^{\alert<49>{2}}}}\\
+\uncover<48->{ &=&\displaystyle \frac{r^3}{\alert<48>{9}} \alert<49>{\pi} \sqrt{\alert<50>{4-\frac{8}3}}}\\
+\uncover<50->{&=& \displaystyle \pi\frac{r^3}9 \sqrt{ \alert<50>{\frac43}}} \uncover<51>{=\frac{2\pi r^3}{9\sqrt3}}
 \end{array}
 $
 }
