@@ -13,16 +13,12 @@
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
 \usepackage{../pstricks-commands}
-%\usepackage{rotating}
+\usepackage{rotating}
 
 \usepackage{cancel}
 \usepackage{caption}
 %\usepackage{pstricks}
 
-%\addtolength{\hoffset}{-3.5cm}
-%\addtolength{\textwidth}{6.8cm}
-%\addtolength{\voffset}{-3.3cm}
-%\addtolength{\textheight}{6.3cm}
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\Re}{\mathrm{Re}}
 \newcommand{\eqdef}{\textbf{:=}}
@@ -57,12 +53,19 @@
 
 \makeindex
 \author{Authors: the freecalc project contributors \\~\\ Notes composition started by Todor Milev.}
-\title{Freecalc \\ Calculus for beginners \\ ~ \\Draft version \\ ~\\~\\~\\~\\
+\title{Calculus for beginners \\Draft version \\ ~\\
+\[
+\lim\limits_{x\to 5^+}\frac{1}{x-5}= ?
+\]
+~\\~\\
 \[
 \lim\limits_{x\to 8^+}\frac{1}{x-8}=\infty 
 \]
+~\\~\\
+$\Rightarrow$
+~\\~\\
 \[
-\lim\limits_{x\to 5^+}\frac{1}{x-5}= ?
+\lim\limits_{x\to 5^+}\frac{1}{x-5}= \begin{postscript}\rotatebox{90}{5}\end{postscript}
 \]
 }
 \begin{document}
@@ -1369,8 +1372,7 @@ and
 }
 \section{Techniques of integration}
 \subsection{Integration by parts}
-\begin{itemize}
-\item Integration by parts can be formulated using differential forms as
+Integration by parts can be formulated using differential forms as
 \importantFormula{
 \int f dg+ \int g df = fg\quad, 
 }
@@ -1378,36 +1380,32 @@ or alternatively as
 \importantFormula{
 \int f(x) g'(x)dx = fg- \int g(x) f'(x)dx \quad .
 }
-\item  Combining the above with the fundamental theorem of Calculus yields the definite integral version
+Combining the above with the fundamental theorem of Calculus yields the definite integral version
 \importantFormula{
 \int\limits_{x=a}^{b} f(x) g'(x)dx = \left.fg\phantom\int\right|_{x=a}^b - \int\limits_{x=a}^b g(x) f'(x)dx \quad.
 }
-\item Idea of integration by parts: suppose we already know the integral of $g(x)$, say $d(G(x))=g(x)dx$. Suppose for some reason we consider the integral of $f'(x)dx$ to be easier than the integral of $f(x)dx$. If we want to integrate $f(x)g(x)dx= f(x)d(G(x))$, then we may use integration by parts to get
+Idea of integration by parts: suppose we already know the integral of $g(x)$, say $d(G(x))=g(x)dx$. Suppose for some reason we consider the integral of $f'(x)dx$ to be easier than the integral of $f(x)dx$. If we want to integrate $f(x)g(x)dx= f(x)d(G(x))$, then we may use integration by parts to get
 \[
 \int f(x)\underbrace{g(x)dx}_{=d(G(x))}= f(x)g(x)- \int G(x) \underbrace{f'(x)dx}_{=d(f(x))}\quad .
 \]
 If the function $G(x)$ is not too complicated, then $f'(x)G(x)dx$ may be easier to integrate than $f(x)g(x)dx$. If that is the case, integrating by parts pays off, and we should use the technique. 
 
 There is no 100\% recipe when integration by parts makes the problem easier. However, with practice and experience, on small examples, one can quickly judge when integration by parts helps.
-\end{itemize}
 \subsubsection{Examples of integration by parts}
-\begin{itemize}
-\item
 \[
 \begin{array}{rcl}
 \displaystyle\int x \underbrace{\sin x dx}_{=-d\cos x} = -\int x d\cos x = -x\cos x + \int \cos x dx = -x \cos x +\sin x +C\quad .
 \end{array}
 \]
-\item 
+
 \[
 \begin{array}{rcl}
 \displaystyle\int x^2 \underbrace{e^x dx}_{d (e^x)} = \int x^2 d e^x= x^2e^x - \int e^x2xdx=  x^2e^x - \int 2xd e^x = x^2e^x- 2xe^x+ \int 2e^x dx= x^2e^x-2xe^x+2e^x+C\quad .
 \end{array}
 \]
-\item 
 \[\int \ln x dx = x\ln x - \int x d(\ln x)= x\ln x -\int \frac{x}{x}dx= x\ln x-x+C\quad . 
 \]
-\item 
+
 \[
 \begin{array}{rcl}
 \displaystyle\int \sin x \underbrace{e^x dx}_{=de^x}&=&\displaystyle\sin x e^x - \int e^xd(\sin x)=\sin x e^x - \int \cos x \underbrace{e^x dx}_{=de^x}\\
@@ -1415,17 +1413,17 @@ There is no 100\% recipe when integration by parts makes the problem easier. How
 \end{array}
 \]
 Transferring $\displaystyle\int e^x\sin x dx$ to the left hand side we get $\displaystyle 2\int \sin x e^x dx = \sin x e^x-e^x\cos x$, or finally, $\displaystyle \int \sin x e^x dx=\frac12 \left(\sin x e^x- e^x\cos x\right)$.
-\item 
+
 \[
 \begin{array}{rcl}
 \displaystyle\int \arctan x dx &=& x\displaystyle \arctan x - \int x d(\arctan x)= x\arctan x - \int \frac{x}{x^2+1}dx\\
 &=& \displaystyle  x\arctan x - \int \frac{\frac{1}2d(x^2)}{x^2+1}=  x\arctan x - \int \frac{\frac{1}2d(x^2+1)}{x^2+1}= x\arctan x - \frac12\ln (x^2+1) +C\quad .
 \end{array}
 \]
-\item 
+
 \[\int \sin^n x dx\quad .
 \]
-\item 
+
 \[
 \begin{array}{rcl}
 \displaystyle\int x^n e^x dx &=& \displaystyle\int x^n d e^x= x^n e^x- \int  e^x dx^n= x^n e^x- n\int  x^{n-1}e^x dx=\\
@@ -1435,8 +1433,6 @@ Transferring $\displaystyle\int e^x\sin x dx$ to the left hand side we get $\dis
 &&+(-1)^kn(n-1)(n-2)\dots(n-k+1)x^{n-k}e^x+\dots +(-1)^n n! e^x+C\quad .
 \end{array}
 \]
-
-\end{itemize}
 \subsubsection{Exercises}
 \begin{problem}
 Evaluate the indefinite integral. Illustrate the steps of your solutions.
@@ -1764,8 +1760,7 @@ dy&=&\frac{2}{x^2+1}dx\\
 \] 
 
 \subsubsection{Examples of Euler integrals}
-\begin{itemize}
-\item Integrate 
+Integrate 
 \[
 \int \sqrt{x^2+1}dx\quad .
 \]
@@ -1796,7 +1791,7 @@ Finally, we get
 \]
 \end{solution}
 
-\item Integrate 
+Integrate 
 \[
 \int \frac{dx}{x+\sqrt{x^2+x+1}}\quad .
 \]
@@ -1817,11 +1812,10 @@ Finally, we get
 %\]
 %\end{solution}
 
-\item Integrate \[\int \frac{xdx}{(1-x^3)\sqrt{1-x^2}}\quad .\]
-\end{itemize}
+Integrate \[\int \frac{xdx}{(1-x^3)\sqrt{1-x^2}}\quad .\]
+
 \subsubsection{Examples of trigonometric integrals}
-\begin{itemize}
-\item Integrate \[\int \frac{dx}{2\sin x-\cos x +5}\quad .\]
+Integrate \[\int \frac{dx}{2\sin x-\cos x +5}\quad .\]
 \begin{solution}
 Set $x=2\arctan t$. Therefore 
 \[
@@ -1834,7 +1828,6 @@ We substitute $t=z-1/3$. Therefore $dt=dz$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3
 \int \frac{dt}{3t^2+2t+2}= \int \frac{\sqrt{5}/3dw}{5/3(w^2+1)}= \frac{\sqrt{5}}{5}\arctan w+C=\frac{\sqrt{5}}{5}\arctan(\frac{\sqrt{5}}{5}(3t+1))+C= \frac{\sqrt{5}}{5}\arctan \left(\frac{3\tan \left(\frac{x}{2}\right)+1}{\sqrt{5}}\right)+C\quad .
 \]
 \end{solution}
-\end{itemize}
 \subsubsection{Exercises}
 \begin{problem}
 Solve the integral. Illustrate each step of your solution.
@@ -1897,9 +1890,9 @@ Solve the integral. Illustrate each step of your solution.
 \end{problem}
 \section{Application of integration.}
 \subsection{Volumes of solids of revolution.}
-\begin{itemize}
-\item A solid of revolution is the set of points obtained by rotating a 2-dimensional set of points lying inside a plane $P$ around an axis lying in the plane $P$.
-\item Example. \label{itemExampleFigureRotationalSolid}
+A solid of revolution is the set of points obtained by rotating a 2-dimensional set of points lying inside a plane $P$ around an axis lying in the plane $P$.
+
+Example. \label{itemExampleFigureRotationalSolid}
 %\multido{\rA=\deltaX+\deltaX}{10}{%
 %\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=20, fillcolor=gray](0,0,0){\rA\space \deltaX\space add}{\rA\space sqrt}
 %\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=20, fillcolor=gray](0,0,0){\rA}{\rA\space sqrt}
@@ -1998,18 +1991,21 @@ args=2.8 0 0.060810063 2.8 0 0.357142857]
 \axesIIID[](-1,-1,-1)(4,4,4)
 \end{pspicture*}
 } %optionalDisplay end
-\item For the purposes of these lectures, we introduce the notion of a ``curved trapezoid''. A figure in the $x,z$ plane is called a ``curved trapezoid'' if it is enclosed by two functions $f_1(x), f_2(x)$ in the interval $[a,b]$ with $f_1(x)<f_2(x)$ as $x$ varies in the interval $[a,b]$. 
+For the purposes of these lectures, we introduce the notion of a ``curved trapezoid''. A figure in the $x,z$ plane is called a ``curved trapezoid'' if it is enclosed by two functions $f_1(x), f_2(x)$ in the interval $[a,b]$ with $f_1(x)<f_2(x)$ as $x$ varies in the interval $[a,b]$. 
 
 In other words, a ``curved trapezoid'' is a figure that can be given as the set of points $(x,z)$ for which $x\in [a, b]$ , $z\in [f_1(x), f_2(x)]$. A curved trapezoid is drawn in the preceding item.
 
 The term ``curved trapezoid'' is not standard, and we use it only for the purpose of the current section.
-\item Every ``well behaved'' figure can be subdivided into curved trapezoids. In our course, we shall only consider such ``well-behaved'' figures.
-\item Let $F$ be the solid of revolution obtained by rotating a curved trapezoid $x\in[a,b], z\in [f_1(x), f_2(x)]$, $f_1(x)<f_2(x)$ around the $z$ axis, as shown on the preceding figure. Then the volume of $F$ is computed by
+
+Every ``well behaved'' figure can be subdivided into curved trapezoids. In our course, we shall only consider such ``well-behaved'' figures.
+
+Let $F$ be the solid of revolution obtained by rotating a curved trapezoid $x\in[a,b], z\in [f_1(x), f_2(x)]$, $f_1(x)<f_2(x)$ around the $z$ axis, as shown on the preceding figure. Then the volume of $F$ is computed by
 
 \importantFormula{\label{eqVolumeRotationalSolid}
 volume(F) = \int\limits_{a}^b 2\pi x (\underbrace{f_1(x)-f_2(x)}_{=: h(x)}) dx=  \int\limits_{a}^b 2\pi x h(x) dx\quad .
 }
-\item A motivation for the above computation may be given as follows. The volume of the ``cylindrical shell'' figure enclosed between an inner cylinder of radius $r$ and an outer cylinder of radius $r+\Delta$ and height $h$ equals the difference of the volumes of the two cylinders 
+
+A motivation for the above computation may be given as follows. The volume of the ``cylindrical shell'' figure enclosed between an inner cylinder of radius $r$ and an outer cylinder of radius $r+\Delta$ and height $h$ equals the difference of the volumes of the two cylinders 
 \[
 h(\pi (r+\Delta)^2-\pi r^2)=h\pi (\cancel{r^2}+2r\Delta+\Delta^2-\cancel{r^2})=h\pi (2r\Delta+\Delta^2)\quad .
 \]
@@ -2058,19 +2054,20 @@ As we subdivide into finer intervals, i.e., $N$ tends to zero, $\Delta$ (as a fu
 By allowing finite sums of figures of the above kind, and by allowing subdivision of figures into components of the above kind, we can define volume of a much wider set of figures. This set of figures includes all 3-dimensional figures of practical significance to  the natural sciences. 
 
 However, there are a lot of important details to take care of - for example, what do we do if the figures of the above form intersect along a (2-dimensional) wall, and how do these integrals behave when we re-parametrize the coordinates system. In order to handle these details smoothly, as well as to define volume of figures that cannot be represented with finitely many operations by  figures of the above form,  we need to define volume as follows. (Disclaimer: non-defined mathematical terms follow. The terms are given as starting keywords for students who have additional interest in the subject and would like to google them.) The volume of a \emph{measurable} figure $X$ equals the \emph{infimium of the of the sums of volumes of (possibly infinitely many) rectangular parallelepipeds whose union covers $X$}. The words in the preceding sentence express the simplest idea of measuring volume: namely, approximate volume by increasingly finer rectangular parallelepipeds. However, molding this simple idea into a precise mathematical definition, although not difficult or conceptually hard (however somewhat lengthy, as the preceding ``complicated'' words indicate), is outside of the scope of the current course. We note that one area of mathematics in which a precise definition of volume is given is ``Measure Theory''.
-\end{itemize}
 \subsubsection{Strategy for computing the volume of a solid of revolution}
-\begin{itemize}
-\item A typical problem for finding the volume of a solid of revolution will ask you to find the volume of a figure obtained by rotating a figure in the $(x,z)$ plane around an axis. The actual letters in the problem might be different from $(x,z)$. The axis of rotation might be the $x$-axis, the $z$-axis, or any other axis given by the equation of any line. The figure in the $(x,z)$ plane will usually be given as the figure enclosed by two or more curves in the plane.
-\item If the axis of rotation does not pass through $(0,0)$, we should change the coordinate system so that the axis of rotation passes through zero. This is easy to do. Suppose the axis of rotation passes through some point $(s,t)$. Then if the change the coordinate system by setting $u\eqdef x-s, v\eqdef z-t$, then when $(x,z)=(s,t)$, we would have that $(u,v)=(0,0)$. In other words, we may replace everywhere $x=u+s$, $z=v+t$, and work with the new coordinates $(u,v)$.
-\item Suppose now the axis of rotation passes through $(0,0)$, but is neither the $x$ nor the $z$ axis. Suppose in addition the axis of rotation passes through the point $(a,b)$, $a\neq 0$. Then the axis of rotation passes through the point $(\frac{a}{\sqrt{a^2+b^2}},\frac{b}{\sqrt{a^2+b^2}})$ as well (this is one of the two points on the line whose distance to $(0,0)$ is one). Then we can change the coordinate system by 
+
+A typical problem for finding the volume of a solid of revolution will ask you to find the volume of a figure obtained by rotating a figure in the $(x,z)$ plane around an axis. The actual letters in the problem might be different from $(x,z)$. The axis of rotation might be the $x$-axis, the $z$-axis, or any other axis given by the equation of any line. The figure in the $(x,z)$ plane will usually be given as the figure enclosed by two or more curves in the plane.
+
+If the axis of rotation does not pass through $(0,0)$, we should change the coordinate system so that the axis of rotation passes through zero. This is easy to do. Suppose the axis of rotation passes through some point $(s,t)$. Then if the change the coordinate system by setting $u\eqdef x-s, v\eqdef z-t$, then when $(x,z)=(s,t)$, we would have that $(u,v)=(0,0)$. In other words, we may replace everywhere $x=u+s$, $z=v+t$, and work with the new coordinates $(u,v)$.
+
+Suppose now the axis of rotation passes through $(0,0)$, but is neither the $x$ nor the $z$ axis. Suppose in addition the axis of rotation passes through the point $(a,b)$, $a\neq 0$. Then the axis of rotation passes through the point $(\frac{a}{\sqrt{a^2+b^2}},\frac{b}{\sqrt{a^2+b^2}})$ as well (this is one of the two points on the line whose distance to $(0,0)$ is one). Then we can change the coordinate system by 
 \begin{equation}\label{eqRotateXZtoUV}
 \begin{array}{rcl}
 u &=&\frac{1}{\sqrt{a^2+b^2}}\left( bx-az\right)\\
 v &=& \frac{1}{\sqrt{a^2+b^2}}\left( ax+bz\right)\quad .
 \end{array}
 \end{equation}
-If $(x,y)=(\frac{a}{\sqrt{a^2+b^2}},\frac{b}{\sqrt{a^2+b^2}})$, it follows that $(u,v)=(0,1)$, and so the axis of rotation passes through the point $(0,1)$ in the $(u,v)$-coordinates, i.e., the axis of rotation is the $v$-axis. It is important that the substitution \eqref{eqRotateXZtoUV} preserves volumes. This does not happen for all linear substitutions (transformations); the linear transformations for which this happens are called ``volume preserving''. 
+If $(x,y)= (\frac{a}{\sqrt{a^2+b^2}}, \frac{b}{ \sqrt{a^2 +b^2}})$, it follows that $(u,v)=(0,1)$, and so the axis of rotation passes through the point $(0,1)$ in the $(u,v)$-coordinates, i.e., the axis of rotation is the $v$-axis. It is important that the substitution \eqref{eqRotateXZtoUV} preserves volumes. This does not happen for all linear substitutions (transformations); the linear transformations for which this happens are called ``volume preserving''. 
 
 One way to motivate the fact that substitution \eqref{eqRotateXZtoUV} preserves volumes (without actually proving it), is to show that the transformation \eqref{eqRotateXZtoUV} is a rotation. The lengths $\sqrt{a^2+b^2}$, $|a|$ and $|b|$ form a right-angle triangle, and therefore $\frac{a}{\sqrt{a^2+b^2}}$ is the cosine of the angle $\varphi$ indicated on the figure below and $\frac{b}{\sqrt{a^2+b^2}}$ is the sine. If we set $\mathbf e_1\eqdef(1,0)$, $\mathbf e_2\eqdef(0,1)$, then a vector in the $(x,z)$ plane is given by $x\mathbf e_1+z\mathbf e_2$. If we set $\mathbf v_1\eqdef (\cos\varphi, -\sin \varphi), \mathbf v_2\eqdef (\sin \varphi, \cos \varphi)$, then a vector in the plane may be alternatively given as $u\mathbf v_1+ v\mathbf v_2$. Therefore if we want to change coordinate system so that the axes are aligned along $\mathbf v_1, \mathbf v_2$, we need to have that 
 \[
@@ -2134,10 +2131,12 @@ Substituting $\sin \varphi = \frac{a}{\sqrt{a^2+b^2}}, \sin \varphi = \frac{b}{\
 A formal definition of rotation is given in the subject of linear algebra, or in more advanced Calculus I courses. Alternatively, a very good explanation may be found at the Wikipedia page
 
 \url{http://en.wikipedia.org/wiki/Rotation_(mathematics)} .
-\item Suppose now we are rotating the figure around the $z$ axis. The next task is to plot the curves in the $(x,z)$-plane that determine the figure.
-\item Once we have plotted the figure, we use vertical lines to split it into ``curved trapezoids'', i.e.,  figures bounded by a line $x=a$, a curve $z=f_1(x)$, a line $x=b$ and a curve $z=f_2(x)$ with $a< b$ and $f_1(x)\leq f_2(x)$ for $x\in [a,b]$. One such figure is illustrated in \ref{itemExampleFigureRotationalSolid}.
-\item If the figure lies entirely on one side of the $z$ axis, we simply apply the volume formula  \eqref{eqVolumeRotationalSolid}. 
-\end{itemize}
+
+Suppose now we are rotating the figure around the $z$ axis. The next task is to plot the curves in the $(x,z)$-plane that determine the figure.
+
+Once we have plotted the figure, we use vertical lines to split it into ``curved trapezoids'', i.e.,  figures bounded by a line $x=a$, a curve $z=f_1(x)$, a line $x=b$ and a curve $z=f_2(x)$ with $a< b$ and $f_1(x)\leq f_2(x)$ for $x\in [a,b]$. One such figure is illustrated in \ref{itemExampleFigureRotationalSolid}.
+
+If the figure lies entirely on one side of the $z$ axis, we simply apply the volume formula  \eqref{eqVolumeRotationalSolid}. 
 \subsubsection{Example problem}
 \begin{problem}
 Compute the volume of the rotational solid obtained by rotating the figure enclosed between the curves $z=-x+3$, $z= \frac{1}x$.
@@ -2200,9 +2199,8 @@ The smallest possible value of $u$ is $\frac{3\sqrt{2}}2$, which is also seen on
 We can solve this integral using Euler substitution, Section \ref{secEulerSubTrigIntegrals}. %This will be done in later versions of the notes.
 \end{solution}
 
-\subsection{Length of curves.}\label{secCurveLength}
-\begin{itemize}
-\item \index{curve}\index{curve!parametrization} A curve parametrization (or simply curve) is defined as a function from a given interval $[a,b]$ to a vector space over the real numbers. For the purposes of our course, a curve will map the interval $[a,b]$ onto either a two dimensional space (denoted by $\mathbb R^2$), or a 3-dimensional space (denoted by $\mathbb R^3$). Thus, a curve $f:[a,b]\to \mathbb R^2$ is given by the two functions (one for each coordinate):
+\subsection{Length of curves.} \label{secCurveLength}
+\index{curve}\index{curve!parametrization} A curve parametrization (or simply curve) is defined as a function from a given interval $[a,b]$ to a vector space over the real numbers. For the purposes of our course, a curve will map the interval $[a,b]$ onto either a two dimensional space (denoted by $\mathbb R^2$), or a 3-dimensional space (denoted by $\mathbb R^3$). Thus, a curve $f:[a,b]\to \mathbb R^2$ is given by the two functions (one for each coordinate):
 \[
 \begin{array}{rcl}
 \gamma:[a,b]&\to& \mathbb R^2\\
@@ -2227,10 +2225,12 @@ z(t)&=&f_3(t)\\
 \end{array}\right., t\in [a,b]\quad .
 \]
 This definition is extended to an arbitrary number of variables in the obvious way.
-\item \index{curve!image}The \emph{image of a curve} $f:[a,b]\to \mathbb R^2$ is the set of points in $\mathbb R^2$ of the form $f(t)$ as $t$ runs over all points in the interval $[a,b]$.
 
-\item  Colloquially, as often happens during lectures and scientific talks, we call both the curve parametrizations (which are functions) and their  and images (which are sets of points in the plane) using the word ``curve''. We try to avoid this informality in the present notes.
-\item It is important to distinguish between a curve parametrization and the image of the curve. For example, the curves 
+\index{curve!image}The \emph{image of a curve} $f:[a,b]\to \mathbb R^2$ is the set of points in $\mathbb R^2$ of the form $f(t)$ as $t$ runs over all points in the interval $[a,b]$.
+
+Colloquially, as often happens during lectures and scientific talks, we call both the curve parametrizations (which are functions) and their  and images (which are sets of points in the plane) using the word ``curve''. We try to avoid this informality in the present notes.
+
+It is important to distinguish between a curve parametrization and the image of the curve. For example, the curves 
 \[
 \gamma_1:\left| 
 \begin{array}{rcl}
@@ -2261,15 +2261,18 @@ y(t)&=&\sin t\\
 \end{array}\right., t\in [0, \frac{\pi}{2}]\quad .
 \]
 These two curve parametrizations correspond to a quarter of a circle (which quarter?), however the two curve parametrizations traverse the quarter circle in different directions (which ones?) and at different speeds. 
-\item Images of curves are often given implicitly with a relation between $x$ and $y$. For example, the unit circle is given by 
+
+Images of curves are often given implicitly with a relation between $x$ and $y$. For example, the unit circle is given by 
 \[
 x^2+y^2=1\quad .
 \]
 In the previous points, we showed two different curve parametrizations of a quarter circle.
-\item Parametrizing a curve whose image is given by a relation between $x$ and $y$ is a highly non-trivial task. For example, if the relation is of the form $y^2=x^3+px+q$ for parameters $p,q$, the problem of deciding whether there is a point with rational coordinates $(x,y)$ that satisfies the equation is an active research area. There are cryptographic schemes based on results in this area.
+
+Parametrizing a curve whose image is given by a relation between $x$ and $y$ is a highly non-trivial task. For example, if the relation is of the form $y^2=x^3+px+q$ for parameters $p,q$, the problem of deciding whether there is a point with rational coordinates $(x,y)$ that satisfies the equation is an active research area. There are cryptographic schemes based on results in this area.
 
 In fact, the Euler substitution in Section \ref{secEulerSubTrigIntegrals} is an example of a parametrization of curves of the form $y^2=\pm x^2\pm 1$.
-\item \index{curve!length}Definition of curve length. Let $\gamma$ be given by
+
+\index{curve!length}Definition of curve length. Let $\gamma$ be given by
 \[
 \gamma:\left| 
 \begin{array}{rcl}
@@ -2286,7 +2289,8 @@ Similarly, the length of a curve sitting in 3-dimensional space is given by
 \[
 \int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2+f_3'(t)^2}dt \quad . 
 \] 
-\item Suppose an image of a curve $C\subset \mathbb R^2$ has two different parametrizations 
+
+Suppose an image of a curve $C\subset \mathbb R^2$ has two different parametrizations 
 \begin{equation}\label{eqDefCurve1}
 \gamma_1:\left| 
 \begin{array}{rcl}
@@ -2311,7 +2315,7 @@ both differentiable, such that both are injective (i.e., every point $(x(t), y(t
 }
 We have that $t$ can be expressed as function of $s$, namely, $t(s)= \gamma_1(\gamma_2^{-1}(s))$. Furthermore, as a function of $s$ from $[a,b]$ to $[p,q]$, $t$ is bijective (this follows from the fact that both $\gamma_1$ and $\gamma_2$ are injective).
 
-\item We will prove the preceding item if $t$ as a function of $s$ is  continuously differentiable.
+We will prove the preceding item if $t$ as a function of $s$ is  continuously differentiable.
 
 \begin{proof} (on condition $t(s)$ is continuously differentiable). In order to avoid confusion throughout this proof, we will denote derivatives with respect to $s$ by $\frac{d}{ds}$, and derivatives with respect to $t$ by $\frac{d}{dt}$. 
 
@@ -2334,7 +2338,8 @@ Unlike computations of indefinite integrals, where we make variable changes on t
 \]
 where in the very last equality we use the definition of $t$ as a function of $s$ and \eqref{eqDefCurve2}. This is exactly what we wanted to prove. The case when $t(a)=q>p=t(b)$ is handled similarly.
 \end{proof}
-\item A motivation for the definition may be given as follows. Let $[a,b]$ be subdivided into $N$ intervals $[a,a+\Delta ], \dots, [a+k\Delta, a+(k+1)\Delta],\dots, [b-\Delta, b]$, $\Delta=\frac{b-a}{N}$. Then the straight segment connecting the point $(x,y)=(f_1(t), f_2(t))$ with $(f_1(t+\Delta), f_2(t+\Delta))$ has length $\sqrt{(f_1(t)-f_1(t+\Delta))^2 + (f_2(t)-f_2(t+\Delta))^2}= \sqrt{\left(\frac{(f_1(t)-f_1(t+\Delta)}{\Delta}\right)^2 + \left(\frac{(f_2(t)- f_2(t+\Delta)}{\Delta} \right)^2}\Delta$. Summing up over all intervals, we get that the piecewise linear curve approximating our smooth curve has length
+
+A motivation for the definition may be given as follows. Let $[a,b]$ be subdivided into $N$ intervals $[a,a+\Delta ], \dots, [a+k\Delta, a+(k+1)\Delta],\dots, [b-\Delta, b]$, $\Delta=\frac{b-a}{N}$. Then the straight segment connecting the point $(x,y)=(f_1(t), f_2(t))$ with $(f_1(t+\Delta), f_2(t+\Delta))$ has length $\sqrt{(f_1(t)-f_1(t+\Delta))^2 + (f_2(t)-f_2(t+\Delta))^2}= \sqrt{\left(\frac{(f_1(t)-f_1(t+\Delta)}{\Delta}\right)^2 + \left(\frac{(f_2(t)- f_2(t+\Delta)}{\Delta} \right)^2}\Delta$. Summing up over all intervals, we get that the piecewise linear curve approximating our smooth curve has length
 \[
 \sum_{k=1}^{N-1} \sqrt{\left(\frac{(f_1(a+k\Delta)-f_1(a+(k-1)\Delta)}{\Delta}\right)^2 + \left(\frac{(f_2(a+k\Delta)- f_2(a+(k-1)\Delta)}{\Delta} \right)^2}\Delta\quad .
 \]
@@ -2364,43 +2369,49 @@ As the number of intevals $N$ tends to $\infty$, $\Delta$ approaches 0, and by t
 \end{pspicture}
 }
 
-\end{itemize}
 \section{A bit of differential equations}
 \subsection{Some terminology and background}
-\begin{itemize}
-\item A differential equation is an equation that contains at least one derivative (first, second, third,...) of an unknown function. 
-\item The \emph{order} of a differential equation is the order of the highest derivative that appears in the equation.
-\item An example of a differential equation is
+A differential equation is an equation that contains at least one derivative (first, second, third,...) of an unknown function. 
+
+The \emph{order} of a differential equation is the order of the highest derivative that appears in the equation.
+
+An example of a differential equation is
 \begin{equation}\label{eqDFQsimplestExample}
 \frac{dP}{dt} = k P\quad ,
 \end{equation}
 where $t$ is a variable, $k$ is a constant and $P(t)$ is a function.
-\item Let us interpret $P$ as population size as a function of the time $t$, and $k$ as some natural rate of growth constant. If $k$ is positive (and the population $P$ is positive), so is $\frac{d P}{dt}$. As the first derivative of $P$ is positive, $P$ will increase with time, at an ever growing rate. We can plug in the function $P(t)= e^{k t}$ and verify that it satisfies the equation.
-\item Differential equations are used to model processes in the natural sciences. For example, \ref{eqDFQsimplestExample} models ideal population growth with infinite resources and unlimited environment - the increase in population is proportional to the size of the population.
-\item A more complicated example is the logistic differential equation 
+
+Let us interpret $P$ as population size as a function of the time $t$, and $k$ as some natural rate of growth constant. If $k$ is positive (and the population $P$ is positive), so is $\frac{d P}{dt}$. As the first derivative of $P$ is positive, $P$ will increase with time, at an ever growing rate. We can plug in the function $P(t)= e^{k t}$ and verify that it satisfies the equation.
+
+Differential equations are used to model processes in the natural sciences. For example, \ref{eqDFQsimplestExample} models ideal population growth with infinite resources and unlimited environment - the increase in population is proportional to the size of the population.
+
+A more complicated example is the logistic differential equation 
 \[
 \frac{d P }{dt} = k P(1- \frac{P}{M})\quad.
 \]
 Here, $k$, $t$, $P$ have the same interpretation as before, and $M$ is the carrying capacity of the environment. In this model, while $P$ is smaller than the carrying capacity $M$,  $\frac{dP}{dt}$ will be positive, and the population will increase with time. However, if the population is larger than the carrying capacity $M$, $\frac{d P }{dt}$ will be negative and the population will decrease.
-\item Another example of a differential equation is the motion of a spring
+
+Another example of a differential equation is the motion of a spring
 \[
 m\frac{d^2 y (t)}{dt^2}= -k y,
 \]
 where $m$ and $k$ are constants ($m$ stands for mass and $k$ for the spring's constant). Here, we recall the notation $\frac{d^2 y (t)}{dt^2}= y''(t)$ means second derivative.
 
-\item Differential equations may have \emph{initial conditions}, i.e., we may be given the value of the unknown function or its derivatives in one or more points. For example, in \eqref{eqDFQsimplestExample}, we may add the initial condition $P(t_0)= 10$, to say that at time $t=t_0$, $P(t)=10$. 
+
+Differential equations may have \emph{initial conditions}, i.e., we may be given the value of the unknown function or its derivatives in one or more points. For example, in \eqref{eqDFQsimplestExample}, we may add the initial condition $P(t_0)= 10$, to say that at time $t=t_0$, $P(t)=10$. 
 
 If we are given initial conditions $y(x_0)=y_0$, we say that we have  an \emph{initial condition differential equation}.
-\item Initial conditions are critical for a solution of a differential equation. For example, if $P(t_0)=0$, \eqref{eqDFQsimplestExample} has only solution $P(t)=0$, buf if $P(t_0)=10$, \eqref{eqDFQsimplestExample} has only solution $P(t)=10  e^{k(t-t_0)}$.
-\end{itemize}
+
+Initial conditions are critical for a solution of a differential equation. For example, if $P(t_0)=0$, \eqref{eqDFQsimplestExample} has only solution $P(t)=0$, buf if $P(t_0)=10$, \eqref{eqDFQsimplestExample} has only solution $P(t)=10  e^{k(t-t_0)}$.
 \subsection{Direction fields}
-\begin{itemize}
-\item Suppose we have a differential equation of the form 
+Suppose we have a differential equation of the form 
 \begin{equation}\label{eqDFQwithDirectionFlow}
 \frac{dy}{dx}= F(x,y)\quad.  
 \end{equation}
-\item At each point $(x_0,y_0)$, let us plot a segment of the line with slope $F(x_0,y_0)$ passing through $(x_0,y_0)$. The resulting picture is called a direction field. 
-\item Examples.
+
+At each point $(x_0,y_0)$, let us plot a segment of the line with slope $F(x_0,y_0)$ passing through $(x_0,y_0)$. The resulting picture is called a direction field. 
+
+Examples.
 
 \optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
@@ -2437,8 +2448,9 @@ If we are given initial conditions $y(x_0)=y_0$, we say that we have  an \emph{i
 \end{pspicture}
 }%optionalDisplay
 
-\item $\frac{dy}{dx}= F(x,y)$ has different solutions depending on the initial condition given by the $y(x_0)=y_0$ starting point $(x_0, y_0)$. A solution of a differential equation of the form \eqref{eqDFQwithDirectionFlow} corresponds to the trajectory of a point ``flowing'' along the direction field. If drawn with increasing precision, the blue segments representing the direction field begin to resemble smooth curves; those curves indeed approximate solutions of the differential equation.
-\item Euler's method for approximating solutions. Fix a small ``approximation step'' $h$. Let $x_n:=x_0+nh$ be the point at distance $n$ times our small approximation step from $x_0$. Suppose the initial condition differential equation problem
+$\frac{dy}{dx}= F(x,y)$ has different solutions depending on the initial condition given by the $y(x_0)=y_0$ starting point $(x_0, y_0)$. A solution of a differential equation of the form \eqref{eqDFQwithDirectionFlow} corresponds to the trajectory of a point ``flowing'' along the direction field. If drawn with increasing precision, the blue segments representing the direction field begin to resemble smooth curves; those curves indeed approximate solutions of the differential equation.
+
+Euler's method for approximating solutions. Fix a small ``approximation step'' $h$. Let $x_n:=x_0+nh$ be the point at distance $n$ times our small approximation step from $x_0$. Suppose the initial condition differential equation problem
 \[
 \frac{dy}{dx}= F(x,y)\quad.  
 \]
@@ -2446,9 +2458,11 @@ with initial conditions $y(x_0)=y_0$  has a solution $y(x)$. Then approximate va
 \begin{equation}\label{eqEulerApproxDFQ}
 y_n \eqdef y_{n-1} + h F(x_{n-1}, y_{n-1})\quad .
 \end{equation}
-\item A motivation for Euler's method can be given as follows. At a point $x$, for a very small interval $(x,x+h)$, the function $y(x)$ is approximately linear, and is approximated by $y(x+h)\approx y(x)+ h y'(x) $. On the other hand, $y'(x)$ equals $F(x, y(x))$. Now if we have already approximated $y(x_{n-1})\approx y_{n-1}$, we known $y'(x_{n-1}) \approx F(x_{n-1}, y_{n-1})$ and  we can approximate $y(x_{n-1}+h)\approx y_n $ by \eqref{eqEulerApproxDFQ}.
-\item Euler's method has a number of drawbacks, both computationally and algebraically, and is not used in practice. However, it illustrates the main idea of approximating solutions to differential equations: approximate at a point $x$ the value of $y(x+h)$ (as a function of $h$) by a well-known function in $h$ (linear, quadratic, third power, fourth power,\dots), move along the approximation for a very short distance $h$, and recompute. Without being an expert in differential equations, I may speculate that modern computer algorithms  are still based on (some complicated variation of) this simple idea.
-\item The algebraic problems arising form Euler's method stem from the fact that $F(y,x)$ may tend to $\pm\infty$. For example, consider the direction field given by $\frac{dy}{dx}= -\frac{x}{y}$. Euler's method will not tell you what to do as $y$ approaches $0$. In fact, we will soon be able to compute that solutions of the differential equation  $\frac{dy}{dx}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$.
+A motivation for Euler's method can be given as follows. At a point $x$, for a very small interval $(x,x+h)$, the function $y(x)$ is approximately linear, and is approximated by $y(x+h)\approx y(x)+ h y'(x) $. On the other hand, $y'(x)$ equals $F(x, y(x))$. Now if we have already approximated $y(x_{n-1})\approx y_{n-1}$, we known $y'(x_{n-1}) \approx F(x_{n-1}, y_{n-1})$ and  we can approximate $y(x_{n-1}+h)\approx y_n $ by \eqref{eqEulerApproxDFQ}.
+
+Euler's method has a number of drawbacks, both computationally and algebraically, and is not used in practice. However, it illustrates the main idea of approximating solutions to differential equations: approximate at a point $x$ the value of $y(x+h)$ (as a function of $h$) by a well-known function in $h$ (linear, quadratic, third power, fourth power,\dots), move along the approximation for a very short distance $h$, and recompute. Without being an expert in differential equations, I may speculate that modern computer algorithms  are still based on (some complicated variation of) this simple idea.
+
+The algebraic problems arising form Euler's method stem from the fact that $F(y,x)$ may tend to $\pm\infty$. For example, consider the direction field given by $\frac{dy}{dx}= -\frac{x}{y}$. Euler's method will not tell you what to do as $y$ approaches $0$. In fact, we will soon be able to compute that solutions of the differential equation  $\frac{dy}{dx}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$.
 
 \optionalDisplay{
 \begin{pspicture}(-6,-1)(6,6)
@@ -2469,15 +2483,15 @@ y_n \eqdef y_{n-1} + h F(x_{n-1}, y_{n-1})\quad .
 } %optionalDisplay
 %\begin{pspicture}
 %\end{pspicture}
-\end{itemize}
+
 \subsection{Separable equations}
-\begin{itemize}
-\item A differential equation is separable if it can be written in the form 
+A differential equation is separable if it can be written in the form 
 \begin{equation}\label{eqDFQSeparable}
 \frac{d y}{dx}= f(x)g(y)\quad .
 \end{equation}
 Here, we recall that $y$ is an abbreviation for the function $y(x)$. 
-\item A separable differential equation can be solved as follows. Replace for convenience $x$ by $t$:
+
+A separable differential equation can be solved as follows. Replace for convenience $x$ by $t$:
 \[
 \frac{d y}{dt}= f(t)g(y)\quad .
 \]
@@ -2509,10 +2523,8 @@ or finally as
 G(y)-F(x)-G(y(x_0))+ F(x_0)=0\quad .
 \end{equation}
 If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If not possible to solve for $y$ explicitly, we may leave the solution of our differential equation in the form \eqref{eqDFQSeparableSolution}.
-\end{itemize}
 \subsubsection{Examples of separable equations}
-\begin{itemize}
-\item (a) Find the general solution of
+(a) Find the general solution of
 \[
 \frac{dy}{dx}= y^2-1\quad .
 \]
@@ -2615,7 +2627,7 @@ y(x)= \frac{1- 4e^{2x}}{1+4e^{2x}}\quad .
 \]
 
 \end{solution}
-\item The mixing problem. 
+The mixing problem. 
 A tank contains 30 kg of salt dissolved in 10000 liters of water and salt solution. Brine that contains 0.05 kg of salt per liter enters the tank at a rate of 10 liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate (10 liters per minute). Determine how much salt remains in the tank after half an hour.
 
 \begin{solution}
@@ -2646,7 +2658,6 @@ where we have used that $ \frac{470}{500-y(t)}>0 $. The fact that $ \frac{470}{5
 As the unit of measurement is $kg$, the answer to the problem is $\approx 43.89 kg$ salt.
 
 \end{solution}
-\end{itemize}
 \subsubsection{Exercises}
 \begin{problem} ~
 \begin{itemize}
@@ -2683,19 +2694,19 @@ The drawing below is a computer-generated plot of the direction field  $\frac{dy
 Mixing problem. A tank contains 1000 kg of salt dissolved in 10000 liters of water. Brine that contains 0.05 kg of salt per liter of water enters the tank at a rate of 30 liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate (30 liters per minute). Determine how much salt remains in the tank after an hour.
 \end{problem}
 \subsection{Linear differential equations}
-\begin{itemize}
-\item A differential equation is \emph{linear} if it is of the form 
+A differential equation is \emph{linear} if it is of the form 
 \begin{equation}\label{eqDFQlinear}
 \frac{dy}{dx} + P(x)y=Q(x)
 \end{equation}
 for some functions $P(x),Q(x)$.
-\item A linear differential equation \eqref{eqDFQlinear} can be solved as follows.
-\begin{itemize}
-\item  Let us make the problem slightly more general by considering an equation of the form 
+
+A linear differential equation \eqref{eqDFQlinear} can be solved as follows. 
+
+Let us make the problem slightly more general by considering an equation of the form 
 \begin{equation}\label{eqDFQlinearStep1}
 R(x)\frac{dy}{dx} + S(x)y=Q(x)\quad .
 \end{equation}
-\item Suppose that it so happened that $R'(x)=S(x)$. Then \eqref{eqDFQlinearStep1} becomes
+Suppose that it so happened that $R'(x)=S(x)$. Then \eqref{eqDFQlinearStep1} becomes
 \begin{equation}\label{eqDFQlinearStep2}
 \begin{array}{rcl}
 \underbrace{R(x)\frac{dy}{dx} + R'(x)y}_{\mathrm{Leibniz~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
@@ -2707,7 +2718,7 @@ In the above we can introduce a new function $z(x)= y(x)R(x)$, and the equation 
 \frac{dz}{dx}= Q(x)\quad ,
 \]
 which we already can solve by integrating both sides to obtain $z(x)= \int\limits_{t=x_0}^x Q(t)dt $, or finally, if $R(x)\neq 0$, we get $y(x)= \frac{1}{R(x)}\int\limits_{t=x_0}^x Q(t)dt $.
-\item Let us now try to solve \eqref{eqDFQlinear} by finding a multiplier function $T(x)$ that does not vanish, such that when we multiply \eqref{eqDFQlinear}, we obtain an equation of the form \eqref{eqDFQlinearStep2}. Indeed, in order to get an equation of the form \eqref{eqDFQlinearStep2}, we need that $\frac{dT}{dx}= (TP(x))$. The latter is a separable differential equation for $T(x)$.  We solve the equation as studied in the preceding section.
+Let us now try to solve \eqref{eqDFQlinear} by finding a multiplier function $T(x)$ that does not vanish, such that when we multiply \eqref{eqDFQlinear}, we obtain an equation of the form \eqref{eqDFQlinearStep2}. Indeed, in order to get an equation of the form \eqref{eqDFQlinearStep2}, we need that $\frac{dT}{dx}= (TP(x))$. The latter is a separable differential equation for $T(x)$.  We solve the equation as studied in the preceding section.
 \begin{equation}\label{eqDFQlinearStep3}
 \begin{array}{rcl}
 \frac{dT}{dx}\frac{1}{T}&=&P(x)\\
@@ -2717,13 +2728,12 @@ T&=&De^{\int P(x)dx},
 \end{array}
 \end{equation}
 where $C$ is an arbitrary constant and $D=e^C$. As we have no initial conditions on $\frac{dT}{dx}= (TP(x))$ (in fact, we made up that equation ourselves), we are free to choose arbitrary initial conditions. This is reflected in the fact that, somewhat informally, we used indefinite integral instead of definite in the solution of \eqref{eqDFQlinearStep3}.
-\item Motivated by the preceding discussion, define $T(x)\eqdef e^{\int P(x)dx}$, where the constant added to the indefinite integral is chosen arbitrarily. $T(x)$ is thus defined only up to a constant.
-\item Multiply \eqref{eqDFQlinear} by $T(x)$ on both sides and transform \eqref{eqDFQlinear} to \eqref{eqDFQlinearStep1}, which we already solved.
-\end{itemize}
-\end{itemize}
+
+Motivated by the preceding discussion, define $T(x)\eqdef e^{\int P(x)dx}$, where the constant added to the indefinite integral is chosen arbitrarily. $T(x)$ is thus defined only up to a constant.
+
+Multiply \eqref{eqDFQlinear} by $T(x)$ on both sides and transform \eqref{eqDFQlinear} to \eqref{eqDFQlinearStep1}, which we already solved.
 \subsubsection{Example of linear differential equations}
-\begin{itemize}
-\item Solve 
+Solve 
 \begin{equation}\label{eqDFQlinearexample1}
 \frac{dy}{dx}+ y x=x\quad .
 \end{equation} Find a solution such that $y(0)=3$.
@@ -2772,11 +2782,8 @@ In order to find a solution for which $y(0)=3$, we simply plug in $x_0=0$, $y(x_
 \end{pspicture}
 } %end \optionalDisplay
 \end{solution}
-\end{itemize}
 \section{Sequences, limits, formal power series}\label{secSequencesPowerSeries}
 \subsection{Sequences, limits of sequences}
-\begin{itemize}
-\item 
 \begin{definition}
 \index{sequence} A sequence is an infinite list of numbers 
 \[
@@ -2786,10 +2793,14 @@ a_1, a_2, a_3, \dots\quad .
 As usual, we may choose letters other than the letter $a$ to denote a sequence. The number $a_n$ is called the $n^{th}$ term of the sequence. A sequence can be thought of as a function from the non-negative integers to the real numbers $a: \mathbb Z_{>0}\to \mathbb R$. The term $a_n$ can be thought of as the value $a(n)$ of the function $a$ at $n$. A similar definition can be given for sequences of complex numbers.
 
 In our lectures, in the notation $a_n$, we will informally call $n$ the index of $a_n$. We are allowed to relabel sequences to start at an index other than 1. 
-\item A sequence starting with index $1$ is usually denoted as $\{a_n\}$ or, to be more specific, $\{a_n\}_{n=1}^\infty$. A sequence starting at $n=3$ would be denoted as $\{a_n\}_{n=3}^\infty$; a sequence starting at $-1$ would be denoted as $\{a_n\}_{n=-1}^\infty$; and so on.
-\item Sequences can be given by directly producing a formula for the $n^{th}$ term, for example $a_n:=\frac{1}{n}$.
-\item Sequences can be also given recursively, for example $a_1:=1$, $a_2:=1$, $a_n:=a_{n-1}+a_{n-2}$. Another example would be $a_1:=1$, $a_{n+1}= \frac{a_n}{2}+\frac{N}{2a_n}$ for any $N>0$.
-\item We say that a sequence $\{a_n\}$ has limit $L$ and we write 
+
+A sequence starting with index $1$ is usually denoted as $\{a_n\}$ or, to be more specific, $\{a_n\}_{n=1}^\infty$. A sequence starting at $n=3$ would be denoted as $\{a_n\}_{n=3}^\infty$; a sequence starting at $-1$ would be denoted as $\{a_n\}_{n=-1}^\infty$; and so on.
+
+Sequences can be given by directly producing a formula for the $n^{th}$ term, for example $a_n:=\frac{1}{n}$.
+
+Sequences can be also given recursively, for example $a_1:=1$, $a_2:=1$, $a_n:=a_{n-1}+a_{n-2}$. Another example would be $a_1:=1$, $a_{n+1}= \frac{a_n}{2}+\frac{N}{2a_n}$ for any $N>0$.
+
+We say that a sequence $\{a_n\}$ has limit $L$ and we write 
 \[
 \lim a_n\to L
 \]
@@ -2801,16 +2812,20 @@ $\{a_n\}$ has limit $L$ if for every $\varepsilon>0$ we can choose an index $N$ 
 depending on $\varepsilon$, such that $|a_n-L|<\varepsilon$ whenever $n>N$.
 \end{tabular}
 }
-\item \index{convergent!sequence}\index{divergent!sequence} If a sequence $\{a_n\}$ has limit, we say it \emph{converges} (or is \emph{convergent}), else we say it \emph{diverges} (or is \emph{divergent}).
-\item If $\lim\limits_{x\to \infty} f(x)=L $, then the sequence $\{f(n)\}$ converges to $L$.
-\item We say that
+
+\index{convergent!sequence}\index{divergent!sequence} If a sequence $\{a_n\}$ has limit, we say it \emph{converges} (or is \emph{convergent}), else we say it \emph{diverges} (or is \emph{divergent}).
+
+If $\lim\limits_{x\to \infty} f(x)=L $, then the sequence $\{f(n)\}$ converges to $L$.
+
+We say that
 \[
 \lim \limits_{n\to \infty} a_n=+\infty
 \]
 if for every positive number $M$ there is an index $N$ depending on $M$ such that $a_n>M$ whenever $n>N$. 
 
 Note that even though we write $\lim \limits_{n\to \infty} a_n=+\infty$, the sequence $\{a_n\}$ is divergent (this terminology is rather unfortunate, but can be justified as preferable when studying a field of mathematics called ``Topology'').
-\item If $\{a_n\}$ and $\{b_n\}$ are convergent sequences, and $c$ is constant, then
+
+If $\{a_n\}$ and $\{b_n\}$ are convergent sequences, and $c$ is constant, then
 \importantFormula{
 \begin{array}{rcl}
 \lim \limits_{n\to \infty} (a_n+b_n)&=&\lim \limits_{n\to \infty} a_n+ \lim \limits_{n\to \infty} b_n\\
@@ -2820,29 +2835,28 @@ Note that even though we write $\lim \limits_{n\to \infty} a_n=+\infty$, the seq
 \lim \frac{a_n}{b_n}&=&\frac{\lim \limits_{n\to \infty} a_n}{\lim \limits_{n\to \infty} b_n} \quad\quad\quad \mathrm{if~}\lim \limits_{n\to \infty} b_n\neq 0 \mathrm{~and~} b_n\neq 0\mathrm{~for~all~}n\quad .
 \end{array}
 }
-\item \importantText{
+
+\importantText{
 If $\lim\limits_{n\to \infty} a_n=L$ and $f$ is a function that is continuous at $L$, then 
 $\lim \limits_{n\to \infty} f(a_n)=f(L)$.
 }
-\item  The sequence $\{r^n\}$ is convergent if $1< r\leq 1$ for $r$- real, and divergent for other values of $r$.
+
+The sequence $\{r^n\}$ is convergent if $1< r\leq 1$ for $r$- real, and divergent for other values of $r$.
 \importantFormula{\label{eqLimitRtoTheNth}
 \lim\limits_{n\to \infty}r^n= \left\{\begin{array}{ll} 0 & \mathrm{if~} -1<r<1\\ 1& \mathrm{if~} r=1\end{array} \right.\quad .
 }
-\item A sequence $\{a_n\}$ is increasing if $a_n<a_{n+1}$ for all $n$. A sequence is decreasing if $a_n>a_{n+1}$ for all $n$. A sequence is monotonic if it is either increasing or decreasing. \index{sequence!monotonic} \index{sequence!increasing} \index{sequence!decreasing}  
-\item A sequence $\{a_n\}$ is bounded above by $M$ if $a_n<M$ for all $n$. A sequence is bounded below by $M$ if $a_n>M$ for all $n$. If a sequence is bounded above and below it is called a bounded sequence. \index{sequence!bounded, below and above}
-\item 
+
+A sequence $\{a_n\}$ is increasing if $a_n<a_{n+1}$ for all $n$. A sequence is decreasing if $a_n>a_{n+1}$ for all $n$. A sequence is monotonic if it is either increasing or decreasing. \index{sequence!monotonic} \index{sequence!increasing} \index{sequence!decreasing}  
+
+A sequence $\{a_n\}$ is bounded above by $M$ if $a_n<M$ for all $n$. A sequence is bounded below by $M$ if $a_n>M$ for all $n$. If a sequence is bounded above and below it is called a bounded sequence. \index{sequence!bounded, below and above}
+
 \begin{theorem}\label{thMonotonicSequenceThereom}\index{sequence!monotonic sequence theorem}
  (Monotonic sequence theorem). Every bounded monotonic sequence is convergent.
 \end{theorem}
-\end{itemize}
 \subsection{Limits of functions (Review)}
-\begin{itemize}
-\item \textbf{This section is to be written.}
-\end{itemize}
+\textbf{This section is to be written.}
 \subsection{A couple of tools}
 \subsubsection{L'Hospital's rule}
-\begin{itemize}
-\item 
 \begin{theorem}
 \index{theorem!mean value} Mean value theorem (Review). Let $f:[a,b]\to \mathbb R$ (i.e., $f$ is a function from the interval $[a,b]$ to the reals), such that $f$ is continuous in the entire interval $[a,b]$, and differentiable in the open interval $(a,b)$. Then there exists a number $c\in (a,b)$ such that 
 \[
@@ -2854,7 +2868,6 @@ or equivalently,
 \]
 \end{theorem}
 
-\item 
 \begin{theorem} \index{L'Hospital's rule}
 (L'Hospital's rule). Let $I$ be an open interval and let $a\in I$. Let $f$ and $g$ be functions that are differentiable in the interval $I\setminus \{a\}$ ($I$ minus the point $a$). Suppose either
 \[
@@ -2873,13 +2886,19 @@ exists and $g'(x)\neq 0$ for all $x\in I\setminus \{a\}$. Then
 \lim_{x\to a}\frac{f(x)}{g(x)}= \lim_{x\to a} \frac{f'(x)}{g'(x)}\quad .
 \]
 \end{theorem}
-\item L'Hospital's rule applies for $a=\infty$, i.e., $x\to \infty$. 
-\item Proof of L'Hospital's rule in the case that $\lim\limits_{x\to a}g(x)=0 $. For $x$ sufficiently close to $a$ we have by the Mean value theorem that $f(x)-f(a)=f(x)=  f'(c_x) (x-a) $, where $c_x$ is some point in the interval $(a,x)$ and depending on $x$. Similarly, $g(x)- g(a)= g'(\bar c_x)(x-a)$ for some other point $\bar c_x\in (a,x)$. Therefore 
-\[\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\lim\limits_{x\to a}\frac{f'(c_x) \cancel{(x-a)}}{ g'(\bar c_x)\cancel{(x-a)}} = \lim\limits_{x\to a}\frac{f'(c_x) }{ g'(\bar c_x)}=\lim\limits_{x\to a}\frac{f'(x) }{ g'(x)}\quad , \] 
+
+L'Hospital's rule applies for $a=\infty$, i.e., $x\to \infty$. 
+
+Proof of L'Hospital's rule in the case that $\lim\limits_{x\to a}g(x)=0 $. For $x$ sufficiently close to $a$ we have by the Mean value theorem that $f(x)-f(a)=f(x)=  f'(c_x) (x-a) $, where $c_x$ is some point in the interval $(a,x)$ and depending on $x$. Similarly, $g(x)- g(a)= g'(\bar c_x)(x-a)$ for some other point $\bar c_x\in (a,x)$. Therefore 
+\[
+\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\lim\limits_{x\to a}\frac{f'(c_x) \cancel{(x-a)}}{ g'(\bar c_x)\cancel{(x-a)}} = \lim\limits_{x\to a}\frac{f'(c_x) }{ g'(\bar c_x)}=\lim\limits_{x\to a}\frac{f'(x) }{ g'(x)}\quad , 
+\] 
 where the very last equality follows from the fact that for every $x$, $c_x$ is in the interval $(a,x)$, and therefore $c_x$ (as a function of $x$) tends to $a$ as $x$ tends to $a$. For the very last equality we are also using the fact that $f'(x)$ and $g'(x)$ are continuously differentiable in a small neighborhood of $a$ (where?).
-\item The above explanation does not deal with the case of $f(x), g(x)\to\pm \infty $ or with $x\to \infty$. A detailed proof in those cases can be found at Wikipedia's page.
+
+The above explanation does not deal with the case of $f(x), g(x)\to\pm \infty $ or with $x\to \infty$. A detailed proof in those cases can be found at Wikipedia's page.
 \url{http://en.wikipedia.org/wiki/L'H%C3%B4pital's_rule}
-\item A strategy for finding a limit $\lim\limits_{x\to a}F(x)$. The strategy is not guaranteed to work.
+
+A strategy for finding a limit $\lim\limits_{x\to a}F(x)$. The strategy is not guaranteed to work.
 \begin{itemize}
 \item Step 1. Important(!) Check whether $F(x)$ is well-defined at $x=a$ by plugging in $x=a$. If $F(a)$ is well defined, or is already known to tend to $\pm \infty$, the limit is simply $F(a)$.
 \item Step 2. From now on we assume that $F(x)$ is not well-defined at $x=a$, and we do not know its limit. $F(x)$ can be of the form $\frac{0}{0}$, $\frac{\pm \infty }{\pm \infty}$, $ \infty-\infty$, etc. 
@@ -2895,29 +2914,28 @@ Note there is no fixed recipe for rewriting $F$.
 \end{itemize}
 Note that in the above strategy, you might end up going in an infinite cycle. If, in your judgment, you are going in an infinite cycle, try transforming $F(x)$ algebraically.
 \subsubsection{Examples of L'Hospital's rule}
-\begin{itemize}
-\item 
 \[
 \lim\limits_{x\to 0} \underbrace{(x-1)\ln x}_{\mathrm{~of~the~form~}(-1)*(-\infty)} =+\infty\quad .
 \]
-\item 
+
 \[\begin{array}{rcl}
 \underbrace{\lim\limits_{x\to 0} x\ln x}_{\mathrm{~of~the~form~}0*(-\infty)} &=&\underbrace{\lim\limits_{x\to 0} \frac{\ln x}{\frac{1}{x}}}_{\mathrm{~of~the~form~}(\pm\infty)/(\pm\infty)}\stackrel{\mathrm{L'Hospital}}{=}\lim\limits_{x\to 0} \frac{(\ln x)'}{\left(\frac{1}{x}\right)'}\\&=& \lim\limits_{x\to 0} \frac{\frac{1}{x}}{\frac{1}{x^2}}=  \lim\limits_{x\to 0} x =0
 \end{array}
 \]
-\item 
+
 \[
 \begin{array}{rcl}
 \lim\limits_{x\to 0} \underbrace{\frac{\sin x}x}_{\mathrm{~of~the~form~}0/0}\stackrel{\mathrm{L'Hospital}}{=} \lim\limits_{x\to 0} \frac{(\sin x)'}{x'}= \lim\limits_{x\to 0} \frac{\cos x}{1}= 1\quad .
 \end{array}
 \]
-\item 
+
 \[
 \begin{array}{rcl}
 \underbrace{\lim\limits_{x\to \infty} \frac{e^x}{x^2}}_{\mathrm{~of~the~form~}\pm \infty/\pm\infty} &\stackrel{\mathrm{L'Hospital}}{=} & \underbrace{\lim\limits_{x\to \infty} \frac{e^x}{2x}}_{\mathrm{~of~the~form~}\pm \infty/\pm\infty}\stackrel{\mathrm{L'Hospital}}{=}\lim\limits_{x\to \infty} \frac{e^x}{2}= +\infty
 \end{array}
 \]
-\item Let $n\in \mathbb Z_{\geq 0}$ (i.e., $n$ is a non-negative integer). Prove by induction that 
+
+Let $n\in \mathbb Z_{\geq 0}$ (i.e., $n$ is a non-negative integer). Prove by induction that 
 \begin{equation}\label{eqLimiteMinusXtimesxtoNth}
 \lim\limits_{x\to \infty} x^ne^{-x} = \lim\limits_{x\to \infty}\frac{ x^n}{e^{x}}=0\quad .
 \end{equation}
@@ -2930,14 +2948,14 @@ For the base of the induction we have that $\lim\limits_{x\to \infty}\frac{1}{e^
 \]
 which proves the induction step and completes the proof.
 \end{solution}
-\item 
+
 \[
 \begin{array}{rcl}
 \lim\limits_{x\to \infty} \frac{(\ln x)}{\sqrt{x}} &\stackrel{\mathrm{L'Hospital}}{=} & \lim\limits_{x\to \infty} \frac{(\ln x)'}{(\sqrt{x})'}=
  \lim\limits_{x\to \infty} \frac{1/x}{1/2x^{-1/2}}= \lim\limits_{x\to \infty} \frac{2}{\sqrt{x}}=0
 \end{array}
 \]
-\item 
+
 \[
 \begin{array}{rcl}
 \lim\limits_{x\to 0}\limits \frac{\tan x- x}{x^3}&\stackrel{\mathrm{L'Hospital}}{=} &\lim\limits_{x\to 0} \frac{\frac{1}{\cos^2 x}-1}{3x^2}=
@@ -2949,13 +2967,10 @@ which proves the induction step and completes the proof.
 
 However, if $f(a)\neq 0, \pm \infty$ and $f$ is continuous in a small neighborhood of $a$, then we have the right to write $\lim\limits_{x\to a} f(x)g(x)= \left(\lim\limits_{x\to a} f(x)\right) \left(\lim\limits_{x\to a} g(x)\right)= f(a)\left(\lim\limits_{x\to a} g(x)\right)$.
 
-\end{itemize}
+\subsubsection{Improper integrals} \label{secImproperIntegrals}
+\index{improper integral} Improper integrals are the combination of definite integrals and limits.
 
-\end{itemize}
-\subsubsection{Improper integrals}\label{secImproperIntegrals}
-\begin{itemize} 
-\item \index{improper integral} Improper integrals are the combination of definite integrals and limits.
-\item Type I: infinite intervals.
+Type I: infinite intervals.
 
 \begin{itemize}
 \item Suppose $\int\limits_{t=a}^{x}f(t)dt$ exists for all $t\geq a$. We define 
@@ -2977,7 +2992,8 @@ provided the above limit exists.
 provided the above limit exists.
 \end{itemize}
 In case the limits defining the above improper integrals do not exist, we call the improper integrals \emph{divergent}. Else, if the limits exist, we call them \emph{convergent}. \index{convergent!improper integral} \index{divergent!improper integral}
-\item Type II: integrating discontinuous functions.
+
+Type II: integrating discontinuous functions.
 \begin{itemize}
 \item Suppose $f:[a,b)\to \mathbb R$ ($f$ is a function from $[a,b)$ to the reals) is continuous in $[a,b)$, but discontinuous at $b$. We define 
 \[
@@ -2990,37 +3006,38 @@ provided the limit exists.
 \]
 provided the limit exists.
 \end{itemize}
-\item The comparison theorem. Suppose $f(x)\geq g(x)\geq 0$.
+
+The comparison theorem. Suppose $f(x)\geq g(x)\geq 0$.
 \begin{itemize}
 \item If $\int\limits_{a}^{b}f(x)dx$ is convergent, so is $\int\limits_{a}^{b}g(x)dx$. Here, we allow $ b=\infty$ or $a=-\infty$, as well as we allow improper integrals of type II.
 \item If $\int\limits_{a}^{b}g(x)dx$ is divergent, so is $\int\limits_{a}^{b}f(x)dx$. Here, we allow $ b=\infty$ or $a=-\infty$, as well as we allow improper integrals of type II.
 \end{itemize}
-\end{itemize}
+
 \subsubsection{Examples of improper integrals}
-\begin{itemize}
-\item Let $p\neq 1$. Then
+Let $p\neq 1$. Then
 \begin{equation}\label{eqIntegralxTopthPowerToInfty}
 \int\limits_{x=1} \frac{1}{x^{p}} dx = \left.-\frac{x^{-p+1}}{-p+1}\right|_{x=1}^{\infty}= \lim\limits_{x\to\infty} 
 \frac{1}{(p-1) x^{p-1}}+\frac{1}{p-1} =\doublebrace{\infty}{p<1}{\frac{1}{p-1}}{p>1} \quad . 
 \end{equation}
-\item 
+
 \begin{equation}\label{eqIntegral1overxToToInfty}
 \int\limits_{x=1}^{\infty} \frac{1}x dx= \left.\ln x \right|_{x=1}^{\infty}= \infty\quad .
 \end{equation}
-\item 
+
 \begin{equation}\label{eqGamma(1)}
 \begin{array}{rcl}
 \int\limits_{0}^{\infty}e^{-x}dx&=& \left.- e^{-x}\right|_{x=0}^{x=\infty}=-\lim\limits_{x\to \infty}e^{-x}  - (-e^{-0})\\&=& -\lim \limits_{x\to \infty} \frac{1}{e^{x}} +1=1
 \end{array}
 \end{equation}
 
-\item 
+
 \[ 
 \begin{array}{rcl}
 \int\limits_{0}^{\infty}xe^{-x}dx&=& \left.-xe^{-x} - e^{-x}\right|_{x=0}^{x=\infty}=\lim\limits_{x\to \infty}\left( -xe^{-x} -e^{-x}\right) - (-0e^{-0}-e^{-0})\\&=& 1-\lim \limits_{x\to \infty} \frac{x+1}{e^{x}}\stackrel{\mathrm{L'Hospital}}{=}1-\lim \limits_{x\to \infty} \frac{1}{e^{x}} =1
 \end{array}
 \]
-\item More generally, we can compute $\Gamma (n):=\displaystyle\int\limits_{0}^{\infty} x^ne^{-x}dx$. $\Gamma$ is the so called \emph{gamma function}, invented by L. Euler. As we compute below, in case $n$ is an integer, $\Gamma(n)=(n-1)!$. In case $n$ is not an integer, $\Gamma(n)$ may still be defined, and thus $\Gamma$ is a generalization of the notion of factorial. Suppose $n>0$ is an integer. Then
+
+More generally, we can compute $\Gamma (n):=\displaystyle\int\limits_{0}^{\infty} x^ne^{-x}dx$. $\Gamma$ is the so called \emph{gamma function}, invented by L. Euler. As we compute below, in case $n$ is an integer, $\Gamma(n)=(n-1)!$. In case $n$ is not an integer, $\Gamma(n)$ may still be defined, and thus $\Gamma$ is a generalization of the notion of factorial. Suppose $n>0$ is an integer. Then
 \[
 \begin{array}{rcl}
 \Gamma (n+1)&:=&\underbrace{\int\limits_{0}^{\infty} x^{n}\underbrace{e^{-x}dx}_{=-d (e^{-x})}}_{\mathrm{integrate~by~parts}}=\left. -x^{n}e^{-x}\right|_{x=0}^{\infty}+ n\underbrace{\int\limits_{0}^{\infty}x^{n-1} e^{-x}dx}_{=\Gamma(n)}= \underbrace{\lim\limits_{x\to \infty} -\frac{x^{n}}{e^x}}_{=0\mathrm{~using~\eqref{eqLimiteMinusXtimesxtoNth}}}+ 0^ne^{-0}+n\Gamma(n)= n\Gamma(n)\\
@@ -3028,7 +3045,8 @@ provided the limit exists.
 \end{array}
 \]
 For the very last equality we used the fact that we already computed $\Gamma(1)$ in \eqref{eqGamma(1)}.
-\item Determine whether the integral below is convergent. 
+
+Determine whether the integral below is convergent. 
 \[
 \int\limits_{0}^{\infty}e^{-x^2}dx
 \]
@@ -3039,23 +3057,26 @@ We cannot evaluate the above integral using the techniques studied so far. Howev
 \]
 The first integral $\int\limits_{0}^{1}e^{-x^2}dx$ is proper and well defined, as $e^{-x^2}$ is a continuous function in the interval $[0,1]$ (and everywhere else).  We already showed that $ \int\limits_{0}^{\infty}e^{-x}dx$ is convergent; we leave it to the reader to show that $ \int\limits_{1}^{\infty}e^{-x}dx$ is convergent too (this is in fact obvious). As $e^{-x}>e^{-x^2}$ for $x>1$, we apply the comparison theorem to get that $\int\limits_{0}^{\infty}e^{-x^2}dx<\int\limits_{1}^{\infty}e^{-x}dx$ is convergent.
 \end{solution}
-\end{itemize}
 
 \subsection{Formal power series and operations with them}\label{secFormalPowerSeries}
-\begin{itemize}
-\item \index{series!formal power} A \emph{formal power series} is an expression of the form 
+\index{series!formal power} A \emph{formal power series} is an expression of the form 
 \begin{equation}\label{eqFormalPowerSeriesDef}
 (a_0 + a_1x+a_2x^2+\dots +a_nx^n+\dots)= \sum_{n=0}^{\infty} a_n x^n \quad .
 \end{equation}
-\item \index{series!formal power at a point} A \emph{formal power series in $x-p$}, or \emph{formal power series at $p$} is an expression of the form 
+
+\index{series!formal power at a point} A \emph{formal power series in $x-p$}, or \emph{formal power series at $p$} is an expression of the form 
 \begin{equation}\label{eqFormalPowerAtPSeriesDef}
 (a_0 + a_1(x-p)+a_2(x-p)^2+\dots +a_n(x-p)^n+\dots)= \sum_{n=0}^{\infty} a_n (x-p)^n \quad .
 \end{equation}
 The theory of formal power series in $y=x-p$ is identical with the theory of formal power series in the indeterminate $y$ and we will not discuss it any further. Formal power series in $y=x-p$ are used when defining Taylor series (see Definition \ref{defTaylorSeries}).
-\item The formal power series \eqref{eqFormalPowerSeriesDef} is to be thought as alternative way of writing the infinite sequence $a_1, a_2, \dots, a_n,\dots $. The ``infinite sum'' in the definition of formal power series does not imply that the sum converges in any way, or that any limits exist. We stress the fact that the expression  \eqref{eqFormalPowerSeriesDef} is  formal - $x$  is an indeterminate, rather than a number. This analogous to the fact that in a polynomial in $x$, the variable $x$ is an indeterminate.
-\item We may or may not be allowed to plug in numbers for $x$ in the expression \eqref{eqFormalPowerSeriesDef}, depending on whether the corresponding sum is convergent. However, the formal power series are defined independent of any convergence issues.
-\item We may (formally) add, subtract, multiply, integrate, differentiate formal power series. With additional assumptions, we may be able to divide power series, as well as carry out formal substitutions replacing $x$ by a formal power series. 
-\item Adding, subtracting and multiplying formal power series is carried out by ``uncovering the infinite brackets'', much in the way that finite expressions are added, subtracted and multiplied.
+
+The formal power series \eqref{eqFormalPowerSeriesDef} is to be thought as alternative way of writing the infinite sequence $a_1, a_2, \dots, a_n,\dots $. The ``infinite sum'' in the definition of formal power series does not imply that the sum converges in any way, or that any limits exist. We stress the fact that the expression  \eqref{eqFormalPowerSeriesDef} is  formal - $x$  is an indeterminate, rather than a number. This analogous to the fact that in a polynomial in $x$, the variable $x$ is an indeterminate.
+
+We may or may not be allowed to plug in numbers for $x$ in the expression \eqref{eqFormalPowerSeriesDef}, depending on whether the corresponding sum is convergent. However, the formal power series are defined independent of any convergence issues.
+
+We may (formally) add, subtract, multiply, integrate, differentiate formal power series. With additional assumptions, we may be able to divide power series, as well as carry out formal substitutions replacing $x$ by a formal power series. 
+
+Adding, subtracting and multiplying formal power series is carried out by ``uncovering the infinite brackets'', much in the way that finite expressions are added, subtracted and multiplied.
 \begin{itemize}
 \item 
 \[
@@ -3072,7 +3093,8 @@ a_0b_0 + (a_0b_1+a_1b_0)x + (a_0b_2+a_1b_1+a_2b_0)x^2+\dots \\
 \end{array}
 \] 
 \end{itemize}
-\item Formal power series can be (formally) differentiated and integrated.
+
+Formal power series can be (formally) differentiated and integrated.
 \begin{itemize}
 \item 
 \[
@@ -3084,7 +3106,8 @@ a_0b_0 + (a_0b_1+a_1b_0)x + (a_0b_2+a_1b_1+a_2b_0)x^2+\dots \\
 =C+\sum_{n=1}^{\infty} \frac{a_n}{n+1}x^{n+1}\quad . 
 \]
 \end{itemize}
-\item \textbf{(!) Optional material. This point does not require material outside of this course, but you may find it technically challenging. You will not be tested on this material}. Let $g(x)$ be a formal power series without a constant term, that is, $g(x)$ is of the form $g(x)=\sum_{n=1}^\infty b_n x^n=  b_1x+b_2x^2+\dots$. Let $f(x)=\sum_{n=0}^{\infty} a_n x^n$ be a formal power series. Then we can carry out substitutions $f(g(x))$, much in the way that substitutions in usual ``finite'' polynomials are carried out. Details follow.
+
+\textbf{(!) Optional material. This point does not require material outside of this course, but you may find it technically challenging. You will not be tested on this material}. Let $g(x)$ be a formal power series without a constant term, that is, $g(x)$ is of the form $g(x)=\sum_{n=1}^\infty b_n x^n=  b_1x+b_2x^2+\dots$. Let $f(x)=\sum_{n=0}^{\infty} a_n x^n$ be a formal power series. Then we can carry out substitutions $f(g(x))$, much in the way that substitutions in usual ``finite'' polynomials are carried out. Details follow.
 
 \[
 \begin{array}{rcl}
@@ -3102,10 +3125,8 @@ f(g(x)) &\eqdef&\displaystyle a_0+ \sum_{k=1}^\infty a_k\left(\sum_{j=1}^{\infty
 \end{array}
 \]
 Clearly, the above formulas would be cumbersome to work with by hand except for the smallest of examples. In particular, all examples done in this course will use shortcuts that circumvent the preceding formulas. However, the preceding formulas may be needed for a complicated problem arising in practice/outside of the scope of this course. Furthermore, the formulas are well-suited for implementation in computer algebra systems.
-\end{itemize}
+
 \subsection{Maclaurin series as formal power series}\label{secMaclaurinSeries}
-\begin{itemize}
-\item
 \begin{definition}\label{defMaclaurinSeries}
 \index{series!Maclaurin} Let $f(x)$ be a function that is infinitely differentiable at $0$. Recall that $f^{(n)}(x)$ denotes the $n^{th}$ derivative of $f(x)$. Then the formal power series
 \begin{equation}\label{eqMacLaurinDef}
@@ -3114,7 +3135,7 @@ Clearly, the above formulas would be cumbersome to work with by hand except for 
 is called the Maclaurin series of $f(x)$. 
 \end{definition}
 There is no standard notation for Maclaurin series. The notation $\maclaurin (f(x))$ used in this course is certainly unambiguous.
-\item 
+
 \begin{definition}\label{defTaylorSeries}
 \index{series!Taylor} Let $f(x)$ be a function that is infinitely differentiable at the point $p$. Then the formal power series
 \begin{equation}\label{eqTaylorDef}
@@ -3123,15 +3144,19 @@ There is no standard notation for Maclaurin series. The notation $\maclaurin (f(
 is called the Taylor series of $f(x)$ at $p$. The Maclaurin series are a partial case of the Taylor series at the point $0$.
 \end{definition}
 There is no standard notation for Taylor series at $p$. The notation $\taylor_p(f(x))$ used in this course is certainly unambiguous.
-\item The motivation for the definition of Maclaurin series is that, with some conditions on the function $f(x)$, given a number $a$ with sufficiently small absolute value, $f(a)$ equals the limit of the sum of the Maclaurin series of $f(x)$ when we carry out the substitution $x=a$. An analogous statement holds for Taylor series.
-\item In order to make the above point precise, we need to establish
+
+The motivation for the definition of Maclaurin series is that, with some conditions on the function $f(x)$, given a number $a$ with sufficiently small absolute value, $f(a)$ equals the limit of the sum of the Maclaurin series of $f(x)$ when we carry out the substitution $x=a$. An analogous statement holds for Taylor series.
+
+In order to make the above point precise, we need to establish
 \begin{enumerate}
 \item under what conditions we can plug in a number in place of $x$ in \eqref{eqMacLaurinDef} and 
 \item under what conditions does the sum \eqref{eqMacLaurinDef} equal the function $f(x)$ when we substitute values for $x$. 
 \end{enumerate}
 This is one of the central goals of Section \ref{secSeriesConvergence} .
-\item In Section \ref{secFormalPowerSeries}, we learned how to carry out operations with formal power series. Therefore we may compute with Maclaurin series independent of proving properties 1) and 2) above. We postpone the investigation of problem 1)  to section \ref{secSeriesConvergence}. We shall not discuss problem 2) in this course (an illustration of the issue is given by Problem \ref{probDifferentiableNonAnalyticFunctionExample}). In the rest of this section, we will learn instead how to compute with Maclaurin series. 
-\item When computing Maclaurin series, we may use the following properties. The main idea of these properties is that performing operations with functions and then taking Maclaurin series amounts to the same result as first taking the Maclaurin series and then performing the corresponding operation with the formal power series. 
+
+In Section \ref{secFormalPowerSeries}, we learned how to carry out operations with formal power series. Therefore we may compute with Maclaurin series independent of proving properties 1) and 2) above. We postpone the investigation of problem 1)  to section \ref{secSeriesConvergence}. We shall not discuss problem 2) in this course (an illustration of the issue is given by Problem \ref{probDifferentiableNonAnalyticFunctionExample}). In the rest of this section, we will learn instead how to compute with Maclaurin series. 
+
+When computing Maclaurin series, we may use the following properties. The main idea of these properties is that performing operations with functions and then taking Maclaurin series amounts to the same result as first taking the Maclaurin series and then performing the corresponding operation with the formal power series. 
 \begin{itemize}
 \item 
 \[
@@ -3158,12 +3183,9 @@ as well as
 \maclaurin \left(\int f(x)dx \right) = \int\left( \maclaurin(f(x))\right)dx \quad .
 \]
 \end{itemize}
-%\item The above properties need to be proved. This will be done in a future version of the notes. Alternatively, you can try to prove them yourself.
-\end{itemize}
 \subsubsection{The Maclaurin series of frequently used functions}
-\begin{itemize}
-\item We already studied the Maclaurin series of $e^x, \sin x, \cos x$ in \eqref{eqcosPowerSeries}, \eqref{eqsinPowerSeries}, \eqref{eqExponentFunctionDefinition}.
-\item 
+We already studied the Maclaurin series of $e^x, \sin x, \cos x$ in \eqref{eqcosPowerSeries}, \eqref{eqsinPowerSeries}, \eqref{eqExponentFunctionDefinition}.
+
 \[
 (1-x)(1+x+x^2+\dots +x^n+\dots) = (1+\cancel{x}+\cancel{x^2}+\dots +\cancel{x^n} +\dots)- (\cancel{x}+\cancel{x^2}+\cancel{x^3}+\dots + \cancel{x^n}+\dots)= 1\quad . 
 \]
@@ -3171,7 +3193,8 @@ Therefore
 \begin{equation}\label{eqInfiniteGeometricProgression}
 \maclaurin \left( \frac{1}{1-x}\right)= 1+x+x^2+\dots \quad .
 \end{equation}
-\item We want to compute
+
+We want to compute
 \[
 \maclaurin\left(\frac{1}{(1-x)^n}\right)\quad ,
 \]
@@ -3190,7 +3213,8 @@ Therefore
 \end{array}
 \]
 For the very last equality recall the definition of the Newton binomial coefficient $\binom{k}{n}$, \eqref{eqBinomialCoeffDefinition}. 
-\item More generally, let us compute 
+
+More generally, let us compute 
 \[
 \maclaurin (1+x)^q\quad , 
 \]
@@ -3208,7 +3232,8 @@ Therefore $\frac{d^{n}}{dx^n}\left( (1+x)^q\right)_{|x=0}=q(q-1)(q-2)\dots (q-n+
 \maclaurin \left( (1+x)^q\right)=\sum_{n=0}^{\infty}\frac{1}{n!}\frac{d^n}{dx^n}\left((1+x)^q\right)_{|x=0} x^n  =\sum_{n=0}^{\infty}  \frac{q(q-1)(q-2)\dots (q-n+1)}{n!}x^n= \sum_{n=0}^{\infty} \binom{q}{n}x^n\quad . 
 \end{equation}
 Note that the definition of binomial coefficient \eqref{eqBinomialCoeffDefinition} allows for $q$ to be an arbitrary real (and even complex) number. The above formula is a generalization of the Newton binomial formula. \index{binomial!generalized formula} As we shall soon learn, $\maclaurin \left( (1+x)^q\right)_{|x=c} =(1+c)^q $   for all $c\in (-1, 1)$.
-\item The power series of $\arctan x$.
+
+The power series of $\arctan x$.
 \[
 \begin{array}{rcl}
 \frac{d}{dx}\maclaurin (\arctan x)&=& \maclaurin\left( \frac{d}{dx}(\arctan x)\right)= \maclaurin \left(\frac{1}{1+x^2}\right)  = \maclaurin \left(\frac{1}{1-(-x^2)}\right)\\
@@ -3224,7 +3249,8 @@ Therefore
 &=&\displaystyle  \sum_{n=0}^{\infty} (-1)^n\frac{x^{2n+1}}{2n+1}\quad .
 \end{array}
 \]
-\item The power series of $\ln (1-x)$, $\ln(1+x)$.
+
+The power series of $\ln (1-x)$, $\ln(1+x)$.
 \[
 \frac{d}{dx}\maclaurin(\ln (1-x))= \maclaurin \left(\frac{d}{dx}(\ln (1-x))\right) = \maclaurin \left(-\frac{1}{1-x}\right)= -1-x-x^2-\dots -x^n-\dots
 \]
@@ -3236,7 +3262,7 @@ Therefore
 \[
 \maclaurin(\ln (1+x) )=\sum_{n=1}(-1)^{n+1}\frac{x^n}{n}\quad .
 \]
-\item 
+
 \[
 \begin{array}{rcl}
 \frac{d}{dx}\maclaurin(\arcsin{x})&=&\displaystyle \maclaurin\left(\frac{d}{dx}(\arcsin{x})\right)= \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right)=
@@ -3250,7 +3276,7 @@ Therefore
 \[
 \maclaurin(\arcsin x)=\int \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right) dx =\underbrace{0}_{=\arcsin 0} +\sum_{n=1}^{\infty} (-1)^n \binom{-\frac{1}{2}}{n} \frac{x^{2n+1}}{2n+1}\quad .
 \]
-\end{itemize}
+
 \subsubsection{Exercises}
 \begin{problem}
 Compute the Maclaurin series of the following.
@@ -3286,34 +3312,34 @@ f(x):=\doublebrace{e^{-\frac{1}{x^2}}}{\mathrm{if~} x>0}{0}{\mathrm{otherwise.}}
 
 \subsubsection{L'Hospital's rule and limits revisited}\label{secLHospitalRevisited}
 \index{L'Hospital's rule}
-\begin{itemize}
-\item Suppose we want to compute $\lim\limits_{x\to 0} \frac{f(x)}{g(x)}$ when $f(0)= 0$ and $g(0)=0$. 
+Suppose we want to compute $\lim\limits_{x\to 0} \frac{f(x)}{g(x)}$ when $f(0)= 0$ and $g(0)=0$. 
 L'Hospital's rule teaches us that we should differentiate $f(x)$ and $g(x)$ until we establish whether the limit exists or not. Alternatively, we may write the Maclaurin series $\maclaurin (f(x))$, $\maclaurin (g(x))$. For sufficiently small $x$ and sufficiently well-behaved functions $f(x)$ and $g(x)$ (which include all functions studied in this course), $f(x)$ and $g(x)$ will equal their Maclaurin series (when we substitute values for $x$). Therefore we can substitute $f(x)$ and $g(x)$ by their Maclaurin series, cancel the common power of $x$, and evaluate the limit. This is often easier and quicker than L'Hospital's rule, in particular for problems given on Calculus exams (this statement is valid not only with the current instructor!). In the following items we give examples. 
-\item As we shall see in section \ref{secSeriesConvergence}, for small enough values of $|x|$, $\arcsin x$ equals its Maclaurin series. Therefore, for small $x$, we have that $\arcsin x = x+\frac{1}6x^3 + \frac{3}{40}x^5+\dots $. Therefore for small $x$
+
+As we shall see in section \ref{secSeriesConvergence}, for small enough values of $|x|$, $\arcsin x$ equals its Maclaurin series. Therefore, for small $x$, we have that $\arcsin x = x+\frac{1}6x^3 + \frac{3}{40}x^5+\dots $. Therefore for small $x$
 \[
 \arcsin x- x- \frac{1}6x^3= x^5 \left(\frac{3}{40}+x^2(\dots)\right)\quad .
 \] Therefore 
 \[
 \lim\limits_{x\to 0} \frac{\arcsin x- x- \frac{1}6x^3}{x^5}= \lim\limits_{x\to 0} \frac{ \cancel{x^5} \left(\frac{3}{40}+x^2(\dots)\right)}{\cancel{x^5}} =  \lim\limits_{x\to 0}  \left(\frac{3}{40}+x^2(\dots)\right) =\frac{3}{40}\quad .
 \]
-\item Let us ``spice up'' the preceding problem:
+
+Let us ``spice up'' the preceding problem:
 \[
 \lim\limits_{x\to 0} \frac{\arcsin x- x- \frac{1}6x^3}{\sin^{5} x}= \lim\limits_{x\to 0} \frac{x^5 \left(\frac{3}{40}+x^2(\dots)\right)}{(x-\frac{x^3}6+\dots)^5}=  \lim\limits_{x\to 0} \frac{\cancel{x^5} \left(\frac{3}{40}+x^2(\dots)\right)}{\cancel{x^5}(1-x^2(\dots))}= \frac{3}{40}\quad .
 \]
-\item 
+
 \begin{equation}\label{eqLhospitalExample1}
 \lim\limits_{x\to 0}\frac{\ln(1+px)}{x}=\lim \limits_{x\to 0} \frac{xp- \frac{x^2p^2}{2}+\dots  }{x}= \lim \limits_{x\to 0} p- \frac{xp^2}{2}+\dots = p\quad .
 \end{equation}
-\item 
+
 \begin{equation}\label{eqLhospitalExample2}
 \lim\limits_{x\to 0}(1+px)^{\frac1x}= \lim\limits_{x\to 0} \left(e^{\ln (1+px)}\right)^{\frac1x} = e^{\lim\limits_{x\to 0}\frac{1}x\ln (1+px)} \stackrel{\eqref{eqLhospitalExample1}}{=}e^{p}\quad .
 \end{equation}
-\item We are now in position to prove \eqref{eq(1+x/n)^n=e^x}.
+
+We are now in position to prove \eqref{eq(1+x/n)^n=e^x}.
 \[
 \lim\limits_{n\to \infty} \left(1+\frac{p}{n}\right)^n= \lim_{\substack{n\to \infty \\ x=\frac{1}{n}\\x\to 0}} \left(1+xp\right)^{\frac{1}{x}} \stackrel{\eqref{eqLhospitalExample2}}{=}e^p
 \]
-
-\end{itemize}
 \subsubsection{Exercises}
 \begin{problem}
 Compute the limits. You may use L'Hospital's rule. For the limits for which $x\to 0$, you are allowed to alternatively use the (not yet proved fact) that whenever $x$ belongs to a small enough neighborhood of 0, analytic functions equal their Maclaurin series (all functions given below are analytic in a small enough neighborhood of 0). You may of course also use any other method that works.
@@ -3330,19 +3356,21 @@ Compute the limits. You may use L'Hospital's rule. For the limits for which $x\t
 
 \section{Series (non-formal), convergence}\label{secSeriesConvergence}
 \subsection{Series, definition and key examples}
-\begin{itemize}
-\item Let $\{a_k\}_{k=1}^\infty$ be an infinite sequence. Define $S_n= a_1+a_2+a_3+\dots+a_n$. We say that $S_n$ is the $n^{th}$ partial sum of the sequence $\{a_k\}_{k=0}^\infty$.\index{sum!partial of a sequence}
-\item  Let $\{a_k\}_{k=1}^\infty$ be an infinite sequence, and $S_n$ be the partial sum of the sequence as defined above. Provided that the limit $\lim\limits_{n\to\infty} S_n$ exists, we define the infinite sum $\sum\limits_{k=1}^\infty a_k $ as
+Let $\{a_k\}_{k=1}^\infty$ be an infinite sequence. Define $S_n= a_1+a_2+a_3+\dots+a_n$. We say that $S_n$ is the $n^{th}$ partial sum of the sequence $\{a_k\}_{k=0}^\infty$.\index{sum!partial of a sequence}
+
+Let $\{a_k\}_{k=1}^\infty$ be an infinite sequence, and $S_n$ be the partial sum of the sequence as defined above. Provided that the limit $\lim\limits_{n\to\infty} S_n$ exists, we define the infinite sum $\sum\limits_{k=1}^\infty a_k $ as
 \importantFormula{
 \sum_{k=1}^{\infty}a_n\eqdef \lim\limits_{n\to \infty} S_n\quad .
 }
 We furthermore say that the infinite sum $\sum\limits_{k=1}^{\infty}a_n$ \emph{converges} (or is \emph{convergent}). If the above limit does not exist, we may still write $\sum\limits_{k=1}^{\infty}a_n$, but we say that the sum \emph{diverges} (or is \emph{divergent}). \index{convergent!series (infinite sum)}\index{divergent!series (infinite sum)} 
-\item We have already used infinite series to define $e^x$ in \eqref{eqExponentFunctionDefinition}. We have not proved yet that the series \eqref{eqExponentFunctionDefinition} is convergent (for all $x$). In the coming sections we fix this.
-\item 
+
+We have already used infinite series to define $e^x$ in \eqref{eqExponentFunctionDefinition}. We have not proved yet that the series \eqref{eqExponentFunctionDefinition} is convergent (for all $x$). In the coming sections we fix this.
+
 \begin{theorem}\label{thSummandsConvergentSeriesTendToZero}
 Suppose $\sum\limits_{k=1}^\infty a_k$ is convergent. Then $\lim\limits_{k\to \infty } a_k=0$.
 \end{theorem}
-\item The converse of Theorem \ref{thSummandsConvergentSeriesTendToZero} is not true: for example, $\lim\limits_{n\to \infty} \frac{1}{n}=0$, but 
+
+The converse of Theorem \ref{thSummandsConvergentSeriesTendToZero} is not true: for example, $\lim\limits_{n\to \infty} \frac{1}{n}=0$, but 
 \begin{equation}\label{eqHarmonicSeries}
 \sum_{n=1}^{\infty}\frac{1}n= 1+\frac{1}2+\frac13+\frac14+\dots +\frac1n+\dots=\infty\quad .
 \end{equation}
@@ -3358,13 +3386,15 @@ S_{2^n-1}&=&1+\frac{1}2+\frac13 +\dots +\frac{1}{2^n-1}\\
 \end{array}
 \end{equation*}
 Therefore $\lim\limits_{n\to \infty} S_{n}=\infty $. The series \eqref{eqHarmonicSeries} is called \emph{harmonic series}.\index{series!harmonic}
-\item Suppose $|z|<1$. Then $\sum_{n=0}^{\infty} z^n$ is convergent and we have
+
+Suppose $|z|<1$. Then $\sum_{n=0}^{\infty} z^n$ is convergent and we have
 \importantFormula{
 \label{eqGeometricProgressionSeries}
 \frac{1}{1-z}=1+z+z^2+z^3+\dots +z^n+\dots= \sum_{n=0}^{\infty} z^n\quad.
 }
 If $|z|\geq 1$ the summand $z^n$ does not tend to $0$ and therefore the \emph{geometric series} \eqref{eqGeometricProgressionSeries} is divergent. \index{series!geometric}
-\item Let us prove \eqref{eqGeometricProgressionSeries}. We have that 
+
+Let us prove \eqref{eqGeometricProgressionSeries}. We have that 
 \[(1-z)(1+z+z^2+\dots +z^{n})= 1- z^{n-1}\quad .
 \]
 Therefore for $z\neq 1$ we have that 
@@ -3375,7 +3405,8 @@ where $S_n$ is the partial sum of the geometric series \eqref{eqGeometricProgres
 \[
 \sum_{n=0}^{\infty}z^n=\lim\limits_{n=0} \frac{1-z^n}{1-z}= \frac{1}{1-z} \quad.
 \]
-\item In some high schools students study \emph{periodic decimal notation}\index{periodic!decimal notation} such as, for example, $1.\overline{17}= 1.1717171717\dots$. We are in a position to give a mathematically rigorous definition of this notation; we do that on two examples, and leave the generalization to the reader.
+
+In some high schools students study \emph{periodic decimal notation}\index{periodic!decimal notation} such as, for example, $1.\overline{17}= 1.1717171717\dots$. We are in a position to give a mathematically rigorous definition of this notation; we do that on two examples, and leave the generalization to the reader.
 \[
 \begin{array}{rcl}
 1.\overline{17}&\eqdef&  1.171717\dots\eqdef 1+ \frac{17}{100}+ \frac{17}{100^2}+\dots +\frac{17}{100^n}+\dots\\
@@ -3384,7 +3415,8 @@ where $S_n$ is the partial sum of the geometric series \eqref{eqGeometricProgres
 &=&\frac{9}{10}\left(1+\frac{1}{10}+\frac{1}{10^2}+\dots \right)\stackrel{\eqref{eqGeometricProgressionSeries}}{=} \frac{9}{10}\frac{1}{\left(1-\frac{1}{10}\right)}=\frac{\cancel{9}}{\cancel{10}}\frac{\cancel{10}}{\cancel{9}}= 1\quad .
 \end{array}
 \]
-\item Compute the sum $\sum\limits_{n=2}^{\infty}\frac{1}{n(n-1)}$. Let $S_k= \sum\limits_{k=2}^{n}\frac{1}{k(k-1)}$ be the partial sum of the series. We have that $\frac{1}{k(k-1)}= \frac{1}{k-1}-\frac{1}k$ and therefore 
+
+Compute the sum $\sum\limits_{n=2}^{\infty}\frac{1}{n(n-1)}$. Let $S_k= \sum\limits_{k=2}^{n}\frac{1}{k(k-1)}$ be the partial sum of the series. We have that $\frac{1}{k(k-1)}= \frac{1}{k-1}-\frac{1}k$ and therefore 
 \[
 S_n= \left(\frac11-\cancel{\frac12}\right)+\left(\cancel{\frac12}-\cancel{\frac13}\right)+\dots + \left(\cancel{\frac1{n-2}}-\cancel{\frac{1}{n-1}}\right)+\left(\cancel{\frac1{n-1}}-\frac1n\right)
 =1-\frac{1}n\quad .
@@ -3393,29 +3425,32 @@ Therefore
 \[
 \sum\limits_{n=2}^{\infty}\frac{1}{n(n-1)}= \lim\limits_{n\to \infty} S_n=\lim\limits_{n\to \infty} 1-\frac{1}n=1\quad .
 \]
-\item There is no general technique for summing up arbitrary series ``in closed form''. We can carry out the summation explicitly only for several classes of hand-picked examples. 
 
-\item Suppose $\sum a_n$ and $\sum b_n$ are convergent. Then so is the sum $\sum (ca_n+db_n)$, where $c, d$ are arbitrary constants, and we we have that
+There is no general technique for summing up arbitrary series ``in closed form''. We can carry out the summation explicitly only for several classes of hand-picked examples. 
+
+
+Suppose $\sum a_n$ and $\sum b_n$ are convergent. Then so is the sum $\sum (ca_n+db_n)$, where $c, d$ are arbitrary constants, and we we have that
 \begin{equation}\label{eqLinearCombinationConvergentSeriesIsConvergent}
 \sum (ca_n+db_n) = c\sum a_n +d\sum b_n\quad . 
 \end{equation}
 The fact that $\sum a_n$ and $\sum b_n$ are divergent implies nothing about the convergence of $\sum (ca_n+db_n) $. Can you give a very simple example where $\sum a_n$ and $\sum b_n$  are both divergent but $ \sum (a_n+b_n)$ is convergent?
-\item \begin{theorem}\label{thSeriesComparisonTest} (The comparison test)\index{series!comparison test}. Let $\{a_n\}$ and $\{b_n\}$ be non-negative sequences (i.e., $a_n\geq 0$, $b_n\geq 0$).
+
+\begin{theorem}\label{thSeriesComparisonTest} (The comparison test)\index{series!comparison test}. Let $\{a_n\}$ and $\{b_n\}$ be non-negative sequences (i.e., $a_n\geq 0$, $b_n\geq 0$).
 \begin{itemize}
 \item Suppose $b_n\geq a_n$ for all $n$ and $\sum b_n$ is convergent. Then $\sum a_n$ is also convergent.
 \item Suppose  $b_n\leq a_n$ for all $n$ and $\sum b_n$ is divergent. Then $\sum a_n$ is also divergent.
 \end{itemize} 
 \end{theorem}
-\item Example. Prove $\sum_{n=0}^{\infty}\frac{1}{2^n+n}$ converges. 
+
+Example. Prove $\sum_{n=0}^{\infty}\frac{1}{2^n+n}$ converges. 
 
 \begin{proof}
 We have that $\frac{1}{2^n+n}\leq\frac{1}{2^n}$. On the other hand $\sum_{n=0}^{\infty}\frac{1}{2^n}=2$ and therefore the sum converges.
 \end{proof}
 
-\end{itemize}
+
 \subsection{Series - the integral test}
-\begin{itemize}
-\item \begin{theorem} \label{thIntegralConvergenceTest} (The integral test).\index{series!integral convergence test} Suppose $f:[1, \infty)\to \mathbb R$ is a decreasing positive function, i.e., $f(x)\geq 0$ and $f(x)\leq f(y)$ whenever $x<y$. Then the series 
+\begin{theorem} \label{thIntegralConvergenceTest} (The integral test).\index{series!integral convergence test} Suppose $f:[1, \infty)\to \mathbb R$ is a decreasing positive function, i.e., $f(x)\geq 0$ and $f(x)\leq f(y)$ whenever $x<y$. Then the series 
 \[
 \sum_{n=1}^{\infty} f(n) 
 \]
@@ -3428,7 +3463,8 @@ converges.
 The theorem remains valid if the summation starts at an arbitrary index $a$ if we replace the interval of integration with $[a, \infty)$.
 
 We recall improper integrals were defined in Section \ref{secImproperIntegrals}.
-\item An informal proof of Theorem \ref{thIntegralConvergenceTest} can be given by considering the following picture. 
+
+An informal proof of Theorem \ref{thIntegralConvergenceTest} can be given by considering the following picture. 
 \optionalDisplay{
 \psset{xunit=0.6cm,yunit=0.6cm}
 
@@ -3460,14 +3496,16 @@ We recall improper integrals were defined in Section \ref{secImproperIntegrals}.
 } %optionalDisplay
 
 As an exercise to the reader, we suggest he or she write up a formal proof. Where do we use the fact that $f(x)$ is decreasing? Does your proof use the Monotonic sequence Theorem \ref{thMonotonicSequenceThereom} and where?
-\item Let $p\in \mathbb R$. Prove that 
+
+Let $p\in \mathbb R$. Prove that 
 \begin{equation}\label{eqSumnToThePthConverges}
 \sum\limits_{n=1}^{\infty} \frac{1}{n^p}= \doublebrace{\mathrm{converges}}{\mathrm{for~}p>1}{\mathrm{diverges}}{\mathrm{for~}p\leq 1}\quad .
 \end{equation}
 \begin{solution}
 For $p\geq 0$ we have that $\lim_{n\to \infty} \frac{1}{n^p}$ diverges as $x\to \infty$, and the statement follows from Theorem \ref{thSummandsConvergentSeriesTendToZero}. Suppose now $p< 0$. Define $f(x)\eqdef x^{p}$. Then as $p<0$ we have $f'(x)= px^{p-1}<0$ and so $f$ is decreasing and Theorem \ref{thIntegralConvergenceTest} applies. By \eqref{eqIntegralxTopthPowerToInfty} and \eqref{eqIntegral1overxToToInfty}  the integral $\int\limits_{x=1}^{\infty} x^{-p}dx$ converges for $p>1$ and the statement follows.
 \end{solution} 
-\item Establish whether
+
+Establish whether
 \[ \sum\limits_{n=2}^{\infty}\frac{1}{n\ln n}
 \]
 converges. 
@@ -3478,17 +3516,12 @@ Consider $\frac{1}{x\ln x}$. We have that $\displaystyle f'(x)= -\frac{1}{x^2\ln
 \]
 and the integral diverges.
 \end{solution}
-\end{itemize}
 
 \subsection{Absolute convergence}
-\begin{itemize}
-
-\item 
 \begin{definition}
 A series $\sum_{n=1}^\infty a_n$ is defined to be \emph{absolutely convergent} if $\sum_{n=1}^\infty |a_n|$ is convergent. \index{convergent!absolutely convergent series} If a series is convergent but not absolutely convergent, we say that the series is \emph{conditionally convergent}. \index{convergent!condionally convergent series}
 \end{definition}
 
-\item 
 \begin{theorem} \label{thAbsoluteConvergenceImpliesConvergence}
 If a series is absolutely convergent then it is also convergent. 
 \end{theorem}
@@ -3496,7 +3529,8 @@ If a series is absolutely convergent then it is also convergent.
 \begin{proof}
 We have that $0\leq a_n+|a_n|\leq 2|a_n|$. By the definition of absolutely convergent series $\sum |a_n|$ is convergent and so is $\sum 2|a_n|$. Therefore by the comparison test $\sum a_n+|a_n|$ is convergent as well. Therefore $\sum a_n= \sum (a_n+|a_n|)-\sum |a_n|$  is convergent by \eqref{eqLinearCombinationConvergentSeriesIsConvergent}.
 \end{proof}
-\item Prove that 
+
+Prove that 
 \[
 \sum_{n=1}^{\infty} \frac{\cos n}{n^2}
 \]
@@ -3506,8 +3540,6 @@ is convergent.
 $\sum\limits_{n=1}^{\infty} \frac{|\cos n |}{n^2} \leq \sum\limits_{n=1}\frac{1}{n^2}$. The latter is convergent by \eqref{eqSumnToThePthConverges}. As $\frac{|\cos n|}{n^2}\leq \frac{1}{n^2}$ the statement follows from Theorem \ref{thSeriesComparisonTest}.
 \end{solution}
 
-
-\item 
 \begin{theorem}\label{thSeriesTwoSeriesRatioTest}
 (The limit comparison test)\index{series!limit comparison test}. Suppose $a_n\geq 0$ and $b_n\geq 0$ for all $n$. Then if 
 \[\lim\limits_{n\to \infty} \frac{a_n}{b_n}= c 
@@ -3515,15 +3547,17 @@ $\sum\limits_{n=1}^{\infty} \frac{|\cos n |}{n^2} \leq \sum\limits_{n=1}\frac{1}
 for some number $c$, then either both series $\sum a_n$ and $\sum b_n $ converge or both diverge.
 \end{theorem}
 
-\item \begin{theorem}\label{thRatioTest}(The ratio test). \index{series!ratio test} Suppose $a_n\neq 0$ for $n\geq 2$. 
+\begin{theorem}\label{thRatioTest}(The ratio test). \index{series!ratio test} Suppose $a_n\neq 0$ for $n\geq 2$. 
 \begin{itemize}
 \item If $\lim\limits_{n\to\infty}\left|\frac{a_{n+1}}{a_{n}}\right|= L<1$ exists then the series $\sum\limits_{n=1}^\infty a_n$ is absolutely convergent.
 \item If $\lim\limits_{n\to\infty}\left|\frac{a_{n+1}}{a_{n}}\right|= L>1$ exists or $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_{n}}\right| =\infty$, then the series $\sum\limits_{n=1}^\infty a_n$ is divergent.
 \end{itemize}
 \end{theorem}
 Note that if $\lim\limits_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right|=1$, we cannot use the above theorem to deduce anything about the convergence of $\sum a_n$.
-\item Note that the root test supposes that the limit $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_{n}}\right| =L$ exists. This is a potential pitfall. To illustrate why, suppose that $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_{n}}\right| =L<1$ exists. Now define $b_n:=\doublebrace{a_n}{\mathrm{if~}n~\mathrm{is~even}}{0}{\mathrm{otherwise}}$. Then $\lim \limits_{n\to\infty} \left|\frac{b_{n+1}}{b_{n}}\right|$ is not defined for even $n$ and equals 0 for odd $n$. At the same time, as $\sum |b_n|<\sum |a_n|$, the series $\sum b_n$ is absolutely convergent (comparison test) and therefore convergent. In this way $\sum b_n$ is a convergent series for which the ratio test does not apply. However, we were able to prove that $\sum b_n$ converges with a combination of the ratio test and careful use of inequalities (comparison test).
-\item \begin{proof}[ of Theorem \ref{thRatioTest}] 
+
+Note that the root test supposes that the limit $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_{n}}\right| =L$ exists. This is a potential pitfall. To illustrate why, suppose that $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_{n}}\right| =L<1$ exists. Now define $b_n:=\doublebrace{a_n}{\mathrm{if~}n~\mathrm{is~even}}{0}{\mathrm{otherwise}}$. Then $\lim \limits_{n\to\infty} \left|\frac{b_{n+1}}{b_{n}}\right|$ is not defined for even $n$ and equals 0 for odd $n$. At the same time, as $\sum |b_n|<\sum |a_n|$, the series $\sum b_n$ is absolutely convergent (comparison test) and therefore convergent. In this way $\sum b_n$ is a convergent series for which the ratio test does not apply. However, we were able to prove that $\sum b_n$ converges with a combination of the ratio test and careful use of inequalities (comparison test).
+
+\begin{proof}[ of Theorem \ref{thRatioTest}] 
 Suppose first $\lim\limits_{n\to\infty}\left|\frac{a_{n+1}}{a_{n}}\right|= L<1 $. Let $M$ be an arbitrary number with $L<M<1$ (for example, $M=\frac{1+L}2$ works). As $\lim\limits_{n\to\infty}\left|\frac{a_{n+1}}{a_{n}}\right|=L$ for sufficiently large $n$ we have that $\left|\frac{a_{n+1}}{a_{n}} \right|< M$. More precisely, there exists an index $N$ such that for all $n\geq N$ we have that
 \[
 |a_{n+1}|< Ma_{n}\quad .
@@ -3555,7 +3589,7 @@ Therefore
 Our criterion now follows from Theorem \ref{thSeriesComparisonTest}.
 \end{proof}
 
-\item \index{exponent function} It is time to fix a debt long due: we will now prove 
+\index{exponent function} It is time to fix a debt long due: we will now prove 
 \[
 e^x\eqdef \sum_{n=0}^\infty \frac{x^n}{n!} 
 \]
@@ -3567,19 +3601,16 @@ We are using the ratio test \ref{thRatioTest}. For $x=0$, the series is equal to
 \]
 Now $\lim\limits_{n\to \infty} \frac{a_{n+1}}{a_{n}}= \lim\limits_{n\to \infty} \frac{x}{n+1}=0$.
 
-\item \begin{theorem}\label{thRootTest}(The root test). \index{series!root test}
+\begin{theorem}\label{thRootTest}(The root test). \index{series!root test}
 \begin{itemize}
 \item If $\lim\limits_{n\to\infty}\sqrt[n]{|a_n|}= L<1$, then the series $\sum\limits_{n=1}^\infty a_n$ is absolutely convergent.
 \item If $\lim\limits_{n\to\infty}\sqrt[n]{|a_n|}= L>1$ or $\lim\limits_{n\to\infty}\sqrt[n]{|a_n|}=\infty$, then the series $\sum\limits_{n=1}^\infty a_n$ is divergent.
 \end{itemize}
 \end{theorem}
 Note again that if $\lim\limits_{n\to\infty}\sqrt[n]{|a_n|}= 1$, we cannot use the above theorem to deduce anything about the convergence of $\sum a_n$.
-\end{itemize}
 \subsection{Radius of convergence, convergence of Taylor and Maclaurin series}\label{secTaylorSeriesRadiusConvergence}
+In section \ref{secFormalPowerSeries}, we discussed formal power series $\sum a_n x^n$, where $x$ is an indeterminate. We saw that formal power series share the same notation as (non-formal) power series, only the notion of convergence does not apply to them. In this section, we discuss the convergence of the series obtained by substituting a number in place of the indeterminate $x$. In other words, in this section we treat the indeterminate of a formal power series as a number.
 
-\begin{itemize}
-\item In section \ref{secFormalPowerSeries}, we discussed formal power series $\sum a_n x^n$, where $x$ is an indeterminate. We saw that formal power series share the same notation as (non-formal) power series, only the notion of convergence does not apply to them. In this section, we discuss the convergence of the series obtained by substituting a number in place of the indeterminate $x$. In other words, in this section we treat the indeterminate of a formal power series as a number.
-\item 
 \begin{theorem}\label{thRadiusConvergence} Let $\sum\limits_{n=0}^\infty a_n x^n$ be non-formal power series (i.e., $x$ is a number, rather than indeterminate). Then one of the three mutually exclusive possibilities holds.
 \begin{itemize}
 \item The series converges only when $x=0$.
@@ -3588,30 +3619,29 @@ Note again that if $\lim\limits_{n\to\infty}\sqrt[n]{|a_n|}= 1$, we cannot use t
 \end{itemize}
 \end{theorem}
 This theorem follows from the ratio test, the comparison test and the fact that absolute convergence implies convergence. We do not present the proof, however an attentive student should be able to carry out the proof on his/her own.
-\item 
+
 \begin{definition}\label{defRadiusConvergence} \index{radius of convergence}
 If the third alternative of Theorem \ref{thRadiusConvergence} holds, the number $R$ is called \emph{radius of convergence} of $\sum\limits_{n=0}^\infty a_n x^n$. If the series converges only for $x=0$, we say that the radius of convergence is $0$, and if the series converges for all $x$, we say that the radius of convergence is $\infty$.
 \end{definition}
 
-\item Consider the power series $\sum\limits_{n=0}^\infty a_n x^n$ with radius of convergence $R$.  Suppose $\lim\limits_{n\to\infty} \frac{a_{n+1}}{a_n}$ is well defined. By the ratio test (Theorem \ref{thRatioTest}), we have that  $\sum\limits_{n=0}^\infty a_n x^n$ converges whenever $\lim\limits_{n\to\infty} \left|\frac{xa_{n+1}}{a_n}\right|<1$ and diverges whenever $\lim\limits_{n\to\infty} \left|\frac{xa_{n+1}}{a_n}\right|>1$. On the other hand, by the definition of radius of convergence, $\sum\limits_{n=0}^\infty a_n x^n$ converges whenever $|x|<R$ and diverges whenever $|x|>R$. Therefore 
+Consider the power series $\sum\limits_{n=0}^\infty a_n x^n$ with radius of convergence $R$.  Suppose $\lim\limits_{n\to\infty} \frac{a_{n+1}}{a_n}$ is well defined. By the ratio test (Theorem \ref{thRatioTest}), we have that  $\sum\limits_{n=0}^\infty a_n x^n$ converges whenever $\lim\limits_{n\to\infty} \left|\frac{xa_{n+1}}{a_n}\right|<1$ and diverges whenever $\lim\limits_{n\to\infty} \left|\frac{xa_{n+1}}{a_n}\right|>1$. On the other hand, by the definition of radius of convergence, $\sum\limits_{n=0}^\infty a_n x^n$ converges whenever $|x|<R$ and diverges whenever $|x|>R$. Therefore 
 \[
 \lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|=\frac{1}{R}\quad,
 \]
 whenever the above limit is defined.
  
-\item Theorem \ref{thRadiusConvergence} holds as stated for complex numbers $x\in \mathbb C$, (the absolute value of a complex number was defined in \ref{secComplexNumbers}), with an almost identical proof. We challenge the reader to attempt such a proof on his/her own.
+Theorem \ref{thRadiusConvergence} holds as stated for complex numbers $x\in \mathbb C$, (the absolute value of a complex number was defined in \ref{secComplexNumbers}), with an almost identical proof. We challenge the reader to attempt such a proof on his/her own.
 
 The complex numbers $x$ for which $|x|<R$ form a disk of radius $R$, which additionally motivates the use of the word ``radius''.  
 
-\item We note that Theorem \ref{thRadiusConvergence} says nothing about the convergence of $\sum a_n x^n$ when $|x|=R$. In fact the series $\sum a_n x^n$ may converge for all complex $x$ with $|x|=R$ (even though it diverges for all $x$ with $|x|>R$), it may converge for no values of $x$ for which $x=|R|$, or it may converge for some $x$ with $x=|R|$ and fail to converge for other $x$ with $|x|=R$. An example of the first case is given by $\sum\limits_{n=1}^\infty  \frac{x^n}{n^2}$, of the second case by  $\sum\limits_{n=0}^\infty  nx^n$, and of the third case by $\sum\limits_{n=1}^\infty  \frac{x^n}{n} $ (what is the radius of convergence in each case?).
+We note that Theorem \ref{thRadiusConvergence} says nothing about the convergence of $\sum a_n x^n$ when $|x|=R$. In fact the series $\sum a_n x^n$ may converge for all complex $x$ with $|x|=R$ (even though it diverges for all $x$ with $|x|>R$), it may converge for no values of $x$ for which $x=|R|$, or it may converge for some $x$ with $x=|R|$ and fail to converge for other $x$ with $|x|=R$. An example of the first case is given by $\sum\limits_{n=1}^\infty  \frac{x^n}{n^2}$, of the second case by  $\sum\limits_{n=0}^\infty  nx^n$, and of the third case by $\sum\limits_{n=1}^\infty  \frac{x^n}{n} $ (what is the radius of convergence in each case?).
 
-
-\item We recall the Taylor of $f(x)$ at $p$ and the Maclaurin series of $f(x)$ (=Taylor series of $f(x)$ at 0) from Definitions \ref{defMaclaurinSeries} and \ref{defTaylorSeries}:
+We recall the Taylor of $f(x)$ at $p$ and the Maclaurin series of $f(x)$ (=Taylor series of $f(x)$ at 0) from Definitions \ref{defMaclaurinSeries} and \ref{defTaylorSeries}:
 \[
 \maclaurin (f(x))= \sum\limits _{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n\quad\quad\quad \taylor_p(f(x))=\sum\limits_{n=0}^\infty \frac{f^{(n)}(p)}{n!}(x-p)^n\quad .
 \]
 
-\item \begin{theorem}\label{thDifferentiatingIntegratingPowerSeriesNonFormal}
+\begin{theorem}\label{thDifferentiatingIntegratingPowerSeriesNonFormal}
 Suppose the power series $\sum\limits_{n=0}^\infty a_n x^n$ has radius of convergence $R$, and for $|x|<R$, let $f(x):=\sum a_n x^n$. 
 \begin{itemize}
 \item[(a)] $\sum\limits_{n=0}^\infty a_n n x^{n-1}$ and $\sum\limits_{n=0}^\infty a_n\frac{x^{n+1}}{n+1}$ have the same radius of convergence $x=R$ as the starting series.
@@ -3619,8 +3649,9 @@ Suppose the power series $\sum\limits_{n=0}^\infty a_n x^n$ has radius of conver
 \end{itemize}
 \end{theorem}
 In other words, this theorem proves that taking Maclaurin series and then differentiating is the same as first differentiating and then taking Maclaurin series.
-\item Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal} (a) can be proved using the ratio test. The pitfalls of the ratio test described in the remarks after \ref{thRatioTest} make a formal proof somewhat tedious (although certainly within reach of a careful student). While we propose such a proof as an exercise to the more motivated students, we shall argue the validity of  Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal} only on condition that $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|$ is well defined and exists. Indeed, in the remarks after the definition of radius of convergence, we showed that if $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|$ exists it necessarily equals $1/R$. At the same time, $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \lim\limits_{n\to\infty} \left|\frac{a_{n+1}(n+1)}{a_n n}\right|= \lim\limits_{n\to\infty} \left|\frac{a_{n+1}n}{a_n (n+1)}\right|$ and (a) follows by the ratio test. 
-\item
+
+Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal} (a) can be proved using the ratio test. The pitfalls of the ratio test described in the remarks after \ref{thRatioTest} make a formal proof somewhat tedious (although certainly within reach of a careful student). While we propose such a proof as an exercise to the more motivated students, we shall argue the validity of  Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal} only on condition that $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|$ is well defined and exists. Indeed, in the remarks after the definition of radius of convergence, we showed that if $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|$ exists it necessarily equals $1/R$. At the same time, $\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \lim\limits_{n\to\infty} \left|\frac{a_{n+1}(n+1)}{a_n n}\right|= \lim\limits_{n\to\infty} \left|\frac{a_{n+1}n}{a_n (n+1)}\right|$ and (a) follows by the ratio test. 
+
 \begin{proof}[ of Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal}(b)]
 By the definition of $f'(x)$, for $x<R$, we have that 
 \begin{equation}\label{eqThDifferentiatingPowerSeriesProofeq1}
@@ -3644,13 +3675,13 @@ By applying (a) twice we have that $\sum\limits_{n=0}^{\infty} n^2a_n\left(\frac
 This proves that $f'(x)=\sum\limits_{n=0}^\infty a_n n x^{n-1}$. The fact that $\displaystyle\int f(x)dx= C+\sum\limits_{n=0}^\infty a_n\frac{x^{n+1}}{n+1} $ now follows immediately: we already proved that we can differentiate the right hand side one term at a time, and the result is the left hand side by direct computation.
 \end{proof}
 
-\item \begin{theorem}[Taylor's inequality] Let $f$ be an $(N+1)$ times differentiable function. Suppose for $|x-a|<d$, $f^{(N+1)}(x)\leq M$. Then 
+\begin{theorem}[Taylor's inequality] Let $f$ be an $(N+1)$ times differentiable function. Suppose for $|x-a|<d$, $f^{(N+1)}(x)\leq M$. Then 
 \[
 \left|f(x)-\sum\limits_{n=0}^N \frac{f^{(n)}(a)}{n!}(x-a)^n\right| \leq \frac{M}{(n+1)!} |x-a|^{n+1} 
 \]
 for $|x-a|\leq d$.
 \end{theorem}
-\item \begin{proof}
+\begin{proof}
 For $|t-a|< d$ we have
 \[
 f^{(N+1)}(t) \leq  M\quad.
@@ -3685,18 +3716,19 @@ In an analogous fashion we can prove that
 \]
 which completes the proof of the theorem.
 \end{proof}
-\end{itemize}
+
 \section{Polar coordinates}
-\begin{itemize}
-\item Polar coordinates of a point $P=(x,y)$ in the plane are any two numbers $(r, \theta)$, $r\geq 0$, for which $(x,y)=(r\cos\theta, r\sin \theta)$. In other words, the relation between the Cartesian coordinates $(x,y)$ and the polar coordinates $(r,\theta)$ of a point $P$ is given by 
+Polar coordinates of a point $P=(x,y)$ in the plane are any two numbers $(r, \theta)$, $r\geq 0$, for which $(x,y)=(r\cos\theta, r\sin \theta)$. In other words, the relation between the Cartesian coordinates $(x,y)$ and the polar coordinates $(r,\theta)$ of a point $P$ is given by 
 \[
 \left|\begin{array}{rcl}
 x&=&r\cos \theta\\
 y&=&r\sin\theta
 \end{array}\right.
 \]
-\item In these lectures, we allow polar coordinates with $ r<0$. Whether one allows $r<0$ is a matter of convention, which might vary between computer algebra systems (if in doubt, assume that $r<0$ is not allowed).
-\item To obtain polar coordinates from Cartesian coordinates we compute that $x^2+y^2= r^2(\cos^2 \theta+\sin^2\theta)=r^2$ and therefore $r=\pm\sqrt{x^2+y^2}$. Furthermore we have that $\frac{y}{x}= \frac{\cancel{r}\sin \theta}{\cancel{r}\cos \theta}=\tan \theta$. To summarize:
+
+In these lectures, we allow polar coordinates with $ r<0$. Whether one allows $r<0$ is a matter of convention, which might vary between computer algebra systems (if in doubt, assume that $r<0$ is not allowed).
+
+To obtain polar coordinates from Cartesian coordinates we compute that $x^2+y^2= r^2(\cos^2 \theta+\sin^2\theta)=r^2$ and therefore $r=\pm\sqrt{x^2+y^2}$. Furthermore we have that $\frac{y}{x}= \frac{\cancel{r}\sin \theta}{\cancel{r}\cos \theta}=\tan \theta$. To summarize:
 \[
 \left|\begin{array}{rcl}
 r&=&\pm\sqrt{x^2+y^2}\\
@@ -3704,7 +3736,8 @@ r&=&\pm\sqrt{x^2+y^2}\\
 \end{array}\right.
 \]
 Note that the equality $\tan \theta = \frac{y}{x}$ is not always defined. Also note that  $\tan \theta=\frac{y}{x}$ does not determine $\theta$ uniquely, as it is not clear in which interval $(k\pi -\frac{\pi}{2}, k\pi+\frac{\pi}{2})$, $k\in \mathbb Z$ does $\theta$ lie.
-\item $r$ denotes the distance from $P$ to the origin and $\theta$ denotes the angle between the segment $OP$ and the $x$-axis, as indicated on the picture below.
+
+$r$ denotes the distance from $P$ to the origin and $\theta$ denotes the angle between the segment $OP$ and the $x$-axis, as indicated on the picture below.
 
 \optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
@@ -3720,12 +3753,13 @@ Note that the equality $\tan \theta = \frac{y}{x}$ is not always defined. Also n
 \end{pspicture*}
 } %optionalDisplay
 
-\item Polar coordinates are not unique: if $(r, \theta)$ are polar coordinates of $P=(x,y)$, then so are $(r, \theta+2\pi)$.
+Polar coordinates are not unique: if $(r, \theta)$ are polar coordinates of $P=(x,y)$, then so are $(r, \theta+2\pi)$.
 
-\item We have already encountered polar coordinates when studying polar form of complex numbers. Let $z\eqdef x+iy$, $x,y\in \mathbb R$. Then we recall from section \ref{secPolarFormComplexNumbers} that there exist real numbers $\rho$, $r\eqdef e^\rho$ and $\theta$ such that $z=x+iy= e^{\rho+i\theta}= e^\rho(\cos \theta+i\sin \theta)= r(\cos \theta + i\sin \theta)$. We recall the latter equality is the polar form of the complex number $z$. Then $(r, \theta)$ are the polar coordinates of the point $(x,y)$. 
+We have already encountered polar coordinates when studying polar form of complex numbers. Let $z\eqdef x+iy$, $x,y\in \mathbb R$. Then we recall from section \ref{secPolarFormComplexNumbers} that there exist real numbers $\rho$, $r\eqdef e^\rho$ and $\theta$ such that $z=x+iy= e^{\rho+i\theta}= e^\rho(\cos \theta+i\sin \theta)= r(\cos \theta + i\sin \theta)$. We recall the latter equality is the polar form of the complex number $z$. Then $(r, \theta)$ are the polar coordinates of the point $(x,y)$. 
 
 The relationship between polar form of complex numbers and polar coordinates can be summed up in the following equalities.
-\[\begin{array}{rclclcl}
+\[
+\begin{array}{rclclcl}
 r(\cos \theta+i\sin\theta) &=&  x+iy&=& z&=&\Re (z)+i\Im(z)\\
 r\cos\theta&=&x&=&\Re(z)\\
 r\sin\theta&=&y&=&\Im(z)\\
@@ -3734,7 +3768,8 @@ r\sin\theta&=&y&=&\Im(z)\\
 r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
 \end{array}
 \]
-\item \index{cardioid}\index{spiral} Sometimes a curve is given in polar coordinates by specifying a relationship between $r$ and $\theta$, such as $r=\theta$ (spiral) or $r=1+\sin \theta$ (cardioid), $r=2\cos \theta$ (circle of radius one centered at $(1,0)$).
+
+\index{cardioid}\index{spiral} Sometimes a curve is given in polar coordinates by specifying a relationship between $r$ and $\theta$, such as $r=\theta$ (spiral) or $r=1+\sin \theta$ (cardioid), $r=2\cos \theta$ (circle of radius one centered at $(1,0)$).
 
 \optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
@@ -3762,12 +3797,12 @@ r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
 \end{pspicture*}
 } %optionalDisplay
 
-\item \index{area!enclosed by curve in polar coord.} Let $r=f(\theta), \theta\in [a,b]$ be a curve given in polar coordinates.  Let $A$ denote the figure given by the union of the segments connecting each point the curve to the origin. Suppose no two points on the curve lie on the same ray from the origin. Then the area of $A$ is given by 
+\index{area!enclosed by curve in polar coord.} Let $r=f(\theta), \theta\in [a,b]$ be a curve given in polar coordinates.  Let $A$ denote the figure given by the union of the segments connecting each point the curve to the origin. Suppose no two points on the curve lie on the same ray from the origin. Then the area of $A$ is given by 
 \importantFormula{\label{eqAreaUnderPolarCurve}
 area(A)\eqdef \int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta\quad .
 }
 
-\item A motivation for the above definition may be given as follows. 
+A motivation for the above definition may be given as follows. 
 \psset{xunit=1cm,yunit=1cm}
 
 \optionalDisplay{
@@ -3808,7 +3843,8 @@ Let $N$ be a large number and split the interval $[a,b]$ using $N+1$ equally spa
 \sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j+1})\sin (\Delta\theta)}{2}= \frac{\sin(\Delta\theta)}{\Delta\theta}\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j}+\Delta\theta)\Delta\theta}{2}\quad .
 \]
 In the above sum, the multiplicand $\frac{\sin(\Delta\theta)}{\Delta\theta}$ tends to $1$ as $\Delta\theta$ tends to $0$. Therefore as $\Delta$ tends to zero, the expression tends to the limit of the second multiplicand. On the other hand, one can show that the second multiplicand approximates the integral $\int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta$. This motivates definition of area given in \eqref{eqAreaUnderPolarCurve}.
-\item Curve length of curve of the form $\gamma:|r=f(\theta),\theta\in [a,b]$. Then $(x,y)= (r\cos\theta, r\sin \theta)= (\underbrace{f(\theta)\cos\theta}_{=:g_1(\theta)}, \underbrace{ f(\theta)\sin\theta}_{=:g_2(\theta)} $. Recall the definition of curve length \eqref{eqDefLengthCurve}:
+
+Curve length of curve of the form $\gamma:|r=f(\theta),\theta\in [a,b]$. Then $(x,y)= (r\cos\theta, r\sin \theta)= (\underbrace{f(\theta)\cos\theta}_{=:g_1(\theta)}, \underbrace{ f(\theta)\sin\theta}_{=:g_2(\theta)} $. Recall the definition of curve length \eqref{eqDefLengthCurve}:
 \[
 \int\limits_{a}^b\sqrt{\left(\frac{dg_1}{d\theta}\right)^2+\left(\frac{dg_2}{d\theta}\right)^2}d\theta \quad.
 \]
@@ -3823,7 +3859,8 @@ Regrouping the above expression using $\sin^2\theta+\cos^2\theta=1$ we finally g
 \importantFormula{\label{eqCurveLengthPolarCoords}
 \int\limits_{a}^b \sqrt{f^2(\theta)+ (f'(\theta))^2}d\theta
 }
-\item Find the area of the figure that lies outside of figure enclosed by $r_1=3\cos\theta_1, \theta_1\in [0,\pi)$ and inside the figure enclosed by $r_2=1+\cos\theta_2, \theta\in [-\pi,\pi)$. %Find the perimeter of the curve.
+
+Find the area of the figure that lies outside of figure enclosed by $r_1=3\cos\theta_1, \theta_1\in [0,\pi)$ and inside the figure enclosed by $r_2=1+\cos\theta_2, \theta\in [-\pi,\pi)$. %Find the perimeter of the curve.
 
 \begin{solution}
 \optionalDisplay{
@@ -3858,7 +3895,6 @@ Therefore the area of the enclosed curve is given by the area of the figure obta
 \end{array}
 \]
 \end{solution}
-\end{itemize}
 
 \section{Index}
 \textbf{The index is incomplete at the moment. }
