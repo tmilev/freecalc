@@ -13,6 +13,7 @@
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
 \usepackage{../pstricks-commands}
+%\usepackage{rotating}
 
 \usepackage{cancel}
 \usepackage{caption}
@@ -48,17 +49,24 @@
 \DeclareMathOperator{\taylor}{Taylor}
 
 \newcommand{\optionalDisplay}[1]{}
-%\newcommand{\optionalDisplay}[1]{#1}
+\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
 \newcommand{\optionalMaterial}{\textbf{(Optional)}}
+\renewcommand{\emph}{\textbf}
 
 \makeindex
 \author{Authors: the freecalc project contributors \\~\\ Notes composition started by Todor Milev.}
-\title{Freecalc \\ Calculus for beginners \\ ~ \\Draft version}
+\title{Freecalc \\ Calculus for beginners \\ ~ \\Draft version \\ ~\\~\\~\\~\\
+\[
+\lim\limits_{x\to 8^+}\frac{1}{x-8}=\infty 
+\]
+\[
+\lim\limits_{x\to 5^+}\frac{1}{x-5}= ?
+\]
+}
 \begin{document}
 \maketitle
-
 
 %\noindent \textbf{Study materials. } The present notes and the textbook by James Stewart, Calculus, 7th edition, published by Brooks Cole, 2012. ISBN-13: 978-0-538-49781-7, ISBN-10: 0-538-49781-5. 
 
@@ -84,6 +92,7 @@ A semi-permanent link of the .tex source of this textbook can be found here. If 
 \url{https://www.assembla.com/code/freecalc/subversion/nodes/202/trunk/lectures/CalcNotes}
 
 \tableofcontents
+
 
 
 \chapter{Using the textbook}
@@ -182,6 +191,8 @@ We can imagine a function as a machine that takes input from its domain (``input
 \psline[linestyle=dashed]{->}(0,-1.5)(5,-1.25)
 \psline[linestyle=dashed]{->}(0,-2.5)(5,2.5)
 \end{pspicture}
+
+
 } %end optional display
 \caption{A function $f$ can be represented as a set of arrows from its domain to its co-domain.\label{figFunctionAsArrows}}
 \end{figureFixed}
@@ -245,38 +256,50 @@ That is why we may view the set of rational number $\mathbb Q $ as the set of pa
 \section{\optionalMaterial A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
 
 \chapter{Limits, continuity, derivatives}
-\section{The tangent problem}
-Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,2)$. In fact, the blue line has exactly one common point with the graph of $f(x)$. In mathematical language, as we will soon learn, we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (in fact, ``tangent'' comes from Latin, ``to touch''). 
+\section{Limits}
+\subsection{The tangent problem}
+Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,f(2))=(2, \frac{2^2}{2}) =(2,2)$. In mathematical language we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (``tangent'' comes from Latin, ``to touch''). We shall give a formal definition of a tangent line later in Section \ref{secTangentDef}, after we have developed the required notion of limit. In the material preceding Section \ref{secTangentDef}, we shall refer to a ``tangent line'' informally, relying on the reader's intuition.
+
+We are seeking to give a formal definition of a tangent at the point $P=(2,2)=(2, f(2))$ to match the intuition suggested by Figure \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall that every non-vertical line has equation 
+\[
+y=mx+c
+\]
+for some numbers $m$ and $c$, where $m$ is called the slope
+of the line and $c$ is called the $y$-intercept of the line. As the tangent line passes through the point $P=(2,2)$, it has equation $y-2=m(x-2)$ for some slope $m$ that we yet need to define. 
 
 \begin{figureFixed}
-\psset{xunit=1cm, yunit=1cm}
+\begin{center}
+\optionalDisplay{
+%\psset{xunit=1cm, yunit=1cm}
+%\begin{pspicture}(-1, -5)(3,5) 
+%\psframe*[linecolor=white](-1,-5)(3,5) 
+%\tiny 
+%\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+%Function formula: 1/2 ((x)^{2}) 
+%\rput(1,3){$y= \frac{x^2}2$} 
+%\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+%\psFullDot{2}{2}
+%\rput[tl](2.1, 1.9){$P=(2,2)$}
+%\psXTick{2}
+%\psFullDot{0}{0}
+%\rput[tl](0.1, -0.1){$Q=\left(0,0\right)$}
+%\psplot[linecolor=\psColorTangent, plotpoints=1000]{-0.5}{3}{x}
+%\end{pspicture} 
+\noindent \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1, -5)(3,5) 
 \psframe*[linecolor=white](-1,-5)(3,5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3.1,4.805)
 %Function formula: 1/2 ((x)^{2}) 
 \rput(1,3){$y= \frac{x^2}2$} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3.1}{x 2 exp 0.5 mul }
 \psFullDot{2}{2}
-\rput[tl](2.1, 1.9){$P=(2,2)$}
-\psXTick{2}
-\psFullDot{0}{0}
-\rput[tl](0.1, -0.1){$Q=\left(0,0\right)$}
-\psplot[linecolor=\psColorTangent, plotpoints=1000]{-0.5}{3}{x}
-\end{pspicture} 
-\psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-1, -5)(3,5) 
-\psframe*[linecolor=white](-1,-5)(3,5) 
-\tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
-%Function formula: 1/2 ((x)^{2}) 
-\rput(1,3){$y= \frac{x^2}2$} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
-\psFullDot{2}{2}
-\rput[tl](2.1, 1.9){$P=(2,2)$}
+\rput[br](1.9, 2.1){$P$}
+\rput[tl](2.1, 1.9){$(2,2)$}
 \psXTick{2}
 \psFullDot{1}{0.5}
-\rput[tl](1.1, 0.4){$Q=\left(1,0.5\right)$}
+\rput[br](0.9, 0.6){$Q$}
+\rput[tl](1.1, 0.4){$\left(1,0.5\right)$}
 \psXTick{1}
 \psline[linecolor=\psColorTangent](0.3333333,-0.5)(3,3.5)
 \end{pspicture} 
@@ -284,80 +307,164 @@ Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. 
 \begin{pspicture}(-1, -5)(3,5) 
 \psframe*[linecolor=white](-1,-5)(3,5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3.1,4.805)
 %Function formula: 1/2 ((x)^{2}) 
 \rput(1,3){$y= \frac{x^2}2$} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3.1}{x 2 exp 0.5 mul }
 \psFullDot{2}{2}
-\rput[tl](2.1, 1.9){$P=(2,2)$}
+\rput[br](1.9, 2.1){$P$}
+\rput[tl](2.1, 1.9){$(2,2)$}
 \psXTick{2}
 \psFullDot{1.5}{1.125}
-\rput[tl](1.6, 1.025){$Q=\left(1.5, 1.125\right)$}
+\rput[br](1.4, 1.225){$Q$}
+\rput[tl](1.5, 1.025){$\left(1.5, 1.125\right)$}
 \psXTick{1.5}
 %Function formula: 7/4 x-3/2 
-\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.571428571}{3}{-1.5 x 1.75 mul add }
+\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.571428571}{3.1}{-1.5 x 1.75 mul add }
 \end{pspicture} 
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1, -5)(3,5) 
 \psframe*[linecolor=white](-1,-5)(3,5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3.1,4.805)
 %Function formula: 1/2 ((x)^{2}) 
 \rput(1,3){$y= \frac{x^2}2$} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3.1}{x 2 exp 0.5 mul }
 \psFullDot{2}{2}
-\rput[tl](2.1, 1.9){$P=(2,2)$}
+\rput[br](1.9, 2.1){$P$}
+\rput[tl](2.1, 1.9){$(2,2)$}
 \psXTick{2}
 \psFullDot{1.9}{1.805}
-\rput[tl](1.9, 1.605){$Q=\left(1.9, 1.805\right)$}
+\rput[br](1.8, 1.705){$Q$}
+\rput[tl](1.7, 1.505){$\left(1.5, 1.125\right)$}
 \psXTick{1.9}
 %Function formula: 39/20 x-19/10 
-\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.717948718}{3}{-1.9 x 1.95 mul add }
+\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.717948718}{3.1}{-1.9 x 1.95 mul add }
 \end{pspicture} 
-\psset{xunit=1cm, yunit=1cm}
+
+\noindent \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1, -5)(3,5) 
 \psframe*[linecolor=white](-1,-5)(3,5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3,4.5)
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3.1,4.805)
 %Function formula: 1/2 ((x)^{2}) 
 \rput(1,3){$y= \frac{x^2}2$} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3}{x 2 exp 0.5 mul }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3.1}{x 2 exp 0.5 mul }
 \psFullDot{2}{2}
-\rput[tl](2.1, 1.9){$P=(2,2)$}
+\rput[br](1.9, 2.1){$P$}
+\rput[tl](2.1, 1.9){$(2,2)$}
 \psXTick{2}
 \psline[linecolor=\psColorTangent](0.75,-0.5)(3,4)
 \end{pspicture} 
+
+\noindent \psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(3,5) 
+\psframe*[linecolor=white](-1,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3.1,4.805)
+\psFullDot{2}{2}
+\rput[r](1.9, 2){$(2,2)$}
+\rput[tl](2.1, 1.9){$P$}
+\psXTick{2}
+\psFullDot{2.1}{2.205}
+\rput[br](2, 2.305){$(2.1,2.205)$}
+\rput[tl](2.2, 2.205){$Q$}
+\psXTick{2.1}
+\rput(1,4){$y= \frac{x^2}2$} 
+%Function formula: 41/20 x-21/10 
+\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.780488}{3.1}{-2.1 x 2.05 mul add }
+%Function formula: 1/2 x^{2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3.1}{x 2 exp 0.5 mul }
+\end{pspicture} 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(3,5) 
+\psframe*[linecolor=white](-1,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3.1,4.805)
+\psFullDot{2}{2}
+\psFullDot{2}{2}
+\rput[r](1.9, 2){$(2,2)$}
+\rput[tl](2.1, 1.9){$P$}
+\psXTick{2}
+\psFullDot{2.5}{3.125}
+\rput[br](2.4, 3.225){$(2.5, 3.125)$}
+\rput[tl](2.6, 3.025){$Q$}
+\psXTick{2.5}
+\rput(1,4){$y= \frac{x^2}2$} 
+%Function formula: 9/4 x-5/2 
+\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.888889}{3.1}{-2.5 x 2.25 mul add }
+%Function formula: 1/2 x^{2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3.1}{x 2 exp 0.5 mul }
+\end{pspicture} 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(3,5) 
+\psframe*[linecolor=white](-1,-5)(3,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(3.1,4.805)
+\psFullDot{2}{2}
+\rput[r](1.9, 2){$(2,2)$}
+\rput[tl](2.1, 1.9){$P$}
+\psXTick{2}
+\psFullDot{3}{4.5}
+\rput[br](2.9, 4.5){$(3, 4.5)$}
+\rput[tl](2.95, 4.3){$Q$}
+\psXTick{3}
+\rput(1,4){$y= \frac{x^2}2$} 
+%Function formula: 5/2 x-3 
+\psplot[linecolor=\psColorTangent, plotpoints=1000]{1}{3.1}{-3 x 2.5 mul add }
+%Function formula: 1/2 x^{2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{3.1}{x 2 exp 0.5 mul }
+\end{pspicture} 
+}
+\end{center}
 \caption{A tangent line touches the graph of a function, and is approximated by secant lines \label{figTangentIdeaFor}}
 \end{figureFixed}
-We need to define tangent at the point $P=(2,2)$ to match the intuition suggested by Figure \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall that every non-vertical line has equation 
+It appears natural to approximate the tangent line using secant lines passing through the point $ P=(2, 2)$ and nearby points $Q=(t,f(t))=(t, \frac{t^2}{2})$ lying on the graph of $f(x)$. The line passing through $P=(2,2) $ and $Q=(t,f(t))$ has slope $m_Q:=\frac{f(t)-2}{t-2}$ and therefore has equation
 \[
-y=mx+c\quad \quad, 
+y-2=m_Q(x-2), \quad\quad \quad\text{where~} m_Q= \left(\frac{f(t)-2}{t-2}\right).
 \]
-for some numbers $m$ and $c$, where $m$ is called the slope
-of the line and $c$ is called the $y$-intercept of the line. As the line we are interested in passes through the point $P=(2,2)$, it has equation $y-2=m(x-2)$ for some slope $m$ that we yet need to define. 
-
-Let $x$ be a point near $2$. Then $Q=(x, f(x)) = (x, \frac{x^2}2)$ is the point on the graph of $f$ corresponding to $x$. A number of values of $x$ close to $2$ and the corresponding values of $f(x)$ are given in Table \ref{tableTangentIdeaForTable}.
-
+As the equation of the tangent line is $y-2=m(x-2)$, we choose to approximate $m$ by the numbers $m_Q$ as $Q$ gets close to the point $P$. On the other hand, the point $Q=(t,f(t))$ gets closer to $P= (x, f(x))$ as $t$ gets closer to $x$.
+In Table \ref{tableTangentIdeaForTable}, we have computed the values of $f(t)$ and $m_Q=\frac{f(t)-2}{t-2}$ for various values of $t$ close to $x=2$. We see that as $t$ gets closer to $2$, $m_Q$ appear to get closer to the number $2$, and indeed, we can define $m=2$ and the equation of the tangent line at $P$ to be 
+\[
+y-2=2(x-2)\quad .
+\]
 \begin{tableFixed}
-\begin{tabular}{c|c}
-$x$& $f(x)=\frac{x^2}2$\\\hline
-$ 0$ & $0 $\\
-$ 1$ & $0.5 $\\
-$ 1.5$ & $1.125 $\\
-$ 1.9$ & $1.805 $\\
-$ 1.99$ & $1.98005 $\\
-$ 1.999$ & $1.9980005 $\\
-
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+$x$& $f(x)=\frac{t^2}2$& $t-2$ & $f(t)-f(2)$ & $m_Q=\frac{f(t)-f(2)}{t-2}$ \\\hline
+0& 0& -2& -2& 1 \\
+1& 0.5& -1& -1.5& 1.5 \\
+1.5& 1.125& -0.5& -0.875& 1.75\\
+1.9& 1.805& -0.1& -0.195& 1.95\\
+1.99& 1.98005& -0.01& -0.01995& 1.995\\
+1.999& 1.998& -0.001& -0.0019995& 1.9995\\\hline
+2.001& 2.002& 0.001& 0.0020005& 2.0005\\
+2.01& 2.02005& 0.01& 0.02005& 2.005\\
+2.1& 2.205& 0.1& 0.205& 2.05\\
+2.5& 3.125& 0.5& 1.125& 2.25\\
+3& 4.5& 1& 2.5& 2.5\\
+4& 8& 2& 6& 3 \\
 \end{tabular}
-\caption{ Values of $f(x)$ and slope $m$. \label{tableTangentIdeaForTable}}
+\end{center}
+\caption{ Values of $f(x)$ and slope of line through $P,Q$. \label{tableTangentIdeaForTable}}
 \end{tableFixed}
+In order to model the computations in Table \ref{tableTangentIdeaForTable}, we need to define formally what it means for $m_Q$ to ``get closer'' to the number $2$, i.e., we need to define limit.
+\subsection{Definition of Limit}
+In order to define limit, we need to first define a neighborhood a real number $a$. Informally, a neighborhood of $a$ is a collection of points including all points sufficiently close to $a$ except possibly $a$. Formally, the definition of a neighborhood is given as follows.
 
-
-%, as well as the task of computing the equation of a such a line. In our pursuit of such a definition, we will develop the notion of a limit. Armed with limits, we will then revisit the tangent problem in Section \ref{sec}, where we shall define the tangent line at a point and will give a recipe for computing its equation.
-
-
-
-
+We say that a $J$ is a \emph{punctured interval} around $a$ if $J$ is of the form 
+\[
+J= (a-\varepsilon,a)\cup (a, a+\varepsilon)=\{x| \varepsilon>|x-a|>0\}.
+\]
+for some positive number $\varepsilon>0$.
+\begin{definition}
+Let $a$ be a real number. We say that the set $I$ is a \emph{neighborhood of $a$} if it contains a punctured interval around $a$.
+\end{definition}
+In other words,  $I$  is a neighborhood of $a$  if $I\subset J$ for some set $J$ of the form $ J= (a-\varepsilon,a)\cup (a, a+\varepsilon)$ for some positive $\varepsilon>0$.
+\begin{definition}
+Let $m(t)$ be a function defined in a neighborhood of $a$.  We say that the limit $ $
+\end{definition}
+\section{}\label{secTangentDef}
 
 \chapter{Complex numbers and trigonometric functions}
 
@@ -1610,10 +1717,11 @@ Check first that $(x-1)(x+2)^2(x+1)= x^{4}+4x^{3}+3x^{2}-4x-4$.
 \end{enumerate}
 \end{problem}
 \subsection{Euler substitution, integrals of the form $R(\cos x, \sin x)$}\label{secEulerSubTrigIntegrals}
-\begin{itemize}
-\item   Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$, can be transformed using linear substitutions to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$.
-\item Integrals of the form $\int R(x, \sqrt{x^2+1})dx$, $\int R(x, \sqrt{-x^2+1})dx$, $\int R(x, \sqrt{x^2-1})dx$, for $R$ - rational function, can be converted to integrals of rational functions as follows.
-\item (Euler substitution)
+Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$.
+
+\subsubsection{Integrals of the form $\int R(x, \sqrt{x^2+1})dx$, $\int R(x, \sqrt{-x^2+1})dx$, $\int R(x, \sqrt{x^2-1})dx$}
+In the present section we solve integrals of the form $\int R(x, \sqrt{x^2+1})dx$, $\int R(x, \sqrt{-x^2+1})dx$, $\int R(x, \sqrt{x^2-1})dx$ for $R$ - rational function. Such integrals can be converted to integrals of rational functions as using the Euler substitution.
+
 \begin{enumerate}
 \item Case $\sqrt{x^2+1}$. Substitute $\sqrt{x^2+1}= x+t $. Squaring both sides we see $x^2+1=x^2+2xt+t^2$, or $x=\frac12\left(\frac{1}{t}- t\right)$. Taking differential on both sides, we see that $dx=-\frac12(\frac{1}{t^2}+1) dt$. To summarize:
 \begin{equation}\label{eqEulerSub1}
@@ -1640,7 +1748,7 @@ x&=&1+\frac{2}{t^2-1}\quad .
 \end{array}
 \] 
 \end{enumerate}
-\item Integrals of the form $\int R(\sin y,\cos y )dy$ for $R$- rational function can be transformed to integrals of rational functions via the substitution $y= 2\arctan x$. Taking differentials on both sides, we see $dy=\frac{2}{1+x^2}dx$. Further, we have 
+Integrals of the form $\int R(\sin y,\cos y )dy$ for $R$- rational function can be transformed to integrals of rational functions via the substitution $y= 2\arctan x$. Taking differentials on both sides, we see $dy=\frac{2}{1+x^2}dx$. Further, we have 
 \[\cos (2\arctan x) = \cos^2(\arctan x)- \sin^2(\arctan x)=  \frac{\cos^2(\arctan x)- \sin^2(\arctan x)}{\cos^2(\arctan x)+ \sin^2(\arctan x)}= \frac{1- \tan^2(\arctan x)}{\tan^2(\arctan x)+1}= \frac{1- x^2}{x^2+1}\quad .
 \]
 Therefore 
@@ -1654,7 +1762,6 @@ dy&=&\frac{2}{x^2+1}dx\\
 \sin y&=&\frac{2x}{x^2+1}\quad .
 \end{array}
 \] 
-\end{itemize}
 
 \subsubsection{Examples of Euler integrals}
 \begin{itemize}
