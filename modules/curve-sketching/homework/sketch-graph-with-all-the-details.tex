@@ -1,0 +1,107 @@
+
+\begin{problem}
+Find the 
+\begin{itemize}
+\item $x$ and $y$ intercepts of $f$.
+\item horizontal and vertical asymptotes.
+\item intervals of increase and decrease
+\item local and global minima, maxima,
+\item intervals of concavity 
+\item points of inflection
+\end{itemize}
+Label all relevant points on the graph. 
+\begin{enumerate}
+\item $\displaystyle f(x)=\frac{x+1/2}{x^{2}+x+1}$
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-0.5)(5,1.5)
+\psLabels{5}{1.5}
+%Function formula: \frac{x+1/2}{x^{2}+x+1} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-5}{5}{0.5 x add 1 x add x 2 exp add div }
+\end{pspicture} 
+\answer{
+\begin{tabular}{l}
+Intervals of decrease: $ (-\infty,\frac{-1-\sqrt{3}}{2})\cup (\frac{-1+\sqrt{3}}{2}, \infty) $, intervals of decrease $(\frac{-1-\sqrt{3}}{2}, \frac{-1+\sqrt{3}}{2})$ \\
+Inflection points at: $x=-2$, $x= -\frac12$, $x=1 $ \\
+\end{tabular}
+}
+
+\item $\displaystyle f(x)=\frac{2 x^{2}-5 x+9/2}{x^{2}-3 x+3}$
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-0.5)(5,3.5)
+\psLabels{5}{3.5}
+%Function formula: \frac{2 x^{2}-5 x+9/2}{x^{2}-3 x+3} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-5}{5}{4.5 x -5 mul add x 2 exp 2 mul add 3 x -3 mul add x 2 exp add div }
+\end{pspicture} 
+\item $\displaystyle f(x)=\frac{2 \sqrt{- x^{2}+1}+1}{\sqrt{- x^{2}+1}+1}$,  $f(x)=\frac{1}{\sqrt{- x^{2}+1}+1}$ 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -5)(1,5) 
+\psframe*[linecolor=white](-1,-5)(1,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(1,3.5)
+\psLabels{1}{3.5}
+%Function formula: \frac{2 (- x^{2}+1)^{1/2}+1}{(- x^{2}+1)^{1/2}+1} 
+\rput(1,3){} 
+\psplot[linecolor=brown, plotpoints=1000]{-1}{1}{1 1 x 2 exp -1 mul add 0.5 exp 2 mul add 1 1 x 2 exp -1 mul add 0.5 exp add div }
+%Function formula: \frac{1}{(- x^{2}+1)^{1/2}+1} 
+\rput(1,3){} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{1}{1 1 1 x 2 exp -1 mul add 0.5 exp add div }
+
+\end{pspicture} 
+
+Both functions are drawn on the same plot. Indicate which part of the graph is the graph of which function.
+\item $\displaystyle f(x)=\frac{e^x+e^{-x}}{e^x-e^{-x}}$
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-4, -5)(4,5) 
+\psframe*[linecolor=white](-4,-5)(4,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-4,-4.5)(4,4.5)
+\psLabels{4}{5}
+%Function formula: \frac{e^{- x}+e^{x}}{- e^{- x}+e^{x}} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0.2}{4}{2.718281828 x exp 2.718281828 x -1 mul exp add 2.718281828 x exp 2.718281828 x -1 mul exp -1 mul add div }
+%Function formula: \frac{e^{- x}+e^{x}}{- e^{- x}+e^{x}} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-4}{-0.2}{2.718281828 x exp 2.718281828 x -1 mul exp add 2.718281828 x exp 2.718281828 x -1 mul exp -1 mul add div }
+\end{pspicture} 
+\item $\displaystyle f(x)=\frac{- e^{- x}+e^{x}}{e^{- x}+e^{x}}$
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-4, -5)(4,5) 
+\psframe*[linecolor=white](-4,-5)(4,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-4,-1.1)(4,1.1)
+\psLabels{4}{1.1}
+%Function formula: \frac{- e^{- x}+e^{x}}{e^{- x}+e^{x}} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-4}{4}{2.718281828 x exp 2.718281828 x -1 mul exp -1 mul add 2.718281828 x exp 2.718281828 x -1 mul exp add div }
+\end{pspicture}
+\item $\displaystyle f(x)=\ln{}\left(\frac{{{x}}+1}{- {{x}}+1}\right)$
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.9, -5)(1,5) 
+\psframe*[linecolor=white](-0.9,-5)(1,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.3,-4)(1.3,4)
+\psLabels{1.3}{4}
+%Function formula: \log{}(\frac{x+1}{- x+1}) 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-0.94}{0.94}{1 x add 1 x -1 mul add div ln }
+
+\end{pspicture} 
+\item $f(x)=\frac{x^{2}+3 x+1}{x^{2}+2 x}$
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-4.5)(5,4.5)
+\psLabels{5}{5}
+%Function formula: \frac{x^{2}+3 x+1}{x^{2}+2 x} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0.1}{5}{1 x 3 mul add x 2 exp add x 2 mul x 2 exp add div }
+%Function formula: \frac{x^{2}+3 x+1}{x^{2}+2 x} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.9}{-0.1}{1 x 3 mul add x 2 exp add x 2 mul x 2 exp add div }
+%Function formula: \frac{x^{2}+3 x+1}{x^{2}+2 x} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-5}{-2.1}{1 x 3 mul add x 2 exp add x 2 mul x 2 exp add div }
+
+\end{pspicture} 
+\end{enumerate}
+\end{problem}
