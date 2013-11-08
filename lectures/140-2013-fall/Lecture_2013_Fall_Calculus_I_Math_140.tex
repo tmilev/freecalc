@@ -43,7 +43,7 @@
 \newcommand{\diff}{\text{d}}
 \setbeamertemplate{navigation symbols}{}
 
-\newcommand{\currentLecture}{20}
+\newcommand{\currentLecture}{19}
 \includeonlylecture{\currentLecture} %includeonlylecture is broken on current version of latex on ubuntu, we should consider replacing it with some more reliable command.
 
 \newcommand{\lect}[4]{
@@ -515,17 +515,6 @@
 %Test
 
 \lect{November 4-8, 2013}{Lecture 19}{19}{% begin lecture
-
-\section{Newton's Method}
-\input{../../modules/newtons-method/newtons-method-intro}
-\input{../../modules/newtons-method/newtons-method-def}
-\input{../../modules/newtons-method/newtons-method-convergence}
-\input{../../modules/newtons-method/newtons-method-ex1}
-\input{../../modules/newtons-method/newtons-method-ex-findpoly2}
-
-} %end lecture
-
-\lect{November 4-8, 2013}{Lecture 20}{20}{% begin lecture
 \section{Mean Value theorem}
 \input{../../modules/maxima-minima/MVT-intro}
 \input{../../modules/maxima-minima/rolles-theorem}
@@ -534,14 +523,17 @@
 \input{../../modules/maxima-minima/MVT-proof}
 \input{../../modules/maxima-minima/MVT-corollary1}
 \input{../../modules/maxima-minima/MVT-corollary2}
-\section{Linear Approximations and Differentials} %there is no need to cover differentials earlier.
-
+\section{Linear Approximations} %there is no need to cover differentials earlier.
 \input{../../modules/differentials/differentials-intro}
 \input{../../modules/differentials/linearization-def-version2}
 \input{../../modules/differentials/linearization-ex1}
 \input{../../modules/differentials/differentials-ex3}
-\subsection{Differentials}
+\section{Differentials}
 \input{../../modules/differentials/differential-def-version2}
+\input{../../modules/differentials/differentials-example1}
+\input{../../modules/differentials/differentials-rules}
+\input{../../modules/differentials/differentials-example2}
+
 
 }% end lecture
 
@@ -554,10 +546,6 @@
 \input{../../modules/antiderivatives/antiderivatives-formulas}
 \input{../../modules/antiderivatives/antiderivatives-ex2}
 \input{../../modules/antiderivatives/antiderivatives-ex-initial-value}
-\subsection{Rectilinear Motion}
-\input{../../modules/antiderivatives/rectilinear-motion-intro}
-\input{../../modules/antiderivatives/rectilinear-motion-ex7}
-
 \section{Areas and Distances}
 \subsection{The Area Problem}
 \input{../../modules/integration/areas-intro}
@@ -565,7 +553,6 @@
 \input{../../modules/integration/areas-ex2}
 \input{../../modules/integration/area-def}
 \input{../../modules/integration/sigma-notation}
-
 \section{The Definite Integral}
 \input{../../modules/integration/definite-integral-def}
 \input{../../modules/integration/definite-integral-negative}
@@ -677,5 +664,17 @@
 \input{../../modules/volumes/volumes-guidelines}
 }% end lecture
 
+\lect{November 4-8, 2013}{Lecture 29}{29}{% begin lecture
+\section{Newton's Method}
+\input{../../modules/newtons-method/newtons-method-intro}
+\input{../../modules/newtons-method/newtons-method-def}
+\input{../../modules/newtons-method/newtons-method-convergence}
+\input{../../modules/newtons-method/newtons-method-ex1}
+\input{../../modules/newtons-method/newtons-method-ex-findpoly2}
+\section{Rectilinear Motion}
+\input{../../modules/antiderivatives/rectilinear-motion-intro}
+\input{../../modules/antiderivatives/rectilinear-motion-ex7}
+
+} %end lecture
 
 \end{document}

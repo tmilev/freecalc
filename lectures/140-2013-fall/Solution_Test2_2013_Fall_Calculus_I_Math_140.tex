@@ -1,0 +1,154 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{../pstricks-commands}
+%\usepackage{pst-solides3d}
+%\usepackage{pst-3dplot}
+\usepackage{../homework-problems}
+
+
+\renewcommand{\Re}{\mathrm{Re~}}
+\renewcommand{\Im}{\mathrm{Im~}}
+\newtheorem{problem}{Problem}
+
+%\title{Exam II\\ Math 140 Calculus I \\Instructor: Todor Milev}
+%\date{April 9 2012}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\Large
+Test 2\\ Math 140 Calculus I \\ \normalsize Instructor: Todor Milev
+\end{center}
+\textbf{Name:} 
+\begin{problem}
+Compute the derivative of the function.
+$f(x)=\frac{x }{\sqrt{1+\frac{2}{x^2}}}$.
+\answer{$\frac{\pm x^2}{\sqrt{x^2+2}}$}
+\end{problem}
+\textbf{Solution}. 
+\[
+\begin{array}{rclr|r}
+\displaystyle\left(\frac{x }{\sqrt{1+\frac{2}{x^2}}}\right)'&=&\displaystyle\frac{\sqrt{1+\frac{2}{x^2}}- x\left(\sqrt{1+\frac{2}{x^2}}\right)'}{1+\frac{2}{x^2}} =\frac{\sqrt{1+\frac{2}{x^2}}-  x\frac{\frac12}{\sqrt{1 +\frac{ 2}{ x^2 }}}  \left(\frac{2}{x^2}\right)'}{1+\frac{2}{x^2}}\\
+&=& \displaystyle\frac{\sqrt{1+\frac{2}{x^2}}+  \frac{2}{x^2\sqrt{1 +\frac{ 2}{ x^2 }}} }{1+\frac{2}{x^2}} =
+ \frac{x^2\left(1+\frac{2}{x^2}\right)+  2 }{x^2\left(1+\frac{2}{x^2}\right)^{\frac32}}= \frac{x^2+4}{x^2\left(1+\frac{2}{x^2}\right)^{\frac32}}
+\end{array}
+\]
+Please note that this problem can be solved also by applying the transformation 
+\[
+\displaystyle  \frac{x}{\sqrt{1+\frac{2}{x^2}}}=\frac{x}{\sqrt{\frac{x^2+2}{x^2}}} =\frac{x}{\frac{1}{\pm x}\sqrt{x^2+2}} = \frac{\pm x^2}{\sqrt{x^2+2}}
+\]
+before differentiating, however one must be extra careful with manipulating signs as $\sqrt{x^2}=\pm x$. On the other hand, the approach we used resulted in more algebra, but did not have the disadvantage of having to be careful with the $\pm$ sign.
+\begin{problem}Compute the derivative of the function.
+\[2^{\sqrt{x}}
+\]
+\answer{$\frac{2^{\sqrt{x}- 1}\ln 2}{\sqrt{x}}$}
+\end{problem}
+\[
+2^{\sqrt{x}}= 2^{\sqrt{x}} \ln (2) (\sqrt{x})'= \frac{2^{\sqrt{x}- 1}\ln 2}{\sqrt{x}}
+\]
+\begin{problem}Solve the equation.
+\[
+\frac{1}{3^{x-2}}-\left(\sqrt{3}\right)^{-x+4}+2=0.
+\] 
+\answer{$x=2$ or $x=2-2\log_3 2$}
+\end{problem}
+\textbf{Solution.} Set $\displaystyle u=\sqrt{3}^{-x}= 3^{-\frac{x}2}$, and so $\sqrt{3}^{-x+4}=\sqrt{3}^4\sqrt{3}^{-x}= 9u$. Furthermore, $\frac{1}{3^{x-2}} = 3^{2-x}= 3^2 3^{-x}= 9\left(3 ^{-\frac{x}2}\right)= 9u^2 $. In this way the equation becomes:
+\begin{equation}
+\begin{array}{rcl}
+9u^2-9u+2&=&0\\
+(3u-1)(3u-2)&=&0\\
+u=\frac{1}3  \quad \text{or}   \quad u=\frac{2}3
+\end{array}
+\end{equation}
+
+\noindent Case 1. $u=\frac{1}3=3^{-1}$, or $3^{-\frac{x}2}= 3^{-1} $, so finally $-\frac{x}2=-1 $ and $x=2$. 
+
+\noindent Case 2. $u=3^{-\frac{x}{2}}=\frac{2}3$, therefore $-\frac{x}{2}=\log_3\frac{2}{3}= \log_3 2 - 1 $, and finally $x=2-2\log_32$.
+\begin{problem}
+Find the inverse function $f^{-1}$. Plot roughly by hand $y=f(x)$. Using the plot of $y=f(x)$, plot roughly by hand $f^{-1}(x)$. Indicate the relationship between the graph of $f(x)$ and $f^{-1}(x)$.
+\[
+f(x)=2x^{2}+x+1, \quad\quad \quad x\geq 0.
+\]
+\end{problem}
+\textbf{Solution.} $f(x)=y=2x^2+x+1$ and so $2x^2+x+1-y=0$ or by the formula for solving quadratic equation, $x=\frac{-1\pm \sqrt{1-4(2(1-y))}}{4}=\frac{-1\pm\sqrt{8y-7}}{4}$. We have that $x\geq 0\geq -\frac{1}4$ and therefore $x=\frac{-1+\sqrt{8y-7}}{4}$. We relabel $y$ to $x$ to get that $f^{-1}(x)=\frac{-1+\sqrt{8x-7}}{4}$. The graph of $f^{-1}(x)$ is the reflection of the graph of $f(x)$ across the line $y=x$. A rough plot of $f(x)$ and $f^{-1}(x)$ is given below.
+ 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.5, -5)(7,5) 
+\psframe*[linecolor=white](-0.5,-5)(7,5) 
+\tiny 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(5.08,5.08)
+\psLabels{5.08}{5.08}
+%Function formula: 1/4 (8 x-7)^{1/2}-1/4 
+\rput(3,1.2){$f^{-1}(x)=\frac{-1+\sqrt{8 x-7}}{4}$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{5.08}{-0.25 -7 x 8 mul add 0.5 exp 0.25 mul add }
+%Function formula: 2 x^{2}+x+1 
+\rput[l](1,3.2){$f(x)=2 x^{2}+x+1$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1.2}{1 x add x 2 exp 2 mul add }
+\psline[linestyle=dashed, linecolor=blue ](-0.5,-0.5)(5.08, 5.08)
+\end{pspicture} 
+\begin{problem}
+Use implicit differentiation to express $y'$ via $y $ and $x$, where $x$ and $y$ satisfy the following relation.
+\[
+x^3(x+y)=y^2(x-2y).
+\]
+\end{problem}
+\textbf{Solution.} 
+\[
+\begin{array}{rclp{2cm}|r}
+x^4+x^3y&=&x y^2-2y^3\\
+x^4+x^3y-x y^2+2y^3&=&0&&\text{apply~}\frac{d}{dx}\\
+4x^3+3x^2y+x^3y' -y^2-2x y y' +6 y^2 y'&=&0\\
+y'(x^3-2x y+6y^2)&=&-4x^3-3x^2y+y^2\\
+y'&=&\displaystyle\frac{-4x^3-3x^2y+y^2}{x^3-2x y+6y^2}
+\end{array}
+\]
+
+
+\begin{problem}
+Use implicit differentiation to find an equation of the tangent line to the curve at the given point.
+\[
+x^{1/3}+y^{1/3}=4 \quad \quad \quad  \text{at}\quad  (8,8)\quad .
+\] 
+\answer{$y=-x+16$}
+\end{problem}
+\textbf{Solution.} 
+\[
+\begin{array}{rclp{2cm}|r}
+x^{\frac13}+y^{\frac13}&=&4&&\text{apply~}\frac{d}{dx} \\
+\frac13x^{-\frac23}+\frac13y^{-\frac{2}3} y'&=&0 \\
+y^{-\frac23}y'&=&-\frac{23}x^{-\frac23}&&\text{set~}x=8, y=8\\
+8^{-\frac23}y'_{|x=8}&=&-8^{-\frac23}\\
+y'_{|x=8}&=&-1\quad .
+\end{array}
+\]
+Therefore the equation of the tangent line is $y-8=(-1)(x-8)$ or $y=-x+16$.
+\begin{problem}State the quotient rule for computing the derivative of $\left(\frac{f}{g}\right)'$. Derive the quotient rule using the chain rule, the negative power rule and the product rule.
+\end{problem}
+\textbf{Solution.} 
+\[
+\left(\frac{f}{g}\right)'=\left(f\frac{1}g\right)'\stackrel{\text{prod. rule}}{=}f'\frac1g+f\left(\frac{1}g\right)'\stackrel{\text{chain rule}}{=}\frac{f'}g-f\frac{g'}{g^2}= \frac{f'g-fg'}{g^2}
+\]
+\begin{problem} 
+A wedge of radius $\sqrt{3}$ (depicted below) is folded into a cone cup. The volume varies depending on the angle of the wedge. Use the closed interval method to find the maximal possible volume of the cone cup and the angle of the wedge for which this maximal volume is achieved. 
+
+\textbf{You are allowed only to use the fact that the volume of a cone equals $\frac{1}{3}\text{(height)} \text{(area of base)}$. You are expected to carry out all remaining computations. }
+
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny 
+\pscustom*[linecolor=cyan!30]{ \psparametricplot[algebraic] {2.35619}{7.06858} {0+1*cos(t)| 0+1*sin(t)} \psline(0.707107, 0.707107)(0, 0)(-0.707107, 0.707107)}
+
+\psparametricplot[algebraic,linecolor=blue]{2.35619}{7.06858}{cos(t)| sin(t)} 
+\psline[linecolor=red](0.707107, 0.707107)(0, 0)(-0.707107, 0.707107)
+
+\rput[t](0.4, 0.2){$r$}
+\rput[lb](0.8,0.8){$B$}
+\rput[rb](-0.8,0.8){$A$}
+\rput[b](0,0.3){$O$}
+\end{pspicture} 
+
+\end{problem}
+\textbf{Solution. } See the last slide of lecture 17.
+
+
+\end{document}
