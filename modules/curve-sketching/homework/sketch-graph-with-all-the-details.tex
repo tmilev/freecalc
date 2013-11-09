@@ -11,7 +11,7 @@ Find the
 \end{itemize}
 Label all relevant points on the graph. 
 \begin{enumerate}
-\item $\displaystyle f(x)=\frac{x+1/2}{x^{2}+x+1}$
+\item $\displaystyle f(x)=\frac{x+\frac 1 2}{x^{2}+x+1}$
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-5,-5)(5,5) 
@@ -21,14 +21,19 @@ Label all relevant points on the graph.
 %Function formula: \frac{x+1/2}{x^{2}+x+1} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-5}{5}{0.5 x add 1 x add x 2 exp add div }
 \end{pspicture} 
+
 \answer{
 \begin{tabular}{l}
-Intervals of decrease: $ (-\infty,\frac{-1-\sqrt{3}}{2})\cup (\frac{-1+\sqrt{3}}{2}, \infty) $, intervals of decrease $(\frac{-1-\sqrt{3}}{2}, \frac{-1+\sqrt{3}}{2})$ \\
+$y$-intercept: $\frac12$. $x$-intercept: $-\frac12$\\
+Horizontal asymptote: $y=0$, vertical: none \\
+local and global min at $x=\frac{ -1-\sqrt{3}}{2}$, local and global max at $x=\frac{ -1+\sqrt{3}}{2}$\\
+Intervals of decrease: $ \left(-\infty, \frac{-1 -\sqrt{3} }{2}\right)\cup \left(\frac{-1 +\sqrt{3} }{2}, \infty\right) $, intervals of decrease $\left( \frac{ -1-\sqrt{3}}{2}, \frac{-1+ \sqrt{3}}{2}\right)$ \\
+Concave down on $(-\infty, -2)\cup \left(-\frac12, 1\right)$, concave up on $\left(-2, -\frac12\right)\cup (1,\infty)$\\
 Inflection points at: $x=-2$, $x= -\frac12$, $x=1 $ \\
 \end{tabular}
 }
 
-\item $\displaystyle f(x)=\frac{2 x^{2}-5 x+9/2}{x^{2}-3 x+3}$
+\item $\displaystyle f(x)=\frac{2 x^{2}-5 x+\frac{9}{2}}{x^{2}-3 x+3}$
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-5,-5)(5,5) 
@@ -38,23 +43,56 @@ Inflection points at: $x=-2$, $x= -\frac12$, $x=1 $ \\
 %Function formula: \frac{2 x^{2}-5 x+9/2}{x^{2}-3 x+3} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-5}{5}{4.5 x -5 mul add x 2 exp 2 mul add 3 x -3 mul add x 2 exp add div }
 \end{pspicture} 
-\item $\displaystyle f(x)=\frac{2 \sqrt{- x^{2}+1}+1}{\sqrt{- x^{2}+1}+1}$,  $f(x)=\frac{1}{\sqrt{- x^{2}+1}+1}$ 
+
+\answer{
+\begin{tabular}{l}
+$y$-intercept: $\frac32$\\
+horizontal asymptote: $y=2$, vertical: none\\
+increasing on 
+$\left(\frac{3-\sqrt{3}}2, \frac{3+ \sqrt{3}}2 \right) $, decreasing on $\left(-\infty, \frac{3-\sqrt{3}}2\right)\cup \left(\frac{3+\sqrt{3}}2, \infty\right) $\\
+local and global min at $x=\frac{3-\sqrt{3}}2$, local and global max at $x=\frac{3+\sqrt{3}}2$\\
+concave up on $\left(0, \frac32\right)cup \left(3, \infty \right)$, concave down $\left(-\infty, 0\right)\cup \left(\frac32, 3\right)$\\
+inflection points at $x=0,x=\frac32, x=3$
+\end{tabular}
+}
+\item $\displaystyle f(x)=\frac{2 \sqrt{- x^{2}+1}+ 1} {\sqrt{- x^{2}+1}+1}$,  $f(x)=\frac{1}{\sqrt{- x^{2} +1}+1}$ 
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1, -5)(1,5) 
 \psframe*[linecolor=white](-1,-5)(1,5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(1,3.5)
-\psLabels{1}{3.5}
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-0.5)(1,2.5)
+\psLabels{1}{2.5}
 %Function formula: \frac{2 (- x^{2}+1)^{1/2}+1}{(- x^{2}+1)^{1/2}+1} 
 \rput(1,3){} 
 \psplot[linecolor=brown, plotpoints=1000]{-1}{1}{1 1 x 2 exp -1 mul add 0.5 exp 2 mul add 1 1 x 2 exp -1 mul add 0.5 exp add div }
 %Function formula: \frac{1}{(- x^{2}+1)^{1/2}+1} 
 \rput(1,3){} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{1}{1 1 1 x 2 exp -1 mul add 0.5 exp add div }
-
 \end{pspicture} 
+The two functions are plotted simultaneously in the $x,y$-plane. Indicate which part of the graph is the graph of which function.
 
-Both functions are drawn on the same plot. Indicate which part of the graph is the graph of which function.
+\answer{
+\begin{tabular}{l}
+For $f(x)=\frac{2 \sqrt{- x^{2}+1}+1}{ \sqrt{- x^{2}+1}+1}$: \\
+$y$-intercept: $x=\frac{3}2$, no $x$ intercept\\
+no asymptotes\\
+increasing on $[-1, 0]$, decreasing on $[0, 1]$ \\
+global and local max at $x=0$, global and local min at $x=\pm 1$.\\
+concave down on $[-1,1]$\\
+no inflection points
+\end{tabular}
+}
+\answer{
+\begin{tabular}{l}
+For $f(x)=\frac{1}{\sqrt{- x^{2}+1}+1}$: \\
+$y$-intercept: $x=\frac{1}2$, no $x$ intercept\\
+no asymptotes\\
+decreasing on $[-1, 0]$, increasing on $[0, 1]$ \\
+global and local min at $x=0$, global and local max at $x=\pm 1$.\\
+concave up on $[-1,1]$\\
+no inflection points
+\end{tabular}
+}
 \item $\displaystyle f(x)=\frac{e^x+e^{-x}}{e^x-e^{-x}}$
 \psset{xunit=0.5cm, yunit=0.5cm}
 \begin{pspicture}(-4, -5)(4,5) 
