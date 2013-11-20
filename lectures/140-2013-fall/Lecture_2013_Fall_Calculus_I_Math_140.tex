@@ -43,7 +43,7 @@
 \newcommand{\diff}{\text{d}}
 \setbeamertemplate{navigation symbols}{}
 
-\newcommand{\currentLecture}{22}
+\newcommand{\currentLecture}{30}
 \includeonlylecture{\currentLecture} %includeonlylecture is broken on current version of latex on ubuntu, we should consider replacing it with some more reliable command.
 
 \newcommand{\lect}[4]{
@@ -86,6 +86,8 @@
 \title[\insertlecture]{Math 140}
 \subtitle{\insertlecture}
 \author[FreeCalc \\ Math 140]{ Greg Maloney \\~\\ \footnotesize{with modifications by Todor Milev} }
+
+%when people substitute for me:
 %\author[FreeCalc \\ Math 140]{ Instructor: Shuang Cai }
 \institute[UMass Boston]{University of Massachusetts Boston}
 \date{\insertshortlecture}
@@ -514,7 +516,17 @@
 
 %Test
 
-\lect{November 4-8, 2013}{Lecture 19}{19}{% begin lecture
+\lect{October 28-November 1, 2013}{Lecture 30, skipped}{30}{% begin lecture
+\section{Newton's Method}
+\input{../../modules/newtons-method/newtons-method-intro}
+\input{../../modules/newtons-method/newtons-method-def}
+\input{../../modules/newtons-method/newtons-method-convergence}
+\input{../../modules/newtons-method/newtons-method-ex1}
+\input{../../modules/newtons-method/newtons-method-ex-findpoly2}
+} %end lecture
+
+
+\lect{November 11-15, 2013}{Lecture 19}{19}{% begin lecture
 \section{Mean Value theorem}
 \input{../../modules/maxima-minima/MVT-intro}
 \input{../../modules/maxima-minima/rolles-theorem}
@@ -533,19 +545,9 @@
 \input{../../modules/differentials/differentials-example1}
 \input{../../modules/differentials/differentials-rules}
 \input{../../modules/differentials/differentials-example2}
-
-
 }% end lecture
 
-\lect{November 11-15, 2013}{Lecture 22}{22}{% begin lecture
-\section{Antiderivatives}
-\input{../../modules/antiderivatives/antiderivative-def}
-\input{../../modules/antiderivatives/antiderivatives-ex}
-\input{../../modules/antiderivatives/antiderivatives-constant}
-\input{../../modules/antiderivatives/antiderivatives-ex1}
-\input{../../modules/antiderivatives/antiderivatives-formulas}
-\input{../../modules/antiderivatives/antiderivatives-ex2}
-\input{../../modules/antiderivatives/antiderivatives-ex-initial-value}
+\lect{November 18-22, 2013}{Lecture 20}{20}{% begin lecture
 \section{Areas and Distances}
 \subsection{The Area Problem}
 \input{../../modules/integration/areas-intro}
@@ -570,7 +572,15 @@
 \input{../../modules/integration/definite-integral-properties-comparison}
 }% end lecture
 
-\lect{November 11-15, 2013}{Lecture 23}{23}{% begin lecture
+\lect{November 18-22, 2013}{Lecture 21}{21}{% begin lecture
+\section{Antiderivatives}
+\input{../../modules/antiderivatives/antiderivative-def}
+\input{../../modules/antiderivatives/antiderivatives-ex}
+\input{../../modules/antiderivatives/antiderivatives-constant}
+\input{../../modules/antiderivatives/antiderivatives-ex1}
+\input{../../modules/antiderivatives/antiderivatives-formulas}
+\input{../../modules/antiderivatives/antiderivatives-ex2}
+\input{../../modules/antiderivatives/antiderivatives-ex-initial-value}
 \section{Evaluating Definite Integrals}
 \subsection{The Evaluation Theorem}
 \input{../../modules/integration/FTC-part2}
@@ -588,9 +598,11 @@
 \input{../../modules/integration/net-change-intro}
 \input{../../modules/integration/net-change-physics}
 \input{../../modules/integration/net-change-ex6}
+\input{../../modules/antiderivatives/rectilinear-motion-intro}
+\input{../../modules/antiderivatives/rectilinear-motion-ex7}
 }% end lecture
 
-\lect{November 18-22, 2013}{Lecture 24}{24}{% begin lecture
+\lect{November 25-27, 2013}{Lecture 22}{22}{% begin lecture
 \section{The Fundamental Theorem of Calculus}
 \input{../../modules/integration/FTC-intro}
 % WARNING: This section could use more pictures.
@@ -612,15 +624,14 @@
 \input{../../modules/substitution-rule/substitution-rule-ex2}
 \input{../../modules/substitution-rule/substitution-rule-ex3}
 \input{../../modules/substitution-rule/substitution-rule-ex4}
-\subsection{Definite Integrals}
+\input{../../modules/substitution-rule/substitution-rule-difficult-ex}
+}% end lecture
+
+\lect{November 25-27, 2013}{Lecture 23}{23}{% begin lecture
+\section{Definite Integrals}
 \input{../../modules/substitution-rule/substitution-rule-definite-integrals}
 \input{../../modules/substitution-rule/substitution-rule-definite-integrals-ex6}
 \input{../../modules/substitution-rule/substitution-rule-definite-integrals-ex7}
-}% end lecture
-
-\lect{November 18-22, 2013}{Lecture 25}{25}{% begin lecture
-\section{The Substitution Rule}
-\input{../../modules/substitution-rule/substitution-rule-difficult-ex}
 \subsection{Symmetry}
 % WARNING: This next module could use some pictures.
 \input{../../modules/integration/integrals-of-symmetric-functions}
@@ -637,7 +648,7 @@
 \input{../../modules/area-between-curves/area-between-curves-ex5}
 }% end lecture
 
-\lect{November 25-29, 2013}{Lecture 26}{26}{% begin lecture
+\lect{December 2-6, 2013}{Lecture 26}{26}{% begin lecture
 \section{Volumes}
 \input{../../modules/volumes/volumes-intro}
 \input{../../modules/volumes/volumes-def}
@@ -654,27 +665,4 @@
 \input{../../modules/volumes/cylindrical-shells-otherline}
 \input{../../modules/volumes/volumes-guidelines}
 }% end lecture
-
-\lect{December 2-6, 2013}{Lecture 28}{28}{% begin lecture
-\section{Volumes by Cylindrical Shells}
-\input{../../modules/volumes/cylindrical-shells-intro}
-\input{../../modules/volumes/cylindrical-shells-def}
-\input{../../modules/volumes/cylindrical-shells-ex}
-\input{../../modules/volumes/cylindrical-shells-otherline}
-\input{../../modules/volumes/volumes-guidelines}
-}% end lecture
-
-\lect{November 4-8, 2013}{Lecture 29}{29}{% begin lecture
-\section{Newton's Method}
-\input{../../modules/newtons-method/newtons-method-intro}
-\input{../../modules/newtons-method/newtons-method-def}
-\input{../../modules/newtons-method/newtons-method-convergence}
-\input{../../modules/newtons-method/newtons-method-ex1}
-\input{../../modules/newtons-method/newtons-method-ex-findpoly2}
-\section{Rectilinear Motion}
-\input{../../modules/antiderivatives/rectilinear-motion-intro}
-\input{../../modules/antiderivatives/rectilinear-motion-ex7}
-
-} %end lecture
-
 \end{document}
