@@ -1,7 +1,24 @@
 % begin module FTC-part2-ex5
 \begin{frame}
 \begin{example}%[Example 5, p. 318]
-Evaluate the integral $\int_{-2}^1 x^3 \ \diff x$.
+\begin{columns}
+\column{.1\textwidth}
+\psset{xunit=0.4cm, yunit=0.4cm}
+\begin{pspicture}(-2.500000, -5)(1.500000,5) 
+\psframe*[linecolor=white](-2.500000,-9)(1.500000,5) 
+\tiny 
+\pscustom*[linecolor=cyan]{ %Function formula: x^{3} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{x 3 exp }\psline(1.000000, 0)(0.000000, 0)}
+%Function formula: x^{3} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{x 3 exp }
+\pscustom*[linecolor=orange]{ %Function formula: x^{3} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2}{0}{x 3 exp }\psline(0.000000, 0)(-2.000000, 0)}
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2}{0}{x 3 exp }
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.2,-8)(1.2,1)
+\psLabels{1.2}{1}
+\end{pspicture} 
+\column{.9\textwidth}
+Evaluate the integral $\displaystyle\int_{-2}^1 x^3 \ \diff x$.
 \begin{itemize}
 \item<2->  $x^3$ is continuous on $[-2, 1]$ (in fact, it's continuous everywhere).
 \item<3->  An antiderivative is \alert<handout:0| 3-4>{$F(x) = $ \uncover<4->{$\frac{1}{4}x^4$.}}
@@ -17,6 +34,7 @@ Evaluate the integral $\int_{-2}^1 x^3 \ \diff x$.
  = \frac{1}{4} - \frac{16}{4} = -\frac{15}{4} %
 }%
 \]
+\end{columns}
 \end{example}
 \end{frame}
 % end module FTC-part2-ex5
