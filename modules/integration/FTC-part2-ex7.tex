@@ -1,6 +1,19 @@
 % begin module FTC-part2-ex7
 \begin{frame}
 \begin{example} %[Example 2, p. 357]
+\begin{columns}
+\column{0.2\textwidth}
+\psset{xunit=0.4cm, yunit=0.4cm}
+\begin{pspicture}(-1.000000, -5)(1.500000,5) 
+\psframe*[linecolor=white](-1.000000,-5)(7,5) 
+\tiny 
+\pscustom*[linecolor=cyan]{ %Function formula: \cos{}x 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{x 57.29578 mul cos }\psline(1.000000, 0)(0.000000, 0)}
+%Function formula: \cos{}x 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{6}{x 57.29578 mul cos }
+\psaxesStandard{-0.6}{-0.6}{6}{1.1}
+\end{pspicture} 
+\column{0.8\textwidth}
 Find the area under the cosine curve from $0$ to $b$, where $0 \leq b \leq \pi /2$.
 \begin{itemize}
 \item<2->  $\cos x$ is continuous on $[0, \pi /2]$ (in fact, it's continuous everywhere).
@@ -17,6 +30,7 @@ Find the area under the cosine curve from $0$ to $b$, where $0 \leq b \leq \pi /
  = \sin b%
 }%
 \]
+\end{columns}
 \end{example}
 \end{frame}
 % end module FTC-part2-ex7
