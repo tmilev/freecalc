@@ -4,17 +4,16 @@ The Definite Integral}
 \begin{definition}[Definite Integral]
 \begin{itemize}
 \item  Let $f$ be a function defined for $a\leq x\leq b$.
-\item  Divide the interval $[a,b]$ into $n$ subintervals of equal width $\Delta x = (b-a)/n$.  
-\item  Let $x_0 (=a)$, $x_1, x_2$, $\ldots ,$ $x_n (=b)$ be the endpoints of these subintervals.
+\item  Divide the interval $[a,b]$ into $n$ subintervals of equal width $\Delta x = (b-a)/n$ nd set $x_0=a$, $x_n=b$.
+\item  Let $x_0$, $x_1,\ldots ,$ $x_n $ be the endpoints of the subintervals.
 \item  Let $x_1^*, x_2^*, \ldots , x_n^*$ be any sample points in these subintervals; that is, $x_i^*$ is in $[x_{i-1},x_i]$.  
 \end{itemize}
-Then the definite integral of $f$ from $a$ to $b$ is
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
+Suppose the limit $\lim\limits_{n\to \infty} \sum\limits_{i=1}^n f(x_i^*)\Delta x$ exists and is independent of the choice of sample points $x_i^*$. Then we call this limit the integral of $f$ over $[a,b]$ and write
 \[
-\int_a^b f(x) \diff x = \lim_{n\to \infty} \sum_{i=1}^n f(x_i^*)\Delta x,
+\int_a^b f(x) \diff x = \lim_{n\to \infty} \sum_{i=1}^n f(x_i^*)\Delta x \quad .
 \]
-provided that the limit exists.  If the limit exists, we say that $f$ is integrable on $[a,b]$.
 \end{definition}
 \end{frame}
 
