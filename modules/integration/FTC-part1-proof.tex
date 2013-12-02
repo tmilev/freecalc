@@ -100,11 +100,11 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 \column{0.73\textwidth}
 
 \only<1-14>{
-\uncover<2->{\alert<2>{Let $\varepsilon >0$. There \alert<3>{exists $\delta$} such that $\alert<6>{|\alert<5>{f(t)}-\alert<4>{f(x)}|} < \varepsilon$ for all $t$ for which $|x-t|<\delta$}.} \uncover<3->{\alert<7>{Then for all $0<h<\delta$:} }
+\uncover<2->{\alert<2>{Let $\varepsilon >0$. There \alert<3>{exists $\delta$} such that $\alert<8>{\alert<6>{|\alert<5>{f(t)}-\alert<4>{f(x)}|} < \varepsilon}$ for all $t$ for which $|x-t|<\delta$}.} \uncover<3->{\alert<7>{Then for all $0<h<\delta$:} }
 \[
 \begin{array}{rlll|l}
 \uncover<8->{\alert<8>{\varepsilon} &\alert<8>{ > \hphantom{ \int_{ x}^{ x+h}(} f(t)-f(x) } & \alert<8>{ > - \varepsilon }  &\uncover<9->{&\text{integrate}} }\\
-\uncover<9->{h\varepsilon  & >\alert<10,11>{\int_{x }^{x+h}} ( \alert<10>{ f(t)}-\alert<11>{f(x)}\alert<10,11>{ dt} &>-h\varepsilon &\uncover<12->{& \text{divide~by~}\alert<12>{h }} } \\
+\uncover<9->{h\varepsilon  & >\alert<10,11>{\int_{x }^{x+h}} ( \alert<10>{ f(t)}-\alert<11>{f(x)})\alert<10,11>{ dt} &>-h\varepsilon &\uncover<12->{& \text{divide~by~}\alert<12>{h }} } \\
 \uncover<12->{\varepsilon& >\frac{\alert<13>{\int_{x }^{x+h}}(f(t)-\alert<13>{f(x)})\alert<13>{dt}}{ \alert<12,13>{ h} }& >-\varepsilon}\\
 \uncover<13->{\alert<14>{\varepsilon}&\alert<14>{>} \frac{\int_{x }^{x+h}f(t)dt }{h}- \alert<13>{\frac{h f(x)}{h}} &\alert<14>{ > - \varepsilon}}\\
 \uncover<14->{\varepsilon&\color{red} >  \left| \color{black} \frac{\int_{x }^{x+h}f(t)dt }{h} - f(x)\color{red} \right|}\\
