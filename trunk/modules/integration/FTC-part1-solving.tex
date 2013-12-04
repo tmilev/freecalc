@@ -1,0 +1,32 @@
+%module FTC part1 solving problems.
+\begin{frame}
+\begin{theorem}
+Let $a(x)$, $b(x)$ be differentiable functions, $f$ - continuous on $[a(x),b(x)]$ and $\displaystyle G(x)=\int_{a(x)}^{b(x)} f(t)dt$. Then  $ \alert<10>{G'(x)=f(a(x))a'(x)-f(b(x))b'(x)}$.
+\end{theorem}
+\begin{proof}
+\uncover<2->{Set $\alert<7>{\displaystyle h(u)=\int_{c}^{u}f(t)dt}$.} \uncover<3->{FTC part 1 states that $h'(u)=f(u)$.} \uncover<5->{\alert<5>{Let $c\in (a(x),b(x))$}.} 
+
+$\begin{array}{rcl}
+\uncover<4->{\displaystyle G(x)&=&\displaystyle\int_{a(x)}^{b(x)} f(t)dt}\uncover<5->{= \int_{\alert<5>{c}}^{b(x)} f(t)dt+ \int_{\alert<6>{a(x)}}^{\alert<5>{\alert<6>{c}}} f(t)dt} \\
+\uncover<6->{&=&\displaystyle \int_cx^{b(x)}f(t)dt\alert<6>{-}\int_{\alert<6>{c}}^{\alert<6>{a(x)}}f(t)dt}\uncover<7->{=\alert<7>{h(b(x))-h(a(x)) } }\quad.
+\end{array}$
+
+\uncover<8->{Then} \uncover<9->{using the chain rule we get}
+
+$ \uncover<8->{\displaystyle\alert<10>{  G'(x)}= \left(h(b(x))-h(a(x)) \right)'} \uncover<9->{= h'(b(x)) b'(x)-h'(a(x))a'(x)}\uncover<10->{=\alert<10>{f(a(x))a'(x)-f(b(x))b'(x)}},
+$\uncover<10->{ as desired.}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{example}
+Let $\displaystyle G(x)=\int_{\sqrt{x}}^{x^2}\ln t dt$, $x> 0$. Find $G'(x)$.
+
+\[
+\uncover<2->{G'(x)=(\ln x^2) (x^2)'-(\ln \sqrt{x}) (\sqrt{x})'}\uncover<3->{= \left(4x- \frac14 x^{-\frac12}\right)\ln x.}
+\]
+
+\end{example}
+\end{frame}
+
+%end module FTC part1 solving problems.
