@@ -45,7 +45,7 @@
 \DeclareMathOperator{\taylor}{Taylor}
 
 \newcommand{\optionalDisplay}[1]{}
-\renewcommand{\optionalDisplay}[1]{#1}
+%\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
 \newcommand{\optionalMaterial}{\textbf{(Optional)}}
@@ -464,9 +464,50 @@ for some positive number $\varepsilon>0$.
 Let $a$ be a real number. We say that the set $I$ is a \emph{neighborhood of $a$} if it contains a punctured interval around $a$.
 \end{definition}
 In other words,  $I$  is a neighborhood of $a$  if $I\subset J$ for some set $J$ of the form $ J= (a-\varepsilon,a)\cup (a, a+\varepsilon)$ for some positive $\varepsilon>0$.
-\begin{definition}
-Let $m(t)$ be a function defined in a neighborhood of $a$.  We say that the limit $ $
+
+Before we proceed to the formal definition of limit (Definition \ref{defLimit} below), we explain this notion informally. We say that $f(x)$ tends to $L$ as $x$ tends to $a$ and we write
+\[
+\lim_{x\to a} f(x)=L
+\]
+if, no matter how small positive number $\varepsilon$ we pick, we can always choose a small neighborhood of $a$ so that the distance between $f(x)$ and $L$ is less than $\varepsilon$. Consider a rectangle centered at $(a,L)$ with base $ 2\delta$ and height  $2\varepsilon$  (see Figure \ref{figLimitDef} below). Geometrically, $\lim_{x\to a}f(x)=L$ means that, no matter how small one picks the height $2\varepsilon$ of the rectangle to be, one can still select a width $2\delta$ so that the rectangle in Figure \ref{figLimitDef} contains the entire graph of $y=f(x)$ when $x$ is close to $a$ (except possibly at $x=a$). Here, for a smaller $\varepsilon$, one would expect in general a smaller neighborhood around $a$\footnote{ but not necessarily: think of constant functions.}.
+
+\begin{figureFixed}
+\begin{pspicture}(-0.5,-0.5)(3,2.5)
+\tiny
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-0.6,-0.5)(3,2.5)
+\psLabels{3}{2.5}
+\rput[l](2.8,1.7){\tiny $y=f(x)$}
+
+\psplot[linecolor=red]{-0.5}{3}{x x mul 4 div}
+\pscircle*(2,1){0.05}
+\pscircle*(2,0){0.05}
+\pscircle*(0,1){0.05}
+\rput[b](2,0.1){\tiny $a$}
+\rput[l](0.1,1){\tiny $L$}
+\psline[linestyle=dotted](-0.5,0.8)(3, 0.8)
+\psline[linestyle=dotted](-0.5,1.2)(3, 1.2)
+\psline[linecolor=blue]{<->}(-0.5,0.8)(-0.5,1.2)
+\rput[r](-0.6, 1){ $2\varepsilon$}
+
+\psline[linestyle=dotted](1.84,-0.5)(1.84, 2.5)
+\psline[linestyle=dotted](2.16,-0.5)(2.16, 2.5)
+\psline[linecolor=blue]{<->}(1.84,2.5)(2.16,2.5)
+\rput[t](2, 2.4){ $2\delta$}
+\end{pspicture}
+\caption{\label{figLimitDef} $\lim\limits_{x\to a} f(x)=L$ can be interpreted as being able to select a rectangle centered at $(a, L)$ with sides so that for $x$ near $a$, the entire graph of $y=f(x)$ lies inside that rectangle, except possibly at $a$. }
+\end{figureFixed}
+
+Formally, the definition of limit is as follows.
+\begin{definition}\label{defLimit}
+Let $f(x)$ be a function defined in a punctured neighborhood of $a$.  We say that the limit of $f(x)$ as $x$ tends to $a$ equals $L$ and we write 
+\[
+\lim_{x\to a} f(x)=L
+\]
+if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x$ with $0<|x-a|<\delta$ it follows that  $|f(x)-L|<\varepsilon$.
 \end{definition}
+
+
+
 \section{}\label{secTangentDef}
 
 \chapter{Complex numbers and trigonometric functions}
