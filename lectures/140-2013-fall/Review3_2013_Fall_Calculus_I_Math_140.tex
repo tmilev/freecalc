@@ -91,6 +91,11 @@ Use the Mean Value Theorem/Rolle's Theorem to prove that the function has \textb
 \end{enumerate}
 
 \end{problem}
+\textbf{Solution 9.2}. $f(5)=\cos^3\left(\frac{5}{3}\right) +\sin 5-15 \leq 2-15=-13<0 $ (because $\cos a, \sin b\in [-1,1]$ for arbitrary $a,b$). Similarly $f(-5)=\cos^3\left(-\frac{5}{3}\right) +\sin (-5)+15 \geq 15-2>0$. Therefore by the Intermediate Value Theorem $f(x)=0$ has at least one solution in the interval $[-5,5]$.
+
+Suppose on the contrary to what we are trying to prove, $f(x)=0$ has two or more solutions; call the first 2 solutions $a,b$. That means that $f(a)=f(b)=0$, so by the Mean value theorem, there exists a $c\in (a,b)$ such that $f'(c)=(f(a)-f(b))/(a-b)=(0-0)/(a-b)=0$. On the other hand we may compute:
+
+$$ f'(x)=-3+\cos x-\cos^{2}\left(\frac{x}3\right)\sin\left(\frac{x}{3}\right) \leq -1<0 $$, where the first inequality follows from the fact that $\sin x,\cos x\in [-1,1]$. So we got that $f'(c)=0$ for some $c$ but at the same time $f'(x)<0$ for all $x$, which is a contradiction. Therefore $f(x)=0$ has exactly one solution. 
 
 \begin{problem}
 Find the linearization of
@@ -158,6 +163,44 @@ State the Fundamental Theorem of Calculus (both parts). (Lecture 22)
 \answer{$\frac92$}
 \end{enumerate}
 \end{problem}
+%\begin{comment}
+\textbf{ Solution, Problem 9.2. } $x=4-y^2$ is a parabola (here we consider $x$ as a function of $y$). $y=-x+2$ implies that $x=2-y$ and so the two curves intersect when 
+\[
+\begin{array}{rcl}
+4-y^2&=&2-y\\
+-y^2+y+2&=&0\\
+-(y+1)(y-2)&=&0\\
+y&=& -1\text{~or~}2\quad \quad .
+\end{array}
+\]
+As $x=2-y$, this implies that $x=0$ when $y=2$ and $x=3$ when $y=-1$, or in other words the points of intersection are $(0,2)$ and $(3, -1)$. Therefore we may identify the region whose area we are looking for as the area plotted below. Integrating with respect to $y$, we get that the area is 
+
+\[A=\int_{-1}^{2} |4-x^2-(-x+2) | dy=\int_{-1}^2 (-y^2+y+2)dy=\left[-\frac{y^3}3+\frac{y^2}{2}+2y\right]_{-1}^2
+=-\frac{8}{3}+2+4-\left(-\frac{(-1)^3}{3}+\frac{(-1)^2}{2}-2 \right)= \frac{9}{2}
+\]
+
+
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-3.500000, -5)(4.500000,5) 
+\psframe*[linecolor=white](-3.500000,-5)(4.500000,5) 
+\tiny 
+\rput(-1.5,5){$y=- x+2$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{4.000000}{2 x -1 mul add }
+%Function formula: - (- x+4)^{1/2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{4.000000}{4 x -1 mul add 0.5 exp -1 mul }
+%Function formula: (- x+4)^{1/2} 
+\rput(2,2){$x=4-y^2$} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{4.000000}{4 x -1 mul add 0.5 exp }
+\pscustom*[linecolor=cyan]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{4}{4 x -1 mul add 0.5 exp }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{4}{3}{4 x -1 mul add 0.5 exp -1 mul }
+}
+\psaxesStandard{-3.000000}{-4.5}{4.5}{4.5} %Function formula: - x+2 
+\end{pspicture}
+
+
+%\end{comment}
+
 \begin{problem}~
 \begin{enumerate}
 % Volume problems
