@@ -261,9 +261,9 @@ That is why we may view the set of rational number $\mathbb Q $ as the set of pa
 \chapter{Limits, continuity, derivatives}
 \section{Limits}
 \subsection{The tangent problem}
-Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,f(2))=(2, \frac{2^2}{2}) =(2,2)$. In mathematical language we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (``tangent'' comes from Latin, ``to touch''). We shall give a formal definition of a tangent line later in Section \ref{secTangentDef}, after we have developed the required notion of limit. In the material preceding Section \ref{secTangentDef}, we shall refer to a ``tangent line'' informally, relying on the reader's intuition.
+Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,f(2))=(2, \frac{2^2}{2}) =(2,2)$. In mathematical language we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (``tangent'' comes from Latin, ``to touch''). We shall give a formal definition of a tangent line later in Section \ref{secTangentDef}; until then, we shall refer to a ``tangent line'' informally, relying on the reader's intuition.
 
-We are seeking to give a formal definition of a tangent at the point $P=(2,2)=(2, f(2))$ to match the intuition suggested by Figure \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall that every non-vertical line has equation 
+We are seeking an equation for the tangent through $P=(2,2)=(2, f(2))$ drawn in \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall that every non-vertical line has equation 
 \[
 y=mx+c
 \]
@@ -422,15 +422,16 @@ of the line and $c$ is called the $y$-intercept of the line. As the tangent line
 \end{center}
 \caption{A tangent line touches the graph of a function, and is approximated by secant lines \label{figTangentIdeaFor}}
 \end{figureFixed}
-It appears natural to approximate the tangent line using secant lines passing through the point $ P=(2, 2)$ and nearby points $Q=(t,f(t))=(t, \frac{t^2}{2})$ lying on the graph of $f(x)$. The line passing through $P=(2,2) $ and $Q=(t,f(t))$ has slope $m_Q:=\frac{f(t)-2}{t-2}$ and therefore has equation
+It is natural to approximate the tangent line using secant lines passing through the point $ P=(2, 2)$ and nearby points $Q=(t,f(t))=(t, \frac{t^2}{2})$ lying on the graph of $f(x)$. The line passing through $P=(2,2) $ and $Q=(t,f(t))$ has slope $m_Q:=\frac{f(t)-2}{t-2}$ and therefore has equation
 \[
 y-2=m_Q(x-2), \quad\quad \quad\text{where~} m_Q= \left(\frac{f(t)-2}{t-2}\right).
 \]
 As the equation of the tangent line is $y-2=m(x-2)$, we choose to approximate $m$ by the numbers $m_Q$ as $Q$ gets close to the point $P$. On the other hand, the point $Q=(t,f(t))$ gets closer to $P= (x, f(x))$ as $t$ gets closer to $x$.
-In Table \ref{tableTangentIdeaForTable}, we have computed the values of $f(t)$ and $m_Q=\frac{f(t)-2}{t-2}$ for various values of $t$ close to $x=2$. We see that as $t$ gets closer to $2$, $m_Q$ appear to get closer to the number $2$, and indeed, we can define $m=2$ and the equation of the tangent line at $P$ to be 
+In Table \ref{tableTangentIdeaForTable}, we have computed the values of $f(t)$ and $m_Q=\frac{f(t)-2}{t-2}$ for various values of $t$ close to $x=2$. We see that as $t$ gets closer to $2$, $m_Q$ appear to get closer to the number $2$, and indeed, we can say that $m_Q$ ``gets infinitely close to $2$ as $t$ approaches $2$'' and so we can define $m=2$. Then the equation of the equation of the tangent line at $P$ becomes 
 \[
-y-2=2(x-2)\quad .
+y-2=2(x-2)\quad ,
 \]
+which is exactly the equation of the line plotted in blue in Figure \ref{figTangentIdeaFor}.
 \begin{tableFixed}
 \begin{center}
 \begin{tabular}{c|c|c|c|c}
@@ -451,7 +452,7 @@ $x$& $f(x)=\frac{t^2}2$& $t-2$ & $f(t)-f(2)$ & $m_Q=\frac{f(t)-f(2)}{t-2}$ \\\hl
 \end{center}
 \caption{ Values of $f(x)$ and slope of line through $P,Q$. \label{tableTangentIdeaForTable}}
 \end{tableFixed}
-In order to model the computations in Table \ref{tableTangentIdeaForTable}, we need to define formally what it means for $m_Q$ to ``get closer'' to the number $2$, i.e., we need to define limit.
+In order to give a strict definition of tangent, we need to define formally what it means for $m_Q$ to ``get infinitely close'' to the number $2$. The colloquial phrase ``to get infinitely close to,'' corresponds to the mathematical notion of taking limits.
 \subsection{Definition of Limit}
 In order to define limit, we need to first define a neighborhood a real number $a$. Informally, a neighborhood of $a$ is a collection of points including all points sufficiently close to $a$ except possibly $a$. Formally, the definition of a neighborhood is given as follows.
 
