@@ -17,7 +17,7 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2,0)(0.5,0) 
 }
-\uncover<19,20>{
+\uncover<20,21>{
 \pscustom*[linecolor=red]{
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2,0)(0.5,0) 
@@ -31,7 +31,7 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 }
 }
 
-\uncover<10,19,21>{
+\uncover<10,20,22>{
 \pscustom*[linecolor=red]{
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2.15,1.136125)(2.15,0)(2,0)
@@ -66,9 +66,6 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 \psline[linewidth=2pt](1.5,0)( 2.5,0 )
 }
 
-\uncover<5-8>{ %
-\psline(2,0)(2,1) 
-}
 \uncover<4>{ %
 \psline[linecolor=red, linewidth=2pt](2,0)(2,1)
 }
@@ -103,7 +100,7 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 \rput[tr](2, -0.235){$x$}
 \end{pspicture}
 
-\vspace{1.4cm}
+\vspace{1.68cm}
 \column{0.73\textwidth}
 
 \only<1-15>{
@@ -120,13 +117,13 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 }
 
 \only<16->{
-So far we proved: \alert<22>{for any $\varepsilon >0$ there exists $\delta>0$ so that for all $h<\delta$ we have $\left| \frac{\int_{x }^{x+h}f(t)dt }{h}-f(x)\right|<\varepsilon$}.
+\uncover<17->{In analogous fashion  \alert<17>{we can handlethe case $h<0$}, to prove:} \alert<23>{ for any $\varepsilon >0$ there exists $\delta>0$ so that for \\ all $\only<16>{0<h\phantom{|}} \alert<17>{\only<17->{\phantom{0<}|h|}} \alert<17>{<\delta}$ we have $\left| \frac{\int_{x }^{x+h}f(t)dt }{h}-f(x)\right|<\varepsilon$.}
 
 \[
 \begin{array}{l}
-\uncover<17->{\displaystyle G'(x)=\lim\limits_{h\to 0}\frac{ \alert<19>{ G(x+h)} -\alert<20>{G(x)}}{h} }\\ 
-\uncover<18->{\displaystyle \phantom{ G'(x) }= \lim\limits_{h\to 0}  \frac{ \alert<19>{ \alert<21>{\int_{a}^{x+h}} f(t)dt} - \alert<20>{ \alert<21>{\int_{a}^{x}} f(t)dt}}{h} }\\
-\uncover<21->{\displaystyle \phantom{ G'(x) }= \alert<22>{\lim\limits_{h\to 0}\frac{\alert<21>{\int_{x}^{x+h}}f(t)dt }{h} \uncover<22->{=f(x)}}}
+\uncover<18->{\displaystyle G'(x)=\lim\limits_{h\to 0}\frac{ \alert<20>{ G(x+h)} -\alert<21>{G(x)}}{h} }\\ 
+\uncover<19->{\displaystyle \phantom{ G'(x) }= \lim\limits_{h\to 0}  \frac{ \alert<20>{ \alert<22>{\int_{a}^{x+h}} f(t)dt} - \alert<21>{ \alert<22>{\int_{a}^{x}} f(t)dt}}{h} }\\
+\uncover<22->{\displaystyle \phantom{ G'(x) }= \alert<23>{\lim\limits_{h\to 0}\frac{\alert<22>{\int_{x}^{x+h}}f(t)dt }{h} \uncover<23->{=f(x)}}}
 \end{array}
 \]
 
