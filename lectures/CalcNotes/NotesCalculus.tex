@@ -453,7 +453,7 @@ $x$& $f(x)=\frac{t^2}2$& $t-2$ & $f(t)-f(2)$ & $m_Q=\frac{f(t)-f(2)}{t-2}$ \\\hl
 \caption{ Values of $f(x)$ and slope of line through $P,Q$. \label{tableTangentIdeaForTable}}
 \end{tableFixed}
 In order to give a strict definition of tangent, we need to define formally what it means for $m_Q$ to ``get infinitely close'' to the number $2$. The colloquial phrase ``to get infinitely close to,'' corresponds to the mathematical notion of taking limits.
-\subsection{Definition of Limit}
+\subsection{Definition of Limit}\label{secDefLimit}
 In order to define limit, we need to first define a neighborhood a real number $a$. Informally, a neighborhood of $a$ is a collection of points including all points sufficiently close to $a$ except possibly $a$. Formally, the definition of a neighborhood is given as follows.
 
 We say that a $J$ is a \emph{punctured interval} around $a$ if $J$ is of the form 
@@ -466,11 +466,13 @@ Let $a$ be a real number. We say that the set $I$ is a \emph{neighborhood of $a$
 \end{definition}
 In other words,  $I$  is a neighborhood of $a$  if $I\subset J$ for some set $J$ of the form $ J= (a-\varepsilon,a)\cup (a, a+\varepsilon)$ for some positive $\varepsilon>0$.
 
-Before we proceed to the formal definition of limit (Definition \ref{defLimit} below), we explain this notion informally. We say that $f(x)$ tends to $L$ as $x$ tends to $a$ and we write
+Before we proceed to the formal definition of limit (Definition \ref{defLimit} below) let us explain limits informally.  We say that $f(x)$ tends to $L$ as $x$ tends to $a$ and we write
 \[
 \lim_{x\to a} f(x)=L
 \]
-if, no matter how small positive number $\varepsilon$ we pick, we can always choose a small neighborhood of $a$ so that the distance between $f(x)$ and $L$ is less than $\varepsilon$. Consider a rectangle centered at $(a,L)$ with base $ 2\delta$ and height  $2\varepsilon$  (see Figure \ref{figLimitDef} below). Geometrically, $\lim_{x\to a}f(x)=L$ means that, no matter how small one picks the height $2\varepsilon$ of the rectangle to be, one can still select a width $2\delta$ so that the rectangle in Figure \ref{figLimitDef} contains the entire graph of $y=f(x)$ when $x$ is close to $a$ (except possibly at $x=a$). Here, for a smaller $\varepsilon$, one would expect in general a smaller neighborhood around $a$\footnote{ but not necessarily: think of constant functions.}.
+if, no matter how small positive number $\varepsilon$ we pick, we can always choose a small neighborhood of $a$ so that the distance between $f(x)$ and $L$ is less than $\varepsilon$. Given an $\varepsilon$ and $\delta$, let us draw a rectangle centered at $(a,L)$ with base $ 2\delta$ and height $2\varepsilon$  (Figure \ref{figLimitDef} below). Then $\lim_{x\to a}f(x)=L$ means that, no matter how small the height of the rectangle is, one can select its width so small that when the argument $x$ takes the values given by the rectangle base, the graph of $f(x)$ lies entirely in that rectangle (except possibly the point $(a, f(a))$). 
+
+%We note that for a smaller $\varepsilon$, one would expect in general a smaller neighborhood around $a$\footnote{ but not necessarily: think of constant functions.}.
 
 \begin{figureFixed}
 \begin{pspicture}(-0.5,-0.5)(3,2.5)
@@ -507,9 +509,44 @@ Let $f(x)$ be a function defined in a punctured neighborhood of $a$.  We say tha
 if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x$ with $0<|x-a|<\delta$ it follows that  $|f(x)-L|<\varepsilon$.
 \end{definition}
 
+\subsection{Computing limits}
+Let us compute the limit
+\[
+\lim_{x\to 2} x\quad .
+\]
+We shall soon learn an algebraic techniques to evaluate this limit instantaneously (the limit is $2$). However, let us start by interpreting the limit geometrically. The function $f(x)=x$ is a straight line passing through the origin and $f(2)=2$. Now it is clear that no matter how small $\varepsilon$ is chosen, if one chooses $\delta=\varepsilon$, then it is clear that 
+
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.000000, -5)(3.500000,5) 
+\psframe*[linecolor=white](-1.000000,-5)(3.500000,5) 
+\tiny 
+\psaxesStandard{-0.500000}{-0.5}{3.000000}{3} %Function formula: x 
+\rput(1,1.5){$y=x$} 
+\psline[linecolor=\psColorGraph](-0.5, -0.5)(3,3)
+\psFullDot{2}{2}
+\psXTickWithLabel{2}{$2$}
+\psYTickWithLabel{2}{$2$}
+\end{pspicture} 
 
 
-\section{}\label{secTangentDef}
+An important note about mathematical notation is to be made. In Section \ref{secDefLimit}, we defined the notation
+\[
+\lim\limits_{x\to a} f(x)=L
+\]
+only on condition that the limit exists and is equal to some particular number $L$. However, in the rest of this book (as well as most other calculus textbooks), we use the notation
+\[
+\lim\limits_{x\to a}f(x)
+\]
+even if there exists no number $L$ that satisfies the requirements of Definition \ref{defLimit}. If that is the case, we say that the ``limit does not exist''. We ask the reader to excuse this informality in view of its great convenience.
+
+\section{Derivatives}
+
+\subsection{Definition of derivative}\label{secDerivative}
+
+
+\subsection{Definition of non-vertical tangent}
+\label{secDefTangent}
+
 
 \chapter{Complex numbers and trigonometric functions}
 
