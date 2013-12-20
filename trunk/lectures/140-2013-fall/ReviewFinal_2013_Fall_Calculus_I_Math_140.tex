@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{../homework-problems}
+\usepackage{../pstricks-commands}
 
 \newcommand{\ds}{\displaystyle}
 \newcommand{\dx}{\; dx}
@@ -123,10 +124,10 @@ $\sqrt{99.8}$.
 \begin{problem}~
 \begin{enumerate}
 % Riemann sums
-\item Estimate $\int_0^4 \sqrt{8x+1}$ using a Riemann sum with four intervals of equal width, and taking the sample point to be the left endpoint. (That is, estimate the integral using 4 rectangles and left endpoints.)
+\item Estimate $\int_0^4 \sqrt{8x+1}dx$ using a Riemann sum with four intervals of equal width, and taking the sample point to be the left endpoint. (That is, estimate the integral using 4 rectangles and left endpoints.)
 
 \answer{ $\Delta x = 1$ and $f(x) = \sqrt{8x+1}$. ${\ds \int_0^4 f(x) \dx \approx 9 + \sqrt{17}}$.}
-\item Estimate $\int_0^6 \frac{1}{x^2+1}$ using a Riemann sum with three intervals of equal width, and taking the sample point to be the left endpoint. (That is, estimate the integral using 3 rectangles and left endpoints.)
+\item Estimate $\int_0^6 \frac{1}{x^2+1} dx$ using a Riemann sum with three intervals of equal width, and taking the sample point to be the left endpoint. (That is, estimate the integral using 3 rectangles and left endpoints.)
 
 \answer{ $\Delta x = 2$ and $f(x) = \frac{1}{x^2+1}$. ${\ds \int_0^6 f(x) \dx \approx 214/85}$.}
 \end{enumerate}
@@ -137,13 +138,50 @@ $\sqrt{99.8}$.
 % Optimization
 \item What is the $x$-coordinate of the point on the hyperbola $x^2 - 4y^2 = 16$ that is closest to the point $(1, 0)$? 
 
-\answer{$x = 4/5$}
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-10.500000, -5)(10.500000,5) 
+\psframe*[linecolor=white](-10.500000,-5)(10.500000,5) 
+\tiny 
+\psaxesStandard{-10.000000}{-4.5}{10.000000}{4.5} %Function formula: - (1/4 x^{2}-4)^{1/2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-10.000000}{-4.000000}{-4 x 2 exp 0.25 mul add 0.5 exp -1 mul }
+%Function formula: (1/4 x^{2}-4)^{1/2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-10.000000}{-4.000000}{-4 x 2 exp 0.25 mul add 0.5 exp }
+%Function formula: - (1/4 x^{2}-4)^{1/2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{4.000000}{10.000000}{-4 x 2 exp 0.25 mul add 0.5 exp -1 mul }
+%Function formula: (1/4 x^{2}-4)^{1/2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{4.000000}{10.000000}{-4 x 2 exp 0.25 mul add 0.5 exp }
+\psFullDot{1}{0}
+\pscircle[linestyle=dotted](1,0){0.9}
+\end{pspicture} 
+
+\answer{$x = 4$}
+
+\item What is the $x$-coordinate of the point on the ellipse $x^2+4y^2=16$ closest to the point $(1,0)$?
+
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-4.500000, -5)(4.500000,5) 
+\psframe*[linecolor=white](-4.500000,-5)(4.500000,5) 
+\tiny 
+\psline[linecolor=red!1](-10,0)(-9.99,0)
+\psaxesStandard{-4.000000}{-4.5}{4.000000}{4.5} %Function formula: - (-1/4 x^{2}+4)^{1/2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-4.000000}{4.000000}{4 x 2 exp -0.25 mul add 0.5 exp -1 mul }
+%Function formula: (-1/4 x^{2}+4)^{1/2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-4.000000}{4.000000}{4 x 2 exp -0.25 mul add 0.5 exp }
+\pscircle[linestyle=dotted](1,0){0.574456}
+\psFullDot{1}{0}
+\psFullDot{1.333333}{1.885618}
+\psFullDot{1.333333}{-1.885618}
+\end{pspicture} 
+\answer{$x=\frac43$}
 \item You want to build a rectangular box with a square base out of sheet metal. You are going to use 2 pieces of sheet metal for the bottom of the box to reinforce it, and only a single piece of sheet metal for all of the sides and the top. If you want
 to use no more than $36$ sq. ft. of material, what is the largest possible volume you can enclose?
 
 \answer{12 cubic feet.}
 \end{enumerate}
 \end{problem}
+\textbf{Solution.} 
+
+
 
 \begin{problem}~
 \begin{enumerate}
