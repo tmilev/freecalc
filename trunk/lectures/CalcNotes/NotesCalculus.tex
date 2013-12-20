@@ -73,13 +73,16 @@ $\Rightarrow$
 
 %\noindent \textbf{Study materials. } The present notes and the textbook by James Stewart, Calculus, 7th edition, published by Brooks Cole, 2012. ISBN-13: 978-0-538-49781-7, ISBN-10: 0-538-49781-5. 
 
-
-\noindent \textbf{Disclaimer. } This text is in preparation and does contain typos and errors. Please read critically!
-
-\noindent \textbf{Additional materials.} Students are strongly encouraged to look up mathematics on Wikipedia. 
+\chapter*{Preface}
 
 
-\noindent\textbf{License.} This text and its source code is licensed to you under the Creative Commons license CC BY 3.0. The license states that you are free
+\section*{Disclaimer} 
+This text is in preparation and does contain typos and errors. Please read critically!
+
+\section*{Additional materials} Students are strongly encouraged to look up mathematics on Wikipedia. 
+
+
+\section*{License to redistribute and modify} This text and its source code is licensed to you under the Creative Commons license CC BY 3.0. The license states that you are free
 \begin{itemize}
 \item to Share - to copy, distribute and transmit the work;
 \item to Remix - to adapt, change, etc., the work
@@ -94,15 +97,21 @@ A semi-permanent link of the .tex source of this textbook can be found here. If 
 
 \url{https://www.assembla.com/code/freecalc/subversion/nodes/202/trunk/lectures/CalcNotes}
 
+\section*{Using the textbook}
+
+Some material in this book is marked as \optionalMaterial. Such material is considered to be outside of the scope of a regular Calculus course, yet may be needed to either provide a more rigorous exposition, or to provide a broader perspective on the topic. 
+
+While material marked as \optionalMaterial ~should be accessible to a motivated student, it is expected to be of higher difficulty than the rest of the book. The author does not recommend the material marked as \optionalMaterial ~ as a requirement for successful completion of a course in Calculus.
+
+\section*{Scope of the textbook}
+This textbook does not attempt a rigorous exposition of the subject. However, all sacrifices of rigor have been made by omitting material and giving informal explanations of proofs of theorems. It has been the goal of this textbook from the very beginning to use completely standard, precise, and, even if slightly simplified, professional mathematical language. 
+
+As the most important example of this we note that, while we have avoided a formal definition of differential forms, all statements about differential forms are fully compatible with the commonly accepted professional mathematical definition. To the calculus instructors reading this text, we recall that differential forms are defined as the dual (in the sense of linear algebra) vector space of the tangent vector space, which in turn is most frequently defined using linear differential operators on manifolds.
+
 \tableofcontents
 
 
 
-\chapter{Using the textbook}
-
-Some material in this book is marked as \optionalMaterial. Such material is considered to be outside of the scope of a regular Calculus course, yet may be needed to either provide a more rigorous exposition, or to provide a broader perspective on the topic. 
-
-While material marked as \optionalMaterial should be accessible to a motivated student, it is expected to be of higher difficulty than the rest of the book, and should not be required for successfully completing a course in Calculus.
 
 
 %Here is a list of common notation and abbreviations. %This list will grow as the course progresses. Feel free to request additional notation.
@@ -126,13 +135,13 @@ While material marked as \optionalMaterial should be accessible to a motivated s
 Throughout this textbook, we use $\eqdef$ to postulate (``take as axiom'', ``assume as given without proof'') a formula, and we use $=$ to derive/deduce a formula. For example, when we write 
 \[ 2+2=4
 \]
-we mean that we derive this equality (in this case, through the rules of elementary school arithmetics). When we derive an equality, both sides of the equality are already known objects (in the above case, those are the operation $+$ and the numbers $2$ and $4$).  On the other hand, when we write 
+we mean that we derive this equality (in this case, through the rules of elementary school arithmetics). When we derive an equality, both sides of the equality are already known objects (in the above case, the right hand side is the number $4$ and the left hand side is an expression build by the operation $+$ and two copies of the number $2$).  On the other hand, when we write 
 \[
 \tan x\eqdef\frac{\sin x}{\cos x}\quad ,
 \]
 we do not deduce the above formula; rather, we \emph{define} the expression $\tan x$ via the expression $\displaystyle\frac{\sin x}{\cos x}$.
 
-\textbf{A note to computer scientists. } In many of the modern computer programming languages (for example, C, C++, java, Python, javascript), the equality sign is used in a way that corresponds to neither $=$, nor to $\eqdef$. In those programming languages, the $=$ sign instructs a computer to change the state of a given variable. This operation has no corresponding mathematical notation. 
+\textbf{A note to computer scientists. } In many of the modern computer programming languages (for example, C, C++, java, Python, javascript), the equality sign is used in a way that does not corresponds to either $=$, or to $\eqdef$. In those programming languages, the $=$ sign instructs a computer to change the state of a given variable. This programming language operation does not have a corresponding symbolic mathematical notation; instead it roughly corresponds to the mathematical use of the expression ``Set $x$ to be \dots ''.
 \section{Sets and elements}
 \url{http://en.wikipedia.org/wiki/Set_(mathematics)}
 
@@ -223,25 +232,64 @@ A function $f$ is a \emph{surjection (or onto)} if for every element $r$ in the 
 \end{itemize}
 \end{definition}
 In other words, $f$ is injection if it sends different elements to different elements, and $f$ is a surjection if all elements in its  codomain (``target set'') are obtained as images of the function $f$. In this way, $f$ is bijection if it sends different elements to different elements and every element in the codomain of $f$ has a preimage.
-\begin{definition}\index{function!inverse}
-Let $f:X\to Y$ be a function from a set $X$ onto its codomain $Y$, such that $f$ is a bijection (different elements are sent to different ones and every element in the target set has a preimage). Then the function $g: Y\to X$ is called an inverse of $f$ if $g(f(x))=x$ for all $x\in X$ and $f(g(y))=Y$ for all $y\in Y$. 
-\end{definition}
-
-The inverse of $f$ is sometimes denoted as $f^{-1}$. 
-
-\importantText{
-Do not confuse $f^{-1}(x)$ with $\frac{1}{f(x)} =\left(f(x)\right)^{-1}$.
-}
-
-\noindent Please note that the two notations are different: the position of the superscript $^{-1}$ is different for $f^{-1}(x)$ and $\left(f(x)\right)^{-1}$.
-
-%\textbf{Advice.} Due to the visual similarity between the notations $f^{-1}(x)$ and $\right(f(x)\left)^{-1}$, we advise you to use the notation $^{-1}$ with great caution. In particular, you should try to use $f^{-1}(x)$ only to denote inverse functions, never to denote $\frac{1}{f(x)}$. Avoid overall the use of the superscript $-1$ with trigonometric functions: instead of  $\sin^{-1}(x)$ you should write $\arcsin x$.
 
 Let $f: \mathbb R\to \mathbb R$ (``$f$ maps the set of real numbers to the set of real numbers''). Let $y=f(x)$ be the graph of $f$.
 \begin{criterion}[Horizontal line test]
 $f$ is injective if every horizontal line $y=const$ intersects the graph $y=f(x)$ no more than once.
 \end{criterion}
 
+\begin{definition}\index{function!inverse}
+Let $f:X\to Y$ be a function from a set $X$ onto its codomain $Y$, such that $f$ is a bijection (different elements are sent to different ones and every element in the target set has a preimage). Then the function $g: Y\to X$ is called an inverse of $f$ if $g(f(x))=x$ for all $x\in X$ and $f(g(y))=Y$ for all $y\in Y$. 
+\end{definition}
+
+\subsection{Inverse function notation }
+\noindent The inverse of $f$ is denoted as $f^{-1}$. This notation is one of the most frequent causes of student confusion. In attempt to resolve that confusion we make a few important notes on notation. First and foremost,
+
+\importantText{
+do not confuse $f^{-1}(x)$ with $\frac{1}{f(x)} =\left(f(x)\right)^{-1}$.
+}
+
+\noindent The two notations are different: the position of the superscript $^{-1}$ is different for $f^{-1}(x)$ and $\left(f(x)\right)^{-1}$.
+
+It is important to note that the notation $f^{2}(x)$ is an abbreviation for $(f(x))^2$,  $f^{3}(x)$ is an abbreviation of $(f(x))^3$, and so on. Nevertheless, $f^{-1}(x)$ is not the abbreviation of $\left(f(x)\right)^{-1}$ and hence does not follow the pattern. The mathematical use of superscripts of functions follows the following rules.
+\[
+f^{n}(x)= \left\{ \begin{array}{ll}\text{stands for } \left(f(x)\right)^n & \text{when } n=1,2,3,\dots \\
+\text{stands for inverse of } f \text{ applied to }x&\text{when } n=-1\\
+\text{should not be used }  & \text{when } n\neq -1, 1,2,3,\dots .
+\end{array} \right.
+\]
+\textbf{Advice.} To avoid confusion, use whenever possible/convenient the completely unambiguous $\frac{1}{f(x)}$ instead of   $\left(f(x)\right)^{-1}$.
+
+\importantText{
+\begin{tabular}{l}
+Whenever in doubt about notation, remove the ambiguity by \\
+proper use of English language: write \\
+\importantText{``Let $g$ be the inverse function of $f$. Then $g(x)=\dots$  ''}\\
+instead of \\
+\importantText{$f^{-1}(x)=\dots$}\quad .
+\end{tabular}
+}
+
+For the student familiar with trigonometry, we make one more note. The inverse functions of the trigonometric functions $\sin, \cos, \tan$ have special names: the inverse function of $\sin $ is called $ \arcsin$, the inverse of $\cos $ is $\arccos$, the inverse of $\tan $ is $\arctan$. It is the personal opinion of one of the authors that you should
+
+\importantText{
+\begin{tabular}{l}
+avoid the use the superscript $^{-1}$ to denote inverses \\
+of trigonometric functions. Write \\ 
+\importantText{
+$\arcsin x, \arccos x, \arctan x$
+}
+\\
+instead of
+\\
+\importantText{
+$\sin^{-1}x, \cos^{-1}x, \tan^{-1}x$.
+}
+\end{tabular}
+}
+
+\chapter{A minimal algebra knowledge}
+In the present chapter we develop a necessary set of formulas. 
 
 \chapter{Sequences and numbers}
 In this chapter we define the most common sets of numbers used in mathematics - the integers, the rational numbers, the real numbers and the complex numbers. 
@@ -264,6 +312,84 @@ That is why we may view the set of rational number $\mathbb Q $ as the set of pa
 
 \section{\optionalMaterial Real number axioms}\label{secRealNumbersDef}
 \section{ Complex numbers}
+
+\label{secComplexNumbers}
+
+\noindent \url{http://en.wikipedia.org/wiki/Complex_number}
+\noindent The basic operations with complex numbers follow.
+
+\index{complex!number}\index{imaginary}\index{imaginary!unit} Imaginary unit.
+\[i^2\eqdef -1\quad .\]
+
+In the complex number $z=a+ib$, $a$ is called \emph{real part of $z$}, $b$ is called \index{imaginary!part}\emph{imaginary part of $z$}. Notation.
+\[
+\Re (a+ib)\eqdef a \quad, \quad \quad \Im (a+ib)\eqdef b \quad .
+\]
+Number of the form $ib$ for $b\in \mathbb R$ are called imaginary.
+
+Complex addition.
+\[(a+i b)+ (c+id)\eqdef (a+c) + i(b+d) \quad .
+\]
+
+Complex multiplication 
+
+\[
+(a+ i b)(c+id)=(ac-bd)+i(bc+ad) \quad .
+\]
+
+\index{complex!conjugation} Complex conjugation.
+\[\overline{a+ib}\eqdef a-ib \quad .
+\]
+
+Complex conjugation respects addition.
+\importantFormula{
+\label{eqComplexConjugationIsAddHMM} 
+\overline {z +w}= \bar z +\bar w\quad .
+}
+
+Complex conjugation respects multiplication.
+\importantFormula{
+\label{eqComplexConjugationIsFieldHMM}  \overline {z w}= \bar z \bar w\quad .
+}
+\begin{proof}
+Let $z= a+ib$ and $w=c+id$. Then
+\begin{equation*}
+\begin{array}{rcl}\overline {zw}&=& \overline{(a+ib)(c+id)}= \overline{ac-bd +i(ad+bc) }\\&=& ac-bd-i(ad+bc)= a(c-id)-ibc+i^{2}bd\\&=& a(c-id)-ib(c-id)= (a-ib)(c-id)\\&=&\bar z \bar w\quad .
+\end{array}
+\end{equation*}
+\end{proof}
+
+\index{complex!absolute value} Absolute value of a complex number.
+
+\[
+|a+ib|^2\eqdef (a+ib)\overline{(a+ib)}=(a+ib)(a-ib)=a^2+b^2 \quad .
+\]
+\[
+|a+ib|\eqdef \sqrt{a^2+b^2}\quad .
+\]
+
+Complex division.
+\[
+\frac{1}{c+id}= \frac{c-id}{(c+id)(c-id)}=\frac{c}{c^2+d^2}-i\frac{d}{c^2+d^2} \quad .
+\]
+
+Complex division (general).
+\[
+\frac{a+ib}{c+id}=(a+ib)\frac{1}{c+id}= \frac{(a+ib)(c-id)}{(c+id)(c-id)}= \frac{ac+bd}{c^2+d^2}+i\frac{(bc-ad)}{c^2+d^2} \quad .
+\]
+
+\subsubsection{Exercises}
+\begin{problem}
+Carry out the operations. For items 4-6 review the Newton Binomial formula \eqref{eqNewtonBinomialFormula}.
+\begin{enumerate}
+\item $(5+3i)^2$.
+\item $(5+3i)/(2-3i)$.
+\item $(5+3i)^{-2}$.
+\item $(1+i)^3$.
+\item $(1+i)^4$.
+\item $(1+i)^5$.
+\end{enumerate}
+\end{problem}
 \section{\optionalMaterial A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
 
 \chapter{Limits, continuity, derivatives}
@@ -483,6 +609,7 @@ if, no matter how small positive number $\varepsilon$ we pick, we can always cho
 %We note that for a smaller $\varepsilon$, one would expect in general a smaller neighborhood around $a$\footnote{ but not necessarily: think of constant functions.}.
 
 \begin{figureFixed}
+\optionalDisplay{
 \begin{pspicture}(-0.5,-0.5)(3,2.5)
 \tiny
 \psaxes[labels=none, ticks=none]{<->}(0,0)(-0.6,-0.5)(3,2.5)
@@ -505,6 +632,7 @@ if, no matter how small positive number $\varepsilon$ we pick, we can always cho
 \psline[linecolor=blue]{<->}(1.84,2.5)(2.16,2.5)
 \rput[t](2, 2.4){ $2\delta$}
 \end{pspicture}
+}
 \caption{\label{figLimitDef} $\lim\limits_{x\to a} f(x)=L$ can be interpreted as being able to select a rectangle centered at $(a, L)$ with sides so that for $x$ near $a$, the entire graph of $y=f(x)$ lies inside that rectangle, except possibly at $a$. }
 \end{figureFixed}
 
@@ -516,10 +644,9 @@ Let $f(x)$ be a function defined in a punctured neighborhood of $a$.  We say tha
 \]
 if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x$ with $0<|x-a|<\delta$ it follows that  $|f(x)-L|<\varepsilon$.
 \end{definition}
-
-\subsection{Computing limits}
-In the present section, we will learn algebraic techniques to evaluate limits quickly. We will start by computing a couple of basic ``building block'' limits by directly using the definition of limit \ref{defLimit}. Then we will proceed by showing how these building block limits can be used to compute more complex ones.
-
+\section{Computing limits}
+In the present section, we learn algebraic techniques to evaluate limits quickly. We will start by computing a couple of basic ``building block'' limits by directly using the Definition \ref{defLimit}. Then we will proceed by showing how these building block limits can be used to compute more complex ones using a number of ``limit laws''. We will summarize the acquired knowledge by giving a procedure for computing limits.
+\subsection{Limit laws}
 Let us compute the limit
 \[
 \lim_{x\to 2} x\quad .
@@ -527,6 +654,7 @@ Let us compute the limit
 We start by interpreting the limit geometrically. The function $f(x)=x$ is a straight line passing through the origin and $f(2)=2$. No matter how small $\varepsilon$ is chosen, if one chooses $\delta=\varepsilon$, then the graph of $f(x)=x$ locally ``fits'' (see Figure \ref{figContinuityID}) in a square with height $2\varepsilon$, and width $2\delta$ centered at $(2,2)$, and so $\lim\limits_{x\to 2} x=2$.
 
 \begin{figureFixed}
+\optionalDisplay{
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1.000000, -5)(3.500000,5) 
 \psframe*[linecolor=white](-1.000000,-5)(3.500000,5) 
@@ -549,10 +677,11 @@ We start by interpreting the limit geometrically. The function $f(x)=x$ is a str
 \rput[b](2, 2.6){ $2\delta$}
 
 \end{pspicture} 
+}
 \caption{\label{figContinuityID} The continuity of the identity function $f(x)=x$.}
 \end{figureFixed}
 
-Let us now show that $\lim_{x\to 2}x=2 $ algebraically, using the definition of limit (Definition \ref{defLimit}). Indeed, this is straightforward: for every $\varepsilon>0$, we can select $\delta=\varepsilon$ so that whenever $|x-2|<\delta$, we have $|f(x)-2|=|x-2|<\varepsilon$ (this is obvious as $\delta=\varepsilon$). 
+Let us now show that $\lim\limits_{x\to 2}x=2 $ algebraically, using the definition of limit (Definition \ref{defLimit}). Indeed, this is straightforward: for every $\varepsilon>0$, we can select $\delta=\varepsilon$ so that whenever $|x-2|<\delta$, we have $|f(x)-2|=|x-2|<\varepsilon$ (this is obvious as $\delta=\varepsilon$). 
 
 In the previous example, there was nothing special about the choice $x=2 $: the above considerations would have worked equally well  $x=a$ for any other number $a$, and so we have shown that $\lim\limits_{x\to a}x=a $ for all $a$.
 
@@ -596,116 +725,6 @@ even if there exists no number $L$ that satisfies the requirements of Definition
 \chapter{Complex numbers and trigonometric functions}
 
 \section{Complex numbers and trigonometric functions}
-\subsection{Review: Newton binomial formula}\label{secNewtonBinomialReview}
-\url{http://en.wikipedia.org/wiki/Binomial_theorem}
-\index{factorial} Factorial. Let $n\in \mathbb Z_{\geq 0}$ (non-negative integers).
-\[
-n!\eqdef n*(n-1)*(n-2)*\dots *4*3*2*1 \quad  .
-\]
-
-\[0!\eqdef 1  \quad .
-\]
-
-A few factorial values. $0!=1$, $1!=1$, $2!=2$, $3!=6$, $4!=4*3!=24$, $5!=5*4!=120$, $6!=6*5!=720$, $7!=7*6!=5040$  \quad .
-
-\index{binomial!coefficient definition} Let $k\in \mathbb Z_{>0}$. The binomial coefficient $\binom{x}{k}$ is read as ``$x$ choose $k$''.
-
-\importantFormula{\label{eqBinomialCoeffDefinition}
-\binom{x}{k}\eqdef \frac{ \overbrace{ x(x-1)(x-2)(x-3)\dots (x-k+1)}^{\mathrm{k~multiplicands~total}} } {k!} \quad .
-}
-
-\[\binom{x}{0}\eqdef 1 \quad .
-\]
-
-Suppose $k,n\in \mathbb Z_{\geq 0}$ (non-negative integers). Then
-
-\[\binom{n}{k} = \frac{n!}{(n-k)! k!}\quad .
-\]
-\index{binomial!formula} Newton binomial formula.
-
-\importantFormula{\label{eqNewtonBinomialFormula}
-\begin{array}{rcl}
-(a+b)^{n} &\eqReview&\displaystyle \sum\limits_{i=0}^n \binom {n}{k} a^{n-k}b^{k} \\&=& \underbrace{\binom{n}{0}}_{=1} a^n + \underbrace{\binom{n}{1}}_{=n}a^{n-1}b +\dots+ \binom{n}{k}a^{n-k}b^{n}+\dots + \underbrace{\binom{n}{n-1}}_{=n}ab^{n-1} + \underbrace{\binom{n}{n}}_{=1} b^n \quad .
-\end{array}
-}
-
-\subsection{Basic operations with complex numbers}\label{secComplexNumbers}
-
-\noindent \url{http://en.wikipedia.org/wiki/Complex_number}
-\noindent The basic operations with complex numbers follow.
-
-\index{complex!number}\index{imaginary}\index{imaginary!unit} Imaginary unit.
-\[i^2\eqdef -1\quad .\]
-
-In the complex number $z=a+ib$, $a$ is called \emph{real part of $z$}, $b$ is called \index{imaginary!part}\emph{imaginary part of $z$}. Notation.
-\[
-\Re (a+ib)\eqdef a \quad, \quad \quad \Im (a+ib)\eqdef b \quad .
-\]
-Number of the form $ib$ for $b\in \mathbb R$ are called imaginary.
-
-Complex addition.
-\[(a+i b)+ (c+id)\eqdef (a+c) + i(b+d) \quad .
-\]
-
-Complex multiplication 
-
-\[
-(a+ i b)(c+id)=(ac-bd)+i(bc+ad) \quad .
-\]
-
-\index{complex!conjugation} Complex conjugation.
-\[\overline{a+ib}\eqdef a-ib \quad .
-\]
-
-Complex conjugation respects addition.
-\importantFormula{
-\label{eqComplexConjugationIsAddHMM} 
-\overline {z +w}= \bar z +\bar w\quad .
-}
-
-Complex conjugation respects multiplication.
-\importantFormula{
-\label{eqComplexConjugationIsFieldHMM}  \overline {z w}= \bar z \bar w\quad .
-}
-\begin{proof}
-Let $z= a+ib$ and $w=c+id$. Then
-\begin{equation*}
-\begin{array}{rcl}\overline {zw}&=& \overline{(a+ib)(c+id)}= \overline{ac-bd +i(ad+bc) }\\&=& ac-bd-i(ad+bc)= a(c-id)-ibc+i^{2}bd\\&=& a(c-id)-ib(c-id)= (a-ib)(c-id)\\&=&\bar z \bar w\quad .
-\end{array}
-\end{equation*}
-\end{proof}
-
-\index{complex!absolute value} Absolute value of a complex number.
-
-\[
-|a+ib|^2\eqdef (a+ib)\overline{(a+ib)}=(a+ib)(a-ib)=a^2+b^2 \quad .
-\]
-\[
-|a+ib|\eqdef \sqrt{a^2+b^2}\quad .
-\]
-
-Complex division.
-\[
-\frac{1}{c+id}= \frac{c-id}{(c+id)(c-id)}=\frac{c}{c^2+d^2}-i\frac{d}{c^2+d^2} \quad .
-\]
-
-Complex division (general).
-\[
-\frac{a+ib}{c+id}=(a+ib)\frac{1}{c+id}= \frac{(a+ib)(c-id)}{(c+id)(c-id)}= \frac{ac+bd}{c^2+d^2}+i\frac{(bc-ad)}{c^2+d^2} \quad .
-\]
-
-\subsubsection{Exercises}
-\begin{problem}
-Carry out the operations. For items 4-6 review the Newton Binomial formula \eqref{eqNewtonBinomialFormula}.
-\begin{enumerate}
-\item $(5+3i)^2$.
-\item $(5+3i)/(2-3i)$.
-\item $(5+3i)^{-2}$.
-\item $(1+i)^3$.
-\item $(1+i)^4$.
-\item $(1+i)^5$.
-\end{enumerate}
-\end{problem}
 
 \subsection{Exponent function, $\sin$ and $\cos$}
 \index{exponent function} Exponent function $e^z$. 
