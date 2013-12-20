@@ -57,13 +57,13 @@
 \[
 \lim\limits_{x\to 5^+}\frac{1}{x-5}= ?
 \]
-~\\~\\
+~\\
 \[
 \lim\limits_{x\to 8^+}\frac{1}{x-8}=\infty 
 \]
-~\\~\\
+~\\
 $\Rightarrow$
-~\\~\\
+~\\
 \[
 \lim\limits_{x\to 5^+}\frac{1}{x-5}= \begin{postscript}\rotatebox{90}{5}\end{postscript}
 \]
@@ -227,7 +227,15 @@ In other words, $f$ is injection if it sends different elements to different ele
 Let $f:X\to Y$ be a function from a set $X$ onto its codomain $Y$, such that $f$ is a bijection (different elements are sent to different ones and every element in the target set has a preimage). Then the function $g: Y\to X$ is called an inverse of $f$ if $g(f(x))=x$ for all $x\in X$ and $f(g(y))=Y$ for all $y\in Y$. 
 \end{definition}
 
-The inverse of $f$ is sometimes denoted as $f^{-1}$. Do not confuse $f^{-1}(x)$ with $\frac{1}{f(x)}$. \textbf{Advice.} Use $f^{-1}(x)$ only to denote inverse functions, never to denote $\frac{1}{f(x)}$. Avoid overall the use of the superscript $-1$ with trigonometric functions: instead of  $\sin^{-1}(x)$ you should write $\arcsin x$.
+The inverse of $f$ is sometimes denoted as $f^{-1}$. 
+
+\importantText{
+Do not confuse $f^{-1}(x)$ with $\frac{1}{f(x)} =\left(f(x)\right)^{-1}$.
+}
+
+\noindent Please note that the two notations are different: the position of the superscript $^{-1}$ is different for $f^{-1}(x)$ and $\left(f(x)\right)^{-1}$.
+
+%\textbf{Advice.} Due to the visual similarity between the notations $f^{-1}(x)$ and $\right(f(x)\left)^{-1}$, we advise you to use the notation $^{-1}$ with great caution. In particular, you should try to use $f^{-1}(x)$ only to denote inverse functions, never to denote $\frac{1}{f(x)}$. Avoid overall the use of the superscript $-1$ with trigonometric functions: instead of  $\sin^{-1}(x)$ you should write $\arcsin x$.
 
 Let $f: \mathbb R\to \mathbb R$ (``$f$ maps the set of real numbers to the set of real numbers''). Let $y=f(x)$ be the graph of $f$.
 \begin{criterion}[Horizontal line test]
@@ -261,7 +269,7 @@ That is why we may view the set of rational number $\mathbb Q $ as the set of pa
 \chapter{Limits, continuity, derivatives}
 \section{Limits}
 \subsection{The tangent problem}
-Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,f(2))=(2, \frac{2^2}{2}) =(2,2)$. In mathematical language we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (``tangent'' comes from Latin, ``to touch''). We shall give a formal definition of a tangent line later in Section \ref{secTangentDef}; until then, we shall refer to a ``tangent line'' informally, relying on the reader's intuition.
+Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,f(2))=(2, \frac{2^2}{2}) =(2,2)$. In mathematical language we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (``tangent'' comes from Latin, ``to touch''). We shall give a formal definition of a tangent line later in Section \ref{secDefTangent}; until then, we shall refer to a ``tangent line'' informally, relying on the reader's intuition.
 
 We are seeking an equation for the tangent through $P=(2,2)=(2, f(2))$ drawn in \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall that every non-vertical line has equation 
 \[
@@ -510,12 +518,15 @@ if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x$ with 
 \end{definition}
 
 \subsection{Computing limits}
+In the present section, we will learn algebraic techniques to evaluate limits quickly. We will start by computing a couple of basic ``building block'' limits by directly using the definition of limit \ref{defLimit}. Then we will proceed by showing how these building block limits can be used to compute more complex ones.
+
 Let us compute the limit
 \[
 \lim_{x\to 2} x\quad .
 \]
-We shall soon learn an algebraic techniques to evaluate this limit instantaneously (the limit is $2$). However, let us start by interpreting the limit geometrically. The function $f(x)=x$ is a straight line passing through the origin and $f(2)=2$. Now it is clear that no matter how small $\varepsilon$ is chosen, if one chooses $\delta=\varepsilon$, then it is clear that 
+We start by interpreting the limit geometrically. The function $f(x)=x$ is a straight line passing through the origin and $f(2)=2$. No matter how small $\varepsilon$ is chosen, if one chooses $\delta=\varepsilon$, then the graph of $f(x)=x$ locally ``fits'' (see Figure \ref{figContinuityID}) in a square with height $2\varepsilon$, and width $2\delta$ centered at $(2,2)$, and so $\lim\limits_{x\to 2} x=2$.
 
+\begin{figureFixed}
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1.000000, -5)(3.500000,5) 
 \psframe*[linecolor=white](-1.000000,-5)(3.500000,5) 
@@ -526,10 +537,44 @@ We shall soon learn an algebraic techniques to evaluate this limit instantaneous
 \psFullDot{2}{2}
 \psXTickWithLabel{2}{$2$}
 \psYTickWithLabel{2}{$2$}
+
+\psline[linestyle=dotted](-0.5,2.2)(3, 2.2)
+\psline[linestyle=dotted](-0.5,1.8)(3, 1.8)
+\psline[linecolor=blue]{<->}(1.5,1.8)(1.5,2.2)
+\rput[r](1.4, 2){ $2\varepsilon$}
+
+\psline[linestyle=dotted](1.8,-0.5)(1.8, 3)
+\psline[linestyle=dotted](2.2,-0.5)(2.2, 3)
+\psline[linecolor=blue]{<->}(1.8,2.5)(2.2,2.5)
+\rput[b](2, 2.6){ $2\delta$}
+
 \end{pspicture} 
+\caption{\label{figContinuityID} The continuity of the identity function $f(x)=x$.}
+\end{figureFixed}
 
+Let us now show that $\lim_{x\to 2}x=2 $ algebraically, using the definition of limit (Definition \ref{defLimit}). Indeed, this is straightforward: for every $\varepsilon>0$, we can select $\delta=\varepsilon$ so that whenever $|x-2|<\delta$, we have $|f(x)-2|=|x-2|<\varepsilon$ (this is obvious as $\delta=\varepsilon$). 
 
-An important note about mathematical notation is to be made. In Section \ref{secDefLimit}, we defined the notation
+In the previous example, there was nothing special about the choice $x=2 $: the above considerations would have worked equally well  $x=a$ for any other number $a$, and so we have shown that $\lim\limits_{x\to a}x=a $ for all $a$.
+
+We leave it to the reader to reason that for an arbitrary constant $c $, we have that $\lim \limits_{x\to c}=c$. Geometrically this is clear from the fact that the graph of $f(x)=c$ is a straight line; we leave the very easy algebraic consideration to the reader. We summarize our observations in the following theorem.
+\begin{theorem}The following basic ``building block'' limit laws hold.
+\begin{enumerate}
+\item $\lim\limits_{x\to a} x=a$.
+\item $\lim\limits_{x\to a} c= c$, where $c$ is an arbitrary constant. 
+\end{enumerate}
+\end{theorem}
+In the next theorem, we show how to compose the above basic ``building block'' limits into more complicated limits. 
+\begin{theorem} Let $f$ and $g$ be functions defined in punctured neighborhoods of $a$ and suppose both limits $\lim\limits_{x\to a} f(x) $ and $\lim\limits_{x\to a} g(x) $ exist. Then the limits on the left hand sides of the following limit laws exist, and the limit laws hold.
+\[\begin{array}{lcl} \lim\limits_{x\to a} f(x)+g(x)&=&\lim\limits_{x\to a}  f(x) + \lim\limits_{x\to a} g(x) \\
+\lim \limits_{x\to a} f(x)g(x)&=&\lim\limits_{x\to a} f(x)\lim\limits_{x\to a} g(x).
+\end{array}\]
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\subsection{A note on the limit notation.}
+We make an important note about calculus notation. In Section \ref{secDefLimit}, we defined the notation
 \[
 \lim\limits_{x\to a} f(x)=L
 \]
@@ -537,7 +582,7 @@ only on condition that the limit exists and is equal to some particular number $
 \[
 \lim\limits_{x\to a}f(x)
 \]
-even if there exists no number $L$ that satisfies the requirements of Definition \ref{defLimit}. If that is the case, we say that the ``limit does not exist''. We ask the reader to excuse this informality in view of its great convenience.
+even if there exists no number $L$ that satisfies the requirements of Definition \ref{defLimit}. If that is the case, we say that the ``limit does not exist''. We ask the reader to excuse this informality in view of its great convenience. 
 
 \section{Derivatives}
 
