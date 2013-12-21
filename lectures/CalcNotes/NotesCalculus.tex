@@ -13,6 +13,7 @@
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
 \usepackage{../pstricks-commands}
+\usepackage{multicol}
 \usepackage{rotating}
 
 \usepackage{cancel}
@@ -287,10 +288,6 @@ $\sin^{-1}x, \cos^{-1}x, \tan^{-1}x$.
 }
 \end{tabular}
 }
-
-\chapter{A minimal algebra knowledge}
-In the present chapter we develop a necessary set of formulas. 
-
 \chapter{Sequences and numbers}
 In this chapter we define the most common sets of numbers used in mathematics - the integers, the rational numbers, the real numbers and the complex numbers. 
 
@@ -380,7 +377,8 @@ Complex division (general).
 
 \subsubsection{Exercises}
 \begin{problem}
-Carry out the operations. For items 4-6 review the Newton Binomial formula \eqref{eqNewtonBinomialFormula}.
+Carry out the operations. For items 4-6 you can first take a look at the Newton Binomial formula \eqref{eqNewtonBinomialFormula}.
+\begin{multicols}{3}
 \begin{enumerate}
 \item $(5+3i)^2$.
 \item $(5+3i)/(2-3i)$.
@@ -389,8 +387,62 @@ Carry out the operations. For items 4-6 review the Newton Binomial formula \eqre
 \item $(1+i)^4$.
 \item $(1+i)^5$.
 \end{enumerate}
+\end{multicols}
 \end{problem}
 \section{\optionalMaterial A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
+
+\chapter{A few algebra techniques}
+In the present chapter we develop a basic formulas, and state a few basic combinatorial facts. The chapter relies on a conceptual, high-school level understanding of the notion of ``formula'', but does not require any practical knowledge other than applying the rules of arithmetic.
+\section{Factorials, binomial coefficients}\label{secFactorial}
+Let $n$ be a positive integer, i.e., let $n \in \mathbb Z_{\geq 0}$ (non-negative integers). 
+\begin{definition}[Factorial] \index{factorial} 
+For $n>0$, we define the number $n!$ by
+\[
+n!\eqdef n*(n-1)*(n-2)*\dots *4*3*2*1 \quad  .
+\] 
+and we define 
+\[
+0!\eqdef 1\quad .
+\]
+\end{definition}
+The number $n!$ is read as ``$n$ factorial''. The first few factorial values are 
+\[\begin{array}{rcl}
+0!&=&1\\
+1!&=&1\\
+2!&=&2\\
+3!&=&6\\
+4!&=&4*3!=24\\
+5!&=&5*4!=120\\ 
+6!&=&6*5!=720\\
+7!&=&7*6!=5040  \\
+&\vdots&\quad \quad .
+\end{array}
+\]
+
+\index{binomial!formula} Newton binomial formula.
+\index{binomial!coefficient definition} Let $k\in \mathbb Z_{>0}$. The binomial coefficient $\binom{x}{k}$ is read as ``$x$ choose $k$''.
+\importantFormula{\label{eqBinomialCoeffDefinition}
+\binom{x}{k}\eqdef \frac{ \overbrace{ x(x-1)(x-2)(x-3)\dots (x-k+1)}^{\mathrm{k~multiplicands~total}} } {k!} \quad .
+}
+
+\[\binom{x}{0}\eqdef 1 \quad .
+\]
+
+Suppose $k,n\in \mathbb Z_{\geq 0}$ (non-negative integers). Then
+
+\[\binom{n}{k} = \frac{n!}{(n-k)! k!}\quad .
+\]
+
+\section{Newton binomial formula}\label{secNewtonBinomialReview}
+\url{http://en.wikipedia.org/wiki/Binomial_theorem}
+
+
+
+\importantFormula{\label{eqNewtonBinomialFormula}
+\begin{array}{rcl}
+(a+b)^{n} &\eqReview&\displaystyle \sum\limits_{i=0}^n \binom {n}{k} a^{n-k}b^{k} \\&=& \underbrace{\binom{n}{0}}_{=1} a^n + \underbrace{\binom{n}{1}}_{=n}a^{n-1}b +\dots+ \binom{n}{k}a^{n-k}b^{n}+\dots + \underbrace{\binom{n}{n-1}}_{=n}ab^{n-1} + \underbrace{\binom{n}{n}}_{=1} b^n \quad .
+\end{array}
+}
 
 \chapter{Limits, continuity, derivatives}
 \section{Limits}
@@ -693,14 +745,39 @@ We leave it to the reader to reason that for an arbitrary constant $c $, we have
 \end{enumerate}
 \end{theorem}
 In the next theorem, we show how to compose the above basic ``building block'' limits into more complicated limits. 
-\begin{theorem} Let $f$ and $g$ be functions defined in punctured neighborhoods of $a$ and suppose both limits $\lim\limits_{x\to a} f(x) $ and $\lim\limits_{x\to a} g(x) $ exist. Then the limits on the left hand sides of the following limit laws exist, and the limit laws hold.
-\[\begin{array}{lcl} \lim\limits_{x\to a} f(x)+g(x)&=&\lim\limits_{x\to a}  f(x) + \lim\limits_{x\to a} g(x) \\
-\lim \limits_{x\to a} f(x)g(x)&=&\lim\limits_{x\to a} f(x)\lim\limits_{x\to a} g(x).
-\end{array}\]
+\begin{theorem} Let $f$ and $g$ be functions defined in punctured neighborhoods of $a$ and suppose both limits $\lim\limits_{x\to a} f(x) $ and $\lim\limits_{x\to a} g(x) $ exist. Then the limits on the right hand side exist and the equalities hold.
+\[
+\begin{array}{lcll}
+\displaystyle \lim\limits_{x\to a} c f(x) \pm \lim\limits_{x\to a}d g(x)&=& \displaystyle \lim\limits_{x\to a}c f(x)\pm d g(x) &  c,d \text{ are arbitrary constants}\\~\\
+\displaystyle \lim\limits_{x\to a} f(x)\lim\limits_{x\to a}  g(x) &=&\displaystyle  \lim \limits_{x\to a} f(x)g(x)\\~\\
+\displaystyle \frac{\lim\limits_{x\to  } f(x)} {\lim\limits_{x\to a}g(x)} &=&\displaystyle  \lim \limits_{x\to a} \frac{f(x)}{g(x)} &\text{ provided }\displaystyle \lim\limits_{x\to a} g(x)\neq 0 \quad .
+\end{array}
+\]
 \end{theorem}
-\begin{proof}
+\begin{proofOptional}~We will only prove the limit law $\displaystyle \lim\limits_{x\to a} f(x)\lim\limits_{x\to a}  g(x)= \lim\limits_{x\to a} f(x) g(x)$; the remaining limit laws are left as an exercise to the reader.
 
-\end{proof}
+Let $\lim\limits_{x\to a}f(x)=L$ and $\lim\limits_{x\to a}g(x)=M$; we aim to show that $\lim\limits_{x\to a} f(x)g(x) $ exists and is equal to $M L$. In order to do that, we must estimate the difference $ |L M - f(x)g(x)|=|L M - (f(x)-L+L)g(x)|$. We can compute that 
+
+\begin{equation}\label{eqlimftimesg}
+\begin{array}{rcl}
+|L M - f(x)g(x)|&=&|L M - (f(x)-L+L)(g(x))|\\&=& |LM-L g(x) - (f(x)-L)g(x)  |\\& \stackrel{\Delta-\text{ineq}}{\leq}& |L||M-g(x)|+|(f(x)-L)g(x)| \\
+&=& |L||M-g(x)|+|(f(x)-L)(g(x)-M+M)|\\
+&\stackrel{\Delta-\text{ineq}}{\leq}& |L||M-g(x)|+ |f(x)-L||g(x)-M|
+\\&&+ |f(x)-L||M| 
+\end{array}
+\end{equation}
+
+Informally, we need to show that for any $\varepsilon>0$ we have that $|LM-f(x)g(x)|<\varepsilon$ for all $x$ sufficiently close to $a$. Consider the inequality \eqref{eqlimftimesg}. As $\lim\limits_{x\to a} g(x)=M$ and $\lim\limits_{x\to a}f(x)=L $, we know that the terms $|M-g(x)|$ and $|f(x)-L|$ become arbitrarily small for all $x$ sufficiently close to $a$. Then all three summands on the right hand side of \eqref{eqlimftimesg} become arbitrarily small, and so $|LM-f(x)g(x)|<\varepsilon$ for all $x$ sufficiently close to $a$.
+
+The above considerations give an informal proof of the theorem; let us now cast them into a formal proof. Let $\varepsilon>0$. As $\lim\limits_{x\to a}f(x)=L$ there exists a number $\delta_1>0$ such that $|f(x)-L| |M|<\frac{\varepsilon}3$ for all $x$ for which $|x-a|<\delta_1$. Similarly as $\lim\limits_{x\to a}g(x)=M$ there exists a number $\delta_2$ such that $|L||g(x)-M| <\frac{\varepsilon}3$. Finally, there exists a number $\delta_3$ such that $|f(x)-L|<1 $ for all  $x$ for which $|x-a|<\delta_3$. Select $\delta $ to be the minimum of $\delta_1, \delta_2, \delta_3$. Then  for all $x$ for which $|x-a|<\delta$, we have that 
+\[
+\begin{array}{rcl}
+\displaystyle |L M - f(x)g(x)|&\leq&\displaystyle |L||M-g(x)|+ |f(x)-L||g(x)-M|+ |f(x)-L||M| \\~\\&\leq&\displaystyle \frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon\quad .
+\end{array}
+\]
+So far, for any $\varepsilon>0$ , we showed how to select a $\delta>0$ such that $|LM-f(x)g(x)|<\varepsilon$ for all $x$ such that $|x-a|<\delta$, which is precisely what we were aiming to show.
+\end{proofOptional}
+
 
 \subsection{A note on the limit notation.}
 We make an important note about calculus notation. In Section \ref{secDefLimit}, we defined the notation
