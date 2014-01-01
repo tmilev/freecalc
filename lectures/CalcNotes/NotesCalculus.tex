@@ -23,7 +23,6 @@
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\Re}{\mathrm{Re}}
 \newcommand{\eqdef}{\textbf{:=}}
-\newcommand{\eqReview}{\stackrel{\textbf{review}}{=}}
 \newcommand{\eqAttention}{\stackrel{(!)}{=}}
 \newcommand{\importantFormula}[1]{\begin{equation} \boxed{#1} \end{equation}}
 \newcommand{\importantText}[1]{ \framebox{#1}}
@@ -37,6 +36,8 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{criterion}[theorem]{Criterion}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Proposition}
 
 
 \DeclareMathOperator{\arsinh}{arsinh}
@@ -92,7 +93,7 @@ This text is in preparation and does contain typos and errors. Please read criti
 
 For more details see the full text of the license \url{http://creativecommons.org/licenses/by/3.0/}.
 
-\noindent \textbf{Compiling the .tex file.} If you would like to modify this file, you will need to learn how to use \LaTeX. Note that all graphics in the notes are drawn using commands in the .tex source (the text uses no external images). The .tex file should compile ``out of the box'' on a Linux distribution with \LaTeX~ installed.
+\noindent \textbf{Compiling the .tex file: a note to the student.} If you would like to modify this file, you need to learn how to use \LaTeX. Note that all graphics in the notes are drawn using commands in the .tex source (the text uses no external images). The .tex file should compile ``out of the box'' on a Linux distribution with \LaTeX~ installed.
 
 A semi-permanent link of the .tex source of this textbook can be found here. If the link is no longer functioning, please search for ``freecalc'' project on the web.
 
@@ -105,7 +106,7 @@ Some material in this book is marked as \optionalMaterial. Such material is cons
 While material marked as \optionalMaterial ~should be accessible to a motivated student, it is expected to be of higher difficulty than the rest of the book. The author does not recommend the material marked as \optionalMaterial ~ as a requirement for successful completion of a course in Calculus.
 
 \section*{Scope of the textbook}
-This textbook does not attempt a rigorous exposition of the subject. However, all sacrifices of rigor have been made by omitting material and giving informal explanations of proofs of theorems. It has been the goal of this textbook from the very beginning to use completely standard, precise, and, even if slightly simplified, professional mathematical language. 
+This textbook does not attempt a rigorous exposition of the subject. However, all sacrifices of rigor have been made by omitting material and giving informal explanations of proofs of theorems. It has been the goal of this textbook to use completely standard, precise, and, even if slightly simplified, professional mathematical language. 
 
 As the most important example of this we note that, while we have avoided a formal definition of differential forms, all statements about differential forms are fully compatible with the commonly accepted professional mathematical definition. To the calculus instructors reading this text, we recall that differential forms are defined as the dual (in the sense of linear algebra) vector space of the tangent vector space, which in turn is most frequently defined using linear differential operators on manifolds.
 
@@ -440,13 +441,14 @@ Suppose $k,n\in \mathbb Z_{\geq 0}$ (non-negative integers). Then
 
 \importantFormula{\label{eqNewtonBinomialFormula}
 \begin{array}{rcl}
-(a+b)^{n} &\eqReview&\displaystyle \sum\limits_{i=0}^n \binom {n}{k} a^{n-k}b^{k} \\&=& \underbrace{\binom{n}{0}}_{=1} a^n + \underbrace{\binom{n}{1}}_{=n}a^{n-1}b +\dots+ \binom{n}{k}a^{n-k}b^{n}+\dots + \underbrace{\binom{n}{n-1}}_{=n}ab^{n-1} + \underbrace{\binom{n}{n}}_{=1} b^n \quad .
+(a+b)^{n} &=&\displaystyle \sum\limits_{i=0}^n \binom {n}{k} a^{n-k}b^{k} \\
+&=&\displaystyle \binom{n}{0} a^n + \binom{n}{1}\phantom{n}a^{n-1}b +\dots+ \binom{n}{n-1} \phantom{n} ab^{n-1} + \binom{n}{n} b^n\\
+&=&\displaystyle \phantom{\binom{n}{0}}a^n + \phantom{\binom{n}1} n a^{n-1}b+\dots + \phantom{\binom{n}{n-1}} na b^{n-1}+\phantom{\binom{n}{n}} b^n \quad .
 \end{array}
 }
 
 \chapter{Limits, continuity, derivatives}
-\section{Limits}
-\subsection{The tangent problem}
+\section{Motivating limtis: the tangent problem}
 Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,f(2))=(2, \frac{2^2}{2}) =(2,2)$. In mathematical language we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (``tangent'' comes from Latin, ``to touch''). We shall give a formal definition of a tangent line later in Section \ref{secDefTangent}; until then, we shall refer to a ``tangent line'' informally, relying on the reader's intuition.
 
 We are seeking an equation for the tangent through $P=(2,2)=(2, f(2))$ drawn in \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall that every non-vertical line has equation 
@@ -639,19 +641,8 @@ $x$& $f(x)=\frac{t^2}2$& $t-2$ & $f(t)-f(2)$ & $m_Q=\frac{f(t)-f(2)}{t-2}$ \\\hl
 \caption{ Values of $f(x)$ and slope of line through $P,Q$. \label{tableTangentIdeaForTable}}
 \end{tableFixed}
 In order to give a strict definition of tangent, we need to define formally what it means for $m_Q$ to ``get infinitely close'' to the number $2$. The colloquial phrase ``to get infinitely close to,'' corresponds to the mathematical notion of taking limits.
-\subsection{Definition of Limit}\label{secDefLimit}
-In order to define limit, we need to first define a neighborhood a real number $a$. Informally, a neighborhood of $a$ is a collection of points including all points sufficiently close to $a$ except possibly $a$. Formally, the definition of a neighborhood is given as follows.
-
-We say that a $J$ is a \emph{punctured interval} around $a$ if $J$ is of the form 
-\[
-J= (a-\varepsilon,a)\cup (a, a+\varepsilon)=\{x| \varepsilon>|x-a|>0\}.
-\]
-for some positive number $\varepsilon>0$.
-\begin{definition}
-Let $a$ be a real number. We say that the set $I$ is a \emph{neighborhood of $a$} if it contains a punctured interval around $a$.
-\end{definition}
-In other words,  $I$  is a neighborhood of $a$  if $I\subset J$ for some set $J$ of the form $ J= (a-\varepsilon,a)\cup (a, a+\varepsilon)$ for some positive $\varepsilon>0$.
-
+\section{Limits}
+\subsection{Definition of limit}\label{secDefLimit}
 Before we proceed to the formal definition of limit (Definition \ref{defLimit} below) let us explain limits informally.  We say that $f(x)$ tends to $L$ as $x$ tends to $a$ and we write
 \[
 \lim_{x\to a} f(x)=L
@@ -689,14 +680,117 @@ if, no matter how small positive number $\varepsilon$ we pick, we can always cho
 \end{figureFixed}
 
 Formally, the definition of limit is as follows.
-\begin{definition}\label{defLimit}
-Let $f(x)$ be a function defined in a punctured neighborhood of $a$.  We say that the limit of $f(x)$ as $x$ tends to $a$ equals $L$ and we write 
+\begin{definition}[the $\varepsilon, \delta$-definition of limit] \label{defLimit}
+We say that the limit of $f(x)$ as $x$ tends to $a$ exists and equals $L$ and we write 
 \[
 \lim_{x\to a} f(x)=L
 \]
 if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x$ with $0<|x-a|<\delta$ it follows that  $|f(x)-L|<\varepsilon$.
 \end{definition}
-\section{Computing limits}
+\subsection{A note on the limit notation.}
+We make an important note about calculus notation: we defined the notation
+\[
+\lim\limits_{x\to a} f(x)=L
+\]
+on condition that for every $\varepsilon>0$ there exists a $\delta>0$ with certain properties,  the ``$\varepsilon, \delta$''-definition. In particular, we defined the notation $\lim\limits_{x\to a}f(x)$ only if the limit exists and is equal to some particular number $L$. However, in the rest of this book (as well as most other calculus textbooks), we use the notation
+\[
+\lim\limits_{x\to a}f(x)
+\]
+even if there exists no number $L$ that satisfies the requirements of Definition \ref{defLimit}. If that is the case, instead of saying the English language negation of Definition \ref{defLimit}, we simply say that `` $\lim\limits_{x\to a}f(x)$ does not exist''. 
+
+We note that English language dictates that the following negation of Definition \ref{defLimit}. 
+\begin{proposition}
+$\lim\limits_{x\to a}f(x) $ does not exist if, for all numbers $L$ there exists a number $\varepsilon>0$ such that, no matter how small a $\delta$ we choose, there always exists an $x$ with $0<|x-a|<\delta$ so that $|f(x)-L|>\varepsilon$.
+\end{proposition}
+
+
+The use of the notation $\lim\limits_{x\to a}f(x)$ when the limit does not exist is not completely formal; we ask the reader to excuse this informality in view of its great convenience. 
+\subsection{Definition of neighborhood}
+When discussing limits, it is useful to speak of neighborhoods of points. Informally, a neighborhood of a point $a$ is an arbitrary collection of points that  includes all points sufficiently close to $a$ except possibly $a$. Formally, the definition of a neighborhood is given as follows.
+
+We say that a $J$ is a \emph{punctured interval} around $a$ if $J$ is of the form 
+\[
+J= (a-\varepsilon,a)\cup (a, a+\varepsilon)=\{x| \varepsilon>|x-a|>0\}.
+\]
+for some positive number $\varepsilon>0$.
+\begin{definition}
+Let $a$ be a real number. We say that the set $I$ is a \emph{neighborhood of $a$} if it contains a punctured interval around $a$.
+\end{definition}
+In other words,  $I$  is a neighborhood of $a$  if $J\subset I$ for some set $J$ of the form $ J= (a-\varepsilon,a)\cup (a, a+\varepsilon)$ for some positive $\varepsilon>0$.
+
+In the language of neighborhoods, we can reformulate the definition of limit as follows.
+
+\begin{definition}[reformulation of Definition \ref{defLimit}]
+\[\lim\limits_{x\to a} f(x)=L
+\]
+if for every $\varepsilon>0$ there exists a neighborhood of $a$ such that for all $x$ in that neighborhood the distance between $f(x)$ and $L$ is less than $\varepsilon$.
+\end{definition}
+\subsection{Examples of limits using the definition}
+\begin{example}
+Compute the limit 
+\[\lim\limits_{x\to 1}\frac{x-1}{x^2-1}\]
+\end{example}
+\begin{solution}
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-0.5,-0.5)(2,2.5)
+\psframe*[linecolor=white](-0.5, -0.5)(2, 2.5)
+\tiny
+\psaxes[Dy=0.5, labels=none]{<->}(0,0)(-0.5,-0.5)(2,2.5)
+\psYTickWithLabel{0.5}{$0.5$}
+\psXTickWithLabel{1}{$1$}
+\psplot[linecolor=red]{-0.5}{2}{1 1 x add div}
+\psHollowDot{1}{0.5}
+\end{pspicture}
+
+\end{solution}
+\begin{example}
+Compute the limit 
+\[\lim\limits_{x\to 0}\frac{\sin x}{x}\]
+\end{example}
+\begin{solution}
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-2,-0.5)(2.2,1.5)
+\psframe*[linecolor=white](-2, -0.5)(2.2, 1.7)
+\tiny
+\psaxesStandard{-2}{-0.5}{2}{1.5}
+\rput[br](-0.1,1.1){ $1$}
+\psplot[linecolor=red]{-2}{2}{ x 57.295779513 mul sin x div}
+\psHollowDot{0}{1}
+\end{pspicture}
+
+\end{solution}
+\begin{example}
+Show the limit 
+\[
+\lim\limits_{x\to 0}\sin \frac{\pi}{x}
+\]
+does not exist.
+\end{example}
+\begin{solution}
+\begin{pspicture}(-3,-1.5)(3,1.5)
+\psframe*[linecolor=white](-3, -1.5)(3.2, 1.7)
+\psaxesStandard{-3}{-1.5}{3}{1.5}
+\tiny
+\rput[t](1,-0.1){ $1$}
+\psplot[linewidth=0.3pt, linecolor=red, plotpoints=10000]{-3}{-0.01}{3.14159 x div 57.295779513 mul sin}
+\psplot[linewidth=0.1pt, linecolor=red, plotpoints=10000]{0.01}{3}{3.14159 x div 57.295779513 mul sin}
+\end{pspicture}
+
+\end{solution}
+\section{Continuity}
+%In this section we define continuous functions. 
+A function $f$ from a subset of the real numbers to the real numbers is continuous if, roughly speaking, its graph is a single unbroken curve with no "holes" or "jumps". %The formal definition follows. 
+
+%Let  be a function from a subset of the real numbers to the real numbers.
+\begin{definition}
+We say that $f$ is continuous at $a$ if 
+\begin{enumerate}
+\item $f$ is defined at $a$.
+\item $\lim\limits_{x\to a} f(x)=f(a)$.
+\end{enumerate}
+\end{definition}
+
+\section{Computing limits using algebra}
 In the present section, we learn algebraic techniques to evaluate limits quickly. We will start by computing a couple of basic ``building block'' limits by directly using the Definition \ref{defLimit}. Then we will proceed by showing how these building block limits can be used to compute more complex ones using a number of ``limit laws''. We will summarize the acquired knowledge by giving a procedure for computing limits.
 \subsection{Limit laws}
 Let us compute the limit
@@ -777,18 +871,14 @@ The above considerations give an informal proof of the theorem; let us now cast 
 \]
 So far, for any $\varepsilon>0$ , we showed how to select a $\delta>0$ such that $|LM-f(x)g(x)|<\varepsilon$ for all $x$ such that $|x-a|<\delta$, which is precisely what we were aiming to show.
 \end{proofOptional}
+ 
+
+\subsection{Examples of limits computations with algebra}
 
 
-\subsection{A note on the limit notation.}
-We make an important note about calculus notation. In Section \ref{secDefLimit}, we defined the notation
-\[
-\lim\limits_{x\to a} f(x)=L
-\]
-only on condition that the limit exists and is equal to some particular number $L$. However, in the rest of this book (as well as most other calculus textbooks), we use the notation
-\[
-\lim\limits_{x\to a}f(x)
-\]
-even if there exists no number $L$ that satisfies the requirements of Definition \ref{defLimit}. If that is the case, we say that the ``limit does not exist''. We ask the reader to excuse this informality in view of its great convenience. 
+
+\subsection{Algorithm for computing certain limits}
+
 
 \section{Derivatives}
 
@@ -1421,18 +1511,18 @@ Recall that for a function of a variable $z$, $\frac{d}{dx}(f(x))$ denotes the d
 
 Let $n$ be an integer. 
 \[
-\frac{d}{dx} (x^n)\eqReview n x^{n-1}\quad .
+\frac{d}{dx} (x^n)= n x^{n-1}\quad .
 \]
 
 
 Derivative of product. 
 \[
-\frac{d}{dx} (f(x)g(x)) \eqReview f'(x)g(x)+f(x)g'(x) \quad .
+\frac{d}{dx} (f(x)g(x)) = f'(x)g(x)+f(x)g'(x) \quad .
 \]
 
 Chain rule. Let $f(y)$ and $g(x)$ be two functions.  Then
 \[
-\frac{d}{dx} \left(f( g(x))\right)\eqReview g'(x) f'(g(x)) \quad .
+\frac{d}{dx} \left(f( g(x))\right)= g'(x) f'(g(x)) \quad .
 \]
 
 \textbf{Optional material.} (!)Holomorphic functions. We say that a function $f$ is \emph{holomorphic} in a neighborhood of  $z$ if the limit 
