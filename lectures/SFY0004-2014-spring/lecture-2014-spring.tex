@@ -1,0 +1,236 @@
+\documentclass%
+%[handout]
+{beamer}
+
+% % % % % % % %
+% % % % % % % %
+% % % % % % % %
+%IMPORTANT
+%compiles with 
+%pdflatex -shell-escape 
+%IMPORTANT
+% % % % % % % %
+% % % % % % % %
+% % % % % % % %
+
+
+\usepackage{etex} %avoiding error: too many packages. This is a LaTeX bug (``feature'')
+
+
+\mode<presentation>
+{
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[all,cmtip]{xy}
+\usepackage{times}
+\usepackage{auto-pst-pdf}
+\usepackage{pstricks-add}
+\usepackage{pst-plot}
+\usepackage{pst-math}
+\usepackage{pst-node}
+\usepackage{cancel}
+
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\usepackage{../pstricks-commands}
+\usepackage{../example-templates}
+\graphicspath{{../../modules/}}
+
+\setbeamertemplate{navigation symbols}{}
+
+\includeonlylecture{2}
+
+\newcommand{\diff}{\text{d}}
+\newcommand{\lect}[3]{
+  \date{#1}
+  \lecture[#1]{#2}{#3}
+}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+%\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
+%\logo{\pgfuseimage{logo}}
+
+\begin{document}
+
+\AtBeginLecture{%
+
+\title[\insertlecture]{Algebraic Topology}
+\subtitle{\insertlecture}
+\author[Algebraic Topology]{Greg Maloney}
+\institute{Newcastle University}
+\date{\insertshortlecture}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+}%
+
+% begin lecture
+\lect{January 31, 2014}{Lecture  2}{2}
+\section{The Chain Rule}
+\input{../../modules/chain-rule/chain-rule-intro}
+\input{../../modules/chain-rule/chain-rule-statement}
+\input{../../modules/chain-rule/chain-rule-ex1}
+%\input{../../modules/chain-rule/chain-rule-sqrt-sin}
+\input{../../modules/chain-rule/chain-rule-cos-poly}
+\input{../../modules/chain-rule/chain-rule-poly-cos}
+\input{../../modules/chain-rule/chain-rule-power-rule}
+\input{../../modules/chain-rule/chain-rule-ex3}
+%\input{../../modules/chain-rule/chain-rule-polynomial}
+\input{../../modules/chain-rule/chain-rule-ex4}
+%\input{../../modules/chain-rule/chain-rule-power-rule}
+\input{../../modules/chain-rule/chain-rule-ex5}
+\input{../../modules/chain-rule/chain-rule-ex6}
+\input{../../modules/chain-rule/chain-rule-extra-links}
+\input{../../modules/chain-rule/chain-rule-twice-ex1}
+\input{../../modules/chain-rule/chain-rule-twice-ex2}
+\subsection{Chain rule proof}
+\input{../../modules/chain-rule/chain-rule-proof-intro}
+\input{../../modules/chain-rule/chain-rule-proof}
+% end lecture
+
+% begin lecture
+\lect{February 7, 2014}{Lecture  4}{4}
+\section{Implicit Differentiation}
+\input{../../modules/implicit-differentiation/implicit-differentiation-intro}
+\input{../../modules/implicit-differentiation/implicit-tangent-line}
+\input{../../modules/implicit-differentiation/implicit-differentiation-ex3}
+\input{../../modules/implicit-differentiation/implicit-trig}
+\input{../../modules/implicit-differentiation/implicit-differentiation-ex4}
+%\input{../../modules/implicit-differentiation/implicit-second-derivative}
+% end lecture
+
+% begin lecture
+\lect{February 14, 2014}{Lecture  6}{6}
+\section{Exponential Functions}
+\input{../../modules/exponential-functions/exponential-function-def}
+\input{../../modules/exponential-functions/exponential-function-def-various-approaches}
+\input{../../modules/exponential-functions/exponential-function-graphs}
+\input{../../modules/exponential-functions/exponential-versus-polynomial}
+\input{../../modules/exponential-functions/exponential-function-ex-sketch}
+\subsection{The Natural Exponential Function}
+\input{../../modules/exponential-functions/natural-exponential-intro}
+\section{Differentiation Formulas}
+\subsection{Derivatives of Exponential Functions}
+\input{../../modules/exponential-functions/exponential-function-derivative}
+\input{../../modules/exponential-functions/e-def}
+\input{../../modules/exponential-functions/natural-exponential-def}
+\input{../../modules/derivatives/derivative-e-plus-polynomial}
+\input{../../modules/exponential-functions/chain-rule-general-exponential}
+\input{../../modules/exponential-functions/general-exponential-derivative}
+% end lecture
+
+% begin lecture
+\lect{February 21, 2014}{Lecture  8}{8}
+\section{Inverse Functions}
+\subsection{One-to-one Functions}
+\input{../../modules/inverse-functions/one-to-one-def}
+\input{../../modules/inverse-functions/horizontal-line-test}
+\subsection{The Definition of the Inverse of $f$}
+\input{../../modules/inverse-functions/inverse-function-def}
+\input{../../modules/inverse-functions/inverse-notation-warning}
+\input{../../modules/inverse-functions/inverse-function-equations}
+\input{../../modules/inverse-functions/inverse-function-solve-for-version2}
+\input{../../modules/inverse-functions/guess-and-check}
+\input{../../modules/inverse-functions/inverse-function-graph}
+\input{../../modules/inverse-functions/inverse-function-ex5}
+\input{../../modules/inverse-functions/inverse-function-solve-for-ex1-freeCalc}
+% end lecture
+
+% begin lecture
+\lect{February 28, 2014}{Lecture 10}{10}
+\section{Logarithmic Functions}
+\input{../../modules/logarithms/logarithm-def}
+\input{../../modules/logarithms/logarithm-def-ex1}
+\input{../../modules/logarithms/log-and-exp}
+\input{../../modules/logarithms/logarithm-graphs}
+\input{../../modules/logarithms/logarithm-properties}
+\input{../../modules/logarithms/logarithm-properties-ex2}
+\subsection{Natural Logarithms}
+\input{../../modules/logarithms/natural-logarithm-def}
+\input{../../modules/logarithms/natural-logarithm-def-ex5}
+\input{../../modules/logarithms/natural-logarithm-def-ex-exponent-quadratic1}
+\input{../../modules/logarithms/natural-logarithm-def-ex-exponent-quadratic2}
+\input{../../modules/logarithms/natural-logarithm-def-ex8}
+\input{../../modules/inverse-functions/inverse-function-solve-for-ex2-freeCalc}
+% end lecture
+
+% begin lecture
+\lect{March 7, 2014}{Lecture 12}{12}
+\section{Derivatives of Logarithmic Functions}
+\input{../../modules/logarithms/general-log-derivative-implicit}
+\input{../../modules/logarithms/general-log-derivative-ex}
+\input{../../modules/logarithms/natural-log-derivative-from-general}
+\input{../../modules/logarithms/natural-log-derivative-ex-simplify}
+\input{../../modules/logarithms/natural-logarithm-derivative-ex7}
+\subsection{Logarithmic Differentiation}
+\input{../../modules/logarithms/logarithmic-differentiation-ex}
+\input{../../modules/logarithms/logarithmic-differentiation}
+\input{../../modules/logarithms/logarithmic-differentiation-ex-base-and-power1}
+\input{../../modules/logarithms/logarithmic-differentiation-ex-base-and-power2}
+\subsection{The Number $e$ as a Limit}
+\input{../../modules/logarithms/e-limit}
+% end lecture
+
+% begin lecture
+\lect{March 14, 2014}{Lecture 14}{14}
+\section{Inverse Trigonometric Functions}
+\input{../../modules/inverse-trig/arcsin-def}
+\input{../../modules/inverse-trig/arcsin-ex1}
+\input{../../modules/inverse-trig/arcsin-derivative}
+\input{../../modules/inverse-trig/arcsin-properties}
+\input{../../modules/inverse-trig/arccos-def}
+\input{../../modules/inverse-trig/arccos-properties}
+\input{../../modules/inverse-trig/arctan-def}
+\input{../../modules/inverse-trig/arctan-ex3}
+\input{../../modules/inverse-trig/arctan-ex4}
+\input{../../modules/inverse-trig/arctan-derivative}
+\input{../../modules/inverse-trig/inverse-trig-summary}
+\input{../../modules/inverse-trig/arcsin-ex5}
+% end lecture
+
+% begin lecture
+\lect{March 21, 2014}{Lecture 16}{16}
+\section{Newton's Method}
+\input{../../modules/newtons-method/newtons-method-intro}
+\input{../../modules/newtons-method/newtons-method-def}
+\input{../../modules/newtons-method/newtons-method-convergence}
+\input{../../modules/newtons-method/newtons-method-ex1}
+\input{../../modules/newtons-method/newtons-method-ex-findpoly2}
+% end lecture
+
+% begin lecture
+\lect{March 28, 2014}{Lecture 18}{18}
+% end lecture
+
+\end{document}
