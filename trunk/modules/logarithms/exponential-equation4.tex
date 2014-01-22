@@ -1,0 +1,23 @@
+% begin module exponential-equation4
+\begin{frame}
+\begin{example}[Solving a quadratic exponential equation]
+Solve for $x$.  
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{align*}
+4^{x+1} & = 2^{x+2} + 3 \\
+\uncover<2->{\alert<6>{4^{x+1}} - \alert<4>{2^{x+2}} - 3} & \uncover<2->{ = 0} \\
+\intertext{\uncover<3->{Substitute $\alert<10>{u = 2^x}$.  Then $\alert<3-4>{2^{x+2} = \uncover<4->{4u}}$ and $\alert<5-6>{4^{x+1} = \uncover<6->{4u^2.}}$ }}
+\uncover<3->{\alert<6>{\uncover<6->{4u^2}} - \alert<4>{\uncover<4->{4u}} - 3} & \uncover<3->{ = 0} \\
+\uncover<7->{\alert<7-8>{(\uncover<8->{2u-3})(\uncover<8->{2u+1})}} & \uncover<7->{ = 0 } 
+\end{align*}
+\begin{align*}
+\uncover<9->{ \alert<10>{u} } & \uncover<9->{ = \frac{3}{2} } & \uncover<9->{\text{or}} & & \uncover<9->{\alert<10>{u}} & \uncover<9->{ = -\frac{1}{2}} \\
+\uncover<10->{ \alert<10>{2^x} } & \uncover<10->{ = \frac{3}{2} } & \uncover<10->{\text{or}} & & \uncover<10->{\alert<10>{2^x}} & \uncover<10->{ = -\frac{1}{2}} \invisible{99999999} \\
+\uncover<11->{ \alert<11-12>{x} } & \uncover<11->{ \alert<11-12>{ = \uncover<12->{\log_2 \Big( \frac{3}{2}\Big)} }} & & & \uncover<11->{\alert<13-14>{\uncover<-13>{x}}} & \uncover<11->{ \alert<13-14>{ \only<-13>{ =} \only<14->{\text{no solution}} }} \\
+\uncover<15->{x & = \frac{\ln (3/2)}{\ln2} & & & & } 
+\end{align*}
+\uncover<16->{Therefore the solution is $x = \frac{\ln (3/2)}{\ln 2} \approx  0.584962501$.}
+\end{example}
+\end{frame}
+% end module exponential-equation4
