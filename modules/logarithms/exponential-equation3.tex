@@ -8,25 +8,25 @@ Find the point(s) of intersection of $y = e^{2x}+4$ and $y = 5e^x$.
 \belowdisplayskip=0pt
 \begin{align*}
 \uncover<2->{ e^{2x} + 4 & = 5e^x }\\
-\uncover<3->{\alert<5-6>{e^{2x}} - 5\alert<4>{e^x} + 4} & \uncover<3->{ = 0} \\
-\intertext{\uncover<4->{Substitute $\alert<10>{u = e^x}$:}}
-\uncover<4->{\alert<5-6>{\uncover<6->{u^2}} - 5\alert<4>{u} + 4} & \uncover<4->{ = 0} \\
-\uncover<7->{\alert<7-8>{(\uncover<8->{u-4})(\uncover<8->{u-1})}} & \uncover<7->{ = 0 } 
+\uncover<3-| handout:0>{\alert<handout:0| 5-6>{e^{2x}} - 5\alert<handout:0| 4>{e^x} + 4} & \uncover<3->{ = 0} \\
+\intertext{\uncover<4->{Substitute $\alert<handout:0| 10>{u = \uncover<4-| handout:0>{e^x}}$:}}
+\uncover<4-| handout:0>{\alert<handout:0| 5-6>{\uncover<6->{u^2}} - 5\alert<handout:0| 4>{u} + 4} & \uncover<4->{ = 0} \\
+\uncover<7->{\alert<handout:0| 7-8>{(\uncover<8-| handout:0>{u-4})(\uncover<8-| handout:0>{u-1})}} & \uncover<7->{ = 0 } 
 \end{align*}
 \begin{align*}
-\uncover<9->{ \alert<10>{u} } & \uncover<9->{ = 4 } & \uncover<9->{\text{or}} & & \uncover<9->{\alert<10>{u}} & \uncover<9->{ = 1} \\
-\uncover<10->{ \alert<10>{e^x} } & \uncover<10->{ = 4 } & \uncover<10->{\text{or}} & & \uncover<10->{\alert<10>{e^x}} & \uncover<10->{ = 1} \invisible{99999999} \\
-\uncover<11->{ \alert<11-12>{x} } & \uncover<11->{ \alert<11-12>{ = \uncover<12->{\ln 4} }} & \uncover<11->{\text{or}} & & \uncover<11->{\alert<13-14>{x}} & \uncover<11->{ \alert<13-14>{ = \uncover<14->{0} }} 
+\uncover<9->{ \alert<handout:0| 10>{u} } & \uncover<9->{=} \uncover<9-| handout:0>{ 4 } & \uncover<9->{\text{or}} & & \uncover<9->{\alert<handout:0| 10>{u}} & \uncover<9->{=} \uncover<9-| handout:0>{ 1} \\
+\uncover<10-| handout:0>{ \alert<handout:0| 10>{e^x} } & \uncover<10-| handout:0>{ = 4 } & \uncover<10-| handout:0>{\text{or}} & & \uncover<10-| handout:0>{\alert<handout:0| 10>{e^x}} & \uncover<10-| handout:0>{ = 1} \invisible{99999999} \\
+\uncover<11-| handout:0>{ \alert<handout:0| 11-12>{x} } & \uncover<11-| handout:0>{ \alert<handout:0| 11-12>{ = \uncover<12->{\ln 4} }} & \uncover<11-| handout:0>{\text{or}} & & \uncover<11-| handout:0>{\alert<handout:0| 13-14>{x}} & \uncover<11-| handout:0>{ \alert<handout:0| 13-14>{ = \uncover<14->{0} }} 
 \end{align*}
-\uncover<15-19>{Therefore the points of intersection are \alert<15-16>{$(\ln 4,\uncover<16->{20})$} and \alert<17-18>{$(0,\uncover<18->{5})$}.}  
+\uncover<15-19| handout:0>{Therefore the points of intersection are \alert<handout:0| 15-16>{$(\ln 4,\uncover<16->{20})$} and \alert<handout:0| 17-18>{$(0,\uncover<18->{5})$}.}  
 \end{example}
 
 \column{.4\textwidth}
 
-\uncover<19->{%
+\uncover<19-| handout:0>{%
 \psset{xunit=0.3cm,yunit=0.13cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
 \begin{pspicture*}(-6.92,-4.61)(9.16,53.92)
-\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=5,Dy=5,ticksize=-2pt 0,subticks=0]{->}(0,0)(-6.92,-4.61)(9.16,53.92)
+\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=5,Dy=5,ticksize=-2pt 0,subticks=0]{<->}(0,0)(-6.92,-4.61)(9.16,53.92)
 \psplot[linecolor=blue,plotpoints=200]{-6.915925925925918}{9.164074074074078}{5*EXP(x)}
 \psplot[linecolor=red,plotpoints=200]{-6.915925925925918}{9.164074074074078}{EXP(2*x)+4}
 \begin{scriptsize}

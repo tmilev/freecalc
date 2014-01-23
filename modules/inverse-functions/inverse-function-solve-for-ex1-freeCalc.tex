@@ -1,15 +1,15 @@
 % begin module inverse-function-solve-for
 \begin{frame}
 %\frametitle{Inverse of a ne-to-one Function}
-\begin{example}[\uncover<16->{\alert<16,17>{What if we change problem to $x\leq -\frac{2}3$?} } ]
-Given: $\alert<2>{f(x) =  3x^2+4x-7}$ \alert<3,16,17>{with domain $x\only<1-16>{\geq}\only<17->{\leq} -\frac{2}{3}$}.  Find $f^{-1}(x)$.
+\begin{example}[\uncover<16->{\alert<handout:0| 16,17>{What if we change the problem to $x\leq -\frac{2}3$?}}]
+Given: $\alert<handout:0| 2>{f(x) =  3x^2+4x-7}$ \alert<handout:0| 3,16,17>{with domain $x\only<1-16| handout:0>{\geq}\only<17->{\leq} -\frac{2}{3}$}.  Find $f^{-1}(x)$.
 \begin{columns}
 \column{0.4\textwidth}
 \psset{xunit=0.35cm, yunit=0.35cm}
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-10,-10)(6,6) \tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-9,-9)(4.7,4.7)
-\uncover<2-16>{ %
+\uncover<2-16| handout:0>{ %
 \psplot[linecolor=\psColorGraph, plotpoints=1000] {-0.66}{1.401612274}{x 2 exp 3 mul x 4 mul add -7 add }
 }
 \uncover<17->{ %
@@ -18,13 +18,13 @@ Given: $\alert<2>{f(x) =  3x^2+4x-7}$ \alert<3,16,17>{with domain $x\only<1-16>{
 \uncover<2,17>{ %
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.7349}{-0.67}{x 2 exp 3 mul x 4 mul add -7 add }
 }
-\uncover<3-16>{ %
+\uncover<3-16| handout:0>{ %
 \psplot[linestyle=dashed, linecolor=gray!50, plotpoints=1000] {-2.7349}{-0.67}{x 2 exp 3 mul x 4 mul add -7 add }
 }
 \uncover<14->{
 \psline[linecolor=blue, linestyle=dashed](-6.5, -6.5)(4.5,4.5)
 }
-\uncover<15-16>{
+\uncover<15-16| handout:0>{
 \psplot[linecolor=red, plotpoints=1000]{-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt 0.333333 mul add }
 }
 \uncover<17->{
@@ -36,19 +36,19 @@ Given: $\alert<2>{f(x) =  3x^2+4x-7}$ \alert<3,16,17>{with domain $x\only<1-16>{
 \uncover<17->{
 \psplot[linecolor=\psColorGraph, plotpoints=1000] {-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt -0.333333 mul add }
 }
-\uncover<15-16>{\rput[lb](-6, 1){$y=f^{-1}(x)$}}
+\uncover<15-16| handout:0>{\rput[lb](-6, 1){$y=f^{-1}(x)$}}
 \uncover<11->{\rput (-3.5, -8 ){$(-\frac{2}{3}, -\frac{25}{3})$}}
-\uncover<2-16>{\rput[tl](1.8, 4.45){$y=f(x)$}}
+\uncover<2-16| handout:0>{\rput[tl](1.8, 4.45){$y=f(x)$}}
 \uncover<14->{\rput[l] (-7.8, -2.2 ){$(-\frac{25}{3}, -\frac{2}{3})$}}
 \uncover<17->{\rput[rt](4.5, -3){$y=f^{-1}(x)$}}
 \uncover<17>{ \rput[tr](-3, 4.5){$y=f(x)$}}
 \uncover<14->{\psFullDot{-8.33333}{-0.666667}}
 \psFullDot{-0.666667}{-8.33333}
 \end{pspicture} 
-\uncover<13->{Final }\uncover<12->{answer}\uncover<13->{, \alert<13>{relabelled}:}
+\uncover<13->{Final }\uncover<12->{answer}\uncover<13->{, \alert<handout:0| 13>{relabelled}:}
 \[
 \uncover<12->{
-f^{-1}(\only<12>{y}\only<13->{\alert<13>{x}} )=-\frac{2}{3} \only<1-16>{+}\only<17->{\alert<17>{-}} \frac{\sqrt{25 +3\only<12>{y} \only<13->{\alert<13>{x}}\phantom{y} }}{3}\quad.
+f^{-1}(\only<12| handout:0>{y}\only<13->{\alert<handout:0| 13>{x}} )=-\frac{2}{3} \only<1-16| handout:0>{+}\only<17->{\alert<handout:0| 17>{-}} \frac{\sqrt{25 +3\only<12| handout:0>{y} \only<13->{\alert<handout:0| 13>{x}}\phantom{y} }}{3}\quad.
 }
 \]
 
@@ -56,13 +56,13 @@ f^{-1}(\only<12>{y}\only<13->{\alert<13>{x}} )=-\frac{2}{3} \only<1-16>{+}\only<
 
 \[\begin{array}{rcl}
 \uncover<4->{3x^2+4x-7&=&y } \\
-\uncover<4->{\alert<7>{3}x^2+\alert<6>{4}x+\alert<8>{(-7-y)}&=&0 }
+\uncover<4->{\alert<handout:0| 7>{3}x^2+\alert<handout:0| 6>{4}x+\alert<handout:0| 8>{(-7-y)}&=&0 }
 \end{array}
 \]
-\uncover<5->{That's \alert<6,7,8>{quadratic equation in $x$}, solutions:}
+\uncover<5->{That's \alert<handout:0| 6,7,8>{a quadratic equation in $x$}. Solve:}
 \[\begin{array}{l}
 \uncover<5->{
-\phantom{=}\displaystyle \frac{-\alert<6>{4} \pm \sqrt{\alert<6>{4}^2-4*\alert<7>{3}*\alert<8>{(-y-7)} }}{2*\alert<7>{3}} \\
+\phantom{=}\displaystyle \frac{-\alert<handout:0| 6>{4} \pm \sqrt{\alert<handout:0| 6>{4}^2-4*\alert<handout:0| 7>{3}*\alert<handout:0| 8>{(-y-7)} }}{2*\alert<handout:0| 7>{3}} \\
 %~&=& \frac{-2 \pm \sqrt{25+3y}}{3}\\
 }
 \\
@@ -70,9 +70,10 @@ f^{-1}(\only<12>{y}\only<13->{\alert<13>{x}} )=-\frac{2}{3} \only<1-16>{+}\only<
 \end{array}
 \]
 \uncover<11->{
-We are given $x\only<11-16>{\geq}\only<17->{\alert<17>{\leq}}-\frac{2}3 $, therefore $x=-\frac{2}{3}\only<11-16>{+}\only<17->{\alert<17>{-}}\frac{\sqrt{25+3y}}{3}=f^{-1}(y)$.
+We are given $x\only<11-16| handout:0>{\geq}\only<17->{\alert<handout:0| 17>{\leq}}-\frac{2}3 $, therefore $x=-\frac{2}{3}\only<11-16| handout:0>{+}\only<17->{\alert<handout:0| 17>{-}}\frac{\sqrt{25+3y}}{3}=f^{-1}(y)$.
 }
 \end{columns}
+\vspace{-10pt}
 \end{example}
 \end{frame}
 % end module inverse-function-solve-for
