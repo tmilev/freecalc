@@ -448,7 +448,7 @@ Suppose $k,n\in \mathbb Z_{\geq 0}$ (non-negative integers). Then
 }
 
 \chapter{Limits, continuity, derivatives}
-\section{Motivating limtis: the tangent problem}
+\section{The tangent problem}
 Consider the computer- generated plot of the function $f(x)=\frac{x^2}2$ below. The line drawn in blue in Figure \ref{figTangentIdeaFor} appears to just touch the graph of the function $y=\frac{x^2}2$ at the point $P=(2,f(2))=(2, \frac{2^2}{2}) =(2,2)$. In mathematical language we say that the blue line is tangent to the graph of $ y=\frac{x^2}2$ (``tangent'' comes from Latin, ``to touch''). We shall give a formal definition of a tangent line later in Section \ref{secDefTangent}; until then, we shall refer to a ``tangent line'' informally, relying on the reader's intuition.
 
 We are seeking an equation for the tangent through $P=(2,2)=(2, f(2))$ drawn in \ref{figTangentIdeaFor}. We know one point on the tangent line - namely the point $P=(2,2)$. Recall that every non-vertical line has equation 
@@ -900,7 +900,7 @@ So far, for any $\varepsilon>0$ , we showed how to select a $\delta>0$ such that
 e^{z}\eqdef \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots \quad .
 }
 
-\begin{theorem} The infinite sum above is well-defined, i.e., if we define $f(N):=\sum_{n=0}^{N} \frac{z^n}{n!}$, then $\displaystyle\lim_{N\to \infty} f(N)$ exists.
+\begin{theorem} The infinite sum \ref{eqExponentFunctionDefinition} is well-defined, i.e., if we define $\displaystyle f(N):=\sum\limits_{n=0}^{N} \frac{z^n}{n!}$, then $\displaystyle\lim_{N\to \infty} f(N)$ exists.
 \end{theorem}
 
 This theorem will be proved in section \ref{secSeriesConvergence}.
@@ -924,7 +924,8 @@ e^{iz}= \cos z+ i\sin z \quad .
 \begin{proofOptional}
 \[
 \begin{array}{rcl}
-e^{iz}&=& \frac{2}{2}e^{iz}= \frac{2e^{iz} + e^{-iz} - e^{-iz}}{2} = \frac{e^{iz}+e^{-iz}}2 +\frac{e^{iz}-e^{-iz}}2= \cos z + \frac{i(e^{iz}-e^{-iz})}{2i}\\&=& \cos z+i \sin z\quad .
+\displaystyle e^{iz}&=&\displaystyle  \frac{2}{2}e^{iz}= \frac{2e^{iz} + e^{-iz} - e^{-iz}}{2} = \frac{e^{iz}+e^{-iz}}2 +\frac{e^{iz}-e^{-iz}}2= \cos z + \frac{i(e^{iz}-e^{-iz})}{2i}\\
+&=& \displaystyle \cos z+i \sin z\quad .
 
 \end{array}
 \]
@@ -943,7 +944,7 @@ e^{z} e^{w}=e^{z+w}\quad .
 \begin{equation*}
 \begin{array}{rcl}
 \displaystyle
-e^{z} e^w&=&\sum_{n=0}^{\infty} \frac{z^n}{n!}\sum_{m=0}^{\infty} \frac{w^m}{m!} \\ &\eqAttention& \sum_{s=0}^{\infty}\sum_{k=0 }^s \frac{z^{k}w^{s-k}}{k! (s-k)!} \\ &=& \sum_{s=0}^{\infty}\sum_{k=0 }^s  \frac{z^{k}w^{s-k}}{s!}\frac{s!}{k! (s-k)!}\\ &\stackrel{\mathrm{Newton~binomial}}{=}&\sum_{s=0}^{\infty} \frac{(z+w)^s}{s!}=e^{z+w}\quad .
+\displaystyle e^{z} e^w&=&\displaystyle  \sum_{n=0}^{\infty} \frac{z^n}{n!} \sum_{m=0}^{\infty} \frac{w^m}{m!} \\ &\eqAttention&  \displaystyle  \sum_{s=0}^{\infty}\sum_{k=0 }^s \frac{z^{k}w^{s-k}}{k! (s-k)!} \\ &=& \displaystyle  \sum_{s=0}^{\infty}\sum_{k=0 }^s   \frac{z^{k}w^{s-k}}{s!} \frac{s!}{k! (s-k)!}\\ &\stackrel{\mathrm{Newton~binomial}}{=}& \displaystyle  \sum_{s=0}^{\infty} \frac{(z+w)^s}{s!}=e^{z+w}\quad .
 \end{array}
 \end{equation*}
 \end{proofOptional}
