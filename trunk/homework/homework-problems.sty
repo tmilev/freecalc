@@ -3,6 +3,8 @@
 \usepackage{auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{multicol}
+\usepackage{../../lectures/pstricks-commands} %warning this path is relative to the file that uses the \usepackage command, not relative to the style file.
+
 \renewcommand{\Re}{\mathrm{Re~}}
 \renewcommand{\Im}{\mathrm{Im~}}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
@@ -23,12 +25,13 @@ Due #2 at \deadline}}%
 }%
 \newcommand{\points}[1]{\stepcounter{enumi}\item[ ({\bf #1 mark\ifthenelse{\equal{#1}{1}}{}{s}}) \arabic{enumi}.]}
 \newcommand{\pointsii}[1]{\stepcounter{enumii}\item[ ({\bf #1 mark\ifthenelse{\equal{#1}{1}}{}{s}}) (\alph{enumii})]}
-\newcommand{\answer}[1]{ Answer: #1} 
+%Default answer command
+\newcommand{\answer}[1]{ \hfill{~} Answer: #1} 
 % Default course name
 \newcommand{\course}{Freecalc}
 % Default deadline
 \newcommand{\deadline}{ (to be announced)}
 
-%Greg, can you modify this command to suit your taste? 
+%<-Greg, can you modify this command to suit your taste? 
 %I will use \renewcommand{\answer}[1]{ \hfill{~} \rotatebox{180}{ answer: #1}}, and put it in a separate style file.
 
