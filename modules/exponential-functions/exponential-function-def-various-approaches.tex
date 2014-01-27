@@ -2,17 +2,17 @@
 \begin{frame}
 \frametitle{Exponents overview}
 \begin{itemize}
-\item<1-> In preceding lectures for fixed $x$, we learned of $g(a) =a^{x}$ as a function of $a$.
-\item<2-> We promised a construction of $a^x$ in the coming lectures.
-\item<3-> In present lecture we study $f(x)=a^x$ as a function of $x$.
+\item<1-> Previously, for fixed $x$, we studied $a^{x}$ as a function of $a$. 
+\item<2-> In present lecture we study $f(x)=a^x$ as a function of $x$.
+\item<3-> A construction of $a^x$ was previously promised.
 \item<4-> There are several equivalent ways of defining $a^x$. 
 \item<5-> We give the easiest definition. 
-\item<6->We give a second equivalent definition. The second definition is studied in detail in Calculus II. 
+\item<6-> We give a second equivalent definition. The second definition is studied in detail in Calculus II. 
 \item<7->We discuss pros and cons.
 \end{itemize}
 \end{frame}
 \begin{frame}
-\frametitle{Exponent definition approach I}
+\frametitle{Exponent definition using limits (approach I)}
 \begin{itemize}
 \item<1-> For integer $p$ we know to compute $a^p$.
 \item<2-> Therefore for integer $q$ we know to compute $a^{\frac{1}{q}}= \sqrt[q]{a}=\max\{x|\text{~for~which~} x^q\leq a\}$.
@@ -22,12 +22,12 @@
 a^x = \lim\limits_{\substack{y \to x \\ y\text{-rational}}} a^y 
 \]
 \item<5-> Not computationally effective. It is not how computers compute.
-\item<6-> However is the easiest approach. $a^{x+y}=a^xa^y$ is easiest to prove (follows directly from the $\varepsilon, \delta$-definition of $\lim$ we studied).
-\item<7->\alert<7->{This is the definition we assume in Calculus I.}
+\item<6-> However is the easiest approach. $a^{x+y}=a^xa^y$ is easiest to prove (follows directly from the $\varepsilon, \delta$-definition of $\lim$).
+\item<7->\alert<7->{This is the definition assumed in Calculus I.}
 \end{itemize}
 \end{frame}
 \begin{frame}
-\frametitle{Exponent definition approach II }
+\frametitle{Exponent definition using series (approach II)}
 \begin{itemize}
 \item<1-> The Calc II formula can be used as alternative definition.
 \[
@@ -40,7 +40,7 @@ e^{x}=\alert<4>{\sum_{n=0}^{\infty}} \frac{x^n}{\alert<2>{n!}}= 1+ x+\frac{x^2}{
 \]
 \uncover<4->{\alert<4>{Infinite sum studied in Calc II.}} 
 \item<5-> For arbitrary $a>0$ define $a^x$ as $a^x=e^{x\ln a}$. 
-\item<6-> Disadvantage: more difficult to prove $e^{x+y}=e^{x}e^y$ and $e^{\ln(1+x)}=1+x$, but not too difficult.
+\item<6-> Disadvantage: more difficult to prove $e^{x+y}=e^{x}e^y$ and $e^{\ln(1+x)}=1+x$, proof done in Calculus II.
 \item<7-> This is how computers compute $e^x$ and $a^x$.
 \end{itemize}
 \end{frame}
