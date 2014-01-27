@@ -1,17 +1,21 @@
 \documentclass{article}
-\usepackage{../homework-problems}
-\usepackage{../pstricks-commands}
+\usepackage{../homework-problems-UMB}
 
-\date{}
-\newcommand{\homeworkEnd}{\end{document}}
-\newcommand{\homeworkStart}[1]{\title{#1}\begin{document}\maketitle}
+\renewcommand{\homeworkEnd}{\end{document}}
+\renewcommand{\homeworkStart}[2]{\title{\course \\ Homework \ #1}\date{%
+\ifthenelse{\equal{#2}{}}{}{%
+Due #2 at \deadline}}%
+\begin{document}\maketitle
+}%
 
 %\begin{comment}
-\homeworkStart{Homework Math 140 on Lectures 1 and 2 \\Will be quizzed Friday January 31}
-\input{../../modules/precalculus/homework/functions-domains-ranges}
+\homeworkStart{Homework Math 140 on Lectures 1 and 2 \\Will be quizzed Friday January 31}{}
+\input{../../modules/precalculus/homework/functions-domains-ranges-1}
+\input{../../modules/precalculus/homework/functions-domains-ranges-2}
 \input{../../modules/precalculus/homework/functions-evaluate-simplify}
-\input{../../modules/precalculus/homework/adding-fractions-for-students-who-cant}
-\input{../../modules/precalculus/homework/functions-piecewise-defined}
+\input{../../modules/precalculus/homework/functions-composing-fractional-linear}
+\input{../../modules/precalculus/homework/piecewise-defined-formula-from-plot}
+\input{../../modules/precalculus/homework/piecewise-defined-plot-from-formula}
 %\input{../../modules/precalculus/homework/functions-plot-transformations}
 \homeworkEnd
 %\end{comment}
