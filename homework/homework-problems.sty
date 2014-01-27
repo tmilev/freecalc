@@ -9,10 +9,12 @@
 \newcommand{\triplebrace}[6]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \\#5 & #6\end{array} \right.}
 \newcommand{\bigFatWarning}{ %\textbf{This homework contains copyrighted material from  James Stewart, Calculus, 7th edition, 2012. You are not permitted to copy this file for any purpose other than completing your homework. You are not allowed to give a copy of this file to anyone outside of our course. }
 }
-\newenvironment{solution}%
+
+\newenvironment{solutionEnvironment}%
 {\begin{proof}[\bfseries\upshape Solution]\renewcommand{\qedsymbol}{}}%
 {\end{proof}}%
-\newcommand{\ans}[1]{\iftoggle{solutions}{\begin{solution}#1\end{solution}}{}}
+\newcommand{\solution}[1]{\iftoggle{solutions}{\begin{solutionEnvironment}#1\end{solutionEnvironment}}{}}
+
 \newcommand{\homeworkEnd}{\end{enumerate}\end{document}}
 \newcommand{\homeworkStart}[2]{\title{\course \\ Homework \ #1}\date{%
 \ifthenelse{\equal{#2}{}}{}{%
@@ -21,4 +23,12 @@ Due #2 at \deadline}}%
 }%
 \newcommand{\points}[1]{\stepcounter{enumi}\item[ ({\bf #1 mark\ifthenelse{\equal{#1}{1}}{}{s}}) \arabic{enumi}.]}
 \newcommand{\pointsii}[1]{\stepcounter{enumii}\item[ ({\bf #1 mark\ifthenelse{\equal{#1}{1}}{}{s}}) (\alph{enumii})]}
-\newcommand{\answer}[1]{ \hfill{~} \rotatebox{180}{ answer: #1}}
+\newcommand{\answer}[1]{ Answer: #1} 
+% Default course name
+\newcommand{\course}{Freecalc}
+% Default deadline
+\newcommand{\deadline}{ (to be announced)}
+
+%Greg, can you modify this command to suit your taste? 
+%I will use \renewcommand{\answer}[1]{ \hfill{~} \rotatebox{180}{ answer: #1}}, and put it in a separate style file.
+
