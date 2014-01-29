@@ -1,14 +1,15 @@
 %begin module e-limit-problems-ex1
 \begin{frame}
 \begin{example}
-Compute \[\lim_{x\to \infty} \left(\frac{x+3}{x} \right)^{x}\].
-
+Compute 
 \[
 \begin{array}{rcll|l}
-\displaystyle\lim\limits_{x\to \infty}\left(\frac{x+3}{x}\right)^x &=&\displaystyle  \lim\limits_{x\to \infty}\left(1+\frac{3}{x}\right)^x \\
-&=& \displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\frac{x}{3}}\right)^{3\frac{x}{3} } && \text{Set } \frac{x}{3}=y\\
-&=&\displaystyle \lim\limits_{\substack{x\to \infty \\ \frac{x}{3}=y\to \infty }}\left(1+\frac{1}{y}\right)^{3y} \\
-&=&\displaystyle \displaystyle\lim\limits_{y\to \infty}\left(\left(1+\frac{1}{y}\right)^y\right)^3= e^3 \quad . 
+\displaystyle\lim\limits_{x\to \infty}\left(\alert<2>{ \frac{x+3}{x}} \right)^x 
+\uncover<2->{
+&=&\displaystyle  \lim\limits_{x\to \infty} \left(\alert<2>{1 +\alert<3>{\frac{3}{x}} } \right)^{\alert<4>{x}} } \\
+\uncover<3->{&=& \displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\alert<3,6>{ \frac{x}{3}} }\right)^{\alert<4>{3\alert<6>{\frac{x}{3}}} } } \uncover<5->{ && \text{Set } \alert<6>{\frac{x}{3}=y}}\\
+\uncover<6->{&=&\displaystyle \lim\limits_{\substack{\alert<7>{x\to \infty} \\ \uncover<7->{\alert<7>{\frac{x}{3}=y\to \infty} } }}\left(1+\frac{1}{\alert<6>{y}}\right)^{\alert<8>{3\alert<6>{y}}} } \\
+\uncover<8->{ &=&\displaystyle \alert<9,10>{ \alert<11>{\lim\limits_{y\to \infty}}\left(\alert<11>{\left(1+\frac{1}{y}\right)^{\alert<8>{y}}}\right)^{\alert<8>{3}}}} \uncover<9->{\alert<9,10>{=}}\uncover<10->{\alert<10>{\alert<11>{ e}^3} \quad .} 
 \end{array}
 \]
 
@@ -19,17 +20,15 @@ Compute \[\lim_{x\to \infty} \left(\frac{x+3}{x} \right)^{x}\].
 Compute 
 \[
 \begin{array}{rll|l}
-&\displaystyle \lim_{x\to \infty} \left(\frac{x}{x-2} \right)^{2x+2}\\
-=&\displaystyle
-\lim\limits_{x\to \infty}\left(\frac{x-2 +2}{x-2} \right)^{2x+2}
-= 
-\lim\limits_{x\to \infty}\left(1+\frac{2}{x-2} \right)^{2x+2} \\
-=&\displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\frac{x-2}{2}} \right)^{2(x-2+2)+2}\\
-=&\displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\frac{x-2}{2}} \right)^{4\frac{x-2}{2}+6} = \displaystyle \lim\limits_{\frac{x-2}{2}
-= y\to\infty} \left(1+\frac{1}{y}\right)^{4y+6}  && \text{Set } y=\frac{x-2}{2}\\
-=&\displaystyle \lim\limits_{y\to \infty} \left(\left(1+\frac{1}{y} \right)^{y}\right)^4 \lim\limits_{y\to\infty} \left(1+\frac{1}{y}\right)^6 =e^4\cdot (1+0)^6\\
-=& e^4
-\quad . 
+&\displaystyle \lim_{x\to \infty} \left(\frac{\alert<2>{x}}{x-2} \right)^{2x+2}\\
+\uncover<2->{ =&\displaystyle
+\lim\limits_{x\to \infty}\left(\alert<3>{ \frac{\alert<2>{x-2 +2}} {x-2} } \right)^{2x+2}}
+\uncover<3->{= \lim\limits_{x\to \infty}\left(\alert<3>{1+\alert<4>{\frac{2}{x-2}} } \right)^{2\alert<5>{x}+2}} \\
+\uncover<4->{=&\displaystyle \lim\limits_{x\to \infty} \left( 1+ \alert<4>{\frac{1}{ \frac{x-2}{2}}} \right)^{\alert<6>{ 2( \alert<5>{ x-2+2} )+2}} }\\
+\uncover<6->{ =&\displaystyle \lim\limits_{x\to \infty} \left( 1+ \frac{1}{ \alert<8>{ \frac{x-2}{2}} } \right)^{ \alert<6>{ 4\alert<8>{\frac{x-2}{2}} +6}}} \uncover<8->{= \lim \limits_{\substack{ \alert<8>{\frac{ x-2 }{2}
+= y} \\ y\to\infty}} {\alert<9,10>{\left(1+\frac{1}{\alert<8>{ y} }\right)}}^{\alert<9>{4\alert<8>{y}} +\alert<10>{6}} } \uncover<7->{&& \alert<7>{\text{Set } \alert<8>{y=\frac{x-2}{2}} }}\\
+\uncover<9->{=& \displaystyle \alert<12>{ \lim\limits_{y\to \infty} }  \alert<9>{ \left( \alert<12>{\left(1+\frac{1}{y} \right)^{y}}\right)^4} \alert<13>{\lim\limits_{ y\to\infty}} \alert<10>{\left(1+\alert<13>{\frac{1}{y}} \right)^6} } \\ \uncover<11->{ =&\alert<14>{ \alert<12>{e}^4\cdot (1+\alert<13>{0})^6}}\uncover<14->{
+= \alert<14>{e^4} \quad . }
 \end{array}
 \]
 
