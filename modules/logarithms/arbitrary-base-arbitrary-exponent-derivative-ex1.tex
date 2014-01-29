@@ -1,0 +1,14 @@
+\begin{example}
+Compute $\frac{d}{dx} \left((\tan x)^{\frac{1}{x}} \right)$,  where $x\in (0,\frac{\pi}{2})$.
+
+\[
+\begin{array}{rcl}
+\displaystyle \frac{d}{dx} \left((\tan x)^{\frac{1}{x}} \right)&=&\displaystyle \frac{d}{dx} \left((e^{\ln \tan x })^{\frac{1}{x}} \right)=\frac{d}{dx} \left(e^{\frac{1}{x}\ln \tan x} \right)\\
+&=&\displaystyle  e^{\frac{1}{x} \ln \tan x} \frac{d}{dx}\left(\frac{1}{x} \ln \tan x \right) \\
+&=&\displaystyle  (\tan x)^{\frac{1}{x}} \left( -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{(\tan x)'}{\tan (x)}\right)\\
+&=&\displaystyle (\tan x)^{\frac{1}{x}} \left( -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{\frac{1}{\cos^2(x)}}{\frac{\sin x}{\cos x}}\right)\\
+&=&\displaystyle (\tan x)^{\frac{1}{x}} \left( -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{1}{\sin x \cos x}\right)
+
+\end{array}
+\]
+\end{example}

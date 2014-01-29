@@ -1,0 +1,21 @@
+% begin module arbitrary-base-arbitrary-exponent-derivative
+\begin{frame}
+\begin{example}
+Suppose $g(x)$ and $f(x)$ are differentiable functions and suppose $g(x)>0$. Prove that
+\[
+\frac{d}{dx} \left(g(x)^{f(x)} \right)=g(x)^{f(x)} \left( f'(x) \ln (g(x)) + f(x)\frac{g'(x)}{g(x)}\right) \quad .
+\]
+\end{example}
+\begin{proof}
+\[
+\begin{array}{rcl}
+\displaystyle \frac{d}{dx} \left(g(x)^{f(x)} \right)&=&\displaystyle \frac{d}{dx} \left( \left(e^{\ln g(x)}\right)^{f(x)} \right)=\frac{d}{dx} \left(e^{f(x)\ln g(x)} \right)\\
+&=&\displaystyle e^{f(x)\ln g(x)} \frac{d}{dx} (f(x) \ln g(x)) \\
+&=&\displaystyle 
+g(x)^{f(x)} \left( f'(x) \ln (g(x)) + f(x)\frac{g'(x)}{g(x)}\right)\quad ,
+\end{array}
+\]
+as desired.
+\end{proof}
+\end{frame}
+%end module arbitrary-base-arbitrary-exponent-derivative

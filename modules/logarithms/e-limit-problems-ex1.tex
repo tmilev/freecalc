@@ -1,0 +1,38 @@
+%begin module e-limit-problems-ex1
+\begin{frame}
+\begin{example}
+Compute \[\lim_{x\to \infty} \left(\frac{x+3}{x} \right)^{x}\].
+
+\[
+\begin{array}{rcll|l}
+\displaystyle\lim\limits_{x\to \infty}\left(\frac{x+3}{x}\right)^x &=&\displaystyle  \lim\limits_{x\to \infty}\left(1+\frac{3}{x}\right)^x \\
+&=& \displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\frac{x}{3}}\right)^{3\frac{x}{3} } && \text{Set } \frac{x}{3}=y\\
+&=&\displaystyle \lim\limits_{\substack{x\to \infty \\ \frac{x}{3}=y\to \infty }}\left(1+\frac{1}{y}\right)^{3y} \\
+&=&\displaystyle \displaystyle\lim\limits_{y\to \infty}\left(\left(1+\frac{1}{y}\right)^y\right)^3= e^3 \quad . 
+\end{array}
+\]
+
+\end{example}
+\end{frame}
+\begin{frame}
+\begin{example}
+Compute 
+\[
+\begin{array}{rll|l}
+&\displaystyle \lim_{x\to \infty} \left(\frac{x}{x-2} \right)^{2x+2}\\
+=&\displaystyle
+\lim\limits_{x\to \infty}\left(\frac{x-2 +2}{x-2} \right)^{2x+2}
+= 
+\lim\limits_{x\to \infty}\left(1+\frac{2}{x-2} \right)^{2x+2} \\
+=&\displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\frac{x-2}{2}} \right)^{2(x-2+2)+2}\\
+=&\displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\frac{x-2}{2}} \right)^{4\frac{x-2}{2}+6} = \displaystyle \lim\limits_{\frac{x-2}{2}
+= y\to\infty} \left(1+\frac{1}{y}\right)^{4y+6}  && \text{Set } y=\frac{x-2}{2}\\
+=&\displaystyle \lim\limits_{y\to \infty} \left(\left(1+\frac{1}{y} \right)^{y}\right)^4 \lim\limits_{y\to\infty} \left(1+\frac{1}{y}\right)^6 =e^4\cdot (1+0)^6\\
+=& e^4
+\quad . 
+\end{array}
+\]
+
+\end{example}
+\end{frame}
+%end module e-limit-problems-ex1
