@@ -1,14 +1,16 @@
+\begin{frame}
 \begin{example}
 Compute $\frac{d}{dx} \left((\tan x)^{\frac{1}{x}} \right)$,  where $x\in (0,\frac{\pi}{2})$.
 
 \[
 \begin{array}{rcl}
-\displaystyle \frac{d}{dx} \left((\tan x)^{\frac{1}{x}} \right)&=&\displaystyle \frac{d}{dx} \left((e^{\ln \tan x })^{\frac{1}{x}} \right)=\frac{d}{dx} \left(e^{\frac{1}{x}\ln \tan x} \right)\\
-&=&\displaystyle  e^{\frac{1}{x} \ln \tan x} \frac{d}{dx}\left(\frac{1}{x} \ln \tan x \right) \\
-&=&\displaystyle  (\tan x)^{\frac{1}{x}} \left( -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{(\tan x)'}{\tan (x)}\right)\\
-&=&\displaystyle (\tan x)^{\frac{1}{x}} \left( -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{\frac{1}{\cos^2(x)}}{\frac{\sin x}{\cos x}}\right)\\
-&=&\displaystyle (\tan x)^{\frac{1}{x}} \left( -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{1}{\sin x \cos x}\right)
-
+\uncover<2->{\displaystyle  \frac{d}{dx} \left((\alert<3>{\tan x})^{\frac{1}{x}} \right)&=&} \uncover<3->{ \displaystyle \frac{d}{dx} \left( (\alert<3>{e^{\alert<4>{\ln \tan x} }})^{ \alert<4>{\frac{1}{x}} } \right)}  \uncover<4->{=\frac{d}{dx} \left( e^{\alert<4>{\frac{1}{x}\ln \tan x}} \right)}\\
+\uncover<5->{ &=&\displaystyle  \alert<6>{e^{\frac{1}{x} \ln (\tan x)}} \alert<7,8>{\frac{d}{dx}\left(\frac{1}{x} \ln( \tan x) \right)}} \\
+\uncover<6->{&=&\displaystyle  \alert<6>{ (\tan x)^{\frac{1}{x}}}\alert<7,8>{ \left( \uncover<8->{ -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{(\tan x)' }{\tan x}}\right)}} \\
+\uncover<9->{&=&\displaystyle (\tan x)^{\frac{1}{x}} \left( -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{\frac{1}{\cos^2(x)}}{\frac{\sin x}{\cos x}}\right)}\\
+\uncover<10->{&=&\displaystyle (\tan x)^{\frac{1}{x}} \left( -\frac{1}{x^2} \ln (\tan x) +\frac{1}{x} \frac{1}{\sin x \cos x}\right)}
 \end{array}
 \]
 \end{example}
+
+\end{frame}
