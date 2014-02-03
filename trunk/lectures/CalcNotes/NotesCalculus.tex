@@ -12,7 +12,90 @@
 \usepackage{pst-math}
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
-\usepackage{../pstricks-commands}
+
+% To make everything into one file, I include the following style file directly.
+% This might need to be updated over time.
+%\usepackage{../pstricks-commands}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% List of commands in this document
+%
+%
+% \psFullDot        (Default dot to be used for points on graphs of functions).
+% \psHollowDot      (Default dot to be used for points on graphs of functions).
+% \psHollowDotBlue 
+% \psFullDotBlack
+% \psFullDotBlue
+% \psLabelXOne      (labels one on x axis)
+% \psLabelYOne      (labels one on y axis)
+% \psLabels         (writes x and y labels )
+% \psLabelsWithOnes (same as \psLabels + in addition labels 1 on the x and y axis)
+%\psaxesStandard (default display of axes with x and y label, takes two arguments)
+%\psLabelNumberXaxis
+%\psLabelNumberYaxis
+%\psXTickWithLabel
+%\psYTickWithLabel
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\psHollowDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psFullDot}[2]{
+\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
+}
+
+\newcommand{\psHollowDotBlue}[2]{
+\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
+\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
+}
+\newcommand{\psFullDotBlack}[2]{
+\pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
+}
+\newcommand{\psFullDotBlue}[2]{
+\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
+}
+\newcommand{\psXTickColored}[2]{\psline[linecolor=#1](#2, -0.1)(#2,0.1)}
+
+\newcommand{\psXTick}[1]{\psline(#1, -0.1)(#1,0.1)}
+\newcommand{\psYTick}[1]{\psline(-0.1, #1)(0.1, #1)}
+\newcommand{\psXYTick}[2]{\psXTick{#1} \psYTick{#2}}
+
+\newcommand{\psXTickWithLabel}[2]{\psXTick{#1}\rput[t](#1,-0.2){#2}}
+\newcommand{\psYTickWithLabel}[2]{\psYTick{#1}\rput[r](-0.2,#1){#2}}
+
+\newcommand{\psLabelNumberXaxis}[1]{\psXTickWithLabel{#1}{#1}}
+\newcommand{\psLabelNumberYaxis}[1]{\psYTickWithLabel{#1}{#1}}
+
+\newcommand{\psLabelNumberXYaxes}[2]{\psLabelNumberXaxis{#1} \psLabelNumberYaxis{#2} }
+
+\newcommand{\psLabelXOne}{\psLabelNumberXaxis{1} }
+\newcommand{\psLabelYOne}{\psLabelNumberYaxis{1} }
+
+\newcommand{\psLabelOnXaxis}[2]{\psXTick{#1}\rput[t](#1,-0.2){#2}}
+\newcommand{\psLabelOnYaxis}[2]{\psYTick{#1}\rput[r](-0.2, #1){#2}}
+
+\newcommand{\psLabels}[2]{\rput[t](#1, -0.1){$x$}\rput[r](-0.1, #2){$y$}}
+\newcommand{\psLabelsWithOnes}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) { $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) { $1$} \psLabels{#1}{#2}}
+
+\newcommand{\psaxesStandard}[4]{\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)\psLabels{#3}{#4}}
+\newcommand{\psColorTangent}{blue}
+\newcommand{\psColorGraph}{red}
+\newcommand{\psColorAreaUnderGraph}{cyan}
+\newcommand{\psColorNegativeAreaUnderGraph}{orange}
+
+\newcommand{\psMachine}[2]{
+\pscustom*[linecolor=#2]{
+\psline(1,1.1)(1,0.1)(1.5,0.1)(2, 0.6)(2.5, 0.6)(2.5, -0.6)(2, -0.6)(1.5,-0.1)(1,-0.1)(1,-1.1)(-1,-1.1)(-1,-0.1)(-1.5,-0.1)(-2, -0.6)(-2.5, -0.6)(-2.5, 0.6)(-2, 0.6)(-1.5,0.1)(-1,0.1)(-1,1.1)
+}
+\pscircle*[linecolor=white](0,0){0.3}
+\rput(0,0){#1}
+}
+
+
 \usepackage{multicol}
 \usepackage{rotating}
 
@@ -46,7 +129,7 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{}
+\newcommand{\optionalDisplay}[1]{#1}
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -74,6 +157,8 @@ $\Rightarrow$
 \maketitle
 
 %\noindent \textbf{Study materials. } The present notes and the textbook by James Stewart, Calculus, 7th edition, published by Brooks Cole, 2012. ISBN-13: 978-0-538-49781-7, ISBN-10: 0-538-49781-5. 
+
+%\begin{comment}
 
 \chapter*{Preface}
 
@@ -390,7 +475,7 @@ Carry out the operations. For items 4-6 you can first take a look at the Newton 
 \end{enumerate}
 \end{multicols}
 \end{problem}
-\section{\optionalMaterial A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
+\section[\optionalMaterial A dictionary of numbers]{\optionalMaterial A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
 
 \chapter{A few algebra techniques}
 In the present chapter we develop a basic formulas, and state a few basic combinatorial facts. The chapter relies on a conceptual, high-school level understanding of the notion of ``formula'', but does not require any practical knowledge other than applying the rules of arithmetic.
@@ -883,27 +968,99 @@ So far, for any $\varepsilon>0$ , we showed how to select a $\delta>0$ such that
 \section{Derivatives}
 
 \subsection{Definition of derivative}\label{secDerivative}
-
+\begin{definition}
+We say that a function $f(x)$ is differentiable at a point $a$ if the limit 
+\begin{equation}\label{eqDefDerivative}
+f'(a)\eqdef \lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+\end{equation}
+exists. If the limit exists, we say that it equals the derivative of $f$ at the point $a$.
+\end{definition}
 
 \subsection{Definition of non-vertical tangent}
 \label{secDefTangent}
 
+\subsection{Computing derivatives}
+Recall that for a function of a variable $z$, $\frac{d}{dx}(f(x))$ denotes the derivative of $f(x)$. The notations $\frac{d}{dx}(f(x))$ and $f'(x)$ are equivalent. 
+
+Let $n$ be an integer. 
+\[
+\frac{d}{dx} (x^n)= n x^{n-1}\quad .
+\]
+\[
+\frac{d}{dx} (f(x)g(x)) = f'(x)g(x)+f(x)g'(x) \quad .
+\]
+Let $f(y)$ and $g(x)$ be differentiable functions.  Then
+\[
+\frac{d}{dx} \left(f( g(x))\right)= g'(x) f'(g(x)) \quad .
+\]
+
+
+
+
+\section{Differentials}
+Let $f$ be a differentiable function of a variable $x$. Introduce formal expressions $d(f(x))$ (abbreviated as $df$) and $dx$ so that they obey the following rule.
+\importantFormula{
+f'(x)d x\eqdef d(f(x))\quad \quad,
+}
+in abbreviated notation 
+\importantFormula{
+f'dx = df\quad \quad .
+}
+
+$d(f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)dx$ are called \emph{differential forms}.
+
+Differentials obey the laws
+\[
+\begin{array}{rcll}
+d(f+C)&=&df \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
+d(Cf)&=&Cdf \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
+d(f+g)&=&df+dg \quad\quad\quad\quad \quad &(\mathrm{linearity})\\
+d(fg)&=&gdf+fdg \quad\quad\quad\quad \quad &(\mathrm{Leibniz~rule})\\
+\end{array}
+\]
+%Try to prove these laws from the definition!
+We recall the notation $\int f(x)dx$ stands for the class of anti-derivatives of $f(x)$, i.e., for the functions $F(x)$ for which $F'(x) = f(x)$.
+
+The fact that $f(x)+C=\int f'(x)dx$ is translated into differential notation as 
+\importantFormula{
+d \left(\int f(x)dx\right)= f(x)dx\quad ,
+}
+and
+\importantFormula{
+\int df(x)= f(x)+C\quad .
+}
+
+
 
 \chapter{Complex numbers and trigonometric functions}
 
-\section{Complex numbers and trigonometric functions}
-
-\subsection{Exponent function, $\sin$ and $\cos$}
-\index{exponent function} Exponent function $e^z$. 
-
+\section{Exponent function, $\sin$ and $\cos$}
+Consider the infinite sum
 \importantFormula{\label{eqExponentFunctionDefinition}
-e^{z}\eqdef \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots \quad .
+\begin{array}{rcl}
+\displaystyle e^{z}&\eqdef &\displaystyle \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots\\
+\end{array} \quad .
 }
+We immediately justify the above notation with the following.
+\begin{definition}\label{defNaturalExponent}
+\index{exponent function} The natural exponent function $e^z$ is the function defined via equation \eqref{eqExponentFunctionDefinition}.
+\end{definition}
+The expression \eqref{eqExponentFunctionDefinition} for $e^z$ gives indeed a formula for the natural exponent, i.e., the exponent with base $e= e^1= 1+\frac{1}{1}+\frac{1}2+\frac{1}{3!}+\frac{1}{4!}+\dots \approx 2.71828$. We will learn why that is so in later in this section. Until we do so we ask the reader to think of $e^{z}$ as an infinite sum, which will only later to be the familiar exponent which was studied\footnote{perhaps less formally} in earlier mathematical courses. We start by explaining how formula \eqref{eqExponentFunctionDefinition} is evaluated. Let 
+\[
+\displaystyle f(z,N):=\sum\limits_{n=0}^{N} \frac{z^n}{n!}
+\]
+Then \eqref{eqExponentFunctionDefinition} becomes 
+\[
+e^z\eqdef \displaystyle\lim\limits_{N\to \infty} f(z, N)\quad .
+\]
+The above equality tells us how to find numerical approximations for $1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots$. More precisely, pick a large number $N$, evaluate the sum of the first $N$ summands, discard the remaining ones, and declare the so obtained number an approximation of \eqref{eqExponentFunctionDefinition}. Up to the author's knowledge, this is in fact how computers evaluate the expression $e^x$. The question of how to pick a sufficiently large $N$ so that the error is sufficiently small will be handled in Section \ref{secSeriesConvergence}. 
 
-\begin{theorem} The infinite sum \ref{eqExponentFunctionDefinition} is well-defined, i.e., if we define $\displaystyle f(N):=\sum\limits_{n=0}^{N} \frac{z^n}{n!}$, then $\displaystyle\lim_{N\to \infty} f(N)$ exists.
+Equation \eqref{eqExponentFunctionDefinition} raises an immediate important question: does the limit used in the definition exist? The answer is affirmative.
+\begin{theorem} The infinite sum \eqref{eqExponentFunctionDefinition} is well-defined, i.e. the limit $\displaystyle\lim_{N\to \infty} f(z, N)$ exists for all $z$.
 \end{theorem}
+We postpone the proof of this theorem to Section \ref{secSeriesConvergence}. 
 
-This theorem will be proved in section \ref{secSeriesConvergence}.
+
 \index{sine function} \index{cosine function} $\sin z$ and $\cos z$ (sine and cosine functions).
 
 \importantFormula{
@@ -1219,7 +1376,7 @@ The imaginary part of $\log_{(-\pi,\pi)}(z)$ is a number in the interval $(-\pi,
 
 The notation $\ln x$  is used when the argument $x$ is a positive real number. The function $\ln$ is called ``natural logarithm''. The notation $\log z$ is used when the argument $z$ is a complex number. If it so happens that $z$ is a complex number that is also a positive real number, then $\log(z)=\ln(z)$. Therefore the main role of the notation $\log$ and $\ln$ is to remind us of whether we are computing with complex or with real numbers.
 
-In non-mathematical texts, the notation $\log_{10} x\eqdef \frac{\ln x}{\ln 10}$ is sometimes used to denote ``logarithm base 10'' (similar notation can be used for other bases as well). In mathematical texts, the notation $\log_{10} x$ is not accepted and should be avoided. Even when writing papers in the natural sciences, where the use of the notation $\log_{10} x$ might be acceptable, I  recommend avoiding this notation.
+In non-mathematical texts, the notation $\log_{10} x\eqdef \frac{\ln x}{\ln 10}$ is sometimes used to denote ``logarithm base 10'' (similar notation can be used for other bases as well). In mathematical texts, the notation $\log_{10} x$ is not accepted and should be avoided. Even when writing papers in the natural sciences, where the use of the notation $\log_{10} x$ is acceptable, I  recommend avoiding this notation.
 
 Let $\varphi\in (-\frac{\pi}{2} ,\frac{\pi}{2})$ (i.e., $\varphi$ is a real number in the interval $(0,\frac{\pi}{2})$). Then 
 \begin{equation}\label{eqSinCosViaTan}
@@ -1348,7 +1505,9 @@ for all $k\in \mathbb Z$. To finish the task we need to plot the number $z$.
 
 \textbf{Solution \ref{probComplexLogs}.\ref{prob2plus3i}. } We draw the number as indicated on the figure. We compute that $\sin \varphi =-\frac{3}{\sqrt{13}}$, $\cos \varphi=-\frac{2}{\sqrt{13}}$, $\tan \varphi = \frac{3}{2}$. By the convention of our course, $\arctan \varphi\in (-\frac{\pi}{2}, \frac{\pi}{2})$. Therefore $\varphi= \left(\arctan\left(\frac{3}{2}\right) +\pi\right)+2k\pi $ for all $k\in \mathbb Z$. Finally, we get
 \[
--2-3i= e^{\ln|-2-3i| + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)}= e^{\ln \sqrt{13}  + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)} =  e^{\frac{1}2\ln 13  + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)}\quad .
+\begin{array}{rcl}
+-2-3i&=& e^{\ln|-2-3i| + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)}= e^{\ln \sqrt{13}  + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)} \\&=&  e^{\frac{1}2\ln 13  + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)}\quad .
+\end{array}
 \] 
 \end{solution}
 \begin{problem}
@@ -1506,49 +1665,13 @@ Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
 \rput(3,0.5){$y=\arctan x$}
 \end{pspicture*}
 } %end of optionalDisplay
-\section{Differentials, derivatives review}
-\subsection{Review of derivatives.}
-Recall that for a function of a variable $z$, $\frac{d}{dx}(f(x))$ denotes the derivative of $f(x)$. The notations $\frac{d}{dx}(f(x))$ and $f'(x)$ are equivalent. 
-
-Let $n$ be an integer. 
-\[
-\frac{d}{dx} (x^n)= n x^{n-1}\quad .
-\]
 
 
-Derivative of product. 
-\[
-\frac{d}{dx} (f(x)g(x)) = f'(x)g(x)+f(x)g'(x) \quad .
-\]
-
-Chain rule. Let $f(y)$ and $g(x)$ be two functions.  Then
-\[
-\frac{d}{dx} \left(f( g(x))\right)= g'(x) f'(g(x)) \quad .
-\]
-
-\textbf{Optional material.} (!)Holomorphic functions. We say that a function $f$ is \emph{holomorphic} in a neighborhood of  $z$ if the limit 
-\[
-f'(z)\eqdef \lim_{\substack{h\to 0\\ h\in \mathbb C}} \frac{ f(z+h)-f(z)}{h}
-\]
-exists.
-
-You may notice that the above looks very similar to the definition that $f$ be differentiable in a neighborhood of $x$. The difference between ``differentiable'' and ``holomorphic'' is that holomorphic functions are required to have limits no matter from which direction in the complex plane does $h$ approach $0$. On the other hand, for a function to be differentiable, we only need to have limit when $h$ approaches $0$ along the real axis (either from the left, negative side, or from the right, positive side). Thus it is ``easier'' for a function to be differentiable, than it is to be holomorphic. All holomorphic functions, when restricted to the reals, are differentiable, but it is easy to construct real functions that are differentiable but cannot be extended to a holomorphic function (one such function is given in problem \ref{probDifferentiableNonAnalyticFunctionExample}).
-
-\textbf{Note.} You are not required to remember this definition and you will not be tested on it. In order to fully understand this definition you must study the subject of complex analysis. Here is the Wikipedia page:
-
-\url{http://en.wikipedia.org/wiki/Complex_analysis} \quad .
-
-\optionalMaterial
-\[\begin{array}{l}
-\mathrm{The~derivatives~of~holomorphic~functions~are~computed} \\
-\mathrm{by~the~same~rules~as~those~for~real~functions.} \\
-\end{array}
-\]
-This means you can use identities such as $(ix)'=i$. $(e^{ix})'=ie^{ix}$, $(\cos (ix))'= -i\sin(ix)$. Of the functions we studied so far, $e^z, \sin z, \cos z$ are holomoprhic functions everywhere, the functions $\arctan z$, $\log z$ are holomorphic in neighborhoods of the values of $z$ for which they are defined, and the functions $\Im z, \Re z, |z|$ are not holomorphic.
 
 
 
 \subsubsection{Derivatives of trigonometric, exponent functions and their inverses}
+
 
 Derivative of $e^z$.
 
@@ -1644,45 +1767,38 @@ Derivative of $\arcsin x, \arccos x, \arctan x$.
 
 \end{proof}
 
+
+\textbf{Optional material.} (!)Holomorphic functions. We say that a function $f$ is \emph{holomorphic} in a neighborhood of  $z$ if the limit 
+\[
+f'(z)\eqdef \lim_{\substack{h\to 0\\ h\in \mathbb C}} \frac{ f(z+h)-f(z)}{h}
+\]
+exists.
+
+You may notice that the above looks very similar to the definition that $f$ be differentiable in a neighborhood of $x$. The difference between ``differentiable'' and ``holomorphic'' is that holomorphic functions are required to have limits no matter from which direction in the complex plane does $h$ approach $0$. On the other hand, for a function to be differentiable, we only need to have limit when $h$ approaches $0$ along the real axis (either from the left, negative side, or from the right, positive side). Thus it is ``easier'' for a function to be differentiable, than it is to be holomorphic. All holomorphic functions, when restricted to the reals, are differentiable, but it is easy to construct real functions that are differentiable but cannot be extended to a holomorphic function (one such function is given in problem \ref{probDifferentiableNonAnalyticFunctionExample}).
+
+\textbf{Note.} You are not required to remember this definition and you will not be tested on it. In order to fully understand this definition you must study the subject of complex analysis. Here is the Wikipedia page:
+
+\url{http://en.wikipedia.org/wiki/Complex_analysis} \quad .
+
+\optionalMaterial
+\[\begin{array}{l}
+\mathrm{The~derivatives~of~holomorphic~functions~are~computed} \\
+\mathrm{by~the~same~rules~as~those~for~real~functions.} \\
+\end{array}
+\]
+This means you can use identities such as $(ix)'=i$. $(e^{ix})'=ie^{ix}$, $(\cos (ix))'= -i\sin(ix)$. Of the functions we studied so far, $e^z, \sin z, \cos z$ are holomoprhic functions everywhere, the functions $\arctan z$, $\log z$ are holomorphic in neighborhoods of the values of $z$ for which they are defined, and the functions $\Im z, \Re z, |z|$ are not holomorphic.
+
+
+
+
 Definition of hyperbolic sine, hyperbolic cosine and hyperbolic tangent.
 
 Derivative of $\sinh z$, $\cosh z$, $\tanh z$, $\coth z$.
 
 Derivative of $ \arsinh z$, $ \arcosh z$, $ \arctanh z$.
-\subsection{Differentials}
-Let $f$ be a differentiable function of a variable $x$. Introduce formal expressions $d(f(x))$ (abbreviated as $df$) and $dx$ so that they obey the following rule.
-\importantFormula{
-f'(x)d x\eqdef d(f(x))\quad \quad,
-}
-in abbreviated notation 
-\importantFormula{
-f'dx = df\quad \quad .
-}
-
-$d(f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)dx$ are called \emph{differential forms}.
-
-Differentials obey the laws
-\[
-\begin{array}{rcll}
-d(f+C)&=&df \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
-d(Cf)&=&Cdf \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
-d(f+g)&=&df+dg \quad\quad\quad\quad \quad &(\mathrm{linearity})\\
-d(fg)&=&gdf+fdg \quad\quad\quad\quad \quad &(\mathrm{Leibniz~rule})\\
-\end{array}
-\]
-%Try to prove these laws from the definition!
-We recall the notation $\int f(x)dx$ stands for the class of anti-derivatives of $f(x)$, i.e., for the functions $F(x)$ for which $F'(x) = f(x)$.
-
-The fact that $f(x)+C=\int f'(x)dx$ is translated into differential notation as 
-\importantFormula{
-d \left(\int f(x)dx\right)= f(x)dx\quad ,
-}
-and
-\importantFormula{
-\int df(x)= f(x)+C\quad .
-}
-\section{Techniques of integration}
-\subsection{Integration by parts}
+%\end{comment}
+\chapter{Techniques of integration}
+\section{Integration by parts}
 Integration by parts can be formulated using differential forms as
 \importantFormula{
 \int f dg+ \int g df = fg\quad, 
@@ -1702,25 +1818,36 @@ Idea of integration by parts: suppose we already know the integral of $g(x)$, sa
 If the function $G(x)$ is not too complicated, then $f'(x)G(x)dx$ may be easier to integrate than $f(x)g(x)dx$. If that is the case, integrating by parts pays off, and we should use the technique. 
 
 There is no 100\% recipe when integration by parts makes the problem easier. However, with practice and experience, on small examples, one can quickly judge when integration by parts helps.
-\subsubsection{Examples of integration by parts}
+\subsection{Examples of integration by parts}
+\begin{problem}
+Evaluate $\int x \sin x dx$.
+\end{problem}
+\begin{solution}
 \[
 \begin{array}{rcl}
 \displaystyle\int x \underbrace{\sin x dx}_{=-d\cos x} = -\int x d\cos x = -x\cos x + \int \cos x dx = -x \cos x +\sin x +C\quad .
 \end{array}
 \]
-
+\end{solution}
+\begin{problem}
+Evaluate $\int x^2 e^x dx$.
+\end{problem}
+\begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int x^2 \underbrace{e^x dx}_{d (e^x)} = \int x^2 d e^x= x^2e^x - \int e^x2xdx=  x^2e^x - \int 2xd e^x = x^2e^x- 2xe^x+ \int 2e^x dx= x^2e^x-2xe^x+2e^x+C\quad .
+\displaystyle\int x^2 \underbrace{e^x dx}_{d (e^x)} &=& \int x^2 d e^x= x^2e^x - \int e^x2xdx=  x^2e^x - \int 2xd e^x \\
+&=& x^2e^x- 2xe^x+ \int 2e^x dx= x^2e^x-2xe^x+2e^x+C\quad .
 \end{array}
 \]
+\end{solution}
 \[\int \ln x dx = x\ln x - \int x d(\ln x)= x\ln x -\int \frac{x}{x}dx= x\ln x-x+C\quad . 
 \]
 
 \[
 \begin{array}{rcl}
 \displaystyle\int \sin x \underbrace{e^x dx}_{=de^x}&=&\displaystyle\sin x e^x - \int e^xd(\sin x)=\sin x e^x - \int \cos x \underbrace{e^x dx}_{=de^x}\\
-&=& \displaystyle\sin x e^x - e^x\cos x +\int e^x d(\cos x)= e^x\sin x -e^x\cos x-\int e^x\sin x dx\quad . 
+&=& \displaystyle\sin x e^x - e^x\cos x +\int e^x d(\cos x) \\
+&=& e^x\sin x -e^x\cos x-\int e^x\sin x dx\quad . 
 \end{array}
 \]
 Transferring $\displaystyle\int e^x\sin x dx$ to the left hand side we get $\displaystyle 2\int \sin x e^x dx = \sin x e^x-e^x\cos x$, or finally, $\displaystyle \int \sin x e^x dx=\frac12 \left(\sin x e^x- e^x\cos x\right)$.
@@ -1728,7 +1855,8 @@ Transferring $\displaystyle\int e^x\sin x dx$ to the left hand side we get $\dis
 \[
 \begin{array}{rcl}
 \displaystyle\int \arctan x dx &=& x\displaystyle \arctan x - \int x d(\arctan x)= x\arctan x - \int \frac{x}{x^2+1}dx\\
-&=& \displaystyle  x\arctan x - \int \frac{\frac{1}2d(x^2)}{x^2+1}=  x\arctan x - \int \frac{\frac{1}2d(x^2+1)}{x^2+1}= x\arctan x - \frac12\ln (x^2+1) +C\quad .
+&=& \displaystyle  x\arctan x - \int \frac{\frac{1}2d(x^2)}{x^2+1}=  x\arctan x - \int \frac{\frac{1}2d(x^2+1)}{x^2+1}\\
+&=& x\arctan x - \frac12\ln (x^2+1) +C\quad .
 \end{array}
 \]
 
@@ -2654,7 +2782,7 @@ A motivation for the definition may be given as follows. Let $[a,b]$ be subdivid
 \[
 \sum_{k=1}^{N-1} \sqrt{\left(\frac{(f_1(a+k\Delta)-f_1(a+(k-1)\Delta)}{\Delta}\right)^2 + \left(\frac{(f_2(a+k\Delta)- f_2(a+(k-1)\Delta)}{\Delta} \right)^2}\Delta\quad .
 \]
-As the number of intevals $N$ tends to $\infty$, $\Delta$ approaches 0, and by the definition of derivative, the radical term tends uniformly to $\sqrt{f_1'(t)^2+f_2'(t)^2}$. Therefore the entire sum approximates the integral \eqref{eqDefLengthCurve}.
+As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by the definition of derivative, the radical term tends uniformly to $\sqrt{f_1'(t)^2+f_2'(t)^2}$. Therefore the entire sum approximates the integral \eqref{eqDefLengthCurve}.
 
 \optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
