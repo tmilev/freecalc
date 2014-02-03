@@ -1,23 +1,23 @@
 % begin module partial-fractions-intro
 \begin{frame}
-\frametitle{(8.4) Integration of Rational Functions by Partial Fractions}
-In this section, we'll show how to integrate any rational function by expressing it as a sum of simpler fractions, called partial fractions.  To illustrate the method, let us put $2/(x-1)$ and $1/(x+2)$ over a common denominator in the following:
+\frametitle{Integration of Rational Functions by Partial Fractions}
+A rational function is a function which can be written as ratio of polynomials, $\frac{P(x)}{Q(x)}$. We will show how to integrate any rational function. To do so, we express $\frac{P(x)}{Q(x)}$ as a sum of simple fractions, called partial fractions. We start with an example. Put $2/(x-1)$ and $1/(x+2)$ over a common denominator:
 \[
-\frac{2}{x-1} - \frac{1}{x+2} = %
+\alert<5>{\frac{2}{x-1} - \frac{1}{x+2} } = %
 \uncover<2->{%
 \frac{2(x+2) - (x-1)}{(x-1)(x+2)} = %
 }%
 \uncover<3->{%
-\frac{x + 5}{x^2+x-2}%
+\alert<5>{ \frac{x + 5}{x^2+x-2} }%
 }%
 \]
 
 \uncover<4->{%
-This tells us how to integrate the following:
+We can now solve the following integral:
 \[
-\int \frac{x+5}{x^2+x-2}\diff x = %
+\int \alert<5>{ \frac{x+5}{x^2+x-2}}\diff x = %
 \uncover<5->{%
-\int \left( \frac{2}{x-1} - \frac{1}{x+2}\right) \diff x = %
+\int \left(\alert<5>{\frac{2}{x-1} - \frac{1}{x+2}} \right) \diff x = %
 }%
 \uncover<6->{%
 2\ln | x - 1| - \ln | x + 2| + C
