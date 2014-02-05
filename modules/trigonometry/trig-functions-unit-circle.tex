@@ -1,0 +1,27 @@
+\begin{frame}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=1.5cm,yunit=1.5cm}
+\begin{pspicture}(0,-2)(5,3)
+\psline(0.9,0)(0.9, 0.1)(1,0.1)
+\tiny
+\rput[lb](0.3, 0.2){$\theta$}
+\rput[rb](-0.1,1){$1$}
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.2,-1.2)(1.2,1.2)
+\psplot[plotpoints=1000]{0.134164079}{0.2999}{0.09 x 2 exp -1 mul add sqrt}
+
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.000000}{1.000000}{1 x 2 exp -1 mul add sqrt }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.000000}{1.000000}{1 x 2 exp -1 mul add sqrt -1 mul }
+\psline(1, -2.5)(1,2.5)
+
+\psline(0,0)(1,2)
+\psline[linecolor=blue](0,0)(1,-0.5)
+\psline[linecolor=green](0.447213595, 0.894427191)(0.447213595,0)
+\psline[linecolor=green](0,0)(0.447213595,0)
+
+\psline(0.1,-0.05)(0.15,0.05) (0.05, 0.1)
+\end{pspicture}
+\column{0.6\textwidth}
+$\sec x$
+\end{columns}
+\end{frame}
