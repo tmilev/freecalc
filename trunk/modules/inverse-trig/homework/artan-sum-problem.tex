@@ -1,10 +1,39 @@
 \begin{enumerate}
-\item Let $a+b\neq k\pi $ for any $k\in \mathbb Z$ (integers). Prove that
+\item Let $a+b\neq k\pi $, $a\neq k\pi+\frac{\pi}{2}$ and $b\neq k\pi +\frac{\pi}{2}$ for any $k\in \mathbb Z$ (integers). Prove that
 \[
 \frac{\tan a + \tan b}{1-\tan a \tan b }= \tan (a+b)\quad .
 \]
 \item Let $x$ and $y$ be real. Prove that, for $xy\neq 1$, we have
-\[\arctan x+\arctan y= \arctan \frac{x+y}{1-xy}
+\[\arctan x+\arctan y= \arctan\left( \frac{x+y}{1-xy}\right)
 \]
 if the left hand side lies between $(-\frac{\pi}{2}, \frac{\pi}{2})$.
 \end{enumerate}
+\solution{
+(a) We start by recalling the formulas \[\begin{array}{rcl}\cos(a+b)&=&\cos a \cos b-\sin a \sin b\\ \sin (a+b)&=&\sin a \cos b+\sin b \cos a\quad .
+\end {array}
+\] 
+These formulas have been previously studied; alternatively they follow from Euler's formula and the computation 
+\[
+\begin{array}{rcl}
+\cos (a+b) +i\sin (a+b)&=& e^{i(a+b)}= e^{ia}e^{ib}=(\cos a+ i\sin a)(\cos b +i \sin b)\\
+&=&\cos a \cos b-\sin a \sin b +i(\sin a \cos b+\sin b \cos a)\quad .
+\end{array}
+\]
+Now (a) is done via a straightforward computation:
+\begin{equation}\label{eqTangentAngleSumLaw}
+\begin{array}{rcl}
+\tan(a+b)&=&\displaystyle \frac{\sin (a+b)}{\cos (a+b)}=\frac{\sin a \cos b+\sin b \cos a}{\cos a\cos b-\sin a\sin b}=\frac{(\sin a\cos b+\sin b \cos a)\frac{1}{\cos a\cos b}}{(\cos a \cos b-\sin a \sin b)\frac{1}{\cos a\cos b}}\\
+&=&\displaystyle \frac{\tan a +\tan b}{1-\tan a \tan b}\quad .
+\end{array}
+\end{equation}
+\noindent (b) This is a consequence of (a). Let $a=\arctan x$, $b=\arctan y$. Then \eqref{eqTangentAngleSumLaw} becomes 
+\[
+\tan (\arctan x+\arctan y)= \frac{\tan (\arctan x)+\tan(\arctan y)}{1-\tan (\arctan x)\tan (\arctan y)}=\frac{x+y}{1-xy}\quad,
+\]
+where we use the fact that $\tan (\arctan w)=w$ for all $w$. We recall that $\arctan (\tan z)=z$ whenever $z\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$. Now take $\arctan$ on both sides of the above equation to obtain 
+\[
+\arctan x +\arctan y=\arctan\left(\frac{x+y}{1-xy}\right)\quad .
+\]
+
+}
+
