@@ -1,27 +1,81 @@
 \begin{frame}
+\frametitle{Geometric interpretation of all trigonometric functions}
 \begin{columns}
 \column{0.4\textwidth}
 \psset{xunit=1.5cm,yunit=1.5cm}
 \begin{pspicture}(0,-2)(5,3)
-\psline(0.9,0)(0.9, 0.1)(1,0.1)
 \tiny
-\rput[lb](0.3, 0.2){$\theta$}
 \rput[rb](-0.1,1){$1$}
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.2,-1.2)(1.2,1.2)
-\psplot[plotpoints=1000]{0.134164079}{0.2999}{0.09 x 2 exp -1 mul add sqrt}
-
+%circle:
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.000000}{1.000000}{1 x 2 exp -1 mul add sqrt }
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.000000}{1.000000}{1 x 2 exp -1 mul add sqrt -1 mul }
 \psline(1, -2.5)(1,2.5)
 
+\uncover<2->{
 \psline(0,0)(1,2)
-\psline[linecolor=blue](0,0)(1,-0.5)
-\psline[linecolor=green](0.447213595, 0.894427191)(0.447213595,0)
+}
 \psline[linecolor=green](0,0)(0.447213595,0)
 
-\psline(0.1,-0.05)(0.15,0.05) (0.05, 0.1)
+%angle:
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.2,-1.2)(1.2,1.2)
+
+\uncover<2->{
+\rput[lb](0.3, 0.2){\alert<2>{$\theta$}}
+\psplot[plotpoints=1000]{0.134164079}{0.2999}{0.09 x 2 exp -1 mul add sqrt}
+\rput[l](1.05,2){\alert<2>{$B$}}
+\rput[bl](1.05,0.05){\alert<2>{$D$}}
+}
+
+\psline(0.95,0)(0.95, 0.05)(1,0.05)
+
+\rput[tr](-0.1,-0.1){\alert<2>{$O$}}
+\uncover<3->{
+\rput[b](0.4,1){\alert<3>{$A$}}
+}
+
+
+\uncover<5->{
+\psline[linecolor=blue](0.447213595, 0.894427191)(0.447213595,0)
+\rput[tl](0.45,-0.05){$C$}
+\psline(0.397213595,0)(0.397213595, 0.05)(0.447213595,0.05)
+}
+
+\uncover<6->{
+\psline[linecolor=green](0,0)(0.447213595,0)
+}
+\uncover<7->{
+\psline[linecolor=purple](1,0)(1,2)
+}
+\uncover<8->{
+\psline[linecolor=cyan](1,0)(1,-0.5)
+\rput[l](1.05,-0.5){$E$}
+\psline[linecolor=black](0,0)(1,-0.5)
+\psline(0.04472136,-0.02236068)(0.06708204,0.02236068) (0.02236068, 0.04472136)
+}
+\uncover<9->{
+\psline[linecolor=orange](0,0)(1,-0.5)
+}
+\uncover<10->{
+\psline[linecolor=magenta](0,0)(1,2)
+}
 \end{pspicture}
 \column{0.6\textwidth}
-$\sec x$
+On picture: circle of radius $1$ centered at point $O$ with coordinates $(0,0)$. \uncover<2->{Let \alert<2>{$\angle DOB=\theta$}.} \uncover<3->{\alert<3>{Let $OB$ intersect the circle at point $A$}.} \uncover<4->{Then the coordinates of $A$ are $(\color{blue}\sin\theta \color{black},\color{green}\cos \theta\color{black} )$.}
+
+\medskip
+
+\uncover<5->{ $\color{blue}\sin \theta \color{black} = \frac{|AC|}{|OA|} = \frac{|AC|}{1}=|AC| $.}
+
+\uncover<6->{ $\color{green}\cos \theta \color{black} =\frac{|OC|}{|OA|}=\frac{|OC|}{1}= |OC| $.}
+
+\uncover<7->{$\color{purple} \tan \theta\color{black} = \frac{|BD|}{|OD|}=\frac{|BD|}{1}=|BD|$.}
+
+\uncover<8->{$\color{cyan} \cot \theta\color{black} = \frac{|DE|}{|OD|}=\frac{|DE|}{1}=|DE|$.} 
+
+
+\uncover<9->{$ \color{orange}\csc\theta \color{black} =\frac{|OE|}{|DO|}=\frac{|OE|}{1}=|OE|$.}
+
+\uncover<10->{$\color{magenta} \sec\theta \color{black} =\frac{|OB|}{|OD|}=\frac{|OB|}{1}=|OB|$.}
+
 \end{columns}
 \end{frame}
