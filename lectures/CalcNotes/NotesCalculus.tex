@@ -400,7 +400,7 @@ That is why we may view the set of rational number $\mathbb Q $ as the set of pa
 
 \noindent \url{http://en.wikipedia.org/wiki/Complex_number}
 
-The complex numbers are a set of numbers which give an extension of the real numbers. The complex numbers defined as the set of all pairs of real numbers $(a,b)$, equipped with addition, subtraction, multiplication and division operations, which we define later in the present section. The set complex numbers is denoted by $\mathbb C$. When referring to a complex number, instead of using the notation $(a,b)$ it is accepted to use the notation 
+\index{complex numbers}\index{imaginary!numbers}\index{imaginary!unit} The complex numbers are a set of numbers which contain the real numbers. The complex numbers are defined as the set of all pairs of real numbers $(a,b)$, equipped with addition, subtraction, multiplication and division operations, which we define later in the present section. The set complex numbers is denoted by $\mathbb C$. When referring to a complex number, instead of using the notation $(a,b)$ it is accepted to use the notation 
 \[
 a+i b\quad .
 \]
@@ -408,7 +408,7 @@ In this way, the set of complex numbers $\mathbb C$ becomes
 \[
 \mathbb C\eqdef \{a+ib| a,b\in \mathbb R\}\quad. 
 \]
-It is commonly accepted to abbreviate $ a+i*0$ as $a$, $0+i*b$ as $i*b$, $0+0*i$ as $0$ and $0+1*i$ as $i$. Complex numbers of the form $a=a+i*0$ are in addition called real numbers and complex numbers of the form $0+i*b=i*b$ are called imaginary numbers. The number $a$ in $a+ib$ is referred to as the real part of $a+ib$ and the number $b$ in $a+ib$ is referred to as the imaginary part of $a+ib$. We write
+It is commonly accepted to abbreviate $ a+i*0$ as $a$, $0+i*b$ as $i*b$, $0+0*i$ as $0$ and $0+1*i$ as $i$. Complex numbers of the form $a=a+i*0$ are in addition called real numbers and complex numbers of the form $0+i*b=i*b$ are called imaginary numbers. \index{complex numbers!imaginary part of}\index{complex numbers!real part of} \index{real!part} \index{imaginary!part}The number $a$ in $a+ib$ is referred to as the \emph{real part} of $a+ib$ and the number $b$ in $a+ib$ is referred to as the of $a+ib$. We write
 \[
 \Re (a+ib)\eqdef a \quad, \quad \quad \Im (a+ib)\eqdef b \quad .
 \]
@@ -416,69 +416,68 @@ The names of the various parts of $z=a+ib$ are given below.
 \[
 z=\underbrace{\overbrace{a}^{\text{Real part}=\Re z}+ \overbrace{i\underbrace{b}_{\text{Imaginary part}=\Im z}}^{\text{imaginary number}} }_{\text{Complex number}}
 \]
-\index{complex!number}\index{imaginary}\index{imaginary!unit} 
+Complex number addition is defined in the manner suggested by the complex number notation:
+\[(a+i b)+ (c+id)\eqdef (a+c) + i(b+d) \quad .
+\]
+In order to have that subtraction be the inverse operation of the addition operation subtraction must be defined by 
+\[
+(a+i b)- (c+id)\eqdef (a-c) + i(b-d) \quad .
+\]
+Complex number addition is defined in the manner suggested by complex number notation, with the additional requirement that
 \[
 i^2\eqdef -1\quad .
 \]
-
-
-
-In the complex number $z=a+ib$, $a$ is called \emph{real part of $z$}, $b$ is called \index{imaginary!part}\emph{imaginary part of $z$}. Notation.
-Number of the form $ib$ for $b\in \mathbb R$ are called imaginary.
-
-Complex addition.
-\[(a+i b)+ (c+id)\eqdef (a+c) + i(b+d) \quad .
-\]
-
-Complex multiplication 
-
+In other words, complex multiplication is defined as
 \[
-(a+ i b)(c+id)=(ac-bd)+i(bc+ad) \quad .
+(a+ i b)(c+id)=ac +i^2 bd +i bc + i ad= (ac-bd)+i(bc+ad) \quad .
 \]
-
-\index{complex!conjugation} Complex conjugation.
+Before we define complex division we cover the operation of complex conjugation. The \emph{complex conjugate} of a number $z$, denoted by $\bar z$, is defined via
+\index{complex!conjugation}
 \[\overline{a+ib}\eqdef a-ib \quad .
 \]
 
-Complex conjugation respects addition.
+\begin{proposition}
+Complex conjugation respects both addition and multiplication:
 \importantFormula{
 \label{eqComplexConjugationIsAddHMM} 
 \overline {z +w}= \bar z +\bar w\quad .
 }
-
-Complex conjugation respects multiplication.
 \importantFormula{
 \label{eqComplexConjugationIsFieldHMM}  \overline {z w}= \bar z \bar w\quad .
 }
+
+\end{proposition}
 \begin{proof}
-Let $z= a+ib$ and $w=c+id$. Then
+We leave the proof of \eqref{eqComplexConjugationIsAddHMM} to the reader. Let $z= a+ib$ and $w=c+id$. Then
 \begin{equation*}
 \begin{array}{rcl}\overline {zw}&=& \overline{(a+ib)(c+id)}= \overline{ac-bd +i(ad+bc) }\\&=& ac-bd-i(ad+bc)= a(c-id)-ibc+i^{2}bd\\&=& a(c-id)-ib(c-id)= (a-ib)(c-id)\\&=&\bar z \bar w\quad .
 \end{array}
 \end{equation*}
 \end{proof}
-
-\index{complex!absolute value} Absolute value of a complex number.
-
-\[
-|a+ib|^2\eqdef (a+ib)\overline{(a+ib)}=(a+ib)(a-ib)=a^2+b^2 \quad .
-\]
+\index{complex!absolute value}  The absolute value of a complex number $z$, denoted by $|z|$, is defined via
 \[
 |a+ib|\eqdef \sqrt{a^2+b^2}\quad .
 \]
-
-Complex division.
+We have that 
 \[
-\frac{1}{c+id}= \frac{c-id}{(c+id)(c-id)}=\frac{c}{c^2+d^2}-i\frac{d}{c^2+d^2} \quad .
+|a+ib|^2\eqdef (a+ib)\overline{(a+ib)}=(a+ib)(a-ib)=a^2+b^2 \quad .
 \]
 
-Complex division (general).
+Division of a complex number by a real number is defined in the manner suggested by complex number notation:
+\[
+\frac{a+ib}{c}= \frac{a}{c}+i\frac{b}{c}, \quad c\neq 0\quad .
+\]
+In order to have that be the inverse operation to multiplication, it follows that the division of $1$ by a number must be defined by
+\[
+\frac{1}{c+id}= \frac{c-id}{(c+id)(c-id)}=\frac{c}{c^2+d^2}-i\frac{d}{c^2+d^2}  \quad c+id\neq 0.
+\]
+Therefore division of arbitrary complex numbers is defined as 
 \[
 \frac{a+ib}{c+id}=(a+ib)\frac{1}{c+id}= \frac{(a+ib)(c-id)}{(c+id)(c-id)}= \frac{ac+bd}{c^2+d^2}+i\frac{(bc-ad)}{c^2+d^2} \quad .
 \]
 
-\subsubsection{Exercises}
-\begin{problem}
+\subsection{Problems and exercises}
+\begin{problem}\label{probComplexNumbersBasicOperations}
 Carry out the operations. For items 4-6 you can first take a look at the Newton Binomial formula \eqref{eqNewtonBinomialFormula}.
 \begin{multicols}{3}
 \begin{enumerate}
@@ -487,10 +486,21 @@ Carry out the operations. For items 4-6 you can first take a look at the Newton 
 \item $(5+3i)^{-2}$.
 \item $(1+i)^3$.
 \item $(1+i)^4$.
-\item $(1+i)^5$.
+\item \label{eq(1+i)^5} $(1+i)^5$.
+\item \label{eq(1+i)^-5} $(1+i)^{-5}$.
 \end{enumerate}
 \end{multicols}
 \end{problem}
+\begin{solution}
+
+\ref{eq(1+i)^5}.
+By the Newton Binomial formula  \eqref{eqNewtonBinomialFormula}, we have that $(1+i)^5= 1 + 5i + 10 i^2+ 10i^3+5i^4+i^5= 1-10+5 +i(5-10+1)=-4-4i$.
+
+\ref{eq(1+i)^-5}. Using the preceding example, we have that \[
+(1+i)^{-5}=\frac{1}{(1+i)^5}=\frac{1}{ -4-4i}=\frac{-4+4i}{(-4-4i)(-4+4i)}=\frac{-4+4i}{32}=-\frac{1}{8}+\frac{1}{8}i\quad .
+\]
+
+\end{solution}
 \section[\optionalMaterial A dictionary of numbers]{\optionalMaterial A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
 %\end{comment}
 %\begin{comment}
@@ -2226,7 +2236,12 @@ x&=&1+\frac{2}{t^2-1}\quad .
 \] 
 \end{enumerate}
 Integrals of the form $\int R(\sin y,\cos y )dy$ for $R$- rational function can be transformed to integrals of rational functions via the substitution $y= 2\arctan x$. Taking differentials on both sides, we see $dy=\frac{2}{1+x^2}dx$. Further, we have 
-\[\cos (2\arctan x) = \cos^2(\arctan x)- \sin^2(\arctan x)=  \frac{\cos^2(\arctan x)- \sin^2(\arctan x)}{\cos^2(\arctan x)+ \sin^2(\arctan x)}= \frac{1- \tan^2(\arctan x)}{\tan^2(\arctan x)+1}= \frac{1- x^2}{x^2+1}\quad .
+\[
+\begin{array}{rcl}
+\cos (2\arctan x) &=&\displaystyle \cos^2(\arctan x)- \sin^2(\arctan x)\\
+&=&  \frac{\cos^2(\arctan x)- \sin^2(\arctan x)}{\cos^2(\arctan x)+ \sin^2(\arctan x)}\\
+&=& \displaystyle \frac{1- \tan^2(\arctan x)}{\tan^2(\arctan x)+1}= \frac{1- x^2}{x^2+1}\quad .
+\end{array}
 \]
 Therefore 
 \[\sin (2\arctan x)=\pm \sqrt{1-\cos^2(2\arctan x)}= \pm\sqrt{ 1-\frac{(1- x^2)^2}{(x^2+1)^2} }= \frac{2x}{x^2+1}\quad .
@@ -2241,28 +2256,31 @@ dy&=&\frac{2}{x^2+1}dx\\
 \] 
 
 \subsubsection{Examples of Euler integrals}
+\begin{problem}
 Integrate 
 \[
 \int \sqrt{x^2+1}dx\quad .
 \]
+\end{problem}
 \begin{solution}
 We carry out the substitution $t=\sqrt{x^2+1}-x$ described in \ref{eqEulerSub1}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $dx=-\frac12 \left(\frac1{t^2} +1\right)dt$ to get
 \[
 \begin{array}{rcl}
-\int \sqrt{x^2+1}dx&=&-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)dt=-\frac 1 4\int (\frac{1}{t^3}+2\frac{1}t+t)dt\\
-&=&-\frac{1}4 \left(-\frac{t^{-2}}{2}+2\ln|t|+\frac{t^2}2 \right)=\frac{1}{8} \left(\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2\right)-\frac12 \ln (\sqrt{x^2+1}-x)
+\displaystyle\int \sqrt{x^2+1}dx&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)dt=-\frac 1 4\int (\frac{1}{t^3}+2\frac{1}t+t)dt\\
+&=&\displaystyle -\frac{1}4 \left(-\frac{t^{-2}}{2}+2\ln|t|+\frac{t^2}2 \right)\\
+&=&\displaystyle\frac{1}{8} \left(\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2\right)-\frac12 \ln (\sqrt{x^2+1}-x)
 \end{array}
 \]
-The expression $\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2$ can be additionally simplified.  
+The expression $\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2$ can be simplified further.  
 \[\begin{array}{rcl}
-\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2&=&
-\frac{(\sqrt{x^2+1}+x)^2}{(\sqrt{x^2+1}-x)^2  (\sqrt{x^2+1}+x)^2 }- (\sqrt{x^2+1}-x)^2 = \frac{(\sqrt{x^2+1}+x)^2}{\underbrace{((\sqrt{x^2+1})^2-x^2)^2}_{=1} }- (\sqrt{x^2+1}-x)^2 \\
-&=& 4x\sqrt{x^2+1}
+\displaystyle\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2&=&\displaystyle
+\frac{(\sqrt{x^2+1}+x)^2}{(\sqrt{x^2+1}-x)^2  (\sqrt{x^2+1}+x)^2 }- (\sqrt{x^2+1}-x)^2 \\&=&\displaystyle \frac{(\sqrt{x^2+1}+x)^2}{\underbrace{((\sqrt{x^2+1})^2-x^2)^2}_{=1} }- (\sqrt{x^2+1}-x)^2 \\
+&=&\displaystyle 4x\sqrt{x^2+1}
 \end{array}
 \]
 The expression $\ln (\sqrt{x^2+1}-x)$ can be transformed to 
 \[
-\ln \left(\frac{(\sqrt{x^2+1}-x)(\sqrt{x^2+1}+x)}{\sqrt{x^2+1}+x}\right)=\ln (\frac{1}{\sqrt{x^2+1}+x})= -\ln (\sqrt{x^2+1}+x)
+\ln \left(\frac{(\sqrt{x^2+1}-x)(\sqrt{x^2+1}+x)}{\sqrt{x^2+1}+x}\right)=\ln \left(\frac{1}{\sqrt{x^2+1}+x}\right)= -\ln (\sqrt{x^2+1}+x)
 \]
 Finally, we get 
 \[
@@ -2271,42 +2289,55 @@ Finally, we get
 \end{array}
 \]
 \end{solution}
-
+\begin{problem}
 Integrate 
 \[
 \int \frac{dx}{x+\sqrt{x^2+x+1}}\quad .
 \]
+\end{problem}
 %\begin{solution}
 %Substitute first  $x=t-1/2$, $dx=dt$, and then $t=\frac{\sqrt{3}}2 u$, $dt=\frac{\sqrt{3}}2 du$:
-%\[\begin{array}{rcl}
-%\int \frac{dx}{x+\sqrt{x^2+x+1}}&=&\int \frac{dt}{t-1/2+\sqrt{t^2+3/4}} =\\
-%&=&\int \frac{\frac{\sqrt{3}}2du}{ \frac{\sqrt{3}}{2}u-1/2+\frac{\sqrt{3}}{2}\sqrt{u^2+1}}= \int \frac{du}{ %u-\frac{\sqrt{3}}{3}+\sqrt{u^2+1}}\\
-%\quad .
+%\[
+%\begin{array}{rcl}
+%\displaystyle\int \frac{dx}{x+\sqrt{x^2+x+1}}&=&\displaystyle \int \frac{dt}{t-1/2+\sqrt{t^2+3/4}} =\\
+%&=&\displaystyle \int \frac{\frac{\sqrt{3}}2du}{ \frac{\sqrt{3}}{2}u-1/2+\frac{\sqrt{3}}{2}\sqrt{u^2+1}}= \int \frac{du}{ u-\frac{\sqrt{3}}{3}+\sqrt{u^2+1}}\\ \quad .
 %\end{array}
 %\]
-%According to recipe, we substitute $\sqrt{u^2+1}= u+s$ as computed in \ref{eqEulerSub1}, to get $du=(-\frac{1}{2s^2}-2) ds$, $\sqrt{u^2+1}=\frac{1}{2s}-s$, $u=\frac{1}{2s}-2s$:
-%\[\begin{array}{rcl}
+%According to recipe, we substitute $\sqrt{u^2+1}= u+s$ as computed in \ref{eqEulerSub1}, to get $\displaystyle du=\left(-\frac{1}{2s^2}-2\right) ds$, $\displaystyle \sqrt{u^2+1}=\frac{1}{2s}-s$, $u=\displaystyle\frac{1}{2s}-2s$:
+%\[
+%\begin{array}{rcl}
+%\displaystyle
 %\int \frac{dx}{x+\sqrt{x^2+x+1}}
-%&=& \int \frac{(-\frac{1}{2s^2}-2) ds}{ \frac{1}{2s}-2s-\frac{\sqrt{3}}{3}+\frac{1}{2s}-s}\\
-%\quad .
+%&=&\displaystyle \int \frac{\left(-\frac{1}{2s^2}-2\right) ds}{ \frac{1}{2s}-2s-\frac{\sqrt{3}}{3}+\frac{1}{2s}-s}\\
+\quad .
 %\end{array}
 %\]
 %\end{solution}
-
-Integrate \[\int \frac{xdx}{(1-x^3)\sqrt{1-x^2}}\quad .\]
-
+\begin{problem}
+Integrate 
+\[
+\int \frac{xdx}{(1-x^3)\sqrt{1-x^2}}\quad .
+\]
+\end{problem}
 \subsubsection{Examples of trigonometric integrals}
-Integrate \[\int \frac{dx}{2\sin x-\cos x +5}\quad .\]
+Integrate 
+\[
+\int \frac{dx}{2\sin x-\cos x +5}\quad .
+\]
 \begin{solution}
 Set $x=2\arctan t$. Therefore 
 \[
 \begin{array}{rcl}
-\int \frac{dx}{2\sin x-\cos x +5}&=& \int \frac{2dt}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{dt}{3t^2+2t+2}
+\displaystyle \int \frac{dx}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2dt}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{dt}{3t^2+2t+2}
 \end{array}
 \]
 We substitute $t=z-1/3$. Therefore $dt=dz$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3z^2+5/3= 5/3(9/5z^2+1)= 5/3((3/\sqrt{5}z)^2+1)$. We substitute $3/\sqrt{5}z=w$, $dt=dz=\sqrt{5}/3dw$. Finally we get 
 \[
-\int \frac{dt}{3t^2+2t+2}= \int \frac{\sqrt{5}/3dw}{5/3(w^2+1)}= \frac{\sqrt{5}}{5}\arctan w+C=\frac{\sqrt{5}}{5}\arctan(\frac{\sqrt{5}}{5}(3t+1))+C= \frac{\sqrt{5}}{5}\arctan \left(\frac{3\tan \left(\frac{x}{2}\right)+1}{\sqrt{5}}\right)+C\quad .
+\begin{array}{rcl}
+\displaystyle \int \frac{dt}{3t^2+2t+2}&=& \displaystyle \int \frac{\frac{\sqrt{5}}{3}dw}{\frac{5}{3}(w^2+1)}= \frac{\sqrt{5}}{5}\arctan w+C\\
+&=&\displaystyle \frac{\sqrt{5}}{5}\arctan\left( \frac{\sqrt{5}}{5}(3t+1) \right)+C\\
+&=&\displaystyle \frac{\sqrt{5}}{5}\arctan \left(\frac{3\tan \left(\frac{x}{2}\right)+1}{\sqrt{5}}\right)+C\quad .
+\end{array}
 \]
 \end{solution}
 \subsubsection{Exercises}
@@ -2808,12 +2839,14 @@ The length of $C$ is by definition
 \]
 Unlike computations of indefinite integrals, where we make variable changes on the fly, when dealing with definite integrals, we may make variable changes only when they are bijective (one-to-one and onto, Section \ref{secInverseFunctionBasics}). By the conditions on the parametrization of the curve we may make a variable change under the definite integral. Suppose first $\frac{dt}{ds}(s)\geq 0$ and therefore $t(a)=p<q=t(b)$. Therefore
 \[
-\begin{array}{rcl}
-\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{dt}(t(s))\right)^2+\left(\frac{df_2}{dt}(t(s))\right)^2}d(t(s)) &=& \displaystyle  \int\limits_{s=p}^q\sqrt{\frac{df_1}{dt}(t(s))^2+\frac{df_2}{dt}(t(s))^2}d(t(s))\\
-&=& \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{dt}(t(s))^2+\frac{df_2}{dt}(t(s))^2} \frac{dt}{ds}ds \\
-&\stackrel{\frac{dt}{ds}(s)\geq 0}{=}&\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\underbrace{\frac{dt}{ds}(s)f_1(t(s))}_{\mathrm{chain~rule}}\right)^2+\left(\underbrace{\frac{dt}{ds}(s)\frac{df_2}{dt}(t(s))}_{\mathrm{chain~rule}}\right)^2}ds \\
-&=&\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{d}{ds}\left(f_1(t(s))\right)\right)^2+ \left(\frac{d}{ds}\left(f_2(t(s))\right)\right)^2}ds \\
-&=&\displaystyle \int\limits_{s=p}^q \sqrt{ \frac{dg_1}{ds}(s)^2+ \frac{dg_2}{ds}(s)^2}ds,
+\begin{array}{l}
+\phantom{=}\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{dt}(t(s))\right)^2+\left(\frac{df_2}{dt}(t(s))\right)^2}d(t(s)) \\
+\displaystyle =  \int \limits_{s=p}^q \sqrt{\frac{df_1}{dt}( t(s))^2+ \frac{df_2}{dt}(t(s))^2}d(t(s))\\
+= \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{dt}( t(s))^2+\frac{df_2}{dt}(t(s))^2} \frac{dt}{ds}ds \\
+\displaystyle
+\stackrel{\frac{dt}{ds}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left(\underbrace{\frac{dt}{ds}(s) f_1( t(s)) }_{ \mathrm{chain~rule}} \right)^2+ \left( \underbrace{ \frac{ dt}{ds}(s) \frac{df_2}{dt} (t(s))}_{ \mathrm{chain~rule}} \right)^2}ds \\
+=\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{d}{ds}\left(f_1(t(s))\right)\right)^2+ \left(\frac{d}{ds}\left(f_2(t(s))\right)\right)^2}ds \\
+=\displaystyle \int\limits_{s=p}^q \sqrt{ \frac{ dg_1}{ ds}( s)^2 + \frac{dg_2}{ds}(s)^2}ds,
 \quad
 \end{array}
 \]
@@ -3131,7 +3164,9 @@ We can integrate as explained in the theoretical part, to get
 \ln\underbrace{\left| \frac{470}{500-y(30)} \right|}_{=\frac{470}{500-y(30)}\mathrm{,~see~below} } &=& \frac{30}{1000} \\
 \frac{470}{500-y(30)}&=&e^{3/100}\\
 500-y(30)&=& 470e^{-3/100}\\
-y(30)&=&500-470e^{-3/100}\approx 500-470*0.970445534\approx 43.89 \quad ,
+y(30)&=&500-470e^{-3/100}\\
+&\approx& 500-470*0.970445534 \\
+&\approx& 43.89 \quad ,
 \end{array}
 \]
 where we have used that $ \frac{470}{500-y(t)}>0 $. The fact that $ \frac{470}{500-y(t)}>0 $ can be seen as follows. As $500-y(0)=470>0$ and $y(t)$ is continuous, in order to have $500-y(t)<0$ there must exist some $x_1$ for which $y(x_1)=500$. However this is impossible since $x=\ln \left|\frac{470}{500-y(x)}\right|  $. 
@@ -3190,7 +3225,7 @@ R(x)\frac{dy}{dx} + S(x)y=Q(x)\quad .
 Suppose that it so happened that $R'(x)=S(x)$. Then \eqref{eqDFQlinearStep1} becomes
 \begin{equation}\label{eqDFQlinearStep2}
 \begin{array}{rcl}
-\underbrace{R(x)\frac{dy}{dx} + R'(x)y}_{\mathrm{Leibniz~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
+\underbrace{R(x)\frac{dy}{dx} + R'(x)y}_{\mathrm{product~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
 \frac{d}{dx} \left(R(x)y \right)&=& Q(x)\quad .
 \end{array}
 \end{equation}
@@ -3521,7 +3556,8 @@ Let $p\neq 1$. Then
 More generally, we can compute $\Gamma (n):=\displaystyle\int\limits_{0}^{\infty} x^ne^{-x}dx$. $\Gamma$ is the so called \emph{gamma function}, invented by L. Euler. As we compute below, in case $n$ is an integer, $\Gamma(n)=(n-1)!$. In case $n$ is not an integer, $\Gamma(n)$ may still be defined, and thus $\Gamma$ is a generalization of the notion of factorial. Suppose $n>0$ is an integer. Then
 \[
 \begin{array}{rcl}
-\Gamma (n+1)&:=&\underbrace{\int\limits_{0}^{\infty} x^{n}\underbrace{e^{-x}dx}_{=-d (e^{-x})}}_{\mathrm{integrate~by~parts}}=\left. -x^{n}e^{-x}\right|_{x=0}^{\infty}+ n\underbrace{\int\limits_{0}^{\infty}x^{n-1} e^{-x}dx}_{=\Gamma(n)}= \underbrace{\lim\limits_{x\to \infty} -\frac{x^{n}}{e^x}}_{=0\mathrm{~using~\eqref{eqLimiteMinusXtimesxtoNth}}}+ 0^ne^{-0}+n\Gamma(n)= n\Gamma(n)\\
+\Gamma (n+1)&:=&\underbrace{\int\limits_{0}^{\infty} x^{n}\underbrace{e^{-x}dx}_{=-d (e^{-x})}}_{\mathrm{integrate~by~parts}}=\left. -x^{n}e^{-x}\right|_{x=0}^{\infty}+ n\underbrace{\int\limits_{0}^{\infty}x^{n-1} e^{-x}dx}_{=\Gamma(n)}\\
+&=& \underbrace{\lim\limits_{x\to \infty} -\frac{x^{n}}{e^x}}_{=0\mathrm{~using~\eqref{eqLimiteMinusXtimesxtoNth}}}+ 0^ne^{-0}+n\Gamma(n)= n\Gamma(n)\\
 &=& n(n-1)(n-2)=\dots =n(n-1)(n-2)\dots 2*1* \Gamma(1)= n!\quad .
 \end{array}
 \]
@@ -3611,7 +3647,10 @@ Clearly, the above formulas would be cumbersome to work with by hand except for 
 \begin{definition}\label{defMaclaurinSeries}
 \index{series!Maclaurin} Let $f(x)$ be a function that is infinitely differentiable at $0$. Recall that $f^{(n)}(x)$ denotes the $n^{th}$ derivative of $f(x)$. Then the formal power series
 \begin{equation}\label{eqMacLaurinDef}
-\maclaurin (f(x))\eqdef \sum_{n=0}^{\infty}  \frac{f^{(n)} (0)}{n!} x^n= f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\dots+\frac{f^{(n)}(0)}{n!}x^n+\dots
+\begin{array}{rcl}
+\maclaurin (f(x))&\eqdef&\displaystyle \sum_{n=0}^{\infty}  \frac{f^{(n)} (0)}{n!} x^n\\
+&=& \displaystyle f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\dots+\frac{f^{(n)}(0)}{n!}x^n+\dots
+\end{array}
 \end{equation}
 is called the Maclaurin series of $f(x)$. 
 \end{definition}
@@ -3620,7 +3659,9 @@ There is no standard notation for Maclaurin series. The notation $\maclaurin (f(
 \begin{definition}\label{defTaylorSeries}
 \index{series!Taylor} Let $f(x)$ be a function that is infinitely differentiable at the point $p$. Then the formal power series
 \begin{equation}\label{eqTaylorDef}
-\taylor_p (f(x))\eqdef \sum_{n=0}^{\infty}  \frac{f^{(n)} (p)}{n!} (x-p)^n= f(0)+f'(0)(x-p)+\frac{f''(0)}{2!}(x-p)^2+\frac{f'''(0)}{3!}(x-p)^3+\dots+\frac{f^{(n)}(0)}{n!}(x-p)^n+\dots
+\begin{array}{rcl}
+\taylor_p (f(x))&\eqdef&\displaystyle \sum_{n=0}^{\infty}  \frac{f^{(n)} (p)}{n!} (x-p)^n\\&=& \displaystyle f(0)+f'(0)(x-p)+\frac{f''(0)}{2!}(x-p)^2+\dots+\frac{f^{(n)}(0)}{n!}(x-p)^n+\dots
+\end{array}
 \end{equation}
 is called the Taylor series of $f(x)$ at $p$. The Maclaurin series are a partial case of the Taylor series at the point $0$.
 \end{definition}
@@ -3681,15 +3722,19 @@ We want to compute
 \]
 where $n\geq 1$ is an integer. In order to do this note that $\frac{d}{dx}\left(\frac{1}{(1-x)^{n-1}}\right)= \frac{n-1}{(1-x)^{n}} $. Therefore 
 \[
-\frac{d^{n-1}}{dx^{n-1}} \left(\frac{1}{1-x}\right)= \frac{d^{n-2}}{dx^{n-2}}\left(\frac{1}{(1-x)^2}\right)= \frac{d^{n-3}}{dx^{n-3}}\left(\frac{1*2}{(1-x)^3}\right) = \dots=\frac{d^{n-k}}{dx^{n-k}}\left(\frac{1*2*\dots *(k-1)}{(1-x)^{k}}\right)= \frac{(n-1)!}{(1-x)^n} \quad .
+\begin{array}{rcl}
+\displaystyle \frac{d^{n-1}}{dx^{n-1}} \left(\frac{1}{1-x}\right)&=&\displaystyle  \frac{d^{n-2}}{ dx^{n-2}} \left(\frac{1}{(1-x)^2}\right)= \frac{d^{n-3} }{dx^{ n-3}}\left(\frac{1*2}{(1-x)^3}\right) = \dots \\&=&\displaystyle \frac{d^{ n-k}}{ dx^{n-k} }\left( \frac{1 *2* \dots *(k-1)}{(1-x)^{k}}\right)= \frac{(n-1)!}{(1-x)^n} \quad .
+\end{array}
 \]
 Therefore 
 \[\begin{array}{rcl}
-\displaystyle \maclaurin\left(\frac{1}{(1-x)^n}\right)&=& \displaystyle \frac{1}{(n-1)!}\frac{d^{n-1}}{dx^{n-1}} \maclaurin \left(\frac{1}{1-x}\right)= 
+\displaystyle \maclaurin\left(\frac{1}{(1-x)^n}\right)&=& \displaystyle \frac{1}{(n-1)!}\frac{d^{n-1}}{dx^{n-1}} \maclaurin \left(\frac{1}{1-x}\right)\\
+&=& \displaystyle
 \frac{1}{(n-1)!}\frac{d^{n-1}}{dx^{n-1}}(1+x+x^2+\dots +x^k+\dots )\\
-&=& \displaystyle \frac{1}{(n-1)!}( (n-1)(n-2)\dots 1+n(n-1)\dots 2 x +  \dots + k(k-1)\dots (k-n+2)x^{k-n+1}+\dots )\\
-&=& 1+ \frac{n (n-1)\dots 2}{(n-1)!} x + \dots + \frac{ k(k-1)\dots (k-n+2)}{(n-1)!}x^{k-n+1}+\dots \\
-&=& \binom{ n-1}{n-1} + \binom{n}{n-1}x+\dots + \binom{k}{n-1}x^{k-n+1}+\dots \\
+&=& \displaystyle \frac{1}{(n-1)!}( (n-1)(n-2)\dots 1+n(n-1)\dots 2 x \\
+&&\displaystyle \phantom{\frac{1}{(n-1)!}( }+  \dots + k(k-1)\dots (k-n+2)x^{k-n+1}+\dots )\\
+&=&\displaystyle 1+ \frac{n (n-1)\dots 2}{(n-1)!} x + \dots + \frac{ k(k-1)\dots (k-n+2)}{(n-1)!}x^{k-n+1}+\dots \\
+&=&\displaystyle \binom{ n-1}{n-1} + \binom{n}{n-1}x+\dots + \binom{k}{n-1}x^{k-n+1}+\dots \\
 &=&\displaystyle\sum_{k=0}^\infty \binom {k}{n-1}x^{k-(n-1)}\quad .
 \end{array}
 \]
@@ -3710,14 +3755,17 @@ where $q\in \mathbb R$ is an arbitrary rational number. Here, we recall that $(x
 \]
 Therefore $\frac{d^{n}}{dx^n}\left( (1+x)^q\right)_{|x=0}=q(q-1)(q-2)\dots (q-n+1) (1+0)^{q-n}= q(q-1)(q-2)\dots (q-n+1)  $. Therefore 
 \begin{equation}\label{eqNewtonBinomialGeneralized}
-\maclaurin \left( (1+x)^q\right)=\sum_{n=0}^{\infty}\frac{1}{n!}\frac{d^n}{dx^n}\left((1+x)^q\right)_{|x=0} x^n  =\sum_{n=0}^{\infty}  \frac{q(q-1)(q-2)\dots (q-n+1)}{n!}x^n= \sum_{n=0}^{\infty} \binom{q}{n}x^n\quad . 
+\begin{array}{rcl}
+\displaystyle \maclaurin \left( (1+x)^q\right) &=& \displaystyle\sum_{ n=0}^{\infty}\frac{ 1}{n!}\frac{d^n }{dx^n} \left( (1+x)^q\right)_{|x=0} x^n  \\ &=&\displaystyle \sum_{n=0}^{\infty}  \frac{q(q-1)(q-2)\dots (q-n+1)}{n!}x^n= \sum_{n=0}^{\infty} \binom{q}{n}x^n\quad . 
+\end{array}
 \end{equation}
 Note that the definition of binomial coefficient \eqref{eqBinomialCoeffDefinition} allows for $q$ to be an arbitrary real (and even complex) number. The above formula is a generalization of the Newton binomial formula. \index{binomial!generalized formula} As we shall soon learn, $\maclaurin \left( (1+x)^q\right)_{|x=c} =(1+c)^q $   for all $c\in (-1, 1)$.
 
 The power series of $\arctan x$.
 \[
 \begin{array}{rcl}
-\frac{d}{dx}\maclaurin (\arctan x)&=& \maclaurin\left( \frac{d}{dx}(\arctan x)\right)= \maclaurin \left(\frac{1}{1+x^2}\right)  = \maclaurin \left(\frac{1}{1-(-x^2)}\right)\\
+\frac{d}{dx}\maclaurin (\arctan x)&=& \displaystyle \maclaurin\left( \frac{d}{dx}(\arctan x)\right)= \maclaurin \left(\frac{1}{1+x^2}\right) \\ 
+&=&\displaystyle \maclaurin \left(\frac{1}{1-(-x^2)}\right)\\
 & \stackrel{\mathrm{using~} \eqref{eqInfiniteGeometricProgression} }{=} & 1+(-x^2)+(-x^2)^2+(-x^2)^3+\dots+ (-x^2)^n+\dots
 \\ &=& 1-x^2+x^4-x^6+\dots+ (-1)^nx^{2n}+\dots \quad .
 \end{array}
@@ -3726,18 +3774,22 @@ Therefore
 \[
 \begin{array}{rcl}
 \maclaurin (\arctan x)&=&\displaystyle \int( 1-x^2+x^4-x^6+\dots (-1)^nx^{2n}+\dots )dx \\
-&=& \underbrace{\arctan(0)}_{=0}+ x-\frac{x^3}3+\frac{x^5}5-\frac{x^7}7+\dots +(-1)^n\frac{x^{2n+1}}{2n+1}+\dots\\
+&=&\displaystyle  \underbrace{\arctan(0)}_{=0}+ x-\frac{x^3}3+\frac{x^5}5-\frac{x^7}7+\dots +(-1)^n\frac{x^{2n+1}}{2n+1}+\dots\\
 &=&\displaystyle  \sum_{n=0}^{\infty} (-1)^n\frac{x^{2n+1}}{2n+1}\quad .
 \end{array}
 \]
-
 The power series of $\ln (1-x)$, $\ln(1+x)$.
 \[
-\frac{d}{dx}\maclaurin(\ln (1-x))= \maclaurin \left(\frac{d}{dx}(\ln (1-x))\right) = \maclaurin \left(-\frac{1}{1-x}\right)= -1-x-x^2-\dots -x^n-\dots
+\begin{array}{rcl}
+\displaystyle \frac{d}{dx}\maclaurin(\ln (1-x))&=& \displaystyle \maclaurin \left(\frac{d}{dx}(\ln (1-x))\right) = \maclaurin \left(-\frac{1}{1-x}\right)\\
+&=& \displaystyle -1-x-x^2-\dots -x^n-\dots
+\end{array}
 \]
 Therefore 
 \[
-\maclaurin(\ln (1-x) )=\int (-1-x-x^2-\dots -x^n-\dots)dx = \underbrace{\ln (1-0)}_{=0} - x- \frac{x^2}{2}- \frac{x^3}{3}-\dots - \frac{x^n}{n}-\dots= -\displaystyle\sum_{n=1}\frac{x^n}{n} \quad .
+\begin{array}{rcl}
+\displaystyle \maclaurin(\ln (1-x) )&=&\displaystyle \int (-1-x-x^2-\dots -x^n-\dots)dx \\&=&\displaystyle \underbrace{\ln (1-0)}_{=0} - x- \frac{x^2}{2}- \frac{x^3}{3}-\dots - \frac{x^n}{n}-\dots= -\displaystyle\sum_{n=1}\frac{x^n}{n} \quad .
+\end{array}
 \]
 Therefore 
 \[
@@ -3746,9 +3798,11 @@ Therefore
 
 \[
 \begin{array}{rcl}
-\frac{d}{dx}\maclaurin(\arcsin{x})&=&\displaystyle \maclaurin\left(\frac{d}{dx}(\arcsin{x})\right)= \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right)=
+\frac{d}{dx}\maclaurin(\arcsin{x})&=&\displaystyle \maclaurin\left(\frac{d}{dx}(\arcsin{x})\right)= \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right)\\
+&=&
 \maclaurin\left((1+(-x^2))^{-\frac{1}2}\right)\\
-&\stackrel{\eqref{eqNewtonBinomialGeneralized}}{=}&\displaystyle 1-\frac{1}{2}(-x^{2})+ \left(\frac{-\frac{1}{2}(-\frac{1}2-1)}{2!}\right)(-x^2)^2+ \dots+ \left(\frac{-\frac{1}{2}(-\frac{1}2-1)\dots (-\frac{1}2-n+1)}{n!}\right)(-x^2)^n+\dots 
+&\stackrel{\eqref{eqNewtonBinomialGeneralized}}{=}&\displaystyle 1-\frac{1}{2}(-x^{2})+ \left(\frac{-\frac{1}{2}(-\frac{1}2-1)}{2!}\right)(-x^2)^2+ \dots\\
+&&\displaystyle + \left(\frac{-\frac{1}{2}(-\frac{1}2-1)\dots (-\frac{1}2-n+1)}{n!}\right)(-x^2)^n+\dots 
 \\
 &=& \displaystyle\sum\limits_{n=0}^{\infty} (-1)^n \binom{-\frac{1}{2}}{n} x^{2n}\quad .
 \end{array}
@@ -3761,15 +3815,18 @@ Therefore
 \subsubsection{Exercises}
 \begin{problem}
 Compute the Maclaurin series of the following.
+\begin{multicols}{2}
 \begin{enumerate}
-\item $\maclaurin (\arctan x) $.
-\item $\maclaurin (\sqrt{1+x^2})$.
-\item $\maclaurin (\arccos 2x)$.
-\item $\maclaurin(\ln (1+x^2))$.
-\item Recall from \eqref{eqExponentFunctionDefinition} the series $\maclaurin (e^x)$.
-\item Recall from \eqref{eqsinPowerSeries} the series $\maclaurin (\sin x)$.
-\item Recall from \eqref{eqcosPowerSeries} the series $\maclaurin (\cos x)$.
+\item $\displaystyle \maclaurin (\arctan x) $.
+\item $\displaystyle \maclaurin (\sqrt{1+x^2})$.
+\item $\displaystyle \maclaurin (\arccos 2x)$.
+\item $\displaystyle \maclaurin(\ln (1+x^2))$.
+\item Recall from \eqref{eqExponentFunctionDefinition} the series $\displaystyle \maclaurin (e^x)$.
+\item Recall from \eqref{eqsinPowerSeries} the series $\displaystyle \maclaurin (\sin x)$.
+\item Recall from \eqref{eqcosPowerSeries} the series $\displaystyle \maclaurin (\cos x)$.
 \end{enumerate}
+
+\end{multicols}
 \end{problem}
 
 \begin{problem}\label{probDifferentiableNonAnalyticFunctionExample}
@@ -3859,9 +3916,9 @@ To prove the above, let $S_n:=1+\frac{1}2+\dots +\frac{1}n$ denote the $n^{th}$ 
 \begin{equation*}
 \begin{array}{rcl}
 S_{2^n-1}&=&1+\frac{1}2+\frac13 +\dots +\frac{1}{2^n-1}\\
-&=& 1+ \underbrace{\left(1/2+1/3\right)}_{\mathrm{2~summands}} +\underbrace{(1/4+1/5+1/6+1/7)}_{\mathrm{4~summands}}+\dots +
+&=& 1+ \underbrace{\left(1/2+1/3\right)}_{\mathrm{2~summands}} +\underbrace{(1/4+1/5+1/6+1/7)}_{\mathrm{4~summands}}+\dots \\&&+
 \underbrace{(1/2^{n-1}+1/(2^{n-1}+1)+\dots +1/(2^{n}-1)}_{2^{n-1}\mathrm{~summands}}\\
-&>& 1+ \underbrace{\left(1/4+1/4\right)}_{\mathrm{2~summands}} +\underbrace{(1/8+1/8+1/8+1/8)}_{\mathrm{4~summands}}+\dots +
+&>& 1+ \underbrace{\left(1/4+1/4\right)}_{\mathrm{2~summands}} +\underbrace{(1/8+1/8+1/8+1/8)}_{\mathrm{4~summands}}+\dots \\&& +
 \underbrace{(1/2^{n}+\dots +1/2^{n})}_{2^{n-1}\mathrm{~summands}}\\
 &=&1+\underbrace{  1/2+\dots +1/2}_{n-1\mathrm{~summands}}= \frac{n+1}2\quad . 
 \end{array}
@@ -4151,7 +4208,13 @@ where in the very last equality we use the fact that by (a), the series $\sum\li
 &=&n^2 (|x|+|h|)^{n-2}<\left(\frac{|x|+R}{2}\right)^{n-2}\quad .
 \end{array}
 \]
-By applying (a) twice we have that $\sum\limits_{n=0}^{\infty} n^2a_n\left(\frac{|x|+R}{2}\right)^{n-2} $ is convergent and equals some number $M$. Therefore by the comparison test, so is $\sum\limits_{n=0}^{\infty} a_n\left(\binom{n}{2} x^{n-2}+h\binom{n}{3}x^{n-3}h+\dots +h^{n-2}\right)\leq \sum\limits_{n=0}^{\infty} n^2a_n\left(\frac{|x|+R}{2}\right)^{n-2}=M$. Therefore $|h\sum\limits_{n=0}^{\infty} a_n\left(\binom{n}{2} x^{n-2}+h\binom{n}{3}x^{n-3}h+\dots +h^{n-2}\right)|<h M$ and therefore the limit on the last line of \eqref{eqThDifferentiatingPowerSeriesProofeq1} equals 0.
+By applying (a) twice we have that $\sum\limits_{n=0}^{\infty} n^2a_n\left(\frac{|x|+R}{2}\right)^{n-2} $ is convergent and equals some number $M$. Therefore by the comparison test, so is 
+\[
+\sum\limits_{n=0}^{\infty} a_n\left(\binom{n}{2} x^{n-2}+h\binom{n}{3}x^{n-3}h+\dots +h^{n-2}\right)\leq \sum\limits_{n=0}^{\infty} n^2a_n\left(\frac{|x|+R}{2}\right)^{n-2}=M\quad .
+\] Therefore 
+\[
+\left|h\sum\limits_{n=0}^{\infty} a_n\left(\binom{n}{2} x^{n-2}+h\binom{n}{3}x^{n-3}h+\dots +h^{n-2}\right)\right|< h M
+\] and therefore the limit on the last line of \eqref{eqThDifferentiatingPowerSeriesProofeq1} equals 0.
 
 This proves that $f'(x)=\sum\limits_{n=0}^\infty a_n n x^{n-1}$. The fact that $\displaystyle\int f(x)dx= C+\sum\limits_{n=0}^\infty a_n\frac{x^{n+1}}{n+1} $ now follows immediately: we already proved that we can differentiate the right hand side one term at a time, and the result is the left hand side by direct computation.
 \end{proof}
