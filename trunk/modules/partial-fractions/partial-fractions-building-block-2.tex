@@ -1,0 +1,44 @@
+%begin module partial-fractions-building-block-2
+\begin{frame}
+\frametitle{Building block II}
+The second building block integral is: $\displaystyle \int \frac{1}{x }\diff x$. 
+\begin{example} Integrate the second building block integral 
+\[
+\int \frac{1}{x }\diff x \uncover<2->{\alert<2,3>{ =}}\uncover<3->{\alert<3>{\ln | x | +C} }
+\]
+\end{example}
+\end{frame}
+\begin{frame}
+\frametitle{Linear substitutions leading to building block II}
+Second building block: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$. 
+\begin{example} Integrate 
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{1}{5-4x }\diff x&=&\displaystyle \int \frac{1}{(-4x+5) }\frac{\diff (-4 x)}{(-4)} \\
+&=&\displaystyle \int \frac{1}{(-4x+5) }\frac{\diff (-4x+5)}{-4} &&\text{Set }u=-4x+5\\
+&=&\displaystyle \int\frac{1}{u}\frac{\diff u}{-4}\\
+&=&\displaystyle -\frac{1}{4}\int u^{-1} \diff u =-\frac{1}{4}\ln |u|+C\\
+&=&\displaystyle-\frac{1}{4}\ln |-4x+5|  +C\quad .
+\end{array}
+\]
+
+\end{example}
+\end{frame}
+\begin{frame}
+\frametitle{Lin. subst. leading to building block II: general case}
+Second building block: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$. 
+\begin{example} Integrate 
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{1}{ax+b }\diff x&=&\displaystyle \int \frac{1}{(ax+b) }\frac{\diff (a x)}{a} \\
+&=&\displaystyle \int \frac{1}{(ax+b) }\frac{\diff (ax+b)}{a} &&\text{Set }u=ax+b\\
+&=&\displaystyle \int\frac{1}{u}\frac{\diff u}{a}\\
+&=&\displaystyle \frac{1}{a}\int u^{-1} \diff u =\frac{1}{a}\ln |u|+C\\
+&=&\displaystyle \frac{1}{a}\ln |ax+b|  +C\quad .
+\end{array}
+\]
+
+\end{example}
+\end{frame}
+
+%end module partial-fractions-building-block-2
