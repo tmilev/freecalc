@@ -22,18 +22,14 @@ Draw the graph of the function $f(x) = |x^2 - 1|$.
 \psframe*[linecolor=white](-5,-5)(5,5) 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-1.5)(2.5,2.1)\tiny
 \psLabelsWithOnes{2.5}{1.8}
-\uncover<4>{
-%Function formula: (x)^{2}-1 
-\psplot[linecolor=red, plotpoints=1000]{-1.7}{1.7}{-1 x 2 exp add } 
-}
-
-\uncover<5->{
+\uncover<4->{
 \psplot[linecolor=red, plotpoints=1000]{-1.7}{-1}{-1 x 2 exp add } 
 \psplot[linecolor=red, plotpoints=1000]{1}{1.7}{-1 x 2 exp add } 
 }
+\uncover<4-5>{\psplot[linecolor=red, plotpoints=1000]{-1}{1}{-1 x 2 exp add } }
 
-\uncover<5>{\psplot[linecolor=blue, plotpoints=1000]{-1}{1}{-1 x 2 exp add } }
-\uncover<6->{
+\uncover<6>{\psplot[linecolor=blue, plotpoints=1000]{-1}{1}{-1 x 2 exp add } }
+\uncover<7->{
 \psplot[linecolor=red, plotpoints=1000]{-1}{1}{x 2 exp -1 mul 1 add }
 \rput[l](1.2,0.3){\alert<7>{$y=|x^{2}-1|$} }
 }
