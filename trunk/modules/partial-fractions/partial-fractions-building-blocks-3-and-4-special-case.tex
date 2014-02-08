@@ -93,7 +93,7 @@ Special case building block IV: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 
 
 \begin{example}
-\uncover<7->{Let \alert<7>{$u=x+\frac{1}{2}$}}, let $z=\frac{2u}{\sqrt{3}}$. Integrate 
+\uncover<7->{Let \alert<7,27,30>{$u= x+ \frac{1}{2} $}}\uncover<16->{, let \alert<16,28>{$z=\frac{2u}{\sqrt{3}}$}.} Integrate 
 \[
 \begin{array}{rcl}
 \displaystyle \int\frac{x}{x^2+\alert<3>{x}+1}\diff x 
@@ -105,22 +105,24 @@ Special case building block IV: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 }
 
 \only<11->{
-&=&\alert<11>{\displaystyle\int \frac{u}{u^2+\frac{3}{4}}\diff u-\frac{1}{2}\int \frac{1}{u^2+\frac{3}{4}}\diff u} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\}
-\only<30>{
-\displaystyle\int \frac{1}{u^2+\frac{3}{4}}\diff u&=& \displaystyle \int \frac{1}{\frac{3}{4}\left(\frac{4}{3}u^2+1\right)}\diff u\\
-&=&\displaystyle \int \frac{1}{\frac{3}{4}\left(\left(\frac{2u}{\sqrt{3}}\right)^2+1\right)} \frac{\sqrt{3}}{2}\diff \left(\frac{2u}{\sqrt{3}}\right)\\
-&=&\displaystyle \frac{2\sqrt{3}}{3}\int \frac{1}{z^2+1}\diff z= \frac{2\sqrt{3}}{3} \Arctan z+C
+&=&\alert<11>{\displaystyle\alert<25>{ \int \frac{u}{u^2+\frac{3}{4}}\diff u} -\frac{1}{2} \alert<12>{\int \frac{1}{u^2+\frac{3}{4}}\diff u}} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
 }
-\only<11-14>{
-&=&\displaystyle \only<4>{\int \frac{u}{u^2+\frac{3}{4}}\diff u}\only<5->{\frac{1}{2}\ln \left(u^2+\frac{3}{4}\right)}-\frac{1}{2} \frac{2\sqrt{3}}{3} \Arctan z+C\\
-\only<6->{
-&=&\displaystyle \frac{1}{2}\ln  \left( \left(x+\frac{1}{2}\right)^2 + \frac{3}{4}\right) - \frac{\sqrt{3}}{3} \Arctan \left( \frac{2u}{ \sqrt{3}} \right)+C\\
-&=&\displaystyle \frac{1}{2}\ln \left(x^2+x+1\right) - \frac{\sqrt{3}}{3} \Arctan \left(\frac{2x+1}{\sqrt{3}}\right)+C
+\only<11-18>{
+\only<12->{\displaystyle \alert<12>{ \int \frac{1}{\alert<13>{u^2+\frac{3}{4}} }\diff u}\uncover<13->{&=& \displaystyle \int \frac{1}{\alert<13>{\frac{3}{4}\left( \alert<14>{\frac{4}{3}u^2} +1\right)}}\alert<15>{\diff u}}}\\
+\uncover<14->{&=&\displaystyle \int \frac{1}{\frac{3}{4}\left(\alert<14>{ \left(\alert<16>{ \frac{2u}{ \sqrt{3}}}\right)^2} +1\right)} \alert<15>{ \frac{\sqrt{3} }{2} \diff \left(\alert<16>{ \frac{2u}{\sqrt{3}}}\right) }}\\
+\uncover<16->{&=&\displaystyle \frac{2\sqrt{3}}{3}\int \frac{1}{\alert<16>{z}^2+1}\diff \alert<16>{z}}\uncover<17->{ = \alert<18>{\frac{2\sqrt{3}}{3} \Arctan z}+C}
+}
+\only<19->{
+&=&\displaystyle \only<19-24>{\alert<20>{\int \frac{u}{u^2+\frac{3}{4}}\diff u}} \only<25->{\alert<25>{ \frac{1}{2}\ln \left(\alert<27>{u}^2+\frac{3}{4}\right) } }-\frac{1}{2}\alert<19>{ \frac{2\sqrt{3}}{3} \Arctan \alert<28>{z} }+C\\
+\only<26->{
+\uncover<27->{&=&\displaystyle \frac{1}{2}\ln  \left( \alert<29>{ {\alert<27>{\left(x+\frac{1}{2}\right)}}^2 + \frac{3}{4}}\right) - \frac{\sqrt{3}}{3} \Arctan \left( \alert<28>{ \frac{\alert<30>{2u }}{ \sqrt{3}}} \right)+C} \\
+\uncover<29->{&=&\displaystyle \frac{1}{2}\ln \left(\alert<29>{x^2+x+1}\right) - \frac{\sqrt{3}}{3} \Arctan \left(\frac{\alert<30>{2x+1}}{\sqrt{3}}\right)+C
 }
 }
-\only<15>{
-\displaystyle\int \frac{u}{u^2+\frac{3}{4}}\diff u &=& \displaystyle\int \frac{1}{u^2+\frac{3}{4}}\diff \left(\frac{u^2}{2}\right)\\
-&=&\displaystyle\frac{1}{2}\int \frac{1}{u^2+\frac{3}{4}}\diff \left(u^2+\frac{3}{4}\right)=\frac{1}{2}\ln \left(u^2+\frac{3}{4}\right)+C
+}
+\only<20-25>{
+\displaystyle \alert<20,25>{\int \frac{\alert<21>{ u} }{u^2+\frac{3}{4}}\alert<21>{ \diff u} } \uncover<21->{ &=& \displaystyle\int \frac{1}{u^2+\frac{3}{4}}\diff \alert<21>{\left(\frac{u^2}{\alert<22>{2}}\right)}}\\
+\uncover<22->{&=&\displaystyle \alert<22>{\frac{1}{2}}\int \frac{1}{\alert<24>{u^2+\frac{3}{4}}}\diff \left(\alert<24>{ u^2\uncover<23->{ \alert<23>{ +\frac{3}{4}} }} \right)}\uncover<24->{ =\alert<25>{ \frac{1}{2}\ln \left(\alert<24>{u^2 +\frac{3}{4}} \right)}+C}
 }
 \end{array}
 \]
