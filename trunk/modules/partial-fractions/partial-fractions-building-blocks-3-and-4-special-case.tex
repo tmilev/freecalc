@@ -1,0 +1,133 @@
+%begin module partial-fractions-building-blocks-3-and-4-intro
+\begin{frame}
+\frametitle{Building blocks III and IV for $n=1$}
+Special case building block III: $\int \frac{x}{1+x^2}\diff x.$
+
+Special case building block IV: $\int \frac{1}{1+x^2 }\diff x.$
+\begin{example}
+Integrate 
+\[
+\begin{array}{rcl}
+\displaystyle \int \frac{x}{1+x^2 }\diff x &=&\displaystyle \int \frac{1}{(1+x^2) }\frac{\diff (x^2)}{2} = \int \frac{1}{1+x^2 }\frac{\diff (1+x^2)}{2} \\
+&=&\displaystyle\frac12\ln (1+x^2)+C\quad .
+\end{array}
+\]
+\end{example}
+\begin{example}
+Integrate 
+\[
+\displaystyle \int \frac{1}{1+x^2 }\diff x =\Arctan x +C
+\]
+\end{example}
+\vspace{2cm} 
+\end{frame}
+\begin{frame}
+\frametitle{Linear substitutions leading to blocks III and IV}
+Special case building block III: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
+
+Special case building block IV: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
+
+
+\begin{example}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{1}{x^2+2}\diff x&=&\displaystyle \int\frac{1}{2 \left(\frac{1}{2}x^2+1\right)}\diff x \\
+&=&\displaystyle \int \frac{1}{2\left(\left(\frac{x}{\sqrt{2}}\right)^2+1  \right)} \sqrt{2}\diff\left(\frac{ x}{\sqrt{2}}\right) &&\text{ Set } u=\frac{x}{\sqrt{2}} \\
+&=&\displaystyle \frac{\sqrt{2}}{2}\int \frac{1}{1+u^2}du\\
+&=&\frac{\sqrt{2}}{2}\Arctan (u)+C \\&=&\frac{\sqrt{2}}{2} \Arctan\left(\frac{x}{\sqrt{2}}\right)+C
+\end{array}
+\]
+
+\end{example}
+\vspace{2cm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Linear substitutions leading to blocks III and IV}
+Special case building block III: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
+
+Special case building block IV: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
+
+
+\begin{example}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{x}{2x^2+3}\diff x&=&\displaystyle \int\frac{1}{2x^2+3}\diff \left(\frac{x^2}{2}\right) \\
+&=&\displaystyle \int\frac{1}{2x^2+3}\diff \left(\frac{2x^2+3}{4}\right)&&\text{Set } u=2x^2+3 \\
+&=&\displaystyle \frac{1}{4}\int \frac{1}{u}du\\
+&=&\frac{1}{4}\ln (u)+C\\
+&=&\frac{1}{4}\ln (2x^2+3)+C
+\end{array}
+\]
+
+\end{example}
+\vspace{4cm}
+
+\end{frame}
+\begin{frame}
+\frametitle{Linear substitutions leading to blocks III and IV}
+Special case building block III: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
+
+Special case building block IV: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
+
+\begin{itemize}
+
+\item Let $ax^2+bx+c$ be a quadratic with no real roots.
+\item Then $ax^2+bx+c$ can be transformed to the form $r(u^2+1)$ by a linear substitution $u=px+q$ (for some number $r, p, q$). 
+\item To find such substitution start by completing  the square. 
+\item After completing the square proceed as in preceding examples.
+\item In this way, integrals of the form $\displaystyle \int \frac{Ax+B}{ax^2+bx+c} \diff x$ can be expressed via building blocks III and IV.
+
+\item We show examples, and then proceed in full generality.
+\end{itemize}
+\vspace{5cm}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Linear substitutions leading to blocks III and IV}
+Special case building block III: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
+
+Special case building block IV: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
+
+
+\begin{example}
+\uncover<7->{Let \alert<7>{$u=x+\frac{1}{2}$}}, let $z=\frac{2u}{\sqrt{3}}$. Integrate 
+\[
+\begin{array}{rcl}
+\displaystyle \int\frac{x}{x^2+\alert<3>{x}+1}\diff x 
+\only<1>{{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} }
+\only<2-10>{&=& \displaystyle \int \frac{x}{\alert<4>{ x^2+\alert<3>{2\frac{1}{2}x} +\frac{1}{4} } \alert<5>{-\frac{1}{4} +1} }\alert<6>{\diff x}  {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
+\uncover<4->{&=&\displaystyle \int \frac{\alert<7>{x+\frac{1}{2}}-\frac{1}{2}}{ \alert<4>{\left(\alert<7>{x+\frac{1}2}\right)^2}+\alert<5>{\frac{3}{4}} }\alert<6>{\diff \left(\alert<7>{x+\frac{1}{2}}\right) }}\\
+\uncover<7->{&=&\displaystyle \int \frac{\alert<7,8>{u} \alert<9>{ -\frac{1}{2}} }{{\alert<7>{u}}^2+\frac{3}{4}}\diff \alert<7>{u}} \\
+\uncover<8->{&=&\alert<10>{ \displaystyle \int \frac{\alert<8>{u}}{u^2+\frac{3}{4}}\diff u\alert<9>{-\frac{1}{2}}\int \frac{1}{u^2+\frac{3}{4}}\diff u}}
+}
+
+\only<11->{
+&=&\alert<11>{\displaystyle\int \frac{u}{u^2+\frac{3}{4}}\diff u-\frac{1}{2}\int \frac{1}{u^2+\frac{3}{4}}\diff u} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\}
+\only<30>{
+\displaystyle\int \frac{1}{u^2+\frac{3}{4}}\diff u&=& \displaystyle \int \frac{1}{\frac{3}{4}\left(\frac{4}{3}u^2+1\right)}\diff u\\
+&=&\displaystyle \int \frac{1}{\frac{3}{4}\left(\left(\frac{2u}{\sqrt{3}}\right)^2+1\right)} \frac{\sqrt{3}}{2}\diff \left(\frac{2u}{\sqrt{3}}\right)\\
+&=&\displaystyle \frac{2\sqrt{3}}{3}\int \frac{1}{z^2+1}\diff z= \frac{2\sqrt{3}}{3} \Arctan z+C
+}
+\only<11-14>{
+&=&\displaystyle \only<4>{\int \frac{u}{u^2+\frac{3}{4}}\diff u}\only<5->{\frac{1}{2}\ln \left(u^2+\frac{3}{4}\right)}-\frac{1}{2} \frac{2\sqrt{3}}{3} \Arctan z+C\\
+\only<6->{
+&=&\displaystyle \frac{1}{2}\ln  \left( \left(x+\frac{1}{2}\right)^2 + \frac{3}{4}\right) - \frac{\sqrt{3}}{3} \Arctan \left( \frac{2u}{ \sqrt{3}} \right)+C\\
+&=&\displaystyle \frac{1}{2}\ln \left(x^2+x+1\right) - \frac{\sqrt{3}}{3} \Arctan \left(\frac{2x+1}{\sqrt{3}}\right)+C
+}
+}
+\only<15>{
+\displaystyle\int \frac{u}{u^2+\frac{3}{4}}\diff u &=& \displaystyle\int \frac{1}{u^2+\frac{3}{4}}\diff \left(\frac{u^2}{2}\right)\\
+&=&\displaystyle\frac{1}{2}\int \frac{1}{u^2+\frac{3}{4}}\diff \left(u^2+\frac{3}{4}\right)=\frac{1}{2}\ln \left(u^2+\frac{3}{4}\right)+C
+}
+\end{array}
+\]
+\end{example}
+
+\vspace{8cm}
+
+\end{frame}
+
+%end module partial-fractions-building-blocks-3-and-4-intro
