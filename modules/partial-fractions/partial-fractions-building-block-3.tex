@@ -1,0 +1,25 @@
+%begin module Building block III
+
+\begin{frame}
+\frametitle{Building block III}
+In the preceding slides we solved the partial case of building block integral III: $\int \frac{x}{x^2+1}\diff x$. The general case is not much harder.
+
+\begin{example}
+\[
+\begin{array}{rcl}
+\displaystyle \int \frac{\alert<2>{ x} }{(x^2+1)^n} \alert<2>{\diff x} \uncover<2->{&=&\displaystyle  \int \frac{1}{(\alert<3>{x^2+1})^n} \alert<2>{\frac{\diff \left(\alert<3>{x^2+1} \right )}{2}}} \\
+\uncover<3->{&=& \displaystyle \frac{1}{2}\int {\alert<3>{u}}^{-n}\diff \alert<3>{ u}} \\
+\uncover<4->{&=&\left\{\begin{array}{ll}\displaystyle
+\uncover<5->{\alert<5>{ \frac{1}{2}\ln (x^2+1) +C}} & \alert<4,5>{\text{if }n=1} \\
+\uncover<7->{\alert<7>{\displaystyle \frac{1}{2} \frac{(x^2+1)^{-n+1}}{(-n+1)}+C}} &\alert<6>{ \text{if }n\neq -1}
+\end{array} 
+\right. ,}
+\end{array}
+\]
+\uncover<3->{where we used the substitution $\alert<3>{u=x^2+1}$.}
+
+\end{example}
+
+\end{frame}
+
+%end module Building block III

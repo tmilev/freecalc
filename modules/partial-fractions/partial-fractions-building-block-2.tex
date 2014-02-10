@@ -14,11 +14,11 @@ Second building block: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$.
 \begin{example} Integrate 
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{1}{5-4x }\diff x&=&\displaystyle \int \frac{1}{(-4x+5) }\frac{\diff (-4 x)}{(-4)} \\
-&=&\displaystyle \int \frac{1}{(-4x+5) }\frac{\diff (-4x+5)}{-4} &&\text{Set }u=-4x+5\\
-&=&\displaystyle \int\frac{1}{u}\frac{\diff u}{-4}\\
-&=&\displaystyle -\frac{1}{4}\int u^{-1} \diff u =-\frac{1}{4}\ln |u|+C\\
-&=&\displaystyle-\frac{1}{4}\ln |-4x+5|  +C\quad .
+\displaystyle \alert<9>{\int \frac{1}{-4x+5 }\diff x} \uncover<2->{&=&\displaystyle \int \frac{1}{(-4x+5) }\frac{\alert<3>{ \diff (\alert<2>{-4} x)}}{ (\alert<2>{-4})}} \\
+\uncover<3->{&=&\displaystyle \int \frac{1}{\alert<4>{(-4x+5)} } \frac{\alert<3>{\diff (\alert<4>{-4x+5})}}{ (-4)} \uncover<4->{&&\text{Set } \alert<4,8>{u=-4x+5}}}\\
+\uncover<4->{&=&\displaystyle \int \alert<6>{\frac{1}{\alert<4>{u}}}\frac{\diff \alert<4>{u}}{(\alert<5>{-4})}}\\
+\uncover<5->{&=&\displaystyle \alert<5>{-\frac{1}{4}} \alert<7>{\int \alert<6>{u^{-1}} \diff u} }\uncover<7->{=-\frac{1}{4}\alert<7>{\ln |\alert<8>{u}|}+C}\\
+\uncover<8->{&=&\displaystyle \alert<9>{-\frac{1}{4}\ln |\alert<8>{-4x+5}|  +C}}\quad .
 \end{array}
 \]
 
@@ -30,11 +30,11 @@ Second building block: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$.
 \begin{example} Integrate 
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{1}{ax+b }\diff x&=&\displaystyle \int \frac{1}{(ax+b) }\frac{\diff (a x)}{a} \\
+\displaystyle \alert<1>{ \int \frac{1}{ax+b }\diff x}&=&\displaystyle \int \frac{1}{(ax+b) }\frac{\diff (a x)}{a} \\
 &=&\displaystyle \int \frac{1}{(ax+b) }\frac{\diff (ax+b)}{a} &&\text{Set }u=ax+b\\
 &=&\displaystyle \int\frac{1}{u}\frac{\diff u}{a}\\
 &=&\displaystyle \frac{1}{a}\int u^{-1} \diff u =\frac{1}{a}\ln |u|+C\\
-&=&\displaystyle \frac{1}{a}\ln |ax+b|  +C\quad .
+&=&\displaystyle \alert<1>{\frac{1}{a}\ln |ax+b|  +C}\quad .
 \end{array}
 \]
 
