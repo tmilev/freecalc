@@ -129,7 +129,7 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{}
+\newcommand{\optionalDisplay}[1]{ #1}
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -156,7 +156,7 @@ $\Rightarrow$
 \begin{document}
 \maketitle
 
-{\centering
+{
 ~
 
 \bigskip
@@ -173,8 +173,9 @@ $\Rightarrow$
 
 \bigskip
 
-
+\begin{center}
 \Huge{\color{red}\rotatebox{45}{\textbf{ DRAFT VERSION}}}
+\end{center}
 } %end centering
 
 %\noindent \textbf{Study materials. } The present notes and the textbook by James Stewart, Calculus, 7th edition, published by Brooks Cole, 2012. ISBN-13: 978-0-538-49781-7, ISBN-10: 0-538-49781-5. 
@@ -3632,25 +3633,29 @@ a_0b_0 + (a_0b_1+a_1b_0)x + (a_0b_2+a_1b_1+a_2b_0)x^2+\dots \\
 \] 
 \end{itemize}
 
-Formal power series can be (formally) differentiated and integrated.
-\begin{itemize}
-\item 
+Formal power series can be (formally) differentiated and integrated. 
 \[
-\frac{d}{dx}\left(\sum_{n=0}^{\infty} a_n x^n\right) =\frac{d}{dx} \left(a_0 +a_1x+a_2x^2+\dots \right)\eqdef a_1+a_2 2x+ a_33x^2+\dots= \sum_{n=1}^{\infty} na_nx^{n-1}\quad .
+\begin{array}{rcl}
+\displaystyle
+\frac{d}{dx}\left(\sum_{n=0}^{\infty} a_n x^n\right) &=& \displaystyle \frac{d}{dx} \left(a_0 +a_1x+a_2x^2+\dots \right)\eqdef a_1+2 a_2 x+ 3a_3x^2 +\dots\\
+&=&\displaystyle \sum_{n=1}^{\infty} na_nx^{n-1}\quad .
+\end{array}
 \]
-\item 
+
 \[
-\int \left(\sum_{n=0}^{\infty} a_n x^n\right)dx = \int (a_0 +a_1x+a_2x^2+\dots )dx\eqdef C+ a_0x +a_1\frac{x^2}{2}+a_2\frac{x^3}3+\dots 
-=C+\sum_{n=1}^{\infty} \frac{a_n}{n+1}x^{n+1}\quad . 
+\begin{array}{rcl}
+\displaystyle \int \left(\sum_{n=0}^{\infty} a_n x^n\right)dx &=&\displaystyle \int (a_0 +a_1x+a_2x^2+\dots )dx\eqdef C+ a_0x +a_1\frac{x^2}{2}+a_2\frac{x^3}3+\dots 
+\\
+&=&\displaystyle C+\sum_{n=1}^{\infty} \frac{a_n}{n+1}x^{n+1}\quad . 
+\end{array}
 \]
-\end{itemize}
 
 \textbf{(!) Optional material. This point does not require material outside of this course, but you may find it technically challenging. You will not be tested on this material}. Let $g(x)$ be a formal power series without a constant term, that is, $g(x)$ is of the form $g(x)=\sum_{n=1}^\infty b_n x^n=  b_1x+b_2x^2+\dots$. Let $f(x)=\sum_{n=0}^{\infty} a_n x^n$ be a formal power series. Then we can carry out substitutions $f(g(x))$, much in the way that substitutions in usual ``finite'' polynomials are carried out. Details follow.
 
 \[
 \begin{array}{rcl}
 \displaystyle
-\left(\sum_{n=1}^{\infty} b_n x^n\right)^k&=&   (b_1 x+ b_2x^2+b_3x^3+\dots)^k\\
+\left(\sum_{n=1}^{\infty} b_n x^n\right)^k &=&   (b_1 x+ b_2x^2+b_3x^3+\dots)^k\\
 &=&\displaystyle \sum_{n=k}^{\infty}\underbrace{\left( \sum_{\substack{\mathrm{all~possible~indices}\\ k\geq i_1, i_2,\dots, i_n\geq 0\\ 
 \mathrm{for~which}\\i_1+2i_2+3i_3+\dots + ni_n =n  \\ \mathrm{and} \\ i_1+\dots +i_n=k}}\binom{k}{i_1, i_2, i_3, \dots, i_n}  b_{1}^{i_1}\dots b_{n}^{i_n} \right)}_{=: c_{k,n}} x^n,
 \end{array}
