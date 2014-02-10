@@ -8,7 +8,7 @@ The first building block integral is: $\displaystyle \int \frac{1}{x^n }\diff x=
 \]
 
 \[
-\int \frac{1}{x^n}\diff x=\int x^{-n}\diff x = \frac{x^{-n+1}}{-n+1} +C
+\int \frac{1}{x^n}\diff x \uncover<2->{\alert<2,3>{= \int x^{-n}\diff x}}\uncover<3->{\alert<3>{=}} \uncover<4->{\alert<4>{\frac{x^{-n+1}}{-n+1} +C}}
 \]
 \end{example}
 \end{frame}
@@ -18,11 +18,11 @@ First building block: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff
 \begin{example} Integrate 
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{1}{(3x+5)^3 }\diff x&=&\displaystyle \int \frac{1}{(3x+5)^3 }\frac{\diff (3 x)}{3} \\
-&=&\displaystyle \int \frac{1}{(3x+5)^3 }\frac{\diff (3 x+5)}{3} &&\text{Set }u=3x+5\\
-&=&\displaystyle \int\frac{1}{u^3}\frac{\diff u}{3}\\
-&=&\displaystyle \frac{1}{3}\int u^{-3} \diff u =\frac{1}{3} \frac{u^{-2}}{(-2)}+C\\
-&=&\displaystyle -\frac{1}{6(3x+5)^2}+C\quad .
+\alert<8>{\displaystyle \int \frac{1}{(3x+5)^3 }\diff x} \uncover<2->{&=&\displaystyle \int \frac{1}{(3x+5)^3 }\frac{\alert<3>{ \diff (\alert<2>{3} x)}}{\alert<2>{3}}} \\
+\uncover<3->{&=&\displaystyle \int \frac{1}{(\alert<4>{3x+5})^3 }\frac{\alert<3>{\diff ( \alert<4>{3 x+5})}}{3}} \uncover<4->{&&\text{Set }\alert<4,7>{ u=3x+5}}\\
+\uncover<4->{&=&\displaystyle \int\alert<5>{ \frac{1}{{\alert<4>{u}}^3} } \frac{\diff \alert<4>{u}}{3}}\\
+\uncover<5->{ &=&\displaystyle \frac{1}{3} \alert<6>{\int \alert<5>{ u^{-3}} \diff u}} \uncover<6->{ =\frac{1}{3} \alert<6>{ \frac{{\alert<7>{u}}^{-2}}{(-2)}}+C}\\
+\uncover<7->{&=&\displaystyle \alert<8>{-\frac{1}{6(\alert<7>{3x+5})^2}+C}\quad .}
 \end{array}
 \]
 
@@ -34,11 +34,11 @@ First building block: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff
 \begin{example} Let $n\neq 1$. Integrate 
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{1}{(ax+b)^n }\diff x&=&\displaystyle \int \frac{1}{(ax+b)^n }\frac{\diff (a x)}{a} \\
+\displaystyle \alert<1>{\int \frac{1}{(ax+b)^n }\diff x} &=&\displaystyle \int \frac{1}{(ax+b)^n }\frac{\diff (a x)}{a} \\
 &=&\displaystyle \int \frac{1}{(ax+b)^n }\frac{\diff (a x+b)}{a} &&\text{Set }u=ax+b\\
 &=&\displaystyle \int\frac{1}{u^3}\frac{\diff u}{a}\\
 &=&\displaystyle \frac{1}{a}\int u^{-n} \diff u =-\frac{1}{a} \frac{u^{-n+1}}{(n-1)}+C\\
-&=&\displaystyle -\frac{1}{ a(n-1)(ax+b)^{n-1}}+C\quad .
+&=&\displaystyle \alert<1>{-\frac{1}{ a(n-1)(ax+b)^{n-1}}+C}\quad .
 \end{array}
 \]
 

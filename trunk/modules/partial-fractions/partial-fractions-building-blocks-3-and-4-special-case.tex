@@ -1,4 +1,5 @@
 %begin module partial-fractions-building-blocks-3-and-4-intro
+%This module may be too long, perhaps a split is needed.
 \begin{frame}
 \frametitle{Building blocks III and IV for $n=1$}
 Special case building block III: $\int \frac{x}{1+x^2}\diff x.$
@@ -8,17 +9,19 @@ Special case building block IV: $\int \frac{1}{1+x^2 }\diff x.$
 Integrate 
 \[
 \begin{array}{rcl}
-\displaystyle \int \frac{x}{1+x^2 }\diff x &=&\displaystyle \int \frac{1}{(1+x^2) }\frac{\diff (x^2)}{2} = \int \frac{1}{1+x^2 }\frac{\diff (1+x^2)}{2} \\
-&=&\displaystyle\frac12\ln (1+x^2)+C\quad .
+\displaystyle \int \frac{\alert<2>{x}}{1+x^2 }\alert<2>{ \diff x} \uncover<2->{&=&\displaystyle \int \frac{1}{(1+x^2) }\alert<2>{ \frac{\alert<3>{\diff (x^2)}}{2}}} \uncover<3->{=\alert<4>{ \int \frac{1}{1+x^2 }} \frac{\alert<3,4>{\diff (1+x^2)}}{2}} \\
+\uncover<4->{&=&\displaystyle\frac12\alert<4>{ \ln (1+x^2)}+C\quad .}
 \end{array}
 \]
 \end{example}
+\uncover<5->{
 \begin{example}
 Integrate 
 \[
-\displaystyle \int \frac{1}{1+x^2 }\diff x =\Arctan x +C
+\displaystyle \int \frac{1}{1+x^2 }\diff x \uncover<6->{=\Arctan x +C}
 \]
 \end{example}
+}
 \vspace{2cm} 
 \end{frame}
 \begin{frame}
@@ -31,10 +34,11 @@ Special case building block IV: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 \begin{example}
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{1}{x^2+2}\diff x&=&\displaystyle \int\frac{1}{2 \left(\frac{1}{2}x^2+1\right)}\diff x \\
-&=&\displaystyle \int \frac{1}{2\left(\left(\frac{x}{\sqrt{2}}\right)^2+1  \right)} \sqrt{2}\diff\left(\frac{ x}{\sqrt{2}}\right) &&\text{ Set } u=\frac{x}{\sqrt{2}} \\
-&=&\displaystyle \frac{\sqrt{2}}{2}\int \frac{1}{1+u^2}du\\
-&=&\frac{\sqrt{2}}{2}\Arctan (u)+C \\&=&\frac{\sqrt{2}}{2} \Arctan\left(\frac{x}{\sqrt{2}}\right)+C
+\displaystyle \int \frac{1}{\alert<2>{x^2+2}}\diff x \uncover<2->{ &=&\displaystyle \int\frac{1}{\alert<2>{ 2} \alert<2>{\left(  \alert<3>{\frac{1}{2}x^2} +1\right)}} \alert<4>{\diff x} }\\
+\uncover<3->{&=&\displaystyle \int \frac{1}{2\left( \alert<3>{\left(\alert<5>{ \frac{x}{ \sqrt{2}}} \right)^2} +1  \right)} \alert<4>{\sqrt{2}\diff\left(\alert<5>{ \frac{ x}{\sqrt{2}}}\right)}} \uncover<5->{ &&\text{ Set } \alert<5,7>{u= \frac{x}{\sqrt{2}}} }\\
+\uncover<5->{&=&\displaystyle \frac{\sqrt{2}}{2}\int \frac{1}{1+{\alert<5>{u}}^2}\diff \alert<5>{u}}\\
+\uncover<6->{&=& \frac{\sqrt{2}}{2}\Arctan (\alert<7>{u})+C} \\
+\uncover<7->{&=&\displaystyle \frac{\sqrt{2}}{2} \Arctan\left(\alert<7>{\frac{x}{\sqrt{2}}}\right)+C}
 \end{array}
 \]
 
@@ -53,11 +57,11 @@ Special case building block IV: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 \begin{example}
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{x}{2x^2+3}\diff x&=&\displaystyle \int\frac{1}{2x^2+3}\diff \left(\frac{x^2}{2}\right) \\
-&=&\displaystyle \int\frac{1}{2x^2+3}\diff \left(\frac{2x^2+3}{4}\right)&&\text{Set } u=2x^2+3 \\
-&=&\displaystyle \frac{1}{4}\int \frac{1}{u}du\\
-&=&\frac{1}{4}\ln (u)+C\\
-&=&\frac{1}{4}\ln (2x^2+3)+C
+\displaystyle \int \frac{\alert<2>{ x} }{2x^2+3} \alert<2>{ \diff x} \uncover<2->{&=&\displaystyle \int\frac{1}{2x^2+3} \alert<2,3>{ \diff \left( \frac{x^2}{2} \right)}} \\
+\uncover<3->{&=&\displaystyle \int\frac{1}{\alert<5>{2x^2+3}} \diff \left(\frac{\alert<5>{\alert<3>{ 2x^2} \uncover<4->{\alert<4>{+3}}} }{ \alert<3>{4}}\right)} \uncover<5->{&&\text{Set } \alert<5,7>{ u=2x^2+3} } \\
+\uncover<5->{&=&\displaystyle \frac{1}{4}\alert<6>{ \int \frac{1}{\alert<5>{u}}\diff \alert<5>{u}}}\\
+\uncover<6->{&=&\displaystyle \frac{1}{4}\alert<6>{ \ln \alert<7>{|u|}}+C}\\
+\uncover<7->{&=&\displaystyle \frac{1}{4}\ln (\alert<7>{2x^2+3})+C}
 \end{array}
 \]
 
@@ -67,19 +71,19 @@ Special case building block IV: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 \end{frame}
 \begin{frame}
 \frametitle{Linear substitutions leading to blocks III and IV}
-Special case building block III: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
+Special case building block III: \alert<5>{$ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$}.
 
-Special case building block IV: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
+Special case building block IV: \alert<5>{$\int \frac{1}{1+x^2 }\diff x=\Arctan x+C$}.
 
 \begin{itemize}
 
-\item Let $ax^2+bx+c$ be a quadratic with no real roots.
-\item Then $ax^2+bx+c$ can be transformed to the form $r(u^2+1)$ by a linear substitution $u=px+q$ (for some number $r, p, q$). 
-\item To find such substitution start by completing  the square. 
-\item After completing the square proceed as in preceding examples.
-\item In this way, integrals of the form $\displaystyle \int \frac{Ax+B}{ax^2+bx+c} \diff x$ can be expressed via building blocks III and IV.
+\item<1-> Let $ax^2+bx+c$ be a quadratic with no real roots.
+\item<2-> Then $\alert<3>{ax^2+bx+c}$ can be transformed to the form $r(u^2+1)$ by a linear substitution $u=px+q$ (for some numbers $r, p, q$). 
+\item<3-> To find such substitution start by \alert<3>{completing  the square}. 
+\item<4-> After completing the square proceed as in preceding examples.
+\item<5-> In this way, integrals of the form \alert<5>{$\displaystyle \int \frac{Ax+B}{ax^2+bx+c} \diff x$} can be expressed via building blocks III and IV.
 
-\item We show examples, and then proceed in full generality.
+\item<6-> We show examples, and then proceed in full generality.
 \end{itemize}
 \vspace{5cm}
 \end{frame}
