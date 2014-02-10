@@ -98,17 +98,17 @@ Special case building block IV: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 \begin{array}{rcl}
 \displaystyle \int\frac{x}{x^2+\alert<3>{x}+1}\diff x 
 \only<1>{{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} }
-\only<2-10>{&=& \displaystyle \int \frac{x}{\alert<4>{ x^2+\alert<3>{2\frac{1}{2}x} +\frac{1}{4} } \alert<5>{-\frac{1}{4} +1} }\alert<6>{\diff x}  {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
+\only<2-10>{&=& \displaystyle \int \frac{x}{\alert<4>{ x^2+\alert<3>{2\frac{1}{2}x} +\frac{1}{4} } \alert<5>{-\frac{1}{4} +1} } \alert<6>{\diff x}  {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
 \uncover<4->{&=&\displaystyle \int \frac{\alert<7>{x+\frac{1}{2}}-\frac{1}{2}}{ \alert<4>{\left(\alert<7>{x+\frac{1}2}\right)^2}+\alert<5>{\frac{3}{4}} }\alert<6>{\diff \left(\alert<7>{x+\frac{1}{2}}\right) }}\\
 \uncover<7->{&=&\displaystyle \int \frac{\alert<7,8>{u} \alert<9>{ -\frac{1}{2}} }{{\alert<7>{u}}^2+\frac{3}{4}}\diff \alert<7>{u}} \\
 \uncover<8->{&=&\alert<10>{ \displaystyle \int \frac{\alert<8>{u}}{u^2+\frac{3}{4}}\diff u\alert<9>{-\frac{1}{2}}\int \frac{1}{u^2+\frac{3}{4}}\diff u}}
 }
 
 \only<11->{
-&=&\alert<11>{\displaystyle\alert<25>{ \int \frac{u}{u^2+\frac{3}{4}}\diff u} -\frac{1}{2} \alert<12>{\int \frac{1}{u^2+\frac{3}{4}}\diff u}} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
+&=&\alert<11>{\displaystyle\alert<25>{ \int \frac{u}{u^2+\frac{3}{4}}\diff u} -\frac{1}{2} \alert<12,18>{\int \frac{1}{u^2+\frac{3}{4}}\diff u}} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
 }
 \only<11-18>{
-\only<12->{\displaystyle \alert<12>{ \int \frac{1}{\alert<13>{u^2+\frac{3}{4}} }\diff u}\uncover<13->{&=& \displaystyle \int \frac{1}{\alert<13>{\frac{3}{4}\left( \alert<14>{\frac{4}{3}u^2} +1\right)}}\alert<15>{\diff u}}}\\
+\only<12->{\displaystyle \alert<12,18>{ \int \frac{1}{\alert<13>{u^2+\frac{3}{4}} }\diff u}\uncover<13->{&=& \displaystyle \int \frac{1}{\alert<13>{\frac{3}{4}\left( \alert<14>{\frac{4}{3}u^2} +1\right)}}\alert<15>{\diff u}}}\\
 \uncover<14->{&=&\displaystyle \int \frac{1}{\frac{3}{4}\left(\alert<14>{ \left(\alert<16>{ \frac{2u}{ \sqrt{3}}}\right)^2} +1\right)} \alert<15>{ \frac{\sqrt{3} }{2} \diff \left(\alert<16>{ \frac{2u}{\sqrt{3}}}\right) }}\\
 \uncover<16->{&=&\displaystyle \frac{2\sqrt{3}}{3}\int \frac{1}{\alert<16>{z}^2+1}\diff \alert<16>{z}}\uncover<17->{ = \alert<18>{\frac{2\sqrt{3}}{3} \Arctan z}+C}
 }
