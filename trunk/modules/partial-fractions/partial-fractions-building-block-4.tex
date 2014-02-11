@@ -2,12 +2,32 @@
 
 \begin{frame}
 \frametitle{Building block IV}
-Building block integral IV: $\int \frac{1}{(x^2+1)}\diff x=\arctan x+C$. Unlike previous cases, the general case $\int \frac{1}{(x^2+1)^n}\diff x$ is much harder.
+\begin{itemize}
+\item The special case of building block integral IV was \[
+\int \frac{1}{(x^2+1)}\diff x=\arctan x+C\quad .
+\] 
+\item Unlike previous cases, the general case is much harder.
+\[\int \frac{1}{(x^2+1)^n}\diff x
+\] 
+\item Set $J(n)=\int \frac{1}{(x^2+1)^n}\diff x$. We are looking for a formula for $J(n)$, we know $J(1)=\arctan x+C$.
+\item To integrate $\int \frac{1}{(x^2+1)^n} \diff x$, we start by $\int \frac{1}{(x^2+1)^{n-1}} \diff x$ and integrate by parts.
+\item This integration by parts helps us to express 
+$\int \frac{1}{(x^2+1)^n} \diff x$ via $\int \frac{1}{(x^2+1)^{n-1}} \diff x$. In other words, we express $J(n)$ via $J(n-1)$.
+\item We work our way from $J(n)$ to $J(n-1)$, from $J(n-1)$ to $J(n-2)$, and so on, until we get to $J(1)$.
+\end{itemize} 
+\end{frame}
 
+\begin{frame}
 \begin{example}
+Set $u=\frac{1}{1+x^2}$, $v=x$.
 \[
 \begin{array}{rcl}
-\int \frac{1}{(x^2+1)^n}\diff x&=&
+\int \underbrace{ \frac{1}{(x^2+1)^{n-1 }}}_{u}\diff \underbrace{x}_{v} &=& u v-\int  x \diff \left(\frac{1}{(1+x^2)^{n-1}}\right)\\
+&=&\frac{x}{(x^2+1)^{n-1}}- \int x \frac{(-n+1)2x}{(1+x^2)^{n}}\diff x\\
+&=&\frac{x}{(x^2+1)^{n-1}}+ 2(n-1)\int \frac{1+x^2-1}{(1+x^2)^n}\diff x\\
+&=&\frac{x}{(x^2+1)^{n-1}}+ 2(n-1)\int \frac{1}{(1+x^2)^{n-1}}\diff x\\
+&&-2(n-1)\int \frac{1}{(1+x^2)^n}\diff x\\
+
 \end{array}
 \]
 
