@@ -1,17 +1,17 @@
-%begin module Building block IV
+%begin module Building block IIIb
 
 \begin{frame}
-\frametitle{Building block IV}
+\frametitle{Building block IIIb}
 \begin{itemize}
-\item The special case of building block integral IV was \[
+\item Building block IIIb: \[
 \int \frac{1}{(x^2+1)}\diff x=\arctan x+C\quad .
 \] 
-\item Unlike previous cases, the general case is much harder.
+\item Unlike other cases, $IIIb$ is much harder than $IIIa$:
 \[\int \frac{1}{(x^2+1)^n}\diff x
 \] 
 \item Set $J(n)=\int \frac{1}{(x^2+1)^n}\diff x$. We are looking for a formula for $J(n)$, we know $J(1)=\arctan x+C$.
-\item To integrate $\int \frac{1}{(x^2+1)^n} \diff x$, we start by $\int \frac{1}{(x^2+1)^{n-1}} \diff x$ and integrate by parts.
-\item This integration by parts helps us to express 
+\item We start by $\int \frac{1}{(x^2+1)^{n-1}} \diff x$ and integrate by parts.
+\item Thus way we express 
 $\int \frac{1}{(x^2+1)^n} \diff x$ via $\int \frac{1}{(x^2+1)^{n-1}} \diff x$. In other words, we express $J(n)$ via $J(n-1)$.
 \item We work our way from $J(n)$ to $J(n-1)$, from $J(n-1)$ to $J(n-2)$, and so on, until we get to $J(1)$.
 \end{itemize} 
@@ -19,20 +19,27 @@ $\int \frac{1}{(x^2+1)^n} \diff x$ via $\int \frac{1}{(x^2+1)^{n-1}} \diff x$. I
 
 \begin{frame}
 \begin{example}
-Set $u=\frac{1}{1+x^2}$, $v=x$.
+Set $J(n)=\int \frac{1}{(x^2+1)^{n}}\diff x$. Set $u=\frac{1}{(1+x^2)^{n-1}}$, $v=x$. 
 \[
 \begin{array}{rcl}
-\int \underbrace{ \frac{1}{(x^2+1)^{n-1 }}}_{u}\diff \underbrace{x}_{v} &=& u v-\int  x \diff \left(\frac{1}{(1+x^2)^{n-1}}\right)\\
+J(n-1)&=&\int  \frac{1}{(x^2+1)^{n-1 }}\diff x \\
+&=& u v-\int  x \diff \left(\frac{1}{(1+x^2)^{n-1}}\right)\\
 &=&\frac{x}{(x^2+1)^{n-1}}- \int x \frac{(-n+1)2x}{(1+x^2)^{n}}\diff x\\
 &=&\frac{x}{(x^2+1)^{n-1}}+ 2(n-1)\int \frac{1+x^2-1}{(1+x^2)^n}\diff x\\
 &=&\frac{x}{(x^2+1)^{n-1}}+ 2(n-1)\int \frac{1}{(1+x^2)^{n-1}}\diff x\\
 &&-2(n-1)\int \frac{1}{(1+x^2)^n}\diff x\\
-
+&=&\frac{x}{(x^2+1)^{n-1}}+2(n-1)J(n-1)-2(n-1)J(n)
 \end{array}
 \]
-
+Rearrange to get:
+\[
+\begin{array}{rcl}
+2(n-1)J(n)&=&(2n-3) J(n-1)+\frac{x}{(x^2+1)^{n-1}}\\
+J(n)&=&\frac{2n-3}{2n-2}J(n-1) +\frac{x}{2 (n-1) (x^2+ 1)^{ n-1}}\quad .
+\end{array}
+\]
 \end{example}
 
 \end{frame}
 
-%end module Building block IV
+%end module Building block IIIb
