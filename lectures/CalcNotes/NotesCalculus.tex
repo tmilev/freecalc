@@ -13,7 +13,7 @@
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
 
-% To make everything into one file, I include the following style file directly.
+% To make everything into one file, we include the following style file directly.
 % This might need to be updated over time.
 %\usepackage{../pstricks-commands}
 
@@ -95,6 +95,7 @@
 \rput(0,0){#1}
 }
 
+\newcommand{\diff}{\text{d}}
 
 \usepackage{multicol}
 \usepackage{rotating}
@@ -109,16 +110,17 @@
 \newcommand{\eqAttention}{\stackrel{(!)}{=}}
 \newcommand{\importantFormula}[1]{\begin{equation} \boxed{#1} \end{equation}}
 \newcommand{\importantText}[1]{ \framebox{#1}}
-\newenvironment{tableFixed}{~\\~\medskip\begin{minipage}{\textwidth}\captionsetup{type=table} }{\medskip\end{minipage}\medskip }
-\newenvironment{figureFixed}{~\\~\medskip\begin{minipage}{\textwidth}\captionsetup{type=figure} }{\medskip\end{minipage}\medskip }
+\newenvironment{tableFixed}{~\\~\medskip\begin{minipage}{\textwidth}\captionsetup{type=table} }{ \medskip \end{minipage} \medskip }
+\newenvironment{figureFixed}{~\\~\medskip\begin{minipage}{\textwidth} \captionsetup{type=figure} }{ \medskip \end{minipage} \medskip }
 
 \newenvironment{proof}[1][]{ \textbf{Proof#1.} }{$\Box$\medskip}
-\newenvironment{proofOptional}[1][]{ \textbf{Proof (optional).}}{$\Box$\medskip}
+\newenvironment{proofOptional}[1][]{ \textbf{(Optional) Proof#1.}}{$\Box$\medskip}
 \newenvironment{solution}{\textbf{Solution.} }{$\Box$}
 \newtheorem{problem}{Problem}[section]
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{criterion}[theorem]{Criterion}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{example}[theorem]{Proposition}
 
@@ -129,7 +131,7 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{ #1}
+\newcommand{\optionalDisplay}[1]{#1 }
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -1045,16 +1047,16 @@ Let $f(y)$ and $g(x)$ be differentiable functions.  Then
 
 
 \section{Differentials}
-Let $f$ be a differentiable function of a variable $x$. Introduce formal expressions $d(f(x))$ (abbreviated as $df$) and $dx$ so that they obey the following rule.
+Let $f$ be a differentiable function of a variable $x$. Introduce formal expressions $\diff(f(x))$ (abbreviated as $\diff f$) and $\diff x$ so that they obey the following rule.
 \importantFormula{
-f'(x)d x\eqdef d(f(x))\quad \quad,
+f'(x)\diff x\eqdef \diff(f(x))\quad \quad,
 }
 in abbreviated notation 
 \importantFormula{
-f'dx = df\quad \quad .
+f'\diff x = \diff f\quad \quad .
 }
 
-$d(f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)dx$ are called \emph{differential forms}.
+$\diff (f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)dx$ are called \emph{differential forms}.
 
 Differentials obey the laws
 \[
@@ -1066,22 +1068,27 @@ d(fg)&=&gdf+fdg \quad\quad\quad\quad \quad &(\mathrm{Leibniz~rule})\\
 \end{array}
 \]
 %Try to prove these laws from the definition!
-We recall the notation $\int f(x)dx$ stands for the class of anti-derivatives of $f(x)$, i.e., for the functions $F(x)$ for which $F'(x) = f(x)$.
+We recall the notation $\displaystyle \int f(x)\diff x$ stands for the class of anti-derivatives of $f(x)$, i.e., for the functions $F(x)$ for which $F'(x) = f(x)$.
 
-The fact that $f(x)+C=\int f'(x)dx$ is translated into differential notation as 
+The fact that $f(x)+C=\displaystyle \int f'(x)dx$ is translated into differential notation as 
 \importantFormula{
-d \left(\int f(x)dx\right)= f(x)dx\quad ,
+\displaystyle \diff \left(\int f(x)dx\right)= f(x)dx\quad ,
 }
 and
 \importantFormula{
-\int df(x)= f(x)+C\quad .
+\int \diff f(x)= f(x)+C\quad .
 }
 
 
 
-\chapter{Complex numbers and trigonometric functions}
+\chapter{Exponents, complex numbers and trigonometric functions}
 
 \section{Exponent function, $\sin$ and $\cos$}
+\subsection{Exponent function: integer vs non-integer exponent}
+We recall that when $n$ is an integer,  $a^{n}$ denotes the expression $\underbrace{a*\dots *a}_{n\text{ times}}$. 
+
+
+\subsection{Definition of $e^x$}
 Consider the infinite sum
 \importantFormula{\label{eqExponentFunctionDefinition}
 \begin{array}{rcl}
@@ -1092,7 +1099,7 @@ We immediately justify the above notation with the following.
 \begin{definition}\label{defNaturalExponent}
 \index{exponent function} The natural exponent function $e^z$ is the function defined via equation \eqref{eqExponentFunctionDefinition}.
 \end{definition}
-The expression \eqref{eqExponentFunctionDefinition} for $e^z$ gives indeed a formula for the natural exponent, i.e., the exponent with base $e= e^1= 1+\frac{1}{1}+\frac{1}2+\frac{1}{3!}+\frac{1}{4!}+\dots \approx 2.71828$. We will learn why that is so in later in this section. Until we do so we ask the reader to think of $e^{z}$ as an infinite sum, which will only later to be the familiar exponent which was studied\footnote{perhaps less formally} in earlier mathematical courses. We start by explaining how formula \eqref{eqExponentFunctionDefinition} is evaluated. Let 
+The expression \eqref{eqExponentFunctionDefinition} for $e^z$ gives indeed a formula for the natural exponent, i.e., the exponent with base $e= e^1= 1+ \frac{1}{1} +\frac{1}2 +\frac{1}{3!} +\frac{1}{4!}+\dots \approx 2.71828$. We will learn why that is so in later in this section. Until we do so we ask the reader to think of $e^{z}$ as an infinite sum, which will only later to be the familiar exponent which was studied\footnote{perhaps less formally} in earlier mathematical courses. We start by explaining how formula \eqref{eqExponentFunctionDefinition} is evaluated. Let 
 \[
 \displaystyle f(z,N):=\sum\limits_{n=0}^{N} \frac{z^n}{n!}
 \]
@@ -1107,44 +1114,25 @@ Equation \eqref{eqExponentFunctionDefinition} raises an immediate important ques
 \end{theorem}
 We postpone the proof of this theorem to Section \ref{secSeriesConvergence}. 
 
-
-\index{sine function} \index{cosine function} $\sin z$ and $\cos z$ (sine and cosine functions).
-
-\importantFormula{
-\sin z\eqdef \frac{e^{iz}-e^{-iz}}{2i} \quad .
-}
-\importantFormula{
-\cos z\eqdef \frac{e^{iz}+e^{-iz}}{2}\quad .
-}
-
-We recall $i$ is the complex unit, $i^2\eqdef -1$.
-
-Euler formula
-
-\importantFormula{\label{eqEulerExp}
-e^{iz}= \cos z+ i\sin z \quad .
-}
-
-\begin{proofOptional}
+It is one of the basic rules of arithmetics is that $a^n a^{m}= a^{n+m} $. We defined $e^x$ via the infinite sum \eqref{eqExponentFunctionDefinition}, rather than using the rules of arithmetics. It is then not clear why, if at all, the infinite sum 
 \[
-\begin{array}{rcl}
-\displaystyle e^{iz}&=&\displaystyle  \frac{2}{2}e^{iz}= \frac{2e^{iz} + e^{-iz} - e^{-iz}}{2} = \frac{e^{iz}+e^{-iz}}2 +\frac{e^{iz}-e^{-iz}}2= \cos z + \frac{i(e^{iz}-e^{-iz})}{2i}\\
-&=& \displaystyle \cos z+i \sin z\quad .
-
-\end{array}
+e^{z+w} =\left(\sum\limits_{n=0}^{\infty} \frac{(z+w)^n}{n!}\right)
 \]
-
-\end{proofOptional}
-
-
-Exponents add when we multiply exponent functions.
-
-\importantFormula{
-e^{z} e^{w}=e^{z+w}\quad .
+should be equal to the product of infinite sums
+\[
+e^{z} e^w=\left(\sum\limits_{n=0}^{\infty} \frac{z^n}{n!}\right)\left(\sum\limits_{n=0}^{\infty} \frac{w}{n!} \right) .
+\]
+The equality $e^{z+w}= e^{z}e^{w}$ does indeed hold, as we show in the the following Theorem \ref{thExponentArgumentsAddWhenMultiplying}. In other words, exponents add when we multiply exponent functions. In this way Theorem \ref{thExponentArgumentsAddWhenMultiplying} shows that when $n$ is an integer, 
+\begin{equation}\label{eqExponentToIntegerPowerRespectsArithmetics}
+e^{n z}= e^{\underbrace{z+\dots +z}_{n\text{ times}} }=\underbrace{ e^{z}*\dots e^{z}}_{n \text{ times}}  \quad .
+\end{equation}
+The above equality in turn justifies our original claim that the definition of  $e^{z}$ using an infinite sum \eqref{eqExponentFunctionDefinition} is consistent with the rules of arithmetics.
+\begin{theorem}\label{thExponentArgumentsAddWhenMultiplying}
+Recall that $e^x$ is defined via \eqref{eqExponentFunctionDefinition}. Then we have that \importantFormula{
+e^{z} e^{w}=e^{z+w}\quad ,
 }
-
+\end{theorem}
 \begin{proofOptional}
-
 \begin{equation*}
 \begin{array}{rcl}
 \displaystyle
@@ -1152,56 +1140,65 @@ e^{z} e^{w}=e^{z+w}\quad .
 \end{array}
 \end{equation*}
 \end{proofOptional}
+\begin{theorem}
 \[
 e^0=1\quad .
 \]
-
+\end{theorem}
 \begin{proofOptional}
 \[ e^0 = 1+ 0+ \frac{0^2}{2}+ \frac{0^3}{6}+\dots +\frac{0^n}{n!}+\dots = 1\quad .
 \]
 \end{proofOptional}
-$\frac{1}{e^{x}}= e^{-x}$\quad .
 
+\begin{theorem}
+$\frac{1}{e^{x}}= e^{-x}$\quad .
+\end{theorem}
 \begin{proof}
 \[e^{-x}e^x=e^0 = 1\quad .
 \]
 Therefore $e^{-x}=\frac{1}{e^x}.$
 \end{proof}
 
-\optionalMaterial For $z\in \mathbb R$, we will be in position to prove  
+\optionalMaterial We end this section by stating an important alternative to \ref{eqExponentFunctionDefinition} for expressing $e^z$ as a limit.   
+\begin{theorem}\label{th(1+x/n)^n=e^x}
+We have that
 \begin{equation}\label{eq(1+x/n)^n=e^x}
 \lim_{n\to \infty} \left(1+\frac{z}n\right)^n= e^z\quad .
 \end{equation}
-in Section \ref{secLHospitalRevisited}. The above holds for arbitrary $z\in \mathbb C$ as well.
+The limit holds for arbitrary $z\in \mathbb C$.
+\end{theorem}
+The limit \eqref{eq(1+x/n)^n=e^x} can be used as an alternative definition of $e^{z}$, but that results in a slightly longer exposition of the theory.  
 
-\importantFormula{\label{eqsinSquaredPlusCosSquared}
-\sin^2 z +\cos^2 z= 1\quad .
+The limit \eqref{eq(1+x/n)^n=e^x} has important theoretical and practical applications. For example, if a compound interest of $ k\%$ is accumulated over $100/k $ compounding periods, the accumulation of the sum of money is 
+\[
+(1+\frac{k}{100})^{\frac{100}{k}}, 
+\]
+which, if $k$ is small, is an approximation for $e$.
+
+For $z\in \mathbb R$, we will be in position to prove Theorem \ref{th(1+x/n)^n=e^x} in Section \ref{secLHospitalRevisited}.
+\subsection{Definition of $\sin x$ and $\cos x$}
+\index{sine function} \index{cosine function} 
+
+\begin{definition}
+The functions $\sin z$ and $\cos z$ are defined as
+\importantFormula{
+\sin z\eqdef \frac{e^{iz}-e^{-iz}}{2i} \quad ,
 }
-
-
-\begin{proofOptional}
-\begin{equation*}
+\importantFormula{
+\cos z\eqdef \frac{e^{iz}+e^{-iz}}{2}\quad ,
+}
+where we recall that $i$ stands for the imaginary unit ($i^2=-1$).
+\end{definition} 
+\begin{theorem}\label{thSinCosMaclaurinSeries} We have the following equalities
+\begin{equation}\label{eqSinCosMaclaurinSeries}
 \begin{array}{rcl}
-\sin^2 z +\cos^2 z&=& \frac{(e^{iz}+e^{-iz})^2}{2^2}+\frac{(e^{iz}+e^{-iz})^2}{(2i)^2}=\\
-&=&\frac{ \cancel{(e^{iz})^2} + 2 e^{iz}e^{-iz} + \cancel{(e^{-iz})^2}}{4} \\
-&&-\frac{(\cancel{(e^{iz})^2}-2e^{iz}e^{-iz} + \cancel{(e^{-iz})^2})}{4} \\&=& e^{iz}e^{-iz}= e^{iz-iz}=e^0=1\quad .
-\end{array}
-\end{equation*}
-\end{proofOptional}
-
-\begin{equation}\label{eqcosPowerSeries} 
-\begin{array}{rcl}
-\cos(x)&=&1-\frac{x^2}{2}+\frac{x^4}{4!}-\frac{x^6}{6!}+\dots -\frac{x^{4n+2}}{(4n+2)!}+ \frac{x^{4n+4}}{(4n+4)!}+\dots\\
-&=&\displaystyle \sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!}
+\cos x= &=&1-\frac{x^2}{2}+ \frac{x^4}{4!}- \frac{x^6}{6!} +\dots - \frac{x^{4n+2}}{(4n+2)!}+ \frac{x^{4n+4}}{ (4n+4)!} +\dots\\
+&=& \displaystyle \sum_{n=0}^\infty (-1)^n \frac{x^{2n} }{ (2n)!} \\
+\sin x& =& x-\frac{x^3}{3!}+ \frac{x^5}{5!}- \frac{x^7}{7!} +\dots + \frac{x^{4n+1}}{(4n+1 )!}- \frac{x^{4n+3}}{ (4n+3)!} +\dots\\
+&=&\displaystyle \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n+1}}{ (2n+1)!} \quad .
 \end{array}
 \end{equation}
-
-\begin{equation}\label{eqsinPowerSeries}
-\begin{array}{rcl}
-\sin(x)&=&x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots +\frac{x^{4n+1}}{(4n+1)!}- \frac{x^{4n+3}}{(4n+3)!}+\dots\\
-&=& \displaystyle \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
-\end{array}
-\end{equation}
+\end{theorem}
 \begin{proofOptional}
 \[
 \begin{array}{rcl}
@@ -1215,6 +1212,7 @@ in Section \ref{secLHospitalRevisited}. The above holds for arbitrary $z\in \mat
 \end{array}
 \]
 
+
 \[
 \begin{array}{rcl}
 \displaystyle\sin(x)&=& \frac{e^{ix}-e^{-ix}}{2i}=\displaystyle \frac {-i}{2} \left(\sum_{i=0}^\infty (ix)^{n}- \sum_{i=0}^\infty (-ix)^{n}\right)\\
@@ -1222,21 +1220,73 @@ in Section \ref{secLHospitalRevisited}. The above holds for arbitrary $z\in \mat
 &&+  \frac{i}{2}\left(\cancel{1} -{ix} + \cancel{\frac{(-ix)^2}2} +{\frac{(-ix)^3}6}+\dots + \cancel{\frac{(-ix)^{2n}}{(2n)!}}+ {\frac{(-ix)^{2n+1}}{(2n+1)!}}+\dots \right)\\
 &=&- \underbrace{i^2}_{=-1}x-\underbrace{i^4}_{=1}\frac{x^3}{3!}-\underbrace{i^{6}}_{=-1}\frac{x^5}{5!} -\dots\\
 &=&x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots +\frac{x^{4n+1}}{(4n+1)!}- \frac{x^{4n+3}}{(4n+3)!}+\dots\\
-&=&\displaystyle \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
+&=&\displaystyle \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}\quad .
 \end{array}
 \]
 \end{proofOptional}
+\begin{corollary}\label{corSinCosOfRealIsReal}
+Let $x $ be a real number. Then $\sin x$ and $\cos x$ are real numbers.
+\end{corollary}
+\begin{proof}
+We look at the power series for $\sin x$ and $\cos x$ given by \eqref{eqSinCosMaclaurinSeries} and see that $i$ does not participate in either expression. Therefore substituting real numbers in the expressions for $\sin x$ and $\cos x$ given by \eqref{eqSinCosMaclaurinSeries} yields a real number.
+\end{proof}
 
- \[\sin(x+ y)=\sin x\cos y +\sin y\cos x  \]\quad .
- \[\cos (x+y)= \cos x \cos y - \sin x \sin y\]\quad .
-Here is a quick way to remember the above formulas. Suppose $x,y\in \mathbb R$. Then
+\begin{theorem}
+\importantFormula{\label{eqsinSquaredPlusCosSquared}
+\sin^2 z +\cos^2 z= 1\quad .
+}
+
+\end{theorem}
+\begin{proofOptional}
+\begin{equation*}
+\begin{array}{rcl}
+\sin^2 z +\cos^2 z&=& \frac{(e^{iz}+e^{-iz})^2}{2^2}+\frac{(e^{iz}+e^{-iz})^2}{(2i)^2}=\\
+&=&\frac{ \cancel{(e^{iz})^2} + 2 e^{iz}e^{-iz} + \cancel{(e^{-iz})^2}}{4} \\
+&&-\frac{(\cancel{(e^{iz})^2}-2e^{iz}e^{-iz} + \cancel{(e^{-iz})^2})}{4} \\&=& e^{iz}e^{-iz}= e^{iz-iz}=e^0=1\quad .
+\end{array}
+\end{equation*}
+\end{proofOptional}
+\begin{corollary}
+If $x\in \mathbb R$ then $|\sin x|\leq 1$ and $|\cos x| \leq 1$.
+\end{corollary}
+\begin{proof}
+By  \eqref{eqsinSquaredPlusCosSquared} $\sin^2 x+\cos ^2 x=1$. Since $x$ is a real number, so are $\sin x$ and $\cos x$ (Corollary \ref{corSinCosOfRealIsReal}) and therefore $\sin^2x\leq 1$ and $\cos^2 x$ are positive real numbers. Therefore  $|\sin x|^2\leq 1$ and $|\cos x|^2\leq 1$ and therefore $|\sin x|\leq 1$ and $|\cos x|\leq 1$.
+\end{proof}
+\subsection{Euler's formula}
+\begin{theorem}[Euler's formula]
+We have the following equality.
+\importantFormula{\label{eqEulerExp}
+e^{iz}= \cos z+ i\sin z \quad .
+}
+\end{theorem}
+\begin{proofOptional}
+\[
+\begin{array}{rcl}
+\displaystyle e^{iz}&=&\displaystyle  \frac{2}{2}e^{iz}= \frac{2e^{iz} + e^{-iz} - e^{-iz}}{2} = \frac{e^{iz}+e^{-iz}}2 +\frac{e^{iz}-e^{-iz}}2\\
+&=& \cos z + \frac{i(e^{iz}-e^{-iz})}{2i}\\
+&=& \displaystyle \cos z+i \sin z\quad .
+\end{array}
+\]
+
+\end{proofOptional}
+
+\begin{theorem}\label{thSinCosAngleSum}
+\[
+\sin(x+ y)=\sin x\cos y +\sin y\cos x  
+\]
+\[
+\cos (x+y)= \cos x \cos y - \sin x \sin y
+\]
+\end{theorem}
+Before we proceed with the proof, we show a quick way to remember the above formulas. Suppose $x,y\in \mathbb R$. Then
 \[
 \begin{array}{rcl}\cos (x+y) + i\sin (x+y)&\stackrel{\mathrm{Euler~formula~}\eqref{eqEulerExp}}{=}& e^{i(x+y)} =e^{ix}e^{iy}\\&=& (\cos x +i \sin y)(\cos y + i \sin y)\\&=& \cos x \cos y - \sin x \sin y\\&& +i(\sin x \cos y+ \sin y \cos x) \quad .\end{array}
 \]
-Now since both $x,y$ are real the only way to satisfy the above equality is to have the formulas $\sin(x+ y)=\sin x\cos y +\sin y\cos x  $ and $\cos (x+y)=\cos x \cos y - \sin x \sin y$. However, this argumentation works only for $x,y\in \mathbb R$. The following proof is longer but works even if $x$ and $y$ are complex.
+Now since both $x,y$ are real the only way to satisfy the above equality is to have the formulas $\sin(x+ y)=\sin x\cos y +\sin y\cos x  $ and $\cos (x+y)=\cos x \cos y - \sin x \sin y$. However, this argumentation works only for $x,y\in \mathbb R$. 
 
+The considerations above give a proof of Theorem \ref{thSinCosAngleSum} when $x, y$ are real. To give a proof for arbitrary complex numbers one has to do a slightly longer computation. 
 
-\begin{proofOptional}
+\begin{proofOptional}[ of Theorem \ref{thSinCosAngleSum}]
 
 \[
 \begin{array}{rcl}
@@ -1250,13 +1300,17 @@ Now since both $x,y$ are real the only way to satisfy the above equality is to h
 \end{array}
 \]
 \end{proofOptional}
+
+
+
+
 We have that $(e^{iz})^2= e^{2iz}= \cos (2z)+ i\sin(2z)$. On the other hand, $(e^{iz})^2 = (\cos z+i\sin z)^2= \cos^2z+2i\sin z\cos z - \sin^2 z$. Therefore $\cos (2z)+ i\sin(2z)= (\cos^2 z- \sin^2 z)+ i(2\sin z\cos z) $ and therefore we get the formulas 
 \begin{equation}\label{eqSin2xCos2x}
 \sin (2z)=2\sin z \cos z \quad\quad \quad \cos(2z)=\cos^2 z- \sin^2 z.
 \end{equation}
 There are two equivalent ways of defining $\sin z$ and $\cos z$: one given here, and one studied in some high schools and in alternative expositions of the calculus course. When using the high school approach, one defines that the functions $\sin \varphi$ and $\cos\varphi$ measure the lengths of the legs of the right angle triangle with another angle $\varphi$ and hypotenuse of length 1, as indicated on figure \ref{figUnitCircleSineCosine}. The angle $\varphi$ is defined as the length of the arc of the unit circle colored in red. 
 
-It is my personal opinion that the approach here - using the power series \eqref{eqExponentFunctionDefinition} of $e^z$ - is ``more advanced'' but at the same time also ``easier'' and ``more elegant''. The approach here provides superior and easy (``on the fly'') access to trigonometric formulas. However, our approach has one disadvantage. The fact that $\varphi$ measures the arc drawn with red in the figure \ref{figUnitCircleSineCosine} is to be taken, for the time being, on ``good faith''. This  will be fixed after studying lengths of curves in Section \ref{secCurveLength}.
+The fact that $\varphi$ measures the arc drawn with red in the figure \ref{figUnitCircleSineCosine} is to be taken, for the time being, on ``good faith''. This  will be fixed after studying lengths of curves in Section \ref{secCurveLength}.
 
 
 \begin{figure}[h]\caption{The $\sin\varphi$ and $\cos\varphi$ as legs of a right angle triangle with other angle $\varphi$.}
@@ -1301,57 +1355,64 @@ Use the trick used to derive \eqref{eqSin2xCos2x} to derive a formula for $\sin(
 \subsection{Definition of $\pi$, polar form of complex numbers}\label{secPolarFormComplexNumbers}
 \label{secDefinitionPi}
 
-Theorem(!). There exists a positive real number $x$ such that \index{$\pi$}
+The proof of the following theorem is a bit more difficult and we omit it from the current version of this textbook.
+\begin{theorem}
+There exists a positive real number $x$ such that \index{$\pi$}
 \importantFormula{
 e^{ix}=i\quad .
 }
+\end{theorem}
 
+\begin{definition}
 Define $\pi$ to be the smallest positive real number for which
-
 \importantFormula{
 e^{i\frac{\pi}{2} }\eqdef i\quad .
 }
+\end{definition}
 
-$e^{i\pi}= e^{i\frac{\pi}2}e^{i\frac{\pi}2}= i^2= -1\quad .$
 
-$e^{2i\pi}= e^{\pi i} e^{\pi i}= (-1)^2=1\quad .$
 
-$\sin \frac{\pi}2 = 1\quad .$
-
-$\cos \frac{\pi}2 = 0\quad .$
-
+\begin{theorem} The following equalities hold. 
+\begin{equation}\label{eqe^ipi}
+\begin{array}{rcl}
+\displaystyle e^{i\pi}&=&-1\\
+\displaystyle e^{2i\pi}&=&=1\\
+\displaystyle \sin \frac{\pi}2 &=& 1\\
+\displaystyle \cos \frac{\pi}2 &=& 0\quad .
+\end{array}
+\end{equation}
+\end{theorem}
 \begin{proofOptional}
+The first two equalities are a direct computation.
+\[
+\begin{array}{rcl}
+\displaystyle e^{i\pi}&=&\displaystyle  e^{i\frac{\pi}2}e^{i\frac{\pi}2}= i^2= -1\\
+\displaystyle e^{2i\pi}&=&\displaystyle  e^{\pi i} e^{\pi i}= (-1)^2=1\quad .
+\end{array}
+\]
+For the last two equalities we compute:
 \[
 0+ 1*i=i=e^{i\frac{\pi}2}= \cos \frac{\pi}2 + i\sin \frac\pi 2\quad .
 \]
-Comparing both sides we see that $0=\cos \frac{\pi}{2}$ and $1=\sin \frac \pi 2$.
+As $\pi$ is real, by Corollary \ref{corSinCosOfRealIsReal}, $\sin\frac{\pi}{2}$ and $\cos \frac{\pi}{2}$ are real. Therefore we can compare both sides to see that $0=\cos \frac{\pi}{2}$ and $1=\sin \frac \pi 2$.
 \end{proofOptional}
 
 The length of the circumference of a circle of radius $r$ is $2\pi r$ and the area of a circle of radius $r$ is $\pi r^2$. We will prove these formulas very soon. 
 
-The sine and cosine of real numbers are real numbers.
-
-\begin{proof}
-We look at the power series for $\sin x$ and $\cos x$ given by \eqref{eqcosPowerSeries} and \eqref{eqsinPowerSeries} and see that $i$ does not participate in either expression. Therefore substituting real numbers in the expressions for $\sin x$ and $\cos x$ given by  \eqref{eqcosPowerSeries} and \eqref{eqsinPowerSeries} yields a real number.
-\end{proof}
-If $x\in \mathbb R$ then $|\sin x|\leq 1$ and $|\cos x| \leq 1$.
-
-\begin{proof}
-We know that $\sin^2 x+\cos ^2 x=1$ (by \eqref{eqsinSquaredPlusCosSquared}). Since $x$ is a real number, so are $\sin x$ and $\cos x$ and therefore $\sin^2x\leq 1$ and $\cos^2 x$ are positive real numbers. Therefore  $|\sin x|^2\leq 1$ and $|\cos x|^2\leq 1$ and therefore $|\sin x|\leq 1$ and $|\cos x|\leq 1$.
-\end{proof}
 For $x\in \mathbb R$, graphs of $\sin x$ and $\cos x$ can be found in section \ref{secGraphsTrigFunc}.
-
+\begin{theorem} We have that
 \[
 \sin \left(x+\frac{\pi}{2}\right)= \cos x \quad .
 \]
-This equality is indicated by the red color in the graphs of $\sin$ and $\cos$ in section \ref{secGraphsTrigFunc}. 
+\end{theorem}
 
 \begin{proof}
 \[
-\cos(x+\frac{\pi}{2})+ i\sin (x+\frac{\pi}2)=e^{i(x+\frac{\pi}{2})}= e^{ix} \underbrace{e^{ i\frac{\pi}2 }}_{=-1}= ie^{ix}= i(\cos x + i \sin x)= i\cos x- \sin x\quad .
+\cos\left(x+\frac{\pi}{2}\right)+ i\sin \left(x+\frac{\pi}2\right)=e^{i(x+\frac{\pi}{2})}= e^{ix} \underbrace{e^{ i\frac{\pi}2 }}_{=-1}= ie^{ix}= i(\cos x + i \sin x)= i\cos x- \sin x\quad .
 \]
 Comparing both sides of the above expression shows that $\cos(x+\frac{\pi}{2})=-\sin x$ and $\sin(x+\frac{\pi}{2})= \cos x$.
 \end{proof}
+This equality is indicated by the red color in the graphs of $\sin$ and $\cos$ in section \ref{secGraphsTrigFunc}. 
 
 Recall that $\overline{a+ib}=a-ib$  (complex conjugation). Then recall \eqref{eqComplexConjugationIsFieldHMM}:
 \[
@@ -1362,25 +1423,32 @@ Recall that $\overline{a+ib}=a-ib$  (complex conjugation). Then recall \eqref{eq
 \overline {z^n}= \overline {\underbrace{z*z*\dots*z}_{n\mathrm{~times}}} = \underbrace{\bar z* \bar z *\dots * \bar z}_{n\mathrm{~times}}= \bar {z}^n
 \]
 
-
-Let $y\in \mathbb R$ (i.e., $y$ is a real number).
+\begin{theorem}
+Let $y\in \mathbb R$ (i.e., $y$ is a real number). Then 
 \begin{equation}\label{eqexponentiyconjugateisinverse}
-\overline {e^{iy}}= \sum_{n=0}^\infty \frac{\overbrace{\bar i}^{=-i} \bar y^n}{n!}= \sum_{n=0}^\infty \frac{(i(-y))^n}{n!}=  e^{-iy}= \frac{1}{e^{iy}}\quad .
+\overline {e^{iy}}=e^{-iy}= \frac{1}{e^{iy}}\quad .
 \end{equation}
-
+\end{theorem}
+\[
+\overline {e^{iy}}= \sum_{n=0}^\infty \frac{\overbrace{\bar i}^{=-i} \bar y^n}{n!}= \sum_{n=0}^\infty \frac{(i(-y))^n}{n!}=  e^{-iy}= \frac{1}{e^{iy}}\quad .
+\]
+\begin{theorem}
 Let $y\in \mathbb R$. Then $|e^{iy}|=1$. 
-
+\end{theorem}
 \begin{proof}
 \[
 |e^{iy}|^2 \eqdef e^{iy}e^{-iy}\underbrace{=}_{\eqref{eqexponentiyconjugateisinverse}}1 \quad .
 \]
-As for arbitrary $z$ we have that $|z|$ is a non-negative real number it follows that $|e^{iy}|=1$. 
+For arbitrary $z$ we have that $|z|$ is a non-negative real number and so it follows that $|e^{iy}|=1$. 
 \end{proof}
 
+\begin{proposition}
 Let $x\in \mathbb R$. Then $e^x$ is a positive real number.
+\end{proposition}
 
 Let $\rho, \varphi\in \mathbb R$ (real numbers). Then the expression
-\[e^{\rho+i\varphi}=\underbrace{e^{\rho}}_{|e^{\rho+i\varphi}|}(\cos \varphi + i\sin \varphi)
+\[
+e^{\rho+i\varphi}=\underbrace{e^{\rho}}_{|e^{\rho+i\varphi}|}(\cos \varphi + i\sin \varphi)
 \]
 is defined to be a polar form of the number $e^{\rho+i\varphi}$. Let $z=a+ib$, where $a, b\in \mathbb R$ (real numbers). Let $w\neq 0$. Suppose $\varphi$ is such a number that
 \[
@@ -3732,7 +3800,7 @@ as well as
 \]
 \end{itemize}
 \subsubsection{The Maclaurin series of frequently used functions}
-We already studied the Maclaurin series of $e^x, \sin x, \cos x$ in \eqref{eqcosPowerSeries}, \eqref{eqsinPowerSeries}, \eqref{eqExponentFunctionDefinition}.
+We already studied the Maclaurin series of $e^x, \sin x, \cos x$ in \eqref{eqSinCosMaclaurinSeries} and \eqref{eqExponentFunctionDefinition}.
 
 \[
 (1-x)(1+x+x^2+\dots +x^n+\dots) = (1+\cancel{x}+\cancel{x^2}+\dots +\cancel{x^n} +\dots)- (\cancel{x}+\cancel{x^2}+\cancel{x^3}+\dots + \cancel{x^n}+\dots)= 1\quad . 
@@ -3848,8 +3916,8 @@ Compute the Maclaurin series of the following.
 \item $\displaystyle \maclaurin (\arccos 2x)$.
 \item $\displaystyle \maclaurin(\ln (1+x^2))$.
 \item Recall from \eqref{eqExponentFunctionDefinition} the series $\displaystyle \maclaurin (e^x)$.
-\item Recall from \eqref{eqsinPowerSeries} the series $\displaystyle \maclaurin (\sin x)$.
-\item Recall from \eqref{eqcosPowerSeries} the series $\displaystyle \maclaurin (\cos x)$.
+\item Recall from \eqref{eqSinCosMaclaurinSeries} the series $\displaystyle \maclaurin (\sin x)$.
+\item Recall from \eqref{eqSinCosMaclaurinSeries} the series $\displaystyle \maclaurin (\cos x)$.
 \end{enumerate}
 
 \end{multicols}
