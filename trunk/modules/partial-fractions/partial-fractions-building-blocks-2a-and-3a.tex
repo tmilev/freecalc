@@ -25,10 +25,10 @@ Integrate
 \vspace{2cm} 
 \end{frame}
 \begin{frame}
-\frametitle{Linear substitutions leading to blocks III and IV}
+\frametitle{Linear substitutions leading to blocks IIa and IIIa}
 Building block IIa: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
 
-Special case building block IV: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
+Building block IIIa: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 
 
 \begin{example}
@@ -83,7 +83,7 @@ Building block IIIa: \alert<5>{$\int \frac{1}{1+x^2 }\diff x=\Arctan x+C$}.
 \item<4-> After completing the square proceed as in preceding examples.
 \item<5-> In this way, integrals of the form \alert<5>{$\displaystyle \int \frac{Ax+B}{ax^2+bx+c} \diff x$} can be expressed via building blocks IIa and IIIa.
 
-\item<6-> We show examples, and then proceed in full generality.
+\item<6-> We show examples; the general case is analogous and we leave it to the student.
 \end{itemize}
 \vspace{5cm}
 \end{frame}
@@ -102,7 +102,7 @@ Building block IIIa: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 \begin{array}{rcl}
 \displaystyle \int\frac{x}{x^2+\alert<3>{x}+1}\diff x 
 \only<1>{{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} }
-\only<2-10>{&=& \displaystyle \int \frac{x}{\alert<4>{ x^2+\alert<3>{2\frac{1}{2}x} +\frac{1}{4} } \alert<5>{-\frac{1}{4} +1} } \alert<6>{\diff x}  {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
+\only<1-10>{\uncover<2->{&=& \displaystyle \int \frac{x}{\alert<4>{ x^2+\alert<3>{2\frac{1}{2}x} +\frac{1}{4} } \alert<5>{-\frac{1}{4} +1} } \alert<6>{\diff x} } {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
 \uncover<4->{&=&\displaystyle \int \frac{\alert<7>{x+\frac{1}{2}}-\frac{1}{2}}{ \alert<4>{\left(\alert<7>{x+\frac{1}2}\right)^2}+\alert<5>{\frac{3}{4}} }\alert<6>{\diff \left(\alert<7>{x+\frac{1}{2}}\right) }}\\
 \uncover<7->{&=&\displaystyle \int \frac{\alert<7,8>{u} \alert<9>{ -\frac{1}{2}} }{{\alert<7>{u}}^2+\frac{3}{4}}\diff \alert<7>{u}} \\
 \uncover<8->{&=&\alert<10>{ \displaystyle \int \frac{\alert<8>{u}}{u^2+\frac{3}{4}}\diff u\alert<9>{-\frac{1}{2}}\int \frac{1}{u^2+\frac{3}{4}}\diff u}}
