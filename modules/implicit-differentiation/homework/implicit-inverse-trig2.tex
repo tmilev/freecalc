@@ -1,0 +1,83 @@
+% begin homework implicit-inverse-trig2
+The variables $x$ and $y$ are related by
+\[
+x^2y+xy^2+\arcsin x = \frac{\pi}{6}.
+\]
+
+\begin{enumerate}
+\item   Find all points on the graph of this relation for which $x = 1/2$.  
+
+\solution{%
+Set $x = 1/2$ and solve for $y$.  
+\begin{align*}
+\big(\frac{1}{2}\big)^2y+\frac{1}{2}y^2 + \arcsin \frac{1}{2} & = \frac{\pi}{6} \\
+\frac{1}{4}y + \frac{1}{2}y^2 + \frac{\pi}{6} & = \frac{\pi}{6} \\
+\frac{1}{4}y + \frac{1}{2}y^2  & = 0 \\
+\frac{1}{4}y(1 + 2y)  & = 0,
+\end{align*}
+so $y = 0$ or $y = -1/2$.  
+Therefore $(1/2,0)$ and $(1/2,-1/2)$ are the points on the graph of the relation for which $x = 1/2$.  
+}%
+
+\item   Find $\frac{\diff y}{\diff x}$ in terms of $x$ and $y$.  
+
+\solution{%
+Differentiate implicitly.
+\begin{align*}
+\big((x^2)\frac{\diff}{\diff x}(y) + (y)\frac{\diff}{\diff x}(x^2)\big) + \big( (x)\frac{\diff}{\diff x}(y^2) + (y^2)\frac{\diff}{\diff x}(x)\big) + \frac{1}{\sqrt{1-x^2}} & = 0 \\
+x^2\frac{\diff y}{\diff x} + y(2x) + x(2y)\frac{\diff y}{\diff x} + y^2 + \frac{1}{\sqrt{1-x^2}} & = 0 \\
+x^2\frac{\diff y}{\diff x} + 2xy + 2xy\frac{\diff y}{\diff x} + y^2 + \frac{1}{\sqrt{1-x^2}} & = 0.
+\end{align*}
+Rearrange to isolate $\frac{\diff y}{\diff x}$ on one side.  
+\begin{align*}
+x^2\frac{\diff y}{\diff x} + 2xy\frac{\diff y}{\diff x} & = -y^2-2xy-\frac{1}{\sqrt{1-x^2}} \\
+(x^2+2xy)\frac{\diff y}{\diff x} & = -\Big(y^2+2xy+\frac{1}{\sqrt{1-x^2}}\Big) \\
+\frac{\diff y}{\diff x} & = -\frac{y^2+2xy+\frac{1}{\sqrt{1-x^2}}}{x^2+2xy}.
+\end{align*}
+
+}%
+
+\item   Find the equation of the tangent to the graph at each of the points you found in the first part.  
+
+\solution{%
+To find the slope of the tangent at $(1/2,0)$, plug in $x=1/2,y=0$ to the formula for $\frac{\diff y}{\diff x}$.  
+
+\begin{align*}
+\frac{\diff y}{\diff x} & = -\frac{(0)^2+2(1/2)(0) + \frac{1}{\sqrt{1-(1/2)^2}}}{(1/2)^2+2(1/2)(0)} \\
+& = -\frac{0+0+\frac{1}{\sqrt{3/4}}}{1/4 + 0} \\
+& = -\frac{\frac{1}{\sqrt{3}/2}}{1/4} \\
+& = -\frac{2}{\sqrt{3}}\cdot \frac{4}{1} \\
+& = -\frac{8}{\sqrt{3}}.
+\end{align*}
+
+Now use the point $(1/2,0)$ to find an equation for the tangent line.  
+\begin{align*}
+y - 0 & = -\frac{8}{\sqrt{3}}(x-1/2) \\
+y & = -\frac{8}{\sqrt{3}}x +\frac{4}{\sqrt{3}}.
+\end{align*}
+
+This is the equation for one of the tangent lines.  
+
+To find the slope of the tangent at $(1/2,-1/2)$, plug in $x=1/2,y=-1/2$ to the formula for $\frac{\diff y}{\diff x}$.  
+
+\begin{align*}
+\frac{\diff y}{\diff x} & = -\frac{(-1/2)^2+2(1/2)(-1/2) + \frac{1}{\sqrt{1-(1/2)^2}}}{(1/2)^2+2(1/2)(-1/2)} \\
+& = -\frac{\frac{1}{4}-\frac{1}{2}+\frac{1}{\sqrt{3/4}}}{1/4 -\frac{1}{2}} \\
+& = -\frac{-\frac{1}{4}+\frac{2}{\sqrt{3}}}{-\frac{1}{4}} \\
+& = \frac{-\frac{1}{4}+\frac{2}{\sqrt{3}}}{\frac{1}{4}} \\
+& = 4\big(-\frac{1}{4}+\frac{2}{\sqrt{3}}\big) \\
+& = -1 + \frac{8}{\sqrt{3}}.
+\end{align*}
+
+Now use the point $(1/2,-1/2)$ to find an equation for the tangent line.  
+\begin{align*}
+y - (-1/2) & = \Big(-1 + \frac{8}{\sqrt{3}}\Big)(x-1/2) \\
+y  & = \Big(-1 + \frac{8}{\sqrt{3}}\Big)x +1/2 - \frac{4}{\sqrt{3}} + 1/2 \\
+y  & = \Big(-1 + \frac{8}{\sqrt{3}}\Big)x +1 - \frac{4}{\sqrt{3}},
+\end{align*}
+and this is the equation of the other tangent line.  
+}%
+
+
+\end{enumerate}
+% end homework implicit-inverse-trig2

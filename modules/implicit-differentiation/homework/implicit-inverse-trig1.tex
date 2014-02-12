@@ -1,0 +1,55 @@
+% begin homework implicit-inverse-trig1
+The variables $x$ and $y$ are related by
+\[
+x\arctan y + y\arctan x = \frac{\pi}{2}.
+\]
+
+\begin{enumerate}
+\item   Show that $(1,1)$ is on the graph of this relation.  
+
+\solution{%
+\begin{align*}
+\text{LS} & = 1\cdot \arctan 1 + 1\cdot \arctan 1 & \text{RS} & = \frac{\pi}{2}. \\
+ & = 1\cdot \frac{\pi}{4} + 1\cdot \frac{\pi}{4}  & & \\
+ & = \frac{\pi}{2}.  & & 
+\end{align*}
+The fact that the left side equals the right side when we plug in $x = 1$ and $y = 1$ means that the point $(1,1)$ is on the graph of the relation.  
+}%
+
+\item   Find $\frac{\diff y}{\diff x}$ in terms of $x$ and $y$.  
+
+\solution{%
+Differentiate implicitly.
+\begin{align*}
+\big((x)\frac{\diff}{\diff x}(\arctan y) + (\arctan y)\frac{\diff}{\diff x}(x)\big)  + \big((y)\frac{\diff}{\diff x}(\arctan x) + (\arctan x)\frac{\diff}{\diff x}(y)\big)  & = 0 \\
+x\cdot \frac{1}{1+y^2}\cdot \frac{\diff y}{\diff x} + (\arctan y)1 + y\cdot \frac{1}{1+x^2} + (\arctan x)\frac{\diff y}{\diff x} & = 0 \\
+\frac{x}{1+y^2}\frac{\diff y}{\diff x} + \arctan y + \frac{y}{1+x^2} + \frac{\diff y}{\diff x}\arctan x & = 0.
+\end{align*}
+Rearrange to isolate $\frac{\diff y}{\diff x}$ on one side.  
+\begin{align*}
+\frac{x}{1+y^2}\frac{\diff y}{\diff x} +  \frac{\diff y}{\diff x}\arctan x & = - \frac{y}{1+x^2} - \arctan y \\
+\big(\frac{x}{1+y^2} + \arctan x\big)\frac{\diff y}{\diff x} & = - \big(\frac{y}{1+x^2} + \arctan y\big) \\
+\frac{\diff y}{\diff x} & = -\frac{\frac{y}{1+x^2}+\arctan y}{\frac{x}{1+y^2}+\arctan x}. 
+\end{align*}
+
+}%
+
+\item   Find the equation of the tangent to the graph at $(1,1)$.  
+
+\solution{%
+To find the slope of the tangent, plug in $x=1,y=1$ to the formula for $\frac{\diff y}{\diff x}$.  
+
+\begin{align*}
+\frac{\diff y}{\diff x} & = -\frac{\frac{1}{1+1^2}+\arctan 1}{\frac{1}{1+1^2}+\arctan 1} \\
+& = -1.
+\end{align*}
+
+Now use the point $(1,1)$ to find an equation for the tangent line.  
+\begin{align*}
+y - 1 & = (-1)(x-1) \\
+y & = -x +2.
+\end{align*}
+}%
+
+\end{enumerate}
+% end homework implicit-inverse-trig1
