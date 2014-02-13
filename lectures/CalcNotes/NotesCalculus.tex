@@ -114,7 +114,7 @@
 \newenvironment{figureFixed}{~\\~\medskip\begin{minipage}{\textwidth} \captionsetup{type=figure} }{ \medskip \end{minipage} \medskip }
 
 \newenvironment{proof}[1][]{ \textbf{Proof#1.} }{$\Box$\medskip}
-\newenvironment{proofOptional}[1][]{ \textbf{(Optional) Proof#1.}}{$\Box$\medskip}
+\newenvironment{proofOptional}[1][]{ \noindent \textbf{(Optional) Proof#1.}}{$\Box$\medskip}
 \newenvironment{solution}{\textbf{Solution.} }{$\Box$}
 \newtheorem{problem}{Problem}[section]
 \newtheorem{theorem}{Theorem}[section]
@@ -529,7 +529,7 @@ By the Newton Binomial formula  \eqref{eqNewtonBinomialFormula}, we have that $(
 %\end{comment}
 %\begin{comment}
 \chapter{A few algebra techniques}
-In the present chapter we develop a basic formulas, and state a few basic combinatorial facts. The chapter relies on a conceptual, high-school level understanding of the notion of ``formula'', but does not require any practical knowledge other than applying the rules of arithmetic.
+In the present chapter we develop a few basic formulas, and state a few basic combinatorial facts. The chapter relies on a conceptual, high-school level understanding of the notion of ``formula'', but does not require any practical knowledge other than applying the rules of arithmetic.
 \section{Factorials, binomial coefficients}\label{secFactorial}
 Let $n$ be a positive integer, i.e., let $n \in \mathbb Z_{\geq 0}$ (non-negative integers). 
 \begin{definition}[Factorial] \index{factorial} 
@@ -1099,7 +1099,7 @@ We immediately justify the above notation with the following.
 \begin{definition}\label{defNaturalExponent}
 \index{exponent function} The natural exponent function $e^z$ is the function defined via equation \eqref{eqExponentFunctionDefinition}.
 \end{definition}
-The expression \eqref{eqExponentFunctionDefinition} for $e^z$ gives indeed a formula for the natural exponent, i.e., the exponent with base $e= e^1= 1+ \frac{1}{1} +\frac{1}2 +\frac{1}{3!} +\frac{1}{4!}+\dots \approx 2.71828$. We will learn why that is so in later in this section. Until we do so we ask the reader to think of $e^{z}$ as an infinite sum, which will only later to be the familiar exponent which was studied\footnote{perhaps less formally} in earlier mathematical courses. We start by explaining how formula \eqref{eqExponentFunctionDefinition} is evaluated. Let 
+The expression \eqref{eqExponentFunctionDefinition} for $e^z$ gives indeed a formula for the natural exponent, i.e., the exponent with base $e= e^1= 1+ \frac{1}{1} +\frac{1}2 +\frac{1}{3!} +\frac{1}{4!}+\dots \approx 2.71828$. We will learn why that is so in later in this section. Until we do so we ask the reader to think of $e^{z}$ as an infinite sum, which will only later turn out to be the familiar exponent studied\footnote{perhaps less formally} in earlier mathematical courses. We start by explaining how formula \eqref{eqExponentFunctionDefinition} is evaluated. Let 
 \[
 \displaystyle f(z,N):=\sum\limits_{n=0}^{N} \frac{z^n}{n!}
 \]
@@ -1284,10 +1284,9 @@ Before we proceed with the proof, we show a quick way to remember the above form
 \]
 Now since both $x,y$ are real the only way to satisfy the above equality is to have the formulas $\sin(x+ y)=\sin x\cos y +\sin y\cos x  $ and $\cos (x+y)=\cos x \cos y - \sin x \sin y$. However, this argumentation works only for $x,y\in \mathbb R$. 
 
-The considerations above give a proof of Theorem \ref{thSinCosAngleSum} when $x, y$ are real. To give a proof for arbitrary complex numbers one has to do a slightly longer computation. 
+To give a proof for arbitrary complex numbers one has to do a slightly longer computation, as the following proof shows.
 
 \begin{proofOptional}[ of Theorem \ref{thSinCosAngleSum}]
-
 \[
 \begin{array}{rcl}
 \cos x \cos y - \sin x \sin y&=& \frac{(e^{ix}+e^{-ix})(e^{iy}+e^{-iy})}4 -\frac{(e^{ix}-e^{-ix})(e^{iy}-e^{-iy}) }{4i^2}\\
@@ -2490,8 +2489,8 @@ Solve the integral. Illustrate each step of your solution.
 \]
 \end{enumerate}
 \end{problem}
-\section{Application of integration.}
-\subsection{Volumes of solids of revolution.}
+\chapter{Applications of integration}
+\section{Volumes of solids of revolution}
 A solid of revolution is the set of points obtained by rotating a 2-dimensional set of points lying inside a plane $P$ around an axis lying in the plane $P$.
 
 Example. \label{itemExampleFigureRotationalSolid}
@@ -2801,7 +2800,7 @@ The smallest possible value of $u$ is $\frac{3\sqrt{2}}2$, which is also seen on
 We can solve this integral using Euler substitution, Section \ref{secEulerSubTrigIntegrals}. %This will be done in later versions of the notes.
 \end{solution}
 
-\subsection{Length of curves.} \label{secCurveLength}
+\subsection{Length of curves} \label{secCurveLength}
 \index{curve}\index{curve!parametrization} A curve parametrization (or simply curve) is defined as a function from a given interval $[a,b]$ to a vector space over the real numbers. For the purposes of our course, a curve will map the interval $[a,b]$ onto either a two dimensional space (denoted by $\mathbb R^2$), or a 3-dimensional space (denoted by $\mathbb R^3$). Thus, a curve $f:[a,b]\to \mathbb R^2$ is given by the two functions (one for each coordinate):
 \[
 \begin{array}{rcl}
@@ -2973,8 +2972,8 @@ As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by 
 \end{pspicture}
 }
 
-\section{A bit of differential equations}
-\subsection{Some terminology and background}
+\chapter{A bit of differential equations}
+\section{Some terminology and background}
 A differential equation is an equation that contains at least one derivative (first, second, third,...) of an unknown function. 
 
 The \emph{order} of a differential equation is the order of the highest derivative that appears in the equation.
@@ -3127,7 +3126,7 @@ or finally as
 G(y)-F(x)-G(y(x_0))+ F(x_0)=0\quad .
 \end{equation}
 If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If not possible to solve for $y$ explicitly, we may leave the solution of our differential equation in the form \eqref{eqDFQSeparableSolution}.
-\subsubsection{Examples of separable equations}
+\subsection{Examples of separable equations}
 (a) Find the general solution of
 \[
 \frac{dy}{dx}= y^2-1\quad .
@@ -3231,9 +3230,11 @@ y(x)= \frac{1- 4e^{2x}}{1+4e^{2x}}\quad .
 \]
 
 \end{solution}
-The mixing problem. 
-A tank contains 30 kg of salt dissolved in 10000 liters of water and salt solution. Brine that contains 0.05 kg of salt per liter enters the tank at a rate of 10 liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate (10 liters per minute). Determine how much salt remains in the tank after half an hour.
+The following problem is the so called ``mixing problem''.
 
+\begin{problem}
+A tank contains 30 kg of salt dissolved in 10000 liters of water and salt solution. Brine that contains 0.05 kg of salt per liter enters the tank at a rate of 10 liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate (10 liters per minute). Determine how much salt remains in the tank after half an hour.
+\end{problem}
 \begin{solution}
 Let $y(t)$ be the amount of salt (in kilograms) contained in the tank after $t$ minutes. We are given $y(0)= 30kg$. In addition, we have that 
 \[
@@ -3388,8 +3389,9 @@ In order to find a solution for which $y(0)=3$, we simply plug in $x_0=0$, $y(x_
 \end{pspicture}
 } %end \optionalDisplay
 \end{solution}
-\section{Sequences, limits, formal power series}\label{secSequencesPowerSeries}
-\subsection{Sequences, limits of sequences}
+
+\chapter{Sequences, limits, formal power series}\label{secSequencesPowerSeries}
+\section{Sequences, limits of sequences}
 \begin{definition}
 \index{sequence} A sequence is an infinite list of numbers 
 \[
@@ -3459,10 +3461,8 @@ A sequence $\{a_n\}$ is bounded above by $M$ if $a_n<M$ for all $n$. A sequence 
 \begin{theorem}\label{thMonotonicSequenceThereom}\index{sequence!monotonic sequence theorem}
  (Monotonic sequence theorem). Every bounded monotonic sequence is convergent.
 \end{theorem}
-\subsection{Limits of functions (Review)}
-\textbf{This section is to be written.}
-\subsection{A couple of tools}
-\subsubsection{L'Hospital's rule}
+\section{A couple of tools}
+\subsection{L'Hospital's rule}
 \begin{theorem}
 \index{theorem!mean value} Mean value theorem (Review). Let $f:[a,b]\to \mathbb R$ (i.e., $f$ is a function from the interval $[a,b]$ to the reals), such that $f$ is continuous in the entire interval $[a,b]$, and differentiable in the open interval $(a,b)$. Then there exists a number $c\in (a,b)$ such that 
 \[
@@ -3519,7 +3519,7 @@ Note there is no fixed recipe for rewriting $F$.
 \item Step 4. Check whether $\frac{f(a)}{g(a)}$ is of the form $\frac{0}{0}$, or $\frac{\pm\infty}{\pm \infty}$. If so, use L'Hospital's rule. Go back to Step 1.
 \end{itemize}
 Note that in the above strategy, you might end up going in an infinite cycle. If, in your judgment, you are going in an infinite cycle, try transforming $F(x)$ algebraically.
-\subsubsection{Examples of L'Hospital's rule}
+\subsection{Examples of L'Hospital's rule}
 \[
 \lim\limits_{x\to 0} \underbrace{(x-1)\ln x}_{\mathrm{~of~the~form~}(-1)*(-\infty)} =+\infty\quad .
 \]
@@ -3573,7 +3573,7 @@ which proves the induction step and completes the proof.
 
 However, if $f(a)\neq 0, \pm \infty$ and $f$ is continuous in a small neighborhood of $a$, then we have the right to write $\lim\limits_{x\to a} f(x)g(x)= \left(\lim\limits_{x\to a} f(x)\right) \left(\lim\limits_{x\to a} g(x)\right)= f(a)\left(\lim\limits_{x\to a} g(x)\right)$.
 
-\subsubsection{Improper integrals} \label{secImproperIntegrals}
+\subsection{Improper integrals} \label{secImproperIntegrals}
 \index{improper integral} Improper integrals are the combination of definite integrals and limits.
 
 Type I: infinite intervals.
@@ -3619,7 +3619,7 @@ The comparison theorem. Suppose $f(x)\geq g(x)\geq 0$.
 \item If $\int\limits_{a}^{b}g(x)dx$ is divergent, so is $\int\limits_{a}^{b}f(x)dx$. Here, we allow $ b=\infty$ or $a=-\infty$, as well as we allow improper integrals of type II.
 \end{itemize}
 
-\subsubsection{Examples of improper integrals}
+\subsection{Examples of improper integrals}
 Let $p\neq 1$. Then
 \begin{equation}\label{eqIntegralxTopthPowerToInfty}
 \int\limits_{x=1} \frac{1}{x^{p}} dx = \left.-\frac{x^{-p+1}}{-p+1}\right|_{x=1}^{\infty}= \lim\limits_{x\to\infty} 
@@ -3665,7 +3665,7 @@ We cannot evaluate the above integral using the techniques studied so far. Howev
 The first integral $\int\limits_{0}^{1}e^{-x^2}dx$ is proper and well defined, as $e^{-x^2}$ is a continuous function in the interval $[0,1]$ (and everywhere else).  We already showed that $ \int\limits_{0}^{\infty}e^{-x}dx$ is convergent; we leave it to the reader to show that $ \int\limits_{1}^{\infty}e^{-x}dx$ is convergent too (this is in fact obvious). As $e^{-x}>e^{-x^2}$ for $x>1$, we apply the comparison theorem to get that $\int\limits_{0}^{\infty}e^{-x^2}dx<\int\limits_{1}^{\infty}e^{-x}dx$ is convergent.
 \end{solution}
 
-\subsection{Formal power series and operations with them}\label{secFormalPowerSeries}
+\section{Formal power series and operations with them} \label{secFormalPowerSeries}
 \index{series!formal power} A \emph{formal power series} is an expression of the form 
 \begin{equation}\label{eqFormalPowerSeriesDef}
 (a_0 + a_1x+a_2x^2+\dots +a_nx^n+\dots)= \sum_{n=0}^{\infty} a_n x^n \quad .
@@ -3737,7 +3737,7 @@ f(g(x)) &\eqdef&\displaystyle a_0+ \sum_{k=1}^\infty a_k\left(\sum_{j=1}^{\infty
 \]
 Clearly, the above formulas would be cumbersome to work with by hand except for the smallest of examples. In particular, all examples done in this course will use shortcuts that circumvent the preceding formulas. However, the preceding formulas may be needed for a complicated problem arising in practice/outside of the scope of this course. Furthermore, the formulas are well-suited for implementation in computer algebra systems.
 
-\subsection{Maclaurin series as formal power series}\label{secMaclaurinSeries}
+\section{Maclaurin series as formal power series}\label{secMaclaurinSeries}
 \begin{definition}\label{defMaclaurinSeries}
 \index{series!Maclaurin} Let $f(x)$ be a function that is infinitely differentiable at $0$. Recall that $f^{(n)}(x)$ denotes the $n^{th}$ derivative of $f(x)$. Then the formal power series
 \begin{equation}\label{eqMacLaurinDef}
@@ -4010,10 +4010,10 @@ To prove the above, let $S_n:=1+\frac{1}2+\dots +\frac{1}n$ denote the $n^{th}$ 
 \begin{equation*}
 \begin{array}{rcl}
 S_{2^n-1}&=&1+\frac{1}2+\frac13 +\dots +\frac{1}{2^n-1}\\
-&=& 1+ \underbrace{\left(1/2+1/3\right)}_{\mathrm{2~summands}} +\underbrace{(1/4+1/5+1/6+1/7)}_{\mathrm{4~summands}}+\dots \\&&+
-\underbrace{(1/2^{n-1}+1/(2^{n-1}+1)+\dots +1/(2^{n}-1)}_{2^{n-1}\mathrm{~summands}}\\
-&>& 1+ \underbrace{\left(1/4+1/4\right)}_{\mathrm{2~summands}} +\underbrace{(1/8+1/8+1/8+1/8)}_{\mathrm{4~summands}}+\dots \\&& +
-\underbrace{(1/2^{n}+\dots +1/2^{n})}_{2^{n-1}\mathrm{~summands}}\\
+&=& 1+ \underbrace{\left(1/2+ 1/3\right)}_{\mathrm{2~summands}} +\underbrace{(1/4 +1/5+1/6+1/7)}_{\mathrm{4~summands}}+\dots \\
+&&+ \underbrace{(1/2^{n-1}+1/(2^{n-1}+1)+\dots +1/(2^{n}-1)}_{2^{n-1}\mathrm{~summands}}\\
+&>& 1+ \underbrace{\left(1/4+1/4\right)}_{\mathrm{2~summands}} +\underbrace{(1/8+1/8+1/8+1/8)}_{\mathrm{4~summands}}+\dots \\
+&& + \underbrace{(1/2^{n}+\dots +1/2^{n})}_{2^{n-1}\mathrm{~summands}}\\
 &=&1+\underbrace{  1/2+\dots +1/2}_{n-1\mathrm{~summands}}= \frac{n+1}2\quad . 
 \end{array}
 \end{equation*}
@@ -4048,20 +4048,20 @@ In some high schools students study \emph{periodic decimal notation}\index{perio
 \end{array}
 \]
 
-Compute the sum $\sum\limits_{n=2}^{\infty}\frac{1}{n(n-1)}$. Let $S_k= \sum\limits_{k=2}^{n}\frac{1}{k(k-1)}$ be the partial sum of the series. We have that $\frac{1}{k(k-1)}= \frac{1}{k-1}-\frac{1}k$ and therefore 
+Compute the sum $\sum\limits_{n=2}^{\infty}\frac{1}{n(n-1)}$. Let $S_k= \sum \limits_{k=2}^{n} \frac{1}{k(k-1)}$ be the partial sum of the series. We have that $\frac{1}{k(k-1)}= \frac{1}{k-1}-\frac{1}k$ and therefore 
 \[
-S_n= \left(\frac11-\cancel{\frac12}\right)+\left(\cancel{\frac12}-\cancel{\frac13}\right)+\dots + \left(\cancel{\frac1{n-2}}-\cancel{\frac{1}{n-1}}\right)+\left(\cancel{\frac1{n-1}}-\frac1n\right)
+S_n= \left(\frac11-\cancel{ \frac12}\right)+ \left(\cancel{\frac12} -\cancel{ \frac13} \right) +\dots + \left(\cancel{\frac1{n-2}} -\cancel{\frac{1}{n-1}} \right)+ \left(\cancel{\frac1{n-1}}-\frac1n\right)
 =1-\frac{1}n\quad .
 \]
 Therefore 
 \[
-\sum\limits_{n=2}^{\infty}\frac{1}{n(n-1)}= \lim\limits_{n\to \infty} S_n=\lim\limits_{n\to \infty} 1-\frac{1}n=1\quad .
+\sum\limits_{n=2}^{\infty}\frac{1}{n(n-1)}= \lim\limits_{n\to \infty} S_n = \lim \limits_{n \to \infty} 1-\frac{1}n=1\quad .
 \]
 
 There is no general technique for summing up arbitrary series ``in closed form''. We can carry out the summation explicitly only for several classes of hand-picked examples. 
 
 
-Suppose $\sum a_n$ and $\sum b_n$ are convergent. Then so is the sum $\sum (ca_n+db_n)$, where $c, d$ are arbitrary constants, and we we have that
+Suppose $\sum a_n$ and $\sum b_n$ are convergent. Then so is the sum $\sum (ca_n + db_n)$, where $c, d$ are arbitrary constants, and we we have that
 \begin{equation}\label{eqLinearCombinationConvergentSeriesIsConvergent}
 \sum (ca_n+db_n) = c\sum a_n +d\sum b_n\quad . 
 \end{equation}
@@ -4077,7 +4077,7 @@ The fact that $\sum a_n$ and $\sum b_n$ are divergent implies nothing about the 
 Example. Prove $\sum_{n=0}^{\infty}\frac{1}{2^n+n}$ converges. 
 
 \begin{proof}
-We have that $\frac{1}{2^n+n}\leq\frac{1}{2^n}$. On the other hand $\sum_{n=0}^{\infty}\frac{1}{2^n}=2$ and therefore the sum converges.
+We have that $\frac{1}{2^n+n}\leq\frac{1}{2^n}$. On the other hand $\sum_{n= 0}^{\infty} \frac{1}{2^n}=2$ and therefore the sum converges.
 \end{proof}
 
 
@@ -4534,7 +4534,7 @@ Therefore the area of the enclosed curve is given by the area of the figure obta
 \]
 \end{solution}
 
-\section{Index}
-\textbf{The index is incomplete at the moment. }
+%\section{Index}
+%\textbf{The index is incomplete at the moment. }
 \printindex
 \end{document}
