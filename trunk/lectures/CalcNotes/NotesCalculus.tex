@@ -131,12 +131,14 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{#1 }
+\newcommand{\optionalDisplay}[1]{}
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
 \newcommand{\optionalMaterial}{\textbf{(Optional)}}
 \renewcommand{\emph}{\textbf}
+
+%\newcommand{\diff}{\text{d}}
 
 \makeindex
 \author{Authors: the freecalc project contributors \\~\\ Notes composition started by Todor Milev.}
@@ -236,7 +238,7 @@ As the most important example of this we note that, while we have avoided a form
 %\item $\mathbb R^n$ is the generalization of $\mathbb R^2$, $\mathbb R^3$, for arbitrary number of coordinates.
 %\item $\mathbb C$ denotes the complex numbers, defined in section \ref{secComplexNumbers}.
 %\item $\displaystyle\sum_{k=1}^n f(k)\eqdef f(1)+f(2)+\dots +f(k-1)+f(k)$ is read ``sum of $f(k)$ as $k$ runs over the values $1,2,\dots, n$''. Below the sum sign we indicate the variable which varies as we take the sum. This variable is often called ``dummy variable''. 
-%\item $\displaystyle\int\limits_{x=a}^b f(x)dx$ is read ``integral of $f(x)dx$ as $x$ runs in the interval $[a,b]$''. The similarities in the notation for $\sum$ and the $\int$ (can you spot such similarities?) are not a coincidence!
+%\item $\displaystyle\int\limits_{x=a}^b f(x)\diff x$ is read ``integral of $f(x)\diff x$ as $x$ runs in the interval $[a,b]$''. The similarities in the notation for $\sum$ and the $\int$ (can you spot such similarities?) are not a coincidence!
 %\end{itemize}
 
 \chapter{Basic mathematical language}
@@ -1029,18 +1031,18 @@ exists. If the limit exists, we say that it equals the derivative of $f$ at the 
 \label{secDefTangent}
 
 \subsection{Computing derivatives}
-Recall that for a function of a variable $z$, $\frac{d}{dx}(f(x))$ denotes the derivative of $f(x)$. The notations $\frac{d}{dx}(f(x))$ and $f'(x)$ are equivalent. 
+Recall that for a function of a variable $z$, $\frac{d}{\diff x}(f(x))$ denotes the derivative of $f(x)$. The notations $\frac{d}{\diff x}(f(x))$ and $f'(x)$ are equivalent. 
 
 Let $n$ be an integer. 
 \[
-\frac{d}{dx} (x^n)= n x^{n-1}\quad .
+\frac{d}{\diff x} (x^n)= n x^{n-1}\quad .
 \]
 \[
-\frac{d}{dx} (f(x)g(x)) = f'(x)g(x)+f(x)g'(x) \quad .
+\frac{d}{\diff x} (f(x)g(x)) = f'(x)g(x)+f(x)g'(x) \quad .
 \]
 Let $f(y)$ and $g(x)$ be differentiable functions.  Then
 \[
-\frac{d}{dx} \left(f( g(x))\right)= g'(x) f'(g(x)) \quad .
+\frac{d}{\diff x} \left(f( g(x))\right)= g'(x) f'(g(x)) \quad .
 \]
 
 
@@ -1056,7 +1058,7 @@ in abbreviated notation
 f'\diff x = \diff f\quad \quad .
 }
 
-$\diff (f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)dx$ are called \emph{differential forms}.
+$\diff (f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)\diff x$ are called \emph{differential forms}.
 
 Differentials obey the laws
 \[
@@ -1070,9 +1072,9 @@ d(fg)&=&gdf+fdg \quad\quad\quad\quad \quad &(\mathrm{Leibniz~rule})\\
 %Try to prove these laws from the definition!
 We recall the notation $\displaystyle \int f(x)\diff x$ stands for the class of anti-derivatives of $f(x)$, i.e., for the functions $F(x)$ for which $F'(x) = f(x)$.
 
-The fact that $f(x)+C=\displaystyle \int f'(x)dx$ is translated into differential notation as 
+The fact that $f(x)+C=\displaystyle \int f'(x)\diff x$ is translated into differential notation as 
 \importantFormula{
-\displaystyle \diff \left(\int f(x)dx\right)= f(x)dx\quad ,
+\displaystyle \diff \left(\int f(x)\diff x\right)= f(x)\diff x\quad ,
 }
 and
 \importantFormula{
@@ -1805,7 +1807,7 @@ Derivative of $\ln x$.
 \begin{proof}
 \[
 \begin{array}{rcl}
-e^{\ln x}&=& x  \quad \quad \quad \frac {d}{dx}\\
+e^{\ln x}&=& x  \quad \quad \quad \frac {d}{\diff x}\\
 (e^{\ln x})(\ln x)' &= &1\\
  \ln x&=&\frac{1}x\quad .
 \end{array}
@@ -1856,7 +1858,7 @@ Derivative of $\arcsin x, \arccos x, \arctan x$.
 \begin{proof}
 \[
 \begin{array}{rcl}
-\sin(\arcsin x)&=& x  \quad\quad\left|\frac{d}{dx}\right. \\
+\sin(\arcsin x)&=& x  \quad\quad\left|\frac{d}{\diff x}\right. \\
 (\arcsin x)'\cos (\arcsin x) &=& 1\\
 (\arcsin x)'\sqrt{1-\sin^2(\arcsin x) } &=& 1\\
 (\arcsin x)' &=&\frac{1}{\sqrt{1-x^2}}\quad .
@@ -1864,7 +1866,7 @@ Derivative of $\arcsin x, \arccos x, \arctan x$.
 \]
 \[
 \begin{array}{rcl}
-\cos(\arccos x)&=& x \quad\quad\left|\frac{d}{dx}\right. \\
+\cos(\arccos x)&=& x \quad\quad\left|\frac{d}{\diff x}\right. \\
 -(\arccos x)'\sin (\arccos x) &=& 1\\
 -(\arccos x)'\sqrt{1-\cos^2(\arccos x) } &=& 1\\
 (\arccos x)' &=&-\frac{1}{\sqrt{1-x^2}}\quad .
@@ -1872,7 +1874,7 @@ Derivative of $\arcsin x, \arccos x, \arctan x$.
 \]
 \[
 \begin{array}{rcl}
-\tan(\arctan x)&=& x \quad\quad\left|\frac{d}{dx}\right. \\
+\tan(\arctan x)&=& x \quad\quad\left|\frac{d}{\diff x}\right. \\
 -(\arctan x)'\frac{1}{ (\cos{\arctan x})} &=& 1 \quad \quad \quad \mathrm{use~} \frac{1}{\cos^2x}= 1+\tan^2x\\
 -(\arctan x)'(1+\tan^2(\arctan x) &=& 1\\
 (\arctan x)' &=&\frac{1}{1+x^2}\quad .
@@ -1919,83 +1921,83 @@ Integration by parts can be formulated using differential forms as
 }
 or alternatively as
 \importantFormula{
-\int f(x) g'(x)dx = fg- \int g(x) f'(x)dx \quad .
+\int f(x) g'(x)\diff x = fg- \int g(x) f'(x)\diff x \quad .
 }
 Combining the above with the fundamental theorem of Calculus yields the definite integral version
 \importantFormula{
-\int\limits_{x=a}^{b} f(x) g'(x)dx = \left.fg\phantom\int\right|_{x=a}^b - \int\limits_{x=a}^b g(x) f'(x)dx \quad.
+\int\limits_{x=a}^{b} f(x) g'(x)\diff x = \left.fg\phantom\int\right|_{x=a}^b - \int\limits_{x=a}^b g(x) f'(x)\diff x \quad.
 }
-Idea of integration by parts: suppose we already know the integral of $g(x)$, say $d(G(x))=g(x)dx$. Suppose for some reason we consider the integral of $f'(x)dx$ to be easier than the integral of $f(x)dx$. If we want to integrate $f(x)g(x)dx= f(x)d(G(x))$, then we may use integration by parts to get
+Idea of integration by parts: suppose we already know the integral of $g(x)$, say $d(G(x))=g(x)\diff x$. Suppose for some reason we consider the integral of $f'(x)\diff x$ to be easier than the integral of $f(x)\diff x$. If we want to integrate $f(x)g(x)\diff x= f(x)d(G(x))$, then we may use integration by parts to get
 \[
-\int f(x)\underbrace{g(x)dx}_{=d(G(x))}= f(x)g(x)- \int G(x) \underbrace{f'(x)dx}_{=d(f(x))}\quad .
+\int f(x)\underbrace{g(x)\diff x}_{=d(G(x))}= f(x)g(x)- \int G(x) \underbrace{f'(x)\diff x}_{=d(f(x))}\quad .
 \]
-If the function $G(x)$ is not too complicated, then $f'(x)G(x)dx$ may be easier to integrate than $f(x)g(x)dx$. If that is the case, integrating by parts pays off, and we should use the technique. 
+If the function $G(x)$ is not too complicated, then $f'(x)G(x)\diff x$ may be easier to integrate than $f(x)g(x)\diff x$. If that is the case, integrating by parts pays off, and we should use the technique. 
 
 There is no 100\% recipe when integration by parts makes the problem easier. However, with practice and experience, on small examples, one can quickly judge when integration by parts helps.
 \subsection{Examples and exercises}
 \begin{problem}
-Compute $\displaystyle \int x \sin x dx$.
+Compute $\displaystyle \int x \sin x \diff x$.
 \end{problem}
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int x \underbrace{\sin x dx}_{=-d\cos x} = -\int x d\cos x = -x\cos x + \int \cos x dx = -x \cos x +\sin x +C\quad .
+\displaystyle\int x \underbrace{\sin x \diff x}_{=-d\cos x} = -\int x d\cos x = -x\cos x + \int \cos x \diff x = -x \cos x +\sin x +C\quad .
 \end{array}
 \]
 \end{solution}
 \begin{problem}
-Compute $\displaystyle \int x^2 e^x dx$.
+Compute $\displaystyle \int x^2 e^x \diff x$.
 \end{problem}
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int x^2 \underbrace{e^x dx}_{d (e^x)} &=& \int x^2 d e^x= x^2e^x - \int e^x2xdx=  x^2e^x - \int 2xd e^x \\
-&=& x^2e^x- 2xe^x+ \int 2e^x dx= x^2e^x-2xe^x+2e^x+C\quad .
+\displaystyle\int x^2 \underbrace{e^x \diff x}_{d (e^x)} &=& \int x^2 d e^x= x^2e^x - \int e^x2x\diff x=  x^2e^x - \int 2xd e^x \\
+&=& x^2e^x- 2xe^x+ \int 2e^x \diff x= x^2e^x-2xe^x+2e^x+C\quad .
 \end{array}
 \]
 \end{solution}
 \begin{problem}
-Compute $\displaystyle \int \ln x dx $.
+Compute $\displaystyle \int \ln x \diff x $.
 \end{problem}
 \begin{solution}
 \[
-\int \ln x dx = x\ln x - \int x d(\ln x)= x\ln x -\int \frac{x}{x}dx= x\ln x-x+C\quad . 
+\int \ln x \diff x = x\ln x - \int x d(\ln x)= x\ln x -\int \frac{x}{x}\diff x= x\ln x-x+C\quad . 
 \]
 \end{solution}
 \begin{problem}
-Compute $\displaystyle \int \sin x e^x dx$.
+Compute $\displaystyle \int \sin x e^x \diff x$.
 \end{problem}
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int \sin x \underbrace{e^x dx}_{=de^x}&=&\displaystyle\sin x e^x - \int e^xd(\sin x)=\sin x e^x - \int \cos x \underbrace{e^x dx}_{=de^x}\\
+\displaystyle\int \sin x \underbrace{e^x \diff x}_{=de^x}&=&\displaystyle\sin x e^x - \int e^xd(\sin x)=\sin x e^x - \int \cos x \underbrace{e^x \diff x}_{=de^x}\\
 &=& \displaystyle\sin x e^x - e^x\cos x +\int e^x d(\cos x) \\
-&=& e^x\sin x -e^x\cos x-\int e^x\sin x dx\quad . 
+&=& e^x\sin x -e^x\cos x-\int e^x\sin x \diff x\quad . 
 \end{array}
 \]
-Transferring $\displaystyle\int e^x\sin x dx$ to the left hand side we get $\displaystyle 2\int \sin x e^x dx = \sin x e^x-e^x\cos x$, or finally, $\displaystyle \int \sin x e^x dx=\frac12 \left(\sin x e^x- e^x\cos x\right)$.
+Transferring $\displaystyle\int e^x\sin x \diff x$ to the left hand side we get $\displaystyle 2\int \sin x e^x \diff x = \sin x e^x-e^x\cos x$, or finally, $\displaystyle \int \sin x e^x \diff x=\frac12 \left(\sin x e^x- e^x\cos x\right)$.
 \end{solution}
 \begin{problem}
-Compute $\displaystyle\int \arctan x dx$.
+Compute $\displaystyle\int \arctan x \diff x$.
 \end{problem}
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int \arctan x dx &=& x\displaystyle \arctan x - \int x d(\arctan x)= x\arctan x - \int \frac{x}{x^2+1}dx\\
+\displaystyle\int \arctan x \diff x &=& x\displaystyle \arctan x - \int x d(\arctan x)= x\arctan x - \int \frac{x}{x^2+1}\diff x\\
 &=& \displaystyle  x\arctan x - \int \frac{\frac{1}2d(x^2)}{x^2+1}=  x\arctan x - \int \frac{\frac{1}2d(x^2+1)}{x^2+1}\\
 &=& x\arctan x - \frac12\ln (x^2+1) +C\quad .
 \end{array}
 \]
 \end{solution}
 \begin{problem}
-Compute $\displaystyle \int x^n e^x dx$.
+Compute $\displaystyle \int x^n e^x \diff x$.
 \end{problem}
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int x^n e^x dx &=& \displaystyle\int x^n d e^x= x^n e^x- \int  e^x dx^n= x^n e^x- n\int  x^{n-1}e^x dx=\\
-&=&\displaystyle x^ne^x- n\left(\int x^{n-1}de^x \right)= x^ne^x - n\left(x^{n-1}e^x- \int (n-1)x^{n-2}e^x dx\right)\\
-&=&\displaystyle x^{n}e^x-nx^{n-1}xe^x+n(n-1)\int x^{n-2}e^x dx =\dots\\
+\displaystyle\int x^n e^x \diff x &=& \displaystyle\int x^n d e^x= x^n e^x- \int  e^x \diff x^n= x^n e^x- n\int  x^{n-1}e^x \diff x=\\
+&=&\displaystyle x^ne^x- n\left(\int x^{n-1}de^x \right)= x^ne^x - n\left(x^{n-1}e^x- \int (n-1)x^{n-2}e^x \diff x\right)\\
+&=&\displaystyle x^{n}e^x-nx^{n-1}xe^x+n(n-1)\int x^{n-2}e^x \diff x =\dots\\
 &=&\displaystyle x^ne^{x}- nx^{n-1}e^x+n(n-1)x^{n-2}e^x+\dots \\
 &&+(-1)^kn(n-1)(n-2)\dots(n-k+1)x^{n-k}e^x+\dots +(-1)^n n! e^x+C\\
 &=&\displaystyle C+\sum_{k=0}^{n} (-1)^n\frac{n!}{(n-k)!} x^{n-k} e^x \quad .
@@ -2003,7 +2005,7 @@ Compute $\displaystyle \int x^n e^x dx$.
 \]
 \end{solution}
 \begin{problem}
-Compute $\displaystyle\int \sin^n x dx$.
+Compute $\displaystyle\int \sin^n x \diff x$.
 
 \end{problem}
 
@@ -2012,37 +2014,37 @@ Evaluate the indefinite integral. Illustrate the steps of your solutions. Check 
 \begin{multicols}{2}
 \begin{enumerate}
 \item 
-$\int x^2\cos 2x dx$
+$\int x^2\cos 2x \diff x$
 \item 
-$\int x^2e^{ax}dx$
+$\int x^2e^{ax}\diff x$
 \item 
-$\int x^2e^{-ax}dx$
+$\int x^2e^{-ax}\diff x$
 \item \label{eqProblemA}
-$\int x^2\frac{(e^{ax}+e^{-ax})^2}4dx$ 
+$\int x^2\frac{(e^{ax}+e^{-ax})^2}4\diff x$ 
 \item 
-$\int \cos^2x dx$ 
+$\int \cos^2x \diff x$ 
 \item 
-$ \int x\ln x dx 
+$ \int x\ln x \diff x 
 $
-\item $\int \frac{x}{1+x^2} dx$ 
+\item $\int \frac{x}{1+x^2} \diff x$ 
 \item 
-$ \int \arctan x dx
+$ \int \arctan x \diff x
 $
 \item 
-$ \int \arcsin x dx
+$ \int \arcsin x \diff x
 $
-\item $\int \frac{\ln x}{\sqrt{x}}dx $
-\item $\int (\arcsin x)^2 dx $ \quad \quad (Hint: Try substituting $x=\sin y$)
-\item $\int \frac{1}{\cos^2 x}dx$\quad \quad (Hint: What is the derivative of $\tan x$?)
-\item $\int (\tan^2 x) dx $ \quad \quad (Hint: $\tan^2 x = \frac{1}{\cos^2x }-1$ )
-\item $\int x(\tan^2 x) dx $ \quad \quad (Hint: $\tan^2 x dx= d(F(x))$, where $F(x)$ is the answer from the preceding problem)
+\item $\int \frac{\ln x}{\sqrt{x}}\diff x $
+\item $\int (\arcsin x)^2 \diff x $ \quad \quad (Hint: Try substituting $x=\sin y$)
+\item $\int \frac{1}{\cos^2 x}\diff x$\quad \quad (Hint: What is the derivative of $\tan x$?)
+\item $\int (\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x = \frac{1}{\cos^2x }-1$ )
+\item $\int x(\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x \diff x= d(F(x))$, where $F(x)$ is the answer from the preceding problem)
 \item 
 $
-\int\arctan (\frac{1}x)dx
+\int\arctan (\frac{1}x)\diff x
 $
-\item $\int \sin (\ln (x)) dx $
+\item $\int \sin (\ln (x)) \diff x $
 \item
-$\int x^2\cos^2x dx$ (Can you solve using complex numbers and Problem \ref{eqProblemA}?).
+$\int x^2\cos^2x \diff x$ (Can you solve using complex numbers and Problem \ref{eqProblemA}?).
 \end{enumerate}
 \end{multicols}
 \end{problem}
@@ -2089,11 +2091,11 @@ Let $\frac{N(x)}{D(x)}$ be a proper fraction, and let $D(x)$ be factorized as in
 \end{equation}
 The constants $A_{js}, B_{js}, C_{js}$ are real numbers and may be extracted by clearing the denominators in the above identity and comparing the coefficients in front of $x$.
 Using linear substitutions, integrals of the form 
-\[\displaystyle\int \frac{A}{(x-x_j)^s}dx,
+\[\displaystyle\int \frac{A}{(x-x_j)^s}\diff x,
 \] 
 and
 \[
-\int \frac{Bx+C}{(x^2+c_jx+d_j)^s}dx
+\int \frac{Bx+C}{(x^2+c_jx+d_j)^s}\diff x
 \] 
 can be transformed to combinations of integrals of the forms: 
 \[
@@ -2106,58 +2108,58 @@ can be transformed to combinations of integrals of the forms:
 \] 
 Each of these ``building block'' integrals has different behavior for $n=1$ and for $n\geq 2$. We solve each of the ``building block'' integrals below. 
 
-\subsubsection{Integrals of the form $\displaystyle\int \frac{1}{(x+a)^n}dx$.}
+\subsubsection{Integrals of the form $\displaystyle\int \frac{1}{(x+a)^n}\diff x$.}
 For $n=1$ we get
 \begin{equation}\label{eqBuildingBlockInt1base}
-\int \frac{1}{x+a}dx=\int {\frac{1}{x+a}d(x+a)}= \ln |x+a| +C\quad .
+\int \frac{1}{x+a}\diff x=\int {\frac{1}{x+a}d(x+a)}= \ln |x+a| +C\quad .
 \end{equation}
 Let $n> 1$. Then
 \begin{equation}\label{eqBuildingBlockInt1N}
-\int \frac{1}{(x+a)^n}dx= -\frac{1}{(n-1)(x+a)^{n-1}}+C \quad .
+\int \frac{1}{(x+a)^n}\diff x= -\frac{1}{(n-1)(x+a)^{n-1}}+C \quad .
 \end{equation}
-\subsubsection{Integrals of the form $\displaystyle\int \frac{x}{(1+x ^2)^n} dx $.}
-If we use the substitution $y=x^2$, we get $dy=2xdx $ and so $\displaystyle\int \frac{x}{(1+x ^2)^n} dx = \displaystyle\int \frac{\frac12 dy}{(y+1)^n} dy $, i.e., our integral is transformed to an integral of the form \eqref{eqBuildingBlockInt1base} or  \eqref{eqBuildingBlockInt1N}. In short form, this can be written as follows. 
+\subsubsection{Integrals of the form $\displaystyle\int \frac{x}{(1+x ^2)^n} \diff x $.}
+If we use the substitution $y=x^2$, we get $dy=2x\diff x $ and so $\displaystyle\int \frac{x}{(1+x ^2)^n} \diff x = \displaystyle\int \frac{\frac12 dy}{(y+1)^n} $, i.e., our integral is transformed to an integral of the form \eqref{eqBuildingBlockInt1base} or  \eqref{eqBuildingBlockInt1N}. In short form, this can be written as follows. 
 
 For $n=1$ we have
 \[
-\int \frac{x}{x^2+1}dx= \int \frac{\frac{1}2 d(x^2+1)}{x^2+1}= \frac{1}{2}\ln (x^2+1) +C\quad .
+\int \frac{x}{x^2+1}\diff x= \int \frac{\frac{1}2 d(x^2+1)}{x^2+1}= \frac{1}{2}\ln (x^2+1) +C\quad .
 \]
 For $n>1, n\in \mathbb Z$ we have
 \[
-\int \frac{x}{(x^2+1)^n}dx= \int \frac{\frac{1}2d(x^2+1)}{(x^2+1)^n}= -\frac{1}{2(n-1)(x+a)^{n-1} } +C\quad .
+\int \frac{x}{(x^2+1)^n}\diff x= \int \frac{\frac{1}2d(x^2+1)}{(x^2+1)^n}= -\frac{1}{2(n-1)(x+a)^{n-1} } +C\quad .
 \]
-\subsubsection {Integrals of the form $\displaystyle\int \frac{1}{(1+x ^2)^n} dx $.}
+\subsubsection {Integrals of the form $\displaystyle\int \frac{1}{(1+x ^2)^n} \diff x $.}
 For $n=1$ we can recall that the derivative of $\arctan x$ is $\displaystyle\frac{1}{1+x^2}$, in other words
 \[
-\int \frac{1}{x^2+1}dx= \arctan x+C\quad .
+\int \frac{1}{x^2+1}\diff x= \arctan x+C\quad .
 \]
 For $n>1, n\in \mathbb Z$, we are solving the integral
 \begin{equation}\label{eqBuildingBlock3N}
-\int \frac{1}{(1+x ^2)^n}dx\quad .
+\int \frac{1}{(1+x ^2)^n}\diff x\quad .
 \end{equation}
-This ``building block'' integral and is considerably more challenging than the preceding ``building blocks''. There is a trick to solving \eqref{eqBuildingBlock3N}. Consider the integral $\displaystyle\int \frac{1}{(1+x ^2)^{n-1}}dx$ and integrate it by parts:
+This ``building block'' integral and is considerably more challenging than the preceding ``building blocks''. There is a trick to solving \eqref{eqBuildingBlock3N}. Consider the integral $\displaystyle\int \frac{1}{(1+x ^2)^{n-1}}\diff x$ and integrate it by parts:
 \[
 \begin{array}{rcl}
 \displaystyle \int \underbrace{\frac{1}{(1+x ^2)^{n-1}}}_{f(x)}d\underbrace{x}_{g(x)}&=&\displaystyle \frac{x}{(1+x ^2)^{n-1}}-\int x d\left(\frac{1}{(1+x ^2)^{n-1}}\right)\\
-&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}}- \int 2(-n+1)\frac{x^2}{(1+x^2)^n}dx\\
-&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}}+2(n-1) \int \frac{(1+x^2-1)}{(1+x^2)^n}dx\\
-&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}} +2(n-1)\int \frac{1}{(1+x^2)^{n-1}}dx \\&&\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}dx\quad .
+&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}}- \int 2(-n+1)\frac{x^2}{(1+x^2)^n}\diff x\\
+&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}}+2(n-1) \int \frac{(1+x^2-1)}{(1+x^2)^n}\diff x\\
+&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}} +2(n-1)\int \frac{1}{(1+x^2)^{n-1}}\diff x \\&&\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}\diff x\quad .
 \end{array}
 \]
-Transfer the left-hand side term $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}dx$ and the right-hand side term  $\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}dx$ to the opposite sides to obtain that 
+Transfer the left-hand side term $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}\diff x$ and the right-hand side term  $\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}\diff x$ to the opposite sides to obtain that 
 \[
-\int \frac{1}{(1+x^2)^n}dx= \frac{x}{(2n-2)(1+x ^2)^{n-1}}+ \frac{2n-3}{2n-2}\int \frac{1}{(1+x^2)^{n-1}}dx\quad .
+\int \frac{1}{(1+x^2)^n}\diff x= \frac{x}{(2n-2)(1+x ^2)^{n-1}}+ \frac{2n-3}{2n-2}\int \frac{1}{(1+x^2)^{n-1}}\diff x\quad .
 \]
-In this way we expressed the integral $\displaystyle\int \frac{1}{(1+x^2)^n}dx$ using a simpler one, $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}dx$. In a similar fashion, we may express $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}dx$ using $\displaystyle\int \frac{1}{(1+x^2)^{n-2}}dx$, and so on, until we reach $\displaystyle\int \frac{1}{(1+x^2)}dx=\arctan x +C$. Our answer may be summarized as
+In this way we expressed the integral $\displaystyle\int \frac{1}{(1+x^2)^n}\diff x$ using a simpler one, $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}\diff x$. In a similar fashion, we may express $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}\diff x$ using $\displaystyle\int \frac{1}{(1+x^2)^{n-2}}\diff x$, and so on, until we reach $\displaystyle\int \frac{1}{(1+x^2)}\diff x=\arctan x +C$. Our answer may be summarized as
 \[
 \begin{array}{rcl}
-\displaystyle \int \frac{1}{(1+x^2)^n}dx&=& \displaystyle  \frac{x}{(1+x ^2)^{n-1}}+\frac{2n-3}{2n-2}\left(\frac{x}{(1+x^2)^{n-2}}+\frac{2n-5}{2n-4}\left(\dots\right)\right)\\ \\ &&\mathrm{using~}\Sigma \mathrm{~notation:}\\ \\
+\displaystyle \int \frac{1}{(1+x^2)^n}\diff x&=& \displaystyle  \frac{x}{(1+x ^2)^{n-1}}+\frac{2n-3}{2n-2}\left(\frac{x}{(1+x^2)^{n-2}}+\frac{2n-5}{2n-4}\left(\dots\right)\right)\\ \\ &&\mathrm{using~}\Sigma \mathrm{~notation:}\\ \\
 &=&\displaystyle \frac{(2n-3 )(2n-5)\dots 1}{(2n-2)(2n-4)\dots 2}\arctan x+  \frac{x}{(2n-2)(1+x ^2)^{n-1}} \\&&\displaystyle + \sum_{s=3}^{n} \frac{(2n-3 )(2n-5)\dots (2s-3)}{(2n-2)(2n-4)\dots (2s-2)} \frac{x}{(2s-4)(1+x^2)^{s-2}} \quad .
 \end{array}
 \]
 
 \subsection{Algorithm for integrating rational functions}
-In this section we summarize the algorithm for integrating rational functions $\int \frac{N(x)}{D(x)}dx$.
+In this section we summarize the algorithm for integrating rational functions $\int \frac{N(x)}{D(x)}\diff x$.
 \begin{itemize}
 \item If the degree of $N(x)$ is greater than the degree of $D(x)$, use polynomial division with remainder to transform to proper fraction. In other words, by the algorithm of long division, obtain $Q(x)$ and $R(x)$ such that $N(x)= Q(x)D(x)+R(x)$ and the degree of $R(x)$ is smaller than the degree of $D(x)$. Then use 
 \[
@@ -2182,7 +2184,7 @@ In this section we summarize the algorithm for integrating rational functions $\
 \begin{problem}
 Integrate 
 \[
-\int \frac{x^{6}-x^{5}+\frac{9}{2} x^{4}-4 x^{3}+\frac{13}{2} x^{2}-\frac{7}{2} x+\frac{11}{4}}{x^{5}-x^{4}+3 x^{3}-3 x^{2}+\frac{9}{4} x-\frac{9}{4}} dx\quad .
+\int \frac{x^{6}-x^{5}+\frac{9}{2} x^{4}-4 x^{3}+\frac{13}{2} x^{2}-\frac{7}{2} x+\frac{11}{4}}{x^{5}-x^{4}+3 x^{3}-3 x^{2}+\frac{9}{4} x-\frac{9}{4}} \diff x\quad .
 \]
 \end{problem}
 
@@ -2252,18 +2254,18 @@ We may solve the above linear system using the standard algorithm for solving li
 \textbf{Step 3.} (Find the integral of each partial fraction). 
 \[
 \begin{array}{rcl}
-\displaystyle\int x dx &= &\frac{x ^2}2+C\\
-\displaystyle\int \frac{1}{x-1} dx &=& \ln|x-1|+C\\
-\displaystyle\int \frac{x-1}{2x^2+3} dx &=& \displaystyle \int\frac{x}{2x^2+3}dx -\frac{1}{3}\int \frac{1}{2/3x^2+1}dx\\
-&=& \displaystyle  \int \frac{d(\frac{x^2}2)}{2x^2+3}dx-\frac{1}{3} \int \frac{1}{\left(\sqrt{2/3}x\right)^2+1} d x\\
-&=&\frac{1}{4} \int \frac{d(2x^2+3)}{2x^2+3}dx- \frac{1}{3}\int \frac{\frac{d (\sqrt{2/3}x)} {\sqrt{2/3}}} {\left( \sqrt{2/3}x\right)^2+1} \\
+\displaystyle\int x \diff x &= &\frac{x ^2}2+C\\
+\displaystyle\int \frac{1}{x-1} \diff x &=& \ln|x-1|+C\\
+\displaystyle\int \frac{x-1}{2x^2+3} \diff x &=& \displaystyle \int\frac{x}{2x^2+3}\diff x -\frac{1}{3}\int \frac{1}{2/3x^2+1}\diff x\\
+&=& \displaystyle  \int \frac{d(\frac{x^2}2)}{2x^2+3}\diff x-\frac{1}{3} \int \frac{1}{\left(\sqrt{2/3}x\right)^2+1} d x\\
+&=&\frac{1}{4} \int \frac{d(2x^2+3)}{2x^2+3}\diff x- \frac{1}{3}\int \frac{\frac{d (\sqrt{2/3}x)} {\sqrt{2/3}}} {\left( \sqrt{2/3}x\right)^2+1} \\
 &=&\frac{1}{4}\ln (2x^2+3)-\frac{\sqrt{6}}{6}\arctan (\sqrt{2/3}x)+C
 \quad .
 \end{array}
 \]
 The last integral is
 \[
-\int \frac{1}{(2x^2+3)^2}dx= \frac{1}3 \int \frac{d(\sqrt{2/3}x)/\sqrt{2/3}}{((\sqrt{2/3}x)^2+1)^2}= \frac{\sqrt{6}}{6}\int \frac{d(\sqrt{2/3}x)}{((\sqrt{2/3}x)^2+1)^2}= \frac{\sqrt{6}}{6}\int \frac{dy}{(y^2+1)^2}\quad,
+\int \frac{1}{(2x^2+3)^2}\diff x= \frac{1}3 \int \frac{d(\sqrt{2/3}x)/\sqrt{2/3}}{((\sqrt{2/3}x)^2+1)^2}= \frac{\sqrt{6}}{6}\int \frac{d(\sqrt{2/3}x)}{((\sqrt{2/3}x)^2+1)^2}= \frac{\sqrt{6}}{6}\int \frac{dy}{(y^2+1)^2}\quad,
 \]
 where for the last equality we have set $y=\sqrt{2/3}x$. We may solve $\displaystyle\int\frac{dy}{(y^2+1)^2}$ by integrating by parts. Indeed,
 \[\begin{array}{rcl}
@@ -2285,46 +2287,46 @@ The final answer is
 \begin{problem}
 Evaluate the indefinite integral. 
 \begin{enumerate}
-\item $\int \frac1{x^2+x+1}dx$
-\item $\int \frac1{4x^2+4x+1}dx$
-\item $\int \frac1{2x^2+5x+1}dx$
-\item $\int \frac{15x^2-4x-81}{(x-3)(x+4)(x-1)}dx$
-\item $\int \frac {x^{4}+10x^{3}+18x^{2}+2x-13}{x^{4}+4x^{3}+3x^{2}-4x-4}dx$ 
+\item $\int \frac1{x^2+x+1}\diff x$
+\item $\int \frac1{4x^2+4x+1}\diff x$
+\item $\int \frac1{2x^2+5x+1}\diff x$
+\item $\int \frac{15x^2-4x-81}{(x-3)(x+4)(x-1)}\diff x$
+\item $\int \frac {x^{4}+10x^{3}+18x^{2}+2x-13}{x^{4}+4x^{3}+3x^{2}-4x-4}\diff x$ 
 Check first that $(x-1)(x+2)^2(x+1)= x^{4}+4x^{3}+3x^{2}-4x-4$.
 \end{enumerate}
 \end{problem}
-\section{Euler substitution, Integrals of the form $\int R(x, \sqrt{ax^2+bx+c})dx$}
+\section{Euler substitution, Integrals of the form $\int R(x, \sqrt{ax^2+bx+c})\diff x$}
 Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$.
 
-In the present section we solve integrals of the form $\int R(x, \sqrt{x^2+1})dx$, $\int R(x, \sqrt{-x^2+1})dx$, $\int R(x, \sqrt{x^2-1})dx$ for $R$ - rational function. Such integrals can be converted to integrals of rational functions as using the Euler substitution.
+In the present section we solve integrals of the form $\int R(x, \sqrt{x^2+1})\diff x$, $\int R(x, \sqrt{-x^2+1})\diff x$, $\int R(x, \sqrt{x^2-1})\diff x$ for $R$ - rational function. Such integrals can be converted to integrals of rational functions as using the Euler substitution.
 
 \begin{enumerate}
-\item Case $\sqrt{x^2+1}$. Substitute $\sqrt{x^2+1}= x+t $. Squaring both sides we see $x^2+1=x^2+2xt+t^2$, or $x=\frac12\left(\frac{1}{t}- t\right)$. Taking differential on both sides, we see that $dx=-\frac12(\frac{1}{t^2}+1) dt$. To summarize:
+\item Case $\sqrt{x^2+1}$. Substitute $\sqrt{x^2+1}= x+t $. Squaring both sides we see $x^2+1=x^2+2xt+t^2$, or $x=\frac12\left(\frac{1}{t}- t\right)$. Taking differential on both sides, we see that $\diff x=-\frac12(\frac{1}{t^2}+1) dt$. To summarize:
 \begin{equation}\label{eqEulerSub1}
 \begin{array}{rcl}
 x&=&\frac12\left(\frac{1}{t}- t\right)\\
-dx&=&-\frac12(\frac{1}{t^2}+1) dt\\
+\diff x&=&-\frac12(\frac{1}{t^2}+1) dt\\
 \sqrt{x^2+1}&=&x+t= \frac12 \left(\frac1t +t\right) \quad .
 \end{array}
 \end{equation}
-\item Case $\sqrt{-x^2+1}$. Substitute $\sqrt{-x^2+1}=(x-1)t$. Squaring both sides and dividing out by $(x-1)$ we get $-x-1=(x-1)t^2$ or $x=1-\frac{2}{t^2+1}$. Finally $dx=\frac{4t}{(1+t^2)^2}dt$. To summarize:
+\item Case $\sqrt{-x^2+1}$. Substitute $\sqrt{-x^2+1}=(x-1)t$. Squaring both sides and dividing out by $(x-1)$ we get $-x-1=(x-1)t^2$ or $x=1-\frac{2}{t^2+1}$. Finally $\diff x=\frac{4t}{(1+t^2)^2}dt$. To summarize:
 \[
 \begin{array}{rcl}
 x&=&1-\frac{2}{t^2+1}\\
 \sqrt{-x^2+1}&=&-\frac{2t}{t^2+1}\\
-dx&=&\frac{4t}{(t^2+1)^2}dt\quad .
+\diff x&=&\frac{4t}{(t^2+1)^2}dt\quad .
 \end{array}
 \] 
-\item Case $\sqrt{x^2-1} $. Substitute $\sqrt{x^2-1}=(x-1)t$. Squaring both sides and dividing out by $(x-1)$ we get $x+1=(x-1)t^2$ or $x=\frac{t^2-1+2}{t^2-1}= 1+\frac{2}{t^2-1}$. Therefore $dx=\frac{-4t}{(t^2-1)^2}dt$. To summarize:
+\item Case $\sqrt{x^2-1} $. Substitute $\sqrt{x^2-1}=(x-1)t$. Squaring both sides and dividing out by $(x-1)$ we get $x+1=(x-1)t^2$ or $x=\frac{t^2-1+2}{t^2-1}= 1+\frac{2}{t^2-1}$. Therefore $\diff x=\frac{-4t}{(t^2-1)^2}dt$. To summarize:
 \[
 \begin{array}{rcl}
-dx&=&\frac{-4t}{(t^2-1)^2}dt\\
+\diff x&=&\frac{-4t}{(t^2-1)^2}dt\\
 \sqrt{-x^2+1}&=&\frac{2t}{t^2-1} \\
 x&=&1+\frac{2}{t^2-1}\quad .
 \end{array}
 \] 
 \end{enumerate}
-Integrals of the form $\int R(\sin y,\cos y )dy$ for $R$- rational function can be transformed to integrals of rational functions via the substitution $y= 2\arctan x$. Taking differentials on both sides, we see $dy=\frac{2}{1+x^2}dx$. Further, we have 
+Integrals of the form $\int R(\sin y,\cos y )dy$ for $R$- rational function can be transformed to integrals of rational functions via the substitution $y= 2\arctan x$. Taking differentials on both sides, we see $dy=\frac{2}{1+x^2}\diff x$. Further, we have 
 \[
 \begin{array}{rcl}
 \cos (2\arctan x) &=&\displaystyle \cos^2(\arctan x)- \sin^2(\arctan x)\\
@@ -2338,7 +2340,7 @@ Therefore
 To summarize:
 \[
 \begin{array}{rcl}
-dy&=&\frac{2}{x^2+1}dx\\
+dy&=&\frac{2}{x^2+1}\diff x\\
 \cos y&=& \frac{1- x^2}{x^2+1} \\
 \sin y&=&\frac{2x}{x^2+1}\quad .
 \end{array}
@@ -2348,14 +2350,14 @@ dy&=&\frac{2}{x^2+1}dx\\
 \begin{problem}
 Integrate 
 \[
-\int \sqrt{x^2+1}dx\quad .
+\int \sqrt{x^2+1}\diff x\quad .
 \]
 \end{problem}
 \begin{solution}
-We carry out the substitution $t=\sqrt{x^2+1}-x$ described in \ref{eqEulerSub1}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $dx=-\frac12 \left(\frac1{t^2} +1\right)dt$ to get
+We carry out the substitution $t=\sqrt{x^2+1}-x$ described in \ref{eqEulerSub1}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac12 \left(\frac1{t^2} +1\right)dt$ to get
 \[
 \begin{array}{rcl}
-\displaystyle\int \sqrt{x^2+1}dx&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)dt=-\frac 1 4\int (\frac{1}{t^3}+2\frac{1}t+t)dt\\
+\displaystyle\int \sqrt{x^2+1}\diff x&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)dt=-\frac 1 4\int (\frac{1}{t^3}+2\frac{1}t+t)dt\\
 &=&\displaystyle -\frac{1}4 \left(-\frac{t^{-2}}{2}+2\ln|t|+\frac{t^2}2 \right)\\
 &=&\displaystyle\frac{1}{8} \left(\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2\right)-\frac12 \ln (\sqrt{x^2+1}-x)
 \end{array}
@@ -2374,21 +2376,21 @@ The expression $\ln (\sqrt{x^2+1}-x)$ can be transformed to
 Finally, we get 
 \[
 \begin{array}{rcl}
-\displaystyle \int \sqrt{x^2+1}dx&=&\frac{1}2\left(x\sqrt{x^2+1}+\ln (\sqrt{x^2+1}+x) \right)\quad .
+\displaystyle \int \sqrt{x^2+1}\diff x&=&\frac{1}2\left(x\sqrt{x^2+1}+\ln (\sqrt{x^2+1}+x) \right)\quad .
 \end{array}
 \]
 \end{solution}
 \begin{problem}
 Integrate 
 \[
-\int \frac{dx}{x+\sqrt{x^2+x+1}}\quad .
+\int \frac{\diff x}{x+\sqrt{x^2+x+1}}\quad .
 \]
 \end{problem}
 %\begin{solution}
-%Substitute first  $x=t-1/2$, $dx=dt$, and then $t=\frac{\sqrt{3}}2 u$, $dt=\frac{\sqrt{3}}2 du$:
+%Substitute first  $x=t-1/2$, $\diff x=dt$, and then $t=\frac{\sqrt{3}}2 u$, $dt=\frac{\sqrt{3}}2 du$:
 %\[
 %\begin{array}{rcl}
-%\displaystyle\int \frac{dx}{x+\sqrt{x^2+x+1}}&=&\displaystyle \int \frac{dt}{t-1/2+\sqrt{t^2+3/4}} =\\
+%\displaystyle\int \frac{\diff x}{x+\sqrt{x^2+x+1}}&=&\displaystyle \int \frac{dt}{t-1/2+\sqrt{t^2+3/4}} =\\
 %&=&\displaystyle \int \frac{\frac{\sqrt{3}}2du}{ \frac{\sqrt{3}}{2}u-1/2+\frac{\sqrt{3}}{2}\sqrt{u^2+1}}= \int \frac{du}{ u-\frac{\sqrt{3}}{3}+\sqrt{u^2+1}}\\ \quad .
 %\end{array}
 %\]
@@ -2396,7 +2398,7 @@ Integrate
 %\[
 %\begin{array}{rcl}
 %\displaystyle
-%\int \frac{dx}{x+\sqrt{x^2+x+1}}
+%\int \frac{\diff x}{x+\sqrt{x^2+x+1}}
 %&=&\displaystyle \int \frac{\left(-\frac{1}{2s^2}-2\right) ds}{ \frac{1}{2s}-2s-\frac{\sqrt{3}}{3}+\frac{1}{2s}-s}\\
 \quad .
 %\end{array}
@@ -2405,19 +2407,19 @@ Integrate
 \begin{problem}
 Integrate 
 \[
-\int \frac{xdx}{(1-x^3)\sqrt{1-x^2}}\quad .
+\int \frac{x\diff x}{(1-x^3)\sqrt{1-x^2}}\quad .
 \]
 \end{problem}
 \subsubsection{Examples of trigonometric integrals}
 Integrate 
 \[
-\int \frac{dx}{2\sin x-\cos x +5}\quad .
+\int \frac{\diff x}{2\sin x-\cos x +5}\quad .
 \]
 \begin{solution}
 Set $x=2\arctan t$. Therefore 
 \[
 \begin{array}{rcl}
-\displaystyle \int \frac{dx}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2dt}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{dt}{3t^2+2t+2}
+\displaystyle \int \frac{\diff x}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2dt}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{dt}{3t^2+2t+2}
 \end{array}
 \]
 We substitute $t=z-1/3$. Therefore $dt=dz$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3z^2+5/3= 5/3(9/5z^2+1)= 5/3((3/\sqrt{5}z)^2+1)$. We substitute $3/\sqrt{5}z=w$, $dt=dz=\sqrt{5}/3dw$. Finally we get 
@@ -2433,25 +2435,25 @@ We substitute $t=z-1/3$. Therefore $dt=dz$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3
 \begin{problem}
 Solve the integral. Illustrate each step of your solution.
 \[
-\int \frac{1}{\cos x}dx\quad .
+\int \frac{1}{\cos x}\diff x\quad .
 \]
-Hint: you may  1) solve this problem with the standard method from class: substitute $x=2 \arctan t$ 2)  multiply top and bottom by $\cos x$, use $\cos x dx = (\sin x)' dx = d\sin x$ 3) use any other method you like to solve this problem.
+Hint: you may  1) solve this problem with the standard method from class: substitute $x=2 \arctan t$ 2)  multiply top and bottom by $\cos x$, use $\cos x \diff x = (\sin x)' \diff x = d\sin x$ 3) use any other method you like to solve this problem.
 \end{problem}
 \begin{problem}~
 \begin{enumerate}
 \item
 \[
-\int \frac{1}{\sqrt{x^2+1}}dx\quad .
+\int \frac{1}{\sqrt{x^2+1}}\diff x\quad .
 \]
 Carry out the Euler substitution: $x=\frac12\left(\frac{1}{t}- t\right)$. You do not need to solve the integral.
 \item
 \[
-\int \frac{1}{\sqrt{x^2+1}}dx\quad .
+\int \frac{1}{\sqrt{x^2+1}}\diff x\quad .
 \]
 Carry out the substitution: $x=\frac12\left(e^s- e^{-s}\right)$. You do not need to solve the integral.
 \item Solve the integral 
 \[
-\int \frac{1}{\sqrt{x^2+1}}dx\quad .
+\int \frac{1}{\sqrt{x^2+1}}\diff x\quad .
 \]
 \end{enumerate}
 \end{problem}
@@ -2459,7 +2461,7 @@ Carry out the substitution: $x=\frac12\left(e^s- e^{-s}\right)$. You do not need
 \begin{problem}
 Solve the integral. 
 \[
-\int \frac{1}{(1+x^2)^2}dx
+\int \frac{1}{(1+x^2)^2}\diff x
 \]
 \end{problem}
 
@@ -2468,11 +2470,11 @@ Solve the integral. Illustrate each step of your solution.
 \begin{enumerate}
 \item
 \[
-\int \frac{1}{(1 + \cos x)^2}dx
+\int \frac{1}{(1 + \cos x)^2}\diff x
 \]
 \item
 \[
-\int \frac{1}{(2+\cos x)^2}dx
+\int \frac{1}{(2+\cos x)^2}\diff x
 \]
 \end{enumerate}
 \end{problem}
@@ -2481,11 +2483,11 @@ Solve the integral. Illustrate each step of your solution.
 \begin{enumerate}
 \item
 \[
-\int \frac{1}{(1 + \sqrt{2x^2+x+1})}dx
+\int \frac{1}{(1 + \sqrt{2x^2+x+1})}\diff x
 \]
 \item
 \[
-\int \frac{1}{(1 + \sqrt{2x^2+x+1})^2}dx
+\int \frac{1}{(1 + \sqrt{2x^2+x+1})^2}\diff x
 \]
 \end{enumerate}
 \end{problem}
@@ -2603,7 +2605,7 @@ Every ``well behaved'' figure can be subdivided into curved trapezoids. In our c
 Let $F$ be the solid of revolution obtained by rotating a curved trapezoid $x\in[a,b], z\in [f_1(x), f_2(x)]$, $f_1(x)<f_2(x)$ around the $z$ axis, as shown on the preceding figure. Then the volume of $F$ is computed by
 
 \importantFormula{\label{eqVolumeRotationalSolid}
-volume(F) = \int\limits_{a}^b 2\pi x (\underbrace{f_1(x)-f_2(x)}_{=: h(x)}) dx=  \int\limits_{a}^b 2\pi x h(x) dx\quad .
+volume(F) = \int\limits_{a}^b 2\pi x (\underbrace{f_1(x)-f_2(x)}_{=: h(x)}) \diff x=  \int\limits_{a}^b 2\pi x h(x) \diff x\quad .
 }
 
 A motivation for the above computation may be given as follows. The volume of the ``cylindrical shell'' figure enclosed between an inner cylinder of radius $r$ and an outer cylinder of radius $r+\Delta$ and height $h$ equals the difference of the volumes of the two cylinders 
@@ -2642,10 +2644,10 @@ In other words, the volume of a solid of revolution is approximated by
 \[
 \begin{array}{l}
 \displaystyle\sum_{k=0}^{k=N-1} \underbrace{ \underbrace{h(a+k\Delta)}_{\mathrm{height}}(\underbrace{\pi (\underbrace{(a+k\Delta)+\Delta}_{ \mathrm{rad.~outer~cylinder}} ) ^2}_{\mathrm{area~base~outer~cyl.}}-\underbrace{\pi (\underbrace{a+k \Delta}_{\mathrm{rad.~inner~c.}})^2}_{\mathrm{area~base~inner~c.}})}_{\mathrm{volume~k^{th}~cylindrical~shell}} \\
-=\displaystyle \underbrace{\sum_{k=0}^{k=N-1} 2\pi(a+k\Delta)  h(a+k\Delta) \Delta }_{\mathrm{approximates~} \int\limits_{a}^b 2\pi x h(x) dx }  + \Delta \left(\underbrace{\sum_{k=0}^{k=N-1} \pi  h(a+k\Delta)\Delta}_{\mathrm{approximates~} \int\limits_{a}^b h(x) dx }\right)
+=\displaystyle \underbrace{\sum_{k=0}^{k=N-1} 2\pi(a+k\Delta)  h(a+k\Delta) \Delta }_{\mathrm{approximates~} \int\limits_{a}^b 2\pi x h(x) \diff x }  + \Delta \left(\underbrace{\sum_{k=0}^{k=N-1} \pi  h(a+k\Delta)\Delta}_{\mathrm{approximates~} \int\limits_{a}^b h(x) \diff x }\right)
 \end{array}
 \]
-As we subdivide into finer intervals, i.e., $N$ tends to zero, $\Delta$ (as a function of $N$) tends to zero, and the first summands tends to $\int\limits_{a}^b 2\pi x h(x) dx $. On the other hand, the second multiplicand of the second summand approximates $\int\limits_{a}^b h(x) dx $, in particular it is bounded. Therefore the entire second summand equals $\Delta$ times a bounded quantity, and therefore approaches zero as $\Delta$ tends to zero.
+As we subdivide into finer intervals, i.e., $N$ tends to zero, $\Delta$ (as a function of $N$) tends to zero, and the first summands tends to $\int\limits_{a}^b 2\pi x h(x) \diff x $. On the other hand, the second multiplicand of the second summand approximates $\int\limits_{a}^b h(x) \diff x $, in particular it is bounded. Therefore the entire second summand equals $\Delta$ times a bounded quantity, and therefore approaches zero as $\Delta$ tends to zero.
 
 
 \textbf{Remark.} The above motivation may be regarded as a proof of the volume formula. The main reason we do not call the above motivation ``a proof'' is that we have not given a definition of volume. \textbf{Optional material, (!).} Here is an informal brief sketch  of a definition of volume. If a figure $X$ can be represented as a set of the form $X= \{(x,y,z)| x\in [a,b], y\in [f_1(x), f_2(x)], z\in [g_1(x,y),  g_2(x,y)]\}$, its volume can be defined as 
@@ -2959,7 +2961,7 @@ As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by 
 \psplot[linecolor=black!50, plotpoints=11,plotstyle=line]{0.2}{4}{ x 2 div x 180 mul  sin 1 add  mul 1 add x 3 div  sub   } 
 \psline[linecolor=red!50](2.1,1.674467844)(2.1,2.650886477)(2.48,2.650886477)
 \rput[t](1.9,2.3){\tiny$dy$}
-\rput[t](2.28,2.85){\tiny$dx$}
+\rput[t](2.28,2.85){\tiny$\diff x$}
 
 
 \rput[t](1,1.8){\tiny$(x(t), y(t))$}
@@ -3009,7 +3011,7 @@ Initial conditions are critical for a solution of a differential equation. For e
 \subsection{Direction fields}
 Suppose we have a differential equation of the form 
 \begin{equation}\label{eqDFQwithDirectionFlow}
-\frac{dy}{dx}= F(x,y)\quad.  
+\frac{dy}{\diff x}= F(x,y)\quad.  
 \end{equation}
 
 At each point $(x_0,y_0)$, let us plot a segment of the line with slope $F(x_0,y_0)$ passing through $(x_0,y_0)$. The resulting picture is called a direction field. 
@@ -3021,7 +3023,7 @@ Examples.
 \SpecialCoor
 \begin{pspicture}(-5,-5)(5,5)
 \psaxes{<->}(0,0)(-5,-5)(5,5)
-\rput (5,5){The direction field $\frac{dy}{dx}=xy$}
+\rput (5,5){The direction field $\frac{dy}{\diff x}=xy$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=-4+0.5}{17}{%
@@ -3036,7 +3038,7 @@ Examples.
 
 \begin{pspicture}(-5,-5)(5,5)
 \psaxes{<->}(0,0)(-5,-6)(5,5)
-\rput (5,5){The direction field $\frac{dy}{dx}=x+y$}
+\rput (5,5){The direction field $\frac{dy}{\diff x}=x+y$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=-4+0.5}{17}{%
@@ -3051,11 +3053,11 @@ Examples.
 \end{pspicture}
 }%optionalDisplay
 
-$\frac{dy}{dx}= F(x,y)$ has different solutions depending on the initial condition given by the $y(x_0)=y_0$ starting point $(x_0, y_0)$. A solution of a differential equation of the form \eqref{eqDFQwithDirectionFlow} corresponds to the trajectory of a point ``flowing'' along the direction field. If drawn with increasing precision, the blue segments representing the direction field begin to resemble smooth curves; those curves indeed approximate solutions of the differential equation.
+$\frac{dy}{\diff x}= F(x,y)$ has different solutions depending on the initial condition given by the $y(x_0)=y_0$ starting point $(x_0, y_0)$. A solution of a differential equation of the form \eqref{eqDFQwithDirectionFlow} corresponds to the trajectory of a point ``flowing'' along the direction field. If drawn with increasing precision, the blue segments representing the direction field begin to resemble smooth curves; those curves indeed approximate solutions of the differential equation.
 
 Euler's method for approximating solutions. Fix a small ``approximation step'' $h$. Let $x_n:=x_0+nh$ be the point at distance $n$ times our small approximation step from $x_0$. Suppose the initial condition differential equation problem
 \[
-\frac{dy}{dx}= F(x,y)\quad.  
+\frac{dy}{\diff x}= F(x,y)\quad.  
 \]
 with initial conditions $y(x_0)=y_0$  has a solution $y(x)$. Then approximate values for $y_n\approx y(x_n)$ are given by
 \begin{equation}\label{eqEulerApproxDFQ}
@@ -3065,12 +3067,12 @@ A motivation for Euler's method can be given as follows. At a point $x$, for a v
 
 Euler's method has a number of drawbacks, both computationally and algebraically, and is not used in practice. However, it illustrates the main idea of approximating solutions to differential equations: approximate at a point $x$ the value of $y(x+h)$ (as a function of $h$) by a well-known function in $h$ (linear, quadratic, third power, fourth power,\dots), move along the approximation for a very short distance $h$, and recompute. Without being an expert in differential equations, I may speculate that modern computer algorithms  are still based on (some complicated variation of) this simple idea.
 
-The algebraic problems arising form Euler's method stem from the fact that $F(y,x)$ may tend to $\pm\infty$. For example, consider the direction field given by $\frac{dy}{dx}= -\frac{x}{y}$. Euler's method will not tell you what to do as $y$ approaches $0$. In fact, we will soon be able to compute that solutions of the differential equation  $\frac{dy}{dx}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$.
+The algebraic problems arising form Euler's method stem from the fact that $F(y,x)$ may tend to $\pm\infty$. For example, consider the direction field given by $\frac{dy}{\diff x}= -\frac{x}{y}$. Euler's method will not tell you what to do as $y$ approaches $0$. In fact, we will soon be able to compute that solutions of the differential equation  $\frac{dy}{\diff x}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$.
 
 \optionalDisplay{
 \begin{pspicture}(-6,-1)(6,6)
 \psaxes{<->}(0,0)(-6,-1)(6,6)
-\rput (5,5){The direction field $\frac{dy}{dx}=-\frac{x}{y}$}
+\rput (5,5){The direction field $\frac{dy}{\diff x}=-\frac{x}{y}$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=0.001+0.5}{8}{%
@@ -3090,7 +3092,7 @@ The algebraic problems arising form Euler's method stem from the fact that $F(y,
 \subsection{Separable equations}
 A differential equation is separable if it can be written in the form 
 \begin{equation}\label{eqDFQSeparable}
-\frac{d y}{dx}= f(x)g(y)\quad .
+\frac{d y}{\diff x}= f(x)g(y)\quad .
 \end{equation}
 Here, we recall that $y$ is an abbreviation for the function $y(x)$. 
 
@@ -3129,7 +3131,7 @@ If it is possible to solve the above equation for $y$ as a function of $x$, we g
 \subsection{Examples of separable equations}
 (a) Find the general solution of
 \[
-\frac{dy}{dx}= y^2-1\quad .
+\frac{dy}{\diff x}= y^2-1\quad .
 \]
 (b)Find a solution for which $y(0)=-3/5$.
 
@@ -3137,7 +3139,7 @@ If it is possible to solve the above equation for $y$ as a function of $x$, we g
 (a) Proceeding as explained in the theoretical section,
 \[
 \begin{array}{rcl}
-\frac{\frac{dy}{dx}}{y^2-1}&=&1 \\
+\frac{\frac{dy}{\diff x}}{y^2-1}&=&1 \\
 \displaystyle\int\limits_{t=x_0}^{t=x} \frac{1}{ y(t)^2-1}\underbrace{\frac{dy}{dt}dt}_{=d(y(t))}&=&\displaystyle\int\limits_{t=x_0}^{x}dt \\
 \displaystyle\int\limits_{y=y(x_0) }^{y=y(x)} \frac{dy}{ y(t)^2-1}& =& \displaystyle\left.t \right|_{ t=x_0}^{t=x} \\
 \displaystyle\int\limits_{y=y(x_0)}^{y=y(x)} \left(\frac{1/2 }{y-1}- \frac{1/2}{y+1}\right)dy&=& x-x_0\\
@@ -3157,7 +3159,7 @@ y(x)&=&\frac{ 1+De^{2x}}{1- De^{2x}}\quad .\\
 \end{array}
 \]
 
-Case 2.  Suppose $\frac{y(x)-1}{y(x)+1}=0$. Then $y(x)=\pm 1$, and we can plug back $y(x)=\pm 1$ in the original equation to get that $\frac{dy}{dx}= 0$, and therefore $y(x)= \pm 1$ (does not depend on $x$) are two solutions.
+Case 2.  Suppose $\frac{y(x)-1}{y(x)+1}=0$. Then $y(x)=\pm 1$, and we can plug back $y(x)=\pm 1$ in the original equation to get that $\frac{dy}{\diff x}= 0$, and therefore $y(x)= \pm 1$ (does not depend on $x$) are two solutions.
 
 Case 3. Suppose  $\frac{y(x)-1}{y(x)+1}<0$. Then $\ln \left|\frac{y(x)-1}{y(x)+1}\right|= \ln \left(\frac{1-y(x)}{y(x)+1}\right)$ and, similarly to Case 1, we get 
 \[
@@ -3205,7 +3207,7 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 \psline[arrows=->, linestyle=dotted](-5,-2)(0,-1.6667)
 \psline[arrows=->, linestyle=dotted](-5,-2)(-1,3.360539267)
 \psaxes{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\rput (5,5){The direction field  $\frac{dy}{dx}=y^2-1$}
+\rput (5,5){The direction field  $\frac{dy}{\diff x}=y^2-1$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=-4+0.5}{17}{%
@@ -3270,9 +3272,9 @@ As the unit of measurement is $kg$, the answer to the problem is $\approx 43.89 
 \begin{itemize}
 \item Find the general solution to the differential equation 
 \[
-\frac{dy}{dx}= y^2-4\quad .
+\frac{dy}{\diff x}= y^2-4\quad .
 \]
-The drawing below is a computer-generated plot of the direction field  $\frac{dy}{dx}=y^2-4$, you may use it to get a feeling for what your answer should look like.
+The drawing below is a computer-generated plot of the direction field  $\frac{dy}{\diff x}=y^2-4$, you may use it to get a feeling for what your answer should look like.
 \item Find a solution of the above equation for which $ y(0)= -\frac{6}{5}$. 
 \end{itemize}
 
@@ -3282,7 +3284,7 @@ The drawing below is a computer-generated plot of the direction field  $\frac{dy
 \psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 4 x mul exp mul sub 1 \Dconst\space 2.718281828 4 x mul exp mul add div 2 mul} 
 
 \psaxes{<->}(0,0)(-6,-2)(6,6)
-\rput (5,5){The direction field  $\frac{dy}{dx}=y^2-4$}
+\rput (5,5){The direction field  $\frac{dy}{\diff x}=y^2-4$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=-4+0.5}{17}{%
@@ -3303,7 +3305,7 @@ Mixing problem. A tank contains 1000 kg of salt dissolved in 10000 liters of wat
 \subsection{Linear differential equations}
 A differential equation is \emph{linear} if it is of the form 
 \begin{equation}\label{eqDFQlinear}
-\frac{dy}{dx} + P(x)y=Q(x)
+\frac{dy}{\diff x} + P(x)y=Q(x)
 \end{equation}
 for some functions $P(x),Q(x)$.
 
@@ -3311,46 +3313,46 @@ A linear differential equation \eqref{eqDFQlinear} can be solved as follows.
 
 Let us make the problem slightly more general by considering an equation of the form 
 \begin{equation}\label{eqDFQlinearStep1}
-R(x)\frac{dy}{dx} + S(x)y=Q(x)\quad .
+R(x)\frac{dy}{\diff x} + S(x)y=Q(x)\quad .
 \end{equation}
 Suppose that it so happened that $R'(x)=S(x)$. Then \eqref{eqDFQlinearStep1} becomes
 \begin{equation}\label{eqDFQlinearStep2}
 \begin{array}{rcl}
-\underbrace{R(x)\frac{dy}{dx} + R'(x)y}_{\mathrm{product~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
-\frac{d}{dx} \left(R(x)y \right)&=& Q(x)\quad .
+\underbrace{R(x)\frac{dy}{\diff x} + R'(x)y}_{\mathrm{product~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
+\frac{d}{\diff x} \left(R(x)y \right)&=& Q(x)\quad .
 \end{array}
 \end{equation}
 In the above we can introduce a new function $z(x)= y(x)R(x)$, and the equation becomes 
 \[
-\frac{dz}{dx}= Q(x)\quad ,
+\frac{dz}{\diff x}= Q(x)\quad ,
 \]
 which we already can solve by integrating both sides to obtain $z(x)= \int\limits_{t=x_0}^x Q(t)dt $, or finally, if $R(x)\neq 0$, we get $y(x)= \frac{1}{R(x)}\int\limits_{t=x_0}^x Q(t)dt $.
-Let us now try to solve \eqref{eqDFQlinear} by finding a multiplier function $T(x)$ that does not vanish, such that when we multiply \eqref{eqDFQlinear}, we obtain an equation of the form \eqref{eqDFQlinearStep2}. Indeed, in order to get an equation of the form \eqref{eqDFQlinearStep2}, we need that $\frac{dT}{dx}= (TP(x))$. The latter is a separable differential equation for $T(x)$.  We solve the equation as studied in the preceding section.
+Let us now try to solve \eqref{eqDFQlinear} by finding a multiplier function $T(x)$ that does not vanish, such that when we multiply \eqref{eqDFQlinear}, we obtain an equation of the form \eqref{eqDFQlinearStep2}. Indeed, in order to get an equation of the form \eqref{eqDFQlinearStep2}, we need that $\frac{dT}{\diff x}= (TP(x))$. The latter is a separable differential equation for $T(x)$.  We solve the equation as studied in the preceding section.
 \begin{equation}\label{eqDFQlinearStep3}
 \begin{array}{rcl}
-\frac{dT}{dx}\frac{1}{T}&=&P(x)\\
-\int\frac{dT}{T}&=&\int P(x)dx\\
-\ln |T|&=&  \int P(x)dx+C\\
-T&=&De^{\int P(x)dx}, 
+\frac{dT}{\diff x}\frac{1}{T}&=&P(x)\\
+\int\frac{dT}{T}&=&\int P(x)\diff x\\
+\ln |T|&=&  \int P(x)\diff x+C\\
+T&=&De^{\int P(x)\diff x}, 
 \end{array}
 \end{equation}
-where $C$ is an arbitrary constant and $D=e^C$. As we have no initial conditions on $\frac{dT}{dx}= (TP(x))$ (in fact, we made up that equation ourselves), we are free to choose arbitrary initial conditions. This is reflected in the fact that, somewhat informally, we used indefinite integral instead of definite in the solution of \eqref{eqDFQlinearStep3}.
+where $C$ is an arbitrary constant and $D=e^C$. As we have no initial conditions on $\frac{dT}{\diff x}= (TP(x))$ (in fact, we made up that equation ourselves), we are free to choose arbitrary initial conditions. This is reflected in the fact that, somewhat informally, we used indefinite integral instead of definite in the solution of \eqref{eqDFQlinearStep3}.
 
-Motivated by the preceding discussion, define $T(x)\eqdef e^{\int P(x)dx}$, where the constant added to the indefinite integral is chosen arbitrarily. $T(x)$ is thus defined only up to a constant.
+Motivated by the preceding discussion, define $T(x)\eqdef e^{\int P(x)\diff x}$, where the constant added to the indefinite integral is chosen arbitrarily. $T(x)$ is thus defined only up to a constant.
 
 Multiply \eqref{eqDFQlinear} by $T(x)$ on both sides and transform \eqref{eqDFQlinear} to \eqref{eqDFQlinearStep1}, which we already solved.
 \subsubsection{Example of linear differential equations}
 Solve 
 \begin{equation}\label{eqDFQlinearexample1}
-\frac{dy}{dx}+ y x=x\quad .
+\frac{dy}{\diff x}+ y x=x\quad .
 \end{equation} Find a solution such that $y(0)=3$.
 
 \begin{solution}
-First we find an integrating factor $T(x)$. By the theoretical section, $T(x)$ is up to a multiplicative constant equal to $e^{\int x dx}= e^{\frac{x^2}2 +C}$. We may choose $T(x):= e^{\frac{x^2}2}$. We multiply \eqref{eqDFQlinearexample1} by $e^{\frac{x^2}2}$ and solve as follows.
+First we find an integrating factor $T(x)$. By the theoretical section, $T(x)$ is up to a multiplicative constant equal to $e^{\int x \diff x}= e^{\frac{x^2}2 +C}$. We may choose $T(x):= e^{\frac{x^2}2}$. We multiply \eqref{eqDFQlinearexample1} by $e^{\frac{x^2}2}$ and solve as follows.
 \[
 \begin{array}{rcl}
-\displaystyle e^{\frac{x^2}2}\frac{dy}{dx}+ yxe^{\frac{x^2}2}&=&\displaystyle xe^{\frac{x^2}2}\\
-\underbrace{\frac{d}{dx} \left(y(x) e^{\frac{x^2}2} \right)}_{\mathrm{rename~}x~\mathrm{to~}t\mathrm{~and~integrate}}&=&\underbrace{xe^{\frac{x^2}2}}_{\mathrm{rename~}x\mathrm{~to~}t\mathrm{~and~integrate}}\\
+\displaystyle e^{\frac{x^2}2}\frac{dy}{\diff x}+ yxe^{\frac{x^2}2}&=&\displaystyle xe^{\frac{x^2}2}\\
+\underbrace{\frac{d}{\diff x} \left(y(x) e^{\frac{x^2}2} \right)}_{\mathrm{rename~}x~\mathrm{to~}t\mathrm{~and~integrate}}&=&\underbrace{xe^{\frac{x^2}2}}_{\mathrm{rename~}x\mathrm{~to~}t\mathrm{~and~integrate}}\\
 \displaystyle\int\limits_{t=x_0}^x \frac{d}{dt} \left(y(t) e^{\frac{t^2}2}\right) dt &=&\displaystyle \int\limits_{t=x_0}^x  te^{\frac{t^2}2}dt\\
 \displaystyle\left.y(t) e^{\frac{t^2}2}\right|_{t=x_0}^x&=&\displaystyle \left.e^{\frac{t^2}2}\right|_{t=x_0}^{t=x}\\
 \displaystyle y(x)e^{\frac{x^2}2}- y(x_0)e^{\frac{x_0^2}2}&=&\displaystyle e^{\frac{x^2}2}- e^{\frac{x_0^2}2}\\
@@ -3374,7 +3376,7 @@ In order to find a solution for which $y(0)=3$, we simply plug in $x_0=0$, $y(x_
 \renewcommand{\Ystart}{3}
 \psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add} 
 
-\rput (5,5){The direction field $\frac{dy}{dx}=x-xy$}
+\rput (5,5){The direction field $\frac{dy}{\diff x}=x-xy$}
   \psset{arrows=->}
   \multido{\ra=-4.0+0.5}{17}{%
     \multido{\rb=-4.0+0.5}{17}{%
@@ -3615,38 +3617,38 @@ provided the limit exists.
 
 The comparison theorem. Suppose $f(x)\geq g(x)\geq 0$.
 \begin{itemize}
-\item If $\int\limits_{a}^{b}f(x)dx$ is convergent, so is $\int\limits_{a}^{b}g(x)dx$. Here, we allow $ b=\infty$ or $a=-\infty$, as well as we allow improper integrals of type II.
-\item If $\int\limits_{a}^{b}g(x)dx$ is divergent, so is $\int\limits_{a}^{b}f(x)dx$. Here, we allow $ b=\infty$ or $a=-\infty$, as well as we allow improper integrals of type II.
+\item If $\int\limits_{a}^{b}f(x)\diff x$ is convergent, so is $\int\limits_{a}^{b}g(x)\diff x$. Here, we allow $ b=\infty$ or $a=-\infty$, as well as we allow improper integrals of type II.
+\item If $\int\limits_{a}^{b}g(x)\diff x$ is divergent, so is $\int\limits_{a}^{b}f(x)\diff x$. Here, we allow $ b=\infty$ or $a=-\infty$, as well as we allow improper integrals of type II.
 \end{itemize}
 
 \subsection{Examples of improper integrals}
 Let $p\neq 1$. Then
 \begin{equation}\label{eqIntegralxTopthPowerToInfty}
-\int\limits_{x=1} \frac{1}{x^{p}} dx = \left.-\frac{x^{-p+1}}{-p+1}\right|_{x=1}^{\infty}= \lim\limits_{x\to\infty} 
+\int\limits_{x=1} \frac{1}{x^{p}} \diff x = \left.-\frac{x^{-p+1}}{-p+1}\right|_{x=1}^{\infty}= \lim\limits_{x\to\infty} 
 \frac{1}{(p-1) x^{p-1}}+\frac{1}{p-1} =\doublebrace{\infty}{p<1}{\frac{1}{p-1}}{p>1} \quad . 
 \end{equation}
 
 \begin{equation}\label{eqIntegral1overxToToInfty}
-\int\limits_{x=1}^{\infty} \frac{1}x dx= \left.\ln x \right|_{x=1}^{\infty}= \infty\quad .
+\int\limits_{x=1}^{\infty} \frac{1}x \diff x= \left.\ln x \right|_{x=1}^{\infty}= \infty\quad .
 \end{equation}
 
 \begin{equation}\label{eqGamma(1)}
 \begin{array}{rcl}
-\int\limits_{0}^{\infty}e^{-x}dx&=& \left.- e^{-x}\right|_{x=0}^{x=\infty}=-\lim\limits_{x\to \infty}e^{-x}  - (-e^{-0})\\&=& -\lim \limits_{x\to \infty} \frac{1}{e^{x}} +1=1
+\int\limits_{0}^{\infty}e^{-x}\diff x&=& \left.- e^{-x}\right|_{x=0}^{x=\infty}=-\lim\limits_{x\to \infty}e^{-x}  - (-e^{-0})\\&=& -\lim \limits_{x\to \infty} \frac{1}{e^{x}} +1=1
 \end{array}
 \end{equation}
 
 
 \[ 
 \begin{array}{rcl}
-\int\limits_{0}^{\infty}xe^{-x}dx&=& \left.-xe^{-x} - e^{-x}\right|_{x=0}^{x=\infty}=\lim\limits_{x\to \infty}\left( -xe^{-x} -e^{-x}\right) - (-0e^{-0}-e^{-0})\\&=& 1-\lim \limits_{x\to \infty} \frac{x+1}{e^{x}}\stackrel{\mathrm{L'Hospital}}{=}1-\lim \limits_{x\to \infty} \frac{1}{e^{x}} =1
+\int\limits_{0}^{\infty}xe^{-x}\diff x&=& \left.-xe^{-x} - e^{-x}\right|_{x=0}^{x=\infty}=\lim\limits_{x\to \infty}\left( -xe^{-x} -e^{-x}\right) - (-0e^{-0}-e^{-0})\\&=& 1-\lim \limits_{x\to \infty} \frac{x+1}{e^{x}}\stackrel{\mathrm{L'Hospital}}{=}1-\lim \limits_{x\to \infty} \frac{1}{e^{x}} =1
 \end{array}
 \]
 
-More generally, we can compute $\Gamma (n):=\displaystyle\int\limits_{0}^{\infty} x^ne^{-x}dx$. $\Gamma$ is the so called \emph{gamma function}, invented by L. Euler. As we compute below, in case $n$ is an integer, $\Gamma(n)=(n-1)!$. In case $n$ is not an integer, $\Gamma(n)$ may still be defined, and thus $\Gamma$ is a generalization of the notion of factorial. Suppose $n>0$ is an integer. Then
+More generally, we can compute $\Gamma (n):=\displaystyle\int\limits_{0}^{\infty} x^ne^{-x}\diff x$. $\Gamma$ is the so called \emph{gamma function}, invented by L. Euler. As we compute below, in case $n$ is an integer, $\Gamma(n)=(n-1)!$. In case $n$ is not an integer, $\Gamma(n)$ may still be defined, and thus $\Gamma$ is a generalization of the notion of factorial. Suppose $n>0$ is an integer. Then
 \[
 \begin{array}{rcl}
-\Gamma (n+1)&:=&\underbrace{\int\limits_{0}^{\infty} x^{n}\underbrace{e^{-x}dx}_{=-d (e^{-x})}}_{\mathrm{integrate~by~parts}}=\left. -x^{n}e^{-x}\right|_{x=0}^{\infty}+ n\underbrace{\int\limits_{0}^{\infty}x^{n-1} e^{-x}dx}_{=\Gamma(n)}\\
+\Gamma (n+1)&:=&\underbrace{\int\limits_{0}^{\infty} x^{n}\underbrace{e^{-x}\diff x}_{=-d (e^{-x})}}_{\mathrm{integrate~by~parts}}=\left. -x^{n}e^{-x}\right|_{x=0}^{\infty}+ n\underbrace{\int\limits_{0}^{\infty}x^{n-1} e^{-x}\diff x}_{=\Gamma(n)}\\
 &=& \underbrace{\lim\limits_{x\to \infty} -\frac{x^{n}}{e^x}}_{=0\mathrm{~using~\eqref{eqLimiteMinusXtimesxtoNth}}}+ 0^ne^{-0}+n\Gamma(n)= n\Gamma(n)\\
 &=& n(n-1)(n-2)=\dots =n(n-1)(n-2)\dots 2*1* \Gamma(1)= n!\quad .
 \end{array}
@@ -3655,14 +3657,14 @@ For the very last equality we used the fact that we already computed $\Gamma(1)$
 
 Determine whether the integral below is convergent. 
 \[
-\int\limits_{0}^{\infty}e^{-x^2}dx
+\int\limits_{0}^{\infty}e^{-x^2}\diff x
 \]
 \begin{solution}
 We cannot evaluate the above integral using the techniques studied so far. However  for $x\geq 1$ we have that $x^2\geq x$ and therefore $e^{x^2}\geq e^{x}>0$ and finally $e^{-x^2}= \frac{1}{e^{x^2}}<\frac{1}{e^x}= e^{-x}$. We have that 
 \[
-\int\limits_{0}^{\infty}e^{-x^2}dx= \int\limits_{0}^{1}e^{-x^2}dx +\int\limits_{1}^{\infty}e^{-x^2}dx\quad .
+\int\limits_{0}^{\infty}e^{-x^2}\diff x= \int\limits_{0}^{1}e^{-x^2}\diff x +\int\limits_{1}^{\infty}e^{-x^2}\diff x\quad .
 \]
-The first integral $\int\limits_{0}^{1}e^{-x^2}dx$ is proper and well defined, as $e^{-x^2}$ is a continuous function in the interval $[0,1]$ (and everywhere else).  We already showed that $ \int\limits_{0}^{\infty}e^{-x}dx$ is convergent; we leave it to the reader to show that $ \int\limits_{1}^{\infty}e^{-x}dx$ is convergent too (this is in fact obvious). As $e^{-x}>e^{-x^2}$ for $x>1$, we apply the comparison theorem to get that $\int\limits_{0}^{\infty}e^{-x^2}dx<\int\limits_{1}^{\infty}e^{-x}dx$ is convergent.
+The first integral $\int\limits_{0}^{1}e^{-x^2}\diff x$ is proper and well defined, as $e^{-x^2}$ is a continuous function in the interval $[0,1]$ (and everywhere else).  We already showed that $ \int\limits_{0}^{\infty}e^{-x}\diff x$ is convergent; we leave it to the reader to show that $ \int\limits_{1}^{\infty}e^{-x}\diff x$ is convergent too (this is in fact obvious). As $e^{-x}>e^{-x^2}$ for $x>1$, we apply the comparison theorem to get that $\int\limits_{0}^{\infty}e^{-x^2}\diff x<\int\limits_{1}^{\infty}e^{-x}\diff x$ is convergent.
 \end{solution}
 
 \section{Formal power series and operations with them} \label{secFormalPowerSeries}
@@ -3705,14 +3707,14 @@ Formal power series can be (formally) differentiated and integrated.
 \[
 \begin{array}{rcl}
 \displaystyle
-\frac{d}{dx}\left(\sum_{n=0}^{\infty} a_n x^n\right) &=& \displaystyle \frac{d}{dx} \left(a_0 +a_1x+a_2x^2+\dots \right)\eqdef a_1+2 a_2 x+ 3a_3x^2 +\dots\\
+\frac{d}{\diff x}\left(\sum_{n=0}^{\infty} a_n x^n\right) &=& \displaystyle \frac{d}{\diff x} \left(a_0 +a_1x+a_2x^2+\dots \right)\eqdef a_1+2 a_2 x+ 3a_3x^2 +\dots\\
 &=&\displaystyle \sum_{n=1}^{\infty} na_nx^{n-1}\quad .
 \end{array}
 \]
 
 \[
 \begin{array}{rcl}
-\displaystyle \int \left(\sum_{n=0}^{\infty} a_n x^n\right)dx &=&\displaystyle \int (a_0 +a_1x+a_2x^2+\dots )dx\eqdef C+ a_0x +a_1\frac{x^2}{2}+a_2\frac{x^3}3+\dots 
+\displaystyle \int \left(\sum_{n=0}^{\infty} a_n x^n\right)\diff x &=&\displaystyle \int (a_0 +a_1x+a_2x^2+\dots )\diff x\eqdef C+ a_0x +a_1\frac{x^2}{2}+a_2\frac{x^3}3+\dots 
 \\
 &=&\displaystyle C+\sum_{n=1}^{\infty} \frac{a_n}{n+1}x^{n+1}\quad . 
 \end{array}
@@ -3792,11 +3794,11 @@ as well as
 \]
 \item A proof of the following two properties will be given in \ref{thDifferentiatingIntegratingPowerSeriesNonFormal}.
 \[
-\maclaurin \left(\frac{df}{dx}(x)\right)= \frac{d}{dx}\left(\maclaurin(f(x)) \right)\quad .
+\maclaurin \left(\frac{df}{\diff x}(x)\right)= \frac{d}{\diff x}\left(\maclaurin(f(x)) \right)\quad .
 \]
 \item 
 \[
-\maclaurin \left(\int f(x)dx \right) = \int\left( \maclaurin(f(x))\right)dx \quad .
+\maclaurin \left(\int f(x)\diff x \right) = \int\left( \maclaurin(f(x))\right)\diff x \quad .
 \]
 \end{itemize}
 \subsubsection{The Maclaurin series of frequently used functions}
@@ -3814,17 +3816,17 @@ We want to compute
 \[
 \maclaurin\left(\frac{1}{(1-x)^n}\right)\quad ,
 \]
-where $n\geq 1$ is an integer. In order to do this note that $\frac{d}{dx}\left(\frac{1}{(1-x)^{n-1}}\right)= \frac{n-1}{(1-x)^{n}} $. Therefore 
+where $n\geq 1$ is an integer. In order to do this note that $\frac{d}{\diff x}\left(\frac{1}{(1-x)^{n-1}}\right)= \frac{n-1}{(1-x)^{n}} $. Therefore 
 \[
 \begin{array}{rcl}
-\displaystyle \frac{d^{n-1}}{dx^{n-1}} \left(\frac{1}{1-x}\right)&=&\displaystyle  \frac{d^{n-2}}{ dx^{n-2}} \left(\frac{1}{(1-x)^2}\right)= \frac{d^{n-3} }{dx^{ n-3}}\left(\frac{1*2}{(1-x)^3}\right) = \dots \\&=&\displaystyle \frac{d^{ n-k}}{ dx^{n-k} }\left( \frac{1 *2* \dots *(k-1)}{(1-x)^{k}}\right)= \frac{(n-1)!}{(1-x)^n} \quad .
+\displaystyle \frac{d^{n-1}}{\diff x^{n-1}} \left(\frac{1}{1-x}\right)&=&\displaystyle  \frac{d^{n-2}}{ \diff x^{n-2}} \left(\frac{1}{(1-x)^2}\right)= \frac{d^{n-3} }{\diff x^{ n-3}}\left(\frac{1*2}{(1-x)^3}\right) = \dots \\&=&\displaystyle \frac{d^{ n-k}}{ \diff x^{n-k} }\left( \frac{1 *2* \dots *(k-1)}{(1-x)^{k}}\right)= \frac{(n-1)!}{(1-x)^n} \quad .
 \end{array}
 \]
 Therefore 
 \[\begin{array}{rcl}
-\displaystyle \maclaurin\left(\frac{1}{(1-x)^n}\right)&=& \displaystyle \frac{1}{(n-1)!}\frac{d^{n-1}}{dx^{n-1}} \maclaurin \left(\frac{1}{1-x}\right)\\
+\displaystyle \maclaurin\left(\frac{1}{(1-x)^n}\right)&=& \displaystyle \frac{1}{(n-1)!}\frac{d^{n-1}}{\diff x^{n-1}} \maclaurin \left(\frac{1}{1-x}\right)\\
 &=& \displaystyle
-\frac{1}{(n-1)!}\frac{d^{n-1}}{dx^{n-1}}(1+x+x^2+\dots +x^k+\dots )\\
+\frac{1}{(n-1)!}\frac{d^{n-1}}{\diff x^{n-1}}(1+x+x^2+\dots +x^k+\dots )\\
 &=& \displaystyle \frac{1}{(n-1)!}( (n-1)(n-2)\dots 1+n(n-1)\dots 2 x \\
 &&\displaystyle \phantom{\frac{1}{(n-1)!}( }+  \dots + k(k-1)\dots (k-n+2)x^{k-n+1}+\dots )\\
 &=&\displaystyle 1+ \frac{n (n-1)\dots 2}{(n-1)!} x + \dots + \frac{ k(k-1)\dots (k-n+2)}{(n-1)!}x^{k-n+1}+\dots \\
@@ -3841,16 +3843,16 @@ More generally, let us compute
 where $q\in \mathbb R$ is an arbitrary rational number. Here, we recall that $(x^q)'=qx^{q-1}$ for all $q\in \mathbb R$ as proved in \eqref{eqXtotheAthDerivative}. Because $q$ is an arbitrary real number, we cannot use the trick from the preceding computation: we need to compute the Maclaurin series directly using the definition \eqref{eqMacLaurinDef}. 
 \[
 \begin{array}{rcl}
-\frac{d}{dx}\left( (1+x)^q\right)&=& q (1+x)^{q-1}\\
-\frac{d^{2}}{dx^2}\left( (1+x)^q\right)&=& q(q-1) (1+x)^{q-2}\\
+\frac{d}{\diff x}\left( (1+x)^q\right)&=& q (1+x)^{q-1}\\
+\frac{d^{2}}{\diff x^2}\left( (1+x)^q\right)&=& q(q-1) (1+x)^{q-2}\\
 \vdots \\
-\frac{d^{n}}{dx^n}\left( (1+x)^q\right)&=& q(q-1)(q-2)\dots (q-n+1) (1+x)^{q-n}\quad .
+\frac{d^{n}}{\diff x^n}\left( (1+x)^q\right)&=& q(q-1)(q-2)\dots (q-n+1) (1+x)^{q-n}\quad .
 \end{array}
 \]
-Therefore $\frac{d^{n}}{dx^n}\left( (1+x)^q\right)_{|x=0}=q(q-1)(q-2)\dots (q-n+1) (1+0)^{q-n}= q(q-1)(q-2)\dots (q-n+1)  $. Therefore 
+Therefore $\frac{d^{n}}{\diff x^n}\left( (1+x)^q\right)_{|x=0}=q(q-1)(q-2)\dots (q-n+1) (1+0)^{q-n}= q(q-1)(q-2)\dots (q-n+1)  $. Therefore 
 \begin{equation}\label{eqNewtonBinomialGeneralized}
 \begin{array}{rcl}
-\displaystyle \maclaurin \left( (1+x)^q\right) &=& \displaystyle\sum_{ n=0}^{\infty}\frac{ 1}{n!}\frac{d^n }{dx^n} \left( (1+x)^q\right)_{|x=0} x^n  \\ &=&\displaystyle \sum_{n=0}^{\infty}  \frac{q(q-1)(q-2)\dots (q-n+1)}{n!}x^n= \sum_{n=0}^{\infty} \binom{q}{n}x^n\quad . 
+\displaystyle \maclaurin \left( (1+x)^q\right) &=& \displaystyle\sum_{ n=0}^{\infty}\frac{ 1}{n!}\frac{d^n }{\diff x^n} \left( (1+x)^q\right)_{|x=0} x^n  \\ &=&\displaystyle \sum_{n=0}^{\infty}  \frac{q(q-1)(q-2)\dots (q-n+1)}{n!}x^n= \sum_{n=0}^{\infty} \binom{q}{n}x^n\quad . 
 \end{array}
 \end{equation}
 Note that the definition of binomial coefficient \eqref{eqBinomialCoeffDefinition} allows for $q$ to be an arbitrary real (and even complex) number. The above formula is a generalization of the Newton binomial formula. \index{binomial!generalized formula} As we shall soon learn, $\maclaurin \left( (1+x)^q\right)_{|x=c} =(1+c)^q $   for all $c\in (-1, 1)$.
@@ -3858,7 +3860,7 @@ Note that the definition of binomial coefficient \eqref{eqBinomialCoeffDefinitio
 The power series of $\arctan x$.
 \[
 \begin{array}{rcl}
-\frac{d}{dx}\maclaurin (\arctan x)&=& \displaystyle \maclaurin\left( \frac{d}{dx}(\arctan x)\right)= \maclaurin \left(\frac{1}{1+x^2}\right) \\ 
+\frac{d}{\diff x}\maclaurin (\arctan x)&=& \displaystyle \maclaurin\left( \frac{d}{\diff x}(\arctan x)\right)= \maclaurin \left(\frac{1}{1+x^2}\right) \\ 
 &=&\displaystyle \maclaurin \left(\frac{1}{1-(-x^2)}\right)\\
 & \stackrel{\mathrm{using~} \eqref{eqInfiniteGeometricProgression} }{=} & 1+(-x^2)+(-x^2)^2+(-x^2)^3+\dots+ (-x^2)^n+\dots
 \\ &=& 1-x^2+x^4-x^6+\dots+ (-1)^nx^{2n}+\dots \quad .
@@ -3867,7 +3869,7 @@ The power series of $\arctan x$.
 Therefore 
 \[
 \begin{array}{rcl}
-\maclaurin (\arctan x)&=&\displaystyle \int( 1-x^2+x^4-x^6+\dots (-1)^nx^{2n}+\dots )dx \\
+\maclaurin (\arctan x)&=&\displaystyle \int( 1-x^2+x^4-x^6+\dots (-1)^nx^{2n}+\dots )\diff x \\
 &=&\displaystyle  \underbrace{\arctan(0)}_{=0}+ x-\frac{x^3}3+\frac{x^5}5-\frac{x^7}7+\dots +(-1)^n\frac{x^{2n+1}}{2n+1}+\dots\\
 &=&\displaystyle  \sum_{n=0}^{\infty} (-1)^n\frac{x^{2n+1}}{2n+1}\quad .
 \end{array}
@@ -3875,14 +3877,14 @@ Therefore
 The power series of $\ln (1-x)$, $\ln(1+x)$.
 \[
 \begin{array}{rcl}
-\displaystyle \frac{d}{dx}\maclaurin(\ln (1-x))&=& \displaystyle \maclaurin \left(\frac{d}{dx}(\ln (1-x))\right) = \maclaurin \left(-\frac{1}{1-x}\right)\\
+\displaystyle \frac{d}{\diff x}\maclaurin(\ln (1-x))&=& \displaystyle \maclaurin \left(\frac{d}{\diff x}(\ln (1-x))\right) = \maclaurin \left(-\frac{1}{1-x}\right)\\
 &=& \displaystyle -1-x-x^2-\dots -x^n-\dots
 \end{array}
 \]
 Therefore 
 \[
 \begin{array}{rcl}
-\displaystyle \maclaurin(\ln (1-x) )&=&\displaystyle \int (-1-x-x^2-\dots -x^n-\dots)dx \\&=&\displaystyle \underbrace{\ln (1-0)}_{=0} - x- \frac{x^2}{2}- \frac{x^3}{3}-\dots - \frac{x^n}{n}-\dots= -\displaystyle\sum_{n=1}\frac{x^n}{n} \quad .
+\displaystyle \maclaurin(\ln (1-x) )&=&\displaystyle \int (-1-x-x^2-\dots -x^n-\dots)\diff x \\&=&\displaystyle \underbrace{\ln (1-0)}_{=0} - x- \frac{x^2}{2}- \frac{x^3}{3}-\dots - \frac{x^n}{n}-\dots= -\displaystyle\sum_{n=1}\frac{x^n}{n} \quad .
 \end{array}
 \]
 Therefore 
@@ -3892,7 +3894,7 @@ Therefore
 
 \[
 \begin{array}{rcl}
-\frac{d}{dx}\maclaurin(\arcsin{x})&=&\displaystyle \maclaurin\left(\frac{d}{dx}(\arcsin{x})\right)= \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right)\\
+\frac{d}{\diff x}\maclaurin(\arcsin{x})&=&\displaystyle \maclaurin\left(\frac{d}{\diff x}(\arcsin{x})\right)= \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right)\\
 &=&
 \maclaurin\left((1+(-x^2))^{-\frac{1}2}\right)\\
 &\stackrel{\eqref{eqNewtonBinomialGeneralized}}{=}&\displaystyle 1-\frac{1}{2}(-x^{2})+ \left(\frac{-\frac{1}{2}(-\frac{1}2-1)}{2!}\right)(-x^2)^2+ \dots\\
@@ -3903,7 +3905,7 @@ Therefore
 \]
 Therefore 
 \[
-\maclaurin(\arcsin x)=\int \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right) dx =\underbrace{0}_{=\arcsin 0} +\sum_{n=1}^{\infty} (-1)^n \binom{-\frac{1}{2}}{n} \frac{x^{2n+1}}{2n+1}\quad .
+\maclaurin(\arcsin x)=\int \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right) \diff x =\underbrace{0}_{=\arcsin 0} +\sum_{n=1}^{\infty} (-1)^n \binom{-\frac{1}{2}}{n} \frac{x^{2n+1}}{2n+1}\quad .
 \]
 
 \subsubsection{Exercises}
@@ -4088,7 +4090,7 @@ We have that $\frac{1}{2^n+n}\leq\frac{1}{2^n}$. On the other hand $\sum_{n= 0}^
 \]
 converges if and only if the improper integral
 \[
-\int\limits_{x=1}^{\infty}f(x)dx
+\int\limits_{x=1}^{\infty}f(x)\diff x
 \]
 converges. 
 \end{theorem}
@@ -4102,7 +4104,7 @@ An informal proof of Theorem \ref{thIntegralConvergenceTest} can be given by con
 
 \begin{pspicture}(-1,-1)(9.5,6)
 
-\rput(5.5,4){$\underbrace{ \int\limits_{1}^\infty f(x) dx}_{\mathrm{region~under~curve}} \geq\underbrace{ \sum\limits_{n=2}^{\infty} f(n)}_{\mathrm{blue~region}}$} 
+\rput(5.5,4){$\underbrace{ \int\limits_{1}^\infty f(x) \diff x}_{\mathrm{region~under~curve}} \geq\underbrace{ \sum\limits_{n=2}^{\infty} f(n)}_{\mathrm{blue~region}}$} 
 
 \psaxes[labels=x, ticks=x]{<->}(0,0)(-1,-1)(9,6)
 
@@ -4118,7 +4120,7 @@ An informal proof of Theorem \ref{thIntegralConvergenceTest} can be given by con
 \end{pspicture}
 \begin{pspicture}(-1,-1)(9,6)
 \psaxes[labels=x, ticks=x]{<->}(0,0)(-1,-1)(9,6)
-\rput(5.5,4){$\underbrace{ \int\limits_{1}^\infty f(x) dx}_{\mathrm{region~under~curve}}\leq\underbrace{ \sum\limits_{n=1}^{\infty} f(n)}_{\mathrm{blue~region}}$} 
+\rput(5.5,4){$\underbrace{ \int\limits_{1}^\infty f(x) \diff x}_{\mathrm{region~under~curve}}\leq\underbrace{ \sum\limits_{n=1}^{\infty} f(n)}_{\mathrm{blue~region}}$} 
 
 \multido{\ra=1.0+1.0}{8}{%
 \psframe[fillstyle=solid, fillcolor=cyan!40](\ra,0)(! \ra\space 1 add \space 5 \ra\space div )
@@ -4134,7 +4136,7 @@ Let $p\in \mathbb R$. Prove that
 \sum\limits_{n=1}^{\infty} \frac{1}{n^p}= \doublebrace{\mathrm{converges}}{\mathrm{for~}p>1}{\mathrm{diverges}}{\mathrm{for~}p\leq 1}\quad .
 \end{equation}
 \begin{solution}
-For $p\geq 0$ we have that $\lim_{n\to \infty} \frac{1}{n^p}$ diverges as $x\to \infty$, and the statement follows from Theorem \ref{thSummandsConvergentSeriesTendToZero}. Suppose now $p< 0$. Define $f(x)\eqdef x^{p}$. Then as $p<0$ we have $f'(x)= px^{p-1}<0$ and so $f$ is decreasing and Theorem \ref{thIntegralConvergenceTest} applies. By \eqref{eqIntegralxTopthPowerToInfty} and \eqref{eqIntegral1overxToToInfty}  the integral $\int\limits_{x=1}^{\infty} x^{-p}dx$ converges for $p>1$ and the statement follows.
+For $p\geq 0$ we have that $\lim_{n\to \infty} \frac{1}{n^p}$ diverges as $x\to \infty$, and the statement follows from Theorem \ref{thSummandsConvergentSeriesTendToZero}. Suppose now $p< 0$. Define $f(x)\eqdef x^{p}$. Then as $p<0$ we have $f'(x)= px^{p-1}<0$ and so $f$ is decreasing and Theorem \ref{thIntegralConvergenceTest} applies. By \eqref{eqIntegralxTopthPowerToInfty} and \eqref{eqIntegral1overxToToInfty}  the integral $\int\limits_{x=1}^{\infty} x^{-p}\diff x$ converges for $p>1$ and the statement follows.
 \end{solution} 
 
 Establish whether
@@ -4143,8 +4145,8 @@ Establish whether
 converges. 
 
 \begin{solution}
-Consider $\frac{1}{x\ln x}$. We have that $\displaystyle f'(x)= -\frac{1}{x^2\ln x}- \frac{1}{x^2(\ln x)^2}<0$ for $x>2$. Therefore the sum converges if and only if $\int\limits_{x=2}^{\infty}\frac{1}{x\ln x}dx$ converges. We have that
-\[ \int\limits_{x=2}^{\infty}\frac{1}{x\ln x}dx= \int\limits_{x=2}^\infty \frac{1}{\ln x}d(\ln x) = \left.\ln (\ln x)\right|_{x=2}^{\infty}= \lim\limits_{x\to \infty} \ln (\ln x ) - \ln (\ln 2)=\infty
+Consider $\frac{1}{x\ln x}$. We have that $\displaystyle f'(x)= -\frac{1}{x^2\ln x}- \frac{1}{x^2(\ln x)^2}<0$ for $x>2$. Therefore the sum converges if and only if $\int\limits_{x=2}^{\infty}\frac{1}{x\ln x}\diff x$ converges. We have that
+\[ \int\limits_{x=2}^{\infty}\frac{1}{x\ln x}\diff x= \int\limits_{x=2}^\infty \frac{1}{\ln x}d(\ln x) = \left.\ln (\ln x)\right|_{x=2}^{\infty}= \lim\limits_{x\to \infty} \ln (\ln x ) - \ln (\ln 2)=\infty
 \]
 and the integral diverges.
 \end{solution}
@@ -4277,7 +4279,7 @@ We recall the Taylor of $f(x)$ at $p$ and the Maclaurin series of $f(x)$ (=Taylo
 Suppose the power series $\sum\limits_{n=0}^\infty a_n x^n$ has radius of convergence $R$, and for $|x|<R$, let $f(x):=\sum a_n x^n$. 
 \begin{itemize}
 \item[(a)] $\sum\limits_{n=0}^\infty a_n n x^{n-1}$ and $\sum\limits_{n=0}^\infty a_n\frac{x^{n+1}}{n+1}$ have the same radius of convergence $x=R$ as the starting series.
-\item[(b)] $f'(x)=\sum\limits_{n=0}^\infty a_n n x^{n-1}$ and $\displaystyle\int f(x)dx= C+\sum\limits_{n=0}^\infty a_n\frac{x^{n+1}}{n+1} $.
+\item[(b)] $f'(x)=\sum\limits_{n=0}^\infty a_n n x^{n-1}$ and $\displaystyle\int f(x)\diff x= C+\sum\limits_{n=0}^\infty a_n\frac{x^{n+1}}{n+1} $.
 \end{itemize}
 \end{theorem}
 In other words, this theorem proves that taking Maclaurin series and then differentiating is the same as first differentiating and then taking Maclaurin series.
@@ -4310,7 +4312,7 @@ By applying (a) twice we have that $\sum\limits_{n=0}^{\infty} n^2a_n\left(\frac
 \left|h\sum\limits_{n=0}^{\infty} a_n\left(\binom{n}{2} x^{n-2}+h\binom{n}{3}x^{n-3}h+\dots +h^{n-2}\right)\right|< h M
 \] and therefore the limit on the last line of \eqref{eqThDifferentiatingPowerSeriesProofeq1} equals 0.
 
-This proves that $f'(x)=\sum\limits_{n=0}^\infty a_n n x^{n-1}$. The fact that $\displaystyle\int f(x)dx= C+\sum\limits_{n=0}^\infty a_n\frac{x^{n+1}}{n+1} $ now follows immediately: we already proved that we can differentiate the right hand side one term at a time, and the result is the left hand side by direct computation.
+This proves that $f'(x)=\sum\limits_{n=0}^\infty a_n n x^{n-1}$. The fact that $\displaystyle\int f(x)\diff x= C+\sum\limits_{n=0}^\infty a_n\frac{x^{n+1}}{n+1} $ now follows immediately: we already proved that we can differentiate the right hand side one term at a time, and the result is the left hand side by direct computation.
 \end{proof}
 
 \begin{theorem}[Taylor's inequality] Let $f$ be an $(N+1)$ times differentiable function. Suppose for $|x-a|<d$, $f^{(N+1)}(x)\leq M$. Then 
