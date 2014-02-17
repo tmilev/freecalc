@@ -37,12 +37,9 @@
 
 \graphicspath{{../../modules/}}
 
-\newtheoremstyle{partialproof}{3pt}{3pt}{}{}{}{.}{.5em}{}
-\theoremstyle{partialproof} \newtheorem{partialproof}[theorem]{Proof.}
 \setbeamertemplate{navigation symbols}{}
 
-\newcommand{\currentLecture}{24}
-\includeonlylecture{\currentLecture} %includeonlylecture is broken on current version of latex on ubuntu, we should consider replacing it with some more reliable command.
+\newcommand{\currentLecture}{3}
 
 \newcommand{\lect}[4]{
 \ifnum#3=\currentLecture
@@ -155,6 +152,7 @@
 \input{../../modules/trigonometry/angles}
 \subsection{The Trigonometric Functions}
 \input{../../modules/trigonometry/trig-functions}
+\input{../../modules/trigonometry/trig-functions-unit-circle}
 \input{../../modules/trigonometry/trig-example}
 \input{../../modules/trigonometry/trig-functions-example2}
 \subsection{Trigonometric Identities}
@@ -162,8 +160,10 @@
 \input{../../modules/trigonometry/trig-identities-example}
 \subsection{Trigonometric Identities and Complex Numbers}
 \input{../../modules/complex-numbers/complex-numbers-definition}
+\youWillNotBeTested
 \input{../../modules/trigonometry/trig-Euler-formula}
-\input{../../modules/trigonometry/trig-for-black-belts}
+\youWillNotBeTested
+\input{../../modules/trigonometry/trig-using-euler-formula}
 
 \subsection{Graphs of the Trigonometric Functions}
 % I would like to put in a section here on how to draw sine and cosine.
