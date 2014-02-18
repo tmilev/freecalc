@@ -8,6 +8,7 @@
 \usepackage{comment}
 
 \newtoggle{solutions}
+\newtoggle{answers}
 
 \usepackage{../../lectures/example-templates} %warning this path is relative to the file that uses the \usepackage command, not relative to the style file.
 \usepackage{../../lectures/pstricks-commands} %warning this path is relative to the file that uses the \usepackage command, not relative to the style file.
@@ -33,7 +34,12 @@ Due #2 at \deadline}}%
 \newcommand{\points}[1]{\stepcounter{enumi}\item[ ({\bf #1 mark\ifthenelse{\equal{#1}{1}}{}{s}}) \arabic{enumi}.]}
 \newcommand{\pointsii}[1]{\stepcounter{enumii}\item[ ({\bf #1 mark\ifthenelse{\equal{#1}{1}}{}{s}}) (\alph{enumii})]}
 %Default answer command
-\newcommand{\answer}[1]{\iftoggle{solutions}{ \hfill{~} \rotatebox{180}{\tiny answer: #1}}{}} %<-Greg, can you modify this command to suit your taste? 
+\newcommand{\answer}[1]{\iftoggle{answers}{ \hfill{~} \rotatebox{180}{\tiny answer: #1}}{}} %
+\newcommand{\hiddenanswer}[1]{\iftoggle{solutions}{ %
+\iftoggle{answers}{ %
+\hfill{~} \rotatebox{180}{\tiny answer: #1}}
+{}} %
+{}} %
 %I am using \renewcommand{\answer} to redo the command to suit my taste; feel free to modify the above line any way you please.
 
 
