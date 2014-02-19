@@ -1,6 +1,6 @@
 (Textbook page 70, problems 11-32). 
 Evaluate the limit if it exists.
-\begin{multicols}{3}
+\begin{multicols}{2}
 \begin{enumerate}
 \item $\displaystyle\lim\limits_{x\to 5}\frac{x^2-6x+5}{x-5} $. 
 \answer{4}
@@ -46,5 +46,14 @@ Evaluate the limit if it exists.
 \answer{$3x^2$}
 \item $\displaystyle\lim\limits_{h\to 0}\frac{\frac{1}{(x+h)^2}-\frac{1}{x^2}}{h} $.
 \answer{$-\frac{2}{x^3}$}
+\solution{ 
+~\\
+$
+\begin{array}{rcl}
+\lim\limits_{h\to 0}\frac{\frac{1}{(x+h)^2}-\frac{1}{x^2}}{h}&=&\lim\limits_{h\to 0}\frac{x^2-(x+h)^2}{hx^2(x+h)^2}=\lim\limits_{h\to 0} \frac{x^2-(x^2+2xh+h^2)}{hx^2(x+h)^2}\\
+&=&\lim\limits_{h\to 0}\frac{\cancel{h}(-2x+h)}{\cancel{h}x^2(x+h)^2}= \frac{-2x+0}{x^2(x+0)^2}=-\frac{2}{x^3}
+\end{array}
+$
+}
 \end{enumerate}
 \end{multicols}
