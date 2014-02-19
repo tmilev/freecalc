@@ -1,0 +1,21 @@
+%begin module Euler-substitution-intro
+\begin{frame}
+\frametitle{Integrals of form $\int R(x,\sqrt{ax^2+bx+c}) \diff x$, $R$ - rational function}
+Let $R(x,y)$ be an arbitrary rational expression in two variables (quotient of polynomials in two variables).
+\begin{question}
+Can we integrate $\alert<10>{\displaystyle\int R(x,\sqrt{ax^2+bx+c})\diff x}$?
+\end{question}
+\begin{itemize}
+\item<2-> Yes. We will learn how in what follows.
+\item<3-> The algorithm for integration is roughly:
+\begin{itemize}
+\item<4-> Use linear substitution to transform to one of three integrals: 
+\uncover<5->{$\int R(x, \sqrt{-x^2+1})\diff x$, } \uncover<6->{ $\int R(x, \sqrt{x^2+1})\diff x$, } \uncover<7->{$\int R(x, \sqrt{x^2-1}) \diff x$.}
+\item<8-> Use Euler substitution to transform to rational function integral (no radicals).
+\item<9-> Solve as previously studied.
+\end{itemize}
+\item<10,11-> We motivate why we need \alert<10>{such integrals later}; we promise they allow to compute ellipse area and the volume of a ball.
+\end{itemize}
+
+\end{frame}
+%end module Euler-substitution-intro
