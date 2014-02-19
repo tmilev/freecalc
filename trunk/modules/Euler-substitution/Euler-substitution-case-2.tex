@@ -1,0 +1,41 @@
+%begin module Euler-substitution-case-2
+\begin{frame}
+\frametitle{Euler substitution to handle $\sqrt{-x^2+1} $}
+\begin{itemize}
+\item<1-> Suppose we want to integrate 
+\[
+\int R(x, \sqrt{-x^2+1})\diff x\quad .
+\]
+\only<2-9>{
+\item<2-> Substitute $\alert<9>{\sqrt{-x^2+1}=(x-1)t }$. 
+\item<3-> How is this a substitution of $x$ via t?
+\uncover<4->{
+\[
+\begin{array}{rcll|l}
+-(x-1)(1+x)&=&(x-1)^2t^2&&\text{divide by }x-1\\
+\uncover<5->{\alert<9>{x}&\alert<9>{=}& \alert<9>{1-\frac{2}{t^2+1}}\quad .}
+\end{array}
+\] 
+\item<6-> 
+\[
+\alert<9>{\diff x }=\alert<7,8>{ d\left(1-\frac{2}{t^2+1}\right)} \uncover<7->{\alert<7,8,9>{=}}\only<7>{\alert<7>{\textbf{?}}} \uncover<8->{\alert<8,9>{ \frac{4t}{(1+t^2)^2}dt} \quad .}
+ {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
+\] 
+}
+}
+\end{itemize}
+\uncover<10->{
+\begin{definition}
+The Euler substitution for $\sqrt{x^2+1}$ is the substitution given by:
+\[
+\begin{array}{rcl}
+\alert<10>{\sqrt{-x^2+1}}&\alert<10>{=}& \alert<10>{-\frac{2t}{t^2+1}}\\
+\alert<10>{x}&\alert<10>{=}&\alert<10>{1-\frac{2}{t^2+1}}\\
+\alert<10>{\diff x }&\alert<10>{=} & \alert<10>{\frac{4t}{(t^2+1)^2}dt }\quad .
+\end{array}
+\] 
+\end{definition}
+}
+\vspace{5cm}
+\end{frame}
+%end module Euler-substitution-case-2
