@@ -131,7 +131,7 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{#1}
+\newcommand{\optionalDisplay}[1]{}
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -1097,26 +1097,11 @@ Consider the infinite sum
 \displaystyle e^{z}&\eqdef &\displaystyle \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots\\
 \end{array} \quad .
 }
-We immediately justify the above notation with the following.
+We immediately justify the notation $e^z$ with the following.
 \begin{definition}\label{defNaturalExponent}
-\index{exponent function} The natural exponent function $e^z$ is the function defined via equation \eqref{eqExponentFunctionDefinition}.
+\index{exponent function} The function $e^z$ defined by equation \eqref{eqExponentFunctionDefinition} is called the natural exponent function.
 \end{definition}
-The expression \eqref{eqExponentFunctionDefinition} for $e^z$ gives indeed a formula for the natural exponent, i.e., the exponent with base $e= e^1= 1+ \frac{1}{1} +\frac{1}2 +\frac{1}{3!} +\frac{1}{4!}+\dots \approx 2.71828$. We will learn why that is so in later in this section. Until we do so we ask the reader to think of $e^{z}$ as an infinite sum, which will only later turn out to be the familiar exponent studied\footnote{perhaps less formally} in earlier mathematical courses. We start by explaining how formula \eqref{eqExponentFunctionDefinition} is evaluated. Let 
-\[
-\displaystyle f(z,N):=\sum\limits_{n=0}^{N} \frac{z^n}{n!}
-\]
-Then \eqref{eqExponentFunctionDefinition} becomes 
-\[
-e^z\eqdef \displaystyle\lim\limits_{N\to \infty} f(z, N)\quad .
-\]
-The above equality tells us how to find numerical approximations for $1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots$. More precisely, pick a large number $N$, evaluate the sum of the first $N$ summands, discard the remaining ones, and declare the so obtained number an approximation of \eqref{eqExponentFunctionDefinition}. Up to the author's knowledge, this is in fact how computers evaluate the expression $e^x$. The question of how to pick a sufficiently large $N$ so that the error is sufficiently small will be handled in Section \ref{secSeriesConvergence}. 
-
-Equation \eqref{eqExponentFunctionDefinition} raises an immediate important question: does the limit used in the definition exist? The answer is affirmative.
-\begin{theorem} The infinite sum \eqref{eqExponentFunctionDefinition} is well-defined, i.e. the limit $\displaystyle\lim_{N\to \infty} f(z, N)$ exists for all $z$.
-\end{theorem}
-We postpone the proof of this theorem to Section \ref{secSeriesConvergence}. 
-
-It is one of the basic rules of arithmetics is that $a^n a^{m}= a^{n+m} $. We defined $e^x$ via the infinite sum \eqref{eqExponentFunctionDefinition}, rather than using the rules of arithmetics. It is then not clear why, if at all, the infinite sum 
+It is one of the basic rules of arithmetics that $a^n a^{m}= a^{n+m} $. However, we defined $e^x$ via the infinite sum \eqref{eqExponentFunctionDefinition}, rather than using the rules of arithmetics. It is then not clear why, if at all, we should have that $e^{z+w}=e^{z}e^{w}$. In other words, it is not clear why the infinite sum 
 \[
 e^{z+w} =\left(\sum\limits_{n=0}^{\infty} \frac{(z+w)^n}{n!}\right)
 \]
@@ -1124,11 +1109,36 @@ should be equal to the product of infinite sums
 \[
 e^{z} e^w=\left(\sum\limits_{n=0}^{\infty} \frac{z^n}{n!}\right)\left(\sum\limits_{n=0}^{\infty} \frac{w}{n!} \right) .
 \]
-The equality $e^{z+w}= e^{z}e^{w}$ does indeed hold, as we show in the the following Theorem \ref{thExponentArgumentsAddWhenMultiplying}. In other words, exponents add when we multiply exponent functions. In this way Theorem \ref{thExponentArgumentsAddWhenMultiplying} shows that when $n$ is an integer, 
+The equality $e^{z+w}= e^{z}e^{w}$ does indeed hold, as we show in the following Theorem \ref{thExponentArgumentsAddWhenMultiplying}. In other words, exponents add when we multiply exponent functions and we have that when $n$ is an integer, 
 \begin{equation}\label{eqExponentToIntegerPowerRespectsArithmetics}
 e^{n z}= e^{\underbrace{z+\dots +z}_{n\text{ times}} }=\underbrace{ e^{z}*\dots e^{z}}_{n \text{ times}}  \quad .
 \end{equation}
-The above equality in turn justifies our original claim that the definition of  $e^{z}$ using an infinite sum \eqref{eqExponentFunctionDefinition} is consistent with the rules of arithmetics.
+In this way our definition of  $e^{z}$ using an infinite sum \eqref{eqExponentFunctionDefinition} is consistent with the rules of arithmetics studied in high school. 
+
+While the Definition of $e^z$ via \eqref{eqExponentFunctionDefinition} does not immediately reveal the arithmetic properties of the exponent function, it is extremely useful for almost all other purposes. We start with a definition of the number $e$ which simultaneously shows how to get very accurate approximations for $e$.
+\begin{definition}\label{defE}
+The number $e$ given by
+\[
+e\eqdef e^1= 1+ \frac{1}{1} +\frac{1}2 +\frac{1}{3!} +\frac{1}{4!}+\dots \approx 2.71828
+\]
+is called \emph{Euler's number}, \emph{Napier constant}, or simply the number $e$.
+\end{definition}
+It is clear from formula \eqref{eqExponentFunctionDefinition} how to evaluate $e^z$ for any number, (including even complex numbers). Let us elaborate on how formula \eqref{eqExponentFunctionDefinition} is evaluated. Let 
+\[
+\displaystyle f(z,N):=\sum\limits_{n=0}^{N} \frac{z^n}{n!}\quad .
+\]
+Then \eqref{eqExponentFunctionDefinition} becomes 
+\[
+e^z\eqdef \displaystyle\lim\limits_{N\to \infty} f(z, N)\quad ,
+\]
+and so it is clear how to find numerical approximations for $1+z+\frac{z^{2}}{2} +\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots$. More precisely, pick a large number $N$, evaluate the sum $f(z,N)$ of the first $N$ summands, discard the remaining ones, and declare the so obtained number an approximation of \eqref{eqExponentFunctionDefinition}. Up to the author's knowledge, this is in fact how computers evaluate the expression $e^z$. The question of how to pick a sufficiently large $N$ so that the error is sufficiently small will be handled in Section \ref{secSeriesConvergence}. 
+
+Equation \eqref{eqExponentFunctionDefinition} raises an immediate important question: does the limit used in the definition exist? The answer is affirmative.
+\begin{theorem} The infinite sum \eqref{eqExponentFunctionDefinition} is well-defined, i.e. the limit $\displaystyle\lim_{N\to \infty} f(z, N)$ exists for all $z$.
+\end{theorem}
+We postpone the proof of this theorem to Section \ref{secSeriesConvergence}. 
+
+We now give the promised proof of the arithmetic properties of the exponent function.
 \begin{theorem}\label{thExponentArgumentsAddWhenMultiplying}
 Recall that $e^x$ is defined via \eqref{eqExponentFunctionDefinition}. Then we have that \importantFormula{
 e^{z} e^{w}=e^{z+w}\quad ,
