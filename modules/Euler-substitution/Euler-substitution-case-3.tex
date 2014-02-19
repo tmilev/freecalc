@@ -1,0 +1,39 @@
+%begin module Euler-substitution-case-3
+\begin{frame}
+
+\frametitle{Euler substitution to handle $\sqrt{x^2-1} $}
+
+\begin{itemize}
+\item<1-> Suppose we want to integrate 
+\[
+\int R(x, \sqrt{x^2-1})\diff x\quad .
+\]
+\item<2-> Substitute $\alert<12>{\sqrt{x^2-1}=(x-1)t}$. 
+\item<3-> How is this a substitution of $x$ via $t$? 
+\[
+\begin{array}{rcll|l}
+\uncover<4->{\sqrt{x^2-1}&=&(x-1)^2t^2}&&\text{square both sides}\\
+\uncover<5->{(x-1)(x+1)  &=&(x-1)^2t^2}\\
+\uncover<6->{x+1 &=&(x-1)t^2}\\
+\uncover<7->{x(1-t^2) &=&-1-t^2}\\
+\uncover<8->{\alert<9,12>{x}&\alert<9,12>{=}&\displaystyle \frac{-1-t^2}{1-t^2}=\alert<9,12>{1+\frac{2}{t^2-1}}}
+\end{array}
+\]
+\item<9->
+\[
+\alert<9>{ \alert<12>{\diff x=} \alert<10,11>{\diff \left(1+\frac{2}{t^2-1} \right)}} \uncover<10->{\alert<10,11>{=}} \only<10>{\alert<10>{\textbf{?}}} \uncover<11->{\alert<11,12>{\frac{-4t}{(t^2-1)^2}\diff t} .} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
+\] 
+\end{itemize}
+\uncover<13->{
+\begin{definition}
+\[
+\begin{array}{rcl}
+\diff x&=&\frac{-4t}{(t^2-1)^2}dt\\
+\sqrt{-x^2+1}&=&\frac{2t}{t^2-1} \\
+x&=&1+\frac{2}{t^2-1}\quad .
+\end{array}
+\] 
+\end{definition}
+}
+\end{frame}
+%end module Euler-substitution-case-3
