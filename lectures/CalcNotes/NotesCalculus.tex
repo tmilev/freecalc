@@ -2059,7 +2059,7 @@ $\int x^2\cos^2x \diff x$ (Can you solve using complex numbers and Problem \ref{
 \end{multicols}
 \end{problem}
 
-\section{Integration of rational functions}
+\section{Integration of rational functions}\label{secIntegrationRationalFunctions}
 
 \subsection{A few examples}
 
@@ -2180,7 +2180,12 @@ In this section we summarize the algorithm for integrating rational functions $\
 \item Using linear substitutions, transform each partial fraction into a multiple of one of the ``building block'' integrals  $\int \frac{1}{1+y^2}dy$, $\int \frac{1}{(1+y^2)^n}dy$, $n\geq 2$, $\int \frac{y}{(1+y^2)^n}dy$, $\int \frac{1}{y+C}dy$, $\int \frac{1}{(y+C)^n}dy$, $n\geq 2$.
 \item Solve the ``building blocks'' integrals as we did earlier in this section.
 \item Collect the ``building blocks'' to a single answer.
-\item Check your answer by differentiation!!!
+\item Check your answer with one of the following techniques. 
+\begin{itemize}
+\item Differentiate your answer (by hand or by computer algebra system) and check that you get the original integrand.
+\item Use a computer algebra system to get an answer and compare.
+\end{itemize}
+On a timed exam, carry out this step only if done with the other problems.
 \end{itemize}
 \optionalMaterial A few notes on factoring polynomials are in order. 
 \begin{itemize}
@@ -2305,17 +2310,17 @@ Evaluate the indefinite integral.
 Check first that $(x-1)(x+2)^2(x+1)= x^{4}+4x^{3}+3x^{2}-4x-4$.
 \end{enumerate}
 \end{problem}
-\section{Euler substitution, Integrals of the form $\int R(x, \sqrt{ax^2+bx+c})\diff x$}
+\section{Integrals of the form $\int R(x, \sqrt{ax^2+bx+c})\diff x$}
 Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$.
 
 In the present section we solve integrals of the form $\int R(x, \sqrt{x^2+1})\diff x$, $\int R(x, \sqrt{-x^2+1})\diff x$, $\int R(x, \sqrt{x^2-1})\diff x$ for $R$ - rational function. Such integrals can be converted to integrals of rational functions as using the Euler substitution.
 
 \subsection{Euler substitution for $\int R(x,\sqrt{x^2+1})\diff x$} 
-The Euler substitution for integrals of the form 
+Let $R(x,y)$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{x^2+1})\diff x
 \]
-is given by 
+can be transformed to integrals of a rational functions (which we already learned how to solve in Section \ref{secIntegrationRationalFunctions}). This is done via the Euler substitution 
 \[
 \sqrt{x^2+1}= x+t \quad .
 \] 
@@ -2342,11 +2347,11 @@ x&=&\displaystyle \frac12\left(\frac{1}{t}- t\right)\\
 \end{equation}
 
 \subsection{Euler substitution for $\int R(x,\sqrt{-x^2+1})\diff x$} 
-The Euler substitution for integrals of the form 
+Let $R(x,y)$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{-x^2+1})\diff x
 \]
-is given by 
+can be transformed to integrals of a rational functions (which we already learned how to solve in Section \ref{secIntegrationRationalFunctions}). This is done via the Euler substitution 
 \[
 \sqrt{-x^2+1}=(1-x)t\quad .
 \]
@@ -2374,11 +2379,11 @@ x&=&\displaystyle 1-\frac{2}{t^2+1}\\
 \] 
 
 \subsection{Euler substitution for $\int R(x,\sqrt{x^2-1})\diff x$} 
-The Euler substitution for integrals of the form 
+Let $R(x,y)$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{x^2-1})\diff x
 \]
-is given by 
+can be transformed to integrals of a rational functions (which we already learned how to solve in Section \ref{secIntegrationRationalFunctions}). This is done via the Euler substitution 
 \[
 \sqrt{x^2-1}=(x-1)t\quad .
 \] 
@@ -2406,7 +2411,8 @@ x&=&\displaystyle 1+\frac{2}{t^2-1}\\
 \] 
 
 
-
+\section{Trigonometric integrals}
+\subsection{Integrating arbitrary trigonometric integrals}
 Integrals of the form $\int R(\sin y,\cos y )dy$ for $R$- rational function can be transformed to integrals of rational functions via the substitution $y= 2\arctan x$. Taking differentials on both sides, we see $dy=\frac{2}{1+x^2}\diff x$. Further, we have 
 \[
 \begin{array}{rcl}
