@@ -2310,32 +2310,103 @@ Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be tra
 
 In the present section we solve integrals of the form $\int R(x, \sqrt{x^2+1})\diff x$, $\int R(x, \sqrt{-x^2+1})\diff x$, $\int R(x, \sqrt{x^2-1})\diff x$ for $R$ - rational function. Such integrals can be converted to integrals of rational functions as using the Euler substitution.
 
-\begin{enumerate}
-\item Case $\sqrt{x^2+1}$. Substitute $\sqrt{x^2+1}= x+t $. Square both sides to get that see $x^2+1=x^2+2xt+t^2$, or $x=\frac12\left(\frac{1}{t}- t\right)$. Take differential on both sides, to get that $\diff x=-\frac12(\frac{1}{t^2}+1) dt$. To summarize:
+\subsection{Euler substitution for $\int R(x,\sqrt{x^2+1})\diff x$} 
+The Euler substitution for integrals of the form 
+\[
+\int R(x, \sqrt{x^2+1})\diff x
+\]
+is given by 
+\[
+\sqrt{x^2+1}= x+t \quad .
+\] 
+To see that this indeed gives an expression of $x$ via $t$ we need a little algebra:
+\[
+\begin{array}{rcll|l}
+\sqrt{x^2+1}&=& x+t &&\text{square both sides}  \\
+x^2+1&=&x^2+2xt+t^2\\
+-2xt&=&t^2-1\\
+x&=&\displaystyle\frac{1}{2}\left(\frac{1}{t}-t \right) \quad .
+\end{array}
+\]
+Therefore 
+\[
+\sqrt{x^2+1}= x+t = \frac{1}{2}\left(\frac{1}{t}-t \right)+t=\frac{1}{2}\left(\frac{1}{t}+t \right)\quad.
+\]
+The differential $\diff x$ can expressed via $\diff t$ from $x=\frac{1}{2} \left(\frac{1}{t}-t \right)$. The Euler substitution can now be summarized as:
 \begin{equation}\label{eqEulerSub1}
 \begin{array}{rcl}
-x&=&\frac12\left(\frac{1}{t}- t\right)\\
-\diff x&=&-\frac12(\frac{1}{t^2}+1) dt\\
-\sqrt{x^2+1}&=&x+t= \frac12 \left(\frac1t +t\right) \quad .
+x&=&\displaystyle \frac12\left(\frac{1}{t}- t\right)\\
+\displaystyle\sqrt{x^2+1}&=& \displaystyle \frac12 \left(\frac1t +t\right)\\ 
+\displaystyle \diff x&=&\displaystyle -\frac12\left(\frac{1}{t^2}+1\right) \diff t\quad .
 \end{array}
 \end{equation}
-\item Case $\sqrt{-x^2+1}$. Substitute $\sqrt{-x^2+1}=(x-1)t$. Square both sides and divide out by $(x-1)$ to get $-x-1=(x-1)t^2$ or $x=1-\frac{2}{t^2+1}$. Finally we obtain $\diff x=\frac{4t}{(1+t^2)^2}dt$. To summarize:
+
+\subsection{Euler substitution for $\int R(x,\sqrt{-x^2+1})\diff x$} 
+The Euler substitution for integrals of the form 
+\[
+\int R(x, \sqrt{-x^2+1})\diff x
+\]
+is given by 
+\[
+\sqrt{-x^2+1}=(1-x)t\quad .
+\]
+To see that this indeed gives an expression of $x$ via $t$ we need a little algebra:
+\[
+\begin{array}{rcll|l}
+\sqrt{-x^2+1}&=&(1-x)t&&\text{square both sides}\\
+(1-x)(1+x)&=&(1-x)^2t^2&&\text{divide by } (1-x)\\
+1+x&=&(1-x)t^2\\
+x(1+t^2)&=&t^2-1\\
+x&=&\displaystyle \frac{t^2-1}{t^2+1}= 1-\frac{2}{t^2+1}
+\end{array}
+\]
+Therefore 
+\[
+\sqrt{-x^2+1}=(1-x)t=\left(1-\left(1-\frac{2t}{t^2+1}\right)\right)t= \frac{2t}{t^2+1}
+\]
+The differential $\diff x$ can expressed via $\diff t$ from  $x=1-\frac{2}{t^2+1}$. The Euler substitution can now be summarized as:
 \[
 \begin{array}{rcl}
-x&=&1-\frac{2}{t^2+1}\\
-\sqrt{-x^2+1}&=&-\frac{2t}{t^2+1}\\
-\diff x&=&\frac{4t}{(t^2+1)^2}dt\quad .
+x&=&\displaystyle 1-\frac{2}{t^2+1}\\
+\sqrt{-x^2+1}&=&\displaystyle  \frac{2t}{t^2+1}\\
+\diff x&=&\displaystyle \frac{4t}{(t^2+1)^2}\diff t\quad .
 \end{array}
 \] 
-\item Case $\sqrt{x^2-1} $. Substitute $\sqrt{x^2-1}=(x-1)t$. Square both sides and divide out by $(x-1)$ to get $x+1=(x-1)t^2$ or $x=\frac{t^2-1+2}{t^2-1}= 1+\frac{2}{t^2-1}$. Therefore $\diff x=\frac{-4t}{(t^2-1)^2}dt$. To summarize:
+
+\subsection{Euler substitution for $\int R(x,\sqrt{x^2-1})\diff x$} 
+The Euler substitution for integrals of the form 
+\[
+\int R(x, \sqrt{x^2-1})\diff x
+\]
+is given by 
+\[
+\sqrt{x^2-1}=(x-1)t\quad .
+\] 
+To see that this indeed gives an expression of $x$ via $t$ we need a little algebra:
+\[
+\begin{array}{rcll|l}
+\sqrt{x^2-1}&=&(x-1)t&&\text{square both sides}\\
+(x-1)(x+1)&=&(x-1)^2t^2&&\text{divide by } (x-1)\\
+x+1&=&(x-1)t^2\\
+x(t^2-1)&=&t^2+1\\
+x&=&\displaystyle \frac{t^2+1}{t^2-1}= 1+\frac{2}{t^2-1}
+\end{array}
+\]
+Therefore 
+\[
+\sqrt{x^2-1}=(x-1)t=\left(1+\frac{2}{t^2-1}-1\right)t=\frac{2t}{t^2-1}
+\]
+The differential $\diff x$ can expressed via $\diff t$ from  $x=1+\frac{2}{t^2-1}$. The Euler substitution can now be summarized as:
 \[
 \begin{array}{rcl}
-\diff x&=&\frac{-4t}{(t^2-1)^2}dt\\
-\sqrt{-x^2+1}&=&\frac{2t}{t^2-1} \\
-x&=&1+\frac{2}{t^2-1}\quad .
+x&=&\displaystyle 1+\frac{2}{t^2-1}\\
+\sqrt{-x^2+1}&=&\displaystyle\frac{2t}{t^2-1} \\
+\diff x&=&\displaystyle\frac{-4t}{(t^2-1)^2}dt\quad .
 \end{array}
 \] 
-\end{enumerate}
+
+
+
 Integrals of the form $\int R(\sin y,\cos y )dy$ for $R$- rational function can be transformed to integrals of rational functions via the substitution $y= 2\arctan x$. Taking differentials on both sides, we see $dy=\frac{2}{1+x^2}\diff x$. Further, we have 
 \[
 \begin{array}{rcl}

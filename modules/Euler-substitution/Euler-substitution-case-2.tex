@@ -6,32 +6,36 @@
 \[
 \int R(x, \sqrt{-x^2+1})\diff x\quad .
 \]
-\only<2-9>{
-\item<2-> Substitute $\alert<9>{\sqrt{-x^2+1}=(x-1)t }$. 
+\only<2-15>{
+\item<2-> Substitute $\alert<9,15>{\sqrt{-x^2+1}}=(1-\alert<11>{x})t  \uncover<11->{ =\left( 1 -\alert<11>{ \left(1-\frac{2}{ t^2+1} \right)} \right)t =\alert<15>{\frac{2t}{t^2+1}}}$. 
 \item<3-> How is this a substitution of $x$ via t?
 \uncover<4->{
 \[
 \begin{array}{rcll|l}
--(x-1)(1+x)&=&(x-1)^2t^2&&\text{divide by }x-1\\
-\uncover<5->{\alert<9>{x}&\alert<9>{=}& \alert<9>{1-\frac{2}{t^2+1}}\quad .}
+\sqrt{-x^2+1}&=&(1-x)t&&\text{square}\\
+\uncover<5->{(1-x)(1+x)&=&(1-x)^2t^2&&\text{divide by }1-x}\\
+\uncover<6->{1+x&=&(1-x)t^2}\\
+\uncover<7->{xt^2+x &=&t^2-1}\\
+\uncover<8->{x(t^2+1) &=&t^2-1 &&\text{divide by }t^2+1}\\
+\uncover<9->{\alert<11,12,15>{x}&\alert<11,15>{=}& \frac{  t^2\uncover<10->{+1-1}-1}{t^2+1} \uncover<10->{ = \alert<11,12,15>{1 -\frac{2}{ t^2+1} }\quad .}}
 \end{array}
 \] 
-\item<6-> 
+\item<12-> 
 \[
-\alert<9>{\diff x }=\alert<7,8>{ d\left(1-\frac{2}{t^2+1}\right)} \uncover<7->{\alert<7,8,9>{=}}\only<7>{\alert<7>{\textbf{?}}} \uncover<8->{\alert<8,9>{ \frac{4t}{(1+t^2)^2}dt} \quad .}
+\alert<12,15>{\diff x =} \alert<12,13,14>{ \diff \left(1-\frac{2}{t^2+1}\right)} \uncover<13->{\alert<13,14,15>{=}}\only<13>{\alert<13>{\textbf{?}}} \uncover<14->{\alert<14,15>{ \frac{4t}{(1+t^2)^2}dt} \quad .}
  {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
 \] 
 }
 }
 \end{itemize}
-\uncover<10->{
+\uncover<16->{
 \begin{definition}
-The Euler substitution for $\sqrt{x^2+1}$ is the substitution given by:
+The Euler substitution for $\sqrt{-x^2+1}$ is the substitution given by:
 \[
 \begin{array}{rcl}
-\alert<10>{\sqrt{-x^2+1}}&\alert<10>{=}& \alert<10>{-\frac{2t}{t^2+1}}\\
-\alert<10>{x}&\alert<10>{=}&\alert<10>{1-\frac{2}{t^2+1}}\\
-\alert<10>{\diff x }&\alert<10>{=} & \alert<10>{\frac{4t}{(t^2+1)^2}dt }\quad .
+\displaystyle \alert<16>{\sqrt{-x^2+1}}&\alert<16>{=}& \displaystyle  \alert<16>{\frac{2t}{t^2+1}}\\
+\displaystyle  \alert<16>{x}&\alert<16>{=}&\displaystyle  \alert<16>{1-\frac{2}{t^2+1}}\\
+\displaystyle \alert<16>{\diff x }&\alert<16>{=} & \displaystyle  \alert<16>{\frac{4t}{(t^2+1)^2}dt }\quad .
 \end{array}
 \] 
 \end{definition}
