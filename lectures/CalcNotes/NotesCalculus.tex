@@ -1806,7 +1806,7 @@ Derivative of $e^z$.
 }
 \begin{proofOptional}
 \[\begin{array}{rcl}
-\frac{d}{dz}e^z &=&\frac{d}{dz}\sum_{n=0}^{\infty} \frac{z^n}{n!} \underbrace{\eqAttention}_{\mathrm{Caution:~sum~is~infinite}} \sum_{n=0}^{\infty} \frac{d}{dz} \frac{z^n}{n!}\\&=&\sum_{n=1}^{\infty} \frac {nz^{n-1}}{n!}= \sum_{n=1}^{\infty} \frac {z^{n-1}}{(n-1)!} =  \sum_{m=0}^{\infty} \frac {z^{m}}{m!}=e^z\quad .
+\frac{d}{\diff z}e^z &=&\frac{d}{\diff z}\sum_{n=0}^{\infty} \frac{z^n}{n!} \underbrace{\eqAttention}_{\mathrm{Caution:~sum~is~infinite}} \sum_{n=0}^{\infty} \frac{d}{\diff z} \frac{z^n}{n!}\\&=&\sum_{n=1}^{\infty} \frac {nz^{n-1}}{n!}= \sum_{n=1}^{\infty} \frac {z^{n-1}}{(n-1)!} =  \sum_{m=0}^{\infty} \frac {z^{m}}{m!}=e^z\quad .
 \end{array}
 \]
 \end{proofOptional}
@@ -2109,12 +2109,12 @@ and
 \] 
 can be transformed to combinations of integrals of the forms: 
 \[
-\int \frac{1}{(y+a)^n}dy,
+\int \frac{1}{(y+a)^n}\diff y,
 \]  
 \[
-\int \frac{1}{(y^2+1)^n}dy,
+\int \frac{1}{(y^2+1)^n}\diff y,
 \] 
-\[\int \frac{y}{(y^2+1)^n}dy.
+\[\int \frac{y}{(y^2+1)^n}\diff y.
 \] 
 Each of these ``building block'' integrals has different behavior for $n=1$ and for $n\geq 2$. We solve each of the ``building block'' integrals below. 
 
@@ -2128,7 +2128,7 @@ Let $n> 1$. Then
 \int \frac{1}{(x+a)^n}\diff x= -\frac{1}{(n-1)(x+a)^{n-1}}+C \quad .
 \end{equation}
 \subsubsection{Integrals of the form $\displaystyle\int \frac{x}{(1+x ^2)^n} \diff x $.}
-If we use the substitution $y=x^2$, we get $dy=2x\diff x $ and so $\displaystyle\int \frac{x}{(1+x ^2)^n} \diff x = \displaystyle\int \frac{\frac12 dy}{(y+1)^n} $, i.e., our integral is transformed to an integral of the form \eqref{eqBuildingBlockInt1base} or  \eqref{eqBuildingBlockInt1N}. In short form, this can be written as follows. 
+If we use the substitution $y=x^2$, we get $\diff y=2x\diff x $ and so $\displaystyle\int \frac{x}{(1+x ^2)^n} \diff x = \displaystyle\int \frac{\frac12 \diff y}{(y+1)^n} $, i.e., our integral is transformed to an integral of the form \eqref{eqBuildingBlockInt1base} or  \eqref{eqBuildingBlockInt1N}. In short form, this can be written as follows. 
 
 For $n=1$ we have
 \[
@@ -2177,7 +2177,7 @@ In this section we summarize the algorithm for integrating rational functions $\
 \]
 \item Factor $D(x)$, i.e., produce the decomposition \eqref{eqFactorOverReals}. In many problems, $D(x)$ will be presented to you in already factored form.
 \item Split $\frac{R(x)}{D(x)}$ into partial fractions, i.e., write it in the form \eqref{eqSplitPF}. 
-\item Using linear substitutions, transform each partial fraction into a multiple of one of the ``building block'' integrals  $\int \frac{1}{1+y^2}dy$, $\int \frac{1}{(1+y^2)^n}dy$, $n\geq 2$, $\int \frac{y}{(1+y^2)^n}dy$, $\int \frac{1}{y+C}dy$, $\int \frac{1}{(y+C)^n}dy$, $n\geq 2$.
+\item Using linear substitutions, transform each partial fraction into a multiple of one of the ``building block'' integrals  $\int \frac{1}{1+y^2}\diff y$, $\int \frac{1}{(1+y^2)^n}\diff y$, $n\geq 2$, $\int \frac{y}{(1+y^2)^n}\diff y$, $\int \frac{1}{y+C}\diff y$, $\int \frac{1}{(y+C)^n}\diff y$, $n\geq 2$.
 \item Solve the ``building blocks'' integrals as we did earlier in this section.
 \item Collect the ``building blocks'' to a single answer.
 \item Check your answer with one of the following techniques. 
@@ -2269,33 +2269,43 @@ We may solve the above linear system using the standard algorithm for solving li
 \textbf{Step 3.} (Find the integral of each partial fraction). 
 \[
 \begin{array}{rcl}
-\displaystyle\int x \diff x &= &\frac{x ^2}2+C\\
-\displaystyle\int \frac{1}{x-1} \diff x &=& \ln|x-1|+C\\
-\displaystyle\int \frac{x-1}{2x^2+3} \diff x &=& \displaystyle \int\frac{x}{2x^2+3}\diff x -\frac{1}{3}\int \frac{1}{2/3x^2+1}\diff x\\
-&=& \displaystyle  \int \frac{d(\frac{x^2}2)}{2x^2+3}\diff x-\frac{1}{3} \int \frac{1}{\left(\sqrt{2/3}x\right)^2+1} d x\\
-&=&\frac{1}{4} \int \frac{d(2x^2+3)}{2x^2+3}\diff x- \frac{1}{3}\int \frac{\frac{d (\sqrt{2/3}x)} {\sqrt{2/3}}} {\left( \sqrt{2/3}x\right)^2+1} \\
-&=&\frac{1}{4}\ln (2x^2+3)-\frac{\sqrt{6}}{6}\arctan (\sqrt{2/3}x)+C
+\displaystyle\int x \diff x &= &\displaystyle \frac{x ^2}2+C\\
+\displaystyle\int \frac{1}{x-1} \diff x &=&\displaystyle  \ln|x-1|+C\\
+\displaystyle\int \frac{x-1}{2x^2+3} \diff x &=& \displaystyle \int\frac{x}{2x^2+3}\diff x -\frac{1}{3}\int \frac{1}{\frac23x^2+1}\diff x\\
+&=& \displaystyle  \int \frac{d(\frac{x^2}2)}{2x^2+3}\diff x-\frac{1}{3} \int \frac{1}{\left(\sqrt{\frac23}x\right)^2+1} d x\\
+&=&\displaystyle  \frac{1}{4} \int \frac{d(2x^2+3)}{2x^2+3}\diff x- \frac{1}{3}\int \frac{\frac{d (\sqrt{\frac23}x)} {\sqrt{\frac23}}} {\left( \sqrt{\frac23}x\right)^2+1} \\
+&=&\displaystyle   \frac{1}{4}\ln (2x^2+3)-\frac{\sqrt{6}}{6}\arctan (\sqrt{\frac23}x)+C
 \quad .
 \end{array}
 \]
 The last integral is
 \[
-\int \frac{1}{(2x^2+3)^2}\diff x= \frac{1}3 \int \frac{d(\sqrt{2/3}x)/\sqrt{2/3}}{((\sqrt{2/3}x)^2+1)^2}= \frac{\sqrt{6}}{6}\int \frac{d(\sqrt{2/3}x)}{((\sqrt{2/3}x)^2+1)^2}= \frac{\sqrt{6}}{6}\int \frac{dy}{(y^2+1)^2}\quad,
+\begin{array}{rcll|l}
+\displaystyle \int \frac{1}{(2x^2+3)^2}\diff x&=&\displaystyle  \frac{1}{9} \int \frac{\frac{\diff\left(\sqrt{\frac{2}{3}}x\right)}{\sqrt{\frac23}}}{\left(\left(\sqrt{\frac23}x\right)^2+1\right)^2}\\
+&=&\displaystyle  \frac{\sqrt{6}}{18}\int \frac{d\left(\sqrt{\frac23}x\right)}{\left(\left(\sqrt{\frac23}x\right)^2+1\right)^2} &&\text{Set }y=\sqrt{\frac23}x\\
+&=&\displaystyle  \frac{\sqrt{6}}{18}\int \frac{\diff y}{(y^2+1)^2}\quad.
+\end{array}
 \]
-where for the last equality we have set $y=\sqrt{2/3}x$. We may solve $\displaystyle\int\frac{dy}{(y^2+1)^2}$ by integrating by parts. Indeed,
-\[\begin{array}{rcl}
-C+\arctan y &=&\displaystyle \int \frac{dy}{y^2+1}\\
-&=&\displaystyle \frac{y}{y^2+1} +\int \frac{2y^2dy}{(y^2+1)^2}= \frac{y}{y^2+1}+\int \frac{2(y^2+1-1)dy}{(y^2+1)^2}\\
-&=&\displaystyle \frac{y}{y^2+1} + 2\int \frac{dy}{(y^2+1)}- 2\int \frac{dy}{(y^2+1)^2}\quad.
+The general form of the integral $\displaystyle\int\frac{\diff y}{(y^2+1)^2}$ was solved after \eqref{eqBuildingBlock3N} by integrating by parts. As a review of the theory, we redo the computations directly.
+\[
+\begin{array}{rcl}
+C+\arctan y &=&\displaystyle \int \frac{\diff y}{y^2+1}\\
+&=&\displaystyle \frac{y}{y^2+1} +\int \frac{2y^2dy}{(y^2+1)^2}= \frac{y}{y^2+1}+\int \frac{2(y^2+1-1)\diff y}{(y^2+1)^2}\\
+&=&\displaystyle \frac{y}{y^2+1} + 2\int \frac{\diff y}{(y^2+1)}- 2\int \frac{\diff y}{(y^2+1)^2}\quad.
 \end{array}
 \]
 Transferring summands we get 
 \[
-\int \frac{dy}{(y^2+1)^2}= \frac{1}{2}\left(\frac{y}{y^2+1}+\arctan y\right) +C\quad .
+\int \frac{\diff y}{(y^2+1)^2}= \frac{1}{2}\left(\frac{y}{y^2+1}+\arctan y\right) +C\quad .
 \]
-The final answer is 
+We recall that $y=\sqrt{\frac{2}{3}}x$ and therefore 
 \[
-\frac{1}{2}\left(\frac{\sqrt{2/3}x}{2/3x^2+1}\right) +\frac{1}{4}\ln (2x^2+3)\left(\frac{1}2-\frac{\sqrt{6}}{6}\right)\arctan (\sqrt{2/3}x)+\ln|x-1|+\frac{x ^2}2+C\quad .
+\int \frac{\diff x}{(2x^2+3)^2}=\frac{\sqrt{6}}{36}\left(\frac{\sqrt{\frac{2}{3}}x}{\left(\sqrt{\frac{2}{3}}x\right)^2+1}+\arctan \left(\sqrt{\frac{2}{3}}x\right)\right) +C
+\]
+
+To get the final answer we need to collect all terms, to get a final answer:
+\[
+\frac{1}{6}\left(\frac{x}{2x^2+3}\right) -\frac{5\sqrt{6}}{36}\arctan \left(\sqrt{\frac{2}{3}}x\right) +\frac{1}{4} \ln (2x^2+3) +\ln|x-1|+\frac{x ^2}2+C\quad .
 \]
 \end{solution}
 \subsubsection{Exercises}
@@ -2313,10 +2323,13 @@ Check first that $(x-1)(x+2)^2(x+1)= x^{4}+4x^{3}+3x^{2}-4x-4$.
 \section{Integrals of the form $\int R(x, \sqrt{ax^2+bx+c})\diff x$}
 Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$.
 
-In the present section we solve integrals of the form $\int R(x, \sqrt{x^2+1})\diff x$, $\int R(x, \sqrt{-x^2+1})\diff x$, $\int R(x, \sqrt{x^2-1})\diff x$ for $R$ - rational function. Such integrals can be converted to integrals of rational functions as using the Euler substitution.
-
+In the present section we learn how to solve all integrals of the form 
+\[
+\int R(x, \sqrt{x^2+1})\diff x\qquad , \int R(x, \sqrt{-x^2+1})\diff x, \qquad \int R(x, \sqrt{x^2-1})\diff x
+\] 
+where $R$ is a rational function in two variables. We recall that a rational function in two variables is simply a quotient of two polynomials in two variables. An example of a rational function in two variables would be $R(z,w)= \frac{zw+1}{z+w}$.
 \subsection{Euler substitution for $\int R(x,\sqrt{x^2+1})\diff x$} 
-Let $R(x,y)$ be a rational function in two variables. Integrals of the form 
+Let $R$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{x^2+1})\diff x
 \]
@@ -2347,7 +2360,7 @@ x&=&\displaystyle \frac12\left(\frac{1}{t}- t\right)\\
 \end{equation}
 
 \subsection{Euler substitution for $\int R(x,\sqrt{-x^2+1})\diff x$} 
-Let $R(x,y)$ be a rational function in two variables. Integrals of the form 
+Let $R$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{-x^2+1})\diff x
 \]
@@ -2379,7 +2392,7 @@ x&=&\displaystyle 1-\frac{2}{t^2+1}\\
 \] 
 
 \subsection{Euler substitution for $\int R(x,\sqrt{x^2-1})\diff x$} 
-Let $R(x,y)$ be a rational function in two variables. Integrals of the form 
+Let $R$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{x^2-1})\diff x
 \]
@@ -2406,34 +2419,11 @@ The differential $\diff x$ can expressed via $\diff t$ from  $x=1+\frac{2}{t^2-1
 \begin{array}{rcl}
 x&=&\displaystyle 1+\frac{2}{t^2-1}\\
 \sqrt{-x^2+1}&=&\displaystyle\frac{2t}{t^2-1} \\
-\diff x&=&\displaystyle\frac{-4t}{(t^2-1)^2}dt\quad .
+\diff x&=&\displaystyle\frac{-4t}{(t^2-1)^2}\diff t\quad .
 \end{array}
 \] 
 
-
-\section{Trigonometric integrals}
-\subsection{Integrating arbitrary trigonometric integrals}
-Integrals of the form $\int R(\sin y,\cos y )dy$ for $R$- rational function can be transformed to integrals of rational functions via the substitution $y= 2\arctan x$. Taking differentials on both sides, we see $dy=\frac{2}{1+x^2}\diff x$. Further, we have 
-\[
-\begin{array}{rcl}
-\cos (2\arctan x) &=&\displaystyle \cos^2(\arctan x)- \sin^2(\arctan x)\\
-&=&  \frac{\cos^2(\arctan x)- \sin^2(\arctan x)}{\cos^2(\arctan x)+ \sin^2(\arctan x)}\\
-&=& \displaystyle \frac{1- \tan^2(\arctan x)}{\tan^2(\arctan x)+1}= \frac{1- x^2}{x^2+1}\quad .
-\end{array}
-\]
-Therefore 
-\[\sin (2\arctan x)=\pm \sqrt{1-\cos^2(2\arctan x)}= \pm\sqrt{ 1-\frac{(1- x^2)^2}{(x^2+1)^2} }= \frac{2x}{x^2+1}\quad .
-\]
-To summarize:
-\[
-\begin{array}{rcl}
-dy&=&\frac{2}{x^2+1}\diff x\\
-\cos y&=& \frac{1- x^2}{x^2+1} \\
-\sin y&=&\frac{2x}{x^2+1}\quad .
-\end{array}
-\] 
-
-\subsubsection{Examples of Euler integrals}
+\subsection{Examples of Euler integrals}
 \begin{problem}
 Integrate 
 \[
@@ -2441,10 +2431,10 @@ Integrate
 \]
 \end{problem}
 \begin{solution}
-We carry out the substitution $t=\sqrt{x^2+1}-x$ described in \ref{eqEulerSub1}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac12 \left(\frac1{t^2} +1\right)dt$ to get
+We carry out the substitution $t=\sqrt{x^2+1}-x$ described in \ref{eqEulerSub1}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac12 \left(\frac1{t^2} +1\right)\diff t$ to get
 \[
 \begin{array}{rcl}
-\displaystyle\int \sqrt{x^2+1}\diff x&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)dt=-\frac 1 4\int (\frac{1}{t^3}+2\frac{1}t+t)dt\\
+\displaystyle\int \sqrt{x^2+1}\diff x&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)\diff t=-\frac 1 4\int (\frac{1}{t^3}+2\frac{1}t+t)\diff t\\
 &=&\displaystyle -\frac{1}4 \left(-\frac{t^{-2}}{2}+2\ln|t|+\frac{t^2}2 \right)\\
 &=&\displaystyle\frac{1}{8} \left(\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2\right)-\frac12 \ln (\sqrt{x^2+1}-x)
 \end{array}
@@ -2474,19 +2464,19 @@ Integrate
 \]
 \end{problem}
 %\begin{solution}
-%Substitute first  $x=t-1/2$, $\diff x=dt$, and then $t=\frac{\sqrt{3}}2 u$, $dt=\frac{\sqrt{3}}2 du$:
+%Substitute first  $x=t-1/2$, $\diff x=\diff t$, and then $t=\frac{\sqrt{3}}2 u$, $\diff t=\frac{\sqrt{3}}2 du$:
 %\[
 %\begin{array}{rcl}
-%\displaystyle\int \frac{\diff x}{x+\sqrt{x^2+x+1}}&=&\displaystyle \int \frac{dt}{t-1/2+\sqrt{t^2+3/4}} =\\
+%\displaystyle\int \frac{\diff x}{x+\sqrt{x^2+x+1}}&=&\displaystyle \int \frac{\diff t}{t-1/2+\sqrt{t^2+3/4}} =\\
 %&=&\displaystyle \int \frac{\frac{\sqrt{3}}2du}{ \frac{\sqrt{3}}{2}u-1/2+\frac{\sqrt{3}}{2}\sqrt{u^2+1}}= \int \frac{du}{ u-\frac{\sqrt{3}}{3}+\sqrt{u^2+1}}\\ \quad .
 %\end{array}
 %\]
-%According to recipe, we substitute $\sqrt{u^2+1}= u+s$ as computed in \ref{eqEulerSub1}, to get $\displaystyle du=\left(-\frac{1}{2s^2}-2\right) ds$, $\displaystyle \sqrt{u^2+1}=\frac{1}{2s}-s$, $u=\displaystyle\frac{1}{2s}-2s$:
+%According to recipe, we substitute $\sqrt{u^2+1}= u+s$ as computed in \ref{eqEulerSub1}, to get $\displaystyle du=\left(-\frac{1}{2s^2}-2\right) \diff s$, $\displaystyle \sqrt{u^2+1}=\frac{1}{2s}-s$, $u=\displaystyle\frac{1}{2s}-2s$:
 %\[
 %\begin{array}{rcl}
 %\displaystyle
 %\int \frac{\diff x}{x+\sqrt{x^2+x+1}}
-%&=&\displaystyle \int \frac{\left(-\frac{1}{2s^2}-2\right) ds}{ \frac{1}{2s}-2s-\frac{\sqrt{3}}{3}+\frac{1}{2s}-s}\\
+%&=&\displaystyle \int \frac{\left(-\frac{1}{2s^2}-2\right) \diff s}{ \frac{1}{2s}-2s-\frac{\sqrt{3}}{3}+\frac{1}{2s}-s}\\
 \quad .
 %\end{array}
 %\]
@@ -2497,6 +2487,47 @@ Integrate
 \int \frac{x\diff x}{(1-x^3)\sqrt{1-x^2}}\quad .
 \]
 \end{problem}
+
+\section{Trigonometric integrals}
+\subsection{Integrating arbitrary trigonometric integrals}
+Let $R$ be a rational function in two variables. Integrals of the form 
+\[
+\int R(\sin x,\cos x )\diff y
+\] 
+can be transformed to integrals of rational functions via the substitution $x= 2\arctan t$. To see how $\cos x$ and $\sin x$ are expressed via $t$ we need a little algebra. First we recall the formulas 
+\begin{equation}\label{eqsin2zViaTanzcos2zViaTanz}
+\begin{array}{rcll|l}
+\cos (2z)&=& \displaystyle \cos^2 z- \sin^{2}z\\
+&=&\displaystyle \frac{\cos^{2}z- \sin^{2}z}{\cos^2z+\sin^2z}\\
+&=&\displaystyle \frac{\left(\cos^{2}z- \sin^{2}z\right)\frac{1}{\cos^2 z}}{\left(\cos^2z+\sin^2z\right)\frac{1}{\cos^2 z}}\\
+&=&\displaystyle \frac{1-\tan^2 z}{1+\tan^2z}\quad ,\\~\\
+\sin(2z)&=& 2\sin z \cos z\\
+&=&\displaystyle \frac{2\sin z \cos z}{\cos^2z+\sin^2z}\\
+&=&\displaystyle \frac{2\sin z \cos z}{\left(\cos^2z+\sin^2z\right)} \frac{\frac{1}{\cos^2z}}{\frac{1}{\cos^2z}}\\
+&=&\displaystyle \frac{2\tan z}{1+\tan^2z}
+\end{array}
+\end{equation}
+We are ready to express $\cos x$ and $\sin x$ via $t$:
+\[
+\begin{array}{rcll|l}
+\cos x&=& \cos \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
+&=&\displaystyle \frac{1- \tan^2(\arctan x)}{1+\tan^2(\arctan x)}\\
+&=&\displaystyle  \frac{1- t^2}{1+t^2}\quad ,\\~\\
+\sin (x)&=& \sin \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
+&=&\displaystyle \frac{2\tan(\arctan x)}{1+\tan^2(\arctan x)}\\
+&=&\displaystyle  \frac{2t}{1+t^2}\quad .
+\end{array}
+\]
+The differential $\diff x$ can expressed via $\diff t$ from $x=2\arctan t$.
+The $x=2\arctan t$ substitution can be now summarized as:
+\[
+\begin{array}{rcl}
+\cos x&=& \frac{1- t^2}{1+t^2} \\
+\sin x&=&\frac{2t}{1+t^2}\\
+\diff x&=&\frac{2}{t^2+1}\diff t\quad .\\
+\end{array}
+\] 
+
 \subsubsection{Examples of trigonometric integrals}
 Integrate 
 \[
@@ -2506,13 +2537,13 @@ Integrate
 Set $x=2\arctan t$. Therefore 
 \[
 \begin{array}{rcl}
-\displaystyle \int \frac{\diff x}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2dt}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{dt}{3t^2+2t+2}
+\displaystyle \int \frac{\diff x}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2\diff t}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{\diff t}{3t^2+2t+2}
 \end{array}
 \]
-We substitute $t=z-1/3$. Therefore $dt=dz$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3z^2+5/3= 5/3(9/5z^2+1)= 5/3((3/\sqrt{5}z)^2+1)$. We substitute $3/\sqrt{5}z=w$, $dt=dz=\sqrt{5}/3dw$. Finally we get 
+We substitute $t=z-1/3$. Therefore $\diff t=\diff z$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3z^2+5/3= 5/3(9/5z^2+1)= 5/3((3/\sqrt{5}z)^2+1)$. We substitute $3/\sqrt{5}z=w$, $\diff t=\diff z=\sqrt{5}/3dw$. Finally we get 
 \[
 \begin{array}{rcl}
-\displaystyle \int \frac{dt}{3t^2+2t+2}&=& \displaystyle \int \frac{\frac{\sqrt{5}}{3}dw}{\frac{5}{3}(w^2+1)}= \frac{\sqrt{5}}{5}\arctan w+C\\
+\displaystyle \int \frac{\diff t}{3t^2+2t+2}&=& \displaystyle \int \frac{\frac{\sqrt{5}}{3}dw}{\frac{5}{3}(w^2+1)}= \frac{\sqrt{5}}{5}\arctan w+C\\
 &=&\displaystyle \frac{\sqrt{5}}{5}\arctan\left( \frac{\sqrt{5}}{5}(3t+1) \right)+C\\
 &=&\displaystyle \frac{\sqrt{5}}{5}\arctan \left(\frac{3\tan \left(\frac{x}{2}\right)+1}{\sqrt{5}}\right)+C\quad .
 \end{array}
@@ -2739,7 +2770,7 @@ As we subdivide into finer intervals, i.e., $N$ tends to zero, $\Delta$ (as a fu
 
 \textbf{Remark.} The above motivation may be regarded as a proof of the volume formula. The main reason we do not call the above motivation ``a proof'' is that we have not given a definition of volume. \textbf{Optional material, (!).} Here is an informal brief sketch  of a definition of volume. If a figure $X$ can be represented as a set of the form $X= \{(x,y,z)| x\in [a,b], y\in [f_1(x), f_2(x)], z\in [g_1(x,y),  g_2(x,y)]\}$, its volume can be defined as 
 \[
-\int\limits_a^b \left(\int\limits_{f_1(x)}^{f_2(x)}\left(\int\limits_{g_1(x,y)}^{g_2(x,y)} 1 ~ ds \right)dt \right)dv \quad .
+\int\limits_a^b \left(\int\limits_{f_1(x)}^{f_2(x)}\left(\int\limits_{g_1(x,y)}^{g_2(x,y)} 1 ~ \diff s \right)\diff t \right)dv \quad .
 \]
 By allowing finite sums of figures of the above kind, and by allowing subdivision of figures into components of the above kind, we can define volume of a much wider set of figures. This set of figures includes all 3-dimensional figures of practical significance to  the natural sciences. 
 
@@ -2973,11 +3004,11 @@ y(t)&=&f_2(t)\\
 Suppose in addition $f_1(t), f_2(t)$ are differentiable. Then the \emph{length} of $\gamma$ is defined as 
 \importantFormula{
 \label{eqDefLengthCurve}
-\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}dt \quad . 
+\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}\diff t \quad . 
 }
 Similarly, the length of a curve sitting in 3-dimensional space is given by 
 \[
-\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2+f_3'(t)^2}dt \quad . 
+\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2+f_3'(t)^2}\diff t \quad . 
 \] 
 
 Suppose an image of a curve $C\subset \mathbb R^2$ has two different parametrizations 
@@ -3007,24 +3038,24 @@ We have that $t$ can be expressed as function of $s$, namely, $t(s)= \gamma_1(\g
 
 We will prove the preceding item if $t$ as a function of $s$ is  continuously differentiable.
 
-\begin{proof} (on condition $t(s)$ is continuously differentiable). In order to avoid confusion throughout this proof, we will denote derivatives with respect to $s$ by $\frac{d}{ds}$, and derivatives with respect to $t$ by $\frac{d}{dt}$. 
+\begin{proof} (on condition $t(s)$ is continuously differentiable). In order to avoid confusion throughout this proof, we will denote derivatives with respect to $s$ by $\frac{d}{\diff s}$, and derivatives with respect to $t$ by $\frac{d}{\diff t}$. 
 
-We claim that $\frac{dt}{ds}(s)$ does not change sign. Suppose the contrary. The endpoints of the interval $[a,b]$ (where $t$ lives) must be mapped to the endpoints $p,q$ of the interval where $s$ lives. Suppose first $t(a)=p<q=t(b)$.  Then there exist points $s_0$ and $s_1$ such that  $\frac{dt}{ds}(s_0)<0$. As $t(s)$ is continuously differentiable, there exists a small interval  $s_0\in [w, z]$ such that $\frac{dt}{ds}(s)<0$. Then by the fundamental theorem of Calculus $t(w)>t(z)$ but $w<z$. By the intermediate value theorem, in the interval $[z,b]$, the function $t(s)$ achieves all values between $t(z)$ and $t(b)=q$. In particular, it achieves the value $t(z)<t(w)<q$. But then $t$ as a function of $s$ achieves the value $t(w)$ at least twice (once at $w$ and once at a point in $[z,q]$). On the other hand, we already saw that $t$ is bijective, and cannot achieve the same value twice. Contradiction. The other case, in which $t(a)=q>p=t(b)$, is treated in a similar fashion.
+We claim that $\frac{\diff t}{\diff s}(s)$ does not change sign. Suppose the contrary. The endpoints of the interval $[a,b]$ (where $t$ lives) must be mapped to the endpoints $p,q$ of the interval where $s$ lives. Suppose first $t(a)=p<q=t(b)$.  Then there exist points $s_0$ and $s_1$ such that  $\frac{\diff t}{\diff s}(s_0)<0$. As $t(s)$ is continuously differentiable, there exists a small interval  $s_0\in [w, z]$ such that $\frac{\diff t}{\diff s}(s)<0$. Then by the fundamental theorem of Calculus $t(w)>t(z)$ but $w<z$. By the intermediate value theorem, in the interval $[z,b]$, the function $t(s)$ achieves all values between $t(z)$ and $t(b)=q$. In particular, it achieves the value $t(z)<t(w)<q$. But then $t$ as a function of $s$ achieves the value $t(w)$ at least twice (once at $w$ and once at a point in $[z,q]$). On the other hand, we already saw that $t$ is bijective, and cannot achieve the same value twice. Contradiction. The other case, in which $t(a)=q>p=t(b)$, is treated in a similar fashion.
 
 The length of $C$ is by definition 
 \[
-\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}dt \quad . 
+\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}\diff t \quad . 
 \]
-Unlike computations of indefinite integrals, where we make variable changes on the fly, when dealing with definite integrals, we may make variable changes only when they are bijective (one-to-one and onto, Section \ref{secInverseFunctionBasics}). By the conditions on the parametrization of the curve we may make a variable change under the definite integral. Suppose first $\frac{dt}{ds}(s)\geq 0$ and therefore $t(a)=p<q=t(b)$. Therefore
+Unlike computations of indefinite integrals, where we make variable changes on the fly, when dealing with definite integrals, we may make variable changes only when they are bijective (one-to-one and onto, Section \ref{secInverseFunctionBasics}). By the conditions on the parametrization of the curve we may make a variable change under the definite integral. Suppose first $\frac{\diff t}{\diff s}(s)\geq 0$ and therefore $t(a)=p<q=t(b)$. Therefore
 \[
 \begin{array}{l}
-\phantom{=}\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{dt}(t(s))\right)^2+\left(\frac{df_2}{dt}(t(s))\right)^2}d(t(s)) \\
-\displaystyle =  \int \limits_{s=p}^q \sqrt{\frac{df_1}{dt}( t(s))^2+ \frac{df_2}{dt}(t(s))^2}d(t(s))\\
-= \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{dt}( t(s))^2+\frac{df_2}{dt}(t(s))^2} \frac{dt}{ds}ds \\
+\phantom{=}\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{\diff t}(t(s))\right)^2+\left(\frac{df_2}{\diff t}(t(s))\right)^2}d(t(s)) \\
+\displaystyle =  \int \limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2+ \frac{df_2}{\diff t}(t(s))^2}d(t(s))\\
+= \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2+\frac{df_2}{\diff t}(t(s))^2} \frac{\diff t}{\diff s}\diff s \\
 \displaystyle
-\stackrel{\frac{dt}{ds}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left(\underbrace{\frac{dt}{ds}(s) f_1( t(s)) }_{ \mathrm{chain~rule}} \right)^2+ \left( \underbrace{ \frac{ dt}{ds}(s) \frac{df_2}{dt} (t(s))}_{ \mathrm{chain~rule}} \right)^2}ds \\
-=\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{d}{ds}\left(f_1(t(s))\right)\right)^2+ \left(\frac{d}{ds}\left(f_2(t(s))\right)\right)^2}ds \\
-=\displaystyle \int\limits_{s=p}^q \sqrt{ \frac{ dg_1}{ ds}( s)^2 + \frac{dg_2}{ds}(s)^2}ds,
+\stackrel{\frac{\diff t}{\diff s}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left(\underbrace{\frac{\diff t}{\diff s}(s) f_1( t(s)) }_{ \mathrm{chain~rule}} \right)^2+ \left( \underbrace{ \frac{ \diff t}{\diff s}(s) \frac{df_2}{\diff t} (t(s))}_{ \mathrm{chain~rule}} \right)^2}\diff s \\
+=\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{d}{\diff s}\left(f_1(t(s))\right)\right)^2+ \left(\frac{d}{\diff s}\left(f_2(t(s))\right)\right)^2}\diff s \\
+=\displaystyle \int\limits_{s=p}^q \sqrt{ \frac{ dg_1}{ \diff s}( s)^2 + \frac{dg_2}{\diff s}(s)^2}\diff s,
 \quad
 \end{array}
 \]
@@ -3047,7 +3078,7 @@ As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by 
 \psplot[linecolor=blue, plotstyle=curve]{0.2}{4} { x 2 div x 180 mul  sin 1 add  mul 1 add x 3 div  sub   }  %{ x x mul 4 div x 180 mul  sin 1 add  mul   } 
 \psplot[linecolor=black!50, plotpoints=11,plotstyle=line]{0.2}{4}{ x 2 div x 180 mul  sin 1 add  mul 1 add x 3 div  sub   } 
 \psline[linecolor=red!50](2.1,1.674467844)(2.1,2.650886477)(2.48,2.650886477)
-\rput[t](1.9,2.3){\tiny$dy$}
+\rput[t](1.9,2.3){\tiny$\diff y$}
 \rput[t](2.28,2.85){\tiny$\diff x$}
 
 
@@ -3069,25 +3100,25 @@ The \emph{order} of a differential equation is the order of the highest derivati
 
 An example of a differential equation is
 \begin{equation}\label{eqDFQsimplestExample}
-\frac{dP}{dt} = k P\quad ,
+\frac{dP}{\diff t} = k P\quad ,
 \end{equation}
 where $t$ is a variable, $k$ is a constant and $P(t)$ is a function.
 
-Let us interpret $P$ as population size as a function of the time $t$, and $k$ as some natural rate of growth constant. If $k$ is positive (and the population $P$ is positive), so is $\frac{d P}{dt}$. As the first derivative of $P$ is positive, $P$ will increase with time, at an ever growing rate. We can plug in the function $P(t)= e^{k t}$ and verify that it satisfies the equation.
+Let us interpret $P$ as population size as a function of the time $t$, and $k$ as some natural rate of growth constant. If $k$ is positive (and the population $P$ is positive), so is $\frac{d P}{\diff t}$. As the first derivative of $P$ is positive, $P$ will increase with time, at an ever growing rate. We can plug in the function $P(t)= e^{k t}$ and verify that it satisfies the equation.
 
 Differential equations are used to model processes in the natural sciences. For example, \ref{eqDFQsimplestExample} models ideal population growth with infinite resources and unlimited environment - the increase in population is proportional to the size of the population.
 
 A more complicated example is the logistic differential equation 
 \[
-\frac{d P }{dt} = k P(1- \frac{P}{M})\quad.
+\frac{d P }{\diff t} = k P(1- \frac{P}{M})\quad.
 \]
-Here, $k$, $t$, $P$ have the same interpretation as before, and $M$ is the carrying capacity of the environment. In this model, while $P$ is smaller than the carrying capacity $M$,  $\frac{dP}{dt}$ will be positive, and the population will increase with time. However, if the population is larger than the carrying capacity $M$, $\frac{d P }{dt}$ will be negative and the population will decrease.
+Here, $k$, $t$, $P$ have the same interpretation as before, and $M$ is the carrying capacity of the environment. In this model, while $P$ is smaller than the carrying capacity $M$,  $\frac{dP}{\diff t}$ will be positive, and the population will increase with time. However, if the population is larger than the carrying capacity $M$, $\frac{d P }{\diff t}$ will be negative and the population will decrease.
 
 Another example of a differential equation is the motion of a spring
 \[
-m\frac{d^2 y (t)}{dt^2}= -k y,
+m\frac{d^2 y (t)}{\diff t^2}= -k y,
 \]
-where $m$ and $k$ are constants ($m$ stands for mass and $k$ for the spring's constant). Here, we recall the notation $\frac{d^2 y (t)}{dt^2}= y''(t)$ means second derivative.
+where $m$ and $k$ are constants ($m$ stands for mass and $k$ for the spring's constant). Here, we recall the notation $\frac{d^2 y (t)}{\diff t^2}= y''(t)$ means second derivative.
 
 
 Differential equations may have \emph{initial conditions}, i.e., we may be given the value of the unknown function or its derivatives in one or more points. For example, in \eqref{eqDFQsimplestExample}, we may add the initial condition $P(t_0)= 10$, to say that at time $t=t_0$, $P(t)=10$. 
@@ -3098,7 +3129,7 @@ Initial conditions are critical for a solution of a differential equation. For e
 \subsection{Direction fields}
 Suppose we have a differential equation of the form 
 \begin{equation}\label{eqDFQwithDirectionFlow}
-\frac{dy}{\diff x}= F(x,y)\quad.  
+\frac{\diff y}{\diff x}= F(x,y)\quad.  
 \end{equation}
 
 At each point $(x_0,y_0)$, let us plot a segment of the line with slope $F(x_0,y_0)$ passing through $(x_0,y_0)$. The resulting picture is called a direction field. 
@@ -3110,7 +3141,7 @@ Examples.
 \SpecialCoor
 \begin{pspicture}(-5,-5)(5,5)
 \psaxes{<->}(0,0)(-5,-5)(5,5)
-\rput (5,5){The direction field $\frac{dy}{\diff x}=xy$}
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=xy$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=-4+0.5}{17}{%
@@ -3125,7 +3156,7 @@ Examples.
 
 \begin{pspicture}(-5,-5)(5,5)
 \psaxes{<->}(0,0)(-5,-6)(5,5)
-\rput (5,5){The direction field $\frac{dy}{\diff x}=x+y$}
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=x+y$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=-4+0.5}{17}{%
@@ -3140,11 +3171,11 @@ Examples.
 \end{pspicture}
 }%optionalDisplay
 
-$\frac{dy}{\diff x}= F(x,y)$ has different solutions depending on the initial condition given by the $y(x_0)=y_0$ starting point $(x_0, y_0)$. A solution of a differential equation of the form \eqref{eqDFQwithDirectionFlow} corresponds to the trajectory of a point ``flowing'' along the direction field. If drawn with increasing precision, the blue segments representing the direction field begin to resemble smooth curves; those curves indeed approximate solutions of the differential equation.
+$\frac{\diff y}{\diff x}= F(x,y)$ has different solutions depending on the initial condition given by the $y(x_0)=y_0$ starting point $(x_0, y_0)$. A solution of a differential equation of the form \eqref{eqDFQwithDirectionFlow} corresponds to the trajectory of a point ``flowing'' along the direction field. If drawn with increasing precision, the blue segments representing the direction field begin to resemble smooth curves; those curves indeed approximate solutions of the differential equation.
 
 Euler's method for approximating solutions. Fix a small ``approximation step'' $h$. Let $x_n:=x_0+nh$ be the point at distance $n$ times our small approximation step from $x_0$. Suppose the initial condition differential equation problem
 \[
-\frac{dy}{\diff x}= F(x,y)\quad.  
+\frac{\diff y}{\diff x}= F(x,y)\quad.  
 \]
 with initial conditions $y(x_0)=y_0$  has a solution $y(x)$. Then approximate values for $y_n\approx y(x_n)$ are given by
 \begin{equation}\label{eqEulerApproxDFQ}
@@ -3154,12 +3185,12 @@ A motivation for Euler's method can be given as follows. At a point $x$, for a v
 
 Euler's method has a number of drawbacks, both computationally and algebraically, and is not used in practice. However, it illustrates the main idea of approximating solutions to differential equations: approximate at a point $x$ the value of $y(x+h)$ (as a function of $h$) by a well-known function in $h$ (linear, quadratic, third power, fourth power,\dots), move along the approximation for a very short distance $h$, and recompute. Without being an expert in differential equations, I may speculate that modern computer algorithms  are still based on (some complicated variation of) this simple idea.
 
-The algebraic problems arising form Euler's method stem from the fact that $F(y,x)$ may tend to $\pm\infty$. For example, consider the direction field given by $\frac{dy}{\diff x}= -\frac{x}{y}$. Euler's method will not tell you what to do as $y$ approaches $0$. In fact, we will soon be able to compute that solutions of the differential equation  $\frac{dy}{\diff x}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$.
+The algebraic problems arising form Euler's method stem from the fact that $F(y,x)$ may tend to $\pm\infty$. For example, consider the direction field given by $\frac{\diff y}{\diff x}= -\frac{x}{y}$. Euler's method will not tell you what to do as $y$ approaches $0$. In fact, we will soon be able to compute that solutions of the differential equation  $\frac{\diff y}{\diff x}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$.
 
 \optionalDisplay{
 \begin{pspicture}(-6,-1)(6,6)
 \psaxes{<->}(0,0)(-6,-1)(6,6)
-\rput (5,5){The direction field $\frac{dy}{\diff x}=-\frac{x}{y}$}
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=-\frac{x}{y}$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=0.001+0.5}{8}{%
@@ -3185,28 +3216,28 @@ Here, we recall that $y$ is an abbreviation for the function $y(x)$.
 
 A separable differential equation can be solved as follows. Replace for convenience $x$ by $t$:
 \[
-\frac{d y}{dt}= f(t)g(y)\quad .
+\frac{d y}{\diff t}= f(t)g(y)\quad .
 \]
 Divide out by $g(y)$
 \[
-\frac{d y}{dt} \frac{1}{g(y)}= f(t)\quad .
+\frac{d y}{\diff t} \frac{1}{g(y)}= f(t)\quad .
 \]
 We integrate both sides from $t=x_0$ to $t=x$. Again, we use the abbreviation $y=y(t)$.
 \begin{equation}\label{eqSeparableDFQSolution1}
 \begin{array}{rcl}
-\displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} \underbrace{\frac{d y}{dt}dt}_{= d y(t)}&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)dt
+\displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} \underbrace{\frac{d y}{\diff t}\diff t}_{= d y(t)}&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t
 \\ 
-\displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} d(y(t))&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)dt
+\displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} d(y(t))&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t
 \quad .
 \end{array}
 \end{equation}
-Suppose now $\frac{dy }{dt}$ is non-zero and does not change sign for $t\in [x_0, x]$. Without loss of generality assume $\frac{dy}{dt}>0$. Then $y$, as a function of $t$, is a bijection (for definition of bijection see Section \ref{secInverseFunctionBasics}) between $t\in [x_0, x]$ and $[y(x_0), y(x)]$. Therefore we may change the interval over which we integrate from $t\in  [x_0, x]$ to $y(t)\in [y(x_0), y(x)]$, to get 
+Suppose now $\frac{\diff y }{\diff t}$ is non-zero and does not change sign for $t\in [x_0, x]$. Without loss of generality assume $\frac{\diff y}{\diff t}>0$. Then $y$, as a function of $t$, is a bijection (for definition of bijection see Section \ref{secInverseFunctionBasics}) between $t\in [x_0, x]$ and $[y(x_0), y(x)]$. Therefore we may change the interval over which we integrate from $t\in  [x_0, x]$ to $y(t)\in [y(x_0), y(x)]$, to get 
 \begin{equation}\label{eqSeparableDFQSolution2}
-\displaystyle \int\limits_{y=y(x_0)}^{y=y(x)}\frac{1}{g(y)} dy=\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)dt\quad .
+\displaystyle \int\limits_{y=y(x_0)}^{y=y(x)}\frac{1}{g(y)} \diff y=\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t\quad .
 \end{equation}
 Here, we have introduced a new dummy variable $y$, with respect to which we integrate. We ask the reader to distinguish  the function $y(x)$ that appears in the bounds of integration from the newly introduced dummy variable $y$ with respect to which we integrate. We ask the reader to forgive this slight abuse of notation\footnote{In more formal expositions, e.g., scientific papers, such abuse of notation should be avoided.}.
 
-Suppose we can solve $\displaystyle \int \frac{1}{g(y)}dy = G(y)+C_1$ and $\displaystyle \int  f(t)dt=F(t)+C_2$. Using the Fundamental theorem of Calculus we can rewrite \eqref{eqSeparableDFQSolution2} as
+Suppose we can solve $\displaystyle \int \frac{1}{g(y)}\diff y = G(y)+C_1$ and $\displaystyle \int  f(t)\diff t=F(t)+C_2$. Using the Fundamental theorem of Calculus we can rewrite \eqref{eqSeparableDFQSolution2} as
 \[
 G(y(x))-G(y(x_0)) = \left. G(y)\right|_{y=y(x_0)}^{y=y(x)} = \left. F(x) \right|_{t=x_0}^{t=x}= F(x)-F(x_0)
 \]
@@ -3218,7 +3249,7 @@ If it is possible to solve the above equation for $y$ as a function of $x$, we g
 \subsection{Examples of separable equations}
 (a) Find the general solution of
 \[
-\frac{dy}{\diff x}= y^2-1\quad .
+\frac{\diff y}{\diff x}= y^2-1\quad .
 \]
 (b)Find a solution for which $y(0)=-3/5$.
 
@@ -3226,10 +3257,10 @@ If it is possible to solve the above equation for $y$ as a function of $x$, we g
 (a) Proceeding as explained in the theoretical section,
 \[
 \begin{array}{rcl}
-\frac{\frac{dy}{\diff x}}{y^2-1}&=&1 \\
-\displaystyle\int\limits_{t=x_0}^{t=x} \frac{1}{ y(t)^2-1}\underbrace{\frac{dy}{dt}dt}_{=d(y(t))}&=&\displaystyle\int\limits_{t=x_0}^{x}dt \\
-\displaystyle\int\limits_{y=y(x_0) }^{y=y(x)} \frac{dy}{ y(t)^2-1}& =& \displaystyle\left.t \right|_{ t=x_0}^{t=x} \\
-\displaystyle\int\limits_{y=y(x_0)}^{y=y(x)} \left(\frac{1/2 }{y-1}- \frac{1/2}{y+1}\right)dy&=& x-x_0\\
+\frac{\frac{\diff y}{\diff x}}{y^2-1}&=&1 \\
+\displaystyle\int\limits_{t=x_0}^{t=x} \frac{1}{ y(t)^2-1}\underbrace{\frac{\diff y}{\diff t}\diff t}_{=d(y(t))}&=&\displaystyle\int\limits_{t=x_0}^{x}\diff t \\
+\displaystyle\int\limits_{y=y(x_0) }^{y=y(x)} \frac{\diff y}{ y(t)^2-1}& =& \displaystyle\left.t \right|_{ t=x_0}^{t=x} \\
+\displaystyle\int\limits_{y=y(x_0)}^{y=y(x)} \left(\frac{1/2 }{y-1}- \frac{1/2}{y+1}\right)\diff y&=& x-x_0\\
 \displaystyle\left .\frac{1}2 \ln \left|\frac{y-1}{y+1}\right|~~~~~~~~~~\right|_{y=y(x_0)}^{y(x)}&=& x-x_0\\
 \displaystyle\ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C\quad ,
 \end{array}
@@ -3246,7 +3277,7 @@ y(x)&=&\frac{ 1+De^{2x}}{1- De^{2x}}\quad .\\
 \end{array}
 \]
 
-Case 2.  Suppose $\frac{y(x)-1}{y(x)+1}=0$. Then $y(x)=\pm 1$, and we can plug back $y(x)=\pm 1$ in the original equation to get that $\frac{dy}{\diff x}= 0$, and therefore $y(x)= \pm 1$ (does not depend on $x$) are two solutions.
+Case 2.  Suppose $\frac{y(x)-1}{y(x)+1}=0$. Then $y(x)=\pm 1$, and we can plug back $y(x)=\pm 1$ in the original equation to get that $\frac{\diff y}{\diff x}= 0$, and therefore $y(x)= \pm 1$ (does not depend on $x$) are two solutions.
 
 Case 3. Suppose  $\frac{y(x)-1}{y(x)+1}<0$. Then $\ln \left|\frac{y(x)-1}{y(x)+1}\right|= \ln \left(\frac{1-y(x)}{y(x)+1}\right)$ and, similarly to Case 1, we get 
 \[
@@ -3294,7 +3325,7 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 \psline[arrows=->, linestyle=dotted](-5,-2)(0,-1.6667)
 \psline[arrows=->, linestyle=dotted](-5,-2)(-1,3.360539267)
 \psaxes{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\rput (5,5){The direction field  $\frac{dy}{\diff x}=y^2-1$}
+\rput (5,5){The direction field  $\frac{\diff y}{\diff x}=y^2-1$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=-4+0.5}{17}{%
@@ -3327,17 +3358,17 @@ A tank contains 30 kg of salt dissolved in 10000 liters of water and salt soluti
 \begin{solution}
 Let $y(t)$ be the amount of salt (in kilograms) contained in the tank after $t$ minutes. We are given $y(0)= 30kg$. In addition, we have that 
 \[
-\frac{dy}{dt}= \mathrm{(rate~in)}-\mathrm{(rate~out)} \quad .
+\frac{\diff y}{\diff t}= \mathrm{(rate~in)}-\mathrm{(rate~out)} \quad .
 \]
 The rate of salt entering the tank is constant, $0.05 kg/L *10 L/min= 0.5 kg/min$. As the solution is thoroughly mixed, at any time the concentration of salt in the tank is $\frac{y(t)}{10000} kg/L$. Therefore the rate of salt going out of the tank is $\frac{y(t)}{10000} kg/L * 10 L/min= \frac{y(t)}{1000} kg/min$. Finally, the differential equation for the amount of salt in the tank is
 \[
-\frac{dy}{dt}= 0.5-\frac{y(t)}{1000} \quad .
+\frac{\diff y}{\diff t}= 0.5-\frac{y(t)}{1000} \quad .
 \]
 We can integrate as explained in the theoretical part, to get 
 \[
 \begin{array}{rcl}
-\int\limits_{t=0}^{30} \frac{1000}{500-y(t)}\underbrace{\frac{dy}{dt} dt}_{d(y(t))} &=& \int\limits_{t=0}^{30} dt \\
-\int\limits_{y=y(0)}^{y=y(30)} \frac{1000}{500-y}dy&=& 30 \\
+\int\limits_{t=0}^{30} \frac{1000}{500-y(t)}\underbrace{\frac{\diff y}{\diff t} \diff t}_{d(y(t))} &=& \int\limits_{t=0}^{30} \diff t \\
+\int\limits_{y=y(0)}^{y=y(30)} \frac{1000}{500-y}\diff y&=& 30 \\
 -1000\int\limits_{y=y(0)=30}^{y=y(30)} \frac{1}{500-y}d(500-y)&=& 30 \\
 \left. -1000 \ln |500-y|~~~~~~~~~~~ \right|_{30}^{y(30)}&=& 30 \\
 -1000 \left(\ln |500-y(30)| -\ln |500- 30|  \right)&=& 30 \\
@@ -3359,9 +3390,9 @@ As the unit of measurement is $kg$, the answer to the problem is $\approx 43.89 
 \begin{itemize}
 \item Find the general solution to the differential equation 
 \[
-\frac{dy}{\diff x}= y^2-4\quad .
+\frac{\diff y}{\diff x}= y^2-4\quad .
 \]
-The drawing below is a computer-generated plot of the direction field  $\frac{dy}{\diff x}=y^2-4$, you may use it to get a feeling for what your answer should look like.
+The drawing below is a computer-generated plot of the direction field  $\frac{\diff y}{\diff x}=y^2-4$, you may use it to get a feeling for what your answer should look like.
 \item Find a solution of the above equation for which $ y(0)= -\frac{6}{5}$. 
 \end{itemize}
 
@@ -3371,7 +3402,7 @@ The drawing below is a computer-generated plot of the direction field  $\frac{dy
 \psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 4 x mul exp mul sub 1 \Dconst\space 2.718281828 4 x mul exp mul add div 2 mul} 
 
 \psaxes{<->}(0,0)(-6,-2)(6,6)
-\rput (5,5){The direction field  $\frac{dy}{\diff x}=y^2-4$}
+\rput (5,5){The direction field  $\frac{\diff y}{\diff x}=y^2-4$}
   \psset{arrows=->}
   \multido{\ra=-4+0.5}{17}{%
     \multido{\rb=-4+0.5}{17}{%
@@ -3392,7 +3423,7 @@ Mixing problem. A tank contains 1000 kg of salt dissolved in 10000 liters of wat
 \subsection{Linear differential equations}
 A differential equation is \emph{linear} if it is of the form 
 \begin{equation}\label{eqDFQlinear}
-\frac{dy}{\diff x} + P(x)y=Q(x)
+\frac{\diff y}{\diff x} + P(x)y=Q(x)
 \end{equation}
 for some functions $P(x),Q(x)$.
 
@@ -3400,20 +3431,20 @@ A linear differential equation \eqref{eqDFQlinear} can be solved as follows.
 
 Let us make the problem slightly more general by considering an equation of the form 
 \begin{equation}\label{eqDFQlinearStep1}
-R(x)\frac{dy}{\diff x} + S(x)y=Q(x)\quad .
+R(x)\frac{\diff y}{\diff x} + S(x)y=Q(x)\quad .
 \end{equation}
 Suppose that it so happened that $R'(x)=S(x)$. Then \eqref{eqDFQlinearStep1} becomes
 \begin{equation}\label{eqDFQlinearStep2}
 \begin{array}{rcl}
-\underbrace{R(x)\frac{dy}{\diff x} + R'(x)y}_{\mathrm{product~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
+\underbrace{R(x)\frac{\diff y}{\diff x} + R'(x)y}_{\mathrm{product~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
 \frac{d}{\diff x} \left(R(x)y \right)&=& Q(x)\quad .
 \end{array}
 \end{equation}
 In the above we can introduce a new function $z(x)= y(x)R(x)$, and the equation becomes 
 \[
-\frac{dz}{\diff x}= Q(x)\quad ,
+\frac{\diff z}{\diff x}= Q(x)\quad ,
 \]
-which we already can solve by integrating both sides to obtain $z(x)= \int\limits_{t=x_0}^x Q(t)dt $, or finally, if $R(x)\neq 0$, we get $y(x)= \frac{1}{R(x)}\int\limits_{t=x_0}^x Q(t)dt $.
+which we already can solve by integrating both sides to obtain $z(x)= \int\limits_{t=x_0}^x Q(t)\diff t $, or finally, if $R(x)\neq 0$, we get $y(x)= \frac{1}{R(x)}\int\limits_{t=x_0}^x Q(t)\diff t $.
 Let us now try to solve \eqref{eqDFQlinear} by finding a multiplier function $T(x)$ that does not vanish, such that when we multiply \eqref{eqDFQlinear}, we obtain an equation of the form \eqref{eqDFQlinearStep2}. Indeed, in order to get an equation of the form \eqref{eqDFQlinearStep2}, we need that $\frac{dT}{\diff x}= (TP(x))$. The latter is a separable differential equation for $T(x)$.  We solve the equation as studied in the preceding section.
 \begin{equation}\label{eqDFQlinearStep3}
 \begin{array}{rcl}
@@ -3431,16 +3462,16 @@ Multiply \eqref{eqDFQlinear} by $T(x)$ on both sides and transform \eqref{eqDFQl
 \subsubsection{Example of linear differential equations}
 Solve 
 \begin{equation}\label{eqDFQlinearexample1}
-\frac{dy}{\diff x}+ y x=x\quad .
+\frac{\diff y}{\diff x}+ y x=x\quad .
 \end{equation} Find a solution such that $y(0)=3$.
 
 \begin{solution}
 First we find an integrating factor $T(x)$. By the theoretical section, $T(x)$ is up to a multiplicative constant equal to $e^{\int x \diff x}= e^{\frac{x^2}2 +C}$. We may choose $T(x):= e^{\frac{x^2}2}$. We multiply \eqref{eqDFQlinearexample1} by $e^{\frac{x^2}2}$ and solve as follows.
 \[
 \begin{array}{rcl}
-\displaystyle e^{\frac{x^2}2}\frac{dy}{\diff x}+ yxe^{\frac{x^2}2}&=&\displaystyle xe^{\frac{x^2}2}\\
+\displaystyle e^{\frac{x^2}2}\frac{\diff y}{\diff x}+ yxe^{\frac{x^2}2}&=&\displaystyle xe^{\frac{x^2}2}\\
 \underbrace{\frac{d}{\diff x} \left(y(x) e^{\frac{x^2}2} \right)}_{\mathrm{rename~}x~\mathrm{to~}t\mathrm{~and~integrate}}&=&\underbrace{xe^{\frac{x^2}2}}_{\mathrm{rename~}x\mathrm{~to~}t\mathrm{~and~integrate}}\\
-\displaystyle\int\limits_{t=x_0}^x \frac{d}{dt} \left(y(t) e^{\frac{t^2}2}\right) dt &=&\displaystyle \int\limits_{t=x_0}^x  te^{\frac{t^2}2}dt\\
+\displaystyle\int\limits_{t=x_0}^x \frac{d}{\diff t} \left(y(t) e^{\frac{t^2}2}\right) \diff t &=&\displaystyle \int\limits_{t=x_0}^x  te^{\frac{t^2}2}\diff t\\
 \displaystyle\left.y(t) e^{\frac{t^2}2}\right|_{t=x_0}^x&=&\displaystyle \left.e^{\frac{t^2}2}\right|_{t=x_0}^{t=x}\\
 \displaystyle y(x)e^{\frac{x^2}2}- y(x_0)e^{\frac{x_0^2}2}&=&\displaystyle e^{\frac{x^2}2}- e^{\frac{x_0^2}2}\\
 y(x)&=&\displaystyle \frac{e^{\frac{x^2}2}- e^{\frac{x_0^2}2}+ y(x_0)e^{\frac{x_0^2}2}}{e^{\frac{x^2}2}}\\
@@ -3463,7 +3494,7 @@ In order to find a solution for which $y(0)=3$, we simply plug in $x_0=0$, $y(x_
 \renewcommand{\Ystart}{3}
 \psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add} 
 
-\rput (5,5){The direction field $\frac{dy}{\diff x}=x-xy$}
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=x-xy$}
   \psset{arrows=->}
   \multido{\ra=-4.0+0.5}{17}{%
     \multido{\rb=-4.0+0.5}{17}{%
@@ -3668,21 +3699,21 @@ However, if $f(a)\neq 0, \pm \infty$ and $f$ is continuous in a small neighborho
 Type I: infinite intervals.
 
 \begin{itemize}
-\item Suppose $\int\limits_{t=a}^{x}f(t)dt$ exists for all $t\geq a$. We define 
+\item Suppose $\int\limits_{t=a}^{x}f(t)\diff t$ exists for all $t\geq a$. We define 
 \[
-\int\limits_{a}^{\infty} f(t)dt\eqdef  \lim
-\limits_{x\to \infty}\int\limits_{t=a}^{x}f(t)dt\quad,
+\int\limits_{a}^{\infty} f(t)\diff t\eqdef  \lim
+\limits_{x\to \infty}\int\limits_{t=a}^{x}f(t)\diff t\quad,
 \]
 provided the above limit exists.
-\item Similarly, suppose $\int\limits_{t=x}^{a}f(t)dt$ exists for all $t\leq a$. We define 
+\item Similarly, suppose $\int\limits_{t=x}^{a}f(t)\diff t$ exists for all $t\leq a$. We define 
 \[
-\int\limits_{-\infty}^{a} f(t)dt\eqdef  \lim
-\limits_{x\to \infty}\int\limits_{t=x}^{a}f(t)dt\quad,
+\int\limits_{-\infty}^{a} f(t)\diff t\eqdef  \lim
+\limits_{x\to \infty}\int\limits_{t=x}^{a}f(t)\diff t\quad,
 \]
 provided the above limit exists.
-\item Suppose $\int\limits_{0}^{\infty}f(t)dt$ and $\int\limits_{-\infty}^{0}f(t)dt$  exist. We define
+\item Suppose $\int\limits_{0}^{\infty}f(t)\diff t$ and $\int\limits_{-\infty}^{0}f(t)\diff t$  exist. We define
 \[
-\int\limits_{-\infty}^{\infty} f(t)dt\eqdef  \int\limits_{0}^{\infty}f(t)dt+\int\limits_{-\infty}^{0}f(t)dt
+\int\limits_{-\infty}^{\infty} f(t)\diff t\eqdef  \int\limits_{0}^{\infty}f(t)\diff t+\int\limits_{-\infty}^{0}f(t)\diff t
 \]
 provided the above limit exists.
 \end{itemize}
@@ -3692,12 +3723,12 @@ Type II: integrating discontinuous functions.
 \begin{itemize}
 \item Suppose $f:[a,b)\to \mathbb R$ ($f$ is a function from $[a,b)$ to the reals) is continuous in $[a,b)$, but discontinuous at $b$. We define 
 \[
-\int\limits_{a}^{b}f(t)dt\eqdef \lim\limits_{\substack{x\to b \\ x<b}}\int\limits_{a}^{x} f(t)dt\quad , 
+\int\limits_{a}^{b}f(t)\diff t\eqdef \lim\limits_{\substack{x\to b \\ x<b}}\int\limits_{a}^{x} f(t)\diff t\quad , 
 \]
 provided the limit exists.
 \item Similarly, suppose $f:(a,b]\to \mathbb R$ ($f$ is a function from $(a,b]$ to the reals) is continuous in $(a,b]$, but discontinuous at $a$. We define 
 \[
-\int\limits_{a}^{b}f(t)dt\eqdef \lim\limits_{\substack{x\to a \\ x>a}}\int\limits_{x}^{b} f(t)dt\quad , 
+\int\limits_{a}^{b}f(t)\diff t\eqdef \lim\limits_{\substack{x\to a \\ x>a}}\int\limits_{x}^{b} f(t)\diff t\quad , 
 \]
 provided the limit exists.
 \end{itemize}
@@ -4413,7 +4444,7 @@ For $|t-a|< d$ we have
 \[
 f^{(N+1)}(t) \leq  M\quad.
 \]
-Apply $\int\limits_{a}^{x} \bullet dt $. We apply the fundamental theorem of calculus and replace $x$ by $t$ to get
+Apply $\int\limits_{a}^{x} \bullet \diff t $. We apply the fundamental theorem of calculus and replace $x$ by $t$ to get
 \[
 f^{(N)}(t)-f^{(N)}(a)\leq (t-a) M
 \]
@@ -4421,7 +4452,7 @@ or
 \[
 f^{(N)}(t)\leq f^{(N)}(a)+(t-a) M
 \]
-Apply again $\int\limits_{a}^{x} \bullet dt $ and replace $x$ by $t$ to get
+Apply again $\int\limits_{a}^{x} \bullet \diff t $ and replace $x$ by $t$ to get
 \[
 f^{(N-1)}(t)\leq f^{N-1}(a) +f^{(N)}(a)(t-a)+ M\frac{(t-a)^2}2\quad .
 \]
@@ -4429,7 +4460,7 @@ Suppose by induction we have proved that
 \[
 f^{(N-k)}(t)\leq f^{N-k}(a) +f^{(N-k+1)}(a)(t-a)+ f^{N-k+2}\frac{(t-a)^2}2+\dots +f^{N}\frac{(t-a)^{k}}{k!}+ M\frac{(t-a)^{k+1}}{(k+1)!} \quad .
 \]
-We apply $\int\limits_{a}^{x} \bullet dt $ and replace $x$ by $t$ to get
+We apply $\int\limits_{a}^{x} \bullet \diff t $ and replace $x$ by $t$ to get
 \[
 f^{(N-k-1)}(t)\leq f^{N-k-1}(a) +f^{(N-k)}(a)(t-a)+ f^{N-k+1}\frac{(t-a)^2}2+\dots +f^{N}\frac{(t-a)^{k+1}}{(k+1)!}+ M\frac{(t-a)^{k+2}}{(k+2)!} \quad .
 \]
