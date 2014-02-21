@@ -95,7 +95,7 @@
 \rput(0,0){#1}
 }
 
-\newcommand{\diff}{\text{d}}
+\newcommand{\diff}{\text{\normalfont d}}
 
 \usepackage{multicol}
 \usepackage{rotating}
@@ -131,7 +131,7 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{#1}
+\newcommand{\optionalDisplay}[1]{}
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -1123,7 +1123,7 @@ e\eqdef e^1= 1+ \frac{1}{1} +\frac{1}2 +\frac{1}{3!} +\frac{1}{4!}+\dots \approx
 \]
 is called \emph{Euler's number}, \emph{Napier constant}, or simply the number $e$.
 \end{definition}
-It is clear from formula \eqref{eqExponentFunctionDefinition} how to evaluate $e^z$ for any number, (including even complex numbers). Let us elaborate on how formula \eqref{eqExponentFunctionDefinition} is evaluated. Let 
+From formula \eqref{eqExponentFunctionDefinition} we know how to evaluate $e^z$ for any number (including complex numbers): let us elaborate. Let 
 \[
 \displaystyle f(z,N):=\sum\limits_{n=0}^{N} \frac{z^n}{n!}\quad .
 \]
@@ -1687,7 +1687,7 @@ g(f(x))=  \frac{-5f(x) +6}{4f(x)-5}=  \frac{-5\frac{(5x+6)}{4x+5} +6}{4\frac{(5x
 \]
 as expected.
 \end{solution}
-\subsection{Plots of trigonometric functions and their inverses when $x$ is real}\label{secGraphsTrigFunc}
+\section{Plots of trigonometric functions and their inverses}\label{secGraphsTrigFunc}
 Let $x\in \mathbb R$ ($x$- real number). Then $\sin x$ and $\cos x$ can be drawn as follows.
 
 \optionalDisplay{
@@ -1796,65 +1796,80 @@ Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
 
 
 
-\subsubsection{Derivatives of trigonometric, exponent functions and their inverses}
+\section{Derivatives of trigonometric, exponent functions and their inverses}
 
 
-Derivative of $e^z$.
-
-\importantFormula{
-\frac{d}{d z} e^z= e^z
+\begin{theorem}The function $e^z$ is differentiable and
+\importantFormula{\label{eqDerivativeexponent}
+\frac{d}{d z}\left( e^z\right)= e^z
 }
-\begin{proofOptional}
-\[\begin{array}{rcl}
-\frac{d}{\diff z}e^z &=&\frac{d}{\diff z}\sum_{n=0}^{\infty} \frac{z^n}{n!} \underbrace{\eqAttention}_{\mathrm{Caution:~sum~is~infinite}} \sum_{n=0}^{\infty} \frac{d}{\diff z} \frac{z^n}{n!}\\&=&\sum_{n=1}^{\infty} \frac {nz^{n-1}}{n!}= \sum_{n=1}^{\infty} \frac {z^{n-1}}{(n-1)!} =  \sum_{m=0}^{\infty} \frac {z^{m}}{m!}=e^z\quad .
+\end{theorem}
+The fact that $e^z$ is differentiable follows from the more general Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal} the proof of which we postpone to Section \ref{secSequencesPowerSeries}. More precisely, Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal} states that, under certain conditions, differentiating infinite sums is the same as first differentiating each summand and then adding. Assuming that theorem, the algebra behind proving that $\frac{\diff}{\diff z}\left( e^z\right)=e^z$ is straightforward, as we show below.
+
+\begin{proofOptional}[~of \eqref{eqDerivativeexponent}]
+\[
+\begin{array}{rcl}
+\displaystyle \frac{\diff}{\diff z}e^z &=&\displaystyle  \frac{\diff}{\diff z}\left( \sum_{n=0}^{\infty} \frac{z^n}{n!}\right)\\ 
+&\underbrace{\eqAttention}_{\substack{\text{Caution: sum is infinite}\\\text{Use Theorem }\ref{thDifferentiatingIntegratingPowerSeriesNonFormal} }} &\displaystyle \sum_{n=0}^{\infty} \frac{\diff}{\diff z} \left( \frac{z^n}{n!}\right)\\
+&=&\displaystyle \sum_{n=1}^{\infty} \frac {nz^{n-1}}{n!}\\
+&=&\displaystyle \sum_{n=1}^{\infty} \frac {z^{n-1}}{(n-1)!} \\
+&=&\displaystyle \sum_{m=0}^{\infty} \frac {z^{m}}{m!}\\
+&=&e^z\quad .
 \end{array}
 \]
 \end{proofOptional}
-Derivative of $\ln x$.
-\[
+
+\begin{theorem}
+The derivative of $\ln x$ is given by
+\importantFormula{
 (\ln x)' = \frac{1}x 
-\]
+}
+\end{theorem}
 \begin{proof}
 \[
-\begin{array}{rcl}
-e^{\ln x}&=& x  \quad \quad \quad \frac {d}{\diff x}\\
+\begin{array}{rcll|l}
+e^{\ln x}&=& x  &&\displaystyle  \frac {\diff}{\diff x}\\
 (e^{\ln x})(\ln x)' &= &1\\
- \ln x&=&\frac{1}x\quad .
+ (\ln x)' &=& \displaystyle \frac{1}x\quad .
 \end{array}
 \]
 \end{proof}
 
-Derivative of $x^a$ for $x\in \mathbb R$ and $a\in \mathbb R$, $a\neq 0$. Let $a\in \mathbb R$ and $x\in \mathbb R$. Then
+\begin{theorem}
+Let $x\in \mathbb R$ (i.e., $x$ is real) and $a\in \mathbb R$, $a\neq 0$. Suppose in addition $x>0$. Then 
 \begin{equation}\label{eqXtotheAthDerivative}
 (x^a)'=ax^{a-1}\quad .
 \end{equation}
-\begin{proof} As $x=e^{\ln x}$ we can define $x^a$ as
+\end{theorem}
+\begin{proof} As $x=e^{\ln x}$ we have that 
 \[
-x^a\eqdef  e^{a\ln x}\quad .
+x^a=  e^{a\ln x}\quad .
 \]
 Therefore 
 \[
 (x^{a})'=(e^{a\ln x})'=ae^{a\ln x} (\ln x)' =a x^{a}\frac{1}{x} = ax^{a-1} \quad .
 \]
 \end{proof}
-
-Derivative of $\sin z, \cos z, \tan z, \cot x$.
-\[
+\begin{theorem}
+The derivatives of $\sin x, \cos x, \tan x, \cot x$ are given by
+\importantFormula{
 \begin{array}{rcl}
 (\sin x)'&=&\cos x\\
 (\cos x)'&=&-\sin x\\
 (\tan x)'&=&\frac{1}{\cos ^2 x}\\
 (\cot x)'&=&-\frac{1}{\sin ^2 x}\quad .
 \end{array}
-\]
+}
+\end{theorem}
 \begin{proof}
 \[
 \begin{array}{rcl}
-(\sin x)'&=&\left(\frac{e^{ix}-e^{-ix}}{2i}\right)'=\frac{ie^{ix}-(-i)e^{-ix}}{2i}=\frac{e^{ix}+e^{-ix}}2=\cos x\\
-(\cos x)'&=&\left(\frac{e^{ix}+e^{-ix}}{2}\right)'=\frac{ie^{ix}-ie^{-ix}}{2}=-\frac{e^{ix}-e^{-ix}}{2i}=-\sin x \\
-(\tan x)'&=&\frac{(\sin x)'\cos x- \sin x (\cos x)'}{\cos x^{2}}=\frac{\sin^2x+\cos^2x}{\cos^2x}=\frac{1}{\cos^2x} \quad .\\
+\displaystyle (\sin x)'&=&\displaystyle \left(\frac{ e^{ix}- e^{-ix}}{2i}\right)' =\frac{ie^{ix}- (-i)e^{-ix}}{2i} =\frac{e^{ix} +e^{-ix}}2=\cos x\\
+\displaystyle(\cos x)' &=&\displaystyle \left(\frac{e^{ix} +e^{-ix}}{2}\right)' =\frac{ie^{ix}- ie^{-ix}}{2} = -\frac{e^{ix} -e^{-ix}}{2i}=-\sin x \\
+\displaystyle (\tan x)' &=&\displaystyle  \frac{(\sin x)'\cos x- \sin x (\cos x)'}{ \cos x^{2}} = \frac{\sin^2x+ \cos^2x}{\cos^2x} =\frac{1}{\cos^2x} \quad .\\
 \end{array}
 \]
+The derivative of $\cot x$ is computed in a similar fashion and we leave it to the reader.
 \end{proof}
 
 Derivative of $\arcsin x, \arccos x, \arctan x$.
@@ -1961,7 +1976,7 @@ Compute $\displaystyle \int x^2 e^x \diff x$.
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int x^2 \underbrace{e^x \diff x}_{d (e^x)} &=& \int x^2 d e^x= x^2e^x - \int e^x2x\diff x=  x^2e^x - \int 2xd e^x \\
+\displaystyle\int x^2 \underbrace{e^x \diff x}_{d (e^x)} &=& \int x^2 \diff e^x= x^2e^x - \int e^x2x\diff x=  x^2e^x - \int 2x\diff e^x \\
 &=& x^2e^x- 2xe^x+ \int 2e^x \diff x= x^2e^x-2xe^x+2e^x+C\quad .
 \end{array}
 \]
@@ -1980,7 +1995,7 @@ Compute $\displaystyle \int \sin x e^x \diff x$.
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int \sin x \underbrace{e^x \diff x}_{=de^x}&=&\displaystyle\sin x e^x - \int e^xd(\sin x)=\sin x e^x - \int \cos x \underbrace{e^x \diff x}_{=de^x}\\
+\displaystyle\int \sin x \underbrace{e^x \diff x}_{=\diff e^x}&=&\displaystyle\sin x e^x - \int e^xd(\sin x)=\sin x e^x - \int \cos x \underbrace{e^x \diff x}_{=\diff e^x}\\
 &=& \displaystyle\sin x e^x - e^x\cos x +\int e^x d(\cos x) \\
 &=& e^x\sin x -e^x\cos x-\int e^x\sin x \diff x\quad . 
 \end{array}
@@ -2005,8 +2020,8 @@ Compute $\displaystyle \int x^n e^x \diff x$.
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int x^n e^x \diff x &=& \displaystyle\int x^n d e^x= x^n e^x- \int  e^x \diff x^n= x^n e^x- n\int  x^{n-1}e^x \diff x=\\
-&=&\displaystyle x^ne^x- n\left(\int x^{n-1}de^x \right)= x^ne^x - n\left(x^{n-1}e^x- \int (n-1)x^{n-2}e^x \diff x\right)\\
+\displaystyle\int x^n e^x \diff x &=& \displaystyle\int x^n \diff e^x= x^n e^x- \int  e^x \diff x^n= x^n e^x- n\int  x^{n-1}e^x \diff x=\\
+&=&\displaystyle x^ne^x- n\left(\int x^{n-1}\diff e^x \right)= x^ne^x - n\left(x^{n-1}e^x- \int (n-1)x^{n-2}e^x \diff x\right)\\
 &=&\displaystyle x^{n}e^x-nx^{n-1}xe^x+n(n-1)\int x^{n-2}e^x \diff x =\dots\\
 &=&\displaystyle x^ne^{x}- nx^{n-1}e^x+n(n-1)x^{n-2}e^x+\dots \\
 &&+(-1)^kn(n-1)(n-2)\dots(n-k+1)x^{n-k}e^x+\dots +(-1)^n n! e^x+C\\
@@ -2024,37 +2039,40 @@ Evaluate the indefinite integral. Illustrate the steps of your solutions. Check 
 \begin{multicols}{2}
 \begin{enumerate}
 \item 
-$\int x^2\cos 2x \diff x$
+$\displaystyle \int x^2\cos 2x \diff x$
 \item 
-$\int x^2e^{ax}\diff x$
+$\displaystyle \int x^2e^{ax}\diff x$
 \item 
-$\int x^2e^{-ax}\diff x$
+$\displaystyle \int x^2e^{-ax}\diff x$
 \item \label{eqProblemA}
-$\int x^2\frac{(e^{ax}+e^{-ax})^2}4\diff x$ 
+$\displaystyle \int x^2\frac{(e^{ax}+e^{-ax})^2}4\diff x$ 
 \item 
-$\int \cos^2x \diff x$ 
+$\displaystyle \int \cos^2x \diff x$ 
 \item 
-$ \int x\ln x \diff x 
-$
-\item $\int \frac{x}{1+x^2} \diff x$ 
-\item 
-$ \int \arctan x \diff x
+$\displaystyle \int x\ln x \diff x 
 $
 \item 
-$ \int \arcsin x \diff x
-$
-\item $\int \frac{\ln x}{\sqrt{x}}\diff x $
-\item $\int (\arcsin x)^2 \diff x $ \quad \quad (Hint: Try substituting $x=\sin y$)
-\item $\int \frac{1}{\cos^2 x}\diff x$\quad \quad (Hint: What is the derivative of $\tan x$?)
-\item $\int (\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x = \frac{1}{\cos^2x }-1$ )
-\item $\int x(\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x \diff x= d(F(x))$, where $F(x)$ is the answer from the preceding problem)
+$\displaystyle \int \frac{x}{1+x^2} \diff x$ 
 \item 
-$
-\int\arctan (\frac{1}x)\diff x
-$
-\item $\int \sin (\ln (x)) \diff x $
+$\displaystyle  \int \arctan x \diff x$
+\item 
+$\displaystyle  \int \arcsin x \diff x$
+\item 
+$\displaystyle \int \frac{\ln x}{\sqrt{x}}\diff x $
+\item 
+$\displaystyle \int (\arcsin x)^2 \diff x $ \quad \quad (Hint: Try substituting $x=\sin y$)
+\item 
+$\displaystyle \int \frac{1}{\cos^2 x}\diff x$\quad \quad (Hint: What is the derivative of $\tan x$?)
+\item 
+$\displaystyle \int (\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x = \frac{1}{\cos^2x }-1$ )
+\item 
+$\displaystyle \int x(\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x \diff x= d(F(x))$, where $F(x)$ is the answer from the preceding problem)
+\item 
+$\displaystyle \int\arctan (\frac{1}x)\diff x$
+\item 
+$\displaystyle \int \sin (\ln (x)) \diff x $
 \item
-$\int x^2\cos^2x \diff x$ (Can you solve using complex numbers and Problem \ref{eqProblemA}?).
+$\displaystyle \int x^2\cos^2x \diff x$ (Can you solve using complex numbers and Problem \ref{eqProblemA}?).
 \end{enumerate}
 \end{multicols}
 \end{problem}
@@ -2312,22 +2330,90 @@ To get the final answer we need to collect all terms, to get a final answer:
 \begin{problem}
 Evaluate the indefinite integral. 
 \begin{enumerate}
-\item $\int \frac1{x^2+x+1}\diff x$
-\item $\int \frac1{4x^2+4x+1}\diff x$
-\item $\int \frac1{2x^2+5x+1}\diff x$
-\item $\int \frac{15x^2-4x-81}{(x-3)(x+4)(x-1)}\diff x$
-\item $\int \frac {x^{4}+10x^{3}+18x^{2}+2x-13}{x^{4}+4x^{3}+3x^{2}-4x-4}\diff x$ 
-Check first that $(x-1)(x+2)^2(x+1)= x^{4}+4x^{3}+3x^{2}-4x-4$.
+\item $\displaystyle \int \frac1{x^2+x+1}\diff x$
+\item $\displaystyle \int \frac1{4x^2+4x+1}\diff x$
+\item $\displaystyle \int \frac1{2x^2+5x+1}\diff x$
+\item $\displaystyle \int \frac{15x^2-4x-81}{ (x-3)(x+4) (x-1) } \diff x$
+\item $\displaystyle \int \frac {x^{4} +10x^{3}+ 18x^{2}+ 2x- 13}{ x^{4} +4x^{3}+3x^{2}-4x-4}\diff x$ 
+
+Check first that $x^{4}+4x^{3} +3x^{2} -4x -4=(x-1)(x+2)^2(x+1)$.
 \end{enumerate}
 \end{problem}
-\section{Integrals of the form $\int R(x, \sqrt{ax^2+bx+c})\diff x$}
-Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$.
 
-In the present section we learn how to solve all integrals of the form 
+\section{Trigonometric integrals}\label{secTrigIntegrals}
+\subsection{\optionalMaterial Integration of arbitrary rational trigonometric integrals}
+Let $R$ be a rational function in two variables. Integrals of the form 
 \[
-\int R(x, \sqrt{x^2+1})\diff x\qquad , \int R(x, \sqrt{-x^2+1})\diff x, \qquad \int R(x, \sqrt{x^2-1})\diff x
+\int R(\sin x,\cos x )\diff y
 \] 
-where $R$ is a rational function in two variables. We recall that a rational function in two variables is simply a quotient of two polynomials in two variables. An example of a rational function in two variables would be $R(z,w)= \frac{zw+1}{z+w}$.
+can be transformed to integrals of rational functions via the substitution $x= 2\arctan t$. To see how $\cos x$ and $\sin x$ are expressed via $t$ we need a little algebra. First we recall the formulas 
+\begin{equation}\label{eqsin2zViaTanzcos2zViaTanz}
+\begin{array}{rcll|l}
+\cos (2z)&=& \displaystyle \cos^2 z- \sin^{2}z\\
+&=&\displaystyle \frac{\cos^{2}z- \sin^{2}z}{\cos^2z+\sin^2z}\\
+&=&\displaystyle \frac{\left(\cos^{2}z- \sin^{2}z\right)\frac{1}{\cos^2 z}}{\left(\cos^2z+\sin^2z\right)\frac{1}{\cos^2 z}}\\
+&=&\displaystyle \frac{1-\tan^2 z}{1+\tan^2z}\quad ,\\~\\
+\sin(2z)&=& 2\sin z \cos z\\
+&=&\displaystyle \frac{2\sin z \cos z}{\cos^2z+\sin^2z}\\
+&=&\displaystyle \frac{2\sin z \cos z}{\left(\cos^2z+\sin^2z\right)} \frac{\frac{1}{\cos^2z}}{\frac{1}{\cos^2z}}\\
+&=&\displaystyle \frac{2\tan z}{1+\tan^2z}
+\end{array}
+\end{equation}
+We are ready to express $\cos x$ and $\sin x$ via $t$:
+\[
+\begin{array}{rcll|l}
+\cos x&=& \cos \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
+&=&\displaystyle \frac{1- \tan^2(\arctan x)}{1+\tan^2(\arctan x)}\\
+&=&\displaystyle  \frac{1- t^2}{1+t^2}\quad ,\\~\\
+\sin (x)&=& \sin \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
+&=&\displaystyle \frac{2\tan(\arctan x)}{1+\tan^2(\arctan x)}\\
+&=&\displaystyle  \frac{2t}{1+t^2}\quad .
+\end{array}
+\]
+The differential $\diff x$ can expressed via $\diff t$ from $x=2\arctan t$.
+The substitution $x=2\arctan t$ can be summarized as:
+\[
+\begin{array}{rcl}
+\cos x&=&\displaystyle  \frac{1- t^2}{1+t^2} \\
+\sin x&=&\displaystyle \frac{2t}{1+t^2}\\
+\diff x&=&\displaystyle \frac{2}{t^2+1}\diff t\quad .\\
+\end{array}
+\] 
+
+\subsection{\optionalMaterial Integration of arbitrary rational trigonometric integrals: Method II}
+
+\subsection{\optionalMaterial Examples of trigonometric integrals: general algorithm}
+Integrate 
+\[
+\int \frac{\diff x}{2\sin x-\cos x +5}\quad .
+\]
+\begin{solution}
+Set $x=2\arctan t$. Therefore 
+\[
+\begin{array}{rcl}
+\displaystyle \int \frac{\diff x}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2\diff t}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{\diff t}{3t^2+2t+2}
+\end{array}
+\]
+We substitute $t=z-1/3$. Therefore $\diff t=\diff z$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3z^2+5/3= 5/3(9/5z^2+1)= 5/3((3/\sqrt{5}z)^2+1)$. We substitute $3/\sqrt{5}z=w$, $\diff t=\diff z=\sqrt{5}/3dw$. Finally we get 
+\[
+\begin{array}{rcl}
+\displaystyle \int \frac{\diff t}{3t^2+2t+2}&=& \displaystyle \int \frac{\frac{\sqrt{5}}{3}dw}{\frac{5}{3}(w^2+1)}= \frac{\sqrt{5}}{5}\arctan w+C\\
+&=&\displaystyle \frac{\sqrt{5}}{5}\arctan\left( \frac{\sqrt{5}}{5}(3t+1) \right)+C\\
+&=&\displaystyle \frac{\sqrt{5}}{5}\arctan \left(\frac{3\tan \left(\frac{x}{2}\right)+1}{\sqrt{5}}\right)+C\quad .
+\end{array}
+\]
+\end{solution}
+\subsection{Trigonometric integrals: quick ad hoc methods}
+
+\section{Integrals of the form $\int R(x, \sqrt{ax^2+bx+c}) \diff x$}
+Let $R$ be a rational function in two variables. We recall that a rational function in two variables is simply a quotient of two polynomials in two variables. An example of a rational function in two variables would be $R(z,w)= \frac{zw+1}{z+w}$.
+
+Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions (by ``completing the square'') to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$. In Section \ref{secEulerIntegralsAndLinearSubstitutions} we shall exercise ourselves on such linear substitutions. In the later sections we will handle separately each type of integral 
+\[
+\int R(x, \sqrt{x^2+1})\diff x\qquad , \int R(x, \sqrt{-x^2+1})\diff x, \qquad \int R(x, \sqrt{x^2-1})\diff x\quad .
+\] 
+\subsection{Linear substitutions transforming $\sqrt{ax^2+bx+c}$ to $\sqrt{u^2+1},\sqrt{-u^2+1}, \sqrt{u^2-1} $} \label{secEulerIntegralsAndLinearSubstitutions}
+
 \subsection{Euler substitution for $\int R(x,\sqrt{x^2+1})\diff x$} 
 Let $R$ be a rational function in two variables. Integrals of the form 
 \[
@@ -2391,7 +2477,7 @@ x&=&\displaystyle 1-\frac{2}{t^2+1}\\
 \end{array}
 \] 
 
-\subsection{Euler substitution for $\int R(x,\sqrt{x^2-1})\diff x$} 
+\subsection{Euler substitution for $\int R(x, \sqrt{x^2 -1}) \diff x$} 
 Let $R$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{x^2-1})\diff x
@@ -2487,69 +2573,18 @@ Integrate
 \int \frac{x\diff x}{(1-x^3)\sqrt{1-x^2}}\quad .
 \]
 \end{problem}
-
-\section{Trigonometric integrals}
-\subsection{Integrating arbitrary trigonometric integrals}
+\subsection{Alternative method: trigonometric substitution}
 Let $R$ be a rational function in two variables. Integrals of the form 
 \[
-\int R(\sin x,\cos x )\diff y
+\int R(x, \sqrt{x^2+1})\diff x\qquad , \int R(x, \sqrt{-x^2+1})\diff x, \qquad \int R(x, \sqrt{x^2-1})\diff x
 \] 
-can be transformed to integrals of rational functions via the substitution $x= 2\arctan t$. To see how $\cos x$ and $\sin x$ are expressed via $t$ we need a little algebra. First we recall the formulas 
-\begin{equation}\label{eqsin2zViaTanzcos2zViaTanz}
-\begin{array}{rcll|l}
-\cos (2z)&=& \displaystyle \cos^2 z- \sin^{2}z\\
-&=&\displaystyle \frac{\cos^{2}z- \sin^{2}z}{\cos^2z+\sin^2z}\\
-&=&\displaystyle \frac{\left(\cos^{2}z- \sin^{2}z\right)\frac{1}{\cos^2 z}}{\left(\cos^2z+\sin^2z\right)\frac{1}{\cos^2 z}}\\
-&=&\displaystyle \frac{1-\tan^2 z}{1+\tan^2z}\quad ,\\~\\
-\sin(2z)&=& 2\sin z \cos z\\
-&=&\displaystyle \frac{2\sin z \cos z}{\cos^2z+\sin^2z}\\
-&=&\displaystyle \frac{2\sin z \cos z}{\left(\cos^2z+\sin^2z\right)} \frac{\frac{1}{\cos^2z}}{\frac{1}{\cos^2z}}\\
-&=&\displaystyle \frac{2\tan z}{1+\tan^2z}
-\end{array}
-\end{equation}
-We are ready to express $\cos x$ and $\sin x$ via $t$:
-\[
-\begin{array}{rcll|l}
-\cos x&=& \cos \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
-&=&\displaystyle \frac{1- \tan^2(\arctan x)}{1+\tan^2(\arctan x)}\\
-&=&\displaystyle  \frac{1- t^2}{1+t^2}\quad ,\\~\\
-\sin (x)&=& \sin \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
-&=&\displaystyle \frac{2\tan(\arctan x)}{1+\tan^2(\arctan x)}\\
-&=&\displaystyle  \frac{2t}{1+t^2}\quad .
-\end{array}
-\]
-The differential $\diff x$ can expressed via $\diff t$ from $x=2\arctan t$.
-The $x=2\arctan t$ substitution can be now summarized as:
-\[
-\begin{array}{rcl}
-\cos x&=& \frac{1- t^2}{1+t^2} \\
-\sin x&=&\frac{2t}{1+t^2}\\
-\diff x&=&\frac{2}{t^2+1}\diff t\quad .\\
-\end{array}
-\] 
+can be computed using an alternative method called trigonometric substitution. The trigonometric substitutions transform an integral of the above form to a trigonometric rational integral, which we already know how to solve from Section \ref{secTrigIntegrals}.
 
-\subsubsection{Examples of trigonometric integrals}
-Integrate 
-\[
-\int \frac{\diff x}{2\sin x-\cos x +5}\quad .
-\]
-\begin{solution}
-Set $x=2\arctan t$. Therefore 
-\[
-\begin{array}{rcl}
-\displaystyle \int \frac{\diff x}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2\diff t}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{\diff t}{3t^2+2t+2}
-\end{array}
-\]
-We substitute $t=z-1/3$. Therefore $\diff t=\diff z$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3z^2+5/3= 5/3(9/5z^2+1)= 5/3((3/\sqrt{5}z)^2+1)$. We substitute $3/\sqrt{5}z=w$, $\diff t=\diff z=\sqrt{5}/3dw$. Finally we get 
-\[
-\begin{array}{rcl}
-\displaystyle \int \frac{\diff t}{3t^2+2t+2}&=& \displaystyle \int \frac{\frac{\sqrt{5}}{3}dw}{\frac{5}{3}(w^2+1)}= \frac{\sqrt{5}}{5}\arctan w+C\\
-&=&\displaystyle \frac{\sqrt{5}}{5}\arctan\left( \frac{\sqrt{5}}{5}(3t+1) \right)+C\\
-&=&\displaystyle \frac{\sqrt{5}}{5}\arctan \left(\frac{3\tan \left(\frac{x}{2}\right)+1}{\sqrt{5}}\right)+C\quad .
-\end{array}
-\]
-\end{solution}
-\subsubsection{Exercises}
+\subsubsection{Trigonometric substitution for $\int R(x, \sqrt{ x^2 +1})\diff x$}
+
+\subsubsection{} 
+
+\section{Exercises}
 \begin{problem}
 Solve the integral. Illustrate each step of your solution.
 \[
