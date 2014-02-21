@@ -1,43 +1,6 @@
-\documentclass{article}
-\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
-\usepackage{auto-pst-pdf}
-\usepackage{pst-plot}
-%\usepackage{pst-solides3d}
-%\usepackage{pst-3dplot}
-\usepackage{../pstricks-commands}
-
-\usepackage{../homework-problems}
-
-
-\renewcommand{\Re}{\mathrm{Re~}}
-\renewcommand{\Im}{\mathrm{Im~}}
-\newtheorem{problem}{Problem}
-
-
-%\title{Exam II\\ Math 140 Calculus I \\Instructor: Todor Milev}
-%\date{April 9 2012}
-\begin{document}
-\begin{center}
-\Large
-Solution: problem 5, review problems Test 1\\ Math 140 Calculus I \\ \normalsize Instructor: Todor Milev
-\end{center}
-
-%\noindent \textbf{Name:} \hfill{~}
-%\begin{tabular}{c|c|c|c|c|c|c|c|c||c}
-%Problem&1 &2&3&4&5&6&7&8& $\sum$\\ \hline
-%Score&&&&&&&&&\\ \hline
-%Max&20&20&20&20&20&10&20&20&150
-%\end{tabular} 
-
-
-\begin{problem}~
 \begin{enumerate}
-\item (a) Solve the equation $x^2+13x+41=1$.  (b) Use the intermediate value theorem to prove that the equation 
-\begin{equation}\label{eqProblemRevew5.1}
-x^2+13x+41=\sin  x
-\end{equation} has at least two solutions, lying between the two numbers found in (a).
-\end{enumerate}
-\end{problem}
+\item (a) Solve the equation $x^2+13x+41=1$.  (b) Use the intermediate value theorem to prove that the equation $x^2+13x+41=\sin  x$ has at least two solutions, lying between the two numbers found in (a).
+\solution{
 \textbf{Solution.} 
 
 \noindent (a) 
@@ -87,5 +50,8 @@ Below is a computer generated plot of the function with the use of which we can 
 \rput(-6.5,3){$y=x^{2}+41+13 x- \sin x$} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-9}{-4}{x 57.29578 mul sin -1 mul x 13 mul 41 x 2 exp add add add }
 
-\end{pspicture} 
-\end{document}
+\end{pspicture}
+}
+
+\item (a) Solve the equation $x^2-15x+55=1$.  (b) Use the intermediate value theorem to prove that the equation $x^2-15x+55=\cos  x$ has at least two solutions, lying between the two numbers found in (a).
+\end{enumerate}
