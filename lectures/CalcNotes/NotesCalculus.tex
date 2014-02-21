@@ -115,7 +115,7 @@
 
 \newenvironment{proof}[1][]{ \textbf{Proof#1.} }{$\Box$\medskip}
 \newenvironment{proofOptional}[1][]{ \noindent \textbf{(Optional) Proof#1.}}{$\Box$\medskip}
-\newenvironment{solution}{\textbf{Solution.} }{$\Box$}
+\newenvironment{solution}{\medskip\noindent\textbf{Solution.} }{$\Box$}
 \newtheorem{problem}{Problem}[section]
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{criterion}[theorem]{Criterion}
@@ -131,7 +131,7 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{}
+\newcommand{\optionalDisplay}[1]{#1}
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -371,7 +371,7 @@ f^{n}(x)= \left\{ \begin{array}{ll}\text{stands for } \left(f(x)\right)^n & \tex
 \text{should not be used }  & \text{when } n\neq -1, 1,2,3,\dots .
 \end{array} \right.
 \]
-\textbf{Advice.} To avoid confusion, use whenever possible/convenient the completely unambiguous $\frac{1}{f(x)}$ instead of   $\left(f(x)\right)^{-1}$.
+\textbf{Advice.} To avoid confusion, use whenever possible/convenient use the completely unambiguous $\frac{1}{f(x)}$ instead of $\left(f(x)\right)^{-1}$.
 
 \importantText{
 \begin{tabular}{l}
@@ -1183,7 +1183,7 @@ The limit \eqref{eq(1+x/n)^n=e^x} can be used as an alternative definition of $e
 
 The limit \eqref{eq(1+x/n)^n=e^x} has important theoretical and practical applications. For example, if a compound interest of $ k\%$ is accumulated over $100/k $ compounding periods, the accumulation of the sum of money is 
 \[
-(1+\frac{k}{100})^{\frac{100}{k}}, 
+\left(1+\frac{k}{100}\right)^{\frac{100}{k}}, 
 \]
 which, if $k$ is small, is an approximation for $e$.
 
@@ -1204,9 +1204,9 @@ where we recall that $i$ stands for the imaginary unit ($i^2=-1$).
 \begin{theorem}\label{thSinCosMaclaurinSeries} We have the following equalities
 \begin{equation}\label{eqSinCosMaclaurinSeries}
 \begin{array}{rcl}
-\cos x= &=&1-\frac{x^2}{2}+ \frac{x^4}{4!}- \frac{x^6}{6!} +\dots - \frac{x^{4n+2}}{(4n+2)!}+ \frac{x^{4n+4}}{ (4n+4)!} +\dots\\
+\cos x= &=&\displaystyle 1-\frac{x^2}{2}+ \frac{x^4}{4!}- \frac{x^6}{6!} +\dots - \frac{x^{4n+2}}{(4n+2)!}+ \frac{x^{4n+4}}{ (4n+4)!} +\dots\\
 &=& \displaystyle \sum_{n=0}^\infty (-1)^n \frac{x^{2n} }{ (2n)!} \\
-\sin x& =& x-\frac{x^3}{3!}+ \frac{x^5}{5!}- \frac{x^7}{7!} +\dots + \frac{x^{4n+1}}{(4n+1 )!}- \frac{x^{4n+3}}{ (4n+3)!} +\dots\\
+\sin x& =&\displaystyle  x-\frac{x^3}{3!}+ \frac{x^5}{5!}- \frac{x^7}{7!} +\dots + \frac{x^{4n+1}}{(4n+1 )!}- \frac{x^{4n+3}}{ (4n+3)!} +\dots\\
 &=&\displaystyle \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n+1}}{ (2n+1)!} \quad .
 \end{array}
 \end{equation}
@@ -1215,11 +1215,11 @@ where we recall that $i$ stands for the imaginary unit ($i^2=-1$).
 \[
 \begin{array}{rcl}
 \displaystyle\cos(x)&=& \displaystyle \frac{e^{ix}+e^{-ix}}{2}= \frac 12 \left(\sum_{i=0}^\infty (ix)^{n}+ \sum_{i=0}^\infty (-ix)^{n}\right)\\
-&=& \phantom{+} \frac12\left( 1+ \cancel{ix} + \frac{(ix)^2}2 +\cancel{\frac{(ix)^3}6}+\dots + \frac{(ix)^{2n}}{(2n)!}+ \cancel{\frac{(ix)^{2n+1}}{(2n+1)!}} +\dots \right)
+&=&\displaystyle  \phantom{+} \frac12\left( 1+ \cancel{ix} + \frac{(ix)^2}2 +\cancel{\frac{(ix)^3}6}+\dots + \frac{(ix)^{2n}}{(2n)!}+ \cancel{\frac{(ix)^{2n+1}}{(2n+1)!}} +\dots \right)
 \\
-&&+  \frac12\left( 1-\cancel{ix} + \frac{(-ix)^2}2 +\cancel{\frac{(-ix)^3}6}+\dots + \frac{(-ix)^{2n}}{(2n)!}+ \cancel{\frac{(-ix)^{2n+1}}{(2n+1)!}}+\dots \right)\\
-&=& 1+\underbrace{i^2}_{=-1}\frac{x^{2}}2+\underbrace{i^4}_{=1}\frac{x^{4}}{4!}+\dots\\
-&=&1-\frac{x^2}{2}+\frac{x^4}{4!}-\frac{x^6}{6!}+\dots -\frac{x^{4n+2}}{(4n+2)!}+ \frac{x^{4n+4}}{(4n+4)!}+\dots\\
+&&\displaystyle +  \frac12\left( 1-\cancel{ix} + \frac{(-ix)^2}2 +\cancel{\frac{(-ix)^3}6}+\dots + \frac{(-ix)^{2n}}{(2n)!}+ \cancel{\frac{(-ix)^{2n+1}}{(2n+1)!}}+\dots \right)\\
+&=&\displaystyle  1+\underbrace{i^2}_{=-1}\frac{x^{2}}2+\underbrace{i^4}_{=1}\frac{x^{4}}{4!}+\dots\\
+&=&\displaystyle  1-\frac{x^2}{2}+ \frac{x^4}{4!}- \frac{x^6}{6!} + \dots -\frac{x^{4n+2}}{(4n+2)!}+ \frac{x^{4n+4}}{(4n+4)!}+\dots\\
 &=&\displaystyle \sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!}
 \end{array}
 \]
@@ -1227,11 +1227,11 @@ where we recall that $i$ stands for the imaginary unit ($i^2=-1$).
 
 \[
 \begin{array}{rcl}
-\displaystyle\sin(x)&=& \frac{e^{ix}-e^{-ix}}{2i}=\displaystyle \frac {-i}{2} \left(\sum_{i=0}^\infty (ix)^{n}- \sum_{i=0}^\infty (-ix)^{n}\right)\\
-&=&-\frac{i}{2}\left(\cancel{1} + ix + \cancel{\frac{(ix)^2}2} +{\frac{(ix)^3}6}+\dots + \cancel{\frac{(ix)^{2n}}{(2n)!}}+ {\frac{(ix)^{2n+1}}{(2n+1)!}} +\dots \right)\\
-&&+  \frac{i}{2}\left(\cancel{1} -{ix} + \cancel{\frac{(-ix)^2}2} +{\frac{(-ix)^3}6}+\dots + \cancel{\frac{(-ix)^{2n}}{(2n)!}}+ {\frac{(-ix)^{2n+1}}{(2n+1)!}}+\dots \right)\\
-&=&- \underbrace{i^2}_{=-1}x-\underbrace{i^4}_{=1}\frac{x^3}{3!}-\underbrace{i^{6}}_{=-1}\frac{x^5}{5!} -\dots\\
-&=&x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots +\frac{x^{4n+1}}{(4n+1)!}- \frac{x^{4n+3}}{(4n+3)!}+\dots\\
+\displaystyle\sin(x)&=&\displaystyle  \frac{e^{ix}- e^{-ix}}{2i} = \displaystyle \frac {-i}{2} \left(\sum_{i=0}^\infty (ix)^{n}- \sum_{i=0}^\infty (-ix)^{n}\right) \\
+&=&\displaystyle -\frac{i}{2}\left(\cancel{1} + ix + \cancel{\frac{(ix)^2}2} +{\frac{(ix)^3}6}+\dots + \cancel{\frac{(ix)^{2n}}{(2n)!}}+ {\frac{(ix)^{2n+1}}{(2n+1)!}} +\dots \right)\\
+&&\displaystyle  +  \frac{i}{2}\left(\cancel{1} -{ix} + \cancel{\frac{(-ix)^2}2} +{\frac{(-ix)^3}6}+\dots + \cancel{\frac{(-ix)^{2n}}{(2n)!}}+ {\frac{(-ix)^{2n+1}}{(2n+1)!}}+\dots \right)\\
+&=&\displaystyle  - \underbrace{i^2}_{=-1} x-\underbrace{i^4}_{=1} \frac{x^3}{3!}- \underbrace{i^{6}}_{=-1} \frac{x^5}{5!} -\dots\\
+&=&\displaystyle  x-\frac{x^3}{3!}+ \frac{x^5}{5!} -\frac{x^7}{7!} +\dots +\frac{x^{4n+1}}{(4n+1)!}- \frac{x^{4n+3}}{(4n+3)!}+\dots\\
 &=&\displaystyle \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}\quad .
 \end{array}
 \]
@@ -1252,9 +1252,10 @@ We look at the power series for $\sin x$ and $\cos x$ given by \eqref{eqSinCosMa
 \begin{proofOptional}
 \begin{equation*}
 \begin{array}{rcl}
-\sin^2 z +\cos^2 z&=& \frac{(e^{iz}+e^{-iz})^2}{2^2}+\frac{(e^{iz}+e^{-iz})^2}{(2i)^2}=\\
-&=&\frac{ \cancel{(e^{iz})^2} + 2 e^{iz}e^{-iz} + \cancel{(e^{-iz})^2}}{4} \\
-&&-\frac{(\cancel{(e^{iz})^2}-2e^{iz}e^{-iz} + \cancel{(e^{-iz})^2})}{4} \\&=& e^{iz}e^{-iz}= e^{iz-iz}=e^0=1\quad .
+\sin^2 z +\cos^2 z&=&\displaystyle  \frac{(e^{iz} + e^{-iz})^2 }{2^2} + \frac{(e^{iz}+e^{-iz})^2}{(2i)^2}=\\
+&=&\displaystyle \frac{ \cancel{(e^{iz})^2} + 2 e^{iz}e^{-iz} + \cancel{(e^{-iz})^2}}{4} \\
+&&\displaystyle -\frac{(\cancel{(e^{iz})^2}-2e^{iz}e^{-iz} + \cancel{(e^{-iz})^2})}{4} \\
+&=& \displaystyle e^{iz}e^{-iz}= e^{iz-iz}=e^0=1\quad .
 \end{array}
 \end{equation*}
 \end{proofOptional}
@@ -1275,7 +1276,7 @@ e^{iz}= \cos z+ i\sin z \quad .
 \[
 \begin{array}{rcl}
 \displaystyle e^{iz}&=&\displaystyle  \frac{2}{2}e^{iz}= \frac{2e^{iz} + e^{-iz} - e^{-iz}}{2} = \frac{e^{iz}+e^{-iz}}2 +\frac{e^{iz}-e^{-iz}}2\\
-&=& \cos z + \frac{i(e^{iz}-e^{-iz})}{2i}\\
+&=&\displaystyle  \cos z + \frac{i(e^{iz}-e^{-iz})}{2i}\\
 &=& \displaystyle \cos z+i \sin z\quad .
 \end{array}
 \]
@@ -1299,15 +1300,20 @@ Now since both $x,y$ are real the only way to satisfy the above equality is to h
 To give a proof for arbitrary complex numbers one has to do a slightly longer computation, as the following proof shows.
 
 \begin{proofOptional}[ of Theorem \ref{thSinCosAngleSum}]
+This is a straightforward computation:
 \[
-\begin{array}{rcl}
-\cos x \cos y - \sin x \sin y&=& \frac{(e^{ix}+e^{-ix})(e^{iy}+e^{-iy})}4 -\frac{(e^{ix}-e^{-ix})(e^{iy}-e^{-iy}) }{4i^2}\\
-&=& \frac{ e^{i(x+y)}+ \cancel{e^{i(y-x)}}+{e^{-i(x+y)}} + \cancel{e^{i(x-y)}} +e^{i(x+y)}+e^{-i(x+y)}- \cancel{e^{i(x-y)}}-\cancel{e^{i(y-x)}} }4\\
-&=& \cos(x+y)\\
-\sin x \cos y + \cos x \sin y&=& \frac{(e^{ix}-e^{-ix})(e^{iy}+e^{-iy})}{4i} +\frac{(e^{ix}+e^{-ix})(e^{iy}-e^{-iy}) }{4i}\\
-&=& \frac{ e^{i(x+y)}- \cancel{e^{i(y-x)}}-{e^{-i(x+y)}} + \cancel{e^{i(x-y)}} +e^{i(x+y)}-e^{-i(x+y)}- \cancel{e^{i(x-y)}}+\cancel{e^{i(y-x)}} }4\\
-&=& \sin(x+y)
-
+\begin{array}{l}
+\cos x \cos y - \sin x \sin y \\
+\displaystyle= \frac{(e^{ix}+e^{-ix})(e^{iy}+e^{-iy})}4 -\frac{(e^{ix}-e^{-ix})(e^{iy}-e^{-iy}) }{4i^2}\\
+\displaystyle = \frac{ e^{i(x+y)}+ \cancel{e^{i(y-x)}}+{e^{-i(x+y)}} + \cancel{e^{i(x-y)}} +e^{i(x+y)}+e^{-i(x+y)}- \cancel{e^{i(x-y)}}-\cancel{e^{i(y-x)}} }4\\
+= \cos(x+y)\quad .\end{array}
+\]
+The proof for $\sin(x+y)$ is similar:
+\[\begin{array}{l}
+\sin x \cos y + \cos x \sin y\\
+= \displaystyle\frac{(e^{ix}-e^{-ix})(e^{iy}+e^{-iy})}{4i} +\frac{(e^{ix}+e^{-ix})(e^{iy}-e^{-iy}) }{4i}\\
+=\displaystyle\frac{ e^{i(x+y)}- \cancel{e^{i(y-x)}}-{e^{-i(x+y)}} + \cancel{e^{i(x-y)}} +e^{i(x+y)}-e^{-i(x+y)}- \cancel{e^{i(x-y)}}+\cancel{e^{i(y-x)}} }4\\
+=\displaystyle \sin(x+y)\quad .
 \end{array}
 \]
 \end{proofOptional}
@@ -1566,9 +1572,9 @@ Plot the number $z$ on the complex plane (you may use one drawing only for all t
 \item $z=3+4i$.
 \end{enumerate}
 \end{problem}
-\begin{solution} \textbf{\ref{probComplexLogs}.\ref{prob1plussqrt3} (long version).}
+\begin{solution} [ of problem  \ref{probComplexLogs}.\ref{prob1plussqrt3}.] 
 
-We have that 
+\noindent Solution I. We have that 
 \[
 |z|=\sqrt{z\bar z}= \sqrt{(1+i\sqrt{3})(1-i\sqrt{3})}=\sqrt{1^2+\sqrt{3}^2}=\sqrt{4}=2\quad .
 \]
@@ -1624,17 +1630,22 @@ for all $k\in \mathbb Z$. To finish the task we need to plot the number $z$.
 \end{pspicture*}
 } %optionalDisplay
 
-\textbf{Solution \ref{probComplexLogs}.\ref{prob1plussqrt3} (short version).} We draw the number $z$ as above. We compute that $\sin \varphi = \frac{\Im z}{|z|}= \sqrt{3}/2$, $\cos \varphi= \frac{\Re z}{|z|}=1/2$. Therefore we have that
+\noindent Solution II. We draw the number $z$ as above. We compute that $\sin \varphi = \frac{\Im z}{|z|}= \sqrt{3}/2$, $\cos \varphi= \frac{\Re z}{|z|}=1/2$. Therefore we have that
 \[
 1+i\sqrt{3}= e^{\ln|1+i\sqrt{3}| + i(\frac{\pi}3 +2k\pi)}= e^{\ln 2 + i(\frac{\pi}3 +2k\pi)}\quad .
 \] 
+\end{solution}
 
-\textbf{Solution \ref{probComplexLogs}.\ref{prob2plus3i}. } We draw the number as indicated on the figure. We compute that $\sin \varphi =-\frac{3}{\sqrt{13}}$, $\cos \varphi=-\frac{2}{\sqrt{13}}$, $\tan \varphi = \frac{3}{2}$. By the convention of our course, $\arctan \varphi\in (-\frac{\pi}{2}, \frac{\pi}{2})$. Therefore $\varphi= \left(\arctan\left(\frac{3}{2}\right) +\pi\right)+2k\pi $ for all $k\in \mathbb Z$. Finally, we get
+\begin{solution}
+[of \ref{probComplexLogs}.\ref{prob2plus3i}. ]
+
+We draw the number as indicated on the figure. We compute that $\sin \varphi =-\frac{3}{\sqrt{13}}$, $\cos \varphi=-\frac{2}{\sqrt{13}}$, $\tan \varphi = \frac{3}{2}$. By the convention of our course, $\arctan \varphi\in (-\frac{\pi}{2}, \frac{\pi}{2})$. Therefore $\varphi= \left(\arctan\left(\frac{3}{2}\right) +\pi\right)+2k\pi $ for all $k\in \mathbb Z$. Finally, we get
 \[
 \begin{array}{rcl}
 -2-3i&=& e^{\ln|-2-3i| + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)}= e^{\ln \sqrt{13}  + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)} \\&=&  e^{\frac{1}2\ln 13  + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)}\quad .
 \end{array}
 \] 
+
 \end{solution}
 \begin{problem}
 Simplify the expressions.
@@ -2513,14 +2524,14 @@ x&=&\displaystyle 1+\frac{2}{t^2-1}\\
 \begin{problem}
 Integrate 
 \[
-\int \sqrt{x^2+1}\diff x\quad .
+\int \sqrt{(x^2+1)}\diff x\quad .
 \]
 \end{problem}
 \begin{solution}
-We carry out the substitution $t=\sqrt{x^2+1}-x$ described in \ref{eqEulerSub1}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac12 \left(\frac1{t^2} +1\right)\diff t$ to get
+We carry out the Euler substitution $t=\sqrt{x^2+1}-x$ given in \ref{eqEulerSub1}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac12 \left(\frac1{t^2} +1\right)\diff t$ to get
 \[
 \begin{array}{rcl}
-\displaystyle\int \sqrt{x^2+1}\diff x&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)\diff t=-\frac 1 4\int (\frac{1}{t^3}+2\frac{1}t+t)\diff t\\
+\displaystyle\int \sqrt{(x^2+1)}\diff x&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)\diff t=-\frac 1 4\int (\frac{1}{t^3}+2\frac{1}t+t)\diff t\\
 &=&\displaystyle -\frac{1}4 \left(-\frac{t^{-2}}{2}+2\ln|t|+\frac{t^2}2 \right)\\
 &=&\displaystyle\frac{1}{8} \left(\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2\right)-\frac12 \ln (\sqrt{x^2+1}-x)
 \end{array}
@@ -2539,7 +2550,7 @@ The expression $\ln (\sqrt{x^2+1}-x)$ can be transformed to
 Finally, we get 
 \[
 \begin{array}{rcl}
-\displaystyle \int \sqrt{x^2+1}\diff x&=&\frac{1}2\left(x\sqrt{x^2+1}+\ln (\sqrt{x^2+1}+x) \right)\quad .
+\displaystyle \int \sqrt{(x^2+1)}\diff x&=&\frac{1}2\left(x\sqrt{x^2+1}+\ln (\sqrt{x^2+1}+x) \right)\quad .
 \end{array}
 \]
 \end{solution}
@@ -2578,8 +2589,13 @@ Let $R$ be a rational function in two variables. Integrals of the form
 \[
 \int R(x, \sqrt{x^2+1})\diff x\qquad , \int R(x, \sqrt{-x^2+1})\diff x, \qquad \int R(x, \sqrt{x^2-1})\diff x
 \] 
-can be computed using an alternative method called trigonometric substitution. The trigonometric substitutions transform an integral of the above form to a trigonometric rational integral, which we already know how to solve from Section \ref{secTrigIntegrals}.
+can be computed using an alternative method called trigonometric substitution. The trigonometric substitutions transform an integral of the above form to a trigonometric rational integral, which we already know how to solve from Section \ref{secTrigIntegrals}. 
 
+\begin{tabular}{ccc}
+
+\end{tabular}
+
+The trigonometric substitutions are presented in the table above in what follows we elaborate on each of the cases and explain the relation between trigonometric and Euler substitutions.  
 \subsubsection{Trigonometric substitution for $\int R(x, \sqrt{ x^2 +1})\diff x$}
 
 \subsubsection{} 
@@ -4510,7 +4526,7 @@ In an analogous fashion we can prove that
 which completes the proof of the theorem.
 \end{proof}
 
-\section{Polar coordinates}
+\chapter{Polar coordinates}
 Polar coordinates of a point $P=(x,y)$ in the plane are any two numbers $(r, \theta)$, $r\geq 0$, for which $(x,y)=(r\cos\theta, r\sin \theta)$. In other words, the relation between the Cartesian coordinates $(x,y)$ and the polar coordinates $(r,\theta)$ of a point $P$ is given by 
 \[
 \left|\begin{array}{rcl}
