@@ -12,6 +12,11 @@
 \usepackage{pst-math}
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{cancel}
+\usepackage{caption}
 
 % To make everything into one file, we include the following style file directly.
 % This might need to be updated over time.
@@ -97,13 +102,6 @@
 
 \newcommand{\diff}{\text{\normalfont d}}
 
-\usepackage{multicol}
-\usepackage{rotating}
-
-\usepackage{cancel}
-\usepackage{caption}
-%\usepackage{pstricks}
-
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\Re}{\mathrm{Re}}
 \newcommand{\eqdef}{\textbf{:=}}
@@ -125,8 +123,9 @@
 \newtheorem{example}[theorem]{Proposition}
 
 
-\DeclareMathOperator{\arsinh}{arsinh}
-\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arcosh}
 \DeclareMathOperator{\arctanh}{arctanh}
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
@@ -1947,7 +1946,7 @@ Definition of hyperbolic sine, hyperbolic cosine and hyperbolic tangent.
 
 Derivative of $\sinh z$, $\cosh z$, $\tanh z$, $\coth z$.
 
-Derivative of $ \arsinh z$, $ \arcosh z$, $ \arctanh z$.
+Derivative of $ \arcsinh z$, $ \arccosh z$, $ \arctanh z$.
 %\end{comment}
 \chapter{Techniques of integration}
 \section{Integration by parts}
@@ -2021,7 +2020,7 @@ Compute $\displaystyle\int \arctan x \diff x$.
 \begin{array}{rcl}
 \displaystyle\int \arctan x \diff x &=& x\displaystyle \arctan x - \int x d(\arctan x)= x\arctan x - \int \frac{x}{x^2+1}\diff x\\
 &=& \displaystyle  x\arctan x - \int \frac{\frac{1}2d(x^2)}{x^2+1}=  x\arctan x - \int \frac{\frac{1}2d(x^2+1)}{x^2+1}\\
-&=& x\arctan x - \frac12\ln (x^2+1) +C\quad .
+&=&\displaystyle  x\arctan x - \frac12\ln (x^2+1) +C\quad .
 \end{array}
 \]
 \end{solution}
@@ -2130,7 +2129,8 @@ Let $\frac{N(x)}{D(x)}$ be a proper fraction, and let $D(x)$ be factorized as in
 \end{equation}
 The constants $A_{js}, B_{js}, C_{js}$ are real numbers and may be extracted by clearing the denominators in the above identity and comparing the coefficients in front of $x$.
 Using linear substitutions, integrals of the form 
-\[\displaystyle\int \frac{A}{(x-x_j)^s}\diff x,
+\[
+\displaystyle\int \frac{A}{(x-x_j)^s}\diff x,
 \] 
 and
 \[
@@ -2206,7 +2206,7 @@ In this section we summarize the algorithm for integrating rational functions $\
 \]
 \item Factor $D(x)$, i.e., produce the decomposition \eqref{eqFactorOverReals}. In many problems, $D(x)$ will be presented to you in already factored form.
 \item Split $\frac{R(x)}{D(x)}$ into partial fractions, i.e., write it in the form \eqref{eqSplitPF}. 
-\item Using linear substitutions, transform each partial fraction into a multiple of one of the ``building block'' integrals  $\int \frac{1}{1+y^2}\diff y$, $\int \frac{1}{(1+y^2)^n}\diff y$, $n\geq 2$, $\int \frac{y}{(1+y^2)^n}\diff y$, $\int \frac{1}{y+C}\diff y$, $\int \frac{1}{(y+C)^n}\diff y$, $n\geq 2$.
+\item Using linear substitutions, transform each partial fraction into a multiple of one of the ``building block'' integrals $\displaystyle \int \frac{1}{(1+y^2)^n}\diff y$, $\displaystyle \int \frac{y}{(1+y^2)^n}\diff y$, $\displaystyle \int \frac{1}{(y+C)^n}\diff y$, $n\geq 2$.
 \item Solve the ``building blocks'' integrals as we did earlier in this section.
 \item Collect the ``building blocks'' to a single answer.
 \item Check your answer with one of the following techniques. 
@@ -2352,7 +2352,7 @@ Check first that $x^{4}+4x^{3} +3x^{2} -4x -4=(x-1)(x+2)^2(x+1)$.
 \end{problem}
 
 \section{Trigonometric integrals}\label{secTrigIntegrals}
-\subsection{\optionalMaterial Integration of arbitrary rational trigonometric integrals}
+\subsection{\optionalMaterial Integration of arbitrary rational trigonometric integrals}\label{secTrigIntegralsWith2Arctan}
 Let $R$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(\sin x,\cos x )\diff y
@@ -2387,7 +2387,8 @@ The substitution $x=2\arctan t$ can be summarized as:
 \begin{array}{rcl}
 \cos x&=&\displaystyle  \frac{1- t^2}{1+t^2} \\
 \sin x&=&\displaystyle \frac{2t}{1+t^2}\\
-\diff x&=&\displaystyle \frac{2}{t^2+1}\diff t\quad .\\
+\diff x&=&\displaystyle \frac{2}{t^2+1}\diff t \\
+t&=&\displaystyle \tan \left(\frac x 2\right)
 \end{array}
 \] 
 
@@ -2416,16 +2417,45 @@ We substitute $t=z-1/3$. Therefore $\diff t=\diff z$ and $3t^2+2t+2=3z^2-2z+1/3+
 \end{solution}
 \subsection{Trigonometric integrals: quick ad hoc methods}
 
-\section{Integrals of the form $\int R(x, \sqrt{ax^2+bx+c}) \diff x$}
+\section{Integrals of the form $\displaystyle \int R(x, \sqrt{ax^2+bx+c}) \diff x$}
 Let $R$ be a rational function in two variables. We recall that a rational function in two variables is simply a quotient of two polynomials in two variables. An example of a rational function in two variables would be $R(z,w)= \frac{zw+1}{z+w}$.
 
-Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions (by ``completing the square'') to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$. In Section \ref{secEulerIntegralsAndLinearSubstitutions} we shall exercise such linear substitutions. In the later sections we will handle separately each type of integral 
-\[
-\int R(x, \sqrt{x^2+1})\diff x\qquad  , \int R(x, \sqrt{-x^2+1})\diff x \qquad ,\int R(x, \sqrt{x^2-1})\diff x\quad .
-\] 
-\subsection{Linear substitutions transforming $\sqrt{ax^2+bx+c}$ to $\sqrt{u^2+1},\sqrt{-u^2+1}, \sqrt{u^2-1} $} \label{secEulerIntegralsAndLinearSubstitutions}
+Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions (by ``completing the square'') to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$. In Section \ref{secEulerIntegralsAndLinearSubstitutions} we shall exercise such linear substitutions to transform our integral to of one of the forms
+\begin{equation}\label{eqIntegralQuadraticRadicalX}
+\int R(x, \sqrt{x^2+1})\diff x,\qquad  \int R(x, \sqrt{-x^2+1})\diff x, \qquad  \int R(x, \sqrt{x^2-1})\diff x\quad .
+\end{equation}
+In the sections following \ref{secEulerIntegralsAndLinearSubstitutions} we will handle separately each of the above integrals using the substitutions from the table below.
 
-\subsection{Euler substitution for $\int R(x,\sqrt{x^2+1})\diff x$} 
+\noindent\begin{tabular}{|c|c|c|c|}
+\hline
+Expression & \multicolumn{1}{|c|}{\text{Substitution}}& Variable range      & Relevant identity\\
+\hline
+\multirow{2}{*}{$\sqrt{x^2+1}$} & $\displaystyle x=\frac{2t}{t^2-1}$ & $-1<t<1$ & $\displaystyle \sqrt{x^2+1}=\sqrt{\left(\frac{2t}{t^2-1}\right)^2+1}=\frac{t^2+1}{t^2-1} $\\
+&$x=\cot \theta$ &$0 < \theta < \pi $ & $1+\cot^2\theta =\csc^2\theta $ \\ \hline 
+\multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x = \sin \theta$ &  $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$ & $1 - \sin^2 \theta = \cos^2 \theta$\\
+& $x = \cos \theta$ & $0<\theta<\pi$& $1-\cos^2\theta=\cos^2\theta$ \\\hline 
+$\sqrt{x^2-1}$ & $x = \sec \theta$ & $0 \leq \theta < \frac{\pi}{2}$ or $\pi \leq \theta < \frac{3\pi}{2}$ & $\sec^2 - 1 = \tan^2  \theta$\\
+\hline
+\end{tabular}
+As an alternative method for solving the three integrals from \eqref{eqIntegralQuadraticRadicalX} we may also use the trigonometric substitutions from the table below. The trigonometric substitutions transform the integrals \eqref{eqIntegralQuadraticRadicalX} to trigonometric integrals. In turn, in Section \ref{secTrigIntegrals} we already studied how to solve all trigonometric integrals via the substitution $\theta=2\arctan t$. 
+
+\noindent\begin{tabular}{|c|c|c|c|}
+\hline
+\textrm{Expression} & \multicolumn{1}{|c|}{\text{Substitution}}& \text{Variable range}      & \text{Relevant identity}\\
+\hline
+\multirow{2}{*}{$\sqrt{x^2+1}$} & $x = \tan \theta$ &  $-\frac{\pi}{2} < \theta < \frac{\pi}{2}$ & $1 + \tan^2 \theta = \sec^2 \theta$\\
+&$x=\cot \theta$ &$0 < \theta < \pi $ & $1+\cot^2\theta =\csc^2\theta $ \\ \hline 
+\multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x = \sin \theta$ &  $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$ & $1 - \sin^2 \theta = \cos^2 \theta$\\
+& $x = \cos \theta$ & $0<\theta<\pi$& $1-\cos^2\theta=\cos^2\theta$ \\\hline 
+$\sqrt{x^2-1}$ & $x = \sec \theta$ & $0 \leq \theta < \frac{\pi}{2}$ or $\pi \leq \theta < \frac{3\pi}{2}$ & $\sec^2 - 1 = \tan^2  \theta$\\
+\hline
+\end{tabular}
+
+In what follows, we will show that applying first the trigonometric substitutions and then the substitution  $\theta=2\arctan t$ yields directly Euler substitutions. In this way, the two methods - Euler substitutions and trigonometric substitutions - are equivalent. 
+\subsection{Linear substitutions transforming $\displaystyle \sqrt{ax^2+bx+c}$ to $\displaystyle \sqrt{u^2+1},\sqrt{-u^2+1}, \sqrt{u^2-1} $} \label{secEulerIntegralsAndLinearSubstitutions}
+
+\subsection{Integral of the form $\displaystyle \int R(x,\sqrt{x^2+1})\diff x$} 
+\subsubsection{Euler substitution for $\displaystyle \int R(x,\sqrt{x^2+1})\diff x$ }
 Let $R$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{x^2+1})\diff x
@@ -2452,11 +2482,41 @@ The differential $\diff x$ can expressed via $\diff t$ from $x=\frac{1}{2} \left
 \begin{array}{rcl}
 x&=&\displaystyle \frac12\left(\frac{1}{t}- t\right)\\
 \displaystyle\sqrt{x^2+1}&=& \displaystyle \frac12 \left(\frac1t +t\right)\\ 
-\displaystyle \diff x&=&\displaystyle -\frac12\left(\frac{1}{t^2}+1\right) \diff t\quad .
+\displaystyle \diff x&=&\displaystyle -\frac12\left(\frac{1}{t^2}+1\right) \diff t\\
+t &=&\sqrt{x^2+1}-x\quad .
 \end{array}
 \end{equation}
 
-\subsection{Euler substitution for $\int R(x,\sqrt{-x^2+1})\diff x$} 
+\subsubsection{Trigonometric substitution for $\displaystyle \int R(x,\sqrt{x^2+1})\diff x$ }
+
+\[
+\begin{array}{rcll|l}
+\displaystyle \sqrt{ x^2+1}&=&\displaystyle \sqrt{\tan^2 \theta+1}\\
+&=&\displaystyle   \sqrt{\frac{\sin^2\theta}{\cos^2\theta}+1}\\
+&=&\displaystyle   \sqrt{ \frac{ \sin^2\theta+\cos^2 \theta}{\cos^2\theta}} \\
+&=& \displaystyle  \sqrt{\frac{1}{\cos^2\theta}} && \begin{array}{l}\displaystyle \text{when }\theta\in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \text{ we have }\\ ~ \cos \theta \geq 0\text{ and so } \sqrt{\cos^2 \theta}=\cos\theta  \end{array}\\
+&=&\displaystyle  \frac{1}{\cos \theta}= \sec \theta
+\end{array}
+\]
+The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\tan \theta$. The trigonometric substitution can be now summarized as:
+\[
+\begin{array}{rcl}
+x&=&\displaystyle \tan \theta\\
+\sqrt{x^2+1}&=&\displaystyle \frac{1}{\cos \theta}=\sec \theta\\
+\diff x&=&\displaystyle  \frac{\diff \theta}{\cos^2\theta}= \sec^2 \theta \diff \theta\\
+\theta& =& \arctan x
+\end{array}
+\]
+We recall that the substitution $\theta=2\arctan t$ transforms a trigonometric integral into an integral of a rational function. Let us explore what happens when we apply first the trigonometric substitution and then $\theta=2\arctan t$:
+\[
+\begin{array}{rcll|l}
+x&=&\displaystyle \tan \theta &&\text{use } \theta=2\arctan t\\
+&=&\displaystyle \tan \left(2\arctan t\right)&&\displaystyle  \text{use \eqref{eqSinCosViaTan}: } \tan 2z=\frac{\sin (2z)}{\cos (2z)}=\frac{2\tan z}{1-\tan^2 z}\\
+&=&\displaystyle \frac{2\tan (\arctan t)}{1-\tan^2 (\arctan t)}\\
+&=&\displaystyle \frac{2t}{1-t^2}=\left(\frac{1}{1-t} -\frac{1}{1+t} \right) &&\text{use partial fraction decomposition}\\
+\end{array}
+\]
+\subsection{Euler substitution for $\displaystyle \int R(x,\sqrt{-x^2+1})\diff x$} 
 Let $R$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{-x^2+1})\diff x
@@ -2484,11 +2544,13 @@ The differential $\diff x$ can expressed via $\diff t$ from  $x=1-\frac{2}{t^2+1
 \begin{array}{rcl}
 x&=&\displaystyle 1-\frac{2}{t^2+1}\\
 \sqrt{-x^2+1}&=&\displaystyle  \frac{2t}{t^2+1}\\
-\diff x&=&\displaystyle \frac{4t}{(t^2+1)^2}\diff t\quad .
+\diff x&=&\displaystyle \frac{4t}{(t^2+1)^2}\diff t\\
+t&=&\displaystyle \frac{\sqrt{-x^2+1}}{-x+1}
+\quad .
 \end{array}
 \] 
 
-\subsection{Euler substitution for $\int R(x, \sqrt{x^2 -1}) \diff x$} 
+\subsection{Euler substitution for $\displaystyle \int R(x, \sqrt{x^2 -1}) \diff x$} 
 Let $R$ be a rational function in two variables. Integrals of the form 
 \[
 \int R(x, \sqrt{x^2-1})\diff x
@@ -2516,7 +2578,8 @@ The differential $\diff x$ can expressed via $\diff t$ from  $x=1+\frac{2}{t^2-1
 \begin{array}{rcl}
 x&=&\displaystyle 1+\frac{2}{t^2-1}\\
 \sqrt{-x^2+1}&=&\displaystyle\frac{2t}{t^2-1} \\
-\diff x&=&\displaystyle\frac{-4t}{(t^2-1)^2}\diff t\quad .
+\diff x&=&\displaystyle\frac{-4t}{(t^2-1)^2}\diff t\\
+t&=&\displaystyle \frac{\sqrt{x^2-1}}{x-1}\quad .
 \end{array}
 \] 
 
@@ -2555,6 +2618,7 @@ Finally, we get
 \]
 \end{solution}
 \begin{problem}
+
 Integrate 
 \[
 \int \frac{\diff x}{x+\sqrt{x^2+x+1}}\quad .
@@ -2584,30 +2648,6 @@ Integrate
 \int \frac{x\diff x}{(1-x^3)\sqrt{1-x^2}}\quad .
 \]
 \end{problem}
-\subsection{Alternative method: trigonometric substitution}
-Let $R$ be a rational function in two variables. Integrals of the form 
-\[
-\int R(x, \sqrt{x^2+1})\diff x,\qquad  \int R(x, \sqrt{-x^2+1})\diff x, \qquad \int R(x, \sqrt{x^2-1})\diff x
-\] 
-can be computed using an alternative method called trigonometric substitution. The trigonometric substitutions transform an integral of the above form to a trigonometric rational integral, which we already know how to solve from Section \ref{secTrigIntegrals}. 
-
-
-\[
-\begin{array}{|c|c|c|c|}
-\hline
-\textrm{Expression} & \multicolumn{1}{|c|}{\text{Substitution}}& \text{Variable range}      & \text{Relevant identity}\\
-\hline
-\sqrt{x^2+1} & x = \tan \theta &  -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2} & 1 + \tan^2 \theta = \sec^2 \theta\\
-\sqrt{-x^2+1 } & x = \sin \theta &  -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2} & 1 - \sin^2 \theta = \cos^2 \theta\\
-\sqrt{x^2-1} & x = \sec \theta & 0 \leq \theta < \frac{\pi}{2} \ \text{or} \ \pi \leq \theta < \frac{3\pi}{2} & \sec^2 - 1 = \tan^2  \theta\\
-\hline
-\end{array}
-\]
-The trigonometric substitutions are presented in the table above. In what follows, we elaborate on each of the cases and explain the relation between trigonometric and Euler substitutions.  
-
-\subsubsection{Trigonometric substitution for $\int R(x, \sqrt{ x^2 +1}) \diff x$}
-
-\subsubsection{} 
 
 \section{Exercises}
 \begin{problem}
