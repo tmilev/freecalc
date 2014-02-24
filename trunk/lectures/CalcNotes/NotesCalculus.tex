@@ -2360,9 +2360,9 @@ Check first that $x^{4}+4x^{3} +3x^{2} -4x -4=(x-1)(x+2)^2(x+1)$.
 \subsection{\optionalMaterial Integration of arbitrary rational trigonometric integrals}\label{secTrigIntegralsWith2Arctan}
 Let $R$ be a rational function in two variables. Integrals of the form 
 \[
-\int R(\sin x,\cos x )\diff y
+\int R(\sin \theta,\cos \theta )\diff \theta
 \] 
-can be transformed to integrals of rational functions via the substitution $x= 2\arctan t$. To see how $\cos x$ and $\sin x$ are expressed via $t$ we need a little algebra. First we recall the formulas 
+can be transformed to integrals of rational functions via the substitution $\theta= 2\arctan t$. To see how $\cos \theta$ and $\sin \theta$ are expressed via $t$ we need a little algebra. First we recall the formulas 
 \begin{equation}\label{eqsin2zViaTanzcos2zViaTanz}
 \begin{array}{rcll|l}
 \cos (2z)&=& \displaystyle \cos^2 z- \sin^{2}z\\
@@ -2375,25 +2375,25 @@ can be transformed to integrals of rational functions via the substitution $x= 2
 &=&\displaystyle \frac{2\tan z}{1+\tan^2z}
 \end{array}
 \end{equation}
-We are ready to express $\cos x$ and $\sin x$ via $t$:
+We are ready to express $\cos \theta$ and $\sin \theta$ via $t$:
 \[
 \begin{array}{rcll|l}
-\cos x&=& \cos \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
-&=&\displaystyle \frac{1- \tan^2(\arctan x)}{1+\tan^2(\arctan x)}\\
+\cos \theta&=& \cos \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
+&=&\displaystyle \frac{1- \tan^2(\arctan t)}{1+\tan^2(\arctan t)}\\
 &=&\displaystyle  \frac{1- t^2}{1+t^2}\quad ,\\~\\
-\sin (x)&=& \sin \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
-&=&\displaystyle \frac{2\tan(\arctan x)}{1+\tan^2(\arctan x)}\\
+\sin \theta&=& \sin \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
+&=&\displaystyle \frac{2\tan(\arctan t)}{1+\tan^2(\arctan t)}\\
 &=&\displaystyle  \frac{2t}{1+t^2}\quad .
 \end{array}
 \]
-The differential $\diff x$ can expressed via $\diff t$ from $x=2\arctan t$.
-The substitution $x=2\arctan t$ can be summarized as:
+The differential $\diff \theta$ can expressed via $\diff t$ from $\theta=2\arctan t$.
+The substitution $\theta=2\arctan t$ can be summarized as:
 \[
 \begin{array}{rcl}
-\cos x&=&\displaystyle  \frac{1- t^2}{1+t^2} \\
-\sin x&=&\displaystyle \frac{2t}{1+t^2}\\
-\diff x&=&\displaystyle \frac{2}{t^2+1}\diff t \\
-t&=&\displaystyle \tan \left(\frac x 2\right)
+\cos \theta&=&\displaystyle  \frac{1- t^2}{1+t^2} \\
+\sin \theta&=&\displaystyle \frac{2t}{1+t^2}\\
+\diff \theta&=&\displaystyle \frac{2}{t^2+1}\diff t \\
+t&=&\displaystyle \tan \left(\frac {\theta}{2}\right)
 \end{array}
 \] 
 
@@ -2862,7 +2862,7 @@ The differential $\diff x$ can be expressed via $\diff \theta $ from $x=\sec \th
 \begin{array}{rcl}
 \displaystyle x&=&\displaystyle \sec\theta= \frac{1}{\cos \theta}\\
 \displaystyle \sqrt{x^2-1}& =&\displaystyle  \tan \theta\\
-\displaystyle \diff x&=&\displaystyle \frac{\sin\theta}{\cos^2\theta}d\theta= \sec\theta\tan\theta  \diff \theta\\
+\displaystyle \diff x&=&\displaystyle \frac{\sin\theta}{\cos^2\theta}\diff\theta= \sec\theta\tan\theta  \diff \theta\\
 \displaystyle \theta&=&\arcsec x \quad .
 \end{array}
 \end{equation*}
