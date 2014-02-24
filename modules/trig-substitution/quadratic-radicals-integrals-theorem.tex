@@ -1,0 +1,18 @@
+%begin module Euler-substitution-theorem
+\begin{frame}
+\frametitle{Summary of Euler substitution}
+
+\begin{theorem}
+Let $R(z,w)$ be an arbitrary rational function in two variables. Every integral of the form $\int R(x, \sqrt{ax^2+bx+c}) \diff x$ can be integrated using square roots, rational functions, logarithms, the $\Arctan$ function, and their compositions.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item<1-> Using linear substitutions we transform to integral of the form
+$\int R(x, \sqrt{x^2+1}) \diff x$, $\int R(x, \sqrt{-x^2+1}) \diff x$ or $\int R(x, \sqrt{x^2-1}) \diff x$\quad .
+\item<2-> Using one of the substitutions $t=\sqrt{x^2+1}-x$, $t=\frac{\sqrt{-x^2+1}}{-x+1}$,  $t=\frac{\sqrt{x^2-1}}{x-1}$ the integral is transformed to the form $ \int \frac{P(t)}{Q(t)}\diff t$. 
+\item<3-> That is a rational function integral and can be solved using rational functions, logarithms, and the $\Arctan $ function.
+\item<4-> Substitution of $t$ via $x$ may introduce extra square root.
+\end{itemize}
+\end{proof}
+\end{frame}
+%end module Euler-substitution-theorem
