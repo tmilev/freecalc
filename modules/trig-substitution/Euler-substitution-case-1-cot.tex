@@ -1,24 +1,36 @@
 %begin module Euler-substitution-case-1-cot
 \begin{frame}
-\frametitle{Trigonometric substitution $x=\cot \theta$  for $\sqrt{x^2+1}$}
-The trigonometric substitution $x=\cot \theta$ is given by 
+\frametitle{Euler subst. for $\sqrt{x^2+1}$ corresponding to $x=\cot \theta$ }
+Recall $\theta=2\arctan t$ transforms a trigonometric integral into integral of a rational function. Carry out the substitution $\theta= \theta=2\arctan t$:
 \[
 \begin{array}{rcll|l}
-\displaystyle \sqrt{ x^2+1}&=&\displaystyle \sqrt{\cot^2 \theta+1}\\
-&=&\displaystyle \sqrt{\frac{\cos^2\theta}{ \sin^2 \theta} + 1}\\
-&=&\displaystyle \sqrt{ \frac{ \sin^2\theta+\cos^2 \theta}{ \sin^2 \theta}} \\
-&=& \displaystyle  \sqrt{\frac{1}{\sin^2\theta}} && \begin{array}{l}\displaystyle \text{when }\theta\in \left(0 , \pi\right) \text{ we have }\\ ~ \sin \theta \geq 0\text{ and so } \sqrt{\sin^2 \theta}=\sin\theta  \end{array}\\
-&=&\displaystyle  \frac{1}{\sin \theta}= \csc \theta\quad .
+x&=&\displaystyle \cot \theta \\
+&=& \displaystyle \cot \left(2\arctan t\right) &&\displaystyle  \text{Recall: } \cot 2z=\frac{\cos (2z)}{\sin (2z)}=\frac{1-\tan^2z}{2\tan z } \\
+&=&\displaystyle \frac{1-\tan^2 (\arctan t)}{2 \tan (\arctan t)} \\
+&=&\displaystyle \frac{1-t^2}{2t}\\
+&=&\displaystyle \frac{1}{2}\left(\frac{1}t -t\right)\quad .
 \end{array}
 \]
-The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\cot \theta$. The substitution $x=\cot \theta$ can be now summarized as:
-\[
-\begin{array}{rcl}
-x&=&\displaystyle \cot \theta\\
-\sqrt{x^2+1}&=&\displaystyle \frac{1}{\sin \theta}=\csc \theta\\
-\diff x&=&\displaystyle  -\frac{\diff \theta}{\sin^2\theta} = - \csc^2 \theta \diff \theta\\
-%\theta& =& \Arccot x\quad .
+We can furthermore compute 
+\begin{equation} \label{eqsqrtx2plus1Euler2}
+\begin{array}{rcll|l}
+\displaystyle \sqrt{x^2+1}&=& \displaystyle  \sqrt{ \frac{1}{4} \left(\frac{1}t -t \right)^2 +1}\\
+&=&\displaystyle \frac{1}{2} \sqrt{\left( \frac{1}{t} +t \right)^2} & &\displaystyle \sqrt{\left(\frac{1}{t}+t\right)^2} = \frac{1}{t} +t \text{ because }t>0\\
+&=&\displaystyle \frac{1}{2}\left(\frac{1}{t}+t\right)\quad .
 \end{array}
+\end{equation}
+The differential $\diff x$ can be expressed via $\diff t$ from $\displaystyle x=\frac{1}{2} \left( \frac{1}{t} - t\right)$. Finally, we can subtract $\displaystyle x=\frac{1}{2} \left( \frac{1}{t} - t\right)$ from  $\displaystyle \sqrt{x^2+1}= \frac{1}{2} \left( \frac{1 }{ t} +t\right)$ to we get that $t=\sqrt{x^2+1}-x $. The Euler substitution $x=\cot \theta= \cot (\arctan 2t)$ can be now summarized as:
+\begin{equation}\label{eqEulerSub1.2}
+\begin{array}{rcl}
+x&=&\displaystyle \frac12\left(\frac{1}{t}- t\right)\\
+\displaystyle\sqrt{x^2+1}&=& \displaystyle \frac12 \left(\frac1t +t\right)\\ 
+\displaystyle \diff x&=&\displaystyle -\frac12\left(\frac{1}{t^2}+1\right) \diff t\\
+t &=&\sqrt{x^2+1}-x\quad .
+\end{array}
+\end{equation}
+As demonstrated in the present section, it is sufficient to memorize the substitution $x=\cot (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality 
+\[
+\sqrt{x^2+1}=x+t\quad .
 \]
 \end{frame}
 

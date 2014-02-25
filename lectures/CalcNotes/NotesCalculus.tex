@@ -133,7 +133,7 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{#1}
+\newcommand{\optionalDisplay}[1]{}
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -1533,10 +1533,12 @@ and as both sides are positive real numbers we can take the square root on both 
 where we have used that for an arbitrary real number $t$ we have that $|t|=\sqrt{t^2}=\pm t$. In the interval $\varphi\in (-\frac{\pi}{2} ,\frac{\pi}{2})$, $\sin \varphi$ and $\tan \varphi$ have the same sign. Therefore in \eqref{eqSinViaTanTemp} the expression $\pm(\pm \tan\varphi)$ has the same sign as $\tan \varphi$ and we can omit the $\pm$ signs.
 \end{proof}
 
-Let $z$ be a complex number such that $\Re z>0$. Then
+\begin{theorem}\label{thLogarithmComplex}
+\index{logarithm!complex} Let $z$ be a complex number such that $\Re z>0$. Then
 \importantFormula{
 \log z = \ln |z| + i\arctan \left(\frac{\Im z}{\Re z}\right)\quad .
 }
+\end{theorem}
 \begin{proofOptional} 
 ~We aim to prove that $e^{\log z}=z$. Set 
 \[
@@ -2374,7 +2376,7 @@ We are ready to express $\cos \theta$ and $\sin \theta$ via $t$:
 \[
 \begin{array}{rcll|l}
 \cos \theta&=& \cos \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
-&=&\displaystyle \frac{1- \tan^2(\arctan t)}{1+\tan^2(\arctan t)}\\
+&=&\displaystyle \frac{1- \tan^2(\arctan t)}{ 1 + \tan^2( \arctan t)}\\
 &=&\displaystyle  \frac{1- t^2}{1+t^2}\quad ,\\~\\
 \sin \theta&=& \sin \left(2\arctan t\right)&&\text{use formula \eqref{eqsin2zViaTanzcos2zViaTanz}}\\
 &=&\displaystyle \frac{2\tan(\arctan t)}{1+\tan^2(\arctan t)}\\
@@ -2461,7 +2463,7 @@ It is then most natural to select the range for $\theta$ so that the sign choice
 
 Finally we note that the Euler substitutions - the last three rows of the table - are a consequence of the trigonometric substitutions and need not be memorized. We shall show in full detail why that is so by the end of the present section. 
 
-We start the technical part of this section by exercising the familiar procedure of completing the square to transforming integrals of the form $\int R(x,\sqrt{ax^2+bx+c})\diff x$ to integrals of the form \eqref{eqIntegralQuadraticRadicalX}.
+We start the technical part of this section by exercising the familiar procedure of completing the square to transform integrals of the form $\int R(x,\sqrt{ax^2+bx+c})\diff x$ to integrals of the form \eqref{eqIntegralQuadraticRadicalX}.
 \subsection{Linear substitutions transforming $\displaystyle \sqrt{ax^2+bx+c}$ to $\displaystyle \sqrt{u^2+1}, \sqrt{-u^2 +1}, \sqrt{u^2-1} $} \label{secEulerIntegralsAndLinearSubstitutions}
 The present section involves only the technique of completing the square, which was already exercised in Section \ref{secIntegrationRationalFunctions}. To a student confident in the material we recommend that she or he skip this section. 
 \begin{problem}
@@ -2507,9 +2509,9 @@ The trigonometric substitution $x=\tan \theta$ is given by
 \[
 \begin{array}{rcll|l}
 \displaystyle \sqrt{ x^2+1}&=&\displaystyle \sqrt{\tan^2 \theta+1}\\
-&=&\displaystyle   \sqrt{\frac{\sin^2\theta}{\cos^2\theta}+1}\\
-&=&\displaystyle \sqrt{ \frac{ \sin^2\theta+\cos^2 \theta}{\cos^2\theta}} \\
-&=& \displaystyle \sqrt{\frac{1}{\cos^2\theta}} && \begin{array}{l}\displaystyle \text{when }\theta\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \text{ we have }\\ ~ \cos \theta > 0\text{ and so } \sqrt{\cos^2 \theta}=\cos\theta \end{array}\\
+&=&\displaystyle   \sqrt{ \frac{ \sin^2 \theta}{ \cos^2 \theta} +1}\\
+&=&\displaystyle \sqrt{ \frac{ \sin^2\theta+\cos^2 \theta}{ \cos^2 \theta}} \\
+&=& \displaystyle \sqrt{\frac{1}{\cos^2\theta}} && \begin{array}{l} \displaystyle \text{when }\theta\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \text{ we have }\\ ~ \cos \theta > 0\text{ and so } \sqrt{\cos^2 \theta}=\cos\theta \end{array}\\
 &=&\displaystyle  \frac{1}{\cos \theta}= \sec \theta\quad .
 \end{array}
 \]
@@ -2517,7 +2519,7 @@ The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\tan \the
 \[
 \begin{array}{rcl}
 x&=&\displaystyle \tan \theta\\
-\sqrt{x^2+1}&=&\displaystyle \frac{1}{\cos \theta}=\sec \theta\\
+\sqrt{x^2+1}& =& \displaystyle \frac{1}{\cos \theta}=\sec \theta\\
 \diff x &=&\displaystyle \frac{\diff \theta}{\cos^2\theta}= \sec^2 \theta \diff \theta\\
 \theta& =& \arctan x\quad .
 \end{array}
@@ -2546,12 +2548,12 @@ We can furthermore compute
 From $\displaystyle \sqrt{x^2+1}=-1+\frac{2}{1-t^2}$ and $\displaystyle x=\frac{2t}{1-t^2}$ we can express $t$ via $x$:
 \[
 \begin{array}{rcll|l}
-\displaystyle \sqrt{x^2+1}&=&\displaystyle -1+ \frac{2}{ 1-t^2 }\\
+\displaystyle \sqrt{x^2+1}&=&\displaystyle -1+ \frac{2}{ 1 - t^2 }\\
 &=&\displaystyle -1+\frac{1}{t}\left(\frac{2t}{1 -t^2} \right) &&\displaystyle \text{use } x= \frac{2t}{1-t^2}\\
 &=&\displaystyle -1+\frac{x}{t}\\
 \displaystyle 1+\sqrt{x^2+1}&=&\displaystyle \frac{x}{t}\\
 \displaystyle t&=&\displaystyle \frac{x}{1+\sqrt{x^2+1}} =\frac{x}{1+\sqrt{x^2+1}} \left(\frac{ 1-\sqrt{x^2+1} }{1 - \sqrt{ x^2+1}}\right)\\
-\displaystyle t&=& \displaystyle  \frac{x(1- \sqrt{x^2 +1})}{ 1- x^2-1}\\
+\displaystyle t&=& \displaystyle  \frac{x(1- \sqrt{x^2 +1 } ) }{ 1- x^2-1}\\
 \displaystyle t&=&\displaystyle \frac{\sqrt{x^2+1}-1}{x}\quad .
 \end{array}
 \] 
@@ -2583,7 +2585,7 @@ The trigonometric substitution $x=\cot \theta$ is given by
 \begin{array}{rcll|l}
 \displaystyle \sqrt{ x^2+1}&=&\displaystyle \sqrt{\cot^2 \theta+1}\\
 &=&\displaystyle \sqrt{\frac{\cos^2\theta}{ \sin^2 \theta} + 1}\\
-&=&\displaystyle \sqrt{ \frac{ \sin^2\theta+\cos^2 \theta}{ \sin^2 \theta}} \\
+&=&\displaystyle \sqrt{ \frac{ \cos^2 \theta+\sin^2\theta}{ \sin^2 \theta}} \\
 &=& \displaystyle  \sqrt{\frac{1}{\sin^2\theta}} && \begin{array}{l}\displaystyle \text{when }\theta\in \left(0 , \pi\right) \text{ we have }\\ ~ \sin \theta \geq 0\text{ and so } \sqrt{\sin^2 \theta}=\sin\theta  \end{array}\\
 &=&\displaystyle  \frac{1}{\sin \theta}= \csc \theta\quad .
 \end{array}
