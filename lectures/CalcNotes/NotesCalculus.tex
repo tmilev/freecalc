@@ -133,7 +133,7 @@
 \DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{}
+\newcommand{\optionalDisplay}[1]{#1}
 %\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -1807,12 +1807,7 @@ Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
 \end{pspicture*}
 } %end of optionalDisplay
 
-
-
-
-
 \section{Derivatives of trigonometric, exponent functions and their inverses}
-
 
 \begin{theorem}The function $e^z$ is differentiable and
 \importantFormula{\label{eqDerivativeexponent}
@@ -2444,7 +2439,7 @@ $\theta\in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{ 3 \pi}{2}\right)$
 & $\sec^2\theta - 1 = \tan^2\theta$\\
 &$x=\csc \theta$ &$\theta\in \left[0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2}\right)$ &  $\csc^2\theta=\cot^2\theta $\\
 \hline
-\multicolumn{4}{c}{Euler substitution obtained from above by applying $\theta=2\arctan t$}\\
+\multicolumn{4}{c}{Euler substitution by applying in addition $\theta=2\arctan t$}\\
 \hline 
 Expression & Substitution  & Variable range & Relevant identity\\
 \hline
@@ -2452,8 +2447,8 @@ Expression & Substitution  & Variable range & Relevant identity\\
 &$ x=\frac{1}{2} \left(\frac{1}{t}-t\right)$ & $0<t $ & see \eqref{eqsqrtx2plus1Euler2}  \\ \hline 
 \multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x=\frac{2t}{1+t^2} $ & $-1\leq t\leq 1 $ & see \eqref{eqsqrt1minusxsquaredE1} \\
 & $x =\frac{1-t^2}{1+t^2} $ & $0<t$& see \eqref{eqsqrt1minusxsquaredE2}  \\\hline 
-$\sqrt{x^2-1}$ & $x = $ & $t$ & $ $\\
-\hline
+\multirow{2}{*}{$\sqrt{x^2-1}$} &$x=\frac{1}{2}\left(\frac{ 1}{t}+t\right)$ & $t\in (-\infty, -1)\cup [0,1)$& see \eqref{eqsqrtxsquareminus1E2}\\
+& $x =\frac{1+t^2}{1-t^2} $ & $t \in (-\infty,-1)\cup [0,1)$ &see \eqref{eqsqrtxsquareminus1E1} \\\hline
 \end{tabular}
 
 To the student we note that to learn the material in this section it suffices to memorize the three pairs of trigonometric substitutions $x=\tan \theta, x= \cot \theta$; $x=\sin \theta, x= \cos \theta$; $x=\sec \theta, x=\csc \theta$, and to memorize the substitution $\theta=2\arctan t$. In other words, one only needs to memorize the first and second column of the first three rows in the table above. The relevant identities arise naturally from the form of the radical and the substitution. In other words, the fourth column of the table above is a consequence of the first two and does not need to be memorized.
@@ -2835,7 +2830,7 @@ x&=&\displaystyle \frac{t^2-1}{t^2+1}= 1-\frac{2}{t^2+1}\quad .
 
 \noindent (2) Using (1) we get
 \[
-\sqrt{-x^2+1}=(1-x)t=\left(1-\left(1-\frac{2t}{t^2+1}\right)\right)t= \frac{2t}{t^2+1}\quad .
+\sqrt{-x^2+1}=(1-x)t=\left(1-\left(1-\frac{2t}{t^2+1}\right)\right)t= \frac{ 2t}{ t^2+1}\quad .
 \]
 \end{solution}
 
@@ -2851,7 +2846,7 @@ The trigonometric substitution $x=\sec \theta$ is given by
 \[
 \begin{array}{rcll|l}
 \displaystyle \sqrt{x^2-1}&=&\displaystyle \sqrt{\sec^2\theta-1}=\sqrt{\frac{1}{\cos^2\theta}-1}\\
-&=&\displaystyle \sqrt{\frac{\sin^2\theta}{\cos^2\theta}} =\sqrt{\tan^2\theta} &&\begin{array}{l} \text{when }\theta\in \theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) \text{we have}\\
+&=&\displaystyle \sqrt{\frac{\sin^2\theta}{\cos^2\theta}} =\sqrt{ \tan^2 \theta} &&\begin{array}{l} \text{when }\theta\in \theta \in \left[0, \frac{ \pi}{2 }\right)\cup \left[\pi, \frac{3\pi}{2}\right) \text{we have}\\
 \tan \theta\geq 0 \text{ and so } \sqrt{\tan^2\theta}=\tan \theta
 \end{array} \\
 &=&\displaystyle \tan \theta\quad .
@@ -2862,7 +2857,7 @@ The differential $\diff x$ can be expressed via $\diff \theta $ from $x=\sec \th
 \begin{array}{rcl}
 \displaystyle x&=&\displaystyle \sec\theta= \frac{1}{\cos \theta}\\
 \displaystyle \sqrt{x^2-1}& =&\displaystyle  \tan \theta\\
-\displaystyle \diff x&=&\displaystyle \frac{\sin\theta}{\cos^2\theta}\diff\theta= \sec\theta\tan\theta  \diff \theta\\
+\displaystyle \diff x&=&\displaystyle \frac{\sin\theta}{ \cos^2\theta} \diff \theta= \sec\theta\tan\theta  \diff \theta\\
 \displaystyle \theta&=&\arcsec x \quad .
 \end{array}
 \end{equation*}
@@ -2871,7 +2866,7 @@ We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric
 
 \begin{equation*}
 \begin{array}{rcll|l}
-x&=&\displaystyle \sec \theta=\frac{1}{\cos \theta} && \text{use } \theta=2\arctan t\\
+x&=&\displaystyle \sec \theta=\frac{1}{\cos \theta} && \text{use } \theta =2 \arctan t\\
 &=&\displaystyle \frac{1} {\cos(2\arctan t)} &&\text{use } \eqref{eqSinCosViaTan}: \displaystyle \cos (2z) = \frac{ 1- \tan^2 z}{1+ \tan^2 z}\\
 &=& \displaystyle \frac{1+\tan^2(\arctan t)}{1-\tan^2( \arctan t)} \\
 &=&\displaystyle \frac{1+t^2}{1-t^2}\\
@@ -2882,8 +2877,8 @@ We can furthermore compute
 \begin{equation}\label{eqsqrtxsquareminus1E2}
 \begin{array}{rcll|l}
 \sqrt{x^2-1 }&=&\displaystyle \sqrt{ \left(\frac{1+t^2}{1-t^2}\right)^2-1}\\
-&=&\displaystyle \sqrt{\frac{(1+t^2)^2-(1-t^2)^2}{(1-t^2)^2} }\\
-&=&\displaystyle \sqrt{\frac{4t^2}{(1-t^2)^2}} && \begin{array}{l} \displaystyle t \text{ and }1-t^2\text{ have the same}\\ \text{sign for } t\in (-\infty, -1) \cup \left[0, 1 \right)\end{array} \\
+&=& \displaystyle \sqrt{\frac{(1+t^2)^2-(1-t^2)^2}{(1-t^2)^2} }\\
+&=& \displaystyle \sqrt{\frac{4t^2}{(1-t^2)^2}} && \begin{array}{l} \displaystyle t \text{ and }1-t^2\text{ have the same}\\ \text{sign for } t\in (-\infty, -1) \cup \left[0, 1 \right)\end{array} \\
 &=&\displaystyle \frac{2t}{1-t^2}\quad .
 \end{array}
 \end{equation}
@@ -2909,9 +2904,11 @@ x&=&\displaystyle \frac{1+t^2}{1-t^2}\\
 t&=&\displaystyle \pm \frac{ \sqrt{x^2-1}}{x+1} \quad .
 \end{array}
 \]
-As demonstrated in the present section, it is sufficient to memorize the substitution $x=\sin (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
+As demonstrated in the present section, it is sufficient to memorize the substitution $x=\sec (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
 \[
-\sqrt{x^2-1}=(x+1)t\quad .
+\begin{array}{rcl}
+\sqrt{x^2-1}&=&(x+1)t\quad .
+\end{array}
 \]
 \begin{problem}
 Let the variables $x$ and $t$ be related via $\sqrt{x^2-1}=(x+1)t$. 
@@ -3263,7 +3260,7 @@ volume(F) = \int\limits_{a}^b 2\pi x (\underbrace{f_1(x)-f_2(x)}_{=: h(x)}) \dif
 
 A motivation for the above computation may be given as follows. The volume of the ``cylindrical shell'' figure enclosed between an inner cylinder of radius $r$ and an outer cylinder of radius $r+\Delta$ and height $h$ equals the difference of the volumes of the two cylinders 
 \[
-h(\pi (r+\Delta)^2-\pi r^2)=h\pi (\cancel{r^2}+2r\Delta+\Delta^2-\cancel{r^2})=h\pi (2r\Delta+\Delta^2)\quad .
+h(\pi (r+\Delta)^2-\pi r^2)=h\pi (\cancel{r^2}+2r\Delta+\Delta^2- \cancel{ r^2}) = h\pi (2r\Delta+\Delta^2)\quad .
 \]
 
 \optionalDisplay{
@@ -3524,7 +3521,7 @@ x^2+y^2=1\quad .
 \]
 In the previous points, we showed two different curve parametrizations of a quarter circle.
 
-Parametrizing a curve whose image is given by a relation between $x$ and $y$ is a highly non-trivial task. For example, if the relation is of the form $y^2=x^3+px+q$ for parameters $p,q$, the problem of deciding whether there is a point with rational coordinates $(x,y)$ that satisfies the equation is an active research area. There are cryptographic schemes based on results in this area.
+To parametrize a curve whose image is given by a relation between $x$ and $y$ is a highly non-trivial task. For example, if the relation is of the form $y^2=x^3+px+q$ for parameters $p,q$, the problem of deciding (using computer) whether there is a point with rational coordinates $(x,y)$ that satisfies the equation is an active area of mathematical research. %There are cryptographic schemes based on results in this area.
 
 In fact, the Euler substitution in Section \ref{secEulerSubTrigIntegrals} is an example of a parametrization of curves of the form $y^2=\pm x^2\pm 1$.
 
@@ -3564,9 +3561,9 @@ y(s)&=&g_2(s)\\
 both differentiable, such that both are injective (i.e., every point $(x(t), y(t))$ has exactly one preimage, see Section \ref{secInverseFunctionBasics}). 
 \importantFormula{
 \begin{array}{c}
-\mathrm{If~the~curve~parametrization~is~differentiable~and~injective~~(one~to~one),}\\
-\mathrm{~the~length~of~the~image~of~a~curve~}C
-\mathrm{~does~not~depend~on~the~curve~parametrization.}
+\text{If the curve parametrization is differentiable and injective (one to one),}\\
+\text{the length of the image of a curve } C
+\text{does not depend on the curve parametrization.}
 \end{array}
 }
 We have that $t$ can be expressed as function of $s$, namely, $t(s)= \gamma_1(\gamma_2^{-1}(s))$. Furthermore, as a function of $s$ from $[a,b]$ to $[p,q]$, $t$ is bijective (this follows from the fact that both $\gamma_1$ and $\gamma_2$ are injective).
@@ -3586,9 +3583,9 @@ Unlike computations of indefinite integrals, where we make variable changes on t
 \begin{array}{l}
 \phantom{=}\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{\diff t}(t(s))\right)^2+\left(\frac{df_2}{\diff t}(t(s))\right)^2}d(t(s)) \\
 \displaystyle =  \int \limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2+ \frac{df_2}{\diff t}(t(s))^2}d(t(s))\\
-= \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2+\frac{df_2}{\diff t}(t(s))^2} \frac{\diff t}{\diff s}\diff s \\
+= \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2 + \frac{df_2 }{\diff t}(t(s))^2} \frac{\diff t}{\diff s}\diff s \\
 \displaystyle
-\stackrel{\frac{\diff t}{\diff s}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left(\underbrace{\frac{\diff t}{\diff s}(s) f_1( t(s)) }_{ \mathrm{chain~rule}} \right)^2+ \left( \underbrace{ \frac{ \diff t}{\diff s}(s) \frac{df_2}{\diff t} (t(s))}_{ \mathrm{chain~rule}} \right)^2}\diff s \\
+\stackrel{\frac{\diff t}{\diff s}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left( \underbrace{ \frac{\diff t}{\diff s}(s) f_1( t(s)) }_{ \text{chain rule} } \right)^2+ \left( \underbrace{ \frac{ \diff t}{\diff s}(s) \frac{df_2}{\diff t} (t(s))}_{ \text{chain rule}} \right)^2}\diff s \\
 =\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{d}{\diff s}\left(f_1(t(s))\right)\right)^2+ \left(\frac{d}{\diff s}\left(f_2(t(s))\right)\right)^2}\diff s \\
 =\displaystyle \int\limits_{s=p}^q \sqrt{ \frac{ dg_1}{ \diff s}( s)^2 + \frac{dg_2}{\diff s}(s)^2}\diff s,
 \quad

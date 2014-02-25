@@ -1,0 +1,25 @@
+%begin module Euler-substitution-case-1-cot
+\begin{frame}
+\frametitle{Trigonometric substitution $x=\cot \theta$  for $\sqrt{x^2+1}$}
+The trigonometric substitution $x=\cot \theta$ is given by 
+\[
+\begin{array}{rcll|l}
+\displaystyle \sqrt{ x^2+1}&=&\displaystyle \sqrt{\cot^2 \theta+1}\\
+&=&\displaystyle \sqrt{\frac{\cos^2\theta}{ \sin^2 \theta} + 1}\\
+&=&\displaystyle \sqrt{ \frac{ \sin^2\theta+\cos^2 \theta}{ \sin^2 \theta}} \\
+&=& \displaystyle  \sqrt{\frac{1}{\sin^2\theta}} && \begin{array}{l}\displaystyle \text{when }\theta\in \left(0 , \pi\right) \text{ we have }\\ ~ \sin \theta \geq 0\text{ and so } \sqrt{\sin^2 \theta}=\sin\theta  \end{array}\\
+&=&\displaystyle  \frac{1}{\sin \theta}= \csc \theta\quad .
+\end{array}
+\]
+The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\cot \theta$. The substitution $x=\cot \theta$ can be now summarized as:
+\[
+\begin{array}{rcl}
+x&=&\displaystyle \cot \theta\\
+\sqrt{x^2+1}&=&\displaystyle \frac{1}{\sin \theta}=\csc \theta\\
+\diff x&=&\displaystyle  -\frac{\diff \theta}{\sin^2\theta} = - \csc^2 \theta \diff \theta\\
+%\theta& =& \Arccot x\quad .
+\end{array}
+\]
+\end{frame}
+
+%end module Euler-substitution-case-1-cot

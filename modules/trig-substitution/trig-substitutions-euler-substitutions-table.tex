@@ -1,4 +1,5 @@
 %begin module trig-substitutions-euler-substitutions-table
+
 \begin{frame}
 \begin{itemize}
 \item Let $R$ be a rational function in two variables.
@@ -12,17 +13,39 @@
 \alert<6,11>{$x=\csc\theta $, $x=\sec \theta$.}
 \item<7-> We studied that trigonometric integrals are converted to rational function integrals via $\theta=2\arctan t$.
 \item<8-> The resulting 3 pairs of substitutions are called Euler substitutions:
-\alert<9>{$x=\tan (2\arctan t) $, $x=\cot (2\arctan t)$;}  
-\alert<10>{$x=\sin(2\arctan t) $, $x=\cos (2\arctan t)$;}
-\alert<11>{$x=\csc(2\arctan t) $, $x=\sec (2\arctan t)$.}
+\alert<9,13>{$x=\tan (2\arctan t) $, $x=\cot (2\arctan t)$;}  
+\alert<10,13>{$x=\sin(2\arctan t) $, $x=\cos (2\arctan t)$;}
+\alert<11,13>{$x=\csc(2\arctan t) $, $x=\sec (2\arctan t)$.}
 \item<12-> The Euler substitutions directly transform the integral to a rational function integral.
-\item<13-> The Euler substitutions are rational.
+\item<13-> We will demonstrate that the Euler substitutions are \alert<13>{rational}.
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Trigonometric substitution and Euler substitution}
-
+{\tabcolsep=0.11cm
+\noindent\begin{tabular}{|l|l|l|l|}
+\hline
+Expression & Substitution& Variable range & Relevant identity\\\hline
+\multirow{2}{*}{$\sqrt{x^2+1}$} & $x = \tan \theta$ &  $ \theta\in \left(-\frac{\pi}{2} , \frac{\pi}{2}\right)$ & $1 + \tan^2 \theta = \sec^2 \theta$\\
+&$x=\cot \theta$ &$ \theta\in (0, \pi) $ & $1+\cot^2\theta =\csc^2\theta $ \\ \hline 
+\multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x = \sin \theta$ &  $ \theta\in \left[ -\frac{\pi}{2} ,\frac{\pi}{2}\right]$ & $1 - \sin^2 \theta = \cos^2 \theta$\\
+& $x = \cos \theta$ & $\theta\in (0,\pi)$& $1-\cos^2\theta=\cos^2\theta$ \\\hline 
+\multirow{2}{*}{$\sqrt{x^2-1}$} & $x = \sec \theta$ & 
+$\theta\in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{ 3 \pi}{2}\right)$
+& $\sec^2\theta - 1 = \tan^2\theta$\\
+&$x=\csc \theta$ &$\theta\in \left[0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2}\right)$ &  $\csc^2\theta=\cot^2\theta $\\
+\hline
+\multicolumn{4}{c}{Euler substitution by applying in addition $\theta=2\arctan t$}\\
+\hline
+\multirow{2}{*}{$\sqrt{x^2+1}$} & $ x =\frac{2t}{1-t^2}$ & $-1< t< 1$ & \\
+&$ x=\frac{1}{2} \left(\frac{1}{t}-t\right)$ & $0<t $ &  \\ \hline 
+\multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x=\frac{2t}{1+t^2} $ & $-1\leq t\leq 1 $ & \\
+& $x =\frac{1-t^2}{1+t^2} $ & $0<t$&  \\\hline 
+\multirow{2}{*}{ $\sqrt{x^2-1}$} & $x=\frac{1}{2}\left(\frac{ 1}{t}+t\right)$ & $t\in (-\infty, -1)\cup [0,1)$&\\
+& $x =\frac{1+t^2}{1-t^2} $ & $t \in (-\infty,-1)\cup [0,1)$ & \\\hline
+\end{tabular}
+}
 \end{frame}
 %end module trig-substitutions-euler-substitutions-table
