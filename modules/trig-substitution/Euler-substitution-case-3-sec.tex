@@ -5,10 +5,11 @@
 \item $\alert<5>{\theta=2\Arctan t}$, \uncover<3->{ $ t\in (-\infty, -1) \cup \left[0, 1 \right) $ } rationalizes $\diff \theta, \cos\theta,\sin \theta$.
 \end{itemize}
 \uncover<2->{\alert<2>{What if we compose the above?}} \uncover<3->{\alert<3>{We get the Euler substitution:}}
+\only<1-33>{
 \[
 \begin{array}{rclll}
 \phantom{ ( 1- t^2 )} %phantom needed to aling table well.
-\uncover<3->{\alert<4,15,22,30>{x}}&\uncover<3->{\alert<4,15,22>{=}}& \displaystyle  
+\uncover<3->{\alert<4,15,22,30,33>{x}}&\uncover<3->{\alert<4,15,22,33>{=}}& \displaystyle  
 \only<1-12>{
 \uncover<4->{ \alert<4>{\sec \theta} =\frac{1}{\cos \alert<5>{ \theta} }} \\
 \uncover<5->{&=& \displaystyle \alert<8>{ \frac{1} {\cos(\alert<5>{ 2\arctan t} )}} } &&
@@ -22,11 +23,11 @@
 \uncover<9->{&=&\displaystyle \frac{1+ {\alert<9>{t}}^2 }{1 - { \alert<9>{ t}}^2}}\uncover<10->{=\frac{2\alert<11>{- (1 - t^2 )} }{\alert<11>{1 - t^2} }}  \\
 \uncover<11->{&=&} 
 } %only<1-12>
-\uncover<11->{\displaystyle \alert<12,13,15,22,30>{ \alert<11>{-1}+\frac{2}{1-t^2}} }
+\uncover<11->{\displaystyle \alert<12,13,15,22,30,33>{ \alert<11>{-1}+\frac{2}{1-t^2}} }
 &&{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}  %whitespace flushes formulas left
 
 \uncover<13->{\\\hline }
-\uncover<14->{\alert<20>{ \sqrt{{\alert<15>{x}}^2-1 } }} &\uncover<14->{\alert<20>{ =} } &\displaystyle 
+\uncover<14->{\alert<20,33>{ \sqrt{{\alert<15>{x}}^2-1 } }} &\uncover<14->{\alert<20,33>{ =} } &\displaystyle 
 \only<1-20>{
 \uncover<15->{\sqrt{ \left(\alert<15>{ \frac{1 +t^2 }{\alert<16>{ 1- t^2 }}} \right)^2 -\alert<16>{1}} }\\
 \uncover<16->{&=& \displaystyle \sqrt{\frac{ \alert<19>{(1+t^2)^2 - \alert<16>{ (1-t^2)^2}}}{ \alert<16>{(1-t^2)^2} } }} &&
@@ -45,7 +46,7 @@
 \\
 \uncover<20>{&=&}
 } %only<1-20>
-\uncover<20->{ \displaystyle \alert<20,21>{ \frac{2t}{1- t^2}} \vphantom{\sqrt{ \left( \frac{1 +t^2 }{ 1- t^2 } \right)^2 -1} }  &&
+\uncover<20->{ \displaystyle \alert<20,21,33>{ \frac{2t}{1- t^2}} \vphantom{\sqrt{ \left( \frac{1 +t^2 }{ 1- t^2 } \right)^2 -1} }  &&
 {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}  %whitespace flushes formulas left
 }
 \uncover<21->{\\\hline}
@@ -57,31 +58,31 @@
 }
 \uncover<27->{
 \displaystyle  
-\alert<27,28>{t} &\alert<27,28>{ =} & \displaystyle \alert<27,28>{ \pm \sqrt{\frac{x-1}{x+1}}}
+\alert<27,28,33>{t} &\alert<27,28,33>{ =} & \displaystyle \alert<27,28,33>{ \pm \sqrt{\frac{x-1}{x+1}}}
 }
 \uncover<28->{\\\hline}
 \uncover<29->{
-\diff x &=& \uncover<30->{ \alert<31,32>{ \diff \left(\alert<30>{ -1+\frac{2}{1-t^2}} \right)}}\\
-\uncover<31->{&\alert<31,32>{=}& \alert<32>{\uncover<32->{ \frac{4 t}{(1- t^{2})^{2}}}} \diff t
+\alert<33>{ \diff x} &=& \displaystyle \uncover<30->{ \alert<31,32>{ \diff \left(\alert<30>{ -1+\frac{2}{1-t^2}} \right)}}\\
+\uncover<31->{&\alert<31,32,33>{=}& \displaystyle \alert<33>{ \alert<32>{\uncover<32->{ \frac{4 t}{(1- t^{2})^{2}}}} \uncover<31>{\alert<31>{\textbf{?}}} \diff t}
 }
 }
 \end{array}
 \]
-
-
-
+} %only<1-33>
+\uncover<34->{
+\begin{definition}
+The Euler substitution for $\sqrt{x^2-1}$ corresponding to $x=\sec \theta$ is given by:
 \[
 \begin{array}{rcl}
-x&=&\displaystyle \frac{1+t^2}{1-t^2}\\
-\sqrt{x^2-1}&=&\displaystyle \frac{2t}{1-t^2}  \\
-\diff x&=&\displaystyle  \frac{4 t}{(1- t^{2})^{2}} \diff t\\
-t&=&\displaystyle \pm \frac{ \sqrt{x^2-1}}{x+1} \quad .
+\alert<34>{
+x} &\alert<34>{=}&\displaystyle \alert<34>{ \frac{1+t^2}{1-t^2}, \quad \quad \quad t\in (-\infty, -1) \cup \left[0, 1 \right)} \\
+\alert<34>{\sqrt{x^2-1}}&\alert<34>{=}&\displaystyle \alert<34>{\frac{2t}{1-t^2}}  \\
+\alert<34>{\diff x}&\alert<34>{=}&\displaystyle  \alert<34>{\frac{4 t}{(1- t^{2})^{2}} \diff t}\\
+\alert<34>{t}&\alert<34>{=}&\displaystyle \alert<34>{\pm \frac{ \sqrt{x^2-1}}{x+1} }\quad .
 \end{array}
 \]
-As demonstrated in the present section, it is sufficient to memorize the substitution $x=\sec (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
-\[
-\begin{array}{rcl}
-\sqrt{x^2-1}&=&(x+1)t\quad .
-\end{array}
-\]
+\end{definition}
+}
+
+\vspace{8cm}
 \end{frame}
