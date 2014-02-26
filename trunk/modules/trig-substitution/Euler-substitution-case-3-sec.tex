@@ -1,0 +1,73 @@
+\begin{frame}
+\frametitle{Euler substitution $x=\sec \theta$, $\theta = 2\arctan t$}
+\begin{itemize}
+\item $\alert<4>{ x =\sec \theta}$ transforms $\diff x, x,\sqrt{x^2+1}$ to trig form.
+\item $\alert<5>{\theta=2\Arctan t}$, \uncover<3->{ $ t\in (-\infty, -1) \cup \left[0, 1 \right) $ } transforms $\diff \theta, \cos\theta,\sin \theta$ to rational form.
+\end{itemize}
+\uncover<2->{\alert<2>{What if we compose the above?}} \uncover<3->{\alert<3>{We get the Euler substitution:}}
+\[
+\begin{array}{rclll}
+\uncover<3->{\alert<4,15>{x}}&\uncover<3->{\alert<4,15>{=}}& \displaystyle  
+\only<1-12>{
+\uncover<4->{ \alert<4>{\sec \theta} =\frac{1}{\cos \alert<5>{ \theta} }} \\
+\uncover<5->{&=& \displaystyle \alert<8>{ \frac{1} {\cos(\alert<5>{ 2\arctan t} )}} } &&
+\uncover<6->{
+\begin{array}{|l} \displaystyle \alert<8>{ \alert<6,7>{\cos (2z) =} \uncover<7->{\alert<7>{\frac{ 1- \tan^2 z}{1+ \tan^2 z }}}}
+\end{array}
+}
+\\
+\uncover<8->{&=& \displaystyle \alert<8>{  \frac{1+ {\alert<9>{\tan}}^2 (\alert<9>{\Arctan t })}{ 1- {\alert<9>{\tan}}^2 (\alert<9>{\Arctan t}) } }}
+\\
+\uncover<9->{&=&\displaystyle \frac{1+ {\alert<9>{t}}^2 }{1 - { \alert<9>{ t}}^2}}\uncover<10->{=\frac{2\alert<11>{- (1 - t^2 )} }{\alert<11>{1 - t^2} }}  \\
+\uncover<11->{&=&} 
+}
+\uncover<11->{\displaystyle \alert<12,13,15>{ \alert<11>{-1}+\frac{2}{1-t^2}} }
+\uncover<13->{\\\hline }
+\uncover<14->{\sqrt{{\alert<15>{x}}^2-1 }}&\uncover<14->{=} &\displaystyle \uncover<15->{\sqrt{ \left(\alert<15>{ \frac{1 +t^2 }{\alert<16>{ 1- t^2 }}} \right)^2 -\alert<16>{1}} }\\
+\uncover<16->{&=& \displaystyle \sqrt{\frac{ \alert<19>{(1+t^2)^2 - \alert<16>{ (1-t^2)^2}}}{ \alert<16>{(1-t^2)^2} } }} &&
+\uncover<17->{
+\begin{array}{|l}
+\alert<17,18,19>{(1+t^2)^2-(1-t^2)^2= } \only<17>{ \alert<17>{ \textbf{?}}} \uncover<18->{\alert<18,19>{4t^2}}
+\end{array}
+}
+\\
+\uncover<19->{ &=& \displaystyle \alert<20>{\sqrt{\frac{ \alert<19>{ 4t^2} } { (1-t^2)^2}}} }&& 
+\uncover<20->{\alert<20>{
+\begin{array}{|l} \displaystyle t \text{ and }1-t^2\text{ have same sign}\\ \text{when } t\in (-\infty, -1) \cup \left[0, 1 \right)
+\end{array}
+}
+}
+\\
+\uncover<20>{&=&}
+\uncover<20>{ \displaystyle \alert<20>{ \frac{2t}{1-t^2}} \quad .}
+\end{array}
+\]
+The differential $\diff x$ can be computed from $x=\frac{1+t^2}{1-t^2}$. Finally, we can express $t$ via $x$ with a little algebra:
+\[
+\begin{array}{rcll|l}
+\displaystyle x&=&\displaystyle  \frac{1+t^2}{ 1- t^2} \\
+\displaystyle (1- t^2)x&=&\displaystyle  1+t^2\\
+\displaystyle (1+ x)t^2&=&\displaystyle  x-1\\
+\displaystyle t^2&=&\displaystyle  \frac{x-1}{x+1}\\
+\\
+\displaystyle t&=&\displaystyle %\doublebrace{ \sqrt{\frac{x-1}{x+1}}}{x>1}{-\sqrt{\frac{x-1}{x+1}}}{x<-1} &&\begin{array}{l} \text{because when } x<-1, \\ \text{ we have } t\in \left( -\infty , -1 \right]\end{array} \\
+%\displaystyle t&=&\displaystyle \doublebrace{ \frac{\sqrt{ x^2 -1}}{x+1}}{x>1}{-\frac{\sqrt{x^2-1}}{x+1}}{x<-1}  \quad .
+\end{array}
+\]
+The Euler substitution $x= \sec (2\arctan t)$ can be now summarized as:
+
+\[
+\begin{array}{rcl}
+x&=&\displaystyle \frac{1+t^2}{1-t^2}\\
+\sqrt{x^2-1}&=&\displaystyle \frac{2t}{1-t^2}  \\
+\diff x&=&\displaystyle  \frac{4 t}{(1- t^{2})^{2}} \diff t\\
+t&=&\displaystyle \pm \frac{ \sqrt{x^2-1}}{x+1} \quad .
+\end{array}
+\]
+As demonstrated in the present section, it is sufficient to memorize the substitution $x=\sec (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
+\[
+\begin{array}{rcl}
+\sqrt{x^2-1}&=&(x+1)t\quad .
+\end{array}
+\]
+\end{frame}
