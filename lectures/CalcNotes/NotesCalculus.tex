@@ -1306,16 +1306,16 @@ This is a straightforward computation:
 \[
 \begin{array}{l}
 \cos x \cos y - \sin x \sin y \\
-\displaystyle= \frac{(e^{ix}+e^{-ix})(e^{iy}+e^{-iy})}4 -\frac{(e^{ix}-e^{-ix})(e^{iy}-e^{-iy}) }{4i^2}\\
-\displaystyle = \frac{ e^{i(x+y)}+ \cancel{e^{i(y-x)}}+{e^{-i(x+y)}} + \cancel{e^{i(x-y)}} +e^{i(x+y)}+e^{-i(x+y)}- \cancel{e^{i(x-y)}}-\cancel{e^{i(y-x)}} }4\\
+\displaystyle= \frac{(e^{ix}+e^{-ix})(e^{iy}+e^{-iy})}4 - \frac{(e^{ix}-e^{-ix})(e^{iy}-e^{-iy}) }{4i^2}\\
+\displaystyle = \frac{ e^{i(x+y)}+ \cancel{e^{i(y-x)}} +{e^{ -i(x+y)}} + \cancel{e^{i(x-y)}} +e^{i(x+y)}+e^{-i(x+y)}- \cancel{e^{i(x-y)}}- \cancel{e^{ i(y- x)}} }4\\
 = \cos(x+y)\quad .\end{array}
 \]
 The proof for $\sin(x+y)$ is similar:
 \[\begin{array}{l}
 \sin x \cos y + \cos x \sin y\\
 = \displaystyle\frac{(e^{ix}-e^{-ix})(e^{iy}+e^{-iy})}{4i} +\frac{(e^{ix}+e^{-ix})(e^{iy}-e^{-iy}) }{4i}\\
-=\displaystyle\frac{ e^{i(x+y)}- \cancel{e^{i(y-x)}}-{e^{-i(x+y)}} + \cancel{e^{i(x-y)}} +e^{i(x+y)}-e^{-i(x+y)}- \cancel{e^{i(x-y)}}+\cancel{e^{i(y-x)}} }4\\
-=\displaystyle \sin(x+y)\quad .
+= \displaystyle\frac{ e^{i(x+y)}- \cancel{e^{i(y-x)}} - {e^{-i(x+y)}} + \cancel{e^{i(x-y)}} +e^{i(x+y)}-e^{-i(x+y)}- \cancel{e^{i(x-y)}}+\cancel{e^{i(y-x)}} }4\\
+= \displaystyle \sin(x+y)\quad .
 \end{array}
 \]
 \end{proofOptional}
@@ -2035,7 +2035,7 @@ Compute $\displaystyle \int x^n e^x \diff x$.
 \displaystyle\int x^n e^x \diff x &=& \displaystyle\int x^n \diff e^x= x^n e^x- \int  e^x \diff x^n= x^n e^x- n\int  x^{n-1}e^x \diff x=\\
 &=&\displaystyle x^ne^x- n\left(\int x^{n-1}\diff e^x \right)= x^ne^x - n\left(x^{n-1}e^x- \int (n-1)x^{n-2}e^x \diff x\right)\\
 &=&\displaystyle x^{n}e^x-nx^{n-1}xe^x+n(n-1)\int x^{n-2}e^x \diff x =\dots\\
-&=&\displaystyle x^ne^{x}- nx^{n-1}e^x+n(n-1)x^{n-2}e^x+\dots \\
+&=&\displaystyle x^ne^{x}- nx^{n-1}e^x + n(n-1 )x^{n-2 } e^x + \dots \\
 &&+(-1)^kn(n-1)(n-2)\dots(n-k+1)x^{n-k}e^x+\dots +(-1)^n n! e^x+C\\
 &=&\displaystyle C+\sum_{k=0}^{n} (-1)^n\frac{n!}{(n-k)!} x^{n-k} e^x \quad .
 \end{array}
@@ -2223,7 +2223,7 @@ On a timed exam, carry out this step only if done with the other problems.
 \item There are algorithms for factoring a polynomial $D(x)$ over the rational numbers.
 \item There is a ``closed form'' formula for finding the roots of an arbitrary polynomial of degree 4 or less. Here, ``closed form'' formula means it is written with finitely many radicals (second, third, \dots roots), addition, subtraction, division and multiplication.
 \item A polynomial of degree 5 will generically have roots not of the above form (i.e., its roots cannot be written using finitely many arithmetic and radical operations). For concrete polynomials, there may be exceptions. All examples in our calculus course will fall under this exception.
-\item One can solve (for tautological reasons) an arbitrary polynomial of degree 5 or more by allowing operations involving additional (transcedental) functions. These functions may be described using infinite power series, just as we will later come to describe the radical function $\sqrt{1+z}$ (see \eqref{eqNewtonBinomialGeneralized}). However, the properties of these transcedental functions (for example, whether one such function may be used for two different polynomials or how to systematically describe them using computer algebra systems) are not completely understood; this is an area of active mathematical research under the general title ``Galois Theory''.
+\item One can solve (for tautological reasons) an arbitrary polynomial of degree 5 or more by allowing operations involving additional (transcendental) functions. These functions may be described using infinite power series, just as we will later come to describe the radical function $\sqrt{1+z}$ (see \eqref{eqNewtonBinomialGeneralized}). However, the properties of these transcendental functions (for example, whether one such function may be used for two different polynomials or how to systematically describe them using computer algebra systems) are not completely understood; this is an area of active mathematical research under the general title ``Galois Theory''.
 \end{itemize}
 
 \subsection{A large example illustrating the full algorithm }
@@ -2255,7 +2255,7 @@ and
 D(x)\eqdef 4x^{5}-4 x^{4}+12 x^{3}-12 x^{2}+9 x-9\quad .
 \]
 
-\noindent\textbf{Step 2.} (Split into partial fractions). Factor the denominator $D(x)=4x^{5}-4 x^{4}+12 x^{3}-12 x^{2}+9 x-9$. In many high schools, one studies how to find all rational roots of $D(x)$, on condition $D(x)$ has integer coefficients. There, one is taught that if $\frac{p}{q}$ is a rational number, then $\pm \frac{p}{q}$ may be a root of the integer coefficient polynomial $D(x)$ only if $p$ is a divisor of the constant term of $D(x)$, and $q$ is a divisor of the leading coefficient of $D(x)$. Since in our case the leading coefficient is 4 and the constant term is -9, the only possible rational roots of $D(x)$ are $\pm 1, \pm 3, \pm 9, \pm 1/2, \pm 3/2, \pm 9/2, \pm 1/4, \pm 3/4, \pm 9/4$. A rational number $r$ is a root of $D(x)$ if and only if subtituting $x=r$ yields 0. Direct check shows that, for example,  $D(-1)=-50$. However, $D(1)=0$ and therefore using polynomial division we get that $D(x)=(x-1)(4x^{4}+12x^{2}+9)$. We recognize that the second multiplicand is an exact square and therefore $D(x)=(x-1)(2x^2+3)^2$.
+\noindent\textbf{Step 2.} (Split into partial fractions). Factor the denominator $D(x)=4x^{5}-4 x^{4}+12 x^{3}-12 x^{2}+9 x-9$. In many high schools, one studies how to find all rational roots of $D(x)$, on condition $D(x)$ has integer coefficients. There, one is taught that if $\frac{p}{q}$ is a rational number, then $\pm \frac{p}{q}$ may be a root of the integer coefficient polynomial $D(x)$ only if $p$ is a divisor of the constant term of $D(x)$, and $q$ is a divisor of the leading coefficient of $D(x)$. Since in our case the leading coefficient is 4 and the constant term is -9, the only possible rational roots of $D(x)$ are $\pm 1, \pm 3, \pm 9, \pm 1/2, \pm 3/2, \pm 9/2, \pm 1/4, \pm 3/4, \pm 9/4$. A rational number $r$ is a root of $D(x)$ if and only if substituting $x=r$ yields 0. Direct check shows that, for example,  $D(-1)=-50$. However, $D(1)=0$ and therefore using polynomial division we get that $D(x)=(x-1)(4x^{4}+12x^{2}+9)$. We recognize that the second multiplicand is an exact square and therefore $D(x)=(x-1)(2x^2+3)^2$.
 
 \textbf{Note.} As explained in the theoretical part, finding the roots of polynomials is a non-trivial task and we cannot systematically give an algebraic solution beyond degree 4. Splitting rational functions to partial fractions in Calculus therefore relies on a certain amount of guesswork.
 
@@ -2321,22 +2321,22 @@ The general form of the integral $\displaystyle\int \frac{\diff y}{(y^2+1)^2}$ w
 \[
 \begin{array}{rcl}
 C+\arctan y &=&\displaystyle \int \frac{\diff y}{y^2+1}\\
-&=&\displaystyle \frac{y}{y^2+1} +\int \frac{2y^2dy}{(y^2+1)^2}= \frac{y}{y^2+1}+\int \frac{2(y^2+1-1)\diff y}{(y^2+1)^2}\\
-&=&\displaystyle \frac{y}{y^2+1} + 2\int \frac{\diff y}{(y^2+1)}- 2\int \frac{\diff y}{(y^2+1)^2}\quad.
+&=&\displaystyle \frac{y}{y^2+1} +\int \frac{2y^2dy }{( y^2+ 1 )^2}= \frac{y}{y^2+1}+\int \frac{2(y^2+1-1)\diff y}{(y^2+1)^2}\\
+&=&\displaystyle \frac{y}{y^2+1} + 2\int \frac{\diff y}{ ( y^2 +1)}- 2\int \frac{\diff y}{(y^2+1)^2}\quad.
 \end{array}
 \]
 Transferring summands we get 
 \[
-\int \frac{\diff y}{(y^2+1)^2}= \frac{1}{2}\left(\frac{y}{y^2+1}+\arctan y\right) +C\quad .
+\int \frac{\diff y}{(y^2+1)^2}= \frac{1}{2} \left( \frac{ y }{y^2+1} +\arctan y\right) +C\quad .
 \]
 We recall that $y=\sqrt{\frac{2}{3}}x$ and therefore 
 \[
-\int \frac{\diff x}{(2x^2+3)^2}=\frac{\sqrt{6}}{36}\left(\frac{\sqrt{\frac{2}{3}}x}{\left(\sqrt{\frac{2}{3}}x\right)^2+1}+\arctan \left(\sqrt{\frac{2}{3}}x\right)\right) +C
+\int \frac{\diff x}{(2x^2+3)^2}=\frac{\sqrt{6}}{36}\left(\frac{\sqrt{\frac{2}{3}}x}{\left(\sqrt{\frac{2}{3}}x\right)^2+1}+\arctan \left( \sqrt{\frac{2}{3}}x\right)\right) +C
 \]
 
 To get the final answer we need to collect all terms, to get a final answer:
 \[
-\frac{1}{6}\left(\frac{x}{2x^2+3}\right) -\frac{5\sqrt{6}}{36}\arctan \left(\sqrt{\frac{2}{3}}x\right) +\frac{1}{4} \ln (2x^2+3) +\ln|x-1|+\frac{x ^2}2+C\quad .
+\frac{1}{6}\left(\frac{x}{2x^2+3}\right) - \frac{5\sqrt{6}}{36} \arctan \left(\sqrt{\frac{2}{3}}x \right) +\frac{1}{4} \ln (2x^2+3) +\ln|x-1|+\frac{x ^2 } 2+ C\quad .
 \]
 \end{solution}
 \subsubsection{Exercises}
@@ -2363,12 +2363,12 @@ can be transformed to integrals of rational functions via the substitution $\the
 \begin{equation}\label{eqsin2zViaTanzcos2zViaTanz}
 \begin{array}{rcll|l}
 \cos (2z)&=& \displaystyle \cos^2 z- \sin^{2}z\\
-&=&\displaystyle \frac{\cos^{2}z- \sin^{2}z}{\cos^2z+\sin^2z}\\
-&=&\displaystyle \frac{\left(\cos^{2}z- \sin^{2}z\right)\frac{1}{\cos^2 z}}{\left(\cos^2z+\sin^2z\right)\frac{1}{\cos^2 z}}\\
+&=&\displaystyle \frac{\cos^{2}z- \sin^{2}z }{ \cos^2z + \sin^2 z}\\
+&=&\displaystyle \frac{\left(\cos^{2}z- \sin^{2 } z\right) \frac{1}{\cos^2 z}}{ \left( \cos^2z+\sin^2z \right) \frac{1}{ \cos^2 z}}\\
 &=&\displaystyle \frac{1-\tan^2 z}{1+\tan^2z}\quad ,\\~\\
 \sin(2z)&=& 2\sin z \cos z\\
 &=&\displaystyle \frac{2\sin z \cos z}{\cos^2z+\sin^2z}\\
-&=&\displaystyle \frac{2\sin z \cos z}{\left(\cos^2z+\sin^2z\right)} \frac{\frac{1}{\cos^2z}}{\frac{1}{\cos^2z}}\\
+&=&\displaystyle \frac{2\sin z \cos z}{\left(\cos^2z+\sin^2z\right)} \frac{\frac{ 1}{\cos^2z}}{ \frac{ 1}{\cos^2z}}\\
 &=&\displaystyle \frac{2\tan z}{1+\tan^2z}
 \end{array}
 \end{equation}
@@ -2383,8 +2383,7 @@ We are ready to express $\cos \theta$ and $\sin \theta$ via $t$:
 &=&\displaystyle  \frac{2t}{1+t^2}\quad .
 \end{array}
 \]
-The differential $\diff \theta$ can expressed via $\diff t$ from $\theta=2\arctan t$.
-The substitution $\theta=2\arctan t$ can be summarized as:
+The differential $\diff \theta$ can expressed via $\diff t$ from $\theta=2\arctan t$. The substitution $\theta=2\arctan t$ can be summarized as:
 \[
 \begin{array}{rcl}
 \cos \theta&=&\displaystyle  \frac{1- t^2}{1+t^2} \\
@@ -2528,7 +2527,7 @@ x&=&\displaystyle \tan \theta\\
 We recall that the substitution $\theta=2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $\theta=2\arctan t$ after the substitution $x=\tan\theta$:
 \[
 \begin{array}{rcll|l}
-x&=&\displaystyle \tan \theta &&\text{use } \theta=2\arctan t\\
+x&=&\displaystyle \tan \theta &&\text{use } \theta=2\arctan t \\
 &=&\displaystyle \tan \left(2\arctan t\right)&&\displaystyle  \text{use \eqref{eqSinCosViaTan}: } \tan 2z=\frac{\sin (2z)}{\cos (2z)}=\frac{2\tan z}{1-\tan^2 z}\\
 &=&\displaystyle \frac{2\tan (\arctan t)}{1-\tan^2 (\arctan t)}\\
 &=&\displaystyle \frac{2t}{1-t^2}\quad .
@@ -2758,7 +2757,7 @@ The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\cos \the
 \begin{equation*}
 \begin{array}{rcl}
 x&=&\cos \theta\\
-\sqrt{-x^2+1}&=&\cos \theta\\
+\sqrt{-x^2+1}&=&\sin \theta\\
 \diff x&=& -\sin \theta \diff \theta\\
 \theta&=&\arccos x \quad .
 \end{array}
@@ -2792,8 +2791,8 @@ The differential $\diff x$ can be computed from $x=\frac{1-t^2}{1+t^2}$. Finally
 \displaystyle t^2(x+1)&=&\displaystyle 1-x\\
 \displaystyle t^2&=&\displaystyle \frac{1-x}{1+x}\\
 \displaystyle t&=&\displaystyle \sqrt{\frac{1-x}{1+x}}&& \text{here we use } t>0\\
-\displaystyle t&=&\displaystyle \frac{\sqrt{1-x}}{\sqrt{ 1+x}} \frac{ \sqrt{1-x}}{\sqrt{1-x}} \\
-\displaystyle t&=&\displaystyle \frac{\sqrt{-x^2+1}}{-x+1}\quad .
+\displaystyle t&=&\displaystyle \frac{\sqrt{1-x}}{\sqrt{ 1+x}} \frac{ \sqrt{1+x}}{\sqrt{1+x}} \\
+\displaystyle t&=&\displaystyle \frac{\sqrt{-x^2+1}}{x+1}\quad .
 \end{array}
 \]
 The Euler substitution $x= \cos (2\arctan t)$ can be now summarized as:
@@ -2802,7 +2801,7 @@ The Euler substitution $x= \cos (2\arctan t)$ can be now summarized as:
 x&=&\displaystyle \frac{1-t^2}{1+t^2}\\
 \sqrt{-x^2+1}&=&\displaystyle \frac{2t}{1+t^2}  \\
 \diff x&=&\displaystyle  -\frac{4 t}{(t^{2}+1)^{2}} \diff t\\
-t&=&\displaystyle \frac{\sqrt{-x^2+1}}{-x+1} \quad .
+t&=&\displaystyle \frac{\sqrt{-x^2+1}}{x+1} \quad .
 \end{array}
 \]
 As demonstrated in the present section, it is sufficient to memorize the substitution $x=\sin (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality

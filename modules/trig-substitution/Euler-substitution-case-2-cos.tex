@@ -1,43 +1,75 @@
-
-\subsubsection{Euler substitution $x=\cos \theta$, $\theta=2\arctan t$, $ 0<t $}
-We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\cos \theta$:
-
-\begin{equation*}
-\begin{array}{rcll|l}
-x&=&\displaystyle \cos \theta &&\text{use } \theta=2\arctan t\\
-&=&\displaystyle \cos (2\arctan t) &&\text{use } \eqref{eqSinCosViaTan}: \displaystyle \cos (2z) = \frac{ 1-\tan^2 z }{1+ \tan^2 z}\\
-&=&\displaystyle \frac{1-\tan^2(\arctan t)}{1+\tan^2( \arctan t)} \\
-&=&\displaystyle \frac{1-t^2}{1+t^2} \quad .
-\end{array}
-\end{equation*}
-We can furthermore compute
-\begin{equation}\label{eqsqrt1minusxsquaredE2}
-\begin{array}{rcll|l}
-\sqrt{-x^2+1 }&=&\displaystyle \sqrt{1- \left(\frac{1-t^2}{1+t^2}\right)^2}\\
-&=&\displaystyle \sqrt{\frac{(1+t^2)^2-(1-t^2)^2}{(1+t^2)^2} }\\
-&=&\displaystyle \sqrt{\frac{4t^2}{(1+t^2)^2}} &&\displaystyle \sqrt{4t^2}=2t\text{ because } t>0\\
-&=&\displaystyle \frac{2t}{1+t^2}\quad .\\
-\end{array}
-\end{equation}
-The differential $\diff x$ can be computed from $x=\frac{1-t^2}{1+t^2}$. Finally, we can express $t$ via $x$ with a little algebra:
-
+\begin{frame}
+\frametitle{Euler subst. for $\sqrt{-x^2+1}$ corresponding to $x=\cos \theta$ }
+\begin{itemize}
+\item $\alert<4>{ x =\cos \theta}$ transforms $\diff x, x,\sqrt{x^2+1}$ to trig form.
+\item $\alert<5>{\theta=2\Arctan t}$, \uncover<3->{ $t>0$} transforms $\diff \theta, \cos\theta,\sin \theta$ to rational form.
+\end{itemize}
+\uncover<2->{\alert<2>{What if we compose the above?}} \uncover<3->{\alert<3>{We get the Euler substitution:}}
+\only<1-37>{ %
 \[
-\begin{array}{rcll|l}
-\displaystyle x&=&\displaystyle \frac{1-t^2}{1+t^2}\\
-\displaystyle (1+t^2)x&=&\displaystyle 1-t^2\\
-\displaystyle t^2(x+1)&=&\displaystyle 1-x\\
-\displaystyle t^2&=&\displaystyle \frac{1-x}{1+x}\\
-\displaystyle t&=&\displaystyle \sqrt{\frac{1-x}{1+x}}&& \text{here we use } t>0\\
-\displaystyle t&=&\displaystyle \frac{\sqrt{1-x}}{\sqrt{ 1+x}} \frac{ \sqrt{1-x}}{\sqrt{1-x}} \\
-\displaystyle t&=&\displaystyle \frac{\sqrt{-x^2+1}}{-x+1}\quad .
+\begin{array}{rclll}
+\uncover<3->{\alert<4,13,22,33,37>{x}}&\uncover<3->{\alert<4,13,22,33,37>{=}}&\displaystyle \vphantom{\frac{1- t^2}{ 1+ t^2} } 
+\only<1-10>{
+\displaystyle \uncover<4->{\alert<4>{ \cos \alert<5>{\theta}} } \\
+\uncover<5->{ &=&\displaystyle \alert<8>{ \cos (\alert<5>{2\arctan t})}} \uncover<6->{&&\begin{array}{|l}
+\displaystyle \displaystyle \alert<6,7,8>{\cos (2z) =}\uncover<7->{\alert<7,8>{ \frac{ 1-\tan^2 z }{1+ \tan^2 z}}}
+\end{array}}
+\\
+\uncover<8->{ &=&\displaystyle \alert<8>{ \frac{1- {\alert<9>{\tan}}^2 ( \alert<9>{\Arctan t})}{1+{\alert<9>{\tan}}^2(\alert<9>{\Arctan t})} } } \\
+\uncover<9->{&=&}
+} %only<1-10>
+\uncover<9->{\displaystyle \alert<10,11,13,22,33,37>{ \frac{\alert<22>{ 1- { \alert<9>{t}}^2}}{\alert<23>{ 1+ { \alert<9>{t}}^2}} }  &&{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} %whitespace flushes formulas left
+} 
+\uncover<12->{ \\\hline}
+\uncover<12->{\alert<37>{ \sqrt{- {\alert<13>{x}}^2+1 }}}&\uncover<12->{\alert<37>{=}} &\displaystyle 
+\only<1-20>{
+\uncover<13->{ \sqrt{\alert<14>{1} - \left(\alert<13>{ \frac{1-t^2}{ 1+ t^2 }} \right)^2}}\\
+\uncover<14->{&=&\displaystyle \sqrt{\frac{ \alert<15>{ \alert<14,17>{ (1+ t^2)^2} -(1-t^2)^2} }{ \alert<14>{(1+t^2)^2}} }}&&
+\uncover<15->{\begin{array}{|l}
+\alert<15,16>{(1+t^2)^2-(1-t^2)^2=}\only<15>{\alert<15>{\textbf{?}}} \uncover<16->{\alert<16>{4t^2}}}
+\end{array} 
+\\
+\uncover<17->{&=&\displaystyle  \sqrt{\frac{ \alert<17>{4t^2} }{ (1+t^2)^2}}} \uncover<18->{&& 
+\begin{array}{|l}
+\displaystyle \alert<18>{ \alert<19>{\sqrt{4t^2}=2t} \text{ because } t>0} }
+\end{array}
+\\
+\uncover<19->{&=&}
+} %only<1-20>
+\uncover<19->{ \displaystyle \alert<20,21,37>{ \frac{{2t} }{1+t^2}} \vphantom{ \sqrt{1 - \left( \frac{1-t^2}{ 1+ t^2 } \right)^2}} }\uncover<22->{\\\hline }
+\only<1-30>{
+\uncover<22->{ \displaystyle \alert<23>{ (\alert<25>{1}+ \alert<24>{t^2})} \alert<22,24,25>{ x} &=&\displaystyle  \alert<22>{\alert<25>{1} -\alert<24>{t^2}}}\\
+\uncover<24->{ \displaystyle \alert<24>{ t^2(\alert<26>{x+1})}&=&\displaystyle \alert<25>{ 1-x}}\\
+\uncover<26->{ \displaystyle t^2&=&\displaystyle \frac{1-x}{\alert<26>{1+x}}}\\
+}
+\uncover<27->{ \displaystyle \alert<30,31,37>{t}} &\alert<30,31,37>{\uncover<27->{=}}&\displaystyle \only<27-30>{\uncover<27->{ \frac{ \alert<29>{ \sqrt{1 -x }}}{\sqrt{ 1+x}}} \uncover<28->{ \frac{ \alert<29>{  \sqrt{1+x}} }{\sqrt{1+x}} }}\only<29-30>{=} \uncover<29->{ \alert<30,31,37>{ \frac{ \alert<29>{ \sqrt{-x^2+1} }}{x+1}}} && 
+\uncover<27-30>{
+\begin{array}{l}\text{here we use } t>0
+\end{array}
+} 
+\uncover<31->{ \\\hline}
+\uncover<32->{\alert<37>{ \diff \alert<33>{x}}} &\uncover<33->{=} & \displaystyle \vphantom{\diff \left( \frac{ 1- t^2}{ 1+ t^2}\right)} \only<33->{\diff \left( \alert<33>{\frac{ 1- t^2}{ 1+ t^2}}\right)} 
+\only<34->{=\diff\left(\frac{2-\alert<35>{ (1+t^2)} }{ \alert<35>{ 1 + t^2}} \right)}\\
+&\uncover<35->{=}&\only<35->{\displaystyle \diff\left(\frac{2}{1+ t^2} \alert<35>{-1} \right)}
+\only<36->{\alert<37>{=-\frac{4t}{(1+t^2)^2}\diff t}}
 \end{array}
 \]
-The Euler substitution $x= \cos (2\arctan t)$ can be now summarized as:
+} %only<1-37>
+\uncover<38->{
+\begin{definition}
+The Euler substitution for $\sqrt{x^2+1}$ corresponding to $x=\cos \theta$ is given by:
 \[
+\alert<38>{
 \begin{array}{rcl}
-x&=&\displaystyle \frac{1-t^2}{1+t^2}\\
+x&=&\displaystyle \frac{1-t^2}{1+t^2}, \quad \quad t>0\\
 \sqrt{-x^2+1}&=&\displaystyle \frac{2t}{1+t^2}  \\
 \diff x&=&\displaystyle  -\frac{4 t}{(t^{2}+1)^{2}} \diff t\\
-t&=&\displaystyle \frac{\sqrt{-x^2+1}}{-x+1} \quad .
+t&=&\displaystyle \frac{\sqrt{-x^2+1}}{x+1} \quad .
 \end{array}
+}
 \]
+\end{definition}
+
+\vspace{7cm}
+}
+\end{frame}
