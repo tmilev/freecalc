@@ -1,37 +1,81 @@
 %begin module Euler-substitution-case-1-cot
 \begin{frame}
 \frametitle{Euler subst. for $\sqrt{x^2+1}$ corresponding to $x=\cot \theta$ }
-Recall $\theta=2\arctan t$ transforms a trigonometric integral into integral of a rational function. Carry out the substitution $\theta= \theta=2\arctan t$:
+\begin{itemize}
+\item $\alert<4>{ x =\cot \theta}$ transforms $\diff x, x,\sqrt{x^2+1}$ to trig form.
+\item $\alert<5>{\theta=2\Arctan t}$, \uncover<3->{ $t>0$} transforms $\diff \theta, \cos\theta,\sin \theta$ to rational form.
+\end{itemize}
+\uncover<2->{\alert<2>{What if we compose the above?}} \uncover<3->{\alert<3>{We get the Euler substitution:}}
+\only<1-34>{ %
 \[
-\begin{array}{rcll|l}
-x&=&\displaystyle \cot \theta \\
-&=& \displaystyle \cot \left(2\arctan t\right) &&\displaystyle  \text{Recall: } \cot 2z=\frac{\cos (2z)}{\sin (2z)}=\frac{1-\tan^2z}{2\tan z } \\
-&=&\displaystyle \frac{1-\tan^2 (\arctan t)}{2 \tan (\arctan t)} \\
-&=&\displaystyle \frac{1-t^2}{2t}\\
-&=&\displaystyle \frac{1}{2}\left(\frac{1}t -t\right)\quad .
+\begin{array}{rclll}
+\uncover<3->{\alert<4,16,26,33,34>{x}}
+&\uncover<3->{\alert<4,16,26,33,34>{=}} &\displaystyle 
+\vphantom{\frac{1}{2}\left(\frac{1}t -t\right)} %phantom
+\only<3-13>{
+\displaystyle \uncover<4->{\alert<4>{ \cot\alert<5>{\theta}}} \\
+\uncover<5->{&=& \displaystyle \alert<8>{\cot \left(\alert<5>{2\arctan t}\right)}} \uncover<6->{&&| \displaystyle  \text{Recall: } \alert<8>{\cot (2z)} =\frac{ \cos (2z)}{\sin (2z)} \uncover<7->{\alert<8>{=\frac{1-\tan^2z}{2\tan z }}}} \\
+\uncover<8->{ &=&\displaystyle \alert<8>{ \frac{1-{\alert<9>{\tan}}^2 \alert<9>{(\arctan t)}}{2 \alert<9>{\tan (\arctan t)}}}} \\
+\uncover<9->{&=&\displaystyle \alert<16>{\frac{\alert<11>{1}-\alert<12>{{\alert<9>{t}}^2}}{\alert<10>{2} \alert<9,11,12>{t}}}}\\
+\uncover<10->{&=&}
+} %only <3-13>
+\uncover<10->{\displaystyle \alert<13,14,16,26,33,34>{ \alert<10>{ \frac{1}{2}}\left(\alert<11>{\frac{1}t} - \alert<12>{t} \right)}\quad . &&
+{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} %whitespace flushes formulas left
+}
 \end{array}
 \]
+\uncover<15->{
 We can furthermore compute 
-\begin{equation} \label{eqsqrtx2plus1Euler2}
-\begin{array}{rcll|l}
-\displaystyle \sqrt{x^2+1}&=& \displaystyle  \sqrt{ \frac{1}{4} \left(\frac{1}t -t \right)^2 +1}\\
-&=&\displaystyle \frac{1}{2} \sqrt{\left( \frac{1}{t} +t \right)^2} & &\displaystyle \sqrt{\left(\frac{1}{t}+t\right)^2} = \frac{1}{t} +t \text{ because }t>0\\
-&=&\displaystyle \frac{1}{2}\left(\frac{1}{t}+t\right)\quad .
-\end{array}
-\end{equation}
-The differential $\diff x$ can be expressed via $\diff t$ from $\displaystyle x=\frac{1}{2} \left( \frac{1}{t} - t\right)$. Finally, we can subtract $\displaystyle x=\frac{1}{2} \left( \frac{1}{t} - t\right)$ from  $\displaystyle \sqrt{x^2+1}= \frac{1}{2} \left( \frac{1 }{ t} +t\right)$ to we get that $t=\sqrt{x^2+1}-x $. The Euler substitution $x=\cot \theta= \cot (\arctan 2t)$ can be now summarized as:
-\begin{equation}\label{eqEulerSub1.2}
-\begin{array}{rcl}
-x&=&\displaystyle \frac12\left(\frac{1}{t}- t\right)\\
-\displaystyle\sqrt{x^2+1}&=& \displaystyle \frac12 \left(\frac1t +t\right)\\ 
-\displaystyle \diff x&=&\displaystyle -\frac12\left(\frac{1}{t^2}+1\right) \diff t\\
-t &=&\sqrt{x^2+1}-x\quad .
-\end{array}
-\end{equation}
-As demonstrated in the present section, it is sufficient to memorize the substitution $x=\cot (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality 
 \[
-\sqrt{x^2+1}=x+t\quad .
+\begin{array}{rclll}
+\displaystyle 
+\alert<32,34>{\sqrt{x^2+1}}& \alert<32,34>{=}& 
+\only<1-23>{
+\displaystyle  \uncover<16->{ \sqrt{ \alert<16>{\alert<17>{\frac{1}{4}} \left(\frac{1}t -t \right)^2} +\alert<17>{1}}}\\
+\uncover<17->{ &=&\displaystyle \alert<17>{\frac{1}{2}} \alert<22>{ \sqrt{\alert<19>{\left( \frac{1}{t} \only<1-19>{-}\only<20->{\alert<20>{+}} t \right)^2\uncover<1-19>{+\alert<17>{4}}}}}} & &
+\only<18,19>{
+\begin{array}{|l} 
+\alert<19>{\left(\frac{1}{t}- t\right)^2+4=\left(\frac{1}{t}\alert<18>{+}t\right)^2 }
+\end{array}
+} 
+\uncover<21->{ 
+\begin{array}{|l}
+\alert<22>{\sqrt{\left(\frac{1}{t}+t\right)^2} = \frac{1}{t} +t}\\ \text{ because }t>0
+\end{array}
+} %uncover<21->
+\\
+&\uncover<22>{=}&
+} %only<1-23>
+\uncover<22->{ \displaystyle \alert<23,24,32,34>{ \frac{1}{2}\left(\alert<22>{\frac{1}{t}+t}\right)} 
+\vphantom{\sqrt{ \frac{1}{4} \left(\frac{1}t -t \right)^2 }}
+\quad . &&} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} %whitespace flushes formulas left
+\end{array}
 \]
+}
+\uncover<25->{
+Finally compute 
+\[
+\begin{array}{rcl}
+\alert<34>{\diff \alert<26>{x}}&=&\displaystyle  \uncover<26->{\alert<27,28>{\diff \left( \alert<26>{\frac{1}{2} \left(\frac{1}t -t\right)} \right)}}\uncover<27->{\alert<27,28,34>{=}} \uncover<28->{\alert<28,34>{-\frac12 \left( \frac{1}{t^2} +1\right) \diff t}}\\
+\displaystyle  \alert<30,34>{t}&=&\displaystyle  \alert<32>{ \alert<30,31>{\frac{1}{2}} \left(\alert<31>{\frac{1 }{ t}} +\alert<30,31>{t}\right)} \alert<30,31>{-} \alert<33>{\alert<30>{ \frac{1}{2}} \left(\alert<31>{ \frac{1}{t}} \alert<30>{- t}\right)}\uncover<32->{\alert<34>{ = \alert<32>{\sqrt{x^2+1}}-\alert<33>{x}}} \quad .
+\end{array}
+\]
+}
+} %only <1-34>
+\uncover<35->{
+\begin{definition}The Euler substitution for $\sqrt{x^2+1}$ corresponding to $x=\cot \theta$ is given by:
+\[
+\begin{array}{rcl}
+\alert<35>{x} &\alert<35>{=}&\displaystyle \alert<35>{\frac12\left(\frac{1}{t}- t\right) }\\
+\displaystyle \alert<35>{ \sqrt{x^2+1}} & \alert<35>{=}& \displaystyle \alert<35>{\frac12 \left(\frac1t +t\right)} \\ 
+\displaystyle \alert<35>{ \diff x}& \alert<35>{=}&\displaystyle \alert<35>{-\frac12\left(\frac{1}{t^2}+1\right) \diff t}\\
+\alert<35>{t} &\alert<35>{=}&\alert<35>{\sqrt{x^2+1}-x}\quad .
+\end{array}
+\]
+\end{definition}
+
+\vspace{5cm}
+}
 \end{frame}
 
 %end module Euler-substitution-case-1-cot
