@@ -3625,6 +3625,186 @@ As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by 
 \end{pspicture}
 }
 
+%\chapter{Polar coordinates}
+\section{Polar coordinates}
+Polar coordinates of a point $P=(x,y)$ in the plane are any two numbers $(r, \theta)$, $r\geq 0$, for which $(x,y)=(r\cos\theta, r\sin \theta)$. In other words, the relation between the Cartesian coordinates $(x,y)$ and the polar coordinates $(r,\theta)$ of a point $P$ is given by 
+\[
+\left|\begin{array}{rcl}
+x&=&r\cos \theta\\
+y&=&r\sin\theta
+\end{array}\right.
+\]
+
+In these lectures, we allow polar coordinates with $ r<0$. Whether one allows $r<0$ is a matter of convention, which might vary between computer algebra systems (if in doubt, assume that $r<0$ is not allowed).
+
+To obtain polar coordinates from Cartesian coordinates we compute that $x^2+y^2= r^2(\cos^2 \theta+\sin^2\theta)=r^2$ and therefore $r=\pm\sqrt{x^2+y^2}$. Furthermore we have that $\frac{y}{x}= \frac{\cancel{r}\sin \theta}{\cancel{r}\cos \theta}=\tan \theta$. To summarize:
+\[
+\left|\begin{array}{rcl}
+r&=&\pm\sqrt{x^2+y^2}\\
+\tan\theta&=&\frac{y}{x} \quad \mathrm{if~}x\neq 0 \quad .
+\end{array}\right.
+\]
+Note that the equality $\tan \theta = \frac{y}{x}$ is not always defined. Also note that  $\tan \theta=\frac{y}{x}$ does not determine $\theta$ uniquely, as it is not clear in which interval $(k\pi -\frac{\pi}{2}, k\pi+\frac{\pi}{2})$, $k\in \mathbb Z$ does $\theta$ lie.
+
+$r$ denotes the distance from $P$ to the origin and $\theta$ denotes the angle between the segment $OP$ and the $x$-axis, as indicated on the picture below.
+
+\optionalDisplay{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-1.5,-1.5)(5,4)
+\psline[linecolor=gray](-1.5,0)(2.5,0) % x-axis
+\psline[linecolor=gray](0,-1.5)(0,2.5) % y-axis
+\parametricplot[linecolor=red]{0}{60}{t cos 0.25 mul t 1000 div 1 add mul t sin 0.25 mul t 1000 div 1 add mul} 
+\parametricplot[linecolor=red, arrows=->]{0}{780}{t cos 0.55 mul t 1000 div 1 add mul t sin 0.55 mul t 1000 div 1 add mul} 
+\psline(0,0)(2,  3.464)
+\rput(2,  3.464){$\bullet$}
+\rput[lt](2,  3.264){$P= (r\cos \theta, r\sin \theta)$}
+\rput(0.35,  0.25){$\theta$}
+\end{pspicture*}
+} %optionalDisplay
+
+Polar coordinates are not unique: if $(r, \theta)$ are polar coordinates of $P=(x,y)$, then so are $(r, \theta+2\pi)$.
+
+We have already encountered polar coordinates when studying polar form of complex numbers. Let $z\eqdef x+iy$, $x,y\in \mathbb R$. Then we recall from section \ref{secPolarFormComplexNumbers} that there exist real numbers $\rho$, $r\eqdef e^\rho$ and $\theta$ such that $z=x+iy= e^{\rho+i\theta}= e^\rho(\cos \theta+i\sin \theta)= r(\cos \theta + i\sin \theta)$. We recall the latter equality is the polar form of the complex number $z$. Then $(r, \theta)$ are the polar coordinates of the point $(x,y)$. 
+
+The relationship between polar form of complex numbers and polar coordinates can be summed up in the following equalities.
+\[
+\begin{array}{rclclcl}
+r(\cos \theta+i\sin\theta) &=&  x+iy&=& z&=&\Re (z)+i\Im(z)\\
+r\cos\theta&=&x&=&\Re(z)\\
+r\sin\theta&=&y&=&\Im(z)\\
+\theta&&&=& \arg (z)\\
+\tan \theta &=&\displaystyle\frac{y}{x}&=&\displaystyle\frac{\Im (z)}{\Re (z)}\\
+r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
+\end{array}
+\]
+
+\index{cardioid}\index{spiral} Sometimes a curve is given in polar coordinates by specifying a relationship between $r$ and $\theta$, such as $r=\theta$ (spiral) or $r=1+\sin \theta$ (cardioid), $r=2\cos \theta$ (circle of radius one centered at $(1,0)$).
+
+\optionalDisplay{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-5,-5)(5,5)
+\rput (3,3){$r=\theta$}
+\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
+\parametricplot[linecolor=red, plotpoints=500]{0}{720}{t cos t mul 180 div t sin t mul 180 div } 
+\end{pspicture*}
+
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-5,-5)(5,5)
+\rput (3,3){$r=1+\sin\theta$}
+\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
+\parametricplot[linecolor=red, plotpoints=500]{0}{360}{1 t sin add t cos mul
+ 1 t sin add t sin mul} 
+\end{pspicture*}
+
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-5,-5)(5,5)
+\rput (3,3){$r=2\cos\theta$}
+\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
+\parametricplot[linecolor=red, plotpoints=500]{0}{360}
+{ t cos 2 mul t cos mul
+  t cos 2 mul t sin mul} 
+\end{pspicture*}
+} %optionalDisplay
+
+\index{area!enclosed by curve in polar coord.} Let $r=f(\theta), \theta\in [a,b]$ be a curve given in polar coordinates.  Let $A$ denote the figure given by the union of the segments connecting each point the curve to the origin. Suppose no two points on the curve lie on the same ray from the origin. Then the area of $A$ is given by 
+\importantFormula{\label{eqAreaUnderPolarCurve}
+area(A)\eqdef \int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta\quad .
+}
+
+A motivation for the above definition may be given as follows. 
+\psset{xunit=1cm,yunit=1cm}
+
+\optionalDisplay{
+\begin{pspicture*}(-4,-1)(7.3,5.4)
+\newcommand{\dThetA}{20}
+\rput(4,5){$r=f(\theta)$}
+\psaxes[labels=none]{<->}(0,0)(-3.5,-0.5)(4.5,5.2)
+\multido{\rb=10+\dThetA}{6}{%
+\pstVerb{/rR \rb\space 30 div 2 add def
+/rRPlusTheta \rb\space \dThetA\space add 30 div 2 add def
+}
+\pscustom[fillcolor=blue!30, fillstyle=solid, linecolor=blue]{\psline(0,0)(! rR \rb \space cos mul rR \rb \space sin mul) (! rRPlusTheta \rb \space\dThetA\space add cos mul rRPlusTheta \rb \space \dThetA\space add sin mul) }
+}
+\parametricplot[linecolor=red, plotpoints=500]{10}{130}
+{ t 30 div 2 add  t cos mul
+  t 30 div 2 add  t sin mul} 
+\parametricplot[linecolor=red]{30}{50} %{! \dThetA 10 add}
+{t cos 1 mul
+ t sin 1 mul } 
+\rput[lt](0.8, 0.8){\tiny$\Delta\theta$}
+\parametricplot[linecolor=red, arrows=->]{0}{30} %{! \dThetA 10 add}
+{t cos 0.5 mul
+ t sin 0.5 mul } 
+\rput[lt](0.55,0.3){\tiny$\theta_1$}
+\parametricplot[linecolor=red, arrows=->]{0}{50} %{! \dThetA 10 add}
+{t cos 0.85 mul
+ t sin 0.85 mul } 
+\rput[lt](0.85,0.4){\tiny$\theta_2$}
+
+\rput[tr] (-0.1,-0.1){$O$}
+\rput[tl] (2.7,1.5){$P=(f(\theta_1)\cos \theta_1, f(\theta_1)\sin \theta_1)$}
+\rput[tl] (2.51,2.95){$Q=(f(\theta_2)\cos \theta_2, f(\theta_2)\sin \theta_2)$}
+\end{pspicture*}
+} %optionalDisplay
+
+Let $N$ be a large number and split the interval $[a,b]$ using $N+1$ equally spaced points $a=\theta_0\leq\theta_1\leq\dots\leq\theta_{N-1}\leq \theta_N=b$ into $N$ equal segments, each of the form $[\theta_j,\theta_{j+1}] $. Denote the length of each such segment by $\Delta\theta$, i.e., let $\Delta\theta\eqdef \frac{b-a}{N}$. Then the area of $A$ is approximated by triangles with vertices on the curve of the form $(f(\theta_j)\cos \theta_j, f(\theta_{j+1} )\cos \theta_{j+1})$ as drawn in the figure. Consider one such triangle, $OPQ$, as indicated in the figure. The area of triangle $OPQ $ is $\frac{|OP| |OQ|\sin (\Delta\theta)}{2}= \frac{f(\theta_1)f(\theta_2)\sin (\Delta\theta)}{2} $. In other words the area of $A$ is approximated by
+\[
+\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j+1})\sin (\Delta\theta)}{2}= \frac{\sin(\Delta\theta)}{\Delta\theta}\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j}+\Delta\theta)\Delta\theta}{2}\quad .
+\]
+In the above sum, the multiplicand $\frac{\sin(\Delta\theta)}{\Delta\theta}$ tends to $1$ as $\Delta\theta$ tends to $0$. Therefore as $\Delta$ tends to zero, the expression tends to the limit of the second multiplicand. On the other hand, one can show that the second multiplicand approximates the integral $\int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta$. This motivates definition of area given in \eqref{eqAreaUnderPolarCurve}.
+
+Curve length of curve of the form $\gamma:|r=f(\theta),\theta\in [a,b]$. Then $(x,y)= (r\cos\theta, r\sin \theta)= (\underbrace{f(\theta)\cos\theta}_{=:g_1(\theta)}, \underbrace{ f(\theta)\sin\theta}_{=:g_2(\theta)} $. Recall the definition of curve length \eqref{eqDefLengthCurve}:
+\[
+\int\limits_{a}^b\sqrt{\left(\frac{dg_1}{d\theta}\right)^2+\left(\frac{dg_2}{d\theta}\right)^2}d\theta \quad.
+\]
+We substitute $g_1(\theta)=f(\theta)\cos\theta$, $g_2(\theta)=f(\theta)\sin\theta$ and carry out the operations:
+\[
+\begin{array}{l}
+\displaystyle\int\limits_{a}^b\sqrt{ (-\sin\theta f(\theta) + \cos\theta f'(\theta) )^2+(\cos\theta f(\theta)+\sin \theta f'(\theta) )^2}d\theta=\\ 
+\displaystyle \int \limits_{a}^b \sqrt{\sin^2\theta f^2(\theta)- \cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)}+\cos^2\theta (f'(\theta))^2+ \cos^2\theta f^2(\theta)+\cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)} \sin^2 (f'(\theta))^2 }d\theta\quad .
+\end{array}
+\]
+Regrouping the above expression using $\sin^2\theta+\cos^2\theta=1$ we finally get that the length of a curve given in polar coordinates as $r=f(\theta)$ is computed as
+\importantFormula{\label{eqCurveLengthPolarCoords}
+\int\limits_{a}^b \sqrt{f^2(\theta)+ (f'(\theta))^2}d\theta
+}
+
+Find the area of the figure that lies outside of figure enclosed by $r_1=3\cos\theta_1, \theta_1\in [0,\pi)$ and inside the figure enclosed by $r_2=1+\cos\theta_2, \theta\in [-\pi,\pi)$. %Find the perimeter of the curve.
+
+\begin{solution}
+\optionalDisplay{
+\begin{pspicture}(-1, -4)(4,4)
+\pscustom*[fillcolor=red!20, linecolor=red!20]{
+\parametricplot[linecolor=red, plotpoints=1000]{-60}{60}{3 t cos mul t cos mul 3 t cos mul t sin mul}
+\parametricplot[linecolor=red, plotpoints=1000]{60}{-60}{1 t cos add t cos mul 1 t cos add t sin mul}
+}
+\parametricplot[linecolor=red, plotpoints=1000]{0}{360}{1 t cos add t cos mul 1 t cos add t sin mul}
+\parametricplot[linecolor=red, plotpoints=1000]{0}{360}{3 t cos mul t cos mul 3 t cos mul t sin mul}
+\psaxes[labels=none]{<->}(0,0)(-1,-2.5)(3.5,2.5)
+\rput[c](0.75,1.299){$\bullet$}
+\rput[c](0.75,-1.299){$\bullet$}
+\rput[b](0.85,1.51){$\left(\frac{3}4,\frac{3\sqrt{3}}{4} \right)$}
+\rput[t](0.85,-1.51){$\left(\frac{3}4,-\frac{3\sqrt{3}}{4} \right)$}
+\psline[linestyle=dotted](0,0)(0.75,1.299)
+\psline[linestyle=dotted](0,0)(0.75,-1.299)
+\end{pspicture}
+} %optionalDisplay
+
+We first plot the curves using computer to get the above picture. We see that the curve $r_1=3\cos\theta_1$ is a circle and that $r_2=1+\cos\theta_2$ is a cardioid (rotated at an angle of $-\frac{\pi}{2}$). Let us verify that indeed $r_1=3\cos\theta_1$ is a circle. Multiplying by $r_1$ we get $r_1^2=3r_1\cos\theta_1= 3x$. Therefore $x^2+y^2-3x=0$, or, after completing the square, $(x-\frac{3}{2})^2+y^2=\frac{9}{4}$. Thus $r_1=3\cos\theta_1$ is a circle centered at $(\frac{3}{2},0)$ and with radius $\frac{3}{2}$. From the picture we see that the two curves intersect in three points, one of which is the origin. We get an additional intersection of the two curves when $r_1=r_2$, $\theta_1=\theta_2$ and $1+\cos\theta=3\cos\theta$, where we have set $\theta:=\theta_1=\theta_2$. In other words, $\cos\theta=\frac{1}{2}$ and as $\theta\in [0,\pi)$, we get $\theta=\pm \frac{\pi}{3}$. Thus we have a second intersection point $x=\frac{3}{4}$, $y=\frac{3\sqrt{3}}{4}$. By symmetry with respect to the $x$ axis we get that the final intersection point is $(x,y)=(\frac{3}4,-\frac{3\sqrt{3}}{4}) $.
+
+Therefore the area of the enclosed curve is given by the area of the figure obtained by connecting $r=3\cos\theta, \theta\in(-\frac{\pi}{3}, \frac{\pi}{3})$ to the origin minus the area of the figure obtained by connecting $r=1+\cos\theta, \theta\in(-\frac{\pi}{3}, \frac{\pi}{3})$ to the origin. We can now use \eqref{eqAreaUnderPolarCurve} to get the answer
+
+\[
+\begin{array}{rcl}
+\displaystyle\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}2\left(9\cos^2\theta-(1+\cos\theta)^2\right) d\theta&=& \displaystyle\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}2\left(8\underbrace{\cos^2\theta}_{=\frac{1+\cos(2\theta)}2  }-1-2\cos\theta \right) d\theta\\
+&=&\displaystyle\frac{1}2\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \left(4+4 \cos 2\theta-1-2\cos\theta \right) d\theta
+\\
+&=&\pi+\left.\sin2\theta\right|_{\theta=-\frac{\pi}{3}}^{\theta=\frac{\pi}3}-\left.\sin\theta\right|_{\theta=-\frac{\pi}{3}}^{\theta=\frac{\pi}3}\\
+&=&\pi
+\end{array}
+\]
+\end{solution}
+
 \chapter{A bit of differential equations}
 \section{Some terminology and background}
 A differential equation is an equation that contains at least one derivative (first, second, third,...) of an unknown function. 
@@ -5008,184 +5188,7 @@ In an analogous fashion we can prove that
 which completes the proof of the theorem.
 \end{proof}
 
-\chapter{Polar coordinates}
-Polar coordinates of a point $P=(x,y)$ in the plane are any two numbers $(r, \theta)$, $r\geq 0$, for which $(x,y)=(r\cos\theta, r\sin \theta)$. In other words, the relation between the Cartesian coordinates $(x,y)$ and the polar coordinates $(r,\theta)$ of a point $P$ is given by 
-\[
-\left|\begin{array}{rcl}
-x&=&r\cos \theta\\
-y&=&r\sin\theta
-\end{array}\right.
-\]
 
-In these lectures, we allow polar coordinates with $ r<0$. Whether one allows $r<0$ is a matter of convention, which might vary between computer algebra systems (if in doubt, assume that $r<0$ is not allowed).
-
-To obtain polar coordinates from Cartesian coordinates we compute that $x^2+y^2= r^2(\cos^2 \theta+\sin^2\theta)=r^2$ and therefore $r=\pm\sqrt{x^2+y^2}$. Furthermore we have that $\frac{y}{x}= \frac{\cancel{r}\sin \theta}{\cancel{r}\cos \theta}=\tan \theta$. To summarize:
-\[
-\left|\begin{array}{rcl}
-r&=&\pm\sqrt{x^2+y^2}\\
-\tan\theta&=&\frac{y}{x} \quad \mathrm{if~}x\neq 0 \quad .
-\end{array}\right.
-\]
-Note that the equality $\tan \theta = \frac{y}{x}$ is not always defined. Also note that  $\tan \theta=\frac{y}{x}$ does not determine $\theta$ uniquely, as it is not clear in which interval $(k\pi -\frac{\pi}{2}, k\pi+\frac{\pi}{2})$, $k\in \mathbb Z$ does $\theta$ lie.
-
-$r$ denotes the distance from $P$ to the origin and $\theta$ denotes the angle between the segment $OP$ and the $x$-axis, as indicated on the picture below.
-
-\optionalDisplay{
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-1.5,-1.5)(5,4)
-\psline[linecolor=gray](-1.5,0)(2.5,0) % x-axis
-\psline[linecolor=gray](0,-1.5)(0,2.5) % y-axis
-\parametricplot[linecolor=red]{0}{60}{t cos 0.25 mul t 1000 div 1 add mul t sin 0.25 mul t 1000 div 1 add mul} 
-\parametricplot[linecolor=red, arrows=->]{0}{780}{t cos 0.55 mul t 1000 div 1 add mul t sin 0.55 mul t 1000 div 1 add mul} 
-\psline(0,0)(2,  3.464)
-\rput(2,  3.464){$\bullet$}
-\rput[lt](2,  3.264){$P= (r\cos \theta, r\sin \theta)$}
-\rput(0.35,  0.25){$\theta$}
-\end{pspicture*}
-} %optionalDisplay
-
-Polar coordinates are not unique: if $(r, \theta)$ are polar coordinates of $P=(x,y)$, then so are $(r, \theta+2\pi)$.
-
-We have already encountered polar coordinates when studying polar form of complex numbers. Let $z\eqdef x+iy$, $x,y\in \mathbb R$. Then we recall from section \ref{secPolarFormComplexNumbers} that there exist real numbers $\rho$, $r\eqdef e^\rho$ and $\theta$ such that $z=x+iy= e^{\rho+i\theta}= e^\rho(\cos \theta+i\sin \theta)= r(\cos \theta + i\sin \theta)$. We recall the latter equality is the polar form of the complex number $z$. Then $(r, \theta)$ are the polar coordinates of the point $(x,y)$. 
-
-The relationship between polar form of complex numbers and polar coordinates can be summed up in the following equalities.
-\[
-\begin{array}{rclclcl}
-r(\cos \theta+i\sin\theta) &=&  x+iy&=& z&=&\Re (z)+i\Im(z)\\
-r\cos\theta&=&x&=&\Re(z)\\
-r\sin\theta&=&y&=&\Im(z)\\
-\theta&&&=& \arg (z)\\
-\tan \theta &=&\displaystyle\frac{y}{x}&=&\displaystyle\frac{\Im (z)}{\Re (z)}\\
-r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
-\end{array}
-\]
-
-\index{cardioid}\index{spiral} Sometimes a curve is given in polar coordinates by specifying a relationship between $r$ and $\theta$, such as $r=\theta$ (spiral) or $r=1+\sin \theta$ (cardioid), $r=2\cos \theta$ (circle of radius one centered at $(1,0)$).
-
-\optionalDisplay{
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-5,-5)(5,5)
-\rput (3,3){$r=\theta$}
-\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\parametricplot[linecolor=red, plotpoints=500]{0}{720}{t cos t mul 180 div t sin t mul 180 div } 
-\end{pspicture*}
-
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-5,-5)(5,5)
-\rput (3,3){$r=1+\sin\theta$}
-\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\parametricplot[linecolor=red, plotpoints=500]{0}{360}{1 t sin add t cos mul
- 1 t sin add t sin mul} 
-\end{pspicture*}
-
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-5,-5)(5,5)
-\rput (3,3){$r=2\cos\theta$}
-\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\parametricplot[linecolor=red, plotpoints=500]{0}{360}
-{ t cos 2 mul t cos mul
-  t cos 2 mul t sin mul} 
-\end{pspicture*}
-} %optionalDisplay
-
-\index{area!enclosed by curve in polar coord.} Let $r=f(\theta), \theta\in [a,b]$ be a curve given in polar coordinates.  Let $A$ denote the figure given by the union of the segments connecting each point the curve to the origin. Suppose no two points on the curve lie on the same ray from the origin. Then the area of $A$ is given by 
-\importantFormula{\label{eqAreaUnderPolarCurve}
-area(A)\eqdef \int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta\quad .
-}
-
-A motivation for the above definition may be given as follows. 
-\psset{xunit=1cm,yunit=1cm}
-
-\optionalDisplay{
-\begin{pspicture*}(-4,-1)(7.3,5.4)
-\newcommand{\dThetA}{20}
-\rput(4,5){$r=f(\theta)$}
-\psaxes[labels=none]{<->}(0,0)(-3.5,-0.5)(4.5,5.2)
-\multido{\rb=10+\dThetA}{6}{%
-\pstVerb{/rR \rb\space 30 div 2 add def
-/rRPlusTheta \rb\space \dThetA\space add 30 div 2 add def
-}
-\pscustom[fillcolor=blue!30, fillstyle=solid, linecolor=blue]{\psline(0,0)(! rR \rb \space cos mul rR \rb \space sin mul) (! rRPlusTheta \rb \space\dThetA\space add cos mul rRPlusTheta \rb \space \dThetA\space add sin mul) }
-}
-\parametricplot[linecolor=red, plotpoints=500]{10}{130}
-{ t 30 div 2 add  t cos mul
-  t 30 div 2 add  t sin mul} 
-\parametricplot[linecolor=red]{30}{50} %{! \dThetA 10 add}
-{t cos 1 mul
- t sin 1 mul } 
-\rput[lt](0.8, 0.8){\tiny$\Delta\theta$}
-\parametricplot[linecolor=red, arrows=->]{0}{30} %{! \dThetA 10 add}
-{t cos 0.5 mul
- t sin 0.5 mul } 
-\rput[lt](0.55,0.3){\tiny$\theta_1$}
-\parametricplot[linecolor=red, arrows=->]{0}{50} %{! \dThetA 10 add}
-{t cos 0.85 mul
- t sin 0.85 mul } 
-\rput[lt](0.85,0.4){\tiny$\theta_2$}
-
-\rput[tr] (-0.1,-0.1){$O$}
-\rput[tl] (2.7,1.5){$P=(f(\theta_1)\cos \theta_1, f(\theta_1)\sin \theta_1)$}
-\rput[tl] (2.51,2.95){$Q=(f(\theta_2)\cos \theta_2, f(\theta_2)\sin \theta_2)$}
-\end{pspicture*}
-} %optionalDisplay
-
-Let $N$ be a large number and split the interval $[a,b]$ using $N+1$ equally spaced points $a=\theta_0\leq\theta_1\leq\dots\leq\theta_{N-1}\leq \theta_N=b$ into $N$ equal segments, each of the form $[\theta_j,\theta_{j+1}] $. Denote the length of each such segment by $\Delta\theta$, i.e., let $\Delta\theta\eqdef \frac{b-a}{N}$. Then the area of $A$ is approximated by triangles with vertices on the curve of the form $(f(\theta_j)\cos \theta_j, f(\theta_{j+1} )\cos \theta_{j+1})$ as drawn in the figure. Consider one such triangle, $OPQ$, as indicated in the figure. The area of triangle $OPQ $ is $\frac{|OP| |OQ|\sin (\Delta\theta)}{2}= \frac{f(\theta_1)f(\theta_2)\sin (\Delta\theta)}{2} $. In other words the area of $A$ is approximated by
-\[
-\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j+1})\sin (\Delta\theta)}{2}= \frac{\sin(\Delta\theta)}{\Delta\theta}\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j}+\Delta\theta)\Delta\theta}{2}\quad .
-\]
-In the above sum, the multiplicand $\frac{\sin(\Delta\theta)}{\Delta\theta}$ tends to $1$ as $\Delta\theta$ tends to $0$. Therefore as $\Delta$ tends to zero, the expression tends to the limit of the second multiplicand. On the other hand, one can show that the second multiplicand approximates the integral $\int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta$. This motivates definition of area given in \eqref{eqAreaUnderPolarCurve}.
-
-Curve length of curve of the form $\gamma:|r=f(\theta),\theta\in [a,b]$. Then $(x,y)= (r\cos\theta, r\sin \theta)= (\underbrace{f(\theta)\cos\theta}_{=:g_1(\theta)}, \underbrace{ f(\theta)\sin\theta}_{=:g_2(\theta)} $. Recall the definition of curve length \eqref{eqDefLengthCurve}:
-\[
-\int\limits_{a}^b\sqrt{\left(\frac{dg_1}{d\theta}\right)^2+\left(\frac{dg_2}{d\theta}\right)^2}d\theta \quad.
-\]
-We substitute $g_1(\theta)=f(\theta)\cos\theta$, $g_2(\theta)=f(\theta)\sin\theta$ and carry out the operations:
-\[
-\begin{array}{l}
-\displaystyle\int\limits_{a}^b\sqrt{ (-\sin\theta f(\theta) + \cos\theta f'(\theta) )^2+(\cos\theta f(\theta)+\sin \theta f'(\theta) )^2}d\theta=\\ 
-\displaystyle \int \limits_{a}^b \sqrt{\sin^2\theta f^2(\theta)- \cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)}+\cos^2\theta (f'(\theta))^2+ \cos^2\theta f^2(\theta)+\cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)} \sin^2 (f'(\theta))^2 }d\theta\quad .
-\end{array}
-\]
-Regrouping the above expression using $\sin^2\theta+\cos^2\theta=1$ we finally get that the length of a curve given in polar coordinates as $r=f(\theta)$ is computed as
-\importantFormula{\label{eqCurveLengthPolarCoords}
-\int\limits_{a}^b \sqrt{f^2(\theta)+ (f'(\theta))^2}d\theta
-}
-
-Find the area of the figure that lies outside of figure enclosed by $r_1=3\cos\theta_1, \theta_1\in [0,\pi)$ and inside the figure enclosed by $r_2=1+\cos\theta_2, \theta\in [-\pi,\pi)$. %Find the perimeter of the curve.
-
-\begin{solution}
-\optionalDisplay{
-\begin{pspicture}(-1, -4)(4,4)
-\pscustom*[fillcolor=red!20, linecolor=red!20]{
-\parametricplot[linecolor=red, plotpoints=1000]{-60}{60}{3 t cos mul t cos mul 3 t cos mul t sin mul}
-\parametricplot[linecolor=red, plotpoints=1000]{60}{-60}{1 t cos add t cos mul 1 t cos add t sin mul}
-}
-\parametricplot[linecolor=red, plotpoints=1000]{0}{360}{1 t cos add t cos mul 1 t cos add t sin mul}
-\parametricplot[linecolor=red, plotpoints=1000]{0}{360}{3 t cos mul t cos mul 3 t cos mul t sin mul}
-\psaxes[labels=none]{<->}(0,0)(-1,-2.5)(3.5,2.5)
-\rput[c](0.75,1.299){$\bullet$}
-\rput[c](0.75,-1.299){$\bullet$}
-\rput[b](0.85,1.51){$\left(\frac{3}4,\frac{3\sqrt{3}}{4} \right)$}
-\rput[t](0.85,-1.51){$\left(\frac{3}4,-\frac{3\sqrt{3}}{4} \right)$}
-\psline[linestyle=dotted](0,0)(0.75,1.299)
-\psline[linestyle=dotted](0,0)(0.75,-1.299)
-\end{pspicture}
-} %optionalDisplay
-
-We first plot the curves using computer to get the above picture. We see that the curve $r_1=3\cos\theta_1$ is a circle and that $r_2=1+\cos\theta_2$ is a cardioid (rotated at an angle of $-\frac{\pi}{2}$). Let us verify that indeed $r_1=3\cos\theta_1$ is a circle. Multiplying by $r_1$ we get $r_1^2=3r_1\cos\theta_1= 3x$. Therefore $x^2+y^2-3x=0$, or, after completing the square, $(x-\frac{3}{2})^2+y^2=\frac{9}{4}$. Thus $r_1=3\cos\theta_1$ is a circle centered at $(\frac{3}{2},0)$ and with radius $\frac{3}{2}$. From the picture we see that the two curves intersect in three points, one of which is the origin. We get an additional intersection of the two curves when $r_1=r_2$, $\theta_1=\theta_2$ and $1+\cos\theta=3\cos\theta$, where we have set $\theta:=\theta_1=\theta_2$. In other words, $\cos\theta=\frac{1}{2}$ and as $\theta\in [0,\pi)$, we get $\theta=\pm \frac{\pi}{3}$. Thus we have a second intersection point $x=\frac{3}{4}$, $y=\frac{3\sqrt{3}}{4}$. By symmetry with respect to the $x$ axis we get that the final intersection point is $(x,y)=(\frac{3}4,-\frac{3\sqrt{3}}{4}) $.
-
-Therefore the area of the enclosed curve is given by the area of the figure obtained by connecting $r=3\cos\theta, \theta\in(-\frac{\pi}{3}, \frac{\pi}{3})$ to the origin minus the area of the figure obtained by connecting $r=1+\cos\theta, \theta\in(-\frac{\pi}{3}, \frac{\pi}{3})$ to the origin. We can now use \eqref{eqAreaUnderPolarCurve} to get the answer
-
-\[
-\begin{array}{rcl}
-\displaystyle\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}2\left(9\cos^2\theta-(1+\cos\theta)^2\right) d\theta&=& \displaystyle\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}2\left(8\underbrace{\cos^2\theta}_{=\frac{1+\cos(2\theta)}2  }-1-2\cos\theta \right) d\theta\\
-&=&\displaystyle\frac{1}2\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \left(4+4 \cos 2\theta-1-2\cos\theta \right) d\theta
-\\
-&=&\pi+\left.\sin2\theta\right|_{\theta=-\frac{\pi}{3}}^{\theta=\frac{\pi}3}-\left.\sin\theta\right|_{\theta=-\frac{\pi}{3}}^{\theta=\frac{\pi}3}\\
-&=&\pi
-\end{array}
-\]
-\end{solution}
 
 %\section{Index}
 %\textbf{The index is incomplete at the moment. }
