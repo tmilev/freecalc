@@ -1,0 +1,51 @@
+%begin module inverse-function-solve-for-ex3-freeCalc
+\begin{frame}
+\begin{example}
+Find $f^{-1}(x)$ where $f(x)=\frac{x+1}{x-1}$.
+
+\begin{columns}
+\column{0.35\textwidth}
+\psset{xunit=0.35cm, yunit=0.35cm}
+\begin{pspicture}(-5.214286, -5)(7.214286,5) 
+\tiny 
+\psframe*[linecolor=white](-5.214286,-5)(7.214286,7.714285714) 
+\psaxesStandard{-4.714286}{-4.714286}{6.714286}{6.714286} 
+\rput[tl](2.3,6){$y=\frac{x+1}{x-1}$} 
+
+%Function formula: \frac{x+1}{x-1} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1.350000}{6.714286}{1 x add -1 x add div }
+%Function formula: \frac{x+1}{x-1} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-4.714286}{0.650000}{1 x add -1 x add div }
+\uncover<17->{
+\psline[linecolor=\psColorTangent, linestyle=dashed](-4.7,-4.7)(6.7,6.7)
+}
+\end{pspicture} 
+
+\uncover<11->{Answer: $f^{-1}(x)=\frac{x+1}{x-1}$}\uncover<13->{, \alert<13>{$x\neq 1$}.} 
+
+\column{0.65\textwidth}
+
+\uncover<2->{We deal with domains and ranges later:}
+$
+\begin{array}{rcll|l}
+\displaystyle \uncover<2->{y}&\uncover<2->{=}&\displaystyle \uncover<2->{ \frac{x+1}{\alert<3>{ x-1} } } \uncover<3->{&& \alert<3>{ \text{mult. by } (x-1)}} \\
+\displaystyle  \uncover<3->{\alert<4,6>{y}\alert<3>{ (\alert<4>{ x} \alert<6>{-1})}} &\uncover<3->{=} & \displaystyle  \uncover<3->{ \alert<5>{x} +\alert<7>{1}}\\
+\displaystyle \uncover<4->{ \alert<4,5>{x} \alert<8>{(\alert<4>{y}\alert<5>{-1})}} &\uncover<4->{=} &\displaystyle \uncover<4->{ \alert<6>{y}+\alert<7>{1}}  \uncover<8->{ && \text{div. by } \alert<8,12>{ (y-1)}} \\
+\displaystyle \uncover<9->{f^{-1}(\alert<10>{ y} )= }\uncover<8->{x}&\uncover<8->{=}&\displaystyle \uncover<8->{ \frac{\alert<10>{ y}+1}{\alert<8>{\alert<10>{y} -1}} } \uncover<10->{ &&\alert<10>{\text{relabel }x, y}} \\
+\displaystyle \uncover<10->{ f^{-1}(\alert<10>{ x} )&=&\displaystyle \frac{\alert<10>{ x }+1}{\alert<10>{ x}-1}}
+\end{array}
+$
+\uncover<12->{We divided by \alert<12>{$y-1$} so $y\neq 1$.} \uncover<13->{Therefore the domain of $f^{-1}$ is all real numbers except $1$.} 
+
+\medskip
+
+\uncover<14->{ \alert<14>{Can a non-identity function be its own inverse?}} \uncover<15->{\alert<15>{ Yes, $f$ is.} }
+
+\uncover<16->{ \alert<16>{What does it mean for $f$ to be its own inverse?}}\uncover<17->{\alert<17>{ Graph of $f$ is symmetric across $y=x$. }}
+
+\end{columns}
+\end{example}
+\end{frame}
+
+
+%end module inverse-function-solve-for-ex3-freeCalc
