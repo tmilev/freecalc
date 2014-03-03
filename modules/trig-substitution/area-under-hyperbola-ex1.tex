@@ -1,4 +1,4 @@
-%begin module area-under-hyperbola
+%begin module area-under-hyperbola-ex1
 
 \begin{frame}
 Recall Euler substitution: $x=\frac12\left(\frac{1}{t}- t \right)$, $\alert<2>{\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)}$, $\alert<12,13,14>{ t=\sqrt{x^2+1}-x} $, $\alert<3>{ \diff x=-\frac12 \left(\frac1{t^2} +1\right)\diff t}$.
@@ -27,10 +27,10 @@ $
 $
 \begin{array}{l}
 \phantom{=}
-\displaystyle \alert<18>{ \frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1 }-x)^2} \\
+\displaystyle \alert<18>{ \frac{1}{(\sqrt{x^2+1}-x)^2}- ( \sqrt{ x^2+1 }-x)^2} \\
 \uncover<19->{= \displaystyle \frac{ \alert<19>{(\sqrt{x^2+1} +x )^2} }{ ( \sqrt{x^2 +1} -x )^2  	\alert<19>{(\sqrt{x^2+1}+x)^2} } - (\sqrt{x^2+1}-x)^2} \\
-\uncover<20->{ =\displaystyle \frac{(\sqrt{x^2+1}+x)^2}{ \alert<20>{ \alert<21,22>{((\sqrt{x^2 +1 } )^2 -x^2)^2}\uncover<21,22>{\alert<21,22>{=1}} } } - ( \sqrt{x^2 +1 } -x)^2} \\
-= \displaystyle \uncover<22->{(\sqrt{x^2+1}+x)^2-( \sqrt{x^2 +1 } -x)^2} \uncover<23->{ = \alert<24,25>{ 4x\sqrt{x^2+1}}}
+\uncover<20->{ =\displaystyle \frac{(\sqrt{x^2+1}+x)^2}{ \alert<20>{ \alert<21,22>{((\sqrt{x^2 +1 } )^2 -x^2 )^2 } \uncover<21,22>{\alert<21,22>{=1}} } } - ( \sqrt{x^2 +1 } -x )^2} \\
+\displaystyle \uncover<22->{=(\sqrt{x^2+1}+x)^2-( \sqrt{x^2 + 1 } -x)^2} \uncover<23->{ = \alert<24,25>{ 4x\sqrt{x^2+1}}}
 \end{array}
 $
 } %uncover<18->
@@ -41,8 +41,8 @@ The last expression can be transformed to:
 \[
 \begin{array}{rcl}
 \displaystyle 
-\alert<26>{\ln} \left(\frac{\alert<26,28>{(\sqrt{x^2+1}-x)} \uncover<27->{ \alert<27,28>{( \sqrt{x^2+1}+ x )} }}{\uncover<27->{ \alert<27>{ \sqrt{x^2 +1} +x}}} \right) 
-&=&\displaystyle \uncover<28->{\alert<29>{ \ln \left( \frac{\alert<28>{ 1} }{ \sqrt{x^2+1}+x}\right)} }\\ \uncover<29->{&=&\alert<29,30,31>{ -\ln (\sqrt{x^2+1}+x)}}
+\alert<26>{\ln} \left(\frac{\alert<26,28>{(\sqrt{x^2+1}-x)} \uncover<27->{ \alert<27,28>{( \sqrt{x^2+1}+ x )} }}{ \uncover<27->{ \alert<27>{ \sqrt{x^2 +1} +x}}} \right) 
+&=& \displaystyle \uncover<28->{\alert<29>{ \ln \left( \frac{\alert<28>{ 1} }{ \sqrt{x^2+1}+x}\right)} }\\ \uncover<29->{&=&\alert<29,30,31>{ -\ln (\sqrt{x^2+1}+x)}}
 \end{array}
 \]
 }
@@ -53,7 +53,7 @@ The last expression can be transformed to:
 
 \begin{frame}
 \begin{example}
-Find the area locked b-n the hyperbolas $\alert<2,3>{ y=\pm\sqrt{x^2+1}}$ and $x=\pm 2\sqrt{ 2}$.
+Find the area locked b-n the hyperbolas $\alert<2,3>{ y=\pm \sqrt{ x^2+1}}$ and $x=\pm 2\sqrt{ 2}$.
 \begin{columns}
 \column{.5\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
@@ -62,9 +62,9 @@ Find the area locked b-n the hyperbolas $\alert<2,3>{ y=\pm\sqrt{x^2+1}}$ and $x
 \tiny 
 \uncover<31->{
 \pscustom*[linecolor=\psColorAreaUnderGraph]{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.828427}{2.828427}{1 x 2 exp add 0.5 exp }
+\psplot[linecolor=\psColorGraph, plotpoints = 1000 ] {-2.828427} {2.828427}{1 x 2 exp add 0.5 exp }
 \psline[linecolor=\psColorGraph](2.828427,-3)(2.828427,3)
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{2.828427}{-2.828427}{1 x 2 exp add 0.5 exp -1 mul }
+\psplot[linecolor=\psColorGraph, plotpoints=1000] { 2.828427 } {-2.828427}{1 x 2 exp add 0.5 exp -1 mul }
 \psline[linecolor=\psColorGraph](-2.828427,-3)(-2.828427,3)
 }
 }
@@ -76,11 +76,11 @@ Find the area locked b-n the hyperbolas $\alert<2,3>{ y=\pm\sqrt{x^2+1}}$ and $x
 
 %Function formula: - (x^{2}+1)^{1/2} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.828427}{2.828427}{1 x 2 exp add 0.5 exp -1 mul }
-\uncover<3-4>{\rput[tl](-2.2, -2.4){\alert<3>{$y=-\sqrt{x^2+1}$}}}
+\uncover<3-4>{\rput[tl](-2.2, -2.4){ \alert<3>{ $y= - \sqrt{ x^2 +1 }$}}}
 
 %Function formula: (x^{2}+1)^{1/2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.828427}{2.828427}{1 x 2 exp add 0.5 exp }
-\uncover<2-4>{\rput[bl](-2.1, 2.4){\alert<2>{ $y=\sqrt{x^2+1}$}}}
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.828427}{ 2.828427 }{1 x 2 exp add 0.5 exp }
+\uncover<2-4>{\rput[bl](-2.1, 2.4){\alert<2>{ $y=\sqrt{ x^2 +1} $}}}
 
 \uncover<29->{
 \psline[linecolor=\psColorGraph](-2.828427,3)(-2.828427,-3)
@@ -94,7 +94,7 @@ Find the area locked b-n the hyperbolas $\alert<2,3>{ y=\pm\sqrt{x^2+1}}$ and $x
 }
 \uncover<15-27>{
 \psline{<->}(-2.9,-2.9)(2.9,2.9)
-\rput[b](-2.1, -1.9){$\begin{array}{l} \uncover<1-26>{\alert<15>{y-x=0}}\\\uncover<16->{\alert<16>{u=0}} \end{array}$}
+\rput[b](-2.1, -1.9){$\begin{array}{l} \uncover<1-26>{ \alert<15>{ y-x=0 }}\\\uncover<16->{\alert<16>{u=0}} \end{array}$}
 }
 \uncover<17-26>{
 \psFullDot{1.4}{1.4}
@@ -126,14 +126,14 @@ Find the area locked b-n the hyperbolas $\alert<2,3>{ y=\pm\sqrt{x^2+1}}$ and $x
 \uncover<18->{\alert<18>{
 \uncover<22->{\alert<22>{Signed}} distance b-n $(x,y)$ and line $u=0$ equals}}
 \only<1-23>{
-$\uncover<19->{\uncover<22->{\alert<22>{\pm}} \alert<19>{\sqrt{\alert<20>{ \left(x-\frac{(x+y)}{2} \right)^2+ \left(y- \frac{(x+y )}{2} \right)^2}}}}
+$\uncover<19->{\uncover<22->{\alert<22>{\pm}} \alert<19>{ \sqrt{ \alert<20>{ \left(x-\frac{(x+y)}{2} \right)^2+ \left( y- \frac{(x+y )}{2} \right)^2}}}}
 $
-$\uncover<20->{=\uncover<22->{\alert<22>{\pm}} \sqrt{\alert<20>{\frac{1}{2}(y-x)^2 }}} \uncover<21->{= \alert<21>{\uncover<1-21>{\pm} \alert<23>{\frac{\sqrt{2}}{2}(y-x)}}} \uncover<23>{ \alert<23>{=}}$
+$\uncover<20->{=\uncover<22->{\alert<22>{\pm}} \sqrt{ \alert<20>{ \frac{1}{2}(y-x)^2 }}} \uncover<21->{= \alert<21>{ \uncover<1-21>{\pm} \alert<23>{ \frac{\sqrt{2 }}{ 2 } ( y-x)}}} \uncover<23>{ \alert<23>{=}}$
 } %only<1-23>
 \uncover<23->{ \alert<23,24>{$u $}.} 
 \only<24->{\uncover<25->{
 Similarly compute that \alert<26>{signed distance b-n $(x,y)$ and the \alert<25>{line $v=0$} equals $v$}. 
-\uncover<27->{$\Rightarrow$ $y^2-x^2=1$ is the \alert<27>{hyperbola $v=\frac{1/2}{v}$} in the $(u,v)$-plane.}
+\uncover<27->{$\Rightarrow$ $y^2-x^2=1$ is the \alert<27>{ hyperbola $v=\frac{1/2}{v}$} in the $(u,v)$-plane.}
 }}
 
 \vfil
@@ -141,7 +141,7 @@ Similarly compute that \alert<26>{signed distance b-n $(x,y)$ and the \alert<25>
 
 \column {.5\textwidth}
 \only<1-27>{
-\uncover<4->{We studied $\alert<27>{v=\frac{1/2}{u}}$ is called a hyperbola:}\uncover<3->{ why do we call $y=\sqrt{x^2+1}$ hyperbola?} \uncover<5->{Compute:}
+\uncover<4->{We studied $\alert<27>{v=\frac{1/2}{u}}$ is called a hyperbola:}\uncover<3->{ why do we call $y= \sqrt{ x^2 +1}$ hyperbola?} \uncover<5->{Compute:}
 \[
 \begin{array}{rcl}
 \uncover<5->{\sqrt{x^2+1} &=& y}\\
@@ -177,4 +177,4 @@ $
 
 \end{frame}
 
-%end module area-under-hyperbola
+%end module area-under-hyperbola-ex1

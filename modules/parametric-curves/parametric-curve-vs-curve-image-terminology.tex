@@ -1,0 +1,69 @@
+%begin module parametric-curve-vs-curve-image-terminology
+\begin{frame}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{center}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.000000, -5)(1.500000,5) 
+\psframe*[linecolor=white](-1.000000,-5)(1.500000,5) 
+\tiny 
+\psaxesStandard{-0.200000}{-0.2}{1.2}{1.2}
+\psline[linecolor=\psColorGraph](0,0)(1,1)
+\rput[l](0.4,0.2){$\gamma_1:
+\left| 
+\begin{array}{rcl}
+x&=&t^2\\
+y&=&t^2\\
+\end{array} \right., t\in [0,1]
+$}
+\end{pspicture} 
+\end{center}
+
+\column{0.5\textwidth}
+\begin{center}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.000000, -5)(1.500000,5) 
+\psframe*[linecolor=white](-1.000000,-5)(1.500000,5) 
+\tiny 
+\psaxesStandard{-0.200000}{-0.2}{1.2}{1.2}
+\psline[linecolor=\psColorGraph ](0,0)(1,1)
+\rput[l](0.4,0.2){$\gamma_2:
+\left| 
+\begin{array}{rcl}
+x&=&t\\
+y&=&t\\
+\end{array} \right., t\in [0,1]$
+}
+\end{pspicture}
+\end{center}
+\end{columns}
+\begin{question}
+$\begin{array}{l|l}
+\only<1-3>{\text{ Are the above curves different?}}
+\only<4->{\alert<4>{\xcancel{\text{ Are the above curves different?}}}} &\begin{array}{l} \uncover<2->{\alert<2>{\text{Are the above parametric curves} }
+\\
+\alert<2>{\text{different? Yes.}}}
+\\
+\uncover<3->{\alert<3>{\text{Are the above curve images}}\\ 
+\alert<3>{\text{ different? No.}}}
+\end{array}
+\end{array}
+$
+\end{question}
+\begin{itemize}
+\only<1-4>{
+\item<2-> As parametric curves, $\gamma_1$ and $\gamma_2$ are different: $\gamma_1, \gamma_2$ are given by different functions.
+\item<3-> As curve images, $\gamma_1,\gamma_2$ coincide.
+\item<4-> The original question is incorrectly posed: the word ``curve'' does not have a stand-alone mathematical definition without the words ``parametric'' or ``image'' attached to it.
+}
+\item<5-> Nonetheless we sometimes use the word ``curve'' \alert<5>{informally}, without specifying ``parametric curve'' or ``curve image''. 
+\item<6-> In this case, whether we mean  ``parametric curve'' or ``curve image'' should be clear from the context. \uncover<7->{\alert<7>{If not, we are using mathematical language incorrectly.}}
+\end{itemize}
+
+\vspace{5cm}
+
+\end{frame}
+
+
+
+%end module parametric-curve-vs-curve-image-terminology
