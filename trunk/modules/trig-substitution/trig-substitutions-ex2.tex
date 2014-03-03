@@ -1,70 +1,127 @@
 % begin module trig-substitutions-ex2
 \begin{frame}
-\begin{example}[Example 2, p. 504]
-\begin{columns}[c]
-\column{.4\textwidth}
-Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$.
-\begin{itemize}
-\item<2->  Let \alert<3-4,7,14,18>{$x = \uncover<4->{3\sin \theta}$}\uncover<4->{, where \alert<10>{$-\pi /2 \leq \theta \leq \pi / 2$}.}
-\item<2->  Then \alert<5-6,13>{$\diff x = \uncover<6->{3\cos \theta\diff \theta}$}\uncover<6->{.}
-\end{itemize}
-\column{.6\textwidth}
-\begin{center}
-\ \only<-17>{%
-\includegraphics[height=3cm]{trig-substitution/pictures/08-03-ex2a.pdf}%
-}%
-\only<18->{%
-\includegraphics[height=3cm]{trig-substitution/pictures/08-03-ex2b.pdf}%
-}%
-\end{center}
+\begin{example} %[Example 2, p. 504]
+%\begin{columns}[c]
+%\column{.4\textwidth}
+Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $a,b>0$.
+\begin{columns}
+\column{0.37\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2.500000, -5)(2.500000,5) 
+\psframe*[linecolor=white](-2.500000,-5)(2.500000,5) 
+\tiny 
+
+\uncover<8>{ \pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+}
+}
+\uncover<9-11>{ \pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+\psline(2,0)(-2,0)
+}
+}
+\uncover<12->{ \pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+\psline(2,0)(0,0)
+}
+}
+
+\psaxesStandard{-2.2}{-1.5}{2.2}{1.5} 
+\rput[b](1,1){ \uncover<6->{\alert<6>{$y=b\sqrt{1-\frac{x^2}{a^2}} $}}}
+\rput[t](1,-1){\uncover<7->{\alert<7>{$y=-b\sqrt{1-\frac{x^2}{a^2}} $}}}
+
+\uncover<11->{
+\psFullDot{2}{0}
+\rput[rb](1.9,0.1){$(a,0)$}
+\psFullDot{-2}{0}
+\rput[lb](-1.9,0.1){$(-a,0)$}
+}
+
+%Function formula: - \sqrt{-1/4 x^{2}+1} 
+\uncover<7->{ \psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul } }
+%Function formula: \sqrt{-1/4 x^{2}+1} 
+\uncover<6->{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+}
+\end{pspicture}
+\uncover<8->{The area in question is }
+$\begin{array}{l}
+\displaystyle \uncover<9->{\phantom{=}\phantom{4} \int\limits^{ {\uncover<9,10>{\alert<10>{\textbf{?}}} \uncover<11->{\alert<11>{a}} } }_{{\uncover<9,10>{\alert<10>{\textbf{?}}} \uncover<11->{\alert<11>{-a}}} } \alert<9>{2} b\sqrt{ 1-\frac{x^2}{ a^2} }\diff x} \\ \uncover<12->{= \displaystyle  \alert<12>{4}\int\limits_{{\alert<12>{0}}}^{a}  b\sqrt{1-\frac{x^2}{a^2}}\diff x}
+\end{array}
+$\uncover<12->{.}
+\column{0.63\textwidth} 
+\uncover<2->{Express $y$ via $x$:}
+$
+\begin{array}{rcl}
+\displaystyle \uncover<2->{\alert<3>{\frac{x^2}{a^2}} + \frac{y^2}{b^2} &=& \displaystyle 1} \\
+\displaystyle \uncover<3->{\frac{y^2}{\alert<4>{ b^2} }&=&\displaystyle 1 \alert<3>{-\frac{x^2}{a^2}}}\\
+\displaystyle \uncover<4->{y^2&=&\displaystyle \alert<4>{b^2}\left(1-\frac{x^2}{a^2}\right)}\\
+\displaystyle \uncover<5->{y&=&\displaystyle \pm b\sqrt{1-\frac{x^2}{a^2}}}
+\end{array}
+$
 \end{columns}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
-\uncover<2->{%
-\alert<12>{%
-\sqrt{9 - \alert<7>{x^2}} = 
-}%
-}%
-\uncover<7->{%
-\sqrt{9 - \alert<7>{9\sin^2 \theta}} = 
-}%
-\uncover<8->{%
-\sqrt{9 \cos^2 \theta} = 
-}%
-\uncover<9->{%
-3 |\cos  \theta | = 
-}%
-\uncover<10->{%
-\alert<12>{%
-3 \cos  \theta  
-}%
-}%
-\]
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<11->{%
-\int \frac{\alert<12>{\sqrt{9-x^2}}}{\alert<14>{x^2}}\alert<13>{\diff x}%
-}%
-& \uncover<11->{ = } & %
-\uncover<11->{%
-\int\frac{\alert<12>{3\cos \theta}}{\alert<14>{9\sin^2 \theta}}\alert<13>{3\cos \theta \diff \theta}
-}%
-\uncover<15->{%
- = \int \cot^2 \theta \diff \theta
-}\\%
-& \uncover<16->{ = } & %
-\uncover<16->{%
- \int (\csc^2 \theta  - 1)\diff \theta
-}  \uncover<17->{ = }  \uncover<17->{%
- -\alert<20-21>{\cot \theta} - \theta + C
-}\\%
-& \uncover<21->{ = } & %
-\uncover<21->{%
- -\alert<21>{\frac{\sqrt{9-x^2}}{x}} - \sin^{-1}\left( \frac{x}{3}\right) + C
-}%
-\end{eqnarray*}
 \end{example}
+\vspace{10cm}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+\begin{example} %[Example 2, p. 504]
+%\begin{columns}[c]
+%\column{.4\textwidth}
+Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $a,b>0$.
+\begin{columns}
+\column{0.37\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2.500000, -5)(2.500000,5) 
+\psframe*[linecolor=white](-2.500000,-5)(2.500000,5) 
+\tiny 
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+}
+\psaxesStandard{-2.2}{-1.5}{2.2}{1.5} 
+\rput[b](1,1){$y=b\sqrt{1-\frac{x^2}{a^2}} $}
+\rput[t](1,-1){$y=-b\sqrt{1-\frac{x^2}{a^2}} $}
+
+%Function formula: - \sqrt{-1/4 x^{2}+1} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
+%Function formula: \sqrt{-1/4 x^{2}+1} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+\end{pspicture}
+The area in question is 
+$\begin{array}{l}
+\displaystyle \phantom{=}\phantom{4} \int\limits_{\phantom{\textbf{?}}-a}^{\phantom{\textbf{?}}a}2b\sqrt{ 1-\frac{x^2}{ a^2} }\diff x\\ =\displaystyle  4\int\limits_{0}^{a}  b\sqrt{1-\frac{x^2}{a^2}}\diff x\\
+=4b\frac{a\pi}{4}=\pi a b
+\end{array}
+$.
+\column{0.63\textwidth} 
+\uncover<2->{Use trigonometric substitution: set $x= a\sin \theta $, $\alert<5>{ \theta\in \left(0,\frac{\pi}{2}\right)} $.} \uncover<3->{We have that $\alert<6>{ \sqrt{1-\frac{ {\alert<3>{x}}^2}{a^2}}} =\sqrt{1 -\frac{\alert<4>{ {\alert<3>{a}}^2} {\alert<3>{\sin}}^2\alert<3>{ \theta} }{\alert<4>{ a^2}} } \uncover<4->{ =\sqrt{1- \sin^2\theta}} \uncover<5->{\alert<5,6>{=\cos\theta}}$.} \uncover<7->{When $x=0$, $\theta=0$ and when $x=a$, $\theta=\frac{\pi}{2}$.}
+
+\noindent $
+\begin{array}{rcl}
+\displaystyle 
+\uncover<1->{\int_{0}^{a}\sqrt{1-\frac{x^2}{a^2}}\diff x} &\uncover<6->{\alert<6>{=}}& \displaystyle \int \alert<6>{\cos \theta} ~ \diff \left(a\sin \theta\right)\\
+&=&\displaystyle a\int_{0}^a\cos^2 \theta\diff \theta \\
+&=&\displaystyle a\int_{0}^{a} \frac{\cos(2\theta)+1}2 \diff \theta\\
+&=&\displaystyle a \left[ \frac{\sin (2\theta)}{4} +\frac{\theta}{2}\right]_{\theta=0}^{\theta=\frac{\pi}{2}} \\
+&=&a\left(0+\frac{\pi}{4}-(0+0)\right)\\
+&=&\frac{a\pi }{4}
+\end{array}
+$
+\end{columns}
+\end{example}
+\vspace{10cm}
 \end{frame}
 % end module trig-substitutions-ex2
