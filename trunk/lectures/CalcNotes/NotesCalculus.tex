@@ -3454,7 +3454,7 @@ We can solve this integral using Euler substitution, Section \ref{secEulerSubTri
 \end{solution}
 
 \subsection{Length of curves} \label{secCurveLength}
-\index{curve}\index{curve!parametrization} A curve parametrization (or simply curve) is defined as a function from a given interval $[a,b]$ to a vector space over the real numbers. For the purposes of our course, a curve will map the interval $[a,b]$ onto either a two dimensional space (denoted by $\mathbb R^2$), or a 3-dimensional space (denoted by $\mathbb R^3$). Thus, a curve $f:[a,b]\to \mathbb R^2$ is given by the two functions (one for each coordinate):
+\index{curve}\index{curve!parametric} A parametric curve (or simply curve) is defined as an n-tuple of functions mapping a given interval $[a,b]$ to an n-tuple of real numbers. For the purposes of our course, a curve will map the interval $[a,b]$ onto either a two dimensional space (denoted by $\mathbb R^2$), or a 3-dimensional space (denoted by $\mathbb R^3$). Thus, a curve $f:[a,b]\to \mathbb R^2$ is given by the two functions (one for each coordinate):
 \[
 \begin{array}{rcl}
 \gamma:[a,b]&\to& \mathbb R^2\\
@@ -3482,9 +3482,9 @@ This definition is extended to an arbitrary number of variables in the obvious w
 
 \index{curve!image}The \emph{image of a curve} $f:[a,b]\to \mathbb R^2$ is the set of points in $\mathbb R^2$ of the form $f(t)$ as $t$ runs over all points in the interval $[a,b]$.
 
-Colloquially, as often happens during lectures and scientific talks, we call both the curve parametrizations (which are functions) and their  and images (which are sets of points in the plane) using the word ``curve''. We try to avoid this informality in the present notes.
+Colloquially, as often happens during lectures and scientific talks, we call both the parametric curves (which are functions) and their  and images (which are sets of points in the plane) using the word ``curve''. We try to avoid this informality in the present notes.
 
-It is important to distinguish between a curve parametrization and the image of the curve. For example, the curves 
+It is important to distinguish between a parametric curve and the image of the curve. For example, the curves 
 \[
 \gamma_1:\left| 
 \begin{array}{rcl}
@@ -3514,13 +3514,13 @@ x(t)&=&\cos t\\
 y(t)&=&\sin t\\
 \end{array}\right., t\in [0, \frac{\pi}{2}]\quad .
 \]
-These two curve parametrizations correspond to a quarter of a circle (which quarter?), however the two curve parametrizations traverse the quarter circle in different directions (which ones?) and at different speeds. 
+These two parametric curves correspond to a quarter of a circle (which quarter?), however the two parametric curves traverse the quarter circle in different directions (which ones?) and at different speeds. 
 
 Images of curves are often given implicitly with a relation between $x$ and $y$. For example, the unit circle is given by 
 \[
 x^2+y^2=1\quad .
 \]
-In the previous points, we showed two different curve parametrizations of a quarter circle.
+In the previous points, we showed two different parametric curves of a quarter circle.
 
 To parametrize a curve whose image is given by a relation between $x$ and $y$ is a highly non-trivial task. For example, if the relation is of the form $y^2=x^3+px+q$ for parameters $p,q$, the problem of deciding (using computer) whether there is a point with rational coordinates $(x,y)$ that satisfies the equation is an active area of mathematical research. %There are cryptographic schemes based on results in this area.
 
@@ -3562,9 +3562,9 @@ y(s)&=&g_2(s)\\
 both differentiable, such that both are injective (i.e., every point $(x(t), y(t))$ has exactly one preimage, see Section \ref{secInverseFunctionBasics}). 
 \importantFormula{
 \begin{array}{c}
-\text{If the curve parametrization is differentiable and injective (one to one),}\\
+\text{If the parametric curve is differentiable and injective (one to one),}\\
 \text{the length of the image of a curve } C
-\text{does not depend on the curve parametrization.}
+\text{does not depend on the parametric curve.}
 \end{array}
 }
 We have that $t$ can be expressed as function of $s$, namely, $t(s)= \gamma_1(\gamma_2^{-1}(s))$. Furthermore, as a function of $s$ from $[a,b]$ to $[p,q]$, $t$ is bijective (this follows from the fact that both $\gamma_1$ and $\gamma_2$ are injective).
