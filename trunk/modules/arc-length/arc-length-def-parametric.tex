@@ -1,14 +1,18 @@
 % begin module arc-length-def
 \begin{frame}
-The Arc Length Formula
+\frametitle{The Arc Length Formula}
+Let $\gamma:\left|\begin{array}{rcl} x&=&x(t)\\ y&=&y(t)\end{array}  \right., t\in [a,b]$.
 
-If $f'$ is continuous on $[a,b]$, then the length of the curve $y = f(x)$, $a\leq x \leq b$, is
+
+\begin{definition}
+Suppose $x'(t)$ and $y'(t)$ (exist and) are continuous on $[a,b]$. Then the length of the curve $\gamma$ is defined as 
 \[
-L = \int_a^b \sqrt{1 +(f'(x))^2} \ \diff x
+\begin{array}{rclll}
+\displaystyle L(\gamma) &=&\displaystyle  \int_a^b \sqrt{x'(t) +y'(t)^2} ~ \diff x\\
+\uncover<2->{&=& \displaystyle \int_a^b \sqrt{\left(\frac{\diff x}{\diff t}\right)^2 + \left( \frac{\diff y}{\diff t}\right)^2} ~ \diff t &&\text{in Leibniz notation .}}
+\end{array}
 \]
-In Leibniz notation, this is
-\[
-L = \int_a^b \sqrt{1 + \left( \frac{\diff y}{\diff x}\right)^2} \ \diff x
-\]
+
+\end{definition}
 \end{frame}
 % end module arc-length-def
