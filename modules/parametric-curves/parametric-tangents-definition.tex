@@ -1,0 +1,45 @@
+% begin module parametric-tangents-intro-version2
+\begin{frame}
+\frametitle{Tangents}
+Let $C $ be the curve $C:\left|\begin{array}{rcl}x&=&f(t)\\y&=&g(t)\end{array} \right., t\in [a,b]$.
+\begin{definition}
+Suppose \alert<4>{ $f'(s)$ and $g'(s)$ are not simultaneously equal to $0$.} 
+\begin{itemize}
+\item  We define $(f'(t), g'(t))$ to be the \emph{tangent vector} to $C$ at $t$.
+\item<2->  We define the line passing through $(f(t), g(t))$ with direction vector equal to the tangent vector to be \emph{tangent line} to $C$ at $s$. In other words, the tangent line has equation
+\[
+(x-f(t))g'(t) =(y-g(t))f'(t)\quad .
+\]
+\item<3->  We say that the tangent to $C$ at $t$ is vertical if $f'(t)=0$ (\alert<4>{and therefore $g'(t)\neq 0$}).
+\end{itemize}
+\end{definition}
+\end{frame}
+\begin{frame}
+\begin{example}
+
+\end{example}
+\end{frame}
+
+\begin{frame}
+Recall $C:\left|\begin{array}{rcl}x&=&\only<1>{f}\only<2->{\alert<2>{x}}(t)\\y&=& \only<1>{g}\only<2->{\alert<2>{y}}(t)\end{array} \right., t\in [a,b]$, tangent vector at $t$ is $(\only<1>{f}\only<2->{\alert<2>{x}}'(t), \only<1>{g}\only<2->{\alert<2>{y}}'(t))$. \uncover<2->{We write informally $\alert<2>{x=x(t)}, \alert<2>{y=y(t)}$ to simplify notation.}
+
+\begin{itemize}
+\item<3-> Suppose we could eliminate the parameter $t$ and write $y=F(x)$ for some function $F$ near the point $(x,y)=(x(t), y(t))$. 
+\item<4-> Suppose in $x'(t)\neq 0$ for some $t$. 
+\item<5-> Compute:
+\[
+\begin{array}{rcll|l}
+\displaystyle y(t)&=&\displaystyle  F(x(t)) &&\text{apply } \frac{\diff }{\diff t}\\
+\displaystyle y'(t)&=&\displaystyle \frac{\diff} {\diff t} \left(F(x(t))\right)&&\text{use chain rule}\\
+&=&\displaystyle  F'(x(t)) y'(t)=F'(x(t))x'(t) &&\text{divide by } x'(t)\\
+\displaystyle \frac{\diff y}{\diff x}=F'(x(t)) &=&\displaystyle  \frac{y'(t) }{x'(t)}
+\end{array}
+\] 
+\end{itemize}
+\begin{observation}
+If $\frac{\diff x}{\diff t}\neq 0$, we have $\displaystyle
+\frac{\diff y}{\diff x}= \frac{\frac{\diff y}{\diff t}}{\frac{\diff x}{\diff t}}\quad .
+$
+\end{observation}
+\end{frame}
+% begin module parametric-tangents-intro-version2
