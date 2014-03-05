@@ -2435,10 +2435,10 @@ Expression & Substitution& Variable range & Relevant identity\\\hline
 &$x=\cot \theta$ &$ \theta\in (0, \pi) $ & $1+\cot^2\theta =\csc^2\theta $ \\ \hline 
 \multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x = \sin \theta$ &  $ \theta\in \left[ -\frac{\pi}{2} ,\frac{\pi}{2}\right]$ & $1 - \sin^2 \theta = \cos^2 \theta$\\
 & $x = \cos \theta$ & $\theta\in (0,\pi)$& $1-\cos^2\theta=\cos^2\theta$ \\\hline 
-\multirow{2}{*}{$\sqrt{x^2-1}$} & $x = \sec \theta$ & 
+\multirow{2}{*}{$\sqrt{x^2-1}$} &$x=\csc \theta$ &$\theta\in \left[0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2}\right)$ &  $\csc^2\theta-1=\cot^2\theta $\\
+& $x = \sec \theta$ & 
 $\theta\in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{ 3 \pi}{2}\right)$
 & $\sec^2\theta - 1 = \tan^2\theta$\\
-&$x=\csc \theta$ &$\theta\in \left[0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2}\right)$ &  $\csc^2\theta=\cot^2\theta $\\
 \hline
 \multicolumn{4}{c}{Euler substitution by applying in addition $\theta=2\arctan t$}\\
 \hline 
@@ -2448,8 +2448,8 @@ Expression & Substitution  & Variable range & Relevant identity\\
 &$ x=\frac{1}{2} \left(\frac{1}{t}-t\right)$ & $0<t $ & see \eqref{eqsqrtx2plus1Euler2}  \\ \hline 
 \multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x=\frac{2t}{1+t^2} $ & $-1\leq t\leq 1 $ & see \eqref{eqsqrt1minusxsquaredE1} \\
 & $x =\frac{1-t^2}{1+t^2} $ & $0<t$& see \eqref{eqsqrt1minusxsquaredE2}  \\\hline 
-\multirow{2}{*}{$\sqrt{x^2-1}$} &$x=\frac{1}{2}\left(\frac{ 1}{t}+t\right)$ & $t\in (-\infty, -1)\cup [0,1)$& see \eqref{eqsqrtxsquareminus1E2}\\
-& $x =\frac{1+t^2}{1-t^2} $ & $t \in (-\infty,-1)\cup [0,1)$ &see \eqref{eqsqrtxsquareminus1E1} \\\hline
+\multirow{2}{*}{$\sqrt{x^2-1}$} &$x=\frac{1}{2}\left(\frac{ 1}{t}+t\right)$ & $t\in (-\infty, -1)\cup [0,1)$& see \eqref{eqsqrtxsquareminus1E1}\\
+& $x =\frac{1+t^2}{1-t^2} $ & $t \in (-\infty,-1)\cup [0,1)$ &see \eqref{eqsqrtxsquareminus1E2} \\\hline
 \end{tabular}
 
 To the student we note that to learn the material in this section it suffices to memorize the three pairs of trigonometric substitutions $x=\tan \theta, x= \cot \theta$; $x=\sin \theta, x= \cos \theta$; $x=\sec \theta, x=\csc \theta$, and to memorize the substitution $\theta=2\arctan t$. In other words, one only needs to memorize the first and second column of the first three rows in the table above. The relevant identities arise naturally from the form of the radical and the substitution. In other words, the fourth column of the table above is a consequence of the first two and does not need to be memorized.
@@ -2842,6 +2842,80 @@ We recall that in this section $R$ stands for a rational function in two variabl
 \]
 to integral of rational function are $x=\sec \theta$ and $x=\csc \theta$. 
 
+\subsubsection{Trigonometric substitution $x=\csc \theta$, $\theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) $}
+The trigonometric substitution $x=\csc \theta$ is given by 
+\[
+\begin{array}{rcll|l}
+\displaystyle \sqrt{x^2-1}&=&\displaystyle \sqrt{\frac{1}{\sin^2\theta}-1}\\
+&=&\displaystyle \sqrt{\frac{\cos^2\theta}{\sin^2\theta}}=\sqrt{\cot^2 \theta} &&\begin{array}{l} \text{when }\theta\in \theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) \text{we have}\\
+\cot \theta\geq 0 \text{ and so } \sqrt{\cot^2\theta}=\tan \theta
+\end{array}  \\
+&=&\displaystyle \cot \theta\quad .
+\end{array}
+\]
+The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\csc \theta$. The substitution $x=\csc \theta $ can be now summarized as:
+\begin{equation*}
+\begin{array}{rcl}
+x&=&\displaystyle \csc \theta\\
+\sqrt{x^2-1}&=&\displaystyle \cot \theta\\
+\diff x&=&\displaystyle  -\frac{\cos \theta }{\sin^2 \theta} \diff \theta = -\csc\theta \cot\theta \diff \theta\\
+\theta&=&\displaystyle \arccsc x \quad .
+\end{array}
+\end{equation*}
+\subsubsection{Euler substitution $x=\csc \theta$, $\theta=2\arctan t$, $ t\in (-\infty, -1) \cup \left[0, 1 \right) $ }
+We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\csc \theta$:
+\begin{equation*}
+\begin{array}{rcll|l}
+x&=&\displaystyle \csc \theta =\frac{1}{\sin \theta} & & \text{use } \theta=2\arctan t\\
+&=&\displaystyle \frac{1}{\sin (2\arctan t)} &&\text{use } \eqref{eqSinCosViaTan}: \displaystyle \sin (2z) = \frac{ 2\tan z }{1+ \tan^2 z}\\
+&=&\displaystyle \frac{1+\tan^2(\arctan t)}{2\tan( \arctan t)} \\
+&=&\displaystyle \frac{1+t^2}{2t} \\
+&=&\displaystyle \frac{1}{2}\left(\frac{1}t+t\right)\quad .
+\end{array}
+\end{equation*}
+We can furthermore compute
+\begin{equation}\label{eqsqrtxsquareminus1E1}
+\begin{array}{rcll|l}
+\sqrt{x^2-1 }&=&\displaystyle \sqrt{ \left( \frac{1+t^2}{ 2t } \right)^2 -1}\\
+&=& \displaystyle \sqrt{\frac{(1+t^2)^2-4t^2 }{ 4t^2} }\\
+&=&\displaystyle \sqrt{\frac{(1-t^2)^2}{4t^2}} &&\displaystyle \frac{1-t^2}{2t}>0\text{ when } t\in (-\infty, -1) \cup \left[0, 1 \right)  \\
+&=&\displaystyle \frac{1-t^2}{2t}\\
+&=&\displaystyle\frac{1}{2}\left(\frac{1}{t}-t\right)\quad .\\
+\end{array}
+\end{equation}
+The differential $\diff x$ can be computed from $x=\frac{1}{2}\left(\frac{1}{t}-t\right)$. Finally, we can express $t$ via $x$ with a little algebra:
+
+\[
+\begin{array}{rcll|l}
+\displaystyle \sqrt{x^2-1 }&=&\displaystyle \frac{1-t^2}{2t}\\
+\displaystyle \sqrt{x^2-1 }&=&\displaystyle \frac{2-(1+t^2)}{2t} &&\displaystyle \text{use } x=\frac{1+t^2}{2t}\\
+\displaystyle \sqrt{x^2-1}&=&\displaystyle \frac{1}{t}-x\\
+\displaystyle \frac{1}{t}&=&\displaystyle \sqrt{x^2-1}+x\\
+t&=& \displaystyle \frac{1}{\sqrt{x^2-1}+x}= \frac{1}{(\sqrt{x^2-1}+x)} \frac{ (-\sqrt{x^2-1}+x)} {(-\sqrt{x^2-1}+x)}\\
+t&=&\displaystyle x-\sqrt{x^2-1}
+\end{array}
+\]
+The Euler substitution $x= \cos (2\arctan t)$ can be now summarized as:
+\[
+\begin{array}{rcl}
+x&=&\displaystyle \frac{1}{2}\left(\frac{1}{t}+t\right)\\
+\sqrt{-x^2+1}&=&\displaystyle\frac12 \left(\frac{1}{t} - t \right) \\
+\diff x&=&\displaystyle  -\frac{1}{2}\left(\frac{1}{t^2}+1\right) \diff t\\
+t&=&\displaystyle x-\sqrt{x^2-1}\quad .
+\end{array}
+\]
+As demonstrated in the present section, it is sufficient to memorize the substitution $x=\csc (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
+\[
+\sqrt{x^2-1}=\frac{1}{t}-x\quad .
+\]
+\begin{problem}
+Let the variables $x$ and $t$ be related via $\sqrt{x^2-1}=\frac{1}{t}-x$. 
+\begin{enumerate}
+\item Express $x$ via $t$.
+\item Express $\sqrt{x^2-1}$ via $t$ alone.
+\item Express $\diff x$ via $t$ and $\diff t$.
+\end{enumerate}
+\end{problem}
 \subsubsection{Trigonometric substitution $x=\sec \theta$, $\theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) $}
 The trigonometric substitution $x=\sec \theta$ is given by 
 \[
@@ -2936,81 +3010,6 @@ Let the variables $x$ and $t$ be related via $\sqrt{x^2-1}=(x+1)t$.
 \sqrt{x^2-1}=(x+1)t=\left(-1+\frac{2}{1-t^2}+1\right)t=\frac{2t}{1-t^2}
 \]
 \end{solution}
-
-\subsubsection{Trigonometric substitution $x=\csc \theta$, $\theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) $}
-The trigonometric substitution $x=\csc \theta$ is given by 
-\[
-\begin{array}{rcll|l}
-\displaystyle \sqrt{x^2-1}&=&\displaystyle \sqrt{\frac{1}{\sin^2\theta}-1}\\
-&=&\displaystyle \sqrt{\frac{\cos^2\theta}{\sin^2\theta}}=\sqrt{\cot^2 \theta} &&\begin{array}{l} \text{when }\theta\in \theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) \text{we have}\\
-\cot \theta\geq 0 \text{ and so } \sqrt{\cot^2\theta}=\tan \theta
-\end{array}  \\
-&=&\displaystyle \cot \theta\quad .
-\end{array}
-\]
-The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\csc \theta$. The substitution $x=\csc \theta $ can be now summarized as:
-\begin{equation*}
-\begin{array}{rcl}
-x&=&\displaystyle \csc \theta\\
-\sqrt{x^2-1}&=&\displaystyle \cot \theta\\
-\diff x&=&\displaystyle  -\frac{\cos \theta }{\sin^2 \theta} \diff \theta = -\csc\theta \cot\theta \diff \theta\\
-\theta&=&\displaystyle \arccsc x \quad .
-\end{array}
-\end{equation*}
-\subsubsection{Euler substitution $x=\csc \theta$, $\theta=2\arctan t$, $ t\in (-\infty, -1) \cup \left[0, 1 \right) $ }
-We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\csc \theta$:
-\begin{equation*}
-\begin{array}{rcll|l}
-x&=&\displaystyle \csc \theta =\frac{1}{\sin \theta} & & \text{use } \theta=2\arctan t\\
-&=&\displaystyle \frac{1}{\sin (2\arctan t)} &&\text{use } \eqref{eqSinCosViaTan}: \displaystyle \sin (2z) = \frac{ 2\tan z }{1+ \tan^2 z}\\
-&=&\displaystyle \frac{1+\tan^2(\arctan t)}{2\tan( \arctan t)} \\
-&=&\displaystyle \frac{1+t^2}{2t} \\
-&=&\displaystyle \frac{1}{2}\left(\frac{1}t+t\right)\quad .
-\end{array}
-\end{equation*}
-We can furthermore compute
-\begin{equation}\label{eqsqrtxsquareminus1E1}
-\begin{array}{rcll|l}
-\sqrt{x^2-1 }&=&\displaystyle \sqrt{ \left( \frac{1+t^2}{ 2t } \right)^2 -1}\\
-&=& \displaystyle \sqrt{\frac{(1+t^2)^2-4t^2 }{ 4t^2} }\\
-&=&\displaystyle \sqrt{\frac{(1-t^2)^2}{4t^2}} &&\displaystyle \frac{1-t^2}{2t}>0\text{ when } t\in (-\infty, -1) \cup \left[0, 1 \right)  \\
-&=&\displaystyle \frac{1-t^2}{2t}\\
-&=&\displaystyle\frac{1}{2}\left(\frac{1}{t}-t\right)\quad .\\
-\end{array}
-\end{equation}
-The differential $\diff x$ can be computed from $x=\frac{1}{2}\left(\frac{1}{t}-t\right)$. Finally, we can express $t$ via $x$ with a little algebra:
-
-\[
-\begin{array}{rcll|l}
-\displaystyle \sqrt{x^2-1 }&=&\displaystyle \frac{1-t^2}{2t}\\
-\displaystyle \sqrt{x^2-1 }&=&\displaystyle \frac{2-(1+t^2)}{2t} &&\displaystyle \text{use } x=\frac{1+t^2}{2t}\\
-\displaystyle \sqrt{x^2-1}&=&\displaystyle \frac{1}{t}-x\\
-\displaystyle \frac{1}{t}&=&\displaystyle \sqrt{x^2-1}+x\\
-t&=& \displaystyle \frac{1}{\sqrt{x^2-1}+x}= \frac{1}{(\sqrt{x^2-1}+x)} \frac{ (-\sqrt{x^2-1}+x)} {(-\sqrt{x^2-1}+x)}\\
-t&=&\displaystyle x-\sqrt{x^2-1}
-\end{array}
-\]
-The Euler substitution $x= \cos (2\arctan t)$ can be now summarized as:
-\[
-\begin{array}{rcl}
-x&=&\displaystyle \frac{1}{2}\left(\frac{1}{t}+t\right)\\
-\sqrt{-x^2+1}&=&\displaystyle\frac12 \left(\frac{1}{t} - t \right) \\
-\diff x&=&\displaystyle  -\frac{1}{2}\left(\frac{1}{t^2}+1\right) \diff t\\
-t&=&\displaystyle x-\sqrt{x^2-1}\quad .
-\end{array}
-\]
-As demonstrated in the present section, it is sufficient to memorize the substitution $x=\csc (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
-\[
-\sqrt{x^2-1}=\frac{1}{t}-x\quad .
-\]
-\begin{problem}
-Let the variables $x$ and $t$ be related via $\sqrt{x^2-1}=\frac{1}{t}-x$. 
-\begin{enumerate}
-\item Express $x$ via $t$.
-\item Express $\sqrt{x^2-1}$ via $t$ alone.
-\item Express $\diff x$ via $t$ and $\diff t$.
-\end{enumerate}
-\end{problem}
 \subsection{Examples of Euler integrals}
 \begin{problem}
 Integrate 
