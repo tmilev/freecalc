@@ -1,0 +1,14 @@
+\begin{frame}
+The integral $\int \sec \theta \diff \theta$ appears often in practice. A somewhat quicker alternative method for doing this particular integral will be shown later. Here we solve that integral using the standard method.
+\begin{example}
+Set $\theta=2\arctan t$, $\cos \theta = \frac{1-\tan^2(\frac{\theta}{2}) }{1+\tan^2\left(\frac{\theta}{2}\right)}=\frac{1-t^2}{1+t^2}$, $\diff \theta = 2\frac{1}{1+t^2}\diff t$.
+\[
+\begin{array}{rclll}
+\int \sec \theta\diff\theta &=& \int \frac{1}{\cos \theta}\diff \theta = \int \frac{1}{\frac{1-t^2}{1+t^2}} \frac{2}{1+t^2} \diff t= \int \frac{2}{1-t^2}\diff t &&\textbf{split to partial fractions }\\
+&=&\int \left(\frac{1}{1-t}+\frac{1}{1+t}\right)\diff t=- \ln |1-t|+\ln |1+t| +C=\ln |\frac{1-t}{1+t}|+C\\
+&=& \ln |\frac{1-\tan \left(\frac{\theta}{2}\right)}{1+\tan \left(\frac{\theta}{2}\right)}|+C = \ln |\tan \theta +\sec \theta| +C.
+\end{array}
+\]
+\end{example}
+
+\end{frame}
