@@ -5,55 +5,90 @@ Find parametric equations of a cycloid made using a circle with radius $r$ that 
 \begin{columns}[c]
 \column{.4\textwidth}
 
-\psset{xunit=1cm, yunit=1cm}
+\psset{xunit=1.7cm, yunit=1.7cm}
 \begin{pspicture}(-1.000000, -5)(1.500000,5) 
 \psframe*[linecolor=white](-1.000000,-5)(5.500000,5) 
 \tiny 
-\psaxesStandard{-0.500000}{-0.5}{3.2}{2.2}
+\psaxes[arrows=<->, ticks=none, labels=none ]( 0,0)( -0.500000, -0.5)(2.55,2.2)
+
+%Function formula: - (- (x-1256637061/1000000000)^{2}+1 )^{1/2}+1 
+\psplot[linecolor=\psColorTangent, plotpoints=1000] {0.256647} {2.256627}{1 1 -1.25664 x add 2 exp -1 mul add 0.5 exp -1 mul add }
+%Function formula: (- (x-1256637061/1000000000)^{2}+1 )^{1/2}+1 
+\psplot[linecolor=\psColorTangent, plotpoints=1000] {0.256647} {2.256627}{1 1 -1.25664 x add 2 exp -1 mul add 0.5 exp add }
+\uncover<2->{
+\psplot[linecolor=green, plotpoints=300]{0.305581} {1.256637061} {1 1 -1.25664 x add 2 exp -1 mul add 0.5 exp -1 mul add }
+}
+
 %Calculator input: plotCurve{}(- \sin{}t+t, - \cos{}t+1, 0, \pi)
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000] { 0}{3.14159}{t t 57.29578 mul sin -1 mul add 1 t 57.29578 mul cos -1 mul add }
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000] { 0}{2.8}{t t 57.29578 mul sin -1 mul add 1 t 57.29578 mul cos -1 mul add }
 
-\psFullDot{2.094395102}{1}
+\psFullDot{0.305581}{0.690983}
+\rput[r](0.2, 0.69){$P$}
+\psFullDot{1.256637061}{1}
+\rput[bl](1.286637061,1.05){\uncover<5->{\alert<5>{$ C=(r\theta,r)$}}}
 
-%Function formula: - \sqrt{- (x-2/3 \pi+0.866025)^{2}+1}+1 
-\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.228380}{2.228360}{1 1 0.866025 3.14159 -0.666667 mul add x add 2 exp -1 mul add sqrt -1 mul add }
-%Function formula: \sqrt{- (x-2/3 \pi+0.866025)^{2}+1}+1 
-\psplot[linecolor=\psColorTangent, plotpoints=1000]{0.228380}{2.228360}{1 1 0.866025 3.14159 -0.666667 mul add x add 2 exp -1 mul add sqrt add }
+\uncover<6->{\psline[linestyle=dashed](0.305581,0)(0.305581,0.690983)
+\rput[b](0.15, 0.05){\alert<6>{$x$}}
+\rput[l](0.32, 0.35){\alert<6>{$y$}}
+}
+
+\psline(0.305581,0.690983)(1.256637061,1)
+\rput[b](0.75, 0.85){$r$}
+
+\uncover<7->{
+\psline[linestyle=dashed](0.305581,0.690983)(1.256637061,0.690983)
+\psline(1.156637061,0.690983)(1.156637061,0.590983)(1.256637061,0.590983)
+\rput[l](1.306637061,0.690983){$Q$}
+}
+
+\psline(1.256637061,0.1)(1.356637061,0.1)(1.356637061,0)
+\rput[lt](1.256637061,-0.1){$T$}
+\psline(1.256637061,1)(1.256637061,0)
+
+\uncover<3->{\psline[linecolor=green](0,0)(1.256637061, 0)}
+
+\uncover<4->{
+\psline{<-}(0,-0.2)(0.5, -0.2)
+\psline{->}(0.72,-0.2)(1.256637061, -0.2)
+\rput(0.62, -0.2){\alert<4>{$r\theta$}}
+}
+\rput(1.2, 0.9){\uncover<2->{\alert<2>{$\theta$}}}
+\rput (-0.2, -0.2){$O$}
 \end{pspicture} 
 
-\ \only<handout:0| -2>{%
-\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqa.pdf}%
-}%
-\only<handout:0| 3>{%
-\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqb.pdf}%
-}%
-\only<handout:0| 4>{%
-\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqc.pdf}%
-}%
-\only<handout:0| 5>{%
-\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqd.pdf}%
-}%
-\only<handout:0| 6>{%
-\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqe.pdf}%
-}%
-\only<7->{%
-\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqf.pdf}%
-}%
+%\ \only<handout:0| -2>{%
+%\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqa.pdf}%
+%}%
+%\only<handout:0| 3>{%
+%\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqb.pdf}%
+%}%
+%\only<handout:0| 4>{%
+%\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqc.pdf}%
+%}%
+%\only<handout:0| 5>{%
+%\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqd.pdf}%
+%}%
+%\only<handout:0| 6>{%
+%\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqe.pdf}%
+%}%
+%\only<7->{%
+%\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqf.pdf}%
+%}%
 \column{.6\textwidth}
 \begin{itemize}
-\item<2->  We choose our parameter to be $\theta$, the angle of rotation of the circle.
+\item<2->  We choose our parameter to be \alert<2>{$\theta$}, the angle of rotation of the circle.
 \item<3->  How far has the circle moved if it has rolled through $\theta$ radians?
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
 \uncover<3->{%
-|OT| = \alert<handout:0| 4>{\textrm{arc} PT }%
+{|OT|} = \alert<handout:0| 4>{{ \textrm{arc} PT} }%
 }%
 \uncover<4->{%
 \alert<handout:0| 4>{ = r\theta}%
 }%
 \]
-\item<5->  Then the center is $C = (r\theta , r)$.
+\item<5->  Then the center is $\alert<5>{C = (r\theta , r)}$.
 \item<6->  Let the coordinates of $P$ be $(x,y)$.
 \end{itemize}
 \[
