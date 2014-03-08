@@ -1,17 +1,52 @@
 % begin module improper-integral-type1-ex1
 \begin{frame}
-\begin{example}[Example 1, p. 545]
-Determine whether $\int_1^\infty (1/x) \diff x$ is convergent or divergent.
+\begin{example} %[Example 1, p. 545]
+Determine whether $\int_1^\infty \frac{1}{x} \diff x$ is convergent or divergent.
 \begin{columns}[c]
 \column{.4\textwidth}
-\ \includegraphics[height=3cm]{improper-integrals/pictures/08-08-ex1b.pdf}%
+
+
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.4, -0.4)(3.4,2.2) 
+\psframe*[linecolor=white](-0.4,-0.4)(3.4,2.2) 
+\tiny 
+
+\pscustom*[linecolor=cyan]{
+%Function formula: x^{-1} 
+
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1.000000}{3.000000}{x -1.0000000 exp }\psline(3.000000, 0)(1.000000, 0)}
+
+%Function formula: x^{-1} 
+
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0.5}{3.000000}{x -1.0000000 exp }
+\psaxesStandard{-0.40}{-0.4}{3.3}{2}
+\rput(1.5, 1.5){$y=\frac{1}{x}$}
+\end{pspicture} 
+%\ \includegraphics[height=3cm]{improper-integrals/pictures/08-08-ex1b.pdf}%
 
 %\begin{center}
 \uncover<7->{Infinite area}%
 %\end{center}
 
 \ \uncover<8->{%
-\includegraphics[height=3cm]{improper-integrals/pictures/08-08-ex1a.pdf}%
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.4, -0.4)(3.3,2.2) 
+\psframe*[linecolor=white](-0.4,-0.4)(3.3,2.2) 
+\tiny 
+\pscustom*[linecolor=cyan]{
+%Function formula: x^{-2} 
+
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1.000000}{3.000000}{x -2.0000000 exp }\psline(3.000000, 0)(1.000000, 0)}
+
+%Function formula: x^{-2} 
+
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0.75}{3.000000}{x -2.0000000 exp }
+\psaxesStandard{-0.400000}{-0.4}{3.200000}{2}
+\rput(1.5, 1.5){$y=\frac{1}{x^2}$}
+
+\end{pspicture} 
+
+%\includegraphics[height=3cm]{improper-integrals/pictures/08-08-ex1a.pdf}%
 }%
 
 %\begin{center}
