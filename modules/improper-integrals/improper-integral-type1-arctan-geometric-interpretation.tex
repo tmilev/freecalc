@@ -6,7 +6,8 @@
 \begin{pspicture}(-3.1, -0.1)(3.1,1.2) 
 \psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2) 
 \tiny 
-\psaxes[arrows=<->, ticks=none, labels=none] (0,0) (-3,-0.1) (3,1.1)
+\psline[linecolor=red!1](0,1.2)(0.001,1.2) %bounding boxes don't always work right
+\psaxes[arrows=<->, ticks=none, labels=none] (0,0) (-3.05,-0.1) (3.05,1.1)
 \rput[t](3, -0.1){$x$}
 
 %Function formula: - (- x^{2}+1)^{1/2} 
@@ -30,14 +31,14 @@
 
 \rput[br](-0.05, 1.05){ $\phantom{Q_0=P_0}A$}
 \uncover<2->{
-\rput[lb](0.5, 1.05){$P_1$}
+\rput[lb](0.5, 1.05){$P_1\phantom{(x_1 ,1)}$}
 \rput[lb](1, 1.05){$P_2(\alert<2>{x_2}, 1)$}
 }
 \uncover<2->{
 \rput[t](0.75,0.95){\alert<2>{$\Delta$}}
 }
 \uncover<5->{
-\rput[t](0.520000, 0.4500000){$\alert<5>{Q_2}$}
+\rput[lt](0.520000, 0.4500000){$\alert<5>{Q_2}$}
 \rput[l](0.42000, 0.8){$\alert<5>{Q_1}$}
 }
 \rput[tl](0.05, -0.05){$O$}
@@ -179,8 +180,19 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \begin{pspicture}(-3.1, -0.1)(3.1,1.2) 
 \psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2) 
 \tiny 
+\psline[linecolor=red!1](0,1.2)(0.001,1.2) %bounding boxes don't always work right
+\uncover<48->{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+%Function formula: \frac{1}{x^{2}+1} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{3.000000}{1.0000000 1.0000000 x 2.0000000 exp add div }
+\psline(3.000000, 0)(-3.000000, 0)
+}
 
-\psaxes[arrows=<->, ticks=none, labels=none](0,0)(-3,-0.1)(3,1.1)
+%Function formula: \frac{1}{x^{2}+1} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000} {3.000000} {1.0000000 1.0000000 x 2.0000000 exp add div }
+}
+
+\psaxes[arrows=<->, ticks=none, labels=none](0,0)(-3.05,-0.1)(3.05,1.1)
 %Function formula: - (- x^{2}+1)^{1/2} 
 %\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp -1 mul }
 %Function formula: (- x^{2}+1)^{1/2} 
@@ -225,32 +237,39 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \psline(0.441176, 0.735294)(0.4, 0.8) 
 \psline(0.398302, 0.761019)(0.372577, 0.718144)(0.415452, 0.692419) 
 }
+\rput[lt](0.46, 0.71){\uncover<7-12>{$Q_2$}}
 \uncover<6>{
 \psline(0.700000, 1)(0, 0) 
 \psline(0.469799, 0.671141)(0, 1) 
 \psline(0.469799, 0.671141)(0.4, 0.8)
 \psline(0.428837, 0.699814)(0.400164, 0.658852)(0.441126, 0.630179)
 }
+\rput[lt](0.48, 0.65){\uncover<6>{$Q_2$}}
 \uncover<5>{
 \psline(0.8, 1)(0, 0) 
 \psline(0.487805, 0.609756)(0, 1) 
 \psline(0.487805, 0.609756)(0.4, 0.8)
 \psline(0.448761, 0.640991)(0.417527, 0.601947)(0.456570, 0.570713) 
 }
+\rput[lt](0.5, 0.58){\uncover<5>{$Q_2$}}
 \uncover<4>{
 \psline(0.900000, 1) (0, 0) 
 \psline(0.497238, 0.552486)(0, 1) 
 \psline(0.497238, 0.552486)(0.4, 0.8)
 \psline(0.460073, 0.585934)(0.426625, 0.548770)(0.463789, 0.515321)
 }
+\rput[lt](0.5, 0.54){\uncover<4>{$Q_2$}}
+
 \uncover<1-3>{ %
 \psline(1, 1)(0, 0) 
 \psline(0.4, 0.8)(0.5, 0.5) 
 } %
+\rput[lt](0.520000, 0.4500000){\uncover<1-3>{$Q_2$}}
 \uncover<13->{ %
 \psline(0.4, 0.8)(0.5, 0.5) 
 } %
-\uncover<1-33>{ %
+\rput[lt](0.520000, 0.4500000){\uncover<13->{$Q_2$}}
+\uncover<13-33>{ %
 \psline(1, 1)(0, 0)
 } 
 \uncover<34-41>{
@@ -265,7 +284,7 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \uncover<32,34>{
 \psline[linecolor=red](0.5, 0.5)(0.461538, 0.307692)
 }
-\uncover<23-41>{
+\uncover<1-3, 13-41>{
 \psline(0.5, 0.5)(0, 1) 
 \psline(0.464645, 0.535355)(0.429289, 0.5)(0.464645, 0.464645) 
 }
@@ -442,16 +461,15 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 $\uncover<17-33>{\alert<17>{\dots}}$
 }
 
-\rput[lb](0.5, 1.05) { \uncover<1-33>{ $P_1 \uncover<15->{ \alert<15>{ (x_1 ,1)}}$}}
+\rput[lb](0.5, 1.05){\uncover<1-33>{$P_1\uncover<15->{\alert<15>{(x_1 ,1)}}$}}
 \rput[t](3, -0.1){$x$}
 \rput[br](-0.05, 1.05){$\uncover<21->{\alert<21>{Q_0= }}\uncover<14->{ \alert<14>{ P_0=}}A$}
-\rput[lt](0.520000, 0.4500000){$Q_2$}
 \rput[l](0.42000, 0.8){$Q_1$}
 \rput[tl](0.05, -0.05){$O$}
 \end{pspicture}
 \alert<1>{ \noindent $\alert<28>{|Q_1Q_2| =} \alert<29>{\frac{|OP_2| } {|OP_1|}} \alert<28>{\frac{ \Delta} {1+x_2^2}}. \vphantom{={\frac{|P_1P_2| |OQ_2|} {|OP_1|}} {=\left(\frac{|OP_2|}{|OP_1|}\right) \frac{|OQ_2|} { |OP_2|} |P_1P_2| } }$} \uncover<13->{For any $\varepsilon >0$, can choose $\Delta$: $\alert<29>{1< \frac{|OP_2| } {|OP_1|} < 1 + \varepsilon}$.}
 
-\only<1-12>{ \uncover<2->{If we let $P_1\to P_2$}\uncover<3->{, i.e., $\Delta \to 0$,} \uncover<8->{we get $\alert<8>{ \frac{|OP_2| }{ |OP_1|}\to 1}$.} \uncover<9->{In strict mathematical language: for every $\varepsilon>0$ there exists $\delta >0$ such that when $\Delta  < \delta$ we have that $1>\frac{ |OP_2| }{|OP_1|}>1-\varepsilon $.} \uncover<10->{Furthermore, the choice of $\delta$ can be made independent of the the value of $x_2$: } \uncover<11->{to prove that one analyzes the expression $\frac{|OP_2|}{|OP_1|} = \sqrt{ \frac{ 1+x_2^2} { 1 + (x_2-\Delta )^2}}$.} \uncover<12->{We leave the tedious but otherwise easy details to the interested student. } 
+\only<1-12>{ \uncover<2->{If we let $P_1\to P_2$}\uncover<3->{, i.e., $\Delta \to 0$,} \uncover<8->{we get $\alert<8>{ \frac{|OP_2| }{ |OP_1|}\to 1}$.} \uncover<9->{In strict mathematical language: for every $\varepsilon>0$ there exists $\delta >0$ such that when $\Delta  < \delta$ we have that $1>\frac{ |OP_2| }{|OP_1|}>1-\varepsilon $.} \uncover<10->{Furthermore, the choice of $\delta$ can be made independent of the value of $x_2$: } \uncover<11->{to prove that one analyzes the expression $\frac{|OP_2|}{|OP_1|} = \sqrt{ \frac{ 1+x_2^2} { 1 + (x_2-\Delta )^2}}$.} \uncover<12->{We leave the tedious but otherwise easy details to the interested student. } 
 }
 
 \only<13-27>{
@@ -496,7 +514,7 @@ The points $Q_1, Q_2, \dots$ see the segment $OA$ from an angle of $\frac{\pi}{2
 \begin{pspicture}(-3.1, -0.1)(3.1,1.2) 
 \psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2) 
 \tiny 
-
+%\psline[linecolor=red!1](0,1.2)(0.001,1.2) %bounding boxes don't always work right
 %\pscustom*[linecolor=\psColorAreaUnderGraph]{
 %Function formula: \frac{1}{x^{2}+1} 
 %\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{3.000000}{1.0000000 1.0000000 x 2.0000000 exp add div }
@@ -506,7 +524,7 @@ The points $Q_1, Q_2, \dots$ see the segment $OA$ from an angle of $\frac{\pi}{2
 %Function formula: \frac{1}{x^{2}+1} 
 %\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000} {3.000000} {1.0000000 1.0000000 x 2.0000000 exp add div }
 
-\psaxes[arrows=<->, ticks=none, labels=none](0,0)(-3,-0.1)(3,1.1)
+\psaxes[arrows=<->, ticks=none, labels=none](0,0)(-3.05,-0.1)(3.05,1.1)
 %Function formula: - (- x^{2}+1)^{1/2} 
 %\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp -1 mul }
 %Function formula: (- x^{2}+1)^{1/2} 
