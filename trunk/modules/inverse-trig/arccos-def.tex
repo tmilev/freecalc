@@ -1,26 +1,17 @@
 % begin module arccos-def
 \begin{frame}
-%\ \only<handout:0| -1>{%
-%\includegraphics[width=12cm]{inverse-trig/pictures/07-06-arccosa.pdf}%
-%}%
-%\only<2>{%
-%\includegraphics[width=12cm]{inverse-trig/pictures/07-06-arccosb.pdf}%
-%}%
-%\only<handout:0| 3->{%
-%\includegraphics[width=12cm]{inverse-trig/pictures/07-06-arccosc.pdf}%
-%}%
 \psset{xunit=0.6cm,yunit=0.6cm}
 \begin{pspicture}(-5,-1.4)(10,1.4)
 \tiny
 \psaxes[labels=none, ticks=x, Dx=1.570796327, Dy=1] {<->}(0,0)(-4.1,-1.4)(10,3.4)
 \psLabels{10}{3.4}
-\uncover<1>{\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x 57.295779513 mul cos}
+\uncover<1| handout:0>{\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x 57.295779513 mul cos}
 \rput[t](3.5, 1){$y=\cos x$}
 }
 \uncover<2>{\psplot[linecolor=red, plotpoints=1000]{0}{3.141592654}{x 57.295779513 mul cos}
 \rput[t](3.5, 1){$y=\cos x, \quad 0\leq x\leq \pi$}
 }
-\uncover<3->{\psplot[linecolor=gray, plotpoints=1000]{0}{3.141592654}{x 57.295779513 mul cos}
+\uncover<3-| handout:0>{\psplot[linecolor=gray, plotpoints=1000]{0}{3.141592654}{x 57.295779513 mul cos}
 \rput[t](3.5, 1){\color{gray}$y=\cos x, \quad 0\leq x\leq \pi$}
 
 \psplot[linecolor=red, plotpoints=1000]{-1}{1}{x ACOS}

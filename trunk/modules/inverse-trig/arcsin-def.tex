@@ -1,34 +1,22 @@
 % begin module arcsin-def
 \begin{frame}
 \frametitle{Inverse Trigonometric Functions}
-%\ \only<handout:0| -1>{%
-%\includegraphics[width=12cm]{inverse-trig/pictures/07-06-arcsina.pdf}%
-%}%
-%\only<handout:0| 2>{%
-%\includegraphics[width=12cm]{inverse-trig/pictures/07-06-arcsinb.pdf}%
-%}%
-%\only<3>{%
-%\includegraphics[width=12cm]{inverse-trig/pictures/07-06-arcsinc.pdf}%
-%}%
-%\only<handout:0| 4->{%
-%\includegraphics[width=12cm]{inverse-trig/pictures/07-06-arcsind.pdf}%
-%}%
 \psset{xunit=0.6cm,yunit=0.6cm}
 \begin{pspicture}(-5,-1.4)(10,1.4)
 \tiny
 \psaxes[labels=none, Dx=1.570796327, Dy=1] {<->}(0,0)(-4,-1.8)(10,1.8)
 
-\uncover<1-2>{\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x 57.295779513 mul sin}}
-\uncover<2>{\psline(-4,0.6)(10,0.6 )}
+\uncover<1-2| handout:0>{\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x 57.295779513 mul sin}}
+\uncover<2| handout:0>{\psline(-4,0.6)(10,0.6 )}
 
 \uncover<3>{\psplot[linecolor=red, plotpoints=1000]{-1.570796327}{1.570796327}{x 57.295779513 mul sin}
 \rput[bl](3, 1){\alert<3>{$y=\sin x, -\frac{\pi}{2}\leq x\leq \frac{\pi}{2}$} }
 }
-\uncover<4->{\psplot[linecolor=gray, plotpoints=1000]{-1.570796327}{1.570796327}{x 57.295779513 mul sin}
+\uncover<4-| handout:0>{\psplot[linecolor=gray, plotpoints=1000]{-1.570796327}{1.570796327}{x 57.295779513 mul sin}
 \rput[bl](3, 1){\color{gray}{$y=\sin x, -\frac{\pi}{2}\leq x\leq \frac{\pi}{2}$} }
 }
 
-\uncover<4->{\psplot[linecolor=red, plotpoints=1000]{-1}{1}{x ASIN}
+\uncover<4-| handout:0>{\psplot[linecolor=red, plotpoints=1000]{-1}{1}{x ASIN}
 \rput[r](-1.5, -1){\alert<4>{$y=\Arcsin x$} }
 
 }
