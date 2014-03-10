@@ -14,15 +14,35 @@ t & = 1/2.
 
 Therefore the position function has a critical number at $t = 1/2$.  
 The parabola $2-t+t^2$ has a global minimum at $t = 1/2$, and the natural logarithm function is an increasing function, so $\ln(2-t+t^2)$ also has a global minimum at $t=1/2$.  
-The minimum value is $s(1/2) = 2-1/2+(1/2)^2 = 7/4$m.  
+The minimum value is $s(1/2) = \ln(2-1/2+(1/2)^2) = \ln(7/4)\approx 0.5596$ m.  
 }%
 
 \item  What is its acceleration when it is closest to the origin?  
 
-\item  For what values of $t$ is the position function $s(t)$ defined?  
+\solution{%
+\begin{align*}
+v(t) = s'(t) & = \frac{-1+2t}{2-t+t^2}. \\
+a(t) = s''(t) & = \frac{(2-t+t^2)(2) - (-1+2t)(-1+2t)}{(2-t+t^2)^2} \\
+ & = \frac{(4-2t+2t^2) - (1-4t+4t^2)}{(2-t+t^2)^2} \\
+ & = \frac{3+2t-2t^2}{(2-t+t^2)^2}. \\
+\text{Plug in $t = 1/2$:} \quad a(1/2) & = \frac{3+2(1/2)-2(1/2)^2}{(7/4)^2} \\
+ & = \frac{3+1-1/2}{49/16} \\
+ & = \frac{7/2}{49/16} \\
+ & = \frac{8}{7}.
+\end{align*}
+Therefore the particle is accelerating at a rate of $8/7\approx 1.1429$ m/s$^2$ when it is closest to the origin.  
+}%
 
+\item  For which values of $t$ is the position function $s(t)$ defined?  
 
-\end{enumerate}
+\solution{%
+The natural logarithm function is defined for all positive input values.  
+The formula $y = 2-t+t^2$ is always positive.  
+To see this, note that its graph is a parabola with discriminant $b^2-4ac = (-1)^2-4(1)(2) = -7$, which is negative.  
+This means that the graph of $y = 2-t+t^2$ never touches the $x$-axis, and hence it is either always positive or always negative.  
+Since $y(0) = 2$ is positive, this means all values are positive.  
+Therefore $\ln(2-t+t^2)$ is defined for all input values $t$.  
+}%
 
 \end{enumerate}
 % end homework logarithm-physics

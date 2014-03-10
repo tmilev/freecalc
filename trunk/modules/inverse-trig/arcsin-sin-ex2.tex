@@ -1,0 +1,50 @@
+% begin module arcsin-sin-ex2
+\begin{frame}
+\begin{example}
+Find $\Arcsin (\sin 2)$.  
+\begin{itemize}
+\item<2->  $2$ is not between $-\pi/2$ and $\pi/2$.  
+\item<3->  \alert<5>{$\sin 2 = \sin a$} for some \alert<6>{$a$ between $-\pi/2$ and $\pi/2$.}  
+\end{itemize}
+\begin{align*}
+\uncover<4->{\alert<7>{a - 0} & \alert<7>{= \pi - 2.}} \\
+\uncover<5->{\text{Therefore }\quad \Arcsin(\alert<5>{\sin 2}) & = \alert<6>{\Arcsin(\alert<5>{\sin a})}} \\
+& \uncover<6->{ \alert<6>{= \alert<7>{a}}} \uncover<7->{\alert<7>{= \pi-2.}}
+\end{align*}
+
+\end{example}
+
+\begin{center}
+\psset{xunit=1.0cm,yunit=1.0cm}
+\begin{pspicture}(-2.2,-1.4)(4.2,1.4)
+\tiny
+\psaxes[labels=none, Dx=1.570796327, Dy=1] {<->}(0,0)(-2,-1.8)(4,1.8)
+\psplot[linecolor=red, plotpoints=1000]{-1.570796327}{1.570796327}{x 57.295779513 mul sin}
+\rput[bl](3, 1){$y=\sin x$ }
+\psplot[linecolor=gray, plotpoints=1000]{1.570796327}{4}{x 57.295779513 mul sin}
+\psplot[linecolor=gray, plotpoints=1000]{-2}{-1.570796327}{x 57.295779513 mul sin}
+\rput[t](-1.57, -0.3){$-\frac{\pi}{2}$}
+\rput[t](1.57, -0.3){$\frac{\pi}{2}$}
+\rput[t](3.14, -0.3){$\pi$}
+\rput[bl](0.2,1){\tiny $1$}
+
+\uncover<2-| handout:0>{%
+\psline[thin](2,0.2)(2,-0.2)
+\rput[t](2, -0.3){$2$}
+}%
+
+\uncover<3-| handout:0>{%
+\psline[thin](1.141592654,0.2)(1.141592654,-0.2)
+\rput[t](1.141592654, -0.3){$a$}
+\psline(1.141592654,0.909297427)(2,0.909297427)
+}%
+
+\uncover<4->{%
+\psline[linecolor=red]{<->}(0,-0.2)(1.141592654,-0.2)
+\psline[linecolor=red]{<->}(2,-0.2)(3.141592654,-0.2)
+}%
+\end{pspicture}
+\end{center}
+
+\end{frame}
+% end module arcsin-sin-ex2
