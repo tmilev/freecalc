@@ -25,7 +25,8 @@
 %\psLabelNumberYaxis
 %\psXTickWithLabel
 %\psYTickWithLabel
-%
+%\psDirectionField
+%\psDirectionFieldDefault
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\psHollowDot}[2]{
@@ -81,4 +82,40 @@
 }
 \pscircle*[linecolor=white](0,0){0.3}
 \rput(0,0){#1}
+}
+
+%command format 
+%first argument gives you formula for the direction field in 
+%postscript notation, for example x y add.
+%second and third argument give the starting x,y coordinates
+%fourth coordinate gives the delta x=delta y
+%fifth command gives the number of iterations delta x and delta y is repeated in each direction
+%sixth argument gives the length of the vector
+%seventh  argument gives the circle radius
+%eighth argument gives the arguments of the psline command
+%command format 
+%first argument gives you formula for the direction field in 
+%postscript notation, for example x y add.
+%second and third argument give the starting x,y coordinates
+%fourth coordinate gives the delta x=delta y
+%fifth command gives the number of iterations delta x and delta y is repeated in each direction
+%sixth argument gives the length of the vector
+%seventh argument gives the dot diameter
+%eighth argument gives the direction line arguments
+\newcommand{\directionFieldFull}[8]{ %
+\multido{\ra=#2+#4}{#5}{%
+  \multido{\rb=#3+#4}{#5}{%
+    \pstVerb{%
+      /x \ra\space def
+      /y \rb\space def
+      /F  #1 \space def
+	}%
+	\psline[#8](! x F ATAN 57.295 mul cos #6 mul sub y F ATAN 57.295 mul sin #6 mul sub)(! x F ATAN 57.295 mul cos #6 mul add y F ATAN 57.295 mul sin #6 mul add )
+	\pscircle*[linecolor=red!60](! x y){#7}
+  } %end multido
+}%end multido
+}%end newcommand
+
+\newcommand{\directionFieldDefault}[1]{%
+\directionFieldFull{#1}{-4}{-4}{0.5}{21}{0.3}{0.03}{linecolor=blue, arrows=->}
 }
