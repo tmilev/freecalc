@@ -84,6 +84,25 @@
 \rput(0,0){#1}
 }
 
+
+%command format 
+%first argument gives you formula for the direction field in 
+%postscript notation, for example x y add.
+%second and third argument give the starting x,y coordinates
+\newcommand{\directionFieldOneTangent}[6]{%
+\pstVerb{%
+/x #2 \space def %
+/y #3 \space def %
+/F #1 \space def %
+}%
+\psline[#6](! x F ATAN 57.295 mul cos #4 mul sub y F ATAN 57.295 mul sin #4 mul sub)(! x F ATAN 57.295 mul cos #4 mul add y F ATAN 57.295 mul sin #4 mul add)%
+\pscircle*[linecolor=red!60](! x y){#5}
+}
+
+\newcommand{\directionFieldOneTangentDefault}[3]{
+\directionFieldOneTangent{#1}{#2}{#3}{0.3}{0.03}{linecolor=blue, arrows=->}
+}
+
 %command format 
 %first argument gives you formula for the direction field in 
 %postscript notation, for example x y add.
@@ -109,9 +128,9 @@
       /x \ra\space def
       /y \rb\space def
       /F  #1 \space def
-	}%
-	\psline[#8](! x F ATAN 57.295 mul cos #6 mul sub y F ATAN 57.295 mul sin #6 mul sub)(! x F ATAN 57.295 mul cos #6 mul add y F ATAN 57.295 mul sin #6 mul add )
-	\pscircle*[linecolor=red!60](! x y){#7}
+    }%
+    \psline[#8](! x F ATAN 57.295 mul cos #6 mul sub y F ATAN 57.295 mul sin #6 mul sub)(! x F ATAN 57.295 mul cos #6 mul add y F ATAN 57.295 mul sin #6 mul add )
+    \pscircle*[linecolor=red!60](! x y){#7}
   } %end multido
 }%end multido
 }%end newcommand
