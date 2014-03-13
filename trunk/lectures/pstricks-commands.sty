@@ -91,16 +91,16 @@
 %second and third argument give the starting x,y coordinates
 \newcommand{\directionFieldOneTangent}[6]{%
 \pstVerb{%
-/x #2 \space def %
-/y #3 \space def %
-/F #1 \space def %
+/x #2 \space def%
+/y #3 \space def%
+/F #1 \space def%
 }%
 \psline[#6](! x F ATAN 57.295 mul cos #4 mul sub y F ATAN 57.295 mul sin #4 mul sub)(! x F ATAN 57.295 mul cos #4 mul add y F ATAN 57.295 mul sin #4 mul add)%
-\pscircle*[linecolor=red!60](! x y){#5}
+\pscircle*[linecolor=red!60](! x y){#5}%
 }
 
-\newcommand{\directionFieldOneTangentDefault}[3]{
-\directionFieldOneTangent{#1}{#2}{#3}{0.3}{0.03}{linecolor=blue, arrows=->}
+\newcommand{\directionFieldOneTangentDefault}[3]{%
+\directionFieldOneTangent{#1}{#2}{#3}{0.3}{0.03}{linecolor=blue}%
 }
 
 %command format 
@@ -121,20 +121,17 @@
 %sixth argument gives the length of the vector
 %seventh argument gives the dot diameter
 %eighth argument gives the direction line arguments
-\newcommand{\directionFieldFull}[8]{ %
+\newcommand{\directionFieldFull}[8]{%
 \multido{\ra=#2+#4}{#5}{%
   \multido{\rb=#3+#4}{#5}{%
-    \pstVerb{%
-      /x \ra\space def
-      /y \rb\space def
-      /F  #1 \space def
-    }%
-    \psline[#8](! x F ATAN 57.295 mul cos #6 mul sub y F ATAN 57.295 mul sin #6 mul sub)(! x F ATAN 57.295 mul cos #6 mul add y F ATAN 57.295 mul sin #6 mul add )
-    \pscircle*[linecolor=red!60](! x y){#7}
-  } %end multido
+  \directionFieldOneTangent{#1}{\ra}{\rb}{#6}{#7}{#8}%
+  }%end multido
 }%end multido
 }%end newcommand
 
-\newcommand{\directionFieldDefault}[1]{%
-\directionFieldFull{#1}{-4}{-4}{0.5}{21}{0.3}{0.03}{linecolor=blue, arrows=->}
+\newcommand{\directionFieldDefault}[5]{%
+\directionFieldFull{#1}{#2}{#3}{#4}{#5}{0.2}{0.02}{linecolor=blue}%
+}%
+\newcommand{\directionFieldDefaultRange}[1]{%
+\directionFieldFull{#1}{-4}{-4}{0.5}{21}{0.2}{0.02}{linecolor=blue}%
 }
