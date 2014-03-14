@@ -15,12 +15,14 @@
 %
 % \logdiffbaseandexp
 % \logdifftwouponedown
-% \chainruley
 % \productrulefofx
 % \quotientruley
 % \limitradical  (broken)
 % \limitsub
+% \chainruley
 % \chainrulefofx
+% \chainruleStyleOne
+% \chainruleStyle2
 % \infinitelimit
 % \limitfactor
 % \newtonsmethod
@@ -717,7 +719,80 @@ f'(x)%
 \end{example}
 }
 
+%
+%  Similar to chainrulefofx but in different style.
+%  It looks as follows: 
+%
+%  Recall the chain rule (...).
+%******************************
+%  Differentiate f(x) = #1.
+%  Let u= h(x) = #2
+%  Let g(u) = #3
+%  Then g'(u)=#4
+%  Then f(x) = g(u)
+%  f'(x) = g'(u)h'(x)
+%  = (#4, with h(x) substituted for UU)(#5)
+%  = #6, with #2 substituted for UU
+%
+%  #7 appears in the subtitle of the example.
+%
+\newcommand{\chainruleStyleOne}[7]{%
+Let $y=g(x)$, $u=h(x)$. Recall the Chain Rule:
+{\renewcommand{\arraystretch}{1.2}
+$\begin{array} {rcll}
+\displaystyle \alert<1->{\left(g(u)\right)'}&\alert<1->{=}&\displaystyle  \alert<1->{g'(u) u'}& \text{(notation 1) } \\ 
+\displaystyle \left(g(h(x))\right)'&=&\displaystyle g'(h(x)) h'(x)& \text{(notation 2) }\\
+\displaystyle \frac{\diff y}{\diff x}&=&\displaystyle  \frac{\diff y}{\diff u} \frac{\diff u}{\diff x}& \text{(notation 3) } \\
+\end{array}
+$
+}
+\begin{example}[Chain Rule, Notation 1%
+\ifthenelse{\equal{#7}{0}}%
+{}%
+{, #7}%
+]%
+\[
+\begin{array}{rrcl}
+\text{Differentiate } & f(x) & =& #1.\\%
+\uncover<2->{%
+\text{Let}&\alert<handout:0| 2-3,9-11>{u}%
+}%
+&\uncover<2->{\alert<handout:0| 2-3,9-11>{=}}& \uncover<2->{%
+\alert<handout:0| 2-3,9-11>{ \uncover<3-| handout:0>{#2.}}%
+}\\%
+\uncover<2->{%
+\text{Let}&\alert<handout:0| 4-5,7-8>{g(u)}%
+}
+&\uncover<2->{\alert<handout:0| 4-5,7-8>{=}}&
+\uncover<2->{\alert<handout:0| 4-5,7-8>{\uncover<5-| handout:0>{#3.}}%
+}\\%
+\uncover<2->{%
+\text{Then}& f(x)
+}%
+&\uncover<2->{{=}}&\uncover<2->{%
+ g(u).%
+}\\%
+\uncover<6->{%
+\text{Chain Rule:} &
+f'(x)%
+}%
+&\uncover<6->{=}& \uncover<6->{%
+ \alert<handout:0| 7-8>{g'(u)}%
+\alert<handout:0| 9-10>{u'}%
+}\\%
+& \uncover<7->{%
+ = \alert<handout:0| 7-8>{\left( \uncover<8-| handout:0>{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alert<handout:0| 11>{u}}\noexploregroups\expandarg}\right)}%
+\alert<handout:0| 9-10>{\left( \uncover<10-| handout:0>{#5}\right)}%
+}\\%
+& \uncover<11->{ = } \uncover<11-| handout:0>{%
+ \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alert<handout:0| 11>{#2}}.\noexploregroups \expandarg%
+}%
+\end{array}
+\]
+\end{example}
 
+
+}
 
 %
 %  An example of an infinite limit calculation. 
