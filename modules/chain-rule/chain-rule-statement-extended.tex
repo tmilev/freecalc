@@ -1,0 +1,18 @@
+% begin module chain-rule-statement
+\begin{frame}
+\frametitle{The Chain Rule}
+
+Let $f$ and $g$ be functions. Recall that the composite function $f\circ g$ is defined via $f(x) = g(h(x))$.
+\begin{theorem} Let $g$ be differentiable at $x$ and let $f$ be a differentiable at $g(x)$. Then the composite function $f = g\circ h$  is differentiable at $x$ and $f'$ is given by the product
+\[
+\begin{array}{rclll}
+\alert<4>{f'(x)} &=&\alert<5>{ g'(\alert<3>{ h(x)}) } \cdot \alert<6>{ {\alert<3>{ h}}'\alert<3>{(x)}}&& \text{(notation 1)}  \\ 
+\uncover<2->{&&&& \text{equivalently:}}\\
+\uncover<3->{f'(x)=(g(\alert<3>{u}))'&=&g'(\alert<3>{u}) {\alert<3>{u}}'&\text{where } \alert<3,6>{u=h(x)}& \text{(notation 2)}}\\
+\uncover<4->{\displaystyle \alert<4>{\frac{\diff y}{\diff x}} &=& \displaystyle \alert<5>{ \frac{\diff y}{\diff u} } \alert<6>{ \frac{\diff u}{\diff x}} &\text{where } \alert<4>{ y=g(u)}& \text{(notation 3)}\quad.}\\
+\end{array}
+\]
+\end{theorem}
+\uncover<7->{The very equality uses the Leibniz notation (due to G. Leibniz (1646-1716)).}
+\end{frame}
+% end module chain-rule-statement
