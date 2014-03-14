@@ -2,13 +2,11 @@
 \begin{frame}\ %
 \uncover<1->{}
 \psset{xunit=1.4cm, yunit=1.4cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.6,-1.4)(6.2,1.4)\tiny
-\psLabels{6.2}{1.4}
+\begin{pspicture}(-0.6, -1.4)(6.2,1.4) 
+\psaxesStandard{-0.6}{-1.4}{6.2}{1.4}
 
 %Function formula: sin{}(x) 
-\rput(4.71238898, -1.1){\alert<1-2>{$y=sin{}(x)$}} 
+\rput[t](4.71238898, -1.1){\alert<1-2>{$y=sin{}(x)$}} 
 
 \uncover<1-2>{
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{6}{x 57.29578 mul sin }

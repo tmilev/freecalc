@@ -18,10 +18,12 @@ Draw the graph of the function $f(x) = |x^2 - 1|$.
 \begin{columns}[c]
 \column{.4\textwidth}
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.5,-1.5)(2.5,2.1)\tiny
-\psLabelsWithOnes{2.5}{1.8}
+\begin{pspicture}(-2.6, -1.6)(2.6,2.2) 
+\tiny
+\psaxesStandard{-2.5}{-1.5}{2.5}{2.1}
+\psXTickWithLabel{1}{$1$}
+\psYTickWithLabel{1}{$1$}
+
 \uncover<4->{
 \psplot[linecolor=red, plotpoints=1000]{-1.7}{-1}{-1 x 2 exp add } 
 \psplot[linecolor=red, plotpoints=1000]{1}{1.7}{-1 x 2 exp add } 
