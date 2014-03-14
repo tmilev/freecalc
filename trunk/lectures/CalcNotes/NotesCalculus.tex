@@ -2223,7 +2223,7 @@ On a timed exam, carry out this step only if done with the other problems.
 \item There are algorithms for factoring a polynomial $D(x)$ over the rational numbers.
 \item There is a ``closed form'' formula for finding the roots of an arbitrary polynomial of degree 4 or less. Here, ``closed form'' formula means it is written with finitely many radicals (second, third, \dots roots), addition, subtraction, division and multiplication.
 \item A polynomial of degree 5 will generically have roots not of the above form (i.e., its roots cannot be written using finitely many arithmetic and radical operations). For concrete polynomials, there may be exceptions. All examples in our calculus course will fall under this exception.
-\item One can solve (for tautological reasons) an arbitrary polynomial of degree 5 or more by allowing operations involving additional (transcendental) functions. These functions may be described using infinite power series, just as we will later come to describe the radical function $\sqrt{1+z}$ (see \eqref{eqNewtonBinomialGeneralized}). However, the properties of these transcendental functions (for example, whether one such function may be used for two different polynomials or how to systematically describe them using computer algebra systems) are not completely understood; this is an area of active mathematical research under the general title ``Galois Theory''.
+\item One can ``solve'' an arbitrary polynomial equation of degree 5 or more by allowing operations involving additional (transcendental) functions. These functions may be described using infinite power series, just as we will later come to describe the radical function $\sqrt{1+z}$ (see \eqref{eqNewtonBinomialGeneralized}). However, studying the properties of these transcendental functions - for example, whether one such function may be used for two different polynomials or how to systematically implement them using computer algebra systems - are still an area of active mathematical research. The branch of mathematics that deals with the question of solving polynomial equations is called ``Galois Theory''.
 \end{itemize}
 
 \subsection{A large example illustrating the full algorithm }
@@ -2426,7 +2426,7 @@ Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be tra
 \int R(x, \sqrt{x^2+1})\diff x,\qquad  \int R(x, \sqrt{-x^2+1})\diff x, \qquad  \int R(x, \sqrt{x^2-1})\diff x\quad .
 \end{equation}
 
-The above three integrals can transformed to trigonometric rational integrals using the trigonometric substitutions from the table below. These substitutions are called \emph{trigonometric  substitutions}. In turn, in Section \ref{secTrigIntegrals} we studied that trigonometric integrals are transformed to rational integrals via the substitution $\theta=2\arctan t$. If we compose the  trigonometric substitution with $\theta=2\arctan t$ we get a substitution which directly transforms integrals of the form \eqref{eqIntegralQuadraticRadicalX} to integrals of rational functions. The so obtained rationalizing substitutions are called the \emph{Euler substitutions}, and we list them below the trigonometric substitutions in the order in which they are obtained.
+The above three integrals can transformed to trigonometric rational integrals using the trigonometric substitutions from the table below. These substitutions are called \emph{trigonometric  substitutions}. In turn, in Section \ref{secTrigIntegrals} we studied that trigonometric integrals are transformed to rational integrals via the substitution $\theta=2\arctan t$. If we compose the  trigonometric substitution with $\theta=2\arctan t$ we get a substitution which directly transforms integrals of the form \eqref{eqIntegralQuadraticRadicalX} to integrals of rational functions. The so obtained rationalizing substitutions are called \emph{Euler substitutions}, and we list them below the trigonometric substitutions in the order in which they are obtained.
 
 \noindent\begin{tabular}{|l|l|l|l|}
 \hline
@@ -2452,9 +2452,7 @@ Expression & Substitution  & Variable range & Relevant identity\\
 & $x =\frac{1+t^2}{1-t^2} $ & $t \in (-\infty,-1)\cup [0,1)$ &see \eqref{eqsqrtxsquareminus1E2} \\\hline
 \end{tabular}
 
-To the student we note that to learn the material in this section it suffices to memorize the three pairs of trigonometric substitutions $x=\tan \theta, x= \cot \theta$; $x=\sin \theta, x= \cos \theta$; $x=\sec \theta, x=\csc \theta$, and to memorize the substitution $\theta=2\arctan t$. In other words, one only needs to memorize the first and second column of the first three rows in the table above. The relevant identities arise naturally from the form of the radical and the substitution. In other words, the fourth column of the table above is a consequence of the first two and does not need to be memorized.
-
-Finally, we note that the data in the third column is also a natural consequence of the remaining columns. While the variable ranges in the third column can be chosen differently without significant changes in the theory, among all such choices, the one made in the table above is arguably the simplest (``most natural'') one. For example, for the first substitution, $x=\tan \theta$, we have that 
+To the student we note that to learn the material in this section it suffices to memorize the three pairs of trigonometric substitutions $x=\tan \theta, x= \cot \theta$; $x=\sin \theta, x= \cos \theta$; $x=\sec \theta, x=\csc \theta$, and to memorize the substitution $\theta=2\arctan t$. In other words, one only needs to memorize the first and second column of the first three rows in the table above. Indeed, the formulas in the fourth column appear naturally while simplifying radical expression from the first column. In turn, the third column is a natural consequence of the other three: let us explain why. Indeed, while the entries of the third column may be chosen in another way without significant changes in the theory, among all possible choices, the one above is arguably the simplest (``most natural'') one. For example, for the first substitution, $x=\tan \theta$, we have that 
 \[
 \sqrt{x^2+1}= \sqrt{ 1+\tan^\theta}= \sqrt{\frac{1}{\cos^2 \theta}}=\pm \sec \theta\quad .
 \] 
@@ -2462,9 +2460,9 @@ It is then most natural to select the range for $\theta$ so that the sign choice
 
 Finally we note that the Euler substitutions - the last three rows of the table - are a consequence of the trigonometric substitutions and need not be memorized. We shall show in full detail why that is so by the end of the present section. 
 
-We start the technical part of this section by exercising the familiar procedure of completing the square to transform integrals of the form $\int R(x,\sqrt{ax^2+bx+c})\diff x$ to integrals of the form \eqref{eqIntegralQuadraticRadicalX}.
+We start the technical part of this section by exercising the familiar procedure of completing the square to transform integrals of the form $\int R(x,\sqrt{ax^2+bx+c}) \diff x$ to integrals of the forms $\int R(x, \sqrt{x^2+1})\diff x$,  $\int R(x, \sqrt{-x^2+1})\diff x$, $\int R(x, \sqrt{x^2-1})\diff x$.
 \subsection{Linear substitutions transforming $\displaystyle \sqrt{ax^2+bx+c}$ to $\displaystyle \sqrt{u^2+1}, \sqrt{-u^2 +1}, \sqrt{u^2-1} $} \label{secEulerIntegralsAndLinearSubstitutions}
-The present section involves only the technique of completing the square, which was already exercised in Section \ref{secIntegrationRationalFunctions}. To a student confident in the material we recommend that she or he skip this section. 
+The present section involves only the technique of completing the square, which was already exercised in Section \ref{secIntegrationRationalFunctions}. A student confident in the material may skip this section. 
 \begin{problem}
 Use a linear substitution to transform $\sqrt{x^2+x+1}$ to (a multiple of) an expression of the form $\sqrt{u^2+1}$. 
 \end{problem}
@@ -2503,7 +2501,7 @@ We recall that in this section $R$ stands for a rational function in two variabl
 \int R(x, \sqrt{x^2+1})\diff x
 \]
 to integral of rational function are $x=\tan \theta$ and $x=\cot \theta$. 
-\subsubsection{Trigonometric substitution $x=\tan \theta$, $\displaystyle \theta\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ }
+\subsubsection{The trigonometric substitution $x=\tan \theta$, $\displaystyle \theta\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ }\label{secTrigSubtanTheta}
 The trigonometric substitution $x=\tan \theta$ is given by 
 \[
 \begin{array}{rcll|l}
@@ -2523,7 +2521,7 @@ x&=&\displaystyle \tan \theta\\
 \theta& =& \arctan x\quad .
 \end{array}
 \]
-\subsubsection{Euler substitution $x=\tan \theta$, $\theta=2\arctan t$, $-1<  t< 1$}
+\subsubsection{The Euler substitution $x=\tan \theta$, $\theta=2\arctan t$, $-1<  t< 1$}
 We recall that the substitution $\theta=2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $\theta=2\arctan t$ after the substitution $x=\tan\theta$:
 \[
 \begin{array}{rcll|l}
@@ -2578,7 +2576,9 @@ As demonstrated in the present section, it is sufficient to memorize the substit
 \end{problem}
 
 
-\subsubsection{Trigonometric substitution $x=\cot \theta$, $\theta \in \left(0, \pi\right)$}
+\subsubsection{The trigonometric substitution $x=\cot \theta$, $\theta \in \left(0, \pi\right)$}
+We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\cot \theta$ and the corresponding Euler substitution $x=\cot (2\arctan t)$  on her or his own, and only then to read the rest of this section. 
+
 The trigonometric substitution $x=\cot \theta$ is given by 
 \begin{equation*}
 \begin{array}{rcll|l}
@@ -2600,7 +2600,7 @@ x&=&\displaystyle \cot \theta\\
 \]
 
 
-\subsubsection{Euler substitution $x=\cot \theta$, $\theta=2\arctan t$, $t>0$}
+\subsubsection{The Euler substitution $x=\cot \theta$, $\theta=2\arctan t$, $t>0$}
 We recall that the substitution $\theta=2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $\theta=2\arctan t$ after the substitution $x=\cot\theta$:
 \[
 \begin{array}{rcll|l}
@@ -2663,9 +2663,11 @@ We recall that in this section $R$ stands for a rational function in two variabl
 \]
 to integral of rational function are $x=\sin \theta$ and $x=\cos \theta$. 
 
-\subsubsection{Trigonometric substitution $x=\sin \theta$, $\theta \in \left[-\frac{\pi}{2},-\frac{\pi}{2} \right]$}
-The trigonometric substitution $x=\sin \theta$ is given by 
+\subsubsection{The trigonometric substitution $x=\sin \theta$, $\theta \in \left[-\frac{\pi}{2},-\frac{\pi}{2} \right]$}
+We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\sin \theta$ and the corresponding Euler substitution $x=\sin (2\arctan t)$  on her or his own, and only then to read the rest of this section. 
 
+
+The trigonometric substitution $x=\sin \theta$ is given by 
 \[
 \begin{array}{rcll|l}
 \displaystyle \sqrt{-x^2+1}&=&\displaystyle \sqrt{1-\sin^2\theta}\\
@@ -2684,7 +2686,7 @@ x&=&\sin \theta\\
 \theta&=&\arcsin x \quad .
 \end{array}
 \end{equation*}
-\subsubsection{Euler substitution $x=\sin \theta$, $\theta=2\arctan t$ , $-1\leq t\leq 1$}
+\subsubsection{The Euler substitution $x=\sin \theta$, $\theta=2\arctan t$ , $-1\leq t\leq 1$}
 We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\sin \theta$:
 
 \begin{equation*}
@@ -2742,7 +2744,9 @@ As demonstrated in the present section, it is sufficient to memorize the substit
 \end{enumerate}
 \end{problem}
 
-\subsubsection{Trigonometric substitution $x=\cos \theta$, $\theta\in\left[0, \pi\right] $}
+\subsubsection{The trigonometric substitution $x=\cos \theta$, $\theta\in\left[0, \pi\right] $}
+We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\cos \theta$ and the corresponding Euler substitution $x=\cos (2\arctan t)$  on her or his own, and only then to read the rest of this section. 
+
 The trigonometric substitution $x=\cos \theta$ is given by 
 \[
 \begin{array}{rcll|l}
@@ -2762,7 +2766,7 @@ x&=&\cos \theta\\
 \theta&=&\arccos x \quad .
 \end{array}
 \end{equation*}
-\subsubsection{Euler substitution $x=\cos \theta$, $\theta=2\arctan t$, $ 0<t $}
+\subsubsection{The Euler substitution $x=\cos \theta$, $\theta=2\arctan t$, $ 0<t $}
 We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\cos \theta$:
 
 \begin{equation*}
@@ -2842,7 +2846,9 @@ We recall that in this section $R$ stands for a rational function in two variabl
 \]
 to integral of rational function are $x=\sec \theta$ and $x=\csc \theta$. 
 
-\subsubsection{Trigonometric substitution $x=\csc \theta$, $\theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) $}
+\subsubsection{The trigonometric substitution $x=\csc \theta$, $\theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) $}
+We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\csc \theta$ and the corresponding Euler substitution $x=\csc (2\arctan t)$  on her or his own, and only then to read the rest of this section. 
+
 The trigonometric substitution $x=\csc \theta$ is given by 
 \[
 \begin{array}{rcll|l}
@@ -2862,7 +2868,7 @@ x&=&\displaystyle \csc \theta\\
 \theta&=&\displaystyle \arccsc x \quad .
 \end{array}
 \end{equation*}
-\subsubsection{Euler substitution $x=\csc \theta$, $\theta=2\arctan t$, $ t\in (-\infty, -1) \cup \left[0, 1 \right) $ }
+\subsubsection{The Euler substitution $x=\csc \theta$, $\theta=2\arctan t$, $ t\in (-\infty, -1) \cup \left[0, 1 \right) $ }
 We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\csc \theta$:
 \begin{equation*}
 \begin{array}{rcll|l}
@@ -2916,7 +2922,9 @@ Let the variables $x$ and $t$ be related via $\sqrt{x^2-1}=\frac{1}{t}-x$.
 \item Express $\diff x$ via $t$ and $\diff t$.
 \end{enumerate}
 \end{problem}
-\subsubsection{Trigonometric substitution $x=\sec \theta$, $\theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) $}
+\subsubsection{The trigonometric substitution $x=\sec \theta$, $\theta \in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{3\pi}{2}\right) $}
+We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\sec \theta$ and the corresponding Euler substitution $x=\sec (2\arctan t)$  on her or his own, and only then to read the rest of this section. 
+
 The trigonometric substitution $x=\sec \theta$ is given by 
 \[
 \begin{array}{rcll|l}
@@ -2936,7 +2944,7 @@ The differential $\diff x$ can be expressed via $\diff \theta $ from $x=\sec \th
 \displaystyle \theta&=&\arcsec x \quad .
 \end{array}
 \end{equation*}
-\subsubsection{Euler substitution $x=\sec \theta$, $\theta = 2\arctan t$, $ t\in (-\infty, -1) \cup \left[0, 1 \right) $}
+\subsubsection{The Euler substitution $x=\sec \theta$, $\theta = 2\arctan t$, $ t\in (-\infty, -1) \cup \left[0, 1 \right) $}
 We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\sec \theta$:
 
 \begin{equation*}
