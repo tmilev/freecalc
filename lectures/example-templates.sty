@@ -599,7 +599,7 @@ _{\StrMid{#9}{1}{1}}%
 %
 %  An example of a derivative with the Chain Rule, using the symbol y.
 %  It looks as follows:
-%  
+%
 %  Differentiate y = #1.
 %  Let u = #2
 %  Then y = #3
@@ -634,22 +634,27 @@ _{\StrMid{#9}{1}{1}}%
 \alert<handout:0| 6-7>{ = \uncover<4-| handout:0>{#3.}}%
 }\\%
 \uncover<5->{%
-\text{Chain Rule:} &
+\text{Chain Rule:}\quad%
 \frac{\diff y}{\diff x}%
 }%
-& \uncover<5-|handout:0>{%
- =}& \uncover<5-|handout:0>{\alert<handout:0| 6-7>{\frac{\diff y}{\diff u}}%
+& \uncover<5->{%
+ = \alert<handout:0| 6-7>{\frac{\diff y}{\diff u}}%
 \alert<handout:0| 8-9>{\frac{\diff u}{\diff x}}%
 }\\%
-&& \uncover<6-handout:0|>{=}& \uncover<6-handout:0|>{\alert<handout:0| 6-7>{\left( \uncover<7-| handout:0>{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alert<handout:0| 10>{u}}\noexploregroups\expandarg}\right)}%
+& \uncover<6->{%
+ = \alert<handout:0| 6-7>{\left( \uncover<7-| handout:0>{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alert<handout:0| 10>{u}}\noexploregroups\expandarg}\right)}%
 \alert<handout:0| 8-9>{\left( \uncover<9-| handout:0>{#5}\right)}%
 }\\%
-&& \uncover<10->{=}& \uncover<10-| handout:0>{%
+& \uncover<10->{ = } \uncover<10-| handout:0>{%
  \noexpandarg\exploregroups \StrSubstitute{#6}{UU}{\alert<handout:0| 10>{#2}}.\noexploregroups\expandarg%
 }%
 \end{align*}
 \end{example}
 }
+
+
+
+
 
 %
 %  An example of a derivative with the Chain Rule, using the symbol f(x).
