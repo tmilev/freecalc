@@ -3,11 +3,11 @@
 \begin{columns}[c]
 \column{.4\textwidth}
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-1.1,-0.6)(3.2,4.3)
 \tiny
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.05,-0.52)(3.1,4.2)
-\psLabelsWithOnes{3}{4.2}
+\psaxesStandard{-1.05}{-0.52}{3.1}{4.2}
+\psXTickWithLabel{1}{$1$}
+\psYTickWithLabel{1}{$1$}
 \rput(-0.35,0.6){$y=x^{2}$} 
 %Function formula: (x)^{2} 
 \psplot[linecolor=red, plotpoints=1000]{-1}{2}{x 2 exp }
