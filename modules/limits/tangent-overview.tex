@@ -5,7 +5,7 @@
 \column{.35\textwidth}
 \uncover<4->{%
 \psset{xunit=1cm,yunit=1cm}
-\begin{pspicture}(-5,-1.4)(10,1.4)
+\begin{pspicture}(-1.1,-1)(2.6,1.4)
 \small
 %Function formula: - ((1- ((x)^{2}))^{1/2}) 
 \psplot[linecolor=red, plotpoints=1000]{-1}{1}{x 2 exp -1 mul 1 add 0.5 exp -1 mul } 
@@ -19,9 +19,8 @@
 \uncover<5->
 {
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-5, -5)(5,5) 
+\begin{pspicture}(-2.1, -1)(2.2,2.2) 
 \small
-\psframe*[linecolor=white](-5,-5)(5,5) 
 %Function formula: 1/4 ((x)^{3})+1/4 ((x)^{2})-1/2 (x) 
 \psplot[linecolor=red, plotpoints=1000]{-2}{2}{x -0.5 mul x 2 exp 0.25 mul x 3 exp 0.25 mul add add }
 \psFullDot{-1}{0.5}
