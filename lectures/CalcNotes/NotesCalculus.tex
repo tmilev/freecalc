@@ -3820,7 +3820,7 @@ The \emph{order} of a differential equation is the order of the highest derivati
 
 An example of a differential equation is
 \begin{equation}\label{eqDFQsimplestExample}
-\frac{dP}{\diff t} = k P\quad ,
+\frac{\diff P}{\diff t} = k P\quad ,
 \end{equation}
 where $t$ is a variable, $k$ is a constant and $P(t)$ is a function.
 
@@ -3830,13 +3830,13 @@ Differential equations are used to model processes in the natural sciences. For 
 
 A more complicated example is the logistic differential equation 
 \[
-\frac{d P }{\diff t} = k P(1- \frac{P}{M})\quad.
+\frac{\diff P }{\diff t} = k P\left(1- \frac{P}{M}\right)\quad.
 \]
 Here, $k$, $t$, $P$ have the same interpretation as before, and $M$ is the carrying capacity of the environment. In this model, while $P$ is smaller than the carrying capacity $M$,  $\frac{dP}{\diff t}$ will be positive, and the population will increase with time. However, if the population is larger than the carrying capacity $M$, $\frac{d P }{\diff t}$ will be negative and the population will decrease.
 
 Another example of a differential equation is the motion of a spring
 \[
-m\frac{d^2 y (t)}{\diff t^2}= -k y,
+m\frac{\diff^2 y (t)}{\diff t^2}= -k y,
 \]
 where $m$ and $k$ are constants ($m$ stands for mass and $k$ for the spring's constant). Here, we recall the notation $\frac{d^2 y (t)}{\diff t^2}= y''(t)$ means second derivative.
 
@@ -3903,9 +3903,9 @@ y_n \eqdef y_{n-1} + h F(x_{n-1}, y_{n-1})\quad .
 \end{equation}
 A motivation for Euler's method can be given as follows. At a point $x$, for a very small interval $(x,x+h)$, the function $y(x)$ is approximately linear, and is approximated by $y(x+h)\approx y(x)+ h y'(x) $. On the other hand, $y'(x)$ equals $F(x, y(x))$. Now if we have already approximated $y(x_{n-1})\approx y_{n-1}$, we known $y'(x_{n-1}) \approx F(x_{n-1}, y_{n-1})$ and  we can approximate $y(x_{n-1}+h)\approx y_n $ by \eqref{eqEulerApproxDFQ}.
 
-Euler's method has a number of drawbacks, both computationally and algebraically, and is not used in practice. However, it illustrates the main idea of approximating solutions to differential equations: approximate at a point $x$ the value of $y(x+h)$ (as a function of $h$) by a well-known function in $h$ (linear, quadratic, third power, fourth power,\dots), move along the approximation for a very short distance $h$, and recompute. Without being an expert in differential equations, I may speculate that modern computer algorithms  are still based on (some complicated variation of) this simple idea.
+%Euler's method has a number of drawbacks, both computationally and algebraically, and is not used in practice. However, it illustrates the main idea of approximating solutions to differential equations: approximate at a point $x$ the value of $y(x+h)$ (as a function of $h$) by a well-known function in $h$ (linear, quadratic, third power, fourth power,\dots), move along the approximation for a very short distance $h$, and recompute. 
 
-The algebraic problems arising form Euler's method stem from the fact that $F(y,x)$ may tend to $\pm\infty$. For example, consider the direction field given by $\frac{\diff y}{\diff x}= -\frac{x}{y}$. Euler's method will not tell you what to do as $y$ approaches $0$. In fact, we will soon be able to compute that solutions of the differential equation  $\frac{\diff y}{\diff x}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$.
+We note that there are a number of issues which arise from Euler's method. For example, Euler's method requires that $F(x,y)$ be defined for values of $y$ traversed by the solution of the differential equation. This does not happen, for example, for the direction field given by $\frac{\diff y}{\diff x}= - \frac{x}{y}$: that direction field is not well defined as $y$ approaches $0$. However, we will soon be able to compute that solutions of the differential equation  $\frac{\diff y}{\diff x}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$. In particular, such solutions can be extended to values for which $y=0$.
 
 \optionalDisplay{
 \begin{pspicture}(-6,-1)(6,6)
@@ -3927,7 +3927,7 @@ The algebraic problems arising form Euler's method stem from the fact that $F(y,
 %\begin{pspicture}
 %\end{pspicture}
 
-\subsection{Separable equations}
+\subsection{Separable equations}\label{secSeparableDFQs}
 A differential equation is separable if it can be written in the form 
 \begin{equation}\label{eqDFQSeparable}
 \frac{d y}{\diff x}= f(x)g(y)\quad .
@@ -3936,16 +3936,16 @@ Here, we recall that $y$ is an abbreviation for the function $y(x)$.
 
 A separable differential equation can be solved as follows. Replace for convenience $x$ by $t$:
 \[
-\frac{d y}{\diff t}= f(t)g(y)\quad .
+\frac{\diff y}{\diff t}= f(t)g(y)\quad .
 \]
 Divide out by $g(y)$
 \[
-\frac{d y}{\diff t} \frac{1}{g(y)}= f(t)\quad .
+\frac{\diff y}{\diff t} \frac{1}{g(y)}= f(t)\quad .
 \]
 We integrate both sides from $t=x_0$ to $t=x$. Again, we use the abbreviation $y=y(t)$.
 \begin{equation}\label{eqSeparableDFQSolution1}
 \begin{array}{rcl}
-\displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} \underbrace{\frac{d y}{\diff t}\diff t}_{= d y(t)}&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t
+\displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} \underbrace{\frac{\diff y}{\diff t}\diff t}_{= \diff y(t)}&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t
 \\ 
 \displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} d(y(t))&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t
 \quad .
@@ -3966,6 +3966,40 @@ or finally as
 G(y)-F(x)-G(y(x_0))+ F(x_0)=0\quad .
 \end{equation}
 If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If not possible to solve for $y$ explicitly, we may leave the solution of our differential equation in the form \eqref{eqDFQSeparableSolution}.
+\subsection{Solution of the logistic equation}
+We recall the logistic equation 
+\[
+\frac{\diff P}{\diff t}= k P\left(1-\frac{P}{M}\right)\quad.
+\]
+where $P$ stands for population growth and $k$ and $M$ are constants. Let $t=0$ be the start time of our population measurement. Therefore $P(0)$ is the initial population. If $P(0)=M$, then the population growth $\frac{\diff P}{\diff t}$ equals zero, the population is stable and constant function $ P(t)=P(0)$ is the solution to our equation. 
+
+Suppose now $P(0)\neq M$. As the logistic equation is separable, we can solve it using Section \ref{secSeparableDFQs}: 
+
+\[
+\begin{array}{rcll|l}
+\displaystyle \frac{\diff P}{\diff t}&=&\displaystyle k P\left(1-\frac{P}{M}\right)\\
+\displaystyle \frac{\diff P}{\diff t}&=&\displaystyle \frac{kP(M-P)}{M}\\
+\displaystyle \frac{M}{kP(M-P)}\frac{\diff P}{\diff t}&=&1 &&\text{integrate }\int_{t=0}^{t=s}\\
+\displaystyle \frac{1}{k} \int_{t=0}^{t=s} \frac{M}{P(M-P)}\frac{\diff P}{ \diff t}\diff t&=&\displaystyle \int_{t=0}^{t=s}1\diff t &&\text{Change variables } \frac{\diff P}{\diff t}\diff t= \diff P\\
+\displaystyle \frac{1}{k} \int_{t=0}^{t=s} \frac{M}{P(M-P)} \diff P &=& \left[t\right]_{t=0}^{t=s} =s &&\text{split to partial fractions}\\
+\displaystyle \frac{1}{k}\int_{t=0}^{t=s} \left( \frac{1}{P} +\frac{1}{M-P} \right)\diff P &=&s\\
+\displaystyle \frac{1}{k}\left[ \ln | P|  - \ln |M-P| \right]_{t=0}^{t=s}&=&s\\
+\frac{1}{k}\left[\ln |P(s)|-\ln |M-P(s)|-(\ln P(0)-\ln |M-P(0)|) \right]&=&s\\
+\displaystyle \ln \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&k s &&\text{exponentiate}\\
+\displaystyle \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&e^{ks} 
+\end{array}
+\] 
+
+Case 1. $P(0)<M$, i.e., the initial population is smaller than the carrying capacity $M$ of the environment. As assumed by our model, population varies continuously with time and therefore for all small enough $s $ we have that $P(s)<M$ as well. Then the absolute value in the above equality is no longer needed and we can compute
+
+\[
+\begin{array}{rcl}
+\displaystyle \left(\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right)&=&e^{ks} \\
+\displaystyle P(s)(M-P(0)) &=& \displaystyle  P(0)(M-P(s))e^{ks}\\
+\displaystyle P(s)(M+e^{ks})&=&P(0)
+\end{array}
+\]
+
 \subsection{Examples of separable equations}
 (a) Find the general solution of
 \[
@@ -3974,12 +4008,12 @@ If it is possible to solve the above equation for $y$ as a function of $x$, we g
 (b)Find a solution for which $y(0)=-3/5$.
 
 \begin{solution}
-(a) Proceeding as explained in the theoretical section,
+(a) We proceed as explained in the theoretical section.
 \[
 \begin{array}{rcl}
 \frac{\frac{\diff y}{\diff x}}{y^2-1}&=&1 \\
-\displaystyle\int\limits_{t=x_0}^{t=x} \frac{1}{ y(t)^2-1}\underbrace{\frac{\diff y}{\diff t}\diff t}_{=d(y(t))}&=&\displaystyle\int\limits_{t=x_0}^{x}\diff t \\
-\displaystyle\int\limits_{y=y(x_0) }^{y=y(x)} \frac{\diff y}{ y(t)^2-1}& =& \displaystyle\left.t \right|_{ t=x_0}^{t=x} \\
+\displaystyle\int\limits_{t=x_0}^{t=x} \frac{1}{ (y(t))^2- 1} \underbrace{ \frac{\diff y}{\diff t}\diff t}_{=d(y(t))}&=&\displaystyle\int\limits_{t=x_0}^{x}\diff t \\
+\displaystyle\int\limits_{y=y(x_0) }^{y=y(x)} \frac{\diff y}{ y^2-1}& =& \displaystyle\left.t \right|_{ t=x_0}^{t=x} \\
 \displaystyle\int\limits_{y=y(x_0)}^{y=y(x)} \left(\frac{1/2 }{y-1}- \frac{1/2}{y+1}\right)\diff y&=& x-x_0\\
 \displaystyle\left .\frac{1}2 \ln \left|\frac{y-1}{y+1}\right|~~~~~~~~~~\right|_{y=y(x_0)}^{y(x)}&=& x-x_0\\
 \displaystyle\ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C\quad ,
