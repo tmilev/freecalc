@@ -7,9 +7,51 @@
 \end{itemize}
 \begin{columns}[c]
 \column{.6\textwidth}
-\ \uncover<2->{%
-\includegraphics[height=5cm]{polar-curves/pictures/11-03-conversion.pdf}%
-}%
+\psset{xunit=5cm, yunit=5cm}
+\begin{pspicture}(-0.2, -0.2)(1.400000,0.9) 
+\tiny 
+%force a boudning box:
+\psline[linecolor=red!1](-0.1, -0.1)(-0.21,0.2)
+\psline[linecolor=red!1](1.1, 0.6)(1.1,0.61)
+\psaxes[arrows=<->, ticks=none, labels=none](0,0)(-0.2, -0.2)(1, 0.8)
+\rput(-0.03, 0.8){$y$}
+\rput(1,-0.03){$x$}
+%\psaxesStandard{-0.2}{-0.2}{1}{0.8}
+
+%Calculator input: plotCurve{}(1/5 \cos{}t, 1/5 \sin{}t, 0, 1/6 \pi)
+\parametricplot[arrows=->, linecolor=red, plotpoints=1000] {0}{0.523599}{t 57.29578 mul cos 0.2 mul t 57.29578 mul sin 0.2 mul }
+\psline[linecolor=blue](0,0)(0.866025404, 0.5)
+\rput(0.22, 0.06){$\theta$}
+
+\psFullDotBlue{0.866025404}{0.5}
+\psline(0.866025404,0.5)(0.866025404,0)
+\psline(0.846025404, 0)(0.846025404, 0.02)(0.866025404, 0.02)
+\rput[l](0.9, 0.5){$P(r,\theta) =(x,y)$}
+
+\uncover<6>{
+\psline{<-}(0.89, 0)(0.89, 0.2)
+}
+\uncover<6->{
+\rput(0.89,0.25){$\alert<6,10>{y}$}
+}
+\uncover<6>{
+\psline{->}(0.89, 0.3)(0.89, 0.5)
+}
+\uncover<4>{
+\psline{<-}(0, -0.02)(0.385, -0.02)
+}
+\uncover<4->{
+\rput(0.435,-0.02){$\alert<4,10>{x}$}
+}
+\uncover<4>{
+\psline{->}(0.485, -0.02)(0.866025404, -0.02)
+}
+\rput[tr](-0.03, -0.03){$O$}
+\rput(0.4, 0.3){$\alert<4,6,9,10>{r}$}
+\end{pspicture} 
+%\ \uncover<2->{%
+%\includegraphics[height=5cm]{polar-curves/pictures/11-03-conversion.pdf}%
+%}%
 \column{.4\textwidth}
 \[
 \uncover<3->{%
