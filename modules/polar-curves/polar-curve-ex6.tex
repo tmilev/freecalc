@@ -1,12 +1,50 @@
 % begin module polar-curve-ex6
 \begin{frame}[t]
-\begin{example}[Example 6, p. 678]
+\begin{example} %[Example 6, p. 678]
 \begin{enumerate}
 \item<1-| alert@2-21> Sketch the curve with polar equation \alert<handout:0| 26>{$r = 2\cos \theta$}.
 \item<1-| alert@22-> Find a Cartesian equation for this curve.
 \end{enumerate}
 \begin{columns}[c]
 \column{.5\textwidth}
+\begin{comment}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.6, -1.2)(2.4,1.199999) 
+
+\tiny 
+\psaxesStandard{-0.500000}{-1.049999}{2.3}{1}
+
+
+
+%Calculator input: plotCurve{}(2 \cos^{2}{}t, 2 \cos{}t \sin{}t, 0, 2 \pi)
+\parametricplot[linecolor=\psColorGraph, plotpoints=200]{0}{6.28319}{t 57.29578 mul cos 2.0000000 exp 2.0000000 mul t 57.29578 mul sin t 57.29578 mul cos mul 2.0000000 mul }
+\uncover<6-7>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=1000]{0}{0.523598776 }{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+}
+\uncover<8-9>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{0.785398163}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+}
+\uncover<10-11>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{1.047197551}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+}
+\uncover<12-13>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{1.570796327}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+}
+\uncover<13-14>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.094395102}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+}
+\uncover<14-15>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.35619449}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+}
+\uncover<16-17>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.617993878}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+}
+\uncover<18-19>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{3.141592654}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+}
+\end{pspicture} 
+\end{comment}
+
 \ \only<handout:0| -3>{%
 \includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6z.pdf}%
 }%
