@@ -3767,8 +3767,9 @@ Curve length of curve of the form $\gamma:|r=f(\theta),\theta\in [a,b]$. Then $(
 We substitute $g_1(\theta)=f(\theta)\cos\theta$, $g_2(\theta)=f(\theta)\sin\theta$ and carry out the operations:
 \[
 \begin{array}{l}
-\displaystyle\int\limits_{a}^b\sqrt{ (-\sin\theta f(\theta) + \cos\theta f'(\theta) )^2+(\cos\theta f(\theta)+\sin \theta f'(\theta) )^2}d\theta=\\ 
-\displaystyle \int \limits_{a}^b \sqrt{\sin^2\theta f^2(\theta)- \cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)}+\cos^2\theta (f'(\theta))^2+ \cos^2\theta f^2(\theta)+\cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)} \sin^2 (f'(\theta))^2 }d\theta\quad .
+\displaystyle\int\limits_{a}^b\sqrt{ (-\sin\theta f(\theta) + \cos\theta f'(\theta) )^2+(\cos\theta f(\theta)+\sin \theta f'(\theta) )^2}\diff\theta=\\ 
+\displaystyle \int \limits_{a}^b \sqrt{\sin^2\theta f^2(\theta)- \cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)}+\cos^2\theta (f'(\theta))^2}\\
+\phantom{\int\limits_a^b} \overline{+ \cos^2\theta f^2(\theta)+\cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)} \sin^2 (f'(\theta))^2 }\diff\theta\quad .
 \end{array}
 \]
 Regrouping the above expression using $\sin^2\theta+\cos^2\theta=1$ we finally get that the length of a curve given in polar coordinates as $r=f(\theta)$ is computed as
@@ -3967,39 +3968,124 @@ G(y)-F(x)-G(y(x_0))+ F(x_0)=0\quad .
 \end{equation}
 If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If not possible to solve for $y$ explicitly, we may leave the solution of our differential equation in the form \eqref{eqDFQSeparableSolution}.
 \subsection{Solution of the logistic equation}
-We recall the logistic equation 
+\begin{example} Solve the logistic equation
 \[
 \frac{\diff P}{\diff t}= k P\left(1-\frac{P}{M}\right)\quad.
 \]
-where $P$ stands for population growth and $k$ and $M$ are constants. Let $t=0$ be the start time of our population measurement. Therefore $P(0)$ is the initial population. If $P(0)=M$, then the population growth $\frac{\diff P}{\diff t}$ equals zero, the population is stable and constant function $ P(t)=P(0)$ is the solution to our equation. 
+where $k>0$ and $M>0$ (``environment carrying capacity'') are fixed positive constants and the initial population $P(0)$ is positive.
+\end{example}
+We recall that in the logistic equation, $P$ stands for population size. 
 
-Suppose now $P(0)\neq M$. As the logistic equation is separable, we can solve it using Section \ref{secSeparableDFQs}: 
+\begin{solution}
+Case 0. If the initial population is $P(0)$ is zero, the population will clearly stay zero, and so if $P(0)=0$ then $P(t)=0$ is the solution to our equation.
 
-\[
+Case 1. If $P(0)=M$, then the population growth $\frac{\diff P}{\diff t}$ equals zero, the population is stable and constant function $ P(t)=P(0)$ is the solution to our equation. 
+
+Case 2. Suppose now $P(0)\neq M$ and $P(0)\neq 0$. As the logistic equation is separable, we can solve it using Section \ref{secSeparableDFQs}: 
+
+\begin{equation}\label{eqLogisticEq}
+{
+\renewcommand*{\arraystretch}{2}
 \begin{array}{rcll|l}
 \displaystyle \frac{\diff P}{\diff t}&=&\displaystyle k P\left(1-\frac{P}{M}\right)\\
 \displaystyle \frac{\diff P}{\diff t}&=&\displaystyle \frac{kP(M-P)}{M}\\
-\displaystyle \frac{M}{kP(M-P)}\frac{\diff P}{\diff t}&=&1 &&\text{integrate }\int_{t=0}^{t=s}\\
-\displaystyle \frac{1}{k} \int_{t=0}^{t=s} \frac{M}{P(M-P)}\frac{\diff P}{ \diff t}\diff t&=&\displaystyle \int_{t=0}^{t=s}1\diff t &&\text{Change variables } \frac{\diff P}{\diff t}\diff t= \diff P\\
-\displaystyle \frac{1}{k} \int_{t=0}^{t=s} \frac{M}{P(M-P)} \diff P &=& \left[t\right]_{t=0}^{t=s} =s &&\text{split to partial fractions}\\
-\displaystyle \frac{1}{k}\int_{t=0}^{t=s} \left( \frac{1}{P} +\frac{1}{M-P} \right)\diff P &=&s\\
+\displaystyle \frac{M}{kP(M-P)}\frac{\diff P}{\diff t}&=&1 &&
+\begin{array}{l}
+\text{As } P(0)\neq M,\\ 
+P(0)\neq 0,\\
+\text{can integrate } \int\limits_{t=0}^{t=s}\diff t 
+\end{array}\\
+\displaystyle \frac{1}{k} \int\limits_{t=0}^{t=s} \frac{M}{P(M-P)}\frac{\diff P}{ \diff t}\diff t&=&\displaystyle \int\limits_{t=0}^{t=s}1\diff t &&\text{V. change } \frac{\diff P}{\diff t}\diff t= \diff P\\
+\displaystyle \frac{1}{k} \int\limits_{t=0}^{t=s} \frac{M}{P(M-P)} \diff P &=& \left[t\right]_{t=0}^{t=s} =s &&\text{split part. fractions}\\
+\displaystyle \frac{1}{k}\int\limits_{t=0}^{t=s} \left( \frac{1}{P} +\frac{1}{M-P} \right)\diff P &=&s\\
 \displaystyle \frac{1}{k}\left[ \ln | P|  - \ln |M-P| \right]_{t=0}^{t=s}&=&s\\
-\frac{1}{k}\left[\ln |P(s)|-\ln |M-P(s)|-(\ln P(0)-\ln |M-P(0)|) \right]&=&s\\
+\displaystyle \frac{1}{k}\left(\ln |P(s)|-\ln |M-P(s)|-\right.\\
+\left.(\ln P(0)-\ln |M-P(0)|) \right)&=&s\\
 \displaystyle \ln \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&k s &&\text{exponentiate}\\
-\displaystyle \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&e^{ks} 
+\displaystyle \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&e^{ks} \quad .
 \end{array}
-\] 
+}
+\end{equation}
 
-Case 1. $P(0)<M$, i.e., the initial population is smaller than the carrying capacity $M$ of the environment. As assumed by our model, population varies continuously with time and therefore for all small enough $s $ we have that $P(s)<M$ as well. Then the absolute value in the above equality is no longer needed and we can compute
-
-\[
+\noindent Case 2.1. $P(0)<M$, i.e., the initial population is smaller than the carrying capacity $M$ of the environment. As assumed by our model, population varies continuously with time and therefore for all small enough $s $ we have that $P(s)<M$ as well. Then, for small $s$, the absolute value is no longer needed and we can compute
+\begin{equation}\label{eqLogisticEquationCase1}
 \begin{array}{rcl}
-\displaystyle \left(\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right)&=&e^{ks} \\
+\displaystyle \frac{ P(s)(M-P(0))}{P(0)(M-P(s))}&=&\displaystyle e^{ks} \\
 \displaystyle P(s)(M-P(0)) &=& \displaystyle  P(0)(M-P(s))e^{ks}\\
-\displaystyle P(s)(M+e^{ks})&=&P(0)
+\displaystyle P(s)(M-P(0)+P(0)e^{ks})&=&\displaystyle P(0)M e^{ks}\\
+\displaystyle P(s)&=&\displaystyle  MP(0) \frac{e^{ks}}{M-P(0)+P(0)e^{ks}} \\
+\displaystyle P(s)&=&\displaystyle  M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} \\
 \end{array}
+\end{equation}
+Since $\frac{M}{P(0)}>1 $, we have that $\frac{M}{P(0)}-1+e^{ks}>e^{ks}$ and therefore $ 1>\frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}}>0 $. Finally we get that 
+\[
+0<P(s)= M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} <M\quad .
 \]
+So far, our solution was shown to be valid only for small $s$. However, the solution $P(s)$ we obtained satisfies $P(s)<M$ for all values of $s$. Thus we conclude that, in Case 2.1, the absolute values in $ \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|$ are not needed for any value $s$. Our solution to the logistic equation in Case 1 is then $\displaystyle P(s)=\displaystyle  M \frac{e^{ks}}{ \frac{M}{P(0)} -1+ e^{ks}}$.
 
+
+\noindent Case 2.2. $P(0)>M$, i.e., the initial population is greater than the carrying capacity $M$ of the environment. As assumed by our model, population varies continuously with time and therefore for all small enough $s $ we have that $P(s)>M$ as well. Then, for small $s$, we  have that
+\[
+\left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|=\frac{-P(s)(M-P(0))}{-P(0)(M-P(s))}=\frac{ P(s)(M-P(0))}{P(0)(M-P(s))} \quad .
+\]
+Notice that by the above computation, the left hand side of \eqref{eqLogisticEq} coincides in cases 2.1 and 2.2. Therefore the computations in Case 2.2 are identical to the computations \eqref{eqLogisticEquationCase1} from Case 2.1. We can therefore conclude that, for small $s$, we have $\displaystyle P(s)=\displaystyle  M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} $. Now notice that $\frac{M}{P(0)}-1<0$. Therefore $ \frac{M}{ P(0) }-1+e^{ks} < e^{ks}$ and it follows that 
+\[
+P(s)= M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} >M\quad .
+\]
+In this way, the solution for $P(s)$ obtained by us satisfies $P(s)>M$ for all values of $s$. We conclude that the absolute values in $ \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|$ are not needed in Case 2.2 as well. Then the solution to Case 2.2 is identical to that of Case 2.1. 
+
+We conclude that the solution to the logistic equation in Case 2 is 
+\begin{equation}\label{eqLogisticEquationAnswer}
+P(s)=\displaystyle  M P(0) \frac{e^{ks}}{ M -P(0)+ P(0)e^{ks}} \quad .
+\end{equation}
+Notice that if we substitute $P(0)=M$ in the above formula (Case 1), we get that $P(s)=M$, the same answer as in Case 1. Furthermore notice that when $P(0)=0 $ (Case 0), formula \eqref{eqLogisticEquationAnswer} yields $P(s)=0$, the same answer as that in Case 0. Therefore our formula \eqref{eqLogisticEquationAnswer} gives the solution to the logistic equation in all cases.
+\end{solution}
+
+
+In the graph below, we have plotted the solution to the logistic equation for $k=1$ and various initial population values $P(0)$. The shapes of the curves confirm visually the considerations made in Cases 1-4. Notice that the plots make sense for negative time as well: for $s<0$, the function $P(s)$ measures what must have been the population in the past so as to yield the population present at time $s=0$.
+
+\optionalDisplay{
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.700000, -0.700000)(6.200000,2.435064) 
+
+\tiny 
+\psaxes[ticks=none, labels=none, arrows=<->](0, 0)(-0.500000, -0.550000)(6.000000, 2.235064)
+\psLabelOnXaxis{6}{$s$}
+\psLabelOnYaxis{2.235064}{$P$}
+%Function formula: \frac{11/10*e^{x}}{11/10*e^{x}-1/10} 
+
+\psplot[linecolor=red, plotpoints=1000]{-0.100000}{6.000000 }{2.718281828 x exp 1.1000000 mul -0.1000000 2.718281828 x exp 1.1000000 mul add div }
+
+%Function formula: \frac{2*e^{x}}{2*e^{x}-1} 
+
+\psplot[linecolor=green, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 2.0000000 mul -1.0000000 2.718281828 x exp 2.0000000 mul add div }
+
+%Function formula: \frac{3/10*e^{x}}{3/10*e^{x}+7/10} 
+
+\psplot[linecolor=red, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.3000000 mul 0.7000000 2.718281828 x exp 0.3000000 mul add div }
+
+%Function formula: \frac{1/5*e^{x}}{1/5*e^{x}+4/5} 
+
+\psplot[linecolor=blue, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.2000000 mul 0.8000000 2.718281828 x exp 0.2000000 mul add div }
+
+%Function formula: \frac{1/10*e^{x}}{1/10*e^{x}+9/10} 
+
+\psplot[linecolor=magenta, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.1000000 mul 0.9000000 2.718281828 x exp 0.1000000 mul add div }
+
+%Function formula: \frac{2/5*e^{x}}{2/5*e^{x}+3/5} 
+
+\psplot[linecolor=brown, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.4000000 mul 0.6000000 2.718281828 x exp 0.4000000 mul add div }
+
+%Function formula: \frac{3/2*e^{x}}{3/2*e^{x}-1/2} 
+
+\psplot[linecolor=cyan, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 1.5000000 mul -0.5000000 2.718281828 x exp 1.5000000 mul add div }
+
+%Function formula: \frac{13/10*e^{x}}{13/10*e^{x}-3/10} 
+
+\psplot[linecolor=blue, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 1.3000000 mul -0.3000000 2.718281828 x exp 1.3000000 mul add div }
+
+\end{pspicture} 
+}
 \subsection{Examples of separable equations}
 (a) Find the general solution of
 \[
