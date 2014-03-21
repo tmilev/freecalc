@@ -7,77 +7,122 @@
 \end{enumerate}
 \begin{columns}[c]
 \column{.5\textwidth}
-\begin{comment}
-\psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-0.6, -1.2)(2.4,1.199999) 
+\psset{xunit=1.75cm, yunit=1.75cm}
+\begin{pspicture}(-0.6, -1.5)(2.5,1.5) 
 
 \tiny 
-\psaxesStandard{-0.500000}{-1.049999}{2.3}{1}
+\psaxesStandard{-0.52}{-1.4}{2.4}{1.4}
 
-
-
+\uncover<21->{
 %Calculator input: plotCurve{}(2 \cos^{2}{}t, 2 \cos{}t \sin{}t, 0, 2 \pi)
 \parametricplot[linecolor=\psColorGraph, plotpoints=200]{0}{6.28319}{t 57.29578 mul cos 2.0000000 exp 2.0000000 mul t 57.29578 mul sin t 57.29578 mul cos mul 2.0000000 mul }
+}
+\uncover<4->{
+\psFullDot{2}{0}
+\rput[bl](2.05,0.05){$(2,0)$}
+}
+\uncover<6->{
+\psFullDot{1.500000}{0.866025}
+\rput[bl](1.55,0.9){$\left(\frac{\pi}{6},\sqrt{3}\right)$}
+}
+
+\uncover<8->{
+\psFullDot{1}{1}
+\rput[bl](1.05,1.05){$\left(\frac{\pi}{4},\sqrt{2}\right)$}
+}
+\uncover<10->{
+\psFullDot{0.5}{0.866025}
+\rput[br](0.45,0.86){$\left(\frac{\pi}{3},1\right)$}
+}
+\uncover<12->{
+\psFullDot{0}{0}
+\rput[tr](-0.05,-0.05){$\left(\frac{\pi}{2},0\right)$}
+}
+\uncover<14->{
+\psFullDot{0.5}{ -0.866025}
+\rput[t](0.5,-0.88){$\left(\frac{2\pi}{3},-1\right)$}
+}
+\uncover<16->{
+\psFullDot{1}{-1}
+\rput[t](1,-1.05){$\left(\frac{3\pi}{4},-\sqrt{2}\right)$}
+}
+\uncover<18->{
+\psFullDot{1.5}{-0.866025}
+\rput[lt](1.5,-0.9){$\left(\frac{5\pi}{6},-\sqrt{3}\right)$}
+}
+\uncover<4-5>{
+\psline[linecolor=blue](0,0)(2,0)
+}
 \uncover<6-7>{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=1000]{0}{0.523598776 }{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{0.523598776 }{t 57.29578 mul cos 0.3 mul t 57.29578 mul sin 0.3 mul }
+\psline[linecolor=blue](0,0)(1.5,0.866025)
 }
 \uncover<8-9>{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{0.785398163}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{0.785398163}{t 57.29578 mul cos 0.3 mul t 57.29578 mul sin 0.3 mul }
+\psline[linecolor=blue](0,0)(1,1)
 }
 \uncover<10-11>{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{1.047197551}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{1.047197551}{t 57.29578 mul cos 0.3 mul t 57.29578 mul sin 0.3 mul }
+\psline[linecolor=blue](0,0)(0.5,0.866025)
 }
 \uncover<12-13>{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{1.570796327}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
-}
-\uncover<13-14>{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.094395102}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{1.570796327}{t 57.29578 mul cos 0.3 mul t 57.29578 mul sin 0.3 mul }
 }
 \uncover<14-15>{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.35619449}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.094395102}{t 57.29578 mul cos 0.3 mul t 57.29578 mul sin 0.3 mul }
+\psline[linecolor=blue](0,0)(0.5, -0.866025)
+\psline[linecolor=blue, linestyle=dashed](0,0)(-0.500000, 0.866025)
 }
 \uncover<16-17>{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.617993878}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.35619449}{t 57.29578 mul cos 0.3 mul t 57.29578 mul sin 0.3 mul }
+\psline[linecolor=blue, linestyle=dashed](0,0)(-0.5, 0.5)
+\psline[linecolor=blue](0,0)(1, -1)
 }
 \uncover<18-19>{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{3.141592654}{t 57.29578 mul cos 0.2000000 mul t 57.29578 mul sin 0.2000000 mul }
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{2.617993878}{t 57.29578 mul cos 0.3 mul t 57.29578 mul sin 0.3 mul }
+\psline[linecolor=blue, linestyle=dashed](0,0)(-0.500000, 0.288675)
+\psline[linecolor=blue](0,0)(1.500000, -0.866025)
+}
+\uncover<20>{
+\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=200] {0}{3.141592654}{t 57.29578 mul cos 0.3 mul t 57.29578 mul sin 0.3 mul }
+\psline[linecolor=blue, linestyle=dashed](0,0)(-0.5,0)
+\psline[linecolor=blue](0,0)(2,0)
 }
 \end{pspicture} 
-\end{comment}
-
-\ \only<handout:0| -3>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6z.pdf}%
-}%
-\only<handout:0| 4-5>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6a.pdf}%
-}%
-\only<handout:0| 6-7>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6b.pdf}%
-}%
-\only<handout:0| 8-9>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6c.pdf}%
-}%
-\only<handout:0| 10-11>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6d.pdf}%
-}%
-\only<handout:0| 12-13>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6e.pdf}%
-}%
-\only<handout:0| 14-15>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6f.pdf}%
-}%
-\only<handout:0| 16-17>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6g.pdf}%
-}%
-\only<handout:0| 18-19>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6h.pdf}%
-}%
-\only<handout:0| 20>{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6i.pdf}%
-}%
-\only<21->{%
-\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6j.pdf}%
-}%
+\vspace{1cm}
+%\ \only<handout:0| -3>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6z.pdf}%
+%}%
+%\only<handout:0| 4-5>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6a.pdf}%
+%}%
+%\only<handout:0| 6-7>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6b.pdf}%
+%}%
+%\only<handout:0| 8-9>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6c.pdf}%
+%}%
+%\only<handout:0| 10-11>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6d.pdf}%
+%}%
+%\only<handout:0| 12-13>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6e.pdf}%
+%}%
+%\only<handout:0| 14-15>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6f.pdf}%
+%}%
+%\only<handout:0| 16-17>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6g.pdf}%
+%}%
+%\only<handout:0| 18-19>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6h.pdf}%
+%}%
+%\only<handout:0| 20>{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6i.pdf}%
+%}%
+%\only<21->{%
+%\includegraphics[height=6cm]{polar-curves/pictures/11-03-ex6j.pdf}%
+%}%
 \column{.5\textwidth}
 \only<handout:1| -21>{\uncover<2->{%
 \[
