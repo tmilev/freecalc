@@ -139,17 +139,38 @@
 \newcommand{\directionFieldDefaultRange}[1]{%
 \directionFieldFull{#1}{-4}{-4}{0.5}{21}{0.2}{0.02}{linecolor=blue}%
 }
-\newcommand{\psAngle}[4]{
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=100]{#1}{#2}{t 57.29578 mul cos #3 mul t 57.29578 mul sin #3 mul}
-\rput(! #1 #2 add 2 div 57.29578 mul cos #3 0.2 add mul #1 #2 add 2 div 57.29578 mul sin #3 0.2 add mul){#4}
+
+\newcommand{\psAngleOptions}[5]{
+\ifPst@algebraic{%
+\parametricplot[#5]{#1}{#2}{cos(t)*#3|sin(t)*#3}%
+\rput(! #1 #2 add 2 div 57.29578 mul cos #3 0.2 add mul #1 #2 add 2 div 57.29578 mul sin #3 0.2 add mul){#4}%
+}%
+\else%
+\parametricplot[#5]{#1}{#2}{t 57.29578 mul cos #3 mul t 57.29578 mul sin #3 mul}%
+\rput(! #1 #2 add 2 div 57.29578 mul cos #3 0.2 add mul #1 #2 add 2 div 57.29578 mul sin #3 0.2 add mul){#4}%
+\fi%
 }
+
+\newcommand{\psAngleWithArrow}[4]{
+\psAngleOptions{#1}{#2}{#3}{#4}{linecolor=\psColorGraph, arrows=->, plotpoints=100}
+}
+
+\newcommand{\psAngle}[4]{
+\psAngleOptions{#1}{#2}{#3}{#4}{linecolor=\psColorGraph, plotpoints=100}
+}
+
 \newcommand{\psLengthIndicator}[5]{
 \psline[arrows=<-, linecolor=red](! #1 #2)(! #1 0.58 mul #3 0.42 mul add #2 0.58 mul #4 0.42 mul add)
 \psline[arrows=->, linecolor=red]{->}(! #1 0.42 mul #3 0.58 mul add #2 0.42 mul #4 0.58 mul add)(! #3 #4)
 \rput(! #1 #3 add 0.5 mul #2 #4 add 0.5 mul){ #5}
 }
-\newcommand{\drawPolar}[4]{
-\parametricplot[#4]{#1}{#2}{#3 t 57.29578 mul cos mul #3 t 57.29578 mul sin mul}
+\newcommand{\drawPolar}[4]{%
+\ifPst@algebraic{%
+\parametricplot[#4]{#1}{#2}{(#3) *cos(t) | (#3) * sin(t)}%
+}%
+\else%
+\parametricplot[#4]{#1}{#2}{#3 t 57.29578 mul cos mul #3 t 57.29578 mul sin mul}%
+\fi%
 }
 
 \newcommand{\drawPolarWithArrow}[4]{

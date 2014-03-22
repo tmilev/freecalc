@@ -2,7 +2,7 @@
 
 %plots a section of the second graph:
 \newcommand{\plotSection}[1]{%
-\psplot[linecolor=red, plotpoints=200]{#1\space 1 sub 6.283185 mul 8 div}{#1\space  6.283185 mul 8 div}{x 57.29578 mul 2 mul cos }
+\psplot[linecolor=red, plotpoints=200]{#1\space 1 sub 6.283185 mul 8 div}{#1\space  6.283185 mul 8 div}{cos(2*x)}
 \psFullDot{#1\space  1 sub 6.283185 mul 8 div} {#1\space  1 sub 6.283185 mul 8 div 57.29578 mul 2 mul cos }
 \psFullDot{#1\space  6.283185 mul 8 div} {#1\space  6.283185 mul 8 div 57.29578 mul 2 mul cos }
 }
@@ -12,7 +12,7 @@
 Sketch the curve $r = \cos (2\theta)$.
 \begin{columns}[c]
 \column{.3\textwidth}
-\psset{xunit=1cm, yunit=1cm}
+\psset{xunit=1cm, yunit=1cm,algebraic=true}
 \begin{pspicture}(-1.4, -1.6)(1.6,1.6) 
 
 \tiny 
@@ -21,52 +21,52 @@ Sketch the curve $r = \cos (2\theta)$.
 \psLabelYOne
 
 \uncover<2>{
-\drawPolarWithArrow{3.141592654 0 mul 4 div}{3.141592654 1 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=red, plotpoints=200}
+\drawPolarWithArrow{3.141592654 0 mul 4 div}{3.141592654 1 mul 4 div}{cos(2*t)}{linecolor=red, plotpoints=200}
 }
 \uncover<3->{
-\drawPolar{3.141592654 0 mul 4 div}{3.141592654 1 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=blue, plotpoints=200}
+\drawPolar{3.141592654 0 mul 4 div}{3.141592654 1 mul 4 div}{cos(2*t)}{linecolor=blue, plotpoints=200}
 }
 \uncover<3>{
-\drawPolarWithArrow{3.141592654 1 mul 4 div}{3.141592654 2 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=red, plotpoints=200}
+\drawPolarWithArrow{3.141592654 1 mul 4 div}{3.141592654 2 mul 4 div}{cos(2*t)}{linecolor=red, plotpoints=200}
 }
 \uncover<4->{
-\drawPolar{3.141592654 1 mul 4 div}{3.141592654 2 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=blue, plotpoints=200}
+\drawPolar{3.141592654 1 mul 4 div}{3.141592654 2 mul 4 div}{cos(2*t)}{linecolor=blue, plotpoints=200}
 }
 \uncover<4>{
-\drawPolarWithArrow{3.141592654 2 mul 4 div}{3.141592654 3 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=red, plotpoints=200}
+\drawPolarWithArrow{3.141592654 2 mul 4 div}{3.141592654 3 mul 4 div}{cos(2*t)}{linecolor=red, plotpoints=200}
 }
 \uncover<5->{
-\drawPolar{3.141592654 2 mul 4 div}{3.141592654 3 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=blue, plotpoints=200}
+\drawPolar{3.141592654 2 mul 4 div}{3.141592654 3 mul 4 div}{cos(2*t)}{linecolor=blue, plotpoints=200}
 }
 \uncover<5>{
-\drawPolarWithArrow{3.141592654 3 mul 4 div}{3.141592654 4 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=red, plotpoints=200}
+\drawPolarWithArrow{3.141592654 3 mul 4 div}{3.141592654 4 mul 4 div}{cos(2*t)}{linecolor=red, plotpoints=200}
 }
 \uncover<6->{
-\drawPolar{3.141592654 3 mul 4 div}{3.141592654 4 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=blue, plotpoints=200}
+\drawPolar{3.141592654 3 mul 4 div}{3.141592654 4 mul 4 div}{cos(2*t)}{linecolor=blue, plotpoints=200}
 }
 \uncover<6>{
-\drawPolarWithArrow{3.141592654 4 mul 4 div}{3.141592654 5 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=red, plotpoints=200}
+\drawPolarWithArrow{3.141592654 4 mul 4 div}{3.141592654 5 mul 4 div}{cos(2*t)}{linecolor=red, plotpoints=200}
 }
 \uncover<7->{
-\drawPolar{3.141592654 4 mul 4 div}{3.141592654 5 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=blue, plotpoints=200}
+\drawPolar{3.141592654 4 mul 4 div}{3.141592654 5 mul 4 div}{cos(2*t)}{linecolor=blue, plotpoints=200}
 }
 \uncover<7>{
-\drawPolarWithArrow{3.141592654 5 mul 4 div}{3.141592654 6 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=red, plotpoints=200}
+\drawPolarWithArrow{3.141592654 5 mul 4 div}{3.141592654 6 mul 4 div}{cos(2*t)}{linecolor=red, plotpoints=200}
 }
 \uncover<8->{
-\drawPolar{3.141592654 5 mul 4 div}{3.141592654 6 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=blue, plotpoints=200}
+\drawPolar{3.141592654 5 mul 4 div}{3.141592654 6 mul 4 div}{cos(2*t)}{linecolor=blue, plotpoints=200}
 }
 \uncover<8>{
-\drawPolarWithArrow{3.141592654 6 mul 4 div}{3.141592654 7 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=red, plotpoints=200}
+\drawPolarWithArrow{3.141592654 6 mul 4 div}{3.141592654 7 mul 4 div}{cos(2*t)}{linecolor=red, plotpoints=200}
 }
 \uncover<9->{
-\drawPolar{3.141592654 6 mul 4 div}{3.141592654 7 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=blue, plotpoints=200}
+\drawPolar{3.141592654 6 mul 4 div}{3.141592654 7 mul 4 div}{cos(2*t)}{linecolor=blue, plotpoints=200}
 }
 \uncover<9>{
-\drawPolarWithArrow{3.141592654 7 mul 4 div}{3.141592654 8 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=red, plotpoints=200}
+\drawPolarWithArrow{3.141592654 7 mul 4 div}{3.141592654 8 mul 4 div}{cos(2*t)}{linecolor=red, plotpoints=200}
 }
 \uncover<10->{
-\drawPolar{3.141592654 7 mul 4 div}{3.141592654 8 mul 4 div}{t 57.29578 mul 2 mul cos}{linecolor=blue, plotpoints=200}
+\drawPolar{3.141592654 7 mul 4 div}{3.141592654 8 mul 4 div}{cos(2*t)}{linecolor=blue, plotpoints=200}
 }
 \end{pspicture} 
 
@@ -98,7 +98,7 @@ Sketch the curve $r = \cos (2\theta)$.
 %\includegraphics[height=3.6cm]{polar-curves/pictures/11-03-ex8i.pdf}%
 %}%
 \column{.7\textwidth}
-\psset{xunit=1cm, yunit=1cm}
+\psset{xunit=1cm, yunit=1cm, algebraic=true}
 \begin{pspicture}(-0.7, -1.6)(6.55,1.6) 
 
 \tiny 
@@ -118,8 +118,7 @@ Sketch the curve $r = \cos (2\theta)$.
 \rput[t](! 1.570796327 2 div 8 mul -0.2){$2\pi$}
 
 \rput[l](3.4, 1){$r=\cos (2\theta)$}
-
-\psplot[linecolor=blue, plotpoints=1000]{0.000000}{6.283185}{x 57.29578 mul 2 mul cos }
+\psplot[linecolor=blue, plotpoints=1000]{0.000000}{6.283185}{cos(2*x)}
 \uncover<2>{
 \plotSection{1}
 }
