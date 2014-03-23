@@ -68,12 +68,16 @@
 \newcommand{\psLabelOnXaxis}[2]{\psXTick{#1}\rput[t](#1,-0.2){#2}}
 \newcommand{\psLabelOnYaxis}[2]{\psYTick{#1}\rput[r](-0.2, #1){#2}}
 
-\newcommand{\psLabels}[2]{\rput[t](#1, -0.1){$x$}\rput[r](-0.1, #2){$y$}}
+\newcommand{\psLabels}[2]{\rput[t](! #1 -0.1){$x$}\rput[r](! -0.1 #2){$y$}}
 \newcommand{\psLabelsWithOnes}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) { $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) { $1$} \psLabels{#1}{#2}}
+
+\newcommand{\psaxesStandardNoFrame}[4]{%
+\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)\psLabels{#3}{#4}
+}%
 
 \newcommand{\psaxesStandard}[4]{%
 \psframe*[linecolor=white](! #1\space #2)(! #3 \space 0.1 add #4 \space 0.1 add)% 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)\psLabels{#3}{#4}
+\psaxesStandardNoFrame{#1}{#2}{#3}{#4}
 }%
 \newcommand{\psColorTangent}{blue}
 \newcommand{\psColorGraph}{red}
@@ -176,4 +180,31 @@
 \newcommand{\drawPolarWithArrow}[4]{
 \drawPolar{#1}{#1 #2 add 2 div}{#3}{arrows=->, #4}
 \drawPolar{#1 #2 add 2 div}{#2}{#3}{#4}
+}
+
+\newcommand{\polarWedge}[3]{%
+\ifPst@algebraic{%
+\rput(0,0){Set algebraic to FALSE}%
+}%
+\else%
+\pstVerb{%
+/t #1 def%
+/firstX #1 57.29578 mul cos #3 mul def%
+/firstY #1 57.29578 mul sin #3 mul def%
+}%
+\pstVerb{%
+/t #2 def%
+/secondX #2 57.29578 mul cos #3 mul def%
+/secondY #2 57.29578 mul sin #3 mul def%
+}%
+\pscustom[fillcolor=\psColorAreaUnderGraph, fillstyle=solid, linecolor=blue]{%
+\psline(0,0)(! firstX firstY)(! secondX secondY)(0,0)%
+}%
+\fi%
+}
+
+\newcommand{\polarWedgeSequence}[4]{%
+\multido{\ra=#1+#2}{#3}{%
+\polarWedge{\ra}{\ra\space #2 add}{#4}
+}%
 }
