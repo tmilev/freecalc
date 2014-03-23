@@ -1,9 +1,22 @@
 % begin module cycloid-area-ex3
 \begin{frame}
-\begin{example}[Example 3, p. 668]
+\begin{example} %[Example 3, p. 668]
 \begin{columns}[c]
 \column{.5\textwidth}
-\ \includegraphics[height=1.7cm]{parametric-curves/pictures/11-02-ex3.pdf}%
+\psset{xunit=0.6cm, yunit=0.6cm, algebraic=true}
+\begin{pspicture}(-1.290703, -0.7)(7.5, 2.8)%
+\tiny
+\psframe*[linecolor=white](-1.290703, -0.7)(7.5, 2.8)
+\pscustom*[linecolor=\psColorAreaUnderGraph]{%
+\parametricplot{0}{6.283185307}{t-sin(t)|1-cos(t)}%
+\psline(6.283185307, 0)(0,0)%
+}%
+\parametricplot[linecolor=\psColorGraph]{-2}{8.283185307}{t-sin(t)|1-cos(t)}%
+\psaxesStandardNoFrame{-1.090703}{-0.5}{7.373888}{2.5}%
+\psYTickWithLabel{2}{$2r$}
+\psXTickWithLabel{6.283185307}{$2\pi r$}
+\end{pspicture}
+%\ \includegraphics[height=1.7cm]{parametric-curves/pictures/11-02-ex3.pdf}%
 \column{.5\textwidth}
 Find the area under one arch of the cycloid
 \[
