@@ -68,7 +68,12 @@
 \newcommand{\psLabelOnXaxis}[2]{\psXTick{#1}\rput[t](#1,-0.2){#2}}
 \newcommand{\psLabelOnYaxis}[2]{\psYTick{#1}\rput[r](-0.2, #1){#2}}
 
-\newcommand{\psLabels}[2]{\rput[t](! #1 -0.1){$x$}\rput[r](! -0.1 #2){$y$}}
+\newcommand{\psLabels}[1][$x$]{%
+  \def\ArgpsXAxisLabel{{#1}}%
+  \psLabelsRelay
+}
+\newcommand\psLabelsRelay[3][$y$]{\rput[t](! #2 -0.1){\ArgpsXAxisLabel}\rput[r](! -0.1 #3){#1}}
+
 \newcommand{\psLabelsWithOnes}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) { $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) { $1$} \psLabels{#1}{#2}}
 
 \newcommand{\psaxesStandardNoFrame}[4]{%

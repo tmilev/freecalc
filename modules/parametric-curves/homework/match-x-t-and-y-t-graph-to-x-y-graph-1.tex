@@ -1,0 +1,72 @@
+Match the graphs of the parametric equations $x=f(t)$, $y=g(t)$ with the graph of the parametric curve $ \gamma \left| \begin{array}{rcl}x&=&f(t)\\y&=&g(t) \end{array}\right.$
+\psset{xunit=1cm, yunit=1cm, algebraic=true}
+\begin{multicols}{2}
+\begin{enumerate}
+\item 
+\begin{pspicture}(-0.2, -1.2)(2.2,1.2)
+\psaxesStandard{-0.2}{-1.2}{2.2}{1.2}
+\psXTickWithLabel{1}{$1$}
+\parametricplot[plotpoints=500]{-5}{5}{sin(t)+1|sin(2*t)}
+\end{pspicture}
+
+\item \begin{pspicture}(-1.2, -1.2)(1.2,1.2)
+\psaxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\psXTickWithLabel{1}{$1$}
+\parametricplot[plotpoints=500]{-5}{5}{sin(2*t)|sin(3*t)}
+\end{pspicture}
+
+\item \begin{pspicture}(-2.7, -2.7)(2.7,2.7)
+\psaxesStandard{-2.5}{-0.5}{2.5}{2.5}
+\psXTickWithLabel{1}{$1$}
+\parametricplot[plotpoints=500]{-2}{2}{t*(t-1.75)*(t+1.75)|sqrt(4-t*t) }
+\end{pspicture}
+\end{enumerate}
+
+\columnbreak
+\begin{enumerate}
+\item 
+\begin{pspicture}(-2, -2)(2,2)
+\psaxes[ticks=none, labels=none, arrows=<->](0,0)(-2.5, -2.5)(2.5, 2.5)
+\psLabels[$t$][$x$]{2.5}{2.5}
+\psXTickWithLabel{1}{$1$}
+\psplot[plotpoints=500]{-3.14159}{3.14159}{sin(2*x)}
+\end{pspicture}
+\begin{pspicture}(-2.3, -0.5)(2.3,2,3)
+\psaxes[ticks=none, labels=none, arrows=<->](0,0)(-2.2, -0.5)(2.2, 2.2)
+\psLabels[$t$][$y$]{2.2}{2.2}
+\psXTickWithLabel{1}{$1$}
+\psplot[plotpoints=500]{-3.14159}{3.14159}{sin(3*x)}
+\end{pspicture}
+
+\item 
+\begin{pspicture}(-2, -2)(2,2)
+\psaxes[ticks=none, labels=none, arrows=<->](0,0)(-2.5, -2.5)(2.5, 2.5)
+\psLabels[$t$][$x$]{2.5}{2.5}
+\psXTickWithLabel{1}{$1$}
+\psplot[plotpoints=500]{-2}{2}{x*(x-1.75)*(x+1.75)}
+\end{pspicture}
+\begin{pspicture}(-2.3, -0.5)(2.3,2,3)
+\psaxes[ticks=none, labels=none, arrows=<->](0,0)(-2.2, -0.5)(2.2, 2.2)
+\psLabels[$t$][$y$]{2.2}{2.2}
+\psXTickWithLabel{1}{$1$}
+\psplot[plotpoints=500]{-2}{2}{sqrt(4-x*x)}
+\end{pspicture}
+
+\item 
+\begin{pspicture}(-0.2, -1.2)(2.2,1.2)
+\psaxes[ticks=none, labels=none, arrows=<->](0,0)(-2.5, -2.5)(2.5, 2.5)
+\psLabels[$t$][$x$]{2.5}{2.5}
+\psXTickWithLabel{1}{$1$}
+\psplot[plotpoints=500]{-2}{2}{sin(x)+1}
+\end{pspicture}
+
+\begin{pspicture}(-0.2, -1.2)(2.2,1.2)
+\psaxes[ticks=none, labels=none, arrows=<->](0,0)(-2.5, -2.5)(2.5, 2.5)
+\psLabels[$t$][$x$]{2.5}{2.5}
+\psXTickWithLabel{1}{$1$}
+\psplot[plotpoints=500]{-2}{2}{sin(2*x)}
+\end{pspicture}
+
+
+\end{enumerate}
+\end{multicols}
