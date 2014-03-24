@@ -188,20 +188,16 @@
 }%
 \else%
 \pstVerb{%
-/t #1 def%
-/firstX #1 57.29578 mul cos #3 mul def%
-/firstY #1 57.29578 mul sin #3 mul def%
-}%
-\pstVerb{%
-/t #2 def%
-/secondX #2 57.29578 mul cos #3 mul def%
-/secondY #2 57.29578 mul sin #3 mul def%
+/firstX  1 dict begin /t #1 def #1 57.29578 mul cos #3 mul end def%
+/firstY  1 dict begin /t #1 def #1 57.29578 mul sin #3 mul end def%
+/secondX 1 dict begin /t #2 def #2 57.29578 mul cos #3 mul end def%
+/secondY 1 dict begin /t #2 def #2 57.29578 mul sin #3 mul end def%
 }%
 \pscustom[fillcolor=\psColorAreaUnderGraph, fillstyle=solid, linecolor=blue]{%
 \psline(0,0)(! firstX firstY)(! secondX secondY)(0,0)%
 }%
 \fi%
-}
+}%
 
 \newcommand{\polarWedgeSequence}[4]{%
 \multido{\ra=#1+#2}{#3}{%
