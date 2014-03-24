@@ -1,0 +1,29 @@
+
+\begin{enumerate}
+\item Find the general solution to the differential equation 
+\[
+\frac{dy}{dx}= y^2-4\quad .
+\]
+The drawing below is a computer-generated plot of the direction field  $\frac{dy}{dx}=y^2-4$, you may use it to get a feeling for what your answer should look like.
+\item  Find a solution of the above equation for which $ y(0)= -\frac{6}{5}$. 
+\end{enumerate}
+
+\begin{pspicture}(-6,-6)(6,6)
+\newcommand{\Dconst}{4}
+\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 4 x mul exp mul sub 1 \Dconst\space 2.718281828 4 x mul exp mul add div 2 mul} 
+
+\psaxes{<->}(0,0)(-6,-2)(6,6)
+\rput (5,5){The direction field  $\frac{dy}{dx}=y^2-4$}
+  \psset{arrows=->}
+  \multido{\ra=-4+0.5}{17}{%
+    \multido{\rb=-4+0.5}{17}{%
+      \pstVerb{/xC \ra\space def
+               /yC \rb\space def
+               /F  yC yC mul 4 sub \space def
+}
+%\psline[linecolor=blue](! xC  yC )(! xC yC)
+\psdot[linecolor=red!60](! xC yC)
+\psline[linecolor=blue](! xC F ATAN 57.295 mul cos 0.2 mul sub yC F ATAN 57.295 mul sin 0.2 mul sub)(! xC F ATAN 57.295 mul cos 0.2 mul add yC F ATAN 57.295 mul sin 0.2 mul add )
+}}
+\end{pspicture}
+
