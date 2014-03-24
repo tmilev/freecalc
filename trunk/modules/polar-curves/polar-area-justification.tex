@@ -1,10 +1,14 @@
-
-
+% begin module polar-area-justification
 \begin{frame}
-
-\begin{pspicture*}(-3,-1)(1.5,2.3) %
-\psline[linecolor=red!1](1.5, 2.3)(1.49, 2.3) 
-\psline[linecolor=red!1](-3, -1)(2.99, -1) 
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm, algebraic=false}
+\begin{pspicture*}(-3,-1)(1.5,2.3)%
+\psline[linecolor=red!1](1.5, 2.3)(1.49, 2.3)% 
+\psline[linecolor=red!1](-3, -1)(2.99, -1)% 
+\uncover<1>{ %
+\polarWedge{0}{1}{t 2 div 1 add}%
+}%
 \uncover<1>{%
 \polarWedgeSequence{0}{1}{3}{t 2 div 1 add}%
 }%
@@ -25,13 +29,16 @@
 }%
 \drawPolar{0}{3.5}{t 2 div 1 add}{linecolor=red, plotpoints=1000}%
 \end{pspicture*}
+\column{0.6\textwidth}
+
+\end{columns}
 \uncover<1-6>{}
 
-Let $r=f(\theta), \theta\in [a,b]$ be a curve given in polar coordinates.  Let $A$ denote the figure given by the union of the segments connecting each point the curve to the origin. Suppose no two points on the curve lie on the same ray from the origin. Then the area of $A$ is given by 
+Let $N$ be a large number and split the interval $[a,b]$ using $N+1$ equally spaced points $a=\theta_0\leq\theta_1\leq\dots\leq\theta_{N-1}\leq \theta_N=b$ into $N$ equal segments, each of the form $[\theta_j,\theta_{j+1}] $. Denote the length of each such segment by $\Delta\theta$, i.e., let $\Delta\theta= \frac{b-a}{N}$. 
+Then the area of $A$ is approximated by triangles with vertices on the curve. Those are of the form $(f(\theta_j)\cos \theta_j, f(\theta_{j+1} )\cos \theta_{j+1})$ as drawn in the figure. Consider one such triangle, $OPQ$, as indicated in the figure. 
+The area of triangle $OPQ $ is $\frac{|OP| |OQ|\sin (\Delta\theta)}{2}= \frac{f(\theta_1)f(\theta_2)\sin (\Delta\theta)}{2} $. In other words the area of $A$ is approximated by
 \[
-A= \int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta\quad .
+\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j+1})\sin (\Delta\theta)}{2}= \frac{\sin(\Delta\theta)}{\Delta\theta}\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j}+\Delta\theta)\Delta\theta}{2}\quad .
 \]
-
-A motivation for the above definition may be given as follows. 
-
+In the above sum, the multiplicand $\frac{\sin(\Delta\theta)}{\Delta\theta}$ tends to $1$ as $\Delta\theta$ tends to $0$. Therefore as $\Delta$ tends to zero, the expression tends to the limit of the second multiplicand. On the other hand, one can show that the second multiplicand approximates the integral $\int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta$.
 \end{frame}
