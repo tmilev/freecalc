@@ -23,6 +23,8 @@
 %\psaxesStandard (default display of axes with x and y label, takes two arguments)
 %\psLabelNumberXaxis
 %\psLabelNumberYaxis
+%\psDefaultXLabel
+%\psDefaultYLabel
 %\psXTickWithLabel
 %\psYTickWithLabel
 %\psDirectionField
@@ -76,8 +78,10 @@
 
 \newcommand{\psLabelsWithOnes}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) { $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) { $1$} \psLabels{#1}{#2}}
 
+\newcommand{\psDefaultXLabel}{$x$}
+\newcommand{\psDefaultYLabel}{$y$}
 \newcommand{\psaxesStandardNoFrame}[4]{%
-\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)\psLabels{#3}{#4}
+\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)\psLabels[\psDefaultXLabel][\psDefaultYLabel]{#3}{#4}
 }%
 
 \newcommand{\psaxesStandard}[4]{%
