@@ -1,39 +1,115 @@
 Match the graph of the curve to its graph in polar coordinates and to its polar parametric equations.
-\psset{xunit=0.5cm, yunit=0.5cm, algebraic=true}
+\psset{xunit=0.5cm, yunit=0.5cm}
 \begin{multicols}{3}
 \begin{enumerate}
+\item \begin{pspicture}(-2.323256, -3.101443)(3.400000,3.201443) 
+\tiny 
+\psaxesStandard{-2.073256}{-2.851443}{3.150000}{2.851443}
+%Calculator command: drawPolarExtended{}(\cos{}(3 t)+2, 0, 2 \pi) 
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{2.0000000 t 3.0000000 mul 57.29578 mul cos add t 57.29578 mul cos mul 2.0000000 t 3.0000000 mul 57.29578 mul cos add t 57.29578 mul sin mul }
+\end{pspicture} 
+\answer{matches \ref{itemMatchPolarGraph,r=2+cos(3*t)}, \ref{itemMatchPolarFormula,r=2+cos(3*t)}}
+\item 
+\begin{pspicture}(-3.269100, -2.893230)(3.268991,3.499862) 
+\tiny 
+\psaxesStandard{-3.019100}{-2.643230}{3.018991}{3.149862}
+%Calculator command: drawPolarExtended{}(\sin{}(5 t)+2, 0, 2 \pi) 
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{2.0000000 t 5.0000000 mul 57.29578 mul sin add t 57.29578 mul cos mul 2.0000000 t 5.0000000 mul 57.29578 mul sin add t 57.29578 mul sin mul }
+\end{pspicture} 
+\answer{matches \ref{itemMatchPolarGraph,r=2+sin(5t)}, \ref{itemMatchPolarFormula,r=2+sin(5t)}}
 \item 
 \begin{pspicture}(-3.515530, -0.900000)(3.541593,2.319691) 
 \tiny 
 \psaxesStandard{-3.265530}{-0.650000}{3.291593}{1.969691}
 \parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{-3.14159}{3.14159}{t t 57.29578 mul cos mul t t 57.29578 mul sin mul }
 \end{pspicture} 
+\answer{matches \ref{itemMatchPolarGraph,r=t}, \ref{itemMatchPolarFormula,r=t} }
+\item 
+\begin{pspicture}(-0.962477, -1.280083)(1.400000,1.380083) 
+
+\tiny 
+\psaxesStandard{-0.712477}{-1.030083}{1.150000}{1.030083}
+%Calculator command: drawPolarExtended{}(\cos{}(3 t), 0, 2 \pi) 
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{t 3.0000000 mul 57.29578 mul cos t 57.29578 mul cos mul t 3.0000000 mul 57.29578 mul cos t 57.29578 mul sin mul }
+
+\end{pspicture}
+\answer{matches \ref{itemMatchPolarGraph,r=cos(3t)}, \ref{itemMatchPolarFormula,r=cos(3t)}}
 
 \item 
-\begin{pspicture}(-1.5, -1.5)(1.5,1.5)
-\tiny
-\psaxesStandard{-1.4}{-1.4}{1.4}{1.4}
-\psXTickWithLabel{1}{$1$}
-\drawPolar{-3.14159}{3.14159}{cos(3*t)}{linecolor=\psColorGraph, plotpoints=800}
-\end{pspicture}
+\begin{pspicture}(-1.122338, -1.122308)(2.550479,2.650486) 
+\tiny 
+\psaxesStandard{-0.872338}{-0.872308}{2.300479}{2.300486}
+%Calculator command: drawPolarExtended{}(\sin{}t+\cos{}t+1, 0, 2 \pi) 
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{1.0000000 t 57.29578 mul cos add t 57.29578 mul sin add t 57.29578 mul cos mul 1.0000000 t 57.29578 mul cos add t 57.29578 mul sin add t 57.29578 mul sin mul }
+\end{pspicture} 
+\answer{matches \ref{itemMatchPolarGraph,r=1+sin(t)+cos(t)}, \ref{itemMatchPolarFormula,r=1+sin(t)+cos(t)}}
 
+\item 
+\begin{pspicture}(-1.729462, -1.765832)(1.787465,1.792057) 
+\tiny 
+\psaxesStandard{-1.479462}{-1.515832}{1.537465}{1.442057}
+%Calculator command: drawPolarExtended{}(1/4 \sqrt{t}, 0, 10 \pi) 
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{31.4159}{t sqrt 0.2500000 mul t 57.29578 mul cos mul t sqrt 0.2500000 mul t 57.29578 mul sin mul }
+\end{pspicture}
+\answer{matches \ref{itemMatchPolarGraph,r=sqrt(t)}, \ref{itemMatchPolarFormula,r=1/4sqrt(t)}}
 
 \end{enumerate}
 
 \columnbreak
 \begin{enumerate}
-\item 
-\begin{pspicture}(-3.541593, -3.541593)(3.541593,3.616510) 
 
+\item \label{itemMatchPolarGraph,r=sqrt(t)}
+\begin{pspicture}(-0.900000, -0.900000)(5.9,1.898448) 
 \tiny 
-\psaxesStandard{-3.291593}{-3.291593}{3.291593}{3.266510}\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{-3.14159}{3.14159}{t t}
+\psaxesStandard{-0.650000}{-0.650000}{5.565927}{1.548448}
+\parametricplot[linecolor=\psColorTangent, plotpoints=1000, algebraic=false]{0}{5.9}{t t sqrt 0.2500000 mul }
+\end{pspicture} 
+
+\item \label{itemMatchPolarGraph,r=2+cos(3*t)}
+\begin{pspicture}(-0.900000, -0.900000)(6.683185,3.500000) 
+\tiny 
+\psaxesStandard{-0.650000}{-0.650000}{6.433185}{3.150000}
+\parametricplot[linecolor=\psColorTangent, plotpoints=1000, algebraic=false]{0}{6.28319}{t 2.0000000 t 3.0000000 mul 57.29578 mul cos add }
+\end{pspicture} 
+
+\item \label{itemMatchPolarGraph,r=2+sin(5t)}
+\begin{pspicture}(-0.900000, -0.900000)(6.683185,3.499995) 
+\tiny 
+\psaxesStandard{-0.650000}{-0.650000}{6.433185}{3.149995}
+\parametricplot[linecolor=\psColorTangent, plotpoints=1000, algebraic=false]{0}{6.28319}{t 2.0000000 t 5.0000000 mul 57.29578 mul sin add }
+\end{pspicture} 
+
+\item \label{itemMatchPolarGraph,r=1+sin(t)+cos(t)}
+\begin{pspicture}(-0.900000, -0.900000)(6.683185,2.914198) 
+\tiny 
+\psaxesStandard{-0.650000}{-0.650000}{6.433185}{2.564198}
+\parametricplot[linecolor=\psColorTangent, plotpoints=1000, algebraic=false]{0}{6.28319}{t 1.0000000 t 57.29578 mul cos add t 57.29578 mul sin add }
+\end{pspicture} 
+\item \label{itemMatchPolarGraph,r=t}
+\begin{pspicture}(-3.541593, -3.541593)(3.541593,3.616510) 
+\tiny 
+\psaxesStandard{-3.291593}{-3.291593}{3.291593}{3.266510}\parametricplot[linecolor=\psColorTangent, plotpoints=1000, algebraic=false]{-3.14159}{3.14159}{t t}
+\end{pspicture} 
+
+\item \label{itemMatchPolarGraph,r=cos(3t)}
+\begin{pspicture}(-0.900000, -1.399823)(6.683185,1.500000) 
+\tiny 
+\psaxesStandard{-0.650000}{-1.149823}{6.433185}{1.150000}
+\parametricplot[linecolor=\psColorTangent, plotpoints=1000, algebraic=false] {0}{6.28319}{t t 3.0000000 mul 57.29578 mul cos }
 
 \end{pspicture} 
 
 
-
-
 \end{enumerate}
 \columnbreak
-
+\renewcommand\theenumii{\roman{enumii}}
+\begin{enumerate}
+\item \label{itemMatchPolarFormula,r=1+sin(t)+cos(t)} $r=1+\sin(\theta)+cos(\theta)$
+\item \label{itemMatchPolarFormula,r=t} $r= \theta, \theta\in [-\pi, \pi]$.
+\item \label{itemMatchPolarFormula,r=cos(3t)} $r= \cos(3\theta), \theta\in [0, 2\pi]$.
+\item \label{itemMatchPolarFormula,r=1/4sqrt(t)}
+$r=\frac{1}4\sqrt{\theta}, \theta\in [0, 10\pi]$.
+\item \label{itemMatchPolarFormula,r=2+sin(5t)} $r=2+\sin (5\theta) $.
+\item \label{itemMatchPolarFormula,r=2+cos(3*t)} $r=2+cos(3\theta)$.
+\end{enumerate}
 \end{multicols}
