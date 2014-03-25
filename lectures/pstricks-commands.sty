@@ -191,19 +191,32 @@
 \drawPolar{#1 #2 add 2 div}{#2}{#3}{#4}
 }
 
+\newcommand{\polarCurveEvaluateX}[2]{
+1 dict begin /t #1 def #1 57.29578 mul cos #2 mul end
+}
+
+\newcommand{\polarCurveEvaluateY}[2]{
+1 dict begin /t #1 def #1 57.29578 mul sin #2 mul end 
+}
+
+\newcommand{\polarCurveEvaluateXY}[2]{
+\polarCurveEvaluateX{#1}{#2} \polarCurveEvaluateY{#1}{#2}
+}
+
 \newcommand{\polarWedge}[3]{%
 \ifPst@algebraic{%
 \rput(0,0){Set algebraic to FALSE}%
 }%
 \else%
 \pstVerb{%
-/firstX  1 dict begin /t #1 def #1 57.29578 mul cos #3 mul end def%
-/firstY  1 dict begin /t #1 def #1 57.29578 mul sin #3 mul end def%
-/secondX 1 dict begin /t #2 def #2 57.29578 mul cos #3 mul end def%
-/secondY 1 dict begin /t #2 def #2 57.29578 mul sin #3 mul end def%
+%/firstX 1 dict begin /t #1 def #1 57.29578 mul sin #2 mul end def%
+/firstX \polarCurveEvaluateX{#1}{#3} def%
+/firstY \polarCurveEvaluateY{#1}{#3} def%
+/secondX \polarCurveEvaluateX{#2}{#3} def%
+/secondY \polarCurveEvaluateY{#2}{#3} def%
 }%
 \pscustom[fillcolor=\psColorAreaUnderGraph, fillstyle=solid, linecolor=blue]{%
-\psline(0,0)(! firstX firstY)(! secondX secondY)(0,0)%
+\psline(0,0)(! \polarCurveEvaluateXY{#1}{#3} )(! \polarCurveEvaluateXY{#2}{#3})(0,0)%
 }%
 \fi%
 }%
