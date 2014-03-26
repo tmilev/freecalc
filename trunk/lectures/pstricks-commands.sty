@@ -140,9 +140,9 @@
 %eighth argument gives the direction line arguments
 \newcommand{\directionFieldFull}[8]{%
 \multido{\ra=#2+#4}{#5}{%
-  \multido{\rb=#3+#4}{#5}{%
-  \directionFieldOneTangent{#1}{\ra}{\rb}{#6}{#7}{#8}%
-  }%end multido
+\multido{\rb=#3+#4}{#5}{%
+\directionFieldOneTangent{#1}{\ra}{\rb}{#6}{#7}{#8}%
+}%end multido
 }%end multido
 }%end newcommand
 
@@ -225,4 +225,30 @@
 \multido{\ra=#1+#2}{#3}{%
 \polarWedge{\ra}{\ra\space #2 add}{#4}
 }%
+}
+
+\newcommand{\psRegularNgon}[3][linecolor=\psColorGraph]{%
+\multido{\ra=0+1}{#2}{%
+\psline[#1](! \ra \space #2 div 360 mul cos #3 mul \ra \space #2 div 360 mul sin #3 mul)(! \ra \space 1 add #2 div 360 mul cos #3 mul \ra \space 1 add #2 div 360 mul sin #3 mul)%
+}%end multido
+}
+
+\newcommand{\psEvaluateT}[2]{%
+1 dict begin /t #1 def #2 end
+}
+
+\newcommand{\polylineAlongCurve}[5][linecolor=\psColorGraph]{%
+\multido{\ra=0+1}{#2}{%
+\psline[#1](! \psEvaluateT{\ra\space #2 div #3 mul 1 \ra \space #2 div sub #4 mul add}{#5})(! \psEvaluateT{\ra\space 1 add #2 div #3 mul 1 \ra \space 1 add #2 div sub #4 mul add}{#5})%
+\rput(! \psEvaluateT{\ra\space #2 div #3 mul 1 \ra \space #2 div sub #4 mul add}{#5}){\psFullDot{0}{0}}%
+}%
+\rput(! \psEvaluateT{#3}{#5}){\psFullDot{0}{0}}%
+}
+
+\newcommand{\polylineAlongCurveWithLabels}[6][linecolor=\psColorGraph]{%
+\polylineAlongCurve[#1]{#2}{#3}{#4}{#5}%
+\multido{\ia=0+1}{#2}{%
+\rput[b](! \psEvaluateT{\ia\space #2 div #3 mul 1 \ia \space #2 div sub #4 mul add}{#5} 0.1 add){${#6}_{\ia}$}%
+}%
+\rput[b](! \psEvaluateT{#3}{#5}){${#6}_{#2}$}%
 }
