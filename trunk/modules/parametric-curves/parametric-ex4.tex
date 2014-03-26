@@ -1,9 +1,9 @@
 % begin module parametric-ex4
-\begin{frame}
+\begin{frame}[t]
 \begin{example} %[Example 4, p. 659]
 Find parametric equations for the circle with center $(h, k)$ and radius $r$.
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.37\textwidth}
 \psset{xunit=1.5cm, yunit=1.5cm}
 \begin{pspicture}(-0.5, -0.5)(2.8,2.7)
 \tiny
@@ -14,30 +14,55 @@ Find parametric equations for the circle with center $(h, k)$ and radius $r$.
 \psFullDot{1.4}{1.2}
 \rput[tr](1.35, 1.1){$(h,k)=O$}
 }
+\uncover<3->{%
+\rput[bl](1.6, 1.65){$r$}
+\rput[bl](1.9, 2.1){$P=(x,y)$}
+\psline(1.4,1.2)(1.9,2.066025)
+\psFullDot{1.900000}{2.066025}
+}
+\uncover<4->{
 \rput(1.4,1.2){\psAngle{0}{1.047197551}{0.2}{} }
 \rput[bl](1.6,1.3){$t$ }
-\rput[bl](1.9, 2.1){$P=(x,y)$}
 \rput[tl](1.9, 1.1){$Q$}
-\psFullDot{1.900000}{2.066025}
+\psline(1.9,2.066025)(1.9,1.2)
+\psline(1.8,1.2)(1.8, 1.3)(1.9,1.3)
+\psline(1.4, 1.2)(2.4,1.2)
+}
+\uncover<9->{
 \psline[linestyle=dashed](1.4,1.2)(1.4,0)
 \psline[linestyle=dashed](1.4,1.2)(0,1.2)
 \psline(1.3,0)(1.3,0.1)(1.4,0.1)
 \psline(0,1.1)(0.1,1.1)(0.1,1.2)
-\psline(1.4, 1.2)(2.4,1.2)
-\psLengthIndicator{0}{-0.12}{1.4}{-0.12}{$h$}
-\psLengthIndicator{-0.12}{0}{-0.12}{1.2}{$k$}
-\psline(1.4,1.2)(1.9,2.066025)(1.9,1.2)
-\psline(1.8,1.2)(1.8, 1.3)(1.9,1.3)
+\psline[linecolor=red, arrows=<->](0,-0.12)(1.4,-0.12)
+\psline[linecolor=red, arrows=<->](-0.12,0)(-0.12,1.2)
+\psline[linecolor=red, arrows=<->](1.4,-0.12)(1.9,-0.12)
+\psline[linecolor=red, arrows=<->](-0.12,1.2) (-0.12,2.066025)
+\rput[t](1.65, -0.14){$r\cot t$}
+\rput[r](-0.14, 1.63){$r\sin t$}
+\rput[t](0.7, -0.14){$h$}
+\rput[r](-0.14, 0.6) {$k$}
+\psline[linestyle=dashed](1.9, 1.2)(1.9,0)
+\psline[linestyle=dashed](1.9, 2.066025)(0,2.066025)
+\psline(1.8,0)(1.8,0.1)(1.9, 0.1)
+\psline(0,1.966025)(0.1, 1.966025)(0.1, 2.066025)
+}
 \end{pspicture}
-\column{0.5\textwidth}
+\vspace{1.4cm}
+\column{0.63\textwidth}
 \begin{itemize}
-\item<2->  Let $O$ be the center of the circle with coordinates $(h,k)$.
+\only<1-10>{ \item<2->  Let $O$ be the center of the circle with coordinates $(h,k)$.
 \item<3->  Let $P$ be a point on the circle with coordinates $(x,y)$.
 \item<4->  Let $t$, $Q$ be as indicated on the figure.
-\item<5->  Then $\alert<5,6>{|OQ|=}\uncover<5>{\alert<5>{\textbf{?}}} \uncover<6->{\alert<6>{ \cos t}}$.
-\item<7->  $\alert<7,8>{|PQ|=} \uncover<7>{\alert<7>{\textbf{?}}} \uncover<8->{\alert<8>{ \sin t}}$.
-%\item<10-> Alternative solution: $x=\cos t$, $y=\sin t$ is the equation of the unit circle. Multiply by $r$ to scale the circle to have radius $r$: $x = r\cos t,\ \  y = r\sin t$. Add $h$ to $x$ and $k$ to $y$ to translate the circle $h$ units to the left and $k$ units up: $x =h+ r\cos t,\ \  y =k+  r\sin t$
-
+\item<5->  Then $\alert<5,6>{|OQ|=}\uncover<5>{\alert<5>{\textbf{?}}} \uncover<6->{ \alert<6>{r \cos t}}$.
+\item<7->  $\alert<7,8>{|PQ|=} \uncover<7>{ \alert<7>{ \textbf{?}}} \uncover<8->{\alert<8>{r \sin t}}$.
+\item<9-> Then the coordinates of $P$ are $ (h+r\cos t, k+r\sin t)$. 
+\item<10-> In this way we get the parametric equations $\left|\begin{array}{l}x=h+r\cos t\\ y=k+r\sin t\end{array}\right., t\in [0,2\pi]$
+}
+\only<11->{
+\item<11-> Alternative solution: $x=\cos t$, $y=\sin t$ is the equation of the unit circle. 
+\item<12-> Multiply by $r$ to scale the circle to have radius $r$: $x = r\cos t,\ \  y = r\sin t$. 
+\item<13-> Add $h$ to $x$ and $k$ to $y$ to translate the circle $h$ units to the left and $k$ units up: $x =h+ r\cos t,\ \  y =k+  r\sin t$
+}
 \end{itemize}
 \end{columns}
 \end{example}
