@@ -3,35 +3,52 @@
 \frametitle{Arc Length}
 \begin{center}
 
-%\psset{xunit=1cm, yunit=1cm}
-%\begin{pspicture}(-1.500000, -5)(1.500000,5) 
-%\psframe*[linecolor=white](-1.500000,-5)(1.500000,5) 
-%\tiny 
-%\psaxesStandard{-1.000000}{-4.5}{1.000000}{4.5}
-%\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.000000}{1.000000}{1 x 2 exp -1 mul add sqrt -1 mul }
-%Function formula: \sqrt{- x^{2}+1} 
-%\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.000000}{1.000000}{1 x 2 exp -1 mul add sqrt }
-%\end{pspicture} 
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-1, -1)(1,1) 
+\tiny %
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=true]{0}{6.283185307}{cos(t)|sin(t)}%
+\uncover<3>{ %
+\psRegularNgon[linecolor=\psColorTangent]{3}{1}%
+}
+\uncover<4>{ %
+\psRegularNgon[linecolor=\psColorTangent]{4}{1}%
+}
+\uncover<5>{ %
+\psRegularNgon[linecolor=\psColorTangent]{6}{1}%
+}
+\uncover<6>{ %
+\psRegularNgon[linecolor=\psColorTangent]{8}{1}%
+}
+\uncover<7>{ %
+\psRegularNgon[linecolor=\psColorTangent]{12}{1}%
+}
+\uncover<8>{ %
+\psRegularNgon[linecolor=\psColorTangent]{16}{1}%
+}
+\uncover<9>{ %
+\psRegularNgon[linecolor=\psColorTangent]{32}{1}%
+}
+\end{pspicture} 
 
-
-\ \only<-2>{%
-\includegraphics[height=4cm]{arc-length/pictures/09-01-circlea.pdf}%
-}%
-\only<handout:0| 3>{%
-\includegraphics[height=4cm]{arc-length/pictures/09-01-circleb.pdf}%
-}%
-\only<handout:0| 4>{%
-\includegraphics[height=4cm]{arc-length/pictures/09-01-circlec.pdf}%
-}%
-\only<handout:0| 5>{%
-\includegraphics[height=4cm]{arc-length/pictures/09-01-circled.pdf}%
-}%
-\only<handout:0| 6>{%
-\includegraphics[height=4cm]{arc-length/pictures/09-01-circlee.pdf}%
-}%
-\only<handout:0| 7->{%
-\includegraphics[height=4cm]{arc-length/pictures/09-01-circlef.pdf}%
-}%
+\uncover<1-9>{}
+%\ \only<-2>{%
+%\includegraphics[height=4cm]{arc-length/pictures/09-01-circlea.pdf}%
+%}%
+%\only<handout:0| 3>{%
+%\includegraphics[height=4cm]{arc-length/pictures/09-01-circleb.pdf}%
+%}%
+%\only<handout:0| 4>{%
+%\includegraphics[height=4cm]{arc-length/pictures/09-01-circlec.pdf}%
+%}%
+%\only<handout:0| 5>{%
+%\includegraphics[height=4cm]{arc-length/pictures/09-01-circled.pdf}%
+%}%
+%\only<handout:0| 6>{%
+%\includegraphics[height=4cm]{arc-length/pictures/09-01-circlee.pdf}%
+%}%
+%\only<handout:0| 7->{%
+%\includegraphics[height=4cm]{arc-length/pictures/09-01-circlef.pdf}%
+%}%
 \end{center}
 \begin{itemize}
 \item  What do we mean by the length of a curve?

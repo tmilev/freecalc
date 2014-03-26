@@ -1,5 +1,9 @@
 %begin module arc-length-derivation-parametric
-
+{% scoping block for the following command:
+%Calculator input: plotCurve{}(t, 8 t^{4}-40 t^{3}+70 t^{2}-50 t+13, 2/5, 2)
+\newcommand{\theCurve}{t 13 t -50 mul add t 2 exp 70 mul add t 3 exp -40 mul add t 4 exp 8 mul add}
+\newcommand{\lowBound}{0.4}
+\newcommand{\highBound}{2}
 \begin{frame}
 Let $\gamma $ be the curve 
 $ \gamma: \left|
@@ -17,27 +21,52 @@ y=y(t)
 \begin{columns}[c]
 \column{.6\textwidth}
 \begin{center}
-\ \only<handout:0| -1>{%
-\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengtha.pdf}%
-}%
-\only<handout:0| 2-4>{%
-\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthb.pdf}%
-}%
-\only<handout:0| 5>{%
-\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthc.pdf}%
-}%
-\only<handout:0| 6>{%
-\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthd.pdf}%
-}%
-\only<handout:0| 7>{%
-\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthe.pdf}%
-}%
-\only<8>{%
-\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthf.pdf}%
-}%
-\only<handout:0| 9->{%
-\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthg.pdf}%
-}%
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-0.4,0.4)(2.3,2.2)
+\tiny 
+\psaxesStandard{-0.3}{-0.3}{2.146803}{1.994800}
+%\theCurve is defined in the beginning of this module, has limited scope
+\parametricplot{\lowBound}{\highBound}{\theCurve}
+\uncover<2-4>{%
+\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{3}{\lowBound}{\highBound}{\theCurve}{P}%
+}
+\uncover<5>{%
+\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{4}{\lowBound}{\highBound}{\theCurve}{P}%
+}
+\uncover<6>{%
+\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{5}{\lowBound}{\highBound}{\theCurve}{P}%
+}
+\uncover<6>{%
+\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{6}{\lowBound}{\highBound}{\theCurve}{P}%
+}
+\uncover<7>{%
+\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{10}{\lowBound}{\highBound}{\theCurve}{P}%
+}
+\uncover<8->{%0
+\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{14}{\lowBound}{\highBound}{\theCurve}{P}%
+}
+\end{pspicture}
+%\ \only<handout:0| -1>{%
+%\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengtha.pdf}%
+%}%
+%\only<handout:0| 2-4>{%
+%\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthb.pdf}%
+%}%
+%\only<handout:0| 5>{%
+%\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthc.pdf}%
+%}%
+%\only<handout:0| 6>{%
+%\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthd.pdf}%
+%}%
+%\only<handout:0| 7>{%
+%\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthe.pdf}%
+%}%
+%\only<8>{%
+%\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthf.pdf}%
+%}%
+%\only<handout:0| 9->{%
+%\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthg.pdf}%
+%}%
 %\only<10->{%
 %\includegraphics[height=4.5cm]{arc-length/pictures/09-01-arclengthh.pdf}%
 %}%
@@ -102,5 +131,5 @@ $\begin{array}{rcl}
 \end{array}
 $
 \end{frame}
-
+}% end of scoping block
 %end module arc-length-derivation-parametric
