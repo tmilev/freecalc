@@ -5,20 +5,15 @@ Find parametric equations of a cycloid made using a circle with radius $r$ that 
 \begin{columns}[c]
 \column{.4\textwidth}
 
-\psset{xunit=1.7cm, yunit=1.7cm}
+\psset{xunit=1.6cm, yunit=1.6cm}
 \begin{pspicture}( -0.6, -0.6)(2.65,2.3)
 \psframe*[linecolor=white](-0.6, -0.6)(2.65,2.3)
-\tiny 
-\psaxes[arrows=<->, ticks=none, labels=none ](0,0)( -0.500000, -0.5)(2.55,2.2)
-
-%Function formula: - (- (x-1256637061/1000000000)^{2}+1 )^{1/2}+1 
-\psplot[linecolor=\psColorTangent, plotpoints=1000] {0.256647} {2.256627}{1 1 -1.25664 x add 2 exp -1 mul add 0.5 exp -1 mul add }
-%Function formula: (- (x-1256637061/1000000000)^{2}+1 )^{1/2}+1 
-\psplot[linecolor=\psColorTangent, plotpoints=1000] {0.256647} {2.256627}{1 1 -1.25664 x add 2 exp -1 mul add 0.5 exp add }
-\uncover<2->{
-\psplot[linecolor=green, plotpoints=300]{0.305581} {1.256637061} {1 1 -1.25664 x add 2 exp -1 mul add 0.5 exp -1 mul add }
-}
-
+\tiny% 
+\psaxes[arrows=<->, ticks=none, labels=none ](0,0)( -0.500000, -0.5)(2.55,2.2)%
+\parametricplot[linecolor=\psColorTangent, plotpoints=1000, algebraic=true]{0}{6.283185307}{cos(t)+1.256637061|sin(t)+1}%
+\uncover<2->{%
+\psplot[linecolor=green, plotpoints=300]{0.305581} {1.256637061} {1 1 -1.25664 x add 2 exp -1 mul add 0.5 exp -1 mul add }%
+}%
 %Calculator input: plotCurve{}(- \sin{}t+t, - \cos{}t+1, 0, \pi)
 \parametricplot[linecolor=\psColorGraph, plotpoints=1000] { 0}{2.8}{t t 57.29578 mul sin -1 mul add 1 t 57.29578 mul cos -1 mul add }
 
