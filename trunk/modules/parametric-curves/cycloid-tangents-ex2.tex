@@ -2,7 +2,18 @@
 \begin{frame}[t]
 \begin{example} %[Example 2, p. 667]
 Consider the cycloid $x = r(\theta - \sin \theta )$, $y = r(1 - \cos \theta )$.
-\ \includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2a.pdf}%
+\psset{xunit=0.43cm, yunit=0.43cm}
+\begin{pspicture}(-6.683185, -0.900000)(20.5,2.6500000) 
+\tiny 
+\psaxesStandard{-6.433185}{-0.650000}{20.5}{2.550000}
+
+\psYTickWithLabel{2}{$2r$}
+\psXTickWithLabel{6.283185307}{$2\pi r$}
+\psXTickWithLabel{12.566370614}{$4\pi r$}
+\psXTickWithLabel{18.849555922}{$6\pi r$}
+%Calculator input: plotCurve{}(- \sin{}t+t, - \cos{}t+1, -2 \pi, 6 \pi+1)
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{-6.28319}{20.9}{t t 57.29578 mul sin -1.0000000 mul add 1.0000000 t 57.29578 mul cos -1.0000000 mul add }
+\end{pspicture}
 \begin{enumerate}
 \item  At what points is the tangent horizontal?
 \item  At what points is the tangent vertical?
@@ -14,21 +25,41 @@ Consider the cycloid $x = r(\theta - \sin \theta )$, $y = r(1 - \cos \theta )$.
 \begin{frame}[t]
 \begin{example} %[Example 2, p. 667]
 Consider the cycloid \alert<handout:0| 5-6>{$x = r(\theta - \sin \theta )$}, \alert<handout:0| 3-4>{$y = r(1 - \cos \theta )$}.
-\ \only<handout:0| -13>{%
-\includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2a.pdf}%
+\psset{xunit=0.43cm, yunit=0.43cm}
+\begin{pspicture}(-6.683185, -0.900000)(20.5,2.6500000) 
+\tiny 
+\psaxesStandard{-6.433185}{-0.650000}{20.5}{2.550000}
+
+\psYTickWithLabel{2}{$2r$}
+\psXTickWithLabel{6.283185307}{$2\pi r$}
+\psXTickWithLabel{12.566370614}{$4\pi r$}
+\psXTickWithLabel{18.849555922}{$6\pi r$}
+%Calculator input: plotCurve{}(- \sin{}t+t, - \cos{}t+1, -2 \pi, 6 \pi+1)
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{-6.28319}{20.9}{t t 57.29578 mul sin -1.0000000 mul add 1.0000000 t 57.29578 mul cos -1.0000000 mul add }
+\uncover<14->{%
+\psFullDotBlue{3.141592654}{2}
+\psline[linecolor=\psColorTangent](1.141592654, 2)(5.141592654,2)
+\psFullDotBlue{-3.141592654}{2}
+\psline[linecolor=\psColorTangent](-1.141592654, 2)(-5.141592654,2)
+\psFullDotBlue{9.424777961}{2}
+\psline[linecolor=\psColorTangent](7.424777961, 2)(11.424777961,2)
+\psFullDotBlue{15.707963268}{2}
+\psline[linecolor=\psColorTangent](13.707963268, 2)(17.707963268,2)
 }%
-\only<14->{%
-\includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2b.pdf}%
-}%
+\end{pspicture}
+
+%\ \only<handout:0| -13>{%
+%\includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2a.pdf}%
+%}%
+%\only<14->{%
+%\includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2b.pdf}%
+%}%
 \begin{enumerate}
 \item  At what points is the tangent horizontal?
 %\item  At what points is the tangent vertical?
 \end{enumerate}
 \begin{itemize}
-\item<2->  The slope of the tangent is
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
+\item<2->  The slope of the tangent is $
 \uncover<2->{%
 \frac{\diff y}{\diff x} = \frac{\alert<handout:0| 3-4>{\diff y /\diff \theta}}{\alert<handout:0| 5-6>{\diff x/\diff \theta}}%
 }%
@@ -38,7 +69,7 @@ Consider the cycloid \alert<handout:0| 5-6>{$x = r(\theta - \sin \theta )$}, \al
 \uncover<7->{%
  = \frac{\sin \theta}{1-\cos \theta}%
 }%
-\]
+$
 \item<8->  The tangent is horizontal when $\diff y/\diff x = 0$, that is, when $\diff y/\diff \theta = 0$ and $\diff x/\diff \theta \neq 0$.
 \item<9-| alert@10-11>  $r\sin\theta = \diff y/\diff \theta = 0$ if $\theta = $ \uncover<11->{$n\pi$, where $n$ is any integer.}
 \item<9-| alert@12-13>  $r(1 - \cos\theta ) = \diff x/\diff \theta = 0$ if $\theta = $ \uncover<13->{$2n\pi$, where $n$ is any integer.}
@@ -50,14 +81,37 @@ Consider the cycloid \alert<handout:0| 5-6>{$x = r(\theta - \sin \theta )$}, \al
 
 
 \begin{frame}[t]
-\begin{example}[Example 2, p. 667]
+\begin{example} %[Example 2, p. 667]
 Consider the cycloid $x = r(\theta - \sin \theta )$, $y = r(1 - \cos \theta )$.
-\ \only<handout:0| -14>{%
-\includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2a.pdf}%
-}%
-\only<15->{%
-\includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2c.pdf}%
-}%
+\psset{xunit=0.43cm, yunit=0.43cm}
+\begin{pspicture}(-6.683185, -0.900000)(20.5,2.6500000) 
+\tiny 
+\psaxesStandard{-6.433185}{-0.650000}{20.5}{2.550000}
+
+\psYTickWithLabel{2}{$2r$}
+\psXTickWithLabel{6.283185307}{$2\pi r$}
+\psXTickWithLabel{12.566370614}{$4\pi r$}
+\psXTickWithLabel{18.849555922}{$6\pi r$}
+%Calculator input: plotCurve{}(- \sin{}t+t, - \cos{}t+1, -2 \pi, 6 \pi+1)
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{-6.28319}{20.9}{t t 57.29578 mul sin -1.0000000 mul add 1.0000000 t 57.29578 mul cos -1.0000000 mul add }
+\uncover<15->{%
+\psFullDotBlue{0}{0}%
+\psFullDotBlue{6.283185307}{0}%
+\psFullDotBlue{12.566370614}{0}%
+\psFullDotBlue{18.849555922}{0}%
+\psline[linecolor=\psColorTangent](0,-0.6)(0,1.2)
+\psline[linecolor=\psColorTangent](6.283185307,-0.6)(6.283185307,1.2)
+\psline[linecolor=\psColorTangent](12.566370614,-0.6)(12.566370614,1.2)
+\psline[linecolor=\psColorTangent](18.849555922,-0.6)(18.849555922,1.2)
+}
+\end{pspicture}
+
+%\ \only<handout:0| -14>{%
+%\includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2a.pdf}%
+%}%
+%\only<15->{%
+%\includegraphics[height=1.5cm]{parametric-curves/pictures/11-02-ex2c.pdf}%
+%}%
 \begin{enumerate}
 \setcounter{enumi}{1}
 %\item  At what points is the tangent horizontal?
@@ -66,9 +120,9 @@ Consider the cycloid $x = r(\theta - \sin \theta )$, $y = r(1 - \cos \theta )$.
 \begin{itemize}
 \item<2->  When $\theta = 2n\pi$ both $\diff y/\diff \theta$ and $\diff x/\diff \theta$ are $0$.
 \item<3->  To see if there is a vertical tangent, \alert<handout:0| 5-8>{use L'Hospital's Rule}.
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
+%\abovedisplayskip=0pt
+%\belowdisplayskip=0pt
+$\displaystyle
 \uncover<4->{%
 \lim_{\theta\to 2n\pi^+} \frac{\diff y}{\diff x} = \lim_{\theta\to 2n\pi^+} \frac{\alert<handout:0| 5-6>{\sin \theta}}{\alert<handout:0| 7-8>{1-\cos \theta}}%
 }%
@@ -81,7 +135,7 @@ Consider the cycloid $x = r(\theta - \sin \theta )$, $y = r(1 - \cos \theta )$.
 \uncover<11->{\alert<handout:0| 11-12>{\to}} }%
 \frac{\uncover<10->{\alert<handout:0| 9-10>{1}}}{\uncover<12->{\alert<handout:0| 11-12>{0^+}}} %
 }%
-\]
+$
 \item<13->  Therefore $\lim_{\theta\to 2n\pi^+} (\diff y/\diff x) = \infty$.
 \item<14->  A similar argument shows $\lim_{\theta\to 2n\pi^-} (\diff y/\diff x) = -\infty$.
 \item<15->  Therefore there is a vertical tangent when $\theta = 2n\pi$.
