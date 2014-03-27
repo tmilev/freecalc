@@ -81,25 +81,27 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 %Function formula: 1/\cos{}x 
 \psplot[linecolor=gray!10, plotpoints=1000]{-4.511031}{-1.772154}{x 57.29578 mul cos -1 exp }
 }%
-\uncover<2-4,6>{%
+\uncover<2-3>{%
 %Function formula: 1/\cos{}x 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.369438}{0}{x 57.29578 mul cos -1 exp }
 }%uncover
-\uncover<5,7->{%
+\uncover<4->{%
 %Function formula: 1/\cos{}x 
 \psplot[linecolor=gray!40, plotpoints=1000]{-1.369438}{0}{x 57.29578 mul cos -1 exp }
+\psFullDot{0}{1}
 }%
 \uncover<2->{%
 %Function formula: 1/\cos{}x 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1.369438}{x 57.29578 mul cos -1 exp }
 }%
-\uncover<2-3>{
+\uncover<2-4,6>{
 %Function formula: 1/\cos{}x 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{1.772154}{3.141592654}{x 57.29578 mul cos -1 exp }
 }%
-\uncover<4->{
+\uncover<5,7->{
 %Function formula: 1/\cos{}x 
 \psplot[linecolor=gray!40, plotpoints=1000]{1.772154}{3.141592654}{x 57.29578 mul cos -1 exp }
+\psFullDot{3.141592654}{-1}
 }%
 \uncover<2-3,5,7->{
 %Function formula: 1/\cos{}x 
@@ -108,6 +110,7 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \uncover<4,6>{
 %Function formula: 1/\cos{}x 
 \psplot[linecolor=gray!40, plotpoints=1000]{3.141592654}{4.511031}{x 57.29578 mul cos -1 exp }
+\psFullDot{3.141592654}{-1}
 }%uncover
 \uncover<8->{%
 \psline[linestyle=dashed, linecolor=\psColorTangent](-4.9,-4.9)(4.9,4.9)
@@ -132,11 +135,11 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \column{0.57\textwidth}
 \begin{itemize} 
 \item<2-> \noindent Plot $\sec x$. 
-\item<3-> Restrict domain to make one-to-one: Two common choices: \alert<4>{$x\in \left(-\frac{\pi}{2}, \frac{\pi}{2} \right) $} and \alert<5>{$x\in \left(0, \frac{\pi}{2} \right) \cup \left(\pi,\frac{3\pi}{2} \right) $}. 
+\item<3-> Restrict domain to make one-to-one: Two common choices: \alert<4>{$x\in \left[0, \frac{\pi}{2}\right)\cup\left[\frac{\pi}{2}, \pi \right) $} and \alert<5>{$x\in \left[0, \frac{\pi}{2} \right) \cup \left[\pi,\frac{3\pi}{2} \right) $}. 
 
-\item<6-> $x\in \left(-\frac{\pi}{2}, \frac{\pi}{2} \right) $ is good because the domain is a single interval. \textbf{NOT our choice.}
+\item<6-> $x\in \left[0, \frac{\pi}{2}\right)\cup\left[\frac{\pi}{2}, \pi \right) $ is good because the domain is easiest to remember: an interval without a point. \textbf{NOT our choice.}
 
-\item<7,8,9,10-> $x\in \left(0, \frac{\pi}{2} \right) \cup \left(\pi,\frac{3\pi}{2} \right) $ is  good because $\tan x$ is positive on both intervals, resulting in easier differentiation and integration formulas. \textbf{Our choice.} 
+\item<7,8,9,10-> $x\in \left[0, \frac{\pi}{2} \right) \cup \left[\pi,\frac{3\pi}{2} \right) $ is  good because $\tan x$ is positive on both intervals, resulting in easier differentiation and integration formulas. \textbf{Our choice.} 
 
 \end{itemize}
 \end{columns}
