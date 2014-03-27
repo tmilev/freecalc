@@ -1,0 +1,33 @@
+% begin module notation
+\begin{frame}
+\begin{example}[Series notation]
+The series 
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+2 + 4 + 6 + 8 + \ldots + 124
+\]
+can be written more concisely as
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=1}^{62} 2 + 2(n-1).
+\]
+$2+2(n-1)$ is the $n$th term, and the sigma sign $\sum$ tell us to add all these terms, starting from $n=1$ and going up to $n=62$.  
+In this notation $n$ is called the index.  
+\end{example}
+
+\uncover<2->{%
+\begin{example}[More series notation]
+\[
+\text{Write } \frac{2}{3} -\frac{4}{9} + \frac{8}{27} - \frac{16}{81} + \frac{32}{243} - \frac{64}{729} \text{ using series notation.}
+\]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<3->{\sum_{n=1}^{\uncover<4->{\alert<4>{6}}}} \uncover<5->{\alert<5>{\frac{2}{3}\Big(-\frac{2}{3}\Big)^{n-1}}}
+\]
+\end{example}
+}%
+\end{frame}
+% end module notation

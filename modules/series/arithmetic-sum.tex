@@ -1,0 +1,46 @@
+% begin module arithmetic-sum
+\begin{frame}
+\begin{definition}[Arithmetic series]
+An arithmetic series is a series whose terms are an arithmetic sequence.  
+\end{definition}
+
+\begin{example}[Sum of a small arithmetic series]
+The sum of the arithmetic series %
+$7 + 4 + 1 - 2 - 5$ %
+is \uncover<2-| handout:0>{\alert<2>{5}.}
+\end{example}
+
+\uncover<3->{%
+\begin{example}[Sum of a large arithmetic series]
+Find the sum of the arithmetic series 
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+7 + 4 + 1 - 2 - 5 - \cdots - 53 - 56.
+\]
+\uncover<4->{Let $s$ denote the sum.}  
+\uncover<5->{%
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\[
+\begin{array}{rcrrrrr}
+s & = & \alert<7-8>{7} & \alert<9-10>{+ 4} & \alert<11-12>{+ 1} & - \cdots & \alert<13-14>{- 56} \\
+\uncover<7->{+}\uncover<6->{s} & \uncover<6->{=} & \uncover<6->{\alert<7-8>{-56}} & \uncover<6->{\alert<9-10>{-53}} & \uncover<6->{\alert<11-12>{-50}} & \uncover<6->{- \cdots} & \uncover<6->{\alert<13-14>{+ 7}} \\
+\hline
+\uncover<7->{2s} & \uncover<7->{=} & \uncover<8->{\alert<8>{-49}} &\uncover<10->{\alert<10>{-49}} &\uncover<12->{\alert<12>{-49}} & \uncover<13->{-\cdots} & \uncover<14->{\alert<14>{-49}} 
+\end{array}
+\]
+}%
+
+\vspace{-12pt}
+\abovedisplayskip=2pt
+\belowdisplayskip=2pt
+\begin{align*}
+\uncover<15->{\text{Therefore}\quad 2s & = (-49)\alert<15-16>{(\uncover<16->{22})}} \\
+\uncover<17->{s & = -49\cdot 22/2 = -539.}
+\end{align*}
+\end{example}
+}%
+
+\end{frame}
+% end module arithmetic-sum
