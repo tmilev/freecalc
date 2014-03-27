@@ -1,7 +1,19 @@
 % begin module arc-length-half-ex
 \begin{frame}
 \begin{example}[$(a+b)^2$, $(a-b)^2$, $2ab=1/2$]
-Find the length of the arc of $y = \frac{1}{6}e^{3x} + \frac{1}{6}e^{-3x}$ from $x = 0$ to $x = 1$.
+\begin{columns}
+\column{0.15\textwidth}
+\psset{xunit=0.25cm, yunit=0.25cm}
+\begin{pspicture}(-1.4, -0.9)(1.4,3.855887) 
+\tiny 
+\psaxesStandard{-1.15}{-0.65}{1.15}{3.505887}
+%Function formula: 1/6 e^{3 x}+1/6 e^{-3 x} 
+\psplot[linecolor=gray, plotpoints=1000]{-1}{1}{ 2.718281828 x -3. mul exp 0.166667 mul 2.718281828 x 3. mul exp 0.166667 mul add }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{ 2.718281828 x -3. mul exp 0.166667 mul 2.718281828 x 3. mul exp 0.166667 mul add }
+\end{pspicture}  
+\column{0.85\textwidth}
+Find the length of the arc of $y = \frac{1}{6}e^{3x} + \frac{1}{6} e^{ -3x}$ from $x = 0$ to $x = 1$.
+\end{columns}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \abovedisplayshortskip=0pt
@@ -27,7 +39,7 @@ Find the length of the arc of $y = \frac{1}{6}e^{3x} + \frac{1}{6}e^{-3x}$ from 
 & \uncover<11->{=}  %
 \uncover<11->{\int_0^1 \left( \alert<handout:0| 12-13>{\frac{1}{2}e^{3x}} + \alert<handout:0| 14-15>{\frac{1}{2}e^{-3x}}\right) \diff x} %
  \uncover<12->{=}  %
-\uncover<12->{\left[ \uncover<13->{\alert<handout:0| 13>{\frac{1}{6}e^{3x}}} \uncover<15->{\alert<handout:0| 15>{- \frac{1}{6}e^{-3x}}}\right]_0^1} %
+\uncover<12->{{\left[ \uncover<13->{\alert<handout:0| 13>{\frac{1}{6}e^{3x}}} \uncover<15->{\alert<handout:0| 15>{- \frac{1}{6}e^{-3x}}}\right]}^1_0} %
  \uncover<16->{=}  %
 \uncover<16->{\frac{ e^3 - e^{-3}}{6}.} %
 \end{align*}
