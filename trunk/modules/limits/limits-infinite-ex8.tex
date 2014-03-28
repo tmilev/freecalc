@@ -6,7 +6,7 @@ Find $\lim\limits_{x\rightarrow 0} \frac{1}{x^2}$ if it exists.
 \begin{columns}[c]
 \column{.6\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-3.1, -0.5)(5.1,3.1) \psframe*[linecolor=white](-3.1,-0.5)(3,5) 
+\begin{pspicture}(-3.1,-0.5)(3,5) \psframe*[linecolor=white](-3.1,-0.5)(3,5) 
 \psaxes[ticks=x, labels=none]{<->}(0,0)(-3,-0.5) (3,5)
 \psplot[linecolor=red, plotpoints=1000]{0.447213595}{3}{1 x 2 exp div }
 \psplot[linecolor=red, plotpoints=1000]{-3}{-0.447213595}{1 x 2 exp div}
@@ -16,7 +16,7 @@ Find $\lim\limits_{x\rightarrow 0} \frac{1}{x^2}$ if it exists.
 \column{.4\textwidth}
 \uncover<2->{
 \belowdisplayskip=0pt
-\[
+$\renewcommand{\arraystretch}{1}
 \begin{array}{|r@{.}l|r|}
 \hline
 \multicolumn{2}{|c|}{x} &
@@ -38,7 +38,7 @@ Find $\lim\limits_{x\rightarrow 0} \frac{1}{x^2}$ if it exists.
 & 1,000,000 \\
 \hline
 \end{array}
-\]
+$
 }
 \end{columns}
 \begin{itemize}

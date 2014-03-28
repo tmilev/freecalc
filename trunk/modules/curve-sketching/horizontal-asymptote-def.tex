@@ -12,8 +12,7 @@ The line $y = L$ is called a horizontal asymptote of $f$ if either
 \end{itemize}
 \uncover<4->{%
 \psset{xunit=0.5cm, yunit=0.5cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-12,-2.5)(12,3.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-10,-2.5)(10,3.5)
 %Function formula: (3/2+1/2 ((x) (x))+2 (x))/((x)^{2}+1)+(- (2^{- (x)})+2^{x})/(2^{- (x)}+2^{x}) 
 \psplot[linecolor=red, plotpoints=1000]{-12}{12}{2 x exp 2 x -1 mul exp -1 mul add 2 x exp 2 x -1 mul exp add div x 2 mul x x mul 0.5 mul add 1.5 add 1 x 2 exp add div add }

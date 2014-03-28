@@ -12,8 +12,7 @@ means that the values of $f$ can be made arbitrarily close to $L$ by taking $x$ 
 \column{.3\textwidth}
 
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-1, -1)(5,5) 
-\psframe*[linecolor=white](-1,-1)(5,4) 
+\begin{pspicture}(-1,-1)(7,4.5) 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-1)(7,4.5)
 %Function formula: (2 (x)+5)/(2 (x)+2) 
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{7}{5 x 2 mul add 2 x 2 mul add div }
@@ -24,8 +23,7 @@ means that the values of $f$ can be made arbitrarily close to $L$ by taking $x$ 
 %\includegraphics[width=4cm]{curve-sketching/pictures/04-04-asymptotesa.pdf} 
 \column{.3\textwidth}
 \psset{xunit=0.15cm, yunit=0.15cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-2,-2)(20,12) 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-2)(20,12)
 %Function formula:3+ (2 (x)+5)/(2 (x)+2)+(20)/(3 (x)+10) (\sin{}(x)) 
 \psplot[linecolor=red, plotpoints=3000]{-0.8}{20}{x 57.29578 mul sin 20 10 x 3 mul add div mul 5 x 2 mul add 2 x 2 mul add div add  3 add}
@@ -36,9 +34,8 @@ means that the values of $f$ can be made arbitrarily close to $L$ by taking $x$ 
 %\includegraphics[width=4cm]{curve-sketching/pictures/04-04-asymptotesb.pdf}%
 \column{.3\textwidth}
 \psset{xunit=0.35cm, yunit=0.35cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.5,-1)(8,5)
+\begin{pspicture}(-1.5,-1)(8.5,5) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.5,-1)(8.5,5)
 %Function formula:1+ (x+(x)^{2}+1)/(6+5 (x)+(x)^{2}) 
 \psplot[linecolor=red, plotpoints=1000]{-1.5}{8.5}{1 x 2 exp add x add x 2 exp x 5 mul add 6 add div 1 add}
 \psline[linecolor=blue, linestyle=dashed](-1, 2)(8.5, 2)
@@ -69,8 +66,7 @@ means that the values of $f$ can be made arbitrarily close to $L$ by taking $x$ 
 \column{.5\textwidth}
 
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-7,-1)(1,3.5) 
+\begin{pspicture}(-7,-1)(1,3.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-6.5,-1)(1,3.5)
 \rput[br](-1, 2){$y=f(x)$}
 %Function formula: 2+ (x^2-1)/(x^2+1) 
@@ -83,8 +79,7 @@ means that the values of $f$ can be made arbitrarily close to $L$ by taking $x$ 
 
 \column{.5\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-7,-1)(1,3.5) 
+\begin{pspicture}(-7,-1)(1,3.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-6.5,-1)(1,3.5)
 \rput[br](-3, 0.5){$y=f(x)$}
 %Actual function formula: 1.5+2(4x)/(16x^2+1)
