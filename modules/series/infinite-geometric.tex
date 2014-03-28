@@ -1,0 +1,18 @@
+% begin module infinite-geometric
+\begin{frame}
+Sometimes an infinite geometric series has a sum.  
+
+The formula for the sum of a geometric series with first term $a$, ratio $r$, and $M$ terms is
+\[
+a\frac{1-r^M}{1-r}.
+\]
+If $r$ is less than $1$ in modulus, then $r^M\to 0$ as $M\to\infty$, so the sum goes to $a\frac{1}{1-r}$ as $M$ gets bigger.  Therefore
+\[
+\sum_{n=1}^\infty  ar^{n-1} = a\frac{1}{1-r} \quad \text{if}\quad |r|<1.
+\]
+If $r$ is bigger than or equal to $1$ in modulus, then $r^M$ increases without bound, so
+\[
+\sum_{n=1}^\infty  ar^{n-1}  \quad \text{does not exist if } |r|\geq 1.
+\]
+\end{frame}
+% end module infinite-geometric
