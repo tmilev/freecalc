@@ -15,7 +15,8 @@ We say that $f$ is continuous at $a$ if
 }
 \begin{center}
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-1, -0.5)(4,3.5) \psframe*[linecolor=white](-1,-0.5)(4,3.5) \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4,3)
+\begin{pspicture}(-1, -0.5)(4,3.1) 
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4,3)
 %Function formula: 1/2 (1/2 x)^{3}+1/8 (1/2 x)^{4}- (1/2 x)^{2}+1 
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{4}{x 0.5 mul 4 exp 0.125 mul x 0.5 mul 2 exp -1 mul add x 0.5 mul 3 exp 0.5 mul add 1 add }
 \end{pspicture} 
