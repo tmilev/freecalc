@@ -10,8 +10,7 @@ A function is one-to-one if and only if no horizontal line intersects it more th
 
 \begin{tabular}{cc}
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-3,-3)(3,3)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-3,-3)(3,3)
 %Function formula: 1/2 (x)+1/2 
 \psplot[linecolor=red, plotpoints=1000]{1}{2}{0.5 x 0.5 mul add } %Function formula: (x)^{3} 
@@ -20,8 +19,7 @@ A function is one-to-one if and only if no horizontal line intersects it more th
 \end{pspicture} 
 &%
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-3,-3)(3,3)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-3,-3)(3,3)
  %Function formula: -2/5+((6/5+x)^{2}) ((x) (x))-6/25 ((6/5+x)^{2})- (((6/5+x)^{2}) (x)) 
  \psplot[linecolor=red, plotpoints=1000]{-2}{1.5}{x x 1.2 add 2 exp mul -1 mul x 1.2 add 2 exp -0.24 mul add x x mul x 1.2 add 2 exp mul add -0.4 add }
