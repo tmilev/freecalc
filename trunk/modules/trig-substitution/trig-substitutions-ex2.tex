@@ -7,10 +7,9 @@ Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $
 \begin{columns}
 \column{0.37\textwidth}
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-2.500000, -5)(2.500000,5) 
-\psframe*[linecolor=white](-2.500000,-5)(2.500000,5) 
+\begin{pspicture}(-2.35, -1.6)(2.35,1.7) 
 \tiny 
-
+\psframe*[linecolor=white](-2.35, -1.6)(2.35,1.7)
 \uncover<8>{ \pscustom*[linecolor=\psColorAreaUnderGraph]{
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
@@ -27,8 +26,8 @@ Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $
 }
 }
 
-\psaxesStandard{-2.2}{-1.5}{2.2}{1.5} 
-\rput[b](1,1){ \uncover<6->{\alert<6>{$y=b\sqrt{1-\frac{x^2}{a^2}} $}}}
+\psaxesStandardNoFrame{-2.2}{-1.6}{2.2}{1.6} 
+\rput[b](1,1){\uncover<6->{\alert<6>{$y=b\sqrt{1-\frac{x^2}{a^2}} $}}}
 \rput[t](1,-1){\uncover<7->{\alert<7>{$y=-b\sqrt{1-\frac{x^2}{a^2}} $}}}
 
 \uncover<11->{
@@ -49,9 +48,9 @@ Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $
 \uncover<8->{The area in question is }
 $\begin{array}{l}
 \displaystyle \uncover<9->{\phantom{=}\phantom{4} \int\limits^{ {\uncover<9,10>{\alert<10>{\textbf{?}}} \uncover<11->{\alert<11>{a}} } }_{{\uncover<9,10>{\alert<10>{\textbf{?}}} \uncover<11->{ \alert<11>{-a}}} } \alert<9>{2} b\sqrt{ 1- \frac{ x^2}{ a^2} }\diff x} \\
-\displaystyle\uncover<12->{=\alert<12>{4}\int \limits_{{ \alert<12>{0}}}^{a}  b\sqrt{1-\frac{x^2}{a^2}}\diff x}
+\displaystyle\uncover<12->{=\alert<12>{4}\int \limits_{{ \alert<12>{0}}}^{a}  b\sqrt{1-\frac{x^2}{a^2}}\diff x} \uncover<12->{.}
 \end{array}
-$\uncover<12->{.}
+$
 
 \vfil
 } %vbox
@@ -79,15 +78,15 @@ Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $
 \begin{columns}
 \column{0.37\textwidth}
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-2.500000, -5)(2.500000,5) 
-\psframe*[linecolor=white](-2.500000,-5)(2.500000,5) 
+\begin{pspicture}(-2.35, -1.6)(2.35,1.7) 
 \tiny 
+\psframe*[linecolor=white](-2.35, -1.6)(2.35,1.7)
 \pscustom*[linecolor=\psColorAreaUnderGraph]{
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
 }
-\psaxesStandard{-2.2}{-1.5}{2.2}{1.5} 
-\rput[b](1,1){$y=b\sqrt{1-\frac{x^2}{a^2}} $}
+\psaxesStandardNoFrame{-2.2}{-1.6}{2.2}{1.6} 
+\rput[b](1,1){\uncover<1->{$y=b\sqrt{1-\frac{x^2}{a^2}}$}}
 \rput[t](1,-1){$y=-b\sqrt{1-\frac{x^2}{a^2}} $}
 
 %Function formula: - \sqrt{-1/4 x^{2}+1} 
@@ -99,10 +98,10 @@ Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $
 The area in question is 
 $\begin{array}{l}
 \displaystyle \phantom{=}\phantom{4} \int\limits_{\phantom{\textbf{?}}-a}^{\phantom{\textbf{?}}a}2b\sqrt{ 1-\frac{x^2}{ a^2} }\diff x\\
-=\displaystyle 4\alert<15>{ \int\limits_{0}^{a}}  b \alert<15>{ \sqrt{1-\frac{x^2}{a^2}}\diff x} \\
-\uncover<15->{=4b\alert<15>{ \frac{a\pi}{4}}}\uncover<16->{=\pi a b}
+\uncover<1->{=} \displaystyle 4\alert<15>{ \int\limits_{0}^{a}}  b \alert<15>{ \sqrt{1-\frac{x^2}{a^2}}\diff x} \\
+\uncover<15->{=4b\alert<15>{ \frac{a\pi}{4}}}\uncover<16->{=\pi a b\quad .}
 \end{array}
-$.
+$
 
 \vfil
 }

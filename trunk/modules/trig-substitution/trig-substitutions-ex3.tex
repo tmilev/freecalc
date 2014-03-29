@@ -1,6 +1,6 @@
 % begin module trig-substitutions-ex3
 \begin{frame}
-\begin{example}[Example 3, p. 505]
+\begin{example} %[Example 3, p. 505]
 \begin{columns}[c]
 \column{.4\textwidth}
 Find $\int \frac{1}{x^2 \sqrt{x^2+4}}\diff x$.
@@ -10,15 +10,32 @@ Find $\int \frac{1}{x^2 \sqrt{x^2+4}}\diff x$.
 \end{itemize}
 \column{.6\textwidth}
 \begin{center}
-\ \only<handout:0| -19>{%
-\includegraphics[height=3cm]{trig-substitution/pictures/08-03-ex3a.pdf}%
-}%
-\only<handout:0| 20>{%
-\includegraphics[height=3cm]{trig-substitution/pictures/08-03-ex3b.pdf}%
-}%
-\only<21->{%
-\includegraphics[height=3cm]{trig-substitution/pictures/08-03-ex3c.pdf}%
-}%
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.15,-0.3)(2.3,1.2)
+\psframe*[linecolor=white](-0.1,-0.3)(2.3,1.2)
+\psline(0,0)(2, 0)(2,1)(0,0)
+\psline(1.9,0)(1.9, 0.1)(2,0.1)
+\psAngle{0}{0.463648}{0.4}{$\theta$}
+\uncover<handout:0|20->{
+\rput[l](2.1, 0.5){$x$}
+\rput[t](1, -0.1){$2$}
+}
+\uncover<handout:0|21->{
+\rput[br](1, 0.55){$\sqrt{x^2+4}$}
+}
+%bounding box for pdflatex compilation:
+\psline[linecolor=red!1](-0.11, -0.3 )(-0.105, -0.3)
+\psline[linecolor=red!1](2.3, 1.21)(2.3, 1.205)
+\end{pspicture}
+%\ \only<handout:0| -19>{%
+%\includegraphics[height=3cm]{trig-substitution/pictures/08-03-ex3a.pdf}%
+%}%
+%\only<handout:0| 20>{%
+%\includegraphics[height=3cm]{trig-substitution/pictures/08-03-ex3b.pdf}%
+%}%
+%\only<21->{%
+%\includegraphics[height=3cm]{trig-substitution/pictures/08-03-ex3c.pdf}%
+%}%
 \end{center}
 \end{columns}
 \abovedisplayskip=0pt
