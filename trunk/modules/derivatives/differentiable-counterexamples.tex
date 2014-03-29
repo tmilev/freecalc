@@ -3,10 +3,8 @@
 \frametitle{How Can a Function Fail to be Differentiable?}
 \begin{columns}[c]
 \column{.3\textwidth}
-\
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-0.5,-0.5)(3,2.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3,2.5)
 %Function formula: - (x)+5/2 
 \psplot[linecolor=red, plotpoints=1000]{1}{3}{2.5 x -1 mul add } %Function formula: (x)^{2}+1/2 
@@ -20,9 +18,7 @@
 corner
 }%
 \column{.3\textwidth}
-\ 
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-0.5,-0.5)(3,2.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3,2.5)
 %Function formula: 1/2+1/2 (x)-1/2 ((x)^{2})+1/8 ((x)^{3}) 
 \psplot[linecolor=red, plotpoints=1000]{1}{3}{x 3 exp 0.125 mul x 2 exp -0.5 mul add x 0.5 mul add 0.5 add } %Function formula: x- ((x)^{2})+2 
@@ -38,8 +34,7 @@ discontinuity
 }%
 \column{.3\textwidth}
 \ 
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-0.5,-0.5)(3,2.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3,2.5)
 %Function formula: (-1+x)^{1/3}+1 
 \psplot[linecolor=red, plotpoints=1000]{1.00000001}{2.5}{1 x -1 add 0.333333 exp add } %Function formula: - ((- (x)+1)^{1/3})+1 
