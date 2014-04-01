@@ -1,25 +1,64 @@
 % begin module polar-intersection-ex3
 \begin{frame}
 \begin{example} %[Example 3, p. 688]
-Find all points of intersection of the polar curves $r = \frac{1}{2}$ and $r = \cos 2\theta$.
+Find all points of intersection of the polar curves $r = \frac{1}{2}$ and $r = \cos (2\theta)$.
 \begin{columns}[c]
 \column{.4\textwidth}
-\ \only<handout:0| -3>{%
-\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3a.pdf}%
-}%
-\only<handout:0| 4-5>{%
-\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3b.pdf}%
-}%
-\only<6-8>{%
-\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3c.pdf}%
-}%
-\only<handout:0| 9>{%
-\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3d.pdf}%
-}%
-\only<handout:0| 10->{%
-\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3e.pdf}%
-}%
 
+\psset{xunit=1.8cm, yunit=1.8cm}
+\begin{pspicture}(-1.5, -1.5)(1.5,1.5) 
+\tiny 
+\psaxesStandard{-1.4}{-1.4}{1.4}{1.4}
+%Calculator command: drawPolar{}(1/2, 0, 2 \pi) 
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(\cos{}(2 t), 0, 2 \pi) 
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
+
+\rput[tr](-0.8, -0.8){$r=\frac{1}{2}$}
+\psline{->}(-0.75, -0.75)(-0.353553391, -0.353553391)
+\rput[lt] (0.2, -1){$r=\cos (2\theta)$}
+
+\uncover<4->{
+\psFullDotBlack{0.433013}{0.25}
+\psFullDotBlack{-0.433013}{0.25}
+\psFullDotBlack{-0.433013}{-0.25}
+\psFullDotBlack{0.433013}{-0.25}
+}
+\uncover<6->{
+\psFullDotBlack{0.25}{0.433013}
+\psFullDotBlack{0.25}{-0.433013}
+\psFullDotBlack{-0.25}{-0.433013}
+\psFullDotBlack{-0.25}{0.433013}
+}
+\uncover<9>{
+\pscircle*[linecolor=red](0.433013,0.25){0.09}
+\pscircle*[linecolor=red](-0.433013,0.25){0.09}
+\pscircle*[linecolor=red](-0.433013,-0.25){0.09}
+\pscircle*[linecolor=red](0.433013,-0.25){0.09}
+}
+\uncover<10>{
+\pscircle*[linecolor=red](0.25,0.433013){0.09}
+\pscircle*[linecolor=red](0.25,-0.433013){0.09}
+\pscircle*[linecolor=red](-0.25,-0.433013){0.09}
+\pscircle*[linecolor=red](-0.25,0.433013){0.09}
+}
+\end{pspicture}
+
+%\ \only<handout:0| -3>{%
+%\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3a.pdf}%
+%}%
+%\only<handout:0| 4-5>{%
+%\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3b.pdf}%
+%}%
+%\only<6-8>{%
+%\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3c.pdf}%
+%}%
+%\only<handout:0| 9>{%
+%\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3d.pdf}%
+%}%
+%\only<handout:0| 10->{%
+%\includegraphics[height=5cm]{polar-curves/pictures/11-04-ex3e.pdf}%
+%}%
 \column{.6\textwidth}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
@@ -50,7 +89,7 @@ Find all points of intersection of the polar curves $r = \frac{1}{2}$ and $r = \
 \item<5->  This only gives four points.
 \item<6->  There are actually eight.
 \item<7->  The circle $r = \frac{1}{2}$ also has polar equation $r = -\frac{1}{2}$.
-\item<8->  To find all eight points, solve \alert<handout:0| 9>{$\cos 2\theta = \frac{1}{2}$} and \alert<handout:0| 10>{$\cos 2\theta = -\frac{1}{2}$}.
+\item<8->  To find all eight points, solve \alert<handout:0| 9>{$\cos (2\theta )= \frac{1}{2}$} and \alert<handout:0| 10>{$\cos (2\theta) = -\frac{1}{2}$}.
 \end{itemize}
 \end{columns}
 \end{example}
