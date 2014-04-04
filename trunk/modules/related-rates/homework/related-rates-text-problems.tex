@@ -1,21 +1,69 @@
-Stewart, pages 180-183
 \begin{enumerate}
-\item If $V$ is the volume of a cube with edge length $x$ and the cube expands as time passes, find $\frac{dV}{dt}$ in terms of $\frac{dx}{dt}$.
-\item Each side of a square is increasing at a rate of 6cm/s. At what rate is the area of the square increasing when the area of the square is 16 $cm^2$?
-\item The radius of a ball is increasing at a rate of 4 mm/s. How fast is the volume increasing when the diameter is 80mm?
+\item \label{problemRelatedRatesCubeExpands}  If $V$ is the volume of a cube with edge length $x$ and the cube expands as time passes, find $\frac{dV}{dt}$ in terms of $\frac{dx}{dt}$.
+
+\answer{$3x^2\frac{\diff x}{\diff t}$}
+
+\item \label{problemRelatedRatesSquareExpands} Each side of a square is increasing at a rate of $1\text{cm/s}$. At what rate is the area of the square increasing when the area of the square is 9 $\text{cm}^2$?
+\answer{$6\text{cm}^2/\text{s}$}
+\item \label{problemRelatedRatesBallRadiusChanges} The radius of a ball is increasing at a constant rate of $5 \text{mm/s} $. At a point in time we measure the radius of the ball to be $5\text{cm}$.
+\begin{itemize}
+\item How fast is the volume increasing at the time of our observation?
+\item How fast is the surface area increasing at the time of our observation?
+\end{itemize}
+\item \label{problemRelatedRatesBallSurfaceAreaChanges}  At a point in time, we measure the surface area of a ball to be increasing at a rate of $5\text{cm}^2/\text{s}$ and the radius of the ball to be $5 \text{cm}$.
+\begin{itemize}
+\item How fast is the volume increasing at the time of our observation?
+\item How fast is the radius increasing at the time of our observation?
+\end{itemize}
+\item \label{problemRelatedRatesBallVolumeChanges} At a point in time, we measure the volume of a ball to be increasing at a rate of $5\text{cm}^3/\text{s}$ and the radius of the ball to be $5 \text{cm}$.
+\begin{itemize}
+\item How fast is the radius increasing at the time of our observation?
+\item How fast is the surface area increasing at the time of our observation?
+\end{itemize}
+
+\item A 5m long ladder is leaning on a vertical wall. The base of the ladder is 4m away from the wall. At the moment of observation, the top end of the ladder is sliding downwards along the wall at a speed of 10 cm/s. 
+\begin{itemize}
+\item At the time of observation, how fast is the bottom end of the ladder sliding away from the wall 
+\item At the time of observation, how fast is the midpoint of the ladder moving away from the wall?
+\item At the time of observation, how fast is the midpoint of the ladder moving downwards towards the ground?
+
+\end{itemize} 
+
 \item 
-A street light is mounted at the top of a 4.5m tall pole. A man 180 cm tall walks away from the pole at a speed of 5km/h along a straight path. How fast is the tip of his shadow moving when he is 12m from the pole?
+A street light is mounted at the top of a 4m tall pole. A woman 160 cm tall walks away from the pole at a speed of 5km/h along a straight path. How fast is the tip of her shadow moving when she is 10m from the pole?
 
 
 \item 
-A boat is pulled into a dock by a rope attached to the bow of the boat and passing through a pulley on the dock that is 1m higher than the bow of the boat. If the rope is pulled in at a rate of 1m/s, how fast is the boat approaching the dock when it is 8m from the dock?
+A ship is pulled into a dock. On the dock, the rope is pulled by a pulley that is 1m lower than the mooring point on the ship. If the rope is pulled in at a constant rate of 10cm/s, how fast is the mooring point approaching the dock when it is 10m from the dock?
 
 \item 
 A Ferris wheel with a radius of 10m is rotating at a rate of one revolution every 2 minutes. How fast is a riding rising when his seat is 16 m above ground level?
 
 \item 
-The minute hand on a watch is 8mm long and the hour hand is 4mm long. How fast is the distance between the tips of the hands changing at one' clock?
+The minute hand on a watch is 8mm long and the hour hand is 4mm long. How fast is the distance between the tips of the hands changing at two o'clock?
 \end{enumerate}
 
 
+\solution{
+\ref{problemRelatedRatesCubeExpands}. The volume $V$ is given by $V=x^3$, therefore
+\[
+\frac{\diff V}{\diff t}= \frac{\diff }{\diff t}\left(x^3\right)= 3x^2\frac{\diff x}{\diff t}.
+\]
+}
+\solution{\ref{problemRelatedRatesSquareExpands}
+The area $A$ of the square is given by $A=x^2$, therefore
+\[
+\frac{\diff A}{\diff t}= \frac{\diff }{\diff t}\left(x^2\right)= 2x\frac{\diff x}{\diff t}.
+\]
+When $A=9 \text{cm}^2$, $x= 3\text{cm} $ ($=\sqrt{9\text{cm}^2}$), and so $\frac{\diff A}{\diff t}_{|x=3, \frac{\diff x}{\diff t}=1} = 2\cdot 3\text{cm} \cdot 1\text{cm/s} =6\text{cm}^2/\text{s}$.
+}
+\solution{\ref{problemRelatedRatesBallSurfaceAreaChanges}
+Let $S$ denote the surface area and $r$ the radius of the ball. Then $S=4\pi r^2$. Let the point of time be $t_0$. We are given that $\frac{\diff S}{\diff t}_{|t=t_0}= 5 \text{cm}^2/\text{s}$. On the other hand, 
 
+\[
+\begin{array}{rcl}
+\frac{\diff S}{\diff t}&=& \frac{\diff }{\diff t}\left(4\pi r^2\right)= 8\pi r \frac{\diff r}{\diff t}\\
+\frac{1}{8\pi}\frac{\diff S}{\diff t}
+\end{array}
+\]
+}
