@@ -3669,7 +3669,15 @@ $r$ denotes the distance from $P$ to the origin and $\theta$ denotes the angle b
 \end{pspicture*}
 } %optionalDisplay
 
-Polar coordinates are not unique: if $(r, \theta)$ are polar coordinates of $P=(x,y)$, then so are $(r, \theta+2\pi)$.
+Polar coordinates are not unique: if $(r, \theta)$ are polar coordinates of $P=(x,y)$, then so are $(r, \theta+2\pi)$. More precisely, the point $P_1$ with polar coordinates $(r_1, \theta_1)$ coincides with a point $P_2$ with polar coordinates $(r_2, \theta_2)$ if one of the three mutually exclusive possibilities holds:
+\begin{itemize}
+\item $r_1=r_2\neq 0$ and $\theta_1=\theta_2+2k\pi, k\in \mathbb Z $,
+\item $r_1=-r_2\neq 0$ and $\theta_1=\theta_2+(2k+1)\pi, k\in \mathbb Z$,
+\item $r_1=r_2=0 $ and $\theta$ is arbitrary.
+\end{itemize}
+
+
+
 
 We have already encountered polar coordinates when studying polar form of complex numbers. Let $z\eqdef x+iy$, $x,y\in \mathbb R$. Then we recall from section \ref{secPolarFormComplexNumbers} that there exist real numbers $\rho$, $r\eqdef e^\rho$ and $\theta$ such that $z=x+iy= e^{\rho+i\theta}= e^\rho(\cos \theta+i\sin \theta)= r(\cos \theta + i\sin \theta)$. We recall the latter equality is the polar form of the complex number $z$. Then $(r, \theta)$ are the polar coordinates of the point $(x,y)$. 
 
