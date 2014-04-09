@@ -39,8 +39,10 @@ A ship is pulled into a dock. On the dock, the rope is pulled by a pulley that i
 \item 
 A Ferris wheel with a radius of 10m is rotating at a rate of one revolution every 2 minutes. How fast is a riding rising when his seat is 16 m above ground level?
 
-\item 
-The minute hand on a watch is 8mm long and the hour hand is 4mm long. How fast is the distance between the tips of the hands changing at two o'clock?
+\item \label{problemRelatedRatesWatchHands}
+The minute hand on a watch is 10mm long and the hour hand is 5mm long. How fast is the distance between the tips of the hands changing at two o'clock?
+\answer{(not proofread) $-\frac{55}{42}\sqrt{21} \pi$ mm/h}
+
 \end{enumerate}
 
 
@@ -66,4 +68,23 @@ Let $S$ denote the surface area and $r$ the radius of the ball. Then $S=4\pi r^2
 \frac{1}{8\pi}\frac{\diff S}{\diff t}
 \end{array}
 \]
+}
+\solution{\ref{problemRelatedRatesWatchHands}
+Let the angle between the two arrows be $\theta$. The cosine law states that  for a triangle with angle $\theta$ and sides $a, b, c$ we have that $c^2=a^2+b^2-2ab\cos \theta$ (where $c$ is the length of the side opposite to the angle $\theta$).
+
+Then by the cosine law, the distance between the tips of the two hands is
+1\[ 
+y=\sqrt{5^2+10^2+2\cdot 5\cdot 10 \cos  \theta}=\sqrt{125+100 \cos \theta}.
+\]
+
+The short hand makes 1 full revolution every 12 hours, and the long hand makes 1 full revolution every 1 hour. Therefore the angle $\theta$ measured from the small hand to the long hand changes at the (constant) rate of $\frac{11}{12}$ revolutions per hour, or what is the same, at the rate $\frac{d \theta}{d t} = \frac{11}{12} (2\pi)=\frac{11}{6}\pi$.
+
+The problem asks us to compute $\frac{d y}{d t}$ at two o'clock, i.e., at $t=2$. This is a straightforward computation using the chain rule:
+\[
+\begin{array}{rcll|l}
+\displaystyle \frac{\diff y}{\diff t}&=&\displaystyle \frac{1}{2} \frac{-100\sin \theta}{ \sqrt{125+100\cos \theta}}\frac{\diff \theta}{\diff t}&&\text{at 2 o'clock } \theta=\frac{\pi}{3} \text{ and } \frac{\diff \theta}{\diff t}=\frac{11}{6} \pi\\~\\
+\displaystyle {\frac{\diff y}{\diff t}}_{|t=2}&=&\displaystyle \frac{1}{2} \frac{-100 \sin \frac{\pi}{3} }{ \sqrt{125+100 \cos \frac{\pi}{3}}} \frac{11\pi}{6}=-\frac{55}{42}\sqrt{21} \pi \quad .
+\end{array}
+\]
+The measurement unit of speed is mm/hour, so the distance is changing at the rate of $-\frac{55}{42}\sqrt{21}$ mm/hour.
 }
