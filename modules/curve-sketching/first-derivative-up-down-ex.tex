@@ -21,21 +21,61 @@ Find where the function $f(x) = 3x^4 + 8x^3 - 18 x^2 + 6$ is increasing and wher
 \alert<handout:0| 5-6>{\alert<handout:0| 8-9>{(\uncover<6->{x+3})}\alert<handout:0| 10-11>{(\uncover<6->{x-1})}}% 
 }%
 \]
-\uncover<7->{Therefore the important intervals are}
-\[
+\uncover<7->{$f'(x)$ equals zero for $x=-3, 0, 1$. Therefore the important intervals are
+
+\begin{pspicture}(-6, -0.5)(6,1)
+%\psframe*[linecolor=white](-6, -0.5)(6,1)
+\psline[linecolor=red!1](6,1)(5.999,1)
+\rput[b](-4.5,0.5){%
 \uncover<8->{%
-\alert<handout:0| 8>{(-\infty , -3)},\qquad%
+\alert<handout:0| 8>{$(-\infty , -3)$}
 }%
+}%
+\rput[b](-1.5,0.5){
 \uncover<9->{%
-\alert<handout:0| 9>{(-3 , 0)},\qquad%
+\alert<handout:0| 9>{$ (-3 , 0)$}
 }%
+}
+\rput[b](0.5,0.5){
 \uncover<10->{%
-\alert<handout:0| 10>{(0 , 1)},\qquad%
+\alert<handout:0| 9>{$(0 , 1)$}
 }%
+}
+\rput[b](3.5,0.5){
 \uncover<11->{%
-\alert<handout:0| 11>{(1 , \infty )}%
+\alert<handout:0| 9>{$(1, \infty ) $}
 }%
-\]
+}
+\psline[arrows=<->](-6, 0)(6,0)
+\psXTickWithLabel{-3}{$-3$}
+\psXTickWithLabel{0}{$0$}
+\psXTickWithLabel{1}{$1$}
+\uncover<8->{%
+\pscurve[arrows=->, linecolor=red](-3, 0)(-3.1, 0.4)(-3.2, 0.4)(-6,0.4)
+}
+\uncover<9->{%
+\pscurve[arrows, linecolor=red](-3, 0)(-2.9, 0.4)(-2.8, 0.4)(-0.2, 0.4)(-0.1,0.4)(0,0)
+}
+\uncover<10->{%
+\pscurve[arrows, linecolor=red](0, 0)(0.1, 0.4)(0.2, 0.4)(0.8, 0.4)(0.9,0.4)(1,0)
+}
+\uncover<11->{%
+\pscurve[arrows=->, linecolor=red](1, 0)(1.1, 0.4)(1.2, 0.4)(6,0.4)
+}
+\uncover<45->{
+\rput[b](-4.5,0.05){\alert<45>{$\searrow $}}
+}
+\uncover<45->{
+\rput[b](-1.5,0.05){\alert<45>{$\nearrow $}}
+}
+\uncover<45->{
+\rput[b](0.5,0.05){\alert<45>{$\searrow $}}
+}
+\uncover<45->{
+\rput[b](3.5,0.05){\alert<45>{$\nearrow $}}
+}
+\end{pspicture}
+}
 \uncover<12->{%
 \begin{center}
 \begin{tabular}{|c|c|c|c||c|c|}
