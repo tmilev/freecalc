@@ -4110,18 +4110,21 @@ In the graph below, we have plotted the solution to the logistic equation for $k
 \begin{solution}
 We proceed as explained in the theory:
 \[
-\begin{array}{rcl}
+\begin{array}{rcll|l}
 \displaystyle \frac{\frac{ \diff y}{ \diff x}}{y^2-1}&=&1 \\
-\displaystyle\int\limits_{x=x_0}^{x=t} \frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff y}&=&\displaystyle\int\limits_{x=x_0}^{x=t}\diff x \\
-\displaystyle\int\limits_{y=y(x_0) }^{y=y(t)} \frac{\diff y}{ y^2-1}& =& \displaystyle\left.t \right|_{ x=x_0}^{x=t} \\
-\displaystyle\int\limits_{y=y(x_0)}^{y=y(x)} \left(\frac{1/2 }{y-1}- \frac{1/2}{y+1}\right)\diff y&=& x-x_0\\
-\displaystyle\left .\frac{1}2 \ln \left|\frac{y-1}{y+1}\right|\right]_{y=y(x_0)}^{y(x)}&=& x-x_0\\
-\displaystyle \ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C\quad ,
+\displaystyle\int\limits_{x=x_0}^{x=t} \frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff (y(x)) }&=&\displaystyle\int\limits_{x=x_0}^{x=t}\diff x \\
+\displaystyle\int\limits_{t=x_0 }^{x=t} \frac{\diff (y(x))}{ (y(x))^2-1}& =& \displaystyle\left.t \right|_{ x=x_0}^{x=t} &&\text{set } z=y(x)\\
+\displaystyle\int\limits_{z=y(x_0) }^{z=y(t)} \frac{\diff z}{ z^2-1}& =& \displaystyle\left.t \right|_{ x=x_0}^{x=t} \\
+\displaystyle\int\limits_{z=y(x_0)}^{z=y(t)} \left(\frac{1/2 }{z-1}- \frac{1/2}{z+1}\right)\diff y&=& t-x_0\\
+\displaystyle\left .\frac{1}2 \ln \left|\frac{z-1}{z+1}\right|\right]_{z=y(x_0)}^{z=y(t)}&=& t-x_0\\
+\displaystyle \ln \left|\frac{y(t)-1}{y(t)+1}\right|&=& 2t - C&&\text{relabel dummy variable } t \text { to x} \\
+\displaystyle
+\ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C
 \end{array}
 \]
 where we have set $\displaystyle C=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\right|$. 
 
-Case 1. Suppose $\frac{y(x_0)-1}{y(x_0)+1}>0$. Set $D:=e^{-C}$. As the function $y(x)$ is differentiable, it is also continuous. Therefore $\frac{y(x)-1}{y(x)+1}>0$ for all $x$ near $x_0$. Then we can remove the absolute values around from the equality above to get that for all $x$ close to $x_0$ we have that
+\noindent Case 1. Suppose $\frac{y(x_0)-1}{y(x_0)+1}>0$. Set $D:=e^{-C}$. As the function $y(x)$ is differentiable, it is also continuous. Therefore $\frac{y(x)-1}{y(x)+1}>0$ for all $x$ near $x_0$. Then we can remove the absolute values around from the equality above to get that for all $x$ close to $x_0$ we have that
 \[
 \begin{array}{rcl}
 \displaystyle \ln \left(\frac{y(x)-1}{y(x)+1}\right)&=& 2x - C\\
@@ -4131,19 +4134,26 @@ Case 1. Suppose $\frac{y(x_0)-1}{y(x_0)+1}>0$. Set $D:=e^{-C}$. As the function 
 \displaystyle y(x)&=&\displaystyle  \frac{ 1+De^{2x}}{1- De^{2x}}\quad .\\
 \end{array}
 \]
-The solution $y(x)$ given above satisfies $\frac{y(x)-1}{y(x)+1}= De^{2x}$ for all $x$. Therefore the solution above is valid for all $x$.
+The solution $y(x)$ given above satisfies $\frac{y(x)-1}{y(x)+1}= De^{2x}$ for all $x$. As $D>0$, this implies that $\frac{y(x)-1}{ y(x)+1}>0$. Therefore the considerations above are valid for all $x$, rather than only for those $x$ near $x_0$. Therefore Case 1. yields the solution
+\[
+y(x)=\frac{ 1+De^{2x}}{1- De^{2x}}\quad .
+\]
 
-Case 2.  Suppose $\frac{y(x)-1}{y(x)+1}=0 $ for some $x$. Then $y(x)=\pm 1$, and we can plug back $y(x)=\pm 1$ in the original equation to get that $\frac{\diff y}{\diff x}= 0$, and therefore $y(x)= \pm 1$ (does not depend on $x$) are two solutions.
 
-Case 3. Suppose  $\frac{y(x)-1}{y(x)+1}<0$. Then $\ln \left|\frac{y(x)-1}{y(x)+1}\right|= \ln \left(\frac{1-y(x)}{y(x)+1}\right)$ and, similarly to Case 1, we get 
+\noindent Case 2. Suppose  $\frac{y(x_0)-1}{y(x_0)+1}<0$. Then for all $x$ near $x_0$ we get $\ln \left|\frac{y(x)-1}{y(x)+1}\right|= \ln \left( \frac{ 1- y(x) }{ y( x) +1}\right)$ and, similarly to Case 1, we get 
 \[
 \begin{array}{rcl}
-\frac{1-y(x)}{y(x)+1}&=& D e^{2x}\\
+\displaystyle \frac{1-y(x)}{y(x)+1}&=& D e^{2x}\\
 1-y(x)&=& De^{2x}(y(x)+1)\\
-y(x)(1+ De^{2x})&=& 1-De^{2x}\\
-y(x)&=&\frac{1- De^{2x}}{1+ De^{2x}}\quad .
+y(x)\left(1+ De^{2x}\right)&=& 1-De^{2x}\\
+y(x)&=&\displaystyle \frac{1- De^{2x}}{1+ De^{2x}}\quad .
 \end{array}
 \]
+Since $D$ is a negative constant, we conclude in a fashion analogous to Case 1 that $y(x)<0$ for all $ x$.
+
+Case 3.  Suppose $\frac{y(x_0)-1}{y(x_0)+1}=0 $.  Then $y(x_0)=\pm 1$. Clearly the constant functions $y(x)= \pm 1$ are two solutions: if we can plug back $y=\pm 1$ in the original equation we get that $\frac{\diff y}{\diff x}= 0$ and $y$ is a constant function of $x$. From the preceding two cases we know that if $\frac{y(x) -1}{y(x) +1}\neq 0 $ for some value of $x$, then $\frac{y(x)-1}{y(x)+1}\neq 0 $ for all values of $x$. Therefore Case 3 yields only two solutions, the constant functions $y(x)=\pm 1$.
+
+
 We may plot solutions for a few values of $D$ as follows. We overlay the solutions on top of the direction field of the differential equation. The picture tells us a lot about the properties of the solutions of the differential equations. 
 \optionalDisplay{
 \begin{pspicture}(-6,-6)(6,6)
@@ -4198,14 +4208,15 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 
 (b) From the computer generated picture above, we may visually estimate that $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ intersects the $x$-axis at $(0, -\frac 35)$. Furthermore, we may and check directly that for $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ we have $y(0)= \frac{1-4}{1+5}= \frac{-3}{5}= -\frac 35$ and that is a solution to our problem (this however does not prove the solution is unique). 
 
-Alternatively, let us give an algebraic solution. As we are given that $y(0)=-3/5$, the solution we are looking for cannot be given by Case 2. Suppose the solution is of the form given by Case 1. Then $-3/5=y(0)= \frac{1+De^{2*0}}{1- De^{2*0}}= \frac{1+D}{1-D}$ and therefore $1+D=\frac{3}{5}(D-1)$, and so $\frac{2}{5}D= -\frac{8}{3}$, and finally $D=-\frac{20}3$. However, $D=e^{-C}>0$, so negative values for $D$ are not possible.
+Alternatively, let us give an algebraic solution. As we are given that $y(0)=-3/5$, the solution we are looking for cannot be given by Case 2. Suppose the solution is of the form given by Case 1. Then $-3/5=y(0)= \frac{1+De^{2*0}}{1- De^{2\cdot 0}}= \frac{1+D}{1-D}$ and therefore $1+D=\frac{3}{5}(D-1)$, and so $\frac{2}{5}D= -\frac{8}{3}$, and finally $D=-\frac{20}3$. However, $D=e^{-C}>0$, so negative values for $D$ are not possible.
 
-Finally, suppose the solution is of the form given by Case 3. We see that then $-3/5=y(0)= \frac{1-De^{2*0}}{1+ De^{2*0}}= \frac{1-D}{1+D}$, and we can compute that $D=4$ is the only solution. Finally, we get the answer
+Finally, suppose the solution is of the form given by Case 3. We see that then $-3/5=y(0)= \frac{1-De^{2\cdot 0}}{1+ De^{2\cdot 0}}= \frac{1-D}{1+D}$, and we can compute that $D=4$ is the only solution. Finally, we get the answer
 \[
 y(x)= \frac{1- 4e^{2x}}{1+4e^{2x}}\quad .
 \]
 
 \end{solution}
+
 The following problem is the so called ``mixing problem''.
 
 \begin{problem}
