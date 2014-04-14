@@ -869,6 +869,7 @@ Compute the limit
 \[\lim\limits_{x\to 1}\frac{x-1}{x^2-1}\]
 \end{example}
 \begin{solution}
+\optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture}(-0.5,-0.5)(2,2.5)
 \psframe*[linecolor=white](-0.5, -0.5)(2, 2.5)
@@ -879,13 +880,14 @@ Compute the limit
 \psplot[linecolor=red]{-0.5}{2}{1 1 x add div}
 \psHollowDot{1}{0.5}
 \end{pspicture}
-
+}%optionalDisplay
 \end{solution}
 \begin{example}
 Compute the limit 
 \[\lim\limits_{x\to 0}\frac{\sin x}{x}\]
 \end{example}
 \begin{solution}
+\optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture}(-2,-0.5)(2.2,1.5)
 \psframe*[linecolor=white](-2, -0.5)(2.2, 1.7)
@@ -895,7 +897,7 @@ Compute the limit
 \psplot[linecolor=red]{-2}{2}{ x 57.295779513 mul sin x div}
 \psHollowDot{0}{1}
 \end{pspicture}
-
+}%optional display
 \end{solution}
 \begin{example}
 Show the limit 
@@ -905,6 +907,7 @@ Show the limit
 does not exist.
 \end{example}
 \begin{solution}
+\optionalDisplay{
 \begin{pspicture}(-3,-1.5)(3,1.5)
 \psframe*[linecolor=white](-3, -1.5)(3.2, 1.7)
 \psaxesStandard{-3}{-1.5}{3}{1.5}
@@ -913,7 +916,7 @@ does not exist.
 \psplot[linewidth=0.3pt, linecolor=red, plotpoints=10000]{-3}{-0.01}{3.14159 x div 57.295779513 mul sin}
 \psplot[linewidth=0.1pt, linecolor=red, plotpoints=10000]{0.01}{3}{3.14159 x div 57.295779513 mul sin}
 \end{pspicture}
-
+}%optionalDisplay
 \end{solution}
 \section{Continuity}
 %In this section we define continuous functions. 
@@ -3936,45 +3939,44 @@ We note that there are a number of issues which arise from Euler's method. For e
 %\begin{pspicture}
 %\end{pspicture}
 
-\subsection{Separable equations}\label{secSeparableDFQs}
+\subsection{Separable equations} \label{secSeparableDFQs}
 A differential equation is separable if it can be written in the form 
 \begin{equation}\label{eqDFQSeparable}
-\frac{d y}{\diff x}= f(x)g(y)\quad .
+\frac{\diff y}{\diff x}= f(x)g(y)\quad .
 \end{equation}
-Here, we recall that $y$ is an abbreviation for the function $y(x)$. 
+We recall that $y(x)$ denotes $y$ as a function of at $x$, and that $y(t)$ denotes the expression obtained by substituting $x=t$ in the expression for $y$.
 
-A separable differential equation can be solved as follows. Replace for convenience $x$ by $t$:
+A separable differential equation can be solved as follows. Divide out by $g(y)$:
 \[
-\frac{\diff y}{\diff t}= f(t)g(y)\quad .
+\frac{\diff y}{\diff x} \frac{1}{g(y)}= f(t)\quad .
 \]
-Divide out by $g(y)$
-\[
-\frac{\diff y}{\diff t} \frac{1}{g(y)}= f(t)\quad .
-\]
-We integrate both sides from $t=x_0$ to $t=x$. Again, we use the abbreviation $y=y(t)$.
+Let $x_0$ be a constant and $t$ a variable. We now integrate \eqref{eqDFQSeparable} from $x=x_0$ to $x=t$. This will ultimately give us an expression for $y(t)$.
 \begin{equation}\label{eqSeparableDFQSolution1}
 \begin{array}{rcl}
-\displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} \underbrace{\frac{\diff y}{\diff t}\diff t}_{= \diff y(t)}&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t
+\displaystyle \int\limits_{x=x_0}^{x=t}\frac{1}{g(y(x))} \underbrace{\frac{\diff y}{\diff x}\diff x}_{= \diff (y(x))}&=&\displaystyle \int \limits_{ x=x_0}^{ x=t}  f(x)\diff x
 \\ 
-\displaystyle \int\limits_{t=x_0}^{t=x}\frac{1}{g(y(t))} d(y(t))&=&\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t
+\displaystyle \int\limits_{x= x_0}^{x=t}\frac{ 1}{g( y(x))} \diff (y(x))&=&\displaystyle \int \limits_{ x=x_0}^{x=t}  f(x)\diff x
 \quad .
 \end{array}
 \end{equation}
-Suppose now $\frac{\diff y }{\diff t}$ is non-zero and does not change sign for $t\in [x_0, x]$. Without loss of generality assume $\frac{\diff y}{\diff t}>0$. Then $y$, as a function of $t$, is a bijection (for definition of bijection see Section \ref{secInverseFunctionBasics}) between $t\in [x_0, x]$ and $[y(x_0), y(x)]$. Therefore we may change the interval over which we integrate from $t\in  [x_0, x]$ to $y(t)\in [y(x_0), y(x)]$, to get 
+Suppose now $\displaystyle \frac{\diff y }{\diff x}$ is non-zero and does not change sign for $x\in [x_0, t]$.  Then $y$ is a one to one and onto map (=bijection) between $[x_0, t]$ and $[y(x_0), y(t)]$ (recall the definition of one to one and onto (=bijection) from Section \ref {secInverseFunctionBasics}). Therefore we may carry out the variable change $z=y(x)$, $z\in [y(x_0), y(t)]$:
 \begin{equation}\label{eqSeparableDFQSolution2}
-\displaystyle \int\limits_{y=y(x_0)}^{y=y(x)}\frac{1}{g(y)} \diff y=\displaystyle \int\limits_{t=x_0}^{t=x}  f(t)\diff t\quad .
+\displaystyle \int \limits_{ z=y(t)}^{z=y(x_0)}\frac{1}{g(z)} \diff z=\displaystyle \int\limits_{x=x_0}^{x=t}  f(x)\diff x\quad .
 \end{equation}
-Here, we have introduced a new dummy variable $y$, with respect to which we integrate. We ask the reader to distinguish  the function $y(x)$ that appears in the bounds of integration from the newly introduced dummy variable $y$ with respect to which we integrate. We ask the reader to forgive this slight abuse of notation\footnote{In more formal expositions, e.g., scientific papers, such abuse of notation should be avoided.}.
-
-Suppose we can solve $\displaystyle \int \frac{1}{g(y)}\diff y = G(y)+C_1$ and $\displaystyle \int  f(t)\diff t=F(t)+C_2$. Using the Fundamental theorem of Calculus we can rewrite \eqref{eqSeparableDFQSolution2} as
+Suppose we can solve $\displaystyle \int \frac{1}{g(z)}\diff z = G(z)+C_1$ and $\displaystyle \int  f(t)\diff t=F(t)+C_2$. Using the Fundamental theorem of Calculus we can rewrite \eqref{eqSeparableDFQSolution2} as
 \[
-G(y(x))-G(y(x_0)) = \left. G(y)\right|_{y=y(x_0)}^{y=y(x)} = \left. F(x) \right|_{t=x_0}^{t=x}= F(x)-F(x_0)
+\left.G(z)\right]_{z=y(x_0)}^{z=y(t)}=
+G(y(t))-G(y(x_0)) = \left. F(x) \right]_{x=x_0}^{x=t}= F(t)-F(x_0)
 \]
-or finally as 
+which we rearrange to:
+\[
+G(y)-F(t)-G(y(x_0))+ F(x_0)=0\quad .
+\]
+Finally, we may replace the dummy variable $t$ back to the variable $x$ to get a relation between $ x$ and $y$:
 \begin{equation}\label{eqDFQSeparableSolution}
-G(y)-F(x)-G(y(x_0))+ F(x_0)=0\quad .
+G(y)-F(t)-G(y(x_0))+ F(x_0)=-0
 \end{equation}
-If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If not possible to solve for $y$ explicitly, we may leave the solution of our differential equation in the form \eqref{eqDFQSeparableSolution}.
+If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If we cannot solve for $y$ explicitly, we may leave the relationship  \eqref{eqDFQSeparableSolution} as an implicit solution to the differential equation.
 \subsection{Solution of the logistic equation}
 \begin{example} Solve the logistic equation
 \[
@@ -4095,37 +4097,43 @@ In the graph below, we have plotted the solution to the logistic equation for $k
 \end{pspicture} 
 }
 \subsection{Examples of separable equations}
-(a) Find the general solution of
-\[
+\begin{problem}
+
+\begin{equation}\label{eqDFQseparable-yprime=ysquared-1}
 \frac{\diff y}{\diff x}= y^2-1\quad .
-\]
-(b)Find a solution for which $y(0)=-3/5$.
-
+\end{equation}
+\begin{enumerate}
+\item Find all solutions of the differential equation above.
+\item Find a solution for which $y(0)=-3/5$.
+\end{enumerate}
+\end{problem}
 \begin{solution}
-(a) We proceed as explained in the theoretical section.
+We proceed as explained in the theory:
 \[
 \begin{array}{rcl}
-\frac{\frac{\diff y}{\diff x}}{y^2-1}&=&1 \\
-\displaystyle\int\limits_{t=x_0}^{t=x} \frac{1}{ (y(t))^2- 1} \underbrace{ \frac{\diff y}{\diff t}\diff t}_{=d(y(t))}&=&\displaystyle\int\limits_{t=x_0}^{x}\diff t \\
-\displaystyle\int\limits_{y=y(x_0) }^{y=y(x)} \frac{\diff y}{ y^2-1}& =& \displaystyle\left.t \right|_{ t=x_0}^{t=x} \\
+\displaystyle \frac{\frac{ \diff y}{ \diff x}}{y^2-1}&=&1 \\
+\displaystyle\int\limits_{x=x_0}^{x=t} \frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff y}&=&\displaystyle\int\limits_{x=x_0}^{x=t}\diff x \\
+\displaystyle\int\limits_{y=y(x_0) }^{y=y(t)} \frac{\diff y}{ y^2-1}& =& \displaystyle\left.t \right|_{ x=x_0}^{x=t} \\
 \displaystyle\int\limits_{y=y(x_0)}^{y=y(x)} \left(\frac{1/2 }{y-1}- \frac{1/2}{y+1}\right)\diff y&=& x-x_0\\
-\displaystyle\left .\frac{1}2 \ln \left|\frac{y-1}{y+1}\right|~~~~~~~~~~\right|_{y=y(x_0)}^{y(x)}&=& x-x_0\\
-\displaystyle\ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C\quad ,
+\displaystyle\left .\frac{1}2 \ln \left|\frac{y-1}{y+1}\right|\right]_{y=y(x_0)}^{y(x)}&=& x-x_0\\
+\displaystyle \ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C\quad ,
 \end{array}
 \]
-where we have set $C:=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\right|$. 
+where we have set $\displaystyle C=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\right|$. 
 
-Case 1. Suppose $\frac{y(x)-1}{y(x)+1}>0$. Set $D:=e^{-C}$. Exponentiate both sides to get 
+Case 1. Suppose $\frac{y(x_0)-1}{y(x_0)+1}>0$. Set $D:=e^{-C}$. As the function $y(x)$ is differentiable, it is also continuous. Therefore $\frac{y(x)-1}{y(x)+1}>0$ for all $x$ near $x_0$. Then we can remove the absolute values around from the equality above to get that for all $x$ close to $x_0$ we have that
 \[
 \begin{array}{rcl}
-\frac{y(x)-1}{y(x)+1}&=& D e^{2x}\\
-y(x)-1&=& De^{2x}(y(x)+1)\\
-y(x)(1- De^{2x})&=& De^{2x}+1\\
-y(x)&=&\frac{ 1+De^{2x}}{1- De^{2x}}\quad .\\
+\displaystyle \ln \left(\frac{y(x)-1}{y(x)+1}\right)&=& 2x - C\\
+\displaystyle \frac{y(x)-1}{y(x)+1}&=& D e^{2x}\\
+\displaystyle y(x)-1&=&\displaystyle  De^{2x}(y(x)+1)\\
+\displaystyle y(x)\left(1- De^{2x}\right)&=&\displaystyle  De^{2x}+1\\
+\displaystyle y(x)&=&\displaystyle  \frac{ 1+De^{2x}}{1- De^{2x}}\quad .\\
 \end{array}
 \]
+The solution $y(x)$ given above satisfies $\frac{y(x)-1}{y(x)+1}= De^{2x}$ for all $x$. Therefore the solution above is valid for all $x$.
 
-Case 2.  Suppose $\frac{y(x)-1}{y(x)+1}=0$. Then $y(x)=\pm 1$, and we can plug back $y(x)=\pm 1$ in the original equation to get that $\frac{\diff y}{\diff x}= 0$, and therefore $y(x)= \pm 1$ (does not depend on $x$) are two solutions.
+Case 2.  Suppose $\frac{y(x)-1}{y(x)+1}=0 $ for some $x$. Then $y(x)=\pm 1$, and we can plug back $y(x)=\pm 1$ in the original equation to get that $\frac{\diff y}{\diff x}= 0$, and therefore $y(x)= \pm 1$ (does not depend on $x$) are two solutions.
 
 Case 3. Suppose  $\frac{y(x)-1}{y(x)+1}<0$. Then $\ln \left|\frac{y(x)-1}{y(x)+1}\right|= \ln \left(\frac{1-y(x)}{y(x)+1}\right)$ and, similarly to Case 1, we get 
 \[
@@ -4201,26 +4209,37 @@ y(x)= \frac{1- 4e^{2x}}{1+4e^{2x}}\quad .
 The following problem is the so called ``mixing problem''.
 
 \begin{problem}
-A tank contains 30 kg of salt dissolved in 10000 liters of water and salt solution. Brine that contains 0.05 kg of salt per liter enters the tank at a rate of 10 liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate (10 liters per minute). Determine how much salt remains in the tank after half an hour.
+A tank contains $30$ kg of salt dissolved in $10000$ liters of water and salt solution. Brine that contains $0.05$ kg of salt per liter enters the tank at a rate of $10$ liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate ($10$ liters per minute). Determine how much salt remains in the tank after $45$ minutes.
 \end{problem}
 \begin{solution}
-Let $y(t)$ be the amount of salt (in kilograms) contained in the tank after $t$ minutes. We are given $y(0)= 30kg$. In addition, we have that 
+Let 
 \[
-\frac{\diff y}{\diff t}= \mathrm{(rate~in)}-\mathrm{(rate~out)} \quad .
-\]
-The rate of salt entering the tank is constant, $0.05 kg/L *10 L/min= 0.5 kg/min$. As the solution is thoroughly mixed, at any time the concentration of salt in the tank is $\frac{y(t)}{10000} kg/L$. Therefore the rate of salt going out of the tank is $\frac{y(t)}{10000} kg/L * 10 L/min= \frac{y(t)}{1000} kg/min$. Finally, the differential equation for the amount of salt in the tank is
+y=f(t)
+\] be the amount of salt (in kilograms) contained in the tank after $t$ minutes. We are given $f(0)= 30kg$, the initial amount of salt. We are looking to find $f(45)$, the amount of salt after $45$ minutes. We have that 
 \[
-\frac{\diff y}{\diff t}= 0.5-\frac{y(t)}{1000} \quad .
+\frac{\diff y}{\diff t}= \text{(rate in)} - \text{(rate~out)} \quad .
 \]
-We can integrate as explained in the theoretical part, to get 
+The rate of salt entering the tank is constant: 
+\[
+\text{(rate in)}=0.05 kg/L *10 L/min= 0.5 kg/min\quad .
+\] 
+As the solution is thoroughly mixed, at any time the concentration of salt in the tank is $\displaystyle \frac{y}{ 10000} kg/L$. Therefore the rate of salt going out of the tank is 
+\[
+\text{(rate out)}=\frac{y}{10000} kg/L * 10 L/min= \frac{y}{1000} kg/min\quad .
+\] 
+Therefore the differential equation for the amount of salt in the tank is
+\[
+\frac{\diff y}{\diff t}= \underbrace{ 0.5}_{\text(rate in)}-\underbrace{\frac{y}{1000} }_{\text{(rate out)}}\quad .
+\]
+According to theory, to find $y=f(30)$, we integrate from $t=0$ to $t=30$:
 \[
 \begin{array}{rcl}
-\int\limits_{t=0}^{30} \frac{1000}{500-y(t)}\underbrace{\frac{\diff y}{\diff t} \diff t}_{d(y(t))} &=& \int\limits_{t=0}^{30} \diff t \\
-\int\limits_{y=y(0)}^{y=y(30)} \frac{1000}{500-y}\diff y&=& 30 \\
--1000\int\limits_{y=y(0)=30}^{y=y(30)} \frac{1}{500-y}d(500-y)&=& 30 \\
-\left. -1000 \ln |500-y|~~~~~~~~~~~ \right|_{30}^{y(30)}&=& 30 \\
--1000 \left(\ln |500-y(30)| -\ln |500- 30|  \right)&=& 30 \\
-\ln\underbrace{\left| \frac{470}{500-y(30)} \right|}_{=\frac{470}{500-y(30)}\mathrm{,~see~below} } &=& \frac{30}{1000} \\
+\displaystyle \int\limits_{t=0}^{30} \frac{1000}{500- y} \underbrace{ \frac{\diff y}{\diff t} \diff t}_{\diff y} &=& \displaystyle \int\limits_{t=0}^{30} \diff t \\
+\displaystyle \int\limits_{\substack{ t=0\\ y=f(0)=30} }^{\substack{t=30\\y=f(30)}} \frac{1000}{500-y}\diff y&=& 30 \\
+\displaystyle -1000 \int \limits_{y=30}^{y=f(30)} \frac{1}{500-y}d(500-y)&=& 30 \\
+\displaystyle \left. -1000 \ln |500-y|~~~~~~~~~~~ \right|_{30}^{y(30)}&=& 30 \\
+\displaystyle -1000 \left(\ln |500-y(30)| -\ln |500- 30|  \right)&=& 30 \\
+\displaystyle \ln\underbrace{\left| \frac{470}{500-y(30)} \right| }_{= \frac{470}{500 -y( 30)}\mathrm{,~see~below} } &=& \frac{30}{1000} \\
 \frac{470}{500-y(30)}&=&e^{3/100}\\
 500-y(30)&=& 470e^{-3/100}\\
 y(30)&=&500-470e^{-3/100}\\
