@@ -1,1 +1,41 @@
-A tank contains 1000 kg of salt dissolved in 10000 liters of water. Brine that contains 0.05 kg of salt per liter of water enters the tank at a rate of 30 liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate (30 liters per minute). Determine how much salt remains in the tank after an hour. Again, feel free to look up the sample problem from the notes.
+\begin{enumerate}
+\item \label{problemMixingProblem1}
+A tank contains 30 kg of salt dissolved in water to form $10000$ liters of solution. Brine that contains $0.05$ kg of salt per liter enters the tank at a rate of 10 liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate (10 liters per minute). Determine how much salt remains in the tank after half an hour.
+\item \label{problemMixingProblem2} A tank contains $1000$ kg of salt dissolved in water to form $10000$ liters of solution. Brine that contains $0.01$ kg of salt per liter of water enters the tank at a rate of $30$ liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate ($30$ liters per minute). 
+\begin{enumerate} 
+\item Determine how much salt remains in the tank after an hour. 
+\item How long should the procedure continue  so that the solution in the tank gets to a salt concentration of $0.101$ kg/L? 
+\end{enumerate}
+\end{enumerate}
+
+
+\solution{\ref{problemMixingProblem1}
+Let $y(t)$ be the amount of salt (in kilograms) contained in the tank after $t$ minutes. We are given $y(0)= 30kg$. In addition, we have that 
+\[
+\frac{\diff y}{\diff t}= \mathrm{(rate~in)}-\mathrm{(rate~out)} \quad .
+\]
+The rate of salt entering the tank is constant, $0.05 kg/L *10 L/min= 0.5 kg/min$. As the solution is thoroughly mixed, at any time the concentration of salt in the tank is $\frac{y(t)}{10000} kg/L$. Therefore the rate of salt going out of the tank is $\frac{y(t)}{10000} kg/L * 10 L/min= \frac{y(t)}{1000} kg/min$. Finally, the differential equation for the amount of salt in the tank is
+\[
+\frac{\diff y}{\diff t}= 0.5-\frac{y(t)}{1000} \quad .
+\]
+We can integrate as explained in the theoretical part, to get 
+\[
+\begin{array}{rcl}
+\int\limits_{t=0}^{30} \frac{1000}{500-y(t)}\underbrace{\frac{\diff y}{\diff t} \diff t}_{d(y(t))} &=& \int\limits_{t=0}^{30} \diff t \\
+\int\limits_{y=y(0)}^{y=y(30)} \frac{1000}{500-y}\diff y&=& 30 \\
+-1000\int\limits_{y=y(0)=30}^{y=y(30)} \frac{1}{500-y}d(500-y)&=& 30 \\
+\left. -1000 \ln |500-y|~~~~~~~~~~~ \right|_{30}^{y(30)}&=& 30 \\
+-1000 \left(\ln |500-y(30)| -\ln |500- 30|  \right)&=& 30 \\
+\ln\underbrace{\left| \frac{470}{500-y(30)} \right|}_{=\frac{470}{500-y(30)}\mathrm{,~see~below} } &=& \frac{30}{1000} \\
+\frac{470}{500-y(30)}&=&e^{3/100}\\
+500-y(30)&=& 470e^{-3/100}\\
+y(30)&=&500-470e^{-3/100}\\
+&\approx& 500-470*0.970445534 \\
+&\approx& 43.89 \quad ,
+\end{array}
+\]
+where we have used that $ \frac{470}{500-y(t)}>0 $. The fact that $ \frac{470}{500-y(t)}>0 $ can be seen as follows. As $500-y(0)=470>0$ and $y(t)$ is continuous, in order to have $500-y(t)<0$ there must exist some $x_1$ for which $y(x_1)=500$. However this is impossible since $x=\ln \left|\frac{470}{500-y(x)}\right|  $. 
+
+As the unit of measurement is $kg$, the answer to the problem is $\approx 43.89 kg$ salt.
+
+}
