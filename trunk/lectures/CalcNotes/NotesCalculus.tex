@@ -3977,7 +3977,7 @@ Finally, we may replace the dummy variable $t$ back to the variable $x$ to get a
 G(y)-F(t)-G(y(x_0))+ F(x_0)=-0
 \end{equation}
 If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If we cannot solve for $y$ explicitly, we may leave the relationship  \eqref{eqDFQSeparableSolution} as an implicit solution to the differential equation.
-\subsection{Solution of the logistic equation}
+\subsection{The logistic equation and other examples of separable differential equations}
 \begin{example} Solve the logistic equation
 \[
 \frac{\diff P}{\diff t}= k P\left(1-\frac{P}{M}\right)\quad.
@@ -4096,35 +4096,43 @@ In the graph below, we have plotted the solution to the logistic equation for $k
 
 \end{pspicture} 
 }
-\subsection{Examples of separable equations}
-\begin{problem}
+\begin{problem} \label{problemDFQseparable-yprime=ysquared-1}
 
 \begin{equation}\label{eqDFQseparable-yprime=ysquared-1}
 \frac{\diff y}{\diff x}= y^2-1\quad .
 \end{equation}
 \begin{enumerate}
-\item Find all solutions of the differential equation above.
-\item Find a solution for which $y(0)=-3/5$.
+\item \label{problemDFQseparable-yprime=ysquared-1-part1} Find all solutions of the differential equation above.
+\item \label{problemDFQseparable-yprime=ysquared-1-part2} Find a solution for which $y(0)=-\frac{3}{5}$.
 \end{enumerate}
 \end{problem}
 \begin{solution}
-We proceed as explained in the theory:
+\noindent \ref{problemDFQseparable-yprime=ysquared-1} (\ref{problemDFQseparable-yprime=ysquared-1-part1}). We proceed as explained in the theory.
+
+\noindent Case 1. Suppose there exists a number $x_0$ such that $(y(x_0) )^2 - 1\neq 0$. Since $y$ is a differentiable function of $x$, it is also continuous. Therefore for some $t$ sufficiently close to $x_0$, all numbers $x$ in the interval between $t$ and $x_0$ satisfy $ y(x)^2-1\neq 0$.
 \[
 \begin{array}{rcll|l}
 \displaystyle \frac{\frac{ \diff y}{ \diff x}}{y^2-1}&=&1 \\
-\displaystyle\int\limits_{x=x_0}^{x=t} \frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff (y(x)) }&=&\displaystyle\int\limits_{x=x_0}^{x=t}\diff x \\
-\displaystyle\int\limits_{t=x_0 }^{x=t} \frac{\diff (y(x))}{ (y(x))^2-1}& =& \displaystyle\left.t \right|_{ x=x_0}^{x=t} &&\text{set } z=y(x)\\
-\displaystyle\int\limits_{z=y(x_0) }^{z=y(t)} \frac{\diff z}{ z^2-1}& =& \displaystyle\left.t \right|_{ x=x_0}^{x=t} \\
-\displaystyle\int\limits_{z=y(x_0)}^{z=y(t)} \left(\frac{1/2 }{z-1}- \frac{1/2}{z+1}\right)\diff y&=& t-x_0\\
+\displaystyle\int\limits_{x=x_0}^{x=t} \frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff (y(x)) }&=&\displaystyle\int\limits_{x=x_0}^{x=t}\diff x &&\text{can integrate as }  y(x)^2-1\neq 0\\
+\displaystyle\int\limits_{t=x_0 }^{x=t} \frac{\diff (y(x))}{ (y(x))^2-1}& =& \displaystyle\left.x \right|_{ x=x_0}^{x=t} &&\text{set } z=y(x)\\
+\displaystyle\int\limits_{z=y(x_0) }^{z=y(t)} \frac{\diff z}{ z^2-1}& =& \displaystyle t-x_0 \\
+\displaystyle\int\limits_{z=y(x_0)}^{z=y(t)} \left(\frac{\frac12 }{z-1}- \frac{\frac12}{z+1}\right)\diff z&=& t-x_0\\
 \displaystyle\left .\frac{1}2 \ln \left|\frac{z-1}{z+1}\right|\right]_{z=y(x_0)}^{z=y(t)}&=& t-x_0\\
-\displaystyle \ln \left|\frac{y(t)-1}{y(t)+1}\right|&=& 2t - C&&\text{relabel dummy variable } t \text { to x} \\
+\displaystyle \ln \left|\frac{y(t)-1}{y(t)+1}\right|&=& 2t - C&&\text{relabel dummy variable } t \text { to } x \\
 \displaystyle
 \ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C
 \end{array}
 \]
-where we have set $\displaystyle C=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\right|$. 
+where we have set 
+\[\displaystyle C=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\right| \quad .
+\] 
+Set  
+\[
+D:=e^{-C}\quad .
+\] 
+By the assumption of our case, $ (y(x_0))^2-1\neq 0$, so there are two remaining cases: $ (y(x_0))^2-1>0$ and $ (y(x_0))^2-1<0$.
 
-\noindent Case 1. Suppose $\frac{y(x_0)-1}{y(x_0)+1}>0$. Set $D:=e^{-C}$. As the function $y(x)$ is differentiable, it is also continuous. Therefore $\frac{y(x)-1}{y(x)+1}>0$ for all $x$ near $x_0$. Then we can remove the absolute values around from the equality above to get that for all $x$ close to $x_0$ we have that
+\noindent Case 1.1. Suppose $\displaystyle \frac{y(x_0)-1}{ y(x_0)+1}>0$. As the function $y(x)$ is differentiable, it is also continuous. Therefore $\displaystyle \frac{y(x)-1}{y(x)+1}>0$ for all $x$ near $x_0$. Then we can remove the absolute values around from the equality above to get that for all $x$ close to $x_0$ we have that
 \[
 \begin{array}{rcl}
 \displaystyle \ln \left(\frac{y(x)-1}{y(x)+1}\right)&=& 2x - C\\
@@ -4134,13 +4142,12 @@ where we have set $\displaystyle C=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\ri
 \displaystyle y(x)&=&\displaystyle  \frac{ 1+De^{2x}}{1- De^{2x}}\quad .\\
 \end{array}
 \]
-The solution $y(x)$ given above satisfies $\frac{y(x)-1}{y(x)+1}= De^{2x}$ for all $x$. As $D>0$, this implies that $\frac{y(x)-1}{ y(x)+1}>0$. Therefore the considerations above are valid for all $x$, rather than only for those $x$ near $x_0$. Therefore Case 1. yields the solution
+The solution $y(x)$ given above satisfies $\displaystyle \frac{y(x)-1}{y(x)+1}= De^{2x}$ for all $x$. As $D>0$, this implies that $\displaystyle \frac{y(x)-1}{ y(x)+1}>0$. Therefore the considerations above are valid for all $x$, rather than only for those $x$ near $x_0$. Therefore our first case yields the solution
 \[
 y(x)=\frac{ 1+De^{2x}}{1- De^{2x}}\quad .
 \]
 
-
-\noindent Case 2. Suppose  $\frac{y(x_0)-1}{y(x_0)+1}<0$. Then for all $x$ near $x_0$ we get $\ln \left|\frac{y(x)-1}{y(x)+1}\right|= \ln \left( \frac{ 1- y(x) }{ y( x) +1}\right)$ and, similarly to Case 1, we get 
+\noindent Case 1.2. Suppose  $\displaystyle \frac{y(x_0) -1}{y(x_0) +1} <0$. Then for all $x$ near $x_0$ we get $\displaystyle \ln \left| \frac{y(x) -1}{y(x) +1}\right|= \ln \left( \frac{ 1- y(x) }{ y( x) +1}\right)$ and, similarly to Case 1, we get 
 \[
 \begin{array}{rcl}
 \displaystyle \frac{1-y(x)}{y(x)+1}&=& D e^{2x}\\
@@ -4149,10 +4156,15 @@ y(x)\left(1+ De^{2x}\right)&=& 1-De^{2x}\\
 y(x)&=&\displaystyle \frac{1- De^{2x}}{1+ De^{2x}}\quad .
 \end{array}
 \]
-Since $D$ is a negative constant, we conclude in a fashion analogous to Case 1 that $y(x)<0$ for all $ x$.
+Since $D$ is a positive constant, we conclude in a fashion analogous to Case 1 that $y(x)<0$ for all $ x$.
 
-Case 3.  Suppose $\frac{y(x_0)-1}{y(x_0)+1}=0 $.  Then $y(x_0)=\pm 1$. Clearly the constant functions $y(x)= \pm 1$ are two solutions: if we can plug back $y=\pm 1$ in the original equation we get that $\frac{\diff y}{\diff x}= 0$ and $y$ is a constant function of $x$. From the preceding two cases we know that if $\frac{y(x) -1}{y(x) +1}\neq 0 $ for some value of $x$, then $\frac{y(x)-1}{y(x)+1}\neq 0 $ for all values of $x$. Therefore Case 3 yields only two solutions, the constant functions $y(x)=\pm 1$.
+Case 2.  Suppose $\displaystyle  (y(x_0))^2-1=0 $.  Then $y(x_0)=\pm 1$. Clearly the constant functions $y(x)= \pm 1$ are two solutions: if we can plug back $y=\pm 1$ in the original equation we get that $\frac{\diff y}{\diff x}= 0$ and $y$ is a constant function of $x$. From the preceding two cases we know that if $\frac{y(x) -1}{y(x) +1}$ is defined and not equal to zero for some value of $x$, then $\frac{y(x)-1}{y(x)+1}$ is defined and not equal to zero for all values of $x$. Therefore the present case yields only two solutions, the constant functions $y(x)=\pm 1$. 
 
+Our final answer is 
+\[
+y(x)= \frac{1+De^{2x}}{1-De^{2x}} \quad \text{ or }\quad y(x)=0,
+\]
+where $D$ is an arbitrary rea(l number. Notice that in the above answer, we have combined Cases 1.1, 1.2 and the case $y(x)=1 $: by allowing $D$ to be negative we included Case 1.2 and by allowing $D $ to be zero we included the case $y(x)=1$. Finally, we note that if we let $D\to \infty$, the solution $y(x) = \frac{1+De^{2x }}{ 1- De^{2x}}  $ tends to the solution $y(x)=-1$ (for all values of $x$).
 
 We may plot solutions for a few values of $D$ as follows. We overlay the solutions on top of the direction field of the differential equation. The picture tells us a lot about the properties of the solutions of the differential equations. 
 \optionalDisplay{
@@ -4206,15 +4218,23 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 \end{pspicture}
 } %optionalDisplay
 
-(b) From the computer generated picture above, we may visually estimate that $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ intersects the $x$-axis at $(0, -\frac 35)$. Furthermore, we may and check directly that for $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ we have $y(0)= \frac{1-4}{1+5}= \frac{-3}{5}= -\frac 35$ and that is a solution to our problem (this however does not prove the solution is unique). 
-
-Alternatively, let us give an algebraic solution. As we are given that $y(0)=-3/5$, the solution we are looking for cannot be given by Case 2. Suppose the solution is of the form given by Case 1. Then $-3/5=y(0)= \frac{1+De^{2*0}}{1- De^{2\cdot 0}}= \frac{1+D}{1-D}$ and therefore $1+D=\frac{3}{5}(D-1)$, and so $\frac{2}{5}D= -\frac{8}{3}$, and finally $D=-\frac{20}3$. However, $D=e^{-C}>0$, so negative values for $D$ are not possible.
-
-Finally, suppose the solution is of the form given by Case 3. We see that then $-3/5=y(0)= \frac{1-De^{2\cdot 0}}{1+ De^{2\cdot 0}}= \frac{1-D}{1+D}$, and we can compute that $D=4$ is the only solution. Finally, we get the answer
+\noindent \ref{problemDFQseparable-yprime=ysquared-1} (\ref{problemDFQseparable-yprime=ysquared-1-part1}).
+From the computer generated picture above, we may visually estimate that $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ intersects the $x$-axis at $(0, -\frac 35)$. Furthermore, we may and check directly that for 
 \[
-y(x)= \frac{1- 4e^{2x}}{1+4e^{2x}}\quad .
-\]
+y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }
+\] 
+we have $y(0)= \frac{1-4}{1+5}= \frac{-3}{5}= -\frac 35$ and that is a solution to our problem (this however does not prove the solution is unique). 
 
+Alternatively, let us give an algebraic solution. As we are given that $y(0)=-\frac35$ and so 
+\[
+\begin{array}{rcl}
+\displaystyle -\frac35&=&\displaystyle y(0)= \frac{1-De^{2\cdot 0}}{1+ De^{2\cdot 0}}= \frac{1-D}{1+D}\\
+\displaystyle -\frac{3}{5} (1+D)&=&1-D\\
+\displaystyle \frac{2}{5} D&=&\displaystyle \frac{8}{5}\\
+D&=&4\quad ,
+\end{array}
+\] 
+and $D=4$ is our final answer.
 \end{solution}
 
 The following problem is the so called ``mixing problem''.
@@ -4225,42 +4245,53 @@ A tank contains $30$ kg of salt dissolved in $10000$ liters of water and salt so
 \begin{solution}
 Let 
 \[
-y=f(t)
-\] be the amount of salt (in kilograms) contained in the tank after $t$ minutes. We are given $f(0)= 30kg$, the initial amount of salt. We are looking to find $f(45)$, the amount of salt after $45$ minutes. We have that 
+y(t)=\text{salt in the tank after } t \text{ minutes (in kg)}\quad .
+\] 
+We are given $y(0)= 30$kg, the initial amount of salt. We are looking to find $y(45)$, the amount of salt after $45$ minutes. We have that 
 \[
 \frac{\diff y}{\diff t}= \text{(rate in)} - \text{(rate~out)} \quad .
 \]
 The rate of salt entering the tank is constant: 
 \[
-\text{(rate in)}=0.05 kg/L *10 L/min= 0.5 kg/min\quad .
+\text{(rate in)}=0.05 kg/L \cdot 10 L/min= 0.5 kg/min\quad .
 \] 
-As the solution is thoroughly mixed, at any time the concentration of salt in the tank is $\displaystyle \frac{y}{ 10000} kg/L$. Therefore the rate of salt going out of the tank is 
+As the solution is thoroughly mixed, at any time the concentration of salt in the tank is 
 \[
-\text{(rate out)}=\frac{y}{10000} kg/L * 10 L/min= \frac{y}{1000} kg/min\quad .
+\displaystyle \frac{y}{ 10000} kg/L.
+\] 
+Therefore the rate of salt going out of the tank is 
+\[
+\text{(rate out)}=\frac{y}{10000} kg/L * 10 L/min = \frac{y}{1000} kg/min\quad .
 \] 
 Therefore the differential equation for the amount of salt in the tank is
 \[
-\frac{\diff y}{\diff t}= \underbrace{ 0.5}_{\text(rate in)}-\underbrace{\frac{y}{1000} }_{\text{(rate out)}}\quad .
+\frac{\diff y}{\diff t}= \underbrace{ 0.5}_{\text{(rate  in)}}- \underbrace{ \frac{y}{1000} }_{\text{(rate out)}}\quad .
 \]
-According to theory, to find $y=f(30)$, we integrate from $t=0$ to $t=30$:
+To find $y(45)$, we integrate from $t=0$ to $t=45$:
 \[
-\begin{array}{rcl}
-\displaystyle \int\limits_{t=0}^{30} \frac{1000}{500- y} \underbrace{ \frac{\diff y}{\diff t} \diff t}_{\diff y} &=& \displaystyle \int\limits_{t=0}^{30} \diff t \\
-\displaystyle \int\limits_{\substack{ t=0\\ y=f(0)=30} }^{\substack{t=30\\y=f(30)}} \frac{1000}{500-y}\diff y&=& 30 \\
-\displaystyle -1000 \int \limits_{y=30}^{y=f(30)} \frac{1}{500-y}d(500-y)&=& 30 \\
-\displaystyle \left. -1000 \ln |500-y|~~~~~~~~~~~ \right|_{30}^{y(30)}&=& 30 \\
-\displaystyle -1000 \left(\ln |500-y(30)| -\ln |500- 30|  \right)&=& 30 \\
-\displaystyle \ln\underbrace{\left| \frac{470}{500-y(30)} \right| }_{= \frac{470}{500 -y( 30)}\mathrm{,~see~below} } &=& \frac{30}{1000} \\
-\frac{470}{500-y(30)}&=&e^{3/100}\\
-500-y(30)&=& 470e^{-3/100}\\
-y(30)&=&500-470e^{-3/100}\\
-&\approx& 500-470*0.970445534 \\
-&\approx& 43.89 \quad ,
+{\renewcommand{\arraystretch}{1.5}
+\begin{array}{rcll|l}
+\displaystyle \int\limits_{t=0}^{45} \frac{1000}{500- y} \underbrace{ \frac{\diff y}{\diff t} \diff t}_{\diff (y(t))} &=& \displaystyle \int\limits_{t=0}^{45} \diff t \\
+\displaystyle \int\limits_{t=0}^{t=45} \frac{1000}{500-y(t)}\diff (y(t))&=& 30&&\text{set }z=y(t) \\
+\displaystyle -1000 \int \limits_{z=y(0)=30}^{z=y(45)} \frac{1}{500-z}d(500-z)&=& 45 \\
+\displaystyle \left. -1000 \ln |500-y| \right]_{30}^{y(30)}&=& 45 \\
+\displaystyle -1000 \left( \ln |500-y(45)|\right. \\
+\left. -\ln |500- 30|  \right) &=& 45 \\
+\displaystyle \ln \left| \frac{470}{500-y(45)} \right|  &=& \displaystyle \frac{45}{1000}
+\\
+\displaystyle \ln \left( \frac{470}{500-y(45)} \right)  &=& \displaystyle \frac{45}{1000} &&\text{see below}
+\\
+\frac{470}{500-y(30)}&=&e^{\frac{45}{1000}}\\
+500-y(30)&=& 470e^{-\frac{9}{200}}\\
+y(30)&=&500-470e^{-\frac{9}{200}}\\
+&\approx& 500-470\cdot 0.955997 \\
+&\approx& 50.681184 \quad ,
 \end{array}
+}
 \]
-where we have used that $ \frac{470}{500-y(t)}>0 $. The fact that $ \frac{470}{500-y(t)}>0 $ can be seen as follows. As $500-y(0)=470>0$ and $y(t)$ is continuous, in order to have $500-y(t)<0$ there must exist some $x_1$ for which $y(x_1)=500$. However this is impossible since $x=\ln \left|\frac{470}{500-y(x)}\right|  $. 
+where we have used that $\displaystyle \frac{470}{500-y(t)}>0 $. The fact that $\displaystyle \frac{470}{500-y(t)}>0 $ can be seen as follows. As $500-y(0)=470>0$ and $y(t)$ is continuous, in order to have $500-y(t)<0$ there must exist some $x_1$ for which $y(x_1)=500$. However this is impossible since $x=\ln \left|\frac{470}{500-y(x)}\right|  $. 
 
-As the unit of measurement is $kg$, the answer to the problem is $\approx 43.89 kg$ salt.
+As the unit of measurement is $kg$, the final answer to the problem is $\approx 50.68 kg$ salt.
 
 \end{solution}
 \subsubsection{Exercises}
