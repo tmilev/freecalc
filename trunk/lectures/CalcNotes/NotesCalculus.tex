@@ -20,85 +20,11 @@
 
 % To make everything into one file, we include the following style file directly.
 % This might need to be updated over time.
-%\usepackage{../pstricks-commands}
+\usepackage{../pstricks-commands}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% List of commands in this document
-%
-%
-% \psFullDot        (Default dot to be used for points on graphs of functions).
-% \psHollowDot      (Default dot to be used for points on graphs of functions).
-% \psHollowDotBlue 
-% \psFullDotBlack
-% \psFullDotBlue
-% \psLabelXOne      (labels one on x axis)
-% \psLabelYOne      (labels one on y axis)
-% \psLabels         (writes x and y labels )
-% \psLabelsWithOnes (same as \psLabels + in addition labels 1 on the x and y axis)
-%\psaxesStandard (default display of axes with x and y label, takes two arguments)
-%\psLabelNumberXaxis
-%\psLabelNumberYaxis
-%\psXTickWithLabel
-%\psYTickWithLabel
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\psHollowDot}[2]{
-\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
-\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
-}
-\newcommand{\psFullDot}[2]{
-\pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
-}
 
-\newcommand{\psHollowDotBlue}[2]{
-\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
-\pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
-}
-\newcommand{\psFullDotBlack}[2]{
-\pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
-}
-\newcommand{\psFullDotBlue}[2]{
-\pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
-}
-\newcommand{\psXTickColored}[2]{\psline[linecolor=#1](#2, -0.1)(#2,0.1)}
-
-\newcommand{\psXTick}[1]{\psline(#1, -0.1)(#1,0.1)}
-\newcommand{\psYTick}[1]{\psline(-0.1, #1)(0.1, #1)}
-\newcommand{\psXYTick}[2]{\psXTick{#1} \psYTick{#2}}
-
-\newcommand{\psXTickWithLabel}[2]{\psXTick{#1}\rput[t](#1,-0.2){#2}}
-\newcommand{\psYTickWithLabel}[2]{\psYTick{#1}\rput[r](-0.2,#1){#2}}
-
-\newcommand{\psLabelNumberXaxis}[1]{\psXTickWithLabel{#1}{#1}}
-\newcommand{\psLabelNumberYaxis}[1]{\psYTickWithLabel{#1}{#1}}
-
-\newcommand{\psLabelNumberXYaxes}[2]{\psLabelNumberXaxis{#1} \psLabelNumberYaxis{#2} }
-
-\newcommand{\psLabelXOne}{\psLabelNumberXaxis{1} }
-\newcommand{\psLabelYOne}{\psLabelNumberYaxis{1} }
-
-\newcommand{\psLabelOnXaxis}[2]{\psXTick{#1}\rput[t](#1,-0.2){#2}}
-\newcommand{\psLabelOnYaxis}[2]{\psYTick{#1}\rput[r](-0.2, #1){#2}}
-
-\newcommand{\psLabels}[2]{\rput[t](#1, -0.1){$x$}\rput[r](-0.1, #2){$y$}}
-\newcommand{\psLabelsWithOnes}[2]{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) { $1$} \psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) { $1$} \psLabels{#1}{#2}}
-
-\newcommand{\psaxesStandard}[4]{\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)\psLabels{#3}{#4}}
-\newcommand{\psColorTangent}{blue}
-\newcommand{\psColorGraph}{red}
-\newcommand{\psColorAreaUnderGraph}{cyan}
-\newcommand{\psColorNegativeAreaUnderGraph}{orange}
-
-\newcommand{\psMachine}[2]{
-\pscustom*[linecolor=#2]{
-\psline(1,1.1)(1,0.1)(1.5,0.1)(2, 0.6)(2.5, 0.6)(2.5, -0.6)(2, -0.6)(1.5,-0.1)(1,-0.1)(1,-1.1)(-1,-1.1)(-1,-0.1)(-1.5,-0.1)(-2, -0.6)(-2.5, -0.6)(-2.5, 0.6)(-2, 0.6)(-1.5,0.1)(-1,0.1)(-1,1.1)
-}
-\pscircle*[linecolor=white](0,0){0.3}
-\rput(0,0){#1}
-}
 
 \newcommand{\diff}{\text{\normalfont d}}
 
@@ -134,11 +60,12 @@
 \DeclareMathOperator{\taylor}{Taylor}
 
 \newcommand{\optionalDisplay}[1]{}
-%\renewcommand{\optionalDisplay}[1]{#1}
+\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
 \newcommand{\optionalMaterial}{\textbf{(Optional)}}
 \renewcommand{\emph}{\textbf}
+\newcommand{\additionalProblemLabel}{}
 
 %\newcommand{\diff}{\text{d}}
 
@@ -3873,33 +3800,14 @@ Examples.
 \SpecialCoor
 \begin{pspicture}(-5,-5)(5,5)
 \psaxes{<->}(0,0)(-5,-5)(5,5)
-\rput (5,5){The direction field $\frac{\diff y}{\diff x}=xy$}
-  \psset{arrows=->}
-  \multido{\ra=-4+0.5}{17}{%
-    \multido{\rb=-4+0.5}{17}{%
-      \pstVerb{/xC \ra\space def
-               /yC \rb\space def
-               /F xC  yC mul \space def
-}
-\psdot[linecolor=red!60](! xC yC)
-\psline[linecolor=blue](! xC F ATAN 57.295 mul cos 0.2 mul sub yC F ATAN 57.295 mul sin 0.2 mul sub)(! xC F ATAN 57.295 mul cos 0.2 mul add yC F ATAN 57.295 mul sin 0.2 mul add )
-}}
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=xy$}%
+\directionFieldDefault{x y mul}{-4}{-4}{0.5}{17}
 \end{pspicture}
 
 \begin{pspicture}(-5,-5)(5,5)
 \psaxes{<->}(0,0)(-5,-6)(5,5)
 \rput (5,5){The direction field $\frac{\diff y}{\diff x}=x+y$}
-  \psset{arrows=->}
-  \multido{\ra=-4+0.5}{17}{%
-    \multido{\rb=-4+0.5}{17}{%
-      \pstVerb{/xC \ra\space def
-               /yC \rb\space def
-               /F xC  yC add \space def
-}
-%\psline[linecolor=blue](! xC  yC )(! xC yC)
-\psdot[linecolor=red!60](! xC yC)
-\psline[linecolor=blue](! xC F ATAN 57.295 mul cos 0.2 mul sub yC F ATAN 57.295 mul sin 0.2 mul sub)(! xC F ATAN 57.295 mul cos 0.2 mul add yC F ATAN 57.295 mul sin 0.2 mul add )
-}}
+\directionFieldDefault{x y add}{-4}{-4}{0.5}{17}
 \end{pspicture}
 }%optionalDisplay
 
@@ -3923,17 +3831,7 @@ We note that there are a number of issues which arise from Euler's method. For e
 \begin{pspicture}(-6,-1)(6,6)
 \psaxes{<->}(0,0)(-6,-1)(6,6)
 \rput (5,5){The direction field $\frac{\diff y}{\diff x}=-\frac{x}{y}$}
-  \psset{arrows=->}
-  \multido{\ra=-4+0.5}{17}{%
-    \multido{\rb=0.001+0.5}{8}{%
-      \pstVerb{/xC \ra\space def
-               /yC \rb\space def
-               /F  xC yC div -1 mul \space def
-}
-%\psline[linecolor=blue](! xC  yC )(! xC yC)
-\psdot[linecolor=red!60](! xC yC)
-\psline[linecolor=blue](! xC F ATAN 57.295 mul cos 0.2 mul sub yC F ATAN 57.295 mul sin 0.2 mul sub)(! xC F ATAN 57.295 mul cos 0.2 mul add yC F ATAN 57.295 mul sin 0.2 mul add )
-}}
+\directionFieldFull{x y div -1 mul}{-4}{0.001}{0.5}{17}{8}{0.2}{0.02}{linecolor=blue}%
 \end{pspicture}
 } %optionalDisplay
 %\begin{pspicture}
@@ -4096,238 +3994,25 @@ In the graph below, we have plotted the solution to the logistic equation for $k
 
 \end{pspicture} 
 }
-\begin{problem} \label{problemDFQseparable-yprime=ysquared-1}
 
-\begin{equation}\label{eqDFQseparable-yprime=ysquared-1}
-\frac{\diff y}{\diff x}= y^2-1\quad .
-\end{equation}
-\begin{enumerate}
-\item \label{problemDFQseparable-yprime=ysquared-1-part1} Find all solutions of the differential equation above.
-\item \label{problemDFQseparable-yprime=ysquared-1-part2} Find a solution for which $y(0)=-\frac{3}{5}$.
-\end{enumerate}
+\begin{problem}~\label{problemDFQseparable-yprime=ysquared-1}
+\input{../../modules/diff-eq-separable/homework/separable-DFQs-1}
 \end{problem}
-\begin{solution}
-\noindent \ref{problemDFQseparable-yprime=ysquared-1} (\ref{problemDFQseparable-yprime=ysquared-1-part1}). We proceed as explained in the theory.
-
-\noindent Case 1. Suppose there exists a number $x_0$ such that $(y(x_0) )^2 - 1\neq 0$. Since $y$ is a differentiable function of $x$, it is also continuous. Therefore for some $t$ sufficiently close to $x_0$, all numbers $x$ in the interval between $t$ and $x_0$ satisfy $ y(x)^2-1\neq 0$.
-\[
-\begin{array}{rcll|l}
-\displaystyle \frac{\frac{ \diff y}{ \diff x}}{y^2-1}&=&1 \\
-\displaystyle\int\limits_{x=x_0}^{x=t} \frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff (y(x)) }&=&\displaystyle\int\limits_{x=x_0}^{x=t}\diff x &&\text{can integrate as }  y(x)^2-1\neq 0\\
-\displaystyle\int\limits_{t=x_0 }^{x=t} \frac{\diff (y(x))}{ (y(x))^2-1}& =& \displaystyle\left.x \right|_{ x=x_0}^{x=t} &&\text{set } z=y(x)\\
-\displaystyle\int\limits_{z=y(x_0) }^{z=y(t)} \frac{\diff z}{ z^2-1}& =& \displaystyle t-x_0 \\
-\displaystyle\int\limits_{z=y(x_0)}^{z=y(t)} \left(\frac{\frac12 }{z-1}- \frac{\frac12}{z+1}\right)\diff z&=& t-x_0\\
-\displaystyle\left .\frac{1}2 \ln \left|\frac{z-1}{z+1}\right|\right]_{z=y(x_0)}^{z=y(t)}&=& t-x_0\\
-\displaystyle \ln \left|\frac{y(t)-1}{y(t)+1}\right|&=& 2t - C&&\text{relabel dummy variable } t \text { to } x \\
-\displaystyle
-\ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C
-\end{array}
-\]
-where we have set 
-\[\displaystyle C=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\right| \quad .
-\] 
-Set  
-\[
-D:=e^{-C}\quad .
-\] 
-By the assumption of our case, $ (y(x_0))^2-1\neq 0$, so there are two remaining cases: $ (y(x_0))^2-1>0$ and $ (y(x_0))^2-1<0$.
-
-\noindent Case 1.1. Suppose $\displaystyle \frac{y(x_0)-1}{ y(x_0)+1}>0$. As the function $y(x)$ is differentiable, it is also continuous. Therefore $\displaystyle \frac{y(x)-1}{y(x)+1}>0$ for all $x$ near $x_0$. Then we can remove the absolute values around from the equality above to get that for all $x$ close to $x_0$ we have that
-\[
-\begin{array}{rcl}
-\displaystyle \ln \left(\frac{y(x)-1}{y(x)+1}\right)&=& 2x - C\\
-\displaystyle \frac{y(x)-1}{y(x)+1}&=& D e^{2x}\\
-\displaystyle y(x)-1&=&\displaystyle  De^{2x}(y(x)+1)\\
-\displaystyle y(x)\left(1- De^{2x}\right)&=&\displaystyle  De^{2x}+1\\
-\displaystyle y(x)&=&\displaystyle  \frac{ 1+De^{2x}}{1- De^{2x}}\quad .\\
-\end{array}
-\]
-The solution $y(x)$ given above satisfies $\displaystyle \frac{y(x)-1}{y(x)+1}= De^{2x}$ for all $x$. As $D>0$, this implies that $\displaystyle \frac{y(x)-1}{ y(x)+1}>0$. Therefore the considerations above are valid for all $x$, rather than only for those $x$ near $x_0$. Therefore our first case yields the solution
-\[
-y(x)=\frac{ 1+De^{2x}}{1- De^{2x}}\quad .
-\]
-
-\noindent Case 1.2. Suppose  $\displaystyle \frac{y(x_0) -1}{y(x_0) +1} <0$. Then for all $x$ near $x_0$ we get $\displaystyle \ln \left| \frac{y(x) -1}{y(x) +1}\right|= \ln \left( \frac{ 1- y(x) }{ y( x) +1}\right)$ and, similarly to Case 1, we get 
-\[
-\begin{array}{rcl}
-\displaystyle \frac{1-y(x)}{y(x)+1}&=& D e^{2x}\\
-1-y(x)&=& De^{2x}(y(x)+1)\\
-y(x)\left(1+ De^{2x}\right)&=& 1-De^{2x}\\
-y(x)&=&\displaystyle \frac{1- De^{2x}}{1+ De^{2x}}\quad .
-\end{array}
-\]
-Since $D$ is a positive constant, we conclude in a fashion analogous to Case 1 that $y(x)<0$ for all $ x$.
-
-Case 2.  Suppose $\displaystyle  (y(x_0))^2-1=0 $.  Then $y(x_0)=\pm 1$. Clearly the constant functions $y(x)= \pm 1$ are two solutions: if we can plug back $y=\pm 1$ in the original equation we get that $\frac{\diff y}{\diff x}= 0$ and $y$ is a constant function of $x$. From the preceding two cases we know that if $\frac{y(x) -1}{y(x) +1}$ is defined and not equal to zero for some value of $x$, then $\frac{y(x)-1}{y(x)+1}$ is defined and not equal to zero for all values of $x$. Therefore the present case yields only two solutions, the constant functions $y(x)=\pm 1$. 
-
-Our final answer is 
-\[
-y(x)= \frac{1+De^{2x}}{1-De^{2x}} \quad \text{ or }\quad y(x)=0,
-\]
-where $D$ is an arbitrary rea(l number. Notice that in the above answer, we have combined Cases 1.1, 1.2 and the case $y(x)=1 $: by allowing $D$ to be negative we included Case 1.2 and by allowing $D $ to be zero we included the case $y(x)=1$. Finally, we note that if we let $D\to \infty$, the solution $y(x) = \frac{1+De^{2x }}{ 1- De^{2x}}  $ tends to the solution $y(x)=-1$ (for all values of $x$).
-
-We may plot solutions for a few values of $D$ as follows. We overlay the solutions on top of the direction field of the differential equation. The picture tells us a lot about the properties of the solutions of the differential equations. 
-\optionalDisplay{
-\begin{pspicture}(-6,-6)(6,6)
-\newcommand{\Dconst}{1}
-\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
-\renewcommand{\Dconst}{0.25}
-\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
-\renewcommand{\Dconst}{4}
-\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
-\rput[l](5,2 ){$\frac{1- \frac{1}4 e^{2x}}{1+\frac 14 e^{2x}}$ }
-\rput[l](5,0.5 ){$\frac{1- e^{2x}}{1+e^{2x}}$ }
-\rput[l](5,-2 ){$\frac{1- 4e^{2x}}{1+4e^{2x}}$ }
-\psline[arrows=->, linestyle=dotted](5,2)(0,0.6)
-\psline[arrows=->, linestyle=dotted](5,0.5)(0,0)
-\psline[arrows=->, linestyle=dotted](5,-2)(0,-0.6)
-
-\renewcommand{\Dconst}{1}
-\psplot[linecolor=green]{-4}{-0.17}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\psplot[linecolor=green]{0.17}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\renewcommand{\Dconst}{4}
-
-\psplot[linecolor=green]{-4}{-0.863147181}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\psplot[linecolor=green]{-0.523147181}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-
-\renewcommand{\Dconst}{0.25}
-\psplot[linecolor=green]{-4}{0.523147181}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\psplot[linecolor=green]{0.863147181}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
-\rput[r](-5,0.5 ){$\frac{1+\frac 14 e^{2x}}{1- \frac{1}4 e^{2x}}$ }
-\rput[r](-5,2 ){$\frac{1+e^{2x}}{1- e^{2x}}$ }
-\rput[r](-5,-2 ){$\frac{1+4e^{2x}}{1- 4e^{2x}}$ }
-\psline[arrows=->, linestyle=dotted](-5,0.5)(0,1.6667)
-\psline[arrows=->, linestyle=dotted](-5,0.5)(1,-3.360539267)
-\psline[arrows=->, linestyle=dotted](-5,2)(-0.2,5.066489563)
-\psline[arrows=->, linestyle=dotted](-5,2)(0.2,-5.066489563)
-\psline[arrows=->, linestyle=dotted](-5,-2)(0,-1.6667)
-\psline[arrows=->, linestyle=dotted](-5,-2)(-1,3.360539267)
-\psaxes{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\rput (5,5){The direction field  $\frac{\diff y}{\diff x}=y^2-1$}
-  \psset{arrows=->}
-  \multido{\ra=-4+0.5}{17}{%
-    \multido{\rb=-4+0.5}{17}{%
-      \pstVerb{/xC \ra\space def
-               /yC \rb\space def
-               /F  yC yC mul 1 sub \space def
-}
-%\psline[linecolor=blue](! xC  yC )(! xC yC)
-\psdot[linecolor=red!60](! xC yC)
-\psline[linecolor=blue](! xC F ATAN 57.295 mul cos 0.2 mul sub yC F ATAN 57.295 mul sin 0.2 mul sub)(! xC F ATAN 57.295 mul cos 0.2 mul add yC F ATAN 57.295 mul sin 0.2 mul add )
-}}
-\end{pspicture}
-} %optionalDisplay
-
-\noindent \ref{problemDFQseparable-yprime=ysquared-1} (\ref{problemDFQseparable-yprime=ysquared-1-part1}).
-From the computer generated picture above, we may visually estimate that $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ intersects the $x$-axis at $(0, -\frac 35)$. Furthermore, we may and check directly that for 
-\[
-y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }
-\] 
-we have $y(0)= \frac{1-4}{1+5}= \frac{-3}{5}= -\frac 35$ and that is a solution to our problem (this however does not prove the solution is unique). 
-
-Alternatively, let us give an algebraic solution. As we are given that $y(0)=-\frac35$ and so 
-\[
-\begin{array}{rcl}
-\displaystyle -\frac35&=&\displaystyle y(0)= \frac{1-De^{2\cdot 0}}{1+ De^{2\cdot 0}}= \frac{1-D}{1+D}\\
-\displaystyle -\frac{3}{5} (1+D)&=&1-D\\
-\displaystyle \frac{2}{5} D&=&\displaystyle \frac{8}{5}\\
-D&=&4\quad ,
-\end{array}
-\] 
-and $D=4$ is our final answer.
-\end{solution}
+\renewcommand{\additionalProblemLabel}{\ref{problemDFQseparable-yprime=ysquared-1}.}
+\input{../../modules/diff-eq-separable/homework/separable-DFQs-1-solution}
+\renewcommand{\additionalProblemLabel}{}
 
 The following problem is the so called ``mixing problem''.
-
 \begin{problem}
-A tank contains $30$ kg of salt dissolved in $10000$ liters of water and salt solution. Brine that contains $0.05$ kg of salt per liter enters the tank at a rate of $10$ liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate ($10$ liters per minute). Determine how much salt remains in the tank after $45$ minutes.
+\input{../../modules/diff-eq-separable/homework/mixing-problem-1}
 \end{problem}
-\begin{solution}
-Let 
-\[
-y(t)=\text{salt in the tank after } t \text{ minutes (in kg)}\quad .
-\] 
-We are given $y(0)= 30$kg, the initial amount of salt. We are looking to find $y(45)$, the amount of salt after $45$ minutes. We have that 
-\[
-\frac{\diff y}{\diff t}= \text{(rate in)} - \text{(rate~out)} \quad .
-\]
-The rate of salt entering the tank is constant: 
-\[
-\text{(rate in)}=0.05 kg/L \cdot 10 L/min= 0.5 kg/min\quad .
-\] 
-As the solution is thoroughly mixed, at any time the concentration of salt in the tank is 
-\[
-\displaystyle \frac{y}{ 10000} kg/L.
-\] 
-Therefore the rate of salt going out of the tank is 
-\[
-\text{(rate out)}=\frac{y}{10000} kg/L * 10 L/min = \frac{y}{1000} kg/min\quad .
-\] 
-Therefore the differential equation for the amount of salt in the tank is
-\[
-\frac{\diff y}{\diff t}= \underbrace{ 0.5}_{\text{(rate  in)}}- \underbrace{ \frac{y}{1000} }_{\text{(rate out)}}\quad .
-\]
-To find $y(45)$, we integrate from $t=0$ to $t=45$:
-\[
-{\renewcommand{\arraystretch}{1.5}
-\begin{array}{rcll|l}
-\displaystyle \int\limits_{t=0}^{45} \frac{1000}{500- y} \underbrace{ \frac{\diff y}{\diff t} \diff t}_{\diff (y(t))} &=& \displaystyle \int\limits_{t=0}^{45} \diff t \\
-\displaystyle \int\limits_{t=0}^{t=45} \frac{1000}{500-y(t)}\diff (y(t))&=& 30&&\text{set }z=y(t) \\
-\displaystyle -1000 \int \limits_{z=y(0)=30}^{z=y(45)} \frac{1}{500-z}d(500-z)&=& 45 \\
-\displaystyle \left. -1000 \ln |500-y| \right]_{30}^{y(30)}&=& 45 \\
-\displaystyle -1000 \left( \ln |500-y(45)|\right. \\
-\left. -\ln |500- 30|  \right) &=& 45 \\
-\displaystyle \ln \left| \frac{470}{500-y(45)} \right|  &=& \displaystyle \frac{45}{1000}
-\\
-\displaystyle \ln \left( \frac{470}{500-y(45)} \right)  &=& \displaystyle \frac{45}{1000} &&\text{see below}
-\\
-\frac{470}{500-y(30)}&=&e^{\frac{45}{1000}}\\
-500-y(30)&=& 470e^{-\frac{9}{200}}\\
-y(30)&=&500-470e^{-\frac{9}{200}}\\
-&\approx& 500-470\cdot 0.955997 \\
-&\approx& 50.681184 \quad ,
-\end{array}
-}
-\]
-where we have used that $\displaystyle \frac{470}{500-y(t)}>0 $. The fact that $\displaystyle \frac{470}{500-y(t)}>0 $ can be seen as follows. As $500-y(0)=470>0$ and $y(t)$ is continuous, in order to have $500-y(t)<0$ there must exist some $x_1$ for which $y(x_1)=500$. However this is impossible since $x=\ln \left|\frac{470}{500-y(x)}\right|  $. 
+\input{../../modules/diff-eq-separable/homework/mixing-problem-1-solution}
 
-As the unit of measurement is $kg$, the final answer to the problem is $\approx 50.68 kg$ salt.
-
-\end{solution}
 \subsubsection{Exercises}
-\begin{problem} ~
-\begin{itemize}
-\item Find the general solution to the differential equation 
-\[
-\frac{\diff y}{\diff x}= y^2-4\quad .
-\]
-The drawing below is a computer-generated plot of the direction field  $\frac{\diff y}{\diff x}=y^2-4$, you may use it to get a feeling for what your answer should look like.
-\item Find a solution of the above equation for which $ y(0)= -\frac{6}{5}$. 
-\end{itemize}
-
-\optionalDisplay{
-\begin{pspicture}(-6,-6)(6,6)
-\newcommand{\Dconst}{4}
-\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 4 x mul exp mul sub 1 \Dconst\space 2.718281828 4 x mul exp mul add div 2 mul} 
-
-\psaxes{<->}(0,0)(-6,-2)(6,6)
-\rput (5,5){The direction field  $\frac{\diff y}{\diff x}=y^2-4$}
-  \psset{arrows=->}
-  \multido{\ra=-4+0.5}{17}{%
-    \multido{\rb=-4+0.5}{17}{%
-      \pstVerb{/xC \ra\space def
-               /yC \rb\space def
-               /F  yC yC mul 4 sub \space def
-}
-%\psline[linecolor=blue](! xC  yC )(! xC yC)
-\psdot[linecolor=red!60](! xC yC)
-\psline[linecolor=blue](! xC F ATAN 57.295 mul cos 0.2 mul sub yC F ATAN 57.295 mul sin 0.2 mul sub)(! xC F ATAN 57.295 mul cos 0.2 mul add yC F ATAN 57.295 mul sin 0.2 mul add )
-}}
-\end{pspicture}
-} %optionalDisplay
+\begin{problem} \input{../../modules/diff-eq-separable/homework/separable-DFQs-2}
 \end{problem}
 \begin{problem}
-Mixing problem. A tank contains 1000 kg of salt dissolved in 10000 liters of water. Brine that contains 0.05 kg of salt per liter of water enters the tank at a rate of 30 liters per minute. The solution is kept thoroughly mixed and drains from the tank at the same rate (30 liters per minute). Determine how much salt remains in the tank after an hour.
+\input{../../modules/diff-eq-separable/homework/mixing-problem-2}
 \end{problem}
 \subsection{Linear differential equations}
 A differential equation is \emph{linear} if it is of the form 
@@ -4404,17 +4089,8 @@ In order to find a solution for which $y(0)=3$, we simply plug in $x_0=0$, $y(x_
 \psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add} 
 
 \rput (5,5){The direction field $\frac{\diff y}{\diff x}=x-xy$}
-  \psset{arrows=->}
-  \multido{\ra=-4.0+0.5}{17}{%
-    \multido{\rb=-4.0+0.5}{17}{%
-      \pstVerb{/xC \ra\space def
-               /yC \rb\space def
-               /F  xC yC xC mul sub \space def
-}
-%\psline[linecolor=blue](! xC  yC )(! xC yC)
-\psdot[linecolor=red!60](! xC yC)
-\psline[linecolor=blue](! xC F ATAN 57.295 mul cos 0.2 mul sub yC F ATAN 57.295 mul sin 0.2 mul sub)(! xC F ATAN 57.295 mul cos 0.2 mul add yC F ATAN 57.295 mul sin 0.2 mul add )
-}}
+
+\directionFieldDefault{x x y mul sub}{-4}{-4}{0.5}{17}
 \end{pspicture}
 } %end \optionalDisplay
 \end{solution}

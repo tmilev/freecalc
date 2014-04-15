@@ -108,12 +108,16 @@
 %second and third argument give the starting x,y coordinates
 \newcommand{\directionFieldOneTangent}[6]{%
 \pstVerb{%
+3 dict begin%
 /x #2 \space def%
 /y #3 \space def%
 /F #1 \space def%
 }%
 \psline[#6](! x F ATAN 57.295 mul cos #4 mul sub y F ATAN 57.295 mul sin #4 mul sub)(! x F ATAN 57.295 mul cos #4 mul add y F ATAN 57.295 mul sin #4 mul add)%
 \pscircle*[linecolor=red!60](! x y){#5}%
+\pstVerb{%
+end%
+}%
 }
 
 \newcommand{\directionFieldOneTangentDefault}[3]{%
@@ -125,32 +129,24 @@
 %postscript notation, for example x y add.
 %second and third argument give the starting x,y coordinates
 %fourth coordinate gives the delta x=delta y
-%fifth command gives the number of iterations delta x and delta y is repeated in each direction
-%sixth argument gives the length of the vector
-%seventh  argument gives the circle radius
-%eighth argument gives the arguments of the psline command
-%command format 
-%first argument gives you formula for the direction field in 
-%postscript notation, for example x y add.
-%second and third argument give the starting x,y coordinates
-%fourth coordinate gives the delta x=delta y
-%fifth command gives the number of iterations delta x and delta y is repeated in each direction
-%sixth argument gives the length of the vector
-%seventh argument gives the dot diameter
-%eighth argument gives the direction line arguments
-\newcommand{\directionFieldFull}[8]{%
+%fifth argument gives the number of iterations delta x
+%sixth argument gives the number of iterations delta y
+%seventh argument gives the length of the vector
+%eighth  argument gives the circle radius
+%ninth argument gives the arguments of the psline command
+\newcommand{\directionFieldFull}[9]{%
 \multido{\ra=#2+#4}{#5}{%
-\multido{\rb=#3+#4}{#5}{%
-\directionFieldOneTangent{#1}{\ra}{\rb}{#6}{#7}{#8}%
+\multido{\rb=#3+#4}{#6}{%
+\directionFieldOneTangent{#1}{\ra}{\rb}{#7}{#8}{#9}%
 }%end multido
 }%end multido
 }%end newcommand
 
 \newcommand{\directionFieldDefault}[5]{%
-\directionFieldFull{#1}{#2}{#3}{#4}{#5}{0.2}{0.02}{linecolor=blue}%
+\directionFieldFull{#1}{#2}{#3}{#4}{#5}{#5}{0.2}{0.02}{linecolor=blue}%
 }%
 \newcommand{\directionFieldDefaultRange}[1]{%
-\directionFieldFull{#1}{-4}{-4}{0.5}{21}{0.2}{0.02}{linecolor=blue}%
+\directionFieldFull{#1}{-4}{-4}{0.5}{21}{21}{0.2}{0.02}{linecolor=blue}%
 }
 
 \newcommand{\psAngleOptions}[5]{
