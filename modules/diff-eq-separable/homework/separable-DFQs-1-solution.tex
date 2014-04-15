@@ -1,0 +1,121 @@
+\solution{\noindent \ref{problemDFQseparable-yprime=ysquared-1-part1}. We proceed as explained in the theory.
+
+\noindent Case 1. Suppose there exists a number $x_0$ such that $(y(x_0) )^2 - 1\neq 0$. Since $y$ is a differentiable function of $x$, it is also continuous. Therefore for some $t$ sufficiently close to $x_0$, all numbers $x$ in the interval between $t$ and $x_0$ satisfy $ y(x)^2-1\neq 0$.
+\[
+\begin{array}{rcll|l}
+\displaystyle \frac{\frac{ \diff y}{ \diff x}}{y^2-1}&=&1 \\
+\displaystyle\int\limits_{x=x_0}^{x=t} \frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff (y(x)) }&=&\displaystyle\int\limits_{x=x_0}^{x=t}\diff x &&\text{can integrate as }  y(x)^2-1\neq 0\\
+\displaystyle\int\limits_{t=x_0 }^{x=t} \frac{\diff (y(x))}{ (y(x))^2-1}& =& \displaystyle\left.x \right|_{ x=x_0}^{x=t} &&\text{set } z=y(x)\\
+\displaystyle\int\limits_{z=y(x_0) }^{z=y(t)} \frac{\diff z}{ z^2-1}& =& \displaystyle t-x_0 \\
+\displaystyle\int\limits_{z=y(x_0)}^{z=y(t)} \left(\frac{\frac12 }{z-1}- \frac{\frac12}{z+1}\right)\diff z&=& t-x_0\\
+\displaystyle\left .\frac{1}2 \ln \left|\frac{z-1}{z+1}\right|\right]_{z=y(x_0)}^{z=y(t)}&=& t-x_0\\
+\displaystyle \ln \left|\frac{y(t)-1}{y(t)+1}\right|&=& 2t - C&&\text{relabel dummy variable } t \text { to } x \\
+\displaystyle
+\ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C
+\end{array}
+\]
+where we have set 
+\[\displaystyle C=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\right| \quad .
+\] 
+Set  
+\[
+D=e^{-C}\quad .
+\] 
+By the assumption of our case, $ (y(x_0))^2-1\neq 0$, so there are two remaining cases: $ (y(x_0))^2-1>0$ and $ (y(x_0))^2-1<0$.
+
+\noindent Case 1.1. Suppose $\displaystyle \frac{y(x_0)-1}{ y(x_0)+1}>0$. As the function $y(x)$ is differentiable, it is also continuous. Therefore $\displaystyle \frac{y(x)-1}{y(x)+1}>0$ for all $x$ near $x_0$. Then we can remove the absolute values in the equality above to get that for all $x$ close to $x_0$ we have that
+\[
+\begin{array}{rcll|l}
+\displaystyle \ln \left(\frac{y(x)-1}{y(x)+1}\right)&=& 2x - C&&\text{exponentiate, recall }D=e^{-C}\\
+\displaystyle \frac{y(x)-1}{y(x)+1}&=& D e^{2x}\\
+\displaystyle y(x)-1&=&\displaystyle  De^{2x}(y(x)+1)\\
+\displaystyle y(x)\left(1- De^{2x}\right)&=&\displaystyle  De^{2x}+1\\
+\displaystyle y(x)&=&\displaystyle  \frac{ 1+De^{2x}}{1- De^{2x}}\quad .\\
+\end{array}
+\]
+The solution $y(x)$ given above satisfies $\displaystyle \frac{y(x)-1}{y(x)+1}= De^{2x}$ for all $x$. As $D>0$, this implies that $\displaystyle \frac{y(x)-1}{ y(x)+1}>0$. Therefore the considerations above are valid for all $x$, rather than only for those $x$ near $x_0$. Therefore our first case yields the solution
+\[
+y(x)=\frac{ 1+De^{2x}}{1- De^{2x}}\quad .
+\]
+
+\noindent Case 1.2. Suppose  $\displaystyle \frac{y(x_0) -1}{y(x_0) +1} <0$. Then for all $x$ near $x_0$ we get $\displaystyle \ln \left| \frac{y(x) -1}{y(x) +1}\right|= \ln \left( \frac{ 1- y(x) }{ y( x) +1}\right)$ and, similarly to Case 1, we get 
+\[
+\begin{array}{rcl}
+\displaystyle \frac{1-y(x)}{y(x)+1}&=& D e^{2x}\\
+1-y(x)&=& De^{2x}(y(x)+1)\\
+y(x)\left(1+ De^{2x}\right)&=& 1-De^{2x}\\
+y(x)&=&\displaystyle \frac{1- De^{2x}}{1+ De^{2x}}\quad .
+\end{array}
+\]
+Since $D$ is a positive constant, we conclude in a fashion analogous to Case 1 that $y(x)<0$ for all $ x$.
+
+Case 2.  Suppose $\displaystyle  (y(x_0))^2-1=0 $.  Then $y(x_0)=\pm 1$. Clearly the constant functions $y(x)= \pm 1$ are two solutions: if we can plug back $y=\pm 1$ in the original equation we get that $\frac{\diff y}{\diff x}= 0$ and $y$ is a constant function of $x$. From the preceding two cases we know that if $\frac{y(x) -1}{y(x) +1}$ is defined and not equal to zero for some value of $x$, then $\frac{y(x)-1}{y(x)+1}$ is defined and not equal to zero for all values of $x$. Therefore the present case yields only two solutions, the constant functions $y(x)=\pm 1$. 
+
+Our final answer is 
+\[
+y(x)= \frac{1+De^{2x}}{1-De^{2x}} \quad \text{ or }\quad y(x)=0,
+\]
+where $D$ is an arbitrary rea(l number. Notice that in the above answer, we have combined Cases 1.1, 1.2 and the case $y(x)=1 $: by allowing $D$ to be negative we included Case 1.2 and by allowing $D $ to be zero we included the case $y(x)=1$. Finally, we note that if we let $D\to \infty$, the solution $y(x) = \frac{1+De^{2x }}{ 1- De^{2x}}  $ tends to the solution $y(x)=-1$ (for all values of $x$).
+
+We may plot solutions for a few values of $D$ as follows. We overlay the solutions on top of the direction field of the differential equation. The picture tells us a lot about the properties of the solutions of the differential equations. 
+\optionalDisplay{
+\begin{pspicture}(-6,-6)(6,6)
+\newcommand{\Dconst}{1}
+\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
+\renewcommand{\Dconst}{0.25}
+\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
+\renewcommand{\Dconst}{4}
+\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul sub 1 \Dconst\space 2.718281828 2 x mul exp mul add div} 
+\rput[l](5,2 ){$\frac{1- \frac{1}4 e^{2x}}{1+\frac 14 e^{2x}}$ }
+\rput[l](5,0.5 ){$\frac{1- e^{2x}}{1+e^{2x}}$ }
+\rput[l](5,-2 ){$\frac{1- 4e^{2x}}{1+4e^{2x}}$ }
+\psline[arrows=->, linestyle=dotted](5,2)(0,0.6)
+\psline[arrows=->, linestyle=dotted](5,0.5)(0,0)
+\psline[arrows=->, linestyle=dotted](5,-2)(0,-0.6)
+
+\renewcommand{\Dconst}{1}
+\psplot[linecolor=green]{-4}{-0.17}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\psplot[linecolor=green]{0.17}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\renewcommand{\Dconst}{4}
+
+\psplot[linecolor=green]{-4}{-0.863147181}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\psplot[linecolor=green]{-0.523147181}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+
+\renewcommand{\Dconst}{0.25}
+\psplot[linecolor=green]{-4}{0.523147181}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\psplot[linecolor=green]{0.863147181}{4}{1 \Dconst\space 2.718281828 2 x mul exp mul add 1 \Dconst\space 2.718281828 2 x mul exp mul sub  div} 
+\rput[r](-5,0.5 ){$\frac{1+\frac 14 e^{2x}}{1- \frac{1}4 e^{2x}}$ }
+\rput[r](-5,2 ){$\frac{1+e^{2x}}{1- e^{2x}}$ }
+\rput[r](-5,-2 ){$\frac{1+4e^{2x}}{1- 4e^{2x}}$ }
+\psline[arrows=->, linestyle=dotted](-5,0.5)(0,1.6667)
+\psline[arrows=->, linestyle=dotted](-5,0.5)(1,-3.360539267)
+\psline[arrows=->, linestyle=dotted](-5,2)(-0.2,5.066489563)
+\psline[arrows=->, linestyle=dotted](-5,2)(0.2,-5.066489563)
+\psline[arrows=->, linestyle=dotted](-5,-2)(0,-1.6667)
+\psline[arrows=->, linestyle=dotted](-5,-2)(-1,3.360539267)
+\psaxes[arrows=<->](0,0)(-4.5,-4.5)(4.5,4.5)
+
+\rput (5,5){The direction field  $\frac{\diff y}{\diff x}=y^2-1$}
+
+\directionFieldDefault{y y mul 1 sub}{-4}{-4}{0.5}{17}
+\end{pspicture}
+} %optionalDisplay
+
+\noindent \ref{problemDFQseparable-yprime=ysquared-1-part2}.
+From the computer generated picture above, we may visually estimate that $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ intersects the $x$-axis at $(0, -\frac 35)$. Furthermore, we may check directly that for 
+\[
+y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }
+\] 
+we have $y(0)= \frac{1-4}{1+5}=  -\frac{3}{5}$ and that is a solution to our problem (this however does not prove the solution is unique). 
+
+Alternatively, let us give an algebraic solution. As we are given that $y(0)=-\frac35$ and so 
+\[
+\begin{array}{rcl}
+\displaystyle -\frac{3}{5}&=&\displaystyle y(0)= \frac{1-De^{2\cdot 0}}{1+ De^{2\cdot 0}}= \frac{1-D}{1+D}\\
+\displaystyle -\frac{3}{5} (1+D)&=&1-D\\
+\displaystyle \frac{2}{5} D&=&\displaystyle \frac{8}{5}\\
+D&=&4\quad ,
+\end{array}
+\] 
+which is our final answer.
+}
