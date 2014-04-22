@@ -1,0 +1,15 @@
+A wedge of radius $2$ (depicted below) is folded into a cone cup. The volume varies depending on the angle of the wedge. Find the maximal possible volume of the cone cup and the angle of the wedge for which this maximal volume is achieved.
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-5, -5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5) 
+\tiny 
+\pscustom*[linecolor=cyan!30]{ \psparametricplot[algebraic] {2.35619}{7.06858} {0+1*cos(t)| 0+1*sin(t)} \psline(0.707107, 0.707107)(0, 0)(-0.707107, 0.707107)}
+
+\psparametricplot[algebraic,linecolor=blue]{2.35619}{7.06858}{cos(t)| sin(t)} 
+\psline[linecolor=red](0.707107, 0.707107)(0, 0)(-0.707107, 0.707107)
+
+\rput[t](0.4, 0.2){$r$}
+\rput[lb](0.8,0.8){$B$}
+\rput[rb](-0.8,0.8){$A$}
+\rput[b](0,0.3){$O$}
+\end{pspicture} 
