@@ -1,0 +1,1044 @@
+\begin{frame}
+  \frametitle{Surfaces}
+
+ \underline{Surface}:  A two dimensional object in space.
+
+\medskip
+
+ Locally: each point $P$ of $S$ has a patch around it that (shape-wise) looks like an open patch in the plane.
+
+\underline{Examples}:
+ 
+\begin{overlayarea}{\textheight}{7cm}
+ \only<2>{
+Graph surfaces:
+
+Let $D \subset \RR^2$ be an open set and $f \colon D \to \RR$ a continuous function. Then
+%
+$$S=\{ (x,y,z) \; | \; (x,y) \in D, z=f(x,y)\}$$
+%
+is a surface: for every point $(x_0,y_0,z_0)$ on $S$, there exists an open disk $B$ centered at $(x_0,y_0)$ and included in $D$. Then the patch
+%
+$$E= \{ (x,y,z) \; | \; (x,y) \in B, z=f(x,y)\}$$
+%
+is an open patch on $S$ around $P$ and $f$ identifies $E$ with $B$.}
+
+\only<3>{
+Planes:
+
+$S$: plane through $P_0$ and parallel to directions $\textbf{u}$ and $\textbf{v}$
+%
+$$\textbf{r} = \textbf{r}_0 + s \textbf{u} + t \textbf{v}\; ,$$
+%
+Function $\textbf{F} \colon \RR^2 \to \RR^3$,
+%
+$$\textbf{F}(s,t) = \textbf{r}_0 + s \textbf{u} + t \textbf{v}$$
+%
+globally identifies $S$ with the plane $\RR^2$.
+%
+\begin{itemize}
+  \item  $S \ni P$ $\Longleftrightarrow$  pair of coordinates $(s,t)$;
+  \item The vectors $\textbf{F}_s = \textbf{u}$ and $\textbf{F}_t = \textbf{v}$ are non-collinear.
+\end{itemize}
+}
+\end{overlayarea}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Local parametrizations}
+
+  A \emph{(differentiable) local parametrization}\index{parametrization!surface}:
+   function $\textbf{F} \colon D \to \RR^3$,
+   %
+   \begin{itemize}
+     \item defined on an open subset $D \subset \RR^2$;
+     \item given by
+%
+$$\textbf{F}(s,t) = ( f_1(s,t), f_2(s,t), f_3(s,t) )$$
+   \end{itemize}
+%
+such that
+%
+\begin{itemize}
+  \item $\textbf{F}$ is 1-1: each point in the image has a unique pair of coordinates;
+  %
+  \item The components $f_1, f_2, f_3$ are differentiable functions from $D$ to $\RR$.
+  %
+  \item The vectors $\textbf{F}_s$ and $\textbf{F}_t$ are non-collinear.
+\end{itemize}
+
+\medskip
+
+Image of $\textbf{F}$: surface in $\RR^3$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+
+  Let $R$ be fixed and
+  $\textbf{F} \colon (0,\pi)\times (0,2\pi) \to \RR^3$ be given by
+%
+$$\textbf{F}(s,t) = \langle R\sin{s}\cos{t}, R\sin{s}\sin{t}, R\cos{s}\rangle \; .$$
+%
+Image of $\textbf{F}$: \pause open subset on the sphere $S_R(O)$.\pause
+
+\begin{itemize}
+  \item  $\textbf{F}$ is defined on the open subset \pause $D= (0,\pi) \times (0,2\pi) \subset \RR^2$;\pause
+  \item $\textbf{F}$ is $1-1$: \pause $\textbf{F}(s_1,t_1) = \textbf{F}(s_2,t_2) \Longleftrightarrow (s_1,t_1) = (s_2,t_2)$;\pause
+  \item Components of $\textbf{F}$ are differentiable:\pause
+  %
+  $$f_1(s,t) = R\sin{s}\cos{t}, \quad
+  f_2(s,t) = R\sin{s}\sin{t}, \quad
+  f_3(s,t) = R\cos{s}\; .$$
+  %
+  \item \pause $\textbf{F}_s$ and $\textbf{F}_t$ are non-collinear:\pause
+  %
+  \begin{align*}
+    \textbf{F}_s & = \langle R\cos{s}\cos{t}, R\cos{s}\sin{t}, -R\sin{s} \rangle \\
+    \textbf{F}_t & = \langle -R\sin{s}\sin{t}, R\sin{s}\cos{t}, 0 \rangle
+  \end{align*}
+%
+$$|\textbf{F}_s \times \textbf{F}_t| = R^2\sin{s} \neq 0 $$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Parametrized surfaces}
+
+  A subset $S$ in space is a \emph{smooth surface}\index{surface!smooth} if
+%
+\begin{itemize}
+  \item For every point $P$ of $S$, there is a smooth local parametrization of an open patch on $S$ around $P$;
+  %
+  \item When images of two local parametrizations overlap on $S$, the two local parametrizations should be compatible.
+\end{itemize}
+
+\noindent \underline{Examples}:
+\begin{itemize}
+  \item \pause The plane $ax+by+cz=d$ is a surface;
+  %
+  \item \pause The sphere $x^2+y^2+z^2=R^2$ is a surface.
+\end{itemize}
+
+\pause \underline{Non-example}:
+
+The cone $z^2= x^2+y^2$ is not globally a surface\pause , because there is no patch around $(0,0,0)$ that looks like an open set in the plane.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Level Surfaces as Parametrized Surfaces}
+
+Let $f \colon \RR^3 \to R$ be a differentiable function.
+\begin{itemize}
+  \item $P$ is a \emph{critical point} if $(\nabla f)(P) = 0$;
+  \item $c \in \RR$ is a \emph{critical value} if
+%
+$$f^{-1}(c) = \{ (x,y,z) \; | \; f(x,y,z) = c\}$$
+%
+contains a critical point.
+\item If $c$ is not a critical value then it is a \emph{regular} value.
+\end{itemize}
+
+Implicit Function Theorem $\Longrightarrow$
+
+If $c$ is a regular value taken by $f$, then $f^{-1}(c)$ is a smooth surface.
+
+\underline{Examples}:
+ \begin{overlayarea}{\textheight}{5cm}
+ \only<2>{
+ For $f(x,y,z) = ax+by+cz$ with $a$, $b$, $c$ not all zero,
+ \begin{itemize}
+ \item All points $P$ are regular points
+   \item All values $d$ are regular;
+   \item $f^{-1}(d)$ is a smooth surface: the plane $ax+by+cz=d$.
+ \end{itemize}
+ }
+
+ \only<3>{
+ For $f(x,y,z) = x^2+y^2-z^2$,
+ \begin{itemize}
+   \item $(0,0,0)$ is the only critical point $\Longrightarrow$ $0=f(0,0,0)$ is the only critical value.
+   \item $H=f^{-1}(1)$ is a smooth surface: $x^2+y^2-z^2=1$, a hyperboloid with one sheet.
+ \end{itemize}
+ }
+ \end{overlayarea}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Surfaces of Revolution}
+
+\begin{itemize}
+  \item $C$ be a curve in the $(x,z)-$plane;
+  \item $S$ be the surface obtained by revolving $C$ around the $z-$axis.
+\end{itemize}
+
+\begin{center}
+  Parametrization of $C$ $\Longrightarrow$ parametrization of $S$
+\end{center}
+
+\pause
+$I \ni u\to (f(u),g(u))$: smooth, regular parametrization of $C$
+
+\pause
+$\textbf{F} \colon I \times (0,2\pi) \to \RR^3$ given by
+%
+$$\textbf{F}(u,v) = (f(u)\cos{v}, f(u)\sin{v}, g(u))$$
+%
+parametrizes the part of $S$ not in the $(x,z)-$plane. \pause
+%
+$$|\textbf{F}_u \times \textbf{F}_v| = |f|\sqrt{(f')^2+(g')^2}\; ,$$
+%
+hence $\textbf{F}$ is a smooth parametrization if $f(u) \neq 0$ for all $u$.
+
+\pause
+Geometrically: the curve $C$ shouldn't intersect the $z-$axis.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: Torus}
+
+  Let $C$ be the circle
+  \begin{itemize}
+    \item in the $(x,z)-$plane,
+    \item of radius $r$,
+    \item with center at $(R,0,0)$  such that $R > r$.
+  \end{itemize}
+
+  Parametrization of $C$: \pause $u \to (R+r\cos{u}, r\sin{u})$; $0 \leqslant u \leqslant 2\pi$.
+
+  Corresponding surface of revolution: $S$\pause , \emph{torus} (the surface of a doughnut)
+
+  Parametrization of an open patch on the torus:\pause
+%
+$$\textbf{F}(u,v) = ((R+r\cos{u})\cos{v}, (R+r\cos{u})\sin{v}, r\sin{u})\; .$$
+%
+\pause To make $\textbf{F}$ to be 1-1 we restrict the domain to $(0,2\pi) \times (0,2\pi)$.
+
+The image of $F$ is \pause $S$ minus two circles:
+\begin{itemize}
+  \item the vertical circle $x^2+z^2=1, y=0$ ($u \neq 0$)
+  \item the horizontal circle $x^2+y^2 = (R+r)^2, z=0$ ($v \neq 0$).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tangent Plane}
+
+  Let $\textbf{F} \colon D \to \RR^3$, $\textbf{F}(u,v) = (f(u,v), g(u,v), h(u,v))$ be a local parametrization of a surface $S$,
+
+  $P = \textbf{F}(u_0,v_0)$: point on $S$.
+
+  The \emph{tangent plane} to $S$ at $P$:
+  \begin{itemize}
+    \item passes through $P$;
+    \item contains vectors tangent at $P$ to curves on $S$ passing through $P$.
+  \end{itemize}
+\begin{overlayarea}{\textheight}{5cm}
+\only<2>{
+  We get curves on $S$ from curves in $D$, using $\textbf{F}$:
+%
+$$\gamma(t) = \textbf{F}(u(t), v(t)) = (f(u(t),v(t)), g(u(t),v(t)), h(u(t),v(t)))$$
+%
+$\gamma(0) = P$ $\Longrightarrow$ $u(0)=u_0$ and $v(0)=v_0$
+%
+$$\bm{\gamma}'(0) = u'(0)\textbf{F}_u(u_0,v_0) + v'(0) \textbf{F}_v(u_0,v_0)$$
+%
+Tangent vector at $P$: linear combination of $\textbf{F}_u$ and $\textbf{F}_v$.
+}
+\only<3>{
+Tangent plane: parallel to $\textbf{F}_u(u_0,v_0)$ and $\textbf{F}_v(u_0,v_0)$.
+
+Normal to the plane tangent to $S$ at $P=\textbf{F}(u_0,v_0)$:
+%
+$$\textbf{N}(u_0,v_0) = \textbf{F}_u(u_0,v_0) \times \textbf{F}_v(u_0,v_0)$$
+%
+Equation for the tangent plane:
+%
+$$(\textbf{r}-\textbf{F}(u_0,v_0)) \cdot \textbf{N}(u_0,v_0) = 0 \; .$$
+%
+Vectorial parametric equation for the line normal to $S$ at $P$:
+%
+$$\textbf{r}(t) = \textbf{F}(u_0,v_0) + t \textbf{N}(u_0,v_0)\; .$$
+}
+\end{overlayarea}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+
+  Let $\textbf{F}(u,v) = (u\cos{v}, u\sin{v}, e^{2u-4})$ and $P=\textbf{F}(2, \pi/3)$. \pause
+%
+\begin{align*}
+  \textbf{F}_u(u,v) =  \langle \cos{v}, \sin{v}, 2e^{2u-4}\rangle & \Longrightarrow \textbf{F}_u(1,\pi/3) = \langle \frac{1}{2}, \frac{\sqrt{3}}{2}, 2\rangle \\
+  %
+  \textbf{F}_v(u,v) = \pause \langle -u\sin{v}, u\cos{v}, 0 \rangle & \Longrightarrow \textbf{F}_v(1,\pi/3) = \langle -\sqrt{3}, 1, 0 \rangle
+\end{align*}
+%
+\pause
+%
+$$\textbf{N}(2,\pi/3) = \pause \textbf{F}_u(2,\pi/3) \times \textbf{F}_v(2,\pi/3)  \Longrightarrow \textbf{N}(2,\pi/3) = -2 \, \textbf{i} - 2\sqrt{3}\, \textbf{j} + 2\,\textbf{k}$$
+%
+and since $\textbf{F}(2,\pi/3) = \langle 1, \sqrt{3},1\rangle$, an equation for the tangent plane is\pause
+%
+$$(\langle x,y,z\rangle - \langle 1, \sqrt{3},1\rangle) \cdot \langle -2, -2\sqrt{3}, 2\rangle = 0$$
+%
+$$-2(x-1) -2\sqrt{3}(y-\sqrt{3}) +2(z-1) = 0 \Longleftrightarrow x + \sqrt{3} y -z = 3\; .$$
+\pause
+Parametric equations for the normal line are\pause
+%
+$$x= 1-2t, \quad y=\sqrt{3} -2\sqrt{3} t,\quad z = 1+2t\; .$$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tangent Plane to Level Surface}
+
+Given:
+  \begin{itemize}
+    \item a differentiable function $F$,
+    \item a level surface $S=\{ Q\; | \; F(Q) = k\}$,
+    \item point $P$ on this level set
+  \end{itemize}
+
+\underline{Question}:
+
+\begin{center}
+  What should be the tangent plane/line to $S$ at $P$?
+\end{center}
+
+
+\pause
+\underline{Intuitive answer}:
+
+Analogy to graph surfaces: the tangent plane should contain tangent vectors at $P$ to curves through $P$ and contained in $S$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Regular Points}
+
+ Let $\textbf{r}=\textbf{r}(t)$ be a curve that
+%
+\begin{itemize}
+  \item passes through $P$ for $t=0$: $\textbf{r}(0) = \textbf{r}_0$, the position vector of $P$;
+  %
+  \item is contained in the level set $S$: $F(\textbf{r}(t)) \equiv k$ for all $t$.
+\end{itemize}
+
+Then
+%
+$$ \frac{d(F(\textbf{r}(t))}{dt} \equiv 0 \Longrightarrow (\nabla F)(\textbf{r}(t)) \cdot \textbf{r}'(t) \equiv 0 \Longrightarrow (\nabla F)_P \cdot \textbf{r}'(0) =0$$
+
+\pause
+If $(\nabla F)_P \neq \textbf{0}$, then $\textbf{n}= (\nabla F)_P$ is normal to the tangent plane/line.
+
+\pause
+\medskip
+\underline{Definition}: A point $P$ is called
+\begin{itemize}
+  \item a \emph{regular} point for $F$ if $(\nabla F)_P \neq \textbf{0}$;
+  \item a \emph{critical} point for $F$ if $(\nabla F)_P = \textbf{0}$.
+\end{itemize}
+
+\pause
+\medskip
+\underline{Fact}: At a regular point, the gradient is orthogonal to the level set through that point.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Equation of Tangent Plane}
+
+Equation of the tangent plane to the level surface of $F$ that contains the regular point $P$:
+%
+$$(\nabla F)_P \cdot (\textbf{r}-\textbf{r}_0) = 0\; .$$
+
+\pause
+In a rectangular coordinate system $Oxyz$ we get:
+
+\begin{itemize}
+  \item Function: $F = F(x,y,z)$;
+  \item Point: $P=P(x_0,y_0,z_0)$, hence $\textbf{r}_0 = \langle x_0, y_0 , z_0 \rangle$;
+  \item Level surface $S$ through $P$: $F(x,y,z) = k$, where $k = F(x_0,y_0,z_0)$;
+  \item \pause Gradient of $F$ at $P$:
+  %
+  $$(\nabla F)_P = \langle \frac{\partial F}{\partial x}(x_0,y_0,z_0), \frac{\partial F}{\partial y}(x_0,y_0,z_0), \frac{\partial F}{\partial z}(x_0,y_0,z_0) \rangle$$
+  %
+  \item \pause Equation of tangent plane to $S$ at $P$:
+  %
+  $$\frac{\partial F}{\partial x}(x_0,y_0,z_0)(x-x_0) + \frac{\partial F}{\partial y}(x_0,y_0,z_0) (y-y_0) + \frac{\partial F}{\partial z}(x_0,y_0,z_0)(z-z_0) = 0$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+  If
+  %
+  $$F(x,y,z) = x^2 + y^2-z^2 \; ,$$
+  %
+  then the level surface through $P(1,2,3)$ is the surface $S$ with equation
+%
+$$x^2+y^2 -z^2 = F(1,2,3) \Longleftrightarrow x^2+y^2 -z^2 = -4 \; .$$
+%
+\pause The gradient of $F$ at $P$ is \pause
+%
+$$(\nabla F)_P = \left. \langle 2x, 2y, -2z \rangle \right|_{1,2,3} = \langle 2,4,-6 \rangle \; ,$$
+%
+\pause hence $P$ is a regular point.
+
+\pause The equation of the tangent plane at $P(1,2,3)$ is\pause
+%
+$$\langle 2,4,-6 \rangle \cdot \langle x-1, y-2, z-3\rangle = 0 \Longrightarrow$$
+%
+$$2(x-1) + 4(y-2) -6(z-3) = 0  \Longleftrightarrow x+2y-3z=-4$$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tangent Planes to Quadric Surfaces}
+
+  Let $F(x,y,z) = Ax^2+By^2+Cz^2$ such that not all of $A$, $B$, $C$ are zero.
+
+  \medskip
+  \underline{Fact}: If $Q(a,b,c)$ is a critical point, then
+  %
+  $$Aa=Bb=Cc=0 \Longrightarrow F(a,b,c) = 0$$
+
+\pause
+\underline{Consequence}: If $k \neq 0$, then every point on the surface $S$: $F(x,y,z) = k$ is a regular point.
+
+\pause
+\medskip
+Suppose $k\neq 0$. Let $P(x_0,y_0,z_0)$ be a point on $S$. Then
+\begin{itemize}
+  \item $P$ is necessarily a regular point of $F$;
+  \item $Ax_0^2+By_0^2+Cz_0^2=k$;
+  \item \pause The gradient of $F$ at $P$ is
+%
+$$(\nabla F)(x_0,y_0,z_0) = \langle 2Ax_0, 2By_0,2Cz_0 \rangle\; .$$
+\item \pause The equation of the tangent plane is
+%
+$$2Ax_0(x-x_0) + 2By_0(y-y_0) + 2Cz_0 (z-z_0) = 0 \Longrightarrow Ax_0x + B y_0y + Cz_0z = k$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Graph Surface vs. Level Surface}
+
+A surface $S$ can be given in two different ways:
+
+\begin{itemize}
+  \item \pause Explicit form, as a \emph{graph surface}:
+  %
+  $$z=f(x,y)$$
+%
+  \item \pause Implicit form, as a \emph{level surface}:
+  %
+  $$F(x,y,z) = k$$
+  %
+\end{itemize}
+
+\pause
+A graph surface $z=f(x,y)$ can always be represented as a level surface:
+%
+$$z=f(x,y) \Longleftrightarrow F(x,y,z) =0 \quad \text{ for } \quad F(x,y,z) = z-f(x,y)\; .$$
+
+\pause
+\underline{Question}: Can a given level surface be represented as a graph surface?
+\end{frame}
+
+\begin{frame}
+
+\underline{Question}: Can a given level surface be represented as a graph surface?
+
+\pause
+\medskip
+
+\underline{Remark}: A graph surface passes the \textbf{Vertical Line Test}.
+
+\pause
+\medskip
+\underline{Answers}:
+\begin{itemize}
+  \item \pause Bad news: In general, \emph{globally}, NO.
+
+  \noindent Think $x^2+y^2+z^2= 1$.
+
+  One can't solve for $z$ globally; there is the $\pm\sqrt{1-x^2-y^2}$ issue;
+  \item \pause Good news: In a lot of situations, \emph{locally}, YES.
+
+  \noindent Around $P(0,0,1)$, the surface is the graph surface of $z = f(x,y)$ with $f(x,y) =\sqrt{1-x^2-y^2}$.
+\end{itemize}
+
+\pause
+How about the level surface
+
+$$x^3+y^3+z^3+6xyz =-4$$
+
+around the point $(1,2,-1)$?
+\end{frame}
+
+\begin{frame}
+\frametitle{Implicit Functions}
+
+Given:
+\begin{itemize}
+  \item a function $F$,
+  \item a point $P(x_0,y_0,z_0)$ in the domain of $F$,
+  \item the level surface $S$ of $F$ through $P$:
+  %
+  $$F(x,y,z) = k \qquad \text{ with } k=F(x_0,y_0,z_0)$$
+\end{itemize}
+
+\pause
+$S$ is a graph surface around $P$ if there is a function $z=f(x,y)$ such that:
+%
+\begin{itemize}
+  \item $f$ is defined on an open disk $D$ around $(x_0,y_0)$;
+  \item $f(x_0,y_0) = z_0$;
+  \item $F(x,y,f(x,y)) = k$ for all $(x,y)$ in the disk $D$.
+\end{itemize}
+
+\pause
+The equation $F(x,y,z) = k$ \emph{implicitly} defines the function $f$ satisfying
+%
+\begin{itemize}
+  \item $F(x,y,f(x,y)) = k$ for all $(x,y)$ in the disk $D$.
+  \item $f(x_0,y_0) = z_0$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples}
+The equation $x^2+y^2+z^2 = 1$ implicitly defines $z=\sqrt{1-x^2-y^2}$ as the unique function $z=f(x,y)$ such that
+%
+\begin{itemize}
+  \item $x^2+ y^2+(f(x,y))^2 = 1$ for all $(x,y)$ in a disk around $(0,0)$;
+  \item $f(0,0) = 1$.
+\end{itemize}
+
+\pause
+The equation $x^2+y^2+z^2 = 1$ implicitly defines $z=-\sqrt{1-x^2-y^2}$ as the unique function $z=f(x,y)$ such that
+%
+\begin{itemize}
+  \item $x^2+ y^2+(f(x,y))^2 = 1$ for all $(x,y)$ in a disk around $(0,0)$;
+  \item $f(0,0) = -1$.
+\end{itemize}
+
+\pause
+In general, the implicit function question is quite tricky!
+
+\pause
+But for differentiable functions things are somehow simpler.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Implicit Function Theorem}
+
+    \begin{itemize}
+      \item $F$: function
+      \begin{itemize}
+        \item defined for all points in a ball around the point $P(x_0,y_0,z_0)$,
+        \item with continuous partial derivatives.
+      \end{itemize}
+      %
+      \item $S$: the level surface of $F$ through $P$, for the level $k = F(x_0,y_0,z_0)$.
+    \end{itemize}
+
+\pause If $F_z(x_0,y_0,z_0) \neq 0$, then there exists a function $z=f(x,y)$
+\begin{itemize}
+  \item defined on an open disk $D$ centered at $(x_0,y_0)$,
+  %
+  \item such that $F(x,y,f(x,y)) = k$ for all $(x,y)$ in $D$,
+  %
+  \item and such that $f(x_0,y_0) = z_0$.
+\end{itemize}
+
+\pause Moreover:
+\begin{itemize}
+  \item For each fixed disk $D$ the function $z=f(x,y)$ is unique.
+  \item The function $z=f(x,y)$ has partial derivatives and
+%
+$$z_x(x,y) = -\frac{F_x(x,y,z)}{F_z(x,y,z)}\quad \text{and}\quad z_y(x,y) = -\frac{F_y(x,y,z)}{F_z(x,y,z)}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Consequences}
+
+If $F_z(x_0,y_0,z_0) \neq 0$, then the level surface $S$
+%
+$$F(x,y,z) = F(x_0,y_0,z_0)$$
+%
+can be locally represented as a graph surface
+%
+$$z=f(x,y)$$
+%
+around the point $(x_0,y_0,z_0)$. \pause  Nothing special about $z$: if
+%
+$$(\nabla F)(x_0,y_0,z_0) = \langle F_x(x_0,y_0,z_0) , F_y(x_0,y_0,z_0), F_z(x_0,y_0,z_0)\rangle  \neq \textbf{0}\; ,$$
+%
+then the level surface $S$ can be represented as a graph surface
+\begin{itemize}
+  \item $z=f(x,y)$, if $F_x(x_0,y_0,z_0) \neq 0$;
+  \item $y=g(x,z)$, if $F_y(x_0,y_0,z_0) \neq 0$;
+  \item $x=h(y,z)$, if $F_z(x_0,y_0,z_0) \neq 0$;
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Implicit Differentiation}
+
+If
+%
+$$F(x,y,f(x,y)) = 0$$
+%
+for all $(x,y)$ in an open disk, then, by differentiating with respect to $x$ and using the chain rule, we get:
+%
+$$F_x(x,y,z) + F_z(x,y,z) f_x(x,y) = 0$$
+%
+Since $F_z(x,y,z)$ is continuous
+%
+$$F_z(x_0,y_0,z_0) \neq 0 \Longrightarrow F_z(x,y,z) \neq 0$$
+%
+for all $(x,y,z)$ in an open ball around $(x_0,y_0,z_0)$. For such points we get
+%
+$$\frac{\partial z}{\partial x} = f_x(x,y) = -\frac{F_x(x,y,z)}{F_z(x,y,z)} \; ,$$
+%
+and similarly for the partial derivative with respect to $y$.
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Example}
+
+  Show that the equation $x^3+y^3+z^3+6xyz =-4$ implicitly defines a function $z=f(x,y)$ around the point $(1,2)$, such that $f(1,2) = -1$. Compute the partial derivatives of this function at $(1,2)$.
+
+\pause
+\medskip
+
+Let $F(x,y,z) = x^3+y^3+z^3+6xyz$. Then
+%
+$$F_z(x,y,z) = 3z^2 + 6xy  \Longrightarrow F_z(1,2,-1) = 15$$
+%
+\pause Since $F_z(1,2,-1) \neq 0$, it follows that $F(x,y,z) = F(1,2,-1) = 1$ defines $z$ implicitly in terms of $(x,y)$ around $(1,2)$, and
+%
+$$z_x(x,y) = -\frac{F_x(x,y,z)}{F_z(x,y,z)} = -\frac{3x^2 + 6yz}{3z^2 + 6xy} \Longrightarrow z_x(1,2) = \frac{3}{5}\; .$$
+%
+\pause Similarly
+%
+$$z_y(x,y) = -\frac{F_y(x,y,z)}{F_z(x,y,z)} = -\frac{3y^2 + 6xz}{3z^2 + 6xy} \Longrightarrow z_y(1,2) = -\frac{2}{5}\; .$$
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tangent Plane}
+
+  Equation of tangent plane to
+  $$x^3+y^3+z^3+6xyz =-4$$
+  %
+  at $(1,2,-1)$.
+
+  \begin{itemize}
+    \item \pause As level surface of $F(x,y,z) = x^3+y^3+z^3+6xyz$:
+    %
+    $$F_x(1,2,-1) (x-1) + F_y(1,2,-1) (y-2) + F_z(1,2,-1) (z+1) = 0$$
+    %
+    $$-9(x-1) + 6(y-2) + 15 (z+1) = 0$$
+
+    \item \pause As graph of $z=f(x,y)$:
+    %
+    $$z = f(1,2) + f_x(1,2) (x-1) + f_y(1,2) (y-2)$$
+    %
+    $$z = -1 + \frac{3}{5} (x-1) - \frac{2}{5} (y-2)$$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Intuitive Argument}
+
+  Actual equation:
+  %
+  $$F(x,y,z) = F(x_0,y_0,z_0) \Longrightarrow z= f(x,y)$$
+
+  \pause Linearized equation:
+  %
+  $$L_{F,(x_0,y_0,z_0)}(x,y,z) = F(x_0,y_0,z_0) \Longrightarrow z = L_{f,(x_0,y_0)}(x,y)$$
+
+%
+$$L_{F,(x_0,y_0,z_0)}(x,y,z) = F(x_0,y_0,z_0) \Longleftrightarrow$$
+%
+$$F_x(x_0,y_0,z_0) (x-x_0) + F_y(x_0,y_0,z_0) (y-y_0)+ F_z(x_0,y_0,z_0) (z-z_0)=0$$
+%
+\pause $F_z(x_0,y_0,z_0) \neq 0$ $\Longrightarrow$ \emph{can} solve $L_{F,(x_0,y_0,z_0)}(x,y,z) = F(x_0,y_0,z_0)$ for $z$:
+%
+$$z = z_0 - \frac{F_x(x_0,y_0,z_0)}{F_z(x_0,y_0,z_0)}(x-x_0) - \frac{F_y(x_0,y_0,z_0)}{F_z(x_0,y_0,z_0)}(y-y_0) = L_{f,(x_0,y_0)}(x,y)$$
+
+Then
+%
+$$z_x(x_0,y_0) = - \frac{F_x(x_0,y_0,z_0)}{F_z(x_0,y_0,z_0)} \quad \text{ and } \quad z_y(x_0,y_0) =- \frac{F_y(x_0,y_0,z_0)}{F_z(x_0,y_0,z_0)} \;.$$
+\end{frame}
+ 
+ \begin{frame}
+  \frametitle{Motivation}
+
+  With $K$ units of capital and $L$ units of labor, the production is given by the following Cobb-Douglas function:
+%
+$$P(K,L) = L^{1/4} K^{3/4}\; .$$
+%
+\pause With unlimited resources $(K,L)$ \pause any level of production can be achieved. \pause
+
+\underline{Constraint}: \pause Capital and labor are not free, and the budget is limited.\pause
+
+Suppose
+\begin{itemize}
+  \item one  unit of $L$ costs 2 units of money;
+  \item and one unit of $K$ costs 3 units of money.
+\end{itemize}
+
+\pause Cost function:\pause
+%
+$$C(K,L) = 3K +2L\; .$$
+%
+\pause \underline{Question}: What is the maximal production that can be achieved with a budget of 16 units of money?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Economics Method}
+
+  At the point $(K_0,L_0)$ of maximal production:
+ %
+$$\Delta P \simeq P_K(K_0,L_0) \Delta K + P_L(K_0,L_0) \Delta L$$
+%
+\pause The last unit of money spent on capital
+\begin{itemize}
+  \item \pause increased the amount of capital by $\Delta K = 1/3$ units;
+  \item \pause increased the production by
+%
+$$\Delta P \simeq P_K(K_0,L_0) \Delta K \simeq \frac{P_K(K_0,L_0)}{3}\; .$$
+\end{itemize}
+
+\pause The last unit of money spent on labor:
+\begin{itemize}
+  \item \pause increased the amount of labor by $\Delta L = 1/2$ units;
+  \item \pause increased the production by
+%
+$$\Delta P \simeq P_L(K_0,L_0) \Delta L \simeq \frac{P_L(K_0,L_0)}{2}\; .$$
+%
+\end{itemize}
+
+\pause If these two ratios were not equal, then \pause we can achieve a higher level of production by redistributing the last unit of money.\pause Therefore \pause
+%
+$$\frac{P_K(K_0,L_0)}{3} = \frac{P_L(K_0,L_0)}{2}\;  .$$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Geometric Method}
+
+  At the point $(K_0,L_0)$ of maximal production:\pause
+
+\begin{itemize}
+  \item Level curves $P(K,L) = P(K_0,L_0)$ and $C(K,L) = C(K_0,L_0)$ are tangent;\pause
+  \item Gradients of $P$ and $C$ at $(K_0,L_0)$ are  collinear.
+\end{itemize}
+
+\pause There exists a scalar $\lambda_0$ such that
+%
+\begin{align*}
+  (\nabla P)_{(K_0,L_0)} = & \lambda_0 (\nabla C)_{(K_0,L_0)} \pause \Longrightarrow
+\left\{ \begin{array}{ll}
+  P_K(K_0,L_0) = & \lambda_0 C_K(K_0,L_0) \\
+  %
+  P_L(K_0,L_0) = & \lambda_0 C_L(K_0,L_0)
+\end{array}
+\right. \\
+\Longrightarrow & \left\{ \begin{array}{ll}
+  P_K(K_0,L_0) = & 3 \lambda_0 \\
+  %
+  P_L(K_0,L_0) = & 2 \lambda_0
+\end{array}
+\right. \; \Longrightarrow \frac{P_K(K_0,L_0)}{3}=\frac{P_L(K_0,L_0)}{2}\; .
+\end{align*}
+%
+\end{frame}
+
+\begin{frame}
+  The triple $(K_0,L_0,\lambda_0)$ is a solution of the system
+%
+$$\left\{ \begin{array}{ll}
+  P_K(K,L) = & 3\lambda\\
+  %
+  P_L(K,L) = & 2\lambda  \\
+  %
+  C(K,L) = & 16
+\end{array} \right.
+%
+\Longleftrightarrow
+%
+\left\{ \begin{array}{ll}
+  \frac{3}{4} L^{1/4}K^{-1/4} = & 3\lambda\\
+  %
+  & \\
+  %
+  \frac{1}{4} L^{-3/4}K^{3/4} = & 2\lambda  \\
+  %
+  & \\
+  %
+  3K+2L = & 16
+\end{array} \right.
+$$
+
+\pause
+The system is not linear, and there is no general rule for solving a nonlinear system. \pause
+
+But in this particular case:
+%
+$$\frac{1}{4} L^{1/4}K^{-1/4} = \lambda = \frac{1}{8} L^{-3/4}K^{3/4} \Longrightarrow \frac{K}{L}=2 \Longrightarrow K = 2L\; .$$
+%
+From $K=2L$ and $3K+2L=16$ we get \pause $L=2$ and $K=4$.\pause
+
+How do we know that $K=4$ and $L=2$ corresponds to a maximum? \pause
+
+Geometric argument using the direction of the gradient $(\nabla P)(4,2)$.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Method of Lagrange Multipliers}
+
+  General problem:
+
+We want to optimize an objective function $f(x,y)$
+
+subject to some constraint $g(x,y)=0$.
+
+\begin{overlayarea}{\textheight}{6cm}
+\only<2-4>{
+At an optimal point $(x_0,y_0)$ the gradients of $f$ and $g$ are collinear:
+%
+$$(\nabla f)(x_0,y_0) = \lambda (\nabla g)(x_0,y_0)$$}
+%
+\only<3-4>{ Together with the constraint $g(x,y) =0$, we get the system
+%
+$$\left\{\begin{array}{ll}
+ f_x(x,y) = & \lambda g_x(x,y) \\
+%
+f_y(x,y) = & \lambda g_y(x,y) \\
+%
+g(x,y) = & 0
+\end{array}
+ \right.$$}
+ %
+\only<4>{Consider the \emph{Lagrange function}
+%
+$$F(x,y,\lambda) = f(x,y) - \lambda g(x,y) \; ,$$
+%
+
+New variable $\lambda$: \emph{Lagrange multiplier}.
+ }
+
+\only<5->{
+$$F(x,y,\lambda) = f(x,y) - \lambda g(x,y) \; ,$$
+%
+$$
+\text{Points } (x,y) \text{ where } f \text{ attains an extreme, subject to } g(x,y) =0: $$
+%
+$$\text{Critical points of the function } F(x,y,\lambda) = f(x,y) - \lambda g(x,y)\; .$$}
+
+\only<6->{Remarks:
+ \begin{itemize}
+   \item  not all critical points of $F$ give points of extreme for $f$;
+   \item to decide whether a critical point gives a min, max or neither we use:
+    \begin{itemize}
+      \item (harder) a special second derivative test;
+      \item (easier) the direction of the gradient of $f$.
+    \end{itemize}
+ \end{itemize}
+ }
+ \end{overlayarea}
+
+ \end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+
+Find the maximum and the minimum values of $f(x,y) = xy$ on the region $D = \{ (x,y) \; | \; |x|+|y| \leqslant 2 \}$.
+\pause
+
+Region: \pause closed square of vertices $(2,0)$, $(0,2)$, $(-2,0)$, and $(0,-2)$.
+
+\pause
+
+The function is continuous and the domain is bounded and closed.
+
+Extreme Value Theorem $\Longrightarrow$ $f$ has global minimum and maximum points.
+
+\pause
+\underline{Strategy}:
+%
+\begin{itemize}
+  \item Find critical points in the interior of the disk;
+  \item Find extreme points on the boundary of the disk;
+  \item Compare the values.
+\end{itemize}
+
+\pause
+Since $f$ is differentiable everywhere, the interior extreme points are among the solutions of the system
+%
+$$\left\{
+\begin{array}{ll}
+  f_x(x,y) = &  0 \\
+  %
+  f_y(x,y) = &  0
+\end{array}
+\right.
+%
+\Longleftrightarrow
+%
+\left\{
+\begin{array}{ll}
+  y = &  0 \\
+  %
+  x= &  0
+\end{array}
+\right.
+$$
+\end{frame}
+
+\begin{frame}
+  Find the maximum and the minimum values of $f(x,y) = xy$ on the region $D = \{ (x,y) \; | \; |x|+|y| \leqslant 2 \}$.
+
+  Extreme points on the boundary: check each of the four sides.
+
+  For the segment joining $(2,0)$ with $(0,2)$ we get:
+%
+\begin{align*}
+  \text{Find min/max of } & f(x,y) = xy \\
+  %
+  \text{Subject to } & g(x,y) = x+y-2 =0
+\end{align*}
+
+
+\pause
+The Lagrange function is
+%
+$$F(x,y,\lambda) = f(x,y) - \lambda g(x,y) = xy - \lambda(x+y-2)$$
+
+\pause
+The critical points of $F$ are the solutions of the system
+%
+$$\left\{
+\begin{array}{ll}
+  F_x(x,y,\lambda) & = 0 \\
+  F_y(x,y,\lambda) & =0\\
+  F_\lambda(x,y,\lambda) & =0
+\end{array}
+\right. \Longleftrightarrow
+\left\{
+\begin{array}{ll}
+  y-\lambda & = 0 \\
+  x-\lambda & =0\\
+  x+y=2 & =0
+\end{array}
+\right. \Longleftrightarrow
+\left\{
+\begin{array}{ll}
+  x & = 1 \\
+  y & = 1\\
+  \lambda & =1
+\end{array}
+\right.
+ $$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Gradient Analysis}
+
+    \begin{itemize}
+      \item \pause $(\nabla f)_{(1,1)} = \langle y, x \rangle|_{x=1,y=1} = \langle 1,1\rangle$.
+      \item \pause If we move along the direction of the gradient at $(1,1)$:
+      \begin{itemize}
+        \item the value of the objective would increase;
+        \item the level curves of $f$ we cross no longer intersect the constraint
+        \item those levels of $f$ are unattainable on the constraint set $x+y=2$.
+      \end{itemize}
+      \item \pause The point $(1,1)$ corresponds to a local maxim.
+    \end{itemize}
+
+\pause
+Three more critical points on the boundary: $(-1,1)$, $(-1,-1)$, $(1,-1)$.
+
+\pause
+Compare the values at all points:
+\begin{itemize}
+  \item the global maximum is 1, attained at $(1,1)$ and $(-1,-1)$;
+  \item the global minimum is -1, attained at $(1,-1)$ and $(-1,1)$;
+  \item the critical point $(0,0)$ is a saddle point.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multiple Constraints}
+
+\begin{align*}
+  \text{ Find } & \min/\max f(x,y,z) \\
+  \text{ Subject to } & g(x,y,z) = 0 \\
+                      & h(x,y,z) = 0
+\end{align*}
+%
+\pause
+Each constraint defines a surface $\Longrightarrow$ their intersection defines a curve.
+
+\pause
+Condition: $(\nabla g)_P$$(\nabla h)_P$ are non-collinear for each intersection point $P$
+
+The level surface of $f$ through a point of extreme $P_0$ is tangent to the constraint curve, so $(\nabla f)(P_0)$ is perpendicular to the curve at $P_0$.
+
+Constraint curve included in both surfaces $\Longrightarrow$
+
+$(\nabla g)(P_0)$ and $(\nabla h)(P_0)$ are perpendicular to the curve $\Longrightarrow$
+
+\pause
+there exist constants $\lambda$ and $\mu$ such that
+%
+$$(\nabla f)(P_0) = \lambda (\nabla g)(P_0) + \mu (\nabla h)(P_0)\; .$$
+
+\pause
+The Lagrange function is in this case
+%
+$$F(x,y,z,\lambda,\mu) = f(x,y,z) - \lambda g(x,y,z) - \mu h(x,y,z)$$
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+
+  Find the extreme points of $x+2y$ on the intersection of the the cylinder $y^2+z^2=5$ and the plane $x+y+z=1$.
+
+\begin{itemize}
+  \item \pause Objective function: \pause $f(x,y,z) = x+2y$.
+  %
+  \item \pause Constraints: \pause $g(x,y,z) = y^2+z^2-5$ and $h(x,y,z) = x+y+z-1$.
+  %
+  \item \pause Lagrange function:\pause
+  %
+  $$F(x,y,z,\lambda,\mu) = x+2y - \lambda (y^2+z^2-5)- \mu (x+y+z-1)\; .$$
+  %
+  \item \pause Critical points of $F$: \pause $(1,\sqrt{5/2},-\sqrt{5/2})$ and $(1,-\sqrt{5/2},\sqrt{5/2})$
+  %
+\item \pause Values of objective function at these points:\pause
+  %
+  $$f(1,\sqrt{5/2},-\sqrt{5/2}) = 1+2\sqrt{5/2}, \quad  f(1,-\sqrt{5/2},\sqrt{5/2}) = 1-2\sqrt{5/2}\; .$$
+  %
+  \item \pause Constraint set is bounded and closed, function $f$ is continuous $\Longrightarrow$
+       $f$ attains its extreme on the constraint $\Longrightarrow$\\
+       $(1,-\sqrt{5/2},\sqrt{5/2})$ corresponds to an absolute minimum and $(1,\sqrt{5/2},-\sqrt{5/2})$ corresponds to an absolute maximum.
+  %
+  \item The minimum value is $f(1,-\sqrt{5/2},\sqrt{5/2}) = 1-2\sqrt{5/2}$ and the maximal value is $f(1,\sqrt{5/2},-\sqrt{5/2})=1+2\sqrt{5/2}$.
+\end{itemize}
+
+\end{frame}
