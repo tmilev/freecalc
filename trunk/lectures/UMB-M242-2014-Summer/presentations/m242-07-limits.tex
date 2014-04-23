@@ -1,0 +1,258 @@
+\begin{frame}
+  \frametitle{Limits}
+
+  $f\colon D \to \RR$, with $D$ a subset of the plane.
+
+  $P_0$: point in plane such that:
+  \begin{itemize}
+    \item $f$ is defined arbitrarily close to $P_0$;
+    \item $f$ is not necessarily defined at $P_0$.
+  \end{itemize}
+
+  Example:
+  %
+  $$f \colon D = \RR^2\setminus \{ P_0(0,0)\} \to \RR , \qquad f(x,y) = \frac{x^2y}{x^2+y^2}$$
+  %
+  \begin{itemize}
+    \item Defined arbitrarily close to $(0,0)$;
+    \item Not defined at $P_0(0,0)$.
+  \end{itemize}
+  \pause
+Question: What happens to $f(Q)$ as $Q$ gets closer to $P_0$?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+  %
+  $$f(x,y) = \frac{x^2y}{x^2+y^2}$$
+  %
+  $$f(Q) \to ? \text{ as } Q\to  P_0(0,0)$$
+  %
+  \pause
+  Numerical approach:
+  \begin{align*}
+    Q_1(0.1,0.1) \Longrightarrow & f(Q_1) = f(0.1,0.1) \simeq 0.05\\
+    Q_2(0.01,-0.02) \Longrightarrow & f(Q_2) = f(0.01,-0.02) \simeq -0.004\\
+    Q_3(-0.003,0.001) \Longrightarrow & f(Q_3) = f(-0.003,0.001) \simeq 0.0009
+  \end{align*}
+
+  Numerical data suggests: \pause
+  \begin{center}
+    $f(Q)$ is closer and closer to 0 as $Q \to P_0(0,0)$
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Limit of a function at a point}
+  $f\colon D \to \RR$, with $D$ a subset of the plane.
+
+  $P_0$: point in plane such that:
+  \begin{itemize}
+    \item $f$ is defined arbitrarily close to $P_0$;
+    \item $f$ is not necessarily defined at $P_0$.
+  \end{itemize}
+
+  \begin{definition}
+    A value $L$ (finite or infinite) is
+    \textcolor[rgb]{0.98,0.00,0.00}{the limit of $f$ at $P_0$} if \\
+    we can keep the values of $f(Q)$ as close to $L$ as we want \\
+    by keeping $Q$ close enough to $P_0$, but not equal to $P_0$.
+  \end{definition}
+
+  \underline{Notation}:
+  %
+  $$L = \lim_{Q\to P_0} f(Q) \quad \text{ or } \quad
+  L = \lim_{(x,y) \to (x_0,y_0)} f(x,y)$$
+  \pause
+  Remarks:
+  \begin{itemize}
+    \item $L=\infty$: close to $\infty$ $\Longleftrightarrow$ large;
+    \item If such an $L$ exists, it is unique.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+
+  How do we prove that
+  %
+  $$\lim_{(x,y) \to (0,0)} \frac{x^2y}{x^2+y^2} =0 \; ?$$
+  \pause
+  Can't substitute:
+  %
+  \begin{itemize}
+    \item $f$ is not defined at $P_0(0,0)$;
+    \item Even if it were, the actual value might be different from the limit (expected value)
+  \end{itemize}
+  \pause
+  Polar coordinates to the rescue!
+  %
+  $x=r\cos\theta$, $y =r \sin\theta$ and
+  %
+  $$(x,y) \to (0,0) \Longleftrightarrow r\to 0$$
+  %
+  $$\frac{x^2y}{x^2+y^2} = \frac{r^2\cos^2\theta r\sin\theta}{r^2} = r\cos^2{\theta}\sin\theta$$
+  %
+  $$\lim_{(x,y) \to (0,0)} \frac{x^2y}{x^2+y^2} = \lim_{r\to 0} r\cos^2{\theta}\sin\theta = 0$$
+  %
+  \pause (Squeeze Theorem in action!)
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits don't always exist!}
+  %
+  $$f(x,y) = \frac{xy}{x^2+y^2} \Longrightarrow \lim_{(x,y) \to (0,0)} \frac{xy}{x^2+y^2} = ?$$
+  \pause
+  Try the same (polar coordinates):
+  %
+  $$\frac{xy}{x^2+y^2} = \cos\theta \sin\theta$$
+  %
+  Depends on $\theta$ \pause $\Longrightarrow$ trouble!
+
+  \pause
+  Directional limit: $\textbf{u}$, nonzero vector
+  %
+  $$\text{Limit along direction } \textbf{u} \Longrightarrow \lim_{t\to 0} f(\textbf{r}_0+t\textbf{u})$$
+  %
+  \pause
+
+Example: $\textbf{u} = \langle 1,m\rangle$
+$\Longrightarrow$ $x=t$, $y=mt$ $\Longrightarrow$
+$y=mx$
+  %
+  $$\lim_{t\to 0} f(t\textbf{u}) =
+  \lim_{x\to 0}\frac{mx^2}{x^2+m^2x^2}= \frac{m}{1+m^2}$$
+  %
+  depends on $m$ (hence on $\textbf{u}$).
+\end{frame}
+
+\begin{frame}
+  \frametitle{Side Limits and Directional Limits}
+\uncover<1->{
+\underline{Similarity}:
+  \begin{itemize}
+    \item Single variable functions:
+
+    Limit exists $\Longrightarrow$ side limits exist, have the same value.
+
+    \underline{Conclusion}: Side limits are different $\Longrightarrow$ limit does not exist.
+    \item Multivariable functions:
+
+    Limit exists $\Longrightarrow$ directional limits exist, have the same value.
+
+    \underline{Conclusion}: Directional limits have different values $\Longrightarrow$ limit does not exist.
+  \end{itemize}  }
+
+\uncover<2->{
+\underline{Difference}:
+  \begin{itemize}
+    \item Single variable functions:
+
+    Side limits are equal $\Longrightarrow$ limit exists.
+
+    \item Multivariable functions:
+
+    All directional limits have the same value $\Longrightarrow$ limit does not necessarily exist.
+  \end{itemize}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A trickier example}
+    %
+    $$\lim_{(x,y) \to (0,0)} \frac{xy^2}{x^2+y^4}$$
+
+    Then along $y=mx$:
+    %
+    $$\frac{xy^2}{x^2+y^4} = \frac{mx^3}{x^2+m^4x^4} =  \frac{mx}{1+m^2x^4} \to  0 \text{ as } x \to 0$$
+    %
+    for all $m$.
+
+    \pause
+    However, along $x=y^2$:
+    %
+    $$\frac{xy^2}{x^2+y^4} = \frac{y^4}{y^4+y^4} =  \frac{1}{2} \to  \frac{1}{2} \text{ as } x \to 0$$
+
+    \pause
+    Conclusion:
+    %
+    $$\lim_{(x,y) \to (0,0)} \frac{xy^2}{x^2+y^4} \quad \text{ does not exist}$$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits along paths}
+
+  $$f \colon D \to \RR \quad , \quad \textbf{r} \colon I \to \RR^2$$
+  %
+  such that
+  %
+  \begin{itemize}
+    \item $0$ is in $I$, $\textbf{r}(0) = \textbf{r}_0$;
+    \item $\textbf{r}$ is continuous at $0$;
+    \item $\textbf{r}(t)$ is in $D$ for $t\neq 0$
+  \end{itemize}
+  %
+  $$\text{Limit along } \textbf{r} \Longrightarrow \lim_{t\to 0} f(\textbf{r}(t))$$
+  %
+  \pause
+  Particular case: $\textbf{r}(t) = \textbf{r}_0+t\textbf{u}$ (Directional limit)
+
+  \pause
+  Then:
+  %
+  $$\lim_{Q \to P_0} f(Q) =L \Longleftrightarrow \lim_{t\to 0} f(\textbf{r}(t))=L$$
+  %
+  for all continuous paths $\textbf{r}$ such that $\textbf{r}(0)=\textbf{r}_0$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity}
+
+\begin{itemize}
+  \item $f$ is continuous at $(x_0,y_0)$ if
+%
+$$\lim_{(x,y) \to (x_0,y_0)} f(x,y) = f(x_0,y_0) \; .$$
+
+\item $f$ is a continuous function if it is continuous at all points where it is defined.
+\end{itemize}
+
+\pause
+\underline{Examples}:
+%
+\begin{itemize}
+  \item Polynomial functions are continuous;
+  \item Sum, difference, product, quotient of continuous functions are continuous;
+  \item Powers, exponentials of continuous functions are continuous;
+  \item Compositions of continuous functions are continuous.
+\end{itemize}
+
+\pause
+\underline{What can go wrong}:
+\begin{itemize}
+  \item Limit different from actual value: Removable discontinuity:
+  \item Limit does not exist: essential discontinuity.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity of vector fields}
+
+  Vector field:
+  %
+  $$\textbf{F}\colon D \to \RR^2, \textbf{F}(x,y) = F_1(x,y) \textbf{i} + F_2(x,y) \textbf{j} $$
+  %
+  $$F_1, F_2 \colon D \to \RR \Longrightarrow \text{ scalar output.}$$
+  %
+  $$\textbf{F} \text{ continuous } \Longleftrightarrow F_1, F_2 \text{ continuous}$$
+
+  \pause
+  Example:
+  %
+  $$\textbf{F}(x,y) = y \textbf{i} -x\textbf{j}$$
+  %
+  $$F_1(x,y) = y \quad , \quad F_2(x,y) = -x $$
+  %
+  Polynomials $\Longrightarrow$ continuous components $\Longrightarrow$ continuous field
+\end{frame}
+
