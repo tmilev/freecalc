@@ -1,5 +1,5 @@
 \textbf{Solution. 
-\ref{problemAreaBetweeny=2x^2,y=4+x^2}.} $x=4-y^2$ is a parabola (here we consider $x$ as a function of $y$). $y=-x+2$ implies that $x=2-y$ and so the two curves intersect when 
+\ref{problemAreaBetweeny=2-x,x=4-y^2}.} $x=4-y^2$ is a parabola (here we consider $x$ as a function of $y$). $y=-x+2$ implies that $x=2-y$ and so the two curves intersect when 
 \[
 \begin{array}{rcl}
 4-y^2&=&2-y\\
@@ -24,6 +24,10 @@ A&=&\displaystyle \int_{-1}^{2} |4-x^2-(-x+2) | \diff y = \int_{-1}^2 (-y^2+y+2)
 \begin{pspicture}(-3.500000, -5)(4.500000,5) 
 \psframe*[linecolor=white](-3.500000,-5)(4.500000,5) 
 \tiny 
+\pscustom*[linecolor=cyan]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{4}{4 x -1 mul add 0.5 exp }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{4}{3}{4 x -1 mul add 0.5 exp -1 mul }
+}
 \rput(-1.5,5){$y=- x+2$} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{4.000000}{2 x -1 mul add }
 %Function formula: - (- x+4)^{1/2} 
@@ -31,9 +35,5 @@ A&=&\displaystyle \int_{-1}^{2} |4-x^2-(-x+2) | \diff y = \int_{-1}^2 (-y^2+y+2)
 %Function formula: (- x+4)^{1/2} 
 \rput(2,2){$x=4-y^2$} 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{4.000000}{4 x -1 mul add 0.5 exp }
-\pscustom*[linecolor=cyan]{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{4}{4 x -1 mul add 0.5 exp }
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{4}{3}{4 x -1 mul add 0.5 exp -1 mul }
-}
 \psaxes[arrows=<->, ticks=none, labels=none](0,0) (-3.000000,-4.5)(4.5,4.5) %Function formula: - x+2 
 \end{pspicture}
