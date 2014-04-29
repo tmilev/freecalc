@@ -3,15 +3,14 @@ Differentials are especially efficient at ``encoding'' the chain rule.
 \begin{example}
 Compute the differential $\diff  \ln \left(1+\sqrt{1+x^2}\right)$.
 
-\uncover<3->{Set $\alert<3,6,15>{u=1+\sqrt{1+x^2}}$.} \uncover<8->{Set $\alert<8,11,16>{v=1+x^2}$}
+\uncover<3->{Set $\alert<3,6,15>{u=1+\sqrt{1+x^2}}$.} \uncover<8->{Set $\alert<8,11,16>{v=1+x^2}$. }
 
 \[
 \begin{array}{rcl}
-\displaystyle\uncover<2->{\diff \ln \left(\alert<3>{1 +\sqrt{1 +x^2}}\right) &=&}\displaystyle \uncover<3->{ \alert<4,5>{\diff \ln \alert<3>{ u}=}} \uncover<5->{\alert<5>{\frac{1}{u}\diff  \alert<6>{u}}=}\uncover<6->{\frac{1}{u}\diff (\alert<6>{1+\sqrt{ 1+x^2}}) =}\\
+\displaystyle\uncover<2->{\diff \ln \left(\alert<3>{1 +\sqrt{1 +x^2}}\right) &=&}\displaystyle \uncover<3->{ \alert<4,5>{\diff \ln \alert<3>{ u}=}} \uncover<5->{\alert<5>{\frac{1}{u}\diff  \alert<6>{u}}=}\uncover<6->{\frac{1}{u}\diff \left(\alert<6>{1+\sqrt{ 1+x^2}}\right) =}\\
 &\uncover<7->{=}&\uncover<7->{\displaystyle\frac{1}u \diff \sqrt{\alert<8>{1+x^2}}=} \uncover<8->{\frac{1}u \alert<9>{ \diff  \alert<8>{v}^{\frac12}}=} \uncover<9->{ \frac1 u \alert<9>{\frac{1}{2} \alert<10>{v^{-\frac12}} \diff  \alert<11>{v}} }\\
-&\uncover<10->{=} &\displaystyle \uncover<10->{ \frac{\alert<10>{1} } {2u\alert<10>{v^{\frac12}}} \alert<12>{\diff  ( \alert<11>{1+x^2})}=} \uncover<12->{\frac{\alert<12>{2x} } {2uv^{\frac12}}\alert<12>{dx}=} \uncover<13->{\frac{x}{\alert<15>{u}\alert<16>{v}^{\frac12}}dx} \\
-&\uncover<14->{=}&\displaystyle
-\uncover<14->{\frac{x}{(\alert<15>{1+\sqrt{1+x^2}})\sqrt{\alert<16>{1+x^2}}} dx}
+&\uncover<10->{=} &\displaystyle \uncover<10->{ \frac{\alert<10>{1} } {2u\alert<10>{v^{\frac12}}} \alert<12>{\diff  ( \alert<11>{1+x^2})}=} \uncover<12->{\frac{\alert<12>{2x} } {2uv^{\frac12}}\alert<12>{\diff x}=} \uncover<13->{\frac{x}{\alert<15>{u}\alert<16>{v}^{\frac12}}\diff x} \\
+&\uncover<14->{=}&\displaystyle \uncover<14->{ \frac{x}{ ( \alert<15>{1+ \sqrt{1+x^2}})\sqrt{\alert<16>{1+x^2}}} \diff x}
 \end{array}
 \]
 \end{example}
