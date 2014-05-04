@@ -1,0 +1,36 @@
+\begin{enumerate}
+\item Solve the initial-value differential equation problem 
+\[
+y'=xe^{-y} 
+\quad,\quad  \quad \quad y(4)=0.
+\]
+Below is a computer-generated plot of corresponding direction field, you may use it to get a feeling for what your answer should look like.
+
+\optionalDisplay{
+\begin{pspicture}(-6,-6)(6,6)
+\psaxes{<->}(0,0)(-5,-5)(5,5)
+\psFullDot{4}{0}
+\rput[l](0.4,5){The direction field  $\frac{\diff y}{\diff  x}=y'=xe^{-y} $}
+\directionFieldDefault{2.718281828 y -1 mul exp x mul}{-4}{-4}{0.5}{17}
+\psplot[linecolor=\psColorGraph]{3.745}{4.2}{-7 x 2 exp 0.5 mul add ln}
+\end{pspicture}
+}
+\answer{$y(x)=\ln \left(\frac{x^2}{2}-7\right)$}
+\item Solve the initial-value differential equation problem 
+\[
+y'=\frac{\ln x}{x y}
+\quad,\quad  \quad \quad y(1)=2.
+\]
+Below is a computer-generated plot of corresponding direction field, you may use it to get a feeling for what your answer should look like.
+
+\optionalDisplay{
+\begin{pspicture}(-1,-6)(11,6)
+\psaxes{<->}(0,0)(-0.5,-5)(10,6)
+\psFullDot{1}{2}
+\rput[l](0.4,5){The direction field  $\frac{\diff y}{\diff  x}=y'=\frac{\ln x}{x y} $}
+\directionFieldDefault{x ln y x mul div}{0.01}{-4.01}{0.5}{17}
+\psplot[linecolor=\psColorGraph, plotpoints=600 ]{0.2}{8}{4 x ln 2 exp add 0.5 exp}
+\end{pspicture}
+}
+\answer{$y(x)= \sqrt{(\ln x)^2+4}$}
+\end{enumerate}

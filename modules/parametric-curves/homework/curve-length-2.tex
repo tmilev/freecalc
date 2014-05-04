@@ -1,0 +1,46 @@
+Set up an integral that expresses the length of the curve and find the length of the curve. 
+\begin{enumerate}
+\item 
+$
+\left| 
+\begin{array}{rcl}
+x(t)&=&e^t+e^{-t}\\
+y(t)&=&5-2t\\
+\end{array}\right., t\in [0,3]
+$
+
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-0.9, -1.388012)(20.415591,5.5) 
+\tiny 
+\psaxesStandard{-0.65}{-1.138012}{20.165591}{5.15}
+
+%Calculator input: plotCurve{}(e^{- t}+e^{t}, -2 t+5, 0, 3)
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{0}{3}{ 2.718281828 t exp 2.718281828 t -1 mul exp add 5 t -2 mul add }
+\end{pspicture} 
+
+\answer{ $ e^3-e^{-3}$}
+
+\item 
+$
+\left| 
+\begin{array}{rcl}
+x(t)&=&\sin t +\cos t\\
+y(t)&=&\sin t-\cos t\\
+\end{array}\right., t\in [0,\pi]
+$
+
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.81421, -1.814213)(1.814213,1.914213) 
+\tiny 
+\psaxesStandard{-1.56421}{-1.564213}{1.564213}{1.564213}
+
+%Calculator input: plotCurve{}(\sin{}t+\cos{}t, \sin{}t- \cos{}t, 0, 2 \pi)
+\parametricplot[linecolor=\psColorGraph, linestyle=dashed, plotpoints=1000]{0}{6.28319}{t 57.29578 mul cos t 57.29578 mul sin add t 57.29578 mul cos -1 mul t 57.29578 mul sin add }
+
+%Calculator input: plotCurve{}(\sin{}t+\cos{}t, \sin{}t- \cos{}t, 0, \pi)
+\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{0}{3.14159}{t 57.29578 mul cos t 57.29578 mul sin add t 57.29578 mul cos -1 mul t 57.29578 mul sin add }
+\end{pspicture} 
+
+\answer{ $\sqrt{2} \pi$}
+
+\end{enumerate}
