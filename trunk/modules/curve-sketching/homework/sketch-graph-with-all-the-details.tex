@@ -1,5 +1,6 @@
 
 Find the 
+\begin{multicols}{2}
 \begin{itemize}
 \item the implied domain of $f$.
 \item $x$ and $y$ intercepts of $f$.
@@ -9,6 +10,7 @@ Find the
 \item intervals of concavity 
 \item points of inflection
 \end{itemize}
+\end{multicols}
 Label all relevant points on the graph. Show all of your computations.
 \begin{enumerate}
 \item $\displaystyle f(x)=\frac{x+\frac 1 2}{x^{2}+x+1}$
@@ -38,10 +40,10 @@ Inflection points at: $x=-2$, $x= -\frac12$, $x=1 $ \\
 \begin{pspicture}(-5, -5)(5,5) 
 \psframe*[linecolor=white](-5,-5)(5,5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-0.5)(5,3.5)
+\psaxes[ticks=none, labels=none]{<->}(0,0) (-5,-0.5) (5, 3.5)
 \psLabels{5}{3.5}
 %Function formula: \frac{2 x^{2}-5 x+9/2}{x^{2}-3 x+3} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-5}{5}{4.5 x -5 mul add x 2 exp 2 mul add 3 x -3 mul add x 2 exp add div }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-5}{5 } {4.5 x -5 mul add x 2 exp 2 mul add 3 x -3 mul add x 2 exp add div }
 \end{pspicture} 
 
 \answer{
@@ -152,4 +154,25 @@ concave down on $\left(-\infty,-2\right)cup \left(-1,0 \right)$, concave up on $
 inflection point at $x=-1$
 \end{tabular}
 }
+\item \item $\displaystyle f(x)=\frac{x+1}{x^2+2x+4}$
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-4.500000, -5)(4.500000,5) 
+\psframe*[linecolor=white](-4.500000,-1)(4.500000,1) 
+\tiny 
+\psaxesStandard{-5.000000}{-1}{3.000000}{1} %Function formula: \frac{x+1}{x^{2}+2 x+4} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-5.000000}{3.000000}{1 x add 4 x 2 mul add x 2 exp add div }
+\end{pspicture} 
+
+\answer{
+\begin{tabular}{l}
+$y$-intercept: $\frac14$, $x$-intercept: $-1$\\
+horizontal asymptote: $y=0$, vertical: none\\
+increasing on 
+$\left(-1-\sqrt{3}, -1+\sqrt{3}  \right) $, decreasing on $\left(-\infty, -1-\sqrt{3}\right)\cup \left(-1+\sqrt{3}, \infty\right) $\\
+local and global min at $x=-1-\sqrt{3}$, local and global max at $x=-1+\sqrt{3}$\\
+concave up on $\left(-4, -1\right)cup \left(2, \infty \right)$, concave down $\left(-\infty, -4\right)\cup \left(-1, 2\right)$\\
+inflection points at $x=-4,x=-1, x=2$
+\end{tabular}
+}
+
 \end{enumerate}
