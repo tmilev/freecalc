@@ -1,0 +1,26 @@
+\solution{
+\ref{problemRiemannSum-1div1plusxsquared}. The interval $[-3.5,-0.5]$ is subdivided into $n=3$ intervals, therefore the length of each is $\Delta x=1$. The intervals are therefore 
+\[
+[-3.5,-2.5], [-2.5,-1.5], [-1.5,-0.5]\quad .
+\]
+The problem asks us to use the midpoint of each interval as a sampling point. Therefore our sampling points are $-3,-2,-1$. Therefore the Riemann sum we are looking for is 
+\[
+\Delta x\left(f(-3)+f(-2)+f(-1) \right)=1\cdot \left( \frac{1}{10}+\frac{1}{5}+\frac{1}{2}\right)= 0.8
+\]
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-3.9, -0.9)(1.4,1.499857) 
+\tiny 
+
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](-3.500000, 0.000000)(-3.500000, 0.100000)(-2.500000, 0.100000)(-2.500000, 0.000000)(-3.500000, 0.000000)
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](-2.500000, 0.000000)(-2.500000, 0.200000)(-1.500000, 0.200000)(-1.500000, 0.000000)(-2.500000, 0.000000)
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](-1.500000, 0.000000)(-1.500000, 0.500000)(-0.500000, 0.500000)(-0.500000, 0.000000)(-1.500000, 0.000000)
+\psline[linecolor=blue, linewidth=0.1pt](-3.500000, 0.000000)(-3.500000, 0.100000)(-2.500000, 0.100000)(-2.500000, 0.000000)(-3.500000, 0.000000)
+\psline[linecolor=blue, linewidth=0.1pt](-2.500000, 0.000000)(-2.500000, 0.200000)(-1.500000, 0.200000)(-1.500000, 0.000000)(-2.500000, 0.000000)
+\psline[linecolor=blue, linewidth=0.1pt](-1.500000, 0.000000)(-1.500000, 0.500000)(-0.500000, 0.500000)(-0.500000, 0.000000)(-1.500000, 0.000000)
+\rput[t](-3.500000,-0.03){$-\frac{7}{2}$}\rput[t](-2.500000,-0.03){$-\frac{5}{2}$}\rput[t](-1.500000,-0.03){$-\frac{3}{2}$}\rput[t](-0.500000,-0.03){$-\frac{1}{2}$}
+%Function formula: (x^{2}+1)^{-1} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.5}{1}{ 1 x 2 exp add -1 exp }
+\psaxes[ticks=none, labels=none, arrows=<-> ](0,0)(-3.65,-0.65)(1.15,1.149857)
+\psLabels{1.15}{1.149857}
+\end{pspicture} 
+}
