@@ -1,0 +1,17 @@
+\solution{\ref{problem-linearization-estimate0.9999power2014}
+Let $f(x)=x^{2014}$. We are looking to approximate $(0.9999)^{2014}= f(0.9999)$. As $f(1)=1^{2014}=1$ is easy to compute, is makes sense to use linear approximation at $a=1$ to approximate $(0.9999)^{2014}$. We have that 
+\[
+f'(x)=2014x^{2013} \quad .
+\]
+Therefore the linear approximation of $f(x)=x^{2014}$ at $a=1$ is:
+\[
+f(x)\approx f(1) +f'(1)(x-1)= 1^{2014}+2014 \cdot 1^{2013}(x-1)=1+ 2014(x-1)=2014x-2013 \quad .
+\]
+Therefore 
+\[
+f(0.9999)\approx 2014\cdot 0.9999 -2013=1\cdot 0.9999 +2013(0.9999-1)=0.9999-2013\cdot 0.0001= 0.9999-0.2013=0.7986
+\]
+
+
+A computation with computer shows that $0.999^{2014}=0.817577\dots $. While our approximation of $0.7986$ is less than perfect, it is within the same order of magnitude. We study techniques for estimating errors in linear approximations later.
+}
