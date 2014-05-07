@@ -8,7 +8,6 @@
 \begin{pspicture}(-0.5, -0.5)(1.5,1.5) 
 \psframe*[linecolor=white](-0.5,-0.5)(1.5,1.5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.2,-0.3)(1.5,1.5)
 \psLabels{1.5}{1.5}
 \psXTickWithLabel{0.2}{$a$}
 \psXTickWithLabel{1.1}{$b$}
@@ -30,6 +29,7 @@
 } %
 %Function formula: 6/5- ((-1+x)^{2}) 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1.5}{x -1 add 2 exp -1 mul 1.2 add }
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.2,-0.3)(1.5,1.5)
 \end{pspicture} 
 %\ \only<1>{%
 %\includegraphics[height=3cm]{area-between-curves/pictures/06-01-singleint.pdf}%
@@ -39,8 +39,8 @@
 %}
 &%
 \psset{xunit=0.65cm, yunit=0.65cm}
-\begin{pspicture}(-0.5, -5)(4,5) 
-\psframe*[linecolor=white](-0.5,-5)(4,5) 
+\begin{pspicture}(-0.5, -0.5)(4,3.7) 
+\psframe*[linecolor=white](-0.5,-0.5)(4,3.7) 
 \tiny 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4,3.5)
 \psLabels{4}{3.5}
@@ -90,11 +90,7 @@ rectangle area $ = $ \only<handout:0| -16>{\alert<handout:0| 16>{height}}\only<1
 \begin{pspicture}(-0.5, -0.5)(1.5,1.5) 
 \psframe*[linecolor=white](-0.5,-0.5)(1.5,1.5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.2,-0.3)(1.5,1.5)
 \psLabels{1.5}{1.5}
-\psXTickWithLabel{0.2}{$a$}
-\psXTickWithLabel{1.1}{$b$}
-
 \only<7>{
 \psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](0.2, 0)(0.2, 0.56)(0.425, 0.56)(0.425, 0)(0.425, 0)(0.425, 0.869375)(0.65, 0.869375)(0.65, 0)(0.65, 0)(0.65, 1.0775)(0.875, 1.0775)(0.875, 0)(0.875, 0)(0.875, 1.18437)(1.1, 1.18437)(1.1, 0)
 \psline[linecolor=blue, linewidth=0.1pt](0.2, 0)(0.2, 0.56)(0.425, 0.56)(0.425, 0)(0.425, 0)(0.425, 0.869375)(0.65, 0.869375)(0.65, 0)(0.65, 0)(0.65, 1.0775)(0.875, 1.0775)(0.875, 0)(0.875, 0)(0.875, 1.18437)(1.1, 1.18437)(1.1, 0)
@@ -116,6 +112,9 @@ rectangle area $ = $ \only<handout:0| -16>{\alert<handout:0| 16>{height}}\only<1
 } %
 %Function formula: 6/5- ((-1+x)^{2}) 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1.5}{x -1 add 2 exp -1 mul 1.2 add }
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.2,-0.3)(1.5,1.5)
+\psXTickWithLabel{0.2}{$a$}
+\psXTickWithLabel{1.1}{$b$}
 \end{pspicture} 
 %\uncover<7>{%
 %\includegraphics[height=3cm]{area-between-curves/pictures/06-01-4rectangle.pdf}%
@@ -133,10 +132,9 @@ rectangle area $ = $ \only<handout:0| -16>{\alert<handout:0| 16>{height}}\only<1
 &%
 \uncover<18->{ %
 \psset{xunit=0.65cm, yunit=0.65cm}
-\begin{pspicture}(-0.5, -0.5)(5,5) 
-\psframe*[linecolor=white](-0.5,-5)(5,5) 
+\begin{pspicture}(-0.5, -0.5)(4,3.5) 
+\psframe*[linecolor=white](-0.5,-0.5)(4,3.5) 
 \tiny 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4,3.5)
 \psLabels{4}{3.5}
 \psXTickWithLabel{0.5}{$a$} 
 \psXTickWithLabel{3}{$b$}
@@ -217,6 +215,7 @@ rectangle area $ = $ \only<handout:0| -16>{\alert<handout:0| 16>{height}}\only<1
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{4}{x 0.25 mul -0.75 add 2 exp -1 mul 1.5 add }
 %Function formula: (1/4 (x))^{2}+2 
 \psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{4}{2 x 0.25 mul 2 exp add }
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4,3.5)
 \end{pspicture} 
 } %
 %\ \only<-18>{%
