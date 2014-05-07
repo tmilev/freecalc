@@ -4,9 +4,62 @@
 \begin{theorem}[Integrals of Symmetric Functions]
 Suppose $f$ is continuous on $[-a, a]$.
 \begin{enumerate}
-\item  If $f$ is even (that is, $f(-x) = f(x)$), then $\displaystyle \int_{-a}^a f(x) \ \diff x = 2\int_0^a f(x) \ \diff x$.
-\item  If $f$ is odd (that is, $f(-x) = -f(x)$), then $\displaystyle \int_{-a}^a f(x) \ \diff x = 0$.
+\item  If $f$ is \alert<2>{even} (that is, \alert<2>{$f(-x) = f(x)$}), then $\displaystyle \alert<3>{ \int\limits_{-a}^a f(x) \ \diff x} = 2 \alert<4>{\int\limits_0^a f(x) \ \diff x}$.
+\item  If $f$ is \alert<5>{odd} (that is, \alert<5>{$f(-x) = -f(x)$}), then $\displaystyle  \alert<6>{\int\limits_{-a}^a f(x) \ \diff x }= \alert<7>{\int\limits_{0}^a f(x) \ \diff x}+ \alert<8>{\int\limits_{-a}^0 f(x) \ \diff x}= 0$.
 \end{enumerate}
 \end{theorem}
+\begin{columns}
+\column[c]{0.5\textwidth}
+\psset{xunit=0.75cm, yunit=0.75cm}
+\begin{pspicture}(-2.7,-0.5)(1.7,2.7)
+\tiny 
+\uncover<3->{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{ 1 x 2 exp -2 mul add x 4 exp add }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{1.6}{ 1 x 2 exp -2 mul add x 4 exp add }
+\psline(1.6, 0)(0,0)
+}
+}
+\uncover<3,5->{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psline(0,0)(-1.6, 0)
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.6}{-1}{ 1 x 2 exp -2 mul add x 4 exp add }
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{0}{ 1 x 2 exp -2 mul add x 4 exp add }
+}
+}
+\psaxes[arrows=<->, labels=none, ticks=none]( 0,0)( -1.8, -0.65 )(1.8,2.5836)
+\psLabels{1.8}{2.5836}
+%Function formula: -2 x^{2}+x^{4} +1
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.6}{1.6}{ 1 x 2 exp -2 mul add x 4 exp add }
+\uncover<2>{
+\psline{<->}(-1.5, 1.5625)(1.5,1.5625)
+}
+\end{pspicture}
+\column[c]{0.5\textwidth}
+\psset{xunit=0.65cm, yunit=0.65cm}
+\begin{pspicture}(-3.5,-1.8)(3.5,1.8)
+\tiny 
+\psLabels{3.4}{1.7}
+\uncover<6,7,9->{
+\pscustom*[linecolor=\psColorAreaUnderGraph]{
+\psplot[plotpoints=1000]{0}{3.141593}{x 57.29578 mul sin }
+\psline(3.141593, 0)(0,0)
+}
+}
+\uncover<6,8->{
+\pscustom*[linecolor=orange]{
+\psplot[plotpoints=1000]{0}{-3.141593}{x 57.29578 mul sin }
+\psline(-3.141593, 0)(0,0)
+}
+}
+\psaxes[ticks=none, labels=none]{<->}(0, 0)(-3.4, -1.7)(3.4, 1.7)
+%Function formula: \sin{}x 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.141593}{3.141593}{x 57.29578 mul sin }
+\uncover<5>{
+%Calculator input: plotCurve{}(1.306933 \cos{}t, 1.306933 \sin{}t, 0.699522, \pi+0.699522)
+\parametricplot[arrows=<->, plotpoints=1000]{0.699522}{3.84111}{t 57.29578 mul cos 1.306933 mul t 57.29578 mul sin 1.306933 mul }
+}
+\end{pspicture}
+\end{columns}
 \end{frame}
 % end module integrals-of-symmetric-functions
