@@ -1,7 +1,7 @@
 %module FTC part1 solving problems.
 \begin{frame}
 \begin{theorem}
-Let $A,B$-numbers, $a(x), b(x)$ -differentiable functions with $A<a(x)<B$, $A<b(x)<B$. Let $f$ - continuous on $[A,B]$  and $\displaystyle G(x)=\int_{a(x)}^{b(x)} f(t)dt$. Then  $ \alert<11>{G'(x)=f(a(x))a'(x)-f(b(x))b'(x)}$.
+Let $A,B$-numbers, $a(x), b(x)$ -differentiable functions with $A<a(x)<B$, $A<b(x)<B$. Let $f$ - continuous on $[A,B]$  and $\displaystyle G(x)=\int_{a(x)}^{b(x)} f(t)dt$. Then  $ \alert<11>{G'(x)=f(b(x))b'(x)-f(a(x))a'(x)}$.
 \end{theorem}
 \begin{proof}
 \uncover<2->{\alert<6>{Let $c\in (A, B)$}.} \uncover<3->{Set $\alert<7>{\displaystyle h(u)=\int_{c}^{u}f(t)dt}$.} \uncover<4->{FTC part 1 states that $h'(u)=f(u)$.} 
@@ -13,7 +13,7 @@ $\begin{array}{rcl}
 
 \uncover<9->{Then} \uncover<10->{using the chain rule we get}
 
-$ \uncover<9->{\displaystyle\alert<11>{  G'(x)}= \left(h(b(x))-h(a(x)) \right)'} \uncover<10->{= h'(b(x)) b'(x)-h'(a(x))a'(x)}\uncover<11->{=\alert<11>{f(a(x))a'(x)-f(b(x))b'(x)},}
+$ \uncover<9->{\displaystyle\alert<11>{  G'(x)}= \left(h(b(x))-h(a(x)) \right)'} \uncover<10->{= h'(b(x)) b'(x)-h'(a(x))a'(x)}\uncover<11->{=\alert<11>{f(b(x))b'(x)-f(a(x))a'(x)},}
 $\uncover<11->{ as desired.}
 \end{proof}
 \end{frame}
