@@ -1,0 +1,18 @@
+\solution{\ref{problemConvergenceSum_n=1^infty(4n)^n/nfactorial}[Contributed by student Bingjie Wu]
+In order to establish the convergence of 
+\[ 
+\sum_{n=1}^{\infty }\frac{(4n)^{n}}{n!}\quad ,
+\]
+we shall use the ratio test. We recall that the ratio test states that if $\displaystyle \lim\limits_{n\to \infty} \frac{a_n}{a_{n+1 }} $ exists and is equal to $L$, then if $L>1$ the series is divergent and if $L<1$ the series is convergent (if $L=1$ the test is inconclusive). 
+
+We compute:
+\[
+\begin{array}{rcl}
+\displaystyle\lim\limits_{n\to \infty} \frac{a_{n+1}}{a_{n}}&=&\displaystyle \lim \limits_{ n \to\infty} \left|\frac{(4n+4)^{n+1}n !}{ (n+ 1)! ( 4n )^{ n}} \right|\\
+&=&\displaystyle
+\lim\limits_{n\to\infty} \left| \frac{ (4n+4)(4n+4 )^{n}}{(n+1)(4n)^{n}}\right|\\
+&=&\displaystyle \left(\lim\limits_{n\to\infty} \frac{4n+4}{n+1} \right) \left(\lim\limits_{n\to \infty} \left( \frac{n+1}{n}\right)^{n}\right)=4e> 1\quad,
+\end{array}
+\]
+and therefore the series is divergent.
+}
