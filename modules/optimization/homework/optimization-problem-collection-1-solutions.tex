@@ -1,0 +1,22 @@
+\solution{\ref{problemponthyperbolax^2-4y^2closestTo1,1}
+
+The distance function between an arbitrary point $(x,y)$ and the point $(1,0)$ is $d=\sqrt{(x-1)^2+(y-0)^2}$. On the other hand, when the point $(x,y)$ lies on the hyperbola we have $y^2= \frac{x^2 -16 }{4 }$. In this way, the problem becomes that of minimizing the distance function
+
+\[
+dist(x)=\sqrt{(x-1)^2+y^2}=\sqrt{(x-1)^2+\frac{x^2-16}{4}} \quad .
+\]
+This is a standard optimization problem: we need to find the critical endpoints, i.e., the points where $dist'=0$. As the square root function is an increasing function, the function $\displaystyle \sqrt{(x-1)^2+\frac{x^2-16}{4}}$ achieves its minimum when the function 
+\[
+l=dist^2=(x-1)^2+\frac{x^2-16}{4}\quad 
+\]
+does. $l$ is a quadratic function of $x$ and we can directly determine its minimimum via elementary methods. Alternatively, we find the critical points of $l$:
+\[
+\begin{array}{rcl}
+\displaystyle l'&=&\displaystyle 0\\
+\displaystyle 2(x-1)+\frac{x}{2} &=&\displaystyle 0\\
+\displaystyle \frac{5}{2}x-2&=&0\\
+\displaystyle x&=&\displaystyle \frac{4}{5}\quad .
+\end{array}
+\]
+On the other hand, $x^2=16+4y^2$ and therefore $|x|\geq \sqrt{16} = 4$. Therefore $x\in (-\infty, -4]\cup [4,\infty)$. As $x= \frac{4}{5 }$ is outside of the allowed range, it follows that our either function attains its minimum at one of the endpoints $\pm 4$ or the function has no minimum at all. It is clear however that as $x$ tends to  $\infty$, so does $dist$. Therefore $dist$ attains its maximum for $x=4$ or $-4$ and $y=\pm\sqrt{(\pm4)^2-16}=0$. Direct check shows that $dist_{|x=4} =\sqrt{(4-1)^2 +\frac{4^2- 16}{4 }}=3$ and $dist_{|x=-4}=\sqrt{(-4-1)^2+\frac{4^2-16}{4}}=5$  so our function $dist$ has a minimal value of $3$ achieved when $x=4$, which is our final answer. Notice that this answer can be immediately given without computation by looking at the figure drawn for \ref{problemponthyperbolax^2-4y^2closestTo1,1}. Indeed, it is clear that there are no points from the hyperbola lying inside the dotted circle centered at $(1,0)$. Therefore the point where this circle touches the hyperbola must have the shortest distance to the center of the circle.
+}
