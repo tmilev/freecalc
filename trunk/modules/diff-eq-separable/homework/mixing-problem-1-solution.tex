@@ -27,24 +27,24 @@ To find $y(45)$, we integrate from $t=0$ to $t=45$:
 {\renewcommand{\arraystretch}{1.5}
 \begin{array}{rcll|l}
 \displaystyle \int\limits_{t=0}^{45} \frac{1000}{500- y} \underbrace{ \frac{\diff y}{\diff t} \diff t}_{\diff (y(t))} &=& \displaystyle \int\limits_{t=0}^{45} \diff t \\
-\displaystyle \int\limits_{t=0}^{t=45} \frac{1000}{500-y(t)}\diff (y(t))&=& 30&&\text{set }z=y(t) \\
+\displaystyle \int\limits_{t=0}^{t=45} \frac{1000}{500-y(t)}\diff (y(t))&=& 45&&\text{set }z=y(t) \\
 \displaystyle -1000 \int \limits_{z=y(0)=30}^{z=y(45)} \frac{1}{500-z}d(500-z)&=& 45 \\
-\displaystyle \left. -1000 \ln |500-y| \right]_{30}^{y(30)}&=& 45 \\
+\displaystyle \left. -1000 \ln |500-y| \right]_{y(0)=30}^{y(45)}&=& 45 \\
 \displaystyle -1000 \left( \ln |500-y(45)|\right. \\
 \left. -\ln |500- 30|  \right) &=& 45 \\
 \displaystyle \ln \left| \frac{470}{500-y(45)} \right|  &=& \displaystyle \frac{45}{1000}
 \\
 \displaystyle \ln \left( \frac{470}{500-y(45)} \right)  &=& \displaystyle \frac{45}{1000} &&\text{see below}
 \\
-\frac{470}{500-y(30)}&=&e^{\frac{45}{1000}}\\
-500-y(30)&=& 470e^{-\frac{9}{200}}\\
-y(30)&=&500-470e^{-\frac{9}{200}}\\
+\displaystyle \frac{470}{500-y(30)}&=&\displaystyle e^{\frac{45}{1000}}\\
+\displaystyle 500-y(30)&=&\displaystyle  470e^{-\frac{9}{200}}\\
+\displaystyle y(30)&=&\displaystyle 500-470e^{-\frac{9}{200}}\\
 &\approx& 500-470\cdot 0.955997 \\
 &\approx& 50.681184 \quad ,
 \end{array}
 }
 \]
-where we have used that $\displaystyle \frac{470}{500-y(t)}>0 $. The fact that $\displaystyle \frac{470}{500-y(t)}>0 $ can be seen as follows. As $500-y(0)=470>0$ and $y(t)$ is continuous, in order to have $500-y(t)<0$ there must exist some $x_1$ for which $y(x_1)=500$. However this is impossible since $x=\ln \left|\frac{470}{500-y(x)}\right|  $. 
+where we have used that $\displaystyle \frac{470}{500-y(t)}>0 $. The fact that $\displaystyle \frac{470}{500-y(t)}>0 $ can be seen as follows. As $500-y(0)=470>0$ and $y(t)$ is continuous, in order to have $500-y(t)<0$ there must exist some $x_1$ for which $y(x_1)=500$. However this is impossible since $\displaystyle x=\ln \left|\frac{470}{500-y(x)}\right|  $. 
 
 As the unit of measurement is $kg$, the final answer to the problem is $\approx 50.68 kg$ salt.
 }
