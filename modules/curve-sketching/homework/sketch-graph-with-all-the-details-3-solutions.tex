@@ -47,16 +47,42 @@ Therefore the quadratic $-x^2+2x+2$ factors as
 The points $x_1, x_2$ split the real line into three intervals: $(-\infty, -1-\sqrt{3})$, $(-1-\sqrt{3}, -1+\sqrt{3})$ and $(-1+ \sqrt{3}, \infty )$, and each of the factors of \eqref{eq1problemSketch(x+1)/(x^2+2x+4)} has constant sign inside each of the intervals. If we chooose $x$ to be a very negative number, it follows that $-(x-x_1)(x-x_2)$ is a negative, and therefore $ f'(x)$ is negative for $x\in(-\infty, -1-\sqrt{3})$. For $x\in (-1-\sqrt{3}, -1+\sqrt{3})$, exactly one factor of $f'$ changes sign and therefore $f'(x)$ is positive in that interval; finally only one factor of $f'(x)$ changes sign in the last interval so $f'(x)$ is negative on $(-1+ \sqrt{3}, \infty )$.
 
 Our computations can be summarized in the following table. 
+
 \begin{tabular}{|lll|}\hline
 Interval & $f'(x)$ & $f(x)$   \\\hline
 $(-\infty, -1-\sqrt{3})$ & $-$& $\searrow $ \\\hline
 $(-1-\sqrt{3}, -1+\sqrt{3})$ &$+$&$\nearrow$\\\hline
-$(\infty, -1+\sqrt{3})$&$-$&$\searrow$ \\\hline
+$( -1+\sqrt{3}, \infty)$&$-$&$\searrow$ \\\hline
 \end{tabular}
 
 \textbf{Local and global minima and maxima. } The table above shows that $f(x)$ changes from decreasing to increasing at $x=x_1=-1-\sqrt{3}$ and therefore $f$ has a local minimum at that point. The table also shows that $f(x)$ changes from increasing to decreasing at $ x=x_2=-1+\sqrt{3}$ and therefore $f$ has a local maximum at that point. The so found local maximum and local minimum turn out to be global: indeed, no other finite point is critical and thus cannot be maximum or minimum; on the other hand $\lim\limits_{x\to\pm \infty}f(x)=1$ and this implies that all $x$ sufficiently far away from $x=0$ have that $f(x)$ is close to $0$, and therefore $f(x)$ is larger than $f(x_1)$ and smaller than $f(x_2)$ for all $x$.
 
 \textbf{Intervals of concavity. } 
-The intervals of concavity of $f$ are governed by the sign of $f''$. The second derivative of $f$
+The intervals of concavity of $f$ are governed by the sign of $f''$. The second derivative of $f$ is:
+\[
+\begin{array}{rcll|l}
+f''(x)&=&\displaystyle (f'(x))'= \left(\frac{-x^2-2x+2}{\left(x^2+2x+4 \right)^2}\right)'\\
+&=&\displaystyle (-x^2-2x+2)'\left(\frac{1}{(x^2+2x+4)^2}\right)+(-x^2-2x+2)\left(\frac{1}{(x^2+2x+4)^2}\right)' &&\begin{array}{l}\text{use chain rule }\\\text{for second differentiation}\end{array}\\
+&=&\displaystyle (-2x-2)\left(\frac{1}{(x^2+2x+4)^2}\right)+(-x^2-2x+2)(-2)\frac{(x^2+2x+4)'}{(x^2+2x+4)^{3}}\\
+&=&\displaystyle -(2x+2)\left(\frac{1}{(x^2+2x+4)^2}\right) +(2x^2+4x-4)\frac{(2x+2)}{(x^2+2x+4)^{3}}&&\text{factor out }\frac{(2x+2)}{(x^2+2x+4)^2}\\
+&=&\displaystyle \frac{(2x+2)}{(x^2+2x+4)^2}\left(-1+\frac{(2x^2+4x-4)}{(x^2+2x+4)}\right)\\
+&=&\displaystyle \frac{(2x+2)}{(x^2+2x+4)^2}\left(\frac{-(x^2+2x+4)+(2x^2+4x-4)}{(x^2+2x+4)} \right)\\
+&=&\displaystyle \frac{(2x+2)(x^{2}+2 x-8)}{(x^2+2x+4)^3}&& \text{factor } (x^2+2x-8)\\
+&=&\displaystyle \frac{(2x+2)(x+4)(x-2)}{(x^2+2x+4)^3}
+\end{array}
+\]
+As we previously established, the denominator of the above expression is always positive. Therefore the expression above changes sign when the terms in the numerator change sign, namely, at $x=-1$, $x=-4$ and $x=2$. 
+
+Our computations can be summarized in the following table. 
+
+\begin{tabular}{|lll|}\hline
+Interval & $f''(x)$ & $f(x)$   \\\hline
+$(-\infty, -4)$ & $-$& $\cap$ \\\hline
+$(-4, -1)$ &$+$&$\cup$\\\hline
+$(-1, 2)$&$-$&$\cap$ \\\hline
+$(2, \infty)$&$-$&$\cup$ \\\hline
+\end{tabular}
+
+\textbf{Points of inflection.} The preceding table shows that $f''(x)$ changes sign at $-4, -1, 2$ and therefore the points of inflection are located at $x=-4, x=-1$ and $x=2$, i.e., the points of inflection are $\left(-4, -\frac{1}{4}\right)$, $\left(-1, 0\right)$, $\left(2, \frac{1}{4}\right)$.
 
 }
