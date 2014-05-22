@@ -1,0 +1,24 @@
+\solution{\ref{problemRiemannSum-sqrt(8x+1)}. The interval $[0,4]$ is subdivided into $n=4$ intervals, therefore the length of each is $\Delta x=1$. The intervals are therefore 
+\[
+[0,1], [1,2], [2,3], [3,4]\quad .
+\]
+The problem asks us to use the left endpoints of each interval as sampling points. Therefore our sampling points are $0,1,2,3$. Therefore the Riemann sum we are looking for is 
+\[
+\Delta x\left(f(0)+f(1)+f(2)+f(3) \right)=1\cdot \left(\sqrt{8\cdot 0+1}+\sqrt{8\cdot 1+1}+\sqrt{8\cdot 2+1}+\sqrt{8\cdot 3+1}\right)= 9+\sqrt{17}\approx 13.1231
+\]
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.9, -0.9)(4.4,6.233433) 
+\tiny 
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](0.000000, 0.000000)(0.000000, 1.000000)(1.000000, 1.000000)(1.000000, 0.000000)(0.000000, 0.000000)
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](1.000000, 0.000000)(1.000000, 3.000000)(2.000000, 3.000000)(2.000000, 0.000000)(1.000000, 0.000000)
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](2.000000, 0.000000)(2.000000, 4.123106)(3.000000, 4.123106)(3.000000, 0.000000)(2.000000, 0.000000)
+\psline*[linecolor=\psColorAreaUnderGraph, linewidth=0.1pt](3.000000, 0.000000)(3.000000, 5.000000)(4.000000, 5.000000)(4.000000, 0.000000)(3.000000, 0.000000)
+\psline[linecolor=blue, linewidth=0.1pt](0.000000, 0.000000)(0.000000, 1.000000)(1.000000, 1.000000)(1.000000, 0.000000)(0.000000, 0.000000)
+\psline[linecolor=blue, linewidth=0.1pt](1.000000, 0.000000)(1.000000, 3.000000)(2.000000, 3.000000)(2.000000, 0.000000)(1.000000, 0.000000)
+\psline[linecolor=blue, linewidth=0.1pt](2.000000, 0.000000)(2.000000, 4.123106)(3.000000, 4.123106)(3.000000, 0.000000)(2.000000, 0.000000)
+\psline[linecolor=blue, linewidth=0.1pt](3.000000, 0.000000)(3.000000, 5.000000)(4.000000, 5.000000)(4.000000, 0.000000)(3.000000, 0.000000)
+%Function formula: (8 x+1)^{1/2} 
+\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{4}{ 1 x 8 mul add 0.5 exp }
+\psaxes(0,0)(-0.65,-0.65)(4.15,5.883433)
+\end{pspicture} 
+}
