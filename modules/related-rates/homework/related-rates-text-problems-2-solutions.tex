@@ -14,3 +14,35 @@ Compute:
 The measurement unit of $\diff y$ is $km$, the measurement unit of  $t$ is minutes, therefore the answer is $-\frac{9}{10}$km/min.
 
 }
+
+\solution{\ref{problemRelatedRatesFinddr/dtIfds/dtIsKnownS-sphere}
+Let $t$ denote time. Let $R$ be the radius of the sphere. Let $S$ be the surface area of the sphere. We are given that 
+\[
+\frac{\diff S}{\diff t}=-50\quad ,
+\] 
+where the sign is negative because the bubble is decreasing. We are asked to find 
+\[
+\frac{\diff R}{\diff t} = ?
+\]
+ 
+$R$ and $S$ are related via
+\[
+\begin{array}{rcll|l}
+\displaystyle S&=&\displaystyle 4\pi R^2 &&\text{differentiate with respect to time}\\
+\displaystyle \frac{\diff S}{\diff t}&=&\displaystyle  4\pi *2R*\frac{\diff R}{\diff t}\\
+\displaystyle \frac{\diff R}{\diff t}&=&\displaystyle \frac{1}{8\pi R }\frac{\diff S}{\diff t}\quad .
+\end{array}
+\]
+When $S= 1000$, we can find the corresponding value of $R$:
+\[
+\begin{array}{rcl}
+1000&=&\displaystyle  4\pi R^2\\
+R^2&=&\displaystyle \frac{250}{\pi }\\
+R&=&\displaystyle  \sqrt{\frac{250}{\pi }}\quad .
+\end{array}
+\]
+Finally, we can compute:
+\[
+\frac{\diff R}{\diff t}_{|S=1000}= \frac{1}{8\pi \underbrace{\sqrt{\frac{250}{\pi }}}_{=R \text{ when }S=1000} }*(\underbrace{-50}_{=\frac{\diff S}{\diff t}})= -\frac{\sqrt{10\pi}}{ 8\pi}\quad.
+\]
+}
