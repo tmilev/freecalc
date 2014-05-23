@@ -20,3 +20,55 @@ does. $l$ is a quadratic function of $x$ and we can directly determine its minim
 \]
 On the other hand, $x^2=16+4y^2$ and therefore $|x|\geq \sqrt{16} = 4$. Therefore $x\in (-\infty, -4]\cup [4,\infty)$. As $x= \frac{4}{5 }$ is outside of the allowed range, it follows that our either function attains its minimum at one of the endpoints $\pm 4$ or the function has no minimum at all. It is clear however that as $x$ tends to  $\infty$, so does $dist$. Therefore $dist$ attains its maximum for $x=4$ or $-4$ and $y=\pm\sqrt{(\pm4)^2-16}=0$. Direct check shows that $dist_{|x=4} =\sqrt{(4-1)^2 +\frac{4^2- 16}{4 }}=3$ and $dist_{|x=-4}=\sqrt{(-4-1)^2+\frac{4^2-16}{4}}=5$  so our function $dist$ has a minimal value of $3$ achieved when $x=4$, which is our final answer. Notice that this answer can be immediately given without computation by looking at the figure drawn for \ref{problemponthyperbolax^2-4y^2closestTo1,1}. Indeed, it is clear that there are no points from the hyperbola lying inside the dotted circle centered at $(1,0)$. Therefore the point where this circle touches the hyperbola must have the shortest distance to the center of the circle.
 }
+
+\solution{\ref{problemMaxVolumeBoxFixedAreaDoubleBottomNoLid}
+Let $B$ denote the area of the base of the box, equal to the area of the top. Let $W$ denote the area of the four walls of the box (the four walls are all equal because the base of the box is a square). Then the surface area $S$ of material used will be 
+\[
+S=\underbrace{2B}_{\text{two pieces for the bottom}}+\underbrace{4W}_{4 \text{ walls}} +\underbrace{B}_{\text{the box lid}}=3B+4W\quad.
+\] 
+Let $x$ denote the length of the side of the square base and let $y$ denote the height of the box.  Then  
+\[
+B=x^2
+\]
+and 
+\[
+W=xy\quad .
+\]
+As the surface area $S$ is fixed to be $36$ square feet, we have that
+\[
+S=3B+4W=36= 3x^2 + 4xy\quad .
+\]
+As $y$ is positive, the above formula shows that $3x^2\leq 36$ and so $x\leq \sqrt{12}$. Let us now express $y$ in terms of $x$:
+\[
+\begin{array}{rcl}
+3x^2+4xy&=&36\\
+4xy&=&36-x^2\\
+y&=&\displaystyle\frac{36-x^2}{4x}\quad .
+\end{array}
+\]
+The problem asks us to maximize the volume $V$ of the box. The volume of the box equals the area of the base times the height of the box: 
+\[
+V=B\cdot y=yx^2 = \frac{(36-3x^2)}{4x}x^2=\frac{36x-3x^3}{4}\quad .
+\]
+As $x$ is non-negative, it follows that the domain for $x$ is:
+\[
+x\in [0, \sqrt{12}]\quad .
+\]
+To maximize the volume we find the critical points, i.e., the values of $x$ for which  $V'$ vanishes:
+
+\[\begin{array}{rcl}
+0&=&V' = \displaystyle\left(\frac{36x-3x^3}{4}\right)'\\
+0&=&\displaystyle \frac{36- 9x^2}{4}\\
+9x^2&=&36\\
+x^2&=&4\\
+x&=&\pm 2
+\end{array}
+\]
+As $x$ measures length, $x=-2$ is not possible (outside of the domain for $x$). Therefore the only critical point is $x=2$. Direct check shows that at the endpoints $x=0$ and $x=\sqrt{12}$, we have that $V=0$. Therefore the maximal volume is achieved when $x=2$:
+ 
+\[
+V_{max}=V_{|x=2}= \frac{36(2)-3(2)^3}{4} =12\quad .
+\]
+ 
+}
+
