@@ -18,18 +18,12 @@ We have shown that, if $f(x) = a^x$ is differentiable at 0, then it is different
 f'(x) = f'(0)a^x .
 \]
 \uncover<2->{
-It is a fact that, for all positive $a$, the limit $\lim_{h\rightarrow 0}\frac{a^h - 1}{h}$ exists (we will not prove this).  Approximations for $a = 2$ and $a = 3$ appear below.
-\[
-\lim_{h\rightarrow 0}\frac{2^h - 1}{h} \approx 0.693147, \qquad %
-\lim_{h\rightarrow 0}\frac{3^h - 1}{h} \approx 1.098612.
-\]
-}
-\uncover<3->{
-Then the derivative of $f(x) = a^x$ exists for all positive $a$.  Approximations for $a = 2$ and $a = 3$ appear below.
-\[
-\frac{\diff }{\diff x}(2^x) \approx (0.69)2^x, \qquad %
-\frac{\diff }{\diff x}(3^x) \approx (1.10)3^x.
-\]
+We leave the following theorem without proof. 
+\begin{theorem}
+Let $a$ be a positive number and let $f(x)=a^x$. Then the limit \[f'(0)=\lim_{h\rightarrow 0}\frac{a^h - 1}{h}\] exists. 
+\end{theorem}
+
+In fact, it can be shown, as was/will be done in Calculus I that the limit above equals $\ln a$, i.e., $f'(0)=\ln(a)$. Here, $\ln$ is the natural logarithm function (was/will be defined in Calculus I).
 }
 \end{frame}
 % end module exponential-function-derivative
