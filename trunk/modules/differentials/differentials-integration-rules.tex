@@ -2,7 +2,7 @@
 \begin{frame}
 \begin{itemize}
 \item All rules for computing with derivatives have analogues for computing with differential forms.
-\item<2-> The rules for computing differential forms are a direct consequence of the corresponding derivative rules and the transformation law $d(f(x))=f'(x)dx$.
+\item<2-> The rules for computing differential forms are a direct consequence of the corresponding derivative rules and the transformation law $\diff (f(x))=f'(x)\diff x$.
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -18,31 +18,31 @@
 \only<23>{\alert<23>{Integration is linear.}}
 \only<24>{\alert<24>{Substitution rule.}}
 
-\uncover<21->{Corresponding \alert<21>{integration rules}  (studied previously) \uncover<25->{\alert<25>{ Integration rules justified via the Fundamental Theorem of Calculus}}}
+\uncover<21->{Corresponding \alert<21>{integration rules.} \uncover<25->{\alert<25>{ Integration rules justified via the Fundamental Theorem of Calculus}}}
 
 \begin{tabular}{ll}
 \only<1-20>{Differential}\only<21->{\alert<21>{Integration}} rule & Derivative rule \\
-\uncover<2->{\alert<22>{$\uncover<21->{\alert<21>{\int}} d(fg)=\uncover<21->{\alert<21>{\int}} g df +\uncover<21->{\alert<21>{\int}} f dg$} }& 
+\uncover<2->{\alert<22>{$\uncover<21->{\alert<21>{\int}} \diff (fg)=\uncover<21->{\alert<21>{\int}} g \diff f +\uncover<21->{\alert<21>{\int}} f \diff g$} }& 
 \uncover<1->{$ (fg)'=f'g +f g'$} \\
-\uncover<4->{$\uncover<21->{\alert<21>{\int}}dc= 0$} &
+\uncover<4->{$\uncover<21->{\alert<21>{\int}}\diff c= 0$} &
 \uncover<3->{$(c)'=0$}\\
-\uncover<6->{\alert<23>{$\uncover<21->{\alert<21>{\int}}d(cf)=c \uncover<21-> {\alert<21>{\int}}df $}} & 
+\uncover<6->{\alert<23>{$\uncover<21->{\alert<21>{\int}}\diff (cf)=c \uncover<21-> {\alert<21>{\int}}\diff f $}} & 
 \uncover<5->{$(cf)'=cf'$} \\
-\uncover<8->{\alert<23>{$\uncover<21->{\alert<21>{\int}}d(f+g) = \uncover<21->{\alert<21>{\int}}df +\uncover<21->{\alert<21>{\int}}dg$}} & 
+\uncover<8->{\alert<23>{$\uncover<21->{\alert<21>{\int}}\diff (f+g) = \uncover<21->{\alert<21>{\int}}\diff f +\uncover<21->{\alert<21>{\int}}\diff g$}} & 
 \uncover<7->{$(f+g)'=f'+g'$}\\
-\uncover<10->{\alert<24>{$\uncover<21->{\alert<21>{\int}}df(g(x))=$ $ \uncover<21->{\alert<21>{\int}}f'(g(x))dg(x) $} }\\
-\uncover<10->{\alert<24>{$\phantom{\int df(g(x))}=$ $\uncover<21->{\alert<21>{\int}}f'(g(x))g'(x)dx$} } & 
+\uncover<10->{\alert<24>{$\uncover<21->{\alert<21>{\int}}\diff f(g(x))=$ $ \uncover<21->{\alert<21>{\int}}f'(g(x))\diff g(x) $} }\\
+\uncover<10->{\alert<24>{$\phantom{\int \diff f(g(x))}=$ $\uncover<21->{\alert<21>{\int}}f'(g(x))g'(x)\diff x$} } & 
 \uncover<9->{$(f(g(x)))'= f'(g(x))g'(x)$} \\ 
-\uncover<10->{\alert<24>{$\uncover<21->{\alert<21>{\int}} df(g)\phantom{(x)}= \uncover<21->{\alert<21>{\int}} f'(g) dg$} } \\\hline
-\uncover<12->{$d x^n= nx^{n-1}dx$} & 
+\uncover<10->{\alert<24>{$\uncover<21->{\alert<21>{\int}} \diff f(g)\phantom{(x)}= \uncover<21->{\alert<21>{\int}} f'(g) \diff g$} } \\\hline
+\uncover<12->{$\diff  x^n= nx^{n-1}\diff x$} & 
 \uncover<11->{$(x^n)'=nx^{n-1}$}\\
-\uncover<14->{$d e^x= e^x dx$} & 
+\uncover<14->{$\diff  e^x= e^x \diff x$} & 
 \uncover<13->{$\left(e^x\right)'=e^x$}\\
-\uncover<16->{$d\sin x = \cos x dx$} & 
+\uncover<16->{$\diff \sin x = \cos x \diff x$} & 
 \uncover<15->{$(\sin x)'= \cos x$}\\
-\uncover<18->{$d\cos x = -\sin x dx$} & 
+\uncover<18->{$\diff \cos x = -\sin x \diff x$} & 
 \uncover<17->{$(\cos x)'= -\sin x$}\\
-\uncover<20->{$\displaystyle d\ln x=\frac{1}{x}dx$} & 
+\uncover<20->{$\displaystyle \diff \ln x=\frac{1}{x}\diff x$} & 
 \uncover<19->{$(\ln x)'=\displaystyle \frac1x$}\\
 \end{tabular}
 
