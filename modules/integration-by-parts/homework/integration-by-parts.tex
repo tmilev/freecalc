@@ -1,36 +1,77 @@
 Evaluate the indefinite integral. Illustrate the steps of your solutions.
 \begin{multicols}{2}
 \begin{enumerate}
-\item $\displaystyle\int x^2\cos (2x) dx$.
-%\answer{$ $}
+\item $\displaystyle\int x^2\cos (2x) \diff x$.
+
+\answer{$ \frac{1}{2}x^2\sin(2x)+\frac{1}{2}x\cos(2x) - \frac{1}{4} \sin(2x) +C$}
 \item 
-$\displaystyle\int x^2e^{ax} dx$, where $a$ is a constant.
+$\displaystyle\int x^2e^{a x} \diff x$, where $a$ is a constant.
+
+\answer{$ \frac{1}{a} x^2 e^{a x} -\frac{2}{a^2}x e^{a x}+\frac{2}{a^3} e^{a x}+C$}
 \item 
-$\displaystyle\int x^2e^{-ax}dx$, where $a$ is a constant.
+$\displaystyle\int x^2e^{-ax}\diff x$, where $a$ is a constant.
+
+\answer{$ -\frac{1}{a} x^2 e^{-a x} +\frac{2}{a^2}x e^{- a x}-\frac{2}{a^3} e^{-a x}+C$}
 \item \label{eqA}
-$\displaystyle\int x^2\frac{(e^{ax}+e^{-ax})^2}4dx$, where $a$ is a constant. 
+$\displaystyle\int x^2\frac{(e^{ax}+e^{-ax})^2}4\diff x$, where $a$ is a constant. 
+
+\answer{$\begin{array}{l} \frac{1}{8}\left(a^{-1} x^{2} e^{2 a x}- a^{-1} x^{2} e^{-2 a x} \right. \\
+\left. - a^{-2} x e^{2 a x}- a^{-2} x e^{-2 a x}+\frac{1}{2} a^{-3} e^{2 a x} \right.\\
+\left. -\frac{1}{2} a^{-3} e^{-2 a x}+\frac{2}{3} x^{3} \right) +C
+\end{array}
+$ }
 \item 
-$\displaystyle\int (\cos^2x) dx$ 
+$\displaystyle\int \cos^2x ~ \diff x$ 
+
+\answer{$\frac{1}{4}\sin(2x) +\frac{x}{2} +C$}
 \item 
-$\displaystyle \int (x\ln x )dx $
-\item $\displaystyle\int \frac{x}{1+x^2} dx$ 
+$\displaystyle \int x\ln |x|  ~ \diff x $
+
+\answer{$ \frac{1}{2}x^2\ln |x| -\frac{x^2}{4} +C$}
+\item $\displaystyle\int \frac{x}{1+x^2} \diff x$  (Hint: use substitution rule, don't use integration by parts)
+
+\answer{$\frac{\ln\left(1+x^2\right)}{2}+C$}
 \item 
-$\displaystyle \int (\Arctan x) dx$
+$\displaystyle \int (\Arctan x) \diff x$
+
+\answer{$x\Arctan x -  \frac{\ln\left(1+x^2\right)}{2}+C$}
 \item 
-$\displaystyle \int (\Arcsin x) dx
+$\displaystyle \int (\Arcsin x) \diff x
 $
-\item $\displaystyle\int \frac{\ln x}{\sqrt{x}}dx $
-\item $\displaystyle\int (\Arcsin x)^2 dx $ \quad \quad (Hint: Try substituting $x=\sin y$)
-\item $\displaystyle\int \frac{1}{\cos^2 x}dx$\quad \quad (Hint: What is the derivative of $\tan x$?)
-\item $\displaystyle\int (\tan^2 x) dx $ \quad \quad (Hint: $\tan^2 x = \frac{1}{\cos^2x }-1$ )
-\item $\displaystyle\int x(\tan^2 x) dx $ \quad \quad (Hint: $\tan^2 x dx= d(F(x))$, where $F(x)$ is the answer from the preceding problem)
+\answer{$x\Arcsin x+ \sqrt{1-x^2}+C$}
+\item $\displaystyle\int \frac{\ln x}{\sqrt{x}}\diff x $
+\answer{$ 2\sqrt{}x(\ln x-2)+C$ }
+\item \label{problemIntegrateArcsinSquared} $\displaystyle\int (\Arcsin x)^2 \diff x $ \quad \quad (Hint: Try substituting $x=\sin y$)
+\answer{$x(\arcsin x)^2+ 2\sqrt{1-x^2}\arcsin x - 2x+C$}
+
+\item $\displaystyle\int \frac{1}{\cos^2 x}\diff x$\quad \quad (Hint: What is the derivative of $\tan x$?)
+\answer{$\tan x+C$}
+\item $\displaystyle\int (\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x = \frac{1}{\cos^2x }-1$ )
+
+
+\item $\displaystyle\int x(\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x \diff x= \diff (F(x))$, where $F(x)$ is the answer from the preceding problem)
 \item 
 $\displaystyle
-\int\Arctan \left(\frac{1}x\right)dx
+\int\Arctan \left(\frac{1}x\right)\diff x
 $
-\item $\displaystyle\int \sin (\ln (x)) dx $
-\item $\displaystyle\int (\ln x)^2 dx$.
-\item $\displaystyle\int (\ln x)^3 dx$.
-\item $\displaystyle\int x^2\cos^2x dx$ (This problem can be solved directly with integration by parts. An alternative and quicker solution is to use the fact that $\cos x= \frac{ e^{ix} + e^{-ix}}{2}$ and problem \ref{eqA}).
+\item $\displaystyle\int \sin (\ln (x)) \diff x $
+\item $\displaystyle\int (\ln x)^2 \diff x$.
+\item $\displaystyle\int (\ln x)^3 \diff x$.
+\item $\displaystyle\int x^2\cos^2x \diff x$ (This problem can be solved directly with integration by parts. An alternative and quicker solution is to use the fact that $\cos x= \frac{ e^{ix} + e^{-ix}}{2}$ and problem \ref{eqA}).
 \end{enumerate}
 \end{multicols}
+
+\solution{
+\ref{problemIntegrateArcsinSquared}. 
+\[
+\begin{array}{rcll|l}
+\displaystyle \int (\Arcsin x)^2 \diff x &=&\displaystyle  \int \left(\Arcsin(\sin y)\right)^2 \diff  (\sin y) &&\text{Set } x= \sin y\\
+&=&\displaystyle \int y^2 \cos y \diff y =  \int y^2 \diff (\sin y)  &&\text{Integrate by parts}\\
+&=&\displaystyle  y^2\sin y - \int 2y\sin y  \diff y= y^2\sin y + \int 2y  \diff (\cos y )&&\text{Integrate by parts}\\
+&=&\displaystyle y^2\sin y + 2y \cos y - 2\int \cos y \diff y\\
+&=&\displaystyle y^2\sin y+2y \cos y - 2\sin y +C &&\text{Substitute back } y=\Arcsin x\\
+&=& \displaystyle x(\arcsin x)^2+ 2\sqrt{1-x^2}\arcsin x - 2x+C
+\end{array}
+\]
+
+}
