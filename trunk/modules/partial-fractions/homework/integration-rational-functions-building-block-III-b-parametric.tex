@@ -1,0 +1,50 @@
+
+Let $a, b, c, A, B$ be real numbers and let $n>1$ be an integer. Suppose in addition $a\neq 0$ and $b^2-4ac<0$. Let 
+\[
+J(n)=\int \frac{1}{ \left( x^2+\frac{b}{a}x + \frac{ c}{a}\right)^n}\diff x\quad .
+\]
+\begin{enumerate}
+\item \label{problemIntegrateBuildingBlockIIandIIIbPart1} Express the integral 
+\[
+\int \frac{Ax +B}{ \left( ax^2 +bx +c\right)^n}\diff x
+\]
+via $J(n)$.
+\item \label{problemIntegrateBuildingBlockIIandIIIbPart2} Express $J(n)$ recursively via $J(n-1)$
+\end{enumerate}
+The purpose of this exercise is to produce a formula in form ready for implementation in a computer algebra system.
+
+\solution{\ref{problemIntegrateBuildingBlockIIandIIIbPart1}.\[
+\begin{array}{rcll|l}
+\displaystyle\int \frac{Ax +B}{(ax^2+bx+c)^n}\diff x&=&\displaystyle \int \frac{Ax+B}{a^n\left( x^2 + 2x \frac{b}{2a} +\frac{c}{a} \right)^n }\diff x =  \int \frac{Ax+B}{a^n\left( x^2 + 2x \frac{b}{2a}+\frac{b^2}{4a^2}- \frac{b^2}{4a^2} +\frac{c}{a} \right)^n }\diff x &&\begin{array}{l} \text{complete square}\\\text{in denominator}\end{array}\\ 
+&=& \displaystyle \frac{1}{a^n} \int \frac{Ax+B}{ \left( \left( x + \frac{b}{2a} \right)^2 + \frac{ 4ac-b^2}{4a^2} \right)^n } \diff x &&\text{Set }D=  \frac{ 4ac-b^2}{4a^2} \\
+&=&\displaystyle \frac{1}{ a^n}\int \frac{A \left( x+ \frac{b}{2a} - \frac{b}{ 2a} \right) +B}{ \left(\left(x+ \frac{b}{2a} \right)^2 + D \right)^n } \diff \left(x + \frac{ b}{2a}\right) && \text{Set } u=x+\frac{b}{2a}\\
+&=& \displaystyle \frac{1}{a^n} \int \frac{Au+ B- \frac{Ab}{2a} }{ \left(u^2+D\right)^n} \diff u &&\text{Set }C = B - \frac{A b}{2 a} \\
+&=&\displaystyle \frac{1 }{a^n} \left( A\int \frac{u}{ \left( u^2 +D\right)^n}\diff u + C\int \frac{1}{\left(u^2+D\right)^n}\diff u \right) \\
+&=& \displaystyle \frac{1}{a^n} \left(\frac{A}{2(1-n)} \left( u^2 +D\right)^{1-n} + C J(n ) \right) \\
+&=&\displaystyle \frac{1}{a^n} \left(\frac{A}{2(1-n)} \left( x^2 + \frac{ b}{a}x + \frac{c }{a } \right)^{1-n} + C J(n ) \right) \\
+\end{array}
+\]
+
+}
+\solution{\ref{problemIntegrateBuildingBlockIIandIIIbPart2}.
+We use all notation and computations from the previous part of the problem. According to theory, in order to solve that integral, we are supposed to integrate by parts the simpler integral 
+
+\[
+\begin{array}{rcll|l}
+\displaystyle J\left(n-1\right) &=&\displaystyle \int \frac{1}{\left( x^2 +  \frac{b}{a}x +\frac{c}{a} \right)^{n-1}}\diff x = \int \frac{1}{\left(u^2+D\right)^{n-1}}\diff u &&\text{Integrate by parts}\\
+&=&\displaystyle  \frac{u}{\left(u^2+D\right)^{n-1}}- \int u ~\diff \left(\frac{1}{\left(u^2+D\right)^{n-1}}\right)\\
+&=&\displaystyle \frac{u}{\left(u^2+D\right)^{n-1}}+  2(n-1) \int \frac{u^2}{\left(u^2+D\right)^{n}}\diff u \\
+&=&\displaystyle \frac{u}{\left(u^2+D\right)^{n-1}}+  2(n-1) \int \frac{u^2+D-D}{\left(u^2+D\right)^{n}}\diff u \\
+&=&\displaystyle \frac{u}{\left(u^2+D\right)^{n-1}}+  2(n-1)J\left(n-1\right)-2D(n-1)  \int \frac{1}{\left(u^2+D\right)^{n}}\diff u \\
+&=&\displaystyle \frac{u}{\left(u^2+D\right)^{n-1}}+  2(n-1)J\left(n-1\right)-2D(n-1)  J\left(n \right)
+\end{array}
+\]
+In the above equality, we rearrange terms to get that
+\[
+\begin{array}{rcl}
+\displaystyle 2D(n-1)  J\left(n \right)& = & \displaystyle \frac{u}{ \left(u^2 + D \right)^{n-1}} + (2n- 3) J\left( n-1\right) \\
+J(n)&=&\displaystyle \frac{1}{D}\left(\frac{u}{2(n-1)\left(u^2+D\right)^{n-1}} +\frac{2n-3}{2n-2}J(n-1)\right) \\
+&=& \displaystyle \frac{1}{D} \left( \frac{x +\frac{b }{2a}}{ 2(n-1)\left(x^2+\frac{b}{a}x +\frac{c}{ a} \right)^{n-1}} +\frac{2n-3}{2n-2}J(n-1)\right)
+\end{array}
+\]
+}
