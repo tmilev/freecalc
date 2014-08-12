@@ -5,7 +5,14 @@ Evaluate the indefinite integral. Illustrate the steps of our solution.
 \]
 
 \solution{
-
-
-
+\[
+\begin{array}{rcll|l}
+\displaystyle \int x^2 e^{-2x}\diff x&=&\displaystyle \int x^2 \diff \left(\frac{e^{-2x}}{-2}\right)&&\text{Integrate by parts}\\
+&=&\displaystyle -\frac{x^2e^{-2x}}{2}-\int \left(\frac{e^{-2x}}{-2}\right)\diff \left(x^2\right)\\
+&=&\displaystyle -\frac{x^2e^{-2x}}{2}+ \int xe^{-2x}\diff x\\
+&=&\displaystyle  -\frac{x^2e^{-2x}}{2}+ \int x \diff \left(\frac{e^{-2x}}{-2}\right)&&\text{Integrate by parts}\\
+&=&\displaystyle  -\frac{x^2e^{-2x}}{2}-\frac{xe^{-2x}}{2}+ \frac{1}{2}\int e^{-2x} \diff x\\
+&=&\displaystyle -\frac{x^2e^{-2x}}{2}-\frac{xe^{-2x}}{2}- \frac{ e^{-2x}}{4}+C\quad .
+\end{array}
+\]
 }
