@@ -1,4 +1,27 @@
 Integrate 
 \[
-\int \frac{x^4}{(x^2+2)(x+1)^2}\diff x
+\int \frac{x^4}{(x^2+2)(x+1)^2} \diff x \quad .
 \]
+
+\solution{
+We are trying to integrate a rational function; we aim to decompose into partial fractions the following function. 
+\[
+\frac{x^{4}}{x^{4}+2x^{3}+3x^{2}+4x +2}=\frac{x^{4}}{ \left(x +1\right)\left(x +1\right)\left(x^{2}+2\right)}\]
+
+Since the numerator of the function is of degree greater than or equal to the denominator, we start the partial fraction decomposition by polynomial division.
+\renewcommand{\arraystretch}{1.2}\begin{longtable}{|cccccc|} \hline&\multicolumn{5}{|c|}{\textbf{Remainder}}\\\multicolumn{1}{|c|}{} & &$\color{red}{-2x^{3}}\color{black}$ & $\color{red}{-3x^{2}}\color{black}$ & $\color{red}{-4x }\color{black}$ & $\color{red}{-2}\color{black}$ \\\hline\textbf{Divisor(s)} &\multicolumn{5}{|c|}{\textbf{Quotient(s)}}\\$x^{4}+2x^{3}+3x^{2}+4x +2$& \multicolumn{5}{|l|}{$1$}\\\hline& \multicolumn{5}{|c|}{\textbf{Dividend}}\\\multicolumn{1}{|c|}{$\underline{~}$} &$x^{4}$ & &&&\\&$x^{4}$ & $+2x^{3}$ & $+3x^{2}$ & $+4x $ & $+2$ \\\cline{2-6}&&$\color{red}{-2x^{3}}\color{black}$ & $\color{red}{-3x^{2}}\color{black}$ & $\color{red}{-4x }\color{black}$ & $\color{red}{-2}\color{black}$ \\\hline\end{longtable}We need to find $A_i$'s so that we have the following equality of rational functions. After clearing denominators, we get the following equality. \[-2x^{3}-3x^{2}-4x -2 = A_{1} (x +1)(x^{2}+2)+A_{2} (x^{2}+2)+(A_{3} + A_{4} x)(x +1)^{2}\]After rearranging we get that the following polynomial must vanish. Here, by ``vanish'' we mean that the coefficients of the powers of $x$ must be equal to zero.\[(A_{4} +A_{1} +2)x^{3}+(2A_{4} +A_{3} +A_{2} +A_{1} +3)x^{2}+(A_{4} +2A_{3} +2A_{1} +4)x +(A_{3} +2A_{2} +2A_{1} +2) 
+\]In other words, we need to solve the following system. \[\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & A_{1} & +A_{2} & +A_{3} & +2A_{4} & =-3\\ & 2A_{1} & & +2A_{3} & +A_{4} & =-4\\ & 2A_{1} & +2A_{2} & +A_{3} & & =-2\\\end{array}\] \begin{longtable}{cc} System status&Action \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & A_{1} & +A_{2} & +A_{3} & +2A_{4} & =-3\\ & 2A_{1} & & +2A_{3} & +A_{4} & =-4\\ & 2A_{1} & +2A_{2} & +A_{3} & & =-2\\\end{array}$& Selected pivot column 2. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & +A_{3} & +A_{4} & =-1\\ & & & 2A_{3} & -A_{4} & =0\\ & & 2A_{2} & +A_{3} & -2A_{4} & =2\\\end{array}$& Selected pivot column 3. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & +A_{3} & +A_{4} & =-1\\ & & & 2A_{3} & -A_{4} & =0\\ & & & -A_{3} & -4A_{4} & =4\\\end{array}$& Selected pivot column 4. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & & +\frac{3}{2}A_{4} & =-1\\ & & & A_{3} & -\frac{A_{4} }{2} & =0\\ & & & & -\frac{9}{2}A_{4} & =4\\\end{array}$& Selected pivot column 5. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llllll} & A_{1} & & & & =-\frac{10}{9}\\ & & A_{2} & & & =\frac{1}{3}\\ & & & A_{3} & & =-\frac{4}{9}\\ & & & & A_{4} & =-\frac{8}{9}\\\end{array}$& Final result.\\ \end{longtable}Therefore, the final partial fraction decomposition is the following. \[\frac{x^{4}}{x^{4}+2x^{3}+3x^{2}+4x +2}=1+ \frac{-2x^{3}-3x^{2}-4x -2}{x^{4}+2x^{3}+3x^{2}+4x +2}=1+ \frac{-\frac{10}{9}}{(x +1)}+\frac{\frac{1}{3}}{(x +1)^{2}}+\frac{-\frac{8}{9}x -\frac{4}{9}}{(x^{2}+2)}\]
+
+Therefore we can integrate as follows.
+\[
+\begin{array}{rcl}
+\displaystyle \int \frac{x^4}{(x^2+2)(x+1)^2} \diff x &=&\displaystyle \int \left( 1+ \frac{-\frac{10}{9}}{(x +1)}+\frac{\frac{1}{3}}{(x +1)^{2}}+\frac{-\frac{8}{9}x -\frac{4}{9}}{(x^{2}+2)}\right)\diff x\\
+&=&\displaystyle \int \diff x-\frac{10}{9}\int \frac{1}{(x +1)}\diff x + \frac{ 1}{3}\int \frac{ 1}{(x +1)^{2}}\diff x \\
+&&\displaystyle -\frac{8}{9} \int \frac{x}{x^{2}+2}\diff x-\frac{4}{9} \int \frac{ 1}{x^{2}+2}\diff x \\
+&=&\displaystyle x -\frac{1}{3} (x+1)^{-1}-\frac{10}{9} \log{}\left(x+1\right)\\
+&&\displaystyle -\frac{4}{9} \log{}\left(x^{2} +2\right) -\frac{ 2}{ 9} \sqrt{ 2} \arctan{}\left(\frac{\sqrt{2}}{2} x\right)+C
+\end{array}
+\]
+
+
+}
