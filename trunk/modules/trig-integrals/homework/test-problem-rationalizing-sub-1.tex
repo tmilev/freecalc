@@ -3,4 +3,20 @@ Integrate
 \int \frac{1}{3+\cos x}\diff x
 \]
 
-\solution{}
+\solution{
+This integral is of none of the forms that can be integrated quickly. Therefore we have to use the standard rationalizing substitution $x=2\Arctan t$, $t=\tan \left(\frac{x}{2}\right)$. We recall that from the double angle formulas it follows that 
+\[
+\cos (2\Arctan t)=\frac{\cos^2(\Arctan t)- \sin^2(2\Arctan t)}{\cos^{2}(\Arctan t)+\sin^2(\Arctan t)}=\frac{1-t^2}{1+t^2}\quad .
+\]
+Therefore we can solve the integral as follows.
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{1}{3+\cos x}\diff x&=&\displaystyle \int \frac{1}{3+\cos (2\Arctan t)}\diff \left(2\Arctan t\right) &&\text{Substitute } x=2\Arctan t\\
+&=& \displaystyle \int \frac{1}{\left(3+\frac{1- t^2}{ 1+t^2}\right)} \frac{ 2}{\left(1+ t^2\right) } \diff t\\
+&=&\displaystyle \int\frac{2}{4+2t^2}\diff t\\
+&=&\displaystyle \int \frac{1}{2 +t^2}\diff t\\
+&=&\displaystyle \frac{\sqrt{2}}{2} \Arctan\left(\frac{\sqrt{2 }}{2} t \right) +C\\
+&=&\displaystyle \frac{\sqrt{2}}{2} \Arctan\left(\frac{\sqrt{2 }}{2} \tan\left(\frac{x}{2}\right) \right) +C\quad .
+\end{array}
+\]
+}
