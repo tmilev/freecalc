@@ -1,4 +1,37 @@
-\solution{\noindent \ref{problemDFQseparable-yprime=ysquared-1-part1}. We proceed as explained in the theory.
+\solution{\noindent \ref{problemDFQseparable-yprime=ysquared-1-part1}. 
+There are two variants for solving this problem. The first variant uses indefinite integration and is slightly informal, but easier to apply and remember. The second variant is more rigorous but more difficult to write up. It is our opinion that both solutions should be acceptable for full credit in a Calculus exam. We recommend Variant I for exam taking, and Variant II when writing scientific texts. 
+
+\textbf{Variant I}
+
+\renewcommand{\arraystretch}{2}
+\[
+\begin{array}{rcll|l}
+\displaystyle \frac{ \diff y}{ \diff x}&=&y^2-1 && \text{Suppose } y^2-1\neq 0 \\
+\displaystyle \frac{\frac{ \diff y}{ \diff x}}{y^2-1}&=&1 \\
+\displaystyle\int\frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff y } &=& \displaystyle\int \limits \diff x \\
+\displaystyle\int \frac{\diff y}{ y^2-1}& =& \displaystyle x +C \\
+\displaystyle\int \left(\frac{\frac{1}{2} }{y-1}- \frac{\frac{1 }{2}}{ y+1}\right)\diff y&=& x +C \\
+\displaystyle \frac{1}2 \ln \left|\frac{y-1}{y+1}\right| &=& x+C\\
+\displaystyle \ln \left|\frac{y-1}{y+1}\right|&=& 2t + 2C\\
+\displaystyle\left|\frac{y-1}{y+1}\right|&=& e^{ 2x +2C} \\
+\displaystyle\frac{y-1}{y+1}&=& \pm e^{ 2x +2C} \\
+\displaystyle y-1&=&\displaystyle \pm e^{2x+2C} (y+1)\\
+\displaystyle y(1\mp e^{2x+2C})&=&\displaystyle 1\pm e^{2x+2C} \\
+\displaystyle y&=&\displaystyle \frac{1\pm e^{2x+2C}}{1\mp e^{2x+2C}}  \\
+\displaystyle y&=&\displaystyle \frac{1\pm e^{2C} e^{2x}}{1\mp e^{2C}e^{2x}}&&\text{Set }D=\pm e^{2C}\\
+\displaystyle y&=&\displaystyle  \frac{1+D e^{2x}}{1- De^{2x}}\quad .
+\end{array}
+\]
+The above solution works on condition that $y^2-1\neq 0$. So the only case not covered is that of $y^2-1=0$, which yields the two solutions $y=\pm 1$. 
+
+Our final answer is 
+\[
+y(x)= \frac{1+De^{2x}}{1-De^{2x}} \quad \text{ or }\quad y(x)=-1,
+\]
+where $D$ is an arbitrary real number. Notice that in the above answer, by allowing $D=0$, we have covered the case $y(x)=1 $. Finally, we note that if we let $D\to \infty$, the solution $y(x) = \frac{1+De^{2x }}{ 1- De^{2x}}  $ tends to the solution $y(x)=-1$ (here we fix a value of $x$ before we let $D\to \infty$).
+
+
+\textbf{Variant II}
 
 \noindent Case 1. Suppose there exists a number $x_0$ such that $(y(x_0) )^2 - 1\neq 0$. Since $y$ is a differentiable function of $x$, it is also continuous. Therefore for some $t$ sufficiently close to $x_0$, all numbers $x$ in the interval between $t$ and $x_0$ satisfy $ y(x)^2-1\neq 0$.
 \[
@@ -7,16 +40,14 @@
 \displaystyle\int\limits_{x=x_0}^{x=t} \frac{1}{ y^2- 1} \underbrace{ \frac{\diff y}{\diff x}\diff x}_{=\diff (y(x)) }&=&\displaystyle\int\limits_{x=x_0}^{x=t}\diff x &&\text{can integrate as }  y(x)^2-1\neq 0\\
 \displaystyle\int\limits_{t=x_0 }^{x=t} \frac{\diff (y(x))}{ (y(x))^2-1}& =& \displaystyle\left.x \right|_{ x=x_0}^{x=t} &&\text{set } z=y(x)\\
 \displaystyle\int\limits_{z=y(x_0) }^{z=y(t)} \frac{\diff z}{ z^2-1}& =& \displaystyle t-x_0 \\
-\displaystyle\int\limits_{z=y(x_0)}^{z=y(t)} \left(\frac{\frac12 }{z-1}- \frac{\frac12}{z+1}\right)\diff z&=& t-x_0\\
-\displaystyle\left .\frac{1}2 \ln \left|\frac{z-1}{z+1}\right|\right]_{z=y(x_0)}^{z=y(t)}&=& t-x_0\\
+\displaystyle\int\limits_{z=y(x_0)}^{z=y(t)} \left(\frac{\frac12 }{z-1}- \frac{\frac12}{z+1}\right)\diff z&=& t-x_0 
+\\
+\displaystyle\left .\frac{1}2 \ln \left|\frac{z-1}{z+1}\right|\right]_{z=y(x_0)}^{z=y(t)}&=& t-x_0 && \text{Set } C=2x_0-  \ln \left|\frac{y(x_0)-1}{ y(x_0)+ 1} \right|\\
 \displaystyle \ln \left|\frac{y(t)-1}{y(t)+1}\right|&=& 2t - C&&\text{relabel dummy variable } t \text { to } x \\
 \displaystyle
 \ln \left|\frac{y(x)-1}{y(x)+1}\right|&=& 2x - C
 \end{array}
 \]
-where we have set 
-\[\displaystyle C=2x_0-  \ln \left|\frac{y(x_0)-1}{y(x_0)+1}\right| \quad .
-\] 
 Set  
 \[
 D=e^{-C}\quad .
@@ -53,9 +84,12 @@ Case 2.  Suppose $\displaystyle  (y(x_0))^2-1=0 $.  Then $y(x_0)=\pm 1$. Clearly
 
 Our final answer is 
 \[
-y(x)= \frac{1+De^{2x}}{1-De^{2x}} \quad \text{ or }\quad y(x)=0,
+y(x)= \frac{1+De^{2x}}{1-De^{2x}} \quad \text{ or }\quad y(x)=-1,
 \]
-where $D$ is an arbitrary rea(l number. Notice that in the above answer, we have combined Cases 1.1, 1.2 and the case $y(x)=1 $: by allowing $D$ to be negative we included Case 1.2 and by allowing $D $ to be zero we included the case $y(x)=1$. Finally, we note that if we let $D\to \infty$, the solution $y(x) = \frac{1+De^{2x }}{ 1- De^{2x}}  $ tends to the solution $y(x)=-1$ (for all values of $x$).
+where $D$ is an arbitrary real number. Notice that in the above answer, we have combined Cases 1.1, 1.2 and the case $y(x)=1 $: by allowing $D$ to be negative we included Case 1.2 and by allowing $D $ to be zero we included the case $y(x)=1$. Finally, we note that if we let $D\to \infty$, the solution $y(x) = \frac{1+De^{2x }}{ 1- De^{2x}}  $ tends to the solution $y(x)=-1$ (for all values of $x$).
+
+
+\textbf{Solution plots.}
 
 We may plot solutions for a few values of $D$ as follows. We overlay the solutions on top of the direction field of the differential equation. The picture tells us a lot about the properties of the solutions of the differential equations. 
 \optionalDisplay{
@@ -102,7 +136,7 @@ We may plot solutions for a few values of $D$ as follows. We overlay the solutio
 } %optionalDisplay
 
 \noindent \ref{problemDFQseparable-yprime=ysquared-1-part2}.
-From the computer generated picture above, we may visually estimate that $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ intersects the $x$-axis at $(0, -\frac 35)$. Furthermore, we may check directly that for 
+From the computer generated picture above, we may visually estimate that $y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }$ intersects the $x$-axis at $\left(0, -\frac {3}{ 5}\right)$. Furthermore, we may check directly that for 
 \[
 y(x)=\frac{1-4 e^{2x} }{1+4 e^{2x} }
 \] 
