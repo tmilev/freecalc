@@ -1,0 +1,49 @@
+\solution{\ref{problemImproperIntegral x^2ln x dx}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \limits_{0}^1 x^2\ln x \diff x&=& \displaystyle \int \limits_{0}^1 \ln x \diff \left( \frac{ x^3}{ 3} \right) &&\text{Integrate by parts}\\ 
+&=&\displaystyle \left[\frac{x^3}{3}\ln x\right]_{0}^1-\int \frac{x^3 }{3} \diff (\ln x)\\
+&=&\displaystyle  \left[\frac{x^3}{3}\ln x\right]_{0}^1- \int \limits_{0 }^1 \frac{x^2}{3} \diff x\\
+&=&\displaystyle \left[\frac{x^3}{3}\ln x- \frac{ x^3}{9} \right]_{0}^1\\
+&=&\displaystyle  \frac{1}{3} \ln 1 - \frac{1}{9}- \left(\lim\limits_{ x \to 0} \frac{x^3\ln x}{3}-0 \right)\\
+&=&\displaystyle -\frac{1}{9} -\lim \limits_{x\to 0} \frac{x^3\ln x}{3}\\
+&=&\displaystyle -\frac{1}{9} -\lim \limits_{x\to 0} \frac{\ln x}{ \frac{3 }{ x^3}} &&\text {Use L'Hospital's rule} \\
+&=&\displaystyle -\frac{1}{9} - \lim \limits_{x\to 0} \frac{ \frac{1 }{x}}{- \frac{9 }{ x^4}} = -\frac{1}{9} -\lim \limits_{x\to 0}\frac{x^3}{-9}\\
+&=&\displaystyle -\frac{1}{9}\quad .
+\end{array}
+\]
+
+}
+
+
+
+\solution{\ref{problemImproperIntegral e^(-sqrt x)/sqrt(x)dx}
+\[
+\begin{array}{rcl}
+\displaystyle \int\limits_{0}^{\infty} \frac{e^{\sqrt{x}}}{\sqrt{x}} \diff x &=& \displaystyle  2\int\limits_{x=0}^{\infty} e^{-\sqrt{x}}\diff \sqrt{x}\\
+&=&\displaystyle \left[-2e^{-\sqrt{x}}\right]_{x=0}^{\infty}\\
+&=&\displaystyle \lim\limits_{t\to \infty} -2e^{-\sqrt{x}}- \left(-2e^{-\sqrt{0}}\right)\\
+&=& 2\quad .
+\end{array}
+\]
+
+}
+
+\solution{\ref{problemImproperIntegral1/(x ln x)dx}
+\[
+\begin{array}{rcl}
+\displaystyle \int\limits_{100}^{\infty} \frac{1}{x \ln x}\diff x&=&\displaystyle  \int\limits_{x=100}^{\infty} \frac{1}{\ln x}\diff (\ln x)\\
+&=&\displaystyle \int\limits_{x=100}^{\infty} \diff \left(\ln (\ln x)\right)\\~\\
+&=&\displaystyle \left[ \ln (\ln x)\right]^{\infty}_{100}\\~\\
+&=&\displaystyle \lim\limits_{t\to \infty} \ln (\ln t)- \ln (\ln 100)\\~\\
+&=&\displaystyle \infty\quad .
+\end{array}
+\]
+The integral diverges to $\infty$.
+}
+\solution{\ref{problemImproperIntegral(1+e^(-x))/(xlnx)dx}
+\[
+\int\limits_{100}^\infty \frac{1+e^{-x}}{x\ln x}\diff x >\int \limits_{100}^{\infty}\frac{1}{x\ln x}\diff x \stackrel{\text{Problem }\ref{problemImproperIntegral1/(x ln x)dx}}{=} \infty\quad .
+\]
+Therefore by the comparison test, our integral diverges to $\infty$.
+}
