@@ -1,0 +1,30 @@
+\solution{\ref{problemMaclaurin 1/(1-x)^k}
+We have that
+\[
+\begin{array}{rclcl}
+\displaystyle \frac{\diff }{\diff x}\left(\frac{1}{1-x}\right)&=&\displaystyle  \frac{ (1-x)'}{(1-x)^2} &=&\displaystyle  \frac{1}{(1-x)^2}\\
+\displaystyle \frac{\diff^2 }{\diff x^2}\left(\frac{1}{1-x}\right)&=&\displaystyle \frac{\diff }{\diff x}\left(\frac{1}{ (1-x)^2}\right)=-2 \frac{(1-x)'}{(1-x)^3} &=&\displaystyle  \frac{2}{(1-x)^3}\\
+\displaystyle \frac{\diff^3 }{\diff x^3}\left(\frac{1}{1-x}\right)&=&\displaystyle  \frac{\diff }{\diff x}\left( \frac{2}{ (1-x)^3}\right)=2(-3) \frac{(1-x)'}{(1-x)^4}&=&\displaystyle  \frac{2\cdot 3}{(1-x)^4}\\
+\vdots \\
+\displaystyle \frac{\diff^{k-2} }{\diff x^{k-2}}\left(\frac{1}{1-x}\right)&&&=& \displaystyle   \frac{(k-2)!}{(1-x)^{k-1}}\\
+\displaystyle \frac{\diff^{k-2} }{\diff x^{k-2}}\left(\frac{1}{1-x}\right)&=&\displaystyle \displaystyle \frac{\diff }{\diff x} \left(\frac{(k-2)!}{(1-x)^{k-1}}\right) &=&\displaystyle   \frac{(k-1)!}{(1-x)^{k}}\\
+\vdots 
+\end{array}
+\]
+We can now compute Maclaurin series as follows:
+\[
+\begin{array}{rcll|l}
+\displaystyle
+Maclaurin\left(\frac{1}{(1-x)^{k}}\right)&=& \displaystyle Maclaurin\left(\frac{1}{(k-1)!}  \frac{\diff^{k-1}}{\diff x^{k-1}}\left( \frac{1}{(1-x)}\right)\right)\\
+&=&\displaystyle \frac{1}{(k-1)!}  \frac{\diff^{k-1}}{\diff x^{k-1}} \left(Maclaurin\left(\frac{1}{1-x}\right)\right)\\
+&=&\displaystyle \frac{1}{(k-1)!}  \frac{\diff^{k-1}}{\diff x^{k-1}}\left(\sum\limits_{n=0}^{\infty} x^n\right)\\
+&=&\displaystyle \frac{1}{(k-1)!}  \left(\sum\limits_{n=0}^{\infty} n(n-1)\dots (n-k+2) x^{n-k+1}\right)&&\text{Recall }\binom{n}{k}= \frac{n(n-1)\dots (n-k+1)}{k!} \\
+&=&\displaystyle  \sum\limits_{n=0}^{\infty} \binom{n}{k-1} x^{n-k+1}&& 
+\text{Set } n-k+1=m\\
+&=&\displaystyle \sum\limits_{m=-k+1}^{\infty} \binom{m+k-1}{k-1} x^{m} &&
+\text{first }k-2 \text{ summands are zero}
+\\
+&=&\displaystyle  \sum\limits_{m=0}^{\infty} \binom{m+k-1}{k-1} x^{m} 
+\end{array} 
+\]
+}
