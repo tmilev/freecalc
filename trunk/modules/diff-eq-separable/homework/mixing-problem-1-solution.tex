@@ -1,4 +1,5 @@
-\solution{\ref{problemDFQseparable-mixing-problem-1}. Let 
+\solution{\ref{problemDFQseparable-mixing-problem-1}. 
+Let 
 \[
 y(t)=\text{salt in the tank after } t \text{ minutes (in kg)}\quad .
 \] 
@@ -22,13 +23,61 @@ Therefore the differential equation for the amount of salt in the tank is
 \[
 \frac{\diff y}{\diff t}= \underbrace{ 0.5}_{\text{(rate  in)}}- \underbrace{ \frac{y}{1000} }_{\text{(rate out)}}\quad .
 \]
+There are two variants for remainder of the solution. Variant I uses indefinite integration and is slightly informal, but is easier to learn and remember. Variant II is rigorous, but more challenging understand and write up. It is our opinion that both solutions should be acceptable for full credit in a Calculus exam. We recommend Variant I for exam taking, and Variant II when for writing scientific texts. 
+
+\textbf{Variant I} 
+\[
+{\renewcommand{\arraystretch}{1.5}
+\begin{array}{rcll|l}
+\displaystyle\frac{\diff y}{\diff t}&=&\displaystyle 0.5-  \frac{y}{1000} \quad .\\
+\displaystyle\frac{\diff y}{\diff t}&=&\displaystyle   \frac{500-y}{1000} \quad .\\
+\displaystyle \frac{1000}{500- y} \frac{\diff y}{\diff t}&=& \displaystyle 1 &&\text{Use indefinite integration}\\
+\displaystyle \int \frac{1000}{500- y} \underbrace{ \frac{\diff y}{\diff t} \diff t}_{\diff y} &=& \displaystyle \int \diff t \\
+\displaystyle \int \frac{1000}{500-y}\diff y &=& t+C\\
+\displaystyle -1000 \int  \frac{1}{500-y}\diff(500-y)&=& t+C \\
+\displaystyle  -1000 \ln |500-y| &=& t+C &&
+\begin{array}{l}
+\text{The constant from} \\\text{the second integral} \\\text{is accounted by the constant }C
+\end{array}
+\\
+\displaystyle\ln |500-y|&=&\displaystyle -\frac{t+C}{1000} \\
+\displaystyle|500-y| &=&\displaystyle e^{-\frac{t+C}{1000}}&& 
+\begin{array}{l}
+\text{Since }500-y(0)= 500-30=470 >0\\
+\text{we can drop the absolute values}
+\end{array}\\
+\displaystyle 500-y &=&\displaystyle e^{-\frac{t+C}{1000}}\\
+\displaystyle y&=& \displaystyle 500-e^{-\frac{t+C}{1000}} &&\text{Set } D= e^{-\frac{C}{1000}}\\
+\displaystyle y&=&\displaystyle  500-De^{-\frac{t}{1000}}
+\quad .
+\end{array}
+}
+\]
+To find the constant $D$, we observe that 
+\[
+\begin{array}{rcl}
+30&=&y(0)= 500 - De^{-\frac{0}{1000}}= 500-D\\
+D&=&470\quad .
+\end{array}
+\]
+Therefore 
+\[
+\displaystyle y(t)= 500- 470 e^{-\frac{t}{1000}}\quad ,
+\]
+and the final answer is
+\[
+\displaystyle y(45)=500-470e^{-\frac{45}{1000}}\approx 50.68 
+\]
+with measurement unit $kg$.
+
+\textbf{Variant II.} 
 To find $y(45)$, we integrate from $t=0$ to $t=45$:
 \[
 {\renewcommand{\arraystretch}{1.5}
 \begin{array}{rcll|l}
 \displaystyle \int\limits_{t=0}^{45} \frac{1000}{500- y} \underbrace{ \frac{\diff y}{\diff t} \diff t}_{\diff (y(t))} &=& \displaystyle \int\limits_{t=0}^{45} \diff t \\
 \displaystyle \int\limits_{t=0}^{t=45} \frac{1000}{500-y(t)}\diff (y(t))&=& 45&&\text{set }z=y(t) \\
-\displaystyle -1000 \int \limits_{z=y(0)=30}^{z=y(45)} \frac{1}{500-z}d(500-z)&=& 45 \\
+\displaystyle -1000 \int \limits_{z=y(0)=30}^{z=y(45)} \frac{1}{500-z}\diff(500-z)&=& 45 \\
 \displaystyle \left. -1000 \ln |500-y| \right]_{y(0)=30}^{y(45)}&=& 45 \\
 \displaystyle -1000 \left( \ln |500-y(45)|\right. \\
 \left. -\ln |500- 30|  \right) &=& 45 \\
@@ -36,9 +85,9 @@ To find $y(45)$, we integrate from $t=0$ to $t=45$:
 \\
 \displaystyle \ln \left( \frac{470}{500-y(45)} \right)  &=& \displaystyle \frac{45}{1000} &&\text{see below}
 \\
-\displaystyle \frac{470}{500-y(30)}&=&\displaystyle e^{\frac{45}{1000}}\\
-\displaystyle 500-y(30)&=&\displaystyle  470e^{-\frac{9}{200}}\\
-\displaystyle y(30)&=&\displaystyle 500-470e^{-\frac{9}{200}}\\
+\displaystyle \frac{470}{500-y(45)}&=&\displaystyle e^{\frac{45}{1000}}\\
+\displaystyle 500-y(45)&=&\displaystyle  470e^{-\frac{9}{200}}\\
+\displaystyle y(45)&=&\displaystyle 500-470e^{-\frac{9}{200}}\\
 &\approx& 500-470\cdot 0.955997 \\
 &\approx& 50.681184 \quad ,
 \end{array}
