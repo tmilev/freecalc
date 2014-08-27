@@ -1,0 +1,36 @@
+\begin{frame}
+  \frametitle{Parallel line and plane}
+     Line $L: \quad \textbf{r}= \textbf{r}_1+t\textbf{u}$\hspace{2cm}
+     Plane $\mathcal{P}: \quad (\textbf{r}-\textbf{r}_0) \cdot \textbf{n} = 0$
+\bigskip
+  \begin{columns}[t]
+    \column{6cm}
+    Line \textcolor[rgb]{0.98,0.00,0.00}{parallel} to plane\\
+    \uncover<2->{
+    $L || \mathcal{P}$ $\Longleftrightarrow$
+    $\textbf{u} \bot \textbf{n}$ $\Longleftrightarrow$
+    $$\boxed{\textbf{u} \cdot \textbf{n} = 0}$$}
+    \uncover<3->{
+    \textcolor[rgb]{0.98,0.00,0.00}{Distance} from $L$ to $\mathcal{P}$:
+    $$d(L,\mathcal{P}) = d(P_1,\mathcal{P})$$}
+    \uncover<4->{
+    $$d=|\textbf{\text{orth}}_{\bm{u}}(\textbf{r}_1-\textbf{r}_0)| =
+    |\textbf{\text{proj}}_{\bm{n}} (\textbf{r}_1-\textbf{r}_0)|$$
+    $$d = \frac{|(\textbf{r}_1-\textbf{r}_0) \times \textbf{u}|}{|\textbf{u}|} =
+    \textcolor[rgb]{0.98,0.00,0.00}{\frac{|(\textbf{r}_1-\textbf{r}_0)\cdot \textbf{n}|}{|\textbf{n}|}}$$}
+    \column{6.5cm}
+    \begin{figure}
+        \psfrag{L}{$L$}
+        \psfrag{cP}{$\mathcal{P}$}
+        \psfrag{P1}{$P_1(\textbf{r}_1)$}
+        \psfrag{P0}{$P_0(\textbf{r}_0)$}
+        \psfrag{u}{$\textbf{u}$}
+        \psfrag{n}{$\textbf{n}$}
+        \psfrag{r01}{$\textbf{r}_1-\textbf{r}_0$}
+        \psfrag{proj}{$\textbf{\text{proj}}_{\bm{n}} (\textbf{r}_1\!-\!\textbf{r}_0)$}
+        \psfrag{orth}{$\textbf{\text{orth}}_{\bm{u}}(\textbf{r}_1\!-\!\textbf{r}_0)$}
+        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-parallel_line_plane.eps}
+    \end{figure}
+    %
+  \end{columns}
+\end{frame}
