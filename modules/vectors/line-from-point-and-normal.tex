@@ -1,0 +1,84 @@
+\begin{frame}
+ \frametitle{Plane from Point and Normal}
+
+\begin{columns}
+  \column{6cm}
+\begin{itemize}
+ \item<1-> Point $P_0$, with position vector $\textbf{r}_0$;\\
+ \uncover<5->{$\textbf{r}_0 = \langle x_0,y_0,z_0\rangle$}
+\item<1-> Direction $\textbf{n}$, non-zero vector.\\
+  \uncover<5->{$\textbf{n} = \langle a,b,c\rangle$}
+\end{itemize}
+  \column{6cm}
+$\mathcal{P}$: plane\\
+passing through $P_0$ and \\
+normal to direction $\textbf{n}$.
+\end{columns}
+
+\bigskip
+
+\begin{columns}
+  \column{6cm}
+\begin{center}
+ \uncover<2-4>{A point $P(\textbf{r})$ is on $\mathcal{P}$ $\longleftrightarrow$\\}
+ \uncover<5->{A point $P(x,y,z)$ is on $\mathcal{P}$ $\longleftrightarrow$\\}
+ \uncover<3-4>{\medskip $\textbf{P}_0\textbf{P}$ is normal to $\textbf{n}$ $\longleftrightarrow$\\}
+ \uncover<4->{\medskip \textcolor[rgb]{0.98,0.00,0.00}{Implicit vectorial equation}: \\
+ $\boxed{ (\textbf{r}-\textbf{r}_0) \cdot \textbf{n} = 0 \;.}$\\}
+ \uncover<6->{\medskip\textcolor[rgb]{0.98,0.00,0.00}{Implicit scalar equation}: \\
+ $\langle x-x_0, y-y_0, z-z_0\rangle \cdot \langle a,b,c\rangle = 0$\\
+ $\boxed{a(x-x_0) + b(y-y_0)+c(z-z_0) = 0}$}
+\end{center}
+
+  \column{6cm}
+    \only<2-4>{\begin{figure}
+        \psfrag{O}{$O$}
+        \psfrag{Pi}{$\mathcal{P}$}
+        \psfrag{P}{$P$}
+        \psfrag{P0}{$P_0$}
+        \psfrag{r}{$\textbf{r}$}
+        \psfrag{n}{$\textbf{n}$}
+        \psfrag{r0}{$\textbf{r}_0$}
+        \includegraphics[height=1.5in]{../../modules/vectors/pictures/ok-plane_point_normal_vector.eps}
+    \end{figure}}
+    \only<5->{\begin{figure}
+        \psfrag{O}{$O$}
+        \psfrag{x}{$x$}
+        \psfrag{y}{$y$}
+        \psfrag{z}{$z$}
+        \psfrag{Pi}{$\mathcal{P}$}
+        \psfrag{P}{$P(x,y,z)$}
+        \psfrag{P0}{$P_0(x_0,y_0,z_0)$}
+        \psfrag{r}{$\textbf{r}$}
+        \psfrag{n}{$\textbf{n}=\langle a,b,c \rangle$}
+        \psfrag{r0}{$\textbf{r}_0$}
+        \includegraphics[height=1.5in]{../../modules/vectors/pictures/ok-plane_point_normal_scalar.eps}
+    \end{figure}}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Example}
+
+Equation of the plane
+\begin{itemize}
+ \item Passing through $P_0(1,2,3)$;
+\item Normal to the direction $\textbf{n} = \langle 6,5,4\rangle$:
+\end{itemize}
+%
+\pause
+$$6(x-1) + 5(y-2) + 4(z-3) = 0$$
+%
+$$6x +5y+4z = 28$$
+
+\pause General equation of a plane:
+%
+$$ax+by+cz = d$$
+%
+Coefficients $a,b,c$: \pause components of normal to the plane,
+%
+$$\textbf{n} = \langle a,b,c\rangle\; .$$
+
+\end{frame}

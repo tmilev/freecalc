@@ -1,0 +1,44 @@
+\begin{frame}
+  \frametitle{Distance between lines}
+     Lines
+    $$L_1: \quad \textbf{r}= \textbf{r}_1+t\textbf{u}_1 \qquad L_2: \quad \textbf{r}= \textbf{r}_2+s\textbf{u}_2$$
+
+   \begin{columns}[t]
+    \column[T]{6cm}
+    \textcolor[rgb]{0.98,0.00,0.00}{Skew lines}
+    $$\textbf{n} = \textbf{u}_1 \times \textbf{u}_2 \neq \textbf{0}$$
+    \textcolor[rgb]{0.98,0.00,0.00}{Distance}:
+    $$
+      d(L_1,L_2)  = |\textbf{\text{proj}}_{\bm{n}} (\textbf{r}_2-\textbf{r}_1)| =$$
+      $$= \boxed{\frac{|(\textbf{r}_2-\textbf{r}_1)\cdot \textbf{n}|}{|\textbf{n}|}}=
+      \frac{|(\textbf{r}_2-\textbf{r}_1)\cdot (\textbf{u}_1\times \textbf{u}_2)|}{|\textbf{u}_1\times \textbf{u}_2|}$$
+    \textcolor[rgb]{0.98,0.00,0.00}{Intersecting} lines: $d(L_1,L_2)=0$
+    $$\textbf{u}_1\times \textbf{u}_2 \neq \textbf{0}$$
+    $$(\textbf{r}_2-\textbf{r}_1) \cdot (\textbf{u}_1\times \textbf{u}_2) = 0$$
+
+    \column{6.5cm}
+    \only<1>{\begin{figure}
+        \psfrag{L1}{$L_1$}
+        \psfrag{L2}{$L_2$}
+        \psfrag{P1}{$P_1$}
+        \psfrag{P2}{$P_2$}
+        \psfrag{n}{$\textbf{n}$}
+        \psfrag{r21}{$\textbf{r}_2-\textbf{r}_1$}
+        \psfrag{u1}{$\textbf{u}_1$}
+        \psfrag{u2}{$\textbf{u}_2$}
+        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-distance_skew_lines.eps}
+    \end{figure}}
+    \only<2>{\begin{figure}
+        \psfrag{L1}{$L_1$}
+        \psfrag{L2}{$L_2$}
+        \psfrag{P1}{$P_1$}
+        \psfrag{P2}{$P_2$}
+        \psfrag{n}{$\textbf{n}$}
+        \psfrag{r21}{$\textbf{r}_2\!-\!\textbf{r}_1$}
+        \psfrag{u1}{$\textbf{u}_1$}
+        \psfrag{u2}{$\textbf{u}_2$}
+        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-distance_skew_lines_box.eps}
+    \end{figure}
+    }
+  \end{columns}
+\end{frame}
