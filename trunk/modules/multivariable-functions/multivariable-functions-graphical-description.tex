@@ -1,0 +1,45 @@
+\begin{frame}
+\begin{itemize}
+\item An analytical description is technically best, but not easy to interpret.
+\item If output is a scalar, where does the function attain its extreme values (maxima, minima)?  
+\item How do values change for nearby points - are they decreasing, increasing, how fast?
+\item We will learn to decode this information from the analytical descriptions.
+\item Even so, ``a picture is worth a thousand words (and, say, 10 f-las)''.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-3,-3)(3,5.5)
+
+\psset{Beta=15}
+\psplotThreeD[plotstyle=line,drawStyle=xLines,yPlotpoints=50,xPlotpoints=50,linewidth=0.3pt, linecolor=blue](-4,4)(-4,4){ x 3 exp x y 4 exp mul add x 5 div sub 10 mul 2.729 x dup mul y dup mul add neg exp mul 2.729 x 1.225 sub dup mul y dup mul add neg exp add}
+\pstThreeDCoor[xMin=-1,xMax=5,yMin=-1,yMax=5,zMin=-1,zMax=5]
+\rput[t](-3,5.3){Graph of a scalar function.}
+\end{pspicture}
+\end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Graph of a function}
+\begin{itemize}
+\item For one variable function, $y=f(x)$, the graph of $f$ is a set of points in $\RR^2$: the set of points $(x,y)$ such that $y=f(x)$.
+\item Example: if $f(x) = x^2$, then  $(3,9)$ is on the graph, because $9=3^2$, but $(2,5)$ is not because $5 \neq 2^2$.
+\item We can extend this graphical representation for functions with two dimensional input and one dimensional (scalar) output. 
+\item The \emph{graph} of the function $f\colon D \to \RR$, where $D$ is a region in $\RR^2$, is the set of points $P(x,y,z)$ in $\RR^3$ whose coordinates satisfy the condition 
+\[
+z=f(x,y)\quad .
+\]
+\item For example, the graph of $f(x,y) = 2x-y+3$ is the set
+\[
+\{ (x,y,z) \, | \, z= 2x-y+3\} \Longrightarrow \text{ plane } 2x-y-z+3=0 \; .
+\]
+
+\end{itemize}
+
+ 
+
+
+
+\end{frame}

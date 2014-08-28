@@ -1,0 +1,106 @@
+\begin{frame}
+\frametitle{A motivating example}
+What does the graph $\Gamma$ of $g$ look like?
+\[
+g(x,y) =x^2+2y^2\quad .
+\]
+
+%\begin{pspicture}(-2,-2)(2,2)
+
+%\end{pspicture}
+
+By definition, the graph $\Gamma$ of $g$ is the set of points $P(x,y,z)$ in $\RR^3$ such that $z=x^2+2y^2$. This is no longer linear, so the set is not a plane. But what does it look like?
+
+A method that provides significant insight is to use sections. The graph of $g$ lives in $\RR^3$ and we use an imaginary CT scan to cut it, understand the sections, and re-assemble the sections in order to get the graph.
+
+What does it means to cut the graph by vertical planes parallel to the $Oyz-$plane? Such a plane has equation $x=a$, for some constant $a$. The intersection of such a plane with the graph $\Gamma$ is given by points of coordinates $(a, y, z=a^2+2y^2)$, and those points form a parabola in the plane $x=a$, with vertex at $(a,0,a^2)$. The vertex rises as $a$ gets away from 0. Intersecting the graph of $g$ with the plane $x=a$ means
+essentially that we treat $x$ as a constant, and we study
+the partial function $y\to z=g(a,y) = a^2+2y^2$.
+
+Similarly, if we cut by planes $y=a$ we get partial
+functions $x\to x^2+2a^2$, whose graphs are also
+parabolas. Each such a parabola is now situated in the
+vertical plane $y=a$. Hence vertical sections are
+parabolas, with vertices rising as
+we move farther away from the coordinate planes.
+
+To get horizontal sections we have to
+keep constant not an input variable, but the output
+variable, $z$. Intersecting the graph of $g$ with
+the plane $z=a$ we get a curve of equations $x^2+2y^2=a$,
+$z=a$. For $a<0$ the intersection is empty, for $a=0$ it
+consists of a single point, $(x,y,z) = (0,0,0)$, and for
+$a>0$, the intersection is an ellipse in the plane $z=a$.
+
+The \emph{level curve} corresponding to $z=a$ is the curve
+$g(x,y)=a$ in the domain of $g$, with a label $a$ to
+indicate the level of the output corresponding to
+that level curve. Note that the level curve is not the
+intersection of the graph of $g$ with the plane $z=a$;
+instead, it is the projection of that intersection onto
+the plane $Oxy$, where the domain of $g$ resides.
+
+You should be familiarized with level curves if
+you have ever seen a topographic map or if you
+opened the newspaper at the weather section. What are the
+functions in those cases?
+\end{frame}
+
+
+\subsection{Level sets}
+The examples considered in the previous sections were all
+examples of functions with scalar output and a two
+dimensional input. Their graphs lived in
+$\RR^3 = \RR^{2+1}$, with the 2 coming from the dimension
+of the input and the 1 from the dimension of the output.
+If we wanted to extend that graphic construction to
+functions depending on three scalar variables,
+we'd need $3+1=4$ dimensions for the graphs, and that
+is momentarily impossible. The rescue comes from the
+second graphical representation, using level sets,
+because the level sets (with appropriate labeling of
+the level) can be represented in a space with dimension
+equal to the dimension of the input space.
+
+
+For example, let $f(x,y,z) = ax+by-z$. The graph is the
+quadruple $(x,y,z,w)$ in $\RR^4$ such that
+$w = ax+by-z$, and we can't yet represent that
+graphically. But the level set $f(x,y,z) = d$ is the
+surface $ax+by-z = d$ in $\RR^3$, and that surface is a
+plane. Level sets corresponding to equidistant values
+$d_1$, $d_2$, and $d_3$ of the output are parallel
+planes of equations
+%
+\begin{align*}
+  \mathcal{P}_1 = f^{-1}(d_1) & \colon \; ax+by-z = d_1\\
+  %
+  \mathcal{P}_2 = f^{-1}(d_2) & \colon \; ax+by-z = d_2\\
+  %
+  \mathcal{P}_3 = f^{-1}(d_3) & \colon \; ax+by-z = d_3
+\end{align*}
+%
+and these planes are also equidistant.
+
+The following remark will play a very important role in
+understanding surfaces in space.
+
+\begin{remark}{\rm The level set $f(x,y,z)=0$ for the
+function
+%
+$$f(x,y,z) = ax+by-z+d$$
+%
+is the same as the graph
+of the function $g(x,y) = ax+by+c$.
+}\end{remark}
+
+We will see that while graph surfaces can always be
+represented as level surfaces, the converse is not true:
+level surfaces can't always be represented as graph
+surfaces. However, we'll show that under some reasonable
+assumptions, level surfaces can \emph{locally} be
+described as graph surfaces. An illuminating example is
+that of a sphere (centered at the origin): it is the
+level surface of $f(x,y,z) = x^2+y^2+z^2$, but it can't
+be globally represented as a graph surface. Try and see
+what goes wrong!

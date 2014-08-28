@@ -26,7 +26,7 @@
 
 \graphicspath{{../../modules/}}
 
-\newcommand{\currentLecture}{4}
+\newcommand{\currentLecture}{5}
 
 \newcommand{\lect}[4]{
 \ifnum#3=\currentLecture
@@ -179,6 +179,299 @@
 \input{../../modules/vectors/angle-between-planes}
 } %end lecture
 
+% begin lecture
+\lect{2014}{Lecture 5}{5}{
+\section{Functions of Several Variables}
+\input{../../modules/multivariable-functions/multivariable-functions-intro}
+\subsection{Verbal description}
+\input{../../modules/multivariable-functions/multivariable-functions-verbal-description}
+\subsection{Numerical description}
+\input{../../modules/multivariable-functions/multivariable-functions-numerical-description}
+\subsection{Analytical description} 
+\input{../../modules/multivariable-functions/multivariable-functions-analytical-description}
+\section{Graphical descriptions}
+\subsection{Functions of two variables}
+\input{../../modules/multivariable-functions/multivariable-functions-graphical-description}
+\subsection{Slices and level curves}
+\input{../../modules/multivariable-functions/multivariable-functions-slices-and-level-curves}
+
+
+
+
+\subsection{Vector fields} We conclude this section
+with an introduction to \emph{vector fields}.
+These are examples of functions with multidimensional
+input and output. The
+input is identified with a point in space,
+and the output is represented as a vector with
+the tail at that point. Examples of vector fields include:
+
+\begin{itemize}
+  \item Velocity of fluid/air at given point;
+  \item Electric force per unit of charge;
+  \item Gravitational field;
+  %\item Fundamental directions $\textbf{e}_\rho$, $\textbf{e}_\phi$, $\textbf{e}_\theta$, $\textbf{e}_r$
+\end{itemize}
+
+In rectangular coordinates a vector field $\textbf{F}$ can
+be decomposed along the fundamental directions,
+%
+$$\textbf{F}(x,y,z) = F_1(x,y,z) \textbf{i} + F_2(x,y,z) \textbf{j} + F_3(x,y,z) \textbf{k} \; .$$
+%
+If we deal with regions in the plane, then we have similar
+concepts and definitions for 2-dimensional vector fields.
+For example the vector field $\textbf{e}_r$ is given by
+%
+$$\textbf{e}_r = \cos\theta\, \textbf{i} +
+\sin\theta \,\textbf{j} = \frac{x}{r} \, \textbf{i} +
+\frac{y}{r} \, \textbf{j} = \frac{x}{\sqrt{x^2+y^2}} \,
+\textbf{i} + \frac{y}{\sqrt{x^2+y^2}} \, \textbf{j}$$
+%
+and is defined on $\mathbb{R}^2 \setminus \{ (0,0)\}$.
+Similarly the vector field $\textbf{e}_{\theta}$ is
+%
+$$\textbf{e}_\theta = -\sin\theta\, \textbf{i} +
+\cos\theta \,\textbf{j} = -\frac{y}{r} \, \textbf{i} +
+\frac{x}{r} \, \textbf{j} = -\frac{y}{\sqrt{x^2+y^2}} \,
+\textbf{i} + \frac{x}{\sqrt{x^2+y^2}} \, \textbf{j} \; .$$
+%
+ \begin{center}
+\begin{tabular}{cc}
+  \includegraphics[height=5cm]{../../modules/multivariable-functions/pictures/radial_field.eps}
+  &
+  \includegraphics[height=5cm]{../../modules/multivariable-functions/pictures/rotational_field.eps}
+  \\
+  Radial field $\textbf{e}_r$ & Rotational field
+  $\textbf{e}_\theta$
+\end{tabular}
+\end{center}
+
+The graphical representations of these vector fields makes
+it quite clear what would happen to an object forced to move
+so that the velocity at each point is given by the value of
+the field.
+
+Similar to decomposition in rectangular coordinates
+we can decompose a vector field along fundamental vectors
+corresponding to other coordinate systems. Things are a bit
+trickier, since the fundamental vectors change from
+point to point.
+
+In particular, a planar vector field can be written in terms of
+$\textbf{e}_r$ and $\textbf{e}_\theta$:
+%
+$$\textbf{X}(r,\theta) = X_1(r,\theta) \textbf{e}_r\, +
+X_2(r,\theta) \textbf{e}_\theta\; .$$
+%
+For example, if $X(P) = \textbf{i}$, then
+%
+$$X(r,\theta) = \cos\theta \,\textbf{e}_r\,
+-\sin\theta \, \textbf{e}_\theta\; .$$
+
+
+%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Surfaces}
+
+\subsection{Quadric Surfaces}
+
+Level sets for second degree polynomial functions
+
+$$f(x,y,z) = Ax^2+By^2+Cz^2+Dxy+Exz+Fyz+Gx+Hy+Iz+J$$
+
+\begin{itemize}
+  \item At least one of $A$, $B$, $C$, $D$, $E$, or $F$ is non-zero;
+  \item Some coefficients may be zero.
+\end{itemize}
+
+Level set $f(x,y,z)=k$ is called a \emph{quadric surface}. It suffices to consider $k=0$.
+
+Through rigid motions (translations and rotations) it can be reduced to one of the following canonical forms (for different values of $A$, $B$, and $C$):
+%
+$$
+  Ax^2+By^2+Cz^2+D = 0 \quad \text{ or } \quad
+  Ax^2+By^2+Iz=0
+$$
+%
+with not all of $A$, $B$, and $C$ equal to zero and $I$ not zero.
+
+\begin{equation*}
+Ax^2+By^2+Cz^2+D = 0
+\end{equation*}
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  A & B & C & D & $x=x_0$ & $y=y_0$ & $z=z_0$ & Example & Name
+  \\
+  \hline
+  $>0$ & $>0$ & $>0$ & $>0$ & empty & empty & empty & $x^2+2y^2+3z^2+4=0$ & empty \\
+  \hline
+  $>0$ & $>0$ & $>0$ & $=0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $>0$ & $>0$ & $<0$ & ellipse & ellipse & ellipse & $x^2+2y^2+3z^2-4=0$ & Ellipsoid \\
+  \hline
+  $>0$ & $>0$ & $=0$ & $>0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $>0$ & $=0$ & $=0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $>0$ & $=0$ & $<0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $>0$ & $<0$ & $>0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $>0$ & $<0$ & $=0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $>0$ & $<0$ & $<0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $=0$ & $=0$ & $>0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $=0$ & $=0$ & $=0$ &  &  &  &  &  \\
+  \hline
+  $>0$ & $=0$ & $=0$ & $<0$ &  &  &  &  &  \\
+  \hline
+\end{tabular}
+\caption{Quadrics with central symmetry}
+\end{table}
+
+Fill in the rest of the table.
+
+\bigskip
+
+
+\begin{equation*}
+Ax^2+By^2+Iz=0
+\end{equation*}
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  A & B  & $x=x_0$ & $y=y_0$ & $z=z_0$ & Example & Name
+  \\
+  \hline
+  $>0$ & $>0$   & parabola & parabola & ellipse, point, or empty & $x^2+2y^2+3z=0$ & Elliptic paraboloid \\
+  \hline
+  $>0$ & $=0$ & &  &  &  &   \\
+  \hline
+  $>0$ & $<0$ &  &  &  &  &   \\
+  \hline
+\end{tabular}
+  \caption{Quadrics without central symmetry}
+\end{table}
+\bigskip
+
+Fill in the rest of the table.
+
+
+\subsection{Implicit functions}
+
+A surface $S$ can be given in two different ways:
+
+\begin{itemize}
+  \item Implicit form, as a \emph{level surface}:
+  %
+  $$F(x,y,z) = k$$
+  %
+  \item  Explicit form, as a \emph{graph surface}:
+  %
+  $$z=f(x,y) \Longrightarrow \left\{ \begin{array}{ll}
+    x = & u \\
+    y = & v \\
+    z = & f(u,v)
+  \end{array} \right.$$
+\end{itemize}
+
+A graph surface $z=f(x,y)$ can always be represented as a level surface:
+%
+$$z=f(x,y) \Longleftrightarrow F(x,y,z) =0 \quad \text{ for } \quad F(x,y,z) = z-f(x,y)\; .$$
+
+\underline{Question}: Can a given level surface be represented as a graph surface?
+
+The answer to the question above is two-fold:
+
+\begin{itemize}
+  \item Bad news: In general, \emph{globally}, NO.
+
+  \noindent Think $x^2+y^2+z^2= 1$.
+
+  One can't solve for $z$ globally; there is the $\pm\sqrt{1-x^2-y^2}$ issue;
+  \item Good news: In a lot of situations, \emph{locally}, YES.
+
+  \noindent Around $P(0,0,1)$, the surface is the graph surface of $z = \sqrt{1-x^2-y^2}$.
+\end{itemize}
+
+Consider a function $F(x,y,z)$, let $P(x_0,y_0,z_0)$ be a point in the domain of $F$, and let $k=F(x_0,y_0,z_0)$. The level surface through $P$, of equation $F(x,y,z) = k$ is a graph surface around $P$ if there is a function $z=f(x,y)$ such that:
+%
+\begin{itemize}
+  \item $f$ is defined on an open disk $D$ around $(x_0,y_0)$;
+  \item $f(x_0,y_0) = z_0$;
+  \item $F(x,y,f(x,y)) = 0$ for all $(x,y)$ in the disk $D$.
+\end{itemize}
+
+If that is the case, we say that the equation $F(x,y,z) = k$ \emph{implicitly} defines $z=f(x,y)$ satisfying the condition $f(x_0,y_0) = z_0$.
+
+Examples:
+
+The equation $x^2+y^2+z^2 = 1$ implicitly defines $z=\sqrt{1-x^2-y^2}$ as the unique function $z=f(x,y)$ such that
+%
+\begin{itemize}
+  \item $x^2+ y^2+(f(x,y))^2 = 1$ for all $(x,y)$ in a disk around $(0,0)$;
+  \item $f(0,0) = 1$.
+\end{itemize}
+
+The equation $x^2+y^2+z^2 = 1$ implicitly defines $z=-\sqrt{1-x^2-y^2}$ as the unique function $z=f(x,y)$ such that
+%
+\begin{itemize}
+  \item $x^2+ y^2+(f(x,y))^2 = 1$ for all $(x,y)$ in a disk around $(0,0)$;
+  \item $f(0,0) = -1$.
+\end{itemize}
+
+\subsection{Parametrizations}
+So far we have focused our attention on functions with
+a scalar output. However, we have already seen examples of
+functions with vectorial output, and one such example is
+involved in the vectorial parametric equation of a plane.
+
+If $\mathcal{P}$ is the plane through
+$P_0(\textbf{r}_0)$ and parallel to directions
+$\textbf{u}$ and $\textbf{v}$, then the points
+of $\mathcal{P}$ have position vectors $\textbf{r}$
+satisfying
+%
+$$\textbf{r} = \textbf{r}_0 + s \textbf{u} +
+t \textbf{v}\; ,$$
+%
+so the function $\bm{f} \colon \RR^2 \to \RR^3$,
+$\bm{f}(s,t) = \textbf{r}_0 +
+s \textbf{u} + t \textbf{v}$ globally identifies
+$\RR^2$ with the plane $\mathcal{P}$.
+Each point $P$ of $\mathcal{P}$ corresponds
+uniquely to a pair of coordinates $(s,t)$.
+
+Another important example of a function with a
+two dimensional input and a three dimensional output is
+the following.
+
+\begin{example}{\rm Let $f \colon (0,2\pi)
+\times (0,\pi) \to \RR^3$ be given by
+%
+$$f(t,s) = (R\sin{s}\cos{t}, R\sin{s}\sin{t},
+R\cos{s}) \; .$$
+%
+Then the image of $f$ is a subset of the
+sphere of radius $R$ centered at the origin.
+Which points of the sphere are not covered
+by the image of $f$?
+}\end{example}
+
+
+% % % % % % % % % % % % % % % % % % % % %
+
+} %end lecture
 
 % begin lecture
 
