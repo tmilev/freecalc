@@ -1,0 +1,71 @@
+\begin{frame}\frametitle{Analytical description of multivarible function}
+
+\begin{itemize}
+\item Numerical data has output data only for selected inputs only. 
+\item If output is not tabulated for given input we need to approximate.
+\item This is done by inter/extrapolation from given information. 
+\item It would be better to have procedure to determine output from any reasonable input. 
+\item This would be an \emph{analytical} description of the function. 
+\item By analytical description we mean to give a procedure to compute the value of the function:
+\begin{itemize}
+\item via formula or
+\item via another mathematical procedure.
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{From numerical to analytical description}
+
+\begin{itemize}
+\item<1-> One way is to try to guess a formula that fits approximately the input data. 
+\item<2-> For wind chill, one such formula is:
+$$W(T,v)= 35.74+0.6215 T - 35.75 v^{0.16} +0.4275 Tv^{0.16}$$
+  with $W$ and $T$ in Fahrenheit and $v$ in $mph$.
+\item<3-> A proper mathematical model requires that we
+\begin{itemize}
+\item<4-> compute unknown output for some input and 
+\item<5-> we make a new measurement and compare with our model to see if our models give a correct prediction.
+\end{itemize}
+\item<6-> Constructing mathematical models to fit numerical data (approximately) is the subject of ``\alert<8>{Approximation theory}''. 
+\item<7-> Mathematicians dealing with ``\alert<8>{approximation theory}'' are often called ``applied mathematicians''.
+\item<8-> The \alert<8>{above terms} are not precisely defined and not fully agreed upon. 
+\end{itemize}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item For the Cobb-Douglas production function: economic analysis motivates properties such function should have. 
+\item One formula (model) with these properties is:
+\[
+P(K,L) = cL^a K^{1-a}\; ;
+\]
+where $a$ is a parameter between $0$ and $1$. 
+\item While the function $P$ depends on three variables $a$, $L$, and $K$, we treat them differently: we consider $a$ to be a parameter of the model; once we decide on the value of $a$, we treat it as a constant.
+\item The transition formulas from spherical to rectangular coordinates are a derived via geometric reasoning.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item An important class of functions of several variables is the class of polynomial functions. Polynomials of degree one are
+\begin{align*}
+f(x,y) = & ax+by+c \\
+g(x,y,z) = & ax+by+cz+d  \; ,
+\end{align*}
+and polynomials of degree two are
+\begin{align*}
+f(x,y) = & \; a_{11}x^2+a_{12}xy+a_{22}y^2+ a_1 x + a_2 y + a_0 \\
+g(x,y,z) = & \; a_{11} x^2 + a_{22}y^2 + a_{33}z^2 + a_{12}xy + a_{13}xz+a_{23}yz + \\
+& + a_1 x + a_2 y + a_3 z + a_0
+\end{align*}
+where the $a_{ij}$'s are real numbers.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item The formula for electric force is given by laws of physics: the magnitude of the force is directly proportional to the charges $q$, $Q$, and inversely proportional to the square of the distance between them. The force acts along the line joining the two points, attracts $q$ to $Q$ if the charges have different sign and rejects $q$ from $Q$ if the charges have the same sign. The mathematical translation is
+\[
+\textbf{E}(q, Q, \textbf{r}, \epsilon) = \frac{\epsilon q Q}{|\textbf{r}|^3} \textbf{r}\; ,
+\]
+where $\epsilon$ is a proportionality constant, depending on the medium the charges are placed in.
+\end{itemize}
+\end{frame}
