@@ -5,17 +5,24 @@ What does the graph $\Gamma$ of $g$ look like?
 g(x,y) =x^2+2y^2\quad .
 \]
 
-%\begin{pspicture}(-2,-2)(2,2)
+\begin{pspicture}(-2,-2)(2,2)
+\psC
 
-%\end{pspicture}
+\end{pspicture}
 
-By definition, the graph $\Gamma$ of $g$ is the set of points $P(x,y,z)$ in $\RR^3$ such that $z=x^2+2y^2$. This is no longer linear, so the set is not a plane. But what does it look like?
+\begin{itemize}
+\item The graph $\Gamma$ is the set of points $P(x,y,z)$ in $\RR^3$ such that $z=x^2+2y^2$. The set is not a plane: what does it look like?
+\item To answer look at sections. Use imaginary CT scan to cut the graph; assemble resulting sections into a graph.
+\item Cut by vertical planes parallel to the $Oyz-$plane.
+\item Suppose cutting plane has equation $x=a$, where $a$-constant. Intersection with cutting plane is given by points:
+\[
+\{(a, y, z)\quad \text{where } z=a^2+2y^2)\}
+\]
+\item These cross-sections are parabolas lying inside the plane $x=a$ with vertices at $(a,0,a^2)$. The vertex rises as $a$ gets away from $0$.
+\item When we intersect $\Gamma$ with the plane $x=a$ we treat $x$ as a constant and study the function $y\to z=g(a,y) = a^2+2y^2$.
+\end{itemize}
 
-A method that provides significant insight is to use sections. The graph of $g$ lives in $\RR^3$ and we use an imaginary CT scan to cut it, understand the sections, and re-assemble the sections in order to get the graph.
 
-What does it means to cut the graph by vertical planes parallel to the $Oyz-$plane? Such a plane has equation $x=a$, for some constant $a$. The intersection of such a plane with the graph $\Gamma$ is given by points of coordinates $(a, y, z=a^2+2y^2)$, and those points form a parabola in the plane $x=a$, with vertex at $(a,0,a^2)$. The vertex rises as $a$ gets away from 0. Intersecting the graph of $g$ with the plane $x=a$ means
-essentially that we treat $x$ as a constant, and we study
-the partial function $y\to z=g(a,y) = a^2+2y^2$.
 
 Similarly, if we cut by planes $y=a$ we get partial
 functions $x\to x^2+2a^2$, whose graphs are also
@@ -44,6 +51,7 @@ You should be familiarized with level curves if
 you have ever seen a topographic map or if you
 opened the newspaper at the weather section. What are the
 functions in those cases?
+
 \end{frame}
 
 
