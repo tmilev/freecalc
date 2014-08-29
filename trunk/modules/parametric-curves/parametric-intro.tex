@@ -5,24 +5,24 @@
 \column{.4\textwidth}
 
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-2.2, -0.5)(2.2,3.7) 
-\tiny 
-\psaxesStandard{-2}{-0.5}{2}{3.5}
+\begin{pspicture}(-2.2, -0.5)(2.2,3.7)
+\tiny
+\fcAxesStandard{-2}{-0.5}{2}{3.5}
 %Calculator input: plotCurve{}(\cos{}(t^{2}), t \sin{}t+\sin{}t, 0, 3)
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=500] {0}{0.75}{t 2 exp 57.29578 mul cos t 57.29578 mul sin t 57.29578 mul sin t mul add }
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=500] {0.75}{1.5}{t 2 exp 57.29578 mul cos t 57.29578 mul sin t 57.29578 mul sin t mul add }
-\parametricplot[arrows=->, linecolor=\psColorGraph, plotpoints=500] {1.5}{2.25}{t 2 exp 57.29578 mul cos t 57.29578 mul sin t 57.29578 mul sin t mul add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=500] {2.25}{3}{t 2 exp 57.29578 mul cos t 57.29578 mul sin t 57.29578 mul sin t mul add }
+\parametricplot[arrows=->, linecolor=\fcColorGraph, plotpoints=500] {0}{0.75}{t 2 exp 57.29578 mul cos t 57.29578 mul sin t 57.29578 mul sin t mul add }
+\parametricplot[arrows=->, linecolor=\fcColorGraph, plotpoints=500] {0.75}{1.5}{t 2 exp 57.29578 mul cos t 57.29578 mul sin t 57.29578 mul sin t mul add }
+\parametricplot[arrows=->, linecolor=\fcColorGraph, plotpoints=500] {1.5}{2.25}{t 2 exp 57.29578 mul cos t 57.29578 mul sin t 57.29578 mul sin t mul add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=500] {2.25}{3}{t 2 exp 57.29578 mul cos t 57.29578 mul sin t 57.29578 mul sin t mul add }
 
-\uncover<1>{\psFullDot{0.987227}{ 0.545186} } 
-\uncover<2>{\psFullDot{0.689498}{ 1.488321} }
-\uncover<3>{\psFullDot{-0.379452}{ 2.365079}}
-\uncover<4>{\psFullDot{-0.892288}{ 2.744270}}
-\uncover<5->{\psFullDot{0.866232}{ 2.296575} }
+\uncover<1>{\fcFullDot{0.987227}{ 0.545186} }
+\uncover<2>{\fcFullDot{0.689498}{ 1.488321} }
+\uncover<3>{\fcFullDot{-0.379452}{ 2.365079}}
+\uncover<4>{\fcFullDot{-0.892288}{ 2.744270}}
+\uncover<5->{\fcFullDot{0.866232}{ 2.296575} }
 \uncover<6->{
 \rput[l](0.89,2.396575){$\begin{array}{l}(x,y)\uncover<7->{= (g(t), f(t))} \\\phantom{(x,y)}\uncover<8->{=(x(t), y(t))}\end{array}$}
 }
-\end{pspicture} 
+\end{pspicture}
 %\ \only<handout:0| -1>{%
 %\includegraphics[height=7cm]{parametric-curves/pictures/11-01-parametrica.pdf}%
 %}%

@@ -9,9 +9,9 @@ L(x) = f(a) + f'(a)(x-a).
 \begin{definition}[Linear Approximation of $f(x)$ near $a$]
 The approximation
 \[
-f(x) \approx f(a) + f'(a)(x-a) 
+f(x) \approx f(a) + f'(a)(x-a)
 \]
-is called the linear approximation of $f$ at $a$. 
+is called the linear approximation of $f$ at $a$.
 \end{definition}
 Let $y=f(x)$, $\Delta y:= f(x)-f(a)$, and $\Delta x:= x-a$.
 \begin{definition}[Linear approx. $y=f(x)$ near $a$, alternative notation]
@@ -25,18 +25,18 @@ Let $y=f(x)$, $\Delta y:= f(x)-f(a)$, and $\Delta x:= x-a$.
 \begin{center}%
 
 \psset{xunit=1.5cm, yunit=0.8cm}
-\begin{pspicture}(-5, -5)(5,5) 
+\begin{pspicture}(-5, -5)(5,5)
 \tiny
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(5,4.5)
-%Function formula: 1/2+x 
+%Function formula: 1/2+x
 \psplot[linecolor=blue, plotpoints=1000]{-0.2}{4.3}{x 0.5 add }
 \rput(3,4.2){$y=L(x)$}
- %Function formula: 7/2- ((-2+1/2 (x))^{2}) 
-\rput(4.3,3.1){$y=f(x)$} 
+ %Function formula: 7/2- ((-2+1/2 (x))^{2})
+\rput(4.3,3.1){$y=f(x)$}
 \psplot[linecolor=black, plotpoints=1000]{-0.2}{5}{x 0.5 mul -2 add 2 exp -1 mul 3.5 add }
-\rput[br](2,2.6){$(x,f(x))$} 
-\psFullDotBlack{2}{2.5}
+\rput[br](2,2.6){$(x,f(x))$}
+\fcFullDotBlack{2}{2.5}
 \psline[linestyle=dashed](2, 2.5)(2,0)
 \psline[linestyle=dashed](3, 3.25)(3,0)
 
@@ -53,7 +53,7 @@ Let $y=f(x)$, $\Delta y:= f(x)-f(a)$, and $\Delta x:= x-a$.
 
 \rput[t](2,-0.1){$x$}
 \rput[t](3,-0.1){$x+\Delta x$}
-\end{pspicture} 
+\end{pspicture}
 
 \begin{tabular}{|l|c|c|}
 \hline

@@ -3,26 +3,26 @@
 \begin{columns}[c]
 \column{.5\textwidth}
 \psset{xunit=0.6cm, yunit=0.6cm}
-\begin{pspicture}(-3.9, -3.8)(5.2,3.8) 
-\psframe*[linecolor=white](-3.9,3.8)(5.2,3.8) 
-\tiny 
-\psaxesStandard{-3.85}{-3.7}{5.2}{3.7}
-%Function formula: \frac{\sin{}x}{\cos{}x} 
+\begin{pspicture}(-3.9, -3.8)(5.2,3.8)
+\psframe*[linecolor=white](-3.9,3.8)(5.2,3.8)
+\tiny
+\fcAxesStandard{-3.85}{-3.7}{5.2}{3.7}
+%Function formula: \frac{\sin{}x}{\cos{}x}
 
 \uncover<1>{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.8}{-1.841592654}{x 57.29578 mul tan }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.8}{-1.841592654}{x 57.29578 mul tan }
 }
 \uncover<1-2>{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.3}{1.3}{x 57.29578 mul tan }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.3}{1.3}{x 57.29578 mul tan }
 }
 \uncover<3->{
 \psplot[linecolor=gray, plotpoints=1000]{-1.3}{1.3}{x 57.29578 mul tan }
 }
 \uncover<1>{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{1.841592654}{4.441592654}{x 57.29578 mul tan }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1.841592654}{4.441592654}{x 57.29578 mul tan }
 }
 \uncover<3->{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.602102448}{3.602102448}{x ATAN }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.602102448}{3.602102448}{x ATAN }
 }
 \uncover<1-2>{
 \psline[linestyle=dashed](1.570796327, -3.7)(1.570796327, 3.7)
@@ -44,16 +44,16 @@
 \rput[tr](1.5,-0.1){$\frac{\pi}{2}$}
 \rput[tr](-1.7,-0.1){$-\frac{\pi}{2}$}
 \uncover<1>{
-\psXTickWithLabel{3.141592654}{$\pi$}
-\psXTickWithLabel{-3.141592654}{$-\pi$}
+\fcXTickWithLabel{3.141592654}{$\pi$}
+\fcXTickWithLabel{-3.141592654}{$-\pi$}
 }
 \uncover<1>{\rput[tr](4.65,-0.1){$\frac{3\pi}{2}$}
 }
-\psYTickWithLabel{1}{$1$}
-\psYTickWithLabel{-1}{$-1$}
+\fcYTickWithLabel{1}{$1$}
+\fcYTickWithLabel{-1}{$-1$}
 \rput[l](1.6, 2.1){ $\begin{array}{l} y=\tan x\uncover<2->{,}\\ \uncover<2->{-\frac{\pi}{2}\leq x\leq\frac{\pi}{2} }\end{array}$
 }
-\end{pspicture} 
+\end{pspicture}
 
 %\ \only<handout:0| -1>{%
 %\includegraphics[width=5cm]{inverse-trig/pictures/07-06-arctana.pdf}%

@@ -5,9 +5,9 @@
 \newcommand{\lowBound}{0.4}
 \newcommand{\highBound}{2}
 \begin{frame}
-Let $\gamma $ be the curve 
+Let $\gamma $ be the curve
 $ \gamma: \left|
-\begin{array}{rcl} 
+\begin{array}{rcl}
 x=x(t)\\
 y=y(t)
 \end{array}, t\in [a,b]
@@ -23,27 +23,27 @@ y=y(t)
 \begin{center}
 \psset{xunit=1.4cm, yunit=1.4cm}
 \begin{pspicture}(-0.4,-0.3)(2.3,1.994800)
-\tiny 
-\psaxesStandard{-0.3}{-0.3}{2.146803}{1.994800}
+\tiny
+\fcAxesStandard{-0.3}{-0.3}{2.146803}{1.994800}
 %\theCurve is defined in the beginning of this module, has limited scope
 \parametricplot{\lowBound}{\highBound}{\theCurve}
 \uncover<2-4>{%
-\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{3}{\lowBound}{\highBound}{\theCurve}{P}%
+\fcPolylineAlongCurveWithLabels[linecolor=\fcColorGraph]{3}{\lowBound}{\highBound}{\theCurve}{P}%
 }
 \uncover<5>{%
-\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{4}{\lowBound}{\highBound}{\theCurve}{P}%
+\fcPolylineAlongCurveWithLabels[linecolor=\fcColorGraph]{4}{\lowBound}{\highBound}{\theCurve}{P}%
 }
 \uncover<6>{%
-\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{5}{\lowBound}{\highBound}{\theCurve}{P}%
+\fcPolylineAlongCurveWithLabels[linecolor=\fcColorGraph]{5}{\lowBound}{\highBound}{\theCurve}{P}%
 }
 \uncover<6>{%
-\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{6}{\lowBound}{\highBound}{\theCurve}{P}%
+\fcPolylineAlongCurveWithLabels[linecolor=\fcColorGraph]{6}{\lowBound}{\highBound}{\theCurve}{P}%
 }
 \uncover<7>{%
-\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{10}{\lowBound}{\highBound}{\theCurve}{P}%
+\fcPolylineAlongCurveWithLabels[linecolor=\fcColorGraph]{10}{\lowBound}{\highBound}{\theCurve}{P}%
 }
 \uncover<8->{%0
-\polylineAlongCurveWithLabels[linecolor=\psColorGraph]{14}{\lowBound}{\highBound}{\theCurve}{P}%
+\fcPolylineAlongCurveWithLabels[linecolor=\fcColorGraph]{14}{\lowBound}{\highBound}{\theCurve}{P}%
 }
 \end{pspicture}
 %\ \only<handout:0| -1>{%
@@ -83,9 +83,9 @@ L = \lim_{n\rightarrow \infty} \sum_{i=1}^n |P_{i-1}P_i|
 
 
 \begin{frame}
-Let $\gamma $ be the curve 
+Let $\gamma $ be the curve
 $ \gamma: \left|
-\begin{array}{rcl} 
+\begin{array}{rcl}
 x=x(t)\\
 y=y(t)
 \end{array}, t\in [a,b]

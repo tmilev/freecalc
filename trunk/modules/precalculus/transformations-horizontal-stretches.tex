@@ -2,11 +2,11 @@
 \begin{frame}\ %
 \uncover<1->{}
 \psset{xunit=1.4cm, yunit=1.4cm}
-\begin{pspicture}(-0.6, -1.4)(6.2,1.4) 
-\psaxesStandard{-0.6}{-1.4}{6.2}{1.4}
+\begin{pspicture}(-0.6, -1.4)(6.2,1.4)
+\fcAxesStandard{-0.6}{-1.4}{6.2}{1.4}
 
-%Function formula: sin{}(x) 
-\rput[t](4.71238898, -1.1){\alert<1-2>{$y=sin{}(x)$}} 
+%Function formula: sin{}(x)
+\rput[t](4.71238898, -1.1){\alert<1-2>{$y=sin{}(x)$}}
 
 \uncover<1-2>{
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{6}{x 57.29578 mul sin }
@@ -23,14 +23,14 @@
 
 
 \uncover<3->{
- %Function formula: sin{}(3/2 (x)) 
+ %Function formula: sin{}(3/2 (x))
 \uncover<3>{
-\psplot[linecolor=red, plotpoints=1000]{-0.5}{6}{x 1.5 mul 57.29578 mul sin } 
+\psplot[linecolor=red, plotpoints=1000]{-0.5}{6}{x 1.5 mul 57.29578 mul sin }
 }
 \uncover<4->{
-\psplot[linecolor=blue, plotpoints=1000]{-0.5}{6}{x 1.5 mul 57.29578 mul sin } 
+\psplot[linecolor=blue, plotpoints=1000]{-0.5}{6}{x 1.5 mul 57.29578 mul sin }
 }
-\rput(3.141592654, -1.1){\alert<3>{$y=\sin{}(cx)$}} 
+\rput(3.141592654, -1.1){\alert<3>{$y=\sin{}(cx)$}}
 
 \psline(1.047197551, -0.05)(1.047197551, 0.05)
 \rput[t](1.047197551, -0.1) {$\frac{\pi}{2c}$}
@@ -40,8 +40,8 @@
 
 }
 \uncover<4->{
-\rput[b](3.14,1.1){\alert<4>{$y=\sin\left(\frac{x}{c}\right)$}} 
-\psplot[linecolor=red, plotpoints=1000]{-0.5}{6}{x 0.666667 mul 57.29578 mul sin } 
+\rput[b](3.14,1.1){\alert<4>{$y=\sin\left(\frac{x}{c}\right)$}}
+\psplot[linecolor=red, plotpoints=1000]{-0.5}{6}{x 0.666667 mul 57.29578 mul sin }
 
 \psline(2.35619449, -0.05)(2.35619449, 0.05)
 \rput[t](2.35619449, -0.1) {$\frac{\pi c}{2}$}
@@ -49,7 +49,7 @@
 \psline(4.71238898, -0.05)(4.71238898, 0.05)
 \rput[t](4.71238898, -0.1) {$\pi c$}
 }
-\end{pspicture} 
+\end{pspicture}
 %\includegraphics[height=6cm]{precalculus/pictures/01-03-stretcha.pdf}%
 %}%
 %\only<handout:0| 3>{%

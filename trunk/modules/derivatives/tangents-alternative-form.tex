@@ -6,12 +6,12 @@
 \begin{pspicture}(-1,-1.5)(5.4,4.6)
 \tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-1.5)(5.4,4.6)
-%Function formula: -11/8+5/18 ((x) ((x) (x)))-1/81 ((x) ((x) ((x) (x))))-73/36 ((x) (x))+43/8 (x) 
+%Function formula: -11/8+5/18 ((x) ((x) (x)))-1/81 ((x) ((x) ((x) (x))))-73/36 ((x) (x))+43/8 (x)
 \psplot[linecolor=red, plotpoints=1000]{0}{5}{x 5.375 mul x x mul -2.02778 mul add x x mul x mul x mul -0.0123457 mul add x x mul x mul 0.277778 mul add -1.375 add }
 
 \uncover<1,11->{
 \psline[linecolor=blue](0, -0.935185185)(1.531304348, 4.5)
-\psFullDotBlack{0.5}{0.839506173}
+\fcFullDotBlack{0.5}{0.839506173}
 }
 
 \rput[rb] (0.6,0.92){$P=(a, f(a))$}
@@ -23,7 +23,7 @@
 
 \uncover<10>{
 \psline[linecolor=blue](0, -0.558641975)(1.809050773, 4.5)
-\psFullDotBlack{1}{2.237654321}
+\fcFullDotBlack{1}{2.237654321}
 \psline[linestyle=dashed](1, 0)(1, 2.237654321)
 \psline(0.5, 0.839506173)(1,0.839506173) (1, 2.237654321)
 \rput[t](1, -0.1){\tiny$a+h$}
@@ -35,7 +35,7 @@
 
 \uncover<9>{
 \psline[linecolor=blue](0, -0.240741)(2.19429, 4.5)
-\psFullDotBlack{1.5}{3}
+\fcFullDotBlack{1.5}{3}
 \psline[linestyle=dashed](1.5, 0)(1.5, 3)
 \psline(0.5, 0.839506173)(1.5,0.839506173) (1.5, 3)
 \rput[t](1.5, -0.1){\tiny$a+h$}
@@ -47,7 +47,7 @@
 
 \uncover<8>{
 \psline[linecolor=blue](0, 0.0231481)(2.74197, 4.5)
-\psFullDotBlack{2}{3.28858}
+\fcFullDotBlack{2}{3.28858}
 \psline[linestyle=dashed](2, 0)(2, 3.28858)
 \psline(0.5, 0.82)(2,0.839506173) (2, 3.28858)
 \rput[t](2, -0.1){\tiny$a+h$}
@@ -59,7 +59,7 @@
 
 \uncover<7>{
 \psline[linecolor=blue](0, 0.237654)(3.54103, 4.5)
-\psFullDotBlack{2.5}{3.24691}
+\fcFullDotBlack{2.5}{3.24691}
 \psline[linestyle=dashed](2.5, 0)(2.5, 3.24691)
 \psline(0.5, 0.839506173)(2.5,0.839506173) (2.5, 3.24691)
 \rput[t](2.5, -0.1){\tiny$a+h$}
@@ -71,7 +71,7 @@
 
 \uncover<6>{
 \psline[linecolor=blue](0, 0.407407)(4.73571, 4.5)
-\psFullDotBlack{3}{3}
+\fcFullDotBlack{3}{3}
 \psline[linestyle=dashed](3, 0)(3, 3)
 \psline(0.5, 0.839506173)(3,0.839506173) (3, 3)
 \rput[t](3, -0.1){\tiny$a+h$}
@@ -83,7 +83,7 @@
 
 \uncover<5>{
 \psline[linecolor=blue](0, 0.537037)(5, 3.56173)
-\psFullDotBlack{3.5}{2.65432}
+\fcFullDotBlack{3.5}{2.65432}
 \psline[linestyle=dashed](3.5, 0)(3.5, 2.65432)
 \psline(0.5, 0.839506173)(3.5,0.839506173) (3.5, 2.65432)
 \rput[t](3.5, -0.1){\tiny$a+h$}
@@ -95,7 +95,7 @@
 
 \uncover<2-4>{
 \psline[linecolor=blue](0, 0.631173)(5, 2.71451)
-\psFullDotBlack{4}{2.29784}
+\fcFullDotBlack{4}{2.29784}
 \psline[linestyle=dashed](4, 0)(4, 2.29784)
 \psline(0.5, 0.839506173)(4,0.839506173) (4, 2.29784)
 \psline[linestyle=dotted]{->}(4,3.9)(4, 2.29784)
@@ -112,7 +112,7 @@
 \rput[t](2.25, 0.82){\tiny$h$}
 \rput[b](4, 4){\tiny $Q=(a+h,f(a+h))$}
 }
-\end{pspicture} 
+\end{pspicture}
 %\ \only<handout:0| -1,12->{%
 %\includegraphics[height=4.5cm]{derivatives/pictures/03-01-tangent.pdf}%
 %}%

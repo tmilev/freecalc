@@ -6,21 +6,21 @@ Find the length of the arc of $y^2 = x^3$ between $(1,1)$ and $(4,8)$.
 \column{.3\textwidth}
 %\includegraphics[height=6cm]{arc-length/pictures/09-01-ex1.pdf}%
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-0.9, -8.955949)(6,9.055949) 
-\tiny 
-\psaxesStandard{-0.65}{-8.705949}{5.5}{8.705949}
-%Function formula: - \sqrt{x^{3}} 
+\begin{pspicture}(-0.9, -8.955949)(6,9.055949)
+\tiny
+\fcAxesStandard{-0.65}{-8.705949}{5.5}{8.705949}
+%Function formula: - \sqrt{x^{3}}
 \psplot[linecolor=gray, plotpoints=1000]{0}{4.2}{x 3 exp sqrt -1 mul }
-%Function formula: \sqrt{x^{3}} 
+%Function formula: \sqrt{x^{3}}
 \psplot[linecolor=gray, plotpoints=1000]{0}{4.2}{x 3 exp sqrt }
-%Function formula: \sqrt{x^{3}} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{1}{4}{x 3 exp sqrt }
-\psFullDot{1}{1}
-\psFullDot{4}{8}
+%Function formula: \sqrt{x^{3}}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{4}{x 3 exp sqrt }
+\fcFullDot{1}{1}
+\fcFullDot{4}{8}
 \rput[tl](4.2, 8){$(4,8)$}
 \rput[tl](1.2, 1){$(1,1)$}
 \rput[l](2.7, 4){$y^2=x^3$}
-\end{pspicture} 
+\end{pspicture}
 \column{.7\textwidth}
 \begin{itemize}
 \item<2->  For the top half of the curve we have:
@@ -31,7 +31,7 @@ Find the length of the arc of $y^2 = x^3$ between $(1,1)$ and $(4,8)$.
 \end{itemize}
 \begin{eqnarray*}
 \uncover<7->{%
-L % 
+L %
 }%
 & \uncover<7->{ = } &%
 \uncover<7->{%

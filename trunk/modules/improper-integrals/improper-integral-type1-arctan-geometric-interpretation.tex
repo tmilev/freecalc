@@ -3,18 +3,18 @@
 \begin{frame}[t]
 
 \psset{xunit=2cm, yunit=2cm}
-\begin{pspicture}(-3.1, -0.1)(3.1,1.2) 
-\psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2) 
-\tiny 
+\begin{pspicture}(-3.1, -0.1)(3.1,1.2)
+\psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2)
+\tiny
 \psline[linecolor=red!1](0,1.2)(0.001,1.2) %bounding boxes don't always work right
 \psaxes[arrows=<->, ticks=none, labels=none] (0,0) (-3.05,-0.1) (3.05,1.1)
 \rput[t](3, -0.1){$x$}
 
-%Function formula: - (- x^{2}+1)^{1/2} 
-%\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp -1 mul }
-%Function formula: (- x^{2}+1)^{1/2} 
+%Function formula: - (- x^{2}+1)^{1/2}
+%\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp -1 mul }
+%Function formula: (- x^{2}+1)^{1/2}
 \psplot[linecolor=blue, plotpoints=1000] {-1} {1} {1 x 2 exp -1 mul add 0.5 exp }
-\psline(-3,1)(3,1) 
+\psline(-3,1)(3,1)
 
 \uncover<3->{
 \psline{<-}(-0.05, 0)(-0.05,0.4)
@@ -23,10 +23,10 @@
 }
 \uncover<2>{
 \psline[linecolor=red](0.5,1)(1,1)
-\psFullDot{1}{1}
+\fcFullDot{1}{1}
 }
 \uncover<2>{
-\psFullDot{0.5}{1}
+\fcFullDot{0.5}{1}
 }
 
 \rput[br](-0.05, 1.05){ $\phantom{Q_0=P_0}A$}
@@ -59,87 +59,87 @@
 %f{}(\Delta) f{}(2\Delta)f{}(3\Delta)f{}(4\Delta)f{}(5\Delta)f{}(6\Delta)
 
 \uncover<5->{
-\psline (0.5, 1) (0, 0) 
+\psline (0.5, 1) (0, 0)
 }
 \uncover<5->{
-\psline (0.4, 0.8) (0, 1) 
+\psline (0.4, 0.8) (0, 1)
 }
 \uncover<15->{
-\psline (0.4, 0.8) (0.5, 0.5) 
+\psline (0.4, 0.8) (0.5, 0.5)
 }
 \uncover<5->{\psline (0.355279, 0.822361) (0.332918, 0.777639) (0.377639, 0.755279) }
 
 \uncover<4->{\psline (1, 1) (0, 0) }
-\uncover<5->{\psline (0.5, 0.5) (0, 1)} 
-%\psline (0.5, 0.5) (0.461538, 0.307692) 
+\uncover<5->{\psline (0.5, 0.5) (0, 1)}
+%\psline (0.5, 0.5) (0.461538, 0.307692)
 \uncover<5->{\psline (0.464645, 0.535355) (0.429289, 0.5) (0.464645, 0.464645) }
 
 
-%\psline (1.500000, 1) (0, 0) 
-%\psline (0.461538, 0.307692) (0, 1) 
-%\psline (0.461538, 0.307692) (0.4, 0.2) 
-%\psline (0.433803, 0.349295) (0.392201, 0.321560) (0.419936, 0.279957) 
+%\psline (1.500000, 1) (0, 0)
+%\psline (0.461538, 0.307692) (0, 1)
+%\psline (0.461538, 0.307692) (0.4, 0.2)
+%\psline (0.433803, 0.349295) (0.392201, 0.321560) (0.419936, 0.279957)
 
-%\psline (2, 1) (0, 0) 
-%\psline (0.4, 0.2) (0, 1) 
-%\psline (0.4, 0.2) (0.344828, 0.137931) 
-%\psline (0.377639, 0.244721) (0.332918, 0.222361) (0.355279, 0.177639) 
+%\psline (2, 1) (0, 0)
+%\psline (0.4, 0.2) (0, 1)
+%\psline (0.4, 0.2) (0.344828, 0.137931)
+%\psline (0.377639, 0.244721) (0.332918, 0.222361) (0.355279, 0.177639)
 
-%\psline (2.5, 1) (0, 0) 
-%\psline (0.344828, 0.137931) (0, 1) 
-%\psline (0.344828, 0.137931) (0.300000, 0.100000) 
-%\psline (0.326258, 0.184355) (0.279834, 0.165785) (0.298404, 0.119362) 
+%\psline (2.5, 1) (0, 0)
+%\psline (0.344828, 0.137931) (0, 1)
+%\psline (0.344828, 0.137931) (0.300000, 0.100000)
+%\psline (0.326258, 0.184355) (0.279834, 0.165785) (0.298404, 0.119362)
 
-%\psline (3, 1) (0, 0) 
-%\psline (0.300000, 0.100000) (0, 1) 
-%\psline (0.300000, 0.100000) (0.264151, 0.075472) 
+%\psline (3, 1) (0, 0)
+%\psline (0.300000, 0.100000) (0, 1)
+%\psline (0.300000, 0.100000) (0.264151, 0.075472)
 %\psline (0.284189, 0.147434) (0.236754, 0.131623) (0.252566, 0.084189)
 
-%\psline (-0.5, 1) (0, 0) 
-%\psline (-0.4, 0.8) (0, 1) 
-%\psline (-0.4, 0.8) (-0.5, 0.5) \psline (-0.355279, 0.822361) (-0.377639, 0.867082) (-0.422361, 0.844721) 
+%\psline (-0.5, 1) (0, 0)
+%\psline (-0.4, 0.8) (0, 1)
+%\psline (-0.4, 0.8) (-0.5, 0.5) \psline (-0.355279, 0.822361) (-0.377639, 0.867082) (-0.422361, 0.844721)
 
-%\psline (-1, 1) (0, 0) 
-%\psline (-0.5, 0.5) (0, 1) 
-%\psline (-0.5, 0.5) (-0.461538, 0.307692) 
-%\psline (-0.464645, 0.535355) (-0.5, 0.570711) (-0.535355, 0.535355) 
+%\psline (-1, 1) (0, 0)
+%\psline (-0.5, 0.5) (0, 1)
+%\psline (-0.5, 0.5) (-0.461538, 0.307692)
+%\psline (-0.464645, 0.535355) (-0.5, 0.570711) (-0.535355, 0.535355)
 
-%\psline (-1.500000, 1) (0, 0) 
-%\psline (-0.461538, 0.307692) (0, 1) 
-%\psline (-0.461538, 0.307692) (-0.4, 0.2) 
-%\psline (-0.433803, 0.349295) (-0.475406, 0.377030) (-0.503141, 0.335427) 
+%\psline (-1.500000, 1) (0, 0)
+%\psline (-0.461538, 0.307692) (0, 1)
+%\psline (-0.461538, 0.307692) (-0.4, 0.2)
+%\psline (-0.433803, 0.349295) (-0.475406, 0.377030) (-0.503141, 0.335427)
 
-%\psline (-2, 1) (0, 0) 
-%\psline (-0.4, 0.2) (0, 1) 
-%\psline (-0.4, 0.2) (-0.344828, 0.137931) 
-%\psline (-0.377639, 0.244721) (-0.422361, 0.267082) (-0.444721, 0.222361) 
+%\psline (-2, 1) (0, 0)
+%\psline (-0.4, 0.2) (0, 1)
+%\psline (-0.4, 0.2) (-0.344828, 0.137931)
+%\psline (-0.377639, 0.244721) (-0.422361, 0.267082) (-0.444721, 0.222361)
 
-%\psline (-2.5, 1) (0, 0) 
-%\psline (-0.344828, 0.137931) (0, 1) 
-%\psline (-0.344828, 0.137931) (-0.300000, 0.100000) 
-%\psline (-0.326258, 0.184355) (-0.372682, 0.202924) (-0.391251, 0.156501) 
+%\psline (-2.5, 1) (0, 0)
+%\psline (-0.344828, 0.137931) (0, 1)
+%\psline (-0.344828, 0.137931) (-0.300000, 0.100000)
+%\psline (-0.326258, 0.184355) (-0.372682, 0.202924) (-0.391251, 0.156501)
 
-%\psline (-3, 1) (0, 0) 
-%\psline (-0.300000, 0.100000) (0, 1) 
-%\psline (-0.300000, 0.100000) (-0.264151, 0.075472) 
+%\psline (-3, 1) (0, 0)
+%\psline (-0.300000, 0.100000) (0, 1)
+%\psline (-0.300000, 0.100000) (-0.264151, 0.075472)
 %\psline (-0.284189, 0.147434) (-0.331623, 0.163246) (-0.347434, 0.115811)
 
 
-%Function formula: - (- x^{2}+1/4)^{1/2}+1/2 
+%Function formula: - (- x^{2}+1/4)^{1/2}+1/2
 %\psplot[linecolor=blue, plotpoints=1000]{-0.5}{0.5}{0.5 0.2500000 x 2 exp -1 mul add 0.5 exp -1 mul add }
 
-%Function formula: (- x^{2}+1/4)^{1/2}+1/2 
+%Function formula: (- x^{2}+1/4)^{1/2}+1/2
 %\psplot[linecolor=blue, plotpoints=1000]{-0.5}{0.5}{0.5 0.2500000 x 2 exp -1 mul add 0.5 exp add }
 
 \uncover<3,6>{
-\psline[linecolor=red](1, 1) (0, 0)(0,1)(1,1) 
+\psline[linecolor=red](1, 1) (0, 0)(0,1)(1,1)
 }
 \uncover<4>{
-\psline[linecolor=red](0.5, 1) (0, 0)(0,1)(0.5,1) 
+\psline[linecolor=red](0.5, 1) (0, 0)(0,1)(0.5,1)
 }
 
 \uncover<7>{
-\psline[linecolor=red](0.5, 0.5) (0, 0)(0,1)(0.5,0.5) 
+\psline[linecolor=red](0.5, 0.5) (0, 0)(0,1)(0.5,0.5)
 }
 \uncover<8>{
 \psline[linecolor=green](0,0)(0,1)
@@ -156,19 +156,19 @@
 \psline[linecolor=red](0,0)(1, 1)(0.5,1)(0,0)
 }
 \uncover<17,18>{
-\psline[linecolor=green](0.5, 0.5)(0.4, 0.8) 
-\psline[linecolor=red](0.5, 1)(1, 1) 
-} 
+\psline[linecolor=green](0.5, 0.5)(0.4, 0.8)
+\psline[linecolor=red](0.5, 1)(1, 1)
+}
 \uncover<18>{
-\psline[linecolor=green](0.5, 0.5)(0.0, 0.0) 
-\psline[linecolor=red](0, 0)(0.5, 1) 
+\psline[linecolor=green](0.5, 0.5)(0.0, 0.0)
+\psline[linecolor=red](0, 0)(0.5, 1)
 }
 \end{pspicture}
 \only<1-26>{
 Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ be the point $(\alert<2>{x_2},1)$, $P_1$ be the point $(x_2-\alert<2>{\Delta},1)$.} \uncover<3->{By the Pythagorean theorem, $\alert<25>{|OP_2|^2= 1 + x_2^2}$} \uncover<4->{and similarly $ |OP_1 |^2=1+(x_2-\Delta )^2$.} \uncover<5->{Let \alert<5>{$Q_1$}, \alert<5>{$Q_2$} be as indicated.} \uncover<6->{Then $\alert<6>{ \triangle OP_2A} $ is similar to $\alert<7>{\triangle OAQ_2} $.} \uncover<8->{By Euclidean geometry, $\alert<8>{ \frac{ \only<1-8>{{\color{green} |OA|}} \only<9->{|OA|} }{ |OP_2| }} =\alert<9>{ \frac{\only<9>{{\color{green}|OQ_2|}} \only<8,10->{|OQ_2|} }{|OA|}}$} \uncover<10->{ and so $\alert<12,24>{|OQ_2| |OP_2| }= |OA|^2 \alert<12,24>{ =1}$ \uncover<23->{ and therefore $\alert<23>{ \frac{|OQ_2|}{|OP_2|}} = \frac{ \alert<24>{|OQ_2| \alert<23>{| OP_2 |}} }{|OP_2|^{\alert<23>{2} }} \uncover<24->{= \frac{ \alert<24>{ 1} }{ \alert<25>{|OP_2|^2}} } \uncover<25->{ = \frac{1}{\alert<25>{ 1+x_2^2}}.}$}
-} 
+}
 %The points $Q_2$, $P_2$ are often called ``inverse points w.r.t. the unit circle''.
-\uncover<11->{Similarly conclude $\alert<13>{ |OQ_1|} \alert<14>{|OP_1|} =|OA|^2= \alert<12>{1} \uncover<12->{ \alert<12>{\alert<13,14>{=} \alert<14>{ |OQ_2|}\alert<13>{ |OP_2| }}.}$} 
+\uncover<11->{Similarly conclude $\alert<13>{ |OQ_1|} \alert<14>{|OP_1|} =|OA|^2= \alert<12>{1} \uncover<12->{ \alert<12>{\alert<13,14>{=} \alert<14>{ |OQ_2|}\alert<13>{ |OP_2| }}.}$}
 \uncover<13->{Therefore $\alert<13>{ \frac{|OQ_1|}{  |OP_2|} } \alert<13,14>{=} \alert<14>{\frac{|OQ_2| }{ |OP_1|}} $} \uncover<15->{and so $ \alert<15>{\triangle OQ_2Q_1} $ is similar to $\alert<16>{\triangle OP_1P_2} $.} \uncover<17->{Therefore $\frac{ \only<17>{{\color{green}|Q_1Q_2|}} \only<18->{\alert<19>{ |Q_1Q_2|}} } { \alert<17,20>{|P_1P_2|} }= \alert<20>{ \frac{ \only<18>{\color{green}|OQ_2|} \only<1-17,19->{ |OQ_2|} }{ \alert<18>{|OP_1|} }}$} \uncover<19->{and so }
 }
 \uncover<19->{\alert<26,27>{\noindent $\alert<19>{|Q_1Q_2|} =\alert<20>{\frac{|P_1P_2| |OQ_2|} {|OP_1|}} \uncover<21->{=\left(\frac{\alert<21>{|OP_2|} }{|OP_1|}\right) \alert<23,24,25>{\frac{|OQ_2|} {\alert<21>{ |OP_2|}}} \alert<22>{ |P_1P_2|} } \uncover<22->{= \frac{|OP_2| } {|OP_1|} \frac{\alert<22>{ \Delta} }{\alert<23,24,25>{ 1+x_2^2}}.}$}}
@@ -177,27 +177,27 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 %\begin{comment}
 \begin{frame}[t]
 \psset{xunit=2cm, yunit=2cm}
-\begin{pspicture}(-3.1, -0.1)(3.1,1.2) 
-\psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2) 
-\tiny 
+\begin{pspicture}(-3.1, -0.1)(3.1,1.2)
+\psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2)
+\tiny
 \psline[linecolor=red!1](0,1.2)(0.001,1.2) %bounding boxes don't always work right
 \uncover<48->{
-\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Function formula: \frac{1}{x^{2}+1} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{3.000000}{1.0000000 1.0000000 x 2.0000000 exp add div }
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Function formula: \frac{1}{x^{2}+1}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.000000}{3.000000}{1.0000000 1.0000000 x 2.0000000 exp add div }
 \psline(3.000000, 0)(-3.000000, 0)
 }
 
-%Function formula: \frac{1}{x^{2}+1} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000} {3.000000} {1.0000000 1.0000000 x 2.0000000 exp add div }
+%Function formula: \frac{1}{x^{2}+1}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.000000} {3.000000} {1.0000000 1.0000000 x 2.0000000 exp add div }
 }
 
 \psaxes[arrows=<->, ticks=none, labels=none](0,0)(-3.05,-0.1)(3.05,1.1)
-%Function formula: - (- x^{2}+1)^{1/2} 
-%\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp -1 mul }
-%Function formula: (- x^{2}+1)^{1/2} 
+%Function formula: - (- x^{2}+1)^{1/2}
+%\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp -1 mul }
+%Function formula: (- x^{2}+1)^{1/2}
 \psplot[linecolor=blue, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp }
-\psline(-3,1)(3,1) 
+\psline(-3,1)(3,1)
 %calculator commands:
 %\Delta:=0.5;
 %xInv{}{{x}}:=DoubleValue{}x/(1+x^2);
@@ -219,64 +219,64 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 }
 \uncover<34-41>{
 \psline(0.4, 0.8)(0, 0)
-} 
-\psline(0.4, 0.8)(0, 1) 
+}
+\psline(0.4, 0.8)(0, 1)
 \uncover<28,34>{
-\psline[linecolor=red](0.4, 0.8)(0, 1) 
+\psline[linecolor=red](0.4, 0.8)(0, 1)
 }
 \uncover<1-41>{
-\psline(0.355279, 0.822361)(0.332918, 0.777639)(0.377639, 0.755279) 
+\psline(0.355279, 0.822361)(0.332918, 0.777639)(0.377639, 0.755279)
 }
 \uncover<22>{
-\psline[linecolor=red](0.4, 0.8)(0, 1) 
-\psline[linecolor=red](0.355279, 0.822361)(0.332918, 0.777639)(0.377639, 0.755279) 
+\psline[linecolor=red](0.4, 0.8)(0, 1)
+\psline[linecolor=red](0.355279, 0.822361)(0.332918, 0.777639)(0.377639, 0.755279)
 }
 \uncover<7-12>{
-\psline(0.600000, 1)(0, 0) 
-\psline(0.441176, 0.735294)(0, 1) 
-\psline(0.441176, 0.735294)(0.4, 0.8) 
-\psline(0.398302, 0.761019)(0.372577, 0.718144)(0.415452, 0.692419) 
+\psline(0.600000, 1)(0, 0)
+\psline(0.441176, 0.735294)(0, 1)
+\psline(0.441176, 0.735294)(0.4, 0.8)
+\psline(0.398302, 0.761019)(0.372577, 0.718144)(0.415452, 0.692419)
 }
 \rput[lt](0.46, 0.71){\uncover<7-12>{$Q_2$}}
 \uncover<6>{
-\psline(0.700000, 1)(0, 0) 
-\psline(0.469799, 0.671141)(0, 1) 
+\psline(0.700000, 1)(0, 0)
+\psline(0.469799, 0.671141)(0, 1)
 \psline(0.469799, 0.671141)(0.4, 0.8)
 \psline(0.428837, 0.699814)(0.400164, 0.658852)(0.441126, 0.630179)
 }
 \rput[lt](0.48, 0.65){\uncover<6>{$Q_2$}}
 \uncover<5>{
-\psline(0.8, 1)(0, 0) 
-\psline(0.487805, 0.609756)(0, 1) 
+\psline(0.8, 1)(0, 0)
+\psline(0.487805, 0.609756)(0, 1)
 \psline(0.487805, 0.609756)(0.4, 0.8)
-\psline(0.448761, 0.640991)(0.417527, 0.601947)(0.456570, 0.570713) 
+\psline(0.448761, 0.640991)(0.417527, 0.601947)(0.456570, 0.570713)
 }
 \rput[lt](0.5, 0.58){\uncover<5>{$Q_2$}}
 \uncover<4>{
-\psline(0.900000, 1) (0, 0) 
-\psline(0.497238, 0.552486)(0, 1) 
+\psline(0.900000, 1) (0, 0)
+\psline(0.497238, 0.552486)(0, 1)
 \psline(0.497238, 0.552486)(0.4, 0.8)
 \psline(0.460073, 0.585934)(0.426625, 0.548770)(0.463789, 0.515321)
 }
 \rput[lt](0.5, 0.54){\uncover<4>{$Q_2$}}
 
 \uncover<1-3>{ %
-\psline(1, 1)(0, 0) 
-\psline(0.4, 0.8)(0.5, 0.5) 
+\psline(1, 1)(0, 0)
+\psline(0.4, 0.8)(0.5, 0.5)
 } %
 \rput[lt](0.520000, 0.4500000){\uncover<1-3>{$Q_2$}}
 \uncover<13->{ %
-\psline(0.4, 0.8)(0.5, 0.5) 
+\psline(0.4, 0.8)(0.5, 0.5)
 } %
 \rput[lt](0.520000, 0.4500000){\uncover<13->{$Q_2$}}
 \uncover<13-33>{ %
 \psline(1, 1)(0, 0)
-} 
+}
 \uncover<34-41>{
 \psline(0.5, 0.5)(0, 0)
 }
 \uncover<30,34>{
-\psline[linecolor=red](0.4, 0.8)(0.5, 0.5) 
+\psline[linecolor=red](0.4, 0.8)(0.5, 0.5)
 }
 \uncover<32->{
 \psline(0.5, 0.5)(0.461538, 0.307692)
@@ -285,12 +285,12 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \psline[linecolor=red](0.5, 0.5)(0.461538, 0.307692)
 }
 \uncover<1-3, 13-41>{
-\psline(0.5, 0.5)(0, 1) 
-\psline(0.464645, 0.535355)(0.429289, 0.5)(0.464645, 0.464645) 
+\psline(0.5, 0.5)(0, 1)
+\psline(0.464645, 0.535355)(0.429289, 0.5)(0.464645, 0.464645)
 }
 \uncover<23>{
-\psline[linecolor=red](0.5, 0.5)(0, 1) 
-\psline[linecolor=red](0.464645, 0.535355)(0.429289, 0.5)(0.464645, 0.464645) 
+\psline[linecolor=red](0.5, 0.5)(0, 1)
+\psline[linecolor=red](0.464645, 0.535355)(0.429289, 0.5)(0.464645, 0.464645)
 }
 \uncover<14>{ %
 \psline[linecolor=red](0,0)(0,1)
@@ -302,134 +302,134 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \psline[linecolor=red](0,0)(1,1)
 }
 \uncover<17-33>{
-\psline(1.5, 1)(0, 0) 
+\psline(1.5, 1)(0, 0)
 }
 \uncover<34-41>{
-\psline(0.461538, 0.307692)(0, 0) 
+\psline(0.461538, 0.307692)(0, 0)
 }
 \uncover<17>{
-\psline[linecolor=red](1.500000, 1)(0, 0) 
+\psline[linecolor=red](1.500000, 1)(0, 0)
 }
 \uncover<32->{
-\psline(0.461538, 0.307692)(0.4, 0.2) 
+\psline(0.461538, 0.307692)(0.4, 0.2)
 }
 \uncover<32,34>{
-\psline[linecolor=red](0.461538, 0.307692)(0.4, 0.2) 
+\psline[linecolor=red](0.461538, 0.307692)(0.4, 0.2)
 }
 \uncover<24-41>{
-\psline(0.461538, 0.307692)(0, 1) 
-\psline(0.433803, 0.349295)(0.392201, 0.321560)(0.419936, 0.279957) 
+\psline(0.461538, 0.307692)(0, 1)
+\psline(0.433803, 0.349295)(0.392201, 0.321560)(0.419936, 0.279957)
 }
 \uncover<24>{
-\psline[linecolor=red](0.461538, 0.307692)(0, 1) 
-\psline[linecolor=red](0.433803, 0.349295)(0.392201, 0.321560)(0.419936, 0.279957) 
+\psline[linecolor=red](0.461538, 0.307692)(0, 1)
+\psline[linecolor=red](0.433803, 0.349295)(0.392201, 0.321560)(0.419936, 0.279957)
 }
-\uncover<18-33>{ 
-\psline(2, 1)(0, 0) 
+\uncover<18-33>{
+\psline(2, 1)(0, 0)
 }
 \uncover<34-41>{
-\psline(0.4, 0.2)(0, 0) 
+\psline(0.4, 0.2)(0, 0)
 }
-\uncover<18>{ 
-\psline[linecolor=red](2, 1)(0, 0) 
+\uncover<18>{
+\psline[linecolor=red](2, 1)(0, 0)
 }
 \uncover<32->{
-\psline(0.4, 0.2)(0.344828, 0.137931) 
+\psline(0.4, 0.2)(0.344828, 0.137931)
 }
 \uncover<32,34>{
-\psline[linecolor=red](0.4, 0.2)(0.344828, 0.137931) 
+\psline[linecolor=red](0.4, 0.2)(0.344828, 0.137931)
 }
 \uncover<25-41>{
-\psline(0.4, 0.2)(0, 1) 
-\psline(0.377639, 0.244721)(0.332918, 0.222361)(0.355279, 0.177639) 
+\psline(0.4, 0.2)(0, 1)
+\psline(0.377639, 0.244721)(0.332918, 0.222361)(0.355279, 0.177639)
 }
 \uncover<25>{
-\psline[linecolor=red](0.4, 0.2)(0, 1) 
-\psline[linecolor=red](0.377639, 0.244721)(0.332918, 0.222361)(0.355279, 0.177639) 
+\psline[linecolor=red](0.4, 0.2)(0, 1)
+\psline[linecolor=red](0.377639, 0.244721)(0.332918, 0.222361)(0.355279, 0.177639)
 }
-\uncover<19-33>{ 
-\psline(2.5, 1)(0, 0) 
+\uncover<19-33>{
+\psline(2.5, 1)(0, 0)
 }
-\uncover<34-41>{ 
-\psline(0.344828, 0.137931)(0, 0) 
+\uncover<34-41>{
+\psline(0.344828, 0.137931)(0, 0)
 }
-\uncover<19>{ 
+\uncover<19>{
 \psline[linecolor=red](2.5, 1)(0, 0)
 }
 \uncover<32->{
-\psline(0.344828, 0.137931)(0.300000, 0.100000) 
+\psline(0.344828, 0.137931)(0.300000, 0.100000)
 }
 \uncover<32,33,34>{
-\psline[linecolor=red](0.344828, 0.137931)(0.300000, 0.100000) 
+\psline[linecolor=red](0.344828, 0.137931)(0.300000, 0.100000)
 }
 \uncover<26-41>{
-\psline(0.344828, 0.137931)(0, 1) 
-\psline(0.326258, 0.184355)(0.279834, 0.165785)(0.298404, 0.119362) 
+\psline(0.344828, 0.137931)(0, 1)
+\psline(0.326258, 0.184355)(0.279834, 0.165785)(0.298404, 0.119362)
 }
 \uncover<26>{
-\psline[linecolor=red](0.344828, 0.137931)(0, 1) 
-\psline[linecolor=red](0.326258, 0.184355)(0.279834, 0.165785)(0.298404, 0.119362) 
+\psline[linecolor=red](0.344828, 0.137931)(0, 1)
+\psline[linecolor=red](0.326258, 0.184355)(0.279834, 0.165785)(0.298404, 0.119362)
 }
-\uncover<20-33>{ 
-\psline(3, 1)(0, 0) 
+\uncover<20-33>{
+\psline(3, 1)(0, 0)
 }
 \uncover<34-41>{
-\psline(0.300000, 0.100000)(0, 0) 
+\psline(0.300000, 0.100000)(0, 0)
 }
-\uncover<20>{ 
-\psline[linecolor=red](3, 1)(0, 0) 
+\uncover<20>{
+\psline[linecolor=red](3, 1)(0, 0)
 }
-%\psline(0.300000, 0.100000)(0.264151, 0.075472) 
+%\psline(0.300000, 0.100000)(0.264151, 0.075472)
 \uncover<27-41>{
-\psline(0.300000, 0.100000)(0, 1) 
+\psline(0.300000, 0.100000)(0, 1)
 \psline(0.284189, 0.147434)(0.236754, 0.131623)(0.252566, 0.084189)
 }
 \uncover<27->{
 \rput[lt](0.3,0.095){$Q_n$}
 }
 \uncover<27>{
-\psline[linecolor=red](0.300000, 0.100000)(0, 1) 
+\psline[linecolor=red](0.300000, 0.100000)(0, 1)
 \psline[linecolor=red](0.284189, 0.147434)(0.236754, 0.131623)(0.252566, 0.084189)
 }
 
 \uncover<44>{
-\psline(-0.5, 1)(0, 0) 
-\psline(-0.4, 0.8)(0, 1) 
-\psline(-0.355279, 0.822361)(-0.377639, 0.867082)(-0.422361, 0.844721) 
+\psline(-0.5, 1)(0, 0)
+\psline(-0.4, 0.8)(0, 1)
+\psline(-0.355279, 0.822361)(-0.377639, 0.867082)(-0.422361, 0.844721)
 
-\psline(-1, 1)(0, 0) 
-\psline(-0.5, 0.5)(0, 1) 
-\psline(-0.464645, 0.535355)(-0.5, 0.570711)(-0.535355, 0.535355) 
+\psline(-1, 1)(0, 0)
+\psline(-0.5, 0.5)(0, 1)
+\psline(-0.464645, 0.535355)(-0.5, 0.570711)(-0.535355, 0.535355)
 
-\psline(-1.500000, 1) (0, 0) 
-\psline(-0.461538, 0.307692)(0, 1) 
-\psline(-0.433803, 0.349295)(-0.475406, 0.377030)(-0.503141, 0.335427) 
+\psline(-1.500000, 1) (0, 0)
+\psline(-0.461538, 0.307692)(0, 1)
+\psline(-0.433803, 0.349295)(-0.475406, 0.377030)(-0.503141, 0.335427)
 
-\psline(-2, 1) (0, 0) 
-\psline(-0.4, 0.2)(0, 1) 
-\psline(-0.377639, 0.244721)(-0.422361, 0.267082)(-0.444721, 0.222361) 
+\psline(-2, 1) (0, 0)
+\psline(-0.4, 0.2)(0, 1)
+\psline(-0.377639, 0.244721)(-0.422361, 0.267082)(-0.444721, 0.222361)
 
-\psline(-2.5, 1) (0, 0) 
-\psline(-0.344828, 0.137931)(0, 1) 
-\psline(-0.326258, 0.184355)(-0.372682, 0.202924)(-0.391251, 0.156501) 
+\psline(-2.5, 1) (0, 0)
+\psline(-0.344828, 0.137931)(0, 1)
+\psline(-0.326258, 0.184355)(-0.372682, 0.202924)(-0.391251, 0.156501)
 
-\psline(-3, 1)(0, 0) 
-\psline(-0.300000, 0.100000)(0, 1) 
-%\psline (-0.300000, 0.100000) (-0.264151, 0.075472) 
+\psline(-3, 1)(0, 0)
+\psline(-0.300000, 0.100000)(0, 1)
+%\psline (-0.300000, 0.100000) (-0.264151, 0.075472)
 \psline(-0.284189, 0.147434)(-0.331623, 0.163246)(-0.347434, 0.115811)
 }
 \uncover<44->{
-\psline(-0.4, 0.8)(-0.5, 0.5) 
-\psline(-0.5, 0.5)(-0.461538, 0.307692) 
-\psline(-0.461538, 0.307692)(-0.4, 0.2) 
-\psline(-0.4, 0.2)(-0.344828, 0.137931) 
-\psline(-0.344828, 0.137931)(-0.300000, 0.100000) 
+\psline(-0.4, 0.8)(-0.5, 0.5)
+\psline(-0.5, 0.5)(-0.461538, 0.307692)
+\psline(-0.461538, 0.307692)(-0.4, 0.2)
+\psline(-0.4, 0.2)(-0.344828, 0.137931)
+\psline(-0.344828, 0.137931)(-0.300000, 0.100000)
 }
 
-%Function formula: - (- x^{2}+1/4)^{1/2}+1/2 
+%Function formula: - (- x^{2}+1/4)^{1/2}+1/2
 \uncover<42->{\psplot[linecolor=red, plotpoints=1000]{-0.5}{0.5}{0.5 0.2500000 x 2 exp -1 mul add 0.5 exp -1 mul add }
 
-%Function formula: (- x^{2}+1/4)^{1/2}+1/2 
+%Function formula: (- x^{2}+1/4)^{1/2}+1/2
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{0.5}{0.5 0.2500000 x 2 exp -1 mul add 0.5 exp add }
 }
 \uncover<8-12>{
@@ -469,11 +469,11 @@ $\uncover<17-33>{\alert<17>{\dots}}$
 \end{pspicture}
 \alert<1>{ \noindent $\alert<28>{|Q_1Q_2| =} \alert<29>{\frac{|OP_2| } {|OP_1|}} \alert<28>{\frac{ \Delta} {1+x_2^2}}. \vphantom{={\frac{|P_1P_2| |OQ_2|} {|OP_1|}} {=\left(\frac{|OP_2|}{|OP_1|}\right) \frac{|OQ_2|} { |OP_2|} |P_1P_2| } }$} \uncover<13->{For any $\varepsilon >0$, can choose $\Delta$: $\alert<29>{1< \frac{|OP_2| } {|OP_1|} < 1 + \varepsilon}$.}
 
-\only<1-12>{ \uncover<2->{If we let $P_2\to P_1$}\uncover<3->{, i.e., $\Delta \to 0$,} \uncover<8->{we get $\alert<8>{ \frac{|OP_2| }{ |OP_1|}\to 1}$.} \uncover<9->{In strict mathematical language: for every $\varepsilon>0$ there exists $\delta >0$ such that when $\Delta  < \delta$ we have that $1>\frac{ |OP_2| }{|OP_1|}>1-\varepsilon $.} \uncover<10->{Furthermore, the choice of $\delta$ can be made independent of the value of $x_2$: } \uncover<11->{to prove that one analyzes the expression $\frac{|OP_2|}{|OP_1|} = \sqrt{ \frac{ 1+x_2^2} { 1 + (x_2-\Delta )^2}}$.} \uncover<12->{We leave the tedious but otherwise easy details to the interested student. } 
+\only<1-12>{ \uncover<2->{If we let $P_2\to P_1$}\uncover<3->{, i.e., $\Delta \to 0$,} \uncover<8->{we get $\alert<8>{ \frac{|OP_2| }{ |OP_1|}\to 1}$.} \uncover<9->{In strict mathematical language: for every $\varepsilon>0$ there exists $\delta >0$ such that when $\Delta  < \delta$ we have that $1>\frac{ |OP_2| }{|OP_1|}>1-\varepsilon $.} \uncover<10->{Furthermore, the choice of $\delta$ can be made independent of the value of $x_2$: } \uncover<11->{to prove that one analyzes the expression $\frac{|OP_2|}{|OP_1|} = \sqrt{ \frac{ 1+x_2^2} { 1 + (x_2-\Delta )^2}}$.} \uncover<12->{We leave the tedious but otherwise easy details to the interested student. }
 }
 
 \only<13-27>{
-\uncover<13->{Fix a large number $N$ and let $\Delta$ be such that $n= \frac{N}{\Delta} $ is integer.} \uncover<14->{ Let  $\alert<14>{P_0=(0,1)} $, $\alert<15>{P_1=(\Delta, 1 )}$, $\alert<16>{P_2=(2\Delta,1)}, \dots, \alert<20>{P_n= (n \Delta,1)}$}\uncover<21->{, and let $\alert<21>{Q_0}, \alert<22>{ Q_1},\alert<23>{Q_2}, \dots, \alert<27>{Q_n}$ be as indicated.} 
+\uncover<13->{Fix a large number $N$ and let $\Delta$ be such that $n= \frac{N}{\Delta} $ is integer.} \uncover<14->{ Let  $\alert<14>{P_0=(0,1)} $, $\alert<15>{P_1=(\Delta, 1 )}$, $\alert<16>{P_2=(2\Delta,1)}, \dots, \alert<20>{P_n= (n \Delta,1)}$}\uncover<21->{, and let $\alert<21>{Q_0}, \alert<22>{ Q_1},\alert<23>{Q_2}, \dots, \alert<27>{Q_n}$ be as indicated.}
 }
 
 \uncover<28->{
@@ -483,7 +483,7 @@ $
 \alert<28>{ \frac{\Delta}{1+x_1^2 } }&<\phantom{=}&\alert<28>{ |Q_0Q_1|} &< \phantom{=} & \alert<29>{ (1+ \varepsilon )} \alert<28>{\frac{ \Delta}{1+x_1^2}}  \\
 \uncover<30->{\alert<30>{ \frac{\Delta}{1+x_2^2 }} &<\phantom{=} &\alert<30>{|Q_1Q_2|} &<\phantom{=} & \alert<31>{ (1 + \varepsilon)} \alert<30>{\frac{ \Delta }{1+ x_2^2}}}  \\
 \uncover<32->{ &\alert<32>{\vdots}} \\
-\uncover<33->{\frac{\Delta}{1+x_n^2 } &<\phantom{=} &\alert<33>{ |Q_{n-1}Q_n|} &< \phantom{=} &(1+\varepsilon) \frac{\Delta}{1+x_n^2}} \uncover<34->{\\ \hline} 
+\uncover<33->{\frac{\Delta}{1+x_n^2 } &<\phantom{=} &\alert<33>{ |Q_{n-1}Q_n|} &< \phantom{=} &(1+\varepsilon) \frac{\Delta}{1+x_n^2}} \uncover<34->{\\ \hline}
 \uncover<34->{ \sum_{i=1}^n\frac{\Delta}{1+x_i^2 } &< \phantom{=}&\alert<34>{ \sum_{i=1}^n |Q_{i-1} Q_i|} & <\phantom{=}& (1 +\varepsilon)\sum_{i=1}^n \frac{\Delta}{1+x_i^2} }\\
 \uncover<35->{ \downarrow  &&\downarrow&&\downarrow}\\
 }
@@ -493,16 +493,16 @@ $
 }
 
 \only<1-39>{
-\uncover<35->{Let $\Delta\to 0$.} \uncover<36->{Next take $\alert<36,37>{N\to \infty}$.} \uncover<38->{Finally take \alert<38,39>{$\varepsilon\to 0$}\uncover<39->{, use squeeze thm.}} 
+\uncover<35->{Let $\Delta\to 0$.} \uncover<36->{Next take $\alert<36,37>{N\to \infty}$.} \uncover<38->{Finally take \alert<38,39>{$\varepsilon\to 0$}\uncover<39->{, use squeeze thm.}}
 }
 
 \uncover<41->{
-The points $Q_1, Q_2, \dots$ see the segment $OA$ from an angle of $\frac{\pi}{2}$. }\uncover<42->{Therefore, by Euclidean geometry, the points $Q_1, Q_2,\dots $ lie on the circle $C$ with radius $\frac{1}{2}$ and center $(0,\frac{1}{2}) $. } \uncover<43->{Therefore $ \sum |Q_{i-1}Q_{i}| $ approximates half of the circumference of the circle $C$.} 
+The points $Q_1, Q_2, \dots$ see the segment $OA$ from an angle of $\frac{\pi}{2}$. }\uncover<42->{Therefore, by Euclidean geometry, the points $Q_1, Q_2,\dots $ lie on the circle $C$ with radius $\frac{1}{2}$ and center $(0,\frac{1}{2}) $. } \uncover<43->{Therefore $ \sum |Q_{i-1}Q_{i}| $ approximates half of the circumference of the circle $C$.}
 \uncover<44->{\alert<44,45>{By symmetry,}
 \uncover<46->{
 \[
 \alert<47>{\int_{-\infty}^{\infty} \frac{\diff x}{1+x^2} }= \text{ circumference of }C  \uncover<47->{=2\pi \left(\frac{1}{2}\right) \alert<47>{=\pi},}
-\] 
+\]
 \uncover<47,48->{as desired.}
 }
 }
@@ -511,29 +511,29 @@ The points $Q_1, Q_2, \dots$ see the segment $OA$ from an angle of $\frac{\pi}{2
 \begin{comment}
 \begin{frame}[t]
 \psset{xunit=2cm, yunit=2cm}
-\begin{pspicture}(-3.1, -0.1)(3.1,1.2) 
-\psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2) 
-\tiny 
+\begin{pspicture}(-3.1, -0.1)(3.1,1.2)
+\psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2)
+\tiny
 %\psline[linecolor=red!1](0,1.2)(0.001,1.2) %bounding boxes don't always work right
-%\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Function formula: \frac{1}{x^{2}+1} 
-%\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000}{3.000000}{1.0000000 1.0000000 x 2.0000000 exp add div }
+%\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Function formula: \frac{1}{x^{2}+1}
+%\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.000000}{3.000000}{1.0000000 1.0000000 x 2.0000000 exp add div }
 %\psline(3.000000, 0)(-3.000000, 0)
 %}
 
-%Function formula: \frac{1}{x^{2}+1} 
-%\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3.000000} {3.000000} {1.0000000 1.0000000 x 2.0000000 exp add div }
+%Function formula: \frac{1}{x^{2}+1}
+%\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.000000} {3.000000} {1.0000000 1.0000000 x 2.0000000 exp add div }
 
 \psaxes[arrows=<->, ticks=none, labels=none](0,0)(-3.05,-0.1)(3.05,1.1)
-%Function formula: - (- x^{2}+1)^{1/2} 
-%\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp -1 mul }
-%Function formula: (- x^{2}+1)^{1/2} 
+%Function formula: - (- x^{2}+1)^{1/2}
+%\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp -1 mul }
+%Function formula: (- x^{2}+1)^{1/2}
 \psplot[linecolor=blue, plotpoints=1000]{-1}{1}{1 x 2 exp -1 mul add 0.5 exp}
-\psline(-3,1)(3,1) 
+\psline(-3,1)(3,1)
 
-%Function formula: - (- x^{2}+1/4)^{1/2}+1/2 
+%Function formula: - (- x^{2}+1/4)^{1/2}+1/2
 \psplot[linecolor=red, plotpoints=1000] {-0.5}{0.5}{0.5 0.2500000 x 2 exp -1 mul add 0.5 exp -1 mul add }
-%Function formula: (- x^{2}+1/4)^{1/2}+1/2 
+%Function formula: (- x^{2}+1/4)^{1/2}+1/2
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{0.5}{0.5 0.2500000 x 2 exp -1 mul add 0.5 exp add }
 
 
@@ -556,9 +556,9 @@ The points $Q_1, Q_2, \dots$ see the segment $OA$ from an angle of $\frac{\pi}{2
 \psline(0.5, 1)(0, 0)
 \psline(0.4, 0.8)(0, 0)
 
-\psline(1, 1)(0, 0) 
+\psline(1, 1)(0, 0)
 \psline(0.4, 0.8)(0.5, 0.5)
-\psline[linecolor=red](0.4, 0.8)(0.5, 0.5) 
+\psline[linecolor=red](0.4, 0.8)(0.5, 0.5)
 \psline(0.5, 0.5)(0, 0)
 
 \psline(0.5,0)(0.5,0.316228)(1, 0.316228)(1,0)
@@ -575,7 +575,7 @@ The points $Q_1, Q_2, \dots$ see the segment $OA$ from an angle of $\frac{\pi}{2
 \rput[tl](0.05, -0.05){$O$}
 \end{pspicture}
 
-We finish with illustration of the integral $\int_{-\infty}^{\infty} \frac{1}{1+x^2}\diff x $. Recall $|Q_1Q_2|\approx \frac{\Delta}{1+x_2^2} $. 
+We finish with illustration of the integral $\int_{-\infty}^{\infty} \frac{1}{1+x^2}\diff x $. Recall $|Q_1Q_2|\approx \frac{\Delta}{1+x_2^2} $.
 
 \end{frame}
 \end{comment}

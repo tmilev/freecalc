@@ -8,13 +8,13 @@ If $f(x) = x^3-x$, find the formula for $f'(x)$.
 \begin{pspicture}(-2,-2.5)(2,2.5)
 \psframe*[linecolor=white](-2,-2.5)(2,2.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-2.5)(2,2.5)
-%Function formula: - (x)+(x)^{3} 
+%Function formula: - (x)+(x)^{3}
 \psplot[linecolor=red, plotpoints=1000]{-1.5}{1.5}{x 3 exp x -1 mul add }
 \tiny
-\psLabelXOne
-\psLabelYOne
+\fcLabelXOne
+\fcLabelYOne
 \rput[l](-1.3, 0.6){$y=f(x)$}
-\end{pspicture} 
+\end{pspicture}
 %\ \includegraphics[height=3cm]{derivatives/pictures/03-02-ex2a.pdf}%
 %\ \only<handout:0| -7>{%
 %\includegraphics[height=3cm]{derivatives/pictures/03-02-ex2b.pdf}%
@@ -28,14 +28,14 @@ If $f(x) = x^3-x$, find the formula for $f'(x)$.
 \psframe*[linecolor=white](-2,-2.5)(2,2.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-2.5)(2,2.5)
 \tiny
-\psLabelXOne
-\psLabelYOne
-%Function formula: 3 ((x)^{2})-1 
+\fcLabelXOne
+\fcLabelYOne
+%Function formula: 3 ((x)^{2})-1
 \uncover<8->{
 \psplot[linecolor=blue, plotpoints=1000]{-1}{1}{-1 x 2 exp 3 mul add }
 \rput[l](-1.3, -1.5){$y=f(x)$}
 }
-\end{pspicture} 
+\end{pspicture}
 \column{.75\textwidth}
 \begin{align*}
 &\uncover<2->{f'(x)}\\%

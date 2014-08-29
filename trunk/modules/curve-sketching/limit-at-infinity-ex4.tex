@@ -5,14 +5,14 @@ Find the horizontal and vertical asymptotes of $f(x) = \frac{\sqrt{2x^2+1}}{3x-5
 \begin{columns}[c]
 \column{.35\textwidth}
 \psset{xunit=0.45cm, yunit=0.45cm}
-\begin{pspicture}(-5, -5)(5.1,5.1) 
-\psframe*[linecolor=white](-5,-5)(5.1,5.1) 
+\begin{pspicture}(-5, -5)(5.1,5.1)
+\psframe*[linecolor=white](-5,-5)(5.1,5.1)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-5)(5,5)\tiny
-\psLabels{5}{5}
+\fcLabels{5}{5}
 
 \only<handout:0| 25->{ %
-%Function formula: ((1+2 ((x)^{2}))^{1/2})/(-5+3 (x)) 
-\psplot[linecolor=red, plotpoints=1000]{1.857}{5}{x 2 exp 2 mul 1 add 0.5 exp x 3 mul -5 add div } 
+%Function formula: ((1+2 ((x)^{2}))^{1/2})/(-5+3 (x))
+\psplot[linecolor=red, plotpoints=1000]{1.857}{5}{x 2 exp 2 mul 1 add 0.5 exp x 3 mul -5 add div }
 \psplot[linecolor=red, plotpoints=1000]{-5}{1.509}{x 2 exp 2 mul 1 add 0.5 exp x 3 mul -5 add div }
 \rput[l](3,3){$y=f(x)$}
 }
@@ -30,7 +30,7 @@ Find the horizontal and vertical asymptotes of $f(x) = \frac{\sqrt{2x^2+1}}{3x-5
 \psline[linecolor=blue, linestyle=dashed](-4.95,-0.471404521)(4.95,-0.471404521)
 \rput[t](-3, -0.49){$-\frac{\sqrt{2}}{3}$}
 }
-\end{pspicture} 
+\end{pspicture}
 %\ \only<handout:0| -17>{%
 %\includegraphics[width=4.5cm]{curve-sketching/pictures/04-04-ex4a.pdf}%
 %}%

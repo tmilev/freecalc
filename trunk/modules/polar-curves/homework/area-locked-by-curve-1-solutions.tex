@@ -1,13 +1,13 @@
-\solution{\ref{problem-Area-swept-by-r=1+sin2theta}. A computer generated plot of the two curves is included below. The circle $x^2+y^2=1$ has one-to-one polar representation given by $r=1, \theta\in [0,2\pi)$. Except the origin, which is traversed four times by the curve $r=1+\sin (2\theta)$, the second curve is in a one-to-one correspondence with points in the $r,\theta$-plane given by the equation $r=1+\sin (2\theta), \theta\in [0,2\pi)$. Since the two curves do not meet in the origin, we may conclude that the two curves may intersect only when their values for $r$ and $\theta$ coincide. Therefore we have an intersection when 
+\solution{\ref{problem-Area-swept-by-r=1+sin2theta}. A computer generated plot of the two curves is included below. The circle $x^2+y^2=1$ has one-to-one polar representation given by $r=1, \theta\in [0,2\pi)$. Except the origin, which is traversed four times by the curve $r=1+\sin (2\theta)$, the second curve is in a one-to-one correspondence with points in the $r,\theta$-plane given by the equation $r=1+\sin (2\theta), \theta\in [0,2\pi)$. Since the two curves do not meet in the origin, we may conclude that the two curves may intersect only when their values for $r$ and $\theta$ coincide. Therefore we have an intersection when
 \[\begin{array}{rcll|l}
 1+\sin (2\theta)&=&1\\
 \sin (2\theta)&=&0\\
 \theta &=& 0,\frac{\pi}{2}, \pi, \frac{3\pi}{2}&&\text{because } \theta\in [0,2\pi) \\
 \end{array}
 \]
-Therefore the two curves meet in the points $(0,1)(-1,0)$ and $(0,-1),(1,0)$. 
+Therefore the two curves meet in the points $(0,1)(-1,0)$ and $(0,-1),(1,0)$.
 
-Denote the investigated region by $A$. From the computer-generated plot, it is clear that when a point has polar coordinates $\theta\in [\frac{\pi}{2}, \pi] \cup[\frac{3\pi}{2}, 2\pi]$, $r\in [1+\sin(2\theta),1]$ it lies in $A$. Furthermore, the points $r,\theta$ lying in the above intervals are in one-to-one correspondence with the points in $A$. 
+Denote the investigated region by $A$. From the computer-generated plot, it is clear that when a point has polar coordinates $\theta\in [\frac{\pi}{2}, \pi] \cup[\frac{3\pi}{2}, 2\pi]$, $r\in [1+\sin(2\theta),1]$ it lies in $A$. Furthermore, the points $r,\theta$ lying in the above intervals are in one-to-one correspondence with the points in $A$.
 
 Suppose we have a curve $r=f(\theta), \theta\in [a,b]$ for which no two points lie on the same ray from the origin. Recall from theory that the area swept by that curve is given by
 \[
@@ -25,27 +25,27 @@ a&=&\displaystyle \int\limits_{\frac{\pi}{2}}^{\pi} \frac{1}{2} \left( {\underbr
 \]
 
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-2.016386, -2.016424)(2.016407,2.116335) 
-\tiny 
-\psaxesStandard{-1.766386}{-1.766424}{1.766407}{1.766335}
-\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Calculator command: drawPolar{}(1, 1/2 \pi, \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{1.5708}{3.14159}{ 1 t 57.29578 mul cos mul 1 t 57.29578 mul sin mul }
-%Calculator command: drawPolar{}(\sin{}(2 t)+1, 1/2 \pi, \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{1.5708}{3.14159}{ 1 t 2 mul 57.29578 mul sin add t 57.29578 mul cos mul 1 t 2 mul 57.29578 mul sin add t 57.29578 mul sin mul }
+\begin{pspicture}(-2.016386, -2.016424)(2.016407,2.116335)
+\tiny
+\fcAxesStandard{-1.766386}{-1.766424}{1.766407}{1.766335}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Calculator command: drawPolar{}(1, 1/2 \pi, \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{1.5708}{3.14159}{ 1 t 57.29578 mul cos mul 1 t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(\sin{}(2 t)+1, 1/2 \pi, \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{1.5708}{3.14159}{ 1 t 2 mul 57.29578 mul sin add t 57.29578 mul cos mul 1 t 2 mul 57.29578 mul sin add t 57.29578 mul sin mul }
 } %pscustom
-\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Calculator command: drawPolar{}(\sin{}(2 t)+1, -1/2 \pi, 0) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{-1.5708}{0}{ 1 t 2 mul 57.29578 mul sin add t 57.29578 mul cos mul 1 t 2 mul 57.29578 mul sin add t 57.29578 mul sin mul }
-%Calculator command: drawPolar{}(1, -1/2 \pi, 0) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{-1.5708}{0}{ 1 t 57.29578 mul cos mul 1 t 57.29578 mul sin mul }
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Calculator command: drawPolar{}(\sin{}(2 t)+1, -1/2 \pi, 0)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{-1.5708}{0}{ 1 t 2 mul 57.29578 mul sin add t 57.29578 mul cos mul 1 t 2 mul 57.29578 mul sin add t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(1, -1/2 \pi, 0)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{-1.5708}{0}{ 1 t 57.29578 mul cos mul 1 t 57.29578 mul sin mul }
 } %pscustom
 
-%Calculator command: drawPolar{}(1, 0, 2 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{ 1 t 57.29578 mul cos mul 1 t 57.29578 mul sin mul }
-%Calculator command: drawPolar{}(\sin{}(2 t)+1, 0, 2 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{ 1 t 2 mul 57.29578 mul sin add t 57.29578 mul cos mul 1 t 2 mul 57.29578 mul sin add t 57.29578 mul sin mul }
-\end{pspicture} 
+%Calculator command: drawPolar{}(1, 0, 2 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{ 1 t 57.29578 mul cos mul 1 t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(\sin{}(2 t)+1, 0, 2 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{ 1 t 2 mul 57.29578 mul sin add t 57.29578 mul cos mul 1 t 2 mul 57.29578 mul sin add t 57.29578 mul sin mul }
+\end{pspicture}
 }
 \solution{\ref{problem-Area-swept-by-r=cos2theta} A computer generated plot of the figure is included below. The circle $x^2+y^2=\frac{1}{4} $ is centered at $0$ and of radius $\frac{1}{2}$ and therefore can be parametrized in polar coordinates via $r=\frac{1}{2}, \theta\in [0, 2\pi]$.
 
@@ -55,7 +55,7 @@ Points with polar coordinates $(r_1, \theta_1) $ and $(r_2,\theta_2)$ coincide i
 \item[$\bullet$] $r_1=-r_2\neq 0$ and $\theta_1=\theta_2+(2k+1)\pi, k\in \mathbb Z$,
 \item[$\bullet$] $r_1=r_2=0 $ and $\theta$ is arbitrary.
 \end{itemize}
-To find the intersection points of the two curves we have to explore each of the cases above. The third case is not possible as the circle does not pass through the origin. Suppose we are in the first case. Then the value of $r$ (as a function of $\theta$)  is equal for the two curves. Thus the two curves intersect if 
+To find the intersection points of the two curves we have to explore each of the cases above. The third case is not possible as the circle does not pass through the origin. Suppose we are in the first case. Then the value of $r$ (as a function of $\theta$)  is equal for the two curves. Thus the two curves intersect if
 \[
 \begin{array}{rcll|l}
 r=\cos (2\theta)&=&\frac12\\
@@ -65,7 +65,7 @@ r=\cos (2\theta)&=&\frac12\\
 \theta&=&\frac{\pi}{6}, \frac{7\pi}{6}, \frac{5\pi}{6}, \frac{11\pi}{6}
 \end{array}
 \]
-This gives us only four intersection points, and the computer-generated plot shows eight. Therefore the second case must occur as well: the two curves intersect also when 
+This gives us only four intersection points, and the computer-generated plot shows eight. Therefore the second case must occur as well: the two curves intersect also when
 \[
 \begin{array}{rcll|l}
 r=\cos (2\theta)&=&-\frac{1}{2}\\
@@ -81,38 +81,38 @@ From the computer-generated plot below, we can see that the area we are looking 
 \]
 We leave the above integral to the reader.
 \psset{xunit=2cm, yunit=2cm}
-\begin{pspicture}(-1.399902, -1.399975)(1.4,1.499975) 
-\tiny 
-\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Calculator command: drawPolar{}(1/2, 1/6 \pi, -1/6 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0.523599}{-0.523599}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
-%Calculator command: drawPolar{}(\cos{}(2 t), -1/6 \pi, 1/6 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{-0.523599}{0.523599}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
+\begin{pspicture}(-1.399902, -1.399975)(1.4,1.499975)
+\tiny
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Calculator command: drawPolar{}(1/2, 1/6 \pi, -1/6 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{0.523599}{-0.523599}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(\cos{}(2 t), -1/6 \pi, 1/6 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{-0.523599}{0.523599}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
 }
-\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Calculator command: drawPolar{}(1/2, 5/3 \pi, 4/3 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{5.23599}{4.18879}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
-%Calculator command: drawPolar{}(\cos{}(2 t), 1/3 \pi, 2/3 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{1.0472}{2.0944}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Calculator command: drawPolar{}(1/2, 5/3 \pi, 4/3 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{5.23599}{4.18879}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(\cos{}(2 t), 1/3 \pi, 2/3 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{1.0472}{2.0944}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
 }
-\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Calculator command: drawPolar{}(1/2, 7/6 \pi, 5/6 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{3.66519}{2.61799}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
-%Calculator command: drawPolar{}(\cos{}(2 t), 5/6 \pi, 7/6 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{2.61799}{3.66519}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Calculator command: drawPolar{}(1/2, 7/6 \pi, 5/6 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{3.66519}{2.61799}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(\cos{}(2 t), 5/6 \pi, 7/6 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{2.61799}{3.66519}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
 }
-\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Calculator command: drawPolar{}(1/2, 2/3 \pi, 1/3 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{2.0944}{1.0472}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
-%Calculator command: drawPolar{}(\cos{}(2 t), 4/3 \pi, 5/3 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{4.18879}{5.23599}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Calculator command: drawPolar{}(1/2, 2/3 \pi, 1/3 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{2.0944}{1.0472}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(\cos{}(2 t), 4/3 \pi, 5/3 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{4.18879}{5.23599}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
 }
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
-%Calculator command: drawPolar{}(\cos{}(2 t), 0, 2 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{ 0.5 t 57.29578 mul cos mul 0.5 t 57.29578 mul sin mul }
+%Calculator command: drawPolar{}(\cos{}(2 t), 0, 2 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{t 2 mul 57.29578 mul cos t 57.29578 mul cos mul t 2 mul 57.29578 mul cos t 57.29578 mul sin mul }
 \psaxes[ticks=none, labels=none, arrows = <->](0,0)(-1.149902,-1.149975)(1.15,1.149975)
-\psLabels{1.15}{1.149975}
-\end{pspicture} 
-%Calculator command: drawPolar{}(1/2, 0, 2 \pi) 
+\fcLabels{1.15}{1.149975}
+\end{pspicture}
+%Calculator command: drawPolar{}(1/2, 0, 2 \pi)
 
 }

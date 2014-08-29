@@ -7,22 +7,22 @@ Find an equation for the tangent line to the parabola $y = \sqrt[3]{x}$ at the p
 \column{.4\textwidth}
 \psset{xunit=0.8cm, yunit=0.8cm}
 
-\begin{pspicture}(-5, -5)(5,5) 
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\begin{pspicture}(-5, -5)(5,5)
+\psframe*[linecolor=white](-5,-5)(5,5)
 \tiny
 \psaxes[labels=none]{<->}(0,0)(-3,-3)(3,3)
-%Function formula: (x)^{1/3} 
+%Function formula: (x)^{1/3}
 \psplot[linecolor=red, plotpoints=1000]{0}{3}{x 0.333333 exp }
 \psplot[linecolor=red, plotpoints=1000]{-3}{0}{x -1 mul 0.333333 exp -1 mul }
 \rput[t](-1,-1.1){$y=\sqrt[3]{x}$}
 \rput[tl](1,0.9){$(1,1)$}
 \uncover<7->
-{ 
+{
 \psline[linecolor=blue](-3, -0.33333)(3, 1.666667)
 \rput[b](-1,1){$y=\frac{1}{3}x+\frac{2}3$}
 }
-\psFullDotBlack{1}{1}
-\end{pspicture} 
+\fcFullDotBlack{1}{1}
+\end{pspicture}
 \column{.6\textwidth}
 \uncover<2->{%
 Here $a = 1$ and $f(x) = \sqrt[3]{x}=x^{\frac{1}{3}}$.

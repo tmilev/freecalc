@@ -4,15 +4,15 @@
 \begin{columns}
 \column{0.1\textwidth}
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-1.000000, -5)(1.500000,5) 
-\psframe*[linecolor=white](-1.000000,-5)(1.500000,5) 
-\tiny 
-\pscustom*[linecolor=cyan]{ %Function formula: x^{2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{x 2 exp }\psline(1.000000, 0)(0.000000, 0)}
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{x 2 exp }
+\begin{pspicture}(-1.000000, -5)(1.500000,5)
+\psframe*[linecolor=white](-1.000000,-5)(1.500000,5)
+\tiny
+\pscustom*[linecolor=cyan]{ %Function formula: x^{2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{1}{x 2 exp }\psline(1.000000, 0)(0.000000, 0)}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{1}{x 2 exp }
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.500000,-0.5)(1.1,1.1)
-\psLabels{1.1}{1.1}
-\end{pspicture} 
+\fcLabels{1.1}{1.1}
+\end{pspicture}
 \column{0.9\textwidth}
 Find the area under the parabola $y = x^2$ from $0$ to $1$.
 \begin{itemize}

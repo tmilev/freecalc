@@ -9,18 +9,18 @@ Find the area enclosed by one loop of the four-leaved rose $r = \cos 2\theta$.
 \tiny%
 \psframe*[linecolor=white](-1.5,-1.5)(1.5,1.5)%
 \uncover<2->{%
-\pscustom*[linecolor=\psColorAreaUnderGraph]{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
 \parametricplot{-0.785398163}{0.785398163}{cos(2*t)*cos(t)|cos(2*t)*sin(t)}%
 }%
 \rput(-0.8,0.8){$r=\cos (2\theta)$}
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000] {0}{6.283185307}{cos(2*t)*cos(t)|cos(2*t)*sin(t)}%
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000] {0}{6.283185307}{cos(2*t)*cos(t)|cos(2*t)*sin(t)}%
 }
-\psaxesStandardNoFrame{-1.2}{-1.2}{1.2}{1.2}%
+\fcAxesStandardNoFrame{-1.2}{-1.2}{1.2}{1.2}%
 \uncover<3->{
-\psline[linecolor=\psColorTangent](0,0)(1.2,1.2)
-\psline[linecolor=\psColorTangent](0,0)(1.2,-1.2)
-\rput[r](1, 1.1){$\theta=\frac{\pi}{4}$} 
-\rput[r](1, -1.1){$\theta=-\frac{\pi}{4}$} 
+\psline[linecolor=\fcColorTangent](0,0)(1.2,1.2)
+\psline[linecolor=\fcColorTangent](0,0)(1.2,-1.2)
+\rput[r](1, 1.1){$\theta=\frac{\pi}{4}$}
+\rput[r](1, -1.1){$\theta=-\frac{\pi}{4}$}
 }
 \end{pspicture}
 %\ \uncover<2->{%

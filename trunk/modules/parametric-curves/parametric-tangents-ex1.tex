@@ -4,12 +4,12 @@
 \begin{columns}
 \column{0.25\textwidth}
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-0.9, -2.4)(4.4,2.499997) 
-\tiny 
-\psaxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}
+\begin{pspicture}(-0.9, -2.4)(4.4,2.499997)
+\tiny
+\fcAxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}
 %Calculator input: plotCurve{}(t^{2}, t^{3}-3 t, -2, 2)
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{-2}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }
-\end{pspicture} 
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{-2}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }
+\end{pspicture}
 \column{0.75\textwidth}
 A curve $C$ is defined by $x = t^2, y = t^3 - 3t$.
 \end{columns}
@@ -31,17 +31,17 @@ A curve $C$ is defined by $x = t^2, y = t^3 - 3t$.
 \begin{columns}
 \column{0.25\textwidth}
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-0.9, -2.4)(4.4,2.499997) 
+\begin{pspicture}(-0.9, -2.4)(4.4,2.499997)
 \tiny%
-\psaxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}%
+\fcAxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}%
 %Calculator input: plotCurve{}(t^{2}, t^{3}-3 t, -2, 2)
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{-2}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
-\psFullDotBlue{3}{0}%
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{-2}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
+\fcFullDotBlue{3}{0}%
 \uncover<15->{%
-\psline[linecolor=\psColorTangent](2,1.732050808)(4,-1.732050808)%
-\psline[linecolor=\psColorTangent](2,-1.732050808)(4,1.732050808)%
+\psline[linecolor=\fcColorTangent](2,1.732050808)(4,-1.732050808)%
+\psline[linecolor=\fcColorTangent](2,-1.732050808)(4,1.732050808)%
 }%
-\end{pspicture} 
+\end{pspicture}
 \column{0.75\textwidth}
 A curve $C$ is defined by \alert<handout:0| 2>{$x = t^2, y = t^3 - 3t$}.
 \end{columns}
@@ -79,22 +79,22 @@ Therefore the tangents at $(3,0)$ have slopes $\pm \sqrt{3}$.
 \begin{columns}
 \column{0.25\textwidth}
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-0.9, -2.4)(4.4,2.499997) 
-\tiny 
-\psaxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}
+\begin{pspicture}(-0.9, -2.4)(4.4,2.499997)
+\tiny
+\fcAxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}
 %Calculator input: plotCurve{}(t^{2}, t^{3}-3 t, -2, 2)
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{-2}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{-2}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }
 \uncover<6->{%
-\psFullDotBlue{1}{2}
-\psFullDotBlue{1}{-2}
-\psline[linecolor=\psColorTangent](0.1,2)(1.9,2)
-\psline[linecolor=\psColorTangent](0.1,-2)(1.9,-2)
+\fcFullDotBlue{1}{2}
+\fcFullDotBlue{1}{-2}
+\psline[linecolor=\fcColorTangent](0.1,2)(1.9,2)
+\psline[linecolor=\fcColorTangent](0.1,-2)(1.9,-2)
 }%
 \uncover<10->{%
-\psFullDotBlue{0}{0}
-\psline[linecolor=\psColorTangent](0,-1)(0,1)
+\fcFullDotBlue{0}{0}
+\psline[linecolor=\fcColorTangent](0,-1)(0,1)
 }%
-\end{pspicture} 
+\end{pspicture}
 \column{0.75\textwidth}
 A curve $C$ is defined by $x = t^2, y = t^3 - 3t$.
 \end{columns}
@@ -176,17 +176,17 @@ The points is $(0,0)$.
 \begin{columns}
 \column{0.25\textwidth}
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-0.9, -2.4)(4.4,2.499997) 
-\tiny 
-\psaxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}
+\begin{pspicture}(-0.9, -2.4)(4.4,2.499997)
+\tiny
+\fcAxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}
 \uncover<1-4,6->{%
 %Calculator input: plotCurve{}(t^{2}, t^{3}-3 t, -2, 2)
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{-2}{0}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{-2}{0}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
 }%
 \uncover<1-5>{%
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{0}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
 }%
-\end{pspicture} 
+\end{pspicture}
 \column{0.75\textwidth}
 A curve $C$ is defined by $x = t^2, y = t^3 - 3t$.
 \end{columns}
@@ -206,17 +206,17 @@ A curve $C$ is defined by $x = t^2, y = t^3 - 3t$.
 \begin{columns}
 \column{0.25\textwidth}
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-0.9, -2.4)(4.4,2.499997) 
-\tiny 
-\psaxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}
+\begin{pspicture}(-0.9, -2.4)(4.4,2.499997)
+\tiny
+\fcAxesStandard{-0.650000}{-2.150000}{4.150000}{2.149997}
 \uncover<1-11,13->{%
 %Calculator input: plotCurve{}(t^{2}, t^{3}-3 t, -2, 2)
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{-2}{0}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{-2}{0}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
 }%
 \uncover<1-12>{%
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000]{0}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{2}{t 2.0000000 exp t -3.0000000 mul t 3.0000000 exp add }%
 }%
-\end{pspicture} 
+\end{pspicture}
 \column{0.75\textwidth}
 A curve $C$ is defined by $x = t^2, y = t^3 - 3t$.
 \end{columns}
@@ -236,13 +236,13 @@ $\begin{array}{rcl}
 }  \uncover<3->{ = }  \uncover<3->{%
 \frac{\frac{\diff}{\diff t}\left( \alert<handout:0| 3-4,7>{\uncover<4->{\frac{3t^2-3}{2t}}}\right)}{\alert<handout:0| 5-6>{\uncover<6->{2t}}}%
 }\\%
-& \uncover<7->{ = } &\displaystyle 
+& \uncover<7->{ = } &\displaystyle
 \uncover<7->{%
 \frac{\alert<handout:0| 8-9>{\frac{\diff}{\diff t}\left( \alert<handout:0| 7>{\frac{3}{2}\left( t - \frac{1}{t}\right)}\right)}}{2t}%
 }  \uncover<8->{ = }  \uncover<8->{%
 \frac{\alert<handout:0| 8-9>{\uncover<9->{\frac{3}{2} + \frac{3}{2t^2} }}}{2t}%
 }\\%
-& \uncover<10->{ = } &\displaystyle 
+& \uncover<10->{ = } &\displaystyle
 \uncover<10->{%
 \frac{\frac{3t^2 + 3}{2t^2}}{2t}%
 }  \uncover<11->{ = } \uncover<11->{%

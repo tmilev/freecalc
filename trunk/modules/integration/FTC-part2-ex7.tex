@@ -4,17 +4,17 @@
 \begin{columns}
 \column{0.4\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-1.000000, -1.3)(6.2,1.3) 
-\tiny 
-\psframe*[linecolor=white](-1.000000,-1.1)(6.2,1.2) 
-\pscustom*[linecolor=cyan]{ %Function formula: \cos{}x 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{x 57.29578 mul cos }\psline(1.000000, 0)(0.000000, 0)}
-%Function formula: \cos{}x 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{6}{x 57.29578 mul cos }
+\begin{pspicture}(-1.000000, -1.3)(6.2,1.3)
+\tiny
+\psframe*[linecolor=white](-1.000000,-1.1)(6.2,1.2)
+\pscustom*[linecolor=cyan]{ %Function formula: \cos{}x
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{1}{x 57.29578 mul cos }\psline(1.000000, 0)(0.000000, 0)}
+%Function formula: \cos{}x
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{6}{x 57.29578 mul cos }
 \psaxes[arrows=<->, ticks=none, labels=none](0,0)(-0.6,-1.1)(6,1.1)
-\psLabels{6}{1.1}
-\psXTickWithLabel{1}{$b$}
-\end{pspicture} 
+\fcLabels{6}{1.1}
+\fcXTickWithLabel{1}{$b$}
+\end{pspicture}
 \column{0.6\textwidth}
 Find the area under the cosine curve from $0$ to $b$, where $0 \leq b \leq \frac{\pi}{2}$.
 \end{columns}

@@ -5,57 +5,57 @@ Sketch the curve $r = 1 + \sin \theta$.
 \begin{columns}[c]
 \column{.3\textwidth}
 \psset{xunit=1cm, yunit=1cm, algebraic=true}
-\begin{pspicture}(-1.499038, -0.700000)(1.6,2.4) 
+\begin{pspicture}(-1.499038, -0.700000)(1.6,2.4)
 
-\tiny 
-\psaxesStandard{-1.4}{-0.6}{1.4}{2.3}
-\psLabelXOne
-\psLabelYOne
+\tiny
+\fcAxesStandard{-1.4}{-0.6}{1.4}{2.3}
+\fcLabelXOne
+\fcLabelYOne
 \uncover<handout:0| 3>{%
 \psline[linecolor=blue](0,0)(1.207107, 1.207107)
-\psAngle{0}{0.785398}{0.4}{$\theta$}
+\fcAngle{0}{0.785398}{0.4}{$\theta$}
 \rput[b](0.6, 0.68){$r$}
-} 
+}
 \uncover<handout:0| 4>{%
 \psline[linecolor=blue](0,0)(1.017510, 1.522811)
-\psAngle{0}{0.981748}{0.4}{$\theta$}
+\fcAngle{0}{0.981748}{0.4}{$\theta$}
 \rput[b](0.45, 0.8){$r$}
 }
 \uncover<handout:0| 5>{
 \psline[linecolor=blue](0,0)(0.736237, 1.777433)
-\psAngle{0}{1.178097}{0.4}{$\theta$}
+\fcAngle{0}{1.178097}{0.4}{$\theta$}
 \rput[b](0.3, 0.9){$r$}
 }
 \uncover<handout:0| 6>{
-\psAngle{0}{1.374447}{0.4}{$\theta$}
+\fcAngle{0}{1.374447}{0.4}{$\theta$}
 \psline[linecolor=blue](0,0)(0.386432, 1.942725)
 \rput[b](0.1, 1.1){$r$}
-} 
+}
 \uncover<2-6>{%
-\drawPolarWithArrow{0}{1.570796327 1 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
+\fcDrawPolarWithArrow{0}{1.570796327 1 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
 }%
 \uncover<handout:0| 7->{%
-\drawPolar{0}{1.570796327 1 mul} {1+sin(t)}{linecolor=blue, plotpoints=400}%
+\fcDrawPolar{0}{1.570796327 1 mul} {1+sin(t)}{linecolor=blue, plotpoints=400}%
 }%
 \uncover<7>{%
-\drawPolarWithArrow{1.570796327 1 mul}{1.570796327 2 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
+\fcDrawPolarWithArrow{1.570796327 1 mul}{1.570796327 2 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
 }%
 \uncover<handout:0| 8->{%
-\drawPolarWithArrow{1.570796327 1 mul}{1.570796327 2 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
+\fcDrawPolarWithArrow{1.570796327 1 mul}{1.570796327 2 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
 }%
 \uncover<8>{%
-\drawPolarWithArrow{1.570796327 2 mul}{1.570796327 3 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
+\fcDrawPolarWithArrow{1.570796327 2 mul}{1.570796327 3 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
 }%
 \uncover<handout:0| 9->{%
-\drawPolarWithArrow{1.570796327 2 mul}{1.570796327 3 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
+\fcDrawPolarWithArrow{1.570796327 2 mul}{1.570796327 3 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
 }%
 \uncover<9>{%
-\drawPolarWithArrow{1.570796327 3 mul}{1.570796327 4 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
+\fcDrawPolarWithArrow{1.570796327 3 mul}{1.570796327 4 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
 }%
 \uncover<handout:0| 10->{%
-\drawPolarWithArrow{1.570796327 3 mul}{1.570796327 4 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
+\fcDrawPolarWithArrow{1.570796327 3 mul}{1.570796327 4 mul} {1+sin(t)}{linecolor=red, plotpoints=400}%
 }%
-\end{pspicture} 
+\end{pspicture}
 
 %\ \only<handout:0| 1>{%
 %\includegraphics[height=3.6cm]{polar-curves/pictures/11-03-ex7a.pdf}%
@@ -86,9 +86,9 @@ Sketch the curve $r = 1 + \sin \theta$.
 %}%
 \column{.7\textwidth}
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-0.700000, -0.700000)(6.55,2.4) 
+\begin{pspicture}(-0.700000, -0.700000)(6.55,2.4)
 
-\tiny 
+\tiny
 \psframe*[linecolor=white](-0.7, -0.7)(6.55, 2.4)
 \psaxes[arrows=<->, Dx=1.570796327, Dy=1, labels=none](0,0)(-0.5, -0.5)(6.4, 2.3)
 \rput[r](-0.1,2.3){$r$}
@@ -104,46 +104,46 @@ Sketch the curve $r = 1 + \sin \theta$.
 \rput[l](3.4, 1){$r=1+\sin \theta$}
 
 \uncover<handout:0| 3>{
-\psLengthIndicator{0}{-0.1}{0.785398163}{-0.1}{$\theta$}
+\fcLengthIndicator{0}{-0.1}{0.785398163}{-0.1}{$\theta$}
 \psline[linecolor=blue](0.785398163, 0)(0.785398163, 1.707107)
 }
 \uncover<handout:0| 4>{
-\psLengthIndicator{0}{-0.1}{0.981747704}{-0.1}{$\theta$}
+\fcLengthIndicator{0}{-0.1}{0.981747704}{-0.1}{$\theta$}
 \psline[linecolor=blue](0.981747704, 0)(0.981747704, 1.831470)
 }
 \uncover<handout:0| 5>{
-\psLengthIndicator{0}{-0.1}{1.178097245}{-0.1}{$\theta$}
+\fcLengthIndicator{0}{-0.1}{1.178097245}{-0.1}{$\theta$}
 \psline[linecolor=blue](1.178097245, 0)(1.178097245, 1.923880)
 }
 \uncover<handout:0| 6>{
-\psLengthIndicator{0}{-0.1}{1.374446786}{-0.1}{$\theta$}
+\fcLengthIndicator{0}{-0.1}{1.374446786}{-0.1}{$\theta$}
 \psline[linecolor=blue](1.374446786, 0)(1.374446786, 1.980785)
 }
 
 
-%Function formula: \sin{}x+1 
+%Function formula: \sin{}x+1
 \psplot[linecolor=blue, plotpoints=1000]{0.000000}{6.283185}{1.0000000 x 57.29578 mul sin add }
 \uncover<handout:0| 2-6>{
 \psplot[linecolor=red, plotpoints=400]{0.000000}{1.570796327}{1.0000000 x 57.29578 mul sin add }
-\psFullDot{0}{1}
-\psFullDot{1.570796327}{2}
+\fcFullDot{0}{1}
+\fcFullDot{1.570796327}{2}
 }
 \uncover<handout:0| 7>{
 \psplot[linecolor=red, plotpoints=400]{1.570796327}{3.141592654} {1.0000000 x 57.29578 mul sin add }
-\psFullDot{1.570796327}{2}
-\psFullDot{3.141592654}{1}
+\fcFullDot{1.570796327}{2}
+\fcFullDot{3.141592654}{1}
 }
 \uncover<handout:0| 8>{
 \psplot[linecolor=red, plotpoints=400]{3.141592654} {4.71238898} {1.0000000 x 57.29578 mul sin add }
-\psFullDot{3.141592654}{1}
-\psFullDot{4.71238898}{0}
+\fcFullDot{3.141592654}{1}
+\fcFullDot{4.71238898}{0}
 }
 \uncover<handout:0| 9>{
 \psplot[linecolor=red, plotpoints=400]{4.71238898}{6.283185307}{1.0000000 x 57.29578 mul sin add }
-\psFullDot{4.71238898}{0}
-\psFullDot{6.283185307}{1}
+\fcFullDot{4.71238898}{0}
+\fcFullDot{6.283185307}{1}
 }
-\end{pspicture} 
+\end{pspicture}
 
 
 %\ \only<handout:0| 1>{%

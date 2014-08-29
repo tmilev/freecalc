@@ -9,15 +9,15 @@ Evaluate $\lim_{x\to \infty} \sqrt{x^2+1}-x$. %
 \begin{pspicture}(-2,-0.5)(6.2,4.7)
 \psframe*[linecolor=white](-2,-0.5)(6.2,4.7)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-0.5)(6,4.5)
-\psLabelXOne
-\psLabelYOne
-%Function formula: - (x)+sqrt{}((x)^{2}+1) 
+\fcLabelXOne
+\fcLabelYOne
+%Function formula: - (x)+sqrt{}((x)^{2}+1)
 \uncover<9->{
 \psplot[linecolor=red, plotpoints=1000]{-1.95}{5.95}{1 x 2 exp add sqrt x -1 mul add }
 \rput[lb](1,1){\footnotesize $y=\sqrt{x^2+1}-x$}
 \psline[linecolor=blue](-1.95, 0)(5.95, 0)
 }
-\end{pspicture} 
+\end{pspicture}
 \begin{itemize}
 \item<2->  $\sqrt{x^2+1}\to \infty$ and $x\to \infty$ as $x\to \infty$.
 \item<2->  It isn't clear what happens to the difference.

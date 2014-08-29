@@ -13,28 +13,28 @@ Suppose $f$ and $g$ are continuous and $f(x) \geq g(x) \geq 0$ for $x \geq a$.
 \column{.4\textwidth}
 %\includegraphics[height=3cm]{improper-integrals/pictures/08-08-comptest.pdf}%
 \psset{xunit=0.5cm, yunit=0.5cm}
-\begin{pspicture}(-0.5, -0.5)(8.6,5.4) 
-\psframe*[linecolor=white](-0.5,-0.5)(8.6,5.4) 
-\tiny 
+\begin{pspicture}(-0.5, -0.5)(8.6,5.4)
+\psframe*[linecolor=white](-0.5,-0.5)(8.6,5.4)
+\tiny
 
 \pscustom*[linecolor=blue]{
-%Function formula: \frac{4}{(x-1/2)^{1/2}} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{1.100000} {8.5} {4.0000000 -0.5000000 x add 0.5000000 exp div }\psline(8.5, 0)(1.100000, 0)}
+%Function formula: \frac{4}{(x-1/2)^{1/2}}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1.100000} {8.5} {4.0000000 -0.5000000 x add 0.5000000 exp div }\psline(8.5, 0)(1.100000, 0)}
 
 \pscustom*[linecolor=cyan]{
-%Function formula: \frac{8 x-4}{x^{2}+2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{1.100000} {8.5} {-4.0000000 x 8.0000000 mul add 2.0000000 x 2.0000000 exp add div } \psline(8.5, 0)(1.100000, 0)}
+%Function formula: \frac{8 x-4}{x^{2}+2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1.100000} {8.5} {-4.0000000 x 8.0000000 mul add 2.0000000 x 2.0000000 exp add div } \psline(8.5, 0)(1.100000, 0)}
 
-%Function formula: \frac{4}{(x-1/2)^{1/2}} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{1.100000} {8.500000} {4.0000000 -0.5000000 x add 0.5000000 exp div }
-%Function formula: \frac{8 x-4}{x^{2}+2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000] {1.100000} {8.5000000}{-4.0000000 x 8.0000000 mul add 2.0000000 x 2.0000000 exp add div }
+%Function formula: \frac{4}{(x-1/2)^{1/2}}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1.100000} {8.500000} {4.0000000 -0.5000000 x add 0.5000000 exp div }
+%Function formula: \frac{8 x-4}{x^{2}+2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000] {1.100000} {8.5000000}{-4.0000000 x 8.0000000 mul add 2.0000000 x 2.0000000 exp add div }
 
-\psaxesStandardNoFrame{-0.500000}{-0.5}{8.6}{5.3}
+\fcAxesStandardNoFrame{-0.500000}{-0.5}{8.6}{5.3}
 \rput(2,4){$f$}
 \rput(2,1.4){$g$}
 \psline(1.1, 0)(1.1, 5.163977795)
-\end{pspicture} 
+\end{pspicture}
 
 \column{.6\textwidth}
 \uncover<2->{%

@@ -6,27 +6,27 @@ Draw a graph of the function $f(x) = x^2 + 6x + 10$.
 \column{.5\textwidth}
 
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-5.1, -0.6)(3.1,5.1) 
+\begin{pspicture}(-5.1, -0.6)(3.1,5.1)
 \tiny
-\psaxesStandard{-5.03}{-0.5}{3}{5}
+\fcAxesStandard{-5.03}{-0.5}{3}{5}
 \rput[rt](-0.1,-0.1){$(0,0)$}
-\psFullDot{0}{0}
-%Function formula: (-3+x)^{2}-9+6 (x) 
+\fcFullDot{0}{0}
+%Function formula: (-3+x)^{2}-9+6 (x)
 \only<handout:0| 7>{
-\rput(2.5,2){$y=x^2$} 
-\psplot[linecolor=red, plotpoints=1000]{-2.23607}{2.23607}{x 6 mul -9 x -3 add 2 exp add add } %Function formula: (x)^{2}+10+6 (x) 
+\rput(2.5,2){$y=x^2$}
+\psplot[linecolor=red, plotpoints=1000]{-2.23607}{2.23607}{x 6 mul -9 x -3 add 2 exp add add } %Function formula: (x)^{2}+10+6 (x)
 }
 \only<handout:0| 8->{
-\rput(2.5,2){\color{gray}$y=x^2$} 
-\psplot[linecolor=gray, plotpoints=1000]{-2.23607}{2.23607}{x 6 mul -9 x -3 add 2 exp add add } %Function formula: (x)^{2}+10+6 (x) 
+\rput(2.5,2){\color{gray}$y=x^2$}
+\psplot[linecolor=gray, plotpoints=1000]{-2.23607}{2.23607}{x 6 mul -9 x -3 add 2 exp add add } %Function formula: (x)^{2}+10+6 (x)
 \rput[rt](-3.1,0.9){$(-3,1)$}
 \psline{->}(0,0)(-3,1)
-\psFullDot{-3}{1}
+\fcFullDot{-3}{1}
 
-\rput[b](-3,4.2){\alert<8->{$y=x^{2}+6x+10$}} 
+\rput[b](-3,4.2){\alert<8->{$y=x^{2}+6x+10$}}
 \psplot[linecolor=red, plotpoints=1000]{-5}{-1}{x 6 mul 10 x 2 exp add add }
 }
-\end{pspicture} 
+\end{pspicture}
 
 \column{.5\textwidth}
 \uncover<2->{

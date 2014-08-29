@@ -5,10 +5,10 @@
 \column{.45\textwidth}
 Evaluate $\lim_{x\to \infty} \frac{3x^2-x-2}{5x^2+4x+1}$. %
 \psset{xunit=0.55cm, yunit=0.55cm}
-\begin{pspicture}(-5,-6.5)(5.1,2.1) 
-\psframe*[linecolor=white](-5,-6.5)(5.1,2.1) 
+\begin{pspicture}(-5,-6.5)(5.1,2.1)
+\psframe*[linecolor=white](-5,-6.5)(5.1,2.1)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-6.5)(5,2)
-\psLabelXOne
+\fcLabelXOne
 
 \uncover<21->{
 \psline[linecolor=blue, linestyle=dashed](-5,0.6)(5, 0.6)
@@ -16,11 +16,11 @@ Evaluate $\lim_{x\to \infty} \frac{3x^2-x-2}{5x^2+4x+1}$. %
 }
 
 \uncover<23->{
-%Function formula: (-2- (x)+3 ((x)^{2}))/(1+4 (x)+5 ((x)^{2})) 
+%Function formula: (-2- (x)+3 ((x)^{2}))/(1+4 (x)+5 ((x)^{2}))
 \psplot[linecolor=red, plotpoints=1000]{-4.95}{4.95}{x 2 exp 3 mul x -1 mul add -2 add x 2 exp 5 mul x 4 mul add 1 add div }
 \rput[l](1, -2) {\footnotesize$y=\frac{3x^2-x-2}{5x^2+4x+1}$}
 }
-\end{pspicture} 
+\end{pspicture}
 %\ \only<handout:0| -20>{%
 %\includegraphics[width=5cm]{curve-sketching/pictures/04-04-ex3a.pdf}%
 %}%

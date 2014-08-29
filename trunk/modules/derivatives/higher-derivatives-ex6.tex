@@ -9,22 +9,22 @@ If $f(x) = x^3-x$, find $f''(x)$.
 \tiny
 \psframe*[linecolor=white](-2,-2)(2,2)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-2)(2,2)
-\psLabelXOne
-\psLabelYOne
+\fcLabelXOne
+\fcLabelYOne
 \uncover<8->{
-%Function formula: 6 (x) 
-\psplot[linecolor=green, plotpoints=1000]{-0.333333333}{0.333333333}{x 6 mul } 
+%Function formula: 6 (x)
+\psplot[linecolor=green, plotpoints=1000]{-0.333333333}{0.333333333}{x 6 mul }
 \rput[br](-0.4,-2){$f''(x)$}
 }
 \uncover<2->{
-%Function formula: 3 ((x)^{2})-1 
-\psplot[linecolor=blue, plotpoints=1000]{-1}{1}{-1 x 2 exp 3 mul add } 
+%Function formula: 3 ((x)^{2})-1
+\psplot[linecolor=blue, plotpoints=1000]{-1}{1}{-1 x 2 exp 3 mul add }
 \rput[r](-1, 1){$f'(x)$}
 }
-%Function formula: - (x)+(x)^{3} 
+%Function formula: - (x)+(x)^{3}
 \psplot[linecolor=red, plotpoints=1000]{-1.521379707}{1.521379707}{x 3 exp x -1 mul add }
 \rput[bl](1.2, 0.1){$f(x)$}
-\end{pspicture} 
+\end{pspicture}
 %\ \only<handout:0| 1>{%
 %\includegraphics[height=4.5cm]{derivatives/pictures/03-02-ex6a.pdf}%
 %}%

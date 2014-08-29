@@ -1,7 +1,7 @@
 % begin module FTC1-proof
 \begin{frame}
 \begin{theorem}[The Fundamental Theorem of Calculus part 1]
-Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \displaystyle \int_a^x f(t) \diff t$ for all $x\in [a,b]$. Then $G$ is differentiable and $G'(x) = f(x)$.  
+Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \displaystyle \int_a^x f(t) \diff t$ for all $x\in [a,b]$. Then $G$ is differentiable and $G'(x) = f(x)$.
 \end{theorem}
 \begin{proof}[Proof]
 \begin{columns}
@@ -10,45 +10,45 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 
 \begin{pspicture}(-0.6,-0.6)(3.3,3.3)
 \psframe*[linecolor=white](-0.6,-0.6)(3.3,3.3)
-\tiny 
-%\psLabels{3}{2.5}
+\tiny
+%\fcLabels{3}{2.5}
 
 \pscustom*[linecolor=cyan]{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
-\psline(2,0)(0.5,0) 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
+\psline(2,0)(0.5,0)
 }
 \uncover<20,21>{
 \pscustom*[linecolor=red]{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
-\psline(2,0)(0.5,0) 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
+\psline(2,0)(0.5,0)
 }
 }
 
 \uncover<11->{
 \pscustom*[linecolor=blue]{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2.15,1.136125)(2.15,0)(2,0)
 }
 }
 
 \uncover<10,20,22>{
 \pscustom*[linecolor=red]{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2.15,1.136125)(2.15,0)(2,0)
 }
 }
 
 \uncover<12>{
 \pscustom*[linecolor=red]{
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2.15,1.136125)(2.15,1)(2,1)
 }
 }
 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3.2,3.083333)
 
-%Function formula: -1/2 (x-1/2)^{2}+1/3 (x-1/2)^{3}+1 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0.5}{3}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
+%Function formula: -1/2 (x-1/2)^{2}+1/3 (x-1/2)^{3}+1
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{3}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \rput[b](2.3, 2.4){$y=f(x)$}
 \uncover<11,14>{
 \psline*[linecolor=red](2,0)(2.15,0)(2.15,1)(2,1)(2,0)
@@ -57,7 +57,7 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 \psline(2,0)(2.15,0)(2.15,1.136125)(2,1.136125)(2,0)
 }
 
-\psXTick{2} 
+\fcXTick{2}
 
 \uncover<3>{ %
 \psline[linecolor=red, linewidth=2pt](1.5,0)( 2.5,0 )
@@ -86,12 +86,12 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 \uncover<6>{ %
 \psline[linecolor=red, linewidth=2pt](2,1)(2, 1.481333)
 }
-\psXTickWithLabel{0.5}{$a$}
+\fcXTickWithLabel{0.5}{$a$}
 
-\psXTick{3}
+\fcXTick{3}
 \rput[tl](3,-0.2){$b$}
 \uncover<7->{
-\psXTick{2.15}
+\fcXTick{2.15}
 \rput[tl](2.15, -0.2){$x+h$}
 }
 \uncover<7,13>{
@@ -121,7 +121,7 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 
 \[
 \begin{array}{l}
-\uncover<18->{\displaystyle G'(x)=\lim\limits_{h\to 0}\frac{ \alert<20>{ G(x+h)} -\alert<21>{G(x)}}{h} }\\ 
+\uncover<18->{\displaystyle G'(x)=\lim\limits_{h\to 0}\frac{ \alert<20>{ G(x+h)} -\alert<21>{G(x)}}{h} }\\
 \uncover<19->{\displaystyle \phantom{ G'(x) }= \lim\limits_{h\to 0}  \frac{ \alert<20>{ \alert<22>{\int_{a}^{x+h}} f(t)dt} - \alert<21>{ \alert<22>{\int_{a}^{x}} f(t)dt}}{h} }\\
 \uncover<22->{\displaystyle \phantom{ G'(x) }= \alert<23>{\lim\limits_{h\to 0}\frac{\alert<22>{\int_{x}^{x+h}}f(t)dt }{h} \uncover<23->{=f(x)}}}
 \end{array}
@@ -129,6 +129,6 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 
 }
 \end{columns}
-\end{proof} 
+\end{proof}
 \end{frame}
 % end module FTC1-proof
