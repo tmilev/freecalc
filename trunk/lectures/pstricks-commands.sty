@@ -249,12 +249,79 @@ end%
 \rput[b](! \fcEvaluateT{#3}{#5}){${#6}_{#2}$}%
 }
 
-\newcommand{\fcScalarProduct}[6]{#1 #4 mul #2 #5 mul #3 #6 mul add add} %Generates one point on a plane given by the equation ax+by+cz=d.
-\newcommand{\fcScalarSquare}[3]{\fcScalarProduct{#1}{#2}{#3}{#1}{#2}{#3}} %Generates one point on a plane given by the equation ax+by+cz=d.
+\newcommand{\fcArrayToStack}{ %
+1 dict begin %
+/theArray exch def %put array in var.
+0 1 theArray length 1 sub %loop parameters
+{ theArray exch get %get array member
+} for 
+end 
+} %pushes elements of array onto the stack
 
-\newcommand{\fcProjectOriginOnPlane}[4]{#1 \fcScalarSquare{#1}{#2}{#3} div #2 \fcScalarSquare{#1}{#2}{#3} div #3 \fcScalarSquare{#1}{#2}{#3} div} %Generates one point on a plane given by the equation ax+by+cz=d.
+\newcommand{\fcSpliceArrayOperationArray}{ %
+5 dict begin %
+/theOp exch def %
+/firstV exch def % 
+/secondV exch def %
+/counter 0 def %
+/dimension firstV length def %
+dimension array
+dimension {dup counter firstV counter get secondV counter get theOp   put /counter counter 1 add def } repeat %
+end %
+} %splices two arrays and operation, for example [a b] [c d] {op} -> [a c op b d op]
 
-\newcommand{\fcProjectOrthographic}[4]{} %This command makes an orthographic projection of a point onto a (x',y')- plane. This command assumes the top 3 elements of the stack are the x,y,z coordinates of the point(s). The four arguments of the function give the equation of a plane on which we are projecting. The plane equation is in the form ax+by+cz=d. The output is the (x',y') coordinates of the projection in the plane, relative to the main reference point of the plane. The main reference point of the plane is defined to be the projection of the origin onto the plane.
+\newcommand{\fcSpliceArrayOperation}{ %
+4 dict begin %
+/theOp exch def %
+/firstV exch def % 
+/counter 0 def %
+/dimension firstV length def %
+dimension array
+dimension {dup counter firstV counter get theOp put /counter counter 1 add def } repeat %
+end %
+} %splices array with operation. [a b] {op} -> [a op b op]
 
-\newcommand{\fcPlotCurveIIId}[6][linecolor=\fcColorGraph]{%
+\newcommand{\fcArrayOperation}{ %
+4 dict begin %
+/theOp exch def %
+/firstV exch def % 
+/counter 0 def%
+/dimension firstV length def %
+dimension {firstV counter get /counter counter 1 add def } repeat %
+dimension 1 sub {theOp} repeat %
+end %
+} %applies operation n-1 times to array. Example: [a b c] {op} -> a b c op op
+
+\newcommand{\fcVectorScalarVector}{%
+{mul} \fcSpliceArrayOperationArray {add}\fcArrayOperation 
+} %Scalar product two vectors
+
+\newcommand{\fcVectorPlusVector}{%
+{add} \fcSpliceArrayOperationArray %
+} %Adds two vectors
+
+\newcommand{\fcVectorTimesScalar}{ %
+2 dict begin %
+/theScalar exch def %
+/theV exch def %
+theV {theScalar mul} \fcSpliceArrayOperation 
+end %
+} %
+
+\newcommand{\fcScalarSquare}{%
+dup \fcVectorScalarVector %
+} %
+
+\newcommand{\fcProjectOntoPlane}{%
+3 dict begin %
+/theD exch def %
+/theNormal exch def %
+/theV exch def %
+theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcScalarSquare div \fcVectorTimesScalar \fcVectorPlusVector
+end %
+} %Projection of point onto a plane. First argument is point, second argument is plane normal, third argument is the scalar product you need to have with the normal to be in the plane. Format: [1 2 3] [4 5 6] 7, corresponds to projecting the point (1,2,3) onto the plane 4x+5y+6z=7
+
+
+
+\newcommand{\fcPlotCurveIIId}[4][linecolor=\fcColorGraph][[1 -1 0] 1]{%
 }
