@@ -11,20 +11,20 @@ exists.
 
 \begin{center}
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-0.5, -0.5)(5.600000,3.3) 
-\psframe*[linecolor=white](-0.5,-0.5)(5.600000,3.3) 
-\tiny 
-\pscustom*[linecolor=\psColorAreaUnderGraph]{
-%Function formula: \frac{1}{(x-2)^{1/2}} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{2.100000}{5.000000}{1.0000000 -2.0000000 x add 0.5000000 exp div }
+\begin{pspicture}(-0.5, -0.5)(5.600000,3.3)
+\psframe*[linecolor=white](-0.5,-0.5)(5.600000,3.3)
+\tiny
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Function formula: \frac{1}{(x-2)^{1/2}}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2.100000}{5.000000}{1.0000000 -2.0000000 x add 0.5000000 exp div }
 \psline(5.000000, 0)(2.00000, 0)(2,3.16227766)
 }
-%Function formula: \frac{1}{(x-2)^{1/2}} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{2.100000}{5.000000}{1.0000000 -2.0000000 x add 0.5000000 exp div }
+%Function formula: \frac{1}{(x-2)^{1/2}}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2.100000}{5.000000}{1.0000000 -2.0000000 x add 0.5000000 exp div }
 
 \psaxes[arrows=<->](0,0)(-0.500000,-0.5)(5.5,3.2)
-\psLabels{5.5}{3.2}
-\end{pspicture} 
+\fcLabels{5.5}{3.2}
+\end{pspicture}
 %\ \includegraphics[height=3cm]{improper-integrals/pictures/08-08-ex5.pdf}%
 \end{center}
 \end{frame}
@@ -50,7 +50,7 @@ if the limit exists.
 $\int_a^bf(x) \diff x$ is called convergent if the corresponding limit exists and divergent if it doesn't exist.
 \begin{enumerate}
 \setcounter{enumi}{2}
-\item  If $f$ has a discontinuity at $c$, where $a < c < b$, and both $\int_a^c f(x)\diff x$ and $\int_c^b f(x)\diff x$ are convergent, then we define 
+\item  If $f$ has a discontinuity at $c$, where $a < c < b$, and both $\int_a^c f(x)\diff x$ and $\int_c^b f(x)\diff x$ are convergent, then we define
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[

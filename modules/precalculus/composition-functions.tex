@@ -10,23 +10,23 @@ If $f$ and $g$ are two functions, then the composition of $f$ and $g$ is written
 Imagine $f$ and $g$ as machines taking some input and producing some output. Then $f\circ g$ corresponds to attaching both machines end-to-end so that the output of $g$ becomes the input of $f$.
 
 \psset{xunit=0.75cm, yunit=0.75cm}
-\begin{pspicture}(-4, -2.5)(13,2.5) 
+\begin{pspicture}(-4, -2.5)(13,2.5)
 \footnotesize
 \rput[r] (-3.1, 0){$x$}
 \psline[linewidth=3pt]{->}(-3,0)(-2.25,0)
 
 \rput(0.25,0){
-\psMachine{$g$}{blue}
+\fcMachine{$g$}{blue}
 }
 \rput (4, 0){$g(x)$}
 \psline[linewidth=3pt]{->}(2.75,0)(3.5,0)
 \psline[linewidth=3pt]{->}(4.5,0)(5.25,0)
 \rput(7.75,0){
-\psMachine{$f$}{red}
+\fcMachine{$f$}{red}
 }
 \rput (11.75, 0){$f(g(x))$}
 \psline[linewidth=3pt]{->}(10.25,0)(11,0)
-\end{pspicture} 
+\end{pspicture}
 %\includegraphics[height=2cm]{precalculus/pictures/01-03-machines.pdf}%
 
 \uncover<2->{

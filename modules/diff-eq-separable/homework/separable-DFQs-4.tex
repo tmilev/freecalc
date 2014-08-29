@@ -1,7 +1,7 @@
 \begin{enumerate}
-\item \label{problemDFQseparabley'=xtany_initial_condition1} Solve the initial-value differential equation problem 
+\item \label{problemDFQseparabley'=xtany_initial_condition1} Solve the initial-value differential equation problem
 \[
-y'=x\tan y 
+y'=x\tan y
 \quad,\quad  \quad \quad y(0)=\Arcsin\left(\frac{1}{e}\right)\approx 0.376728.
 \]
 
@@ -17,8 +17,8 @@ Below is a computer-generated plot of corresponding direction field, you may use
 \begin{pspicture}(-6,-6)(9.5,9.5)
 \psaxes{<->}(0,0)(-5,-5)(9,9)
 \rput[lt](0.4,9){The direction field  $\frac{y}{\diff  x}=y'=x\tan y $}
-\directionFieldDefault{y 57.29578 mul sin x mul y 57.29578 mul cos div}{-4}{-4}{0.5}{25}
-\psplot[linecolor=\psColorGraph, plotpoints=500]{-1.41421356}{1.41421356}{2.718281828 -1 x 2 exp 0.5 mul add exp ASIN}
+\fcDirectionFieldDefault{y 57.29578 mul sin x mul y 57.29578 mul cos div}{-4}{-4}{0.5}{25}
+\psplot[linecolor=\fcColorGraph, plotpoints=500]{-1.41421356}{1.41421356}{2.718281828 -1 x 2 exp 0.5 mul add exp ASIN}
 \psplot[linecolor=green, plotpoints=500]{-1.41421356}{1.41421356}{3.141592654 2.718281828 -1 x 2 exp 0.5 mul add exp -1 mul ASIN add}
 \end{pspicture}
 }

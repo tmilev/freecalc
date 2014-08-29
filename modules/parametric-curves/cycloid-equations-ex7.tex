@@ -8,18 +8,18 @@ Find parametric equations of a cycloid made using a circle with radius $r$ that 
 \psset{xunit=1.6cm, yunit=1.6cm}
 \begin{pspicture}( -0.6, -0.6)(2.65,2.3)
 \psframe*[linecolor=white](-0.6, -0.6)(2.65,2.3)
-\tiny% 
+\tiny%
 \psaxes[arrows=<->, ticks=none, labels=none ](0,0)( -0.500000, -0.5)(2.55,2.2)%
-\parametricplot[linecolor=\psColorTangent, plotpoints=1000, algebraic=true]{0}{6.283185307}{cos(t)+1.256637061|sin(t)+1}%
+\parametricplot[linecolor=\fcColorTangent, plotpoints=1000, algebraic=true]{0}{6.283185307}{cos(t)+1.256637061|sin(t)+1}%
 \uncover<2->{%
 \psplot[linecolor=green, plotpoints=300]{0.305581} {1.256637061} {1 1 -1.25664 x add 2 exp -1 mul add 0.5 exp -1 mul add }%
 }%
 %Calculator input: plotCurve{}(- \sin{}t+t, - \cos{}t+1, 0, \pi)
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000] { 0}{2.8}{t t 57.29578 mul sin -1 mul add 1 t 57.29578 mul cos -1 mul add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000] { 0}{2.8}{t t 57.29578 mul sin -1 mul add 1 t 57.29578 mul cos -1 mul add }
 
-\psFullDot{0.305581}{0.690983}
+\fcFullDot{0.305581}{0.690983}
 \rput[r](0.2, 0.69){$P$}
-\psFullDot{1.256637061}{1}
+\fcFullDot{1.256637061}{1}
 \rput[bl](1.286637061,1.05){\uncover<5->{\alert<5>{$ C=(r\theta,r)$}}}
 
 \uncover<6->{\psline[linestyle=dashed](0.305581,0)(0.305581,0.690983)
@@ -49,7 +49,7 @@ Find parametric equations of a cycloid made using a circle with radius $r$ that 
 }
 \rput(1.2, 0.9){\uncover<2->{\alert<2>{$\theta$}}}
 \rput (-0.2, -0.2){$O$}
-\end{pspicture} 
+\end{pspicture}
 
 %\ \only<handout:0| -2>{%
 %\includegraphics[width=5cm]{parametric-curves/pictures/11-01-cycloideqa.pdf}%

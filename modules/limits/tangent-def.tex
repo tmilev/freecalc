@@ -4,18 +4,18 @@
 \column{.4\textwidth}
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1.1,-0.6)(3.2,4.3)
-\psframe*[linecolor=white](-5,-5)(5,5) 
+\psframe*[linecolor=white](-5,-5)(5,5)
 \tiny
-\psaxesStandard{-1.05}{-0.52}{3.1}{4.2}
-\psXTickWithLabel{1}{$1$}
-\psYTickWithLabel{1}{$1$}
-\rput(-0.3,0.5){$y=x^{2}$} 
-%Function formula: (x)^{2} 
+\fcAxesStandard{-1.05}{-0.52}{3.1}{4.2}
+\fcXTickWithLabel{1}{$1$}
+\fcYTickWithLabel{1}{$1$}
+\rput(-0.3,0.5){$y=x^{2}$}
+%Function formula: (x)^{2}
 \psplot[linecolor=red, plotpoints=1000]{-1}{2}{x 2 exp }
-\psFullDot{1}{1}
+\fcFullDot{1}{1}
 \rput[lt](1.1,1){$P=(1,1)$}
 \psline[linecolor=blue]( 0.25,-0.5)(2.55 ,4.1)
-\end{pspicture} 
+\end{pspicture}
 \column{.6\textwidth}
 We say that the slope of the tangent is the limit of the slope of the secants (limit will be defined later).  We write:
 \[

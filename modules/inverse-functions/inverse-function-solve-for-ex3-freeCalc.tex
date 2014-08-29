@@ -6,22 +6,22 @@ Find $f^{-1}(x)$ where $f(x)=\frac{x+1}{x-1}$.
 \begin{columns}
 \column{0.35\textwidth}
 \psset{xunit=0.35cm, yunit=0.35cm}
-\begin{pspicture}(-5.214286, -5)(7.214286,5) 
-\tiny 
-\psframe*[linecolor=white](-5.214286,-5)(7.214286,7.714285714) 
-\psaxesStandard{-4.714286}{-4.714286}{6.714286}{6.714286} 
-\rput[tl](2.3,6){$y=\frac{x+1}{x-1}$} 
+\begin{pspicture}(-5.214286, -5)(7.214286,5)
+\tiny
+\psframe*[linecolor=white](-5.214286,-5)(7.214286,7.714285714)
+\fcAxesStandard{-4.714286}{-4.714286}{6.714286}{6.714286}
+\rput[tl](2.3,6){$y=\frac{x+1}{x-1}$}
 
-%Function formula: \frac{x+1}{x-1} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{1.350000}{6.714286}{1 x add -1 x add div }
-%Function formula: \frac{x+1}{x-1} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-4.714286}{0.650000}{1 x add -1 x add div }
+%Function formula: \frac{x+1}{x-1}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1.350000}{6.714286}{1 x add -1 x add div }
+%Function formula: \frac{x+1}{x-1}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-4.714286}{0.650000}{1 x add -1 x add div }
 \uncover<17->{
-\psline[linecolor=\psColorTangent, linestyle=dashed](-4.7,-4.7)(6.7,6.7)
+\psline[linecolor=\fcColorTangent, linestyle=dashed](-4.7,-4.7)(6.7,6.7)
 }
-\end{pspicture} 
+\end{pspicture}
 
-\uncover<11->{Answer: $f^{-1}(x)=\frac{x+1}{x-1}$}\uncover<13->{, \alert<13>{$x\neq 1$}.} 
+\uncover<11->{Answer: $f^{-1}(x)=\frac{x+1}{x-1}$}\uncover<13->{, \alert<13>{$x\neq 1$}.}
 
 \column{0.65\textwidth}
 
@@ -35,7 +35,7 @@ $
 \displaystyle \uncover<10->{ f^{-1}(\alert<10>{ x} )&=&\displaystyle \frac{\alert<10>{ x }+1}{\alert<10>{ x}-1}}
 \end{array}
 $
-\uncover<12->{We divided by \alert<12>{$y-1$} so $y\neq 1$.} \uncover<13->{Therefore the domain of $f^{-1}$ is all real numbers except $1$.} 
+\uncover<12->{We divided by \alert<12>{$y-1$} so $y\neq 1$.} \uncover<13->{Therefore the domain of $f^{-1}$ is all real numbers except $1$.}
 
 \medskip
 

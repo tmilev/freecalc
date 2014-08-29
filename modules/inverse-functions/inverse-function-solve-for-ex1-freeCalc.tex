@@ -7,17 +7,17 @@ Given: $\alert<handout:0| 2>{f(x) =  3x^2+4x-7}$ \alert<handout:0| 3,16,17>{with
 \column{0.4\textwidth}
 \psset{xunit=0.35cm, yunit=0.35cm}
 \begin{pspicture}(-9,-9)(5,5)
-\psframe*[linecolor=white](-9,-9)(5,5) 
+\psframe*[linecolor=white](-9,-9)(5,5)
 \tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-9,-9)(4.7,4.7)
 \uncover<2-16| handout:0>{ %
-\psplot[linecolor=\psColorGraph, plotpoints=1000] {-0.66}{1.401612274}{x 2 exp 3 mul x 4 mul add -7 add }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000] {-0.66}{1.401612274}{x 2 exp 3 mul x 4 mul add -7 add }
 }
 \uncover<17->{ %
 \psplot[linestyle=dashed, linecolor=gray!50, plotpoints=1000]{-0.66}{1.401612274}{x 2 exp 3 mul x 4 mul add -7 add }
 }
 \uncover<2,17>{ %
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.7349}{-0.67}{x 2 exp 3 mul x 4 mul add -7 add }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.7349}{-0.67}{x 2 exp 3 mul x 4 mul add -7 add }
 }
 \uncover<3-16| handout:0>{ %
 \psplot[linestyle=dashed, linecolor=gray!50, plotpoints=1000] {-2.7349}{-0.67}{x 2 exp 3 mul x 4 mul add -7 add }
@@ -35,7 +35,7 @@ Given: $\alert<handout:0| 2>{f(x) =  3x^2+4x-7}$ \alert<handout:0| 3,16,17>{with
 \psplot[linecolor=gray!50, linestyle=dashed, plotpoints=1000] {-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt -0.333333 mul add }
 }
 \uncover<17->{
-\psplot[linecolor=\psColorGraph, plotpoints=1000] {-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt -0.333333 mul add }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000] {-8.33333}{4.5}{-0.666667 25 x 3 mul add sqrt -0.333333 mul add }
 }
 \uncover<15-16| handout:0>{\rput[lb](-6, 1){$y=f^{-1}(x)$}}
 \uncover<11->{\rput (-3.5, -8 ){$(-\frac{2}{3}, -\frac{25}{3})$}}
@@ -43,9 +43,9 @@ Given: $\alert<handout:0| 2>{f(x) =  3x^2+4x-7}$ \alert<handout:0| 3,16,17>{with
 \uncover<14->{\rput[l] (-7.8, -2.2 ){$(-\frac{25}{3}, -\frac{2}{3})$}}
 \uncover<17->{\rput[rt](4.5, -3){$y=f^{-1}(x)$}}
 \uncover<17>{ \rput[tr](-3, 4.5){$y=f(x)$}}
-\uncover<14->{\psFullDot{-8.33333}{-0.666667}}
-\psFullDot{-0.666667}{-8.33333}
-\end{pspicture} 
+\uncover<14->{\fcFullDot{-8.33333}{-0.666667}}
+\fcFullDot{-0.666667}{-8.33333}
+\end{pspicture}
 \uncover<13->{Final }\uncover<12->{answer}\uncover<13->{, \alert<handout:0| 13>{relabelled}:}
 \[
 \uncover<12->{

@@ -8,56 +8,56 @@ $
 \left|\begin{array}{rcl}
 \alert<handout:0| 15>{x } & \alert<handout:0| 15>{=} & \alert<handout:0| 15>{ -{\alert<2, 4,6,8,10> {t}}^2 + 2}\\
 \alert<14>{y}&\alert<14>{=}&\alert<14>{ \alert<2, 4,6,8,10> {t}-1}
-\end{array}\right. 
+\end{array}\right.
 $
 \begin{columns}[c]
 \column{.5\textwidth}
 \psset{xunit=0.8cm, yunit=0.8cm}
-\begin{pspicture}(-4.5,-4.2)(3.2,2.2) 
-\psframe*[linecolor=white](-4.5,-4.2)(3.2,2.2) 
-\tiny 
+\begin{pspicture}(-4.5,-4.2)(3.2,2.2)
+\psframe*[linecolor=white](-4.5,-4.2)(3.2,2.2)
+\tiny
 \psaxes[arrows=<->](0,0)(-4.3, -4)(3, 2)
-\psLabels{3}{2}
+\fcLabels{3}{2}
 %Calculator input: plotCurve{}(- t^{2}+2, t-1, -2, 2)
 
-\uncover<3->{ 
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ -2.5 }{-2.25}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ -2.25 }{-2}{2 t 2 exp -1 mul add -1 t add }
-}
-\uncover<5->{ 
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ -2 }{-1.5}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ -1.5 }{-1}{2 t 2 exp -1 mul add -1 t add }
-}
-\uncover<7->{ 
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ -1 }{-0.5}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ -0.5 }{0}{2 t 2 exp -1 mul add -1 t add }
-}
-\uncover<9->{ 
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ 0}{0.5}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ 0.5 }{1}{2 t 2 exp -1 mul add -1 t add }
-}
-\uncover<11->{ 
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ 1 }{1.5}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ 1.5 }{2}{2 t 2 exp -1 mul add -1 t add }
-}
-\uncover<12->{ 
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ 2 }{2.25}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ 2.25 }{2.5}{2 t 2 exp -1 mul add -1 t add }
-}
 \uncover<3->{
-\psFullDot{-2}{-3}
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ -2.5 }{-2.25}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ -2.25 }{-2}{2 t 2 exp -1 mul add -1 t add }
 }
 \uncover<5->{
-\psFullDot{1}{-2}
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ -2 }{-1.5}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ -1.5 }{-1}{2 t 2 exp -1 mul add -1 t add }
 }
 \uncover<7->{
-\psFullDot{2}{-1}
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ -1 }{-0.5}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ -0.5 }{0}{2 t 2 exp -1 mul add -1 t add }
 }
 \uncover<9->{
-\psFullDot{1}{0}
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ 0}{0.5}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ 0.5 }{1}{2 t 2 exp -1 mul add -1 t add }
 }
 \uncover<11->{
-\psFullDot{-2}{1}
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ 1 }{1.5}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ 1.5 }{2}{2 t 2 exp -1 mul add -1 t add }
+}
+\uncover<12->{
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ 2 }{2.25}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ 2.25 }{2.5}{2 t 2 exp -1 mul add -1 t add }
+}
+\uncover<3->{
+\fcFullDot{-2}{-3}
+}
+\uncover<5->{
+\fcFullDot{1}{-2}
+}
+\uncover<7->{
+\fcFullDot{2}{-1}
+}
+\uncover<9->{
+\fcFullDot{1}{0}
+}
+\uncover<11->{
+\fcFullDot{-2}{1}
 }
 \end{pspicture}
 
@@ -145,25 +145,25 @@ $
 \psset{xunit=0.8cm, yunit=0.8cm}
 \begin{pspicture}(-4.5,-4.2)(3.2,2.2)
 \psframe*[linecolor=white](-4.5,-4.2)(3.2,2.2)
-\tiny 
+\tiny
 \psaxes[arrows=<->](0,0)(-4.3, -4)(3, 2)
-\psLabels{3}{2}
+\fcLabels{3}{2}
 %Calculator input: plotCurve{}(- t^{2}+2, t-1, -2, 2)
 
-\uncover<1-3>{ 
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ -2.5 }{-1.25}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ -1.25 }{0}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ 0 }{1.25}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ 1.25 }{2.5}{2 t 2 exp -1 mul add -1 t add }
+\uncover<1-3>{
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ -2.5 }{-1.25}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ -1.25 }{0}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ 0 }{1.25}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ 1.25 }{2.5}{2 t 2 exp -1 mul add -1 t add }
 }
-\uncover<4->{ 
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ -1 }{0}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, arrows=->, plotpoints=150]{ 0 }{1}{2 t 2 exp -1 mul add -1 t add }
-\parametricplot[linecolor=\psColorGraph, plotpoints=150]{ 1 }{2}{2 t 2 exp -1 mul add -1 t add }
+\uncover<4->{
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ -1 }{0}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, arrows=->, plotpoints=150]{ 0 }{1}{2 t 2 exp -1 mul add -1 t add }
+\parametricplot[linecolor=\fcColorGraph, plotpoints=150]{ 1 }{2}{2 t 2 exp -1 mul add -1 t add }
 }
 \uncover<5->{
-\psFullDot{-2}{1}
-\psFullDot{1}{-2}
+\fcFullDot{-2}{1}
+\fcFullDot{1}{-2}
 }
 \end{pspicture}
 \[
@@ -172,12 +172,12 @@ $
 x & = & -t^2 + 2\\
 y & = & t-1
 \end{array}
-\right. 
+\right.
 \uncover<4->{, \alert<handout:0| 4>{-1 \leq t \leq 2}}
 \]
 \column{.5\textwidth}
 \begin{itemize}
-\item<1->  There was no restriction placed on $t$ in the last example. 
+\item<1->  There was no restriction placed on $t$ in the last example.
 \item<2->  In such a case we assume $t\in (-\infty,\infty)$, i.e., $t$ runs over all real numbers.
 \item<3->  In general we are expected to specify the interval in which $t$ lies.
 \item<4->  For example, if we restrict the previous example to $t\in [-1,2]$, we get the part of the parabola that begins at $(1,-2)$ and ends at $(-2,1)$.

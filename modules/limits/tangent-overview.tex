@@ -7,11 +7,11 @@
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture}(-1.1,-1)(2.6,1.4)
 \small
-%Function formula: - ((1- ((x)^{2}))^{1/2}) 
-\psplot[linecolor=red, plotpoints=1000]{-1}{1}{x 2 exp -1 mul 1 add 0.5 exp -1 mul } 
-%Function formula: (1- ((x)^{2}))^{1/2} 
+%Function formula: - ((1- ((x)^{2}))^{1/2})
+\psplot[linecolor=red, plotpoints=1000]{-1}{1}{x 2 exp -1 mul 1 add 0.5 exp -1 mul }
+%Function formula: (1- ((x)^{2}))^{1/2}
 \psplot[linecolor=red, plotpoints=1000]{-1}{1}{x 2 exp -1 mul 1 add 0.5 exp }
-\psFullDot{0.4}{0.916515139}
+\fcFullDot{0.4}{0.916515139}
 \psline[linecolor=blue](-0.5,1.309307341)(0.4,0.916515139 )(2.5,0) %(0,0)
 \rput (2, 0.4){$t$}
 \end{pspicture}
@@ -19,17 +19,17 @@
 \uncover<5->
 {
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-2.1, -1)(2.2,2.2) 
+\begin{pspicture}(-2.1, -1)(2.2,2.2)
 \small
-%Function formula: 1/4 ((x)^{3})+1/4 ((x)^{2})-1/2 (x) 
+%Function formula: 1/4 ((x)^{3})+1/4 ((x)^{2})-1/2 (x)
 \psplot[linecolor=red, plotpoints=1000]{-2}{2}{x -0.5 mul x 2 exp 0.25 mul x 3 exp 0.25 mul add add }
-\psFullDot{-1}{0.5}
+\fcFullDot{-1}{0.5}
 
 \uncover<6->{\psline[linecolor=black] (-1.25,-0.5)(-0.75, 1.5)
 \rput[l](-1, -0.4){$l$}
 }
 
-\uncover<7->{\psFullDot{1}{0}
+\uncover<7->{\fcFullDot{1}{0}
 \psline[linecolor=blue] (2, -0.25)(-2, 0.75)
 \rput[b](2, -0.2){$t$}
 }
@@ -37,7 +37,7 @@
 \psline[linecolor=red!1](2.1,0)(2.11,0)
 \psline[linecolor=red!1](0,-2.4)(0,-2.41)
 \psline[linecolor=red!1](0,2.4)(0,2.41)
-\end{pspicture} 
+\end{pspicture}
 }
 %\ \uncover<4->{%
 %\includegraphics[height=3.5cm]{limits/pictures/02-01-tangenta.pdf}%

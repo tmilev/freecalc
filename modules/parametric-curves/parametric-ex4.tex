@@ -9,19 +9,19 @@ Find parametric equations for the circle with center $(h, k)$ and radius $r$.
 \tiny
 \psframe*[linecolor=white](-0.5, -0.5)(2.8,2.7)
 \psaxes[arrows=<->, ticks=none, labels=none](0,0)(-0.5,-0.5)(2.7,2.5)
-\parametricplot[algebraic=true, linecolor=\psColorGraph] {0}{6.283185307}{1.4+cos(t)|1.2+sin(t)}
+\parametricplot[algebraic=true, linecolor=\fcColorGraph] {0}{6.283185307}{1.4+cos(t)|1.2+sin(t)}
 \uncover<2->{%
-\psFullDot{1.4}{1.2}
+\fcFullDot{1.4}{1.2}
 \rput[tr](1.35, 1.1){$(h,k)=O$}
 }
 \uncover<3->{%
 \rput[bl](1.6, 1.65){$r$}
 \rput[bl](1.9, 2.1){$P=(x,y)$}
 \psline(1.4,1.2)(1.9,2.066025)
-\psFullDot{1.900000}{2.066025}
+\fcFullDot{1.900000}{2.066025}
 }
 \uncover<4->{
-\rput(1.4,1.2){\psAngle{0}{1.047197551}{0.2}{} }
+\rput(1.4,1.2){\fcAngle{0}{1.047197551}{0.2}{} }
 \rput[bl](1.6,1.3){$t$ }
 \rput[tl](1.9, 1.1){$Q$}
 \psline(1.9,2.066025)(1.9,1.2)
@@ -55,12 +55,12 @@ Find parametric equations for the circle with center $(h, k)$ and radius $r$.
 \item<4->  Let $t$, $Q$ be as indicated on the figure.
 \item<5->  Then $\alert<5,6>{|OQ|=}\uncover<5>{\alert<5>{\textbf{?}}} \uncover<6->{ \alert<6>{r \cos t}}$.
 \item<7->  $\alert<7,8>{|PQ|=} \uncover<7>{ \alert<7>{ \textbf{?}}} \uncover<8->{\alert<8>{r \sin t}}$.
-\item<9-> Then the coordinates of $P$ are $ (h+r\cos t, k+r\sin t)$. 
+\item<9-> Then the coordinates of $P$ are $ (h+r\cos t, k+r\sin t)$.
 \item<10-> In this way we get the parametric equations $\left|\begin{array}{l}x=h+r\cos t\\ y=k+r\sin t\end{array}\right., t\in [0,2\pi]$
 }
 \only<11->{
-\item<11-> Alternative solution: $x=\cos t$, $y=\sin t$ is the equation of the unit circle. 
-\item<12-> Multiply by $r$ to scale the circle to have radius $r$: $x = r\cos t,\ \  y = r\sin t$. 
+\item<11-> Alternative solution: $x=\cos t$, $y=\sin t$ is the equation of the unit circle.
+\item<12-> Multiply by $r$ to scale the circle to have radius $r$: $x = r\cos t,\ \  y = r\sin t$.
 \item<13-> Add $h$ to $x$ and $k$ to $y$ to translate the circle $h$ units to the left and $k$ units up: $x =h+ r\cos t,\ \  y =k+  r\sin t$
 }
 \end{itemize}

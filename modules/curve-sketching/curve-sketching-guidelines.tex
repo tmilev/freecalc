@@ -4,7 +4,7 @@
 The following items are to be considered when drawing a curve. \alert<2>{Not every item is relevant to every function.}
 \begin{enumerate}
 \item  Determine the domain of the function.
-\item  Depending on availability, use computer software to plot. 
+\item  Depending on availability, use computer software to plot.
 \item  \alert<2>{Compute $x,y$ intercepts.}
 \item  \alert<2>{Determine symmetries, periodicity.}
 \item  \alert<2>{Compute asymptotes - vertical, horizontal, {\color{gray} optional - slanted}.}
@@ -19,7 +19,7 @@ The following items are to be considered when drawing a curve. \alert<2>{Not eve
 \begin{enumerate}
 \item  \alert<3>{Domain}
 \begin{itemize}
-\item  Find the domain of the function.  
+\item  Find the domain of the function.
 \item  Remember the two restrictions: no dividing by $0$, and no taking the even root of a negative number.
 \end{itemize}
 \item<2-> You can use computer software to plot your function.
@@ -27,7 +27,7 @@ The following items are to be considered when drawing a curve. \alert<2>{Not eve
 \item<3-> Most computer software will ask you to specify the \alert<3>{domain of the function} explicitly.
 \item<4-> Some software may be able to determine the (implied) domain of your function.
 \item<5-> Software may not be always available (example: Calculus I exams).
-\end{itemize} 
+\end{itemize}
 \end{enumerate}
 \end{frame}
 
@@ -62,44 +62,44 @@ The following items are to be considered when drawing a curve. \alert<2>{Not eve
 \uncover<2>{%
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1.7,-1.5)(1.7,2.5721)
-\tiny 
+\tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1.7,-1.5)(1.7,2.5721)
-\psLabels{1.7}{2.5721}
-\psXTickWithLabel{-1}{$-1$}
-\psXTickWithLabel{1}{$1$}
-%Function formula: -2 x^{2}+x^{4} 
-%\rput(1,3){$y=-2 x^{2}+x^{4}$} 
-\psFullDot{-1.5}{0.5625}
-\psFullDot{1.5}{0.5625}
+\fcLabels{1.7}{2.5721}
+\fcXTickWithLabel{-1}{$-1$}
+\fcXTickWithLabel{1}{$1$}
+%Function formula: -2 x^{2}+x^{4}
+%\rput(1,3){$y=-2 x^{2}+x^{4}$}
+\fcFullDot{-1.5}{0.5625}
+\fcFullDot{1.5}{0.5625}
 \rput[r](-1.6, 0.5625){$(-1.5, f(1.5))$}
 \rput[l](1.6, 0.5625){$(1.5, f(1.5))$}
 \psline{<->}(-1.4, 0.5625)(1.4, 0.5625)
-\psFullDot{-1}{-1}
-\psFullDot{1}{-1}
+\fcFullDot{-1}{-1}
+\fcFullDot{1}{-1}
 \rput[rt](-1.1, -1){$(-1, f(1))$}
 \rput[lt](1.1, -1){$(1, f(1))$}
 \psline{<->}(-0.9, -1)(0.9, -1)
 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-1.7}{1.7}{x 4 exp x 2 exp -2 mul add }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.7}{1.7}{x 4 exp x 2 exp -2 mul add }
 \end{pspicture}
 }}%
 \only<handout:2| 3>{%
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-3.2,-2)(3.2,2)
-\tiny 
+\tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-3.2,-2)(3.2,2)
-\psLabels{3.2}{2}
-\psXTickWithLabel{1}{$1$}
-\psXTickWithLabel{-1}{$-1$}
-%Function formula: \sin{}x 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-3}{3}{x 57.29578 mul sin }
-%Function formula: \sqrt{- x^{2}+17080660249/10000000000} 
+\fcLabels{3.2}{2}
+\fcXTickWithLabel{1}{$1$}
+\fcXTickWithLabel{-1}{$-1$}
+%Function formula: \sin{}x
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3}{3}{x 57.29578 mul sin }
+%Function formula: \sqrt{- x^{2}+17080660249/10000000000}
 \psplot[arrows=->, plotpoints=1000]{-1.3068}{0.92}{1.70807 x 2 exp -1 mul add sqrt }
-%Function formula: -\sqrt{- x^{2}+17080660249/10000000000} 
+%Function formula: -\sqrt{- x^{2}+17080660249/10000000000}
 \psplot[arrows=->, plotpoints=1000]{-1.3068}{-1.08}{1.70807 x 2 exp -1 mul add sqrt -1 mul}
-\psFullDot{1}{0.841471}
+\fcFullDot{1}{0.841471}
 \rput[lt](1,0.741471 ){$(1, f(1))$}
-\psFullDot{-1}{-0.841471}
+\fcFullDot{-1}{-0.841471}
 \rput[t](-1,-1.05 ){$(-1, -f(1))$}
 \rput[lb](1.5, 1.1){$y=f(x)$}
 \end{pspicture}
@@ -108,27 +108,27 @@ The following items are to be considered when drawing a curve. \alert<2>{Not eve
 \only<handout:3| 4->{%
 \psset{xunit=0.75cm, yunit=0.75cm}
 \begin{pspicture}(-6,-0.7)(6,4.5)
-\tiny 
+\tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-6,-0.7)(6,4.5)
-\psLabels{6}{4.5}
-%Function formula: \sin^{2}{}(2 x)+\sin{}(2 x)+1 
-%\rput(1,3){$y=\sin^{2}{}(2 x)+\sin{}(2 x)+1$} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-6}{6}{1 x 2 mul 57.29578 mul sin add x 2 mul 57.29578 mul sin 2 exp add }
+\fcLabels{6}{4.5}
+%Function formula: \sin^{2}{}(2 x)+\sin{}(2 x)+1
+%\rput(1,3){$y=\sin^{2}{}(2 x)+\sin{}(2 x)+1$}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-6}{6}{1 x 2 mul 57.29578 mul sin add x 2 mul 57.29578 mul sin 2 exp add }
 
-\psFullDot{0.785398163}{3}
+\fcFullDot{0.785398163}{3}
 \psline[linestyle=dashed](0.785398163,0)(0.785398163,3)
-\psXTickWithLabel{0.785398163}{$a+p$}
-\psFullDot{3.926990817}{3}
+\fcXTickWithLabel{0.785398163}{$a+p$}
+\fcFullDot{3.926990817}{3}
 \psline[linestyle=dashed](3.926990817,0)(3.926990817,3)
-\psXTickWithLabel{3.926990817}{$a+2p$}
-\psFullDot{-2.35619449}{3}
+\fcXTickWithLabel{3.926990817}{$a+2p$}
+\fcFullDot{-2.35619449}{3}
 \psline[linestyle=dashed](-2.35619449,0)(-2.35619449,3)
-\psXTickWithLabel{-2.35619449}{$a$}
-\psFullDot{-5.497787144}{3}
+\fcXTickWithLabel{-2.35619449}{$a$}
+\fcFullDot{-5.497787144}{3}
 \psline[linestyle=dashed](-5.497787144,0)(-5.497787144,3)
-\psXTickWithLabel{-5.497787144}{$a-p$}
+\fcXTickWithLabel{-5.497787144}{$a-p$}
 
-\end{pspicture} 
+\end{pspicture}
 }
 
 %\ \only<handout:1| -2>{%
@@ -152,7 +152,7 @@ The following items are to be considered when drawing a curve. \alert<2>{Not eve
 \end{enumerate}
 \begin{itemize}
 \item  \textbf{Horizontal asymptotes} can be found by finding $\lim\limits_{x\to\infty} f(x)$ and $\lim\limits_{x\to -\infty} f(x)$.
-\item  If either of these equals a number $L$, then $y = L$ is a horizontal asymptote of $f$.  
+\item  If either of these equals a number $L$, then $y = L$ is a horizontal asymptote of $f$.
 \item  If neither limit exists, there is no horizontal asymptote.
 \item  The line $x = a$ is a \textbf{Vertical asymptote} of $f$ if any of the following is true
 \end{itemize}

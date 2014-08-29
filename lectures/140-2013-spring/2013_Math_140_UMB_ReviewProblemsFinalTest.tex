@@ -17,28 +17,28 @@
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 \newcommand{\triplebrace}[6]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \\#5 & #6\end{array} \right.}
 \newtheorem{problem}{Problem}
-\newcommand{\psHollowDot}[2]{
+\newcommand{\fcHollowDot}[2]{
 \pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
 \pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
 }
-\newcommand{\psHollowDotBlue}[2]{
+\newcommand{\fcHollowDotBlue}[2]{
 \pscircle*[fillcolor=white, linecolor=blue](#1, #2){0.07}
 \pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
 }
-\newcommand{\psFullDot}[2]{
+\newcommand{\fcFullDot}[2]{
 \pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
 }
-\newcommand{\psFullDotBlack}[2]{
+\newcommand{\fcFullDotBlack}[2]{
 \pscircle*[fillcolor=white, linecolor=black](#1, #2){0.07}
 }
-\newcommand{\psLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\footnotesize $1$} }
-\newcommand{\psLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\footnotesize $1$} }
+\newcommand{\fcLabelXOne}{\psline(1, -0.1)(1,0.1) \rput[t](1, -0.2 ) {\footnotesize $1$} }
+\newcommand{\fcLabelYOne}{\psline(-0.1, 1)(0.1, 1) \rput[r](-0.2, 1 ) {\footnotesize $1$} }
 
 
 \begin{document}
 \begin{center}
 \Large
-Review problems \\ 
+Review problems \\
 Final Math 140 \\
 \normalsize Instructors: S. Cai, G. Cunningham, J. Greenough A. Leisinger, T. Milev
 \end{center}
@@ -46,7 +46,7 @@ Final Math 140 \\
 Define horizontal and vertical asymptote.
 \end{problem}
 \begin{problem}
-Compute the horizontal and vertical asymptotes of 
+Compute the horizontal and vertical asymptotes of
 \begin{enumerate}
 \item $
 \displaystyle
@@ -70,7 +70,7 @@ answer: horizontal asymptote: $y= 1$, vertical asymptotes $x=-1, x=3$.
 Define derivative.
 \end{problem}
 \begin{problem}
-Find the limit 
+Find the limit
 \begin{enumerate}
 \item $\displaystyle \lim\limits_{h\to 0} \frac{ \sin^2 (x+h)-\sin^2 (x)}{h}$.
 \hfill{~}
@@ -87,11 +87,11 @@ answer: $\frac{-3}{x^4}$.
 
 \begin{problem}Find the derivative.
 \begin{enumerate}
-\item 
+\item
  $x^{x^x} $.
 \hfill{~}
 \rotatebox{180}{
-answer: $x^{x^{x}+x-1}+x^{x^{x}+x} \ln{}x 
+answer: $x^{x^{x}+x-1}+x^{x^{x}+x} \ln{}x
  +x^{x^{x}+x} (\ln{}x)^2 $.
 }
 \item $\sqrt[3]{\ln x}$
@@ -103,7 +103,7 @@ answer: $\frac{(\ln{}x)^{-2/3}}{3x} $.
 \end{problem}
 
 \begin{problem}
-Consider the curve given by the equation $x^3+ x^2y^2+2y^3=4$. 
+Consider the curve given by the equation $x^3+ x^2y^2+2y^3=4$.
 \begin{itemize}
 \item Use implicit differentiation to express $\frac{dy}{dx}$ via $y $ and $x$ on the curve.
 \item Find the equation of the tangent line to the curve at the point $(x,y)=(1,1)$.
@@ -115,7 +115,7 @@ State the fundamental theorem of Calculus (both parts).
 \end{problem}
 
 \begin{problem}
-Compute the derivative. 
+Compute the derivative.
 \begin{multicols}{2}
 \begin{enumerate}
 \item $\displaystyle \int\limits_{\sqrt{x}}^{x^2} e^t ~dt$.
@@ -125,8 +125,8 @@ Compute the derivative.
 \end{problem}
 
 
-\begin{problem} 
-Compute the integral 
+\begin{problem}
+Compute the integral
 \begin{multicols}{2}
 \begin{enumerate}
 \item $\displaystyle \int_{-1}^{1}\frac{x^3}{1+x^2}dx$

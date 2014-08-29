@@ -42,48 +42,48 @@
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-2.8,-2.8)(2.8,2.8)
 \tiny
-\psaxesStandard{-2.7}{-2.7}{2.7}{2.7}%
+\fcAxesStandard{-2.7}{-2.7}{2.7}{2.7}%
 %WARNING THE LATEX MESSES UP WHITE SPACE. DO NOT USE SPACES
-\psXTickWithLabel{1}{$1$}%
-\psXTickWithLabel{2}{$2$}%
+\fcXTickWithLabel{1}{$1$}%
+\fcXTickWithLabel{2}{$2$}%
 \uncover<4-33>{%
-\directionFieldOneTangent{x y add}{1}{0}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{1}{0}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<6-33>{%
-\directionFieldOneTangent{x y add}{-1}{0}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{-1}{0}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<8-33>{%
-\directionFieldOneTangent{x y add}{0}{1}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{0}{1}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<10-33>{%
-\directionFieldOneTangent{x y add}{0}{-1}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{0}{-1}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<12-33>{%
-\directionFieldOneTangent{x y add}{0}{0}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{0}{0}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<14-33>{%
-\directionFieldOneTangent{x y add}{1}{1}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{1}{1}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<16-33>{%
-\directionFieldOneTangent{x y add}{1}{-1}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{1}{-1}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<18-33>{%
-\directionFieldOneTangent{x y add}{-1}{1}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{-1}{1}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<20-33>{%
-\directionFieldOneTangent{x y add}{-1}{-1}{0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{-1}{-1}{0.2}{0.02}{linecolor=blue}%
 }%
 \uncover<23>{%
 \psline(-2.5,2.5)(2.5,-2.5)%
 }%
 \uncover<24>{%
 \multido{\ra=-2.5+0.5}{11}{%
-\directionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul} {0.2}{0.02}{linecolor=red}%
+\fcDirectionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul} {0.2}{0.02}{linecolor=red}%
 }%
 }%
 \uncover<25-33>{%
 \multido{\ra=-2.5+0.5}{11}{%
-\directionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul} {0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul} {0.2}{0.02}{linecolor=blue}%
 }%
 }%
 \uncover<25>{%
@@ -91,12 +91,12 @@
 }%
 \uncover<26>{%
 \multido{\ra=-2.5+0.5}{10}{%
-\directionFieldOneTangent{x y add}{\ra\space 0.5 add}{\ra\space -1 mul} {0.2}{0.02}{linecolor=red}%
+\fcDirectionFieldOneTangent{x y add}{\ra\space 0.5 add}{\ra\space -1 mul} {0.2}{0.02}{linecolor=red}%
 }%
 }%
 \uncover<27-33>{%
 \multido{\ra=-2.5+0.5}{10}{%
-\directionFieldOneTangent{x y add}{\ra\space 0.5 add}{\ra\space -1 mul} {0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{\ra\space 0.5 add}{\ra\space -1 mul} {0.2}{0.02}{linecolor=blue}%
 }%
 }%
 \uncover<27>{%
@@ -104,12 +104,12 @@
 }%
 \uncover<28>{%
 \multido{\ra=-2.5+0.5}{9}{%
-\directionFieldOneTangent{x y add}{\ra\space 1 add}{\ra\space -1 mul} {0.2}{0.02}{linecolor=red}%
+\fcDirectionFieldOneTangent{x y add}{\ra\space 1 add}{\ra\space -1 mul} {0.2}{0.02}{linecolor=red}%
 }%
 }%
 \uncover<28-33>{%
 \multido{\ra=-2.5+0.5}{9}{%
-\directionFieldOneTangent{x y add}{\ra\space 1 add}{\ra\space -1 mul} {0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{\ra\space 1 add}{\ra\space -1 mul} {0.2}{0.02}{linecolor=blue}%
 }%
 }%
 \uncover<29>{%
@@ -117,12 +117,12 @@
 }%
 \uncover<30-33>{%
 \multido{\ra=-2.5+0.5}{10}{%
-\directionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul 0.5 sub} {0.2}{0.02}{linecolor=red}%
+\fcDirectionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul 0.5 sub} {0.2}{0.02}{linecolor=red}%
 }%
 }%
 \uncover<31-33>{%
 \multido{\ra=-2.5+0.5}{10}{%
-\directionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul 0.5 sub} {0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul 0.5 sub} {0.2}{0.02}{linecolor=blue}%
 }%
 }%
 \uncover<31>{%
@@ -130,20 +130,20 @@
 }%
 \uncover<32>{%
 \multido{\ra=-2.5+0.5}{9}{%
-\directionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul 1 sub} {0.2}{0.02}{linecolor=red}%
+\fcDirectionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul 1 sub} {0.2}{0.02}{linecolor=red}%
 }%
 }%
 \uncover<33>{%
 \multido{\ra=-2.5+0.5}{9}{%
-\directionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul 1 sub} {0.2}{0.02}{linecolor=blue}%
+\fcDirectionFieldOneTangent{x y add}{\ra}{\ra\space -1 mul 1 sub} {0.2}{0.02}{linecolor=blue}%
 }%
 }%
 \uncover<34->{%
-\directionFieldDefault{x y add}{-2.5}{-2.5}{0.5}{11}%
+\fcDirectionFieldDefault{x y add}{-2.5}{-2.5}{0.5}{11}%
 }%
 \uncover<35->{%
-%Function formula: 2 e^{x}- x-1 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-2.7}{0.814045}{-1 x -1 mul add 2.718281828 x exp 2 mul add }
+%Function formula: 2 e^{x}- x-1
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.7}{0.814045}{-1 x -1 mul add 2.718281828 x exp 2 mul add }
 }%
 \end{pspicture}
 

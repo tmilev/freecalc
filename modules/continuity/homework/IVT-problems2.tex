@@ -1,7 +1,7 @@
 \begin{enumerate}
 \item (1) Solve the equation $x^2+13x+41=1$.  (2) Use the intermediate value theorem to prove that the equation $x^2+13x+41=\sin  x$ has at least two solutions, lying between the two numbers found in (1).
 \solution{
-\noindent (1) 
+\noindent (1)
 \begin{eqnarray*}
 x^2+13x+41&=&1\\
 x^2+13x+40&=&0\\
@@ -11,42 +11,42 @@ Therefore the two solutions are $x_1=-5$ and $x_2=-8$.
 
 \noindent (2) Consider the function
 \[
-f(x)=x^2+13x+41-\sin x\quad. 
+f(x)=x^2+13x+41-\sin x\quad.
 \]
-Our strategy for proving $f(x)=0$ has a solution consists in finding a number $a$ such that $f(a)<0$ and a number $b$ such that $f(b)>0$, and then using the Intermediate Value Theorem (IVT) with $N=0$. 
+Our strategy for proving $f(x)=0$ has a solution consists in finding a number $a$ such that $f(a)<0$ and a number $b$ such that $f(b)>0$, and then using the Intermediate Value Theorem (IVT) with $N=0$.
 
-Let 
+Let
 \[
 g(x)=x^2+13x+41,
 \]
-and so $f(x)=g(x)-\sin x$. We have no techniques for evaluating $\sin x$ without calculator, but we do have all knowledge necessary to evaluate $g(x)$. Indeed, from high school we know that the lowest point of the parabola $g(x)$ is located at $x=-\frac{13}2=-6.5$. Then $g(-6.5)= -1.25$. Therefore 
+and so $f(x)=g(x)-\sin x$. We have no techniques for evaluating $\sin x$ without calculator, but we do have all knowledge necessary to evaluate $g(x)$. Indeed, from high school we know that the lowest point of the parabola $g(x)$ is located at $x=-\frac{13}2=-6.5$. Then $g(-6.5)= -1.25$. Therefore
 \[
-f(-6.5)=g(-6.5)-\sin(-6.5)= g(-6.5)+\sin (6.5)=-1.25+\sin 6.5 \leq -0.25, 
+f(-6.5)=g(-6.5)-\sin(-6.5)= g(-6.5)+\sin (6.5)=-1.25+\sin 6.5 \leq -0.25,
 \]
 where for the very last inequality we use the fact that $\sin 6.5< 1 $ (remember $\sin t\leq 1$ for all real values of $t$).
 
-On the other hand, 
+On the other hand,
 \[f(-5)= g(-5)-\sin (-5) = 1+\sin 5> 0\]
-as $\sin 5 >-1$ (remember $\sin t\geq -1$ for all real values of $t$). Therefore $f(-5)>0$ and $f(-6.5)<0$ and by the Intermediate Value Theorem (IVT) $f(x)=0$ has a solution in the interval $x\in (-6.5, -5)$. 
- 
-Proving $f(x)=0$ has a solution in the interval $x\in (-8, -6.5)$ is similar and we leave it to the student. 
+as $\sin 5 >-1$ (remember $\sin t\geq -1$ for all real values of $t$). Therefore $f(-5)>0$ and $f(-6.5)<0$ and by the Intermediate Value Theorem (IVT) $f(x)=0$ has a solution in the interval $x\in (-6.5, -5)$.
+
+Proving $f(x)=0$ has a solution in the interval $x\in (-8, -6.5)$ is similar and we leave it to the student.
 
 Below is a computer generated plot of the function with the use of which we can visually verify our answer.
 
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-9, -5)(1,5) 
-\psframe*[linecolor=white](-9,-5)(1,5) 
-\tiny 
+\begin{pspicture}(-9, -5)(1,5)
+\psframe*[linecolor=white](-9,-5)(1,5)
+\tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-9,-4.5)(1,4.5)
-\psLabels{1}{5}
-\psXTickWithLabel{-6.5}{$-6.5$}
-\psXTickWithLabel{-8}{$-8$}
-\psXTickWithLabel{-5}{$-5$}
-%Function formula: (x)^{2}+40+13 (x) 
-\rput(-4.5,-2){$y=x^{2}+13 x+40$} 
+\fcLabels{1}{5}
+\fcXTickWithLabel{-6.5}{$-6.5$}
+\fcXTickWithLabel{-8}{$-8$}
+\fcXTickWithLabel{-5}{$-5$}
+%Function formula: (x)^{2}+40+13 (x)
+\rput(-4.5,-2){$y=x^{2}+13 x+40$}
 \psplot[linecolor=grey!30, plotpoints=1000]{-9}{-4}{x 13 mul 40 x 2 exp add add }
-\rput(-6.5,3){$y=x^{2}+41+13 x- \sin x$} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-9}{-4}{x 57.29578 mul sin -1 mul x 13 mul 41 x 2 exp add add add }
+\rput(-6.5,3){$y=x^{2}+41+13 x- \sin x$}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-9}{-4}{x 57.29578 mul sin -1 mul x 13 mul 41 x 2 exp add add add }
 
 \end{pspicture}
 }

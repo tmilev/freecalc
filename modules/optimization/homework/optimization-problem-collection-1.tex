@@ -1,42 +1,42 @@
 \begin{enumerate}
 % Optimization
-\item \label{problemponthyperbolax^2-4y^2closestTo1,1} What is the $x$-coordinate of the point on the hyperbola $x^2 - 4y^2 = 16$ that is closest to the point $(1, 0)$? 
+\item \label{problemponthyperbolax^2-4y^2closestTo1,1} What is the $x$-coordinate of the point on the hyperbola $x^2 - 4y^2 = 16$ that is closest to the point $(1, 0)$?
 
 \psset{xunit=0.3cm, yunit=0.3cm}
-\begin{pspicture}(-10.500000, -5)(10.500000,5) 
-\psframe*[linecolor=white](-10.500000,-5)(10.500000,5) 
-\tiny 
-\psaxesStandard{-10.000000}{-4.5}{10.000000}{4.5} %Function formula: - (1/4 x^{2}-4)^{1/2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-10.000000}{-4.000000}{-4 x 2 exp 0.25 mul add 0.5 exp -1 mul }
-%Function formula: (1/4 x^{2}-4)^{1/2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-10.000000}{-4.000000}{-4 x 2 exp 0.25 mul add 0.5 exp }
-%Function formula: - (1/4 x^{2}-4)^{1/2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{4.000000}{10.000000}{-4 x 2 exp 0.25 mul add 0.5 exp -1 mul }
-%Function formula: (1/4 x^{2}-4)^{1/2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{4.000000}{10.000000}{-4 x 2 exp 0.25 mul add 0.5 exp }
-\psFullDot{1}{0}
-\psFullDot{4}{0}
+\begin{pspicture}(-10.500000, -5)(10.500000,5)
+\psframe*[linecolor=white](-10.500000,-5)(10.500000,5)
+\tiny
+\fcAxesStandard{-10.000000}{-4.5}{10.000000}{4.5} %Function formula: - (1/4 x^{2}-4)^{1/2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-10.000000}{-4.000000}{-4 x 2 exp 0.25 mul add 0.5 exp -1 mul }
+%Function formula: (1/4 x^{2}-4)^{1/2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-10.000000}{-4.000000}{-4 x 2 exp 0.25 mul add 0.5 exp }
+%Function formula: - (1/4 x^{2}-4)^{1/2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{4.000000}{10.000000}{-4 x 2 exp 0.25 mul add 0.5 exp -1 mul }
+%Function formula: (1/4 x^{2}-4)^{1/2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{4.000000}{10.000000}{-4 x 2 exp 0.25 mul add 0.5 exp }
+\fcFullDot{1}{0}
+\fcFullDot{4}{0}
 \pscircle[linestyle=dotted](1,0){0.9}
-\end{pspicture} 
+\end{pspicture}
 
 \answer{$x = 4$}
 
 \item What is the $x$-coordinate of the point on the ellipse $x^2+4y^2=16$ closest to the point $(1,0)$?
 
 \psset{xunit=0.3cm, yunit=0.3cm}
-\begin{pspicture}(-4.500000, -5)(4.500000,5) 
-\psframe*[linecolor=white](-4.500000,-5)(4.500000,5) 
-\tiny 
+\begin{pspicture}(-4.500000, -5)(4.500000,5)
+\psframe*[linecolor=white](-4.500000,-5)(4.500000,5)
+\tiny
 \psline[linecolor=red!1](-10,0)(-9.99,0)
-\psaxesStandard{-4.000000}{-4.5}{4.000000}{4.5} %Function formula: - (-1/4 x^{2}+4)^{1/2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-4.000000}{4.000000}{4 x 2 exp -0.25 mul add 0.5 exp -1 mul }
-%Function formula: (-1/4 x^{2}+4)^{1/2} 
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{-4.000000}{4.000000}{4 x 2 exp -0.25 mul add 0.5 exp }
+\fcAxesStandard{-4.000000}{-4.5}{4.000000}{4.5} %Function formula: - (-1/4 x^{2}+4)^{1/2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-4.000000}{4.000000}{4 x 2 exp -0.25 mul add 0.5 exp -1 mul }
+%Function formula: (-1/4 x^{2}+4)^{1/2}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-4.000000}{4.000000}{4 x 2 exp -0.25 mul add 0.5 exp }
 \pscircle[linestyle=dotted](1,0){0.574456}
-\psFullDot{1}{0}
-\psFullDot{1.333333}{1.885618}
-\psFullDot{1.333333}{-1.885618}
-\end{pspicture} 
+\fcFullDot{1}{0}
+\fcFullDot{1.333333}{1.885618}
+\fcFullDot{1.333333}{-1.885618}
+\end{pspicture}
 \answer{$x=\frac43$}
 \item \label{problemMaxVolumeBoxFixedAreaDoubleBottomNoLid} You want to build a rectangular box with a square base out of sheet metal. You are going to use 2 pieces of sheet metal for the bottom of the box to reinforce it, and only a single piece of sheet metal for all of the sides and the top. If you want to use no more than $36$ sq. ft. of material, what is the largest possible volume you can enclose?
 

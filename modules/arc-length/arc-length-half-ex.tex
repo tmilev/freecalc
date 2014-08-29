@@ -4,13 +4,13 @@
 \begin{columns}
 \column{0.15\textwidth}
 \psset{xunit=0.25cm, yunit=0.25cm}
-\begin{pspicture}(-1.4, -0.9)(1.4,3.855887) 
-\tiny 
-\psaxesStandard{-1.15}{-0.65}{1.15}{3.505887}
-%Function formula: 1/6 e^{3 x}+1/6 e^{-3 x} 
+\begin{pspicture}(-1.4, -0.9)(1.4,3.855887)
+\tiny
+\fcAxesStandard{-1.15}{-0.65}{1.15}{3.505887}
+%Function formula: 1/6 e^{3 x}+1/6 e^{-3 x}
 \psplot[linecolor=gray, plotpoints=1000]{-1}{1}{ 2.718281828 x -3. mul exp 0.166667 mul 2.718281828 x 3. mul exp 0.166667 mul add }
-\psplot[linecolor=\psColorGraph, plotpoints=1000]{0}{1}{ 2.718281828 x -3. mul exp 0.166667 mul 2.718281828 x 3. mul exp 0.166667 mul add }
-\end{pspicture}  
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{1}{ 2.718281828 x -3. mul exp 0.166667 mul 2.718281828 x 3. mul exp 0.166667 mul add }
+\end{pspicture}
 \column{0.85\textwidth}
 Find the length of the arc of $y = \frac{1}{6}e^{3x} + \frac{1}{6} e^{ -3x}$ from $x = 0$ to $x = 1$.
 \end{columns}

@@ -5,43 +5,43 @@ Find the points on \alert<handout:0| 3-6>{$r = 1+\sin\theta$} where the tangent 
 \begin{columns}[c]
 \column{.4\textwidth}
 \psset{xunit=1.2cm, yunit=1.2cm}
-\begin{pspicture}(-2.2, -0.900000)(2.2,2.6) 
-\tiny 
-\psaxesStandard{-2.1}{-0.650000}{2.1}{2.4}
-%Calculator command: drawPolar{}(\sin{}t+1, 0, 2 \pi) 
-\parametricplot[linecolor=\psColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{1.0000000 t 57.29578 mul sin add t 57.29578 mul cos mul 1.0000000 t 57.29578 mul sin add t 57.29578 mul sin mul }
+\begin{pspicture}(-2.2, -0.900000)(2.2,2.6)
+\tiny
+\fcAxesStandard{-2.1}{-0.650000}{2.1}{2.4}
+%Calculator command: drawPolar{}(\sin{}t+1, 0, 2 \pi)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{1.0000000 t 57.29578 mul sin add t 57.29578 mul cos mul 1.0000000 t 57.29578 mul sin add t 57.29578 mul sin mul }
 
 \uncover<15->{%
-\psFullDotBlue{1.299038}{0.75}
-\psline[linecolor=\psColorTangent](1.299038,0.35)(1.299038,1.15)
+\fcFullDotBlue{1.299038}{0.75}
+\psline[linecolor=\fcColorTangent](1.299038,0.35)(1.299038,1.15)
 \rput[l](1.35, 0.75){$\left(\frac{3}{2},\frac{\pi}{6}\right)$}
 }%
 \uncover<14->{%
-\psFullDotBlue{0}{2}
-\psline[linecolor=\psColorTangent](-0.4,2)(0.4,2)
+\fcFullDotBlue{0}{2}
+\psline[linecolor=\fcColorTangent](-0.4,2)(0.4,2)
 \rput[bl](0.05,2.05){$\left(2,\frac{\pi}{2}\right)$}
-}% 
+}%
 \uncover<15->{%
-\psFullDotBlue{-1.299038}{0.75}
-\psline[linecolor=\psColorTangent](-1.299038,0.35)(-1.299038,1.15)
+\fcFullDotBlue{-1.299038}{0.75}
+\psline[linecolor=\fcColorTangent](-1.299038,0.35)(-1.299038,1.15)
 \rput[r](-1.35,0.75){$\left(\frac{3}{2},\frac{5\pi}{6}\right)$}
 }%
 \uncover<14->{%
-\psFullDotBlue{-0.433013}{-0.25}
-\psline[linecolor=\psColorTangent](-0.033013,-0.25)(-0.833013,-0.25)
+\fcFullDotBlue{-0.433013}{-0.25}
+\psline[linecolor=\fcColorTangent](-0.033013,-0.25)(-0.833013,-0.25)
 \rput[t](-0.433013,-0.3){$\left(\frac{1}{2},\frac{7\pi}{6}\right)$}
 }
 \uncover<22->{%
-\psFullDotBlue{0}{0}
-\psline[linecolor=\psColorTangent](0,-0.4)(0,0.4)
+\fcFullDotBlue{0}{0}
+\psline[linecolor=\fcColorTangent](0,-0.4)(0,0.4)
 \rput[bl](0.05,0.05){$\left(0,\frac{3\pi}{2}\right)$}
 }%
 \uncover<14->{%
-\psFullDotBlue{0.433013}{-0.25}
-\psline[linecolor=\psColorTangent](0.033013,-0.25)(0.833013,-0.25)
+\fcFullDotBlue{0.433013}{-0.25}
+\psline[linecolor=\fcColorTangent](0.033013,-0.25)(0.833013,-0.25)
 \rput[t](0.433013,-0.3){$\left(\frac{1}{2},\frac{11\pi}{6}\right)$}
 }%
-\end{pspicture} 
+\end{pspicture}
 
 %\ \only<handout:0| -13>{%
 %\includegraphics[height=4cm]{polar-curves/pictures/11-03-tangenta.pdf}%
