@@ -249,13 +249,20 @@ end%
 \rput[b](! \fcEvaluateT{#3}{#5}){${#6}_{#2}$}%
 }
 
+\newcommand{\fcVectorNormalize}{ %
+1 dict begin %
+/theV exch def % theV is our vector
+theV 1 theV \fcVectorNorm div \fcVectorTimesScalar %
+end % 
+} %pushes elements of array onto the stack
+
 \newcommand{\fcArrayToStack}{ %
 1 dict begin %
 /theArray exch def %put array in var.
 0 1 theArray length 1 sub %loop parameters
 { theArray exch get %get array member
-} for 
-end 
+} for % 
+end %
 } %pushes elements of array onto the stack
 
 \newcommand{\fcSpliceArrayOperationArray}{ %
@@ -300,6 +307,10 @@ end %
 {add} \fcSpliceArrayOperationArray %
 } %Adds two vectors
 
+\newcommand{\fcVectorMinusVector}{%
+{sub} \fcSpliceArrayOperationArray %
+} %Adds two vectors
+
 \newcommand{\fcVectorTimesScalar}{ %
 2 dict begin %
 /theScalar exch def %
@@ -308,20 +319,57 @@ theV {theScalar mul} \fcSpliceArrayOperation
 end %
 } %
 
-\newcommand{\fcScalarSquare}{%
-dup \fcVectorScalarVector %
+\newcommand{\fcVectorCrossVector}{ %
+8 dict begin %
+/vectB exch def %
+/vectA exch def %
+vectA \fcArrayToStack %
+/a3 exch def %The three coordinates of Vector a
+/a2 exch def %
+/a1 exch def %
+vectB \fcArrayToStack %
+/b3 exch def %The three coordinates of Vector b
+/b2 exch def %
+/b1 exch def %
+[ a2 b3 mul a3 b2 mul sub a3 b1 mul a1 b3 mul sub a1 b2 mul a2 b1 mul sub] %the cross product of a and b
+end %
+}
+
+\newcommand{\fcVectorNorm}{%
+dup \fcVectorScalarVector sqrt %
 } %
 
-\newcommand{\fcProjectOntoPlane}{%
+\newcommand{\fcVectorNormSquared}{%
+dup \fcVectorScalarVector \space%
+} %
+
+\newcommand{\fcProjectOntoScreen}{%
+%(calling project onto plane with arguments:) == %
+%dup == %
 3 dict begin %
+\fcScreenWithSpace %
 /theD exch def %
 /theNormal exch def %
 /theV exch def %
-theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcScalarSquare div \fcVectorTimesScalar \fcVectorPlusVector
+theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcVectorNormSquared div \fcVectorTimesScalar \fcVectorPlusVector
 end %
 } %Projection of point onto a plane. First argument is point, second argument is plane normal, third argument is the scalar product you need to have with the normal to be in the plane. Format: [1 2 3] [4 5 6] 7, corresponds to projecting the point (1,2,3) onto the plane 4x+5y+6z=7
 
+\newcommand{\fcScreen}{[-1 1 0.25] 1} %default projection plane. Renew this command to change projection plane.
+\newcommand{\fcScreenWithSpace}{\fcScreen\space } %Darned LaTeX...
 
-
-\newcommand{\fcPlotCurveIIId}[4][linecolor=\fcColorGraph][[1 -1 0] 1]{%
+\newcommand{\fcPlotCurveIIId}[4][linecolor=\fcColorGraph]{%
+\parametricplot[#1]{#2}{#3}{ %
+[#4]%
+4 dict begin %
+/theNormalizedNormal \fcScreenWithSpace pop \fcVectorNormalize def %
+/theYUnitV [0 0 1] \fcProjectOntoScreen [0 0 0 ] \fcVectorMinusVector \fcVectorNormalize def %
+/theXUnitV theYUnitV theNormalizedNormal \fcVectorCrossVector def %
+/theV exch def %
+%(normalized normal: ) == theNormalizedNormal ==
+%(y unit v) == theYUnitV ==
+%(x unit v: ) == theXUnitV ==
+theV theXUnitV \fcVectorScalarVector theV theYUnitV \fcVectorScalarVector
+end %
+}
 }
