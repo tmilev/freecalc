@@ -268,8 +268,8 @@ end %
 \newcommand{\fcSpliceArrayOperationArray}{ %
 5 dict begin %
 /theOp exch def %
-/firstV exch def % 
-/secondV exch def %
+/secondV exch def % 
+/firstV exch def %
 /counter 0 def %
 /dimension firstV length def %
 dimension array
@@ -355,21 +355,54 @@ theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcVector
 end %
 } %Projection of point onto a plane. First argument is point, second argument is plane normal, third argument is the scalar product you need to have with the normal to be in the plane. Format: [1 2 3] [4 5 6] 7, corresponds to projecting the point (1,2,3) onto the plane 4x+5y+6z=7
 
-\newcommand{\fcScreen}{[-1 1 0.25] 1} %default projection plane. Renew this command to change projection plane.
-\newcommand{\fcScreenWithSpace}{\fcScreen\space } %Darned LaTeX...
-
-\newcommand{\fcPlotCurveIIId}[4][linecolor=\fcColorGraph]{%
-\parametricplot[#1]{#2}{#3}{ %
-[#4]%
-4 dict begin %
-/theNormalizedNormal \fcScreenWithSpace pop \fcVectorNormalize def %
-/theYUnitV [0 0 1] \fcProjectOntoScreen [0 0 0 ] \fcVectorMinusVector \fcVectorNormalize def %
-/theXUnitV theYUnitV theNormalizedNormal \fcVectorCrossVector def %
+\newcommand{\fcGetDrawCoordsFromPointOnScreen}{%
+5 dict begin %
 /theV exch def %
+/theVprojected theV \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen  \fcVectorMinusVector def%
+/theNormalizedNormal \fcScreenWithSpace pop \fcVectorNormalize def %
+/theYUnitV [0 0 1] \fcProjectOntoScreen [0 0 0] \fcVectorMinusVector \fcVectorNormalize def %
+/theXUnitV theNormalizedNormal theYUnitV \fcVectorCrossVector def %
 %(normalized normal: ) == theNormalizedNormal ==
 %(y unit v) == theYUnitV ==
 %(x unit v: ) == theXUnitV ==
-theV theXUnitV \fcVectorScalarVector theV theYUnitV \fcVectorScalarVector
+theVprojected theXUnitV \fcVectorScalarVector theVprojected theYUnitV \fcVectorScalarVector 
 end %
+}
+
+\newcommand{\fcScreen}{[-1 1 -0.5] -1} %default projection plane. Renew this command to change projection plane.
+\newcommand{\fcScreenWithSpace}{\fcScreen\space } %Darned LaTeX...
+
+\newcommand{\fcParallelogramIIId}[4][linecolor=cyan!30]{ %
+\pscustom*[#1]{ %
+\fcLineIIId{#2}{#3} %
+\fcLineIIId{#3}{#4} %
+\fcLineIIId{#4}{#4 #2 \fcVectorPlusVector #3 \fcVectorMinusVector} %
+\fcLineIIId{#4 #2 \fcVectorPlusVector #3 \fcVectorMinusVector}{#2} %
+}%
+}
+
+\newcommand{\fcLineIIId}[3][linecolor=\fcColorGraph]{
+\psline[#1](! #2 \fcGetDrawCoordsFromPointOnScreen)(! #3 \fcGetDrawCoordsFromPointOnScreen )
+}
+\newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{
+\fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}
+\rput(! [#2 0 0] \fcGetDrawCoordsFromPointOnScreen){$~~x$}
+\fcLineIIId[#1]{[0 0 0]}{[0 #3 0]}
+\rput(! [0 #3 0] \fcGetDrawCoordsFromPointOnScreen){$~~y$}
+\fcLineIIId[#1]{[0 0 0]}{[0 0 #4]}
+\rput(! [0 0 #4] \fcGetDrawCoordsFromPointOnScreen){$~~z$}
+}
+\newcommand{\fcDotIIId}[2][linecolor=\fcColorGraph]{ %
+\pscircle*[#1](! #2 \fcGetDrawCoordsFromPointOnScreen){0.07} %
+} %
+
+\newcommand{\fcPutIIId}[3][]{ %
+\rput[#1](! #2 \fcGetDrawCoordsFromPointOnScreen) {#3} %
+} %
+
+\newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%
+\parametricplot[#1]{#2}{#3}{ %
+[#4]%
+\fcGetDrawCoordsFromPointOnScreen %
 }
 }

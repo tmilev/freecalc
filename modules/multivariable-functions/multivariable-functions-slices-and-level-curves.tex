@@ -1,115 +1,382 @@
+%\begin{comment}
 \begin{frame}
 \frametitle{A motivating example}
-What does the graph $\Gamma$ of $g$ look like?
-\[
-g(x,y) =x^2+2y^2\quad .
-\]
-
-\begin{pspicture}(-2,-2)(2,2)
-%\pscircle*[fillcolor=white, linecolor=red](! \fcProjectOriginOnPlane{1}{1}{1}{1}){0.07}
-
-
-\end{pspicture}
+$
+\displaystyle g(x,y) =x^2+2y^2
+$ 
 
 \begin{itemize}
-\item The graph $\Gamma$ is the set of points $P(x,y,z)$ in $\RR^3$ such that $z=x^2+2y^2$. The set is not a plane: what does it look like?
+\item What does the graph $\Gamma$ of $g$ look like?
+\item $\Gamma$ = points in $\RR^3$ such that $z=x^2+2y^2$. The set is not a plane: what does it look like?
 \item To answer look at sections. Use imaginary CT scan to cut the graph; assemble resulting sections into a graph.
-\item Cut by vertical planes parallel to the $Oyz-$plane.
-\item Suppose cutting plane has equation $x=a$, where $a$-constant. Intersection with cutting plane is given by points:
-\[
-\{(a, y, z)\quad \text{where } z=a^2+2y^2)\}
-\]
-\item These cross-sections are parabolas lying inside the plane $x=a$ with vertices at $(a,0,a^2)$. The vertex rises as $a$ gets away from $0$.
-\item When we intersect $\Gamma$ with the plane $x=a$ we treat $x$ as a constant and study the function $y\to z=g(a,y) = a^2+2y^2$.
 \end{itemize}
 
-
-
-Similarly, if we cut by planes $y=a$ we get partial
-functions $x\to x^2+2a^2$, whose graphs are also
-parabolas. Each such a parabola is now situated in the
-vertical plane $y=a$. Hence vertical sections are
-parabolas, with vertices rising as
-we move farther away from the coordinate planes.
-
-To get horizontal sections we have to
-keep constant not an input variable, but the output
-variable, $z$. Intersecting the graph of $g$ with
-the plane $z=a$ we get a curve of equations $x^2+2y^2=a$,
-$z=a$. For $a<0$ the intersection is empty, for $a=0$ it
-consists of a single point, $(x,y,z) = (0,0,0)$, and for
-$a>0$, the intersection is an ellipse in the plane $z=a$.
-
-The \emph{level curve} corresponding to $z=a$ is the curve
-$g(x,y)=a$ in the domain of $g$, with a label $a$ to
-indicate the level of the output corresponding to
-that level curve. Note that the level curve is not the
-intersection of the graph of $g$ with the plane $z=a$;
-instead, it is the projection of that intersection onto
-the plane $Oxy$, where the domain of $g$ resides.
-
-You should be familiarized with level curves if
-you have ever seen a topographic map or if you
-opened the newspaper at the weather section. What are the
-functions in those cases?
-
+\vskip 10cm
 \end{frame}
 
+\begin{frame}
+\frametitle{A motivating example}
+$
+g(x,y) =x^2+2y^2
+$
 
-\subsection{Level sets}
-The examples considered in the previous sections were all
-examples of functions with scalar output and a two
-dimensional input. Their graphs lived in
-$\RR^3 = \RR^{2+1}$, with the 2 coming from the dimension
-of the input and the 1 from the dimension of the output.
-If we wanted to extend that graphic construction to
-functions depending on three scalar variables,
-we'd need $3+1=4$ dimensions for the graphs, and that
-is momentarily impossible. The rescue comes from the
-second graphical representation, using level sets,
-because the level sets (with appropriate labeling of
-the level) can be represented in a space with dimension
-equal to the dimension of the input space.
+\begin{columns}[c]
+\column{0.4\textwidth}
+\centering
 
 
-For example, let $f(x,y,z) = ax+by-z$. The graph is the
-quadruple $(x,y,z,w)$ in $\RR^4$ such that
-$w = ax+by-z$, and we can't yet represent that
-graphically. But the level set $f(x,y,z) = d$ is the
-surface $ax+by-z = d$ in $\RR^3$, and that surface is a
-plane. Level sets corresponding to equidistant values
-$d_1$, $d_2$, and $d_3$ of the output are parallel
-planes of equations
-%
-\begin{align*}
-  \mathcal{P}_1 = f^{-1}(d_1) & \colon \; ax+by-z = d_1\\
-  %
-  \mathcal{P}_2 = f^{-1}(d_2) & \colon \; ax+by-z = d_2\\
-  %
-  \mathcal{P}_3 = f^{-1}(d_3) & \colon \; ax+by-z = d_3
-\end{align*}
-%
-and these planes are also equidistant.
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-3,-2)(3,4)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -0.5] -1}
+\psline[linecolor=red!1](3, 4)(3.01,4.01)%
+\psline[linecolor=red!1](-3, -1)(-3.01,-1.01)%
+\uncover<2-5,9>{\fcParallelogramIIId{[1 -1.2 -0.5]}{[1 1.2 -0.5]}{[1 1.2 4]}}%
+\uncover<6>{\fcParallelogramIIId{[0 -1.2 -0.5]}{[0 1.2 -0.5]}{[0 1.2 4]}} % 
+\uncover<7>{\fcParallelogramIIId{[0.333333 -1.2 -0.5]}{[0.333333 1.2 -0.5]}{[0.333333 1.2 4]}} %
+\uncover<8>{\fcParallelogramIIId{[0.666666 -1.2 -0.5]}{[0.666666 1.2 -0.5]}{[0.666666 1.2 4]}} %
+\fcAxesIIId{3}{3}{3}
+\uncover<11->{\fcLineIIId[arrows=->, linecolor=black]{[0 0 0]}{[-3 0 0]}}
+%parabola at x=1
+\uncover<4-5,9->{\fcCurveIIId{-1.2}{1.2}{1 t 2 t t mul mul 1 add }} %
+\uncover<5,9,10,12>{\fcDotIIId{[1 0 1]}} %
+\uncover<2-5,9>{%
+\fcDotIIId[linecolor=black]{[1 0 0]} %
+\fcPutIIId[t]{[1 0 -0.3]}{$~~a$}%
+} %
+\uncover<5>{\fcPutIIId[bl]{[1 0 1.3]}{$~~~~\left(a,0,a^2\right)$}}%
+%parabola at x=0
+\uncover<6,10->{\fcCurveIIId{-1.2}{1.2}{0 t 2 t t mul mul 0 add }}
+\uncover<6,10,12>{\fcDotIIId{[0 0 0]}}
+\uncover<6>{ %
+\fcDotIIId[linecolor=black]{[0 \space 0 0]}%
+\fcPutIIId[t]{[0 0 -0.3]}{$~~a=0$}%
+} %
+%parabola at x=1/3
+\uncover<7>{\fcCurveIIId{-1.2}{1.2}{0.333333 t 2 t t mul mul 0.333333 dup mul add }}
+\uncover<7>{\fcDotIIId{[0.333333 0 0.333333 0.333333 mul]}}
+\uncover<7>{ %
+\fcDotIIId[linecolor=black]{[0.333333 0 0]}%
+\fcPutIIId[t]{[0.333333 0 -0.3]}{$~~a$}%
+}
+%parabola at x=1/2
+\uncover<10->{\fcCurveIIId{-1.2}{1.2}{0.5 t 2 t t mul mul 0.5 dup mul add }}
+\uncover<10>{\fcDotIIId{[0.5 0 0.5 dup mul]}}
+%parabola at x=2/3
+\uncover<8>{\fcCurveIIId{-1.2}{1.2}{0.666666 t 2 t t mul mul 0.666666 dup mul add }}%
+\uncover<8>{\fcDotIIId{[0.666666 0 0.666666 0.666666 mul]}}
+\uncover<8>{ %
+\fcDotIIId[linecolor=black]{[0.666666 0 0]}%
+\fcPutIIId[t]{[0.666666  0 -0.3]}{$~~a$}%
+} %
+\uncover<11->{
+%\fcCurveIIId{-1.2}{1.2}{-0.333333 t 2 t t mul mul 0.333333 dup mul add }
+\fcCurveIIId{-1.2}{1.2}{-0.5 t 2 t t mul mul 0.5 dup mul add }
+\fcCurveIIId{-1.2}{1.2}{-1.0 t 2 t t mul mul 1.000000 dup mul add }
+}
+\uncover<12>{
+\fcCurveIIId[linecolor=blue]{-1.5}{1.5}{t 0 t t mul}
+\fcDotIIId{[-0.5 0  -0.5 dup mul]}
+\fcDotIIId{[-1.000000 0  -1.000000 dup mul]}
+}
+\end{pspicture}
 
-The following remark will play a very important role in
-understanding surfaces in space.
+\uncover<2->{
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1.6, -0.9)(1.6,4.38) 
+\tiny 
+\psframe*[linecolor=cyan!30](! -1.45 -0.75)(! 1.45 4.13)%
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.35,-0.65)(1.35,4.03)
+\fcLabels[$y$][$z$]{1.35}{4.03}
 
-\begin{remark}{\rm The level set $f(x,y,z)=0$ for the
-function
-%
-$$f(x,y,z) = ax+by-z+d$$
-%
-is the same as the graph
-of the function $g(x,y) = ax+by+c$.
-}\end{remark}
+\uncover<6>{
+%Function formula: 2 x^{2} 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.2}{1.2}{x 2 exp 2 mul }
+\fcFullDot{0}{0}
+}
 
-We will see that while graph surfaces can always be
-represented as level surfaces, the converse is not true:
-level surfaces can't always be represented as graph
-surfaces. However, we'll show that under some reasonable
-assumptions, level surfaces can \emph{locally} be
-described as graph surfaces. An illuminating example is
-that of a sphere (centered at the origin): it is the
-level surface of $f(x,y,z) = x^2+y^2+z^2$, but it can't
-be globally represented as a graph surface. Try and see
-what goes wrong!
+\uncover<7>{
+%Function formula: 2 x^{2}+\frac{1}{9} 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.2}{1.2}{ 0.111111 x 2 exp 2 mul add }
+\fcFullDot{0}{0.111111}
+}
+\uncover<8>{
+%Function formula: 2 x^{2}+\frac{4}{9} 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.2}{1.2}{ 0.444444 x 2 exp 2 mul add }
+\fcFullDot{0}{0.444444}
+}
+\uncover<3-5, 9->{ %
+%Function formula: 2 x^{2}+1 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.2}{1.2}{ 1 x 2 exp 2 mul add } %
+} %
+\uncover<5, 9->{\fcFullDot{0}{1}} %
+\end{pspicture} 
+
+The plane $x=a$.
+} % uncover end
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item<2-> Cut by vertical planes $x=a$, $a$-constant, parallel to the $Oyz-$plane.
+\item<3-> In other words, treat $x$ as constant and study the f-n $y\to z= a^2+2y^2=g(a,y) $.
+
+\item<4-> The cross-sections are the curves:
+$
+\displaystyle \{(a, y, z)\quad \text{where } z=a^2+2y^2\}
+$
+\item<5-> These are parabolas lying inside the plane $x=a$ with vertices at $\left(a,0,a^2\right)$. 
+
+\item<6-> As $a$ moves away from $0$, the parabola vertex rises. 
+\item<12-> The vertices traverse the curve given by $\{ (a, 0, a^2) \}$.
+\end{itemize}
+\end{columns}
+
+\vskip 10 cm
+\end{frame}
+%\end{comment}
+
+%\begin{comment}
+\begin{frame}
+\frametitle{A motivating example}
+$
+g(x,y) =x^2+2y^2
+$
+
+\begin{columns}[c]
+\column{0.4\textwidth}
+\centering
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-3,-2)(3,4)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -0.5] -1}
+\psline[linecolor=red!1](3, 4)(3.01,4.01)%
+\psline[linecolor=red!1](-3, -1)(-3.01,-1.01)%
+%parabola at y=1
+\uncover<1-3,7>{\fcParallelogramIIId{[-1  1 -0.5]}{[1 1 -0.5]}{[1 1 4]}}%
+\uncover<1-3,7>{ %
+\fcDotIIId[linecolor=black]{[0 1 0]}%
+\fcPutIIId[t]{[0 1 -0.3]}{$~~a$}%
+} %
+\uncover<3,7->{\fcCurveIIId{-1}{1}{ t 1 2 t t mul mul 1 dup mul 2 mul add}} %
+
+%parabola at y=0
+\uncover<4>{\fcParallelogramIIId{[-1  0 -0.5]}{[1 0 -0.5]}{[1 0 4]}}%
+\uncover<4>{ %
+\fcDotIIId[linecolor=black]{[0 0 0]}%
+\fcPutIIId[t]{[0 0 -0.3]}{$~~a$}%
+} %
+\uncover<4,8->{\fcCurveIIId{-1}{1}{t 0 2 t t mul mul 0 dup mul 2 mul add}} %
+
+%parabola at y=1/3
+\uncover<5>{\fcParallelogramIIId{[-1  0.333333 -0.5]}{[1 0.333333 -0.5]}{[1 0.333333 4]}}%
+\uncover<5>{ %
+\fcDotIIId[linecolor=black]{[0 0.333333 0]}%
+\fcPutIIId[t]{[0 0.333333 -0.3]}{$~~a$}%
+} %
+\uncover<5>{\fcCurveIIId{-1}{1}{t 0.333333 2 t t mul mul 0.333333 dup mul 2 mul add}} %
+
+%parabola at y=2/3
+\uncover<6>{\fcParallelogramIIId{[-1  0.666666 -0.5]}{[1 0.666666 -0.5]}{[1 0.666666 4]}}%
+\uncover<6>{ %
+\fcDotIIId[linecolor=black]{[0 0.666666 0]}%
+\fcPutIIId[t]{[0 0.666666 -0.3]}{$~~a$}%
+} %
+\uncover<6,8->{\fcCurveIIId{-1}{1}{t 0.666666 2 t t mul mul 0.666666 dup mul 2 mul add}} %
+
+\fcAxesIIId{3}{3}{3}%
+\uncover<9->{
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 -3 0]} %
+\fcCurveIIId{-1}{1}{t -0.666666 2 t t mul mul 0.666666 dup mul 2 mul add} %
+\fcCurveIIId{-1}{1}{t -1 2 t t mul mul 1 dup mul 2 mul add} %
+}
+\uncover<10->{
+\fcCurveIIId[linecolor=blue]{-1.2}{1.2}{0 t 2 t t mul mul }
+\fcDotIIId{[0 0 0]}
+\fcDotIIId{[0 -0.5 0.5]}
+\fcDotIIId{[0 0.5 0.5]}
+\fcDotIIId{[0 1 2]}
+\fcDotIIId{[0 -1 2]}
+}
+\end{pspicture}
+
+\uncover<1->{
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1.6, -0.9)(1.6,4.38) 
+\tiny 
+\psframe*[linecolor=cyan!30](! -1.45 -0.75)(! 1.45 4.13)%
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.35,-0.65)(1.35,4.03)
+\fcLabels[$x$][$z$]{1.35}{4.03}
+\uncover<4>{
+%Function formula: 2 x^{2} 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{x 2 exp 2 mul }
+}%
+\uncover<5>{%
+%Function formula: 2 x^{2}+\frac{2}{9} 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{ 2 9 div x 2 exp 2 mul add }%
+}%
+\uncover<6>{%
+%Function formula: 2 x^{2}+2*\frac{4}{9} 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{ 8 9 div x 2 exp 2 mul add }%
+}%
+\uncover<3, 7->{%
+%Function formula: 2 x^{2}+1 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{ 2 x 2 exp 2 mul add }%
+}%
+\end{pspicture} 
+
+The plane $x=a$.
+} % uncover end
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item<1-> Similarly, cut by vertical planes $y=a$, i.e., planes parallel to the $Oxz$ plane.
+
+\item<2-> In other words, treat $y$ as constant and study the f-n $z=g(x,a) = x^2+2a^2$.
+
+\item<3-> The cross-sections are the curves  $\{ (x,a,z) \text{  where  } z= x^2+2a^2\}$. These are parabolas lying inside the plane $y=a$. 
+\item<8-> $\Rightarrow$ the vertical sections along both the $x$ and $y$ axes are parabolas.
+\item<10-> The vertices are rising as we move away from the origin.
+\end{itemize}
+\end{columns}
+
+\vskip 10 cm
+\end{frame}
+%\end{comment}
+
+
+%\begin{comment}
+\begin{frame}
+
+\frametitle{A motivating example}
+$
+g(x,y) =x^2+2y^2
+$
+
+\begin{columns}[c]
+\column{0.4\textwidth}
+\centering
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-3,-2)(3,4)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -0.5] -1}
+\psline[linecolor=red!1](3, 4)(3.01,4.01)%
+\psline[linecolor=red!1](-3, -2)(-3.01,-2.01)%
+\uncover<1-2>{ %
+\fcParallelogramIIId{[-2.5  -2.5 1]}{[2.5 -2.5 1]}{[2.5 2.5 1]}
+\fcDotIIId[linecolor=black]{[0 0 1]}%
+\fcPutIIId[tl]{[0 0 1]}{$~~a$}%
+} %
+\uncover<3>{ %
+\fcParallelogramIIId{[-2.5  -2.5 -1]}{[2.5 -2.5 -1]}{[2.5 2.5 -1]}
+\fcDotIIId[linecolor=black]{[0 0 -1]}%
+\fcPutIIId[tl]{[0 0 -1]}{$~~a$}%
+} %
+\uncover<4>{ %
+\fcParallelogramIIId{[-2.5  -2.5 0]}{[2.5 -2.5 0]}{[2.5 2.5 0]}
+} %
+\uncover<5>{ %
+\fcParallelogramIIId{[-2.5  -2.5 0.5]}{[2.5 -2.5 0.5]}{[2.5 2.5 0.5]}
+} %
+\uncover<6>{ %
+\fcParallelogramIIId{[-2.5  -2.5 1]}{[2.5 -2.5 1]}{[2.5 2.5 1]}
+} %
+\uncover<7>{ %
+\fcParallelogramIIId{[-2.5  -2.5 1.5]}{[2.5 -2.5 1.5]}{[2.5 2.5 1.5]}
+} %
+\uncover<8>{ %
+\fcParallelogramIIId{[-2.5  -2.5 2]}{[2.5 -2.5 2]}{[2.5 2.5 2]}
+} %
+
+\fcAxesIIId{3}{3}{3}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 -3 0]} %
+\fcLineIIId[arrows=->]{[0 0 0]}{[-3 0 0]} %
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 -1.5]} %
+
+\uncover<4>{\fcDotIIId{[0 0 0]}}
+\uncover<5,9->{ % 
+\fcCurveIIId{ 0}{6.2832}{t 360 mul cos 0.500 sqrt mul t 360 mul sin 0.500 2 div sqrt mul 0.5} 
+}
+\uncover<5>{\fcDotIIId[linecolor=black]{[0 0 0.5]}}
+\uncover<6,9->{ % 
+\fcCurveIIId{ 0}{6.2832}{t 360 mul cos 1 sqrt mul t 360 mul sin 1 2 div sqrt mul 1} 
+}
+\uncover<6>{\fcDotIIId[linecolor=black]{[0 0 1]}}
+\uncover<7,9->{ % 
+\fcCurveIIId{ 0}{6.2832}{t 360 mul cos 1.5 sqrt mul t 360 mul sin 1.5 2 div sqrt mul 1.5} 
+}
+\uncover<7>{\fcDotIIId[linecolor=black]{[0 0 1.5]}}
+\uncover<8,9->{ % 
+\fcCurveIIId{ 0}{6.2832}{t 360 mul cos 2.0 sqrt mul t 360 mul sin 2.0 2 div sqrt mul 2.0} 
+}
+\uncover<8>{\fcDotIIId[linecolor=black]{[0 0 2.0]}}
+
+\uncover<10->{
+\fcCurveIIId[linewidth=1pt, linecolor=blue]{-1.414214 }{1.414214}{t 0 t t mul}
+\fcCurveIIId[linewidth=1pt, linecolor=blue]{-1}{1}{0 t t t 2 mul mul}
+}
+\uncover<11->{
+\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{t 360 mul cos 0.500 sqrt mul t 360 mul sin 0.500 2 div sqrt mul 0.5} 
+\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{t 360 mul cos 1 sqrt mul t 360 mul sin 1 2 div sqrt mul 1} 
+\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{t 360 mul cos 1.5 sqrt mul t 360 mul sin 1.5 2 div sqrt mul 1.5} 
+\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{t 360 mul cos 2.0 sqrt mul t 360 mul sin 2.0 2 div sqrt mul 2.0} 
+}
+\end{pspicture}
+
+\uncover<2->{
+\psset{xunit=0.4cm, yunit=0.4cm}
+\begin{pspicture}(-3.228413, -1.814212)(3.228427,1.914212) 
+\tiny 
+\psframe*[linecolor=cyan!30](! -3.078413 -1.664212)(! 3.078427 1.664212)%
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-2.978413,-1.564212) (2.978427,1.564212)
+\fcLabels[$x$][$y$]{2.978427}{1.564212}
+\uncover<4>{
+\fcFullDot{0}{0}
+}
+\uncover<5>{
+%Calculator input: plotCurve{}\left(\frac{\sqrt{2}}{2} \cos{}t, \frac{1}{2} \sin{}t, 0, 2 \pi\right)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{6.28319}{t 57.29578 mul cos 0.707107 mul t 57.29578 mul sin 0.5 mul }
+}
+\uncover<6>{
+%Calculator input: plotCurve{}\left(\cos{}t, \frac{\sqrt{2}}{2} \sin{}t, 0, 2 \pi\right)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{6.28319}{t 57.29578 mul cos t 57.29578 mul sin 0.707107 mul }
+}
+\uncover<7>{
+%Calculator input: plotCurve{}\left(\frac{\sqrt{2}\sqrt{3}}{2} \cos{}t, \frac{\sqrt{3}}{2} \sin{}t, 0, 2 \pi\right)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{6.28319}{t 57.29578 mul cos 1.224745 mul t 57.29578 mul sin 0.866025 mul }
+}
+\uncover<8->{
+%Calculator input: plotCurve{}\left(\sqrt{2} \cos{}t, \sin{}t, 0, 2 \pi\right)
+\parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{6.28319}{t 57.29578 mul cos 1.414214 mul t 57.29578 mul sin }
+}
+\end{pspicture} 
+
+$x^2+2y^2= \only<1-3>{a} \only<4>{\alert<4>{0}}$, \only<1-3>{\alert<5>{$a<0$}}\only<5->{\alert<5>{$a>0$}}.
+}
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item<1-> For horizontal sections keep constant the output variable, $z=a$.
+\item<2-> When we intersect with $z=a$ we get the curve with equations $x^2+2y^2=a$, $z=a$.
+\item<3-> For $a<0$ intersection is empty.
+\item<4-> For $a=0$ intersection is $(0,0,0)$.
+\item<5-> For $a>0$ intersection is an ellipse. 
+\item<10-> Figure is called ellipsoidal paraboloid.
+\end{itemize}
+\uncover<11->{
+\begin{definition}
+The sets $\{ (x,y,a)| g(x,y)=a\}$ are called \alert<11>{level curves} of the function $g$.
+\end{definition}
+}
+\end{columns}
+
+\vskip 10 cm
+\end{frame}
+\begin{frame}
+
+\begin{itemize}
+\item 
+You should be familiarized with level curves if you have ever seen a topographic map or from weather reports on the tv. 
+\item What are the functions in those cases?
+\end{itemize} 
+\end{frame}
+%\end{comment}
