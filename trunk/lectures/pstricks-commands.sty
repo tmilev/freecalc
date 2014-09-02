@@ -6,30 +6,20 @@
 %WARNING THE FOLLOWING PACKAGE IS BROKEN use only with EXTREME CAUTION
 \usepackage{pst-3dplot}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% List of commands in this document
-%
-%
-% \fcFullDot        (Default dot to be used for points on graphs of functions).
-% \fcHollowDot      (Default dot to be used for points on graphs of functions).
-% \fcHollowDotBlue
-% \fcFullDotBlack
-% \fcFullDotBlue
-% \fcLabelXOne      (labels one on x axis)
-% \fcLabelYOne      (labels one on y axis)
-% \fcLabels         (writes x and y labels )
-% \fcLabelsWithOnes (same as \fcLabels + in addition labels 1 on the x and y axis)
-%\fcAxesStandard (default display of axes with x and y label, takes two arguments)
-%\fcLabelNumberXaxis
-%\fcLabelNumberYaxis
-%\fcDefaultXLabel
-%\fcDefaultYLabel
-%\fcXTickWithLabel
-%\fcYTickWithLabel
-%\fcDirectionField
-%\fcDirectionFieldDefault
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\fcDelta}{0.5}
+\newcommand{\fcStartXIId}{0}
+\newcommand{\fcStartYIId}{0}
+\newcommand{\fcIterationsX}{9}
+\newcommand{\fcIterationsY}{9}
+
+\makeatletter %needed for define@key command. 
+\define@key{fcIId}{Delta}[\renewcommand{\fcDelta}{1}]{\renewcommand{\fcDelta}{#1}}
+\define@key{fcIId}{startX}[\renewcommand{\fcStartXIId}{0}]{\renewcommand{\fcStartXIId}{#1}}
+\define@key{fcIId}{startY}[\renewcommand{\fcStartYIId}{0}]{\renewcommand{\fcStartYIId}{#1}}
+\define@key{fcIId}{iterationsX}[\renewcommand{\fcIterationsX}{9}]{\renewcommand{\fcIterationsX}{#1}}
+\define@key{fcIId}{iterationsY}[\renewcommand{\fcIterationsY}{9}]{\renewcommand{\fcIterationsY}{#1}}
+\makeatother %undoes \makeatletter.
+
 
 \newcommand{\fcHollowDot}[2]{
 \pscircle*[fillcolor=white, linecolor=red](#1, #2){0.07}
@@ -257,12 +247,13 @@ end %
 } %pushes elements of array onto the stack
 
 \newcommand{\fcArrayToStack}{ %
+\space %
 1 dict begin %
 /theArray exch def %put array in var.
 0 1 theArray length 1 sub %loop parameters
 { theArray exch get %get array member
 } for % 
-end %
+end \space%
 } %pushes elements of array onto the stack
 
 \newcommand{\fcSpliceArrayOperationArray}{ %
@@ -382,8 +373,15 @@ end %
 }
 
 \newcommand{\fcLineIIId}[3][linecolor=\fcColorGraph]{
-\psline[#1](! #2 \fcGetDrawCoordsFromPointOnScreen)(! #3 \fcGetDrawCoordsFromPointOnScreen )
+\psline[#1](! #2 \space \fcGetDrawCoordsFromPointOnScreen)(! #3 \space \fcGetDrawCoordsFromPointOnScreen )
 }
+\newcommand{\fcAxesIIIdFull}[4][linecolor=black, arrows=->]{ %
+\fcAxesIIId[#1]{#2}{#3}{#4} %
+\fcLineIIId[#1]{[0 0 0]}{[#2\space -1 mul 0 0]} %
+\fcLineIIId[#1]{[0 0 0]}{[0 #3\space -1 mul 0]} %
+\fcLineIIId[#1]{[0 0 0]}{[0 0 #4\space -1 mul]} %
+} %
+
 \newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{
 \fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}
 \rput(! [#2 0 0] \fcGetDrawCoordsFromPointOnScreen){$~~x$}
@@ -406,3 +404,24 @@ end %
 \fcGetDrawCoordsFromPointOnScreen %
 }
 }
+
+\newcommand{\fcVectorField}[3][linecolor=blue]{ %
+\setkeys{fcIId}{#2}%
+\multido{\ra=\fcStartXIId+\fcDelta}{\fcIterationsX}{%
+\multido{\rb=\fcStartYIId+\fcDelta}{\fcIterationsY}{%
+\pstVerb{ %
+4 dict begin %
+/x \ra \space def % 
+/y \rb \space def %
+#3 \space %
+/vY exch def %
+/vX exch def %
+}%
+\psline[#1](! x vX 2 div sub y vY 2 div sub)(! x vX 2 div add y vY 2 div add)
+\pscircle*[linecolor=red](! x y){0.02}%
+\pstVerb{end}%
+}%end multido
+}%end multido
+
+}
+
