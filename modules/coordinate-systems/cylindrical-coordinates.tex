@@ -1,7 +1,8 @@
 \begin{frame}
  \frametitle{Cylindrical coordinates}
+\begin{columns}
+\column{0.4\textwidth}
 %
-\begin{figure}[h]
   \psfrag{P}{$P$}
   \psfrag{O}{$O$}  
   \psfrag{xp}{$x_P$} 
@@ -12,20 +13,22 @@
   \includegraphics[height=2in]{../../modules/coordinate-systems/pictures/cylindrical_coordinates.eps}
   %\caption{Cylindrical coordinates}
   %\label{fig:cylindrical-coordinates}
-\end{figure}
 %
+\column{0.6\textwidth}
 $$P(x,y,z) \Longleftrightarrow P(r, \theta, z)$$
 
 \begin{itemize}
     \item Polar in $Oxy$ -- $(r, \theta)$;
     \item Rectangular in $Orz$ -- $(r, z)$.
 \end{itemize}
+\end{columns}
 
 \end{frame}
 
 \begin{frame}
-%
-\begin{figure}[h]
+
+\begin{columns}
+\column{0.4\textwidth}
   \psfrag{P}{$P$}
   \psfrag{O}{$O$}  
   \psfrag{xp}{$x_P$} 
@@ -36,20 +39,21 @@ $$P(x,y,z) \Longleftrightarrow P(r, \theta, z)$$
   \includegraphics[height=2in]{../../modules/coordinate-systems/pictures/cylindrical_coordinates.eps}
   %\caption{Cylindrical coordinates}
   %\label{fig:cylindrical-coordinates}
-\end{figure}
 %
-Cylindrical to rectangular:\pause
+\column{0.6\textwidth}
+To transform cylindrical to rectangular coordinates:\pause
 $$x=r\cos\theta \quad , \quad y = r\sin\theta \quad , \quad z_{r} = z_{c}$$
 
 Rectangular to cylindrical:\pause
 $$r= \sqrt{x^2+y^2} \quad , \quad z_{c}=z_{r}$$
 $$\cos\theta = \frac{x}{r} \quad , \quad \sin\theta = \frac{y}{r}\; .$$
+\end{columns}
 \end{frame}
 
 \begin{frame}
- \frametitle{Constant Coordinate Sets}
- \begin{table}[h]
-\begin{tabular}[t]{lr}
+\frametitle{Constant Coordinate Sets}
+\begin{columns}
+\column{0.4\textwidth}
   \psfrag{P}{$P$}
   \psfrag{O}{$O$}  
   \psfrag{xp}{$x_P$} 
@@ -58,8 +62,8 @@ $$\cos\theta = \frac{x}{r} \quad , \quad \sin\theta = \frac{y}{r}\; .$$
   \psfrag{rp}{$r_P$}
   \psfrag{thp}{$\theta_P$}
   \includegraphics[height=2in]{../../modules/coordinate-systems/pictures/cylindrical_coordinates.eps}
-&
-{\parbox{0.5\textwidth}{
+\column{0.6\textwidth}
+
 Surfaces:
 \begin{itemize}
   \item $r$ constant \pause$\to$ vertical cylinder;
@@ -73,9 +77,5 @@ Curves:
 \item $r, z$ constant \pause$\to$ horizontal circle;
 \item $r, \theta$ constant \pause$\to$ vertical line.
 \end{itemize}
-}}
-%
-\end{tabular}
-\end{table}
-
+\end{columns}
 \end{frame}
