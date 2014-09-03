@@ -1,5 +1,42 @@
 \begin{frame}
- \frametitle{Transition Spherical - Rectangular}
+ \frametitle{Transition Spherical - Rectangular coordinates}
+\begin{columns}
+\column{0.45\textwidth}
+\psset{xunit=1.4cm, yunit=1.4cm}
+\begin{pspicture}(-3,-2)(2,2)
+\tiny
+\renewcommand{\fcScreen}{[-1 -0.4 -0.25] -1}
+\fcAxesIIId{5}{5}{5}
+\fcPutIIId[r]{[0 -0.15 0.15]}{$O$}
+\fcLineIIId[linestyle=dotted]{[3 0 0]}{[3 3 0]}
+\fcLineIIId[linestyle=dotted]{[3 3 0]}{[0 3 0]}
+\fcLineIIId[linestyle=dotted]{[0 0 0]}{[0 3 0]}
+\fcLineIIId{[0 0 0]}{[3 3 0]}
+\fcLineIIId{[3 3 0]}{[3 3 3]}
+\fcLineIIId{[0 0 0]}{[3 3 3]}
+\fcLineIIId{[0 0 3]}{[3 3 3]}
+\fcPutIIId[l]{[3.1 3.1 3.1]}{$P$}
+\fcPutIIId[r]{[3 -0.1 0]}{$x_P$}
+\fcPutIIId[t]{[3 3 0]}{$Q$}
+\fcPutIIId[b]{[0 3.1 0]}{$y_P$}
+\fcPutIIId[l]{[1.5 2.5 1.2]}{$z_P$}
+\fcPutIIId[r]{[0 0 3]}{$z_P~~$}
+\fcPutIIId[r]{[2.1 2.1 2.1]}{$\rho_P$}
+\fcPutIIId[rt]{[1 1 1.5]}{$\phi_P~~$}
+\fcPutIIId[tr]{[1.8 0.9 0]}{$\theta_P$}
+\fcCurveIIId[linecolor=red, arrows=->]{0}{54.74}{ %
+t sin 45 cos mul 1.7 mul % 
+t sin 45 sin mul 1.7 mul %
+t cos 1.7 mul %
+} %
+\fcCurveIIId[linecolor=red, arrows=->]{0}{45}{ %
+t cos 1.7 mul % 
+t sin 1.7 mul %
+0 %
+} %
+\end{pspicture} 
+\column{0.55\textwidth}
+
 
 \pause
 Spherical to rectangular:\pause
@@ -14,7 +51,7 @@ Rectangular to spherical:\pause
 $$\rho = \sqrt{x^2+y^2+z^2} \quad , \quad r = \sqrt{x^2+y^2}$$
 $$\cos\phi = \frac{z}{\rho} \quad , \quad \sin\phi = \frac{r}{\rho}$$
 $$\cos\theta = \frac{x}{r} \quad , \quad \sin\theta = \frac{y}{r}$$
-
+\end{columns}
 \end{frame}
 
 \begin{frame}
