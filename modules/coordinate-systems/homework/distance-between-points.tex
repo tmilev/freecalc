@@ -1,0 +1,35 @@
+Find the distance between the points. The answer key has not been proofread, use with caution.
+\begin{enumerate}
+\item $(2, 3, 5)$ and $(3, 5, 7)$.
+\answer{$3$}
+\item $(1, 1, 1)$ and $(0, 0, -1)$.
+\answer{$\sqrt{6}$}
+\item A vertex of a cube with edge 2cm and the midpoint of one of the three opposing sides.
+\answer{$\sqrt{6}$}
+\item Consider a cube with edge 2cm. Consider two edges that do not have a common point and are not parallel. Find the distance between the midpoints of those two edges. 
+\answer{$\sqrt{6}$}
+
+\begin{pspicture}(-2,-2)(2,2)
+\renewcommand{\fcScreen}{[-1 1.1 -0.5] -1}
+\fcLineIIId{[-1 -1 -1]}{[1 -1 -1]}
+\fcLineIIId{[-1 -1 -1]}{[-1 1 -1]}
+\fcLineIIId{[-1 -1 -1]}{[-1 -1 1]}
+
+\fcLineIIId{[1 -1 -1]}{[1 1 -1]}
+\fcLineIIId{[1 -1 -1]}{[1 -1 1]}
+
+\fcLineIIId{[-1 1 -1]}{[1 1 -1]}
+\fcLineIIId{[-1 1 -1]}{[-1 1 1]}
+
+\fcLineIIId{[-1 -1 1]}{[1 -1 1]}
+\fcLineIIId{[-1 -1 1]}{[-1 1 1]}
+
+\fcLineIIId{[1 1 -1]}{[1 1 1]}
+
+\fcLineIIId{[1 -1 1]}{[1 1 1]}
+
+\fcLineIIId{[-1 1 1]}{[1 1 1]}
+\fcDotIIId[linecolor=black]{[0 1 1]}
+\fcDotIIId[linecolor=black]{[-1 -1 0]}
+\end{pspicture}
+\end{enumerate}
