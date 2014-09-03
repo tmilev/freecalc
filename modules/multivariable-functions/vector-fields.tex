@@ -17,47 +17,54 @@
 \frametitle{Coordinate representation of vector fields}
 
 \begin{itemize}
-\item In rectangular coordinates a vector field $\textbf{F}$ can
+\item<1-> In rectangular coordinates a vector field $\textbf{F}$ can
 be decomposed along the fundamental directions:
 $$
 \textbf{F}(x,y,z) = F_1(x,y,z) \textbf{i} + F_2(x,y,z) \textbf{j} + F_3(x,y,z) \textbf{k} \; .
 $$
-\item For regions in the plane 2-dim vector fields are defined in a similar fashion: as function from subsets of $\mathbb R^2$ to $\RR$.
+\item<2-> For regions in the plane 2-dim vector fields are defined in a similar fashion: as function from subsets of $\mathbb R^2$ to $\RR$:
+$$
+\textbf{F}(x,y) = F_1(x,y) \textbf{i} + F_2(x,y) \textbf{j}
+$$
 
-\item Example: the vector field $\textbf{e}_r$ is given by
 
 \end{itemize}
-%
-%
-$$\textbf{e}_r = \cos\theta\, \textbf{i} +
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item<1-> Example: define the vector field $\textbf{e}_r$ on $\mathbb{R}^2 \setminus \{ (0,0)\}$ via
+\[
+\textbf{e}_r = \cos\theta\, \textbf{i} +
 \sin\theta \,\textbf{j} = \frac{x}{r} \, \textbf{i} +
 \frac{y}{r} \, \textbf{j} = \frac{x}{\sqrt{x^2+y^2}} \,
-\textbf{i} + \frac{y}{\sqrt{x^2+y^2}} \, \textbf{j}$$
-%
-and is defined on $\mathbb{R}^2 \setminus \{ (0,0)\}$.
-Similarly the vector field $\textbf{e}_{\theta}$ is
-%
-$$\textbf{e}_\theta = -\sin\theta\, \textbf{i} +
+\textbf{i} + \frac{y}{\sqrt{x^2+y^2}} \, \textbf{j}
+\]
+
+\item<2-> Similarly define the vector field $\textbf{e}_{\theta}$ by:
+\[\textbf{e}_\theta = -\sin\theta\, \textbf{i} +
 \cos\theta \,\textbf{j} = -\frac{y}{r} \, \textbf{i} +
 \frac{x}{r} \, \textbf{j} = -\frac{y}{\sqrt{x^2+y^2}} \,
-\textbf{i} + \frac{x}{\sqrt{x^2+y^2}} \, \textbf{j} \; .$$
-%
- \begin{center}
-\begin{tabular}{cc}
-  \includegraphics[height=5cm]{../../modules/multivariable-functions/pictures/radial_field.eps}
-  &
-  \includegraphics[height=5cm]{../../modules/multivariable-functions/pictures/rotational_field.eps}
-  \\
-  Radial field $\textbf{e}_r$ & Rotational field
-  $\textbf{e}_\theta$
-\end{tabular}
-\end{center}
-
-The graphical representations of these vector fields makes
-it quite clear what would happen to an object forced to move
-so that the velocity at each point is given by the value of
-the field.
-
+\textbf{i} + \frac{x}{\sqrt{x^2+y^2}} \, \textbf{j} \; .
+\]
+\uncover<3->{
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-5.2,-5.2)(5.2,5.2)
+\tiny
+\fcAxesStandard{-5.1}{-5.1}{5.1}{5.1}
+\fcVectorField[linecolor=blue, arrows=->]{startX=-5, startY=-5, Delta=1, iterationsX=11, iterationsY=11}{1 dict begin /r x x mul y y mul add sqrt def  r 0 eq {0 0} {x r div  y r div} ifelse end}
+\end{pspicture}
+\psset{xunit=0.3cm, yunit=0.3cm}
+~~~ \begin{pspicture}(-5.2,-5.2)(5.2,5.2)
+\tiny
+\fcAxesStandard{-5.1}{-5.1}{5.1}{5.1}
+\fcVectorField[linecolor=blue, arrows=->]{startX=-5, startY=-5, Delta=1, iterationsX=11, iterationsY=11}{1 dict begin /r x x mul y y mul add sqrt def  r 0 eq {0 0} {-1 y mul r div  x r div} ifelse end}
+\end{pspicture}
+}
+\item<4-> From the picture it is evident what trajectory would be followed by an object that ``\alert<5>{flows along the vector field}''.
+\item<5-> By ``\alert<5>{flowing}'' we mean an object whose \alert<5>{velocity} at each point is given by \alert<5>{the value of the field}.
+\end{itemize}
+\end{frame}
+\begin{frame}
 Similar to decomposition in rectangular coordinates
 we can decompose a vector field along fundamental vectors
 corresponding to other coordinate systems. Things are a bit

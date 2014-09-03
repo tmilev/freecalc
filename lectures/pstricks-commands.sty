@@ -405,23 +405,22 @@ end %
 }
 }
 
-\newcommand{\fcVectorField}[3][linecolor=blue]{ %
+\newcommand{\fcVectorField}[3][linecolor=blue]{%
 \setkeys{fcIId}{#2}%
 \multido{\ra=\fcStartXIId+\fcDelta}{\fcIterationsX}{%
 \multido{\rb=\fcStartYIId+\fcDelta}{\fcIterationsY}{%
-\pstVerb{ %
+\pstVerb{%
 4 dict begin %
-/x \ra \space def % 
-/y \rb \space def %
-#3 \space %
+/x \ra\space def % 
+/y \rb\space def %
+#3\space%
 /vY exch def %
-/vX exch def %
+/vX exch def%
 }%
-\psline[#1](! x vX 2 div sub y vY 2 div sub)(! x vX 2 div add y vY 2 div add)
+\psline[#1](! x vX 2 div sub y vY 2 div sub)(! x vX 2 div add y vY 2 div add)%
 \pscircle*[linecolor=red](! x y){0.02}%
 \pstVerb{end}%
 }%end multido
 }%end multido
-
-}
+}%
 

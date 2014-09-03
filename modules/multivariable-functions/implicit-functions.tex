@@ -1,0 +1,60 @@
+A surface $S$ can be given in two different ways:
+
+\begin{itemize}
+  \item Implicit form, as a \emph{level surface}:
+  %
+  $$F(x,y,z) = k$$
+  %
+  \item  Explicit form, as a \emph{graph surface}:
+  %
+  $$z=f(x,y) \Longrightarrow \left\{ \begin{array}{ll}
+    x = & u \\
+    y = & v \\
+    z = & f(u,v)
+  \end{array} \right.$$
+\end{itemize}
+
+A graph surface $z=f(x,y)$ can always be represented as a level surface:
+%
+$$z=f(x,y) \Longleftrightarrow F(x,y,z) =0 \quad \text{ for } \quad F(x,y,z) = z-f(x,y)\; .$$
+
+\underline{Question}: Can a given level surface be represented as a graph surface?
+
+The answer to the question above is two-fold:
+
+\begin{itemize}
+  \item Bad news: In general, \emph{globally}, NO.
+
+  \noindent Think $x^2+y^2+z^2= 1$.
+
+  One can't solve for $z$ globally; there is the $\pm\sqrt{1-x^2-y^2}$ issue;
+  \item Good news: In a lot of situations, \emph{locally}, YES.
+
+  \noindent Around $P(0,0,1)$, the surface is the graph surface of $z = \sqrt{1-x^2-y^2}$.
+\end{itemize}
+
+Consider a function $F(x,y,z)$, let $P(x_0,y_0,z_0)$ be a point in the domain of $F$, and let $k=F(x_0,y_0,z_0)$. The level surface through $P$, of equation $F(x,y,z) = k$ is a graph surface around $P$ if there is a function $z=f(x,y)$ such that:
+%
+\begin{itemize}
+  \item $f$ is defined on an open disk $D$ around $(x_0,y_0)$;
+  \item $f(x_0,y_0) = z_0$;
+  \item $F(x,y,f(x,y)) = 0$ for all $(x,y)$ in the disk $D$.
+\end{itemize}
+
+If that is the case, we say that the equation $F(x,y,z) = k$ \emph{implicitly} defines $z=f(x,y)$ satisfying the condition $f(x_0,y_0) = z_0$.
+
+Examples:
+
+The equation $x^2+y^2+z^2 = 1$ implicitly defines $z=\sqrt{1-x^2-y^2}$ as the unique function $z=f(x,y)$ such that
+%
+\begin{itemize}
+  \item $x^2+ y^2+(f(x,y))^2 = 1$ for all $(x,y)$ in a disk around $(0,0)$;
+  \item $f(0,0) = 1$.
+\end{itemize}
+
+The equation $x^2+y^2+z^2 = 1$ implicitly defines $z=-\sqrt{1-x^2-y^2}$ as the unique function $z=f(x,y)$ such that
+%
+\begin{itemize}
+  \item $x^2+ y^2+(f(x,y))^2 = 1$ for all $(x,y)$ in a disk around $(0,0)$;
+  \item $f(0,0) = -1$.
+\end{itemize}
