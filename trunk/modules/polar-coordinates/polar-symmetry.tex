@@ -12,34 +12,34 @@
 \tiny
 \psaxes[labels=none, ticks=none, arrows=<->](0,0)(-3.3, -3.3)(3.3, 3.3)%
 \uncover<2>{%
-\fcDrawPolar{0}{6.28319}{2+cos(3*t)}{linecolor=red, plotpoints=1000}%
-\fcAngleWithArrow{0}{1.047197551}{0.6}{$\theta$}%
+\fcDrawPolar[linecolor=red, plotpoints=1000]{0}{6.28319}{2+cos(3*t)}%
+\fcAngle[linecolor=\fcColorGraph, arrows=->] {0}{1.047197551}{0.6}{$\theta$}%
 \psline[linecolor=blue](0,0)(0.500000, 0.866025)
 \fcFullDot{0.500000}{0.866025}%
 \rput[bl](0.6, 1){$(\rho, \theta)$}%
-\fcAngleWithArrow{0}{-1.047197551}{0.8}{$-\theta$}%
+\fcAngle[linecolor=\fcColorGraph, arrows=->] {0}{-1.047197551}{0.8}{$-\theta$}%
 \psline[linecolor=blue](0,0)(0.500000, -0.866025)
 \fcFullDot{0.500000}{-0.866025} %
 \rput[tl](0.6, -1){$(\rho, -\theta)$}%
 }%
 \uncover<3>{%
-\fcDrawPolar{0}{6.28319}{2+cos(2*t-0.5)}{linecolor=red, plotpoints=1000}%
-\fcAngleWithArrow{0}{1.047197551}{0.8}{$\theta$}%
+\fcDrawPolar[linecolor=red, plotpoints=1000] {0}{6.28319}{2+cos(2*t-0.5)}%
+\fcAngle[linecolor=\fcColorGraph, arrows=->] {0}{1.047197551}{0.8}{$\theta$}%
 \psline[linecolor=blue](0,0)(0.988202, 1.711616)
 \fcFullDot{0.988202}{1.711616}%
 \rput[b](1, 1.8){$(\rho, \theta)$}%
-\fcAngleWithArrow{0}{4.188790205}{0.6}{$\pi+\theta$}%
+\fcAngle[linecolor=\fcColorGraph, arrows=->] {0}{4.188790205}{0.6}{$\pi+\theta$}%
 \psline[linecolor=blue](0,0)(-0.988202, -1.711616)
 \fcFullDot{-0.988202}{-1.711616}%
 \rput[t](-1, -1.8){$(-\rho, \theta)$}%
 }%
 \uncover<4>{%
-\fcDrawPolar{0}{6.28319}{2+sin(5*t)}{linecolor=red, plotpoints=1000}%
-\fcAngleWithArrow{0}{0.523598776}{0.8}{$\theta$}%
+\fcDrawPolar[linecolor=red, plotpoints=1000]{0}{6.28319}{2+sin(5*t)}%
+\fcAngle[linecolor=\fcColorGraph, arrows=->] {0}{0.523598776}{0.8}{$\theta$}%
 \psline[linecolor=blue](0,0)(2.165064, 1.250000)
 \fcFullDot{2.165064}{1.250000}%
 \rput[b](2.1, 1.3){$(\rho, \theta)$}%
-\fcAngleWithArrow{0}{2.617993878}{0.5}{$\pi-\theta$}%
+\fcAngle[linecolor=\fcColorGraph, arrows=->] {0}{2.617993878}{0.5}{$\pi-\theta$}%
 \psline[linecolor=blue](0,0)(-2.165064, 1.250000)
 \fcFullDot{-2.165064}{1.250000}%
 \rput[b](-2.1, 1.3){$(\rho,\pi- \theta)$}%
