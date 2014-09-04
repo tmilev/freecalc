@@ -1,30 +1,50 @@
 \begin{frame}
- \frametitle{Space}
+\frametitle{Space}
+\begin{itemize}
+\item<1-> Some subsets of points in space are special/distinguished.
+\begin{itemize}
+\item<2-> Lines.
+\item<3-> Planes.
+\end{itemize}
+\item<4-> We rely on intuition rather than axiomatic construction.
+\item<5-> Given a pair of objects (lines or planes), we discuss all possible configurations with respect to: 
+\begin{itemize}
+\item<6-> inclusion
+\item<7-> intersection
+\item<8-> parallelism
+\item<9-> being contained in a single plane (being ``co-planar'').
+\end{itemize}
+\end{itemize}
+\end{frame}
 
-  \begin{itemize}
-      \item Set of points
-      \item Some subsets are special/distinguished
-      \begin{itemize}
-	  \item Lines
-	  \item Planes
-      \end{itemize}
-      \item Rely on intuition rather than axiomatic construction
-  \end{itemize}
+\begin{frame}
+\frametitle{Configurations of pair of lines}
+\small
+\begin{tabular}{c|r|cccc}
+& pair of objects &  intersection& parallelism & co-planar?\\\hline
+\multirow{3}{*}{\rotatebox{90}{\mbox{2 lines}}}
+& intersecting lines&  one point & not parallel& yes\\
+& parallel lines&  empty & parallel & yes \\
+& skew lines &  none & not parallel & no\\
+\hline 
+\multirow{3}{*}{\rotatebox{90}{
+\begin{tabular}{r}
+line \&  \\ plane
+\end{tabular}
+}}
+& line intersecting plane &  one point & not parallel & no\\
+& line parallel to a plane & none & parallel & no\\
+& line lying in plane & line & - & yes\\
+\hline 
+\multirow{2}{*}{\rotatebox{90}{\mbox{2 planes}}}
+& intersecting planes & line & not parallel & -\\
+& parallel planes & none & parallel & -\\
+\end{tabular}
 
-\pause
-
-  Relationships:
-  \begin{itemize}
-   \item Inclusion - belongs to, is on
-   \item Parallelism
-      \begin{itemize}
-	\item Parallel planes or line parallel to a plane: \\
-	      empty intersection
-	\item Parallel lines: \\
-	      included in a common plane, but empty intersection
-	\item Skew lines: \\
-	      not included in a common plane
-      \end{itemize}
-  \end{itemize}
-
+\normalsize
+\medskip
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-3, -3)(3,3)
+\fcPolyLineIIId{[-1 -1 0] [1 -1 0] [1 1 0] [-1 1 0] [-1 -1 0]}
+\end{pspicture}
 \end{frame}
