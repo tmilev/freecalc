@@ -255,8 +255,7 @@ end \space%
 /firstV exch def %
 /counter 0 def %
 /dimension firstV length def %
-dimension array
-dimension {dup counter firstV counter get secondV counter get theOp   put /counter counter 1 add def } repeat %
+[ dimension {firstV counter get secondV counter get theOp /counter counter 1 add def } repeat ] %
 end %
 } %splices two arrays and operation, for example [a b] [c d] {op} -> [a c op b d op]
 
@@ -266,8 +265,7 @@ end %
 /firstV exch def %
 /counter 0 def %
 /dimension firstV length def %
-dimension array
-dimension {dup counter firstV counter get theOp put /counter counter 1 add def } repeat %
+[ dimension {firstV counter get theOp /counter counter 1 add def } repeat ] %
 end %
 } %splices array with operation. [a b] {op} -> [a op b op]
 
@@ -277,7 +275,7 @@ end %
 /firstV exch def %
 /counter 0 def%
 /dimension firstV length def %
-dimension {firstV counter get /counter counter 1 add def } repeat %
+dimension {firstV counter get /counter counter 1 add def} repeat %
 dimension 1 sub {theOp} repeat %
 end %
 } %applies operation n-1 times to array. Example: [a b c] {op} -> a b c op op
@@ -338,7 +336,7 @@ theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcVector
 end %
 } %Projection of point onto a plane. First argument is point, second argument is plane normal, third argument is the scalar product you need to have with the normal to be in the plane. Format: [1 2 3] [4 5 6] 7, corresponds to projecting the point (1,2,3) onto the plane 4x+5y+6z=7
 
-\newcommand{\fcGetDrawCoordsFromPointOnScreen}{%
+\newcommand{\fcGetDrawCoords}{%
 5 dict begin %
 /theV exch def %
 /theVprojected theV \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen  \fcVectorMinusVector def%
@@ -364,8 +362,25 @@ end %
 }%
 }
 
+\newcommand{\fcParallelogramHollowIIId}[4][]{ %
+\fcLineIIId[#1]{#2}{#3} %
+\fcLineIIId[#1]{#3}{#4} %
+\fcLineIIId[#1]{#4}{#4 #2 \fcVectorPlusVector #3 \fcVectorMinusVector} %
+\fcLineIIId[#1]{#4 #2 \fcVectorPlusVector #3 \fcVectorMinusVector}{#2} %
+}
+
+\newcommand{\fcPolyLineIIId}[2][linecolor=black]{
+\listplot[#1]{ 
+%\pstVerb{ %
+[#2] {\fcGetDrawCoords} \fcSpliceArrayOperation \fcArrayToStack
+%}
+}
+%\listplot{1 1 2 2 }
+}
+
+
 \newcommand{\fcLineIIId}[3][linecolor=black]{
-\psline[#1](! #2 \space \fcGetDrawCoordsFromPointOnScreen)(! #3 \space \fcGetDrawCoordsFromPointOnScreen )
+\psline[#1](! #2 \space \fcGetDrawCoords)(! #3 \space \fcGetDrawCoords )
 }
 \newcommand{\fcAxesIIIdFull}[4][linecolor=black, arrows=->]{ %
 \fcAxesIIId[#1]{#2}{#3}{#4} %
@@ -376,24 +391,24 @@ end %
 
 \newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{
 \fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}
-\rput(! [#2 0 0] \fcGetDrawCoordsFromPointOnScreen){$~~x$}
+\rput(! [#2 0 0] \fcGetDrawCoords){$~~x$}
 \fcLineIIId[#1]{[0 0 0]}{[0 #3 0]}
-\rput(! [0 #3 0] \fcGetDrawCoordsFromPointOnScreen){$~~y$}
+\rput(! [0 #3 0] \fcGetDrawCoords){$~~y$}
 \fcLineIIId[#1]{[0 0 0]}{[0 0 #4]}
-\rput(! [0 0 #4] \fcGetDrawCoordsFromPointOnScreen){$~~z$}
+\rput(! [0 0 #4] \fcGetDrawCoords){$~~z$}
 }
 \newcommand{\fcDotIIId}[2][linecolor=\fcColorGraph]{ %
-\pscircle*[#1](! #2 \fcGetDrawCoordsFromPointOnScreen){0.07} %
+\pscircle*[#1](! #2 \fcGetDrawCoords){0.07} %
 } %
 
 \newcommand{\fcPutIIId}[3][]{ %
-\rput[#1](! #2 \fcGetDrawCoordsFromPointOnScreen) {#3} %
+\rput[#1](! #2 \fcGetDrawCoords) {#3} %
 } %
 
 \newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%
 \parametricplot[#1]{#2}{#3}{ %
 [#4]%
-\fcGetDrawCoordsFromPointOnScreen %
+\fcGetDrawCoords %
 }
 }
 
