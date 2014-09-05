@@ -6,6 +6,9 @@
 %WARNING THE FOLLOWING PACKAGE IS BROKEN use only with EXTREME CAUTION
 %\usepackage{pst-3dplot}
 
+\newcommand{\fcXLabel}{$x$}
+\newcommand{\fcYLabel}{$y$}
+\newcommand{\fcZLabel}{$z$}
 \newcommand{\fcDelta}{0.5}
 \newcommand{\fcStartXIId}{0}
 \newcommand{\fcStartYIId}{0}
@@ -14,12 +17,18 @@
 \newcommand{\fcScreenStyle}{z}
 
 \makeatletter %needed for define@key command.
-\define@key{fcIId}{Delta}[\renewcommand{\fcDelta}{1}]{\renewcommand{\fcDelta}{#1}}
-\define@key{fcIId}{startX}[\renewcommand{\fcStartXIId}{0}]{\renewcommand{\fcStartXIId}{#1}}
-\define@key{fcIId}{startY}[\renewcommand{\fcStartYIId}{0}]{\renewcommand{\fcStartYIId}{#1}}
-\define@key{fcIId}{iterationsX}[\renewcommand{\fcIterationsX}{9}]{\renewcommand{\fcIterationsX}{#1}}
-\define@key{fcIId}{iterationsY}[\renewcommand{\fcIterationsY}{9}]{\renewcommand{\fcIterationsY}{#1}}
-\define@key{fcIId}{screenStyle}[\renewcommand{\fcScreenStyle}{z}]{\renewcommand{\fcScreenStyle}{#1}}
+\define@key{pstricks,pst-plot}{xLabel}[]{}
+\define@key{pstricks,pst-plot}{yLabel}[]{}
+\define@key{pstricks,pst-plot}{zLabel}[]{}
+\define@key{fcGraphics}{Delta}[\renewcommand{\fcDelta}{1}]{\renewcommand{\fcDelta}{#1}}
+\define@key{fcGraphics}{startX}[\renewcommand{\fcStartXIId}{0}]{\renewcommand{\fcStartXIId}{#1}}
+\define@key{fcGraphics}{startY}[\renewcommand{\fcStartYIId}{0}]{\renewcommand{\fcStartYIId}{#1}}
+\define@key{fcGraphics}{iterationsX}[\renewcommand{\fcIterationsX}{9}]{\renewcommand{\fcIterationsX}{#1}}
+\define@key{fcGraphics}{iterationsY}[\renewcommand{\fcIterationsY}{9}]{\renewcommand{\fcIterationsY}{#1}}
+\define@key{fcGraphics}{screenStyle}[\renewcommand{\fcScreenStyle}{z}]{\renewcommand{\fcScreenStyle}{#1}}
+\define@key{fcGraphics}{xLabel}[\renewcommand{\fcXLabel}{$x$}]{\renewcommand{\fcXLabel}{#1}}
+\define@key{fcGraphics}{yLabel}[\renewcommand{\fcYLabel}{$y$}]{\renewcommand{\fcYLabel}{#1}}
+\define@key{fcGraphics}{zLabel}[\renewcommand{\fcZLabel}{$z$}]{\renewcommand{\fcZLabel}{#1}}
 \makeatother %undoes \makeatletter.
 
 
@@ -402,6 +411,7 @@ end %
 } %
 
 \newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{
+\setkeys{fcGraphics}{#1}
 \fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}
 \rput(! [#2 0 0] \fcGetDrawCoords){$~~x$}
 \fcLineIIId[#1]{[0 0 0]}{[0 #3 0]}
@@ -425,7 +435,7 @@ end %
 }
 
 \newcommand{\fcVectorField}[3][linecolor=blue]{%
-\setkeys{fcIId}{#2}%
+\setkeys{fcGraphics}{#2}%
 \multido{\ra=\fcStartXIId+\fcDelta}{\fcIterationsX}{%
 \multido{\rb=\fcStartYIId+\fcDelta}{\fcIterationsY}{%
 \pstVerb{%
