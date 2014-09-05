@@ -1,62 +1,93 @@
+%\begin{comment}
 \begin{frame}
 \frametitle{Rectangular/Cartesian Coordinates}
+\begin{columns}
+\column[t]{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-0.5 ,-2)(4.5, 4)
+\fcBoundingBox{-0.5}{-2}{4.5}{4}
+\tiny
+\fcAxesIIId{3}{3}{3}
+\fcPutIIId[r]{[0 0 0]}{$O~$}
+\end{pspicture}
 
+
+\vfill
+\column{0.7\textwidth}
 \begin{itemize}
-\item To reach the projector: \pause Must relate its position to
+\item<1-> A Cartesian coordinate system is given by fixing:
 \begin{itemize}
-\item My current position
-\item My current orientation
+\item<2-> a point $O$ (called the origin),
+\item<3-> 3 pairwise perpendicular lines intersecting at the origin,
+\item<4-> a direction in each of the coordinate axis.
+\end{itemize}
+\item<5-> The three lines are labeled as $x$-axis, $y$-axis and $z$-axis.
 \end{itemize}
 
-\item<3-> Rectangular Coordinate System
-\begin{itemize}
-\item Position $\to$ Origin $\to$ $O$;
-\item Orientation $\to$ Fundamental directions $\to$ Ahead-Left-Up;
-\item Displacement $\to$ measured using the distance:
-\begin{itemize}
-\item Positive in Ahead, Left, and Up directions;
-\item Negative in Back, Right, and Down directions.
-\end{itemize}
-\end{itemize}
+\vskip 3cm
+\end{columns}
 
-\item<4-> Example: Projector $P \to (x,y,z) = (3,1,2)$ or $P(3,1,2)$.
 
-\item<5-> Using a fixed coordinate system:
-\begin{itemize}
-\item $\text{Space } \simeq \RR \times \RR \times \RR = \RR^3$
-\item $\text{Plane } \simeq \RR \times \RR = \RR^2$
-\end{itemize}
-\end{itemize}
+%
 \end{frame}
 
 \begin{frame}
-%
-\begin{table}[h]
-\begin{tabular}{lcr}
-\psfrag{P}{Projector}
-\psfrag{O}{Me}  
-\psfrag{x}{$x$} 
-\psfrag{y}{$y$} 
-\psfrag{z}{$z$}     
-\psfrag{A}{Ahead}
-\psfrag{L}{Left}
-\psfrag{U}{Up}  
-\includegraphics[height=2in]{../../modules/coordinate-systems/pictures/projector.eps}
-%
-& \hspace{2cm} &
-%
-%\begin{figure}[h]
-\psfrag{P}{$P(a,b,c)$}
-\psfrag{O}{$O(0,0,0)$}  
-\psfrag{x}{$a$} 
-\psfrag{y}{$b$} 
-\psfrag{z}{$c$}     
-\psfrag{A}{$Ox$}
-\psfrag{L}{$Oy$}
-\psfrag{U}{$Oz$}  
-\includegraphics[height=2in]{../../modules/coordinate-systems/pictures/projector.eps}
-%
-\end{tabular}
-\end{table}
-%
+\frametitle{Rectangular/Cartesian Coordinates}
+\begin{columns}
+\column[t]{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-0.5 ,-2)(4.5, 4)
+\fcBoundingBox{-0.5}{-2}{4.5}{4}
+\tiny
+\renewcommand{\fcScreen}{[-1 1.1 -0.5] 0}
+\fcAxesIIId{3}{3}{3}
+\fcPutIIId[r]{[0 0 0]}{$O~$}
+\fcPutIIId[b]{[2.5 2.5 2.8]}{$P(x_P,y_P,z_P)$}
+\uncover<9->{
+\fcLineIIId[linecolor=gray]{[2.5 2.5 2.5]}{[2.5 2.5 0]}
+\fcLineIIId[linecolor=gray]{[2.5 2.5 2.5]}{[2.5 0 2.5]}
+\fcLineIIId[linecolor=gray]{[2.5 2.5 2.5]}{[0 2.5 2.5]}
+\fcLineIIId[linecolor=gray]{[0 2.5 2.5]}{[0 0 2.5]}
+\fcLineIIId[linestyle=dashed, linecolor=gray]{[0 2.5 2.5]}{[0 2.5 0]}
+\fcLineIIId[linecolor=gray]{[2.5 0 2.5]}{[0 0 2.5]}
+\fcLineIIId[linecolor=gray]{[2.5 0 2.5]}{[2.5 0 0]}
+\fcLineIIId[linestyle=dashed, linecolor=gray]{[2.5 2.5 0]}{[0 2.5 0]}
+\fcLineIIId[linecolor=gray]{[2.5 2.5 0]}{[2.5 0 0]}
+}
+\fcDotIIId{[2.5 2.5 2.5]}
+\uncover<4-8>{%
+\fcPerpendicularIIId{[2.5 2.5 2.5]}{[1 0 0]}{0.3}%
+}%
+\uncover<4->{\fcPutIIId[t]{[1.25 0 -0.1]}{$x_P$}}
+\uncover<6-8>{%
+\fcPerpendicularIIId{[2.5 2.5 2.5]}{[0 1 0]}{0.3}%
+\fcPerpendicularIIId{[2.5 2.5 2.5]}{[0 0 1]}{0.3}%
+}%
+\uncover<6->{ %
+\fcPutIIId[b]{[0 1.25 0.1]}{$y_P$}
+\fcPutIIId[r]{[0 0 1.25]}{$z_P~~$}
+}
+\end{pspicture}
+
+
+\vfill
+\column{0.7\textwidth}
+\begin{itemize}
+\item<1-> $P$ -point. We assign to it triple $(x_P,y_P,z_P)$.
+\item<2-> Assignment will be such that distinct points are assigned distinct triples.
+\item<3-> $Q=$ base of perpendicular from $P$ to $x$-axis.
+\item<4-> Define $x_P$ as \alert<5>{signed distance b-n $O$ and $Q$}.
+\item<5-> Take distance with \alert<5>{$+$ sign if $OQ$ points in direction of $x$-axis, $-$ sign else}.
+\item<6-> Definitions of $y_P$, $z_P$ are similar.
+\item<7-> $(x_P,y_P,z_P)$ = Cartesian coordinates of $P$. 
+\item<8-> $x_P$ is called the $x$-coordinate of $P$,  and so on for other axes.
+\item<9-> $(x_P, y_P, z_P)$ = singed lengths of edges of the rectangular box indicated in the picture.
+\end{itemize}
+
+\vfill
+\end{columns}
+
+\vskip 5cm
+
 \end{frame}
+%\end{comment}

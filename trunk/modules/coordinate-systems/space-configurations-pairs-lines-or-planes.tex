@@ -1,0 +1,76 @@
+\begin{frame}[t]
+\frametitle{Configurations of pair of lines}
+\small
+\begin{tabular}{c|r|cccc}
+& pair of objects &  \alert<1,2,7,8,13,14,19,20,25,26,31,32,35,36, 39,40>{intersection}&~~\alert<3,4,9,10,15,16,21,22,27,28,37,38,41,42>{parallelism}  ~~& \alert<5,6,11,12,17,18,23,24,29,33,34>{co-planar?} \\\hline
+\multirow{3}{*}{\rotatebox{90}{\mbox{2 lines}}}
+& \alert<1-6>{intersecting lines} &  \fcAnswer{2}{one point} & \fcAnswer{4}{not parallel} & \fcAnswer{6}{yes}\\
+&\alert<7-12>{ parallel lines}& \fcAnswer{8}{empty} & \fcAnswer{10}{parallel} & \fcAnswer{12}{yes} \\
+&\alert<13-18>{ skew lines} &\fcAnswer{14}{none} & \fcAnswer{16}{not parallel} &\fcAnswer{18}{no}\\
+\hline 
+\uncover<19->{
+\multirow{3}{*}{\rotatebox{90}{
+\begin{tabular}{r}
+line \&  \\ plane
+\end{tabular}
+}}
+& \alert<19-24>{line intersecting plane} & \fcAnswer{20}{one point} & \fcAnswer{22}{not parallel} & \fcAnswer{24}{no}\\
+& \alert<25-30>{ line parallel to a plane }&\fcAnswer{26}{ none} & \fcAnswer{28}{parallel} & \fcAnswer{30}{no}\\
+&\alert<31-34>{ line lying in plane }&\fcAnswer{32}{ line} &-& \fcAnswer{34} {yes} 
+\\\hline 
+}
+\uncover<35->{
+\multirow{2}{*}{\rotatebox{90}{\mbox{2 planes}}}
+& \alert<35-38>{ intersecting planes} & \fcAnswer{36}{line} & \fcAnswer{38}{not parallel} & - \\
+& \alert<39-42>{parallel planes} &\fcAnswer{40}{none} & \fcAnswer{42}{parallel} &~-
+}
+\end{tabular}
+
+\normalsize
+\medskip
+
+\quad \quad \quad 
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2, -2)(2,2)
+\psline[linecolor=black!1](-2.01,-2)(-2,-2) %to give a bounding box
+\psline[linecolor=black!1](2.01,2)(2,2)%to give a bounding box
+\renewcommand{\fcScreenStyle}{x}
+\renewcommand{\fcScreen}{[-1 1 -0.7] -0.25}
+\uncover<12,35-38>{\fcParallelogramIIId{[-1 -1 1.5]}{[-1 -1 -1.5]}{[1 1 -1.5]}}
+\uncover<39->{\fcParallelogramIIId{[-1 -1 1]}{[1 -1 1]}{[1 1 1]}}
+
+\uncover<6,34>{\fcParallelogramIIId{[-1 -1 0]}{[1 -1 0]}{[1 1 0]}}
+
+\uncover<1-12,31,33-34>{\fcLineIIId{[-0.8 -0.8 0]}{[0.8 0.8 0]}}
+\uncover<32>{\fcLineIIId[linecolor=red]{[-0.8 -0.8 0]}{[0.8 0.8 0]}}
+
+%plane intersection
+\uncover<36>{\fcLineIIId[linecolor=red]{[-1 -1 0]}{[1 1 0]}}
+\uncover<37,38>{\fcLineIIId{[-1 -1 0]}{[1 1 0]}}
+
+\uncover<1-6,13-18>{\fcLineIIId{[0.8 -0.8 0]}{[0 0 0]}}
+\uncover<1-6,13-18>{\fcLineIIId{[0 0 0]}{[-0.8 0.8 0]}}
+
+%\uncover<0>{\fcLineIIId[linestyle=dashed]{[0 0 0]}{[-0.8 0.8 0]}}
+ 
+%bottom plane:
+\uncover<6->{\fcPolyLineIIId{[-1 -1 0] [1 -1 0] [1 1 0]}} 
+\uncover<6-11,13-34>{\fcPolyLineIIId{[1 1 0] [-1 1 0] [-1 -1 0]}}
+\uncover<12,35->{\fcPolyLineIIId[linestyle=dashed]{[1 1 0] [-1 1 0] [-1 -1 0]}}
+\uncover<39->{\fcLineIIId{[-1 -1 0]}{[-1 0.3 0]} \fcLineIIId{[1 1 0]}{ [-0.3 1 0]}}
+
+%top parallel plane:
+\uncover<39->{\fcPolyLineIIId{[-1 -1 1] [1 -1 1] [1 1 1] [-1 1 1] [-1 -1 1]}}
+
+\uncover<7-18,25-30>{\fcLineIIId{[-0.8 -0.8 1]}{[0.8 0.8 1]}}
+
+\uncover<19-24>{\fcLineIIId[linestyle=dashed]{[-0.8 -0.8 -0.8]}{[0 0 0]}\fcLineIIId{[0 0 0]}{[0.8 0.8 0.8]}}
+
+\uncover<35-38>{\fcPolyLineIIId[linestyle=dashed]{[-1 -1 0] [-1 -1 -1.5] [1 1 -1.5] [1 1 0]}}
+\uncover<35-38>{\fcPolyLineIIId{[-1 -1 0] [-1 -1 1.5] [1 1 1.5] [1 1 0]}}
+
+\uncover<2,20>{\fcDotIIId[linecolor=red]{[0 0 0]}}
+\uncover<3-6, 21-24>{\fcDotIIId[linecolor=black]{[0 0 0]}}
+
+\end{pspicture}
+\end{frame}
