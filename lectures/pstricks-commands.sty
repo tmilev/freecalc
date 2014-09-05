@@ -15,6 +15,8 @@
 \newcommand{\fcIterationsX}{9}
 \newcommand{\fcIterationsY}{9}
 \newcommand{\fcScreenStyle}{z}
+\newcommand{\fcLineColor}{black}
+\newcommand{\fcArrows}{}
 
 \makeatletter %needed for define@key command.
 \define@key{pstricks,pst-plot}{xLabel}[]{}
@@ -29,6 +31,8 @@
 \define@key{fcGraphics}{xLabel}[\renewcommand{\fcXLabel}{$x$}]{\renewcommand{\fcXLabel}{#1}}
 \define@key{fcGraphics}{yLabel}[\renewcommand{\fcYLabel}{$y$}]{\renewcommand{\fcYLabel}{#1}}
 \define@key{fcGraphics}{zLabel}[\renewcommand{\fcZLabel}{$z$}]{\renewcommand{\fcZLabel}{#1}}
+\define@key{fcGraphics}{linecolor}[\renewcommand{\fcLineColor}{black}]{\renewcommand{\fcLineColor}{#1}}
+\define@key{fcGraphics}{arrows}[\renewcommand{\fcArrows}{}]{\renewcommand{\fcArrows}{#1}}
 \makeatother %undoes \makeatletter.
 
 
@@ -81,6 +85,11 @@
 
 \newcommand{\fcDefaultXLabel}{$x$}
 \newcommand{\fcDefaultYLabel}{$y$}
+
+\newcommand{\fcBoundingBox}[4]{ %
+\psline[linecolor=black!1](! #1 #2 )(! #1 #2 0.01 add) %
+\psline[linecolor=black!1](! #3 #4 )(! #3 #4 0.01 add) %
+}
 \newcommand{\fcAxesStandardNoFrame}[4]{%
 \psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)\fcLabels[\fcDefaultXLabel][\fcDefaultYLabel]{#3}{#4}
 }%
@@ -266,7 +275,7 @@ end \space%
 /firstV exch def %
 /counter 0 def %
 /dimension firstV length def %
-[ dimension {firstV counter get secondV counter get theOp /counter counter 1 add def } repeat ] %
+[dimension {firstV counter get secondV counter get theOp /counter counter 1 add def } repeat] %
 end %
 } %splices two arrays and operation, for example [a b] [c d] {op} -> [a c op b d op]
 
@@ -307,7 +316,7 @@ end %
 2 dict begin %
 /theScalar exch def %
 /theV exch def %
-theV {theScalar mul} \fcSpliceArrayOperation
+theV {theScalar mul} \fcSpliceArrayOperation %
 end %
 } %
 
@@ -332,7 +341,7 @@ dup \fcVectorScalarVector sqrt %
 } %
 
 \newcommand{\fcVectorNormSquared}{%
-dup \fcVectorScalarVector \space%
+dup \fcVectorScalarVector %
 } %
 
 \newcommand{\fcProjectOntoScreen}{%
@@ -343,7 +352,7 @@ dup \fcVectorScalarVector \space%
 /theD exch def %
 /theNormal exch def %
 /theV exch def %
-theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcVectorNormSquared div \fcVectorTimesScalar \fcVectorPlusVector
+theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcVectorNormSquared div \fcVectorTimesScalar \fcVectorPlusVector %
 end %
 } %Projection of point onto a plane. First argument is point, second argument is plane normal, third argument is the scalar product you need to have with the normal to be in the plane. Format: [1 2 3] [4 5 6] 7, corresponds to projecting the point (1,2,3) onto the plane 4x+5y+6z=7
 
@@ -390,15 +399,7 @@ end %
 \fcLineIIId[#1]{#4 #2 \fcVectorPlusVector #3 \fcVectorMinusVector}{#2} %
 }
 
-\newcommand{\fcPolyLineIIId}[2][linecolor=black]{
-\listplot[#1]{ 
-%\pstVerb{ %
-[#2] {\fcGetDrawCoords} \fcSpliceArrayOperation \fcArrayToStack
-%}
-}
-%\listplot{1 1 2 2 }
-}
-
+\newcommand{\fcPolyLineIIId}[2][linecolor=black]{\listplot[#1]{ [#2] {\fcGetDrawCoords} \fcSpliceArrayOperation \fcArrayToStack}}
 
 \newcommand{\fcLineIIId}[3][linecolor=black]{
 \psline[#1](! #2 \space \fcGetDrawCoords)(! #3 \space \fcGetDrawCoords )
@@ -433,6 +434,34 @@ end %
 \fcGetDrawCoords %
 }
 }
+
+\newcommand{\fcPerpendicularIIId}[4][]{%
+\pstVerb{%
+7 dict begin %
+/thePoint #2 def %
+/heelSize #4 def %
+mark #3 %
+/directionUnitVector exch \fcVectorNormalize def %
+%directionUnitVector == %
+counttomark 0 eq { /basePoint [0 0 0] def} {/basePoint exch def} ifelse %
+pop%
+/heel directionUnitVector thePoint basePoint \fcVectorMinusVector directionUnitVector \fcVectorScalarVector \fcVectorTimesScalar basePoint \fcVectorPlusVector def%
+%heel == %
+/perpendicularUnitVector thePoint heel \fcVectorMinusVector \fcVectorNormalize def %
+%perpendicularUnitVector == %
+/polyLineInput {% 
+heel directionUnitVector heelSize \fcVectorTimesScalar \fcVectorMinusVector %
+%dup ==
+dup perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector %
+%dup == %
+heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector %
+%dup == %
+} def%
+}%
+\fcLineIIId[#1]{thePoint}{heel}%
+\fcPolyLineIIId[linecolor=red]{polyLineInput}%
+\pstVerb{end}%
+}%
 
 \newcommand{\fcVectorField}[3][linecolor=blue]{%
 \setkeys{fcGraphics}{#2}%
