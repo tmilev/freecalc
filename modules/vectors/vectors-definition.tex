@@ -1,0 +1,37 @@
+\begin{frame}
+\frametitle{Definition of vector}
+%\begin{pspicture}(-2,-2)(2,2)
+
+%\end{pspicture}
+
+\begin{columns}
+\column{0.3\textwidth}
+\centering
+\begin{pspicture}(-0.2,-0.3)(1.1,1.1)
+\fcBoundingBox{-0.2}{-0.3}{1.1}{1.1}
+\fcFullDotBlack{0}{0}
+\uncover<1-2>{\fcFullDot{1}{1}}
+\rput[tl](1.1,0.9){\alert<1>{$\bm v$}}
+\rput[t](0,-0.1){\alert<2,4>{$O$}}
+\uncover<3>{\psline[arrows=->, linecolor=red](0, 0)(1,1)}
+\uncover<4->{\psline[arrows=->](0, 0)(1,1)}
+\uncover<4>{\fcFullDot{0}{0}}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{itemize}
+\item A \alert<1>{\emph{position vector $\bm v$}} (simply - \alert<1>{\emph{vector}}) is a point in a space where there's a fixed preferred point $O$.
+\item<2-> \alert<2>{Preferred point $O$} is called the \alert<2>{origin}. 
+\item<3-> If not given by $O$, vector is depicted by arrow from $O$ to defining point.
+\item<4-> Vector given by origin = zero vector $\bm 0$.
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item<5-> Points \& vectors can be identified but:
+\begin{itemize}
+\item<5-> use term ``vector'' $\Rightarrow$ space has preferred origin point;
+\item<7-> if we specifically allow point/vector addition we use the term ``vector'' instead of ``point'';
+\item<8-> when we do not intend to carry out addition operations we use the term ``point'' instead of ``vector''.
+\end{itemize}
+\item<6-> We will soon equip vectors with two operations, vector addition and multiplication by scalars.
+\end{itemize}
+\end{frame}

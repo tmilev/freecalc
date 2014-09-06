@@ -7,8 +7,25 @@
 \begin{pspicture}(-0.5 ,-2)(4.5, 4)
 \fcBoundingBox{-0.5}{-2}{4.5}{4}
 \tiny
-\fcAxesIIId{3}{3}{3}
-\fcPutIIId[r]{[0 0 0]}{$O~$}
+\uncover<3->{
+\fcLineIIId{[0 0 0]}{[3 0 0]}
+\fcLineIIId{[0 0 0]}{[0 3 0]}
+\fcLineIIId{[0 0 0]}{[0 0 3]}
+}
+\uncover<4->{
+\fcLineIIId[arrows=->]{[0 0 0]}{[3 0 0]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 3 0]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 3]}
+}
+\uncover<5->{
+\fcPutIIId[t]{[3 0 0]}{\alert<5>{$x$}}
+\fcPutIIId[lb]{[0 3 0]}{\alert<5>{$y$}}
+\fcPutIIId[b]{[0 0 3]}{\alert<5>{$z$}}
+}
+\uncover<2->{ %
+\fcPutIIId[r]{[0 0 0]}{$O~~~$} %
+\fcDotIIId[linecolor=black]{[0 0 0]} %
+}
 \end{pspicture}
 
 
@@ -52,20 +69,21 @@
 \fcLineIIId[linecolor=gray]{[2.5 0 2.5]}{[0 0 2.5]}
 \fcLineIIId[linecolor=gray]{[2.5 0 2.5]}{[2.5 0 0]}
 \fcLineIIId[linestyle=dashed, linecolor=gray]{[2.5 2.5 0]}{[0 2.5 0]}
-\fcLineIIId[linecolor=gray]{[2.5 2.5 0]}{[2.5 0 0]}
-}
-\fcDotIIId{[2.5 2.5 2.5]}
-\uncover<4-8>{%
-\fcPerpendicularIIId{[2.5 2.5 2.5]}{[1 0 0]}{0.3}%
+\fcLineIIId[linecolor=gray]{[2.5 2.5 0]}{[2.5 0 0]}%
 }%
-\uncover<4->{\fcPutIIId[t]{[1.25 0 -0.1]}{$x_P$}}
+\fcDotIIId{[2.5 2.5 2.5]}%
+\uncover<3-8>{%
+\fcPerpendicularIIId{[2.5 2.5 2.5]}{[1 0 0]}{0.3}%
+\fcPutIIId[t]{[2.5 0 -0.1]}{$Q$}%
+}%
+\uncover<4->{\fcPutIIId[t]{[1.25 0 -0.1]}{$x_P$}}%
 \uncover<6-8>{%
 \fcPerpendicularIIId{[2.5 2.5 2.5]}{[0 1 0]}{0.3}%
 \fcPerpendicularIIId{[2.5 2.5 2.5]}{[0 0 1]}{0.3}%
 }%
-\uncover<6->{ %
-\fcPutIIId[b]{[0 1.25 0.1]}{$y_P$}
-\fcPutIIId[r]{[0 0 1.25]}{$z_P~~$}
+\uncover<6->{%
+\fcPutIIId[b]{[0 1.25 0.1]}{$y_P$}%
+\fcPutIIId[r]{[0 0 1.25]}{$z_P~~$}%
 }
 \end{pspicture}
 
