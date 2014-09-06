@@ -1,33 +1,30 @@
 \begin{frame}
 \frametitle{Displacement Vectors}
 \begin{columns}\column{0.3\textwidth}
-\begin{pspicture}(-0.2,-1.1)(2.1,1.1)
-\fcBoundingBox{-0.2}{-1.1}{2.1}{1.1}
-\fcFullDot{2}{1}
-\fcFullDot{1}{-1}
-\fcFullDotBlack{0}{0}
-\psline(2, 1)(1,-1)
-\psline[arrows=->](2, 1)(1,-1)
+\begin{pspicture}(-0.2,-1.1)(2.3,1.1)
+\fcBoundingBox{-0.2}{-1.1}{2.3}{1.1}
+\uncover<1>{\fcFullDot{2}{1}}
+\uncover<1>{\fcFullDot{1}{-1}}
+\rput[b](1.2, -1){$A$}
+\rput[t](2.2, 1){$B$}
+%\uncover<4>{\fcFullDotBlack{0}{0}}
+\uncover<2->{\psline[arrows=->](1,-1)(2, 1)}
+\uncover<5>{\psline[linecolor=red, arrows=->>](1,-1)(2, 1)}
 \end{pspicture}
 \column{0.7\textwidth}
 \begin{definition}
-A displacement vector is an ordered pair of points, $(A,B)$.
+A displacement vector is an ordered pair of points $(A, B)$.
 \end{definition}
 \end{columns}
 \begin{itemize}
-\item Represented as arrow, $A$ - tail $B$- head
-\item Extra notation $(A,B) = \overrightarrow{AB} = \textbf{AB}$
-\item Magnitude: $|\textbf{AB}| = |\overrightarrow{AB}|$. 
-\item If $A\neq B$ direction is defined as the ray starting at $A$ and passing through $B$.
-\item If $A=B$:
+\item<2-> When $A\neq B$, represent as arrow, $A$ - tail $B$- head.
+\item<3-> Denote more more frequently as: $\overrightarrow{AB} = \textbf{AB}$.
+\item<4-> Define vector magnitude $|\textbf{AB}| = |\overrightarrow{AB}|$ as the length $|AB|$. 
+\item<5-> If $A\neq B$ the direction of the displacement vector is defined as the ray starting at $A$ and passing through $B$.
+\item<6-> If $A=B$:
 \begin{itemize}
-\item Zero magnitude and non-specified direction
-\item $(A,A) = \overrightarrow{AA} = \textbf{AA}$: zero displacement vector.
+\item<7-> displacement vector has zero magnitude and non-specified direction
+\item<8-> $(A,A) = \overrightarrow{AA} = \textbf{AA}$: zero displacement vector at point $A$.
 \end{itemize}
-  \item Displacement vector with tail fixed at $O$:
-  \begin{itemize}
-    \item Position vector with respect to $O$;
-    \item $(O,P) = \overrightarrow{OP} = \textbf{OP} = \textbf{r}_P$.
-  \end{itemize}
 \end{itemize}
 \end{frame}
