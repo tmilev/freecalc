@@ -41,8 +41,8 @@
 \pscircle*[fillcolor=white, linecolor=white](#1, #2){0.04}
 }
 
-\newcommand{\fcFullDot}[2]{
-\pscircle*[fillcolor=white, linecolor=red](! #1 #2){0.07}
+\newcommand{\fcFullDot}[3][linecolor=red]{
+\pscircle*[#1](! #2 #3){0.07}
 }
 
 \newcommand{\fcHollowDotBlue}[2]{
@@ -163,11 +163,11 @@ end%
 \newcommand{\fcAngle}[5][linecolor=\fcColorGraph]{%
 \ifPst@algebraic{%
 \parametricplot[#1, algebraic=true]{#2}{#3}{#4*cos(t)| #4*sin(t)}%
-%\rput(! #2\space #3\space add 2 div 57.29578 mul cos #4\space 0.2 add mul #2\space #3\space add 2 div 57.29578 mul sin #4\space 0.2 add mul){#5}%
+\rput(! #2\space #3\space add 2 div 57.29578 mul cos #4\space 0.2 add mul #2\space #3\space add 2 div 57.29578 mul sin #4\space 0.2 add mul){#5}%
 }%
 \else%
 \parametricplot[#1, algebraic=false]{#2}{#3}{t 57.29578 mul cos #4\space mul t 57.29578 mul sin #4\space mul}%
-%\rput(! #2\space #3\space add 2 div 57.29578 mul cos #4\space 0.2 add mul #2\space #3\space add 2 div 57.29578 mul sin #4\space 0.2 add mul){#5}%
+\rput(! #2\space #3\space add 2 div 57.29578 mul cos #4\space 0.2 add mul #2\space #3\space add 2 div 57.29578 mul sin #4\space 0.2 add mul){#5}%
 \fi%
 }
 \makeatother
@@ -399,7 +399,9 @@ end %
 \fcLineIIId[#1]{#4 #2 \fcVectorPlusVector #3 \fcVectorMinusVector}{#2} %
 }
 
-\newcommand{\fcPolyLineIIId}[2][linecolor=black]{\listplot[#1]{ [#2] {\fcGetDrawCoords} \fcSpliceArrayOperation \fcArrayToStack}}
+\newcommand{\fcPolyLineIIId}[2][linecolor=black]{%
+\listplot[#1]{ [#2] {\fcGetDrawCoords} \fcSpliceArrayOperation \fcArrayToStack}%
+}
 
 \newcommand{\fcLineIIId}[3][linecolor=black]{
 \psline[#1](! #2 \space \fcGetDrawCoords)(! #3 \space \fcGetDrawCoords )
@@ -435,15 +437,19 @@ end %
 }
 }
 
-\newcommand{\fcPerpendicularIIId}[4][]{%
+\newcommand{\fcZeroVector}{%
+[ exch { 0 } repeat ]
+}
+
+\newcommand{\fcPerpendicularComputeHeel}[3]{%
 \pstVerb{%
 7 dict begin %
-/thePoint #2 def %
-/heelSize #4 def %
-mark #3 %
+/thePoint #1 def %
+/heelSize #3 def %
+mark #2 %
 /directionUnitVector exch \fcVectorNormalize def %
 %directionUnitVector == %
-counttomark 0 eq { /basePoint [0 0 0] def} {/basePoint exch def} ifelse %
+counttomark 0 eq {/basePoint thePoint length \fcZeroVector def} {/basePoint exch def} ifelse %
 pop%
 /heel directionUnitVector thePoint basePoint \fcVectorMinusVector directionUnitVector \fcVectorScalarVector \fcVectorTimesScalar basePoint \fcVectorPlusVector def%
 %heel == %
@@ -453,11 +459,20 @@ pop%
 heel directionUnitVector heelSize \fcVectorTimesScalar \fcVectorMinusVector %
 %dup ==
 dup perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector %
-%dup == %
-heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector %
-%dup == %
+heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 } def%
 }%
+}
+
+\newcommand{\fcPerpendicular}[4][]{%
+\fcPerpendicularComputeHeel{#2}{#3}{#4}%
+\psline[#1](! thePoint \fcArrayToStack)(! heel \fcArrayToStack)%
+\listplot[linecolor=red]{ [polyLineInput] {\fcArrayToStack} \fcSpliceArrayOperation \fcArrayToStack}%
+\pstVerb{end}%
+}
+
+\newcommand{\fcPerpendicularIIId}[4][]{%
+\fcPerpendicularComputeHeel {#2}{#3}{#4}
 \fcLineIIId[#1]{thePoint}{heel}%
 \fcPolyLineIIId[linecolor=red]{polyLineInput}%
 \pstVerb{end}%
