@@ -1,57 +1,122 @@
+%\begin{comment}
 \begin{frame}
- \frametitle{Vectors in Coordinates}
-
-  \begin{itemize}
-    \item $Oxyz$: fixed rectangular coordinate system
-    \item $\textbf{i}$, $\textbf{j}$, $\textbf{k}$: unit vectors in the fundamental directions
-  \end{itemize}
-
-If $P(a,b,c)$ is a point, then
-\begin{figure}[h]
-  \psfrag{a}{$a$}
-  \psfrag{b}{$b$}
-  \psfrag{c}{$c$}
-  \psfrag{x}{$x$}
-  \psfrag{y}{$y$}
-  \psfrag{z}{$z$}
-  \psfrag{ai}{$a \textbf{i}$}
-  \psfrag{bj}{$b \textbf{j}$}
-  \psfrag{ck}{$c \textbf{k}$}
-  \psfrag{i}{$\textbf{i}$}
-  \psfrag{j}{$\textbf{j}$}
-  \psfrag{k}{$\textbf{k}$}
-  \psfrag{P}{$P(a,b,c)$}
-  \psfrag{Px}{$P_x(a,0,0)$}
-  \psfrag{Py}{$P_y(0,b,0)$}
-  \psfrag{Pz}{$P_z(0,0,c)$}
-  \psfrag{Pxy}{$P_{xy}(a,b,0)$}
-  \psfrag{O}{$O$}
-  \includegraphics[height=2in]{../../modules/vectors/pictures/ok-vector_decomposition.eps}
-  %\caption{Coordinates of a vector}
-\end{figure}
-%
-$$\textbf{OP} = a\textbf{i}+b\textbf{j}+c\textbf{k} = \langle a, b, c\rangle\; .$$
-
+\frametitle{Vectors in Coordinates}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-0.5 ,-2)(4.5, 4)
+\fcBoundingBox{-0.5}{-2}{4.5}{4}
+\tiny
+\renewcommand{\fcScreen}{[-1 1.1 -0.5] 0}
+\fcAxesIIId{3}{3}{3}
+\fcPutIIId[r]{[0 0 0]}{$O~$}
+\uncover<3->{
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[1 0 0]}
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[0 1 0]}
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[0 0 1]}
+\fcPutIIId[t]{[0.5 0 -0.1]}{$\alert<3>{\bm i}$}
+\fcPutIIId[br]{[0 0.5 0]}{$\alert<3>{\bm j}$}
+\fcPutIIId[r]{[0 0 0.5]}{$\alert<3>{\bm k}~~$}
+}
+\uncover<5->{
+\fcPutIIId[lb]{[2.5 2.5 2.8]}{$U\uncover<6->{(a,b,c)}$}
+\fcDotIIId[linecolor=blue]{[2.5 2.5 2.5]}%
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[2.5 2.5 2.5]}
+}
+\uncover<2,3>{
+\fcDotIIId{[1 0 0]}
+\fcDotIIId{[0 1 0]}
+\fcDotIIId{[0 0 1]}
+}
+\uncover<2>{
+\fcPutIIId[t]{[1 0 -0.2]}{\alert<2>{$I$}}
+\fcPutIIId[br]{[0 1 0]}{\alert<2>{$J~~$}}
+\fcPutIIId[r]{[0 0 1]}{\alert<2>{$K~~$}}
+}
+\uncover<6,11>{
+\fcLineIIId[linecolor=gray]{[2.5 2.5 2.5]}{[2.5 2.5 0]}
+\fcLineIIId[linecolor=gray]{[2.5 2.5 2.5]}{[2.5 0 2.5]}
+\fcLineIIId[linecolor=gray]{[2.5 2.5 2.5]}{[0 2.5 2.5]}
+\fcLineIIId[linecolor=gray]{[0 2.5 2.5]}{[0 0 2.5]}
+\fcLineIIId[linestyle=dashed, linecolor=gray]{[0 2.5 2.5]}{[0 2.5 0]}
+\fcLineIIId[linecolor=gray]{[2.5 0 2.5]}{[0 0 2.5]}
+\fcLineIIId[linecolor=gray]{[2.5 0 2.5]}{[2.5 0 0]}
+\fcLineIIId[linestyle=dashed, linecolor=gray]{[2.5 2.5 0]}{[0 2.5 0]}
+\fcLineIIId[linecolor=gray]{[2.5 2.5 0]}{[2.5 0 0]}%
+}
+\uncover<6>{
+\fcPutIIId[t]{[1.25 0 -0.1]}{$a$}
+\fcPutIIId[b]{[0 1.25 0.1]}{$b$}%
+\fcPutIIId[r]{[0 0 1.25]}{$c~~$}%
+}
+\uncover<8->{
+\fcPutIIId[t]{[1.25 0 -0.1]}{$a\bm{i}$}
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[2.5 0 0]}
+}
+\uncover<9->{
+\fcLineIIId[arrows=->, linecolor=red]{[2.5 0 0]}{[2.5 2.5 0]}
+\fcPutIIId[lt]{[2.5 1.25 0]}{$~b\bm{j}$}%
+}
+\uncover<10->{
+\fcLineIIId[arrows=->, linecolor=red]{[2.5 2.5 0]}{[2.5 2.5 2.5]}
+\fcPutIIId[l]{[2.5 2.5 1.25]}{$~c\bm{k}$}%
+}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{itemize}
+\item<1-> Fix coordinate system $Oxyz$.
+\item<2-> Let $I$, $J$, $K$ be the points giving the units on the $x,y,z$ axes as indicated.
+\item<3-> Define $\bm{i}$, $\bm{j}$, $\bm{k}$ to be the unit vectors $\bm{OI}$, $\bm{OJ}$, $\bm{OK}$.
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item<5-> Let $\bm u= \bm{OU}$ be a vector.
+\item<6-> Let $U$ have coordinates $(a,b,c)$.
+\item<7-> Then $\bm u =\alert<10>{ \alert<9>{\alert<8>{ a\bm{i}}+b\bm{j}}+c\bm{k} }$. 
+\item<8-11> This is clear from the point-vector identification. 
+\end{itemize}
 \end{frame}
+%\end{comment}
 \begin{frame}
-\frametitle{Operations in Coordinates}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-0.5 ,-2)(4.5, 4)
+\fcBoundingBox{-0.5}{-2}{4.5}{4}
+\tiny
+\renewcommand{\fcScreen}{[-1 1.1 -0.5] 0}
+\fcAxesIIId{3}{3}{3}
+\fcPutIIId[r]{[0 0 0]}{$O~$}
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[1 0 0]}
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[0 1 0]}
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[0 0 1]}
+\fcPutIIId[t]{[0.5 0 -0.1]}{$\alert<3>{\bm i}$}
+\fcPutIIId[br]{[0 0.5 0]}{$\alert<3>{\bm j}$}
+\fcPutIIId[r]{[0 0 0.5]}{$\alert<3>{\bm k}~~$}
+\fcPutIIId[lb]{[2.5 2.5 2.8]}{$U(a,b,c)$}
+\uncover<2->{\fcPutIIId[rb]{[1.25 1.25 1.3]}{$\bm u\langle a,b,c\rangle$}}
+\fcDotIIId[linecolor=blue]{[2.5 2.5 2.5]}%
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[2.5 2.5 2.5]}
+\fcPutIIId[t]{[1.25 0 -0.1]}{$a\bm{i}$}
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[2.5 0 0]}
+\fcLineIIId[arrows=->, linecolor=red]{[2.5 0 0]}{[2.5 2.5 0]}
+\fcPutIIId[lt]{[2.5 1.25 0]}{$~b\bm{j}$}%
+\fcLineIIId[arrows=->, linecolor=red]{[2.5 2.5 0]}{[2.5 2.5 2.5]}
+\fcPutIIId[l]{[2.5 2.5 1.25]}{$~c\bm{k}$}%
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{itemize}
+\item<1-> From preceding: arbitrary vector $\bm u= \bm {OU}$ can be decomposed as $\bm u= a\bm i+b\bm j + c\bm k$, where $(a,b,c)$: Cartesian coordinates of $U$. 
+\item<2-> Thus $\bm u$ is identified with the triple of numbers $\langle a,b,c\rangle $.
+\item<3-> We use $\langle a,b,c\rangle$ to denote the vector $\bm u$ and $(a,b,c)$ to denote the point $U$.
+\end{itemize}
+\end{columns}
 
 \begin{itemize}
- \item Magnitude:
-%
-$$|\langle a, b, c \rangle| = |OP| = \sqrt{a^2+b^2+c^2}$$
-%
-\item Addition:
-%
-$$\langle x_1,y_1,z_1 \rangle + \langle x_2, y_2,z_2\rangle = \langle x_1+x_2, y_1+y_2, z_1+z_2\rangle\; .$$
-%
-\item Scalar multiple:
-%
-$$c\langle x, y, z\rangle = \langle cx, cy, cz\rangle\; .$$
-%
-\item General displacement from $A(x_A, y_A, z_A)$ to $B(x_B, y_B, z_B)$:
-%
-$$\textbf{AB} = \textbf{AO} +\textbf{OB} = \textbf{OB} - \textbf{OA} = \langle x_B-x_A, y_B-y_A, z_B-z_A\rangle \; .$$
+\item<4-> The distinction between points and vectors is correct only if we use the second alternative definition of vector.
+\item<5-> The distinction is therefore not necessary. 
+\item<6-> The distinction is not made in scientific mathematical texts.
+\item<7-> The notation $\langle\rangle$ for vectors is not accepted outside of your Calculus textbook.
+\item<8-> I do not recommend denoting vectors by $\langle a,b,c\rangle$ when not working with Stewart's text. When done use $(a,b,c)$ instead.
 \end{itemize}
-
 \end{frame}
