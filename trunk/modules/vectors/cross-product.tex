@@ -1,37 +1,49 @@
 \begin{frame}
- \frametitle{Cross Product}
+\frametitle{The Cross Product $\times$}
+\begin{columns}
+\column{0.35\textwidth}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.2,-0.2)(1.2,1.2)
+\tiny
+\renewcommand{\fcScreenStyle}{[0 0.1 1]}%
+\only<5->{\renewcommand{\fcScreen}{[-1 1 -0.5] 0}}%
+\only<6->{\renewcommand{\fcScreen}{[-0.8 0.8 -0.5] 0}}%
+\only<7->{\renewcommand{\fcScreen}{[-0.6 0.6 -0.5] 0}}%
+\only<8->{\renewcommand{\fcScreen}{[-0.4 0.4 -0.5] 0}}%
+\only<9->{\renewcommand{\fcScreen}{[-0.2 0.2 -0.5] 0}}%
+\only<10->{\renewcommand{\fcScreen}{[-0.1 0.1 -0.5] 0}}%
+\only<11->{\renewcommand{\fcScreen}{[-0.05 0.05 -0.5] 0}}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 0 0]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 1 0]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 1]}
+\fcPutIIId[r]{[0 0 1]}{$\fcv u \times \fcv v$}
+\fcAngleIIId[arrows=->, linecolor=blue]{[1 0 0]}{[1 1 0]}{0.4}
+\fcPutIIId[lt]{[0.4 0.2 0]}{$\alpha$}
+\fcPutIIId[t]{[1 0 -0.1]}{$\fcv u$}
+\fcPutIIId[t]{[1 1 -0.1]}{$\fcv v$}
+\uncover<3->{%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 1 0]}
+\fcPutIIId[rb]{[0 1 0]}{$\textbf{orth}_{\fcv u} \fcv v$}%
+\fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[0 1 0]}{0.2}%
+}%
+\only<2>{\fcPerpendicularIIId{[0 0 1]}{[-1 -1 0]}{0.2}%
+\fcPerpendicularIIId{[0 0 1]}{[-1 0 0]}{0.2}%
+}%
+\end{pspicture}
+\column{0.65\textwidth}
 
-\begin{center}
- (\textbf{vector}, \textbf{vector}) $\to$ \textbf{vector}
-\end{center}
-
-\begin{figure}[h]
-  \psfrag{u}{$\textbf{u}$}
-  \psfrag{v}{$\textbf{v}$}
-  \psfrag{ovu}{$\textbf{orth}_{\bm{u}} \textbf{v}$}
-  \psfrag{a}{$\alpha$}
-  \psfrag{uxv}{$\textbf{u} \times \textbf{v}$}
-  \includegraphics[height=1in]{../../modules/vectors/pictures/ok-cross_product.eps}
-\end{figure}
-
+\begin{definition}[Cross product]
+$\fcv{u} \times \fcv{v}$ is the vector uniquely determined by the following.
 \begin{itemize}
- \item If $\textbf{u}$, $\textbf{v}$ are non-zero and non-collinear vectors:\\
-\begin{center}
- $\textbf{u} \times \textbf{v}$ is the vector determined by:
-\end{center}
-%
+\item If $\fcv{u}$, $\fcv{v}$ are non-zero and non-collinear.
 \begin{itemize}
- \item Support of direction of $\textbf{u} \times \textbf{v}$:
-perpendicular to both $\textbf{u}$ and $\textbf{v}$;
- \item Direction of $\textbf{u} \times \textbf{v}$: given by Right Hand Rule;
- \item Magnitude of $\textbf{u} \times \textbf{v}$: product of $|\textbf{u}|$ and $|\textbf{orth}_{\bm{u}} \textbf{v}|$
-%
-$$|\textbf{u} \times \textbf{v}| = |\textbf{u}| \, |\textbf{orth}_u \textbf{v}| = |\textbf{u}| |\textbf{v}| \sin{\alpha}$$
-%
+\item \alert<2>{ $\fcv{u} \times \fcv{v}$ is perpendicular to both $\fcv{u}$ and $\textbf{v}$.}
+\item The magnitude of $\fcv{u} \times \fcv{v}$ equals $|\fcv{u}| \alert<3>{| \textbf{orth}_{\fcv u} \fcv v |}=|\textbf{u}| \alert<3>{|\textbf{v}| \sin{\alpha}}$.
+\item \alert<4-12>{The direction of $\textbf{u} \times \textbf{v}$ is such that when viewed from the tip of $\fcv{u}\times \fcv v$, $\fcv v$ is counter-clockwise from $\fcv u$.}
 \end{itemize}
-\item If $\textbf{u}=\textbf{0}$ or $\textbf{v}=\textbf{0}$ or
-$\textbf{u}$ and $\textbf{v}$ are collinear: \pause $\textbf{u} \times \textbf{v} = \textbf{0} $.
-%
+\item If $\fcv{u}$, $\fcv{v}$ are colinear or zero then $\fcv u \times \fcv v=\fcv 0$.
 \end{itemize}
-
+\end{definition}
+\end{columns}
+\uncover<12->{\alert<12>{There are a couple of hand rules to help figure out the direction of the cross product.}}
 \end{frame}
