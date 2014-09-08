@@ -1,20 +1,36 @@
 \begin{frame}
  \frametitle{Direction Angles}
+\begin{definition}
+The direction angles $\alpha, \beta, \gamma$ of the vector $\fcv u$ are defined as the angles between $\fcv u $ and the unit vectors $\fcv i, \fcv j, \fcv k$ (in the same order).
+\end{definition}
+\begin{columns}
+\column{0.5\textwidth}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-2,-2)(2,2)
+\renewcommand{\fcScreen}{[-2 -1 -0.6] 0}
+\fcAxesIIId{2}{2}{2}
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[1.5 1.5 1.5]}
+\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[1 0 0]}
+\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 1 0]}
+\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 0 1]}
+\fcAngleIIId[arrows=->, linecolor=brown]{[1 0 0]}{[1.5 1.5 1.5]}{1}%
+\fcAngleIIId[arrows=->, linecolor=brown]{[0 1 0]}{[1.5 1.5 1.5]}{1.4}%
+\fcAngleIIId[arrows=->, linecolor=brown]{[0 0 1]}{[1.5 1.5 1.5]}{1.8}%
+\fcPutIIId[bl]{[0.75 0 0.25]}{$\alpha~~$}
+\fcPutIIId[bl]{[0.75 1.25 0.55]}{$~~\beta$}
+\fcPutIIId[r]{[1 1 1.6]}{$~~\gamma$}
+\end{pspicture}
 
-\begin{figure}[h]
-  \psfrag{u}{$\textbf{u}$}
-  \psfrag{i}{$\textbf{i}$}
-  \psfrag{j}{$\textbf{j}$}
-  \psfrag{k}{$\textbf{k}$}
-  \psfrag{a}{$\alpha$}
-  \psfrag{b}{$\beta$}
-  \psfrag{c}{$\gamma$}
-  \includegraphics[height=2in]{../../modules/vectors/pictures/ok-direction_angles.eps}
-\end{figure}
+\column{0.5\textwidth}
 
+$\textbf{u} = \langle u_1, u_2, u_3\rangle$
+ 
+$\alpha = \angle (\textbf{u},\textbf{i})$ 
 
-$\textbf{u} = \langle u_1, u_2, u_3\rangle, \qquad \alpha = \angle (\textbf{u},\textbf{i}) \qquad \beta =
-\angle (\textbf{u},\textbf{j}) \qquad \gamma = \angle (\textbf{u},\textbf{k}) \; .$
+$\beta =
+\angle (\textbf{u},\textbf{j})$ 
+
+$\gamma = \angle (\textbf{u},\textbf{k}) \; .$
 
 $$\cos{\alpha} = \frac{\textbf{u} \cdot \textbf{i}}{|\textbf{u}|\, |\textbf{i}|} =
 \frac{u_1}{\sqrt{u_1^2+u_2^2+u_3^2}}$$
@@ -22,5 +38,5 @@ $$\cos{\alpha} = \frac{\textbf{u} \cdot \textbf{i}}{|\textbf{u}|\, |\textbf{i}|}
 Similar for $\cos{\beta}$ and $\cos{\gamma}$. Then:
 %
 $$\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1\; .$$
-
+\end{columns}
 \end{frame}
