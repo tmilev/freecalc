@@ -1,0 +1,45 @@
+\begin{frame}
+\frametitle{Torque}
+\begin{columns}
+\begin{pspicture}(-0.2, -1.2)(2, 1.2)
+\tiny%
+\fcBoundingBox{-0.2}{-1.2}{2}{1.2}%
+\uncover<1-2>{\fcLineIIId{[0 0 -0.2]}{[0 0 -1]}}%
+\uncover<3->{\fcLineIIId[arrows=->]{[0 0 -0.2]}{[0 0 -1]}}%
+\uncover<3->{\fcLineIIId[arrows=->]{[0 0 1]}{[0 0 0.1]}}
+%\fcAxesIIId{1}{1}{1}
+\fcPolyLineIIId{[0.2  0 0.1] [0.1 0.173205 0.1] [-0.1 0.173205 0.1] [-0.2 0 0.1] [-0.1 -0.173205 0.1] [0.1 -0.173205 0.1] [0.2 0 0.1]}%
+\fcPolyLineIIId{[-0.1 -0.173205 -0.1] [0.1 -0.173205 -0.1] [0.2 0 -0.1] [0.1 0.173205 -0.1]}%
+\fcLineIIId{[-0.1 -0.173205 -0.1]}{[-0.1 -0.173205 0.1]}%
+\fcLineIIId{[0.1 -0.173205 -0.1]}{ [0.1 -0.173205 0.1]}%
+\fcLineIIId{[0.2 0 -0.1]} {[0.2 0 0.1]}%
+\fcLineIIId{[0.1 0.173205 -0.1]}{[0.1 0.173205 0.1]}%
+\uncover<2->{\fcPolyLineIIId[linecolor=blue]{[0.15 -0.259808 0] [0.3 0 0] [0.15 0.259808 0]  [0.04 0.259808 0] }%
+\fcLineIIId[linecolor=blue]{[0.15 0.259808 0]} {[0.15 0.259808 0] 5 \fcVectorTimesScalar}%
+}%
+\uncover<4->{\fcLineIIId[linecolor=blue, arrows=->]{[0.15 0.259808 0]} {[0.15 0.259808 0] 5 \fcVectorTimesScalar}%
+\fcPutIIId[b]{[0.32 0.65 0.1]}{$\fcv r$}%
+}%
+\uncover<3->{\fcAngleIIId[arrows=->, linecolor=blue]{[0.15 0.259808 0] }{ [0.4 0.2 0]}{1.2}}%
+\uncover<4->{\fcLineIIId[arrows=->, linecolor=red]{[0.75 1.29904 0]}{[1 0.5 1]}}
+\uncover<9->{\fcPutIIId[r]{[0 0 -0.5]}{$\tau~$}}
+\end{pspicture}
+
+\column{0.7\textwidth}
+\begin{itemize}
+\item If we tighten a bolt \uncover<2->{using a wrench,} \uncover<3->{it moves in direction perpendicular to the motion of the wrench.}
+\item<4-> Let arm of the wrench: given by vector $\fcv r$. 
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item<4-> Suppose we are applying a force $\fcv F$ at arm of the wrench. The force has three components: 
+\begin{itemize}
+\item<5-> component $\fcv F_o$ orthogonal to the plane of rotation
+\item<6-> component $\fcv F_\rho$ in the plane of rotation towards/away from the center
+\item<7-> component $\fcv F_\theta$ tangent to the motion of the wrench.
+\end{itemize}
+\item<8-> Only $\fcv F_\theta$ contributes to the bolt motion.
+\item<9-> The force of bolt motion $\fcv \tau$ is proportional to length of wrench.
+\item<10-> It turns out $\fcv \tau = \fcv r \times (\fcv F_\rho+\fcv F_\theta)$, where \alert<10>{$\times$ is the vector cross product}.
+\end{itemize}
+\end{frame}

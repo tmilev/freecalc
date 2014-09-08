@@ -1,0 +1,36 @@
+\begin{frame}
+\frametitle{Projections in coordinates}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-2, -0.5)(5,3.2)
+\fcBoundingBox{-2}{-0.5}{5}{3.2}%
+\psline[arrows=->](0,0)(4, 2)%
+\rput[tl](3, 1.5){$\fcv v$}%
+\rput[bl](1, 3){$ \fcv u$}%
+\psline[arrows=->, linecolor=blue](0,0)(2,1)%
+\rput[tl](1.5, 0.8){$\textbf{proj}_{\fcv v} \fcv u$}%
+\psline[arrows=->, linecolor=red](0,0)(! 4 20 sqrt div 2 20 sqrt div)%
+\rput[tl](0.5, 0.1){$\widehat{ \fcv {v}}$}%
+\psline[arrows=->](0,0)(1,3)%
+\fcPerpendicular[linestyle=dashed]{[1 3]}{[4 2]}{0.2}%
+\end{pspicture}
+\column{0.6\textwidth}
+\[
+\begin{array}{rcl}
+\fcv{u} &=& u_1 \fcv{i} + u_2 \fcv{j} + u_3 \fcv{k} = \langle u_1, u_2, u_3 \rangle\\
+\fcv{v}&=&v_1 \fcv{i} + v_2 \fcv{j} + v_3 \fcv{k} = \langle v_1, v_2, v_3 \rangle
+\end{array}
+\]
+\end{columns}
+\uncover<2->{
+\begin{theorem}
+$\begin{array}{rcl}
+\displaystyle\alert<6>{ {\bf comp}_{\fcv v} \fcv u}&\alert<6>{=}& \displaystyle \alert<6>{\frac{\alert<3>{\fcv{u}\cdot \fcv{v}} }{\alert<4>{|\fcv{v}|}}} =\frac{ \alert<3>{ u_1v_1 +u_2v_2+u_3v_3} }{\alert<4>{ \sqrt{v_1^2+v_2^2+v_3^2}}}\\~\\
+\displaystyle \alert<5>{{\bf proj}_{\fcv v} \fcv u }&\alert<-1>{=}&\displaystyle \alert<5>{\left(\alert<6>{ {\bf comp}_{\fcv v} \fcv{u}}\right) \alert<7>{\widehat{\fcv v}}} = \alert<6>{\frac{\fcv{u}\cdot \fcv{v}}{|\fcv{v}|}} \alert<7>{ \frac{\fcv v}{|\fcv v|}} = \frac{\fcv{u}\cdot \fcv{v}}{\alert<8>{ |\fcv{v}|^2}}\fcv v= \frac{\fcv u \cdot \fcv v}{\alert<8>{ \fcv v\cdot  \fcv v} }\fcv v
+\quad .
+\end{array}
+$
+\end{theorem}
+}
+\end{frame}
