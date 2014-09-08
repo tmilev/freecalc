@@ -2,30 +2,36 @@
  \frametitle{Cross Product in Coordinates}
 
 \begin{itemize}
- \item  $Oxyz$: rectangular coordinate system;
-  \item $\textbf{i}$, $\textbf{j}$, $\textbf{k}$: unit vectors along fundamental directions.\pause
+\item Let $\fcv{i}$, $\fcv{j}$, $\fcv{k}$: unit vectors along coordinate axes.
+\item We have that
+\[ 
+\begin{array}{r@{}c@{}cr@{}c@{}cr@{}c@{}c}
+\fcv{i} \times \fcv{i} &~=~& \fcv{0}, & \fcv{j} \times \fcv{j} &~=~&\fcv{0} , & \fcv{k} \times \fcv{k} &~=~& \fcv{0} \\
+\fcv{i} \times \fcv{j} &~=~& \fcv{k}, & \fcv{j} \times \fcv{k} &~=~& \fcv{i}, &  \fcv{k} \times \fcv{i}& ~=~& \fcv{j}\\
+\fcv{j} \times \fcv{i} &~=~& -\fcv{k}, & \fcv{k} \times \fcv{j} &~=~& -\fcv{i},& \fcv{i} \times \fcv{k} &~=~& -\fcv{j}
+\end{array}
+\]
+\item Let $\begin{array}{rclcl}
+\fcv{u} &=& u_1 \fcv{i} + u_2 \fcv{j} + u_3 \fcv{k} &=& \langle u_1, u_2, u_3 \rangle \\
+\fcv{v}&=&v_1 \fcv{i} + v_2 \fcv{j} + v_3 \fcv{k} &=& \langle v_1, v_2, v_3 \rangle\end{array}$.
+\item 
+\[\begin{array}{rcl}
+\fcv{u} \times \fcv{v} &=& (u_1 \fcv{i} + u_2 \fcv{j} + u_3 \fcv{k})
+\times (v_1 \fcv{i} + v_2 \fcv{j} + v_3 \fcv{k})\\
+&=& (u_2v_3 -u_3v_2) \fcv{i} + (u_3v_1-u_1v_3) \fcv{j} + (u_1v_2-u_2v_1) \fcv{k} \\
+\fcv{u} \times \fcv{v} &=& 
+\langle u_1, u_2, u_3 \rangle \times \langle v_1, v_2, v_3 \rangle =
+\left|
+\begin{array}{ccc}
+\fcv{i} & \fcv{j} & \fcv{k} \\
+u_1 & u_2 & u_3 \\
+v_1 & v_2 & v_3
+\end{array}
+\right|
+\end{array}
+\]
+
+
+
 \end{itemize}
-%
-$$\textbf{i} \times \textbf{i} = \textbf{0} \quad , \quad \textbf{j} \times \textbf{j} =
-\textbf{0} \quad , \quad \textbf{k} \times \textbf{k} = \textbf{0}$$
-$$\textbf{i} \times \textbf{j} = \textbf{k} \quad , \quad \textbf{j} \times \textbf{k} =
-\textbf{i} \quad , \quad \textbf{k} \times \textbf{i} = \textbf{j}$$
-$$\textbf{j} \times \textbf{i} = -\textbf{k} \quad , \quad \textbf{k} \times \textbf{j} =
--\textbf{i} \quad , \quad \textbf{i} \times \textbf{k} = -\textbf{j}$$
-\pause
-If $\textbf{u} = u_1 \textbf{i} + u_2 \textbf{j} + u_3 \textbf{k} = \langle u_1, u_2, u_3 \rangle$,
- $\textbf{v}=v_1 \textbf{i} + v_2 \textbf{j} + v_3 \textbf{k} = \langle v_1, v_2, v_3 \rangle$:
-%
-$$\textbf{u} \times \textbf{v} = (u_1 \textbf{i} + u_2 \textbf{j} + u_3 \textbf{k})
-\times (v_1 \textbf{i} + v_2 \textbf{j} + v_3 \textbf{k})= $$
-%
-$$= (u_2v_3 -u_3v_2) \textbf{i} + (u_3v_1-u_1v_3) \textbf{j} + (u_1v_2-u_2v_1) \textbf{k} \; .$$
-\pause
-$$\textbf{u} \times \textbf{v} = \langle u_1, u_2, u_3 \rangle \times \langle v_1, v_2, v_3 \rangle =
-\left|  \begin{array}{ccc}
-      \textbf{i} & \textbf{j} & \textbf{k} \\
-      u_1 & u_2 & u_3 \\
-      v_1 & v_2 & v_3
-        \end{array}
-\right|$$
 \end{frame}

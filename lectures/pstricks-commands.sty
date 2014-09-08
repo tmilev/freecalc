@@ -171,7 +171,7 @@ end%
 /orthonormalV #3 dup firstV  \fcVectorProjectOntoVector \fcVectorMinusVector \fcVectorNormalize def%
 /theAngle firstV #3\space \fcVectorNormalize \fcVectorScalarVector arccos def%
 }%
-\parametricplot[arrows=->]{0}{theAngle}{firstV t cos #4 mul \fcVectorTimesScalar orthonormalV t sin #4 mul \fcVectorTimesScalar \fcVectorPlusVector \fcGetDrawCoords}%
+\parametricplot[#1]{0}{theAngle}{firstV t cos #4 mul \fcVectorTimesScalar orthonormalV t sin #4 mul \fcVectorTimesScalar \fcVectorPlusVector \fcGetDrawCoords}%
 \pstVerb{end}%
 }
 
@@ -372,8 +372,6 @@ theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcVector
 end %
 } %Projection of point onto a plane. First argument is point, second argument is plane normal, third argument is the scalar product you need to have with the normal to be in the plane. Format: [1 2 3] [4 5 6] 7, corresponds to projecting the point (1,2,3) onto the plane 4x+5y+6z=7
 
-
-
 \newcommand{\fcGetDrawCoords}{%
 5 dict begin %
 /theV exch def %
@@ -385,9 +383,16 @@ end %
 /theXUnitV theNormalizedNormal theYUnitV \fcVectorCrossVector def %
 } %
 { %
+(\fcScreenStyle) (x) eq %
+{
 /theXUnitV [1 0 0] \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen \fcVectorMinusVector \fcVectorNormalize def %
-/theYUnitV theXUnitV theNormalizedNormal \fcVectorCrossVector def %
-} %
+/theYUnitV theXUnitV theNormalizedNormal \fcVectorCrossVector def%
+}
+{
+/theYUnitV \fcScreenStyle \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen \fcVectorMinusVector \fcVectorNormalize def%
+/theXUnitV theNormalizedNormal theYUnitV \fcVectorCrossVector def% 
+} ifelse%
+}%
 ifelse %
 %(normalized normal: ) == theNormalizedNormal ==
 %(y unit v) == theYUnitV ==
