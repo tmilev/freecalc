@@ -1,0 +1,78 @@
+\begin{frame}
+\frametitle{Properties of addition}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.5,-0.5)(3.1,3.1)%
+\tiny
+\fcBoundingBox{-0.5}{-0.5}{3.1}{3.1}
+\uncover<2-4>{\psline[arrows=->, linecolor=red](0,0)(1,2)}
+\uncover<5->{\psline[arrows=->](0,0)(1,2)}
+\uncover<2->{\rput[r](0.4, 1){$\alert<2-4>{\bm v}$}}
+\psline[arrows=->](2,1)(3,3)%
+\uncover<1>{\psline[arrows=->, linecolor=red](2,1)(3,3)}
+\rput[l](2.6, 2){$\alert<1>{\bm v}$}
+
+\psline[arrows=->](0, 0)(2, 1)%
+\uncover<1>{\psline[arrows=->, linecolor=red](0, 0)(2, 1)}
+\rput[t](1, 0.4){$\alert<1>{\bm u}$}%
+\uncover<3,4>{\psline[arrows=->, linecolor=red](1,2)(3,3)}
+\uncover<5->{\psline[arrows=->](1,2)(3,3)}
+\uncover<3->{\rput[b](2, 2.6){$\alert<3,4>{\bm u}$}}
+\psline[arrows=->](0,0)(3,3)
+\uncover<1,4>{
+\psline[arrows=->, linecolor=red](0,0)(3,3)
+}
+\uncover<4->{\rput[t](1.62,1.62){\rotatebox{45}{$\alert<4>{ \bm v+\bm u}$}}}
+\rput[b](1.38,1.38){\rotatebox{45}{$\alert<1>{\bm u+\bm v}$}}
+\end{pspicture}
+
+\uncover<5->{
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-0.5, -1)(4, 4)
+\fcBoundingBox{-0.5}{-1}{4}{4}
+\tiny
+
+\uncover<5->{\psline[arrows=->](0,0)(0.5, 2) }
+\uncover<6,9>{\psline[arrows=->, linecolor=red](0,0)(0.5,2)}
+\rput[r](0.15,1){$\alert<6,9>{\bm u}$}
+
+\uncover<5->{\psline[arrows=->](0.5, 2)(3, 3)}
+\uncover<6,8>{\psline[arrows=->, linecolor=red](0.5,2)(3,3)}
+\rput[b](1.75,2.6){$\alert<6,8>{\bm v}$}
+
+\uncover<6->{\rput[tl](1.7, 1.7){\alert<6,7>{$\bm u+\bm v$}}}
+\uncover<6,7>{\psline[arrows=->, linecolor=red](0,0)(3,3)}
+\uncover<8->{\psline[arrows=->](0,0)(3,3)}
+
+\uncover<7>{\psline[arrows=->, linecolor=red](3,3)(4,0)}
+
+\uncover<5->{\psline[arrows=->](3, 3)(4, 0)}
+\uncover<7,8>{\psline[arrows=->, linecolor=red](3, 3)(4, 0)}
+\rput[lb](3.6,1.5){$\alert<7,8>{\bm w}$}
+
+\uncover<7->{\rput[t](2, -0.1){\alert<6,7,10>{$(\bm u+\bm v )+\bm w$}}}
+\uncover<9->{\rput[b](2, 0.1){\alert<9,10>{$\bm u+(\bm v +\bm w)$}}}
+\uncover<8,11->{\psline[arrows=->](0, 0)(4, 0)}
+\uncover<7,9,10>{\psline[arrows=->, linecolor=red](0, 0)(4, 0)}
+
+
+\uncover<8->{\rput[tr](2.25, 1){$\alert<8,9>{\bm v+\bm w}$}}
+\uncover<10->{\psline[arrows=->](0.5, 2)(4,0)}
+\uncover<8,9>{\psline[arrows=->, linecolor=red](0.5, 2)(4,0)}
+
+\end{pspicture}
+}
+\column{0.6\textwidth}
+\begin{itemize}
+\item Addition is commutative (parallelogram rule): \[ \alert<1>{\bm{u}+ \bm{v}} = \alert<4>{\alert<2>{\bm{v}}+ \alert<3>{\bm{u}}}.\]
+
+\item<5-> Addition is associative: 
+\[
+\alert<10>{\alert<7>{(\alert<6>{ \bm{u}+\bm{v}})+\bm{w} } = \alert<9>{\bm{u} + (\alert<8>{ \bm{v} + \bm{w}})}}
+\] 
+
+\item<11-> As usual we write $\bm{u}+\bm{v}+\bm{w}=( \bm{u} +\bm{v})+\bm{w}= \bm{u}+(\bm{v}+\bm{w})$.
+\end{itemize}
+\end{columns}
+\end{frame}
