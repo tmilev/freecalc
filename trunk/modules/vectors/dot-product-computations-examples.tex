@@ -1,5 +1,37 @@
 \begin{frame}
 \begin{example}
-$\langle 1,2,3 \rangle \cdot \langle 6,5,4 \rangle = 1 \cdot 6 + 2\cdot 5 + 3 \cdot 4 = 28$
+$\alert<2>{\langle 1,2,3 \rangle \cdot \langle 6,5,4 \rangle =} \uncover<3->{\alert<3>{1 \cdot 6 + 2\cdot 5 + 3 \cdot 4 = 28}}$
+\end{example}
+\end{frame}
+
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.25\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-2, -2)(3,3)%
+\renewcommand{\fcScreen}{[-1 0.8 -0.2] 0}%
+\only<6->{\renewcommand{\fcScreen}{[-1 0.571429 -0.2] 0}}
+\only<7->{\renewcommand{\fcScreen}{[-1 0.342857 -0.2] 0}}
+\only<8->{\renewcommand{\fcScreen}{[-1 0.114286 -0.2] 0}}
+\only<9->{\renewcommand{\fcScreen}{[-1  -0.114286 -0.2] 0}}
+\only<10->{\renewcommand{\fcScreen}{[-1 -0.342857 -0.2] 0}}
+\only<11->{\renewcommand{\fcScreen}{[-1 -0.8 -0.2] 0}}
+\fcBoundingBox{-3}{-3}{3}{3}%
+\fcAxesIIIdFull{3}{3}{3}%
+\uncover<4->{\fcPerpendicularIIId{[1 -2 3]}{[-1 1 1]}{0.4}}%
+\fcLineIIId[linecolor=blue,arrows=->]{[0 0 0]}{[1 -2 3]}%
+\fcLineIIId[linecolor=blue, arrows=->]{[0 0 0]}{[1 -1 -1]}%
+\end{pspicture}
+\column{0.75\textwidth}
+Are the vectors $\langle 1,-2,3 \rangle \cdot \langle 1,-1,-1 \rangle $ perpendicular?
+
+\[
+\uncover<2->{\alert<2,3>{ \langle 1,-2,3 \rangle \cdot \langle 1,-1,-1 \rangle =}} \uncover<3->{\alert<3>{1\cdot 1 + (-1)\cdot (-2)+ 3\cdot (-1)=0}},
+\] 
+\uncover<4->{therefore the vectors are perpendicular.} 
+\uncover<5->{Is this apparent from the picture? Not unless the two vectors lie in a plane parallel to the surface of the page/computer screen.}
+\uncover<12>{}
+\end{columns}
 \end{example}
 \end{frame}
