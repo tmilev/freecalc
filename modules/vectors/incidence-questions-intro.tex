@@ -1,35 +1,39 @@
 \begin{frame}
  \frametitle{Main Questions}
 
-What condition or conditions should
 
 \begin{columns}[t]
-  \column[T]{5cm}
+\column[T]{0.4\textwidth}
+
+\begin{pspicture}(-1,-2)(2,2)
+\renewcommand{\fcScreen}{[-2 -1 -0.55] 0}
+\tiny
+\fcBoundingBox{-1}{-2}{2}{2}
+\fcParallelogramIIId{[2 2 0]}{[1 2 -1]}{[1 2 2]}
+\fcAxesIIId{2}{2}{2}
+\fcLineIIId[arrows=->]{[ 0 0 0]}{[1 1 1]}
+\fcDotIIId{[1 1 1]}
+\fcPutIIId[lb]{[1 1 1]}{$~~Q(x,y,z)$}
+\fcLineIIId{[0.6 0.95 0.35]}{[1.4 1.05 1.65]}
+
+\fcLineIIId[arrows=->]{[ 0 0 0]}{[1 2 0.5]}
+\fcDotIIId{[1 2 0.5]}
+\fcPutIIId[lb]{[1 2 0.5]}{$~~P(x,y,z)$}
+\end{pspicture}
+
+\column{0.6\textwidth}
+What condition(s) should
   \begin{itemize}
     \item the position vector
     \item the coordinates
   \end{itemize}
 
-of a point satisfy\\
-for the point to be\\
-on a specific\\
+of a point satisfy for it to be on a specific
 
 \begin{itemize}
     \item line $L$
     \item plane $\mathcal{P}$?
 \end{itemize}
-  \column[T]{7cm}
-    \begin{figure}
-        \psfrag{O}{$O$}
-        \psfrag{x}{$x$}
-        \psfrag{y}{$y$}
-        \psfrag{z}{$z$}
-        \psfrag{L}{$L$}
-        \psfrag{Pi}{$\mathcal{P}$}
-        \psfrag{P}{$P(x,y,z)$}
-        \psfrag{Q}{$Q(x,y,z)$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-lines_planes.eps}
-    \end{figure}
 \end{columns}
 
 Condition(s) in terms of:
