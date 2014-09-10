@@ -19,21 +19,31 @@ Find a vector perpendicular to $\textbf{u} =\langle1,1,0\rangle = \textbf{i}+\te
 \frametitle{Use $\times$ to find area of triangle in space}
 \begin{columns}
 \column{0.3\textwidth}
-  \psfrag{u}{$\textbf{v}$}
-  \psfrag{v}{$\textbf{u}$}
-  \psfrag{w}{$\textbf{w}$}
-    \psfrag{A}{$A$}
-    \psfrag{B}{$B$}
-    \psfrag{C}{$C$}
-    \psfrag{D}{$D$}
-  \includegraphics[height=1in]{../../modules/vectors/pictures/ok-area_triangle.eps}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.3,-0.1)(1.4,1.4)%
+\psline[arrows=->](0,0)(1.2,0)%
+\psline[arrows=->](0,0)(0.2,1)%
+\psline[arrows=->](1.2,0)(0.2,1)%
+\psline(0.2,1)(1.4,1)(1.2,0)%
+\rput[t](0,-0.1){$A$}
+\rput[tl](1.2,-0.1){$B$}
+\rput[bl](1.4,1.1){$D$}
+\rput[br](0.2,1.1){$C$}
+\uncover<2->{%
+\rput[l](0.25,0.5){$\fcv w$}%
+\fcPerpendicular{[0.2 1]}{[1 0]}{0.1}%
+\psline[arrows=->](0.2,0 )(0.2,1)%
+}%
+\rput[t](0.5, -0.1){$\fcv u$}
+\rput[r](0,0.5){$\fcv v$}
+\end{pspicture}  
 \column{0.7\textwidth}
 \begin{itemize}
 \item $A$, $B$, $C$ points in space, $\textbf{u} = \textbf{AB}$, $\textbf{v}=\textbf{AC}$. 
-\item Then $|\textbf{w}| = |\textbf{orth}_{\bm{u}} \textbf{v}| = \text{ distance from } C \text{ to } AB\; .$
-\item $|\textbf{u} \times \textbf{v}| = |\textbf{orth}_{\bm{u}} \textbf{v}| \, |\textbf{u}| =
+\item<2-> Then $|\textbf{w}| = |\textbf{orth}_{\bm{u}} \textbf{v}| = \text{ distance from } C \text{ to } AB\; .$
+\item<3-> $|\textbf{u} \times \textbf{v}| = |\textbf{orth}_{\bm{u}} \textbf{v}| \, |\textbf{u}| =
 2 \text{area}(ABC) = \text{area}(ABDC)$
-\item $|\textbf{u} \times \textbf{v}|$ = Area of parallelogram on sides $\textbf{u}$ and $\textbf{v}$.
+\item<4-> $|\textbf{u} \times \textbf{v}|$ = Area of parallelogram on sides $\textbf{u}$ and $\textbf{v}$.
 \end{itemize}
 %
 \end{columns}
@@ -44,7 +54,7 @@ Find a vector perpendicular to $\textbf{u} =\langle1,1,0\rangle = \textbf{i}+\te
 \begin{columns}
 \column{0.3\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-0.1, -0.1)(4,4)
+\begin{pspicture}(-0.1, -1)(4,3.5)
 \fcBoundingBox{-0.2}{-1}{4}{3.5}
 \fcAxesIIId{3}{3}{3}%
 \pscustom*[linecolor=cyan]{%
