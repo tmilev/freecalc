@@ -12,10 +12,9 @@
 \begin{center}
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture}(-3,-3)(3,5.5)
-
-\psset{Beta=15}
-\psplotThreeD[plotstyle=line,drawStyle=xLines,yPlotpoints=50,xPlotpoints=50,linewidth=0.3pt, linecolor=blue](-4,4)(-4,4){ x 3 exp x y 4 exp mul add x 5 div sub 10 mul 2.729 x dup mul y dup mul add neg exp mul 2.729 x 1.225 sub dup mul y dup mul add neg exp add}
-\pstThreeDCoor[xMin=-1,xMax=5,yMin=-1,yMax=5,zMin=-1,zMax=5]
+\renewcommand{\fcScreen}{[-1 -1 -0.4] 0}
+\fcAxesIIId{5}{5}{5}
+\fcPlotIIId[linewidth=0.3pt, linecolor=blue]{iterationsX=50, iterationsY=50}{-4}{-4}{4}{4}{ x 3 exp x y 4 exp mul add x 5 div sub 10 mul 2.729 x dup mul y dup mul add neg exp mul 2.729 x 1.225 sub dup mul y dup mul add neg exp add}
 \rput[t](-3,5.3){Graph of a scalar function.}
 \end{pspicture}
 \end{center}

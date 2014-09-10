@@ -2,8 +2,8 @@ Let $x\in (0,1)$. Express the following using $x$ and $\sqrt{1-x^2}$.
 \begin{multicols}{2}
 \begin{enumerate}
 \item $\sin(\Arcsin (x))$. \answer{$x$}
-\pointsii{3} $\sin(2\Arcsin (x))$. \answer{$2x\sqrt{1-x^2} $}
-\item $\sin(3\Arcsin (x))$. \answer{$ -4x^3+3x $}
+\pointsii{3} \label{problemsin(2arcsin x)}  $\sin(2\Arcsin (x))$. \answer{$2x\sqrt{1-x^2} $}
+\item  \label{problemsin(3arcsin x)} $\sin(3\Arcsin (x))$. \answer{$ -4x^3+3x $}
 \item $\sin(\Arccos (x))$. \answer{$\sqrt{1-x^2} $}
 \item $\sin(2\Arccos (x))$. \answer{$2x \sqrt{1-x^2 }$}
 \item $\sin(3\Arccos (x))$. 
@@ -16,58 +16,3 @@ $\left(4x^2-1\right)\sqrt{1-x^2}$ \\= $-4\left(\sqrt{1-x^2}\right)^3+3\sqrt{1-x^
 \item $\cos(3\Arccos (x))$. \answer{$4x^3-3x $}
 \end{enumerate}
 \end{multicols}
-
-\begin{enumerate}
-\setcounter{enumii}{1}
-\item  
-\solution{%
-Let $y = \Arcsin x$.  Then $\sin x = y$, and we can draw a right triangle with opposite side length $x$ and hypotenuse length $1$ to find the other trigonometric ratios of $y$.  
-
-\begin{center}
-\psset{xunit=1.0cm,yunit=1.0cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
-\begin{pspicture*}(-3.33,-6.11)(14.05,6.58)
-\psline(0,0)(4,0)
-\psline(0,0)(4,3)
-\psline(4,3)(4,0)
-\psline(4,0.2)(3.8,0.2)
-\psline(3.8,0.2)(3.8,0)
-\rput[tl](0.83,0.5){$y$}
-\rput[tl](1.56,1.82){$1$}
-\rput[tl](4.1,1.4){$x$}
-\rput[tl](1.7,-0.05){$\sqrt{1-x^2}$}
-\parametricplot{0.0}{0.6435011087932844}{1*0.66*cos(t)+0*0.66*sin(t)+0|0*0.66*cos(t)+1*0.66*sin(t)+0}
-\end{pspicture*}
-\end{center}
-
-Then $\cos y = \sqrt{1-x^2}/1 = \sqrt{1-x^2}$.  
-Now we use the double angle formula to find $\sin(2\Arcsin x)$.  
-
-\begin{align*}
-\sin (2 \Arcsin x) & = \sin (2y) \\
-& = 2\sin y\cos y \\
-& = 2x\sqrt{1-x^2}.
-\end{align*}
-}%
-\item
-\solution{%
-Use the result of the previous question.  
-This also requires the addition formula for sine: 
-\[
-\sin(A+B) = \sin A \cos B + \sin B\cos A,
-\]
-and the double angle formula for cosine:
-\[
-\cos (2y) = \cos^2 y - \sin^2 y.
-\]  
-\begin{align*}
-\sin(3\Arcsin x) & = \sin(3y) \\
-& = \sin (2y + y) \\
-\text{Addition formula: } \quad & = \sin(2y)\cos y + \sin y \cos (2y) \\
-\text{Double angle formulas: } \quad & = (2\sin y \cos y)\cos y + \sin y (\cos^2 y - \sin^2 y) \\
-& = 2\sin y \cos^2 y + \sin y \cos^2 y - \sin^3 y \\
-& = 3\sin y \cos^2 y - \sin^3 y \\
-& = 3x(1-x^2) - x^3 \\
-& = 3x - 4x^3.
-\end{align*}
-}%
-\end{enumerate}
