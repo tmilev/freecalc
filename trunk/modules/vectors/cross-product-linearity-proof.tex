@@ -1,0 +1,29 @@
+\begin{frame}
+\frametitle{Geometric illustration of the linearity of $\times$ product}
+\begin{theorem}
+$\fcv u\times (\fcv v_1+\fcv v_2)=\fcv u \times\fcv v_1 +\fcv u\times \fcv v_2 $.
+\end{theorem}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-0.2, -1)(2,2)
+\tiny
+%\fcAxesIIId{2}{2}{2}
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 0 0]}%
+\fcPutIIId[t]{[0.5 0 -0.1]}{$\fcv u$}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 1 0]}%
+\fcPutIIId[t]{[0.5 0.5 0]}{$\fcv v_1$}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 2 1]}%
+\fcPutIIId[tl]{[0.5 1 0.5]}{$\fcv v_2$}%
+\fcLineIIId[arrows=->]{[1 1 0]}{[2 3 1]}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[2 3 1]}%
+\fcPutIIId[lt]{[1 1.5 0.5]}{$\fcv v_1 +\fcv v_2$}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 1]}%
+\fcPutIIId[l]{[0 0 0.5]}{$\fcv u\times \fcv v_1 $}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 -1 2]}%
+\fcPutIIId[tr]{[0 -0.5 1]}{$\fcv u\times \fcv v_2 $}%
+\fcLineIIId{[0 0 0]}{[0 -1 3]}
+\fcPerpendicularIIId{[0 -1 2]}{[-1 0 0]}{0.3}%
+\fcPerpendicularIIId{[0 -1 2]}{[-1 -2 -1]}{0.3}%
+\fcPerpendicularIIId{[0 0 1]}{[-1 0 0]}{0.1}%
+\fcPerpendicularIIId{[0 0 1]}{[-1 -1 0]}{0.1}%
+\end{pspicture}
+\end{frame}
