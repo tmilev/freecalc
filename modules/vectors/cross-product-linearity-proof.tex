@@ -1,4 +1,37 @@
 \begin{frame}
+\frametitle{$\fcv{orth}_{\fcv u}$ is a linear operator}
+\begin{theorem}
+$\fcv{orth}_{\fcv u}(\fcv v_1 +\fcv v_2)= \fcv{orth}_{\fcv u} \fcv v_1+\fcv{orth}_{\fcv u} \fcv v_2$
+\end{theorem}
+\begin{proof}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{pspicture}(-0.1,-0.1)(4,4)
+\tiny
+\fcBoundingBox{-1.5}{-1}{4}{4.5}
+\fcParallelogramIIId{[0 -0.5 -0.5]}{[0 3 0]}{[0 0 3]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 0 0]}%
+\fcPutIIId[t]{[0.5 0 -0.1]}{$\fcv u$}%
+\fcPerpendicularIIId{[1 1 2]}{[0 1 2]}{0.2}
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 1 2]}%
+\fcPutIIId[tl]{[0.5 0.5 1]}{$\fcv v_1$}%
+
+\fcPerpendicularIIId{[1 2 0]}{[0 2 0]}{0.2}
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 2 0]}%
+\fcPutIIId[t]{[0.5 1 0]}{$\fcv v_2$}%
+
+\fcLineIIId[arrows=->]{[0 0 0]}{[2 3 2]}%
+\fcPutIIId[lt]{[1 1.5 1]}{$\fcv v_1 +\fcv v_2$}%
+\end{pspicture}
+\column{0.5\textwidth}
+
+\end{columns}
+\end{proof}
+
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Geometric illustration of the linearity of $\times$ product}
 \begin{theorem}
 $\fcv u\times (\fcv v_1+\fcv v_2)=\fcv u \times\fcv v_1 +\fcv u\times \fcv v_2 $.
