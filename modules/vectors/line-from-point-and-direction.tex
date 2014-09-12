@@ -51,76 +51,73 @@ is called a parametric vectorial equation of the the line $L$.
 \begin{frame}
 \frametitle{Line from Point and Direction}
 \begin{columns}
-  \column{6cm}
+\column{0.3\textwidth}
+\psset{xunit=1.4cm, yunit=1.4cm}
+\begin{pspicture}(-0.2,-0.2)(2,2)
+\renewcommand{\fcScreen}{[-3 -1 -0.2] 0}
+\tiny
+\fcAxesIIId{2}{2}{2}
+\fcLineIIId{[0.5 0.5 1]}{[3 3 0.5]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 1 0.9]}
+\fcPutIIId[tl]{[0.5 0.5 0.45]}{$~\fcv r_0$}
+
+\fcLineIIId[linecolor=blue, arrows=->]{[1.5 1.5 0.8]}{[2 2 0.7]}
+\fcPutIIId[bl]{[1.75 1.75 0.8]}{$\fcv u$}
+
+\fcLineIIId[arrows=->]{[0 0 0]}{[2.5 2.5 0.6]}
+\fcPutIIId[t]{[1.25 1.25 0.2]}{$\fcv r$}
+
+\fcDotIIId{[1 1 0.9]}
+\fcPutIIId[lb]{[1 1 0.95]}{$P_0$}
+\fcDotIIId{[2.5 2.5 0.6]}
+\fcPutIIId[lb]{[2.5 2.5 0.65]}{$P$}
+\fcPutIIId[t]{[3 3 0.5]}{$~L$}
+\end{pspicture}
+
+$L$- line with direction $\textbf{u}$ passing through $P_0$
+
+\column{0.7\textwidth}
 \begin{itemize}
- \item Point $P_0(x_0,y_0,z_0)$, $\textbf{r}_0=\langle x_0,y_0,z_0\rangle$;
+\item Point $P_0(x_0,y_0,z_0)$, $\fcv{r}_0=\langle x_0,y_0,z_0\rangle$;
 \item Direction $\textbf{u}=\langle u_1,u_2,u_3\rangle$.
+\uncover<2->{$P(x,y,z)$ with position vector $\textbf{r}$ is on $L$ $\Leftrightarrow$ \\ }
+\uncover<3->{\medskip $\textbf{r} = \textbf{r}_0+t\textbf{u}$ $\Leftrightarrow$\\}
+\uncover<4->{\medskip $\langle x,y,z\rangle = \langle x_0,y_0,z_0\rangle + t\langle u_1,u_2,u_3\rangle$ $\Leftrightarrow$\\}
 \end{itemize}
-  \column{5cm}
- $L$: line with direction $\textbf{u}$, \\passing through $P_0$
 \end{columns}
+\begin{definition}
+\uncover<5->{%
+The equations 
+\[
+\left| \begin{array}{ll}
+x & = x_0 + t u_1 \\
+y & = y_0 + t u_2 \\
+z & = z_0 + t u_3
+\end{array}
+\right., t\in \mathbb R
+\]
+are called \alert<5>{parametric scalar equations} of the line $L$.
+}
+\end{definition}
 
-\begin{columns}
-  \column{6cm}
-    \uncover<2->{$P$ with position vector $\textbf{r}$ is on $L$ $\leftrightarrow$ \\ }
-    \uncover<3->{\medskip $\textbf{r} = \textbf{r}_0+t\textbf{u}$ $\leftrightarrow$\\}
-    \uncover<4->{\medskip $\langle x,y,z\rangle = \langle x_0,y_0,z_0\rangle + t\langle u_1,u_2,u_3\rangle$ $\leftrightarrow$\\}
-    \uncover<5->{\medskip \textcolor[rgb]{0.98,0.00,0.00}{Parametric scalar equations}:\\
-    $\boxed{\left\{ \begin{array}{ll}
-           x & = x_0 + t u_1 \\
-	   y & = y_0 + t u_2 \\
-           z & = z_0 + t u_3
-          \end{array}
-\right.}$  \\ for some real parameter $t$ }
-
-  \column{6.5cm}
-    \begin{figure}
-        \psfrag{O}{$O$}
-        \psfrag{x}{$x$}
-        \psfrag{y}{$y$}
-        \psfrag{z}{$z$}
-        \psfrag{L}{$L$}
-        \psfrag{P}{$P(x,y,z)$}
-        \psfrag{P0}{$P_0(x_0,y_0,z_0)$}
-        \psfrag{r}{$\textbf{r}$}
-        \psfrag{u}{$\textbf{u}=\langle u_1,u_2,u_3\rangle$}
-        \psfrag{r0}{$\textbf{r}_0$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-line_point_direction_scalar.eps}
-    \end{figure}
-\end{columns}
 \end{frame}
 
 \begin{frame}
-\uncover<1->{ $$\left\{ \begin{array}{ll}
-           x & = x_0 + t u_1 \\
-	   y & = y_0 + t u_2 \\
-           z & = z_0 + t u_3
-          \end{array}
-\right. \Longrightarrow \boxed{\frac{x-x_0}{u_1} = \frac{y-y_0}{u_2} = \frac{z-z_0}{u_3}} \text{ \textcolor[rgb]{0.98,0.00,0.00}{Symmetric equations}}$$}
-
-\uncover<2->{Caution! If $u_2=0$ (for example), then:
-%
-$$\frac{x-x_0}{u_1} = \frac{z-z_0}{u_3} \quad  \text{ and } \quad y=y_0 $$}
-
-\uncover<3->{Example: Line with direction $\textbf{u} = \langle 4,5,6\rangle$ through $P_0(1,2,3)$:}
+\uncover<1->{%
+\[
+\left|
+\begin{array}{ll}
+x & = x_0 + t u_1 \\
+y & = y_0 + t u_2 \\
+z & = z_0 + t u_3
+\end{array}
+\right. \Longrightarrow \boxed{\frac{x-x_0}{u_1} = \frac{y-y_0}{u_2} = \frac{z-z_0}{u_3}} \text{ \textcolor[rgb]{0.98,0.00,0.00}{Symmetric equations}}\]
+}%uncover
 \begin{itemize}
- \item<4-> Parametric vectorial equation:
-%
-$$\textbf{r} = \langle 1,2,3\rangle + t \langle 4,5,6\rangle \leftrightarrow
-\textbf{r} = \langle 1+4t, 2+5t, 3+6t\rangle$$
-%
-\item<5-> Parametric scalar equations:
-%
-$$\left\{ \begin{array}{ll}
-           x & = 1 + 4t \\
-	   y & = 2+5t \\
-           z & = 3+6t
-          \end{array}
-\right. , \quad t \text{ real number.}$$
-%
-\item<6-> Symmetric equations:
-%
-$$\frac{x-1}{4} = \frac{y-2}{5} = \frac{z-3}{6}\; .$$
+\item<2->Caution! Symmetric equations are valid for $u_1,u_2,u_3\neq 0$. For example if $u_2=0$ the equations should be:
+\[
+\frac{x-x_0}{u_1} = \frac{z-z_0}{u_3} \quad  \text{ and } \quad y=y_0 
+\]
 \end{itemize}
 
 \end{frame}
