@@ -1,29 +1,94 @@
 \begin{frame}
 \frametitle{Proof of linearity of $\times$ product}
 \begin{theorem}
-$\fcv u\times (\fcv v_1+\fcv v_2)=\fcv u \times\fcv v_1 +\fcv u\times \fcv v_2 $.
+$\alert<11>{\fcv u\times (\fcv v_1+\fcv v_2)=\fcv u \times\fcv v_1 +\fcv u\times \fcv v_2 }$.
 \end{theorem}
-\psset{xunit=1.5cm, yunit=1.5cm}
-\begin{pspicture}(-0.2, -1)(2,2)
-\tiny
-%\fcAxesIIId{2}{2}{2}
+\begin{proof}[Geometric justification]
+\begin{columns}
+\column{0.41\textwidth}
+\uncover<2->{%
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.5, -0.8)(3.6,4.15)
+\tiny%
+\fcBoundingBox{-1.5}{-0.8}{3.6}{4.15}%
+\fcParallelogramIIId{[0 -1.5 -0.45]}{[0 -2.1 3.1]}{[0 3.7 0]}%
+\fcPutIIId[lt]{[0.3 3 3]}{$\mathcal P$}%
 \fcLineIIId[arrows=->]{[0 0 0]}{[1 0 0]}%
 \fcPutIIId[t]{[0.5 0 -0.1]}{$\fcv u$}%
-\fcLineIIId[arrows=->]{[0 0 0]}{[1 1 0]}%
-\fcPutIIId[t]{[0.5 0.5 0]}{$\fcv v_1$}%
-\fcLineIIId[arrows=->]{[0 0 0]}{[1 2 1]}%
-\fcPutIIId[tl]{[0.5 1 0.5]}{$\fcv v_2$}%
-\fcLineIIId[arrows=->]{[1 1 0]}{[2 3 1]}%
-\fcLineIIId[arrows=->]{[0 0 0]}{[2 3 1]}%
-\fcPutIIId[lt]{[1 1.5 0.5]}{$\fcv v_1 +\fcv v_2$}%
-\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 1]}%
-\fcPutIIId[l]{[0 0 0.5]}{$\fcv u\times \fcv v_1 $}%
-\fcLineIIId[arrows=->]{[0 0 0]}{[0 -1 2]}%
-\fcPutIIId[tr]{[0 -0.5 1]}{$\fcv u\times \fcv v_2 $}%
-\fcLineIIId{[0 0 0]}{[0 -1 3]}
-\fcPerpendicularIIId{[0 -1 2]}{[-1 0 0]}{0.3}%
-\fcPerpendicularIIId{[0 -1 2]}{[-1 -2 -1]}{0.3}%
-\fcPerpendicularIIId{[0 0 1]}{[-1 0 0]}{0.1}%
-\fcPerpendicularIIId{[0 0 1]}{[-1 -1 0]}{0.1}%
+\uncover<1-4>{%
+\fcPerpendicularIIId{[1 1 2]}{[0 1 2]}{0.2}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 1 2]}%
+\fcPutIIId[tl]{[0.5 0.5 1]}{$\fcv v_1$}%
+\fcPerpendicularIIId{[1 2 0]}{[0 2 0]}{0.2}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 2 0]}%
+\fcPutIIId[t]{[0.5 1 -0.1]}{$\fcv v_2$}%
+\fcLineIIId[linecolor=blue, arrows=->]{[0 0 0]}{[0 2 0]}%
+\fcLineIIId[arrows=->]{[1 1 2]}{[2 3 2]}%
+\fcPutIIId[b]{[1.5 2 2]}{$\fcv v_2$}%
+\fcPerpendicularIIId{[2 3 2]}{[0 3 2]}{0.2}%
+\fcLineIIId[linecolor=blue, arrows=->]{[0 0 0]}{[0 1 2]}%
+\fcPutIIId[rb]{[0 0.5 1]}{$\color{blue}{ \fcv{orth}_{\fcv u } \fcv v_1}$}%
+\fcLineIIId[arrows=->, linecolor=blue]{[0 1 2]}{[0 3 2]}%
+\fcPutIIId[b]{[0 2 2.2]}{$\color{blue}{\fcv{orth}_{\fcv u} \fcv v_2 }$}%
+\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 3 2]}%
+\fcPutIIId[l]{[0 2 1.3]}{$\color{blue}{ \fcv{orth}_{\fcv u} (\fcv v_1 +\fcv v_2)}$}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[2 3 2]}%
+\fcPutIIId[lt]{[1 1.5 1]}{$\fcv v_1 +\fcv v_2$}%
+}%uncover
+\uncover<4>{%
+\fcLineIIId[linewidth=1.5pt, arrows=->, linecolor=red]{[0 0 0]}{[0 1 2]}%
+\fcLineIIId[linewidth=1.5pt, arrows=->, linecolor=red]{[0 1 2]}{[0 3 2]}%
+\fcLineIIId[linewidth=1.5pt, arrows=->, linecolor=red]{[0 0 0]}{[0 3 2]}%
+}%
+\uncover<5->{%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 1 2]}%
+\fcLineIIId[arrows=->]{[0 1 2]}{[0 3 2]}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 3 2]}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 2 0]}%
+\fcPerpendicularIIId{[1 0 0]}{[0 -1 -2]}{0.2}%
+\fcPerpendicularIIId{[1 0 0]}{[0 -2 0]}{0.2}%
+\fcPutIIId[rb]{[0 0.5 1]}{$\alert<5>{\fcv v_1}$}%
+\fcPutIIId[l]{[0 2 1.3]}{$\alert<5>{\fcv v_1 +\fcv v_2}$}%
+\fcPutIIId[b]{[0 2 2.2]}{$\alert<5>{\fcv v_2 }$}%
+\fcPutIIId[b]{[0 1 0]}{$\alert<5>{\fcv v_2 }$}%
+}%
+\uncover<8->{\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 -2 1]}}%
+\uncover<9->{\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 0 2]}}%
+\uncover<10->{%
+\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 -2 3]}%
+\fcAngleIIId[linecolor=magenta, arrows=->]{[0 3 2]}{[0 -2 3]}{0.6}%
+}%
+\uncover<8->{\fcAngleIIId[linecolor=orange, arrows=->]{[0 0.5 1]}{[0 -2 1]}{0.4}}%
+\uncover<9->{\fcAngleIIId[linecolor=brown, arrows=->]{[0 2 0]}{[0 0 2]}{0.5}}%
+\uncover<11->{%
+\fcLineIIId[linewidth=1.5pt, arrows=->, linecolor=red]{[0 0 0]}{[0 -2 1]}%
+\fcLineIIId[linewidth=1.5pt, arrows=->, linecolor=red]{[0 0 0]}{[0 0 2]}%
+\fcLineIIId[linewidth=1.5pt, arrows=->, linecolor=red]{[0 0 0]}{[0 -2 3]}%
+\fcLineIIId[linewidth=1.5pt, arrows=->, linecolor=red]{[0 0 2]}{[0 -2 3]}%
+}%
+\uncover<10->{\fcPutIIId[l]{[0 -1.8 2.7]}{${\fcv u \times (\fcv v_1 +\fcv v_2)}$}}%
+\uncover<9->{\fcPutIIId[r]{[0 0 1]}{${\fcv u \times \fcv v_2}$}}%
+\uncover<8->{\fcPutIIId[tr]{[0 -0.5 0.25]}{${\fcv u \times \fcv v_1}$}}%
 \end{pspicture}
+}%uncover
+\column{0.59\textwidth}
+\small
+\uncover<2->{
+$\begin{array}{r@{~}c@{~}l}
+\alert<4>{\fcv u\times \fcv v_1} &=& \alert<4>{\fcv u\times \fcv{orth}_{\fcv u}\fcv v_1} \\ 
+\alert<4>{\fcv u\times \fcv v_2} &=&\alert<4>{ \fcv u\times \fcv{orth}_{\fcv u}\fcv v_2}\\
+\alert<4>{\fcv u\times (\fcv v_1+\fcv v_2)} &=&  \fcv u\times \left(\alert<3>{ \fcv{orth}_{\fcv u} \left(\fcv v_1+\fcv v_2\right)} \right)\\
+\uncover<3->{ &=& \alert<4>{ \fcv u\times \left( \alert<3>{ \fcv{orth}_{\fcv u} \left(\fcv v_1\right)+\fcv{orth}_{\fcv u} \left(\fcv v_2\right)} \right)}}
+\end{array}
+$
+\uncover<4->{\alert<5>{$\Rightarrow$ suffices to prove theorem when  $\fcv v_1, \fcv v_2\perp \fcv u $}.}
+\uncover<6->{Since $(a\fcv u)\times \fcv v= a(\fcv u \times \fcv v)$ $\Rightarrow$ suffices to prove theorem when $|\fcv u|=1$. }
+
+\uncover<7->{When $|\fcv u| =1$, applying $\fcv u\times $ rotates all vectors in the plane $\mathcal P$ at angle $\frac{\pi}{2}$. 
+}
+}%uncover
+\uncover<11->{The statement of the theorem now follows from the fact that rotation preserves sums of vectors.
+}
+\end{columns}
+\end{proof}
 \end{frame}
