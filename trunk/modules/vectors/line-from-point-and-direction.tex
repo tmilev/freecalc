@@ -1,47 +1,55 @@
 \begin{frame}
- \frametitle{Line from Point and Direction}
+\frametitle{Line from Point and Direction}
 \begin{columns}
-  \column{6cm}
+\column{0.3\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.2,-0.2)(3.5,2)
+\tiny
+\fcFullDot{0}{0}
+\rput[tl](0,-0.1){$O$}
+\psline(0, 1.7)(3.5,0.3)
+\fcFullDot{0.5}{1.5}
+\rput[bl](0.5, 1.5){$P_0$}
+\uncover<4->{
+\psline[arrows=->, linecolor=red](0.5,1.5)(2.5,0.7)
+}
+\psline[arrows=->, linecolor=blue](1,1.3)(2, 0.9)
+\rput[b](1.5,1.2) {$\fcv u$}
+\rput[l](3.5,0.3){$L$}
+
+\uncover<2->{\psline[arrows=->](0,0)(0.5,1.5)
+\rput[l](0.25, 0.75){$~~\fcv r_0$}
+}
+\uncover<3->{%
+\psline[arrows=->](0,0)(2.5, 0.7)
+\rput[b](2.5, 0.75){$P$}
+\rput[t](1.25, 0.2){$\fcv r$}
+}
+\end{pspicture}
+
+\column{0.7\textwidth}
 \begin{itemize}
- \item Point $P_0$, with position vector $\textbf{r}_0$;
-\item Direction $\leftrightarrow$ non-zero vector $\textbf{u}$.
+\item Suppose we have line $L$ that passes through point $P_0$ and has non-zero direction $\textbf{u}$.
+\item<2-> Denote by $\fcv r_0=\fcv{OP}_0$ the position vector of $P_0$.
+\item<3->$P$ with position vector $\textbf{r}$ is on $L$ $\Leftrightarrow$ 
+\item<4->$\textbf{P}_0\textbf{P}$ has the same direction as $\textbf{u}$ $\Leftrightarrow$
+\item<5-> $\textbf{P}_0\textbf{P}$ is a scalar multiple of $\textbf{u}$ $\Leftrightarrow$
+\item<6-> $\textbf{r}-\textbf{r}_0 = t\textbf{u}$  for some real number $t$.
 \end{itemize}
-  \column{5cm}
- $L$: line with direction $\textbf{u}$, \\passing through $P_0$
 \end{columns}
-
-\bigskip
-
-\begin{columns}
-  \column{6cm}
-    \uncover<2->{$P$ with position vector $\textbf{r}$ is on $L$ $\leftrightarrow$ \\ }
-    \uncover<3->{\medskip $\textbf{P}_0\textbf{P}$ has the same direction as $\textbf{u}$ $\leftrightarrow$\\}
-    \uncover<4->{\medskip $\textbf{P}_0\textbf{P}$ is a scalar multiple of $\textbf{u}$ $\leftrightarrow$\\}
-    \uncover<5->{\medskip $\textbf{r}-\textbf{r}_0 = t\textbf{u}$  for some real number $t$ }
-  \column{6cm}
-    \begin{figure}
-        \psfrag{O}{$O$}
-        \psfrag{x}{$x$}
-        \psfrag{y}{$y$}
-        \psfrag{z}{$z$}
-        \psfrag{L}{$L$}
-        \psfrag{P}{$P$}
-        \psfrag{P0}{$P_0$}
-        \psfrag{r}{$\textbf{r}$}
-        \psfrag{u}{$\textbf{u}$}
-        \psfrag{r0}{$\textbf{r}_0$}
-        \includegraphics[height=1in]{../../modules/vectors/pictures/ok-line_point_direction_vector.eps}
-    \end{figure}
-\end{columns}
-
-
-\uncover<6->{\bigskip
-$$\text{\textcolor[rgb]{0.98,0.00,0.00}{Parametric vectorial equation}: } \quad \boxed{ \textbf{r} = \textbf{r}_0+t\textbf{u} } \quad \text{ for some real number }t$$}
-
+\uncover<7->{
+\begin{definition}
+The equation 
+\[
+\fcv{r} = \fcv{r}_0+t\fcv{u}
+\]
+is called a parametric vectorial equation of the the line $L$.
+\end{definition}
+}
 \end{frame}
 
 \begin{frame}
-   \frametitle{Line from Point and Direction}
+\frametitle{Line from Point and Direction}
 \begin{columns}
   \column{6cm}
 \begin{itemize}
