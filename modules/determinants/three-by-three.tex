@@ -1,0 +1,23 @@
+\begin{frame}
+
+\frametitle{$3\times 3$ determinants}
+\[
+\det \left|
+\begin{array}{ccc}
+\only<1-2,4-6,8->{ a_{11}}\only<3,7>{\alert<3,7>{\bullet}} & \only<1-3,5-7,9->{a_{12}}\only<4,8>{\alert<4,8>{\bullet}} &\only<1-4,7->{a_{13}}\only<5,6>{\alert<5,6>{\bullet}}\\
+\only<1-4,6,7,9->{ a_{21}}\only<5,8>{\alert<5,8>{\bullet}} & \only<1-2,4-5,7->{ a_{22}}\only<3,6>{\alert<3,6>{\bullet}} & \only<1-3,5,6,8->{a_{23}}\only<4,7>{\alert<4,7>{\bullet}}\\
+\only<1-3,5,7->{ a_{31}}\only<4,6>{\alert<4,6>{\bullet}} & \only<1-4,6,8->{ a_{32}}\only<5,7>{\alert<5,7>{\bullet}} & \only<1-2,4-7,9->{a_{33}}\only<3,8>{\alert<3,8>{\bullet}}
+\end{array}
+\right| =\begin{array}{l} \uncover<3->{\alert<3>{a_{11}a_{22}a_{33}}} \uncover<4->{\alert<4>{+}}
+\uncover<4->{\alert<4>{a_{12}a_{23}a_{31}}} \\
+\uncover<5->{\alert<5>{+}} \uncover<5->{\alert<5>{a_{13}a_{21}a_{32}}}\\
+\uncover<6->{\alert<6>{-}} \uncover<6->{\alert<6>{a_{13}a_{22}a_{31}}} \uncover<7->{\alert<7>{-}} \uncover<7->{\alert<7>{a_{11}a_{23}a_{32}}} \\
+\uncover<8->{\alert<8>{-}} \uncover<8->{\alert<8>{a_{12}a_{21}a_{33}}}
+\end{array}
+\]
+\begin{itemize}
+\item We specialize the $n\times n$ determinant formula to the case $n=3$.
+\item<2-> There are $6=3!$ peaceful rook placements for a $3\times 3$ chessboard.
+\item<3-> For each peaceful rook placement we got one summand.
+\item<9-> The rook placements along the down-right ``broken'' diagonals correspond to even permutations, and the rook placements along the right-up ``broken'' diagonals correspond to negative permutations.
+\end{itemize}\end{frame}

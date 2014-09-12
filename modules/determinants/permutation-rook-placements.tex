@@ -1,0 +1,86 @@
+\begin{frame}
+\begin{itemize}
+\item To each permutation $\sigma$, assign $ n$ pairs of numbers $(1,\sigma(1))$, $(2, \sigma(2))$,\dots $(n,\sigma (n))$.
+\item<2-> Consider a $n\times n$ chess board. \uncover<3->{Interpret pair $(k,\sigma(k))$ as $(row,column)$-coordinates in the board.} 
+\item<4-> For each pair $(k,\sigma( k))$, place a rook on the board.
+\item \uncover<5->{ Example: 
+$
+\begin{array}{rcl}
+\alert<5,6>{\sigma(1)}  &\alert<5,6>{=}  & \alert<5,6>{2} \\
+\alert<7,8>{\sigma(2)}  &\alert<7,8>{=}  & \alert<7,8>{3} \\
+\alert<9,10>{\sigma(3)} &\alert<9,10>{=} & \alert<9,10>{4}\\
+\alert<11,12>{\sigma(4)}&\alert<11,12>{=}& \alert<11,12>{1}
+\end{array}
+$, pairs:
+$\begin{array}{rcl}
+\alert<5,6>{(1,\sigma(1))}  &\alert<5,6>{=}  &\alert<5,6>{(1,2)} \\ 
+\alert<7,8>{(2,\sigma(2))}  &\alert<7,8>{=}  &\alert<7,8>{(2,3)} \\ 
+\alert<9,10>{(3,\sigma(3))} &\alert<9,10>{=} &\alert<9,10>{(3,4)} \\ 
+\alert<11,12>{(4,\sigma(4))}&\alert<11,12>{=}&\alert<11,12>{(4,1)}
+\end{array}
+. $ 
+
+Corresponding peaceful rook placement:
+}
+
+\uncover<2->{
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.2,0)(1,1.2)
+\tiny
+\fcBoundingBox{-0.2}{-0.1}{1}{1.2}
+\psgrid[gridlabels=0, subgriddiv=4](0,0)(0,0)(1,1)
+\uncover<3->{
+\rput(-0.125, 0.875){$1$}
+\rput(-0.125, 0.625){$2$}
+\rput(-0.125, 0.375){$3$}
+\rput(-0.125, 0.125){$4$}
+\rput(0.125, 1.125){$1$}
+\rput(0.375, 1.125){$2$}
+\rput(0.625, 1.125){$3$}
+\rput(0.875, 1.125){$4$}
+}
+\uncover<13>{
+\psline[arrows=<->, linecolor=red](0,0.875)(1,0.875)
+\psline[arrows=<-, linecolor=red](0.375,0)(0.375,0.875)
+\psline[arrows=<->, linecolor=red](0,0.625)(1,0.625)
+\psline[arrows=<->, linecolor=red](0.625,0)(0.625,1)
+\psline[arrows=<-, linecolor=red](0,0.375)(0.875,0.375)
+\psline[arrows=<->, linecolor=red](0.875,0)(0.875,1)
+\psline[arrows=->, linecolor=red](0.125,0.125)(1,0.125)
+\psline[arrows=->, linecolor=red](0.125,0.125)(0.125,1)
+}
+\uncover<5>{
+\rput(0.125, 0.875){\alert<5>{\textbf{?}}}
+\rput(0.375, 0.875){\alert<5>{\textbf{?}}}
+\rput(0.625, 0.875){\alert<5>{\textbf{?}}}
+\rput(0.875, 0.875){\alert<5>{\textbf{?}}}
+}
+\uncover<7>{
+\rput(0.125, 0.625){\alert<7>{\textbf{?}}}
+\rput(0.375, 0.625){\alert<7>{\textbf{?}}}
+\rput(0.625, 0.625){\alert<7>{\textbf{?}}}
+\rput(0.875, 0.625){\alert<7>{\textbf{?}}}
+}
+\uncover<9>{
+\rput(0.125, 0.375){\alert<9>{\textbf{?}}}
+\rput(0.375, 0.375){\alert<9>{\textbf{?}}}
+\rput(0.625, 0.375){\alert<9>{\textbf{?}}}
+\rput(0.875, 0.375){\alert<9>{\textbf{?}}}
+}
+\uncover<11>{
+\rput(0.125, 0.125){\alert<11>{\textbf{?}}}
+\rput(0.375, 0.125){\alert<11>{\textbf{?}}}
+\rput(0.625, 0.125){\alert<11>{\textbf{?}}}
+\rput(0.875, 0.125){\alert<11>{\textbf{?}}}
+}
+\uncover<6->{\fcFullDot{0.375}{0.875}}
+\uncover<8->{\fcFullDot{0.625}{0.625}}
+\uncover<10->{\fcFullDot{0.875}{0.375}}
+\uncover<12->{\fcFullDot{0.125}{0.125}}
+\end{pspicture}
+}
+\item<13-> Since $\sigma(k)$ are different, the rook placements are peaceful: rooks never hit one another. In other words, no two points lie on same column or row.
+\end{itemize}
+
+\vskip 10cm
+\end{frame}

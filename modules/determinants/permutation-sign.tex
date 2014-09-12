@@ -1,0 +1,18 @@
+\begin{frame}
+\frametitle{Sign of permutation}
+\begin{itemize}
+\item Given two sequences of numbers, define them to be transpositions of one another if one is obtained from the other with a \alert<1>{single swap of consecutive numbers}.
+\item<2-> \alert<2>{$(2,\alert<3>{3,4},1) $ and $(2,\alert<3>{4,3},1) $ are} \uncover<3->{ \alert<3>{transpositions} of one another.}
+
+\alert<4>{$(2,3,4,1) $ and $(1,3,4,2) $ are} \uncover<5->{\alert<5>{\textbf{not} transpositions} of one another.}
+\item<6-> Write the numbers $\left(\sigma(1),\sigma(2), \dots, \sigma(n)\right)$ in a sequence. 
+\item<7-> Using transpositions, get from $\left(\sigma(1),\sigma(2), \dots, \sigma(n)\right)$ to the properly ordered sequence $1,2,\dots, n$.
+\item<8-> Number of transpositions used varies depending how we do it, but parity (even-ness) of \# of transpositions is always the same.
+\item<10-> If $sign(\sigma)=1$,  $\sigma$ is called even, if $sign(\sigma)=-1$, $\sigma$ is called odd.
+\end{itemize}
+\uncover<9->{
+\begin{definition}
+If we can get from $\left(\sigma(1),\sigma(2), \dots, \sigma(n)\right)$ to $(1,2,\dots, n)$ with even \# of transpositions, define $sign(\sigma)$ to be $1$, else define $sign(\sigma)$ to be $-1$.
+\end{definition}
+}
+\end{frame}

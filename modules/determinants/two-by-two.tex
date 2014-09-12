@@ -1,0 +1,17 @@
+\begin{frame}
+
+\frametitle{$2\times 2$ determinants}
+\[
+\det \left|
+\begin{array}{cc}
+\only<2,4>{\alert<2,4>{\bullet}}\only<1,3,5->{ a_{11}} & \only<1,2,4,6->{a_{12}}\only<3,5>{\alert<3,5>{\bullet}} \\
+\only<1,2,4,6->{ a_{21}}\only<3,5>{\alert<3,5>{\bullet}} & \only<1,3,5->{ a_{22}}\only<2,4>{\alert<2,4>{\bullet}}
+\end{array}
+\right| = \uncover<4->{\alert<4>{ a_{11} a_{22}}} \uncover<6>{\alert<6>{-}}\uncover<5->{ \alert<5>{a_{12}a_{21}}}
+\]
+\begin{itemize}
+\item We specialize the $n\times n$ determinant formula to the case $n=2$.
+\item<2-> There are two peaceful rook placements for a $2\times 2$ chessboard.
+\item<4-> For each peaceful rook placement we got one summand.
+\item<6-> The permutation $(\sigma(1), \sigma(2))=(2,1)$ is odd, so one of the summands comes with negative sign.
+\end{itemize}\end{frame}
