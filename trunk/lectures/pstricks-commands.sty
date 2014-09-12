@@ -531,8 +531,8 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 }%
 
 \newcommand{\fcPlotIIId}[7][]{%
-\fcPlotIIIdXconst[#1]{#2}{#3}{#4}{#5}{#6}{#7}
-\fcPlotIIIdYconst[#1]{#2}{#3}{#4}{#5}{#6}{#7}
+\fcPlotIIIdXconst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
+\fcPlotIIIdYconst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
 }
 \newcommand{\fcPlotIIIdXconst}[7][]{%
 \setkeys{fcGraphics}{#2}%
@@ -554,7 +554,7 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 \setkeys{fcGraphics}{#2}%
 \multido{\ra=0+1}{\fcIterationsY}{%
 \pstVerb{%
-3 dict begin %
+3 dict begin%
 /y \ra \space #4 mul \fcIterationsY \space \ra \space sub 1 sub  #6\space mul add \fcIterationsY\space 1 sub div def%
 /xmin #3 def%
 /xmax #5 def%
@@ -571,11 +571,11 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 \multido{\ra=\fcStartXIId+\fcDelta}{\fcIterationsX}{%
 \multido{\rb=\fcStartYIId+\fcDelta}{\fcIterationsY}{%
 \pstVerb{%
-4 dict begin %
-/x \ra\space def %
+4 dict begin%
+/x \ra\space def%
 /y \rb\space def %
 #3\space%
-/vY exch def %
+/vY exch def%
 /vX exch def%
 }%
 \psline[#1](! x vX 2 div sub y vY 2 div sub)(! x vX 2 div add y vY 2 div add)%
