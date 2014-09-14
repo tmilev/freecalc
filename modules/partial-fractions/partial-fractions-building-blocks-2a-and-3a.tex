@@ -1,5 +1,6 @@
 %begin module partial-fractions-building-blocks-2a-and-3a
 %This module may be too long, perhaps a split is needed.
+%\begin{comment}
 \begin{frame}
 \frametitle{Building blocks IIa and IIIa}
 Building block IIa: $\int \frac{x}{1+x^2}\diff x.$
@@ -78,22 +79,41 @@ In practice, integrals leading to block IIa can be done directly, without transf
 \vspace{4cm}
 
 \end{frame}
+%\end{comment}
 
 \begin{frame}
 \frametitle{Linear substitutions leading to blocks IIa and IIIa}
 %Building block IIa: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
 
 Building block IIIa: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
-
-
 \begin{example}
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{1}{\alert<2>{x^2+2}}\diff x \uncover<2->{ &=&\displaystyle \int\frac{1}{\alert<2>{ 2} \alert<2>{\left(  \alert<3>{\frac{1}{2}x^2} +1\right)}} \alert<4>{\diff x} }\\
+\displaystyle \alert<8>{\int \frac{1}{\alert<2>{x^2+2}}\diff x} \uncover<2->{ &=&\displaystyle \int\frac{1}{\alert<2>{ 2} \alert<2>{\left(  \alert<3>{\frac{1}{2}x^2} +1\right)}} \alert<4>{\diff x} }\\
 \uncover<3->{&=&\displaystyle \int \frac{1}{2\left( \alert<3>{\left(\alert<5>{ \frac{x}{ \sqrt{2}}} \right)^2} +1  \right)} \alert<4>{\sqrt{2}\diff\left(\alert<5>{ \frac{ x}{\sqrt{2}}}\right)}} \uncover<5->{ &&\text{ Set } \alert<5,7>{u= \frac{x}{\sqrt{2}}} }\\
-\uncover<5->{&=&\displaystyle \frac{\sqrt{2}}{2}\int \frac{1}{1+{\alert<5>{u}}^2}\diff \alert<5>{u}}\\
-\uncover<6->{&=& \frac{\sqrt{2}}{2}\Arctan (\alert<7>{u})+C} \\
-\uncover<7->{&=&\displaystyle \frac{\sqrt{2}}{2} \Arctan\left(\alert<7>{\frac{x}{\sqrt{2}}}\right)+C}
+\uncover<5->{&=&\displaystyle \frac{1}{\sqrt{2}}\int \frac{1}{1+{\alert<5>{u}}^2}\diff \alert<5>{u}}\\
+\uncover<6->{&=& \frac{1}{\sqrt{2}}\Arctan (\alert<7>{u})+C} \\
+\uncover<7->{&=&\displaystyle \alert<8>{ \frac{1}{\sqrt{2}} \Arctan\left(\alert<7>{\frac{x}{\sqrt{2}}}\right)+C}}
+\end{array}
+\]
+
+\end{example}
+\vspace{2cm}
+
+\end{frame}
+\begin{frame}
+\frametitle{Linear substitutions leading to blocks IIa and IIIa}
+%Building block IIa: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
+
+Building block IIIa: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C$. \alert<1>{\textbf{Let $a>0$.}}
+\begin{example}
+\[
+\begin{array}{rcll|l}
+\displaystyle \alert<1>{\int \frac{1}{x^2+a\vphantom{2}}\diff x } &=&\displaystyle \int\frac{1}{ a\left(\frac{1}{a\vphantom{2}}x^2 +1\right)} \diff x \\
+\uncover<1->{&=&\displaystyle \int \frac{1}{a\left(\alert<-1>{ \left(\frac{x}{ \sqrt{a\vphantom{2}}} \right)^2} +1  \right)} \sqrt{a\vphantom{2}}\diff\left( \frac{ x}{\sqrt{a\vphantom{2}}}\right)} \uncover<1->{&& \text{ Set } u= \frac{x}{\sqrt{a}}} \\ %the uncover commands are to preserve latex spacing. This may be a LaTeX bug, but please keep the two uncover<1-> commands where they are!
+&=&\displaystyle \frac{1}{\sqrt{a\vphantom{2}}} \int \frac{1}{1 +{u}^2}\diff u \\
+&=& \frac{1}{\sqrt{a\vphantom{2}}}\Arctan (u)+C \\
+&=&\alert<1>{ \displaystyle \frac{1}{\sqrt{a\vphantom{2}}} \Arctan\left(\frac{x}{\sqrt{a}}\right)+C}
 \end{array}
 \]
 
@@ -102,7 +122,7 @@ Building block IIIa: $ \int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 
 \end{frame}
 
-
+%\begin{comment}
 \begin{frame}
 \frametitle{Linear substitutions leading to blocks IIa and IIIa}
 Building block IIa: \alert<4>{$ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$}.
@@ -134,16 +154,16 @@ Building block IIIa: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 
 
 \begin{example}
-\uncover<2->{\alert<2-4>{Complete the square.}} \uncover<7->{Let \alert<7,27,30>{$u= x+ \frac{1}{2} $}}\uncover<16->{, let \alert<16,28>{$z=\frac{2u}{\sqrt{3}}$}.}  
+\uncover<2->{\alert<2-4>{No real roots $\Rightarrow$ complete the square.}} \uncover<7->{Let \alert<7,27,30>{$u= x+ \frac{1}{2} $}}\uncover<16->{, let \alert<16,28>{$z=\frac{2u}{\sqrt{3}}$}.}  
 \[
 \begin{array}{rcl}
 \displaystyle
 %
 \vphantom{\int \frac{u}{u^2+\frac{3}{4}}\diff u}
 %
-\int\frac{x}{x^2+\alert<3>{x}+1}\diff x 
+\int\frac{x}{\alert<2>{x^2+\alert<3>{x}+1}}\diff x 
 \only<1>{{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} }
-\only<1-10>{\uncover<2->{&=& \displaystyle \int \frac{x}{\alert<4>{ x^2+\alert<3>{2\frac{1}{2}x} +\frac{1}{4} } \alert<5>{-\frac{1}{4} +1} } \alert<6>{\diff x} } {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
+\only<1-10>{\uncover<2->{&=& \displaystyle \int \frac{x}{\alert<2>{ \alert<4>{ x^2+\alert<3>{2\frac{1}{2}x} +\frac{1}{4} } \alert<5>{-\frac{1}{4} +1}} } \alert<6>{\diff x} } {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
 \uncover<4->{&=&\displaystyle \int \frac{\alert<7>{x+\frac{1}{2}}-\frac{1}{2}}{ \alert<4>{\left(\alert<7>{x+\frac{1}2}\right)^2}+\alert<5>{\frac{3}{4}} }\alert<6>{\diff \left(\alert<7>{x+\frac{1}{2}}\right) }}\\
 \uncover<7->{&=&\displaystyle \int \frac{\alert<7,8>{u} \alert<9>{ -\frac{1}{2}} }{{\alert<7>{u}}^2+\frac{3}{4}}\diff \alert<7>{u}} \\
 \uncover<8->{&=&\alert<10>{ \displaystyle \int \frac{\alert<8>{u}}{u^2+\frac{3}{4}}\diff u\alert<9>{-\frac{1}{2}}\int \frac{1}{u^2+\frac{3}{4}}\diff u}}
@@ -177,4 +197,5 @@ Building block IIIa: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 
 \end{frame}
 
+%\end{comment}
 %end module partial-fractions-building-blocks-2a-and-3a

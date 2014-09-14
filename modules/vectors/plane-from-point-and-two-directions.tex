@@ -2,104 +2,80 @@
  \frametitle{Plane from Point and two Directions}
 
 \begin{columns}
-  \column{6cm}
-  Point $P_0$, with position vector $\textbf{r}_0$;\\
-  Non-parallel directions $\textbf{u}$ and $\textbf{v}$.
-  \column{6cm}
-    $\mathcal{P}$: plane through $P_0$ and \\
-    parallel to both $\textbf{u}$ and $\textbf{v}$.
-\end{columns}
+\column{0.45\textwidth}
+\begin{pspicture}(-0.3,-1)(2,2)
+\tiny
+\renewcommand{\fcScreen}{[-4 -1 -0.4] 0}
+\fcParallelogramIIId{[0.1 -1.9 1.36]}{[3.1 1.1 0.16]}{[-3.2 0.8 1.48]}
+\fcAxesIIId{2}{2}{2}
+%normal: (0.2 0.2 1)
+\fcLineIIId[arrows=->, linecolor=blue]{[1 3 -1]}{ [1.6 3.6 -1.24]}
+\fcPutIIId[rt]{[1.3 3.3 -1.12]}{$\fcv u$}
+\fcLineIIId[arrows=->, linecolor=brown]{[1 3 -1]}{[0.45 3.45 -0.98]}
+\fcPutIIId[b]{[0.725 3.225 -0.99]}{$\fcv v ~$}
 
-\begin{columns}
-  \column{5.5cm}
-  \only<2>{Normal direction $\textbf{n} = \textbf{u} \times \textbf{v} \neq \textbf{0}$ \\
-  \medskip \textcolor[rgb]{0.98,0.00,0.00}{Implicit vectorial equation}:
-  $$P(\textbf{r}) \text{ is on } \mathcal{P} \Longleftrightarrow \boxed{(\textbf{r}-\textbf{r}_0) \cdot \textbf{n} = 0}$$
-  Interpretation:\\
-  $$\text{Vol}(R(\textbf{r} - \textbf{r}_0,\textbf{u},\textbf{v})) = 0$$}
-  \only<3>{$P(\textbf{r})$ is on the plane $\mathcal{P}$ $\leftrightarrow$\\
-  \medskip
-    $\textbf{P}_0\textbf{P}$ is a combination of $\textbf{u}$, $\textbf{v}$
-    $\leftrightarrow$\\
-    \medskip
-    There are scalars $s$, $t$ such that \\
-    $\textbf{r}-\textbf{r}_0= s\textbf{u} + t\textbf{v} \leftrightarrow $\\
-    \medskip
-    \textcolor[rgb]{0.98,0.00,0.00}{Parametric vectorial equation}:
-    $$\boxed{ \textbf{r} = \textbf{r}_0 + s\textbf{u} + t\textbf{v} \; }$$
-    for some parameters $s$ and $t$}
-  \only<4>{
-  \textcolor[rgb]{0.98,0.00,0.00}{Parametric vectorial equation}:
-  $$\textbf{r} = \textbf{r}_0 + s\textbf{u} + t\textbf{v}$$
-  $P_0(x_0,y_0,z_0)$, $P(x,y,z)$\\
-  $\textbf{u} = \langle u_1,u_2,u_3\rangle$,
-  $\textbf{v}=\langle v_1,v_2,v_3\rangle$\\
-  \medskip\textcolor[rgb]{0.98,0.00,0.00}{Parametric scalar equations}:
-  $$\left\{ \begin{array}{ll}
-           x = & x_0 + su_1+tv_1 \\
-	   y = & y_0 + su_2+tv_2 \\
-           z = & z_0 + su_3+tv_3
-          \end{array}
-\right.$$ for  $s$, $t$  real parameters.}
-  \column{7cm}
-  \only<1>{\begin{figure}
-        \psfrag{O}{$O$}
-        \psfrag{Pi}{$\mathcal{P}$}
-        \psfrag{P}{$P$}
-        \psfrag{P0}{$P_0$}
-        \psfrag{r}{$\textbf{r}$}
-        \psfrag{u}{$\textbf{u}$}
-        \psfrag{v}{$\textbf{v}$}
-        \psfrag{r0}{$\textbf{r}_0$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-plane_point_directions.eps}
-    \end{figure}}
-  \only<2>{\begin{figure}
-        \psfrag{O}{$O$}
-        \psfrag{Pi}{$\mathcal{P}$}
-        \psfrag{P}{$P$}
-        \psfrag{P0}{$P_0$}
-        \psfrag{r}{$\textbf{r}$}
-        \psfrag{n}{$\textbf{n}$}
-        \psfrag{u}{$\textbf{u}$}
-        \psfrag{v}{$\textbf{v}$}
-        \psfrag{r0}{$\textbf{r}_0$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-plane_point_directions_vector.eps}
-    \end{figure}}
-    \only<3>{\begin{figure}
-        \psfrag{O}{$O$}
-        \psfrag{x}{$x$}
-        \psfrag{y}{$y$}
-        \psfrag{z}{$z$}
-        \psfrag{Pi}{$\mathcal{P}$}
-        \psfrag{P}{$P$}
-        \psfrag{P0}{$P_0$}
-        \psfrag{r}{$\textbf{r}$}
-        \psfrag{n}{$\textbf{n}$}
-        \psfrag{u}{$\textbf{u}$}
-        \psfrag{v}{$\textbf{v}$}
-        \psfrag{su}{$s\textbf{u}$}
-        \psfrag{tv}{$t\textbf{v}$}
-        \psfrag{r0}{$\textbf{r}_0$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-plane_point_parametric_vectorial.eps}
-    \end{figure}}
-  \only<4>{\begin{figure}
-        \psfrag{O}{$O$}
-        \psfrag{x}{$x$}
-        \psfrag{y}{$y$}
-        \psfrag{z}{$z$}
-        \psfrag{Pi}{$\mathcal{P}$}
-        \psfrag{P}{$P$}
-        \psfrag{P0}{$P_0$}
-        \psfrag{r}{$\textbf{r}$}
-        \psfrag{n}{$\textbf{n}$}
-        \psfrag{u}{$\textbf{u}$}
-        \psfrag{v}{$\textbf{v}$}
-        \psfrag{su}{$s\textbf{u}$}
-        \psfrag{tv}{$t\textbf{v}$}
-        \psfrag{r0}{$\textbf{r}_0$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-plane_point_directions_scalar.eps}
-    \end{figure}}
+\fcLineIIId[arrows=->, linecolor=red]{[1 3 -1]}{[1.24 3.24 0.2]}
+\fcPutIIId[l]{[1.12 3.12 -0.4]}{$\fcv u \times \fcv v $}
+
+\fcLineIIId[linewidth=0.3pt, linecolor=gray]{[0.43 -0.17 0.948]}{[-1.55 1.45 1.02]}
+\fcLineIIId[linewidth=0.3pt, linecolor=gray]{[-0.2 -0.2 1.08]}{[1.6 1.6 0.36]}
+
+
+
+\fcLineIIId[arrows=->, linecolor=red]{[0.1 0.1 0.96]}{[0.34 0.34 2.16]}
+\fcLineIIId[arrows=->]{[0.1 0.1 0.96]}{[1.3 1.3 0.48]}
+\fcPutIIId[tr]{[1.2 1.2 0.5]}{$s\fcv u~~$}
+\fcLineIIId[arrows=->]{[0.1 0.1 0.96]}{[-1 1 1]}
+\fcPutIIId[b]{[-0.8 0.9 1.1]}{$t\fcv v$}
+\fcLineIIId[arrows=->, linecolor=blue]{[0.1 0.1 0.96]}{[0.7 0.7 0.72]}
+\fcPutIIId[rt]{[0.4 0.4 0.84]}{$\fcv u$}
+\fcLineIIId[arrows=->, linecolor=brown]{[0.1 0.1 0.96]}{[-0.45 0.55 0.98]}
+\fcPutIIId[b]{[-0.175 0.325 0.97]}{$\fcv v$}
+
+
+\fcLineIIId{[-1 1 1]}{ [0.2 2.2 0.52]}%
+\fcLineIIId{[1.3 1.3 0.48]}{[0.2 2.2 0.52]}
+\fcLineIIId[arrows=->]{[0.1 0.1 0.96]}{[0.2 2.2 0.52]}
+
+\fcLineIIId[arrows=->]{[0 0 0]}{[0.1 0.1 0.96]}
+\fcPutIIId[l]{[0.05 0.05 0.48]}{$~\fcv r_0$}
+
+\fcLineIIId[arrows=->]{[0 0 0]}{[0.2 2.2 0.52]}
+\fcPutIIId[l]{[0.1 1.1 0.26]}{$~\fcv r_0$}
+
+
+\fcPutIIId[br]{[0.1 0.1 0.96]}{$P_0~~$}
+\end{pspicture}
+\column{0.55\textwidth}
+\begin{itemize}
+\item Given: point $P_0$ with position vector $\textbf{r}_0$. \item Non-parallel directions $\textbf{u}$ and $\textbf{v}$.
+\item Goal: give equations of plane $\mathcal P$ through $P_0$ and parallel to both $\textbf{u}$ and $\textbf{v}$.
+\end{itemize}
 \end{columns}
+\only<2>{Normal direction $\textbf{n} = \textbf{u} \times \textbf{v} \neq \textbf{0}$ 
+
+\alert<1->{Implicit vectorial equation}: $P(\textbf{r}) \text{ is on } \mathcal{P} \Longleftrightarrow (\textbf{r}-\textbf{r}_0) \cdot \textbf{n} = 0$
+
+Interpretation:$$\text{Vol}(R(\textbf{r} - \textbf{r}_0,\textbf{u},\textbf{v})) = 0$$}
+  
+\only<3>{$P(\textbf{r})$ is on the plane $\mathcal{P}$ $\leftrightarrow$
+
+$\textbf{P}_0\textbf{P}$ is a combination of $\textbf{u}$, $\textbf{v}$ $\leftrightarrow$
+
+There are scalars $s$, $t$ such that $\textbf{r}-\textbf{r}_0= s\textbf{u} + t\textbf{v} \leftrightarrow $
+
+\alert<1->{Parametric vectorial equation}: $$\boxed{ \textbf{r} = \textbf{r}_0 + s\textbf{u} + t\textbf{v} \; }$$ for some parameters $s$ and $t$}
+\only<4>{
+\alert<1->{Parametric vectorial equation}: $$\textbf{r} = \textbf{r}_0 + s\textbf{u} + t\textbf{v}$$ $P_0(x_0,y_0,z_0)$, $P(x,y,z)$ $\textbf{u} = \langle u_1,u_2,u_3\rangle$, $\textbf{v}=\langle v_1,v_2,v_3\rangle$
+\alert<1->{Parametric scalar equations}:
+$$\left|\begin{array}{ll}
+x = & x_0 + su_1+tv_1 \\
+y = & y_0 + su_2+tv_2 \\
+z = & z_0 + su_3+tv_3
+\end{array}
+\right.$$ for  $s$, $t$  real parameters.
+}
+\vskip 10cm
 \end{frame}
 
 

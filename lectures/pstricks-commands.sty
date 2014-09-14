@@ -112,7 +112,6 @@
 \rput(0,0){#1}
 }
 
-
 %command format
 %first argument gives you formula for the direction field in
 %postscript notation, for example x y add.
@@ -495,13 +494,17 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 
 \newcommand{\fcPerpendicularComputeHeel}[3]{%
 \pstVerb{%
-7 dict begin %
-/thePoint #1 def %
+7 dict begin%
+/thePoint #1 def%
 /heelSize #3 def %
 mark #2 %
-/directionUnitVector exch \fcVectorNormalize def %
-%directionUnitVector == %
-counttomark 0 eq {/basePoint thePoint length \fcZeroVector def} {/basePoint exch def} ifelse %
+counttomark 1 eq {%
+/directionUnitVector exch \fcVectorNormalize def%
+/basePoint thePoint length \fcZeroVector def%
+}{%
+/basePoint exch def%
+/directionUnitVector exch basePoint \fcVectorMinusVector \fcVectorNormalize def%
+} ifelse %
 pop%
 /heel directionUnitVector thePoint basePoint \fcVectorMinusVector directionUnitVector \fcVectorScalarVector \fcVectorTimesScalar basePoint \fcVectorPlusVector def%
 %heel == %
@@ -524,7 +527,7 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 }
 
 \newcommand{\fcPerpendicularIIId}[4][]{%
-\fcPerpendicularComputeHeel {#2}{#3}{#4}
+\fcPerpendicularComputeHeel{#2}{#3}{#4}
 \fcLineIIId[#1]{thePoint}{heel}%
 \fcPolyLineIIId[linecolor=red]{polyLineInput}%
 \pstVerb{end}%
