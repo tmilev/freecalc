@@ -6,23 +6,32 @@
 \fcBoundingBox{-0.2}{-1.2}{2}{1.2}%
 \uncover<1-2>{\fcLineIIId{[0 0 -0.2]}{[0 0 -1]}}%
 \uncover<3->{\fcLineIIId[arrows=->]{[0 0 -0.2]}{[0 0 -1]}}%
-\uncover<3->{\fcLineIIId[arrows=->]{[0 0 1]}{[0 0 0.1]}}
+\uncover<3->{\fcLineIIId[arrows=->]{[0 0 1]}{[0 0 0.1]}}%
 %\fcAxesIIId{1}{1}{1}
 \fcPolyLineIIId{[0.2  0 0.1] [0.1 0.173205 0.1] [-0.1 0.173205 0.1] [-0.2 0 0.1] [-0.1 -0.173205 0.1] [0.1 -0.173205 0.1] [0.2 0 0.1]}%
 \fcPolyLineIIId{[-0.1 -0.173205 -0.1] [0.1 -0.173205 -0.1] [0.2 0 -0.1] [0.1 0.173205 -0.1]}%
 \fcLineIIId{[-0.1 -0.173205 -0.1]}{[-0.1 -0.173205 0.1]}%
-\fcLineIIId{[0.1 -0.173205 -0.1]}{ [0.1 -0.173205 0.1]}%
+\fcLineIIId{[0.1 -0.173205 -0.1]}{[0.1 -0.173205 0.1]}%
 \fcLineIIId{[0.2 0 -0.1]} {[0.2 0 0.1]}%
 \fcLineIIId{[0.1 0.173205 -0.1]}{[0.1 0.173205 0.1]}%
-\uncover<2->{\fcPolyLineIIId[linecolor=blue]{[0.15 -0.259808 0] [0.3 0 0] [0.15 0.259808 0]  [0.04 0.259808 0] }%
-\fcLineIIId[linecolor=blue]{[0.15 0.259808 0]} {[0.15 0.259808 0] 5 \fcVectorTimesScalar}%
+\uncover<2->{\fcPolyLineIIId[linecolor=blue]{[0.15 -0.259808 0] [0.3 0 0] [0.15 0.259808 0] [0.04 0.259808 0]}%
+\fcLineIIId[linecolor=blue]{[0.15 0.259808 0]}{[0.15 0.259808 0] 5 \fcVectorTimesScalar}%
 }%
 \uncover<4->{\fcLineIIId[linecolor=blue, arrows=->]{[0.15 0.259808 0]} {[0.15 0.259808 0] 5 \fcVectorTimesScalar}%
 \fcPutIIId[b]{[0.32 0.65 0.1]}{$\fcv r$}%
 }%
-\uncover<3->{\fcAngleIIId[arrows=->, linecolor=blue]{[0.15 0.259808 0] }{ [0.4 0.2 0]}{1.2}}%
-\uncover<4->{\fcLineIIId[arrows=->, linecolor=red]{[0.75 1.29904 0]}{[1 0.5 1]}}
-\uncover<9->{\fcPutIIId[r]{[0 0 -0.5]}{$\tau~$}}
+\uncover<3->{\fcAngleIIId[arrows=->, linecolor=blue]{[0.15 0.259808 0]}{[0.4 0.2 0]}{1.2}}%
+\uncover<4->{\fcLineIIId[arrows=->, linecolor=red]{[0.75 1.29904 0]}{[1 0.5 1]}}%
+\uncover<5->{\fcLineIIId[arrows=->]{[0.75 1.29904 0]}{[0.75 1.29904 1]}
+\fcPutIIId[l]{[0.75 1.3 0.5]}{$~~\fcv F_o$}
+}%
+\uncover<6->{\fcLineIIId[arrows=->]{[0.75 1.29904 0]}{[0.466506 0.808013 0]}%
+\fcPutIIId[b]{[0.61 1.05 0]}{$~~\fcv F_\rho$}%
+}%
+\uncover<7->{\fcLineIIId[arrows=->]{[0.75 1.29904 0]}{[1.283494 0.991027 0]}%
+\fcPutIIId[l]{[1 1.15 0]}{$~~\fcv F_\theta$}%
+}%
+\uncover<9->{\fcPutIIId[r]{[0 0 -0.5]}{$\tau~$}}%
 \end{pspicture}
 
 \column{0.7\textwidth}
