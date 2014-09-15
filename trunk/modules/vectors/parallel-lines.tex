@@ -2,17 +2,29 @@
   \frametitle{Parallel lines}
 \begin{columns}
   \column{0.4\textwidth}
-         \psfrag{L1}{$L_1$}
-         \psfrag{L2}{$L_2$}
-         \psfrag{P1}{$P_1$}
-         \psfrag{P2}{$P_2$}
-         \psfrag{r21}{$\fcv{r}_2-\fcv{r}_1$}
-         \psfrag{u1}{$\fcv{u}_1$}
-         \psfrag{u2}{$\fcv{u}_2$}
-         \includegraphics[height=1.3in]{../../modules/vectors/pictures/ok-distance_parallel_lines.eps}
-\column{0.6\textwidth} 
-  
+\begin{pspicture}(-0.2, -0.2)(3.2,3)
+\tiny
+\psline(0,2)(2.7,2.9)
+\rput[lt](2.7,2.9){$L_1$}
+\psline(0,0)(3,1)
+\rput[lt](3,1){$L_2$}
 
+\fcFullDot{0}{2}
+\rput[b](0,2.1){$P_1$}
+\fcPerpendicular[arrows=->, linecolor=blue]{[0 2]}{[3 1]}{0.2}
+\psline[arrows=->, linecolor=red](0,2)(0.9,2.3)
+\rput[tl] (0.45, 2.15){$\fcv u_1$}
+
+\fcFullDot{2.1}{0.7}
+\rput[t](2.1,0.6){$P_2$}
+
+\psline[arrows=->, linecolor=green](0,2)(2.1, 0.7)
+\rput[lb](1.05, 1.35){$\fcv r_2-\fcv r_1$} 
+
+\psline[arrows=->, linecolor=red](2.1, 0.7)(1.2,0.4 )
+\rput[t](1.65, 0.45){$\fcv u_2$}
+\end{pspicture}
+\column{0.6\textwidth} 
 \begin{itemize}
 \item Given: lines
     $$L_1: \quad \fcv{r}= \fcv{r}_1+t\fcv{u}_1 \qquad L_2: \quad \fcv{r}= \fcv{r}_2+s\fcv{u}_2$$
