@@ -1,35 +1,38 @@
 \begin{frame}
   \frametitle{Parallel lines}
-    Lines
-    $$L_1: \quad \textbf{r}= \textbf{r}_1+t\textbf{u}_1 \qquad L_2: \quad \textbf{r}= \textbf{r}_2+s\textbf{u}_2$$
-\begin{columns}[t]
-  \column[T]{6cm}
-  \textcolor[rgb]{0.98,0.00,0.00}{Parallel} lines\\
-    %\medskip
-    \uncover<2->{
-    $L_1 || L_2$ $\Longleftrightarrow$
-    $\textbf{u}_1$, $\textbf{u}_2$ collinear $\Longleftrightarrow$
-    $$\boxed{\textbf{u}_1 \times \textbf{u}_2 = \textbf{0}}$$}
-    \uncover<3->{
-    \textcolor[rgb]{0.98,0.00,0.00}{Distance}:
-    $$d= d(L_1,L_2)  = d(P_1,L_2) = d(P_2,L_1)$$}
-    \uncover<4->{
-    $$d= d(L_1,L_2) = |\textbf{\text{orth}}_{\bm{u}_1} (\textbf{r}_2-\textbf{r}_1)|$$
-    $$\boxed{d = \frac{|(\textbf{r}_2-\textbf{r}_1) \times \textbf{u}_1|}{|\textbf{u}_1|} =\frac{|(\textbf{r}_2-\textbf{r}_1) \times \textbf{u}_2|}{|\textbf{u}_2|}}$$}
+\begin{columns}
+  \column{0.4\textwidth}
+         \psfrag{L1}{$L_1$}
+         \psfrag{L2}{$L_2$}
+         \psfrag{P1}{$P_1$}
+         \psfrag{P2}{$P_2$}
+         \psfrag{r21}{$\fcv{r}_2-\fcv{r}_1$}
+         \psfrag{u1}{$\fcv{u}_1$}
+         \psfrag{u2}{$\fcv{u}_2$}
+         \includegraphics[height=1.3in]{../../modules/vectors/pictures/ok-distance_parallel_lines.eps}
+\column{0.6\textwidth} 
+  
+
+\begin{itemize}
+\item Given: lines
+    $$L_1: \quad \fcv{r}= \fcv{r}_1+t\fcv{u}_1 \qquad L_2: \quad \fcv{r}= \fcv{r}_2+s\fcv{u}_2$$
+\item Goal: distance between lines.
+\end{itemize}
+\alert<1->{Parallel} lines
+\uncover<2->{
+$L_1 || L_2$ $\Longleftrightarrow$
+$\fcv{u}_1$, $\fcv{u}_2$ collinear $\Longleftrightarrow$
+$\boxed{\fcv{u}_1 \times \fcv{u}_2 = \fcv{0}}$
+}
+\uncover<3->{
+\alert<1->{Distance}:
+$$d= d(L_1,L_2)  = d(P_1,L_2) = d(P_2,L_1)$$}
+\uncover<4->{
+$$d= d(L_1,L_2) = |\fcv{\text{orth}}_{\bm{u}_1} (\fcv{r}_2-\fcv{r}_1)|$$
+$$\boxed{d = \frac{|(\fcv{r}_2-\fcv{r}_1) \times \fcv{u}_1|}{|\fcv{u}_1|} =\frac{|(\fcv{r}_2-\fcv{r}_1) \times \fcv{u}_2|}{|\fcv{u}_2|}}$$}
     %\textcolor[rgb]{0.98,0.00,0.00}{Identical} lines: $d(L_1,L_2)=0$
-    %$$\textbf{u}_1\times \textbf{u}_2 = \textbf{0} \text{ and }
-    %(\textbf{r}_2-\textbf{r}_1) \times \textbf{u}_1 = \textbf{0}$$
-  \column{6.5cm}
-  \begin{figure}
-        \psfrag{L1}{$L_1$}
-        \psfrag{L2}{$L_2$}
-        \psfrag{P1}{$P_1$}
-        \psfrag{P2}{$P_2$}
-        \psfrag{r21}{$\textbf{r}_2-\textbf{r}_1$}
-        \psfrag{u1}{$\textbf{u}_1$}
-        \psfrag{u2}{$\textbf{u}_2$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-distance_parallel_lines.eps}
-    \end{figure}
+    %$$\fcv{u}_1\times \fcv{u}_2 = \fcv{0} \text{ and }
+    %(\fcv{r}_2-\fcv{r}_1) \times \fcv{u}_1 = \fcv{0}$$
 \end{columns}
 
 \end{frame}

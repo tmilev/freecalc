@@ -1,36 +1,36 @@
 \begin{frame}
-  \frametitle{Parallel line and plane}
-     Line $L: \quad \textbf{r}= \textbf{r}_1+t\textbf{u}$\hspace{2cm}
-     Plane $\mathcal{P}: \quad (\textbf{r}-\textbf{r}_0) \cdot \textbf{n} = 0$
-\bigskip
-  \begin{columns}[t]
-    \column{6cm}
-    Line \textcolor[rgb]{0.98,0.00,0.00}{parallel} to plane\\
-    \uncover<2->{
-    $L || \mathcal{P}$ $\Longleftrightarrow$
-    $\textbf{u} \bot \textbf{n}$ $\Longleftrightarrow$
-    $$\boxed{\textbf{u} \cdot \textbf{n} = 0}$$}
-    \uncover<3->{
-    \textcolor[rgb]{0.98,0.00,0.00}{Distance} from $L$ to $\mathcal{P}$:
-    $$d(L,\mathcal{P}) = d(P_1,\mathcal{P})$$}
-    \uncover<4->{
-    $$d=|\textbf{\text{orth}}_{\bm{u}}(\textbf{r}_1-\textbf{r}_0)| =
-    |\textbf{\text{proj}}_{\bm{n}} (\textbf{r}_1-\textbf{r}_0)|$$
-    $$d = \frac{|(\textbf{r}_1-\textbf{r}_0) \times \textbf{u}|}{|\textbf{u}|} =
-    \textcolor[rgb]{0.98,0.00,0.00}{\frac{|(\textbf{r}_1-\textbf{r}_0)\cdot \textbf{n}|}{|\textbf{n}|}}$$}
-    \column{6.5cm}
-    \begin{figure}
+\frametitle{Distance between parallel line and plane}
+\begin{columns}
+\column{0.4\textwidth}
         \psfrag{L}{$L$}
         \psfrag{cP}{$\mathcal{P}$}
-        \psfrag{P1}{$P_1(\textbf{r}_1)$}
-        \psfrag{P0}{$P_0(\textbf{r}_0)$}
-        \psfrag{u}{$\textbf{u}$}
-        \psfrag{n}{$\textbf{n}$}
-        \psfrag{r01}{$\textbf{r}_1-\textbf{r}_0$}
-        \psfrag{proj}{$\textbf{\text{proj}}_{\bm{n}} (\textbf{r}_1\!-\!\textbf{r}_0)$}
-        \psfrag{orth}{$\textbf{\text{orth}}_{\bm{u}}(\textbf{r}_1\!-\!\textbf{r}_0)$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-parallel_line_plane.eps}
-    \end{figure}
-    %
-  \end{columns}
+        \psfrag{P1}{$P_1(\fcv{r}_1)$}
+        \psfrag{P0}{$P_0(\fcv{r}_0)$}
+        \psfrag{u}{$\fcv{u}$}
+        \psfrag{n}{$\fcv{n}$}
+        \psfrag{r01}{$\fcv{r}_1-\fcv{r}_0$}
+        \psfrag{proj}{$\fcv{\text{proj}}_{\bm{n}} (\fcv{r}_1\!-\!\fcv{r}_0)$}
+        \psfrag{orth}{$\fcv{\text{orth}}_{\bm{u}}(\fcv{r}_1\!-\!\fcv{r}_0)$}
+        \includegraphics[height=1.4in]{../../modules/vectors/pictures/ok-parallel_line_plane.eps}
+    
+\column{0.6\textwidth}
+\begin{itemize}
+\item Given: line $L: \quad \fcv{r}= \fcv{r}_1+t\fcv{u}$,
+\item plane $\mathcal{P}: \quad (\fcv{r}-\fcv{r}_0) \cdot \fcv{n} = 0$.
+\item Goal: find distance between the the two.
+\end{itemize}
+
+\end{columns}
+Line \alert<1->{parallel} to plane. \uncover<2->{
+$L || \mathcal{P}$ $\Longleftrightarrow$
+$\fcv{u} \bot \fcv{n}$ $\Longleftrightarrow$
+$$\boxed{\fcv{u} \cdot \fcv{n} = 0}$$}
+\uncover<3->{
+\alert<1->{Distance} from $L$ to $\mathcal{P}$:
+$d(L,\mathcal{P}) = d(P_1,\mathcal{P})$}
+\uncover<4->{
+$$d=|\fcv{\text{orth}}_{\bm{u}}(\fcv{r}_1-\fcv{r}_0)| =
+\fcv{\text{proj}}_{\bm{n}} (\fcv{r}_1-\fcv{r}_0)|$$
+$$d = \frac{|(\fcv{r}_1-\fcv{r}_0) \times \fcv{u}|}{|\fcv{u}|} =
+\textcolor[rgb]{0.98,0.00,0.00}{\frac{|(\fcv{r}_1-\fcv{r}_0)\cdot \fcv{n}|}{|\fcv{n}|}}$$}
 \end{frame}
