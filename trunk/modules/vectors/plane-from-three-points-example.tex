@@ -5,36 +5,69 @@ Let $P_0(a,0,0)$, $P_1(0,b,0)$  $P_2(0,0,c)$ be three points, $a,b,c\neq 0$. Fin
 \bigskip
 
 \begin{columns}
-  \column{0.3\textwidth}
-        \psfrag{O}{$O$}
-        \psfrag{x}{$x$}
-        \psfrag{y}{$y$}
-        \psfrag{z}{$z$}
-        \psfrag{A}{$P_0(a,0,0)$}
-        \psfrag{B}{$P_1(0,b,0)$}
-        \psfrag{C}{$P_2(0,0,c)$}
-        \psfrag{n}{$\textbf{n}$}
-        \psfrag{u}{$\textbf{u}$}
-        \psfrag{v}{$\textbf{v}$}
-        \includegraphics[width=1.5in]{../../modules/vectors/pictures/ok-plane_intercepts.eps}
+\column{0.3\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.3,-0.6)(2.5,2.2)
+\tiny
+\renewcommand{\fcScreen}{[-5 -1 -0.5] 0}
+\fcBoundingBox{-1.3}{-0.6}{2.5}{2.2}
+\pscustom*[linecolor=cyan]{%
+\fcLineIIId{[1 0 0]}{[0 1.2 0]}%
+\fcLineIIId{[0 1.2 0]}{[0 0 1]}%
+\fcLineIIId{[0 0 1]}{[1 0 0]}%
+}%
+\fcLineIIId[linestyle=dotted]{[0 0 0]}{[1 0 0]}%
+\fcLineIIId[linestyle=dotted]{[0 0 0]}{[0 1.2 0]}%
+\fcLineIIId[linestyle=dotted]{[0 0 0]}{[0 0 1]}%
+\fcLineIIId[arrows=->]{[0 0 1]}{[0 0 2]}%
+\fcLineIIId[arrows=->]{[0 1.2 0]}{[0 2 0]}%
+\fcLineIIId[arrows=->]{[1 0 0]}{[4 0 0]}%
+\fcPutIIId[t]{[4 0 0]}{$x$}%
+\fcPutIIId[t]{[0 2 0]}{$y$}%
+\fcPutIIId[b]{[0 0 2]}{$z$}%
+\fcLineIIId[arrows=->]{[1 0 0]}{[0 1.2 0]}%
+\fcPutIIId[t]{[0.5 0.6 -0.1]}{$\fcv u$} %
+\fcLineIIId[arrows=->]{[1 0 0]}{[0 0 1]}%
+\fcPutIIId[r]{[0.5 0 0.5]}{$\fcv v~$} %
+\fcLineIIId{[0 1.2 0]}{[0 0 1]}%
+\fcLineIIId[arrows=->]{[1 0 0]}{[2.2 1 1.2]}%
+\fcPutIIId[l]{[1.6 0.5 0.6]}{$~~\fcv n$} %
+\fcPerpendicularIIId{[2.2 1 1.2]}{[1 0 0] [0 0 1]}{0.2}%
+\fcPerpendicularIIId{[2.2 1 1.2]}{[1 0 0] [0 1.2 0]}{0.2}%
+\fcDotIIId{[1 0 0]}
+\fcPutIIId[rb]{[1 0 0]}{$P_0(a, 0,0)$}
+\fcDotIIId{[0 1.2 0]}
+\fcPutIIId[lb]{[0 1.2 0]}{$~P_1 (0, b, 0)$}
+\fcDotIIId{[0 0 1]}
+\fcPutIIId[l]{[0 0 1.2]}{$~P_2(0,0,c)$ }
+\end{pspicture}
+
 \column{0.7\textwidth}  
-$\mathcal{P}$: parallel to $\textbf{P}_0\textbf{P}_1 = \langle -a, b, 0\rangle, \textbf{P}_0\textbf{P}_2 = \langle -a, 0 c\rangle.$ Normal: 
+\uncover<2->{\alert<2,3>{$\mathcal{P}$: parallel to}} \uncover<3->{\alert<3>{%
+$\textbf{P}_0\textbf{P}_1 = \langle -a, b, 0\rangle, \textbf{P}_0\textbf{P}_2 = \langle -a, 0 c\rangle.$
+}} %alert, uncover
+
+\uncover<4->{\alert<4,5>{Normal:} }
+\uncover<5->{\alert<5>{%
 $$\textbf{n} =\textbf{P}_0\textbf{P}_1 \times \textbf{P}_0\textbf{P}_2=
 \left| \begin{array}{ccc}
-        \textbf{i} & \textbf{j} & \textbf{k} \\
-	-a & b & 0 \\
-        -a & 0 & c
-       \end{array}
- \right| = bc \textbf{i} + ac \textbf{j} + ab \textbf{k}\; .$$
+\textbf{i} & \textbf{j} & \textbf{k} \\
+-a & b & 0 \\
+-a & 0 & c
+\end{array}
+\right| = bc \textbf{i} + ac \textbf{j} + ab \textbf{k}.$$
+}}%alert, uncover
 
-Implicit scalar equation of plane:
+\uncover<6->{\alert<6>{Implicit scalar equation of plane:}}
+
 \[
 \begin{array}{rcl}
-\langle x-a, y, z \rangle \cdot \langle bc, ac, ab \rangle &=& 0\\
-bcx+acy + abz &=& abc \\
-\frac{x}{a} + \frac{y}{b} + \frac{z}{c} &=& 1
+\uncover<7->{\langle x-a, y, z \rangle \cdot \langle bc, ac, ab \rangle &=& 0}\\
+\uncover<8->{bcx+acy + abz &=& abc} \\
+\displaystyle \uncover<9->{\frac{x}{a} + \frac{y}{b} + \frac{z}{c} &=& 1}
 \end{array}
 \]
+
 \end{columns}
 \end{example}
 \end{frame}

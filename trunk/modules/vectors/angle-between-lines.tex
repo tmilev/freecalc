@@ -8,18 +8,20 @@
 \renewcommand{\fcScreen}{[-1 0 -0.5] 0}
 \fcParallelogramIIId{[1.2 -1.2 1]}{[1.2 1.2 1]}{[-1.2 -1.2 1]}
 \fcLineIIId{[-1 -1 -1]}{[1 1 -1]}
+\fcPutIIId[l]{[1 1 -1]}{$L_2$}
 \fcLineIIId{[1 -1 1]}{[-1 1 1]} 
+\fcPutIIId[l]{[-1 1 1]}{$L_2$}
 %\fcPerpendicularIIId[arrows=->, linecolor=green]{[0 0 -1]}{[1 -1 1] [-1 1 1]}{0.2}
 \fcLineIIId[arrows=->, linecolor=blue]{[0 0 -1]}{[0 0 1]}
 \fcLineIIId[linestyle=dotted]{[-1 -1 1]}{[1 1 1]}
 \fcLineIIId[linecolor=red, arrows=->]{[0 0 -1]}{[0.75 0.75 -1]}
 \fcPutIIId[t]{[0.325 0.325 -1.1]}{$\fcv u_1$}
 \fcDotIIId{[0 0 -1]}
-\fcPutIIId[r]{[-0.1 0.1 -1]}{$P_1$}
+\fcPutIIId[r]{[-0.1 0.1 -1]}{$P_1~~~~$}
 
 
 \fcDotIIId{[0 0 1]}
-\fcPutIIId[r]{[-0.1 0.1 1]}{$P_2$}
+\fcPutIIId[r]{[-0.1 0.1 1]}{$P_2~~~~$}
 
 \fcLineIIId[linecolor=red, arrows=->]{[0 0 1]}{[-0.75 0.75 1]}
 \fcPutIIId[br]{[-0.325 0.325 1]}{$\fcv u_2$}
@@ -39,15 +41,6 @@
 }
 }%
 \end{pspicture}
-
-\psfrag{L1}{$L_1$}
-\psfrag{L2}{$L_2$}
-\psfrag{P1}{$P_1$}
-\psfrag{P2}{$P_2$}
-\psfrag{u1}{$\textbf{u}_1$}
-\psfrag{u2}{$\textbf{u}_2$}
-\psfrag{a}{$\alpha$}
-\includegraphics[height=1.4in]{../../modules/vectors/pictures/ok-angle_line_line.eps}
 \column{0.6\textwidth}
 \begin{itemize}
 \item Given: lines $ \begin{array}{rrcl}L_1:&  \textbf{r}&=& \textbf{r}_1+t\textbf{u}_1 \\ L_2:& \textbf{r}&=& \textbf{r}_2+s\textbf{u}_2\end{array}$.
