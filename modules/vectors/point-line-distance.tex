@@ -1,23 +1,26 @@
 \begin{frame}
-  \frametitle{Point and line}
-  Point $P(\textbf{r}_1)$ \hspace{2cm} Line $L: \quad \textbf{r}=\textbf{r}_0+t\textbf{u}$
+\frametitle{Point and line}
 
-  \begin{columns}
-  \column{6cm}
-  \textcolor[rgb]{0.98,0.00,0.00}{Distance} from $P$ to $L$:
-  \uncover<2->{
-  $$d(P,L) = |\textbf{\text{orth}}_{\bm{u}}(\textbf{r}_1-\textbf{r}_0)|$$
-  $$\boxed{d(P,L) = \frac{|(\textbf{r}_1-\textbf{r}_0) \times \textbf{u}|}{|\textbf{u}|}}$$}
-  %
-  \column{6.5cm}
-      \begin{figure}
+\begin{columns}
+\column{0.4\textwidth}
         \psfrag{L}{$L$}
-        \psfrag{P}{$P(\textbf{r}_1)$}
-        \psfrag{P0}{$P_0(\textbf{r}_0)$}
-        \psfrag{u}{$\textbf{u}$}
-        \psfrag{r12}{$\textbf{r}_1-\textbf{r}_0$}
-        \psfrag{orth}{$\textbf{\text{orth}}_{\bm{u}}(\textbf{r}_1-\textbf{r}_0)$}
-        \includegraphics[height=2in]{../../modules/vectors/pictures/ok-distance_point_line.eps}
-    \end{figure}
-    \end{columns}
+        \psfrag{P}{$P(\fcv{r}_1)$}
+        \psfrag{P0}{$P_0(\fcv{r}_0)$}
+        \psfrag{u}{$\fcv{u}$}
+        \psfrag{r12}{$\fcv{r}_1-\fcv{r}_0$}
+        \psfrag{orth}{$\fcv{\fcv{orth}}_{\fcv{u}}(\fcv{r}_1-\fcv{r}_0)$}
+        \includegraphics[height=1.3in]{../../modules/vectors/pictures/ok-distance_point_line.eps}
+\column{0.6\textwidth}
+\begin{itemize}
+\item Given: Point $P(\fcv{r}_1)$, 
+\item line $L: \quad \fcv{r}=\fcv{r}_0+t\fcv{u}$.
+\item Goal: find the distance between $P$ and $L$.
+\end{itemize}
+
+\alert<1->{Distance} from $P$ to $L$:
+\uncover<2->{
+$$d(P,L) = |\fcv{\text{orth}}_{\bm{u}}(\fcv{r}_1-\fcv{r}_0)|$$
+$$\boxed{d(P,L) = \frac{|(\fcv{r}_1-\fcv{r}_0) \times \fcv{u}|}{|\fcv{u}|}}$$}
+
+\end{columns}
 \end{frame}
