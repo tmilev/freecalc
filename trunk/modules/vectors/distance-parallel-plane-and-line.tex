@@ -1,0 +1,60 @@
+\begin{frame}
+\frametitle{Distance between parallel line and plane}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-1.2, -1.2)(2,2)
+\renewcommand{\fcScreen}{[-4 -1 -1] 0}
+\tiny 
+\fcParallelogramIIId{[-1 -1 0]}{[1 -1 0]}{[-1 1 0]}
+\fcPutIIId{[-1 1 0]}{$\mathcal P$}
+\fcPerpendicularIIId[linestyle=dotted]{[0.5 -0.7 0 ]}{[0 0.5 0] [0 0.5 1]}{0.2}
+\fcLineIIId{[0 -1 1 ]}{[0 1 1]}
+\fcDotIIId{[0 0.5 1]}
+\fcPutIIId[b]{[0 0.5 1]}{$P_1(\fcv r_1)$}
+
+\fcLineIIId[arrows=->, linecolor=blue]{[0 0.5 0]}{[0 0.5 1]}
+\fcPutIIId[l]{[0 0.5 0.5]}{$\begin{array}{l} \fcv{orth}_{\fcv u}(\fcv r_1-\fcv r_0) =\\\fcv{proj}_{\fcv n}(\fcv r_1-\fcv r_0) \end{array}$}
+
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[0.5 -0.7 0.5]}{[0.5 -0.7 0]}{0.2}
+
+\fcDotIIId{[0.5 -0.7 0]}
+\fcPutIIId[t]{[0.5 -0.7 -0.1]}{$P_0(\fcv r_0)$}
+\fcLineIIId[arrows=->, linecolor=green]{[0 -0.7 0]}{[0 0.5 1]}
+\fcPutIIId[tl]{[0 -0.1 0.5]}{$\fcv r_1-\fcv r_0$}
+
+\fcLineIIId[linestyle=dotted]{[0.5 -0.7 0]}{[0.5 -0.7 0.9]}
+
+
+
+\fcLineIIId[arrows=->, linecolor=red]{[0 -0.5 1]}{[0 0 1]}
+\fcPutIIId[t]{[0 -0.25 0.9]}{$\fcv u$}
+
+
+\fcPutIIId[r]{[0 -1 1]}{$L~~$}
+
+\end{pspicture}
+\column{0.6\textwidth}
+\begin{itemize}
+\item Given: line $L: \quad \fcv{r}= \fcv{r}_1+t\fcv{u}$,
+\item plane $\mathcal{P}: \quad (\fcv{r}-\fcv{r}_0) \cdot \fcv{n} = 0$.
+\item The plane and the line \alert<2>{are parallel,} \uncover<2->{i.e. $\fcv{u} \cdot \fcv{n} = 0$.}
+\item Goal: find distance between the the two.
+\end{itemize}
+
+\end{columns}
+
+\uncover<3->{
+\alert<1->{Distance} from $L$ to $\mathcal{P}$:
+$d(L,\mathcal{P}) = d(P_1,\mathcal{P})$}
+\uncover<4->{
+\[
+\begin{array}{rcl}
+d(L,\mathcal{P})&=&\displaystyle|\fcv{\text{orth}}_{\bm{u}}(\fcv{r}_1-\fcv{r}_0)| =
+\fcv{\text{proj}}_{\bm{n}} (\fcv{r}_1-\fcv{r}_0)| \\~\\
+d(L,\mathcal{P}) &=&\displaystyle \frac{|(\fcv{r}_1-\fcv{r}_0) \times \fcv{u}|}{|\fcv{u}|} =
+\alert<1->{\frac{|(\fcv{r}_1-\fcv{r}_0)\cdot \fcv{n}|}{|\fcv{n}|}}
+\end{array}
+\]
+}
+\end{frame}

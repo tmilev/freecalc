@@ -2,18 +2,52 @@
 \frametitle{Angle between planes}
 \begin{columns}
 \column{0.4\textwidth}
-\psfrag{cP1}{$\mathcal{P}_2$}
-\psfrag{cP2}{$\mathcal{P}_1$}
-\psfrag{P1}{$P_2$}
-\psfrag{P2}{$P_1$}
-\psfrag{n1}{$\textbf{n}_2$}
-\psfrag{n2}{$\textbf{n}_1$}
-\psfrag{a}{$\alpha$}
-\psfrag{u}{$\textbf{u}$}
-\includegraphics[height=1.3in]{../../modules/vectors/pictures/ok-angle_plane_plane.eps}
+\psset{xunit=1.4cm, yunit=1.4cm}
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\renewcommand{\fcScreenStyle}{x}
+%\fcAxesIIId{2}{2}{2}
+\fcPolyLineIIId[linestyle=dashed]{[-1 -0.6 0] [-1 1 0] [0 1 0]}
+\fcPolyLineIIId{[-1 -0.6 0] [-1 -1 0] [1 -1 0] [1 1 0] [0 1 0]}
+\fcPolyLineIIId{[0 1 0] [-1 1 1] [-1 -1 1] [1 -1 -1] [1 1 -1] [0.33 1 -0.33]}%
+\fcLineIIId[linestyle=dashed]{[0.33 1 -0.33]}{[0 1 0]}%
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[1.7 0 0.3]}{[1 0 -1]}{0.2}%
+\fcDotIIId{[0.7 0 -0.7]}
+\fcPutIIId[tl]{[0.7 0 -0.7]}{$~~P_1$}
+\fcPutIIId[tl]{[0.85 0 0.85]}{$~~\fcv n_1$}%
+\fcLineIIId[linestyle=dashed]{[0 0 0]}{[0.2 0 -0.2]}
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[1 0 1]}{[-1 0 1]}{0.2}
+\fcPutIIId[l]{[1.5 0 0]}{$~\fcv n_1$}
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[0.8 0.8 0.8]}{[0.8 0.8 0] [0.6 0.8 0]}{0.2}%
+\fcDotIIId{[0.8 0.8 0]}
+\fcPutIIId[bl]{[0.8 0.8 0]}{$~~P_2$}
+\fcLineIIId[linestyle=dotted]{[0 -1 0]}{[0 1 0]}
+
+\fcPutIIId[bl]{[0.8 0.8 0.5]}{$~~\fcv n_2$}
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[0 0 0.8]}{[-1 0 0]}{0.1}
+\fcPutIIId[bl]{[0 0 0.5]}{$~~\fcv n_2$}
+
+\fcPolyLineIIId{[-0.5 0 0.5] [0 0 0]}%
+\fcLineIIId[linestyle=dashed]{[0.4 0 0]}{[-0.7 0 0]}%
+\fcAngleIIId[linecolor=blue]{[-1 0 1]}{[-1 0 0]}{0.3}%
+\fcAngleIIId[linecolor=blue]{[0 0 1]}{[1 0 1]}{0.3}
+\fcPutIIId[rb]{[-0.3 0 0.1]}{$\alpha$}
+\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 -0.8 0]}
+\fcPutIIId[l]{[0 -0.5 0]}{$~\fcv u$}
+\fcPutIIId[tr]{[-1 -1 0]}{$\mathcal P_2$}
+\fcPutIIId[tr]{[-1 -1 1]}{$\mathcal P_1$}
+%\fcParallelogramHollowIIId{[-1 -1 0]}{[1 -1 0]}{[-1 1 0]}
+%\fcParallelogramHollowIIId{[1 -1 -1]}{[1 1 -1]}{[-1 -1 1]}
+\end{pspicture}
+
 \column{0.6\textwidth}
 \begin{itemize}
-\item Given: planes $\mathcal{P}_1: \quad (\textbf{r} - \textbf{r}_1) \cdot \textbf{n}_1 = 0$, $\mathcal{P}_2: \quad (\textbf{r} - \textbf{r}_2) \cdot \textbf{n}_2 = 0$
+\item Given: planes 
+$\begin{array}{rrcl}
+\mathcal{P}_1:&  (\fcv{r} - \fcv{r}_1) \cdot \fcv{n}_1 &=& 0 \\
+\mathcal{P}_2:& (\fcv{r} - \fcv{r}_2) \cdot \fcv{n}_2 &=& 0
+\end{array}
+$
 \item Goal: find/define angle between the two planes.
 \end{itemize}
 \end{columns}
@@ -21,13 +55,13 @@
 \uncover<2->{
 $
 \begin{array}{rcl}
-\alpha &=& \text{acute angle} (\textbf{n}_1,\textbf{n}_2) \\
-\alpha &=&\arccos{\left( \frac{|\textbf{n}_1 \cdot \textbf{n}_2|}{|\textbf{n}_1|\, |\textbf{n}_2|}\right)}
+\alpha &=& \text{acute angle} (\fcv{n}_1,\fcv{n}_2) \\
+\alpha &=&\arccos{\left( \frac{|\fcv{n}_1 \cdot \fcv{n}_2|}{|\fcv{n}_1|\, |\fcv{n}_2|}\right)}
 \end{array}
 $
 }
 
-\uncover<3->{\alert<1->{Perpendicular} planes:} \uncover<4->{$$\alpha = \frac{\pi}{2} \Longleftrightarrow \boxed{\textbf{n}_1 \cdot \textbf{n}_2 = 0}$$}
+\uncover<3->{\alert<1->{Perpendicular} planes:} \uncover<4->{$$\alpha = \frac{\pi}{2} \Longleftrightarrow \boxed{\fcv{n}_1 \cdot \fcv{n}_2 = 0}$$}
 \uncover<5->{Direction of \textcolor[rgb]{0.98,0.00,0.00}{line of intersection}:}
-\uncover<6->{$$\textbf{u} = \textbf{n}_1 \times \textbf{n}_2$$}
+\uncover<6->{$$\fcv{u} = \fcv{n}_1 \times \fcv{n}_2$$}
 \end{frame}
