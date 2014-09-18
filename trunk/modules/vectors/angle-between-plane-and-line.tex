@@ -8,13 +8,17 @@
 \tiny 
 \fcParallelogramIIId{[-1 -1 0]}{[1 -1 0]}{[-1 1 0]}
 \fcPutIIId{[-1 1 0]}{$\mathcal P$}
-\fcPerpendicularIIId[linestyle=dotted]{[0.5 -0.7 0 ]}{[0 0.5 0] [0 0.5 1]}{0.2}
+\fcPerpendicularIIId[linestyle=gray]{[0.5 -0.7 0 ]}{[0 0.5 0] [0 0.5 1]}{0.2}
 %\fcDotIIId{[0 0.5 1]}
 %\fcPutIIId[b]{[0 0.5 1]}{$P_1(\fcv r_1)$}
 
 \fcLineIIId[arrows=->, linecolor=blue]{[0 0.5 0]}{[0 0.5 1]}
-\fcPutIIId[l]{[0 0.5 0.5]}{$\fcv{proj}_{\fcv n}(\fcv u)$}
+\uncover<5>{%
+\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue]{[0 0.5 0]}{[0 0.5 1]}
+}%
+\fcPutIIId[l]{[0 0.5 0.5]}{$~\alert<5>{\fcv{proj}_{\fcv n}(\fcv u)}$}
 
+%\fcLineIIId[linecolor=gray]{[0.5 -0.7 0]}{[0.5 -0.7 0.9]}
 \fcLineIIId[arrows=->, linecolor=red]{[0.5 -0.7 0]}{[0.5 -0.7 0.5]}
 \fcPutIIId[r]{[0.5 -0.7 0.25]}{$\fcv n~~$}
 
@@ -24,52 +28,45 @@
 \fcPutIIId[t]{[0.9 0.9 -0.1]}{$P_0(\fcv r_0)$}
 
 \fcPutIIId{[0.5 -0.7 0]}{\fcAngleIIId {[-0.5 1.2 0]} {[-0.5 1.2 1]}{0.2}}
-\fcPutIIId[l]{[0.4 -0.5 0.1]}{$\alpha$}
+\uncover<4,5>{\fcPutIIId{[0.5 -0.7 0]}{\fcAngleIIId[linewidth=2pt, linecolor=red] {[-0.5 1.2 0]} {[-0.5 1.2 1]}{0.2}}}
+\fcPutIIId[l]{[0.4 -0.5 0.1]}{$\alert<4,5>{ \alpha}$}
 
 \fcLineIIId[arrows=->, linecolor=green]{[0.5 -0.7 0]}{[0 0.5 1]}
+\uncover<5>{%
+\fcLineIIId[arrows=->, linewidth=2pt, linecolor=green]{[0.5 -0.7 0]}{[0 0.5 1]}
+}%
+\fcPutIIId[tl]{[0.25 -0.1 0.5]}{$ \alert<5>{\fcv u}$}
 \fcLineIIId[linestyle=dotted]{[0.56 -0.844 -0.12]}{[0.5 -0.7 0]}
 \fcLineIIId{[0.65 -1.06 -0.3]}{[0.56 -0.844 -0.12]}
 \fcLineIIId{[0 0.5 1]}{[-0.15 0.86 1.3]}
 \fcPutIIId[tl]{[0.65 -1.06 -0.3]}{$~~L$}
 
-\fcPutIIId[tl]{[0.25 -0.1 0.5]}{$\fcv u$}
 
-\fcLineIIId[linestyle=dotted]{[0.5 -0.7 0]}{[0.5 -0.7 0.9]}
 
 \end{pspicture}
 \column{0.6\textwidth}
 \begin{itemize}
 \item Given: line $L: \quad \fcv{r}= \fcv{r}_1+t\fcv{u}$,
 \item plane $\mathcal{P}: \quad (\fcv{r}-\fcv{r}_0) \cdot \fcv{n} = 0$.
-\item Goal: Find angle between line and plane.
+\item Goal: Find/define angle between line and plane.
 \end{itemize}
 \end{columns}
 Line \alert<1->{perpendicular} to plane
 \uncover<2->{
-$L \bot \mathcal{P}$ $\Longleftrightarrow$
-$\fcv{u} \| \fcv{n}$ $\Longleftrightarrow$ 
+$\Leftrightarrow$
+$\fcv{u} \| \fcv{n}$ 
+\uncover<3->{%
+$\Leftrightarrow$ 
 $\boxed{\fcv{u} \times \fcv{n} = \fcv{0}}$
+}%
 }
 
-\uncover<3->{
+\uncover<4->{
 \alert<1->{Angle} between line and plane $\alpha$: angle between $L$, $\mathcal{P}$.
-}
 $\begin{array}{rcl}
-%\sin \alpha &=& \frac{|\fcv{proj}_{\fcv n}\fcv u|}{|\fcv u|} = \frac{|u\cdot n| }{||}\\
- \alpha &=& \arcsin\left( \frac{|\fcv{u} \cdot \fcv{n}|}{|\fcv{u}| \, |\fcv{n}|}\right) 
+\alert<4,5>{\sin \alpha }&\alert<4,5>{=}& \uncover<5->{\alert<5>{\frac{ \alert<6>{|\fcv{proj}_{\fcv n}\fcv u|}}{|\fcv u|} }}\uncover<6->{ = \frac{ \alert<6>{|\fcv u\cdot\fcv n|} }{ \alert<6>{|\fcv n|} |\fcv u|}}\\
+\uncover<7>{ \alpha &=& \arcsin\left(\frac{|\fcv{u} \cdot \fcv{n}|}{|\fcv{u}|  |\fcv{n}|}\right) }
 \end{array}
 $
-
-
-\uncover<5->{\alert<1>{Intersection}:}
-
-\uncover<6->{
-$\begin{array}{rcl}
-(\fcv{r}_1+t\fcv{u}-\fcv{r}_0) \cdot \fcv{n} &=& 0\\
-(\fcv{r}_1-\fcv{r}_0)\cdot \fcv{n} + t \fcv{u} \cdot \fcv{n} &=& 0
-\end{array}
-$
-
-Solve for $t$.
 }
 \end{frame}

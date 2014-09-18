@@ -2,33 +2,62 @@
   \frametitle{Parallel planes}
 \begin{columns}
 \column{0.4\textwidth}
-\psfrag{cP1}{$\mathcal{P}_1$}
-\psfrag{cP2}{$\mathcal{P}_2$}
-\psfrag{P1}{$P_1(\textbf{r}_1)$}
-\psfrag{P2}{$P_2(\textbf{r}_2)$}
-\psfrag{n1}{$\textbf{n}_1$}
-\psfrag{n2}{$\textbf{n}_2$}
-\psfrag{r12}{$\textbf{r}_2\!-\!\textbf{r}_1$}
-\psfrag{proj}{$\textbf{\text{proj}}_{\bm{n}_1} (\textbf{r}_1\!-\!\textbf{r}_0)$}
-\includegraphics[height=1.4in]{../../modules/vectors/pictures/ok-parallel_plane_plane.eps}
+\begin{pspicture}(-0.2, -0.2)(2,2)
+\tiny
+\fcParallelogramIIId{[-1.5 -1.5 -1]}{[-1.5 1.5 -1]}{[1.5 -1.5 -1]}
+\fcParallelogramIIId{[-1.5 -1.5 1]}{[-1.5 1.5 1]}{[1.5 -1.5 1]}
+\fcPutIIId{[-1.5 -1.5 -1]}{$\mathcal P_1$}
+\fcPutIIId{[-1.5 -1.5 1]}{$\mathcal P_2$}
+\fcLineIIId{[-1 -1 -1]}{[1 1 -1]}
+\fcLineIIId{[-1 -1 1]}{[1 1 1]}
+\fcDotIIId{[1 1 1]}
+\fcPutIIId[tl]{[1 1 0.9]}{$~~P_2$}
+\fcDotIIId{[-1 -1 -1]}
+\fcPutIIId[t]{[-1 -1 -1.1]}{$P_1$}
+\fcLineIIId[linecolor=gray]{[-1 -1 -1]}{[-1 -1 0.73]}%
+\fcLineIIId[linecolor=gray, linestyle=dotted]{[-1 -1 0.73]}{[-1 -1 1]}%
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[-1 -1 0.1]}{[-1 -1 -1] [0 0 -1]}{0.2}%
+\fcPutIIId[r]{[-1 -1 -0.45]}{$\fcv n_1~~$}
+
+\fcPerpendicularIIId[linecolor=gray]{[1 1 0.73]}{[1 1 -1] [-1 -1 -1]}{0.2}%
+\fcLineIIId[linecolor=gray, linestyle=dotted]{[1 1 0.73]}{[1 1 1]}%
+
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[1 1 1.7]}{[1 1 1] [0 0 1]}{0.2}%
+\fcPutIIId[l]{[1 1 1.35]}{$~~\fcv n_2$}
+
+\fcLineIIId[linecolor=blue]{[-1 -1 -1]}{[0.53 0.53 0.53]}
+\fcLineIIId[arrows=->, linecolor=blue, linestyle=dotted]{[0.53 0.53 0.53]}{[1 1 1]}
+\fcPutIIId[l]{[0 0 0]}{$~~~\fcv r_2- \fcv r_1$}
+\end{pspicture}
 \column{0.6\textwidth}
 \begin{itemize}
-\item Given: planes $\mathcal{P}_1: \quad (\textbf{r} - \textbf{r}_1) \cdot \textbf{n}_1 = 0$, $\mathcal{P}_2: \quad (\textbf{r} - \textbf{r}_2) \cdot \textbf{n}_2 = 0$
+\item Given: planes $\begin{array}{rrcl}
+\mathcal{P}_1:& (\textbf{r} - \alert<7>{\textbf{r}_1})\alert<7>{ \cdot \alert<6>{\textbf{n}_1}} &=& 0 \\
+\mathcal{P}_2:& (\textbf{r} - \alert<7>{\textbf{r}_2}) \alert<7>{\cdot \alert<6>{\textbf{n}_2}} &=& 0
+\end{array}.
+$
 \item Goal: Establish whether planes are parallel, find distance b-n planes.
 \end{itemize}
-     
 \end{columns}
-\alert<1->{Parallel} planes: \uncover<2->{$\mathcal{P}_1 || \mathcal{P}_2$ $\Longleftrightarrow$ $\textbf{n}_1$, $\textbf{n}_2$ collinear $\Longleftrightarrow$
-$\boxed{\textbf{n}_1 \times \textbf{n}_2 = \textbf{0}}$}
-\uncover<3->{
-\alert<1->{Distance} between parallel planes: 
-$$d(\mathcal{P}_1,\mathcal{P}_2) = |\textbf{\text{proj}}_{\textbf{n}_1} (\textbf{r}_2-\textbf{r}_1)| =\boxed{\frac{|(\textbf{r}_2-\textbf{r}_1)\cdot \textbf{n}_1|}{|\textbf{n}_1|}}$$}
-\uncover<4->{
-\noindent\alert<1->{Scalar} eq-ns:
+Planes are \alert<1->{parallel} \uncover<2->{$\mathcal{P}_1 || \mathcal{P}_2$ $\Leftrightarrow$ $\textbf{n}_1$, $\textbf{n}_2$ collinear $\Leftrightarrow$
+$\boxed{\textbf{n}_1 \times \textbf{n}_2 = \textbf{0}}$. }
+
+\uncover<3->{\alert<1->{Distance}:\quad 
+$d(\mathcal{P}_1,\mathcal{P}_2) = |\textbf{\text{proj}}_{\textbf{n}_1} (\textbf{r}_2-\textbf{r}_1)| \uncover<4->{=\boxed{\frac{|(\textbf{r}_2-\textbf{r}_1)\cdot \textbf{n}_1|}{|\textbf{n}_1|}}}$
+} %uncover3
+
+\uncover<5->{%
+\noindent Assume $\alert<6>{ \fcv n_1=\fcv n_2=\langle a,b,c\rangle }$ 
+\uncover<6->{$\Rightarrow$ plane eq-ns:
 $\begin{array}{r@{~}r@{~}c@{~}l} 
-\mathcal{P}_1 :& ax+by+cz &=& d_1\\
-\mathcal{P}_2 :& ax+by+cz &=& d_2
-\end{array}
-$ $\boxed{d(\mathcal{P}_1,\mathcal{P}_2) = \frac{|d_2-d_1|}{\sqrt{a^2+b^2+c^2}}}$
+\mathcal{P}_1 :& \alert<6>{a}x+\alert<6>{b}y+\alert<6>{c}z &=& \alert<7>{d_1}\\
+\mathcal{P}_2 :& \alert<6>{a}x+\alert<6>{b}y+\alert<6>{c}z &=& \alert<7>{d_2}
+\end{array}.$
+} 
+\uncover<7->{
+\[
+\Rightarrow \boxed{d(\mathcal{P}_1,\mathcal{P}_2) = \frac{|\alert<7>{d_2-d_1}|}{\sqrt{a^2+b^2+c^2}}}
+\]
 }
+}%uncover5
 \end{frame}
