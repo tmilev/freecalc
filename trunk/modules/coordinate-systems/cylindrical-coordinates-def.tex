@@ -1,0 +1,38 @@
+\begin{frame}
+ \frametitle{Cylindrical coordinates}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=2.5cm, yunit=2.5cm}
+\begin{pspicture}(-1, -1)(2,2)
+\tiny
+\renewcommand{\fcScreen}{[-3 -1 -1] 0}
+\fcAxesIIId{1.5}{1.5}{1.5}
+\fcLineIIId{[0 0 0]}{[1 1 1]}%
+\fcPerpendicularIIId[linestyle=dashed]{[1 1 1]}{[0 0 1]}{0.2}%
+\fcPerpendicularIIId{[1 1 1]}{[1 1 0]}{0.2}%
+\fcPutIIId[bl]{[1 1 1]}{$~~P(x_P, y_P, z_P)$}
+\fcPutIIId[tl]{[1 1 0]}{$~~Q$}
+\fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[1 0 0]}{0.2}%
+\fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[0 1 0]}{0.2}%
+\fcLineIIId{[0 0 0]}{[1 1 0]}
+\fcPutIIId[r]{[0.5 0 0]}{$x_P~~$}
+\fcPutIIId[b]{[0 0.5 0]}{$y_P$}
+\fcPutIIId[r]{[0 0 0.5]}{$z_P~~$}
+\fcDotIIId{[1 1 1]}
+\fcDotIIId{[1 1 0]}
+\fcPutIIId[tr]{[0.5 0.5 0]}{$r_P$}
+\fcAngleIIId[arrows=->, linecolor=red]{[1 0 0]}{[1 1 0]}{0.3}
+\fcPutIIId[t]{[0.3 0.15 0]}{$\theta$}
+\end{pspicture}
+
+
+\column{0.6\textwidth}
+$$P(x,y,z) \Longleftrightarrow P(r, \theta, z)$$
+
+\begin{itemize}
+    \item Polar in $Oxy$ -- $(r, \theta)$;
+    \item Rectangular in $Orz$ -- $(r, z)$.
+\end{itemize}
+\end{columns}
+
+\end{frame}

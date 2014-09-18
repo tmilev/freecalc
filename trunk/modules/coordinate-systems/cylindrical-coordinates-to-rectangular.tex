@@ -1,0 +1,36 @@
+
+\begin{frame}
+
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=2.5cm, yunit=2.5cm}
+\begin{pspicture}(-1, -1)(2,2)
+\tiny
+\renewcommand{\fcScreen}{[-3 -1 -1] 0}
+\fcAxesIIId{1.5}{1.5}{1.5}
+\fcLineIIId{[0 0 0]}{[1 1 1]}%
+\fcPerpendicularIIId[linestyle=dashed]{[1 1 1]}{[0 0 1]}{0.2}%
+\fcPerpendicularIIId{[1 1 1]}{[1 1 0]}{0.2}%
+\fcPutIIId[bl]{[1 1 1]}{$~~P(x_P, y_P, z_P)$}
+\fcPutIIId[tl]{[1 1 0]}{$~~Q$}
+\fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[1 0 0]}{0.2}%
+\fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[0 1 0]}{0.2}%
+\fcLineIIId{[0 0 0]}{[1 1 0]}
+\fcPutIIId[r]{[0.5 0 0]}{$x_P~~$}
+\fcPutIIId[b]{[0 0.5 0]}{$y_P$}
+\fcPutIIId[r]{[0 0 0.5]}{$z_P~~$}
+\fcDotIIId{[1 1 1]}
+\fcDotIIId{[1 1 0]}
+\fcPutIIId[tr]{[0.5 0.5 0]}{$r_P$}
+\fcAngleIIId[arrows=->, linecolor=red]{[1 0 0]}{[1 1 0]}{0.3}
+\fcPutIIId[t]{[0.3 0.15 0]}{$\theta$}
+\end{pspicture}
+\column{0.6\textwidth}
+To transform cylindrical to rectangular coordinates:\pause
+$$x=r\cos\theta \quad , \quad y = r\sin\theta \quad , \quad z_{r} = z_{c}$$
+
+Rectangular to cylindrical:\pause
+$$r= \sqrt{x^2+y^2} \quad , \quad z_{c}=z_{r}$$
+$$\cos\theta = \frac{x}{r} \quad , \quad \sin\theta = \frac{y}{r}\; .$$
+\end{columns}
+\end{frame}
