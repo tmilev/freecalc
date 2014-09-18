@@ -1,102 +1,167 @@
 \begin{frame}
 \frametitle{Angle between planes}
 \begin{columns}
-\column{0.4\textwidth}
-\psset{xunit=1.4cm, yunit=1.4cm}
+\column{0.35\textwidth}
+\centering
+\psset{xunit=1.2cm, yunit=1.2cm}
 \begin{pspicture}(-2, -2)(2,2)
 \tiny
 \renewcommand{\fcScreenStyle}{x}
 %\fcAxesIIId{2}{2}{2}
-\fcPolyLineIIId[linestyle=dashed]{[-1 -0.6 0] [-1 1 0] [0 1 0]}
-\fcPolyLineIIId{[-1 -0.6 0] [-1 -1 0] [1 -1 0] [1 1 0] [0 1 0]}
+\fcParallelogramIIId[linecolor=green!30]{[1 0 -1]}{[1 1 -1]}{[0 0 0]}
+\fcParallelogramIIId[linecolor=magenta!30]{[1 0 0]}{[1 1 0]}{[-1 0 0]}
+\fcParallelogramIIId[linecolor=green!30]{[0 0 0]}{[-1 0 1]}{[0 1 0]}
+\uncover<6->{
+\fcParallelogramIIId[linecolor=cyan!30]{[1 0 -1]}{[1 0 1]}{[-1 0 -1]}
+}
+\fcParallelogramIIId[linecolor=green!30]{[1 -1 -1]}{[1 0 -1]}{[0 -1 0]}
+\fcParallelogramIIId[linecolor=magenta!30]{[1 -1 0]}{[1 0 0]}{[-1 -1 0]}
+\fcParallelogramIIId[linecolor=green!30]{[0 0 0]}{[0 -1 0]}{[-1 0 1]}
+
+\uncover<6->{%
+\fcPutIIId[b]{[0.8 0 1.1]}{$\mathcal P_3$}
+\fcPolyLineIIId{[1 0 -1] [1 0 1] [-1 0 1]}
+\fcLineIIId[linestyle=dashed]{[-1 0 1]}{[-1 0 -0.5]}
+\fcPolyLineIIId{[-1 0 -0.5] [-1 0 -1] [-0.5 0 -1]}
+\fcLineIIId[linestyle=dashed]{[-0.5 0 -1]}{[1 0 -1]}
+}
+\fcPolyLineIIId[linestyle=dashed]{[-1 -0.35 0] [-1 1 0] [0 1 0]}
+\fcPolyLineIIId{[-1 -0.35 0] [-1 -1 0] [1 -1 0] [1 1 0] [0 1 0]}
 \fcPolyLineIIId{[0 1 0] [-1 1 1] [-1 -1 1] [1 -1 -1] [1 1 -1] [0.33 1 -0.33]}%
 \fcLineIIId[linestyle=dashed]{[0.33 1 -0.33]}{[0 1 0]}%
-\uncover<4->{%
-\fcPerpendicularIIId[arrows=<-, linecolor=red]{[1.7 0 0.3]}{[1 0 -1]}{0.2}%
-\fcDotIIId{[0.7 0 -0.7]}%
-\fcPutIIId[tl]{[0.7 0 -0.7]}{$~~P_1$}%
-\fcPutIIId[l]{[1.5 0 0]}{$~\fcv n_1$}
-}%
+%\uncover<9->{%
+%\fcPerpendicularIIId[arrows=<-, linecolor=red]{[1.7 0 0.3]}{[1 0 -1]}{0.2}%
+%\fcDotIIId{[0.7 0 -0.7]}%
+%\fcPutIIId[tl]{[0.7 0 -0.7]}{$~~P_1$}%
+%\fcPutIIId[l]{[1.5 0 0]}{$~\fcv n_1$}
+%}%
 %\fcPerpendicularIIId[arrows=<-, linecolor=red]{[1 0 1]}{[-1 0 1]}{0.2}
+\uncover<9->{%
 \fcLineIIId[arrows=<-, linecolor=red]{[1 0 1]}{[0 0 0]}
-\fcPutIIId[tl]{[0.85 0 0.85]}{$~~\fcv n_1$}%
-
-\uncover<4->{%
-\fcPerpendicularIIId[arrows=<-, linecolor=red]{[0.8 0.8 0.8]}{[0.8 0.8 0] [0.6 0.8 0]}{0.2}%
-\fcDotIIId{[0.8 0.8 0]}
-\fcPutIIId[bl]{[0.8 0.8 0]}{$~~P_2$}
-\fcPutIIId[bl]{[0.8 0.8 0.5]}{$~~\fcv n_2$}
+\fcPutIIId[tl]{[0.85 0 0.85]}{$~~~~\fcv n_1$}%
 }%
+%\uncover<9->{%
+%\fcPerpendicularIIId[arrows=<-, linecolor=red]{[0.8 0.8 0.8]}{[0.8 0.8 0] [0.6 0.8 0]}{0.2}%
+%\fcDotIIId{[0.8 0.8 0]}
+%\fcPutIIId[bl]{[0.8 0.8 0]}{$~~P_2$}
+%\fcPutIIId[bl]{[0.8 0.8 0.5]}{$~~\fcv n_2$}
+%}%
 
 \fcLineIIId[linecolor=gray]{[0 -1 0]}{[0 1 0]}
-
+\fcPutIIId[b]{[0 -1 0.1]}{$L$}
 %\fcPerpendicularIIId[arrows=<-, linecolor=red]{[0 0 0.8]}{[-1 0 0]}{0.1}
+\uncover<9->{%
 \fcLineIIId[arrows=<-, linecolor=red]{[0 0 0.8]}{[0 0 0]}
 \fcPutIIId[bl]{[0 0 0.5]}{$~~\fcv n_2$}
-
+}%
 \fcPolyLineIIId{[-0.5 0 0.5] [0 0 0]}%
 \fcLineIIId[linestyle=dashed]{[0 0 0]}{[0.2 0 -0.2]}%
-\uncover<2-3>{%
+\uncover<3-4>{%
 \fcPerpendicularIIId{[-0.5 0 0.5]}{[0 1 0]}{0.2}%
 }%
+\uncover<3->{%
+\fcDotIIId{[-0.5 0 0.5]}%
+\fcPutIIId[b]{[-0.5 0 0.6]}{$Q_1$}
+}%
+
 \fcLineIIId[linestyle=dashed]{[0 0 0]}{[-0.7 0 0]}%
 \fcLineIIId{[0 0 0]}{[0.7 0 0]}%
-\uncover<3>{%
+\uncover<4->{%
+\fcDotIIId{[-0.7 0 0]}%
+\fcPutIIId[t]{[-0.7 0 -0.1]}{$Q_2$}
+}%
+\uncover<4>{%
 \fcPerpendicularIIId[linestyle=dashed]{[-0.7 0 0]}{[0 1 0]}{0.2}%
 }%
-\uncover<4->{%
+\uncover<5->{%
 \fcAngleIIId[linecolor=blue]{[-1 0 1]}{[-1 0 0]}{0.3}%
 \fcPutIIId[rb]{[-0.3 0 0.1]}{$\alpha$}%
 }%
-
-\fcAngleIIId[linecolor=blue]{[0 0 1]}{[1 0 1]}{0.3}
-
-\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 -0.8 0]}
-\fcPutIIId[l]{[0 -0.5 0]}{$~\fcv u$}
+\uncover<11->{\fcAngleIIId[linecolor=blue]{[0 0 1]}{[1 0 1]}{0.3}}%
+\uncover<13->{%
+\fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 -0.8 0]}%
+\fcPutIIId[l]{[0 -0.5 0]}{$~\fcv u$}%
+}%
 \fcPutIIId[tr]{[-1 -1 0]}{$\mathcal P_2$}
 \fcPutIIId[tr]{[-1 -1 1]}{$\mathcal P_1$}
 %\fcParallelogramHollowIIId{[-1 -1 0]}{[1 -1 0]}{[-1 1 0]}
 %\fcParallelogramHollowIIId{[1 -1 -1]}{[1 1 -1]}{[-1 -1 1]}
 \end{pspicture}
-
+\uncover<6->{%
+\psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-0.2, -0.2)(0.2, 0.2)
+\tiny
 \renewcommand{\fcScreen}{[0 1 0] 0}
-\fcLineIIId[arrows=<-, linecolor=red]{[0 0 0.8]}{[0 0 0]}
-\fcPutIIId[bl]{[0 0 0.5]}{$~~\fcv n_2$}
-\fcLineIIId[arrows=<-, linecolor=red]{[1 0 1]}{[0 0 0]}
+\fcBoundingBox{-1.5}{-1.5}{1.5}{1.5}
+\fcParallelogramIIId[linecolor=cyan!30]{[1 0 -1]}{[1 0 1]}{[-1 0 -1]}
+\fcPutIIId[t]{[0 0 -0.1]}{$O$}
+\fcPutIIId[b]{[0.8 0 1.1]}{$\mathcal P_3$}
+\uncover<9->{%
+\fcPutIIId[bl]{[0 0 0.6]}{$~~\fcv n_2$}
 \fcPutIIId[tl]{[0.85 0 0.85]}{$~~\fcv n_1$}%
-
+}%uncover9
+\uncover<9>{%
+\fcLineIIId[arrows=<-, linecolor=red]{[0 0 0.8]}{[0 0 0]}%
+\fcLineIIId[arrows=<-, linecolor=red]{[1 0 1]}{[0 0 0]}%
+}%uncover9
+\uncover<10->{%
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[0 0 0.8]}{[1 0 0]}{0.12}%
+\fcPerpendicularIIId[arrows=<-, linecolor=red]{[1 0 1]}{[1 0 -1]}{0.2}%
+}%
+\fcLineIIId{[0 0 0]}{[-0.7 0 0]}%
+\fcPolyLineIIId{[-0.5 0 0.5] [0 0 0]}%
+\fcAngleIIId[linecolor=blue]{[-1 0 1]}{[-1 0 0]}{0.35}%
+\fcPutIIId[rb]{[-0.3 0 0.15]}{$\alpha$}%
+\uncover<11->{%
+\fcAngleIIId[linecolor=blue]{[0 0 1]}{[1 0 1]}{0.35}%
+\fcPutIIId[lb]{[0.1 0 0.35]}{$\alpha~~$}%
+}%
+\fcDotIIId{[-0.5 0 0.5]}%
+\fcPutIIId[b]{[-0.5 0 0.6]}{$Q_1$}
+\fcDotIIId{[-0.7 0 0]}%
+\fcPutIIId[t]{[-0.7 0 -0.1]}{$Q_2$}
 \end{pspicture}
-
-\column{0.6\textwidth}
+}%
+\vskip 6cm
+\column{0.65\textwidth}
 \begin{itemize}
 \item Given: planes 
 $\begin{array}{rrcl}
-\mathcal{P}_1:&  (\fcv{r} - \fcv{r}_1) \cdot \alert<4>{\fcv{n}_1 }&=& 0 \\
-\mathcal{P}_2:& (\fcv{r} - \fcv{r}_2) \cdot \alert<4>{\fcv{n}_2} &=& 0
+\mathcal{P}_1:&  (\fcv{r} - \fcv{r}_1) \cdot \alert<9>{\fcv{n}_1 }&=& 0 \\
+\mathcal{P}_2:& (\fcv{r} - \fcv{r}_2) \cdot \alert<9>{\fcv{n}_2} &=& 0
 \end{array}
 $
 \item Goal: \alert<4>{define} and find the angle between the two planes.
-\end{itemize}
-\end{columns}
-\begin{itemize}
-\item<2-> In $\mathcal P_1$, drop perpendicular from point to intersection line.
-\item<3-> In $\mathcal P_2$, raise a perpendicular from the perpendicular heel.
-\item<4-> \alert<4>{Define angle $\alpha$} b-n $\mathcal P_1, \mathcal P_2$ = acute angle b-n two perpendiculars.
-\end{itemize}
+\only<1-6>{%
+\item<2-> Let $L$ - intersection line of two planes.
+\item<3-> In $\mathcal P_1$, drop perpendicular from arbitrary point $Q_1$ to $L$.
+\item<4-> In $\mathcal P_2$, raise a perpendicular from the perpendicular heel.
+\item<5-> \alert<4>{Define angle $\alpha$} b-n $\mathcal P_1, \mathcal P_2$ = acute angle b-n two perpendiculars.
+}%
+\item<6-> \alert<6,7>{Consider the plane $\mathcal P_3$ spanned by the two constructed perpendiculars.}
 
-
-\alert<1->{Angle} $\alpha$ between planes:
-\uncover<2->{
+\only<1-6>{%
+\vskip 0.57cm
+}%
+\only<7->{%
+\item<8-> $\mathcal P_3$ is orthogonal to $L$.
+\item<9-> $\Rightarrow$ $\mathcal P_3$ contains the normal vectors $\fcv n_1$, $\fcv n_2$.
+\item<10-> $\fcv n_1\perp \fcv O\fcv Q_{1}$ and $\fcv n_2\perp \fcv O\fcv Q_{2}$.
+\item<11-> 
 $
 \begin{array}{rcl}
-\alpha &=& \text{acute angle} (\fcv{n}_1,\fcv{n}_2) \\
+\alpha &=& \text{acute} \angle (\fcv{n}_1,\fcv{n}_2) \\
 \alpha &=&\arccos{\left( \frac{|\fcv{n}_1 \cdot \fcv{n}_2|}{|\fcv{n}_1|\, |\fcv{n}_2|}\right)}
 \end{array}
 $
-}
+\item<12-> $\perp$ planes: $\Rightarrow$ $\alpha = \frac{\pi}{2} \Longleftrightarrow \boxed{\fcv{n}_1 \cdot \fcv{n}_2 = 0}$.
+\item<13-> Direction of $L$ is $\fcv{u} = \fcv{n}_1 \times \fcv{n}_2$.
+}%onlyr<7->
+\end{itemize}
 
-\uncover<3->{\alert<1->{Perpendicular} planes:} \uncover<4->{$$\alpha = \frac{\pi}{2} \Longleftrightarrow \boxed{\fcv{n}_1 \cdot \fcv{n}_2 = 0}$$}
-\uncover<5->{Direction of \textcolor[rgb]{0.98,0.00,0.00}{line of intersection}:}
-\uncover<6->{$$\fcv{u} = \fcv{n}_1 \times \fcv{n}_2$$}
+\vfill
+
+\end{columns}
+\vskip 5cm
+
 \end{frame}
