@@ -1,36 +1,68 @@
 
 \begin{frame}
-
+\frametitle{Cylindrical to and from cartesian coordinates}
 \begin{columns}
 \column{0.4\textwidth}
 \psset{xunit=2.5cm, yunit=2.5cm}
 \begin{pspicture}(-1, -1)(2,2)
 \tiny
 \renewcommand{\fcScreen}{[-3 -1 -1] 0}
-\fcAxesIIId{1.5}{1.5}{1.5}
+\fcLineIIId[arrows=->]{[0 0 0]}{[1.5 0 0]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 1.5 0]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 1.5]}
 \fcLineIIId{[0 0 0]}{[1 1 1]}%
 \fcPerpendicularIIId[linestyle=dashed]{[1 1 1]}{[0 0 1]}{0.2}%
 \fcPerpendicularIIId{[1 1 1]}{[1 1 0]}{0.2}%
-\fcPutIIId[bl]{[1 1 1]}{$~~P(x_P, y_P, z_P)$}
+\fcPutIIId[bl]{[1 1 1]}{$~~P(x, y, z)$}
 \fcPutIIId[tl]{[1 1 0]}{$~~Q$}
 \fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[1 0 0]}{0.2}%
 \fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[0 1 0]}{0.2}%
 \fcLineIIId{[0 0 0]}{[1 1 0]}
-\fcPutIIId[r]{[0.5 0 0]}{$x_P~~$}
-\fcPutIIId[b]{[0 0.5 0]}{$y_P$}
-\fcPutIIId[r]{[0 0 0.5]}{$z_P~~$}
+\fcPutIIId[r]{[0.5 0 0]}{$\alert<2,3>{x}~~$}
+\fcPutIIId[b]{[0 0.5 0]}{$\alert<4,5>{y}$}
+\fcPutIIId[r]{[0 0 0.5]}{$z~~$}
 \fcDotIIId{[1 1 1]}
 \fcDotIIId{[1 1 0]}
-\fcPutIIId[tr]{[0.5 0.5 0]}{$r_P$}
+\fcPutIIId[tr]{[0.5 0.5 0]}{$\alert<3,5>{r}~~$}
 \fcAngleIIId[arrows=->, linecolor=red]{[1 0 0]}{[1 1 0]}{0.3}
-\fcPutIIId[t]{[0.3 0.15 0]}{$\theta$}
+\fcPutIIId[t]{[0.4 0.2 0]}{$\alert<3,5>{\theta}$}
+\uncover<3>{\fcAngleIIId[arrows=->, linecolor=red, linewidth=2pt]{[1 0 0]}{[1 1 0]}{0.3}}%
+\uncover<3>{
+\fcLineIIId[linewidth=2pt, linecolor=red]{[0 0 0]}{[1 0 0]}
+}
+\uncover<3,5>{
+\fcLineIIId[linewidth=2pt, linecolor=red]{[0 0 0]}{[1 1 0]}
+}
+\uncover<5>{%
+\fcLineIIId[linewidth=2pt, linecolor=red]{[1 0 0]}{[1 1 0]}%
+\fcLineIIId[linewidth=2pt, linecolor=red]{[0 0 0]}{[0 1 0]}%
+}%
 \end{pspicture}
 \column{0.6\textwidth}
-To transform cylindrical to rectangular coordinates:\pause
-$$x=r\cos\theta \quad , \quad y = r\sin\theta \quad , \quad z_{r} = z_{c}$$
+To transform cylindrical to rectangular coordinates:
+\uncover<2->{%
+$$\begin{array}{rcl}
+\alert<2,3>{x}  &\alert<2,3>{=}& \uncover<3->{\alert<3>{ r \cos\theta }} \\
+\alert<4,5>{y} & \alert<4,5>{=} &\uncover<5->{ \alert<5>{ r \sin \theta}} \\
+\alert<6,7>{z_{rectangular}} &\alert<6,7>{=}&\uncover<7->{ \alert<7>{ z_{cylindrical}}}
+\end{array}
+$$
+}
 
-Rectangular to cylindrical:\pause
-$$r= \sqrt{x^2+y^2} \quad , \quad z_{c}=z_{r}$$
-$$\cos\theta = \frac{x}{r} \quad , \quad \sin\theta = \frac{y}{r}\; .$$
+To transform rectangular to cylindrical:
+$\begin{array}{rcl}
+\renewcommand{\arraystretch}{1.7}
+\alert<8,9>{ r}&\alert<8,9>{=}&\uncover<9->{\alert<9>{ \sqrt{x^2+y^2}}} \\
+\alert<10,11>{\cos\theta} &\alert<10,11>{=} &\displaystyle \uncover<11->{\alert<11>{\frac{x}{r} }} \\
+\alert<10,11>{\sin \theta}&\alert<10,11>{=}&\displaystyle \uncover<11->{\alert<11>{\frac{y}{r}}}\\
+\alert<12,13>{\theta} &\alert<12,13>{=}&  
+\uncover<13->{\alert<13>{\arcsin \left(\frac{y}{r}\right)  \text{\quad if } x>0}}\\ 
+\uncover<13->{
+&\alert<13>{=}&\alert<13>{\arccos \left(\frac{x}{r}\right)  \text{\quad if } y>0}}\\
+\uncover<13->{&\alert<13>{=}&\alert<13>{\arctan \left(\frac{y}{x}\right)  \text{\quad if } x>0}}\\
+\alert<14>{z_{cylindirical}}&\alert<14>{=}&\uncover<14->{\alert<14>{ z_{rectangular}}}
+\end{array}
+$
+
 \end{columns}
 \end{frame}

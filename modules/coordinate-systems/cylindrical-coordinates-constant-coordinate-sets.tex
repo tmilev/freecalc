@@ -3,43 +3,94 @@
 \begin{frame}
 \frametitle{Constant Coordinate Sets}
 \begin{columns}
-\column{0.4\textwidth}
+\column{0.55\textwidth}
 \psset{xunit=2.5cm, yunit=2.5cm}
 \begin{pspicture}(-1, -1)(2,2)
-\tiny
-\renewcommand{\fcScreen}{[-3 -1 -1] 0}
-\fcAxesIIId{1.5}{1.5}{1.5}
-\fcLineIIId{[0 0 0]}{[1 1 1]}%
-\fcPerpendicularIIId[linestyle=dashed]{[1 1 1]}{[0 0 1]}{0.2}%
-\fcPerpendicularIIId{[1 1 1]}{[1 1 0]}{0.2}%
-\fcPutIIId[bl]{[1 1 1]}{$~~P(x_P, y_P, z_P)$}
-\fcPutIIId[tl]{[1 1 0]}{$~~Q$}
-\fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[1 0 0]}{0.2}%
-\fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[0 1 0]}{0.2}%
-\fcLineIIId{[0 0 0]}{[1 1 0]}
-\fcPutIIId[r]{[0.5 0 0]}{$x_P~~$}
-\fcPutIIId[b]{[0 0.5 0]}{$y_P$}
-\fcPutIIId[r]{[0 0 0.5]}{$z_P~~$}
-\fcDotIIId{[1 1 1]}
-\fcDotIIId{[1 1 0]}
-\fcPutIIId[tr]{[0.5 0.5 0]}{$r_P$}
-\fcAngleIIId[arrows=->, linecolor=red]{[1 0 0]}{[1 1 0]}{0.3}
-\fcPutIIId[t]{[0.3 0.15 0]}{$\theta$}
+\tiny%
+\renewcommand{\fcScreen}{[-3 -1 -1] 0}%
+\fcBoundingBox{-1.2}{-1.2}{2}{2}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[1.5 0 0]}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 1.5 0]}%
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 1.5]}%
+\pstVerb{3 dict begin%
+/xPoint 0.5 sqrt def%
+/yPoint 0.5 sqrt def%
+/zPoint 1 def%
+}%
+\multido{\na=1+1}{6}{\only<\na-7>{\pstVerb{%
+/xPoint 1 \na\space 1 sub 10 div sub def%
+/yPoint xPoint def%
+}}%
+\uncover<\na-6>{%
+\fcDotIIId[linecolor=gray]{[1 \na\space 1 sub 10 div sub dup 1]}%
+}%
+}%
+\multido{\na=8+1}{6}{\only<\na-14>{\pstVerb{%
+\na\space 7 sub 12 mul dup
+/xPoint exch cos def%
+/yPoint exch sin def%
+}}%
+\uncover<\na-13>{%
+\fcDotIIId[linecolor=gray]{[\na\space 7 sub 12 mul dup cos exch sin 1]}%
+}%
+}%
+\multido{\na=15+1}{6}{\only<\na-21>{\pstVerb{%
+/zPoint \na\space 15 sub -0.2 mul 1.2 add def%
+}}%
+\uncover<\na-20>{%
+\fcDotIIId[linecolor=gray]{[xPoint yPoint \na\space 15 sub -0.2 mul 1.2 add]}%
+}%
+}%
+\fcPerpendicularIIId[linestyle=dashed]{[xPoint yPoint zPoint]}{[0 0 1]}{0.2}%
+\fcLineIIId{[0 0 0]}{[xPoint yPoint zPoint]}%
+\fcPerpendicularIIId{[xPoint yPoint zPoint]}{[xPoint yPoint 0]}{0.2}%
+\fcPutIIId[bl]{[xPoint yPoint zPoint]}{$~~P(x, y, z)$}
+\fcPutIIId[tl]{[xPoint yPoint 0]}{$~~Q$}
+\fcPerpendicularIIId[linestyle=dashed]{[xPoint yPoint 0]}{[1 0 0]}{0.2}%
+\fcPerpendicularIIId[linestyle=dashed]{[xPoint yPoint 0]}{[0 1 0]}{0.2}%
+\fcLineIIId{[0 0 0]}{[xPoint yPoint 0]}%
+\fcPutIIId[r]{[xPoint 2 div 0 0]}{$x~~$}
+\fcPutIIId[b]{[0 yPoint 2 div 0]}{$y$}
+\fcPutIIId[r]{[0 0 zPoint 2 div]}{$z~~$}
+\fcDotIIId{[xPoint yPoint zPoint]}%
+\fcDotIIId{[xPoint yPoint 0]}%
+\fcPutIIId[tr]{[xPoint 2 div yPoint 2 div 0]}{$r$}%
+\fcAngleIIId[arrows=->, linecolor=red]{[1 0 0]}{[xPoint yPoint 0]}{0.3}%
+\fcPutIIId[t]{[xPoint xPoint mul yPoint yPoint mul add sqrt dup xPoint exch div 0.4 mul exch yPoint exch div 2 div 0.4 mul 0]}{$\theta$}%
+\uncover<7>{%
+\fcLineIIId[arrows=->, linecolor=red]{[0 0 1]}{[1.4 1.4 1]}%
+}%
+\uncover<14>{%
+\fcCurveIIId{-180}{180}{t cos t sin 1}%
+}%
+\uncover<21>{%
+\fcLineIIId[linecolor=red]{[0.5 sqrt dup -0.2]}{[0.5 sqrt dup 1.5]}%
+}%
+\uncover<23>{%
+\fcSurfaceIIId[linecolor=red]{iterationsX=11, iterationsY=11}{0}{-0.4}{180}{1}{u cos u sin  v}%
+}%
+\uncover<25>{%
+\fcSurfaceIIId[linecolor=red]{iterationsX=11, iterationsY=17}{0}{-0.4}{1.6}{1.2}{u u v}%
+}%
+\uncover<27>{%
+\fcSurfaceIIId[linecolor=red]{iterationsX=11, iterationsY=13}{0}{-180}{1.2}{180}{v sin u mul v cos u mul 1}%
+}%
+\pstVerb{end}%
 \end{pspicture}
-\column{0.6\textwidth}
+\column{0.45\textwidth}
+What curve is traced when:
+\begin{itemize}
+\item \alert<1-7>{keep $\theta, z$ constant, let $r $ vary:} \uncover<7->{\alert<7>{horizontal ray;}}
+\item \alert<8-14>{keep $r, z$ constant, let $\theta$ vary:} \uncover<14->{\alert<14>{horizontal circle;}}
+\item \alert<15-21>{keep $r, \theta$ constant, let $z$ vary:} \uncover<21->{\alert<21>{ vertical line.}}
+\end{itemize}
 
-Surfaces:
+What surface is traced when:
 \begin{itemize}
-  \item $r$ constant \pause$\to$ vertical cylinder;
-  \item $\theta$ constant \pause$\to$ vertical half plane;
-  \item $z$ constant \pause$\to$ horizontal plane.\pause
+\item \alert<22,23>{keep $r$ constant, let $\theta, z$ vary:} \uncover<23->{\alert<23>{vertical cylinder;}}
+\item \alert<24,25>{keep $\theta$ constant, let $r,z$ vary:} \uncover<25->{\alert<25>{vertical half plane;}}
+\item \alert<26,27>{keep $z$ constant, let $r,\theta$ vary:} \uncover<27->{\alert<27>{horizontal plane.}}
 \end{itemize}
-%
-Curves:
-\begin{itemize}
- \item $\theta, z$ constant \pause$\to$ horizontal ray;
-\item $r, z$ constant \pause$\to$ horizontal circle;
-\item $r, \theta$ constant \pause$\to$ vertical line.
-\end{itemize}
+\uncover<15>{}
 \end{columns}
 \end{frame}
