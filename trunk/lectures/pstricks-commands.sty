@@ -574,6 +574,41 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 }%end multido
 }
 
+\newcommand{\fcSurfaceIIIdUConst}[7][]{%
+\setkeys{fcGraphics}{#2}%
+\multido{\ra=0+1}{\fcIterationsX}{%
+\pstVerb{%
+3 dict begin%
+/u \ra \space #3 mul \fcIterationsX \space \ra \space sub 1 sub  #5\space mul add \fcIterationsX\space 1 sub div def%
+/vmin #4 def%
+/vmax #6 def%
+}%
+\parametricplot[#1]{vmin}{vmax}{% 
+1 dict begin /v t def [#7] \fcGetDrawCoords end%
+}%
+\pstVerb{end}%
+}%end multido
+}
+\newcommand{\fcSurfaceIIIdVConst}[7][]{%
+\setkeys{fcGraphics}{#2}%
+\multido{\ra=0+1}{\fcIterationsY}{%
+\pstVerb{%
+3 dict begin%
+/v \ra \space #4 mul \fcIterationsY \space \ra \space sub 1 sub  #6\space mul add \fcIterationsY\space 1 sub div def%
+/umin #3 def%
+/umax #5 def%
+}%
+\parametricplot[#1]{umin}{umax}{% 
+1 dict begin /u t def [#7] \fcGetDrawCoords end%
+}%
+\pstVerb{end}%
+}%end multido
+}
+\newcommand{\fcSurfaceIIId}[7][]{%
+\fcSurfaceIIIdUConst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
+\fcSurfaceIIIdVConst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
+}%
+
 \newcommand{\fcVectorField}[3][linecolor=blue]{%
 \setkeys{fcGraphics}{#2}%
 \multido{\ra=\fcStartXIId+\fcDelta}{\fcIterationsX}{%

@@ -6,8 +6,8 @@
 \item<8->  How do we go from Cartesian coordinates to polar coordinates?
 \end{itemize}
 \begin{columns}[c]
-\column{.6\textwidth}
-\psset{xunit=5cm, yunit=5cm}
+\column{0.5\textwidth}
+\psset{xunit=4cm, yunit=4cm}
 \begin{pspicture}(-0.2, -0.2)(1.400000,0.9)
 \tiny
 %force a boudning box:
@@ -52,25 +52,25 @@
 %\ \uncover<2->{%
 %\includegraphics[height=5cm]{polar-curves/pictures/11-03-conversion.pdf}%
 %}%
-\column{.4\textwidth}
-\[
-\uncover<3->{%
-\alert<handout:0| 3-4>{\cos\theta = \uncover<4->{\frac{x}{r}}}\qquad %
-}%
-\uncover<3->{%
-\alert<handout:0| 5-6>{\sin\theta = \uncover<6->{\frac{y}{r}}}%
-}%
-\]
-\[
-\uncover<7->{%
-x = r\cos \theta \qquad y = r\sin \theta
-}%
-\]
-\[
-\uncover<9->{%
-\alert<handout:0| 9-10>{r^2 = \uncover<10->{x^2 + y^2}}\qquad %
-}%
-\]
+\column{.5\textwidth}
+$
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{rcl}
+\alert<7>{x} &\alert<7>{=}&\uncover<7->{\alert<7>{r\cos \theta} } \\
+\alert<7>{y}&\alert<7>{=}& \uncover<7->{\alert<7>{r\sin \theta}} \\\hline
+\uncover<3->{\alert<3,4,7>{\cos\theta}} & \uncover<3->{\alert<3,4,7>{=}} &\displaystyle \uncover<4->{\alert<4,7>{\frac{x}{r} }} \\
+\uncover<3->{\alert<5,6,7>{\sin \theta}} &\uncover<3->{ \alert<5,6,7>{= }} & \displaystyle \uncover<6->{\alert<6,7>{\frac{y}{r}}}\\
+\uncover<9->{\alert<handout:0| 9-10>{r^2} &\alert<9,10>{=}& \uncover<10->{\alert<10>{x^2 + y^2}}}\\\hline
+\alert<8,9,10,11>{ r}&\alert<8,9,10,11>{=}&\uncover<11->{\alert<11>{ \sqrt{x^2+y^2}}} \\
+\alert<12,13>{\theta} &\alert<12,13>{=}&  
+\uncover<13->{\alert<13>{\arcsin \left(\frac{y}{r}\right)  \text{\quad if } x>0}}\\ 
+\uncover<13->{
+&\alert<13>{=}&\alert<13>{\arccos \left(\frac{x}{r}\right)  \text{\quad if } y>0}}\\
+\uncover<13->{&\alert<13>{=}&\alert<13>{\arctan \left(\frac{y}{x}\right)  \text{\quad if } x>0}}
+\end{array}
+$
+
+
 \end{columns}
 \end{frame}
 % end module polar-to-cartesian
