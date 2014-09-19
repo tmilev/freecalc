@@ -1,0 +1,37 @@
+\solution{\ref{problemFindPlaneFromP(1,2,3)andn(4,5,6)}
+As studied, an equation passing through $(1,2,3)$ and with normal $(4,5,6)$ has equation:
+
+\[
+\begin{array}{rcl}
+\langle x, y, z\rangle\cdot \langle 4,5,6\rangle&=& \langle4,5,6\rangle\cdot \langle 1,2,3\rangle\\
+4x +5y+6z&=&23
+\end{array}
+\]
+To find parametric equations of the plane, we need to find two directions, $\fcv u, \fcv v$, that can be added to the base point to obtain all points in the plane. This means that a direction vector $\fcv u$ has to be perpendicular to $\fcv n$. Equivalently, a direction vector $\fcv u$ lies in the plane passing through the origin and orthogonal to $\fcv n$. This means $\fcv u\langle u_1, u_2, u_3\rangle$ satisfies the equation:
+\begin{equation}\label{eqproblemFindPlaneFromP(1,2,3)andn(4,5,6)eq1}
+\begin{array}{rcl}
+\fcv u\cdot \fcv n&=&0\\
+4 u_1+5u_2+6u_3&=&0.
+\end{array}
+\end{equation}
+There are infinitely many solutions to that equation - in fact, for each point in the plane passing through the origin and orthogonal to $\fcv n$ there is one solution. However, we only need to find two such non-colinear solutions, and declare them to be our vectors $\fcv u$ and $\fcv v$. It is very easy to do that: if we set $u_1$ and $u_2$ to be arbitrary, then $u_3$ can always be chosen so as to make the equation above hold. There are a number of accepted ways to choose $u_1$ and $u_2$ in a not-so-arbitrary fashion. For reasons outside of the scope of this homework, such ways to choose $u_1$ and $u_2$ may be preferable to the choosing at random. Our scheme for choosing a vector $\fcv u$ will be to choose $u_1=1$ and $u_2=0$ (or the other way round for $\fcv v$), and then to rescale the resulting vector so all coordinates are integers and the first non-zero coordinate is positive. In other words, we select $\fcv u$ to be proportional to $\langle 1, 0, -\frac{4}{6} \rangle$, and $\fcv v$ to be proportional to $\langle 0, 1 ,-\frac{5}{6} \rangle$, i.e., we select
+\[
+\begin{array}{rcl}
+\fcv u&=& \langle 3,0, -2 \rangle \\
+\fcv v&=& \langle 0, 6, -5 \rangle
+\end{array}. 
+\] 
+Finally we get that a parametric equation of the plane is given by:
+\begin{equation}\label{eqproblemFindPlaneFromP(1,2,3)andn(4,5,6)eq2}
+\langle 1,2,3 \rangle + s\langle 3,0, -2 \rangle +t\langle 0, 6, -5 \rangle\quad .
+\end{equation}
+The above equations are not unique; therefore our problem has many correct answers. 
+
+A question arises: what do we need to do in order to check if two plane parametrizations are equivalent? Equivalently, how do we check that equation \eqref{eqproblemFindPlaneFromP(1,2,3)andn(4,5,6)eq2} gives a plane that coincides with the plane in given in \eqref{eqproblemFindPlaneFromP(1,2,3)andn(4,5,6)eq1}? Here's what we need to do to make sure our answer is correct (we leave the justification for that to the reader):
+\begin{itemize}
+\item Check that our $\fcv u, \fcv v$ are orthogonal to $\fcv n$. 
+\item Check that our $\fcv u, \fcv v$ are not proportional to one another. 
+\item Check that the base point of our equation is in the original plane. 
+\end{itemize}
+
+}
