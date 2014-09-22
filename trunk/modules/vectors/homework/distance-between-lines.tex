@@ -2,5 +2,20 @@ Find the distance between the lines.
 
 \begin{enumerate}
 \item The line passing through $Q_0(1,2,3) $ and $Q_1(2,3,5)$ and the line passing through $P_0(3,5,7)$ and $P_1(5,7,11)$.
+
+\answer{$\frac{\sqrt{2}}{2}$}
 \item The line passing through $ Q_0(1,1,1)$ and $Q_1(-1,-1,-1)$ and the line passing through $P_0(1, -1, -1)$ and $P_1(-1,1,-1)$.
+\answer{$\frac{\sqrt{6}}{3} $}
 \end{enumerate}
+
+\begin{comment}Calculator code solving above problem:
+p0:=(3,5,7);
+p1:=(5,7,11);
+q0:=(1,2,3); 
+q1:=(2,3,-5);
+u1:=p1-p0;
+u2:=q1-q0;
+r:=q0-p0;
+n:=u1\times u2;
+((r n^t)_1)_1 /\sqrt{}(((n n^t)_1)_1) 
+\end{comment}

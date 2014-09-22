@@ -1,3 +1,17 @@
 Recall that a regular tetrahedron can be realized using 4 vertices of a cube.
 
 Find the angle between two faces of a regular tetrahedron.
+
+\answer{$\Arccos\left(\frac{1}{3}\right)\approx  1.230959 \approx 70.5287555^\circ$}
+
+\begin{comment}Calculator code:
+p0:=(1,1,1);
+p1:=(-1,-1,1);
+p2:=(1,-1,-1);
+p3:=(-1,1,-1);
+n1:=(p1-p0)\times (p2-p0);
+n2:=(p3-p0)\times (p2-p0);
+
+cosalpha:=(((n1 n2^t)_1)_1)  / (\sqrt{}( (((n1 n1^t)_1)_1 )*(((n2 n2^t)_1)_1))); 
+\arccos (cosalpha)
+\end{comment}
