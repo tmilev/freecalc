@@ -1,0 +1,112 @@
+
+
+\begin{frame}
+\frametitle{Constant Coordinate Sets}
+\begin{columns}
+\column{0.55\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1, -1)(2,2)
+\tiny%
+\fcBoundingBox{-3}{-3.3}{3}{3.8}%
+\renewcommand{\fcScreen}{[-1 -0.4 -0.25] -1}
+\fcLineIIId[arrows=->]{[0 0 0]}{[3.2 0 0 ]}
+\uncover<13,14>{\fcLineIIId[arrows=->]{[0 0 0]}{[-3.2 0 0 ]}}
+\uncover<18-21>{\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 -3.2 ]}}
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 3.2 0 ]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 0 3.2 ]}
+\pstVerb{4 dict begin%
+/xPoint 8 3 div sqrt def%
+/yPoint xPoint def%
+/zPoint 4 3 div sqrt def%
+/rho xPoint dup mul yPoint dup mul zPoint dup mul add add sqrt def%
+}%
+\multido{\na=1+1}{6}{\only<\na-7>{\pstVerb{%
+/xPoint 3 \na\space 1 sub 3 div sub def%
+/yPoint xPoint def%
+/zPoint xPoint def%
+/rho xPoint dup mul yPoint dup mul zPoint dup mul add add sqrt def%
+}}%
+\uncover<\na-6>{%
+%\fcDotIIId[linecolor=gray]{[3 \na\space 1 sub 3 div sub dup dup]}%
+\fcDotIIId[linecolor=gray]{[xPoint yPoint zPoint]}%
+}%
+}%
+\multido{\na=8+1}{6}{\only<\na-14>{\pstVerb{%
+/rho 3 def%
+/zPoint 3 sqrt def %
+\na\space 7 sub 20 mul dup%
+/xPoint exch cos 6 sqrt mul def%
+/yPoint exch sin 6 sqrt mul def%
+}}%
+\uncover<\na-13>{%
+\fcDotIIId[linecolor=gray]{[xPoint yPoint zPoint]}%
+}%
+}%
+\multido{\na=15+1}{6}{\only<\na-21>{\pstVerb{%
+/rho 3 def %
+\na\space 13 sub 20 mul dup% 
+/xPoint exch sin 0.5 sqrt mul rho mul def%
+/yPoint xPoint def%
+/zPoint exch cos rho mul def%
+}}%
+\uncover<\na-20>{%
+\fcDotIIId[linecolor=gray]{[xPoint yPoint zPoint]}%
+}%
+}%
+\fcPutIIId[r]{[0 -0.15 0.15]}{$O$}
+\fcLineIIId{[0 0 0]}{[xPoint yPoint 0]}
+\fcLineIIId{[0 0 0]}{[xPoint yPoint zPoint]}
+\fcPutIIId[l]{[xPoint yPoint zPoint]}{$~~P$}
+\fcPutIIId[r]{[xPoint 2 div -0.1 0]}{$x$}
+\fcPutIIId[t]{[xPoint yPoint 0]}{$~~Q$}
+\fcPutIIId[lb]{[xPoint 2 div yPoint 2 div 0]}{$~~r$}
+\fcPerpendicularIIId[linecolor=gray]{[xPoint yPoint zPoint]}{[0 0 1]}{0.4}%
+\fcPerpendicularIIId[linecolor=gray]{[xPoint yPoint zPoint]}{[xPoint yPoint 0]}{0.4}%
+\fcPerpendicularIIId[linecolor=gray]{[xPoint yPoint 0]}{[1 0 0]}{0.4}%
+\fcPerpendicularIIId[linecolor=gray]{[xPoint yPoint 0]}{[0 1 0]}{0.4}%
+\fcDotIIId{[xPoint yPoint zPoint]}%
+\fcPutIIId[b]{[-0.1 yPoint 2 div 0]}{$y$}
+\fcPutIIId[r]{[0 0 zPoint 2 div]}{$z~~$}
+\fcPutIIId[r]{[xPoint 2 div yPoint 2 div zPoint 2 div]}{$\rho~~$}
+\fcAngleIIId[arrows=->, linecolor=red]{[0 0 1]}{[xPoint yPoint zPoint]}{0.7}%
+\fcAngleIIId[arrows=->, linecolor=red]{[1 0 0]}{[xPoint yPoint 0]}{0.7}%
+\fcPutIIId[lb]{[xPoint rho div 0.5 mul yPoint rho div 0.5 mul zPoint rho div 1.2 mul]}{$\phi~~$}
+\fcPutIIId[t]{[xPoint rho div 1.5 mul yPoint rho div 0.7 mul 0]}{$\theta~~$}
+\uncover<7>{\fcLineIIId[arrows=->, linecolor=red, linewidth=2pt]{[0 0 0]}{[4 4 4]}
+}
+\uncover<14>{%
+\fcCurveIIId[arrows=->, linecolor=red, linewidth=2pt]{0}{360}{ t cos 6 sqrt mul t sin 6 sqrt mul zPoint }%
+}%
+\uncover<21>{%
+\fcCurveIIId[arrows=->, linecolor=red, linewidth=2pt]{0}{180}{ t sin rho mul 0.5 sqrt mul dup t cos rho mul }%
+}%
+\uncover<23>{%
+\fcSurfaceIIId[linecolor=red]{iterationsX=11, iterationsY=17}{0}{0}{3 sqrt}{360}{v cos u mul 8 3 div sqrt mul v sin u mul 8 3 div sqrt mul u 4 3 div sqrt mul}%
+}%
+\uncover<25>{%
+\fcSurfaceIIId[linecolor=red]{iterationsX=11, iterationsY=17}{0}{0}{2}{180}{v sin u mul 0.5 sqrt mul dup v cos u mul}%
+}%
+\uncover<27>{%
+\fcSurfaceIIId[linecolor=red]{iterationsX=11, iterationsY=17}{0}{-90}{180}{90}{u sin v cos 2 mul mul u sin v sin 2 mul mul u cos 2 mul}%
+}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.45\textwidth}
+\only<1-21>{
+What curve is traced when:
+\begin{itemize}
+\item \alert<1-7>{keep $\theta, \phi$ constant, let $\rho$ vary:} \uncover<7->{\alert<7>{ray through the origin;}}
+\item \alert<8-14>{keep $\rho, \phi$ constant, let $\theta$ vary:} \uncover<14->{\alert<14>{circle parallel to the $xy$-plane, ``parallel'';}}
+\item \alert<15-21>{keep $\rho, \theta$ constant, let $\phi$ vary:} \uncover<21->{\alert<21>{circle passing through $z$ axis, ``meridian''.}}
+\end{itemize}
+}
+\only<22->{
+What surface is traced when:
+\begin{itemize}
+\item \alert<22,23>{keep $\phi$ constant, let $\theta, \rho$ vary:} \uncover<23->{\alert<23>{cone;}}
+\item \alert<24,25>{keep $\theta$ constant, let $\rho,\phi$ vary:} \uncover<25->{\alert<25>{vertical half plane;}}
+\item \alert<26,27>{keep $\rho$ constant, let $\phi,\theta$ vary:} \uncover<27->{\alert<27>{sphere.}}
+\end{itemize}
+}
+\end{columns}
+\end{frame}
