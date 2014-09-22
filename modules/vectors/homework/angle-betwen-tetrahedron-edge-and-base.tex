@@ -1,1 +1,13 @@
 Recall that a regular tetrahedron can be realized using 4 vertices of a cube. Find the angle between an edge of a regular tetrahedron and one of the two sides of the tetrahedron not containing the edge.
+
+\answer{$\arcsin\left( \frac{\sqrt{6}}{3}\right) \approx 0.955 \approx 54.736^\circ$}
+
+\begin{comment}Calculator code:
+p0:=(1,1,1);
+p1:=(-1,-1,1);
+p2:=(1,-1,-1);
+r:=(-1,1,-1)-(1,-1,-1);
+n:= (p0-p1)\times (p0-p2);
+\alpha:=((r n^t)_1)_1 /\sqrt{}(((n n^t)_1)_1)/  \sqrt{}(((r r^t)_1)_1); 
+\arcsin (\alpha)
+\end{comment}
