@@ -2,14 +2,14 @@
 
 \begin{itemize}
 \item Numerical data has output data for selected inputs only. 
-\item If output is not tabulated for given input we need to approximate.
-\item This is done by inter/extrapolation from given information. 
-\item It would be better to have procedure to determine output from any reasonable input. 
-\item This would be an \emph{analytical} description of the function. 
-\item By analytical description we mean giving a procedure to compute the value of the function:
+\item<2-> If output is not tabulated for given input we need to approximate.
+\item<3-> This is done by inter/extrapolation from given information. 
+\item<4-> It would be better to have procedure to determine output from any reasonable input. 
+\item<5-> This would be an \emph{analytical} description of the function. 
+\item<5-> By analytical description we mean giving a procedure to compute the value of the function:
 \begin{itemize}
-\item via formula or
-\item via another algorithmic procedure.
+\item<6-> via formula or
+\item<7-> via another algorithmic procedure.
 \end{itemize}
 
 \end{itemize}
@@ -19,8 +19,10 @@
 \begin{itemize}
 \item<1-> One way is to try to guess a formula that fits approximately the input data. 
 \item<2-> For wind chill, one such formula is:
-$$W(T,v)= 35.74+0.6215 T - 35.75 v^{0.16} +0.4275 Tv^{0.16}$$
-  with $W$ and $T$ in Fahrenheit and $v$ in $mph$.
+\[
+W(T,v)= 35.74+0.6215 T - 35.75 v^{0.16} +0.4275 Tv^{0.16}
+\]
+with $W$ and $T$ in Fahrenheit and $v$ in $mph$.
 \item<3-> A proper mathematical model requires that we
 \begin{itemize}
 \item<4-> compute unknown output for some input and 
