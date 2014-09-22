@@ -1,23 +1,135 @@
 \begin{frame}
 \frametitle{Spherical curvilinear ``boxes''}
 
-%\fcAxesIIId[xLabel=$\rho$, yLabel= $\phi$, zLabel=$\theta$]{3}{3}{3}
 
-%\begin{pspicture}(-2, -2)(2,2)
+\begin{columns}
+\column{0.4\textwidth}
 
-%\end{pspicture}
-%\begin{pspicture}(-2, -2)(2,2)
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\renewcommand{\fcScreen}{[-5 1 -2.4] 0}
+\pstVerb{10 dict begin%
+/rhoMin 1 def%
+/rhoMax 2 def%
+/thetaMin 20 def%
+/thetaMax 70 def%
+/phiMin 20 def%
+/phiMax 70 def%
+/xSph {theta cos phi sin rho mul mul} def%
+/ySph {theta sin phi sin rho mul mul} def%
+/zSph {phi cos rho mul} def%
+}%
+\fcAxesIIId{2}{2}{2}
+\uncover<10->{
+\pscustom*[linecolor=pink]{%
+\fcCurveIIId{phiMin}{phiMax}{ 3 dict begin /rho rhoMin def /phi t def /theta thetaMin def xSph ySph zSph end}
+\fcCurveIIId{rhoMin}{rhoMax}{ 3 dict begin /rho t def /phi phiMax def /theta thetaMin def xSph ySph zSph end}
+\fcCurveIIId{thetaMin}{thetaMax}{ 3 dict begin /rho rhoMax def /phi phiMax def /theta t def xSph ySph zSph end}
+\fcCurveIIId{phiMax}{phiMin}{ 3 dict begin /rho rhoMax def /phi t def /theta thetaMax def xSph ySph zSph end}
+\fcCurveIIId{thetaMax}{thetaMin}{ 3 dict begin /rho rhoMax def /phi phiMin def /theta t def xSph ySph zSph end}
+\fcCurveIIId{rhoMax}{rhoMin}{ 3 dict begin /rho t def /phi phiMin def /theta thetaMin def xSph ySph zSph end}
+}%
+}%
+\fcLineIIId[linestyle=dashed]{[0 0 0]}{[0 2 0]}
 
-%\fcAxesIIId[xLabel=$\rho$, yLabel= $\phi$, zLabel=$\theta$]{3}{3}{3}
-%\end{pspicture}
+\uncover<7->{\fcCurveIIId{rhoMin}{rhoMax}{ 3 dict begin /rho t def /phi phiMin def /theta thetaMin def xSph ySph zSph end}}
+\uncover<5->{\fcCurveIIId{rhoMin}{rhoMax}{ 3 dict begin /rho t def /phi phiMax def /theta thetaMin def xSph ySph zSph end}}
+\uncover<9->{\fcCurveIIId[linestyle=dashed, linecolor=red]{rhoMin}{rhoMax}{ 3 dict begin /rho t def /phi phiMin def /theta thetaMax def xSph ySph zSph end}}
+\uncover<9->{\fcCurveIIId[linestyle=dashed, linecolor=red]{rhoMin}{rhoMax}{ 3 dict begin /rho t def /phi phiMax def /theta thetaMax def xSph ySph zSph end}}
 
+\uncover<8->{%
+\fcCurveIIId[linestyle=dashed, dash = 2.6pt,  linecolor=red] {thetaMin}{thetaMax}{ 3 dict begin /rho rhoMin def /phi phiMin def /theta t def xSph ySph zSph end}
+\fcCurveIIId{thetaMin}{thetaMax}{ 3 dict begin /rho rhoMax def /phi phiMin def /theta t def xSph ySph zSph end}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{thetaMin}{thetaMax}{ 3 dict begin /rho rhoMin def /phi phiMax def /theta t def xSph ySph zSph end}
+\fcCurveIIId{thetaMin}{thetaMax}{ 3 dict begin /rho rhoMax def /phi phiMax def /theta t def xSph ySph zSph end}
+}%
 
-Spherical ``box'':
-$$Y = \{ P(\rho, \phi, \theta) \; | \; 0 \leqslant \rho \leqslant \rho_0\, ,
-0 \leqslant \phi \leqslant \phi_0\, ,
-0 \leqslant \theta \leqslant \theta_0\}$$
+\uncover<4->{\fcCurveIIId{phiMin}{phiMax}{ 3 dict begin /rho rhoMin def /phi t def /theta thetaMin def xSph ySph zSph end}}
+\uncover<9->{\fcCurveIIId[linestyle=dashed, linecolor=red]{phiMin}{phiMax}{ 3 dict begin /rho rhoMin def /phi t def /theta thetaMax def xSph ySph zSph end}}
+\uncover<6->{\fcCurveIIId{phiMin}{phiMax}{ 3 dict begin /rho rhoMax def /phi t def /theta thetaMin def xSph ySph zSph end}}
+\uncover<9->{\fcCurveIIId{phiMin}{phiMax}{ 3 dict begin /rho rhoMax def /phi t def /theta thetaMax def xSph ySph zSph end}}
+\pstVerb{end}
+\end{pspicture}
 
-\pause
-Shape? \pause Volume = ...?
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\pstVerb{10 dict begin%
+/rhoMin 1 def%
+/rhoMax 2 def%
+/thetaMin 20 57.2957795 div def%
+/thetaMax 70 57.2957795 div  def%
+/phiMin 20 57.2957795 div def%
+/phiMax 70 57.2957795 div def%
+}%
+\fcAxesIIId[arrows=->, xLabel=$~~\rho$, yLabel=$~~\phi$, zLabel=$~~\theta$]{2.5}{3.8}{2.5}
+\pscustom*[linecolor=cyan]{%
+\fcPolyLineIIId{[rhoMin phiMin thetaMin] [rhoMax phiMin thetaMin] [rhoMax phiMax thetaMin] [rhoMax phiMax thetaMax] [rhoMin phiMax thetaMax] [rhoMin phiMin thetaMax] [rhoMin phiMin thetaMin]}
+}
+\fcLineIIId[linestyle=dashed]{[0 0 0]}{[0 3.8 0]}
+\fcDotIIId{[rhoMin 0 0 ]}
+\fcPutIIId[t]{[rhoMin 0 -0.2 ]}{$\rho_{min}$}
+\fcDotIIId{[rhoMax 0 0 ]}
+\fcPutIIId[t]{[rhoMax 0 -0.2 ]}{$\rho_{max}$}
+\fcDotIIId{[0 0 thetaMin  ]}
+\fcPutIIId[r]{[0 0 thetaMin]}{$\theta_{min}~~$}
+\fcDotIIId{[0 0 thetaMax]}
+\fcPutIIId[r]{[0 0 thetaMax]}{$\theta_{max}~~$}
+\fcDotIIId{[0  phiMin 0  ]}
+\fcPutIIId[b]{[0 phiMin 0.2 ]}{$~\phi_{min}$}
+\fcDotIIId{[0  phiMax 0  ]}
+\fcPutIIId[b]{[0 phiMax 0.2 ]}{$\phi_{max}$}
 
+\fcLineIIId[linecolor=blue, linestyle=dashed]{[rhoMin phiMax thetaMin]}{[rhoMax phiMax thetaMin]}
+\uncover<5-9>{\fcLineIIId[linecolor=red, linewidth=2pt, linestyle=dashed]{[rhoMin phiMax thetaMin]}{[rhoMax phiMax thetaMin]}}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMax thetaMin]}{[rhoMax phiMin thetaMin]}
+\uncover<6-9>{\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMax phiMax thetaMin]}{[rhoMax phiMin thetaMin]}
+}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMin thetaMin]}{[rhoMin phiMin thetaMin]}
+\uncover<7-9>{\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMax phiMin thetaMin]}{[rhoMin phiMin thetaMin]}}
+\fcLineIIId[linecolor=blue, linestyle=dashed]{[rhoMin phiMin thetaMin]}{[rhoMin phiMax thetaMin]}
+\uncover<4-9>{\fcLineIIId[linecolor=red, linewidth=2pt, linestyle=dashed]{[rhoMin phiMin thetaMin]}{[rhoMin phiMax thetaMin]}}
+
+\fcLineIIId[linecolor=blue, linestyle=dashed]{[rhoMin phiMax thetaMax]}{[rhoMin phiMax thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMax thetaMax]}{[rhoMax phiMax thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMin thetaMax]}{[rhoMax phiMin thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMin phiMin thetaMax]}{[rhoMin phiMin thetaMin]}
+\uncover<8-9>{%
+\fcLineIIId[linecolor=red, linestyle=dashed, linewidth=2pt]{[rhoMin phiMax thetaMax]}{[rhoMin phiMax thetaMin]}
+\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMax phiMax thetaMax]}{[rhoMax phiMax thetaMin]}
+\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMax phiMin thetaMax]}{[rhoMax phiMin thetaMin]}
+\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMin phiMin thetaMax]}{[rhoMin phiMin thetaMin]}
+}%
+\fcLineIIId[linecolor=blue]{[rhoMin phiMax thetaMax]}{[rhoMax phiMax thetaMax]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMax thetaMax]}{[rhoMax phiMin thetaMax]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMin thetaMax]}{[rhoMin phiMin thetaMax]}
+\fcLineIIId[linecolor=blue]{[rhoMin phiMin thetaMax]}{[rhoMin phiMax thetaMax]}
+\uncover<9>{%
+\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMin phiMax thetaMax]}{[rhoMax phiMax thetaMax]}
+\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMax phiMax thetaMax]}{[rhoMax phiMin thetaMax]}
+\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMax phiMin thetaMax]}{[rhoMin phiMin thetaMax]}
+\fcLineIIId[linecolor=red, linewidth=2pt]{[rhoMin phiMin thetaMax]}{[rhoMin phiMax thetaMax]}
+}%
+\pstVerb{end}
+\end{pspicture}
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item Cut off a rectangular box $B$ in the $\rho, \phi, \theta$-coordinates. 
+$
+B:=\left\{(\rho, \phi, \theta) |\left| \begin{array}{ccccc} 
+\rho_{min} &\leq& \rho &\leq& \rho_{max} \\
+\phi_{min} &\leq& \phi &\leq& \phi_{max}\\
+\theta_{min} &\leq& \theta &\leq& \theta_{max}\\
+\end{array}\right.\right\}
+$
+\item<2-> As $(\rho, \phi, \theta)$ traverse $B$, the point $P(\rho, \phi,\theta)$ traverses curvilinear ``box'' $Y$: %in the $x,y,z$-coordinates: 
+\[
+Y = \left\{ P(\rho, \phi, \theta) | (\rho, \phi, \theta)\in B \right\}.
+\]
+\item<3-> \alert<3-10>{ What is the shape of that curvilinear box?}
+\item<11-> What is the volume?
+\end{itemize}
+\end{columns}
 \end{frame}

@@ -92,12 +92,12 @@
 \psline[linecolor=black!1](! #3 #4 )(! #3 #4 0.01 add)%
 }
 \newcommand{\fcAxesStandardNoFrame}[4]{%
-\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4) \fcLabels[\fcDefaultXLabel][\fcDefaultYLabel]{#3}{#4}
+\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)% \fcLabels[\fcDefaultXLabel][\fcDefaultYLabel]{#3}{#4}%
 }%
 
 \newcommand{\fcAxesStandard}[4]{%
 \psframe*[linecolor=white](! #1\space #2)(! #3 \space 0.1 add #4 \space 0.1 add)%
-\fcAxesStandardNoFrame{#1}{#2}{#3}{#4}
+\fcAxesStandardNoFrame{#1}{#2}{#3}{#4}%
 }%
 \newcommand{\fcColorTangent}{blue}
 \newcommand{\fcColorGraph}{red}
@@ -462,23 +462,24 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 \newcommand{\fcLineIIId}[3][linecolor=black]{
 \psline[#1](! #2 \space \fcGetDrawCoords)(! #3 \space \fcGetDrawCoords )
 }
-\newcommand{\fcAxesIIIdFull}[4][linecolor=black, arrows=->]{ %
-\fcAxesIIId[#1]{#2}{#3}{#4} %
-\fcLineIIId[#1]{[0 0 0]}{[#2\space -1 mul 0 0]} %
-\fcLineIIId[#1]{[0 0 0]}{[0 #3\space -1 mul 0]} %
-\fcLineIIId[#1]{[0 0 0]}{[0 0 #4\space -1 mul]} %
+\newcommand{\fcAxesIIIdFull}[4][linecolor=black, arrows=->]{%
+\fcAxesIIId[#1]{#2}{#3}{#4}%
+\fcLineIIId[#1]{[0 0 0]}{[#2\space -1 mul 0 0]}%
+\fcLineIIId[#1]{[0 0 0]}{[0 #3\space -1 mul 0]}%
+\fcLineIIId[#1]{[0 0 0]}{[0 0 #4\space -1 mul]}%
 } %
 
-\newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{
-\setkeys{fcGraphics}{#1}
-\fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}
-\rput(! [#2 0 0] \fcGetDrawCoords){$~~x$}
-\fcLineIIId[#1]{[0 0 0]}{[0 #3 0]}
-\rput(! [0 #3 0] \fcGetDrawCoords){$~~y$}
-\fcLineIIId[#1]{[0 0 0]}{[0 0 #4]}
-\rput(! [0 0 #4] \fcGetDrawCoords){$~~z$}
+\newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{%
+\setkeys{fcGraphics}{#1}%
+\fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}%
+\rput(! [#2 0 0] \fcGetDrawCoords){\fcXLabel}%
+\fcLineIIId[#1]{[0 0 0]}{[0 #3 0]}%
+\rput(! [0 #3 0] \fcGetDrawCoords){\fcYLabel}%
+\fcLineIIId[#1]{[0 0 0]}{[0 0 #4]}%
+\rput(! [0 0 #4] \fcGetDrawCoords){\fcZLabel}%
 }
-\newcommand{\fcDotIIId}[2][linecolor=\fcColorGraph]{ %
+
+\newcommand{\fcDotIIId}[2][linecolor=\fcColorGraph]{%
 \pscircle*[#1](! #2 \fcGetDrawCoords){0.07} %
 } %
 
