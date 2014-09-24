@@ -1,9 +1,21 @@
+
+
 \begin{frame}
+
+
 \psset{xunit=1cm, yunit=1cm}
+\stripPoints{\psxunit}
+\stripPoints{\psyunit}
+
 \begin{pspicture}(0,0)(1,1)
-\psline(0,0.1)(1, 0.1)
-\psline(0,-0.1)(1,-0.1)
-\fcLine{[0 0] [1 1]}
+\psline(0,1)(7,1)
+\fcLine{[0 0]}{[7 0]}
+\pstVerb{
+\fcCurve{0}{3600}{[t cos t sin]}
+}
+%\fcLine{[0 0]}{[100 -200]}
+%\fcLine{[0 0]}{[100 90]}
+%\fcLine{[0 0]}{[100 -90]}
 \end{pspicture}
 %\begin{pspicture}(-1,-1)(1,1)
 %\end{pspicture}

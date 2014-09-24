@@ -6,6 +6,16 @@
 %WARNING THE FOLLOWING PACKAGE IS BROKEN use only with EXTREME CAUTION
 %\usepackage{pst-3dplot}
 
+\makeatletter
+\begingroup
+  \catcode `P=12  % digits and punct. catcode
+  \catcode `T=12  % digits and punct. catcode
+  \lowercase{%
+  \def\x{\def\rem@pt##1.##2PT{##1\ifnum##2>\z@.##2\fi}}}
+     \expandafter\endgroup\x%
+\newcommand{\stripPoints}[1]{\expandafter\rem@pt\the#1}
+\makeatother
+
 \newcommand{\fcXLabel}{$x$}
 \newcommand{\fcYLabel}{$y$}
 \newcommand{\fcZLabel}{$z$}
@@ -16,7 +26,9 @@
 \newcommand{\fcIterationsY}{9\space}
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcLineColor}{black}
+\newcommand{\fcLineWidth}{72\space}
 \newcommand{\fcArrows}{}
+\newcommand{\fcPlotPoints}{200}
 
 \makeatletter %needed for define@key command.
 \define@key{pstricks,pst-plot}{xLabel}[]{}
@@ -457,6 +469,35 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 
 \newcommand{\fcPolyLineIIId}[2][linecolor=black]{%
 \listplot[#1]{ [#2] {\fcGetDrawCoords} \fcSpliceArrayOperation \fcArrayToStack}%
+}
+
+\newcommand{\fcConvertPSXUnit}{\stripPoints{\psxunit} 72.27 div 8000 mul mul\space}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
+\newcommand{\fcConvertPSYUnit}{\stripPoints{\psyunit} 72.27 div -8000 mul mul\space}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
+
+
+\newcommand{\fcXYcoodsToPScoords}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space}
+
+\newcommand{\fcLine}[3][]{%
+\pstVerb{%
+\fcLineWidth setlinewidth %
+newpath %
+#2\space \fcXYcoodsToPScoords moveto %
+#3\space \fcXYcoodsToPScoords lineto %
+stroke %
+}%
+}
+
+\newcommand{\fcCurve}[4][]{%
+5 dict begin %
+/theCurve exch def%
+/tMin #2 def%
+/tMax #3 def%
+%/Delta tMax tMin sub \fcPlotPoints \space 1 sub div def %
+%/t tMin def %
+%\fcPlotPoints\space 1 sub {theCurve \fcXYcoodsToPScoords moveto %
+%/t t Delta add def %
+%theCurve \fcXYcoodsToPScoords lineto stroke} repeat
+end%
 }
 
 \newcommand{\fcLineIIId}[3][linecolor=black]{
