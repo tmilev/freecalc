@@ -6,7 +6,7 @@
 \item<6-> \alert<6>{1 dimension} was used to represent the output.
 \item<7-> To represent functions with 3 dimensional input (3 variables) and scalar output: need  $3+1=4$ dimensions.
 \item<8-> That's difficult for eyes used to visualizing physical 3d- space.
-\item<9-> Instead: labels the level sets of the function with color or other means to indicate value.
+\item<9-> Instead: label the level sets of the function with color or other means to indicate value.
 \item<10-> In this way we represent the f-n graphically using dimension equal to the number of input variables.
 \end{itemize}
 \end{frame}
@@ -14,38 +14,52 @@
 \frametitle{Example}
 \begin{columns}
 \column{0.4\textwidth}
-\psset{xunit=0.5cm, yunit=0.5cm}
+\psset{xunit=0.4cm, yunit=0.4cm}
 \begin{pspicture}(-4,-4)(4,4)
 \renewcommand{\fcScreen}{[-1 1 -0.7] -1}
+\fcBoundingBox{-4}{-8.5}{4}{10.5}
 \tiny
-\uncover<5->{
+\fcAxesIIIdFull{5}{5}{5}%
+\uncover<5->{%
 %d=4
-\fcParallelogramIIId[linecolor=cyan!90]{[-2 -2 -8]}{[-2 2 -4]}{[2 2 0]} %
-\fcPutIIId[l]{[2 2 0]}{$~~d=4$}
-} %
-\uncover<6->{
+\fcParallelogramIIId[linecolor=cyan!90]{[-2 -2 -8]}{[-2 3 -3]}{[5 -2 -1]}%
+\fcPutIIId[l]{[2 2 0]}{$~~d=4$}%
+\fcLineIIId{[0 0 0]}{[0 0 -4]}
+\fcLineIIId{[0 0 0]}{[4 0 0]}
+}%
+\uncover<6->{%
 %d=2
-\fcParallelogramIIId[linecolor=cyan!70]{[-2 -2 -6]}{[-2 2 -2]}{[2 2 2]} %
-\fcPutIIId[l]{[2 2 2]}{$~~d=2$}
-} %
-\uncover<7->{
+\fcParallelogramIIId[linecolor=cyan!70]{[-2 -2 -6]}{[-2 3 -1]}{[5 -2 1]}%
+\fcPutIIId[l]{[2 2 2]}{$~~d=2$}%
+\fcLineIIId{[0 0 0]}{[0 2 0]}
+\fcLineIIId{[0 0 0]}{[2 0 0]}
+\fcLineIIId{[0 0 0]}{[0 0 -2]}
+}%
+\uncover<7->{%
 %d=0
-\fcParallelogramIIId[linecolor=cyan!50]{[-2 -2 -4]}{[-2 2 0]}{[2 2 4]} %
-\fcPutIIId[l]{[2 2 4]}{$~~d=0$}
-} %
-\uncover<8->{
+\fcParallelogramIIId[linecolor=cyan!50]{[-2 -2 -4]}{[-2 3 1]}{[5 -2 3]}%
+\fcPutIIId[l]{[2 2 4]}{$~~d=0$}%
+\fcLineIIId{[0 0 0]}{[0 0 4]}
+\fcLineIIId{[0 0 0]}{[-4 0 0]}
+\fcLineIIId{[0 0 0]}{[0 -4 0]}
+}%
+\uncover<8->{%
 %d=-2
-\fcParallelogramIIId[linecolor=cyan!30]{[-2 -2 -2]}{[-2 2 2]}{[2 2 6]} %
-\fcPutIIId[l]{[2 2 6]}{$~~d=-2$}
-\fcAxesIIIdFull{5}{5}{5}%
-} %
-\uncover<9->{
+\fcParallelogramIIId[linecolor=cyan!30]{[-2 -2 -2]}{[-2 3 3]}{[5 -2 5]}%
+\fcPutIIId[l]{[2 2 6]}{$~~d=-2$}%
+\fcLineIIId{[0 0 2]}{[0 0 4]}%
+\fcLineIIId{[-2 0 0]}{[-4 0 0]}%
+\fcLineIIId{[0 -2 0]}{[0 -5 0]}%
+}%
+\uncover<9->{%
 %d=-4
-\fcParallelogramIIId[linecolor=cyan!10]{[-2 -2 0]}{[-2 2 4]}{[2 2 8]} %
+\fcParallelogramIIId[linecolor=cyan!10]{[-2 -2 0]}{[-2 3 5]}{[5 -2 7]}%
 \fcPutIIId[l]{[2 2 8]}{$~~d=-4$}
-} %
-\fcAxesIIIdFull{5}{5}{5}%
-
+\fcPutIIId[l]{[2 2 6]}{$~~d=-2$}%
+\fcLineIIId{[0 0 4]}{[0 0 5]}%
+\fcLineIIId{[-4 0 0]}{[-5 0 0]}%
+}%
+\fcAxesIIIdFull[arrows=->, linestyle=dotted, dash=1pt]{5}{5}{5}
 \end{pspicture}
 
 \column{0.6\textwidth}
