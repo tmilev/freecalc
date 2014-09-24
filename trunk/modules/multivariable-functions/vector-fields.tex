@@ -33,19 +33,19 @@ $$
 \begin{frame}
 \begin{itemize}
 \item<1-> Example: define the vector field $\textbf{e}_r$ on $\mathbb{R}^2 \setminus \{ (0,0)\}$ via
-\[
+$
 \textbf{e}_r = \cos\theta\, \textbf{i} +
 \sin\theta \,\textbf{j} = \frac{x}{r} \, \textbf{i} +
 \frac{y}{r} \, \textbf{j} = \frac{x}{\sqrt{x^2+y^2}} \,
 \textbf{i} + \frac{y}{\sqrt{x^2+y^2}} \, \textbf{j}
-\]
+$
 
 \item<2-> Similarly define the vector field $\textbf{e}_{\theta}$ by:
-\[\textbf{e}_\theta = -\sin\theta\, \textbf{i} +
+$\textbf{e}_\theta = -\sin\theta\, \textbf{i} +
 \cos\theta \,\textbf{j} = -\frac{y}{r} \, \textbf{i} +
 \frac{x}{r} \, \textbf{j} = -\frac{y}{\sqrt{x^2+y^2}} \,
 \textbf{i} + \frac{x}{\sqrt{x^2+y^2}} \, \textbf{j} \; .
-\]
+$
 \uncover<3->{
 \psset{xunit=0.3cm, yunit=0.3cm}
 \begin{pspicture}(-5.2,-5.2)(5.2,5.2)
@@ -63,22 +63,4 @@ $$
 \item<4-> From the picture it is evident what trajectory would be followed by an object that ``\alert<5>{flows along the vector field}''.
 \item<5-> By ``\alert<5>{flowing}'' we mean an object whose \alert<5>{velocity} at each point is given by \alert<5>{the value of the field}.
 \end{itemize}
-\end{frame}
-\begin{frame}
-Similar to decomposition in rectangular coordinates
-we can decompose a vector field along fundamental vectors
-corresponding to other coordinate systems. Things are a bit
-trickier, since the fundamental vectors change from
-point to point.
-
-In particular, a planar vector field can be written in terms of
-$\textbf{e}_r$ and $\textbf{e}_\theta$:
-%
-$$\textbf{X}(r,\theta) = X_1(r,\theta) \textbf{e}_r\, +
-X_2(r,\theta) \textbf{e}_\theta\; .$$
-%
-For example, if $X(P) = \textbf{i}$, then
-%
-$$X(r,\theta) = \cos\theta \,\textbf{e}_r\,
--\sin\theta \, \textbf{e}_\theta\; .$$
 \end{frame}

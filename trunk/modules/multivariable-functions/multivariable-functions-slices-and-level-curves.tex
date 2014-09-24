@@ -7,8 +7,8 @@ $
 
 \begin{itemize}
 \item What does the graph $\Gamma$ of $g$ look like?
-\item $\Gamma$ = points in $\RR^3$ such that $z=x^2+2y^2$. The set is not a plane: what does it look like?
-\item To answer look at sections. Use imaginary CT scan to cut the graph; assemble resulting sections into a graph.
+\item<2-> $\Gamma$ = points in $\RR^3$ such that $z=x^2+2y^2$. The set is not a plane: what does it look like?
+\item<3-> To answer look at sections. Use imaginary CT scan to cut the graph; assemble resulting sections into a graph.
 \end{itemize}
 
 \vskip 10cm
@@ -27,13 +27,14 @@ $
 \psset{xunit=0.75cm, yunit=0.75cm}
 \begin{pspicture}(-3.4,-2)(3,4.3)
 \tiny
+\fcBoundingBox{-3.4}{-1.3}{3}{4.35}
 \renewcommand{\fcScreen}{[-1 1 -0.5] -1}
 \psline[linecolor=red!1](3, 4.3)(3.01,4.31)%
 \psline[linecolor=red!1](-3.4, -1)(-3.41,-1.01)%
-\uncover<2-5,9>{\fcParallelogramIIId{[1 -1.2 -0.5]}{[1 1.2 -0.5]}{[1 1.2 4]}}%
-\uncover<6>{\fcParallelogramIIId{[0 -1.2 -0.5]}{[0 1.2 -0.5]}{[0 1.2 4]}} % 
-\uncover<7>{\fcParallelogramIIId{[0.333333 -1.2 -0.5]}{[0.333333 1.2 -0.5]}{[0.333333 1.2 4]}} %
-\uncover<8>{\fcParallelogramIIId{[0.666666 -1.2 -0.5]}{[0.666666 1.2 -0.5]}{[0.666666 1.2 4]}} %
+\uncover<2-5,9>{\fcParallelogramIIId{[1 -1.2 -0.5]}{[1 1.2 -0.5]}{[1 -1.2 4]}}%
+\uncover<6>{\fcParallelogramIIId{[0 -1.2 -0.5]}{[0 1.2 -0.5]}{[0 -1.2 4]}} % 
+\uncover<7>{\fcParallelogramIIId{[0.333333 -1.2 -0.5]}{[0.333333 1.2 -0.5]}{[0.333333 -1.2 4]}} %
+\uncover<8>{\fcParallelogramIIId{[0.666666 -1.2 -0.5]}{[0.666666 1.2 -0.5]}{[0.666666 -1.2 4]}} %
 \fcAxesIIId{3}{3}{3}
 \uncover<11->{\fcLineIIId[arrows=->, linecolor=black]{[0 0 0]}{[-3 0 0]}}
 %parabola at x=1
@@ -150,11 +151,12 @@ $
 \psset{xunit=0.75cm, yunit=0.75cm}
 \begin{pspicture}(-3.4,-2)(3,4.3)
 \tiny
+\fcBoundingBox{-3.4}{-1.3}{3}{4.35}
 \renewcommand{\fcScreen}{[-1 1 -0.5] -1}
 \psline[linecolor=red!1](3, 4.3)(3.01,4.31)%
 \psline[linecolor=red!1](-3.4, -1)(-3.41,-1.01)%
 %parabola at y=1
-\uncover<1-3,7>{\fcParallelogramIIId{[-1  1 -0.5]}{[1 1 -0.5]}{[1 1 4]}}%
+\uncover<1-3,7>{\fcParallelogramIIId{[-1  1 -0.5]}{[1 1 -0.5]}{[-1 1 4]}}%
 \uncover<1-3,7>{ %
 \fcDotIIId[linecolor=black]{[0 1 0]}%
 \fcPutIIId[t]{[0 1 -0.3]}{$~~a$}%
@@ -162,7 +164,7 @@ $
 \uncover<3,7->{\fcCurveIIId{-1}{1}{ t 1 2 t t mul mul 1 dup mul 2 mul add}} %
 
 %parabola at y=0
-\uncover<4>{\fcParallelogramIIId{[-1  0 -0.5]}{[1 0 -0.5]}{[1 0 4]}}%
+\uncover<4>{\fcParallelogramIIId{[-1  0 -0.5]}{[1 0 -0.5]}{[-1 0 4]}}%
 \uncover<4>{ %
 \fcDotIIId[linecolor=black]{[0 0 0]}%
 \fcPutIIId[t]{[0 0 -0.3]}{$~~a$}%
@@ -170,15 +172,15 @@ $
 \uncover<4,8->{\fcCurveIIId{-1}{1}{t 0 2 t t mul mul 0 dup mul 2 mul add}} %
 
 %parabola at y=1/3
-\uncover<5>{\fcParallelogramIIId{[-1  0.333333 -0.5]}{[1 0.333333 -0.5]}{[1 0.333333 4]}}%
-\uncover<5>{ %
+\uncover<5>{\fcParallelogramIIId{[-1  0.333333 -0.5]}{[1 0.333333 -0.5]}{[-1 0.333333 4]}}%
+\uncover<5>{%
 \fcDotIIId[linecolor=black]{[0 0.333333 0]}%
 \fcPutIIId[t]{[0 0.333333 -0.3]}{$~~a$}%
 } %
 \uncover<5>{\fcCurveIIId{-1}{1}{t 0.333333 2 t t mul mul 0.333333 dup mul 2 mul add}} %
 
 %parabola at y=2/3
-\uncover<6>{\fcParallelogramIIId{[-1  0.666666 -0.5]}{[1 0.666666 -0.5]}{[1 0.666666 4]}}%
+\uncover<6>{\fcParallelogramIIId{[-1  0.666666 -0.5]}{[1 0.666666 -0.5]}{[-1 0.666666 4]}}%
 \uncover<6>{ %
 \fcDotIIId[linecolor=black]{[0 0.666666 0]}%
 \fcPutIIId[t]{[0 0.666666 -0.3]}{$~~a$}%
@@ -186,18 +188,18 @@ $
 \uncover<6,8->{\fcCurveIIId{-1}{1}{t 0.666666 2 t t mul mul 0.666666 dup mul 2 mul add}} %
 
 \fcAxesIIId{3}{3}{3}%
-\uncover<9->{
+\uncover<9->{%
 \fcLineIIId[arrows=->]{[0 0 0]}{[0 -3 0]} %
 \fcCurveIIId{-1}{1}{t -0.666666 2 t t mul mul 0.666666 dup mul 2 mul add} %
-\fcCurveIIId{-1}{1}{t -1 2 t t mul mul 1 dup mul 2 mul add} %
-}
-\uncover<10->{
-\fcCurveIIId[linecolor=blue]{-1.2}{1.2}{0 t 2 t t mul mul }
-\fcDotIIId{[0 0 0]}
-\fcDotIIId{[0 -0.5 0.5]}
-\fcDotIIId{[0 0.5 0.5]}
-\fcDotIIId{[0 1 2]}
-\fcDotIIId{[0 -1 2]}
+\fcCurveIIId{-1}{1}{t -1 2 t t mul mul 1 dup mul 2 mul add}%
+}%
+\uncover<10->{%
+\fcCurveIIId[linecolor=blue]{-1.2}{1.2}{0 t 2 t t mul mul}%
+\fcDotIIId{[0 0 0]}%
+\fcDotIIId{[0 -0.5 0.5]}%
+\fcDotIIId{[0 0.5 0.5]}%
+\fcDotIIId{[0 1 2]}%
+\fcDotIIId{[0 -1 2]}%
 }
 \end{pspicture}
 
@@ -240,6 +242,7 @@ The plane $x=a$.
 \item<8-> $\Rightarrow$ the vertical sections along both the $x$ and $y$ axes are parabolas.
 \item<10-> The vertices are rising as we move away from the origin.
 \end{itemize}
+\vskip 2.4cm
 \end{columns}
 
 \vskip 10 cm
@@ -259,35 +262,36 @@ $
 \column{0.4\textwidth}
 \centering
 \psset{xunit=0.65cm, yunit=0.65cm}
-\begin{pspicture}(-3,-2.2)(3,4)
+\begin{pspicture}(-4,-2.2)(3,4)
 \tiny
+\fcBoundingBox{-3.5}{-1.3}{3.5}{4.3}
 \renewcommand{\fcScreen}{[-1 1 -0.5] -1}
 \psline[linecolor=red!1](3, 4)(3.01,4.01)%
 \psline[linecolor=red!1](-3, -2.2)(-3.01,-2.21)%
 \uncover<1-2>{ %
-\fcParallelogramIIId{[-2.5  -2.5 1]}{[2.5 -2.5 1]}{[2.5 2.5 1]}
+\fcParallelogramIIId{[-2.5  -2.5 1]}{[2.5 -2.5 1]}{[-2.5 2.5 1]}
 \fcDotIIId[linecolor=black]{[0 0 1]}%
 \fcPutIIId[tl]{[0 0 1]}{$~~a$}%
 } %
 \uncover<3>{ %
-\fcParallelogramIIId{[-2.5  -2.5 -1]}{[2.5 -2.5 -1]}{[2.5 2.5 -1]}
+\fcParallelogramIIId{[-2.5  -2.5 -1]}{[2.5 -2.5 -1]}{[-2.5 2.5 -1]}
 \fcDotIIId[linecolor=black]{[0 0 -1]}%
 \fcPutIIId[tl]{[0 0 -1]}{$~~a$}%
 } %
 \uncover<4>{ %
-\fcParallelogramIIId{[-2.5  -2.5 0]}{[2.5 -2.5 0]}{[2.5 2.5 0]}
+\fcParallelogramIIId{[-2.5  -2.5 0]}{[2.5 -2.5 0]}{[-2.5 2.5 0]}
 } %
 \uncover<5>{ %
-\fcParallelogramIIId{[-2.5  -2.5 0.5]}{[2.5 -2.5 0.5]}{[2.5 2.5 0.5]}
+\fcParallelogramIIId{[-2.5  -2.5 0.5]}{[2.5 -2.5 0.5]}{[-2.5 2.5 0.5]}
 } %
 \uncover<6>{ %
-\fcParallelogramIIId{[-2.5  -2.5 1]}{[2.5 -2.5 1]}{[2.5 2.5 1]}
+\fcParallelogramIIId{[-2.5  -2.5 1]}{[2.5 -2.5 1]}{[-2.5 2.5 1]}
 } %
 \uncover<7>{ %
-\fcParallelogramIIId{[-2.5  -2.5 1.5]}{[2.5 -2.5 1.5]}{[2.5 2.5 1.5]}
+\fcParallelogramIIId{[-2.5  -2.5 1.5]}{[2.5 -2.5 1.5]}{[-2.5 2.5 1.5]}
 } %
 \uncover<8>{ %
-\fcParallelogramIIId{[-2.5  -2.5 2]}{[2.5 -2.5 2]}{[2.5 2.5 2]}
+\fcParallelogramIIId{[-2.5  -2.5 2]}{[2.5 -2.5 2]}{[-2.5 2.5 2]}
 } %
 
 \fcAxesIIId{3}{3}{3}%
