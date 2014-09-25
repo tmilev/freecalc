@@ -479,8 +479,7 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 
 \newcommand{\fcLine}[3][]{%
 \pstVerb{%
-\fcLineWidth setlinewidth %
-newpath %
+\fcLineWidth\space setlinewidth newpath %
 #2\space \fcXYcoodsToPScoords moveto %
 #3\space \fcXYcoodsToPScoords lineto %
 stroke %
@@ -488,16 +487,19 @@ stroke %
 }
 
 \newcommand{\fcCurve}[4][]{%
-5 dict begin %
-/theCurve exch def%
-/tMin #2 def%
-/tMax #3 def%
+%#4 pstack %
+%5 dict begin %
+%#4 == %
+%/theCurve #4 def%
+%theCurve == %
+%/tMin #2\space  def%
+%/tMax #3\space def%
 %/Delta tMax tMin sub \fcPlotPoints \space 1 sub div def %
 %/t tMin def %
 %\fcPlotPoints\space 1 sub {theCurve \fcXYcoodsToPScoords moveto %
 %/t t Delta add def %
 %theCurve \fcXYcoodsToPScoords lineto stroke} repeat
-end%
+% end%
 }
 
 \newcommand{\fcLineIIId}[3][linecolor=black]{
