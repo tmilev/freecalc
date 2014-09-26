@@ -29,6 +29,16 @@
 \newcommand{\fcLineWidth}{72\space}
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
+\newcommand{\fcLineStyle}{0}
+\newcommand{\fcDashLength}{300}
+\newcommand{\fcNumMeridians}{10}
+\newcommand{\fcNumParallels}{10}
+\newcommand{\fcDashesCode}{%
+(\fcLineStyle) (dashed) eq %
+{[\fcDashLength\space \fcDashLength] 0 setdash}%
+{[] 0 setdash}%
+ifelse\space %
+}
 
 \makeatletter %needed for define@key command.
 \define@key{pstricks,pst-plot}{xLabel}[]{}
@@ -44,6 +54,9 @@
 \define@key{fcGraphics}{yLabel}[\renewcommand{\fcYLabel}{$y$}]{\renewcommand{\fcYLabel}{#1}}
 \define@key{fcGraphics}{zLabel}[\renewcommand{\fcZLabel}{$z$}]{\renewcommand{\fcZLabel}{#1}}
 \define@key{fcGraphics}{linecolor}[\renewcommand{\fcLineColor}{black}]{\renewcommand{\fcLineColor}{#1}}
+\define@key{fcGraphics}{linestyle}[\renewcommand{\fcLineStyle}{0}]{\renewcommand{\fcLineStyle}{#1}}
+\define@key{fcGraphics}{plotpoints}[\renewcommand{\fcPlotPoints}{200}]{\renewcommand{\fcPlotPoints}{#1}}
+\define@key{fcGraphics}{dashes}[\renewcommand{\fcDashLength}{300}]{\renewcommand{\fcDashLength}{#1 \fcConvertPSXUnit\space}}
 \define@key{fcGraphics}{arrows}[\renewcommand{\fcArrows}{}]{\renewcommand{\fcArrows}{#1}}
 \makeatother %undoes \makeatletter.
 
@@ -203,6 +216,8 @@ end%
 \fi%
 }
 \makeatother
+
+\newcommand{\fcDistance}{ \fcVectorMinusVector \fcVectorNorm\space}
 
 \newcommand{\fcLengthIndicator}[5]{
 \psline[arrows=<-, linecolor=red](! #1 #2)(! #1 0.58 mul #3 0.42 mul add #2 0.58 mul #4 0.42 mul add)
@@ -364,7 +379,7 @@ vectB \fcArrayToStack %
 /b3 exch def %The three coordinates of Vector b
 /b2 exch def %
 /b1 exch def %
-[ a2 b3 mul a3 b2 mul sub a3 b1 mul a1 b3 mul sub a1 b2 mul a2 b1 mul sub] %the cross product of a and b
+[a2 b3 mul a3 b2 mul sub a3 b1 mul a1 b3 mul sub a1 b2 mul a2 b1 mul sub] %the cross product of a and b
 end %
 }
 
@@ -475,7 +490,7 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 \newcommand{\fcConvertPSYUnit}{\stripPoints{\psyunit} 72.27 div -8000 mul mul\space}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
 
 
-\newcommand{\fcXYcoodsToPScoords}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space}
+\newcommand{\fcXYcoodsToPScoords}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space }
 
 \newcommand{\fcLine}[3][]{%
 \pstVerb{%
@@ -486,23 +501,33 @@ stroke %
 }%
 }
 
-\newcommand{\fcCurve}[4][]{%
-%#4 pstack %
-%5 dict begin %
-%#4 == %
-%/theCurve #4 def%
+\newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth }
+
+\newcommand{\fcCurveCode}{%
+%(calling fcCurveCode) == %
+5 dict begin %
+%newpath 0 0 moveto 1000 1000 lineto stroke
+/theCurve exch def %
 %theCurve == %
-%/tMin #2\space  def%
-%/tMax #3\space def%
-%/Delta tMax tMin sub \fcPlotPoints \space 1 sub div def %
-%/t tMin def %
-%\fcPlotPoints\space 1 sub {theCurve \fcXYcoodsToPScoords moveto %
-%/t t Delta add def %
-%theCurve \fcXYcoodsToPScoords lineto stroke} repeat
-% end%
+/tMin exch def%
+/tMax exch def%
+/Delta tMax tMin sub \fcPlotPoints \space 1 sub div def %
+/t tMin def %
+\fcLineFormatCode %
+newpath %
+theCurve \fcXYcoodsToPScoords moveto %
+\fcPlotPoints\space 1 sub {/t t Delta add def theCurve \fcXYcoodsToPScoords lineto %
+} repeat %
+stroke %
+end%
 }
 
-\newcommand{\fcLineIIId}[3][linecolor=black]{
+\newcommand{\fcCurve}[4][]{%
+\setkeys{fcGraphics}{#1}%
+\pstVerb{#2\space #3\space {#4} \space \fcCurveCode}%
+}
+
+\newcommand{\fcLineIIId}[3][linecolor=black]{%
 \psline[#1](! #2 \space \fcGetDrawCoords)(! #3 \space \fcGetDrawCoords )
 }
 \newcommand{\fcAxesIIIdFull}[4][linecolor=black, arrows=->]{%
@@ -527,14 +552,92 @@ stroke %
 } %
 
 \newcommand{\fcPutIIId}[3][]{ %
+\fcArrayToStack
 \rput[#1](! #2 \fcGetDrawCoords) {#3} %
 } %
 
-\newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%
-\parametricplot[#1]{#2}{#3}{ %
-[#4]%
-\fcGetDrawCoords %
+\newcommand{\fcPaintObject}{%
+(painting object) == \fcArrayToStack dup (ellipsoid) eq { \fcPaintEllipsoid } if %
+}%
+
+\newcommand{\fcStartIIIdScene}{%
+\pstVerb{%
+1 dict begin %
+/theIIIdObjects [] def %
+}%
 }
+
+\newcommand{\fcFinishIIIdScene}{%
+\pstVerb{%
+(about to process IIId scene given by: ) print %
+theIIIdObjects == %
+mark theIIIdObjects \fcArrayToStack counttomark {\fcPaintObject } repeat %
+end %
+pop %removing the mark
+}%
+}%
+
+\newcommand{\fcSurfaceIIIdUConstCode}{%
+10 dict begin%
+/theSurface exch def %
+/vMax exch def %
+/uMax exch def %
+/vMin exch def %
+/uMin exch def %
+/DeltaU uMax uMin sub \fcIterationsX\space 1 sub div def %
+/u uMin def %
+/v {t} def %
+\fcIterationsX {vMin vMax {[theSurface \fcGetDrawCoords]} \fcCurveCode /u u DeltaU add def} repeat %
+end
+}
+
+\newcommand{\fcSurfaceIIIdVConstCode}{%
+10 dict begin%
+/theSurface exch def %
+/vMax exch def %
+/uMax exch def %
+/vMin exch def %
+/uMin exch def %
+/DeltaV vMax vMin sub \fcIterationsY\space 1 sub div def %
+/v vMin def %
+/u {t} def %
+\fcIterationsY {uMin uMax {[theSurface \fcGetDrawCoords]} \fcCurveCode /v v DeltaV add def} repeat %
+end %
+}
+
+\newcommand{\fcSurfaceIIIdCode}{%
+5 copy \fcSurfaceIIIdUConstCode \fcSurfaceIIIdVConstCode
+}%
+
+\newcommand{\fcPaintEllipsoid}{%
+pop %
+%(painting ellipsoid: ) == %
+%dup == %
+\fcArrayToStack %
+3 dict begin %
+/c exch def % 
+/b exch def %
+/a exch def %
+0 0 180 360 {[v cos u sin a mul mul v sin u sin b mul mul u cos c mul]} \fcSurfaceIIIdCode %
+end %
+}
+
+%Let the ellipsoid be given by the set of point for which x^2/a^2+ y/b^2 +z^2/c^2=1. We store the ellipsoid as the data a, b, c in the data structure [[a b c] (ellipsoid)]
+\newcommand{\fcEllipsoid}[2][]{%
+\pstVerb{%
+3 dict begin %
+#2\space %
+/c exch def %
+/b exch def %
+/a exch def %
+[theIIIdObjects \fcArrayToStack [[a b c] (ellipsoid)] ] %
+end %
+/theIIIdObjects exch def %
+}%
+}
+
+\newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%
+\parametricplot[#1]{#2}{#3}{[#4] \fcGetDrawCoords}%
 }
 
 \newcommand{\fcZeroVector}{%
@@ -633,6 +736,7 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 \pstVerb{end}%
 }%end multido
 }
+
 \newcommand{\fcSurfaceIIIdVConst}[7][]{%
 \setkeys{fcGraphics}{#2}%
 \multido{\ra=0+1}{\fcIterationsY}{%
@@ -648,6 +752,7 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 \pstVerb{end}%
 }%end multido
 }
+
 \newcommand{\fcSurfaceIIId}[7][]{%
 \fcSurfaceIIIdUConst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
 \fcSurfaceIIIdVConst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%

@@ -10,13 +10,7 @@
 \begin{pspicture}(0,0)(1,1)
 \psline(0,1)(7,1)
 \fcLine{[0 0]}{[7 0]}
-\pstVerb{%
-\expandbefore \fcCurve{0}{360}{[t cos t sin]} %
-newpath %
-0 0 moveto %
-100 100 lineto %
-stroke %
-} %
+\fcCurve[linestyle=dashed]{0}{360}{[t cos t sin]}
 %\fcLine{[0 0]}{[100 -200]}
 %\fcLine{[0 0]}{[100 90]}
 %\fcLine{[0 0]}{[100 -90]}
