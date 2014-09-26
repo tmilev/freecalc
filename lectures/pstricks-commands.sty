@@ -31,8 +31,6 @@
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
 \newcommand{\fcDashLength}{300}
-\newcommand{\fcNumMeridians}{10}
-\newcommand{\fcNumParallels}{10}
 \newcommand{\fcDashesCode}{%
 (\fcLineStyle) (dashed) eq %
 {[\fcDashLength\space \fcDashLength] 0 setdash}%
@@ -522,13 +520,33 @@ stroke %
 end%
 }
 
+%the following procedure draws a curve but the portion of the curve that is behind the screen is drawn dashed
+\newcommand{\fcCurveWithScreenCode}{%
+%(calling fcCurveCode) == %
+5 dict begin %
+%newpath 0 0 moveto 1000 1000 lineto stroke
+/theCurve exch def %
+%theCurve == %
+/tMin exch def%
+/tMax exch def%
+/Delta tMax tMin sub \fcPlotPoints \space 1 sub div def %
+/t tMin def %
+\fcLineFormatCode %
+newpath %
+theCurve \fcXYcoodsToPScoords moveto %
+\fcPlotPoints\space 1 sub {/t t Delta add def theCurve \fcXYcoodsToPScoords lineto %
+} repeat %
+stroke %
+end%
+}
+
 \newcommand{\fcCurve}[4][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{#2\space #3\space {#4} \space \fcCurveCode}%
 }
 
 \newcommand{\fcLineIIId}[3][linecolor=black]{%
-\psline[#1](! #2 \space \fcGetDrawCoords)(! #3 \space \fcGetDrawCoords )
+\psline[#1](! #2 \space \fcGetDrawCoords)(! #3 \space \fcGetDrawCoords)%
 }
 \newcommand{\fcAxesIIIdFull}[4][linecolor=black, arrows=->]{%
 \fcAxesIIId[#1]{#2}{#3}{#4}%
@@ -551,9 +569,7 @@ end%
 \pscircle*[#1](! #2 \fcGetDrawCoords){0.07} %
 } %
 
-\newcommand{\fcPutIIId}[3][]{ %
-\fcArrayToStack
-\rput[#1](! #2 \fcGetDrawCoords) {#3} %
+\newcommand{\fcPutIIId}[3][]{ \rput[#1](! #2 \fcGetDrawCoords) {#3}% 
 } %
 
 \newcommand{\fcPaintObject}{%
@@ -588,7 +604,7 @@ pop %removing the mark
 /u uMin def %
 /v {t} def %
 \fcIterationsX {vMin vMax {[theSurface \fcGetDrawCoords]} \fcCurveCode /u u DeltaU add def} repeat %
-end
+end %
 }
 
 \newcommand{\fcSurfaceIIIdVConstCode}{%
@@ -606,7 +622,7 @@ end %
 }
 
 \newcommand{\fcSurfaceIIIdCode}{%
-5 copy \fcSurfaceIIIdUConstCode \fcSurfaceIIIdVConstCode
+5 copy \fcSurfaceIIIdUConstCode \fcSurfaceIIIdVConstCode %
 }%
 
 \newcommand{\fcPaintEllipsoid}{%

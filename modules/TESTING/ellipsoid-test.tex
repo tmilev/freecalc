@@ -10,9 +10,14 @@ px+qy+rz=s.
 The direction in which our ``orthographic eye'' is looking is $\fcv n= (p,q,r)$.
 \end{frame}
 \begin{frame}
-\begin{pspicture}(-0.2,-0.2)(3,3)
-\fcStartIIIdScene
-\fcEllipsoid{1 2 3}
-\fcFinishIIIdScene
+\begin{pspicture}(0,0)(0,0)%
+\renewcommand{\fcScreenStyle}{x}%
+\fcAxesIIId{5}{5}{5}%
+\fcLine{[0 0]}{[2 0]}
+\fcStartIIIdScene%
+\fcEllipsoid{3 2 1}%
+\renewcommand{\fcIterationsX}{30}
+\renewcommand{\fcIterationsY}{30}
+\fcFinishIIIdScene%
 \end{pspicture}
 \end{frame}
