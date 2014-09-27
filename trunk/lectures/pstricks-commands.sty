@@ -8,11 +8,11 @@
 
 \makeatletter
 \begingroup
-  \catcode `P=12  % digits and punct. catcode
-  \catcode `T=12  % digits and punct. catcode
-  \lowercase{%
-  \def\x{\def\rem@pt##1.##2PT{##1\ifnum##2>\z@.##2\fi}}}
-     \expandafter\endgroup\x%
+\catcode `P=12  % digits and punct. catcode
+\catcode `T=12  % digits and punct. catcode
+\lowercase{%
+\def\x{\def\rem@pt##1.##2PT{##1\ifnum##2>\z@.##2\fi}}}
+\expandafter\endgroup\x%
 \newcommand{\stripPoints}[1]{\expandafter\rem@pt\the#1}
 \makeatother
 
@@ -37,6 +37,9 @@
 {[] 0 setdash}%
 ifelse\space %
 }
+\newcommand{\fcScreen}{[-1 1 -0.5] -1} %default projection plane. Renew this command to change projection plane.
+\newcommand{\fcScreenWithSpace}{\fcScreen\space } %Darned LaTeX...
+
 
 \makeatletter %needed for define@key command.
 \define@key{pstricks,pst-plot}{xLabel}[]{}
@@ -186,7 +189,7 @@ end%
 \fcVectorNormalize dup 3 1 roll \fcVectorScalarVector \fcVectorTimesScalar%
 } %
 
-%fcAngleIIId Arguments: 
+%fcAngleIIId Arguments:
 %first optional: pstricks options
 %second: vector describing arm of first angle
 %third: vector describing arm of second angle
@@ -198,7 +201,7 @@ end%
 /orthonormalV #3 dup firstV  \fcVectorProjectOntoVector \fcVectorMinusVector \fcVectorNormalize def%
 /theAngle firstV #3\space \fcVectorNormalize \fcVectorScalarVector arccos def%
 }%
-\parametricplot[#1]{0}{theAngle}{firstV t cos #4 mul \fcVectorTimesScalar orthonormalV t sin #4 mul \fcVectorTimesScalar \fcVectorPlusVector \fcGetDrawCoords}%
+\parametricplot[#1]{0}{theAngle}{firstV t cos #4 mul \fcVectorTimesScalar orthonormalV t sin #4 mul \fcVectorTimesScalar \fcVectorPlusVector \fcCoordsIIIdToPStricks}%
 \pstVerb{end}%
 }
 
@@ -401,7 +404,7 @@ theV theNormal theD theV theNormal \fcVectorScalarVector sub theNormal \fcVector
 end %
 } %Projection of point onto a plane. First argument is point, second argument is plane normal, third argument is the scalar product you need to have with the normal to be in the plane. Format: [1 2 3] [4 5 6] 7, corresponds to projecting the point (1,2,3) onto the plane 4x+5y+6z=7
 
-\newcommand{\fcGetDrawCoords}{%
+\newcommand{\fcCoordsIIIdToPStricks}{%
 5 dict begin %
 /theV exch def %
 /theVprojected theV \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen  \fcVectorMinusVector def%
@@ -419,7 +422,7 @@ end %
 }
 {
 /theYUnitV \fcScreenStyle \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen \fcVectorMinusVector \fcVectorNormalize def%
-/theXUnitV theNormalizedNormal theYUnitV \fcVectorCrossVector def% 
+/theXUnitV theNormalizedNormal theYUnitV \fcVectorCrossVector def%
 } ifelse%
 }%
 ifelse %
@@ -430,8 +433,9 @@ theVprojected theXUnitV \fcVectorScalarVector theVprojected theYUnitV \fcVectorS
 end %
 }
 
-\newcommand{\fcScreen}{[-1 1 -0.5] -1} %default projection plane. Renew this command to change projection plane.
-\newcommand{\fcScreenWithSpace}{\fcScreen\space } %Darned LaTeX...
+\newcommand{\fcCoordsIIIdToPS}{%
+[ exch \fcCoordsIIIdToPStricks ] \fcCoordsPStricksToPS
+}
 
 \newcommand{\fcBoxIIId}[5][]{%
 \pstVerb{%
@@ -481,20 +485,20 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 }
 
 \newcommand{\fcPolyLineIIId}[2][linecolor=black]{%
-\listplot[#1]{ [#2] {\fcGetDrawCoords} \fcSpliceArrayOperation \fcArrayToStack}%
+\listplot[#1]{ [#2] {\fcCoordsIIIdToPStricks} \fcSpliceArrayOperation \fcArrayToStack}%
 }
 
 \newcommand{\fcConvertPSXUnit}{\stripPoints{\psxunit} 72.27 div 8000 mul mul\space}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
 \newcommand{\fcConvertPSYUnit}{\stripPoints{\psyunit} 72.27 div -8000 mul mul\space}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
 
 
-\newcommand{\fcXYcoodsToPScoords}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space }
+\newcommand{\fcCoordsPStricksToPS}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space }
 
 \newcommand{\fcLine}[3][]{%
 \pstVerb{%
 \fcLineWidth\space setlinewidth newpath %
-#2\space \fcXYcoodsToPScoords moveto %
-#3\space \fcXYcoodsToPScoords lineto %
+#2\space \fcCoordsPStricksToPS moveto %
+#3\space \fcCoordsPStricksToPS lineto %
 stroke %
 }%
 }
@@ -513,31 +517,11 @@ stroke %
 /t tMin def %
 \fcLineFormatCode %
 newpath %
-theCurve \fcXYcoodsToPScoords moveto %
-\fcPlotPoints\space 1 sub {/t t Delta add def theCurve \fcXYcoodsToPScoords lineto %
+theCurve \fcCoordsPStricksToPS moveto %
+\fcPlotPoints\space 1 sub {/t t Delta add def theCurve \fcCoordsPStricksToPS lineto %
 } repeat %
 stroke %
-end%
-}
-
-%the following procedure draws a curve but the portion of the curve that is behind the screen is drawn dashed
-\newcommand{\fcCurveWithScreenCode}{%
-%(calling fcCurveCode) == %
-5 dict begin %
-%newpath 0 0 moveto 1000 1000 lineto stroke
-/theCurve exch def %
-%theCurve == %
-/tMin exch def%
-/tMax exch def%
-/Delta tMax tMin sub \fcPlotPoints \space 1 sub div def %
-/t tMin def %
-\fcLineFormatCode %
-newpath %
-theCurve \fcXYcoodsToPScoords moveto %
-\fcPlotPoints\space 1 sub {/t t Delta add def theCurve \fcXYcoodsToPScoords lineto %
-} repeat %
-stroke %
-end%
+end\space%
 }
 
 \newcommand{\fcCurve}[4][]{%
@@ -546,7 +530,7 @@ end%
 }
 
 \newcommand{\fcLineIIId}[3][linecolor=black]{%
-\psline[#1](! #2 \space \fcGetDrawCoords)(! #3 \space \fcGetDrawCoords)%
+\psline[#1](! #2 \space \fcCoordsIIIdToPStricks)(! #3 \space \fcCoordsIIIdToPStricks)%
 }
 \newcommand{\fcAxesIIIdFull}[4][linecolor=black, arrows=->]{%
 \fcAxesIIId[#1]{#2}{#3}{#4}%
@@ -558,18 +542,18 @@ end%
 \newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{%
 \setkeys{fcGraphics}{#1}%
 \fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}%
-\rput(! [#2 0 0] \fcGetDrawCoords){\fcXLabel}%
+\rput(! [#2 0 0] \fcCoordsIIIdToPStricks){\fcXLabel}%
 \fcLineIIId[#1]{[0 0 0]}{[0 #3 0]}%
-\rput(! [0 #3 0] \fcGetDrawCoords){\fcYLabel}%
+\rput(! [0 #3 0] \fcCoordsIIIdToPStricks){\fcYLabel}%
 \fcLineIIId[#1]{[0 0 0]}{[0 0 #4]}%
-\rput(! [0 0 #4] \fcGetDrawCoords){\fcZLabel}%
+\rput(! [0 0 #4] \fcCoordsIIIdToPStricks){\fcZLabel}%
 }
 
 \newcommand{\fcDotIIId}[2][linecolor=\fcColorGraph]{%
-\pscircle*[#1](! #2 \fcGetDrawCoords){0.07} %
+\pscircle*[#1](! #2 \fcCoordsIIIdToPStricks){0.07} %
 } %
 
-\newcommand{\fcPutIIId}[3][]{ \rput[#1](! #2 \fcGetDrawCoords) {#3}% 
+\newcommand{\fcPutIIId}[3][]{ \rput[#1](! #2 \fcCoordsIIIdToPStricks) {#3}%
 } %
 
 \newcommand{\fcPaintObject}{%
@@ -603,7 +587,7 @@ pop %removing the mark
 /DeltaU uMax uMin sub \fcIterationsX\space 1 sub div def %
 /u uMin def %
 /v {t} def %
-\fcIterationsX {vMin vMax {[theSurface \fcGetDrawCoords]} \fcCurveCode /u u DeltaU add def} repeat %
+\fcIterationsX {vMin vMax {theSurface} \fcCurveIIIdCode /u u DeltaU add def} repeat %
 end %
 }
 
@@ -617,7 +601,7 @@ end %
 /DeltaV vMax vMin sub \fcIterationsY\space 1 sub div def %
 /v vMin def %
 /u {t} def %
-\fcIterationsY {uMin uMax {[theSurface \fcGetDrawCoords]} \fcCurveCode /v v DeltaV add def} repeat %
+\fcIterationsY {uMin uMax {theSurface} \fcCurveIIIdCode /v v DeltaV add def} repeat %
 end %
 }
 
@@ -630,30 +614,113 @@ pop %
 %(painting ellipsoid: ) == %
 %dup == %
 \fcArrayToStack %
-3 dict begin %
-/c exch def % 
-/b exch def %
-/a exch def %
-0 0 180 360 {[v cos u sin a mul mul v sin u sin b mul mul u cos c mul]} \fcSurfaceIIIdCode %
-end %
-}
-
-%Let the ellipsoid be given by the set of point for which x^2/a^2+ y/b^2 +z^2/c^2=1. We store the ellipsoid as the data a, b, c in the data structure [[a b c] (ellipsoid)]
-\newcommand{\fcEllipsoid}[2][]{%
-\pstVerb{%
-3 dict begin %
-#2\space %
+10 dict begin %
 /c exch def %
 /b exch def %
 /a exch def %
-[theIIIdObjects \fcArrayToStack [[a b c] (ellipsoid)] ] %
+/z1 exch def %
+/y1 exch def %
+/x1 exch def %
+/theBlockingScreen {\fcScreenWithSpace pop dup [x1 y1 z1] \fcVectorScalarVector} def %
+0 0 180 360 {[v cos u sin a mul mul x1 add v sin u sin b mul mul y1 add u cos c mul z1 add]} \fcSurfaceIIIdCode %
+end %
+}
+
+%Let the ellipsoid be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 +(z-z1)^2/c^2=1, where x1, y1, z1, a, b, c are the parameters of the ellipsoid. We store the ellipsoid as the data a, b, c in the data structure [ [x1 y1 z1 a b c] (ellipsoid)]
+\newcommand{\fcEllipsoid}[2][]{%
+\pstVerb{%
+9 dict begin %
+mark #2\space %
+/c exch def %
+/b exch def %
+/a exch def %
+/x1 0 def %
+/y1 0 def %
+/z1 0 def %
+counttomark 0 gt{ %
+/z1 exch def %
+/y1 exch def %
+/z1 exch def %
+}if %
+pop %remove the mark
+[theIIIdObjects \fcArrayToStack [[x1 y1 z1 a b c] (ellipsoid)] ] %
 end %
 /theIIIdObjects exch def %
 }%
 }
 
+\newcommand{\fcCurveIIIdCode}{%
+15 dict begin%
+%(here be i) ==
+/theCurve exch def%
+/tMax exch def%
+/tMin exch def%
+/numPoints \fcPlotPoints\space def%
+/Delta tMax tMin sub numPoints 1 sub div def %
+/t tMin def %
+/currentStyle (empty) def %
+\fcLineFormatCode %
+/theBlockingScreen where %
+{%theBlockingScreen is defined
+pop %remove dictionary from stack
+theBlockingScreen %
+/theBlockingScreenDepth exch def %
+/theBlockingScreenNormal exch def %
+(blocking screen depth) == theBlockingScreenDepth ==
+(blocking screen normal) == theBlockingScreenNormal ==
+/getStyle { %
+firstPoint  theBlockingScreenNormal \fcVectorScalarVector theBlockingScreenDepth lt %
+secondPoint theBlockingScreenNormal \fcVectorScalarVector theBlockingScreenDepth lt %
+or {(normal)}{(dashed)} ifelse %
+} def %
+/setDashes {currentStyle (dashed) eq {[ 0 %
+%\fcDashLength
+\space \fcDashLength] 0 setdash}{[] 0 setdash} ifelse} def %
+/firstPoint theCurve def %
+/t t Delta add def %
+/secondPoint theCurve def %
+/currentStyle getStyle def %
+setDashes %
+newpath %
+firstPoint \fcCoordsIIIdToPS moveto %
+/remainingCycles numPoints 1 sub def %
+remainingCycles {% 
+  /remainingCycles remainingCycles 1 sub def %
+  secondPoint \fcCoordsIIIdToPS lineto %
+  /firstPoint secondPoint def %
+  remainingCycles 0 gt { %
+    /t t Delta add def %
+    /secondPoint theCurve def %
+    getStyle currentStyle ne %
+    {stroke /currentStyle getStyle def setDashes newpath firstPoint \fcCoordsIIIdToPS moveto %
+    }if %
+  }if %
+} repeat %
+stroke %
+}
+{%theBlockingScreen is not defined
+%(blocking screen not defined!) ==
+newpath %
+theCurve \fcCoordsIIIdToPS moveto %
+numPoints 1 sub {/t t Delta add def theCurve \fcCoordsIIIdToPS lineto } repeat %
+stroke %
+}ifelse %
+end %
+}
+
+
 \newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%
-\parametricplot[#1]{#2}{#3}{[#4] \fcGetDrawCoords}%
+\parametricplot[#1]{#2}{#3}{#4 \fcCoordsIIIdToPStricks}%
+}
+
+\newcommand{\fcCurveIIIdBlockedByScreen}[5][linecolor=\fcColorGraph]{%
+\setkeys{fcGraphics}{#1}%
+\pstVerb{%
+1 dict begin
+/theBlockingScreen {#5} def %
+#2\space #3 \space {#4} \fcCurveIIIdCode %
+end%
+}%
 }
 
 \newcommand{\fcZeroVector}{%
@@ -678,7 +745,7 @@ pop%
 %heel == %
 /perpendicularUnitVector thePoint heel \fcVectorMinusVector \fcVectorNormalize def %
 %perpendicularUnitVector == %
-/polyLineInput {% 
+/polyLineInput {%
 heel directionUnitVector heelSize \fcVectorTimesScalar \fcVectorMinusVector %
 %dup ==
 dup perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector %
@@ -714,8 +781,8 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 /ymin #4 def%
 /ymax #6 def%
 }%
-\parametricplot[#1]{ymin}{ymax}{% 
-1 dict begin /y t def  [x y #7] \fcGetDrawCoords end%
+\parametricplot[#1]{ymin}{ymax}{%
+1 dict begin /y t def  [x y #7] \fcCoordsIIIdToPStricks end%
 }%
 \pstVerb{end}%
 }%end multido
@@ -730,8 +797,8 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 /xmin #3 def%
 /xmax #5 def%
 }%
-\parametricplot[#1]{xmin}{xmax}{% 
-1 dict begin /x t def  [x y #7] \fcGetDrawCoords end%
+\parametricplot[#1]{xmin}{xmax}{%
+1 dict begin /x t def  [x y #7] \fcCoordsIIIdToPStricks end%
 }%
 \pstVerb{end}%
 }%end multido
@@ -746,8 +813,8 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 /vmin #4 def%
 /vmax #6 def%
 }%
-\parametricplot[#1]{vmin}{vmax}{% 
-1 dict begin /v t def [#7] \fcGetDrawCoords end%
+\parametricplot[#1]{vmin}{vmax}{%
+1 dict begin /v t def #7 \fcCoordsIIIdToPStricks end%
 }%
 \pstVerb{end}%
 }%end multido
@@ -762,8 +829,8 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 /umin #3 def%
 /umax #5 def%
 }%
-\parametricplot[#1]{umin}{umax}{% 
-1 dict begin /u t def [#7] \fcGetDrawCoords end%
+\parametricplot[#1]{umin}{umax}{%
+1 dict begin /u t def #7 \fcCoordsIIIdToPStricks end%
 }%
 \pstVerb{end}%
 }%end multido

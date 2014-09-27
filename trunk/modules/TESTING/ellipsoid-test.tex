@@ -11,11 +11,12 @@ The direction in which our ``orthographic eye'' is looking is $\fcv n= (p,q,r)$.
 \end{frame}
 \begin{frame}
 \begin{pspicture}(0,0)(0,0)%
-\renewcommand{\fcScreenStyle}{x}%
+%\renewcommand{\fcScreenStyle}{x}%
+%\renewcommand{\fcScreen}{[-1 1 2] 0}
 \fcAxesIIId{5}{5}{5}%
-\fcLine{[0 0]}{[2 0]}
 \fcStartIIIdScene%
-\fcEllipsoid{3 2 1}%
+%\fcCurveIIIdBlockedByScreen{0}{360}{[t cos t sin 0]}{\fcScreenWithSpace pop 0}
+\fcEllipsoid{0 0 0 3 2 1}%
 \renewcommand{\fcIterationsX}{30}
 \renewcommand{\fcIterationsY}{30}
 \fcFinishIIIdScene%

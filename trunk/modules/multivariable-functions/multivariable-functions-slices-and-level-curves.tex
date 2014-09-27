@@ -3,7 +3,7 @@
 \frametitle{A motivating example}
 $
 \displaystyle g(x,y) =x^2+2y^2
-$ 
+$
 
 \begin{itemize}
 \item What does the graph $\Gamma$ of $g$ look like?
@@ -32,13 +32,13 @@ $
 \psline[linecolor=red!1](3, 4.3)(3.01,4.31)%
 \psline[linecolor=red!1](-3.4, -1)(-3.41,-1.01)%
 \uncover<2-5,9>{\fcParallelogramIIId{[1 -1.2 -0.5]}{[1 1.2 -0.5]}{[1 -1.2 4]}}%
-\uncover<6>{\fcParallelogramIIId{[0 -1.2 -0.5]}{[0 1.2 -0.5]}{[0 -1.2 4]}} % 
+\uncover<6>{\fcParallelogramIIId{[0 -1.2 -0.5]}{[0 1.2 -0.5]}{[0 -1.2 4]}} %
 \uncover<7>{\fcParallelogramIIId{[0.333333 -1.2 -0.5]}{[0.333333 1.2 -0.5]}{[0.333333 -1.2 4]}} %
 \uncover<8>{\fcParallelogramIIId{[0.666666 -1.2 -0.5]}{[0.666666 1.2 -0.5]}{[0.666666 -1.2 4]}} %
 \fcAxesIIId{3}{3}{3}
 \uncover<11->{\fcLineIIId[arrows=->, linecolor=black]{[0 0 0]}{[-3 0 0]}}
 %parabola at x=1
-\uncover<4-5,9->{\fcCurveIIId{-1.2}{1.2}{1 t 2 t t mul mul 1 add }} %
+\uncover<4-5,9->{\fcCurveIIId{-1.2}{1.2}{[1 t 2 t t mul mul 1 add]}} %
 \uncover<5,9,10,12>{\fcDotIIId{[1 0 1]}} %
 \uncover<2-5,9>{%
 \fcDotIIId[linecolor=black]{[1 0 0]} %
@@ -46,36 +46,36 @@ $
 } %
 \uncover<5>{\fcPutIIId[bl]{[1 0 1.3]}{$~~~~\left(a,0,a^2\right)$}}%
 %parabola at x=0
-\uncover<6,10->{\fcCurveIIId{-1.2}{1.2}{0 t 2 t t mul mul 0 add }}
+\uncover<6,10->{\fcCurveIIId{-1.2}{1.2}{[0 t 2 t t mul mul 0 add]}}
 \uncover<6,10,12>{\fcDotIIId{[0 0 0]}}
 \uncover<6>{ %
 \fcDotIIId[linecolor=black]{[0 \space 0 0]}%
 \fcPutIIId[t]{[0 0 -0.3]}{$~~a=0$}%
 } %
 %parabola at x=1/3
-\uncover<7>{\fcCurveIIId{-1.2}{1.2}{0.333333 t 2 t t mul mul 0.333333 dup mul add }}
+\uncover<7>{\fcCurveIIId{-1.2}{1.2}{[0.333333 t 2 t t mul mul 0.333333 dup mul add]}}
 \uncover<7>{\fcDotIIId{[0.333333 0 0.333333 0.333333 mul]}}
 \uncover<7>{ %
 \fcDotIIId[linecolor=black]{[0.333333 0 0]}%
 \fcPutIIId[t]{[0.333333 0 -0.3]}{$~~a$}%
 }
 %parabola at x=1/2
-\uncover<10->{\fcCurveIIId{-1.2}{1.2}{0.5 t 2 t t mul mul 0.5 dup mul add }}
+\uncover<10->{\fcCurveIIId{-1.2}{1.2}{[0.5 t 2 t t mul mul 0.5 dup mul add]}}
 \uncover<10>{\fcDotIIId{[0.5 0 0.5 dup mul]}}
 %parabola at x=2/3
-\uncover<8>{\fcCurveIIId{-1.2}{1.2}{0.666666 t 2 t t mul mul 0.666666 dup mul add }}%
+\uncover<8>{\fcCurveIIId{-1.2}{1.2}{[0.666666 t 2 t t mul mul 0.666666 dup mul add]}}%
 \uncover<8>{\fcDotIIId{[0.666666 0 0.666666 0.666666 mul]}}
 \uncover<8>{ %
 \fcDotIIId[linecolor=black]{[0.666666 0 0]}%
 \fcPutIIId[t]{[0.666666  0 -0.3]}{$~~a$}%
 } %
 \uncover<11->{
-%\fcCurveIIId{-1.2}{1.2}{-0.333333 t 2 t t mul mul 0.333333 dup mul add }
-\fcCurveIIId{-1.2}{1.2}{-0.5 t 2 t t mul mul 0.5 dup mul add }
-\fcCurveIIId{-1.2}{1.2}{-1.0 t 2 t t mul mul 1.000000 dup mul add }
+%\fcCurveIIId{-1.2}{1.2}{[-0.333333 t 2 t t mul mul 0.333333 dup mul add]}
+\fcCurveIIId{-1.2}{1.2}{[-0.5 t 2 t t mul mul 0.5 dup mul add]}
+\fcCurveIIId{-1.2}{1.2}{[-1.0 t 2 t t mul mul 1.000000 dup mul add]}
 }
 \uncover<12>{
-\fcCurveIIId[linecolor=blue]{-1.5}{1.5}{t 0 t t mul}
+\fcCurveIIId[linecolor=blue]{-1.5}{1.5}{[t 0 t t mul]}
 \fcDotIIId{[-0.5 0  -0.5 dup mul]}
 \fcDotIIId{[0.5 0  0.5 dup mul]}
 \fcDotIIId{[-1.000000 0  -1.000000 dup mul]}
@@ -84,34 +84,34 @@ $
 
 \uncover<2->{
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-1.6, -0.9)(1.6,4.38) 
-\tiny 
+\begin{pspicture}(-1.6, -0.9)(1.6,4.38)
+\tiny
 \psframe*[linecolor=cyan!30](! -1.45 -0.75)(! 1.45 4.13)%
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1.35,-0.65)(1.35,4.03)
 \fcLabels[$y$][$z$]{1.35}{4.03}
 
 \uncover<6>{
-%Function formula: 2 x^{2} 
+%Function formula: 2 x^{2}
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.2}{1.2}{x 2 exp 2 mul }
 \fcFullDot{0}{0}
 }
 
 \uncover<7>{
-%Function formula: 2 x^{2}+\frac{1}{9} 
+%Function formula: 2 x^{2}+\frac{1}{9}
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.2}{1.2}{ 0.111111 x 2 exp 2 mul add }
 \fcFullDot{0}{0.111111}
 }
 \uncover<8>{
-%Function formula: 2 x^{2}+\frac{4}{9} 
+%Function formula: 2 x^{2}+\frac{4}{9}
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.2}{1.2}{ 0.444444 x 2 exp 2 mul add }
 \fcFullDot{0}{0.444444}
 }
 \uncover<3-5, 9->{ %
-%Function formula: 2 x^{2}+1 
+%Function formula: 2 x^{2}+1
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.2}{1.2}{ 1 x 2 exp 2 mul add } %
 } %
 \uncover<5, 9->{\fcFullDot{0}{1}} %
-\end{pspicture} 
+\end{pspicture}
 
 The plane $x=a$.
 
@@ -127,9 +127,9 @@ The plane $x=a$.
 $
 \displaystyle \{(a, y, z)\quad \text{where } z=a^2+2y^2\}
 $
-\item<5-> These are parabolas lying inside the plane $x=a$ with vertices at $\left(a,0,a^2\right)$. 
+\item<5-> These are parabolas lying inside the plane $x=a$ with vertices at $\left(a,0,a^2\right)$.
 
-\item<6-> As $a$ moves away from $0$, the parabola vertex rises. 
+\item<6-> As $a$ moves away from $0$, the parabola vertex rises.
 \item<12-> The vertices traverse the curve given by $\{ (a, 0, a^2) \}$.
 \end{itemize}
 \end{columns}
@@ -161,7 +161,7 @@ $
 \fcDotIIId[linecolor=black]{[0 1 0]}%
 \fcPutIIId[t]{[0 1 -0.3]}{$~~a$}%
 } %
-\uncover<3,7->{\fcCurveIIId{-1}{1}{ t 1 2 t t mul mul 1 dup mul 2 mul add}} %
+\uncover<3,7->{\fcCurveIIId{-1}{1}{[t 1 2 t t mul mul 1 dup mul 2 mul add]}} %
 
 %parabola at y=0
 \uncover<4>{\fcParallelogramIIId{[-1  0 -0.5]}{[1 0 -0.5]}{[-1 0 4]}}%
@@ -169,7 +169,7 @@ $
 \fcDotIIId[linecolor=black]{[0 0 0]}%
 \fcPutIIId[t]{[0 0 -0.3]}{$~~a$}%
 } %
-\uncover<4,8->{\fcCurveIIId{-1}{1}{t 0 2 t t mul mul 0 dup mul 2 mul add}} %
+\uncover<4,8->{\fcCurveIIId{-1}{1}{[t 0 2 t t mul mul 0 dup mul 2 mul add]}} %
 
 %parabola at y=1/3
 \uncover<5>{\fcParallelogramIIId{[-1  0.333333 -0.5]}{[1 0.333333 -0.5]}{[-1 0.333333 4]}}%
@@ -177,7 +177,7 @@ $
 \fcDotIIId[linecolor=black]{[0 0.333333 0]}%
 \fcPutIIId[t]{[0 0.333333 -0.3]}{$~~a$}%
 } %
-\uncover<5>{\fcCurveIIId{-1}{1}{t 0.333333 2 t t mul mul 0.333333 dup mul 2 mul add}} %
+\uncover<5>{\fcCurveIIId{-1}{1}{[t 0.333333 2 t t mul mul 0.333333 dup mul 2 mul add]}} %
 
 %parabola at y=2/3
 \uncover<6>{\fcParallelogramIIId{[-1  0.666666 -0.5]}{[1 0.666666 -0.5]}{[-1 0.666666 4]}}%
@@ -185,16 +185,16 @@ $
 \fcDotIIId[linecolor=black]{[0 0.666666 0]}%
 \fcPutIIId[t]{[0 0.666666 -0.3]}{$~~a$}%
 } %
-\uncover<6,8->{\fcCurveIIId{-1}{1}{t 0.666666 2 t t mul mul 0.666666 dup mul 2 mul add}} %
+\uncover<6,8->{\fcCurveIIId{-1}{1}{[t 0.666666 2 t t mul mul 0.666666 dup mul 2 mul add]}} %
 
 \fcAxesIIId{3}{3}{3}%
 \uncover<9->{%
 \fcLineIIId[arrows=->]{[0 0 0]}{[0 -3 0]} %
-\fcCurveIIId{-1}{1}{t -0.666666 2 t t mul mul 0.666666 dup mul 2 mul add} %
-\fcCurveIIId{-1}{1}{t -1 2 t t mul mul 1 dup mul 2 mul add}%
+\fcCurveIIId{-1}{1}{[t -0.666666 2 t t mul mul 0.666666 dup mul 2 mul add]} %
+\fcCurveIIId{-1}{1}{[t -1 2 t t mul mul 1 dup mul 2 mul add]}%
 }%
 \uncover<10->{%
-\fcCurveIIId[linecolor=blue]{-1.2}{1.2}{0 t 2 t t mul mul}%
+\fcCurveIIId[linecolor=blue]{-1.2}{1.2}{[0 t 2 t t mul mul]}%
 \fcDotIIId{[0 0 0]}%
 \fcDotIIId{[0 -0.5 0.5]}%
 \fcDotIIId{[0 0.5 0.5]}%
@@ -205,28 +205,28 @@ $
 
 \uncover<1->{
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-1.6, -0.9)(1.6,4.38) 
-\tiny 
+\begin{pspicture}(-1.6, -0.9)(1.6,4.38)
+\tiny
 \psframe*[linecolor=cyan!30](! -1.45 -0.75)(! 1.45 4.13)%
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1.35,-0.65)(1.35,4.03)
 \fcLabels[$x$][$z$]{1.35}{4.03}
 \uncover<4>{
-%Function formula: 2 x^{2} 
+%Function formula: 2 x^{2}
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{x 2 exp 2 mul }
 }%
 \uncover<5>{%
-%Function formula: 2 x^{2}+\frac{2}{9} 
+%Function formula: 2 x^{2}+\frac{2}{9}
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{ 2 9 div x 2 exp 2 mul add }%
 }%
 \uncover<6>{%
-%Function formula: 2 x^{2}+2*\frac{4}{9} 
+%Function formula: 2 x^{2}+2*\frac{4}{9}
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{ 8 9 div x 2 exp 2 mul add }%
 }%
 \uncover<3, 7->{%
-%Function formula: 2 x^{2}+1 
+%Function formula: 2 x^{2}+1
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{1}{ 2 x 2 exp 2 mul add }%
 }%
-\end{pspicture} 
+\end{pspicture}
 
 The plane $x=a$.
 %\vskip 3cm %for alignment
@@ -238,7 +238,7 @@ The plane $x=a$.
 
 \item<2-> In other words, treat $y$ as constant and study the f-n $z=g(x,a) = x^2+2a^2$.
 
-\item<3-> The cross-sections are the curves  $\{ (x,a,z) \text{  where  } z= x^2+2a^2\}$. These are parabolas lying inside the plane $y=a$. 
+\item<3-> The cross-sections are the curves  $\{ (x,a,z) \text{  where  } z= x^2+2a^2\}$. These are parabolas lying inside the plane $y=a$.
 \item<8-> $\Rightarrow$ the vertical sections along both the $x$ and $y$ axes are parabolas.
 \item<10-> The vertices are rising as we move away from the origin.
 \end{itemize}
@@ -300,39 +300,39 @@ $
 \fcLineIIId[arrows=->]{[0 0 0]}{[0 0 -1.5]} %
 
 \uncover<4>{\fcDotIIId{[0 0 0]}}
-\uncover<5,9->{ % 
-\fcCurveIIId{ 0}{6.2832}{t 360 mul cos 0.500 sqrt mul t 360 mul sin 0.500 2 div sqrt mul 0.5} 
+\uncover<5,9->{ %
+\fcCurveIIId{ 0}{6.2832}{[t 360 mul cos 0.500 sqrt mul t 360 mul sin 0.500 2 div sqrt mul 0.5]}
 }
 \uncover<5>{\fcDotIIId[linecolor=black]{[0 0 0.5]}}
-\uncover<6,9->{ % 
-\fcCurveIIId{ 0}{6.2832}{t 360 mul cos 1 sqrt mul t 360 mul sin 1 2 div sqrt mul 1} 
+\uncover<6,9->{ %
+\fcCurveIIId{ 0}{6.2832}{[t 360 mul cos 1 sqrt mul t 360 mul sin 1 2 div sqrt mul 1]}
 }
 \uncover<6>{\fcDotIIId[linecolor=black]{[0 0 1]}}
-\uncover<7,9->{ % 
-\fcCurveIIId{ 0}{6.2832}{t 360 mul cos 1.5 sqrt mul t 360 mul sin 1.5 2 div sqrt mul 1.5} 
+\uncover<7,9->{ %
+\fcCurveIIId{ 0}{6.2832}{[t 360 mul cos 1.5 sqrt mul t 360 mul sin 1.5 2 div sqrt mul 1.5]}
 }
 \uncover<7>{\fcDotIIId[linecolor=black]{[0 0 1.5]}}
-\uncover<8,9->{ % 
-\fcCurveIIId{ 0}{6.2832}{t 360 mul cos 2.0 sqrt mul t 360 mul sin 2.0 2 div sqrt mul 2.0} 
+\uncover<8,9->{ %
+\fcCurveIIId{ 0}{6.2832}{[t 360 mul cos 2.0 sqrt mul t 360 mul sin 2.0 2 div sqrt mul 2.0]}
 }
 \uncover<8>{\fcDotIIId[linecolor=black]{[0 0 2.0]}}
 
 \uncover<10->{
-\fcCurveIIId[linewidth=1pt, linecolor=blue]{-1.414214 }{1.414214}{t 0 t t mul}
-\fcCurveIIId[linewidth=1pt, linecolor=blue]{-1}{1}{0 t t t 2 mul mul}
+\fcCurveIIId[linewidth=1pt, linecolor=blue]{-1.414214 }{1.414214}{[t 0 t t mul]}
+\fcCurveIIId[linewidth=1pt, linecolor=blue]{-1}{1}{[0 t t t 2 mul mul]}
 }
 \uncover<11->{
-\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{t 360 mul cos 0.500 sqrt mul t 360 mul sin 0.500 2 div sqrt mul 0.5} 
-\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{t 360 mul cos 1 sqrt mul t 360 mul sin 1 2 div sqrt mul 1} 
-\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{t 360 mul cos 1.5 sqrt mul t 360 mul sin 1.5 2 div sqrt mul 1.5} 
-\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{t 360 mul cos 2.0 sqrt mul t 360 mul sin 2.0 2 div sqrt mul 2.0} 
+\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{[t 360 mul cos 0.500 sqrt mul t 360 mul sin 0.500 2 div sqrt mul 0.5]}
+\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{[t 360 mul cos 1 sqrt mul t 360 mul sin 1 2 div sqrt mul 1]}
+\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{[t 360 mul cos 1.5 sqrt mul t 360 mul sin 1.5 2 div sqrt mul 1.5]}
+\fcCurveIIId[linewidth=2pt, linecolor=\fcColorGraph]{ 0}{6.2832}{[t 360 mul cos 2.0 sqrt mul t 360 mul sin 2.0 2 div sqrt mul 2.0]}
 }
 \end{pspicture}
 
 \uncover<2->{
 \psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-3.228413, -1.814212)(3.228427,1.914212) 
-\tiny 
+\begin{pspicture}(-3.228413, -1.814212)(3.228427,1.914212)
+\tiny
 \psframe*[linecolor=cyan!30](! -3.078413 -1.664212)(! 3.078427 1.664212)%
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-2.978413,-1.564212) (2.978427,1.564212)
 \fcLabels[$x$][$y$]{2.978427}{1.564212}
@@ -355,7 +355,7 @@ $
 %Calculator input: plotCurve{}\left(\sqrt{2} \cos{}t, \sin{}t, 0, 2 \pi\right)
 \parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{6.28319}{t 57.29578 mul cos 1.414214 mul t 57.29578 mul sin }
 }
-\end{pspicture} 
+\end{pspicture}
 
 $x^2+2y^2= \only<1-3>{a} \only<4>{\alert<4>{0}}$, \only<1-3>{\alert<5>{$a<0$}}\only<5->{\alert<5>{$a>0$}}.
 }
@@ -366,7 +366,7 @@ $x^2+2y^2= \only<1-3>{a} \only<4>{\alert<4>{0}}$, \only<1-3>{\alert<5>{$a<0$}}\o
 \item<2-> When we intersect with $z=a$ we get the curve with equations $x^2+2y^2=a$, $z=a$.
 \item<3-> For $a<0$ intersection is empty.
 \item<4-> For $a=0$ intersection is $(0,0,0)$.
-\item<5-> For $a>0$ intersection is an ellipse. 
+\item<5-> For $a>0$ intersection is an ellipse.
 \item<10-> Figure is called ellipsoidal paraboloid.
 \end{itemize}
 \uncover<11->{
@@ -381,9 +381,9 @@ The sets $\{ (x,y,a)| g(x,y)=a\}$ are called \alert<11>{level curves} of the fun
 \begin{frame}
 
 \begin{itemize}
-\item 
-You should be familiarized with level curves if you have ever seen a topographic map or from weather reports on the tv. 
+\item
+You should be familiarized with level curves if you have ever seen a topographic map or from weather reports on the tv.
 \item What are the functions in those cases?
-\end{itemize} 
+\end{itemize}
 \end{frame}
 %\end{comment}
