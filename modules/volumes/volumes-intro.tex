@@ -1,5 +1,4 @@
 % begin module volumes-intro
-\begin{comment}
 \begin{frame}
 \frametitle{Volumes}
 \begin{center}
@@ -9,20 +8,20 @@
 \fcPolyLineIIId{[-2 -2 0] [-2 2 0] [2 2 0] [2 -2 0] [-2 -2 0]}%
 }%
 \pscustom*[linecolor=white]{%
-\fcCurveIIId{0}{360}{2 t cos mul 2 t sin mul 0}%
+\fcCurveIIId{0}{360}{[2 t cos mul 2 t sin mul 0]}%
 }%
 %\fcAxesIIId{2}{2}{2}
 \fcBoxIIId[linecolor=gray]{[2 2 2]}{[2 2 0]}{[2 -2 2]}{[-2 2 2]}%
 \fcPlotIIIdXconst[linewidth=0.3pt, linecolor=\fcColorGraph]{iterationsX=15, iterationsY=15}{-2}{4 x x mul sub sqrt -1 mul}{2}{4 x x mul sub sqrt}{1 dict begin /rho x x mul y y mul  add sqrt def rho rho mul 2 rho  sub mul  0 max end}%
 \fcPlotIIIdYconst[linewidth=0.3pt, linecolor=\fcColorGraph]{iterationsX=10, iterationsY=10}{4 y y mul sub sqrt -1 mul}{-2}{4 y y mul sub sqrt}{2}{1 dict begin /rho x x mul y y mul  add sqrt def rho rho mul 2 rho  sub mul  0 max end}%
-\fcCurveIIId[linecolor=\fcColorGraph]{0}{360}{2 t cos mul 2 t sin mul 0}%
+\fcCurveIIId[linecolor=\fcColorGraph]{0}{360}{[2 t cos mul 2 t sin mul 0]}%
 \end{pspicture}
 %
 
 Volumes of solids are found/defined via integration.%
 \end{center}
 \end{frame}
-\end{comment}
+
 \begin{frame}
 \begin{columns}[c]
 \column{.35\textwidth}
