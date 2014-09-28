@@ -16,6 +16,8 @@
 \newcommand{\stripPoints}[1]{\expandafter\rem@pt\the#1}
 \makeatother
 
+\newcommand{\fcShiftX}{0}
+\newcommand{\fcShiftY}{0}
 \newcommand{\fcXLabel}{$x$}
 \newcommand{\fcYLabel}{$y$}
 \newcommand{\fcZLabel}{$z$}
@@ -26,7 +28,7 @@
 \newcommand{\fcIterationsY}{9\space}
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcLineColor}{black}
-\newcommand{\fcLineWidth}{72\space}
+\newcommand{\fcLineWidth}{100\space}
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
@@ -40,12 +42,15 @@ ifelse\space %
 \newcommand{\fcScreen}{[-1 1 -0.5] -1} %default projection plane. Renew this command to change projection plane.
 \newcommand{\fcScreenWithSpace}{\fcScreen\space } %Darned LaTeX...
 
+\newcommand{\fcSet}[1]{\setkeys{fcGraphics}{#1}}
 
 \makeatletter %needed for define@key command.
 \define@key{pstricks,pst-plot}{xLabel}[]{}
 \define@key{pstricks,pst-plot}{yLabel}[]{}
 \define@key{pstricks,pst-plot}{zLabel}[]{}
 \define@key{fcGraphics}{Delta}[\renewcommand{\fcDelta}{1}]{\renewcommand{\fcDelta}{#1}}
+\define@key{fcGraphics}{shiftX}[\renewcommand{\fcShiftX}{0}]{\renewcommand{\fcShiftX}{#1}}
+\define@key{fcGraphics}{shiftY}[\renewcommand{\fcShiftY}{0}]{\renewcommand{\fcShiftY}{#1}}
 \define@key{fcGraphics}{startX}[\renewcommand{\fcStartXIId}{0}]{\renewcommand{\fcStartXIId}{#1}}
 \define@key{fcGraphics}{startY}[\renewcommand{\fcStartYIId}{0}]{\renewcommand{\fcStartYIId}{#1}}
 \define@key{fcGraphics}{iterationsX}[\renewcommand{\fcIterationsX}{9\space}]{\renewcommand{\fcIterationsX}{#1\space}}
@@ -368,6 +373,10 @@ theV {theScalar mul} \fcSpliceArrayOperation %
 end %
 } %
 
+\newcommand{\fcVectorTripleProduct}{%
+\fcVectorCrossVector \fcVectorScalarVector\space %
+}
+
 \newcommand{\fcVectorCrossVector}{ %
 8 dict begin %
 /vectB exch def %
@@ -488,11 +497,18 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 \listplot[#1]{ [#2] {\fcCoordsIIIdToPStricks} \fcSpliceArrayOperation \fcArrayToStack}%
 }
 
-\newcommand{\fcConvertPSXUnit}{\stripPoints{\psxunit} 72.27 div 8000 mul mul\space}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
-\newcommand{\fcConvertPSYUnit}{\stripPoints{\psyunit} 72.27 div -8000 mul mul\space}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
-
+\makeatletter % to the idiots who think this bullshit makeatletter command adds any protection to your code: you are idiots who have no clue of good computer design.
+\newcommand{\fcConvertPSXUnit}{\fcShiftX\space sub \stripPoints{\psxunit} 72.27 div 8000 mul mul\space %
+\pst@number\pst@dima\space 3 sub 72.27 div 8000 mul sub  %
+}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
+\newcommand{\fcConvertPSYUnit}{\fcShiftY\space sub \stripPoints{\psyunit} 72.27 div -8000 mul mul\space %
+\pst@number\pst@dimb\space 72.27 div -8000 mul sub %
+}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
+\makeatother
 
 \newcommand{\fcCoordsPStricksToPS}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space }
+
+%\newcommand{\fcCoordsPStricksToPS}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space }
 
 \newcommand{\fcLine}[3][]{%
 \pstVerb{%
@@ -557,7 +573,7 @@ end\space%
 } %
 
 \newcommand{\fcPaintObject}{%
-(painting object) == \fcArrayToStack dup (ellipsoid) eq { \fcPaintEllipsoid } if %
+(painting object) == \fcArrayToStack dup == dup (ellipsoid) eq { \fcPaintEllipsoid} if %
 }%
 
 \newcommand{\fcStartIIIdScene}{%
@@ -578,7 +594,7 @@ pop %removing the mark
 }%
 
 \newcommand{\fcSurfaceIIIdUConstCode}{%
-10 dict begin%
+10 dict begin %
 /theSurface exch def %
 /vMax exch def %
 /uMax exch def %
@@ -593,6 +609,7 @@ end %
 
 \newcommand{\fcSurfaceIIIdVConstCode}{%
 10 dict begin%
+(here be i on the v side) ==
 /theSurface exch def %
 /vMax exch def %
 /uMax exch def %
@@ -614,14 +631,14 @@ pop %
 %(painting ellipsoid: ) == %
 %dup == %
 \fcArrayToStack %
-10 dict begin %
+15 dict begin %
 /c exch def %
 /b exch def %
 /a exch def %
 /z1 exch def %
 /y1 exch def %
 /x1 exch def %
-/theBlockingScreen {\fcScreenWithSpace pop dup [x1 y1 z1] \fcVectorScalarVector} def %
+/theSurfaceNormal {[v cos u cos a mul mul v sin u cos b mul mul u sin -1 mul c mul] [v sin -1 mul u sin a mul mul v cos u sin b mul mul 0] \fcVectorCrossVector} def %
 0 0 180 360 {[v cos u sin a mul mul x1 add v sin u sin b mul mul y1 add u cos c mul z1 add]} \fcSurfaceIIIdCode %
 end %
 }
@@ -649,33 +666,18 @@ end %
 }%
 }
 
-\newcommand{\fcCurveIIIdCode}{%
-15 dict begin%
-%(here be i) ==
-/theCurve exch def%
-/tMax exch def%
-/tMin exch def%
-/numPoints \fcPlotPoints\space def%
-/Delta tMax tMin sub numPoints 1 sub div def %
-/t tMin def %
+\newcommand{\fcCurveIIIdBlockingScreenCode}{%
+10 dict begin %
 /currentStyle (empty) def %
-\fcLineFormatCode %
-/theBlockingScreen where %
-{%theBlockingScreen is defined
-pop %remove dictionary from stack
 theBlockingScreen %
 /theBlockingScreenDepth exch def %
 /theBlockingScreenNormal exch def %
-(blocking screen depth) == theBlockingScreenDepth ==
-(blocking screen normal) == theBlockingScreenNormal ==
 /getStyle { %
 firstPoint  theBlockingScreenNormal \fcVectorScalarVector theBlockingScreenDepth lt %
 secondPoint theBlockingScreenNormal \fcVectorScalarVector theBlockingScreenDepth lt %
 or {(normal)}{(dashed)} ifelse %
 } def %
-/setDashes {currentStyle (dashed) eq {[ 0 %
-%\fcDashLength
-\space \fcDashLength] 0 setdash}{[] 0 setdash} ifelse} def %
+/setDashes {currentStyle (dashed) eq {[\fcDashLength \space \fcDashLength] 0 setdash}{[] 0 setdash} ifelse} def %
 /firstPoint theCurve def %
 /t t Delta add def %
 /secondPoint theCurve def %
@@ -697,13 +699,85 @@ remainingCycles {%
   }if %
 } repeat %
 stroke %
+end %
 }
-{%theBlockingScreen is not defined
-%(blocking screen not defined!) ==
+
+\newcommand{\fcCurveIIIdStandardCode}{%
 newpath %
 theCurve \fcCoordsIIIdToPS moveto %
 numPoints 1 sub {/t t Delta add def theCurve \fcCoordsIIIdToPS lineto } repeat %
 stroke %
+}%
+
+\newcommand{\fcCurveIIIdNormalVectorCode}{%
+10 dict begin %
+/firstPoint theCurve def %
+/firstNormal theSurfaceNormal def %
+/t t Delta add def %
+/secondPoint theCurve def %
+/secondNormal theSurfaceNormal def %
+/currentStyle (normal) def %
+/previousStyle (normal) def %
+/screenNormal \fcScreenWithSpace pop def %
+/computeStyle { %
+firstNormal  screenNormal \fcVectorScalarVector 0 le  %
+secondNormal screenNormal \fcVectorScalarVector 0 le  %
+or 
+{/currentStyle (normal) def} %
+{/currentStyle (dashed) def} %
+ifelse %
+} def %
+/applyStyle {currentStyle (dashed) eq {%setting style for lines that are not visible under orthographic projection (usually drawing them with a dashed line)
+[\fcDashLength\space \fcDashLength] 0 setdash %
+}{%
+[] 0 setdash
+} ifelse} def %
+newpath %
+firstPoint \fcCoordsIIIdToPS moveto %
+/remainingCycles numPoints 1 sub def %
+remainingCycles {% 
+  /remainingCycles remainingCycles 1 sub def %
+  secondPoint \fcCoordsIIIdToPS  lineto %
+  /firstPoint secondPoint def %
+  /firstNormal secondNormal def %
+  remainingCycles 0 gt { %
+    /t t Delta add def %
+    /secondPoint theCurve def %
+    /secondNormal theSurfaceNormal def %
+	/previousStyle currentStyle def %
+	computeStyle %
+	previousStyle currentStyle ne
+    {stroke applyStyle newpath firstPoint \fcCoordsIIIdToPS moveto %
+    }if %
+  }if %
+} repeat %
+stroke %
+end
+}
+
+\newcommand{\fcCurveIIIdCode}{%
+15 dict begin%
+/theCurve exch def%
+/tMax exch def%
+/tMin exch def%
+/numPoints \fcPlotPoints\space def%
+/Delta tMax tMin sub numPoints 1 sub div def %
+/t tMin def %
+\fcLineFormatCode %
+/theSurfaceNormal where %
+{ %surfaceNormal is defined 
+pop % remove dictionary from the stack
+\fcCurveIIIdNormalVectorCode %
+} %
+{ %
+/theBlockingScreen where %
+{%theBlockingScreen is defined
+pop %remove dictionary from stack
+\fcCurveIIIdBlockingScreenCode %
+} %
+{ %
+\fcCurveIIIdStandardCode %
+}ifelse %
 }ifelse %
 end %
 }
