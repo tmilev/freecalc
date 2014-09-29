@@ -1,37 +1,28 @@
-
-So far we have focused our attention on functions with
-a scalar output. However, we have already seen examples of
-functions with vectorial output, and one such example is
-involved in the vectorial parametric equation of a plane.
-
-If $\mathcal{P}$ is the plane through
-$P_0(\textbf{r}_0)$ and parallel to directions
-$\textbf{u}$ and $\textbf{v}$, then the points
-of $\mathcal{P}$ have position vectors $\textbf{r}$
-satisfying
-%
-$$\textbf{r} = \textbf{r}_0 + s \textbf{u} +
-t \textbf{v}\; ,$$
-%
-so the function $\bm{f} \colon \RR^2 \to \RR^3$,
-$\bm{f}(s,t) = \textbf{r}_0 +
-s \textbf{u} + t \textbf{v}$ globally identifies
+\begin{frame}
+\begin{itemize}
+\item So far: focused on functions with scalar output. 
+\item<2-> We've seen examples of functions with vectorial output.
+\item<3-> Example: vectorial parametric equation of a plane through $P_0(\textbf{r}_0)$, parallel to directions $\fcv{u}$ and $\fcv{v}$ is given by 
+\[\textbf{r} = \textbf{r}_0 + s \textbf{u} +
+t \textbf{v}\; ,
+\]
+\item<4-> The function $\fcv{f} \colon \RR^2 \to \RR^3$, $\fcv{f}(s,t) = \fcv{r}_0 + s \fcv{u} + t \fcv{v}$ globally identifies
 $\RR^2$ with the plane $\mathcal{P}$.
-Each point $P$ of $\mathcal{P}$ corresponds
-uniquely to a pair of coordinates $(s,t)$.
+\item<5-> Each point of $\mathcal{P}$ corresponds uniquely to pair $(s,t)$.
+\end{itemize}
+\end{frame}
 
-Another important example of a function with a
-two dimensional input and a three dimensional output is
-the following.
+\begin{frame}
+\frametitle{Example: parametrization of part of sphere}
+\begin{itemize}
+\item Consider $f \colon (0,2\pi) \times (0,\pi) \to \RR^3$ given by
+\[f(t,s) = (R\sin{s}\cos{t}, R\sin{s}\sin{t},
+R\cos{s}) \; .\]
 
-\begin{example}{\rm Let $f \colon (0,2\pi)
-\times (0,\pi) \to \RR^3$ be given by
-%
-$$f(t,s) = (R\sin{s}\cos{t}, R\sin{s}\sin{t},
-R\cos{s}) \; .$$
-%
-Then the image of $f$ is a subset of the
+\item<2-> The image of $f$ is a subset of the
 sphere of radius $R$ centered at the origin.
-Which points of the sphere are not covered
+
+\item<3-> Which points of the sphere are not covered
 by the image of $f$?
-}\end{example}
+\end{itemize}
+\end{frame}
