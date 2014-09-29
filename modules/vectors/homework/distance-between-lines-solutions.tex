@@ -1,0 +1,38 @@
+\solution{\ref{problemDistanceLineLine(1,2,3)(6,5,4)to(1,3,5)(2,4,6)}
+We need to first establish whether the two lines are parallel. Let $\fcv u$ be the direction vector of the first line given by 
+\[\fcv u=\fcv Q_0 \fcv Q_1= \langle 6,5,4\rangle-\langle 1,2,3\rangle = \langle5,3,1\rangle
+\] 
+and let $\fcv v$ be the direction vector of the second line given by 
+\[
+\fcv v=\fcv P_0 \fcv P_1= \langle2,4,6 \rangle-\langle1,3,5\rangle=\langle 1, 1, 1\rangle.
+\] 
+Now it is straightforward to see that the two lines are not parallel - indeed, one immediately sees that $\fcv u= \langle5,3,1\rangle$ is not a scalar multiple of $\fcv v=\langle1,1,1\rangle$. Since the two lines are not parallel, the two direction vectors determine a plane through the origin whose normal vector is given by 
+\[
+\fcv n= \fcv u\times \fcv v=  \langle5,3,1\rangle\times \langle 1, 1, 1\rangle= \left| \begin{array}{ccc} \fcv i & \fcv j &\fcv k\\ 5&3&1 \\1 &1 &1\end{array}\right|= 2\fcv i -4\fcv j+ 2\fcv k= \langle2, -4, 2\rangle\quad .
+\] 
+We note that if the vectors $\fcv u, \fcv v$ were parallel, then the cross product above would had been zero. Now the distance between the two lines is obtained by taking an arbitrary vector with tail on one line and head on the other, and computing the length of its projection it onto $\fcv n $. We use the vector $\fcv r= \fcv Q_0\fcv P_0$. Then the distance $d$ between the two lines is given by:
+\[
+d=\frac{|\fcv r \cdot \fcv n| }{|\fcv n|}= \frac{|\left(\langle 1,3,5\rangle - |\langle 1,2,3\rangle\right) \cdot \fcv  n|}{|\fcv n|}=\frac{ |\langle 0, 1, 2 \rangle\cdot\langle 2, -4,2 \rangle|}{|\fcv n|}=0.
+\]
+Therefore the distance between the two lines is zero. This completes our solution.
+
+We note that since the distance between the lines is zero, they must intersect. As a consistency check for our work, let us verify that the two lines do indeed intersect. The first line is parametrized by $\langle 1,2,3\rangle+t\langle 5,3,1\rangle $ i.e., has parametric equations 
+
+\[
+\left|\begin{array}{rcl}x&=& 1 +5t \\y&=&2+3t\\z&=&3+t \end{array}\right.\quad .
+\]
+Similarly, the second line is given by the equations 
+\[
+\left|\begin{array}{rcl}x&=& 1 +s \\y&=&3+s\\z&=&5+s \end{array}\right.\quad .
+\]
+Therefore to find an intersection of the two lines, we need to solve the system 
+\[
+\left|\begin{array}{rcl} 1 +5t&=&1+s \\2+3t&=&3+s\\3+t&=&5+s \end{array}\right.\quad. 
+\]
+From the first equality we get that $s=5t$. We substitute that into the second equality to get that $t=-\frac{1}{2}$. Therefore the intersection of the two lines is the point 
+
+\[ 
+(1,2,3)-\frac{1}{2}(5,3,1)= \left(-\frac{3}{2}, \frac{1}{2}, \frac{5}2\right)= (1,3,5)-\frac{5}{2}(1,1,1)\quad ;
+\]
+all our error checks have been successful.
+}
