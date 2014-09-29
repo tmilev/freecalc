@@ -290,60 +290,9 @@
 \input{../../modules/parametric-curves/parametric-equation-line-segment}
 \input{../../modules/parametric-curves/parametric-equation-line-segment-example}
 \input{../../modules/parametric-curves/parametrized-curves-def}
+\input{../../modules/parametric-curves/lines-as-parametric-curves-example}
+\input{../../modules/parametric-curves/parametric-curve-example-tornado}
 
-\begin{frame}
-\frametitle{Example}
-\begin{itemize}
-\item $\textbf{r} \colon \RR \to \RR^3$,
-$$\textbf{r}(t) = \textbf{r}_0 +t\textbf{u}$$
-\item<2-> Line through $P(1,4,3)$  direction $\textbf{u}=\langle -1,2,0\rangle$:
-\[
-\begin{array}{rcl}
-\fcv{r}(t) &\alert<0>{=}& \langle 1-t,4+2t,3\rangle\\
-\uncover<4->{\alert<4,5>{\fcv p(s)}&\alert<4,5>{=}&} \uncover<5->{\alert<5>{\langle s, 6-s, 3 \rangle }}
-\end{array}
-\]
-\item<3-> Curve parametrization is not unique!
-\item<4-> For example $t=1-s=\varphi(s)$ is a reparametrization.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\begin{example}
-    Describe the curve:
-    \begin{align*}
-      x(t) & = 3t\cos{(2t)}\\
-      y(t) & = 3t\sin{(2t)}\\
-      z(t) & = t^2
-    \end{align*}
-
-\begin{columns}
-
-\column{0.4\textwidth}
-\psset{xunit=0.1cm, yunit=0.1cm}
-\begin{pspicture}(-9, -9)(9,9)
-\tiny
-\renewcommand{\fcScreen}{[-1 1 -1.4] 0}
-\fcBoundingBox{-17}{-15}{22}{30}
-\fcAxesIIId{30}{30}{30}
-\uncover<3->{%
-\fcCurveIIId[plotpoints =500, linecolor=red]{0}{360}{[t 57.295779513 div 3 mul 2 t mul cos mul t 57.295779513 div 3 mul t 2 mul sin mul t 57.295779513 div dup mul ] }
-}%
-\end{pspicture}
-
-\column{0.6\textwidth}
-\begin{itemize}
-\item<2-> Cylindrical coordinates:
-    \begin{align*}
-      r(t) & = 3t\\
-      \theta(t) & = 2t \\
-      z(t) & = t^2
-    \end{align*}
-\item<3-> Tornado!
-\end{itemize}
-\end{columns}
-\end{example}    
-\end{frame}
 
 \begin{frame}
     \frametitle{Limits}
