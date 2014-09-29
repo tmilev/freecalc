@@ -1,0 +1,31 @@
+\begin{frame}
+\begin{question}
+Can a given level surface be represented as a graph surface?
+\end{question}
+\begin{itemize}
+\item<2-> \alert<1->{Globally}, level surfaces are \alert<1->{cannot} be represented as graph surfaces.
+
+\item<3-> Example: $x^2+y^2+z^2= 1$: can't solve for $z$ globally. \uncover<4->{Informally, $z=\pm\sqrt{1-x^2-y^2}$, however this is \alert<1->{not a function} if we can't decide on choice of $+$ or $-$. }
+\item<5-> \alert<1->{Locally, } with additional requirements, a level surface \alert<1->{can} be represented as graph surfaces. 
+
+\begin{itemize}
+\item<6-> Near $P(0,0,1)$, the surface is the graph surface of $z = \sqrt{1-x^2-y^2}$.
+\item<7-> Near $P(1, 0, 0)$, the surface is not a graph surface w.r.t. to $z$.
+\end{itemize} 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1-> Let $F(x,y,z)$- function, let $P(x_0,y_0,z_0)$ - point in the domain of $F$.
+\item<2-> Let $F(x_0,y_0,z_0)=k$.
+\item<3-> We say the level surface is a graph surface around $P$ if there is a function $z=f(x,y)$ such that:
+\begin{itemize}
+\item<4-> $f$ is defined on an open disk $D$ around $(x_0,y_0)$;
+\item<5-> $f(x_0,y_0) = z_0$;
+\item<6-> $F(x,y,f(x,y)) = 0$ for all $(x,y)$ in the disk $D$.
+\end{itemize}
+\item<7-> If the level surface is a graph surface, we say that the equation $F(x,y,z) = k$ \alert<1->{implicitly} defines $z=f(x,y)$ satisfying the condition $f(x_0,y_0) = z_0$.
+
+\end{itemize}
+\end{frame}

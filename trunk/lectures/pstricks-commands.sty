@@ -28,11 +28,11 @@
 \newcommand{\fcIterationsY}{9\space}
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcLineColor}{black}
-\newcommand{\fcLineWidth}{100\space}
+\newcommand{\fcLineWidth}{1\space}
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
-\newcommand{\fcDashLength}{300}
+\newcommand{\fcDashLength}{3}
 \newcommand{\fcDashesCode}{%
 (\fcLineStyle) (dashed) eq %
 {[\fcDashLength\space \fcDashLength] 0 setdash}%
@@ -497,25 +497,30 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 \listplot[#1]{ [#2] {\fcCoordsIIIdToPStricks} \fcSpliceArrayOperation \fcArrayToStack}%
 }
 
-\makeatletter % to the idiots who think this bullshit makeatletter command adds any protection to your code: you are idiots who have no clue of good computer design.
-\newcommand{\fcConvertPSXUnit}{\fcShiftX\space sub \stripPoints{\psxunit} 72.27 div 8000 mul mul\space %
-\pst@number\pst@dima\space 3 sub 72.27 div 8000 mul sub  %
+\makeatletter %makes the @ symbol usable temporarily
+
+\newcommand{\fcConvertPSXYUnit}{\fcShiftX\space sub \stripPoints{\psxunit} 72.27 div 8000 mul mul\space %
+\pst@number\pst@dima\space %3 sub 
+72.27 div 8000 mul sub  %
 }%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
 \newcommand{\fcConvertPSYUnit}{\fcShiftY\space sub \stripPoints{\psyunit} 72.27 div -8000 mul mul\space %
 \pst@number\pst@dimb\space 72.27 div -8000 mul sub %
 }%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
 \makeatother
 
-\newcommand{\fcCoordsPStricksToPS}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space }
-
 %\newcommand{\fcCoordsPStricksToPS}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space }
+\makeatletter
+\newcommand{\fcCoordsPStricksToPS}{\fcArrayToStack \tx@ScreenCoor\space }
+\makeatother
 
 \newcommand{\fcLine}[3][]{%
-\pstVerb{%
-\fcLineWidth\space setlinewidth newpath %
+\pscustom{%
+\code{%
+1 setlinewidth newpath %
 #2\space \fcCoordsPStricksToPS moveto %
 #3\space \fcCoordsPStricksToPS lineto %
 stroke %
+}%
 }%
 }
 
@@ -584,13 +589,15 @@ end\space%
 }
 
 \newcommand{\fcFinishIIIdScene}{%
-\pstVerb{%
+\pscustom{%
+\code{%
 (about to process IIId scene given by: ) print %
 theIIIdObjects == %
 mark theIIIdObjects \fcArrayToStack counttomark {\fcPaintObject } repeat %
-end %
 pop %removing the mark
 }%
+}%
+\pstVerb{end}
 }%
 
 \newcommand{\fcSurfaceIIIdUConstCode}{%
@@ -609,7 +616,6 @@ end %
 
 \newcommand{\fcSurfaceIIIdVConstCode}{%
 10 dict begin%
-(here be i on the v side) ==
 /theSurface exch def %
 /vMax exch def %
 /uMax exch def %
@@ -722,7 +728,7 @@ stroke %
 /computeStyle { %
 firstNormal  screenNormal \fcVectorScalarVector 0 le  %
 secondNormal screenNormal \fcVectorScalarVector 0 le  %
-or 
+or %
 {/currentStyle (normal) def} %
 {/currentStyle (dashed) def} %
 ifelse %
@@ -730,7 +736,7 @@ ifelse %
 /applyStyle {currentStyle (dashed) eq {%setting style for lines that are not visible under orthographic projection (usually drawing them with a dashed line)
 [\fcDashLength\space \fcDashLength] 0 setdash %
 }{%
-[] 0 setdash
+[] 0 setdash %
 } ifelse} def %
 newpath %
 firstPoint \fcCoordsIIIdToPS moveto %
@@ -746,13 +752,13 @@ remainingCycles {%
     /secondNormal theSurfaceNormal def %
 	/previousStyle currentStyle def %
 	computeStyle %
-	previousStyle currentStyle ne
+	previousStyle currentStyle ne %
     {stroke applyStyle newpath firstPoint \fcCoordsIIIdToPS moveto %
     }if %
   }if %
 } repeat %
 stroke %
-end
+end %
 }
 
 \newcommand{\fcCurveIIIdCode}{%
@@ -761,7 +767,7 @@ end
 /tMax exch def%
 /tMin exch def%
 /numPoints \fcPlotPoints\space def%
-/Delta tMax tMin sub numPoints 1 sub div def %
+/Delta tMax tMin sub numPoints 1 sub div def%
 /t tMin def %
 \fcLineFormatCode %
 /theSurfaceNormal where %
