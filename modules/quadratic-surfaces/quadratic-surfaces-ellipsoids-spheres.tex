@@ -9,19 +9,19 @@ $\mathcal C =\{(x,y,z) |Ax^2+By^2+Cz^2+D=0 \}$.
 \column{0.4\textwidth}
 \psset{xunit=0.5cm, yunit=0.5cm}
 \begin{pspicture}(-2,-2)(2, 2)
-\tiny
-\fcBoundingBox{-2}{-2}{2}{2}
-\fcAxesIIId{3}{3}{3}
-\uncover<9->{\fcDotIIId{[0 0 -2]}}
-\uncover<11->{\fcCurveIIId[linecolor=red]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul -1]}}
-\uncover<13->{\fcCurveIIId[linecolor=red]{0}{360}{[2 sqrt t cos mul 3 sqrt t sin mul 0]}}
-\uncover<15->{\fcCurveIIId[linecolor=red]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul 1]}}
-\uncover<17->{\fcDotIIId{[0 0 2]}}
-\fcStartIIIdScene
-\only<18->{
-\fcEllipsoid{0 0 0 2 sqrt 3 sqrt 2}
-}
-\fcFinishIIIdScene
+\tiny %
+\fcStartIIIdScene%
+\fcBoundingBox{-2}{-2}{2}{2}%
+\fcAxesIIId{3}{3}{3}%
+\uncover<9->{\fcDotIIId{[0 0 -2]}}%
+\uncover<11->{\fcCurveIIId[linecolor=red]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul -1]}}%
+\uncover<13->{\fcCurveIIId[linecolor=red]{0}{360}{[2 sqrt t cos mul 3 sqrt t sin mul 0]}}%
+\uncover<15->{\fcCurveIIId[linecolor=red]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul 1]}}%
+\uncover<17->{\fcDotIIId{[0 0 2]}}%
+\only<18->{%
+\fcEllipsoid{0 0 0 2 sqrt 3 sqrt 2}%
+}%
+\fcFinishIIIdScene%
 \end{pspicture}
 
 \psset{xunit=0.4cm, yunit=0.4cm}
