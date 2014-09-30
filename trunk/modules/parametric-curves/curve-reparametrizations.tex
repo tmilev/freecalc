@@ -1,0 +1,15 @@
+\begin{frame}
+  \frametitle{Curve Reparametrizations}
+
+  \begin{itemize}
+    \item $C$: piecewise smooth curve joining points $A$ and $B$;
+    \item $\fcv{r} \colon [a,b] \to C$: parametrization of $C$;
+    \item $\fcv{p} \colon [0,L] \to C$: arclength parametrization;
+    \item \underline{Question}: How do we get $\fcv{p}$ from $\fcv{r}$?
+    \item $Q = \fcv{r}(t) = \fcv{p}(s)$: point on curve $C$;
+    $$s = \text{distance from } A \text{ to } Q \text{ along } C = \int_{\tau=a}^{\tau=t} |\fcv{r}'(\tau)| \, d\tau = \varphi(t)$$
+    \item $\varphi$ invertible and $\varphi^{-1}$ smooth $\Longleftarrow \varphi'(t) \neq 0 \Longleftrightarrow \fcv{r}'(t)\neq \fcv{0}$.
+     \item Regular parametrization: $\fcv{r}'(t) \neq 0$ for all $t$
+    \item $t=\varphi^{-1}(s) \Longrightarrow \fcv{p}(s) = \fcv{r}(\varphi^{-1}(s))$.
+  \end{itemize}
+\end{frame}

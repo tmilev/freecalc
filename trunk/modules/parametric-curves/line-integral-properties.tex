@@ -1,0 +1,16 @@
+\begin{frame}
+  \frametitle{Line Integral Properties}
+  \begin{itemize}
+    \item\uncover<1->{ Component-wise: if $\fcv{r}(t) = \langle x(t), y(t), z(t) \rangle$, then
+    %
+    $$\int_{a}^{b} \fcv{r}(t) \; dt = \langle \int_{a}^{b} x(t) \; dt, \int_{a}^{b} y(t) \; dt,\int_{a}^{b} z(t) \; dt \rangle$$}
+    \item\uncover<2->{ Substitution Rule:
+    $$\int_{a}^b f'(t) \fcv{r}(f(t)) \; dt = \int_{f(a)}^{f(b)} \fcv{r}(\tau) \; d\tau$$}
+    \item\uncover<3->{ Fundamental Theorem of Calculus: If $\fcv{u}'(t)\equiv \fcv{r}(t)$, then
+    %
+    $$\int_{t=a}^{t=b} \fcv{r}(t) \; dt = \fcv{u}(b) - \fcv{u}(a)$$}
+    \item\uncover<4->{ Derivative $\Longrightarrow$ Total change
+    %
+    $$\fcv{r}(t) = \fcv{r}(t_0) + \int_{t_0}^t \fcv{r}'(\tau) \; d\tau$$}
+  \end{itemize}
+\end{frame}

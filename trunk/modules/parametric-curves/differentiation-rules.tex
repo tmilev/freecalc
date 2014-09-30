@@ -1,0 +1,25 @@
+\begin{frame}
+\frametitle{Differentiation Rules}
+Component-wise operation $\Longrightarrow$ same rules as for scalar output\\
+  \pause Product Rules:
+   \begin{align*}
+   [f(t) \fcv{r}(t)]' & = f'(t) \fcv{r}(t) + f(t) \fcv{r}'(t) \\
+   %
+   [\fcv{u}(t)\cdot \fcv{v}(t)]' & = \fcv{u}'(t)\cdot \fcv{v}(t) + \fcv{u}(t)
+\cdot \fcv{v}'(t) \\
+   %
+   [\fcv{u}(t)\times \fcv{v}(t)]' & = \fcv{u}'(t) \times \fcv{v}(t) +
+\fcv{u}(t)\times \fcv{v}'(t)
+ \end{align*}
+  \pause Chain Rule:
+  $$[\fcv{r}(f(t))]' = f'(t) \fcv{r}'(f(t))$$
+    \pause Example:
+    $$\frac{d |\fcv{r}(t)|}{dt} =
+    [\sqrt{\fcv{r}(t)\cdot \fcv{r}(t)}]' = [\sqrt{\Box}]' =
+    \frac{1}{2\sqrt{\Box}} \Box' =
+    \frac{1}{2\sqrt{\fcv{r}(t)\cdot \fcv{r}(t)}}
+    [\fcv{r}(t)\cdot \fcv{r}(t)]' = $$
+    $$= \frac{1}{2|\fcv{r}(t)|}
+    [\fcv{r}'(t)\cdot \fcv{r}(t) +
+    \fcv{r}(t)\cdot \fcv{r}'(t)] = \frac{\fcv{r}(t)\cdot \fcv{r}'(t)}{|\fcv{r}(t)|}$$
+\end{frame}

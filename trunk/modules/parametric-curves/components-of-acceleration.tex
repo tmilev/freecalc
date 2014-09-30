@@ -1,0 +1,30 @@
+\begin{frame}
+  \frametitle{Components of Acceleration}
+  
+  \begin{itemize}
+    \item Object moves through space, $\fcv{r}=\fcv{r}(t)$ position vector at time $t$;
+    \item Velocity vector $\fcv{v}(t) = \fcv{r}'(t)$; 
+    \item Tangent direction: $\fcv{T}(t) = \frac{\fcv{v}(t)}{|\fcv{v}(t)|}$;
+    \item Speed is $v(t) = |\fcv{v}(t)|$;
+    \item Acceleration $\fcv{a}(t) = \fcv{r}''(t)$;
+    \item Tangential component $\fcv{a}_T(t)$:
+%
+$$\fcv{a}_T(t) =
+\fcv{\text{proj}}_{\bm{T}(t)} \fcv{a}(t) =
+\frac{\fcv{a}\cdot \fcv{T}}{|\fcv{T}|}
+\fcv{T} = \frac{\fcv{v}'\cdot \fcv{v}}
+{|\fcv{v}|} \fcv{T} =
+|\fcv{v}|' \fcv{T} = v' \fcv{T}\;,$$
+%
+$$a_T(t) = |\fcv{a}_T(t)| = |v'(t)|\; .$$
+
+\item Normal component $\fcv{a}_N(t)=\fcv{\text{orth}}_{\bm{T}(t)} \fcv{a}(t)$,
+%
+$$a_N(t) = |\fcv{a}_N(t)| = |\fcv{\text{orth}}_{\bm{T}} \fcv{a}| =
+|\fcv{a} \times \fcv{T}| =
+\frac{|\fcv{r}'' \times \fcv{r}'|}
+{|\fcv{r}'|} = \kappa |\fcv{r}'|^2 =
+\kappa(t) v^2(t)  \; .$$
+  \end{itemize}
+
+\end{frame}
