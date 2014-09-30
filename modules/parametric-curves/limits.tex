@@ -1,0 +1,31 @@
+
+\begin{frame}
+\frametitle{Limits}
+\begin{definition}
+We say that $$\lim_{t\to a} \fcv{r}(t) = \fcv{u}$$ if \alert<4>{ by selecting that } $t\neq a$ be close enough to $a$ \alert<5>{we can guarantee that $\fcv{r}(t)$} \alert<3>{is as close to $\fcv{u}$ as we want}.
+
+\medskip
+
+\uncover<2->{In strict mathematical language: $\lim_{t\to a} \fcv{r}(t) = \fcv{u}$ if \alert<3>{for every $\varepsilon >0$} \alert<4>{there exists $\delta>0$} \alert<5>{ such that for all $t$ with $0<|t-a|<\delta $} \alert<3>{we have that $| \fcv r(t)-u|<\varepsilon $}.}
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item We define the ``postman distance'' between $(x_1,y_1,z_1)$ and $(x_2, y_2, z_2)$ to be the number $\max(|x_1-x_2|, |y_1-y_2|, |z_1-z_2|) $.  
+\item<2-> Two points in Euclidean distance are close if and only if they are close in ``postman distance''.
+\item<3-> Unlike higher dimensions, in dimension 1 postman distance coincides with Euclidean distance.
+\item<4-> Let $\fcv{r}(t) = \langle x(t), y(t), z(t) \rangle$ and $\fcv{u}=\langle u_1,u_2,u_3\rangle$.
+\item<5-> Then     
+\[
+\lim_{t\to a} \fcv{r}(t) = \fcv{u} \Longleftrightarrow
+\left|
+\begin{array}{l}
+\lim\limits_{t\to a} x(t) = u_1\\
+\lim\limits_{t\to a} y(t) = u_2\\
+\lim\limits_{t\to a} z(t) = u_3\\
+\end{array} 
+\right.\quad .
+\]
+\end{itemize}
+\end{frame}

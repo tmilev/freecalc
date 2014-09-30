@@ -1,0 +1,37 @@
+\begin{frame}
+  \frametitle{Example}
+  
+  \begin{itemize}
+    \item $\fcv{r}(t) = \langle \cos{t}, \sin{t}, t\rangle \Longrightarrow \fcv{r}'(t) = \langle -\sin{t}, \cos{t}, 1 \rangle \Longrightarrow|\fcv{r}'(t)| = \sqrt{2}$;
+%
+$$\fcv{T}(t) = \frac{1}{\sqrt{2}}
+\langle -\sin{t}, \cos{t}, 1 \rangle
+\Longrightarrow
+\fcv{T}'(t) = \frac{1}{\sqrt{2}}
+\langle -\cos{t}, -\sin{t}, 0 \rangle
+\Longrightarrow $$
+$$|\fcv{T}'|=\frac{1}{\sqrt{2}}$$
+ %
+ \item Curvature:
+%
+$$\kappa(t) = \frac{|\fcv{T}'(t)|}{|\fcv{r}'(t)|} =
+\frac{1}{2}\; .$$ 
+  \end{itemize}
+
+Alternatively: $\fcv{r}''= \langle -\cos{t}, -\sin{t}, 0 \rangle$,
+%
+$$\fcv{r}'' \times \fcv{r}' = \left|
+\begin{array}{ccc}
+\fcv{i} & \fcv{j} & \fcv{k} \\
+-\cos{t}&  -\sin{t}&  0 \\
+-\sin{t}& \cos{t}& 1
+\end{array}
+\right| = -\sin{t} \, \fcv{i} +
+\cos{t}\, \fcv{j} -\fcv{k} $$
+%
+$$\kappa(t) =
+\frac{|\fcv{r}''(t) \times \fcv{r}'(t)|}
+{|\fcv{r}'(t)|^3} =
+\frac{\sqrt{2}}{(\sqrt{2})^3} = \frac{1}{2}\; .$$
+
+\end{frame}
