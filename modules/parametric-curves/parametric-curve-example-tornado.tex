@@ -1,0 +1,41 @@
+
+\begin{frame}
+\begin{example}
+Describe the curve:
+\[
+\begin{array}{rcl}
+x(t) & =& 3t\cos{(2t)}\\
+y(t) & =& 3t\sin{(2t)}\\
+z(t) & =& t^2
+\end{array}
+\]
+
+\begin{columns}
+
+\column{0.4\textwidth}
+\psset{xunit=0.1cm, yunit=0.1cm}
+\begin{pspicture}(-9, -9)(9,9)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -1.4] 0}
+\fcBoundingBox{-17}{-17}{22}{27}
+\fcAxesIIId{30}{30}{30}
+\uncover<3->{%
+\fcCurveIIId[plotpoints =500, linecolor=red]{0}{360}{[t 57.295779513 div 3 mul 2 t mul cos mul t 57.295779513 div 3 mul t 2 mul sin mul t 57.295779513 div dup mul ] }
+}%
+\end{pspicture}
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item<2-> Cylindrical coordinates:
+\[
+\begin{array}{rcl}
+r(t) & =& 3t\\
+\theta(t) & =& 2t \\
+z(t) & =& t^2
+\end{array}
+\]
+\item<3-> Tornado!
+\end{itemize}
+\end{columns}
+\end{example}
+\end{frame}
