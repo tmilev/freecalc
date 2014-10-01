@@ -1,18 +1,20 @@
 \begin{frame}
 \frametitle{Arclength Function}
 \begin{itemize}
-\item Fix the point $a$ as starting point. For $t \geqslant a$, let
+\item Fix $t=a$ as starting point. For $t \geqslant a$, let
 \item $L(t) = $ distance traveled between $a$ and $t$ = length of the piece of the curve corresponding to values of the parameter between $a$ and $t$.
 \[
-L(t) =  \int_{a}^t |\fcv{r}'(\tau)| \, d\tau 
+L(t) =  \int_{a}^t |\fcv{r}'(\tau)| \, \diff \tau 
 \]
-\item The function $L\colon [a,b]\to \RR$ is called the \emph{arclength function}.
-\item \underline{Example}: $\fcv{r}(t) = \langle \cos{t}, \sin{t}, t\rangle$. Then
+\item<2-> The function $L\colon [a,b]\to \RR$ is called the \emph{arclength function}.
+\item<3-> \underline{Example}: $\fcv{r}(t) = \langle \cos{t}, \sin{t}, t\rangle$. Then
 \[\fcv{r}'(t) = \langle -\sin{t}, \cos{t}, 1 \rangle
 \Longrightarrow |\fcv{r}'(t)| = \sqrt{2}\; 
 \]
+\uncover<4->{%
 and the arclength function is
-\[L(t) = \int_0^t |\fcv{r}'(\tau)| \; d\tau = t\sqrt{2} \; .\]
+\[L(t) = \int_0^t |\fcv{r}'(\tau)| \; \diff \tau = t\sqrt{2} \; .\]
+}
 \end{itemize}
 
 \end{frame}

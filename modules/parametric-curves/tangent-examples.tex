@@ -1,17 +1,28 @@
 \begin{frame}
-  \frametitle{Example}
-  Coordinate curves for spherical coordinates:\\
-  Fix $\rho = \rho_0$ and $\phi = \phi_0$.
-  $$\fcv{r}(t) = \langle \rho_0\sin\phi_0 \cos{t}, \rho_0\sin\phi_0 \sin{t}, \rho_0\cos\phi_0\rangle$$
-  \pause Then
-  $$\fcv{r}'(t) = \langle -\rho_0\sin\phi_0 \sin{t}, \rho_0\sin\phi_0 \cos{t}, 0\rangle$$
-  Define
-  $$\widehat{\fcv{e}}_\theta (\rho_0,\phi_0,\theta_0) = \frac{1}{|\fcv{r}'(\theta_0)|}\,\fcv{r}'(\theta_0) = \langle -\sin{\theta_0},\cos{\theta_0},0\rangle$$
-  Similar constructions for $\widehat{\fcv{e}}_\rho (\rho_0,\phi_0,\theta_0)$ and
-  $\widehat{\fcv{e}}_\phi (\rho_0,\phi_0,\theta_0)$
-  %
-  $$\text{Compute}\qquad
-  (\widehat{\fcv{e}}_{\rho} \times
-  \widehat{\fcv{e}}_{\theta})\cdot
-  \widehat{\fcv{e}}_{\phi}$$
+\begin{example}
+Let $\fcv r(t)$ be the coordinate curves for the spherical coordinates, i.e., let
+\[
+\begin{array}{rcl}
+\fcv{e}_\rho(t)&=& \alert<2,3>{ \langle t\sin \phi \cos \theta, t\sin \phi \sin \theta, t\cos \phi \rangle }\\
+\fcv{e}_\phi(t)&=& \alert<4,5>{ \langle \rho\sin t \cos \theta, \rho\sin t \sin \theta, \rho\cos t \rangle }\\
+\fcv{e}_\theta(t)& =& \alert<6,7>{\langle \rho\sin\phi \cos{t}, \rho\sin\phi \sin{t}, \rho\cos\phi\rangle }\\
+\end{array}
+\]
+where $\rho$, $\phi$, $\theta$ are regarded as constants and $t$ as the curve parameter. Find $\fcv {e}_\rho'(t)$, $\fcv e_\phi'(t)$, $\fcv e_\theta'(t)$. Compute $ (\fcv e_\rho '(\rho) \times \fcv e_{\theta}'(\theta) )\cdot \fcv e_{\phi}'(\phi)$.
+
+\[
+\begin{array}{rcl}
+\uncover<2->{\alert<2,3,8>{ \fcv{e}_\rho '(t)} &\alert<2,3>{=}&\uncover<3->{\alert<3,8>{ \langle \sin \phi \cos \theta, \sin \phi\sin \theta, \cos \phi \rangle }}\\}
+\uncover<4->{\alert<4,5,9>{\fcv e_{\phi}'(t)} &\alert<4,5>{=}&\uncover<5->{ \alert<5,9>{ \langle \rho\cos t \cos\theta, \rho\cos t \sin\theta, -\rho\sin t \rangle}} }\\
+\uncover<6->{\alert<6,7,10>{\fcv e_{\theta}'(t)} &\alert<6,7>{=}&\uncover<7->{ \alert<7,10>{ \langle -\rho\sin \phi \sin t, \rho\sin \phi \cos t, 0 \rangle}} }\\
+\uncover<8->{
+(\fcv{e}_{\rho}'(\rho) \times \fcv{e}_{\phi}'(\phi)) \cdot \fcv{e}_{\theta}'(\theta) &=&\alert<11,12>{ \left| \begin{array}{ccc}
+\alert<8>{ \sin \phi \cos \theta }& \alert<8>{\sin \phi \sin\theta }&  \alert<8>{\cos\phi} \\
+\alert<9>{\rho \cos \phi \cos \theta }&\alert<9>{ \rho \cos \phi\sin \theta }&\alert<9>{ -\rho \sin \phi} \\
+\alert<10>{-\rho \sin \phi\sin \theta }&\alert<10>{ \rho \sin \phi \cos \theta }&\alert<10>{0}
+\end{array}\right|} \\}
+\uncover<11->{&\alert<11,12>{=}&\uncover<12->{\alert<12>{\rho^2\sin\phi }}}
+\end{array}
+\]
+\end{example}
 \end{frame}

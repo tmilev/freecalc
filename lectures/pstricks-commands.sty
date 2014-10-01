@@ -591,7 +591,7 @@ end\space%
 }
 
 \newcommand{\fcAccountBoundingBox}{ %
-(accounting bounding box) == dup == %
+%(accounting bounding box) == dup == %
 \fcArrayToStack %
 11 dict begin %
 /zmin exch def %
@@ -620,7 +620,7 @@ end %
 }
 
 \newcommand{\fcBoundingBoxEllipsoid}{ %
-(calling fcBoundingBoxEllipsoid with input: ) == dup == %
+%(calling fcBoundingBoxEllipsoid with input: ) == dup == %
 \fcArrayToStack
 6 dict begin
 /c exch def %
@@ -634,7 +634,7 @@ end
 }
 
 \newcommand{\fcBoundingBoxCone}{ %
-(calling fcBoundingBoxCone with input: ) == dup ==
+%(calling fcBoundingBoxCone with input: ) == dup ==
 \fcArrayToStack %
 9 dict begin %
 /c exch def %
@@ -672,7 +672,7 @@ end %
 \newcommand{\fcComputeBoundingBoxObject}{%
 \fcArrayToStack %
 4 1 roll pop pop pop %<- remove the color data
-(computing bounding box for) ==  dup == %
+%(computing bounding box for) ==  dup == %
 1 dict begin %
 /HandlerNotFound true def %
 dup (ellipsoid) eq{pop \fcBoundingBoxEllipsoid /HandlerNotFound false def} if
@@ -684,9 +684,9 @@ end %
 /ZbufferXmax exch def %
 /ZbufferYmin exch def %
 /ZbufferXmin exch def %
-(recomputed bounding box, current box: ) print %
-ZbufferXmin == ZbufferYmin == %
-ZbufferXmax == ZbufferYmax == %
+%(recomputed bounding box, current box: ) print %
+%ZbufferXmin == ZbufferYmin == %
+%ZbufferXmax == ZbufferYmax == %
 }
 
 \newcommand{\fcFinishIIIdScene}{%
@@ -702,9 +702,12 @@ theIIIdObjects == %
 /ZbufferYmin 0 def %
 /ZbufferXmax 0 def %
 /ZbufferYmax 0 def %
-%compute a bounding box for our IIId scene:
+(computing bounding box for the IIId scene... ) print
 mark theIIIdObjects \fcArrayToStack counttomark {\fcComputeBoundingBoxObject } repeat %
 pop %remove the mark
+(bounding box computed: ) print %
+ZbufferXmin == ZbufferYmin == %
+ZbufferXmax == ZbufferYmax == %
 mark theIIIdObjects \fcArrayToStack counttomark {\fcPaintObject } repeat %
 pop %remove the mark
 end %
