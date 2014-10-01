@@ -1,0 +1,30 @@
+\begin{frame}
+  \frametitle{Coordinate Computation}
+
+  If $\textbf{u}$ is a unit vector then:
+%
+$$
+  (D_{\textbf{u}}f)(x_0,y_0,z_0) =  \textbf{W}_{f,(x_0,y_0,z_0)} \cdot \textbf{u} = |\textbf{W}_{f,(x_0,y_0,z_0)}| \cos\alpha \; .
+$$
+%
+\pause If $|\textbf{W}_{f,(x_0,y_0,z_0)}|\neq 0$, then
+%
+\begin{itemize}
+  \item $(D_{\textbf{u}}f)(x_0,y_0,z_0)$ is maximal when $\alpha = 0$, hence if
+      $$\textbf{u} = \frac{1}{|\textbf{W}_{f,(x_0,y_0,z_0)}|}\,\textbf{W}_{f,(x_0,y_0,z_0)}$$
+%
+  \item The maximal value of $(D_{\textbf{u}}f)(x_0,y_0,z_0)$ is $|\textbf{W}_{f,(x_0,y_0,z_0)}|$.
+\end{itemize}
+
+\pause Therefore, in rectangular coordinates, we have
+%
+\begin{align*}
+  (\nabla f)(x_0,y_0,z_0) = & |\textbf{W}_{f,(x_0,y_0,z_0)}| \textbf{u} = \textbf{W}_{f,(x_0,y_0,z_0)} = \\
+  %
+  = & \langle \frac{\partial f}{\partial x}(x_0,y_0,z_0) , \frac{\partial f}{\partial y}(x_0,y_0,z_0), \frac{\partial f}{\partial z}(x_0,y_0,z_0) \rangle
+\end{align*}
+%
+\pause Coordinate-free formula for directional derivatives:
+%
+$$(D_{\textbf{u}} f)(P) = (\nabla f)_P \cdot \textbf{u}$$
+\end{frame}

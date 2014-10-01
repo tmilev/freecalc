@@ -1,0 +1,35 @@
+\begin{frame}
+  \frametitle{Gradient in Polar Coordinates}
+  $\textbf{e}_r=\textbf{e}_r(P)$ and $\textbf{e}_\theta=\textbf{e}_\theta(P)$ are the polar fundamental directions at $P$
+%
+$$(\nabla f)_P = a \textbf{e}_r + b \textbf{e}_\theta$$
+%
+\pause
+$\textbf{e}_r$ and $\textbf{e}_\theta$ perpendicular unit vectors $\Longrightarrow$
+%
+\begin{align*}
+  a=& (\nabla f)_P \cdot \textbf{e}_r = (D_{\textbf{e}_r} f)(P) \\
+  %
+  b=& (\nabla f)_P \cdot \textbf{e}_\theta = (D_{\textbf{e}_\theta} f)(P)
+\end{align*}
+%
+\begin{overlayarea}{\textheight}{5cm}
+\only<3>{
+To compute $(D_{\textbf{e}_r} f)(P)$ we use the line through $P(r_0,\theta_0)$ with direction $\textbf{e}_r$, which in polar coordinates is given by $(r,\theta) = (t,\theta_0)$. Therefore
+%
+$$a = (D_{\textbf{e}_r} f)(P) = \left. \frac{d}{dt}\right|_{t=r_0} f(t,\theta_0) = \frac{\partial f}{\partial r}(P)\; .$$}
+%
+\only<4>{
+To compute $(D_{\textbf{e}_\theta} f)(P)$ we use the circle centered at the origin and passing through $P(r_0,\theta_0)$. The polar parametrization of this circle that has \emph{unit} tangent at $P$ is given by $(r,\theta) = (r_0, \frac{1}{r_0}t)$. Therefore
+%
+$$b=(D_{\textbf{e}_\theta} f)(P) = \left. \frac{d}{dt}\right|_{t=\theta_0} f\left(r_0,\frac{1}{r_0}t\right) = \frac{1}{r_0} \frac{\partial f}{\partial \theta}(P)\; .$$}
+%
+\only<5>{From the previous computations:
+%
+$$(\nabla f)_P = \frac{\partial f}{\partial r}(P)\textbf{e}_r + \frac{1}{r_0} \frac{\partial f}{\partial \theta}(P)\textbf{e}_\theta \; ,$$
+%
+or
+%
+$$\nabla = \textbf{e}_r \frac{\partial }{\partial r} + \textbf{e}_\theta \frac{1}{r} \frac{\partial }{\partial \theta}\; .$$}
+\end{overlayarea}
+\end{frame}

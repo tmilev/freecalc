@@ -1,0 +1,46 @@
+\begin{frame}
+  \frametitle{Directional Derivatives}
+
+Recall:
+\begin{itemize}
+  \item $f$, differentiable function,
+  \item $\textbf{u}=\langle u_1,u_2,u_3 \rangle$, unit vector,
+  \item $P(x_0,y_0,z_0)$, point.
+\end{itemize}
+%
+What is the rate of change of $f$ at $P$ in the direction $\textbf{u}$?
+
+\pause
+Directional derivative
+%
+$$(D_{\bm{u}}f)(P) = \left. \frac{d}{dt}\right|_{t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)$$  \end{frame}
+
+\begin{frame}
+  \frametitle{}
+%
+$w =f(x,y,z)$ and
+%
+\begin{align*}
+  x = & x_0 + tu_1 \\
+  y = & y_0 + tu_2 \\
+  z = & z_0 + tu_3
+\end{align*}
+%
+\pause
+%
+\begin{align*}
+  \frac{dw}{dt} = & \frac{\partial f}{\partial x}(x,y,z) \frac{dx}{dt} + \frac{\partial f}{\partial y}(x,y,z) \frac{dy}{dt} + \frac{\partial f}{\partial z}(x,y,z) \frac{dz}{dt} = \\
+  = & \frac{\partial f}{\partial x}(x,y,z) u_1 + \frac{\partial f}{\partial y}(x,y,z) u_2 + \frac{\partial f}{\partial z}(x,y,z) u_3 = \\
+  = & \langle \frac{\partial f}{\partial x}(x,y,z) , \frac{\partial f}{\partial y}(x,y,z), \frac{\partial f}{\partial z}(x,y,z)\rangle \cdot \textbf{u}
+\end{align*}
+%
+\pause
+Let
+%
+$$\textbf{W}_{f,(x_0,y_0,z_0)} =\langle \frac{\partial f}{\partial x}(x_0,y_0,z_0) , \frac{\partial f}{\partial y}(x_0,y_0,z_0), \frac{\partial f}{\partial z}(x_0,y_0,z_0)\rangle$$
+%
+\pause
+Then
+%
+$$(D_{\textbf{u}}f)(x_0,y_0,z_0) = \left. \frac{dw}{dt}\right|_{t=0} = \textbf{W}_{f,(x_0,y_0,z_0)} \cdot \textbf{u}\; .$$
+\end{frame}

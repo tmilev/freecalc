@@ -1,0 +1,33 @@
+\begin{frame}
+  \frametitle{Differentiability}
+
+If $y=h(x)$ is a function of one variable, then
+%
+$$L_{h,x_0}(x) = h(x_0) + h'(x_0) (x-x_0)$$
+%
+$$
+  \lim_{x\to x_0} \frac{|h(x)-L_{h,x_0}(x)|}{|x-x_0|} = \lim_{x \to x_0} \left| \frac{h(x)-h(x_0)}{x-x_0} -h'(x_0) \right| = 0
+$$
+%
+\pause \underline{One variable}: the linear approximation is a good approximation.
+
+\pause \underline{Several variables}:
+
+$f_x(x_0,y_0)$, $f_y(x_0,y_0)$ exist $\Longrightarrow$
+$f$ has a linear approximation $L_{f, (x_0,y_0)}$.
+
+But is that a \emph{good} linear approximation? \pause
+Unfortunately, \textcolor[rgb]{0.98,0.00,0.00}{not always}!
+
+\medskip
+
+\pause \underline{Definition}: A function $f$ is called \textcolor[rgb]{0.98,0.00,0.00}{differentiable at a point} $(x_0,y_0)$ if it has a good linear approximation at $(x_0,y_0)$.
+
+\medskip
+
+\pause Example: $f(x,y) = x^2+xy+2y^2$ is differentiable at $(4,1)$.
+
+\medskip
+
+\pause \underline{Fact}: If $f$ has a good linear approximation at $(x_0,y_0)$, then the good linear approximation is necessarily the linearization of $f$ at $(x_0,y_0)$.
+\end{frame}

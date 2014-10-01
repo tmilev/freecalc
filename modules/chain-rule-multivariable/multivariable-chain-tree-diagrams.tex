@@ -1,0 +1,26 @@
+\begin{frame}
+  \frametitle{Algebra of Chain rule - Tree Diagrams}
+\begin{itemize}
+\item $w=w(x,y,z)$;
+\item $x=x(t)$, $y=y(t)$, $z=z(t)$,
+\end{itemize}
+%
+$$\frac{dw}{dt}(t) =
+\textcolor[rgb]{0.98,0.00,0.00}{\frac{\partial w}{\partial x}(x,y,z) \frac{dx}{dt}(t)}+ \textcolor[rgb]{0.00,0.00,1.00}{\frac{\partial w}{\partial y}(x,y,z) \frac{dy}{dt}(t)}+
+\textcolor[rgb]{0.00,0.50,0.00}{\frac{\partial w}{\partial z}(x,y,z) \frac{dz}{dt}(t)}$$
+%
+Alternative way of arranging terms - tree diagram:
+%
+$$
+\xymatrix{
+ & w  &  \\
+\textcolor[rgb]{0.98,0.00,0.00}{x} \ar[ur] &
+\textcolor[rgb]{0.00,0.00,1.00}{y} \ar[u] &
+\textcolor[rgb]{0.00,0.50,0.00}{z} \ar[ul] \\
+\textcolor[rgb]{0.98,0.00,0.00}{t} \ar[u]&
+\textcolor[rgb]{0.00,0.00,1.00}{t} \ar[u]&
+\textcolor[rgb]{0.00,0.50,0.00}{t}\ar[u]
+}
+$$
+
+\end{frame}

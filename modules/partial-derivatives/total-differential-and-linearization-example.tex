@@ -1,0 +1,31 @@
+\begin{frame}
+  \frametitle{Application}
+
+  A cylinder has radius $r=3cm$ and height $h=5cm$. The error in measuring the radius is $\pm 1 mm$, and the error in measuring the height is $\pm 1 mm$. Estimate the error in the volume of the cylinder.
+\pause
+\bigskip
+
+$V(r,h) = \pi r^2 h$. The actual volume: $V(3,5) = 45\pi \, cm^3$.
+
+\pause
+The error in volume, $\Delta V$, is estimated by $dV$:
+%
+$$\Delta V \simeq dV = V _r(3,5) dr + V_h(3,5) dh \simeq V _r(3,5) \Delta r + V_h(3,5) \Delta h\; .$$
+%
+$$V_r(r,h) = 2\pi r h \Longrightarrow V_r(3,5) = 30 \pi$$
+%
+$$V_h(r,h) = \pi r^2 \Longrightarrow V_h(3,5) = 9\pi$$
+%
+$$\Delta V  \simeq (30\pi) (\pm 0.1) + ((9\pi)(\pm 0.1) \Longrightarrow V(r,h) \simeq V(3,5) \pm 3.9\pi \, cm^3$$
+
+The error in volume is $\pm 3.9\pi \, cm^3$.
+
+\pause
+Relative error:
+%
+$$\frac{\Delta V}{V} \simeq \pm \frac{3.9 \pi}{45\pi} \simeq \pm 8.6\%$$
+
+\medskip
+\pause
+\underline{Remark}: Since $V_r(3,5) > V_h(3,5)$, the result is more sensitive to errors in $r$ than to errors in $h$.
+\end{frame}

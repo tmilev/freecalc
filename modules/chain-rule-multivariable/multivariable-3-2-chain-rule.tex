@@ -1,0 +1,73 @@
+\begin{frame}
+  \frametitle{More General Chain Rule}
+
+More general formula:
+%
+\begin{itemize}
+\item $w=F(x,y,z)$;
+\item $x=f(u,v)$, $y=g(u,v)$, $z=h(u,v)$.
+\end{itemize}
+%
+$$w = F(f(u,v), g(u,v), h(u,v)) = G(u,v)$$
+%
+To compute $\frac{\partial w}{\partial u} = \frac{\partial G}{\partial u}$:
+
+\begin{itemize}
+  \item arrange variables in a tree diagram:
+  %
+  $$\xymatrix{
+  & & & & w &  & & \\
+  & x  \ar[urrr]^F & & & y \ar[u]^F & & &  z \ar[ulll]_F & \\
+  u \ar[ur]^f & & v\ar[ul]_f & u \ar[ur]^g & & v \ar[ul]_g & u \ar[ur]^h & & v \ar[ul]_h
+  }$$
+  %
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{More General Chain Rule}
+Arrange variables in a tree diagram:
+  %
+  $$\xymatrix{
+  & & & & w &  & & \\
+  & x  \ar[urrr]^F & & & y \ar[u]^F & & &  z \ar[ulll]_F & \\
+  u \ar[ur]^f & & v\ar[ul]_f & u \ar[ur]^g & & v \ar[ul]_g & u \ar[ur]^h & & v \ar[ul]_h
+  }$$
+  %
+  \begin{overlayarea}{\textheight}{5cm}
+  \only<2>{
+  \begin{itemize}
+  \item Think of each edge $a \stackrel{H}{ \to} b$ as having a label $\frac{\partial b}{\partial a} = \frac{\partial H}{\partial a}$;
+  %
+  \item Identify all the end vertices that are labeled $u$;
+  %
+  \item Identify all the paths connecting an end vertex $u$ to the root $w$. In our case there are three such paths:
+      \begin{itemize}
+        \item $u \to x \to w$;
+        \item $u \to y \to w$;
+        \item $u \to z \to w$.
+      \end{itemize}
+  \end{itemize}
+  }
+  \only<3>{
+    For each path add a term consisting of product of (partial) derivatives along edges. In our case:
+      %
+      \begin{align*}
+        \text{First path contribution: } \quad & \frac{\partial w}{\partial x} \cdot \frac{\partial x}{\partial u} = \frac{\partial F}{\partial x} \cdot \frac{\partial f}{\partial u}\\
+        %
+        \text{Second path contribution: } \quad & \frac{\partial w}{\partial y} \cdot \frac{\partial y}{\partial u} = \frac{\partial F}{\partial y} \cdot \frac{\partial g}{\partial u}\\
+        %
+        \text{Third path contribution: } \quad & \frac{\partial w}{\partial z} \cdot \frac{\partial z}{\partial u} = \frac{\partial F}{\partial z} \cdot \frac{\partial h}{\partial u}
+      \end{align*}
+  }
+  \only<4>{
+  The derivative is the sum of the contributions along paths:
+  %
+  \begin{align*}
+    \frac{\partial w}{\partial u} = \frac{\partial G}{\partial u} = & \frac{\partial w}{\partial x} \cdot \frac{\partial x}{\partial u} + \frac{\partial w}{\partial y} \cdot \frac{\partial y}{\partial u}+ \frac{\partial w}{\partial z} \cdot \frac{\partial z}{\partial u} = \\
+    = & \frac{\partial F}{\partial x} \cdot \frac{\partial f}{\partial u}+\frac{\partial F}{\partial y} \cdot \frac{\partial g}{\partial u}+ \frac{\partial F}{\partial z} \cdot \frac{\partial h}{\partial u}
+  \end{align*}
+  }
+  \end{overlayarea}
+\end{frame}

@@ -1,0 +1,73 @@
+\begin{frame}
+  \frametitle{Critical Points}
+
+If $\textbf{u}=(\nabla f)(P_0)$ exists and is non-zero, then
+\begin{itemize}
+  \item $f$ increases along $\textbf{u}$;
+  \item $f$ decreases along $-\textbf{u}$;
+\end{itemize}
+%
+\pause
+If we can move along $\pm\textbf{u}$ and stay in $D$, then $P_0$ is not an extreme.
+
+\pause
+If:
+%
+\begin{itemize}
+  \item $P_0$ is a point of extreme (minimum or maximum);
+  %
+  \item $P_0$ is an \emph{interior point} of $D$, which means that there exists an open disk centered at $P_0$ and completely included in $D$;
+  %
+  \item directional derivatives at $P_0$ exist in all directions
+\end{itemize}
+%
+then \pause $(\nabla f)(P_0) = \textbf{0}$. In particular, $f_x(P_0) = f_y(P_0) = 0$.\pause
+
+\smallskip
+
+\underline{Geometric Interpretation}: \pause At an interior point of extreme, the tangent plane to the graph surface is horizontal.\pause
+
+\smallskip
+
+\underline{The converse is not true}: \pause if $f_x(P_0) = f_y(P_0) = 0$, then $P_0$ is not necessarily a point of extreme.
+
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{}
+
+Where else can one find extreme points?\pause
+
+\begin{itemize}
+  \item At points $P_0$ where some directional derivatives do not exist (suffices that one of $f_x(P_0)$ or $f_y(P_0)$ does not exist.);
+  \item At points $P_0$ in $D$ that are not interior points of $D$.
+\end{itemize}
+
+\pause
+\underline{Important concept}: A point $P$ in $\mathbb{R}^2$ is a \emph{boundary point} for a region $D$ if every open disk centered at $P$ has points both in $D$ and outside of $D$. Similar definition for $\mathbb{R}^3$, but replace open disk with open ball.
+
+\pause
+Examples:
+\begin{itemize}
+  \item $D$=open unit disk $\Longrightarrow$\pause set of boundary points = unit circle;\pause
+  \item $D$=closed unit disk $\Longrightarrow$\pause set of boundary points = unit circle;\pause
+\end{itemize}
+%
+Notice that a boundary point may or may not be included in $D$.
+
+\pause
+\underline{Strategy for finding extreme points}:
+%
+\begin{itemize}
+  \item Check the \emph{critical points} of $f$:
+  \begin{itemize}
+    \item Points $P_0$ for which $f_x(P_0)$ or $f_y(P_0)$ does not exist;
+    \item Points $P_0$ for which $f_x(P_0)=f_y(P_0)=0$.
+  \end{itemize}
+  %
+  \item Check boundary points included in the domain.
+\end{itemize}
+\end{frame}

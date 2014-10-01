@@ -1,0 +1,28 @@
+\begin{frame}
+  \frametitle{Higher Order Derivatives}
+  Partial derivative functions:
+%
+$$(x,y) \to f_x(x,y) \qquad \text{ and } \qquad  (x,y) \to f_y(x,y)\; ,$$
+%
+\pause The partial derivatives of the partial derivatives $f_x$ and $f_y$ are called \emph{the second order partial derivatives} of $f$.
+
+\pause The partial derivatives of the second order derivatives are the \emph{third order} derivatives, and so on.
+
+$$f(x,y) \to \left\{ \begin{array}{cc}
+  \frac{\partial f}{\partial x}=f_x  \to & \left\{ \begin{array}{ccc}
+    \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial x} \right) = & \frac{\partial^2 f}{\partial x^2} = & f_{xx} \\
+    %
+    & & \\
+    %
+    \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) = & \frac{\partial^2 f}{\partial y\,\partial x} = & f_{xy}
+  \end{array} \right. \\
+  & \\
+  \frac{\partial f}{\partial x}=f_y  \to & \left\{ \begin{array}{ccc}
+    \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) = & \frac{\partial^2 f}{\partial x\, \partial y} = & f_{yx} \\
+    %
+    & & \\
+    %
+    \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial y} \right) = & \frac{\partial^2 f}{\partial y^2} = & f_{yy}
+  \end{array} \right.
+\end{array} \right.$$
+\end{frame}

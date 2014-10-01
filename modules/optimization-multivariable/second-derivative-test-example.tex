@@ -1,0 +1,37 @@
+\begin{frame}
+  \frametitle{Back to Example}
+
+In the example of $f(x,y) = x^4+y^4-4xy$ we have
+%
+\begin{itemize}
+  \item $f_{xx} = 12x^2$;
+  \item $f_{xy} = -4$;
+  \item $f_{yy}=12y^2$;
+  \item $D= f_{xx}f_{yy}-f_{xy}^2 = 144x^2y^2-16$
+\end{itemize}
+
+\pause
+At the critical points:
+
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    $(x_0,y_0)$ & $f_{xx}(x_0,y_0)$ & $f_{yy}(x_0,y_0)$ & $f_{xy}(x_0,y_0)$ & $D(x_0,y_0)$ &  Conclusion \\
+    \hline
+    (0,0) & 0 & 0 & -4 & $-16 <0$ & Saddle point  \\
+    \hline
+    (1,1) & 12 & 12 & -4 & $144-16 > 0$ & Local min  \\
+    \hline
+    (-1,-1) & 12 & 12 & -4 & $144-16 > 0$ & Local min \\
+    \hline
+  \end{tabular}
+
+\medskip
+\pause
+In this case it turns out that the two local minimum points are actually global minimum points, because
+%
+$$f(x,y) = x^4+y^4-4xy = (x^2-1)^2+(y^2-1)^2+2(x-y)^2 -2  \geqslant -2\; .$$
+
+\pause
+But in general, global extreme points may not exist.
+\end{frame}

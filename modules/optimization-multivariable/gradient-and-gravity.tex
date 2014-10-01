@@ -1,0 +1,32 @@
+\begin{frame}
+  \frametitle{Gravity and Gradient}
+
+  Object at $(x_0,y_0,z_0 = f(x_0,y_0))$, moves along surface $z=f(x,y)$
+  \pause
+
+  Force: Component of $\textbf{G}= -mg\; \textbf{k}$ tangent to the surface
+
+  \pause
+  Normal to surface:
+  %
+  $$\textbf{n} = \langle -f_x(x_0,y_0), -f_y(x_0,y_0), 1\rangle = -\nabla f + \textbf{k}$$
+  \pause
+  $$\textbf{F} = \textbf{orth}_{\bm{n}} \textbf{G} =
+  -mg \; \textbf{orth}_{\bm{n}} \textbf{k}$$
+  \pause
+  $$\textbf{orth}_{\bm{n}} \textbf{k} =
+  \textbf{k} - \textbf{proj}_{\bm{n}} \textbf{k} =
+  \textbf{k} - \frac{\textbf{k}\cdot \textbf{n}}{|\textbf{n}|^2} \, \textbf{n} =
+  \textbf{k} - \frac{1}{|\textbf{n}|^2} (-\nabla f + \textbf{k})
+  $$
+\pause
+Horizontal component of $\textbf{F}$:
+%
+$$\frac{mg}{1+|\nabla f|^2} (-\nabla f)$$
+\pause
+Gravity pulls object in the direction of fastest descent.
+
+\pause
+\underline{Question}: Is the object moving in that direction?
+
+\end{frame}

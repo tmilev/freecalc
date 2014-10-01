@@ -1,0 +1,25 @@
+\begin{frame}
+  \frametitle{Example}
+  Let $f(x,y) = y^2\ln{(2x+y)}- e^y$.
+
+To compute $f_x$ \pause we treat $y$ as a constant.\pause
+%
+\begin{align*}
+  f_x = \frac{\partial f}{\partial x} = & \frac{\partial(y^2\ln{(2x+y)}- e^y)}{\partial x} = \frac{\partial(y^2\ln{(2x+y)})}{\partial x} - \frac{\partial(e^y)}{\partial x} = \\
+  %
+  = & y^2 \frac{\partial(\ln{(2x+y)})}{\partial x} - 0 = y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial(2x+y)}{\partial x}= \frac{2y^2}{2x+y}\; .
+\end{align*}
+
+\pause To compute $f_y$ we treat $x$ as a constant:\pause
+%
+\begin{align*}
+  f_y = \frac{\partial f}{\partial y} = & \frac{\partial(y^2\ln{(2x+y)}- e^y)}{\partial y} = \frac{\partial(y^2\ln{(2x+y)})}{\partial y} - \frac{\partial(e^y)}{\partial y} = \\
+  %
+  = & y^2 \frac{\partial(\ln{(2x+y)})}{\partial y} +\frac{\partial(y^2)}{\partial y} \ln{(2x+y)}
+   - e^y = \\
+   %
+   = & y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial(2x+y)}{y} +2y\ln{(2x+y)} - e^y = \\
+   %
+   = & \frac{y^2}{2x+y} +2y\ln{(2x+y)} - e^y \; .
+\end{align*}
+\end{frame}
