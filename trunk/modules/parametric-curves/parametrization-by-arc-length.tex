@@ -1,23 +1,13 @@
 \begin{frame}
-  \frametitle{Parametrization by Arclength}
-
-  \begin{itemize}
-    \item $C$: piecewise smooth parametrized curve joining points $A$ and $B$;
-    \item $\fcv{r} \colon I \to C$: parametrization of $C$,
-    %
-    $$\fcv{r}(t) = \text{position at time }t$$
-    %
-    Not canonically defined. Depends who is driving.
-    %
-    \item $\fcv{p} \colon [0,L] \to C$:
-    %
-    $$\fcv{p}(s) = \text{position at distance } s \text{ from }A \text{ along } C$$
-    %
-    Canonically defined. Markers along the road.
-    %
-    \item $\fcv{p}$: parametrization by arclength
-    $$s=L(s) = \int_{\sigma=a}^{\sigma=s} |\fcv{p}'(\sigma)| \, d\sigma \Longrightarrow 1 = L'(s) = |\fcv{p}'(s)|\; .$$
-    %
-
-  \end{itemize}
+\frametitle{Parametrization by Arclength}
+\begin{itemize}
+\item $C$: piecewise smooth parametrized curve joining points $A$ and $B$;
+\item $\fcv{r} \colon I \to C$: parametrization of $C$,
+$$\fcv{r}(t) = \text{position at time }t$$
+Not canonically defined: ``depends who is driving''.
+\item<2-> $\fcv{p} \colon [0,L] \to C$:
+$$\fcv{p}(s) = \text{position at distance } s \text{ from }A \text{ along } C$$ Canonically defined: ``distance markers along the road''.
+\item<3-> $\fcv{p}$: parametrization by arclength
+$$s=L(s) = \int_{\sigma=a}^{\sigma=s} |\fcv{p}'(\sigma)| \, \diff \sigma \Longrightarrow 1 = L'(s) = |\fcv{p}'(s)|\; .$$
+\end{itemize}
 \end{frame}

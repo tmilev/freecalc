@@ -1,30 +1,20 @@
 \begin{frame}
-  \frametitle{Arclength}
+\frametitle{Arclength}
+\begin{itemize}
+\item $\fcv{r}\colon [a,b] \to \RR^3$: piecewise smooth function
+\item $\text{Distance traveled} = \text{Speed} \cdot \text{Time}$
+$$\diff L = |\fcv{r}'(t)| \, \diff t \Longrightarrow L = \int_{t=a}^{t=b} |\fcv{r}'(t)| \, \diff t$$
+\item<2-> Let $\Delta s$ = distance traveled along curve in short time $\Delta t$:
 
-  \begin{itemize}
-    \item $\fcv{r}\colon [a,b] \to \RR^3$: piecewise smooth function
-    %
-    \item Distance traveled:
-    %
-    $$\text{Distance} = \text{Speed} \cdot \text{Time}$$
-    %
-    $$dL = |\fcv{r}'(t)| \, dt \Longrightarrow L = \int_{t=a}^{t=b} |\fcv{r}'(t)| \, dt$$
-
-    \item $\Delta s$: distance along the curve
-    %
-    $$\Delta s \simeq \sqrt{(\Delta x)^2 + (\Delta y)^2 +
+$\Delta s \approx \sqrt{(\Delta x)^2 + (\Delta y)^2 +
 (\Delta z)^2} = \sqrt{\left(\frac{\Delta x}{\Delta t}
 \right)^2 + \left(\frac{\Delta y}{\Delta t}\right)^2 +
 \left(\frac{\Delta z}{\Delta t}\right)^2} \; \Delta t
-\; .$$
-%
-\item Element of arclength ($\Delta t \to 0$):
-%
-$$ds = \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} \;
-dt = |\fcv{r}'(t)| \, dt$$
-%
-\item Length of parametrized curve:
-%
-$$L = \int_{t=a}^{t=b} ds = \int_a^b |\fcv{r}'(t)| \, dt\; .$$
-  \end{itemize}
+\; .$
+\item<3-> Infinitesimal element of arclength ($\Delta t \to 0$):
+$$\diff s = \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} \;
+\diff t = |\fcv{r}'(t)| \, \diff t$$
+\item<4-> Length of parametrized curve:
+$$L = \int_{t=a}^{t=b} \diff s = \int_a^b |\fcv{r}'(t)| \, \diff t\; .$$
+\end{itemize}
 \end{frame}
