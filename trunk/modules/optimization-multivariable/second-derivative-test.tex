@@ -1,0 +1,42 @@
+\begin{frame}
+  \frametitle{Second Derivative Test}
+
+Which of the three points are points of minimum/maximum?\pause
+
+\emph{Hessian matrix} of $f$ at $P(x_0,y_0)$:
+%
+$$H(x_0,y_0) = \left(\!
+\begin{array}{cc}
+  f_{xx}(x_0,y_0) & f_{xy}(x_0,y_0) \\
+  %
+  f_{yx}(x_0,y_0) & f_{yy}(x_0,y_0)
+\end{array}\!
+ \right)\; $$
+%
+$$D(x_0,y_0) = f_{xx}(x_0,y_0) f_{yy}(x_0,y_0) - (f_{xy}(x_0,y_0))^2\; $$
+%
+
+\pause
+\underline{Test}: Let $P(x_0,y_0)$ be an interior critical point of $f$ and suppose that $f$ has continuous second order derivatives around $P$. If:
+%
+\begin{itemize}
+  \item \pause $D(x_0,y_0)>0$ and $f_{xx}(x_0,y_0)>0$, then $(x_0,y_0)$ is a local minimum;
+
+      Example: Critical point $(0,0)$ for the function $f(x,y)=x^2+y^2$.
+
+  \item \pause $D(x_0,y_0)>0$ and $f_{xx}(x_0,y_0)<0$, then $(x_0,y_0)$ is a local maximum;
+
+      Example: Critical point $(0,0)$ for the function $f(x,y)=-x^2-y^2$.
+
+  \item \pause $D(x_0,y_0)<0$, then $(x_0,y_0)$ is neither a minimum nor a maximum;
+
+  Critical points that are not extreme points are called \emph{saddle points}.
+
+        Example: Critical point $(0,0)$ for the function $f(x,y)=x^2-y^2$.
+
+  \item \pause $D(x_0,y_0)=0$, then the test is inconclusive:
+
+  Examples: $x^4+y^4$, $-x^4-y^4$, $x^4-y^4$
+
+\end{itemize}
+\end{frame}

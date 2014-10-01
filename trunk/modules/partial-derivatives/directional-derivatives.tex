@@ -1,0 +1,31 @@
+\begin{frame}
+  \frametitle{Directional Derivatives}
+
+  $f \colon D \to \RR$, $P_0(\textbf{r}_0)$ in $D$,
+  $\textbf{u}$ nonzero vector
+
+  $L$: line through $P_0$ with direction $\textbf{u}$,
+  \textcolor[rgb]{0.98,0.00,0.00}{oriented} by $\textbf{u}$.
+  %
+  $$\textbf{r}\colon \RR \to L, \quad \textbf{r}(t) =
+  \textbf{r}_0+t\textbf{u}$$
+
+  \pause \textcolor[rgb]{0.98,0.00,0.00}{Covariant derivative} -
+  for \textcolor[rgb]{0.98,0.00,0.00}{nonzero} vector $\textbf{u}$:
+  %
+  $$(\nabla_{\textbf{u}} f) (P_0) = \lim_{t\to 0}
+  \frac{f(\textbf{r}_0+t\textbf{u}) - f(\textbf{r}_0)}{t}$$
+
+  \pause $\textbf{r}$: arclength parametrization \pause
+  $\Longleftrightarrow$ $|\textbf{u}|=1$
+
+  \pause \textcolor[rgb]{0.98,0.00,0.00}{Directional derivative} - for \textcolor[rgb]{0.98,0.00,0.00}{unit} vector
+  $\textbf{u}$:
+  %
+  $$(D_{\textbf{u}} f)(P_0) =
+  \lim_{t\to 0} \frac{f(\textbf{r}_0+t\textbf{u})-f(\textbf{r}_0)}{t}\; .$$
+
+  \pause $(D_{\textbf{u}} f)(P_0)$ = instantaneous rate of change of $f$
+  with respect to change in \emph{position} along the line
+  with \textcolor[rgb]{0.98,0.00,0.00}{unit} direction $\textbf{u}$.
+\end{frame}

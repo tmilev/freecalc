@@ -32,7 +32,7 @@
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
-\newcommand{\fcDashLength}{3}
+\newcommand{\fcDashLength}{2}
 \newcommand{\fcDashesCode}{%
 (\fcLineStyle) (dashed) eq %
 {[\fcDashLength\space \fcDashLength] 0 setdash}%
@@ -577,8 +577,89 @@ end\space%
 \newcommand{\fcPutIIId}[3][]{ \rput[#1](! #2 \fcCoordsIIIdToPStricks) {#3}%
 } %
 
+\newcommand{\fcPaintCone}{ %
+\fcArrayToStack %
+15 dict begin %
+/c exch def %
+/b exch def %
+/a exch def %
+/z1 exch def %
+/y1 exch def %
+/x1 exch def %
+/zmax exch def %
+/zmin exch def %
+}
+
+\newcommand{\fcAccountBoundingBox}{ %
+(accounting bounding box) == dup == %
+\fcArrayToStack %
+11 dict begin %
+/zmin exch def %
+/ymin exch def %
+/xmin exch def %
+/zmax exch def %
+/ymax exch def %
+/xmax exch def %
+/AccountOneVertex { %
+\fcCoordsIIIdToPStricks % 
+dup dup ZbufferYmin lt {/ZbufferYmin exch def}{pop}ifelse %
+dup ZbufferYmax gt {/ZbufferYmax exch def}{pop}ifelse %
+dup dup ZbufferXmin lt {/ZbufferXmin exch def}{pop}ifelse %
+dup ZbufferXmax gt {/ZbufferXmax exch def}{pop}ifelse %
+} def %
+[xmin ymin zmin] AccountOneVertex %
+[xmin ymin zmax] AccountOneVertex %
+[xmin ymax zmin] AccountOneVertex %
+[xmin ymax zmax] AccountOneVertex %
+[xmax ymin zmin] AccountOneVertex %
+[xmax ymin zmax] AccountOneVertex %
+[xmax ymax zmin] AccountOneVertex %
+[xmax ymax zmax] AccountOneVertex %
+ZbufferXmin ZbufferYmin ZbufferXmax ZbufferYmax %
+end %
+}
+
+\newcommand{\fcBoundingBoxEllipsoid}{ %
+(calling fcBoundingBoxEllipsoid with input: ) == dup == %
+\fcArrayToStack
+6 dict begin
+/c exch def %
+/b exch def %
+/a exch def %
+/z1 exch def %
+/y1 exch def %
+/x1 exch def %
+[a -1 mul x1 add b -1 mul y1 add c -1 mul z1 add a x1 add b y1 add c z1 add] %
+end
+}
+
+\newcommand{\fcBoundingBoxCone}{ %
+(calling fcBoundingBoxCone with input: ) == dup ==
+\fcArrayToStack %
+9 dict begin %
+/c exch def %
+/b exch def %
+/a exch def %
+/z1 exch def %
+/y1 exch def %
+/x1 exch def %
+/zmax exch abs def %
+abs dup zmax gt {/zmax exch def}{pop}ifelse %
+[a c div zmax sqrt div -1 mul b c div zmax sqrt div -1 mul zmax -1 mul  
+a c div zmax sqrt div b c div zmax sqrt div zmax
+] %
+end %
+}
+
 \newcommand{\fcPaintObject}{%
-(painting object) == \fcArrayToStack dup == dup (ellipsoid) eq { \fcPaintEllipsoid} if %
+(painting object) == \fcArrayToStack dup == 
+1 dict begin
+4 1 roll setrgbcolor %
+/HandlerNotFound true def %
+dup (ellipsoid) eq{pop \fcPaintEllipsoid /HandlerNotFound false def} if %
+dup (cone) eq {pop \fcPaintCone /HandlerNotFound false def} if %
+HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
+end %
 }%
 
 \newcommand{\fcStartIIIdScene}{%
@@ -588,13 +669,45 @@ end\space%
 }%
 }
 
+\newcommand{\fcComputeBoundingBoxObject}{%
+\fcArrayToStack %
+4 1 roll pop pop pop %<- remove the color data
+(computing bounding box for) ==  dup == %
+1 dict begin %
+/HandlerNotFound true def %
+dup (ellipsoid) eq{pop \fcBoundingBoxEllipsoid /HandlerNotFound false def} if
+dup (cone) eq {pop \fcBoundingBoxCone /HandlerNotFound false def} if %
+HandlerNotFound {== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)[0 0 0 0 0 0]} if %
+\fcAccountBoundingBox %
+end %
+/ZbufferYmax exch def %
+/ZbufferXmax exch def %
+/ZbufferYmin exch def %
+/ZbufferXmin exch def %
+(recomputed bounding box, current box: ) print %
+ZbufferXmin == ZbufferYmin == %
+ZbufferXmax == ZbufferYmax == %
+}
+
 \newcommand{\fcFinishIIIdScene}{%
 \pscustom{%
 \code{%
+%print the objects we are about to paint:
+theIIIdObjects length 0 gt { %
 (about to process IIId scene given by: ) print %
 theIIIdObjects == %
+} if %
+5 dict begin %
+/ZbufferXmin 0 def %
+/ZbufferYmin 0 def %
+/ZbufferXmax 0 def %
+/ZbufferYmax 0 def %
+%compute a bounding box for our IIId scene:
+mark theIIIdObjects \fcArrayToStack counttomark {\fcComputeBoundingBoxObject } repeat %
+pop %remove the mark
 mark theIIIdObjects \fcArrayToStack counttomark {\fcPaintObject } repeat %
-pop %removing the mark
+pop %remove the mark
+end %
 }%
 }%
 \pstVerb{end}
@@ -633,7 +746,6 @@ end %
 }%
 
 \newcommand{\fcPaintEllipsoid}{%
-pop %
 %(painting ellipsoid: ) == %
 %dup == %
 \fcArrayToStack %
@@ -649,10 +761,24 @@ pop %
 end %
 }
 
+\newcommand{\fcGetCurrentColorCode}{
+2 dict begin
+/theColor {0 0 0} def %
+/colorNotFound true def %
+(\fcLineColor) (red) eq{/theColor {1 0 0} def /colorNotFound false def}if %
+(\fcLineColor) (blue) eq{/theColor {0 0 1} def /colorNotFound false def}if %
+(\fcLineColor) (green) eq{/theColor {0 1 0} def /colorNotFound false def}if %
+colorNotFound{/theColor {\fcLineColor} def}if %
+theColor %
+end %
+}
+
 %Let the ellipsoid be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 +(z-z1)^2/c^2=1, where x1, y1, z1, a, b, c are the parameters of the ellipsoid. We store the ellipsoid as the data a, b, c in the data structure [ [x1 y1 z1 a b c] (ellipsoid)]
-\newcommand{\fcEllipsoid}[2][]{%
+\newcommand{\fcEllipsoid}[2][linecolor=red]{%
+\setkeys{fcGraphics}{#1}%
 \pstVerb{%
 9 dict begin %
+%default 
 mark #2\space %
 /c exch def %
 /b exch def %
@@ -663,10 +789,39 @@ mark #2\space %
 counttomark 0 gt{ %
 /z1 exch def %
 /y1 exch def %
-/z1 exch def %
+/x1 exch def %
 }if %
 pop %remove the mark
-[theIIIdObjects \fcArrayToStack [[x1 y1 z1 a b c] (ellipsoid)] ] %
+[theIIIdObjects \fcArrayToStack [[x1 y1 z1 a b c] \fcGetCurrentColorCode (ellipsoid)] ] %
+end %
+/theIIIdObjects exch def %
+}%
+}
+
+%Let the cone be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 =(z-z1)^2/c^2, where x1, y1, z1, a, b, c are the parameters of the cone. We plot the cone from zmin to zmax We store the ellipsoid as the data a, b, c in the data structure [ [zmin zmax x1 y1 z1 a b c] (ellipsoid)]
+\newcommand{\fcCone}[2][linecolor=red]{%
+\setkeys{fcGraphics}{#1}%
+\pstVerb{%
+11 dict begin %
+%default 
+mark #2\space %
+/c exch def %
+/b exch def %
+/a exch def %
+/x1 0 def %
+/y1 0 def %
+/z1 0 def %
+counttomark 2 gt{ %
+/x1 exch def %
+/y1 exch def %
+/z1 exch def %
+}if %
+counttomark 1 gt{ %
+/zmax exch def %
+/zmin exch def %
+}if %
+pop %remove the mark
+[theIIIdObjects \fcArrayToStack [[zmin zmax x1 y1 z1 a b c] \fcGetCurrentColorCode (cone)] ] %
 end %
 /theIIIdObjects exch def %
 }%

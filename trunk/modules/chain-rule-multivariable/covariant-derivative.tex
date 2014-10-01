@@ -1,0 +1,32 @@
+\begin{frame}
+  \frametitle{Covariant Derivative}
+
+  Directional derivative =rate of change along straight line
+
+\pause
+  More general setting:
+  \begin{itemize}
+    \item $f$: a differentiable function
+    \item $\gamma$: a smooth parametric curve
+  \end{itemize}
+
+\pause
+Question: How does $f$ change as we move along $\gamma$?
+
+\begin{definition}
+  The rate of change of $f(\gamma(t))$ with respect to $t$ is called the \emph{covariant derivative} of $f$ along $\gamma$ and is denoted by $\nabla_{\gamma'} f$.
+\end{definition}
+
+\pause
+Using the chain rule we get
+%
+$$(\nabla_{\gamma'(t_0)} f) (\gamma(t_0)) = \left. \frac{d}{dt}\right|_{t=t_0} f(\gamma(t)) = (\nabla f)_{\gamma(t_0)} \cdot \gamma'(t_0) \; .$$
+%
+
+\pause
+If $\textbf{u}$ is a unit vector,  $\gamma(t_0) = P$ and $\gamma'(t_0) = \textbf{u}$, then:
+%
+$$(D_{\textbf{u}} f)(P) = (\nabla f)_P \cdot \textbf{u} =
+(\nabla f)_{\gamma(t_0)} \cdot \gamma'(t_0) = \left. \frac{d}{dt}\right|_{t=t_0} f(\gamma(t))\; .$$
+%
+\end{frame}
