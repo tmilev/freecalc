@@ -660,6 +660,7 @@ end %
 /HandlerNotFound true def %
 HandlerNotFound{dup (ellipsoid) eq{pop \fcPaintEllipsoid /HandlerNotFound false def}  if} if %
 HandlerNotFound{dup (cone) eq {pop \fcPaintCone /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (surface) eq {pop \fcPaintSurface /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
 (passed without crash ) ==
 pstack %
@@ -679,9 +680,9 @@ end %
 %(computing bounding box for) ==  dup == %
 1 dict begin %
 /HandlerNotFound true def %
-dup (ellipsoid) eq{pop \fcBoundingBoxEllipsoid /HandlerNotFound false def} if
-dup (cone) eq {pop \fcBoundingBoxCone /HandlerNotFound false def} if %
-HandlerNotFound {== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)[0 0 0 0 0 0]} if %
+HandlerNotFound{dup (ellipsoid) eq{pop \fcBoundingBoxEllipsoid /HandlerNotFound false def} if}if %
+HandlerNotFound{dup (cone) eq {pop \fcBoundingBoxCone /HandlerNotFound false def} if}if %
+HandlerNotFound {== (ERROR: OBJECT BOUNDING BOX HANDLER NOT FOUND)[0 0 0 0 0 0]} if %
 \fcAccountBoundingBox %
 end %
 /ZbufferYmax exch def %
@@ -711,7 +712,7 @@ theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcComputeBoundingBoxObjec
 (bounding box computed: ) print %
 ZbufferXmin == ZbufferYmin == %
 ZbufferXmax == ZbufferYmax == %
-%/theZBuffer [ \fcZBufferNumYIntervals {\fcZBufferNumXIntervals array}repeat  ] def %
+/theZBuffer [ \fcZBufferNumYIntervals {\fcZBufferNumXIntervals\space array}repeat  ] def %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcPaintObject } repeat %
 end %
 }%
@@ -748,8 +749,14 @@ end %
 }
 
 \newcommand{\fcSurfaceIIIdCode}{%
-5 copy \fcSurfaceIIIdUConstCode \fcSurfaceIIIdVConstCode (got here2) == %
+5 copy (got here) == pstack \fcSurfaceIIIdUConstCode \fcSurfaceIIIdVConstCode (got here2) == %
 }%
+
+\newcommand{\fcPaintSurface}{%
+(painting surface: ) == %
+dup == %
+\fcSurfaceIIIdCode
+}
 
 \newcommand{\fcPaintEllipsoid}{%
 (painting ellipsoid: ) == %
@@ -772,6 +779,7 @@ end %
 2 dict begin
 /theColor {0 0 0} def %
 /colorNotFound true def %
+(\fcLineColor) (black) eq{/theColor {0 0 0} def /colorNotFound false def}if %
 (\fcLineColor) (red) eq{/theColor {1 0 0} def /colorNotFound false def}if %
 (\fcLineColor) (blue) eq{/theColor {0 0 1} def /colorNotFound false def}if %
 (\fcLineColor) (green) eq{/theColor {0 1 0} def /colorNotFound false def}if %
@@ -780,7 +788,7 @@ theColor %
 end %
 }
 
-%Let the ellipsoid be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 +(z-z1)^2/c^2=1, where x1, y1, z1, a, b, c are the parameters of the ellipsoid. We store the ellipsoid as the data a, b, c in the data structure [ [x1 y1 z1 a b c] (ellipsoid)]
+%Let the ellipsoid be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 +(z-z1)^2/c^2=1, where x1, y1, z1, a, b, c are the parameters of the ellipsoid. We store the ellipsoid as the data a, b, c in the data structure [ [x1 y1 z1 a b c] red green blue (ellipsoid)]
 \newcommand{\fcEllipsoid}[2][linecolor=red]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
@@ -805,7 +813,7 @@ end %
 }%
 }
 
-%Let the cone be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 =(z-z1)^2/c^2, where x1, y1, z1, a, b, c are the parameters of the cone. We plot the cone from zmin to zmax We store the ellipsoid as the data a, b, c in the data structure [ [zmin zmax x1 y1 z1 a b c] (ellipsoid)]
+%Let the cone be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 =(z-z1)^2/c^2, where x1, y1, z1, a, b, c are the parameters of the cone. We plot the cone from zmin to zmax We store the ellipsoid as the data a, b, c in the data structure [ [zmin zmax x1 y1 z1 a b c] red green blue (ellipsoid)]
 \newcommand{\fcCone}[2][linecolor=red]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
@@ -833,6 +841,15 @@ end %
 /theIIIdObjects exch def %
 }%
 }
+
+%Format of surface: we store the surface in the format [umin vmin umax vmax [fx fy fz] red green blue (surface)]
+\newcommand{\fcSurfaceInScene}[6][]{%
+\setkeys{fcGraphics}{#1} %
+\pstVerb{ %
+[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcGetCurrentColorCode (surface)] ] %
+/theIIIdObjects exch def %
+} %
+}%
 
 \newcommand{\fcCurveIIIdBlockingScreenCode}{%
 10 dict begin %
@@ -1078,7 +1095,7 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 }%end multido
 }
 
-\newcommand{\fcSurfaceIIId}[7][]{%
+\newcommand{\fcSurfaceDirectDraw}[7][]{%
 \fcSurfaceIIIdUConst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
 \fcSurfaceIIIdVConst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
 }%
