@@ -22,6 +22,8 @@
 \newcommand{\fcYLabel}{$y$}
 \newcommand{\fcZLabel}{$z$}
 \newcommand{\fcDelta}{0.5}
+\newcommand{\fcZBufferNumXIntervals}{200}
+\newcommand{\fcZBufferNumYIntervals}{200}
 \newcommand{\fcStartXIId}{0}
 \newcommand{\fcStartYIId}{0}
 \newcommand{\fcIterationsX}{9\space}
@@ -656,9 +658,11 @@ end %
 1 dict begin
 4 1 roll setrgbcolor %
 /HandlerNotFound true def %
-dup (ellipsoid) eq{pop \fcPaintEllipsoid /HandlerNotFound false def} if %
-dup (cone) eq {pop \fcPaintCone /HandlerNotFound false def} if %
+HandlerNotFound{dup (ellipsoid) eq{pop \fcPaintEllipsoid /HandlerNotFound false def}  if} if %
+HandlerNotFound{dup (cone) eq {pop \fcPaintCone /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
+(passed without crash ) ==
+pstack %
 end %
 }%
 
@@ -703,13 +707,12 @@ theIIIdObjects == %
 /ZbufferXmax 0 def %
 /ZbufferYmax 0 def %
 (computing bounding box for the IIId scene... ) print
-mark theIIIdObjects \fcArrayToStack counttomark {\fcComputeBoundingBoxObject } repeat %
-pop %remove the mark
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcComputeBoundingBoxObject } repeat %
 (bounding box computed: ) print %
 ZbufferXmin == ZbufferYmin == %
 ZbufferXmax == ZbufferYmax == %
-mark theIIIdObjects \fcArrayToStack counttomark {\fcPaintObject } repeat %
-pop %remove the mark
+%/theZBuffer [ \fcZBufferNumYIntervals {\fcZBufferNumXIntervals array}repeat  ] def %
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcPaintObject } repeat %
 end %
 }%
 }%
@@ -745,12 +748,12 @@ end %
 }
 
 \newcommand{\fcSurfaceIIIdCode}{%
-5 copy \fcSurfaceIIIdUConstCode \fcSurfaceIIIdVConstCode %
+5 copy \fcSurfaceIIIdUConstCode \fcSurfaceIIIdVConstCode (got here2) == %
 }%
 
 \newcommand{\fcPaintEllipsoid}{%
-%(painting ellipsoid: ) == %
-%dup == %
+(painting ellipsoid: ) == %
+dup == %
 \fcArrayToStack %
 15 dict begin %
 /c exch def %
@@ -762,6 +765,7 @@ end %
 /theSurfaceNormal {[v cos u cos a mul mul v sin u cos b mul mul u sin -1 mul c mul] [v sin -1 mul u sin a mul mul v cos u sin b mul mul 0] \fcVectorCrossVector} def %
 0 0 180 360 {[v cos u sin a mul mul x1 add v sin u sin b mul mul y1 add u cos c mul z1 add]} \fcSurfaceIIIdCode %
 end %
+(got here3) ==
 }
 
 \newcommand{\fcGetCurrentColorCode}{
