@@ -28,6 +28,8 @@
 \newcommand{\fcStartYIId}{0}
 \newcommand{\fcIterationsX}{9\space}
 \newcommand{\fcIterationsY}{9\space}
+\newcommand{\fcIterationsU}{9\space}
+\newcommand{\fcIterationsV}{9\space}
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcLineColor}{black}
 \newcommand{\fcLineWidth}{1\space}
@@ -42,7 +44,6 @@
 ifelse\space %
 }
 \newcommand{\fcScreen}{[-1 1 -0.5] -1} %default projection plane. Renew this command to change projection plane.
-\newcommand{\fcScreenWithSpace}{\fcScreen\space } %Darned LaTeX...
 
 \newcommand{\fcSet}[1]{\setkeys{fcGraphics}{#1}}
 
@@ -55,6 +56,8 @@ ifelse\space %
 \define@key{fcGraphics}{shiftY}[\renewcommand{\fcShiftY}{0}]{\renewcommand{\fcShiftY}{#1}}
 \define@key{fcGraphics}{startX}[\renewcommand{\fcStartXIId}{0}]{\renewcommand{\fcStartXIId}{#1}}
 \define@key{fcGraphics}{startY}[\renewcommand{\fcStartYIId}{0}]{\renewcommand{\fcStartYIId}{#1}}
+\define@key{fcGraphics}{iterationsU}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsU}{#1\space}}
+\define@key{fcGraphics}{iterationsV}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsV}{#1\space}}
 \define@key{fcGraphics}{iterationsX}[\renewcommand{\fcIterationsX}{9\space}]{\renewcommand{\fcIterationsX}{#1\space}}
 \define@key{fcGraphics}{iterationsY}[\renewcommand{\fcIterationsY}{9\space}]{\renewcommand{\fcIterationsY}{#1\space}}
 \define@key{fcGraphics}{screenStyle}[\renewcommand{\fcScreenStyle}{z}]{\renewcommand{\fcScreenStyle}{#1}}
@@ -76,6 +79,10 @@ ifelse\space %
 
 \newcommand{\fcFullDot}[3][linecolor=red]{
 \pscircle*[#1](! #2 #3){0.07}
+}
+
+\newcommand{\fcFullDotCode}{
+\fcCoordsPStricksToPS [0.07 0] \fcCoordsPStricksToPS pop 0 360 arc 1 0 0 setrgbcolor fill stroke
 }
 
 \newcommand{\fcHollowDotBlue}[2]{
@@ -407,7 +414,7 @@ dup \fcVectorScalarVector %
 %(calling project onto plane with arguments:) == %
 %dup == %
 3 dict begin %
-\fcScreenWithSpace %
+\fcScreen\space %
 /theD exch def %
 /theNormal exch def %
 /theV exch def %
@@ -419,7 +426,7 @@ end %
 5 dict begin %
 /theV exch def %
 /theVprojected theV \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen  \fcVectorMinusVector def%
-/theNormalizedNormal \fcScreenWithSpace pop \fcVectorNormalize def %
+/theNormalizedNormal \fcScreen\space pop \fcVectorNormalize def %
 (\fcScreenStyle) (z) eq %
 { %
 /theYUnitV [0 0 1] \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen \fcVectorMinusVector \fcVectorNormalize def %
@@ -592,23 +599,79 @@ end\space%
 /zmin exch def %
 }
 
+\newcommand{\fcZBufferRowColumn}{ %
+\fcCoordsIIIdToPStricks %
+2 dict begin %
+/rowIndex exch \space getZBufferYmin sub getZBufferYmax getZBufferYmin sub div \fcZBufferNumYIntervals\space mul floor cvi def %
+/columnIndex exch getZBufferXmin sub getZBufferXmax getZBufferXmin sub div \fcZBufferNumXIntervals\space mul floor cvi def %
+rowIndex \fcZBufferNumYIntervals\space ge {/rowIndex rowIndex 1 sub def}if %
+columnIndex \fcZBufferNumXIntervals\space ge {/columnIndex columnIndex 1 sub def}if %
+rowIndex \fcZBufferNumYIntervals\space ge {(ERROR: bad row index!!!) == rowIndex ==}if %
+columnIndex \fcZBufferNumXIntervals\space ge {(ERROR: bad column index: ) == columnIndex == }if %
+rowIndex 0 lt {/rowIndex rowIndex 1 add def}if %
+columnIndex 0 lt {/columnIndex columnIndex 1 add def}if %
+rowIndex 0 lt {(ERROR: bad row index!!!) == rowIndex ==}if %
+columnIndex 0 lt {(ERROR: bad column index: ) == columnIndex ==  }if %
+rowIndex columnIndex %
+end %
+}
+
+\newcommand{\fcZBufferGetForeMostDepthAtPoint}{ %
+5 dict begin %
+/thePoint exch def %
+thePoint \fcZBufferRowColumn %
+/column exch def %
+/row exch def %
+theZBuffer row get column get %
+dup (infty) eq {(ERROR: Zbuffer not computed properly) print } if %
+end %
+}
+
+\newcommand{\fcIsInForeGround}{ %
+1 dict begin 
+/thePoint exch def
+thePoint \fcZBufferGetForeMostDepthAtPoint 
+%(computing foreground status ) == thePoint == (:) == dup ==
+thePoint \fcScreen\space pop \fcVectorScalarVector 
+% dup ==
+% 2 copy 
+% ne { (NOT EQUAL!!!!!!!!!) ==} if
+sub -0.01 gt
+end
+}
+
+\newcommand{\fcZBufferAccountPoint}{ %
+5 dict begin %
+/thePoint exch def %
+thePoint \fcZBufferRowColumn %
+/currentColumn exch def %
+/currentRow exch def %
+/Zdepth theZBuffer currentRow get currentColumn get def %
+/currentZdepth thePoint \fcScreen\space pop \fcVectorScalarVector def %
+Zdepth (infty) eq {theZBuffer currentRow get currentColumn currentZdepth put }{ currentZdepth Zdepth lt {theZBuffer currentRow get currentColumn currentZdepth put} if %
+}ifelse %
+end %
+}
+
+\newcommand{\fcZBufferAccountBoundingBoxPoint}{ %
+%Account bounding box:
+\fcCoordsIIIdToPStricks % 
+dup dup getZBufferYmin lt {setZBufferYmin}{pop}ifelse %
+dup getZBufferYmax gt {setZBufferYmax}{pop}ifelse %
+dup dup getZBufferXmin lt {setZBufferXmin}{pop}ifelse %
+dup getZBufferXmax gt {setZBufferXmax}{pop}ifelse \space%
+}
+
 \newcommand{\fcAccountBoundingBox}{ %
-%(accounting bounding box) == dup == %
+%this function is obsolete, needs rewrite
 \fcArrayToStack %
-11 dict begin %
+6 dict begin %
 /zmin exch def %
 /ymin exch def %
 /xmin exch def %
 /zmax exch def %
 /ymax exch def %
 /xmax exch def %
-/AccountOneVertex { %
-\fcCoordsIIIdToPStricks % 
-dup dup ZbufferYmin lt {/ZbufferYmin exch def}{pop}ifelse %
-dup ZbufferYmax gt {/ZbufferYmax exch def}{pop}ifelse %
-dup dup ZbufferXmin lt {/ZbufferXmin exch def}{pop}ifelse %
-dup ZbufferXmax gt {/ZbufferXmax exch def}{pop}ifelse %
-} def %
 [xmin ymin zmin] AccountOneVertex %
 [xmin ymin zmax] AccountOneVertex %
 [xmin ymax zmin] AccountOneVertex %
@@ -617,12 +680,21 @@ dup ZbufferXmax gt {/ZbufferXmax exch def}{pop}ifelse %
 [xmax ymin zmax] AccountOneVertex %
 [xmax ymax zmin] AccountOneVertex %
 [xmax ymax zmax] AccountOneVertex %
-ZbufferXmin ZbufferYmin ZbufferXmax ZbufferYmax %
-end %
 }
 
-\newcommand{\fcBoundingBoxEllipsoid}{ %
-%(calling fcBoundingBoxEllipsoid with input: ) == dup == %
+\newcommand{\fcZBufferSurface}{ %
+(computing z buffer surface) == %
+pstack
+/theSurface exch def %
+/vmax exch def %
+/umax exch def %
+/vmin exch def %
+/umin exch def %
+0 0 0 0
+}
+
+\newcommand{\fcZBufferEllipsoid}{ %
+%(calling fcZBufferEllipsoid with input: ) == dup == %
 \fcArrayToStack
 6 dict begin
 /c exch def %
@@ -653,45 +725,80 @@ a c div zmax sqrt div b c div zmax sqrt div zmax
 end %
 }
 
-\newcommand{\fcPaintObject}{%
-(painting object) == \fcArrayToStack dup == 
+\newcommand{\fcProcessObject}{%
+(processing object) == \fcArrayToStack dup == 
 1 dict begin
 4 1 roll setrgbcolor %
 /HandlerNotFound true def %
-HandlerNotFound{dup (ellipsoid) eq{pop \fcPaintEllipsoid /HandlerNotFound false def}  if} if %
-HandlerNotFound{dup (cone) eq {pop \fcPaintCone /HandlerNotFound false def} if} if %
-HandlerNotFound{dup (surface) eq {pop \fcPaintSurface /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
-(passed without crash ) ==
-pstack %
 end %
 }%
+
+\newcommand{\fcSegmentBoundingBox}{ %
+\fcZBufferAccountBoundingBoxPoint %
+\fcZBufferAccountBoundingBoxPoint %
+}
+
+
+\newcommand{\fcSegmentZBuffer}{ %
+5 dict begin %
+/secondPoint exch def %
+/firstPoint exch def %
+/numPointsToAccount %
+[firstPoint \fcZBufferRowColumn ] %
+[secondPoint\fcZBufferRowColumn ] %
+\fcVectorMinusVector \fcVectorNorm 2 mul 1 add cvi def %
+/Delta 1 numPointsToAccount 1 sub div def %
+/t 0 def %
+numPointsToAccount {secondPoint t \fcVectorTimesScalar firstPoint 1 t sub \fcVectorTimesScalar \fcVectorPlusVector \fcZBufferAccountPoint
+/t t Delta add def %
+}repeat %
+end %
+%(zbuffer after accounting: ) ==
+%theZBuffer ==
+}
+
+\newcommand{\fcSegmentPaint}{ %
+2 dict begin %
+/firstPoint exch def %
+/secondPoint exch def %                                                                                                                                                                                                                                                     
+firstPoint \fcIsInForeGround secondPoint \fcIsInForeGround or %
+{[] 0 setdash} %
+{[1 1] 0 setdash} %
+ifelse %
+newpath %
+firstPoint \fcCoordsIIIdToPS moveto %
+secondPoint \fcCoordsIIIdToPS lineto %
+stroke %
+end %
+}
+
+\newcommand{\fcPaintZbuffForDebug}{ %
+6 dict begin %
+/DeltaX getZBufferXmax getZBufferXmin sub \fcZBufferNumXIntervals\space div def %
+/DeltaY getZBufferYmax getZBufferYmin sub \fcZBufferNumYIntervals\space div def %
+/y getZBufferYmin DeltaY 2 div add def %
+/counterY 0 def %
+\fcZBufferNumYIntervals { %
+/x getZBufferXmin DeltaX 2 div add def %
+/counterX 0 def %
+\fcZBufferNumXIntervals { %
+[x y] \fcFullDotCode %
+/x x DeltaX add def %
+/counterX counterX 1 add def %
+}repeat %
+/y y DeltaY add def %
+/counterY counterY 1 add def %
+}repeat %
+end %
+}
 
 \newcommand{\fcStartIIIdScene}{%
 \pstVerb{%
 1 dict begin %
 /theIIIdObjects [] def %
 }%
-}
-
-\newcommand{\fcComputeBoundingBoxObject}{%
-\fcArrayToStack %
-4 1 roll pop pop pop %<- remove the color data
-%(computing bounding box for) ==  dup == %
-1 dict begin %
-/HandlerNotFound true def %
-HandlerNotFound{dup (ellipsoid) eq{pop \fcBoundingBoxEllipsoid /HandlerNotFound false def} if}if %
-HandlerNotFound{dup (cone) eq {pop \fcBoundingBoxCone /HandlerNotFound false def} if}if %
-HandlerNotFound {== (ERROR: OBJECT BOUNDING BOX HANDLER NOT FOUND)[0 0 0 0 0 0]} if %
-\fcAccountBoundingBox %
-end %
-/ZbufferYmax exch def %
-/ZbufferXmax exch def %
-/ZbufferYmin exch def %
-/ZbufferXmin exch def %
-%(recomputed bounding box, current box: ) print %
-%ZbufferXmin == ZbufferYmin == %
-%ZbufferXmax == ZbufferYmax == %
 }
 
 \newcommand{\fcFinishIIIdScene}{%
@@ -702,61 +809,86 @@ theIIIdObjects length 0 gt { %
 (about to process IIId scene given by: ) print %
 theIIIdObjects == %
 } if %
-5 dict begin %
-/ZbufferXmin 0 def %
-/ZbufferYmin 0 def %
-/ZbufferXmax 0 def %
-/ZbufferYmax 0 def %
-(computing bounding box for the IIId scene... ) print
-theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcComputeBoundingBoxObject } repeat %
-(bounding box computed: ) print %
-ZbufferXmin == ZbufferYmin == %
-ZbufferXmax == ZbufferYmax == %
-/theZBuffer [ \fcZBufferNumYIntervals {\fcZBufferNumXIntervals\space array}repeat  ] def %
-theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcPaintObject } repeat %
+20 dict begin %
+/ZBufferRectangle [0 0 0 0] def %
+/setZBufferXmin {ZBufferRectangle exch 0 exch put} def %
+/setZBufferYmin {ZBufferRectangle exch 1 exch put} def %
+/setZBufferXmax {ZBufferRectangle exch 2 exch put} def %
+/setZBufferYmax {ZBufferRectangle exch 3 exch put} def %
+/getZBufferXmin {ZBufferRectangle 0 get} def %
+/getZBufferYmin {ZBufferRectangle 1 get} def %
+/getZBufferXmax {ZBufferRectangle 2 get} def %
+/getZBufferYmax {ZBufferRectangle 3 get} def %
+/theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{(infty)} repeat]}repeat] def %
+/processTrianglePatch {} def %
+/processSegment {\fcSegmentBoundingBox} def %
+(computing bounding box IIId scene... ) print %
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat 
+(bounding box computed: ) == ZBufferRectangle == %
+/processTrianglePatch {} def %
+/processSegment {\fcSegmentZBuffer} def %
+(computing z-buffer IIId scene... ) print %
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat 
+(z buffer computed) == 
+theZBuffer ==
+%\fcPaintZbuffForDebug
+/processTrianglePatch {} def %
+/processSegment {\fcSegmentPaint} def %
+(painting IIId scene... ) print %
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 end %
 }%
 }%
 \pstVerb{end}
 }%
 
-\newcommand{\fcSurfaceIIIdUConstCode}{%
-10 dict begin %
+\newcommand{\fcProcessSurface}{%
+20 dict begin %
 /theSurface exch def %
 /vMax exch def %
 /uMax exch def %
 /vMin exch def %
 /uMin exch def %
-/DeltaU uMax uMin sub \fcIterationsX\space 1 sub div def %
-/u uMin def %
-/v {t} def %
-\fcIterationsX {vMin vMax {theSurface} \fcCurveIIIdCode /u u DeltaU add def} repeat %
+/uIterations \fcIterationsU\space def %
+/vIterations \fcIterationsV\space def %
+/DeltaU uMax uMin sub uIterations div def %
+/DeltaV vMax vMin sub vIterations div def %
+/counterU 0 def %
+uIterations {/counterV 0 def %
+vIterations {%
+/u uMin counterU DeltaU mul add def %
+/v vMin counterV DeltaV mul add def %
+theSurface dup %
+/u u DeltaU add def %
+theSurface exch %
+/u uMin counterU DeltaU mul add def %
+/v v DeltaV add def %
+theSurface %
+%top of stack contains now f(u,v), f(u+delta, v), f(u,v), f(u, v+delta)
+processSegment %process segment f(u,v), f(u, v+delta)
+processSegment %process segment f(u,v), f(u+delta, v)
+counterU 1 add uIterations eq{
+/u uMin counterU 1 add DeltaU mul add def %
+/v vMin counterV DeltaV mul add def %
+theSurface %
+/v v DeltaV add def %
+theSurface %
+processSegment %
+}if
+counterV 1 add vIterations eq{ %
+/u uMin counterU DeltaU mul add def %
+/v vMin counterV 1 add DeltaV mul add def %
+theSurface %
+/u u DeltaU add def %
+theSurface %
+processSegment %
+}if
+/counterV counterV 1 add def %
+}repeat %
+/counterU counterU 1 add def %
+} repeat %
 end %
-}
-
-\newcommand{\fcSurfaceIIIdVConstCode}{%
-10 dict begin%
-/theSurface exch def %
-/vMax exch def %
-/uMax exch def %
-/vMin exch def %
-/uMin exch def %
-/DeltaV vMax vMin sub \fcIterationsY\space 1 sub div def %
-/v vMin def %
-/u {t} def %
-\fcIterationsY {uMin uMax {theSurface} \fcCurveIIIdCode /v v DeltaV add def} repeat %
-end %
-}
-
-\newcommand{\fcSurfaceIIIdCode}{%
-5 copy (got here) == pstack \fcSurfaceIIIdUConstCode \fcSurfaceIIIdVConstCode (got here2) == %
 }%
-
-\newcommand{\fcPaintSurface}{%
-(painting surface: ) == %
-dup == %
-\fcSurfaceIIIdCode
-}
 
 \newcommand{\fcPaintEllipsoid}{%
 (painting ellipsoid: ) == %
@@ -851,96 +983,7 @@ end %
 } %
 }%
 
-\newcommand{\fcCurveIIIdBlockingScreenCode}{%
-10 dict begin %
-/currentStyle (empty) def %
-theBlockingScreen %
-/theBlockingScreenDepth exch def %
-/theBlockingScreenNormal exch def %
-/getStyle { %
-firstPoint  theBlockingScreenNormal \fcVectorScalarVector theBlockingScreenDepth lt %
-secondPoint theBlockingScreenNormal \fcVectorScalarVector theBlockingScreenDepth lt %
-or {(normal)}{(dashed)} ifelse %
-} def %
-/setDashes {currentStyle (dashed) eq {[\fcDashLength \space \fcDashLength] 0 setdash}{[] 0 setdash} ifelse} def %
-/firstPoint theCurve def %
-/t t Delta add def %
-/secondPoint theCurve def %
-/currentStyle getStyle def %
-setDashes %
-newpath %
-firstPoint \fcCoordsIIIdToPS moveto %
-/remainingCycles numPoints 1 sub def %
-remainingCycles {% 
-  /remainingCycles remainingCycles 1 sub def %
-  secondPoint \fcCoordsIIIdToPS lineto %
-  /firstPoint secondPoint def %
-  remainingCycles 0 gt { %
-    /t t Delta add def %
-    /secondPoint theCurve def %
-    getStyle currentStyle ne %
-    {stroke /currentStyle getStyle def setDashes newpath firstPoint \fcCoordsIIIdToPS moveto %
-    }if %
-  }if %
-} repeat %
-stroke %
-end %
-}
-
-\newcommand{\fcCurveIIIdStandardCode}{%
-newpath %
-theCurve \fcCoordsIIIdToPS moveto %
-numPoints 1 sub {/t t Delta add def theCurve \fcCoordsIIIdToPS lineto } repeat %
-stroke %
-}%
-
-\newcommand{\fcCurveIIIdNormalVectorCode}{%
-10 dict begin %
-/firstPoint theCurve def %
-/firstNormal theSurfaceNormal def %
-/t t Delta add def %
-/secondPoint theCurve def %
-/secondNormal theSurfaceNormal def %
-/currentStyle (normal) def %
-/previousStyle (normal) def %
-/screenNormal \fcScreenWithSpace pop def %
-/computeStyle { %
-firstNormal  screenNormal \fcVectorScalarVector 0 le  %
-secondNormal screenNormal \fcVectorScalarVector 0 le  %
-or %
-{/currentStyle (normal) def} %
-{/currentStyle (dashed) def} %
-ifelse %
-} def %
-/applyStyle {currentStyle (dashed) eq {%setting style for lines that are not visible under orthographic projection (usually drawing them with a dashed line)
-[\fcDashLength\space \fcDashLength] 0 setdash %
-}{%
-[] 0 setdash %
-} ifelse} def %
-newpath %
-firstPoint \fcCoordsIIIdToPS moveto %
-/remainingCycles numPoints 1 sub def %
-remainingCycles {% 
-  /remainingCycles remainingCycles 1 sub def %
-  secondPoint \fcCoordsIIIdToPS  lineto %
-  /firstPoint secondPoint def %
-  /firstNormal secondNormal def %
-  remainingCycles 0 gt { %
-    /t t Delta add def %
-    /secondPoint theCurve def %
-    /secondNormal theSurfaceNormal def %
-	/previousStyle currentStyle def %
-	computeStyle %
-	previousStyle currentStyle ne %
-    {stroke applyStyle newpath firstPoint \fcCoordsIIIdToPS moveto %
-    }if %
-  }if %
-} repeat %
-stroke %
-end %
-}
-
-\newcommand{\fcCurveIIIdCode}{%
+\newcommand{\fcCurveIIIdNoSceneCode}{%
 15 dict begin%
 /theCurve exch def%
 /tMax exch def%
@@ -949,22 +992,14 @@ end %
 /Delta tMax tMin sub numPoints 1 sub div def%
 /t tMin def %
 \fcLineFormatCode %
-/theSurfaceNormal where %
-{ %surfaceNormal is defined 
-pop % remove dictionary from the stack
-\fcCurveIIIdNormalVectorCode %
-} %
-{ %
-/theBlockingScreen where %
-{%theBlockingScreen is defined
-pop %remove dictionary from stack
-\fcCurveIIIdBlockingScreenCode %
-} %
-{ %
-\fcCurveIIIdStandardCode %
-}ifelse %
-}ifelse %
+newpath %
+theCurve \fcCoordsIIIdToPS moveto %
+numPoints 1 sub {/t t Delta add def theCurve \fcCoordsIIIdToPS lineto } repeat %
+stroke %
 end %
+}%
+
+\newcommand{\fcCurveIIIdInSceneCode}{%
 }
 
 
@@ -972,19 +1007,7 @@ end %
 \parametricplot[#1]{#2}{#3}{#4 \fcCoordsIIIdToPStricks}%
 }
 
-\newcommand{\fcCurveIIIdBlockedByScreen}[5][linecolor=\fcColorGraph]{%
-\setkeys{fcGraphics}{#1}%
-\pstVerb{%
-1 dict begin
-/theBlockingScreen {#5} def %
-#2\space #3 \space {#4} \fcCurveIIIdCode %
-end%
-}%
-}
-
-\newcommand{\fcZeroVector}{%
-[ exch { 0 } repeat ]
-}
+\newcommand{\fcZeroVector}{[exch {0} repeat]}
 
 \newcommand{\fcPerpendicularComputeHeel}[3]{%
 \pstVerb{%
