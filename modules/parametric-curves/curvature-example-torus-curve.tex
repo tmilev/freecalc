@@ -1,0 +1,37 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-2, -2)(2, 2)
+\fcBoundingBox{-2.4}{-1.1}{2.4}{2.4}
+\fcAxesIIId{3}{3}{2}
+
+\pstVerb{
+6 dict begin 
+/phi  {t 3 mul} def 
+/theta {t 2 mul} def 
+/R 2 def 
+/r 0.2 def 
+/xyRad {phi sin r mul R add} def 
+/trefoil {[theta cos xyRad mul theta sin xyRad mul phi cos r mul ]} def
+}
+\fcCurveIIId[linecolor=red, plotpoints=500]{0}{10 }{trefoil}
+\fcCurveIIId[linecolor=red, plotpoints=500]{49}{195 }{trefoil}
+\fcCurveIIId[linecolor=red, plotpoints=500]{205}{315 }{trefoil}
+\fcCurveIIId[linecolor=red, plotpoints=500]{325 }{400}{trefoil}
+\pstVerb{end}
+\end{pspicture}
+\column{0.6\textwidth}
+Compute the curvature of the torus (trefoil) curve 
+
+$
+\begin{array}{rcl}
+x&=& \left(R+r\sin \left(3t\right)\right) \cos (2t) \\
+y&=& (R+r\sin \left( 3t \right) \sin 2t \\
+z&=& r\cos (3t) 
+\end{array}
+$
+\end{columns}
+\end{example}
+
+\end{frame}
