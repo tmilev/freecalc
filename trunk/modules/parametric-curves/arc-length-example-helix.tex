@@ -1,0 +1,38 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.35\textwidth}
+\uncover<2->{
+\begin{pspicture}(-1.7,-0.7)(1.7,3)
+\fcBoundingBox{-1.7}{-0.7}{1.7}{3}
+\fcAxesIIId{2}{2}{2}
+\fcCurveIIId[plotpoints=500, linecolor=red]{0}{1080}{[t cos t sin t 360 div]}
+\end{pspicture}
+}
+\column{0.65\textwidth}
+Let $\fcv{r}(t) = \langle \cos{t}, \sin{t}, t\rangle$  \uncover<2->{(the curve is called a \alert<2>{helix} - (not a spiral) ).}
+\begin{itemize}
+\item \alert<1>{Do you know the name of this curve?}
+\item Find the arclength function.
+\item Find the length of the segment of the curve given by $t\in [0,2\pi]$.
+\end{itemize} 
+\end{columns}
+
+
+\[
+\begin{array}{rcl}
+\uncover<3->{\fcv{r}'(t) &=& \langle -\sin{t}, \cos{t}, 1 \rangle \\}
+\uncover<4->{\fcv{r}'(t)| &= &\sqrt{2}\quad .} 
+\end{array}
+\]
+\uncover<5->{
+Therefore the arclength function is
+\[
+\begin{array}{rcl}
+L(t) &=&\displaystyle \int_0^t |\fcv{r}'(\tau)| \diff \tau \\
+\uncover<6->{& =& t\sqrt{2} \quad  .}
+\end{array}
+\]
+}
+\end{example}
+\end{frame}

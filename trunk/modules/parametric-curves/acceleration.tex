@@ -1,23 +1,20 @@
 \begin{frame}
-  \frametitle{Application}
-  $$|\fcv{r}|' = \frac{\fcv{r} \cdot \fcv{r}'}{|\fcv{r}|}$$
+\frametitle{Application}
+$$|\fcv{r}|' = \frac{\fcv{r} \cdot \fcv{r}'}{|\fcv{r}|}$$
 
-  Trajectory on a sphere with center at origin $\Longleftrightarrow$ $|\fcv{r}(t)| = $constant \pause $\Longleftrightarrow$
-
-  $$|\fcv{r}(t)|'\equiv0 \Longleftrightarrow$$
-  %
-  $$\fcv{r}(t)\cdot \fcv{r}'(t)\equiv 0 \Longleftrightarrow$$
-  %
-  $$\fcv{r}(t) \bot \fcv{r}'(t) \Longleftrightarrow$$
-
-  \pause Velocity  $\bot$ Position  $\Longleftrightarrow$ Velocity vector $\fcv{r}'(t)$ tangent to sphere.
-
-  \bigskip
-
-  How about the acceleration?\pause
-  %
-  $$\fcv{r}\cdot \fcv{r}'\equiv 0 \Longrightarrow [\fcv{r}\cdot \fcv{r}']'\equiv 0 \Longleftrightarrow
-  \fcv{r}'\cdot \fcv{r}'+\fcv{r}\cdot \fcv{r}'' \equiv 0 \Longrightarrow \fcv{r}\cdot \fcv{r}'' = -|\fcv{r}'|^2 \leqslant 0$$
-  %
-  Acceleration vector $\fcv{r}''$ points inside the sphere.
+\begin{itemize}
+\item Suppose a point has a trajectory on a sphere with center at origin. Therefore:
+\[
+\begin{array}{rcl}
+\uncover<2->{ |\fcv{r}(t)|& = &\text{constant }\\}
+\uncover<3->{|\fcv{r}(t)|'&=& 0 \\}
+\uncover<4->{\fcv{r}(t)\cdot \fcv{r}'(t)&=& 0 }
+\end{array}
+\]
+\item<5-> In other words, $\fcv r(t)=\text{constant}$ implies $\fcv{r}(t) \bot \fcv{r}'(t)$.
+\item<6-> Velocity  $\bot$ Position  $\Longleftrightarrow$ Velocity vector $\fcv{r}'(t)$ tangent to sphere.
+\item<7-> What can we say about constant acceleration?
+$$\fcv{r}\cdot \fcv{r}'\equiv 0 \Longrightarrow [\fcv{r}\cdot \fcv{r}']' = 0 \Longleftrightarrow \fcv{r}'\cdot \fcv{r}'+\fcv{r}\cdot \fcv{r}'' = 0 \Longrightarrow \fcv{r}\cdot \fcv{r}'' = -|\fcv{r}'|^2 \leq 0$$
+Acceleration vector $\fcv{r}''$ points inside the sphere.
+\end{itemize}
 \end{frame}
