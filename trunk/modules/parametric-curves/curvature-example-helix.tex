@@ -1,0 +1,40 @@
+\begin{frame}
+Notation: $\fcv T$- unit tangent vector, $\fcv r$- position vector, $\kappa$-curvature.
+\begin{example}
+Compute the curvature of $\fcv{r}(t) = \langle \cos{t}, \sin{t}, t\rangle$.
+\begin{columns}
+\column{0.5\textwidth}
+$\begin{array}{rcl}
+\uncover<2->{\alert<2,3> {\fcv{r}'(t)}}& \uncover<2->{\alert<2,3>{=}}&\uncover<3->{\alert<3>{\displaystyle \langle -\sin{t}, \cos{t}, 1 \rangle }}\\
+\uncover<4->{\alert<4,5>{ |\fcv{r}'(t)|}} & \uncover<4->{\alert<4,5>{=}}&\uncover<5->{\alert<5>{ \displaystyle \sqrt{2}}}\\
+\uncover<6->{\alert<6,7>{\fcv{T}(t)}} &\uncover<6->{\alert<6,7>{=}} &\displaystyle \uncover<7->{\alert<7>{ \frac{1}{\sqrt{2}} \langle -\sin{t}, \cos{t}, 1 \rangle }}\\
+\end{array}
+$
+\column{0.5\textwidth}
+$\begin{array}{rcl}
+\uncover<8->{\alert<8,9>{\fcv{T}'(t)}} &\uncover<8->{\alert<8,9>{=}}& \uncover<9->{\alert<9>{\frac{1}{\sqrt{2}}\langle -\cos{t}, -\sin{t}, 0 \rangle }}\\
+\uncover<10->{\alert<10,11>{|\fcv{T}'|}}&\uncover<10->{\alert<10,11>{=}}&\uncover<11->{\alert<11>{ \frac{1}{\sqrt{2}}}} \\
+\uncover<12->{\alert<12,13>{ \kappa(t)}} &\uncover<12->{\alert<12,13>{=}}& \uncover<13->{\alert<13>{ \frac{|\fcv{T}'(t)|}{|\fcv{r}'(t)|} =
+\frac{1}{2}}} \quad .\\
+\end{array}
+$
+\end{columns}
+
+\uncover<14->{Alternatively: }
+\[
+\begin{array}{rcl}
+\uncover<14->{\alert<14,15>{\fcv{r}''}} &\uncover<14->{\alert<14,15>{=}}& \uncover<15->{\alert<15>{ \langle -\cos{t}, -\sin{t}, 0 \rangle}} \\
+\uncover<16->{\alert<16,17>{ \fcv{r}'' \times \fcv{r}'}} &\uncover<16->{\alert<16,17>{=}}&\uncover<17->{\alert<17>{\displaystyle \left|
+\begin{array}{ccc}
+\fcv{i} & \fcv{j} & \fcv{k} \\
+-\cos{t}&  -\sin{t}&  0 \\
+-\sin{t}& \cos{t}& 1
+\end{array}
+\right| = -\sin{t} \, \fcv{i} +
+\cos{t}\, \fcv{j} -\fcv{k}}} \\~\\
+\uncover<18->{\alert<18,19>{
+\kappa(t) }}&\uncover<18->{\alert<18,19>{=}}&\uncover<19->{\alert<19>{ \displaystyle \frac{|\fcv{r}''(t) \times \fcv{r}'(t)|} {|\fcv{r}'(t)|^3} =\frac{\sqrt{2}}{(\sqrt{2})^3} = \frac{1}{2}\; .}}
+\end{array}
+\]
+\end{example}
+\end{frame}

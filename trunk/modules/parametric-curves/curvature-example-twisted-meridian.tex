@@ -1,0 +1,33 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-2, -2)(2, 2)
+\fcBoundingBox{-2.4}{-1.1}{2.4}{2.4}
+\fcAxesIIId{3}{3}{2}
+
+\pstVerb{
+4 dict begin 
+/phi  {t } def 
+/theta {t 0.2 mul} def 
+/R 1 def 
+/twistedMeridian {[theta cos phi sin mul R mul theta sin phi sin mul R mul phi cos R mul ]} def
+}
+\fcCurveIIId[linecolor=red, plotpoints=500]{0 }{180}{twistedMeridian}
+\fcLineIIId{[0 0 0]}{[3 0 0]}
+\pstVerb{end}
+\end{pspicture}
+\column{0.6\textwidth}
+Compute the curvature of the twisted meridian
+
+$
+\begin{array}{rcl}
+x&=& \rho \sin (at)\cos (bt) \\
+y&=& \rho\sin(at)\sin (bt) \\
+z&=& \rho\cos (at) 
+\end{array}
+$
+\end{columns}
+\end{example}
+
+\end{frame}
