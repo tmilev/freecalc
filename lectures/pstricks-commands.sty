@@ -748,7 +748,7 @@ end %
 /DeltaX getZBufferXmax getZBufferXmin sub \fcZBufferNumXIntervals\space div def %
 /DeltaY getZBufferYmax getZBufferYmin sub \fcZBufferNumYIntervals\space div def %
 gsave %
-0.1 setlinewidth
+0.1 setlinewidth %
 /x getZBufferXmin def %
 0.5 0.5 0.5 setrgbcolor %
 \fcZBufferNumYIntervals {newpath [x getZBufferYmin] \fcCoordsPStricksToPS moveto [x getZBufferYmax] \fcCoordsPStricksToPS lineto stroke /x x DeltaX add def}repeat %
@@ -760,9 +760,9 @@ gsave %
 /x getZBufferXmin DeltaX 2 div add def %
 /counterX 0 def %
 \fcZBufferNumXIntervals { %
-theZBuffer counterY get counterX get (infty) ne{
+theZBuffer counterY get counterX get (infty) ne{ %
 %[x y] \fcFullDotCode %
-} if
+} if %
 /x x DeltaX add def %
 /counterX counterX 1 add def %
 }repeat %
@@ -799,9 +799,10 @@ theIIIdObjects == %
 /getZBufferXmax {ZBufferRectangle 2 get} def %
 /getZBufferYmax {ZBufferRectangle 3 get} def %
 /theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{(infty)} repeat]}repeat] def %
+/theZBufferTopPatches [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{(infty)} repeat]}repeat] def %
 /processCurve {\fcZBufferBoundingBoxPolyline} def%
 (computing bounding box IIId scene... ) print %
-theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat 
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 %extend slightly the bounding box to take care of floating point errors at the 
 %border 
 getZBufferXmin 0.1 sub setZBufferXmin %
@@ -811,7 +812,7 @@ getZBufferYmax 0.1 add setZBufferYmax %
 (bounding box computed: ) == ZBufferRectangle == %
 /processCurve {\fcZBufferPolyline} def %
 (computing z-buffer IIId scene... ) print %
-theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat 
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 (z buffer computed) == 
 theZBuffer ==
 \fcPaintZbuffForDebug %
@@ -850,7 +851,7 @@ pstack
 /u uMin def %
 /v {t} def %
 uIterations 1 add { %
-vMin vMax {theSurface}  \fcCurveIIIdInSceneCode %
+vMin vMax {theSurface} \fcCurveIIIdInSceneCode %
 /u u DeltaU add def %
 }repeat %
 /v vMin def %
@@ -858,6 +859,12 @@ vMin vMax {theSurface}  \fcCurveIIIdInSceneCode %
 vIterations 1 add { %
 uMin uMax {theSurface} \fcCurveIIIdInSceneCode %
 /v v DeltaV add def %
+}repeat %
+/u uMin def %
+uIterations { %
+/v vMin def %
+vIterations{ %
+}repeat %
 }repeat %
 end %
 }%
