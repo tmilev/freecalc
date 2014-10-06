@@ -22,8 +22,8 @@
 \newcommand{\fcYLabel}{$y$}
 \newcommand{\fcZLabel}{$z$}
 \newcommand{\fcDelta}{0.5}
-\newcommand{\fcZBufferNumXIntervals}{200}
-\newcommand{\fcZBufferNumYIntervals}{200}
+\newcommand{\fcZBufferNumXIntervals}{20}
+\newcommand{\fcZBufferNumYIntervals}{20}
 \newcommand{\fcStartXIId}{0}
 \newcommand{\fcStartYIId}{0}
 \newcommand{\fcIterationsX}{9\space}
@@ -623,7 +623,7 @@ thePoint \fcZBufferRowColumn %
 /column exch def %
 /row exch def %
 theZBuffer row get column get %
-dup (infty) eq {(ERROR: Zbuffer not computed properly) print } if %
+dup (infty) eq {( <br>ERROR: z-buffer not computed properly, row, column: ) print row == column ==} if %
 end %
 }
 
@@ -631,12 +631,12 @@ end %
 1 dict begin 
 /thePoint exch def
 thePoint \fcZBufferGetForeMostDepthAtPoint 
-%(computing foreground status ) == thePoint == (:) == dup ==
+dup (infty) ne {
 thePoint \fcScreen\space pop \fcVectorScalarVector 
-% dup ==
-% 2 copy 
-% ne { (NOT EQUAL!!!!!!!!!) ==} if
-sub -0.01 gt
+sub -0.001 gt
+} 
+{ pop true
+} ifelse
 end
 }
 
@@ -660,26 +660,6 @@ dup dup getZBufferYmin lt {setZBufferYmin}{pop}ifelse %
 dup getZBufferYmax gt {setZBufferYmax}{pop}ifelse %
 dup dup getZBufferXmin lt {setZBufferXmin}{pop}ifelse %
 dup getZBufferXmax gt {setZBufferXmax}{pop}ifelse \space%
-}
-
-\newcommand{\fcAccountBoundingBox}{ %
-%this function is obsolete, needs rewrite
-\fcArrayToStack %
-6 dict begin %
-/zmin exch def %
-/ymin exch def %
-/xmin exch def %
-/zmax exch def %
-/ymax exch def %
-/xmax exch def %
-[xmin ymin zmin] AccountOneVertex %
-[xmin ymin zmax] AccountOneVertex %
-[xmin ymax zmin] AccountOneVertex %
-[xmin ymax zmax] AccountOneVertex %
-[xmax ymin zmin] AccountOneVertex %
-[xmax ymin zmax] AccountOneVertex %
-[xmax ymax zmin] AccountOneVertex %
-[xmax ymax zmax] AccountOneVertex %
 }
 
 \newcommand{\fcZBufferSurface}{ %
@@ -725,21 +705,10 @@ a c div zmax sqrt div b c div zmax sqrt div zmax
 end %
 }
 
-\newcommand{\fcProcessObject}{%
-(processing object) == \fcArrayToStack dup == 
-1 dict begin
-4 1 roll setrgbcolor %
-/HandlerNotFound true def %
-HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
-HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
-end %
-}%
-
 \newcommand{\fcSegmentBoundingBox}{ %
 \fcZBufferAccountBoundingBoxPoint %
 \fcZBufferAccountBoundingBoxPoint %
 }
-
 
 \newcommand{\fcSegmentZBuffer}{ %
 5 dict begin %
@@ -748,7 +717,7 @@ end %
 /numPointsToAccount %
 [firstPoint \fcZBufferRowColumn ] %
 [secondPoint\fcZBufferRowColumn ] %
-\fcVectorMinusVector \fcVectorNorm 2 mul 1 add cvi def %
+\fcVectorMinusVector \fcVectorNorm 2 mul 2 add cvi def %
 /Delta 1 numPointsToAccount 1 sub div def %
 /t 0 def %
 numPointsToAccount {secondPoint t \fcVectorTimesScalar firstPoint 1 t sub \fcVectorTimesScalar \fcVectorPlusVector \fcZBufferAccountPoint
@@ -778,19 +747,29 @@ end %
 6 dict begin %
 /DeltaX getZBufferXmax getZBufferXmin sub \fcZBufferNumXIntervals\space div def %
 /DeltaY getZBufferYmax getZBufferYmin sub \fcZBufferNumYIntervals\space div def %
+gsave %
+0.1 setlinewidth
+/x getZBufferXmin def %
+0.5 0.5 0.5 setrgbcolor %
+\fcZBufferNumYIntervals {newpath [x getZBufferYmin] \fcCoordsPStricksToPS moveto [x getZBufferYmax] \fcCoordsPStricksToPS lineto stroke /x x DeltaX add def}repeat %
+/y getZBufferYmin def %
+\fcZBufferNumXIntervals { newpath [getZBufferXmin y] \fcCoordsPStricksToPS moveto [getZBufferXmax y] \fcCoordsPStricksToPS lineto stroke /y y DeltaY add def}repeat %
 /y getZBufferYmin DeltaY 2 div add def %
 /counterY 0 def %
 \fcZBufferNumYIntervals { %
 /x getZBufferXmin DeltaX 2 div add def %
 /counterX 0 def %
 \fcZBufferNumXIntervals { %
-[x y] \fcFullDotCode %
+theZBuffer counterY get counterX get (infty) ne{
+%[x y] \fcFullDotCode %
+} if
 /x x DeltaX add def %
 /counterX counterX 1 add def %
 }repeat %
 /y y DeltaY add def %
 /counterY counterY 1 add def %
 }repeat %
+grestore %
 end %
 }
 
@@ -820,20 +799,23 @@ theIIIdObjects == %
 /getZBufferXmax {ZBufferRectangle 2 get} def %
 /getZBufferYmax {ZBufferRectangle 3 get} def %
 /theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{(infty)} repeat]}repeat] def %
-/processTrianglePatch {} def %
-/processSegment {\fcSegmentBoundingBox} def %
+/processCurve {\fcZBufferBoundingBoxPolyline} def%
 (computing bounding box IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat 
+%extend slightly the bounding box to take care of floating point errors at the 
+%border 
+getZBufferXmin 0.1 sub setZBufferXmin %
+getZBufferXmax 0.1 add setZBufferXmax %
+getZBufferYmin 0.1 sub setZBufferYmin %
+getZBufferYmax 0.1 add setZBufferYmax %
 (bounding box computed: ) == ZBufferRectangle == %
-/processTrianglePatch {} def %
-/processSegment {\fcSegmentZBuffer} def %
+/processCurve {\fcZBufferPolyline} def %
 (computing z-buffer IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat 
 (z buffer computed) == 
 theZBuffer ==
-%\fcPaintZbuffForDebug
-/processTrianglePatch {} def %
-/processSegment {\fcSegmentPaint} def %
+\fcPaintZbuffForDebug %
+/processCurve {\fcPolylineInScene} def %
 (painting IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 end %
@@ -842,8 +824,20 @@ end %
 \pstVerb{end}
 }%
 
+\newcommand{\fcProcessObject}{%
+(processing object) == \fcArrayToStack dup == 
+1 dict begin
+4 1 roll setrgbcolor %
+/HandlerNotFound true def %
+HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
+HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
+end %
+}%
+
 \newcommand{\fcProcessSurface}{%
 20 dict begin %
+(processing Surface: ) ==
+pstack
 /theSurface exch def %
 /vMax exch def %
 /uMax exch def %
@@ -853,40 +847,18 @@ end %
 /vIterations \fcIterationsV\space def %
 /DeltaU uMax uMin sub uIterations div def %
 /DeltaV vMax vMin sub vIterations div def %
-/counterU 0 def %
-uIterations {/counterV 0 def %
-vIterations {%
-/u uMin counterU DeltaU mul add def %
-/v vMin counterV DeltaV mul add def %
-theSurface dup %
+/u uMin def %
+/v {t} def %
+uIterations 1 add { %
+vMin vMax {theSurface}  \fcCurveIIIdInSceneCode %
 /u u DeltaU add def %
-theSurface exch %
-/u uMin counterU DeltaU mul add def %
-/v v DeltaV add def %
-theSurface %
-%top of stack contains now f(u,v), f(u+delta, v), f(u,v), f(u, v+delta)
-processSegment %process segment f(u,v), f(u, v+delta)
-processSegment %process segment f(u,v), f(u+delta, v)
-counterU 1 add uIterations eq{
-/u uMin counterU 1 add DeltaU mul add def %
-/v vMin counterV DeltaV mul add def %
-theSurface %
-/v v DeltaV add def %
-theSurface %
-processSegment %
-}if
-counterV 1 add vIterations eq{ %
-/u uMin counterU DeltaU mul add def %
-/v vMin counterV 1 add DeltaV mul add def %
-theSurface %
-/u u DeltaU add def %
-theSurface %
-processSegment %
-}if
-/counterV counterV 1 add def %
 }repeat %
-/counterU counterU 1 add def %
-} repeat %
+/v vMin def %
+/u {t} def %
+vIterations 1 add { %
+uMin uMax {theSurface} \fcCurveIIIdInSceneCode %
+/v v DeltaV add def %
+}repeat %
 end %
 }%
 
@@ -904,7 +876,6 @@ dup == %
 /theSurfaceNormal {[v cos u cos a mul mul v sin u cos b mul mul u sin -1 mul c mul] [v sin -1 mul u sin a mul mul v cos u sin b mul mul 0] \fcVectorCrossVector} def %
 0 0 180 360 {[v cos u sin a mul mul x1 add v sin u sin b mul mul y1 add u cos c mul z1 add]} \fcSurfaceIIIdCode %
 end %
-(got here3) ==
 }
 
 \newcommand{\fcGetCurrentColorCode}{
@@ -999,9 +970,70 @@ stroke %
 end %
 }%
 
-\newcommand{\fcCurveIIIdInSceneCode}{%
+\newcommand{\fcZBufferBoundingBoxPolyline}{ %
+{\fcZBufferAccountBoundingBoxPoint} \fcSpliceArrayOperation pop
 }
 
+\newcommand{\fcZBufferPolyline}{ %
+{\fcZBufferAccountPoint} \fcSpliceArrayOperation pop
+}
+
+\newcommand{\fcPolylineInScene}{ %
+15 dict begin %
+(got to polyline in scene) ==
+/thePoints exch def %
+/numSegments thePoints length 1 sub def %
+/currentStyle (none) def %
+/styleNext (none) def %
+/numSegmentsAccounted 0 def %
+newpath %
+{ numSegmentsAccounted numSegments ge {exit} if %
+  thePoints numSegmentsAccounted get \fcZBufferRowColumn %
+  /column exch def %
+  /row exch def %
+  thePoints numSegmentsAccounted get \fcIsInForeGround {/styleNext (solid) def}{/styleNext (dashed) def} ifelse
+  /numSegmentsNext 1 def %
+  { numSegmentsAccounted numSegmentsNext add numSegments ge {exit} if %
+    thePoints numSegmentsAccounted numSegmentsNext add get %
+    \fcZBufferRowColumn column ne exch row ne or {exit}if 
+    thePoints numSegmentsAccounted numSegmentsNext add get %
+    \fcIsInForeGround {/styleNext (solid) def} if %
+    /numSegmentsNext numSegmentsNext 1 add def %
+  }loop %
+  styleNext currentStyle ne{ %
+  (unequal styles) ==
+  stroke  %
+  styleNext (dashed) eq {[1 1]0 setdash }{[]0 setdash}ifelse %
+  newpath %
+  thePoints numSegmentsAccounted get \fcCoordsIIIdToPS moveto %
+  }if %
+  /currentStyle styleNext def %
+  numSegmentsNext { %
+    /numSegmentsAccounted numSegmentsAccounted 1 add def %  
+    thePoints numSegmentsAccounted get %
+    \fcCoordsIIIdToPS lineto %
+  }repeat
+}loop
+stroke
+end
+}
+
+\newcommand{\fcCurveIIIdInSceneCode}{%
+20 dict begin %
+/theCurve exch def %
+/tmax exch def %
+/tmin exch def %
+/numPoints \fcPlotPoints\space dup == def %
+/numIntervals numPoints 1 sub dup == def % 
+/Delta tmax tmin sub numIntervals div def %
+/t tmin def %
+/outputArray [theCurve %
+numIntervals { /t t Delta add def theCurve}repeat %
+]def %
+(got to curve processing) ==
+outputArray processCurve %
+end %
+}
 
 \newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%
 \parametricplot[#1]{#2}{#3}{#4 \fcCoordsIIIdToPStricks}%

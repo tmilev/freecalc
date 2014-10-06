@@ -1,0 +1,58 @@
+
+\begin{frame}
+\frametitle{$Ax^2+By^2+Cz^2+D=0$, $A>0, B>0, C<0, D=0$}
+
+
+\begin{columns} 
+\column{0.4\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-2,-2)(2, 2)
+\tiny %
+\fcStartIIIdScene%
+\fcBoundingBox{-2}{-2}{2}{2}%
+\fcAxesIIId{3}{3}{3}%
+\uncover<9->{\fcDotIIId{[0 0 -2]}}%
+\uncover<11->{\fcCurveIIId[linecolor=red]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul -1]}}%
+\uncover<13->{\fcCurveIIId[linecolor=red]{0}{360}{[2 sqrt t cos mul 3 sqrt t sin mul 0]}}%
+\uncover<15->{\fcCurveIIId[linecolor=red]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul 1]}}%
+\uncover<17->{\fcDotIIId{[0 0 2]}}%
+\only<18->{%
+\fcEllipsoid{0 0 0 2 sqrt 3 sqrt 2}%
+}%
+\fcFinishIIIdScene%
+\end{pspicture}
+
+\psset{xunit=0.4cm, yunit=0.4cm}
+\begin{pspicture}(-2,-2)(2, 2)
+\tiny
+\fcAxesStandard{-3}{-3}{3}{3}
+\fcLabels[$x$][$y$]{3}{3}%
+\uncover<9,17>{\fcFullDot{0}{0}}
+\uncover<11>{ \parametricplot[linecolor=red]{0}{360}{3 2 div sqrt t cos mul 1.5 t sin mul }}
+\uncover<13>{ \parametricplot[linecolor=red]{0}{360}{2 sqrt t cos mul 3 sqrt t sin mul }}
+\uncover<15>{ \parametricplot[linecolor=red]{0}{360}{3 2 div sqrt t cos mul 1.5 t sin mul }}
+\end{pspicture}
+
+$z=\vphantom{\frac{3}{4}} \parbox{1cm}{ \only<6,7>{\alert<6,7>{ -3}} \only<8,9>{\alert<8,9>{-2} }} \only<10,11>{\alert<10,11>{-1}} \only<12,13>{\alert<12,13>{0}} \only<14,15>{\alert<14,15>{1}} \only<16,17>{\alert<16,17>{2}} $
+
+$
+\begin{array}{rl}\frac{1}{2}\left(\frac{x}{2}\right)^2+\left(\frac{y}{\sqrt{2}}\right)^2&\alert<0>{ =} 1-\frac{z^2}{4}\\
+& \uncover<6-17>{\alert<6-17>{=}} \vphantom{\frac{3}{4}} \only<7>{\alert<7>{ -\frac{5}{4}} } \only<9>{\alert<9>{0}} \only<11>{\alert<11>{\frac{3}{4}}} \only<13>{\alert<13>{1}} \only<15>{\alert<15>{\frac{3}{4}}} \only<17>{\alert<17>{0}} \end{array}$ 
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item Consider the surface 
+$\mathcal C =\left\{(x,y,z) |\frac{x^2}{4}+\frac{y^2}{2}=z^2 \right\}$ 
+\item<2-> The level curves $z=const$ are:
+\begin{itemize}
+\item<3-> Ellipses for $z\neq 0$.
+\item<8-> A point for $z=0$.
+\end{itemize}
+\item<9-> Figure is called a cone.
+\end{itemize}
+
+\end{columns}
+
+\vskip 10cm
+
+\end{frame}
