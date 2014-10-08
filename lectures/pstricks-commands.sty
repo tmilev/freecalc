@@ -321,13 +321,7 @@ end %
 } %pushes elements of array onto the stack
 
 \newcommand{\fcArrayToStack}{ %
-\space %
-1 dict begin %
-/theArray exch def %put array in var.
-0 1 theArray length 1 sub %loop parameters
-{ theArray exch get %get array member
-} for %
-end \space%
+aload pop
 } %pushes elements of array onto the stack
 
 \newcommand{\fcSpliceArrayOperationArray}{ %
@@ -710,7 +704,7 @@ end %
 \fcZBufferAccountBoundingBoxPoint %
 }
 
-\newcommand{\fcSegmentZBuffer}{ %
+\newcommand{\fcZBufferSegment}{ %
 5 dict begin %
 /secondPoint exch def %
 /firstPoint exch def %
@@ -760,7 +754,7 @@ gsave %
 /x getZBufferXmin DeltaX 2 div add def %
 /counterX 0 def %
 \fcZBufferNumXIntervals { %
-theZBuffer counterY get counterX get (infty) ne{ %
+theZBuffer counterY get counterX get length 0 gt{ %
 %[x y] \fcFullDotCode %
 } if %
 /x x DeltaX add def %
@@ -798,9 +792,9 @@ theIIIdObjects == %
 /getZBufferYmin {ZBufferRectangle 1 get} def %
 /getZBufferXmax {ZBufferRectangle 2 get} def %
 /getZBufferYmax {ZBufferRectangle 3 get} def %
-/theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{(infty)} repeat]}repeat] def %
-/theZBufferTopPatches [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{(infty)} repeat]}repeat] def %
+/theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{[]} repeat]}repeat] def %
 /processCurve {\fcZBufferBoundingBoxPolyline} def%
+/processPatch {pop} def %
 (computing bounding box IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 %extend slightly the bounding box to take care of floating point errors at the 
@@ -810,13 +804,15 @@ getZBufferXmax 0.1 add setZBufferXmax %
 getZBufferYmin 0.1 sub setZBufferYmin %
 getZBufferYmax 0.1 add setZBufferYmax %
 (bounding box computed: ) == ZBufferRectangle == %
-/processCurve {\fcZBufferPolyline} def %
+/processCurve {pop} def %
+/processPatch {\fcZBufferPatch} def %
 (computing z-buffer IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 (z buffer computed) == 
 theZBuffer ==
 \fcPaintZbuffForDebug %
 /processCurve {\fcPolylineInScene} def %
+/processCurve {\fcPatchInScene} def %
 (painting IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 end %
@@ -864,7 +860,19 @@ uMin uMax {theSurface} \fcCurveIIIdInSceneCode %
 uIterations { %
 /v vMin def %
 vIterations{ %
+[ %start of patch data structure
+theSurface %(x(u,v), y(u,v), z(u,v))
+/oldU u def %
+/u u DeltaU add def %
+theSurface %(x(u+Delta,v), y(u+Delta,v), z(u+Delta,v))
+/u oldU def %
+/v v DeltaV add def %
+theSurface %(x(u,v+Delta), y(u,v+Delta), z(u,v+Delta))
+(patch) %
+] %patch data structure complete
+processPatch %
 }repeat %
+/u u DeltaU add def %
 }repeat %
 end %
 }%
@@ -978,11 +986,79 @@ end %
 }%
 
 \newcommand{\fcZBufferBoundingBoxPolyline}{ %
-{\fcZBufferAccountBoundingBoxPoint} \fcSpliceArrayOperation pop
+{\fcZBufferAccountBoundingBoxPoint} forall
 }
 
 \newcommand{\fcZBufferPolyline}{ %
 {\fcZBufferAccountPoint} \fcSpliceArrayOperation pop
+}
+
+\newcommand{\fcAreEqual}{ %
+1 dict begin
+/areEqual
+{5 dict begin 
+/left exch def
+/right exch def
+left type  right type ne{false}
+{ left type (arraytype) ne{ left right eq}
+{ left length right length ne{false}
+{ /counter 0 def %
+true %
+left length { left  counter get right counter get areEqual not{pop false exit }if /counter counter 1 add def }repeat
+}ifelse
+}ifelse
+}ifelse
+end
+} def %
+areEqual
+end
+}
+
+\newcommand{\fcZBufferAccountPatchXY}{ %
+(patch row col: ) print x == y ==
+5 dict begin %
+/currentArray theZBuffer y get x get def %
+/counter 0 def %
+true %
+currentArray length {currentArray counter get thePatch \fcAreEqual {pop false exit}if /counter counter 1 add def} repeat
+{ theZBuffer y get x [currentArray \fcArrayToStack thePatch ] put}if
+end %
+}
+
+\newcommand{\fcZBufferPatch}{ %
+15 dict begin %
+/thePatch exch def %
+(Processing patch: ) print 
+thePatch ==
+/secondPointBuffer [thePatch 2 get \fcZBufferRowColumn] def %
+/firstPointBuffer  [thePatch 1 get \fcZBufferRowColumn] def %
+/basePointBuffer   [thePatch 0 get \fcZBufferRowColumn] def %
+(Index vector:) print
+secondPointBuffer ==
+basePointBuffer ==
+firstPointBuffer ==
+/firstDirection firstPointBuffer basePointBuffer \fcVectorMinusVector def %
+/secondDirection secondPointBuffer basePointBuffer \fcVectorMinusVector def %
+/iterationsFirst firstDirection \fcVectorNorm 2 mul 1 add round cvi def %
+/iterationsSecond secondDirection \fcVectorNorm 2 mul 1 add round cvi def %
+/s 0 def %
+iterationsFirst{ %
+/firstComponent firstDirection s iterationsFirst div \fcVectorTimesScalar basePointBuffer \fcVectorPlusVector def%
+/t 0 def %
+iterationsSecond{ %
+secondDirection t iterationsSecond div \fcVectorTimesScalar %
+firstComponent \fcVectorPlusVector \fcArrayToStack %
+/y exch round cvi def %
+/x exch round cvi def %
+\fcZBufferAccountPatchXY %
+/t t 1 add def %
+}repeat
+/s s 1 add def %
+}repeat
+end %
+}
+
+\newcommand{\fcPatchInScene}{ %
 }
 
 \newcommand{\fcPolylineInScene}{ %
