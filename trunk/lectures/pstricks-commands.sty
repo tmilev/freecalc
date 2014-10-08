@@ -622,6 +622,7 @@ end %
 }
 
 \newcommand{\fcIsInForeGround}{ %
+(checking foreground status:) ==
 1 dict begin 
 /thePoint exch def
 thePoint \fcZBufferGetForeMostDepthAtPoint 
@@ -755,7 +756,7 @@ gsave %
 /counterX 0 def %
 \fcZBufferNumXIntervals { %
 theZBuffer counterY get counterX get length 0 gt{ %
-%[x y] \fcFullDotCode %
+[x y] \fcFullDotCode %
 } if %
 /x x DeltaX add def %
 /counterX counterX 1 add def %
@@ -796,7 +797,7 @@ theIIIdObjects == %
 /processCurve {\fcZBufferBoundingBoxPolyline} def%
 /processPatch {pop} def %
 (computing bounding box IIId scene... ) print %
-theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject (finished processing object) ==} repeat %
 %extend slightly the bounding box to take care of floating point errors at the 
 %border 
 getZBufferXmin 0.1 sub setZBufferXmin %
@@ -807,15 +808,19 @@ getZBufferYmax 0.1 add setZBufferYmax %
 /processCurve {pop} def %
 /processPatch {\fcZBufferPatch} def %
 (computing z-buffer IIId scene... ) print %
-theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject (z buffer partially done) == } repeat %
 (z buffer computed) == 
 theZBuffer ==
+(got here!) ==
 \fcPaintZbuffForDebug %
+(buffer is painted) ==
 /processCurve {\fcPolylineInScene} def %
-/processCurve {\fcPatchInScene} def %
+/processPatch {pop} def %
 (painting IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 end %
+(done, printing stack to make sure no trash is left) ==
+pstack
 }%
 }%
 \pstVerb{end}
@@ -829,6 +834,7 @@ end %
 HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
 end %
+(got to end of processing object) print
 }%
 
 \newcommand{\fcProcessSurface}{%
@@ -875,6 +881,7 @@ processPatch %
 /u u DeltaU add def %
 }repeat %
 end %
+(got to this end) ==
 }%
 
 \newcommand{\fcPaintEllipsoid}{%
@@ -1015,7 +1022,7 @@ end
 }
 
 \newcommand{\fcZBufferAccountPatchXY}{ %
-(patch row col: ) print x == y ==
+%(patch row col: ) print x == y ==
 5 dict begin %
 /currentArray theZBuffer y get x get def %
 /counter 0 def %
@@ -1028,8 +1035,8 @@ end %
 \newcommand{\fcZBufferPatch}{ %
 15 dict begin %
 /thePatch exch def %
-(Processing patch: ) print 
-thePatch ==
+%(Processing patch: ) print 
+%thePatch ==
 /secondPointBuffer [thePatch 2 get \fcZBufferRowColumn] def %
 /firstPointBuffer  [thePatch 1 get \fcZBufferRowColumn] def %
 /basePointBuffer   [thePatch 0 get \fcZBufferRowColumn] def %
@@ -1056,6 +1063,7 @@ firstComponent \fcVectorPlusVector \fcArrayToStack %
 /s s 1 add def %
 }repeat
 end %
+(got to exit) ==
 }
 
 \newcommand{\fcPatchInScene}{ %

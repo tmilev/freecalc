@@ -1,0 +1,44 @@
+Compute the tangent vector, the normal vector and the curvature at each point on the curve.
+
+\begin{enumerate}
+\item The equator of the unit sphere $\fcv r(t)= \langle \cos t, \sin t ,0 \rangle$. 
+\item The equator of the unit sphere $\fcv r(t)= \langle \cos t, \sin t ,0 \rangle$. 
+\item The loxodromic curve $\fcv r(t)= \langle \cos (10t) \sin (t), \sin (10t)\sin (t), \cos (t) \rangle$. A loxodromic curve is a curve obtained by taking a straight line in the $\{(\rho,\phi, \theta)|\rho =\text{const}\}$-plane in spherical coordinates and mapping it into the $x,y,z$-coordinates. Loxodromic curves were used in navigation: maintaining a course on a loxodromic curve requires only keeping a constant angle with the north direction (which one can obtain via compass).
+
+\begin{pspicture}(0,0)(1,1)
+\fcCurveIIId[plotpoints=500, linecolor=red]{0}{180}{[10 t mul cos t sin mul 10 t mul sin t sin mul t cos ]}
+\end{pspicture}
+\item The ellipse $\fcv r(t) = \langle a\cos t, b\sin t \rangle $. Where is the curvature largest? Where smallest? Can you answer without computation, and does your answer match your computation?
+\item The loxodromic meridian 
+$\fcv r(t)=\langle \sin (at)\cos (bt),  \sin(at)\sin (bt) ,\rho\cos (at) \rangle
+$
+\item The trefoil (torus) knot
+$\fcv r=\langle \left( R+r\sin \left(3t\right)\right) \cos (2t) ,(R+r\sin \left( 3t \right) \sin (2t) ,r\cos (3t)\rangle 
+$
+\item The torus curve
+$\fcv r=\langle \left( R+r\sin \left(20t\right)\right) \cos (t) ,(R+r\sin \left( 20t \right) \sin (2t) ,r\cos (20t)\rangle 
+$
+\begin{pspicture}(0,0)(1,1)
+\fcAxesIIId{3}{3}{2}
+
+\pstVerb{
+6 dict begin 
+/phi  {t 20 mul} def 
+/theta {t } def 
+/R 2 def 
+/r 0.2 def 
+/xyRad {phi sin r mul R add} def 
+/torusCurve {[theta cos xyRad mul theta sin xyRad mul phi cos r mul ]} def
+}
+\fcCurveIIId[linecolor=red, plotpoints=500]{0}{360 }{torusCurve}
+\pstVerb{end}
+\end{pspicture}
+\item The helix $\fcv r= \langle\cos t, \sin t, t\rangle $.
+
+\item The cone curve $\fcv r= t\langle\cos t, t\sin t, t\rangle $
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(0,0)(1,1)
+\fcCurveIIId[linecolor=red, plotpoints =500]{0}{720}{ [t cos t sin 1] t 57.295779513 div \fcVectorTimesScalar }
+\end{pspicture}
+
+\end{enumerate}
