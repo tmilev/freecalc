@@ -30,6 +30,8 @@
 \newcommand{\fcIterationsY}{9\space}
 \newcommand{\fcIterationsU}{9\space}
 \newcommand{\fcIterationsV}{9\space}
+\newcommand{\fcNumPointsInPatchU}{10\space}
+\newcommand{\fcNumPointsInPatchV}{10\space}
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcLineColor}{black}
 \newcommand{\fcLineWidth}{1\space}
@@ -621,6 +623,30 @@ dup (infty) eq {( <br>ERROR: z-buffer not computed properly, row, column: ) prin
 end %
 }
 
+\newcommand{\fcPointIsBehindPatch}{ %
+%a patch is assumed to be on the top of the stack
+7 dict begin %
+\fcArrayToStack %
+pop %
+/v2 exch def %
+/v1 exch def %
+/v0 exch def %
+/normal1 v1 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def
+/normal2 v2 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def
+thePoint v0 \fcVectorMinusVector normal1 \fcVectorScalarVector 
+v2 thePoint \fcVectorMinusVector normal1 \fcVectorScalarVector 
+mul 0 ge {
+thePoint v0 \fcVectorMinusVector normal2 \fcVectorScalarVector 
+v1 thePoint \fcVectorMinusVector normal2 \fcVectorScalarVector 
+mul 0 ge 
+{false}{true} 
+ifelse
+}
+{true}
+ifelse
+end
+}
+
 \newcommand{\fcIsInForeGround}{ %
 (checking foreground status:) ==
 1 dict begin 
@@ -648,6 +674,18 @@ Zdepth (infty) eq {theZBuffer currentRow get currentColumn currentZdepth put }{ 
 end %
 }
 
+\newcommand{\fcZBufferAccountBoundingBoxPatch}{ %
+\fcArrayToStack pop % 
+3 dict begin %
+/v2 exch def %
+/v1 exch def %
+/v0 exch def %
+v0 \fcZBufferAccountBoundingBoxPoint %
+v1 \fcZBufferAccountBoundingBoxPoint %
+v2 \fcZBufferAccountBoundingBoxPoint %
+v1 v2 \fcVectorPlusVector v0 \fcVectorMinusVector \fcZBufferAccountBoundingBoxPoint %
+end %
+}
 \newcommand{\fcZBufferAccountBoundingBoxPoint}{ %
 %Account bounding box:
 \fcCoordsIIIdToPStricks % 
@@ -794,8 +832,8 @@ theIIIdObjects == %
 /getZBufferXmax {ZBufferRectangle 2 get} def %
 /getZBufferYmax {ZBufferRectangle 3 get} def %
 /theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{[]} repeat]}repeat] def %
-/processCurve {\fcZBufferBoundingBoxPolyline} def%
-/processPatch {pop} def %
+/doPaintSurface false def %
+/processPatch {\fcZBufferAccountBoundingBoxPatch} def %
 (computing bounding box IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject (finished processing object) ==} repeat %
 %extend slightly the bounding box to take care of floating point errors at the 
@@ -805,7 +843,6 @@ getZBufferXmax 0.1 add setZBufferXmax %
 getZBufferYmin 0.1 sub setZBufferYmin %
 getZBufferYmax 0.1 add setZBufferYmax %
 (bounding box computed: ) == ZBufferRectangle == %
-/processCurve {pop} def %
 /processPatch {\fcZBufferPatch} def %
 (computing z-buffer IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject (z buffer partially done) == } repeat %
@@ -814,8 +851,8 @@ theZBuffer ==
 (got here!) ==
 \fcPaintZbuffForDebug %
 (buffer is painted) ==
-/processCurve {\fcPolylineInScene} def %
 /processPatch {pop} def %
+/doPaintSurface true def %
 (painting IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 end %
@@ -837,6 +874,61 @@ end %
 (got to end of processing object) print
 }%
 
+\newcommand{\fcPolylineCountoringPatches}{ %
+15 dict begin %
+(got to polyline in scene) ==
+/thePoints exch def %
+/numSegments thePoints length 1 sub def %
+/currentStyle (none) def %
+/styleNext (none) def %
+/numSegmentsAccounted 0 def %
+newpath %
+{ numSegmentsAccounted numSegments ge {exit} if %
+  thePoints numSegmentsAccounted get \fcZBufferRowColumn %
+  /column exch def %
+  /row exch def %
+  thePoints numSegmentsAccounted get \fcIsInForeGround {/styleNext (solid) def}{/styleNext (dashed) def} ifelse
+  /numSegmentsNext 1 def %
+  { numSegmentsAccounted numSegmentsNext add numSegments ge {exit} if %
+    thePoints numSegmentsAccounted numSegmentsNext add get %
+    \fcZBufferRowColumn column ne exch row ne or {exit}if 
+    thePoints numSegmentsAccounted numSegmentsNext add get %
+    \fcIsInForeGround {/styleNext (solid) def} if %
+    /numSegmentsNext numSegmentsNext 1 add def %
+  }loop %
+  styleNext currentStyle ne{ %
+  (unequal styles) ==
+  stroke  %
+  styleNext (dashed) eq {[1 1]0 setdash }{[]0 setdash}ifelse %
+  newpath %
+  thePoints numSegmentsAccounted get \fcCoordsIIIdToPS moveto %
+  }if %
+  /currentStyle styleNext def %
+  numSegmentsNext { %
+    /numSegmentsAccounted numSegmentsAccounted 1 add def %  
+    thePoints numSegmentsAccounted get %
+    \fcCoordsIIIdToPS lineto %
+  }repeat
+}loop
+stroke
+end
+}
+
+\newcommand{\fcComputeSurfacePatch}{
+/oldU u def %
+/oldV v def %
+[ %start of patch data structure
+theSurface %(x(u,v), y(u,v), z(u,v))
+/u u DeltaU add def %
+theSurface %(x(u+Delta,v), y(u+Delta,v), z(u+Delta,v))
+/u oldU def %
+/v v DeltaV add def %
+theSurface %(x(u,v+Delta), y(u,v+Delta), z(u,v+Delta))
+(patch) %
+] %patch data structure complete
+/v oldV def %
+}
+
 \newcommand{\fcProcessSurface}{%
 20 dict begin %
 (processing Surface: ) ==
@@ -850,33 +942,28 @@ pstack
 /vIterations \fcIterationsV\space def %
 /DeltaU uMax uMin sub uIterations div def %
 /DeltaV vMax vMin sub vIterations div def %
+doPaintSurface{ %
+%BEGIN painting surface mesh
 /u uMin def %
-/v {t} def %
-uIterations 1 add { %
-vMin vMax {theSurface} \fcCurveIIIdInSceneCode %
-/u u DeltaU add def %
-}repeat %
+uIterations { %
 /v vMin def %
-/u {t} def %
-vIterations 1 add { %
-uMin uMax {theSurface} \fcCurveIIIdInSceneCode %
+[
+vIterations{ %
+\fcComputeSurfacePatch
 /v v DeltaV add def %
 }repeat %
+/u u DeltaU add def %
+]
+} repeat %
+%END painting surface mesh 
+} if %
 /u uMin def %
 uIterations { %
 /v vMin def %
 vIterations{ %
-[ %start of patch data structure
-theSurface %(x(u,v), y(u,v), z(u,v))
-/oldU u def %
-/u u DeltaU add def %
-theSurface %(x(u+Delta,v), y(u+Delta,v), z(u+Delta,v))
-/u oldU def %
-/v v DeltaV add def %
-theSurface %(x(u,v+Delta), y(u,v+Delta), z(u,v+Delta))
-(patch) %
-] %patch data structure complete
+\fcComputeSurfacePatch
 processPatch %
+/v v DeltaV add def %
 }repeat %
 /u u DeltaU add def %
 }repeat %
@@ -1064,66 +1151,6 @@ firstComponent \fcVectorPlusVector \fcArrayToStack %
 }repeat
 end %
 (got to exit) ==
-}
-
-\newcommand{\fcPatchInScene}{ %
-}
-
-\newcommand{\fcPolylineInScene}{ %
-15 dict begin %
-(got to polyline in scene) ==
-/thePoints exch def %
-/numSegments thePoints length 1 sub def %
-/currentStyle (none) def %
-/styleNext (none) def %
-/numSegmentsAccounted 0 def %
-newpath %
-{ numSegmentsAccounted numSegments ge {exit} if %
-  thePoints numSegmentsAccounted get \fcZBufferRowColumn %
-  /column exch def %
-  /row exch def %
-  thePoints numSegmentsAccounted get \fcIsInForeGround {/styleNext (solid) def}{/styleNext (dashed) def} ifelse
-  /numSegmentsNext 1 def %
-  { numSegmentsAccounted numSegmentsNext add numSegments ge {exit} if %
-    thePoints numSegmentsAccounted numSegmentsNext add get %
-    \fcZBufferRowColumn column ne exch row ne or {exit}if 
-    thePoints numSegmentsAccounted numSegmentsNext add get %
-    \fcIsInForeGround {/styleNext (solid) def} if %
-    /numSegmentsNext numSegmentsNext 1 add def %
-  }loop %
-  styleNext currentStyle ne{ %
-  (unequal styles) ==
-  stroke  %
-  styleNext (dashed) eq {[1 1]0 setdash }{[]0 setdash}ifelse %
-  newpath %
-  thePoints numSegmentsAccounted get \fcCoordsIIIdToPS moveto %
-  }if %
-  /currentStyle styleNext def %
-  numSegmentsNext { %
-    /numSegmentsAccounted numSegmentsAccounted 1 add def %  
-    thePoints numSegmentsAccounted get %
-    \fcCoordsIIIdToPS lineto %
-  }repeat
-}loop
-stroke
-end
-}
-
-\newcommand{\fcCurveIIIdInSceneCode}{%
-20 dict begin %
-/theCurve exch def %
-/tmax exch def %
-/tmin exch def %
-/numPoints \fcPlotPoints\space dup == def %
-/numIntervals numPoints 1 sub dup == def % 
-/Delta tmax tmin sub numIntervals div def %
-/t tmin def %
-/outputArray [theCurve %
-numIntervals { /t t Delta add def theCurve}repeat %
-]def %
-(got to curve processing) ==
-outputArray processCurve %
-end %
 }
 
 \newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%
