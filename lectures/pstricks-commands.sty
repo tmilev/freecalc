@@ -28,10 +28,10 @@
 \newcommand{\fcStartYIId}{0}
 \newcommand{\fcIterationsX}{9\space}
 \newcommand{\fcIterationsY}{9\space}
-\newcommand{\fcIterationsU}{9\space}
-\newcommand{\fcIterationsV}{9\space}
-\newcommand{\fcNumCountourSegmentsPatchU}{10\space}
-\newcommand{\fcNumCountourSegmentsPatchV}{10\space}
+\newcommand{\fcIterationsU}{4\space}
+\newcommand{\fcIterationsV}{4\space}
+\newcommand{\fcNumCountourSegmentsPatchU}{4\space}
+\newcommand{\fcNumCountourSegmentsPatchV}{4\space}
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcLineColor}{black}
 \newcommand{\fcLineWidth}{1\space}
@@ -639,7 +639,7 @@ end
 }
 
 \newcommand{\fcIsInForeground}{ %
-10 dict begin %
+15 dict begin %
 /theNeighborhood exch def %
 /thePoint theNeighborhood 0 get def %
 thePoint \fcZBufferRowColumn %
@@ -649,16 +649,20 @@ thePoint \fcZBufferRowColumn %
 theZBuffEntry length 0 eq {( <br>ERROR: z-buffer not computed properly, row, column: ) print row == column ==} if %
 /result true def %
 /counterZBuff -1 def %
+/numCoincidingPatches 0 def %
 %(got to main cycle) ==
 theZBuffEntry length { %
 /counterZBuff counterZBuff 1 add def %
-%(the Zbuff entry: )==
-%theZBuffEntry ==
+/theZbuffPatch theZBuffEntry counterZBuff get def %
+theZbuffPatch theNeighborhood \fcContains { /numCoincidingPatches numCoincidingPatches 1 add def }if %
+}repeat %
+(Num coinciding patches: )== numCoincidingPatches ==
+(theNeighborhood:) == theNeighborhood ==
+(thePoint:) == thePoint ==
+/counterZBuff -1 def %
+theZBuffEntry length { %
+/counterZBuff counterZBuff 1 add def %
 /theZbuffPatch theZBuffEntry counterZBuff get def
-%(the z-buff patch:) ==
-%theZbuffPatch ==
-%(the neighborhood: ) ==
-%theNeighborhood ==
 theZbuffPatch theNeighborhood \fcContains not{
 theZbuffPatch \fcPointIsBehindPatch {/result false def exit}if
 }if
@@ -885,6 +889,8 @@ theSurface %(x(u,v+Delta), y(u,v+Delta), z(u,v+Delta))
 }
 
 \newcommand{\fcProcessSurfaceContour}{ %
+/DeltaDeltaV DeltaV \fcNumCountourSegmentsPatchV\space div def %
+/DeltaDeltaU DeltaU \fcNumCountourSegmentsPatchU\space div def %
 /u uMin def %
 /counterU 0 def %
 uIterations 1 add{ %
@@ -896,13 +902,14 @@ uIterations 1 add{ %
 vIterations { %
 /patchLeftBack patchLeft def %
 /patchRightBack patchRight def %
-/patchLeft counterU uIterations lt  {\fcComputeSurfacePatch}{(empty)}ifelse def %
+/patchLeft counterU uIterations lt {\fcComputeSurfacePatch}{(empty)}ifelse def %
 /patchRight u uMin ne {/uTemp u def /u uOld def  \fcComputeSurfacePatch /u uTemp def}{(empty)}ifelse def %
 /vOld v def %
 [theSurface patchLeft patchRight patchLeftBack patchRightBack]
 \fcNumCountourSegmentsPatchU\space 1 sub{/v v DeltaDeltaV add def [theSurface patchLeft patchRight]} repeat
 /v vOld DeltaV add def %
 }repeat %
+[theSurface patchLeft patchRight]
 ]
 /thePatchContour exch def %
 thePatchContour processContour
@@ -927,6 +934,7 @@ uIterations { %
 \fcNumCountourSegmentsPatchV\space 1 sub{/u u DeltaDeltaU add def [theSurface patchLeft patchRight]} repeat
 /u uOld DeltaU add def %
 }repeat %
+[theSurface patchLeft patchRight]
 ]
 /thePatchContour exch def %
 thePatchContour processContour
@@ -948,8 +956,6 @@ pstack
 /vIterations \fcIterationsV\space def %
 /DeltaU uMax uMin sub uIterations div def %
 /DeltaV vMax vMin sub vIterations div def %
-/DeltaDeltaV DeltaV \fcNumCountourSegmentsPatchV\space div def %
-/DeltaDeltaU DeltaU \fcNumCountourSegmentsPatchU\space div def %
 %/theFile (/home/todor/math/freecalc/lectures/surfaceData.txt) (w) file def
 %theFile (hello file) writestring pop
 doTraverseContour{ %
@@ -1134,17 +1140,17 @@ end %
 \newcommand{\fcZBufferPatch}{ %
 15 dict begin %
 /thePatch exch def %
-%0 0 1 setrgbcolor
-%newpath
-%thePatch 0 get \fcCoordsIIIdToPS moveto 
-%thePatch 1 get \fcCoordsIIIdToPS lineto 
-%thePatch 1 get thePatch 2 get \fcVectorPlusVector thePatch 0 get \fcVectorMinusVector \fcCoordsIIIdToPS lineto 
-%thePatch 2 get \fcCoordsIIIdToPS lineto 
-%thePatch 0 get \fcCoordsIIIdToPS lineto
-%stroke
-%0 0 0 setrgbcolor
-%(Processing patch: ) print 
-%thePatch ==
+0.5 0.5 1 setrgbcolor
+newpath
+thePatch 0 get \fcCoordsIIIdToPS moveto 
+thePatch 1 get \fcCoordsIIIdToPS lineto 
+thePatch 1 get thePatch 2 get \fcVectorPlusVector thePatch 0 get \fcVectorMinusVector \fcCoordsIIIdToPS lineto 
+thePatch 2 get \fcCoordsIIIdToPS lineto 
+thePatch 0 get \fcCoordsIIIdToPS lineto
+stroke
+0 0 0 setrgbcolor
+(Processing patch: ) print 
+thePatch ==
 /secondPoint thePatch 2 get def %
 /firstPoint  thePatch 1 get def %
 /basePoint   thePatch 0 get def %
