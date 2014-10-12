@@ -4,9 +4,10 @@
 \fcSurfaceDirectDraw{iterationsX=10, iterationsY=10, Delta=1}{-90}{-1}{90}{1}{[u cos u sin v]}
 \end{pspicture}
 \begin{pspicture}(-1, -1)(2,2)
-\fcBoundingBox{-1}{-1}{2}{2}
+\fcBoundingBox{-1}{-1}{2}{2} %
 \fcStartIIIdScene %
-\fcSurfaceInScene[iterationsU=7, iterationsV=4]{0}{-1}{300}{1}{[u cos u sin v]}
-\fcFinishIIIdScene
+\fcSurfaceInScene[iterationsU=4, iterationsV=1]{0}{-1}{180}{1}{[u cos u sin v]}
+%\fcSurfaceInScene[iterationsU=1, iterationsV=2]{-1}{-1}{0}{0}{ [u  v add 2 u mul v sub  v u add]} %
+\fcFinishIIIdScene %
 \end{pspicture}
 \end{frame}

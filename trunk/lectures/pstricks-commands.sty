@@ -22,8 +22,9 @@
 \newcommand{\fcYLabel}{$y$}
 \newcommand{\fcZLabel}{$z$}
 \newcommand{\fcDelta}{0.5}
-\newcommand{\fcZBufferNumXIntervals}{20}
-\newcommand{\fcZBufferNumYIntervals}{20}
+\newcommand{\fcZBufferNumXIntervals}{5}
+\newcommand{\fcZBufferNumYIntervals}{5}
+\newcommand{\fcZBufferRowColumnsUnderInvestigation}{1 3}
 \newcommand{\fcStartXIId}{0}
 \newcommand{\fcStartYIId}{0}
 \newcommand{\fcIterationsX}{9\space}
@@ -84,7 +85,15 @@ ifelse\space %
 }
 
 \newcommand{\fcFullDotCode}{
+gsave
 \fcCoordsPStricksToPS [0.02 0] \fcCoordsPStricksToPS pop 0 360 arc 1 0 0 setrgbcolor fill stroke
+grestore
+}
+
+\newcommand{\fcHollowDotCode}{
+gsave
+\fcCoordsPStricksToPS [0.04 0] \fcCoordsPStricksToPS pop 0 360 arc 0 1 0 setrgbcolor stroke
+grestore
 }
 
 \newcommand{\fcHollowDotBlue}[2]{
@@ -622,52 +631,70 @@ pop %
 /v2 exch def %
 /v1 exch def %
 /v0 exch def %
-/normal1 v1 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def
-/normal2 v2 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def
-thePoint v0 \fcVectorMinusVector normal1 \fcVectorScalarVector 
-v2 thePoint \fcVectorMinusVector normal1 \fcVectorScalarVector 
-mul 0 ge {
-thePoint v0 \fcVectorMinusVector normal2 \fcVectorScalarVector 
-v1 thePoint \fcVectorMinusVector normal2 \fcVectorScalarVector 
-mul 0 ge 
-{false}{true} 
-ifelse
-}
-{true}
-ifelse
-end
+/normal1 v1 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
+/normal2 v2 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
+/patchNormal v1 v0 \fcVectorMinusVector v2 v0 \fcVectorMinusVector \fcVectorCrossVector def %
+thePoint v0 \fcVectorMinusVector normal1 \fcVectorScalarVector %
+v2 thePoint \fcVectorMinusVector normal1 \fcVectorScalarVector %
+mul 0 ge { %
+thePoint v0 \fcVectorMinusVector normal2 \fcVectorScalarVector %
+v1 thePoint \fcVectorMinusVector normal2 \fcVectorScalarVector %
+mul 0 ge %
+{false}{ %
+thePoint v0 \fcVectorMinusVector patchNormal \fcVectorScalarVector %
+\fcScreen\space pop patchNormal \fcVectorScalarVector %
+mul 0 le %
+{false}{true}ifelse %
+}ifelse %
+}{false}ifelse %
+end %
 }
 
 \newcommand{\fcIsInForeground}{ %
 15 dict begin %
 /theNeighborhood exch def %
 /thePoint theNeighborhood 0 get def %
+%(neighborhood: ) print
+%theNeighborhood ==
+%(thePoint:) print
+%thePoint ==
 thePoint \fcZBufferRowColumn %
 /column exch def %
 /row exch def %
 /theZBuffEntry theZBuffer row get column get def %
 theZBuffEntry length 0 eq {( <br>ERROR: z-buffer not computed properly, row, column: ) print row == column ==} if %
 /result true def %
-/counterZBuff -1 def %
-/numCoincidingPatches 0 def %
+%/counterZBuff -1 def %
+%/numCoincidingPatches 0 def %
 %(got to main cycle) ==
+%theZBuffEntry length { %
+%/counterZBuff counterZBuff 1 add def %
+%/theZbuffPatch theZBuffEntry counterZBuff get def %
+%theZbuffPatch theNeighborhood \fcContains { /numCoincidingPatches numCoincidingPatches 1 add def }if %
+%}repeat %
+%(Num coinciding patches: )== numCoincidingPatches ==
+%(theNeighborhood:) == theNeighborhood ==
+%(thePoint:) == thePoint ==
+/counterZBuff -1 def %
 theZBuffEntry length { %
 /counterZBuff counterZBuff 1 add def %
 /theZbuffPatch theZBuffEntry counterZBuff get def %
-theZbuffPatch theNeighborhood \fcContains { /numCoincidingPatches numCoincidingPatches 1 add def }if %
+theZbuffPatch theNeighborhood \fcContains not{ %
+%(patch) == theZbuffPatch == (is not contained in neighborhood ) ==
+%theNeighborhood ==
+theZbuffPatch \fcPointIsBehindPatch 
+{/result false def  
+exit
+}
+{ %(point is in front of patch) ==
+}
+ifelse
+}
+{ %(patch coincides with zbuff patch) == 
+}
+ifelse %
 }repeat %
-(Num coinciding patches: )== numCoincidingPatches ==
-(theNeighborhood:) == theNeighborhood ==
-(thePoint:) == thePoint ==
-/counterZBuff -1 def %
-theZBuffEntry length { %
-/counterZBuff counterZBuff 1 add def %
-/theZbuffPatch theZBuffEntry counterZBuff get def
-theZbuffPatch theNeighborhood \fcContains not{
-theZbuffPatch \fcPointIsBehindPatch {/result false def exit}if
-}if
-}repeat %
-result
+result %
 end %
 }
 
@@ -736,10 +763,36 @@ end
 \fcZBufferBoundingBoxPoint %
 }
 
-\newcommand{\fcPaintZbuffForDebug}{ %
-6 dict begin %
+\newcommand{\fcZBufferPaintCellContainingPoint}{
+10 dict begin
+/thePoint exch def
+thePoint \fcZBufferRowColumn
+/column exch def
+/row exch def
+\fcZBufferComputeDeltaXDeltaY
+/lowerLeftX getZBufferXmin DeltaX column mul add def
+/lowerLeftY getZBufferYmin DeltaY row mul add def
+gsave 
+0.6 0.6 1 setrgbcolor
+newpath 
+[lowerLeftX lowerLeftY] \fcCoordsPStricksToPS moveto
+[lowerLeftX DeltaX add lowerLeftY] \fcCoordsPStricksToPS lineto
+[lowerLeftX DeltaX add lowerLeftY DeltaY add] \fcCoordsPStricksToPS lineto
+[lowerLeftX lowerLeftY DeltaY add] \fcCoordsPStricksToPS lineto
+[lowerLeftX lowerLeftY] \fcCoordsPStricksToPS lineto
+stroke
+grestore
+end
+}
+
+\newcommand{\fcZBufferComputeDeltaXDeltaY}{
 /DeltaX getZBufferXmax getZBufferXmin sub \fcZBufferNumXIntervals\space div def %
 /DeltaY getZBufferYmax getZBufferYmin sub \fcZBufferNumYIntervals\space div def %
+}
+
+\newcommand{\fcPaintZbuffForDebug}{ %
+6 dict begin %
+\fcZBufferComputeDeltaXDeltaY
 gsave %
 0.1 setlinewidth %
 /x getZBufferXmin def %
@@ -773,15 +826,25 @@ end %
 }%
 }
 
-\newcommand{\fcFinishIIIdScene}{%
-\pscustom{%
-\code{%
-%print the objects we are about to paint:
-theIIIdObjects length 0 gt { %
-(about to process IIId scene given by: ) print %
-theIIIdObjects == %
-} if %
-25 dict begin %
+\newcommand{\fcZBufferPrint}{ %
+(printing Zbuffer...) == %
+getZBufferXmin == %
+getZBufferXmax == %
+getZBufferYmin == %
+getZBufferYmax == %
+theZBuffer == %
+}
+
+\newcommand{\fcZBufferLoad}{ %
+\fcZBufferInitialize %
+/theZBuffer exch def %
+setZBufferYmax %
+setZBufferYmin %
+setZBufferXmax %
+setZBufferXmin %
+}
+
+\newcommand{\fcZBufferInitialize}{ %
 /ZBufferRectangle [0 0 0 0] def %
 /setZBufferXmin {ZBufferRectangle exch 0 exch put} def %
 /setZBufferYmin {ZBufferRectangle exch 1 exch put} def %
@@ -791,14 +854,26 @@ theIIIdObjects == %
 /getZBufferYmin {ZBufferRectangle 1 get} def %
 /getZBufferXmax {ZBufferRectangle 2 get} def %
 /getZBufferYmax {ZBufferRectangle 3 get} def %
-/getZBufferDeltaX {getZBufferXmax getZBufferXmin sub \fcZBufferNumXIntervals\space div} def
-/getZBufferDeltaY {getZBufferYmax getZBufferYmin sub \fcZBufferNumYIntervals\space div} def
+/getZBufferDeltaX {getZBufferXmax getZBufferXmin sub \fcZBufferNumXIntervals\space div} def %
+/getZBufferDeltaY {getZBufferYmax getZBufferYmin sub \fcZBufferNumYIntervals\space div} def %
+}
+
+\newcommand{\fcFinishIIIdScene}{%
+\pscustom{%
+\code{%
+%print the objects we are about to paint:
+theIIIdObjects length 0 gt { %
+(about to process IIId scene given by: ) print %
+theIIIdObjects == %
+} if %
+25 dict begin %
+\fcZBufferInitialize %
 /theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{[]} repeat]}repeat] def %
 /doTraverseContour true def %
 /processPatch {\fcZBufferBoundingBoxPatch} def %
 /processContour {\fcZBufferBoundingBoxPatchContour} def %
 (computing bounding box IIId scene... ) print %
-theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject (finished processing object) ==} repeat %
+theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 %extend slightly the bounding box to take care of floating point errors at the 
 %border 
 getZBufferXmin 0.1 sub setZBufferXmin %
@@ -810,67 +885,110 @@ getZBufferYmax 0.1 add setZBufferYmax %
 /doTraverseContour false def %
 (computing z-buffer IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject (z buffer partially done) == } repeat %
-(z buffer computed) == 
-theZBuffer ==
-%(got here!) ==
+(z buffer computed) == %
+%\fcZBufferPrint %
 \fcPaintZbuffForDebug %
-(buffer is painted) ==
+(buffer is painted) == %
 /doTraverseContour true def %
 /processPatch {pop} def %
 /processContour {\fcPatchContour} def %
 (painting IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat %
 end %
-(done, printing stack to make sure no trash is left) ==
-pstack
+(done, printing stack to make sure no trash is left) == %
+pstack %
 }%
 }%
-\pstVerb{end}
+\pstVerb{end} %
 }%
 
 \newcommand{\fcProcessObject}{%
-(processing object) == \fcArrayToStack dup == 
-1 dict begin
+(processing object) == \fcArrayToStack dup == %
+1 dict begin %
 4 1 roll setrgbcolor %
 /HandlerNotFound true def %
 HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
 end %
-(got to end of processing object) print
 }%
 
 \newcommand{\fcZBufferBoundingBoxPatchContour}{ %
-2 dict begin
+2 dict begin %
 /theContour exch def %
+/counter -1 def %
+theContour length { /counter counter 1 add def theContour counter get 0 get \fcZBufferBoundingBoxPoint}repeat %
+end %
+}
+
+\newcommand{\fcPaintPointForegroundData}{
+20 dict begin %
+gsave
+/theNeighborhood exch def %
+/thePoint theNeighborhood 0 get def %
+thePoint \fcZBufferPaintCellContainingPoint %
+[thePoint \fcCoordsIIIdToPStricks] theNeighborhood \fcIsInForeground
+{\fcFullDotCode}{\fcHollowDotCode}ifelse %
+/counter 0 def
+(theNeighborhood:)==
+theNeighborhood ==
+theNeighborhood \fcIsInForeground not{
+theNeighborhood length 1 sub {
+/counter counter 1 add def
+3 setlinewidth
+0.5 1 0.5 setrgbcolor 
+theNeighborhood counter get \fcPaintPatchDirectly
+}repeat
+thePoint \fcZBufferRowColumn
+/column exch def
+/row exch def 
+/theZBufferCurrent theZBuffer row get column get def
 /counter -1 def
-theContour length { /counter counter 1 add def theContour counter get 0 get \fcZBufferBoundingBoxPoint}repeat
+theZBufferCurrent length {
+/counter counter 1 add def %
+1 setlinewidth
+1 0.5 0.5 setrgbcolor 
+theZBufferCurrent counter get \fcPaintPatchDirectly
+}repeat
+}if
+grestore
 end
 }
 
 \newcommand{\fcPatchContour}{ %
-15 dict begin
+15 dict begin %
 /theContour exch def %
 /numSegments theContour length 1 sub def %
 /counter -1 def %
 /rightIsInForeground theContour 0 get \fcIsInForeground def %
 /style (none) def %
 newpath %
-numSegments{
+numSegments{ %
   /counter counter 1 add def %
   /pointLeft theContour counter get def %
   /pointRight theContour counter 1 add get def %
   /leftIsInForeground rightIsInForeground def %
   /rightIsInForeground pointRight \fcIsInForeground def %
   /oldStyle style def %
-  /style leftIsInForeground rightIsInForeground and {(normal)}{(dashed)}ifelse def %
+  /style leftIsInForeground rightIsInForeground or {(normal)}{(dashed)}ifelse def %
   style oldStyle ne{ %
   stroke style (normal) eq{[] 0 setdash}{[1 1]0 setdash}ifelse %
   newpath pointLeft 0 get \fcCoordsIIIdToPS moveto %
   }if %
   pointRight 0 get \fcCoordsIIIdToPS lineto %  
+}repeat %
+stroke %
+/counter -1 def
+theContour length {/counter counter 1 add def
+/currentNeighborhood theContour counter get def
+/currentPoint currentNeighborhood 0 get def
+currentPoint \fcZBufferRowColumn
+/column exch def
+/row exch def 
+\fcZBufferRowColumnsUnderInvestigation\space column eq exch row eq and
+{ currentNeighborhood \fcPaintPointForegroundData
+}if
 }repeat
-stroke
-end
+end %
 }
 
 \newcommand{\fcComputeSurfacePatch}{
@@ -973,7 +1091,6 @@ processPatch %
 /u u DeltaU add def %
 }repeat %
 end %
-(got to this end) ==
 }%
 
 \newcommand{\fcPaintEllipsoid}{%
@@ -1061,11 +1178,8 @@ end %
 
 %Format of surface: we store the surface in the format [umin vmin umax vmax [fx fy fz] red green blue (surface)]
 \newcommand{\fcSurfaceInScene}[6][]{%
-\setkeys{fcGraphics}{#1} %
-\pstVerb{ %
-[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcGetCurrentColorCode (surface)] ] %
-/theIIIdObjects exch def %
-} %
+\setkeys{fcGraphics}{#1}%
+\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcGetCurrentColorCode (surface)] ]/theIIIdObjects exch def}
 }%
 
 \newcommand{\fcCurveIIIdNoSceneCode}{%
@@ -1092,7 +1206,7 @@ end %
 {\fcZBufferAccountPoint} \fcSpliceArrayOperation pop
 }
 
-\newcommand{\fcContains}{
+\newcommand{\fcContains}{ %
 3 dict begin %
 /theArray exch def %
 /theElement exch def %
@@ -1102,6 +1216,9 @@ theArray length { %
 theElement theArray counter get \fcAreEqual {pop true exit}if %
 /counter counter 1 add def %
 }repeat %
+%(array: ) == theArray == 
+%dup { (does contain) ==}{ (does NOT contain) ==}ifelse %
+%theElement == %
 end %
 }
 
@@ -1137,10 +1254,13 @@ currentArray length {currentArray counter get thePatch \fcAreEqual {pop false ex
 end %
 }
 
-\newcommand{\fcZBufferPatch}{ %
-15 dict begin %
+\newcommand{\fcPaintPatchDirectly}{
+2 dict begin
 /thePatch exch def %
-0.5 0.5 1 setrgbcolor
+(thePatch: ) ==
+thePatch ==
+(PATCH TYPE: ) == thePatch type ==
+thePatch type (arraytype) eq{
 newpath
 thePatch 0 get \fcCoordsIIIdToPS moveto 
 thePatch 1 get \fcCoordsIIIdToPS lineto 
@@ -1148,9 +1268,14 @@ thePatch 1 get thePatch 2 get \fcVectorPlusVector thePatch 0 get \fcVectorMinusV
 thePatch 2 get \fcCoordsIIIdToPS lineto 
 thePatch 0 get \fcCoordsIIIdToPS lineto
 stroke
-0 0 0 setrgbcolor
-(Processing patch: ) print 
-thePatch ==
+}if
+end
+}
+
+\newcommand{\fcZBufferPatch}{ %
+15 dict begin %
+/thePatch exch def %
+%thePatch \fcPaintPatchDirectly
 /secondPoint thePatch 2 get def %
 /firstPoint  thePatch 1 get def %
 /basePoint   thePatch 0 get def %
