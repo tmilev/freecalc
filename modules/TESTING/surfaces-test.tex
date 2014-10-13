@@ -4,10 +4,16 @@
 \fcSurfaceDirectDraw{iterationsX=10, iterationsY=10, Delta=1}{-90}{-1}{90}{1}{[u cos u sin v]}
 \end{pspicture}
 \begin{pspicture}(-1, -1)(2,2)
-\fcBoundingBox{-1}{-1}{2}{2} %
+\fcBoundingBox{-3}{-3}{4}{4} %
+\renewcommand{\fcScreen}{[-1 1 -0.8] 0}
+\multido{\na=1+1}{10}{%
+\only<\na->{\renewcommand{\fcScreen}{[-1 1 -0.5 -0.3 \na \space mul add] 0}
+}
+} %
 \fcStartIIIdScene %
-\fcSurfaceInScene[iterationsU=4, iterationsV=1]{0}{-1}{180}{1}{[u cos u sin v]}
+\fcSurfaceInScene[iterationsU=13, iterationsV=4]{0}{-1}{360}{1}{[u cos u sin v]}
 %\fcSurfaceInScene[iterationsU=1, iterationsV=2]{-1}{-1}{0}{0}{ [u  v add 2 u mul v sub  v u add]} %
 \fcFinishIIIdScene %
 \end{pspicture}
+%\uncover<10>{}
 \end{frame}

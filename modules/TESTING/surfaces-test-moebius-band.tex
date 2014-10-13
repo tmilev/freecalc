@@ -1,0 +1,23 @@
+\begin{frame}
+\begin{pspicture}(-1, -1)(2,2)
+\fcBoundingBox{-1}{-1}{2}{2}
+\fcSurfaceDirectDraw{iterationsX=10, iterationsY=10, Delta=1}{-90}{-1}{90}{1}{[u cos u sin v]}
+\end{pspicture}
+\begin{pspicture}(-1, -1)(2,2)
+\fcBoundingBox{-3}{-3}{4}{4} %
+\fcStartIIIdScene %
+\fcSurfaceInScene[iterationsU=13, iterationsV=4]{0}{-1}{360}{1}{
+[10 dict begin
+/R 1 def
+/r {0.2 v mul} def
+/theta u def
+/phi {u 2 div} def
+/A {phi cos r mul R add} def
+theta cos A mul theta sin A mul phi sin r mul
+end
+]
+}
+
+\fcFinishIIIdScene %
+\end{pspicture}
+\end{frame}
