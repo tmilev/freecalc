@@ -22,8 +22,8 @@
 \newcommand{\fcYLabel}{$y$}
 \newcommand{\fcZLabel}{$z$}
 \newcommand{\fcDelta}{0.5}
-\newcommand{\fcZBufferNumXIntervals}{5}
-\newcommand{\fcZBufferNumYIntervals}{5}
+\newcommand{\fcZBufferNumXIntervals}{10}
+\newcommand{\fcZBufferNumYIntervals}{10}
 \newcommand{\fcZBufferRowColumnsUnderInvestigation}{(empty) (empty)}
 \newcommand{\fcZBufferUparameterPointUnderInvestigation}{(empty) (empty)}
 \newcommand{\fcZBufferVparameterPointUnderInvestigation}{(empty) (empty)}
@@ -927,6 +927,8 @@ theIIIdObjects == %
 \fcZBufferInitialize %
 /theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{[]} repeat]}repeat] def %
 /doTraverseContour true def %
+/theZBufferProcessed [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{false} repeat]}repeat] def %
+/doTraverseContour true def %
 /processPatch {\fcZBufferBoundingBoxPatch} def %
 /processContour {\fcZBufferBoundingBoxPatchContour} def %
 (computing bounding box IIId scene... ) print %
@@ -942,10 +944,14 @@ getZBufferYmax 0.1 add setZBufferYmax %
 /doTraverseContour false def %
 (computing z-buffer IIId scene... ) print %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject (z buffer partially done) == } repeat %
-(z buffer computed) == %
+(z buffer computed, sorting ...) print %
+\fcZBufferSort
+(z buffer sorted) print %
 %\fcZBufferPrint %
 %\fcPaintZbuffForDebug %
-(buffer is painted) == %
+%(buffer is painted) == %
+(painting patches) ==
+\fcZBufferPaintPatches
 /doTraverseContour true def %
 /processPatch {pop} def %
 /processContour {\fcPatchContour} def %
@@ -997,7 +1003,7 @@ theNeighborhood length 1 sub {
 theNeighborhood counter get theZBufferCurrent \fcContains not
 {3 setlinewidth 1 0 0 setrgbcolor
 }if
-theNeighborhood counter get \fcPaintPatchDirectly
+theNeighborhood counter get \fcPaintPatchHollowDirectly
 theNeighborhood counter get type (arraytype) eq
 {/numPatchesInNeighborhood numPatchesInNeighborhood 1 add def}if
 }repeat
@@ -1009,7 +1015,7 @@ theZBufferCurrent length {
 thePoint theZBufferCurrent counter get \fcPointIsBehindPatch
 {1 0 0 setrgbcolor 
 }if
-theZBufferCurrent counter get \fcPaintPatchDirectly
+theZBufferCurrent counter get \fcPaintPatchHollowDirectly
 }repeat
 thePoint \fcZBufferPaintCellContainingPoint %
 [thePoint \fcCoordsIIIdToPStricks] theNeighborhood \fcIsInForeground
@@ -1155,12 +1161,8 @@ pstack
 /vIterations \fcIterationsV\space def %
 /DeltaU uMax uMin sub uIterations div def %
 /DeltaV vMax vMin sub vIterations div def %
-%(got here!!! asdf) ==
 %/theFile (/home/todor/math/freecalc/lectures/surfaceData.txt) (w) file def
 %theFile (hello file) writestring pop
-doTraverseContour{ %
-\fcProcessSurfaceContour
-} if %
 %theFile closefile
 /u uMin def %
 uIterations { %
@@ -1172,6 +1174,9 @@ processPatch %
 }repeat %
 /u u DeltaU add def %
 }repeat %
+doTraverseContour{ %
+\fcProcessSurfaceContour
+} if %
 end %
 }%
 
@@ -1336,7 +1341,106 @@ currentArray length {currentArray counter get thePatch \fcAreEqual {pop false ex
 end %
 }
 
-\newcommand{\fcPaintPatchDirectly}{
+\newcommand{\fcBubbleSort}{
+5 dict begin
+/a exch def
+/n a length 1 sub def
+n 0 gt {
+% at this point only the n+1 items in the bottom of a remain to be sorted
+% the largest item in that block is to be moved up into position n
+n {
+0 1 n 1 sub {
+/i exch def
+a i get a i 1 add get LeftGreaterThanRight {
+% if a[i] > a[i+1] swap a[i] and a[i+1]
+a i 1 add
+a i get
+a i a i 1 add get
+% set new a[i] = old a[i+1]
+put
+% set new a[i+1] = old a[i]
+put
+} if
+} for
+/n n 1 sub def
+} repeat
+} if
+end 
+}
+
+\newcommand{\fcZBufferSort}{
+3 dict begin
+%this function compares two patches:
+/LeftGreaterThanRight
+{2 dict begin 
+%(comparison f-n, stack: ) ==
+%pstack
+/v0right exch 0 get def %base point of patch extracted
+/v0left exch 0 get def %base point of patch extracted
+%(comparing: ) print
+%v0left ==
+%v0right ==
+v0left \fcScreen\space pop \fcVectorScalarVector
+v0right \fcScreen\space pop \fcVectorScalarVector gt
+end
+}
+def
+/row -1 def
+theZBuffer length{
+/row row 1 add def
+/column -1 def
+theZBuffer row get length{
+/column column 1 add def
+theZBuffer row get column get \fcBubbleSort
+}repeat
+}repeat
+(stack at end of bubble sort: ) == pstack
+end
+}
+
+\newcommand{\fcZBufferPaintPatches}{
+10 dict begin
+gsave
+1 0.5 0.5 setrgbcolor
+/row -1 def %
+theZBuffer length{ %
+/row row 1 add def %
+/column -1 def %
+theZBuffer row get length{ %
+/column column 1 add def %
+/currentZBuffer theZBuffer row get column get def %
+currentZBuffer {\fcPaintPatchFilledDirectly} forall %
+} repeat%
+}repeat %
+grestore
+end
+}
+
+\newcommand{\fcPatchGetvZero}{0 get\space}
+\newcommand{\fcPatchGetvOne}{1 get\space}
+\newcommand{\fcPatchGetvTwo}{2 get\space}
+\newcommand{\fcPatchGetvThree}{dup dup \fcPatchGetvOne exch \fcPatchGetvTwo \fcVectorPlusVector  exch \fcPatchGetvZero \fcVectorMinusVector}
+
+\newcommand{\fcPaintPatchFilledDirectly}{
+2 dict begin
+/thePatch exch def %
+%(thePatch: ) ==
+%thePatch ==
+%(PATCH TYPE: ) == thePatch type ==
+thePatch type (arraytype) eq{
+newpath
+thePatch \fcPatchGetvZero \fcCoordsIIIdToPS moveto 
+thePatch \fcPatchGetvOne \fcCoordsIIIdToPS lineto 
+thePatch \fcPatchGetvThree \fcCoordsIIIdToPS lineto 
+thePatch \fcPatchGetvTwo \fcCoordsIIIdToPS lineto 
+thePatch \fcPatchGetvZero \fcCoordsIIIdToPS lineto
+fill
+stroke
+}if
+end
+}
+
+\newcommand{\fcPaintPatchHollowDirectly}{
 2 dict begin
 /thePatch exch def %
 (thePatch: ) ==
@@ -1344,11 +1448,12 @@ thePatch ==
 (PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
 newpath
-thePatch 0 get \fcCoordsIIIdToPS moveto 
-thePatch 1 get \fcCoordsIIIdToPS lineto 
-thePatch 1 get thePatch 2 get \fcVectorPlusVector thePatch 0 get \fcVectorMinusVector \fcCoordsIIIdToPS lineto 
-thePatch 2 get \fcCoordsIIIdToPS lineto 
-thePatch 0 get \fcCoordsIIIdToPS lineto
+thePatch \fcPatchGetvZero \fcCoordsIIIdToPS moveto 
+thePatch \fcPatchGetvOne \fcCoordsIIIdToPS lineto 
+thePatch \fcPatchGetvThree \fcCoordsIIIdToPS lineto 
+thePatch \fcPatchGetvTwo \fcCoordsIIIdToPS lineto 
+thePatch \fcPatchGetvZero get \fcCoordsIIIdToPS lineto
+closepath
 stroke
 }if
 end
@@ -1356,18 +1461,16 @@ end
 
 \newcommand{\fcZBufferPatch}{ %
 15 dict begin %
-(processing z buffer patch) ==
 /thePatch exch def %
-%thePatch \fcPaintPatchDirectly
+%thePatch \fcPaintPatchHollowDirectly
 /secondPoint thePatch 2 get def %
 /firstPoint  thePatch 1 get def %
 /basePoint   thePatch 0 get def %
 /firstDirection firstPoint basePoint \fcVectorMinusVector def %
 /secondDirection secondPoint basePoint \fcVectorMinusVector def %
-/iterationsFirst [firstDirection \fcCoordsIIIdToPStricks\space pop getZBufferDeltaX div firstDirection \fcCoordsIIIdToPStricks\space exch pop getZBufferDeltaY div] \fcVectorNorm 2 mul 1 add round cvi def %
-/iterationsSecond [secondDirection \fcCoordsIIIdToPStricks pop  getZBufferDeltaX div secondDirection \fcCoordsIIIdToPStricks exch pop getZBufferDeltaY div] \fcVectorNorm 2 mul 1 add round cvi def
+/iterationsFirst [firstDirection \fcCoordsIIIdToPStricks\space pop getZBufferDeltaX div firstDirection \fcCoordsIIIdToPStricks\space exch pop getZBufferDeltaY div] \fcVectorNorm 2 mul 2 add round cvi def %
+/iterationsSecond [secondDirection \fcCoordsIIIdToPStricks pop  getZBufferDeltaX div secondDirection \fcCoordsIIIdToPStricks exch pop getZBufferDeltaY div] \fcVectorNorm 2 mul 2 add round cvi def
 /s 0 def %
-(processing z buffer patch2) ==
 iterationsFirst{ %
 /firstComponent firstDirection s iterationsFirst 1 sub div  \space\fcVectorTimesScalar basePoint \fcVectorPlusVector def%
 /t 0 def %
@@ -1382,7 +1485,6 @@ firstComponent \fcVectorPlusVector \fcZBufferRowColumn %
 /s s 1 add def %
 }repeat
 end %
-(done processing z patch) ==
 }
 
 \newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%
