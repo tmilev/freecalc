@@ -483,6 +483,14 @@ dup \fcVectorScalarVector sqrt %
 dup \fcVectorScalarVector %
 } %
 
+\newcommand{\fcMarkClean}{
+mark\space
+}
+
+\newcommand{\fcMarkCleanCheck}{
+counttomark 0 ne {(procedure did not clean up properly) == error}if pop
+}
+
 \newcommand{\fcProjectOntoScreen}{%
 %(calling project onto plane with arguments:) == %
 %dup == %
@@ -693,12 +701,11 @@ end %
 
 \newcommand{\fcPointIsBehindPatch}{ %
 %a patch is assumed to be on the top of the stack
-7 dict begin %
-\fcArrayToStack %
-pop %
-/v2 exch def %
-/v1 exch def %
-/v0 exch def %
+8 dict begin %
+/thePatch exch def
+/v2 thePatch \fcPatchGetvTwo def %
+/v1 thePatch \fcPatchGetvOne def %
+/v0 thePatch \fcPatchGetvZero def %
 /normal1 v1 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
 /normal2 v2 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
 /patchNormal v1 v0 \fcVectorMinusVector v2 v0 \fcVectorMinusVector \fcVectorCrossVector def %
@@ -780,14 +787,16 @@ end %
 }
 
 \newcommand{\fcZBufferBoundingBoxPatch}{ %
-\fcArrayToStack pop % 
-3 dict begin %
-/v2 exch def %
-/v1 exch def %
-/v0 exch def %
+5 dict begin %
+/thePatch exch def
+/v3 thePatch \fcPatchGetvThree def %
+/v2 thePatch \fcPatchGetvTwo def %
+/v1 thePatch \fcPatchGetvOne def %
+/v0 thePatch \fcPatchGetvZero def %
 v0 \fcZBufferBoundingBoxPoint %
 v1 \fcZBufferBoundingBoxPoint %
 v2 \fcZBufferBoundingBoxPoint %
+v3 \fcZBufferBoundingBoxPoint %
 v1 v2 \fcVectorPlusVector v0 \fcVectorMinusVector \fcZBufferBoundingBoxPoint %
 end %
 }
@@ -924,6 +933,7 @@ theIIIdObjects length 0 gt { %
 theIIIdObjects == %
 } if %
 25 dict begin %
+\fcMarkClean
 \fcZBufferInitialize %
 /theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{[]} repeat]}repeat] def %
 /doTraverseContour true def %
@@ -939,6 +949,7 @@ getZBufferXmin 0.1 sub setZBufferXmin %
 getZBufferXmax 0.1 add setZBufferXmax %
 getZBufferYmin 0.1 sub setZBufferYmin %
 getZBufferYmax 0.1 add setZBufferYmax %
+\fcMarkCleanCheck
 (bounding box computed: ) == ZBufferRectangle == %
 /processPatch {\fcZBufferPatch} def %
 /doTraverseContour false def %
@@ -1081,12 +1092,16 @@ theSurface %(x(u+Delta,v), y(u+Delta,v), z(u+Delta,v))
 /u oldU def %
 /v v DeltaV add def %
 theSurface %(x(u,v+Delta), y(u,v+Delta), z(u,v+Delta))
+/u u DeltaU add def %
+theSurface %(x(u+Delta,v+Delta), y(u+Delta,v+Delta), z(u+Delta,v+Delta))
 (patch) %
 ] %patch data structure complete
+/u oldU def %
 /v oldV def %
 }
 
 \newcommand{\fcProcessSurfaceContour}{ %
+\fcMarkClean
 (processing contour) ==
 /DeltaDeltaV DeltaV \fcNumCountourSegmentsPatchV\space div def %
 /DeltaDeltaU DeltaU \fcNumCountourSegmentsPatchU\space div def %
@@ -1146,11 +1161,12 @@ thePatchContour processContour
 /vOld v def %
 /v v DeltaV add def %
 } repeat %
+\fcMarkCleanCheck
 }
 
 \newcommand{\fcProcessSurface}{%
 30 dict begin %
-(processing Surface: ) ==
+(processing Surface, printing stack: ) ==
 pstack
 /theSurface exch def %
 /vMax exch def %
@@ -1168,7 +1184,7 @@ pstack
 uIterations { %
 /v vMin def %
 vIterations{ %
-\fcComputeSurfacePatch
+\fcComputeSurfacePatch %
 processPatch %
 /v v DeltaV add def %
 }repeat %
@@ -1419,7 +1435,7 @@ end
 \newcommand{\fcPatchGetvZero}{0 get\space}
 \newcommand{\fcPatchGetvOne}{1 get\space}
 \newcommand{\fcPatchGetvTwo}{2 get\space}
-\newcommand{\fcPatchGetvThree}{dup dup \fcPatchGetvOne exch \fcPatchGetvTwo \fcVectorPlusVector  exch \fcPatchGetvZero \fcVectorMinusVector}
+\newcommand{\fcPatchGetvThree}{3 get \space}
 
 \newcommand{\fcPaintPatchFilledDirectly}{
 2 dict begin
@@ -1453,7 +1469,7 @@ thePatch \fcPatchGetvOne \fcCoordsIIIdToPS lineto
 thePatch \fcPatchGetvThree \fcCoordsIIIdToPS lineto 
 thePatch \fcPatchGetvTwo \fcCoordsIIIdToPS lineto 
 thePatch \fcPatchGetvZero get \fcCoordsIIIdToPS lineto
-closepath
+%closepath
 stroke
 }if
 end
@@ -1463,9 +1479,9 @@ end
 15 dict begin %
 /thePatch exch def %
 %thePatch \fcPaintPatchHollowDirectly
-/secondPoint thePatch 2 get def %
-/firstPoint  thePatch 1 get def %
-/basePoint   thePatch 0 get def %
+/secondPoint thePatch \fcPatchGetvTwo def %
+/firstPoint  thePatch \fcPatchGetvOne def %
+/basePoint   thePatch \fcPatchGetvZero def %
 /firstDirection firstPoint basePoint \fcVectorMinusVector def %
 /secondDirection secondPoint basePoint \fcVectorMinusVector def %
 /iterationsFirst [firstDirection \fcCoordsIIIdToPStricks\space pop getZBufferDeltaX div firstDirection \fcCoordsIIIdToPStricks\space exch pop getZBufferDeltaY div] \fcVectorNorm 2 mul 2 add round cvi def %
