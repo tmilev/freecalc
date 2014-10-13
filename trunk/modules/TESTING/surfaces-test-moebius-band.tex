@@ -5,19 +5,18 @@
 \end{pspicture}
 \begin{pspicture}(-1, -1)(2,2)
 \fcBoundingBox{-3}{-3}{4}{4} %
-\fcStartIIIdScene %
-\fcSurfaceInScene[iterationsU=13, iterationsV=4]{0}{-1}{360}{1}{
+\fcStartIIIdScene%
+\fcSurfaceInScene[iterationsU=33, iterationsV=5]{0}{-1}{360}{1}{%
 [10 dict begin
-/R 1 def
-/r {0.2 v mul} def
+/R 2 def
+/r {0.8 v mul} def
 /theta u def
-/phi {u 2 div} def
+/phi {u 0.5 mul} def
 /A {phi cos r mul R add} def
 theta cos A mul theta sin A mul phi sin r mul
-end
-]
-}
-
+end %
+]%
+}%
 \fcFinishIIIdScene %
 \end{pspicture}
 \end{frame}
