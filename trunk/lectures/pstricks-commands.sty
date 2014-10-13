@@ -24,15 +24,17 @@
 \newcommand{\fcDelta}{0.5}
 \newcommand{\fcZBufferNumXIntervals}{5}
 \newcommand{\fcZBufferNumYIntervals}{5}
-\newcommand{\fcZBufferRowColumnsUnderInvestigation}{1 3}
+\newcommand{\fcZBufferRowColumnsUnderInvestigation}{(empty) (empty)}
+\newcommand{\fcZBufferUparameterPointUnderInvestigation}{(empty) (empty)}
+\newcommand{\fcZBufferVparameterPointUnderInvestigation}{(empty) (empty)}
 \newcommand{\fcStartXIId}{0}
 \newcommand{\fcStartYIId}{0}
 \newcommand{\fcIterationsX}{9\space}
 \newcommand{\fcIterationsY}{9\space}
-\newcommand{\fcIterationsU}{4\space}
-\newcommand{\fcIterationsV}{4\space}
-\newcommand{\fcNumCountourSegmentsPatchU}{4\space}
-\newcommand{\fcNumCountourSegmentsPatchV}{4\space}
+\newcommand{\fcIterationsU}{9\space}
+\newcommand{\fcIterationsV}{9\space}
+\newcommand{\fcNumCountourSegmentsPatchU}{10\space}
+\newcommand{\fcNumCountourSegmentsPatchV}{10\space}
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcLineColor}{black}
 \newcommand{\fcLineWidth}{1\space}
@@ -94,6 +96,21 @@ grestore
 gsave
 \fcCoordsPStricksToPS [0.04 0] \fcCoordsPStricksToPS pop 0 360 arc 0 1 0 setrgbcolor stroke
 grestore
+}
+\newcommand{\fcConcatenate}{
+exch dup length 
+2 index length add string    
+dup dup 4 2 roll copy length
+4 -1 roll putinterval 
+}
+\newcommand{\fcTextCode}{
+/Times-Roman findfont
+4 scalefont
+setfont
+newpath
+\fcCoordsPStricksToPS moveto
+show
+stroke
 }
 
 \newcommand{\fcHollowDotBlue}[2]{
@@ -208,6 +225,57 @@ end%
 }%
 \newcommand{\fcDirectionFieldDefaultRange}[1]{%
 \fcDirectionFieldFull{#1}{-4}{-4}{0.5}{21}{21}{0.2}{0.02}{linecolor=blue}%
+}
+
+\newcommand{\fcMatrixTimesMatrix}{
+10 dict begin
+/matrixRight exch def
+/matrixLeft exch def
+/rowCounter -1 def
+[
+matrixLeft length {
+/rowCounter rowCounter 1 add def
+/columnCounter -1 def
+[
+matrixRight 0 get length{
+/columnCounter columnCounter 1 add def
+/thirdCounter -1 def
+/accum 0 def
+matrixLeft rowCounter get length{
+/thirdCounter thirdCounter 1 add def
+/accum accum
+matrixLeft rowCounter get thirdCounter get 
+matrixRight thirdCounter get columnCounter get
+mul add def
+}repeat
+accum
+}repeat
+]
+}repeat
+]
+end
+}
+
+\newcommand{\fcMatrixTimesVector}{
+10 dict begin
+/theVector exch def
+/theMatrix exch def
+/rowCounter -1 def
+[
+theMatrix length {
+/rowCounter rowCounter 1 add def
+/columnCounter -1 def
+/accum 0 def
+theVector length{
+/columnCounter columnCounter 1 add def
+/accum accum 
+theMatrix rowCounter get columnCounter get theVector columnCounter get mul 
+add def
+}repeat
+accum
+}repeat
+]
+end
 }
 
 \newcommand{\fcVectorProjectOntoVector}{%
@@ -636,16 +704,16 @@ pop %
 /patchNormal v1 v0 \fcVectorMinusVector v2 v0 \fcVectorMinusVector \fcVectorCrossVector def %
 thePoint v0 \fcVectorMinusVector normal1 \fcVectorScalarVector %
 v2 thePoint \fcVectorMinusVector normal1 \fcVectorScalarVector %
-mul 0 ge { %
+mul 0 gt { %
 thePoint v0 \fcVectorMinusVector normal2 \fcVectorScalarVector %
 v1 thePoint \fcVectorMinusVector normal2 \fcVectorScalarVector %
-mul 0 ge %
-{false}{ %
+mul 0 gt %
+{ %
 thePoint v0 \fcVectorMinusVector patchNormal \fcVectorScalarVector %
 \fcScreen\space pop patchNormal \fcVectorScalarVector %
-mul 0 le %
-{false}{true}ifelse %
-}ifelse %
+mul 0 gt %
+{true}{false}ifelse %
+}{false}ifelse %
 }{false}ifelse %
 end %
 }
@@ -731,17 +799,6 @@ dup dup getZBufferYmin lt {setZBufferYmin}{pop}ifelse %
 dup getZBufferYmax gt {setZBufferYmax}{pop}ifelse %
 dup dup getZBufferXmin lt {setZBufferXmin}{pop}ifelse %
 dup getZBufferXmax gt {setZBufferXmax}{pop}ifelse \space%
-}
-
-\newcommand{\fcZBufferSurface}{ %
-(computing z buffer surface) == %
-pstack
-/theSurface exch def %
-/vmax exch def %
-/umax exch def %
-/vmin exch def %
-/umin exch def %
-0 0 0 0
 }
 
 \newcommand{\fcZBufferEllipsoid}{ %
@@ -887,7 +944,7 @@ getZBufferYmax 0.1 add setZBufferYmax %
 theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject (z buffer partially done) == } repeat %
 (z buffer computed) == %
 %\fcZBufferPrint %
-\fcPaintZbuffForDebug %
+%\fcPaintZbuffForDebug %
 (buffer is painted) == %
 /doTraverseContour true def %
 /processPatch {pop} def %
@@ -925,33 +982,47 @@ end %
 gsave
 /theNeighborhood exch def %
 /thePoint theNeighborhood 0 get def %
-thePoint \fcZBufferPaintCellContainingPoint %
-[thePoint \fcCoordsIIIdToPStricks] theNeighborhood \fcIsInForeground
-{\fcFullDotCode}{\fcHollowDotCode}ifelse %
-/counter 0 def
 (theNeighborhood:)==
 theNeighborhood ==
-theNeighborhood \fcIsInForeground not{
-theNeighborhood length 1 sub {
-/counter counter 1 add def
-3 setlinewidth
-0.5 1 0.5 setrgbcolor 
-theNeighborhood counter get \fcPaintPatchDirectly
-}repeat
 thePoint \fcZBufferRowColumn
 /column exch def
 /row exch def 
 /theZBufferCurrent theZBuffer row get column get def
+/counter 0 def
+/numPatchesInNeighborhood 0 def %
+theNeighborhood length 1 sub {
+/counter counter 1 add def
+1.8 setlinewidth
+0.5 1 0.5 setrgbcolor 
+theNeighborhood counter get theZBufferCurrent \fcContains not
+{3 setlinewidth 1 0 0 setrgbcolor
+}if
+theNeighborhood counter get \fcPaintPatchDirectly
+theNeighborhood counter get type (arraytype) eq
+{/numPatchesInNeighborhood numPatchesInNeighborhood 1 add def}if
+}repeat
 /counter -1 def
 theZBufferCurrent length {
 /counter counter 1 add def %
-1 setlinewidth
-1 0.5 0.5 setrgbcolor 
+1.1 setlinewidth
+1 0.7 0.7 setrgbcolor 
+thePoint theZBufferCurrent counter get \fcPointIsBehindPatch
+{1 0 0 setrgbcolor 
+}if
 theZBufferCurrent counter get \fcPaintPatchDirectly
 }repeat
-}if
+thePoint \fcZBufferPaintCellContainingPoint %
+[thePoint \fcCoordsIIIdToPStricks] theNeighborhood \fcIsInForeground
+{\fcFullDotCode}{\fcHollowDotCode}ifelse %
+0 0 0 setrgbcolor 
+(nsize: ) numPatchesInNeighborhood 20 string cvs \fcConcatenate [thePoint \fcCoordsIIIdToPStricks ] \fcTextCode
+(bsize: ) theZBufferCurrent length 20 string cvs \fcConcatenate [thePoint \fcCoordsIIIdToPStricks 0.2 sub ] \fcTextCode
 grestore
 end
+}
+
+\newcommand{\fcZBufferRowColumnIsInvestigated}{
+\fcZBufferRowColumnsUnderInvestigation\space column eq exch row eq and
 }
 
 \newcommand{\fcPatchContour}{ %
@@ -984,8 +1055,11 @@ theContour length {/counter counter 1 add def
 currentPoint \fcZBufferRowColumn
 /column exch def
 /row exch def 
-\fcZBufferRowColumnsUnderInvestigation\space column eq exch row eq and
+\fcZBufferRowColumnIsInvestigated
 { currentNeighborhood \fcPaintPointForegroundData
+}if
+contourIsUnderInvestigation indexPointUnderInvestigation counter eq and
+{currentNeighborhood \fcPaintPointForegroundData
 }if
 }repeat
 end %
@@ -1007,10 +1081,11 @@ theSurface %(x(u,v+Delta), y(u,v+Delta), z(u,v+Delta))
 }
 
 \newcommand{\fcProcessSurfaceContour}{ %
+(processing contour) ==
 /DeltaDeltaV DeltaV \fcNumCountourSegmentsPatchV\space div def %
 /DeltaDeltaU DeltaU \fcNumCountourSegmentsPatchU\space div def %
 /u uMin def %
-/counterU 0 def %
+/counterU -1 def %
 uIterations 1 add{ %
 /counterU counterU 1 add def %
 /v vMin def %
@@ -1030,12 +1105,15 @@ vIterations { %
 [theSurface patchLeft patchRight]
 ]
 /thePatchContour exch def %
+/contourIsUnderInvestigation \fcZBufferVparameterPointUnderInvestigation\space pop counterU eq def
+/indexPointUnderInvestigation
+\fcZBufferVparameterPointUnderInvestigation\space exch pop def
 thePatchContour processContour
 /uOld u def %
 /u u DeltaU add def %
 } repeat %
 /v vMin def %
-/counterV 0 def %
+/counterV -1 def %
 vIterations 1 add{ %
 /counterV counterV 1 add def %
 /u uMin def %
@@ -1045,7 +1123,7 @@ vIterations 1 add{ %
 uIterations { %
 /patchLeftBack patchLeft def %
 /patchRightBack patchRight def %
-/patchLeft counterV vIterations lt  {\fcComputeSurfacePatch}{(empty)}ifelse def %
+/patchLeft counterV vIterations lt {\fcComputeSurfacePatch}{(empty)}ifelse def %
 /patchRight v vMin ne {/vTemp v def /v vOld def  \fcComputeSurfacePatch /v vTemp def}{(empty)}ifelse def %
 /uOld u def %
 [theSurface patchLeft patchRight patchLeftBack patchRightBack]
@@ -1055,6 +1133,9 @@ uIterations { %
 [theSurface patchLeft patchRight]
 ]
 /thePatchContour exch def %
+/contourIsUnderInvestigation \fcZBufferUparameterPointUnderInvestigation\space pop counterV  eq def
+/indexPointUnderInvestigation
+\fcZBufferUparameterPointUnderInvestigation\space exch pop def
 thePatchContour processContour
 /vOld v def %
 /v v DeltaV add def %
@@ -1074,6 +1155,7 @@ pstack
 /vIterations \fcIterationsV\space def %
 /DeltaU uMax uMin sub uIterations div def %
 /DeltaV vMax vMin sub vIterations div def %
+%(got here!!! asdf) ==
 %/theFile (/home/todor/math/freecalc/lectures/surfaceData.txt) (w) file def
 %theFile (hello file) writestring pop
 doTraverseContour{ %
@@ -1274,6 +1356,7 @@ end
 
 \newcommand{\fcZBufferPatch}{ %
 15 dict begin %
+(processing z buffer patch) ==
 /thePatch exch def %
 %thePatch \fcPaintPatchDirectly
 /secondPoint thePatch 2 get def %
@@ -1284,6 +1367,7 @@ end
 /iterationsFirst [firstDirection \fcCoordsIIIdToPStricks\space pop getZBufferDeltaX div firstDirection \fcCoordsIIIdToPStricks\space exch pop getZBufferDeltaY div] \fcVectorNorm 2 mul 1 add round cvi def %
 /iterationsSecond [secondDirection \fcCoordsIIIdToPStricks pop  getZBufferDeltaX div secondDirection \fcCoordsIIIdToPStricks exch pop getZBufferDeltaY div] \fcVectorNorm 2 mul 1 add round cvi def
 /s 0 def %
+(processing z buffer patch2) ==
 iterationsFirst{ %
 /firstComponent firstDirection s iterationsFirst 1 sub div  \space\fcVectorTimesScalar basePoint \fcVectorPlusVector def%
 /t 0 def %
@@ -1298,6 +1382,7 @@ firstComponent \fcVectorPlusVector \fcZBufferRowColumn %
 /s s 1 add def %
 }repeat
 end %
+(done processing z patch) ==
 }
 
 \newcommand{\fcCurveIIId}[4][linecolor=\fcColorGraph]{%

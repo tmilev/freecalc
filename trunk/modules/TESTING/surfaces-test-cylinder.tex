@@ -1,0 +1,17 @@
+\begin{frame}
+\begin{pspicture}(-1, -1)(2,2)
+\fcBoundingBox{-1}{-1}{2}{2}
+\fcSurfaceDirectDraw{iterationsX=10, iterationsY=10, Delta=1}{-90}{-1}{90}{1}{[u cos u sin v]}
+\end{pspicture}
+\begin{pspicture}(-1, -1)(2,2)
+\fcBoundingBox{-3}{-3}{4}{4}%
+\multido{\na=1+1}{10}{%
+\only<\na>{\renewcommand{\fcScreen}{[-1 1 -0.5 -0.31 \na \space 1 sub mul add] 0}%
+\fcStartIIIdScene%
+\fcSurfaceInScene[iterationsU=13, iterationsV=5]{0}{-1}{360}{1}{[u cos u sin v]}%
+\fcFinishIIIdScene%
+}%
+} %
+\end{pspicture}
+\uncover<10>{}
+\end{frame}
