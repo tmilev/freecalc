@@ -587,17 +587,6 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 \listplot[#1]{ [#2] {\fcCoordsIIIdToPStricks} \fcSpliceArrayOperation \fcArrayToStack}%
 }
 
-\makeatletter %makes the @ symbol usable temporarily
-
-\newcommand{\fcConvertPSXYUnit}{\fcShiftX\space sub \stripPoints{\psxunit} 72.27 div 8000 mul mul\space %
-\pst@number\pst@dima\space %3 sub 
-72.27 div 8000 mul sub  %
-}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
-\newcommand{\fcConvertPSYUnit}{\fcShiftY\space sub \stripPoints{\psyunit} 72.27 div -8000 mul mul\space %
-\pst@number\pst@dimb\space 72.27 div -8000 mul sub %
-}%I have no clue why this works. Since the pstricks.tex code is a cesspool of filth, it is not possible for me to decode what it does, so this is the best I could do.
-\makeatother
-
 %\newcommand{\fcCoordsPStricksToPS}{\fcArrayToStack \fcConvertPSYUnit exch \fcConvertPSXUnit exch\space }
 \makeatletter
 \newcommand{\fcCoordsPStricksToPS}{\fcArrayToStack \tx@ScreenCoor\space }
@@ -1223,60 +1212,6 @@ end %
 colorNotFound{/theColor {\fcLineColor} def}if %
 theColor %
 end %
-}
-
-%Let the ellipsoid be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 +(z-z1)^2/c^2=1, where x1, y1, z1, a, b, c are the parameters of the ellipsoid. We store the ellipsoid as the data a, b, c in the data structure [ [x1 y1 z1 a b c] red green blue (ellipsoid)]
-\newcommand{\fcEllipsoid}[2][linecolor=red]{%
-\setkeys{fcGraphics}{#1}%
-\pstVerb{%
-9 dict begin %
-%default 
-mark #2\space %
-/c exch def %
-/b exch def %
-/a exch def %
-/x1 0 def %
-/y1 0 def %
-/z1 0 def %
-counttomark 0 gt{ %
-/z1 exch def %
-/y1 exch def %
-/x1 exch def %
-}if %
-pop %remove the mark
-[theIIIdObjects \fcArrayToStack [[x1 y1 z1 a b c] \fcGetCurrentColorCode (ellipsoid)] ] %
-end %
-/theIIIdObjects exch def %
-}%
-}
-
-%Let the cone be given by the set of points  (x,y,z), for which (x-x1)^2/a^2+ (y-y1)/b^2 =(z-z1)^2/c^2, where x1, y1, z1, a, b, c are the parameters of the cone. We plot the cone from zmin to zmax We store the ellipsoid as the data a, b, c in the data structure [ [zmin zmax x1 y1 z1 a b c] red green blue (ellipsoid)]
-\newcommand{\fcCone}[2][linecolor=red]{%
-\setkeys{fcGraphics}{#1}%
-\pstVerb{%
-11 dict begin %
-%default 
-mark #2\space %
-/c exch def %
-/b exch def %
-/a exch def %
-/x1 0 def %
-/y1 0 def %
-/z1 0 def %
-counttomark 2 gt{ %
-/x1 exch def %
-/y1 exch def %
-/z1 exch def %
-}if %
-counttomark 1 gt{ %
-/zmax exch def %
-/zmin exch def %
-}if %
-pop %remove the mark
-[theIIIdObjects \fcArrayToStack [[zmin zmax x1 y1 z1 a b c] \fcGetCurrentColorCode (cone)] ] %
-end %
-/theIIIdObjects exch def %
-}%
 }
 
 %Format of surface: we store the surface in the format [umin vmin umax vmax [fx fy fz] red green blue (surface)]
