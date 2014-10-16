@@ -125,12 +125,12 @@ stroke
 }
 \newcommand{\fcXTickColored}[2]{\psline[linecolor=#1](#2, -0.1)(#2,0.1)}
 
-\newcommand{\fcXTick}[1]{\psline(#1, -0.1)(#1,0.1)}
-\newcommand{\fcYTick}[1]{\psline(-0.1, #1)(0.1, #1)}
+\newcommand{\fcXTick}[1]{\psline(! #1\space -0.1)(! #1 \space 0.1)}
+\newcommand{\fcYTick}[1]{\psline(! -0.1 #1)(! 0.1 #1)}
 \newcommand{\fcXYTick}[2]{\fcXTick{#1} \fcYTick{#2}}
 
-\newcommand{\fcXTickWithLabel}[2]{\fcXTick{#1}\rput[t](#1,-0.2){#2}}
-\newcommand{\fcYTickWithLabel}[2]{\fcYTick{#1}\rput[r](-0.2,#1){#2}}
+\newcommand{\fcXTickWithLabel}[2]{\fcXTick{#1}\rput[t](! #1\space -0.2){#2}}
+\newcommand{\fcYTickWithLabel}[2]{\fcYTick{#1}\rput[r](! -0.2 #1){#2}}
 
 \newcommand{\fcLabelNumberXaxis}[1]{\fcXTickWithLabel{#1}{#1}}
 \newcommand{\fcLabelNumberYaxis}[1]{\fcYTickWithLabel{#1}{#1}}
