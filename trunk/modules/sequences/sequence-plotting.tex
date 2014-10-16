@@ -34,7 +34,22 @@
 }%
 
 Number line
+
+\fcEvalToInt{3-1}
+
 \column{.5\textwidth}
+\begin{pspicture}(-0.5, -0.5)(4, 1.4)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{4}{1.4}
+\fcYTickWithLabel{1}{$1$}
+\rput[tl](4.1, -0.1){$n$}
+\rput[rb]( -0.1, 1.45){$a$}
+\multido{\na=2+1}{8}{%
+\only<na->{\fcXTickWithLabel{\fcEvalToInt{\na-1}}{$\na$}}
+}%
+\end{pspicture}
+
+
 \ \only<handout:0| -2>{%
 \includegraphics[width=6cm]{sequences/pictures/12-01-sequencegrapha.pdf}%
 }%
