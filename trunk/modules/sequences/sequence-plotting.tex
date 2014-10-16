@@ -1,94 +1,90 @@
 % begin module sequence-plotting
 \begin{frame}
-\begin{columns}[c]
-\column{.5\textwidth}
-\ \only<handout:0| -2>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlinea.pdf}%
-}%
-\only<handout:0| 3>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlineb.pdf}%
-}%
-\only<handout:0| 4>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlinec.pdf}%
-}%
-\only<handout:0| 5>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlined.pdf}%
-}%
-\only<handout:0| 6>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlinee.pdf}%
-}%
-\only<handout:0| 7>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlinef.pdf}%
-}%
-\only<handout:0| 8>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlineg.pdf}%
-}%
-\only<handout:0| 9>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlineh.pdf}%
-}%
-\only<handout:0| 10>{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlinei.pdf}%
-}%
-\only<11->{%
-\includegraphics[width=5cm]{sequences/pictures/12-01-numberlinej.pdf}%
-}%
-
-Number line
-
-\fcEvalToInt{3-1}
-
-\column{.5\textwidth}
-\begin{pspicture}(-0.5, -0.5)(4, 1.4)
+\psset{xunit=0.75cm, yunit=0.75cm}
+\begin{pspicture}(-0.5, -0.5)(15, 1.4)
 \tiny
-\fcAxesStandard{-0.5}{-0.5}{4}{1.4}
+\fcAxesStandard{-0.5}{-0.5}{15.2}{1.4}
 \fcYTickWithLabel{1}{$1$}
-\rput[tl](4.1, -0.1){$n$}
+\rput[tl](15.2, -0.1){$n$}
 \rput[rb]( -0.1, 1.45){$a$}
-\multido{\na=2+1}{8}{%
-\only<na->{\fcXTickWithLabel{\fcEvalToInt{\na-1}}{$\na$}}
+\multido{\na=1+1}{9}{%
+\FPeval{\naPlusOne}{clip(\na+1)}%
+\FPeval{\naPlusTwo}{clip(\na+2)}%
+\only<\naPlusOne->{%
+\pstVerb{1 dict begin /na \na\space def}%
+\fcXTickWithLabel{na}{$\na$}%
+}%
+\only<\naPlusOne>{%
+\rput[l](! na 0.1 add na na 1 add div 2 div ){ $a_{\na}=\frac{\na}{\naPlusOne}$}%
+\psline(! na 0)(! na na na 1 add div)%
+\fcFullDot[linecolor=red]{na}{na na 1 add div}%
+}%
+\only<\naPlusTwo->{%
+\fcFullDot[linecolor=black]{na}{na na 1 add div}
+}%
+\only<\naPlusOne->{%
+\pstVerb{end}%
+}%
+}%
+\uncover<11->{%
+\multido{\na=10+1}{6}{%
+\pstVerb{1 dict begin /na \na\space def}%
+\fcXTickWithLabel{na}{$\na$}%
+\fcFullDot[linecolor=black]{na}{na na 1 add div}%
+\pstVerb{end}%
+}%
+\psline[linestyle=dashed, linewidth = 0.4pt, linecolor=blue](0,1)(15,1)%
 }%
 \end{pspicture}
 
 
-\ \only<handout:0| -2>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegrapha.pdf}%
-}%
-\only<handout:0| 3>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphb.pdf}%
-}%
-\only<handout:0| 4>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphc.pdf}%
-}%
-\only<handout:0| 5>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphd.pdf}%
-}%
-\only<handout:0| 6>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphe.pdf}%
-}%
-\only<handout:0| 7>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphf.pdf}%
-}%
-\only<handout:0| 8>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphg.pdf}%
-}%
-\only<handout:0| 9>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphh.pdf}%
-}%
-\only<handout:0| 10>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphi.pdf}%
-}%
-\only<11->{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-sequencegraphj.pdf}%
-}%
 
-Cartesian coordinates
-\end{columns}
+\psset{xunit=6cm, yunit=6cm}
+\begin{pspicture}(-0.05, -0.2)(1.05, 0.2)
+\tiny
+\fcBoundingBox{-0.05}{-0.2}{1.05}{0.2}
+\psline(-0.05,0)(1.05,0)%
+\rput[t](0,-0.03){$0$}
+\psline(0,-0.02)(0, 0.02)
+\rput[t](1,-0.03){$1$}
+\psline(1,-0.02)(1, 0.02)
+\uncover<2->{
+\rput[t](! 1 2 div -0.03){$a_1$}
+\psline(! 1 2 div -0.02)(! 1 2 div 0.02)
+}
+\uncover<3->{
+\rput[t](! 2 3 div -0.03){$a_2$}
+\psline(! 2 3 div -0.02)(! 2 3 div 0.02)
+}
+\uncover<4->{
+\rput[t](! 3 4 div -0.03){$a_3$}
+\psline(! 3 4 div -0.02)(! 3 4 div 0.02)
+}
+\multido{\na=5+1}{6}{%
+\FPeval{\naMinusOne}{clip(\na-1)}%
+\only<\na->{%
+\psline(!\na\space 1 sub \na\space div -0.02)(!\na\space 1 sub \na\space div 0.02)%
+}%
+\only<\na>{%
+\rput[t](!\na\space 1 sub \na\space div -0.03){$a_{\naMinusOne}$}%
+}%
+}%
+\uncover<11->{%
+\multido{\na=11+1}{25}{%
+\psline(!\na\space 1 sub \na\space div -0.02)(!\na\space 1 sub \na\space div 0.02)%
+}%
+\psline*(! 35 36 div -0.02 )(! 1 -0.02 )(! 1 0.02 )(! 35 36 div 0.02 )(! 35 36 div -0.02 )
+}
+\end{pspicture}
+
+
+
 \begin{itemize}
 \item  The sequence $\left\{ \frac{n}{n+1}\right\}$ can be plotted on a number line or using Cartesian coordinates.
 \item<12->  From the pictures, the terms in the sequence appear to approach $1$ as $n$ gets larger.
 \item<13->  \alert<handout:0| 13-14>{$1 - \frac{n}{n+1} =$ \uncover<14->{$\frac{1}{n+1}$.}}
 \item<15->  This can be made arbitrarily small by choosing $n$ large enough.
-\item<16->  We express this by writing $\lim_{n\to\infty}\frac{n}{n+1} = 1$.
+\item<16->  We express this by writing $\lim\limits_{n\to\infty}\frac{n}{n+1} = 1$.
 \end{itemize}
 \end{frame}
 % end module sequence-plotting
