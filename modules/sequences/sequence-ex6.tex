@@ -1,15 +1,29 @@
 % begin module sequence-ex6
 \begin{frame}
-\begin{example}[Example 6, p. 715]
+\begin{example} %[Example 6, p. 715]
 Is the sequence $a_n = (-1)^n$ convergent or divergent?
 \begin{columns}[c]
 \column{.5\textwidth}
-\ \only<handout:0| -1>{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-ex6a.pdf}%
-}%
-\only<2->{%
-\includegraphics[width=6cm]{sequences/pictures/12-01-ex6b.pdf}%
-}%
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-0.5,-1.3)(9.5, 1.8)
+\fcBoundingBox{-0.8}{-1.3}{9.5}{1.8}
+\tiny
+\psaxes[arrows=<->, Dx=1, Dy=1](0,0)(-0.8,-1.5)(9, 1.5)
+\rput[b](0, 1.6){$a$}
+\rput[l](9.1, 0){$n$}
+\uncover<2->{
+\fcFullDot[linecolor=red, scale=0.6]{1}{-1}
+\fcFullDot[linecolor=red, scale=0.6]{2}{1}
+\fcFullDot[linecolor=red, scale=0.6]{3}{-1}
+\fcFullDot[linecolor=red, scale=0.6]{4}{1}
+\fcFullDot[linecolor=red, scale=0.6]{5}{-1}
+\fcFullDot[linecolor=red, scale=0.6]{6}{1}
+\fcFullDot[linecolor=red, scale=0.6]{7}{-1}
+\fcFullDot[linecolor=red, scale=0.6]{8}{1}
+\fcFullDot[linecolor=red, scale=0.6]{9}{-1}
+}
+\end{pspicture}
+
 \column{.5\textwidth}
 \begin{itemize}
 \item<2->  The terms oscillate between $-1$ and $1$ infinitely many times.
