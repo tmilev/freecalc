@@ -1,0 +1,21 @@
+\begin{frame}
+\begin{example}[\uncover<12->{All directional limits exist, limit doesn't}]    %
+\[
+\lim\limits_{(x,y) \to (0,0)} \frac{xy^2}{x^2+y^4}
+\]
+\uncover<2->{
+Along $y=mx$, we have
+\[
+\frac{xy^2}{x^2+y^4} = \uncover<3->{\frac{mx^3}{x^2+m^4x^4}} \uncover<4->{=  \frac{mx}{1+m^2x^4}} \uncover<5->{\alert<12>{ \to  0 \text{ as } x \to 0}.}
+\]
+\uncover<6->{For the direction $x=0$, $y=m$ direct computation shows that the directional limit is again $0$.} 
+\uncover<7->{Therefore all directional limits exist and are equal.}
+}
+
+\uncover<8->{However, along $x=y^2$:}
+\[
+\uncover<8->{\frac{xy^2}{x^2+y^4} =}\uncover<9->{ \frac{y^4}{y^4+y^4} = }\uncover<10->{ \frac{1}{2} }\uncover<11->{\alert<12>{\to  \frac{1}{2} \text{ as } x \to 0}}
+\]
+\uncover<12->{\alert<12>{Therefore $\lim\limits_{(x,y) \to (0,0)} \frac{xy^2}{x^2+y^4}$ does not exist.}}
+\end{example}
+\end{frame}

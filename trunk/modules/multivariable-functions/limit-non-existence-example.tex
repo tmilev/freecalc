@@ -1,0 +1,34 @@
+\begin{frame}
+\begin{example}[Limit may fail to exist]
+\[
+\lim_{(x,y) \to (0,0)} \frac{xy}{x^2+y^2} 
+\]
+
+\uncover<2->{Let $\fcv u= \langle 1,m\rangle$ and use directional limit along $\fcv u$:}
+
+\centering 
+$\begin{array}{rcl}
+\uncover<2->{ \displaystyle\lim_{t\to 0} f(t\fcv{u}) &=& f(t\langle 1,m\rangle)=f(t, tm)}\\
+\uncover<3->{&=&\displaystyle\lim_{t\to 0}\frac{m \alert<4>{t^2}}{\alert<4>{t^2}+m^2\alert<4>{t^2}}}\\
+\uncover<4->{&=& \displaystyle\frac{m}{1+m^2}}\quad.
+\end{array}
+$
+\flushleft
+
+\uncover<5->{Directional limit depends on $m$ $\Rightarrow$} \uncover<6->{directional limit is not the same for all values of $\textbf{u}$} \uncover<7->{$\Rightarrow$ the multivariable limit does not exist.}
+
+\uncover<8->{If we'd used polar coordinates, we would had obtained:
+
+\centering
+{
+$\displaystyle
+\uncover<8->{\alert<8,9>{ \frac{xy}{x^2+y^2} =}} \uncover<9->{ \alert<9>{ \cos \theta \sin\theta}}
+$
+}
+}
+\flushleft
+
+\uncover<10->{This expression depends only on $\theta$; as $r\to 0$ permits arbitrary behavior of $\theta$, we'd had guessed correctly that the limit doesn't exist.} 
+
+\end{example}
+\end{frame}

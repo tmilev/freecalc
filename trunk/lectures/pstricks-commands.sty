@@ -38,6 +38,7 @@
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcLineColor}{black}
 \newcommand{\fcLineWidth}{1\space}
+\newcommand{\fcScale}{1\space}
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
@@ -64,6 +65,7 @@ ifelse\space %
 \define@key{fcGraphics}{iterationsU}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsU}{#1\space}}
 \define@key{fcGraphics}{iterationsV}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsV}{#1\space}}
 \define@key{fcGraphics}{iterationsX}[\renewcommand{\fcIterationsX}{9\space}]{\renewcommand{\fcIterationsX}{#1\space}}
+\define@key{fcGraphics}{scale}[\renewcommand{\fcScale}{1}]{\renewcommand{\fcScale}{#1\space}}
 \define@key{fcGraphics}{iterationsY}[\renewcommand{\fcIterationsY}{9\space}]{\renewcommand{\fcIterationsY}{#1\space}}
 \define@key{fcGraphics}{screenStyle}[\renewcommand{\fcScreenStyle}{z}]{\renewcommand{\fcScreenStyle}{#1}}
 \define@key{fcGraphics}{xLabel}[\renewcommand{\fcXLabel}{$x$}]{\renewcommand{\fcXLabel}{#1}}
@@ -83,7 +85,8 @@ ifelse\space %
 }
 
 \newcommand{\fcFullDot}[3][linecolor=red]{
-\pscircle*[#1](! #2 #3){0.07}
+\setkeys{fcGraphics}{#1}
+\pscircle*[#1](! #2 #3){! 0.07 \fcScale\space mul}
 }
 
 \newcommand{\fcFullDotCode}{
@@ -1559,6 +1562,7 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 \fcSurfaceIIIdVConst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
 }%
 
+%Example:\fcVectorField{startX= -2, startY=-2, iterationsX=9, iterationsY=9, Delta=0.5}{y -x}
 \newcommand{\fcVectorField}[3][linecolor=blue]{%
 \setkeys{fcGraphics}{#2}%
 \multido{\ra=\fcStartXIId+\fcDelta}{\fcIterationsX}{%

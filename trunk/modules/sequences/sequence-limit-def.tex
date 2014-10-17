@@ -8,13 +8,42 @@ A sequence $\{ a_n\}$ has the limit $L$, and we write
 if we can make $a_n$ as close to $L$ as we like by taking $n$ large enough.
 \end{definition}
 \begin{definition}[Convergent]
-A sequence that has a limit is called convergent.  A sequence that has no limit is called divergent.
+A sequence that has a limit is called convergent. A sequence that has no limit is called divergent.
 \end{definition}
+
 \begin{columns}[c]
 \column{.5\textwidth}
-\includegraphics[width=6cm]{sequences/pictures/12-01-limita.pdf}%
+\psset{xunit=0.6cm,yunit=0.6cm}
+\begin{pspicture}(-0.5, -0.5)(5, 3)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{7}{3}
+\rput[b](0,3.1){$a$}
+\rput[l](7.1,0){$n$}
+\multido{\na=0+1}{36}{%
+\pstVerb{2 dict begin /na \na\space def /t na 0.2 mul def}%
+\fcFullDot[scale=0.5, linecolor=red]{t }{t t mul 4 mul t 6 mul add t t mul 4 mul 1 add div }
+\pstVerb{end}%
+}%
+\psline[linewidth =0.4pt, linestyle=dashed, linecolor=blue](0, 1)(7, 1)
+\rput[r](-0.1, 1){$L$}
+\end{pspicture}
+
 \column{.5\textwidth}
-\includegraphics[width=6cm]{sequences/pictures/12-01-limitb.pdf}%
+\psset{xunit=0.3cm,yunit=0.3cm}
+\begin{pspicture}(-1, -1)(5, 3)
+\tiny
+\fcAxesStandard{-1}{-1}{14}{6}
+\rput[b](0,6.2){$a$}
+\rput[l](14.2, 0){$n$}
+\multido{\na=0+1}{36}{%
+\pstVerb{2 dict begin /na \na\space def /t na 0.4 mul def}%
+\fcFullDot[scale=0.5, linecolor=red]{t }{t t mul 3 mul t 4 mul add t t mul 3 mul 1 add div t 90 mul sin 3 mul t 1 add div add }%
+\pstVerb{end}%
+}%
+\psline[linewidth =0.4pt, linestyle=dashed, linecolor=blue](0, 1)(14, 1)
+\rput[r](-0.1, 1){$L$}
+\end{pspicture}
+
 \end{columns}
 \end{frame}
 % end module sequence-limit-def
