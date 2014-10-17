@@ -1,25 +1,18 @@
 \begin{frame}
-  \frametitle{Example}
-  Let $f(x,y) = y^2\ln{(2x+y)}- e^y$.
+\begin{example}
+Compute $f_x$, $f_y$, where $f(x,y) = y^2\ln{(2x+y)}- e^y$.
 
-To compute $f_x$ \pause we treat $y$ as a constant.\pause
-%
-\begin{align*}
-  f_x = \frac{\partial f}{\partial x} = & \frac{\partial(y^2\ln{(2x+y)}- e^y)}{\partial x} = \frac{\partial(y^2\ln{(2x+y)})}{\partial x} - \frac{\partial(e^y)}{\partial x} = \\
-  %
-  = & y^2 \frac{\partial(\ln{(2x+y)})}{\partial x} - 0 = y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial(2x+y)}{\partial x}= \frac{2y^2}{2x+y}\; .
-\end{align*}
-
-\pause To compute $f_y$ we treat $x$ as a constant:\pause
-%
-\begin{align*}
-  f_y = \frac{\partial f}{\partial y} = & \frac{\partial(y^2\ln{(2x+y)}- e^y)}{\partial y} = \frac{\partial(y^2\ln{(2x+y)})}{\partial y} - \frac{\partial(e^y)}{\partial y} = \\
-  %
-  = & y^2 \frac{\partial(\ln{(2x+y)})}{\partial y} +\frac{\partial(y^2)}{\partial y} \ln{(2x+y)}
-   - e^y = \\
-   %
-   = & y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial(2x+y)}{y} +2y\ln{(2x+y)} - e^y = \\
-   %
-   = & \frac{y^2}{2x+y} +2y\ln{(2x+y)} - e^y \; .
-\end{align*}
+\[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{rcl}
+\uncover<2->{f_x &=&\displaystyle \frac{\partial f}{\partial x} = } \uncover<3->{\frac{\partial(y^2\ln{(2x+y)}- e^y)}{\partial x} =} \uncover<4->{\frac{\partial(y^2\ln{(2x+y)})}{\partial x} - \frac{\partial(e^y)}{\partial x} } \\
+\uncover<5->{&= &\displaystyle y^2 \frac{\partial(\ln{(2x+y)})}{\partial x} - 0 =}\uncover<6->{ y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial(2x+y)}{\partial x} =}\uncover<7->{ \frac{2y^2}{2x+y}\; .}\\~\\
+\uncover<8->{ f_y &=&\displaystyle \frac{\partial f}{\partial y} =}\uncover<9->{ \frac{\partial(y^2\ln{(2x+y)}- e^y)}{\partial y} =} \uncover<10->{ \frac{\partial(y^2\ln{(2x+y)})}{\partial y} - \frac{\partial(e^y)}{\partial y} } \\
+\uncover<11->{&  = &\displaystyle y^2 \frac{\partial(\ln{(2x+y)})}{\partial y} +\frac{\partial(y^2)}{\partial y} \ln{(2x+y)}
+- e^y } \\
+\uncover<12->{&  = &\displaystyle y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial(2x+y)}{y} +2y\ln{(2x+y)} - e^y } \\
+\uncover<13->{& = &\displaystyle \frac{y^2}{2x+y} +2y\ln{(2x+y)} - e^y\; .} 
+\end{array}
+\]
+\end{example}
 \end{frame}

@@ -1,21 +1,25 @@
 \begin{frame}
 \frametitle{Graphical Interpretation}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-2, -2)(2,2)
+\renewcommand{\fcScreen}{[-1 1 -2] 0}
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsU=6, iterationsV=6]{-1.2}{-1.2}{1.2}{1.2}{[u v u u mul v v mul sub]}
+\fcCurveIIIdInScene{-3}{3}{[0 0 t]}
+\fcFinishIIIdScene
+\end{pspicture}
+\column{0.6\textwidth}
+\begin{itemize}
+\item Recall the graph of $f$ is the surface whose points are $\{( x,y, f(x,y))\}$.
+\item The vertical plane containing the line $\textbf{r}=\textbf{r}_0 + t\textbf{i}$ is the plane $y=y_0$.
+\item Intersection of graph with the plane $y=y_0$ is the curve
+\[\gamma(t) = \langle t, y_0, f(t,y_0) \rangle.
+\]
+\item  The graph of $z=h(x)$
+\item The direction of tangent line to $\gamma$ is: $\gamma'(x_0) = \langle 1,0,f_x(x_0,y_0) \rangle$
 
-The graph of $f$ is the surface
-%
-$$(x,y) \to  \langle x,y, f(x,y) \rangle$$
-
-The vertical plane containing the line $\textbf{r}=\textbf{r}_0 + t\textbf{i}$ is the plane $y=y_0$.
-
-Intersection of graph with the plane $y=y_0$ is the curve
-%
-$$\gamma(t) = \langle t, y_0, f(t,y_0) \rangle \Longrightarrow \text{ Graph of } z=h(x)$$
-%
-Direction of tangent line to $\gamma$:
-%
-$$\gamma'(x_0) = \langle 1,0,f_x(x_0,y_0) \rangle$$
-
-In the $xz-$plane $y=y_0$, the slope of this line is
-%
-$$h'(x_0) = f_x(x_0,y_0)$$
+\item In the $xz-$plane $y=y_0$, the slope of this line is $h'(x_0) = f_x(x_0,y_0)$.
+\end{itemize}
+\end{columns}
 \end{frame}
