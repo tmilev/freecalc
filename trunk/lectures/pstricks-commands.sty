@@ -1,6 +1,6 @@
 \ProvidesPackage{pstricks-commands}
 \usepackage{etex, ifthen}
-\usepackage{auto-pst-pdf}
+\usepackage[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]{auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
 %WARNING THE FOLLOWING PACKAGE IS BROKEN use only with EXTREME CAUTION
@@ -43,6 +43,8 @@
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
 \newcommand{\fcDashLength}{2}
+\newcommand{\fcPatchColorUVorientation}{1 0.5 0.5\space }
+\newcommand{\fcPatchColorVUorientation}{0.7 0.2 0.2\space }
 \newcommand{\fcDashesCode}{%
 (\fcLineStyle) (dashed) eq %
 {[\fcDashLength\space \fcDashLength] 0 setdash}%
@@ -606,6 +608,28 @@ stroke %
 }%
 }
 
+\newcommand{\fcEllipsoidInScene}[2][iterationsU=22, iterationsV=22]{
+\setkeys{fcGraphics}{#1}%
+\pstVerb{
+/theIIIdObjects 
+[theIIIdObjects \fcArrayToStack [0 0 180 360 
+{ #2\space 6 dict begin %
+  /c exch def %
+  /b exch def %
+  /a exch def %
+  /z1 exch def %
+  /y1 exch def %
+  /x1 exch def %
+  [ u sin v cos mul a mul x1 add 
+    u sin v sin mul b mul y1 add
+    u cos c mul z1 add
+  ]
+  end
+} \fcGetCurrentColorCode (surface)] ]
+def
+}
+}
+
 \newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth }
 
 \newcommand{\fcCurveCode}{%
@@ -729,7 +753,7 @@ thePoint \fcZBufferRowColumn %
 /column exch def %
 /row exch def %
 /theZBuffEntry theZBuffer row get column get def %
-theZBuffEntry length 0 eq {( <br>ERROR: z-buffer not computed properly, row, column: ) print row == column ==} if %
+%theZBuffEntry length 0 eq {( <br>ERROR: z-buffer not computed properly, row, column: ) print row == column ==} if %
 /result true def %
 %/counterZBuff -1 def %
 %/numCoincidingPatches 0 def %
@@ -974,6 +998,7 @@ pstack %
 4 1 roll setrgbcolor %
 /HandlerNotFound true def %
 HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (curve) eq {pop \fcProcessCurve /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
 end %
 }%
@@ -1034,6 +1059,7 @@ end
 \fcZBufferRowColumnsUnderInvestigation\space column eq exch row eq and
 }
 
+\makeatletter
 \newcommand{\fcPatchContour}{ %
 15 dict begin %
 /theContour exch def %
@@ -1057,6 +1083,19 @@ numSegments{ %
   pointRight 0 get \fcCoordsIIIdToPS lineto %  
 }repeat %
 stroke %
+% gsave
+%/directionVector pointRight 0 get pointLeft 0 get \fcVectorMinusVector def 
+%directionVector \fcVectorNorm 0 ne{
+%/directionVector directionVector \fcVectorNormalize def
+%}if
+%/xPS directionVector 0 get def
+%/yPS directionVector 1 get def
+%[xPS  pointRight 0 get \fcCoordsIIIdToPS ] concat
+% newpath
+% false 0.5 1 2 1 \tx@Arrow 
+% closepath
+% stroke
+% grestore
 /counter -1 def
 theContour length {/counter counter 1 add def
 /currentNeighborhood theContour counter get def
@@ -1073,6 +1112,7 @@ contourIsUnderInvestigation indexPointUnderInvestigation counter eq and
 }repeat
 end %
 }
+\makeatother
 
 \newcommand{\fcComputeSurfacePatch}{
 /oldU u def %
@@ -1156,6 +1196,32 @@ thePatchContour processContour
 \fcMarkCleanCheck
 }
 
+\newcommand{\fcProcessCurve}{
+30 dict begin %
+(processing curve, printing stack: ) ==
+pstack
+/theCurve exch def %
+/tMax exch def %
+/tMin exch def %
+/tIterations \fcPlotPoints\space def %
+/DeltaT tMax tMin sub tIterations div def %
+%/theFile (/home/todor/math/freecalc/lectures/surfaceData.txt) (w) file def
+%theFile (hello file) writestring pop
+%theFile closefile
+/theCurvePoints [
+/t tMin def %
+tIterations { %
+[theCurve ]
+/t t DeltaT add def %
+}repeat %
+]
+def %
+/contourIsUnderInvestigation false def
+/indexPointUnderInvestigation -1 def
+theCurvePoints processContour
+end %
+}
+
 \newcommand{\fcProcessSurface}{%
 30 dict begin %
 (processing Surface, printing stack: ) ==
@@ -1188,22 +1254,6 @@ doTraverseContour{ %
 end %
 }%
 
-\newcommand{\fcPaintEllipsoid}{%
-(painting ellipsoid: ) == %
-dup == %
-\fcArrayToStack %
-15 dict begin %
-/c exch def %
-/b exch def %
-/a exch def %
-/z1 exch def %
-/y1 exch def %
-/x1 exch def %
-/theSurfaceNormal {[v cos u cos a mul mul v sin u cos b mul mul u sin -1 mul c mul] [v sin -1 mul u sin a mul mul v cos u sin b mul mul 0] \fcVectorCrossVector} def %
-0 0 180 360 {[v cos u sin a mul mul x1 add v sin u sin b mul mul y1 add u cos c mul z1 add]} \fcSurfaceIIIdCode %
-end %
-}
-
 \newcommand{\fcGetCurrentColorCode}{
 2 dict begin
 /theColor {0 0 0} def %
@@ -1217,7 +1267,17 @@ theColor %
 end %
 }
 
-%Format of surface: we store the surface in the format [umin vmin umax vmax [fx fy fz] red green blue (surface)]
+\newcommand{\fcLineIIIdInScene}[3][]{
+\fcCurveIIIdInScene[#1]{0}{1}{#2 t \fcVectorTimesScalar #3 1 t sub \fcVectorTimesScalar \fcVectorPlusVector }
+}
+
+%Format of curve: we store the curve in the format [tmin tmax [x y z] red green blue (curve)]
+\newcommand{\fcCurveIIIdInScene}[4][]{
+\setkeys{fcGraphics}{#1}%
+\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3  {#4} \fcGetCurrentColorCode (curve)] ]/theIIIdObjects exch def}
+}
+
+%Format of surface: we store the surface in the format [umin vmin umax vmax [x y z] red green blue (surface)]
 \newcommand{\fcSurfaceInScene}[6][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcGetCurrentColorCode (surface)] ]/theIIIdObjects exch def}
@@ -1355,7 +1415,6 @@ end
 \newcommand{\fcZBufferPaintPatches}{
 10 dict begin
 gsave
-1 0.5 0.5 setrgbcolor
 /row -1 def %
 theZBuffer length{ %
 /row row 1 add def %
@@ -1370,18 +1429,30 @@ grestore
 end
 }
 
+\newcommand{\fcPatchGetNormal}{
+1 dict begin
+/thePatch exch def
+thePatch \fcPatchGetvOne thePatch \fcPatchGetvZero \fcVectorMinusVector
+thePatch \fcPatchGetvTwo thePatch \fcPatchGetvZero \fcVectorMinusVector
+\fcVectorCrossVector
+end
+}
 \newcommand{\fcPatchGetvZero}{0 get\space}
 \newcommand{\fcPatchGetvOne}{1 get\space}
 \newcommand{\fcPatchGetvTwo}{2 get\space}
 \newcommand{\fcPatchGetvThree}{3 get \space}
 
 \newcommand{\fcPaintPatchFilledDirectly}{
-2 dict begin
+1 dict begin
 /thePatch exch def %
 %(thePatch: ) ==
 %thePatch ==
 %(PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
+thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
+{ \fcPatchColorVUorientation \space setrgbcolor}
+{ \fcPatchColorUVorientation \space setrgbcolor}
+ifelse
 newpath
 thePatch \fcPatchGetvZero \fcCoordsIIIdToPS moveto 
 thePatch \fcPatchGetvOne \fcCoordsIIIdToPS lineto 
