@@ -1,31 +1,23 @@
 \begin{frame}
   \frametitle{Directional Derivatives}
+\begin{itemize}
+\item  Let $f \colon D \to \RR$, $P_0(\fcv{r}_0)$ in $D$, $\fcv{u}$ nonzero vector.
+\item<2-> Let $L$ be line through $P_0$ with direction $\fcv{u}$, \alert<1->{oriented} by $\fcv{u}$.
 
-  $f \colon D \to \RR$, $P_0(\textbf{r}_0)$ in $D$,
-  $\textbf{u}$ nonzero vector
+\hfil{} $\fcv{r}\colon \RR \to L, \quad \fcv{r}(t) = \fcv{r}_0+t\fcv{u}$
 
-  $L$: line through $P_0$ with direction $\textbf{u}$,
-  \textcolor[rgb]{0.98,0.00,0.00}{oriented} by $\textbf{u}$.
-  %
-  $$\textbf{r}\colon \RR \to L, \quad \textbf{r}(t) =
-  \textbf{r}_0+t\textbf{u}$$
-
-  \pause \textcolor[rgb]{0.98,0.00,0.00}{Covariant derivative} -
-  for \textcolor[rgb]{0.98,0.00,0.00}{nonzero} vector $\textbf{u}$:
-  %
-  $$(\nabla_{\textbf{u}} f) (P_0) = \lim_{t\to 0}
-  \frac{f(\textbf{r}_0+t\textbf{u}) - f(\textbf{r}_0)}{t}$$
-
-  \pause $\textbf{r}$: arclength parametrization \pause
-  $\Longleftrightarrow$ $|\textbf{u}|=1$
-
-  \pause \textcolor[rgb]{0.98,0.00,0.00}{Directional derivative} - for \textcolor[rgb]{0.98,0.00,0.00}{unit} vector
-  $\textbf{u}$:
-  %
-  $$(D_{\textbf{u}} f)(P_0) =
-  \lim_{t\to 0} \frac{f(\textbf{r}_0+t\textbf{u})-f(\textbf{r}_0)}{t}\; .$$
-
-  \pause $(D_{\textbf{u}} f)(P_0)$ = instantaneous rate of change of $f$
-  with respect to change in \emph{position} along the line
-  with \textcolor[rgb]{0.98,0.00,0.00}{unit} direction $\textbf{u}$.
+\uncover<3->{
+\begin{definition}[Covariant derivative $\nabla_{\fcv u} f$]
+Let $\fcv u$ -nonzero vector. Define the covariant derivative $(\nabla_{\fcv{u}} f)$ via $(\nabla_{\fcv{u}} f) (P_0) = \lim_{t\to 0} \frac{f(\fcv{r}_0+t\fcv{u}) - f(\fcv{r}_0)}{t}$
+\end{definition}
+}
+\item<4-> If $\fcv{r}$ is parametrized via arclength we have $|\fcv{u}|=1$
+\uncover<5->{
+\begin{definition}[Directional derivative]
+Let $\fcv u$ be a unit vector. Define the directional derivative $D_{\fcv u} f$ via
+$(D_{\fcv{u}} f)(P_0) = \lim_{t\to 0} \frac{f(\fcv{r}_0+t\fcv{u})-f(\fcv{r}_0)}{t}\; $.
+\end{definition}
+}
+\item<6-> Define $(D_{\fcv{u}} f)(P_0)$ to be the instantaneous rate of change of $f$ along the line $L$.
+\end{itemize}
 \end{frame}

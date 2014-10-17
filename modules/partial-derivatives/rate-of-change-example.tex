@@ -2,26 +2,14 @@
 \frametitle{Rate of Change}
 \begin{itemize}
 \item $O$: fixed point in space. Define $\alert<1->{f(P) = |OP|^2}$.
-\item<2-> Question: How does $f$ change around a point $P_0$ in space? \uncover<3->{$$\text{Change in } f = f(P) - f(P_0)$$}
-\item<4->\alert<1->{Quantitative} question: \pause
-  \textcolor[rgb]{0.98,0.00,0.00}{Rate of change} of $f$ at $P_0$
-
-
+\item<2-> Question: How does $f$ change around a point $P_0$ in space? \uncover<3->{
+$$\Delta f = f(P) - f(P_0)$$
+}
+\item<4->\alert<1->{Quantitative} question. What is the \alert<1->{rate of change} of $f$ at $P_0$?
+\item<5-> The question is ambiguous: rate of change of $f$ with respect to what?
+$$\text{ Rate of change } = \frac{f(P) - f(P_0)}{\textbf{?}}$$
+\item<6-> Naive answer: with respect to \alert<1->{distance} from $P_0$:
+$\frac{f(P) - f(P_0)}{|P_0P|}$.
+\item<7-> Problem with naive answer: \alert<1->{the instantaneous rate of change may fail to exist:} $\lim_{P\to P_0} \frac{f(P)-f(P_0)}{|P_0P|}$.
 \end{itemize}
-
-  \pause Ambiguity: \pause Rate of change of $f$ with respect to WHAT?
-  %
-  $$\text{ Rate of change } = \frac{f(P) - f(P_0)}{??}$$
-  %
-  \pause Naive answer: \pause With respect to
-  \textcolor[rgb]{0.00,0.00,0.00}{distance} from $P_0$
-  %
-  $$\frac{f(P) - f(P_0)}{|P_0P|}$$
-  %
-  \pause Problem: \pause
-  \textcolor[rgb]{0.98,0.00,0.00}{instantaneous rate of change}
-  %
-  $$\lim_{P\to P_0} \frac{f(P)-f(P_0)}{|P_0P|}$$
-  %
-  does not exist!
 \end{frame}

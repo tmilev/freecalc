@@ -1,30 +1,23 @@
 \begin{frame}
-  \frametitle{Partial Derivatives}
-
-  $Oxy$: rectangular coordinate system in the plane
-
-  $f\colon \mathcal{R} \to \RR$,  $P_0(x_0,y_0)$ inside $\mathcal{R}$
-  %
-  $$\textbf{u}=\textbf{i} \Longrightarrow \textbf{r}(t) = \textbf{r}_0 + t\textbf{u} = \langle x_0+t, y_0 \rangle$$
-  %
-  $$g(t) = f(\textbf{r}(t)) = f(x_0+t, y_0)= h(x_0+t)$$
-  %
-  where $h(x) = f(x,y_0)$ is a \emph{partial} function.\pause
-  %
-  $$(D_{\,\textbf{i}} f)(x_0,y_0) = \lim_{t\to 0} \frac{g(t)-g(0)}{t}
-  =\lim_{t\to 0} \frac{h(x_0+t) -h(x_0)}{t} = h'(x_0)$$
-  %
-\pause Notations for \textcolor[rgb]{0.98,0.00,0.00}{partial derivatives}:
-%
-$$(D_{\,\textbf{i}}f)(x_0,y_0) = \frac{\partial f}{\partial x}(x_0,y_0) =
+\frametitle{Partial Derivatives}
+\begin{itemize} 
+\item Let $f\colon D \to \RR$,  $P_0(x_0,y_0)$ inside $D$.
+\item<2-> Consider the line $\fcv{r}(t) = \fcv{r}_0 + t\fcv {i} = \langle x_0+t, y_0 \rangle$.
+\item<3-> Set $g(t) = f(\fcv{r}(t)) = f(x_0+t, y_0)$.
+\item<4-> Then $(D_{\fcv{i}} f)(x_0,y_0) = \lim\limits_{t\to 0} \frac{g(t)-g(0)}{t}$
+\begin{definition}
+The partial derivatives $\frac{\partial}{\partial x} $, $\frac{\partial}{\partial y} $  of $f$ are defined as the directional derivatives of $f$ in the direction of the unit vector along the $x$, $y$ axes. 
+\end{definition}
+\item<5-> Notations for \alert<1->{partial derivatives}:
+$$(D_{\,\fcv{i}}f)(x_0,y_0) = \frac{\partial f}{\partial x}(x_0,y_0) =
 f_x(x_0,y_0)$$
-%
-$$(D_{\,\textbf{j}}f)(x_0,y_0) =  \frac{\partial f}{\partial y}(x_0,y_0) =
+$$(D_{\,\fcv{j}}f)(x_0,y_0) =  \frac{\partial f}{\partial y}(x_0,y_0) =
 f_y(x_0,y_0)$$
 %
-\pause We compute partial derivatives by
+\item<6-> Partial derivatives are computed by
 \begin{itemize}
-  \item keeping all other variables constant and
-  \item applying the rules for differentiation for single variable functions.
+\item considering all other variables as constants and
+\item applying the rules for differentiation for single variable functions.
+\end{itemize}
 \end{itemize}
 \end{frame}
