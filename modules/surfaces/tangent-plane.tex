@@ -3,9 +3,16 @@
 \begin{columns}
 \column{0.4\textwidth}
 \begin{pspicture}(-2,-2)(2,2)
-%\renewcommand{\fcColorPatchVU}{\fcColorPatchUV}
 \fcStartIIIdScene
-\fcEllipsoidInScene[linecolor=blue, iterationsU=6, iterationsV=7]{0 0 0 2 1.5 1.5}
+\fcSurfaceInScene[linecolor=orange, iterationsU=4, iterationsV=4, colorUV=cyan]{-1}{-1}{1}{1}{
+3 dict begin
+/basePoint [30 cos 2 mul 0 30 sin 1.5 mul ] def
+/tangent1 [0 1 0] def
+/tangent2 [30 sin -2 mul 0 30 sin 1.5 mul] def
+basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector
+end
+}
+\fcEllipsoidInScene[linecolor=red, iterationsU=6, iterationsV=7, colorUV={1 0.5 0.5},  colorVU={1 0.5 0.5}]{0 0 0 2 1.5 1.5}
 \fcFinishIIIdScene
 \fcAxesIIId{3}{3}{3}
 \end{pspicture}

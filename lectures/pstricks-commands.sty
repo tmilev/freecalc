@@ -65,6 +65,8 @@ ifelse\space %
 \define@key{fcGraphics}{shiftY}[\renewcommand{\fcShiftY}{0}]{\renewcommand{\fcShiftY}{#1}}
 \define@key{fcGraphics}{startX}[\renewcommand{\fcStartXIId}{0}]{\renewcommand{\fcStartXIId}{#1}}
 \define@key{fcGraphics}{startY}[\renewcommand{\fcStartYIId}{0}]{\renewcommand{\fcStartYIId}{#1}}
+\define@key{fcGraphics}{colorUV}[\renewcommand{\fcColorPatchUV}{1 0.5 0.5}]{\renewcommand{\fcColorPatchUV}{#1\space}}
+\define@key{fcGraphics}{colorVU}[\renewcommand{\fcColorPatchVU}{0.7 0.2 0.2}]{\renewcommand{\fcColorPatchVU}{#1\space}}
 \define@key{fcGraphics}{iterationsU}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsU}{#1\space}}
 \define@key{fcGraphics}{iterationsV}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsV}{#1\space}}
 \define@key{fcGraphics}{iterationsX}[\renewcommand{\fcIterationsX}{9\space}]{\renewcommand{\fcIterationsX}{#1\space}}
@@ -1457,11 +1459,14 @@ end %
 (#1) ==
 /theColor {0 0 0} def %
 /colorNotFound true def %
-(#1) (black) eq{/theColor {0 0 0} def /colorNotFound false def}if %
-(#1) (red) eq{/theColor {1 0 0} def /colorNotFound false def}if %
-(#1) (blue) eq{/theColor {0 0 1} def /colorNotFound false def}if %
-(#1) (green) eq{/theColor {0 1 0} def /colorNotFound false def}if %
-colorNotFound{/theColor {#1} (color not found!) == def}if %
+(#1) (black) eq (#1) (black ) eq or{/theColor {0 0 0} def /colorNotFound false def}if %
+(#1) (red) eq (#1) (red ) eq or{/theColor {1 0 0} def /colorNotFound false def}if %
+(#1) (blue) eq (#1) (blue ) eq or{/theColor {0 0 1} def /colorNotFound false def}if %
+(#1) (green) eq (#1) (green ) eq or{/theColor {0 1 0} def /colorNotFound false def}if %
+(#1) (brown) eq (#1) (brown ) eq or{/theColor {0.6484375 0.1640625 0.1640625} def /colorNotFound false def}if %
+(#1) (orange) eq (#1) (orange ) eq or{/theColor {1 0.647058824 0} def /colorNotFound false def}if %
+(#1) (cyan) eq (#1) (cyan ) eq or {/theColor {0 1 1} def /colorNotFound false def}if %
+colorNotFound{/theColor {#1} (color ) ==  [#1] == (not found.) == def}if %
 theColor %
 end %
 }
@@ -1644,6 +1649,7 @@ thePatch \fcPatchGetvTwo thePatch \fcPatchGetvZero \fcVectorMinusVector
 \fcVectorCrossVector
 end
 }
+
 \newcommand{\fcPatchGetvZero}{0 get\space}
 \newcommand{\fcPatchGetvOne}{1 get\space}
 \newcommand{\fcPatchGetvTwo}{2 get\space}
