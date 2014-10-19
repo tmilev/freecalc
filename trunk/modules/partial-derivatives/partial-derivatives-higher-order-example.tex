@@ -1,20 +1,22 @@
 \begin{frame}
-  \frametitle{Example}
+\frametitle{Example}
+$\alert<1-10>{f(x,y) = x^2y^3}$. Then
+\[
+\begin{array}{rclllrcl}
+\alert<1,2>{f_x(x,y) }&\alert<1,2>{=}& \uncover<2->{ \alert<2>{ 2xy^3}}  &&&  \alert<7,8>{f_{y}(x,y)} & \alert<7,8>{=}&  \uncover<8->{ \alert<8>{3x^2y^2}} \\
+\alert<3,4>{ f_{xx}(x,y)} &\alert<3,4>{=}& \uncover<4->{ \alert<3,4>{(2xy^3)_x = 2y^3}}  &&& \alert<9,10,13>{ f_{xy}( x,y) } &\alert<9,10,13>{=}& \uncover<10->{ \alert<10,13>{(2xy^3)_y = 6xy^2}} \\
+\alert<5,6,13>{ f_{yx}( x,y)} &\alert<5,6,13>{=}& \uncover<6->{ \alert<6,13>{ (3x^2y^2)_x = 6xy^2}}  &&& \alert<11,12>{f_{yy}(x,y) }&\alert<11,12>{=}& \uncover<12->{ \alert<12>{(3x^2y^2)_y = 6x^2y}}
+\end{array}
+\]
 
-  $f(x,y) = x^2y^3$. Then\pause
-%
-\begin{align*}
-  f_x(x,y) = 2xy^3 \quad & \quad f_{y}(x,y) = 3x^2y^2 \\
-  %
-  f_{xx}(x,y) = (2xy^3)_x = 2y^3 \quad & \quad f_{xy}(x,y) = (2xy^3)_y = 6xy^2 \\
-  %
-  f_{yx}(x,y) = (3x^2y^2)_x = 6xy^2 \quad & \quad f_{yy}(x,y) = (3x^2y^2)_y = 6x^2y
-\end{align*}
+\uncover<13->{ Notice that $\alert<13>{f_{xy} = f_{yx}}$. That is not a coincidence.}
 
-\pause Notice that $f_{xy} = f_{yx}$. That is not a coincidence.
-
-\begin{theorem}[Clairaut] If the second order derivatives $f_{xy}$ and $f_{yx}$ are continuous on an open domain (such as an open disk, for example), then they are equal everywhere on the domain.
+\uncover<14->{
+\begin{theorem}[Clairaut, (1713-1765)] If the second order derivatives $f_{xy}$ and $f_{yx}$ are continuous on an \alert<15>{open domain}, then they are equal everywhere on the domain.
 \end{theorem}
-
-Similar results for functions of three variables.
+}
+\begin{itemize}
+\item<15-> An \alert<15>{open domain} is a set that contains a small open disk around all of its points, for example an open disk.
+\item<16-> An analogous theorem is valid in $n$ dimensions.
+\end{itemize}
 \end{frame}

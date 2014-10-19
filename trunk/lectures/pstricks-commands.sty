@@ -1,6 +1,6 @@
 \ProvidesPackage{pstricks-commands}
 \usepackage{etex, ifthen}
-\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -37,15 +37,15 @@
 \newcommand{\fcNumCountourSegmentsPatchU}{10\space}
 \newcommand{\fcNumCountourSegmentsPatchV}{10\space}
 \newcommand{\fcScreenStyle}{z}
-\newcommand{\fcLineColor}{black}
+\newcommand{\fcColorLine}{black}
 \newcommand{\fcLineWidth}{1\space}
 \newcommand{\fcScale}{1\space}
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
 \newcommand{\fcDashLength}{2}
-\newcommand{\fcPatchColorUVorientation}{1 0.5 0.5\space }
-\newcommand{\fcPatchColorVUorientation}{0.7 0.2 0.2\space }
+\newcommand{\fcColorPatchUV}{1 0.5 0.5}
+\newcommand{\fcColorPatchVU}{0.7 0.2 0.2}
 \newcommand{\fcDashesCode}{%
 (\fcLineStyle) (dashed) eq %
 {[\fcDashLength\space \fcDashLength] 0 setdash}%
@@ -74,7 +74,7 @@ ifelse\space %
 \define@key{fcGraphics}{xLabel}[\renewcommand{\fcXLabel}{$x$}]{\renewcommand{\fcXLabel}{#1}}
 \define@key{fcGraphics}{yLabel}[\renewcommand{\fcYLabel}{$y$}]{\renewcommand{\fcYLabel}{#1}}
 \define@key{fcGraphics}{zLabel}[\renewcommand{\fcZLabel}{$z$}]{\renewcommand{\fcZLabel}{#1}}
-\define@key{fcGraphics}{linecolor}[\renewcommand{\fcLineColor}{black}]{\renewcommand{\fcLineColor}{#1}}
+\define@key{fcGraphics}{linecolor}[\renewcommand{\fcColorLine}{black}]{\renewcommand{\fcColorLine}{#1}}
 \define@key{fcGraphics}{linestyle}[\renewcommand{\fcLineStyle}{0}]{\renewcommand{\fcLineStyle}{#1}}
 \define@key{fcGraphics}{plotpoints}[\renewcommand{\fcPlotPoints}{200}]{\renewcommand{\fcPlotPoints}{#1}}
 \define@key{fcGraphics}{dashes}[\renewcommand{\fcDashLength}{300}]{\renewcommand{\fcDashLength}{#1 \fcConvertPSXUnit\space}}
@@ -681,7 +681,7 @@ stroke %
     u cos c mul z1 add
   ]
   end
-} \fcGetCurrentColorCode (surface)] ]
+}\fcIterationsU\space \fcIterationsV\space  \fcGetColorCode{\fcColorPatchUV}\space \fcGetColorCode{\fcColorPatchVU}\space \fcGetColorCode{\fcColorLine}\space (surface)] ]
 def
 }
 }
@@ -1023,6 +1023,7 @@ graphicsFile run
 /linetoVirtual {lineto} def
 /strokeVirtual {stroke} def
 /closepathVirtual {closepath} def
+/newpathVirtual {newpath} def
 /fillVirtual {fill} def
 /arrowVirtual {} def
 /setrgbcolorVirtual {setrgbcolor} def
@@ -1082,6 +1083,7 @@ graphicsFile ( setrgbcolor ) writestring
 }
 
 \newcommand{\fcSetupFiles}{
+\fcSetUpGraphicsToScreen
 /graphicsCached false def
 /graphicsFileAvailable true def
 /graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) theIIIdObjects \fcToString \fcHashString (.txt) 4 \fcConcatenateMultiple def
@@ -1111,7 +1113,6 @@ graphicsFile closefile
 { /graphicsFile graphicsFileName (w) file def
   graphicsFile type (filetype) ne{
   /graphicsFileAvailable false def
-  \fcSetUpGraphicsToScreen
   }
   { \fcSetUpGraphicsToFileAndScreen
   }
@@ -1176,9 +1177,8 @@ if
 }%
 
 \newcommand{\fcProcessObject}{%
-(processing object) == \fcArrayToStack dup == %
+\fcArrayToStack %
 1 dict begin %
-4 1 roll setrgbcolorVirtual %
 /HandlerNotFound true def %
 HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
 HandlerNotFound{dup (curve) eq {pop \fcProcessCurve /HandlerNotFound false def} if} if %
@@ -1272,6 +1272,7 @@ end
 /counter -1 def %
 /rightIsInForeground theContour 0 get \fcIsInForeground def %
 /style (none) def %
+colorContour setrgbcolorVirtual
 newpathVirtual %
 numSegments{ %
   /counter counter 1 add def %
@@ -1318,6 +1319,8 @@ theSurface %(x(u+Delta,v), y(u+Delta,v), z(u+Delta,v))
 theSurface %(x(u,v+Delta), y(u,v+Delta), z(u,v+Delta))
 /u u DeltaU add def %
 theSurface %(x(u+Delta,v+Delta), y(u+Delta,v+Delta), z(u+Delta,v+Delta))
+colorUVpatch % front color of patch
+colorVUpatch % back color of patch
 (patch) %
 ] %patch data structure complete
 /u oldU def %
@@ -1390,6 +1393,7 @@ thePatchContour processContour
 }
 
 \newcommand{\fcProcessCurve}{
+setrgbcolorVirtual %
 30 dict begin %
 /useArrows exch () ne def
 /theCurve exch def %
@@ -1416,13 +1420,16 @@ end %
 
 \newcommand{\fcProcessSurface}{%
 30 dict begin %
+/colorContour [ 5 2 roll pstack ] cvx def
+/colorVUpatch [5 2 roll ] def
+/colorUVpatch [5 2 roll ] def
+/vIterations exch def %
+/uIterations exch def %
 /theSurface exch def %
 /vMax exch def %
 /uMax exch def %
 /vMin exch def %
 /uMin exch def %
-/uIterations \fcIterationsU\space def %
-/vIterations \fcIterationsV\space def %
 /DeltaU uMax uMin sub uIterations div def %
 /DeltaV vMax vMin sub vIterations div def %
 %/theFile (/home/todor/math/freecalc/lectures/surfaceData.txt) (w) file def
@@ -1444,15 +1451,17 @@ doTraverseContour{ %
 end %
 }%
 
-\newcommand{\fcGetCurrentColorCode}{
+\newcommand{\fcGetColorCode}[1]{
 2 dict begin
+(calling getcolor code with nput: ) ==
+(#1) ==
 /theColor {0 0 0} def %
 /colorNotFound true def %
-(\fcLineColor) (black) eq{/theColor {0 0 0} def /colorNotFound false def}if %
-(\fcLineColor) (red) eq{/theColor {1 0 0} def /colorNotFound false def}if %
-(\fcLineColor) (blue) eq{/theColor {0 0 1} def /colorNotFound false def}if %
-(\fcLineColor) (green) eq{/theColor {0 1 0} def /colorNotFound false def}if %
-colorNotFound{/theColor {\fcLineColor} def}if %
+(#1) (black) eq{/theColor {0 0 0} def /colorNotFound false def}if %
+(#1) (red) eq{/theColor {1 0 0} def /colorNotFound false def}if %
+(#1) (blue) eq{/theColor {0 0 1} def /colorNotFound false def}if %
+(#1) (green) eq{/theColor {0 1 0} def /colorNotFound false def}if %
+colorNotFound{/theColor {#1} (color not found!) == def}if %
 theColor %
 end %
 }
@@ -1464,13 +1473,24 @@ end %
 %Format of curve: we store the curve in the format [tmin tmax [x y z] arrows red green blue (curve)]
 \newcommand{\fcCurveIIIdInScene}[4][]{%
 \setkeys{fcGraphics}{#1}%
-\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3  {#4} (\fcArrows) \fcGetCurrentColorCode (curve)] ]/theIIIdObjects exch def}%
+\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3  {#4} (\fcArrows) \fcGetColorCode{\fcColorLine} (curve)] ]/theIIIdObjects exch def}%
 }
 
-%Format of surface: we store the surface in the format [umin vmin umax vmax [x y z] red green blue (surface)]
+%Format of surface: we store the surface in the format 
+%[umin vmin umax vmax 
+%[x(u,v) y(u,v) z(u,v)] coordinate functions 
+%uIterations vIterations   %number of curvilinear u,v-segments
+%red green blue %color of patches whose u,v-side is visible
+%red green blue %color of patches whose v,u-side is visible
+%red green blue %color of contours
+%(surface)]. 
 \newcommand{\fcSurfaceInScene}[6][]{%
 \setkeys{fcGraphics}{#1}%
-\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcGetCurrentColorCode (surface)] ]/theIIIdObjects exch def}
+\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcIterationsU\space \fcIterationsV \space
+\fcGetColorCode{\fcColorPatchUV} \space 
+\fcGetColorCode{\fcColorPatchVU} \space 
+\fcGetColorCode{\fcColorLine}\space 
+(surface)] ]/theIIIdObjects exch def}
 }%
 
 \newcommand{\fcCurveIIIdNoSceneCode}{%
@@ -1628,6 +1648,9 @@ end
 \newcommand{\fcPatchGetvOne}{1 get\space}
 \newcommand{\fcPatchGetvTwo}{2 get\space}
 \newcommand{\fcPatchGetvThree}{3 get \space}
+\newcommand{\fcPatchGetColorUV}{
+4 get \fcArrayToStack \space}
+\newcommand{\fcPatchGetColorVU}{5 get \fcArrayToStack \space}
 
 \newcommand{\fcPaintPatchFilledDirectly}{
 1 dict begin
@@ -1637,8 +1660,8 @@ end
 %(PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
-{ \fcPatchColorVUorientation \space setrgbcolorVirtual}
-{ \fcPatchColorUVorientation \space setrgbcolorVirtual}
+{ thePatch \fcPatchGetColorVU \space setrgbcolorVirtual}
+{ thePatch \fcPatchGetColorUV \space setrgbcolorVirtual}
 ifelse
 newpathVirtual
 thePatch \fcPatchGetvZero \fcCoordsIIIdToPS movetoVirtual 
