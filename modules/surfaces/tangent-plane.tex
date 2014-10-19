@@ -1,23 +1,24 @@
 \begin{frame}
-  \frametitle{Tangent Plane}
-
-Given a surface $S$ in space and a point $P$ on the surface.
-
-\bigskip
-
-\underline{Question:} What should be the geometric plane tangent to $S$ at $P$?
-
-\pause
-\bigskip
-
-\underline{Intuitively}: It should include all vectors tangent at $P$ to curves passing through $P$ and contained in the surface.
-
-\bigskip
-
-\underline{Equivalently}: It should be the geometric plane
+\frametitle{Tangent Plane}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-2,-2)(2,2)
+%\renewcommand{\fcColorPatchVU}{\fcColorPatchUV}
+\fcStartIIIdScene
+\fcEllipsoidInScene[linecolor=blue, iterationsU=6, iterationsV=7]{0 0 0 2 1.5 1.5}
+\fcFinishIIIdScene
+\fcAxesIIId{3}{3}{3}
+\end{pspicture}
+\column{0.6\textwidth}
 \begin{itemize}
-  \item passing through $P$;
-  \item parallel to the directions of all tangent vectors of curves passing through $P$ and contained in the surface.
+\item Consider a surface $S$ in space and a point $P$ on the surface.
+\item<2-> How should we define the notion of ``a plane tangent to $S$ at $P$'' so that it matches our geometric intuition?
+\item<3-> Intuitively, it should include all tangents at $P$ to curves passing through $P$ and contained in the surface.
+\item<4-> Therefore it should be the geometric plane
+\begin{itemize}
+\item passing through $P$;
+\item parallel to the directions of all tangent vectors of curves passing through $P$ and contained in the surface.
 \end{itemize}
-
+\end{itemize}
+\end{columns}
 \end{frame}
