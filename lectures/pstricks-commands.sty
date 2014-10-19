@@ -1,6 +1,7 @@
 \ProvidesPackage{pstricks-commands}
 \usepackage{etex, ifthen}
-\usepackage[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]{auto-pst-pdf}
+\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+{auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
 %WARNING THE FOLLOWING PACKAGE IS BROKEN use only with EXTREME CAUTION
@@ -102,12 +103,67 @@ gsave
 \fcCoordsPStricksToPS [0.04 0] \fcCoordsPStricksToPS pop 0 360 arc 0 1 0 setrgbcolor stroke
 grestore
 }
-\newcommand{\fcConcatenate}{
+
+\newcommand{\fcHashString}{
+2 dict begin
+/theString exch def
+/counter -1 def
+0
+theString length {
+/counter counter 1 add def
+theString counter get cvi add
+}repeat
+20 string cvs
+end
+}
+
+\newcommand{\fcToString}{
+%(tostring function) ==
+1 dict begin
+/ToString
+{
+5 dict begin 
+cvlit
+/theData exch def
+theData type (arraytype) eq{
+([)
+theData{ToString ( )} forall 
+(])
+theData length 2 mul 2 add \fcConcatenateMultiple
+}
+{theData 20 string cvs}
+ifelse
+end
+} def %
+ToString
+end\space
+}
+
+\newcommand{\fcConcatenate}{ %Code taken from stackexchange, many thanks!
 exch dup length 
 2 index length add string    
 dup dup 4 2 roll copy length
 4 -1 roll putinterval 
 }
+
+\newcommand{\fcConcatenateMultiple}{ %Code taken from stackexchange, many thanks!
+%Usage: (s1) (s2) (s3) ... (sN) n  \fcConcatenateMultiple  (s1s2s3...sN)
+% s1 s2 s3 .. sN n                   % first sum the lengths
+dup 1 add  % s1 s2 s3 .. sN n n+1 
+copy       % s1 s2 s3 .. sN n  s1 s2 s3 .. sN n
+0 exch     % s1 s2 s3 .. sN n  s1 s2 s3 .. sN 0 n 
+{exch length add} repeat % s1 s2 s3 .. sN  n   len  % then allocate string
+string exch          % s1 s2 s3 .. sN str   n   
+0 exch               % s1 s2 s3 .. sN str  off  n
+-1 1 {               % s1 s2 s3 .. sN str  off  n  % copy each string
+  2 add -1 roll       % s2 s3 .. sN str  off s1  % bottom to top
+  3 copy putinterval  % s2 s3 .. sN str' off s1
+  length add          % s2 s3 .. sN str' off+len(s1)
+                      % s2 s3 .. sN str' off'
+} for                               % str' off'
+pop  % str'
+}
+
 \newcommand{\fcTextCode}{
 /Times-Roman findfont
 4 scalefont
@@ -674,6 +730,16 @@ end\space%
 \fcLineIIIdInScene[#1]{[0 0 0]}{[0 0 #4]}%
 }
 
+\newcommand{\fcAxesIIIdFullInScene}[4][linecolor=black, arrows=->]{%
+\setkeys{fcGraphics}{#1}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[#2 0 0]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[0 #3 0]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[0 0 #4]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[#2\space-1 mul 0 0]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[0 #3\space-1 mul 0]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[0 0 #4\space-1 mul]}%
+}
+
 \newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{%
 \setkeys{fcGraphics}{#1}%
 \fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}%
@@ -911,7 +977,7 @@ end %
 
 \newcommand{\fcStartIIIdScene}{%
 \pstVerb{%
-1 dict begin %
+1 dict begin%
 /theIIIdObjects [] def %
 }%
 }
@@ -948,16 +1014,123 @@ setZBufferXmin %
 /getZBufferDeltaY {getZBufferYmax getZBufferYmin sub \fcZBufferNumYIntervals\space div} def %
 }
 
+\newcommand{\fcPaintCachedFile}{
+graphicsFile run
+}
+
+\newcommand{\fcSetUpGraphicsToScreen}{
+/movetoVirtual {moveto} def
+/linetoVirtual {lineto} def
+/strokeVirtual {stroke} def
+/closepathVirtual {closepath} def
+/fillVirtual {fill} def
+/arrowVirtual {} def
+/setrgbcolorVirtual {setrgbcolor} def
+/plotArrowVirtual {\fcArrowPlot} def
+/setdashVirtual {setdash} def
+}
+
+\newcommand{\fcSetUpGraphicsToFileAndScreen}{
+graphicsFile ( /plotArrowVirtual {\fcArrowPlot} def ) writestring
+/storeNumberPairToGraphicsFile{
+\fcMarkClean 3 1 roll
+20 string cvs exch 20 string cvs graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( ) writestring
+\fcMarkCleanCheck
+} def
+/movetoVirtual {
+2 copy moveto
+storeNumberPairToGraphicsFile
+graphicsFile (moveto ) writestring
+} def
+/linetoVirtual {
+2 copy lineto
+storeNumberPairToGraphicsFile
+graphicsFile (lineto ) writestring
+} def
+/strokeVirtual {
+stroke
+graphicsFile (stroke ) writestring
+} def
+/newpathVirtual {
+newpath
+graphicsFile (newpath ) writestring
+} def
+/closepathVirtual {
+closepath
+graphicsFile ( closepath ) writestring
+} def
+/fillVirtual {
+fill
+graphicsFile ( fill ) writestring
+} def
+/setrgbcolorVirtual {
+3 copy
+setrgbcolor
+graphicsFile 4 -1 roll \fcToString writestring graphicsFile ( ) writestring
+graphicsFile 3 -1 roll \fcToString writestring graphicsFile ( ) writestring
+graphicsFile exch \fcToString writestring
+graphicsFile ( setrgbcolor ) writestring
+} def
+/setdashVirtual {
+2 copy setdash
+20 string cvs exch \fcToString graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( setdash ) writestring 
+} def
+/plotArrowVirtual { 
+2 copy \fcArrowPlot\space
+\fcToString exch \fcToString graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( plotArrowVirtual ) writestring
+}def
+}
+
+\newcommand{\fcSetupFiles}{
+/graphicsCached false def
+/graphicsFileAvailable true def
+/graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) theIIIdObjects \fcToString \fcHashString (.txt) 4 \fcConcatenateMultiple def
+/graphicsFile (file not open) def
+errordict begin
+/invalidfileaccess 
+{ userdict begin /graphicsFileAvailable false def end
+(ERROR: failed to open file for caching large IIId rendering operations. ) print
+(This is not fatal but will cause your graphics to compile incredibly slowly. ) print
+(To fix this, compile with pdflatex --shell-escape. ) print
+(Make sure the file is executed in a folder with write priviledges. ) print
+pop pop 
+} def
+/undefinedfilename{
+(file doesn't exist. ) ==
+ pop pop
+} def
+end
+(opening file) ==
+graphicsFileName ==
+/graphicsFile graphicsFileName (r) file def
+graphicsFile type (filetype) eq {
+/graphicsCached true def
+\fcPaintCachedFile
+graphicsFile closefile
+}
+{ /graphicsFile graphicsFileName (w) file def
+  graphicsFile type (filetype) ne{
+  /graphicsFileAvailable false def
+  \fcSetUpGraphicsToScreen
+  }
+  { \fcSetUpGraphicsToFileAndScreen
+  }
+  ifelse
+}ifelse
+}
+
 \newcommand{\fcFinishIIIdScene}{%
 \pscustom{%
 \code{%
 %print the objects we are about to paint:
 theIIIdObjects length 0 gt { %
-(about to process IIId scene given by: ) print %
-theIIIdObjects == %
+%(about to process IIId scene given by: ) print %
+%theIIIdObjects == %
 } if %
-25 dict begin %
+50 dict begin %
 \fcMarkClean
+\fcSetupFiles
+graphicsCached not{
 \fcZBufferInitialize %
 /theZBuffer [\fcZBufferNumYIntervals {[\fcZBufferNumXIntervals{[]} repeat]}repeat] def %
 /doTraverseContour true def %
@@ -995,6 +1168,8 @@ theIIIdObjects \fcArrayToStack theIIIdObjects length {\fcProcessObject } repeat 
 end %
 (done, printing stack to make sure no trash is left) == %
 pstack %
+} %if graphics is not cached
+if
 }%
 }%
 \pstVerb{end} %
@@ -1003,7 +1178,7 @@ pstack %
 \newcommand{\fcProcessObject}{%
 (processing object) == \fcArrayToStack dup == %
 1 dict begin %
-4 1 roll setrgbcolor %
+4 1 roll setrgbcolorVirtual %
 /HandlerNotFound true def %
 HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
 HandlerNotFound{dup (curve) eq {pop \fcProcessCurve /HandlerNotFound false def} if} if %
@@ -1035,7 +1210,7 @@ thePoint \fcZBufferRowColumn
 theNeighborhood length 1 sub {
 /counter counter 1 add def
 1.8 setlinewidth
-0.5 1 0.5 setrgbcolor 
+0.5 1 0.5 setrgbcolor
 theNeighborhood counter get theZBufferCurrent \fcContains not
 {3 setlinewidth 1 0 0 setrgbcolor
 }if
@@ -1073,16 +1248,13 @@ end
 /pointRight exch def
 /pointLeft exch def
  gsave
-/directionVector [pointRight 0 get pointLeft 0 get \fcVectorMinusVector
-\fcCoordsIIIdToPS] def 
+/directionVector [pointRight pointLeft \fcVectorMinusVector \fcArrayToStack] def 
 directionVector \fcVectorNorm 0 ne{
 /directionVector directionVector \fcVectorNormalize def
 }if
 /xPS directionVector 0 get def
 /yPS directionVector 1 get def
-directionVector ==
-pointRight == pointLeft ==
-[yPS  xPS -1 mul  -1 xPS mul -1 yPS mul  pointRight 0 get \fcCoordsIIIdToPS ] concat
+[yPS  xPS -1 mul  -1 xPS mul -1 yPS mul pointRight \fcArrayToStack] concat
 %[1 0 0 1  pointRight 0 get \fcCoordsIIIdToPS ] concat
  newpath
  false 0.4 1.5 0.4 0.5 \tx@Arrow 
@@ -1100,7 +1272,7 @@ end
 /counter -1 def %
 /rightIsInForeground theContour 0 get \fcIsInForeground def %
 /style (none) def %
-newpath %
+newpathVirtual %
 numSegments{ %
   /counter counter 1 add def %
   /pointLeft theContour counter get def %
@@ -1110,13 +1282,13 @@ numSegments{ %
   /oldStyle style def %
   /style leftIsInForeground rightIsInForeground or {(normal)}{(dashed)}ifelse def %
   style oldStyle ne{ %
-  stroke style (normal) eq{[] 0 setdash}{[1 1]0 setdash}ifelse %
-  newpath pointLeft 0 get \fcCoordsIIIdToPS moveto %
+  strokeVirtual style (normal) eq{[] 0 setdashVirtual}{[1 1]0 setdashVirtual}ifelse %
+  newpathVirtual pointLeft 0 get \fcCoordsIIIdToPS movetoVirtual %
   }if %
-  pointRight 0 get \fcCoordsIIIdToPS lineto %  
+  pointRight 0 get \fcCoordsIIIdToPS linetoVirtual %  
 }repeat %
-stroke %
-useArrows{pointLeft pointRight \fcArrowPlot}if
+strokeVirtual %
+useArrows{[pointLeft 0 get \fcCoordsIIIdToPS] [pointRight 0 get \fcCoordsIIIdToPS] plotArrowVirtual}if
 /counter -1 def %
 theContour length {/counter counter 1 add def
 /currentNeighborhood theContour counter get def
@@ -1219,8 +1391,6 @@ thePatchContour processContour
 
 \newcommand{\fcProcessCurve}{
 30 dict begin %
-%(processing curve, printing stack: ) ==
-%pstack
 /useArrows exch () ne def
 /theCurve exch def %
 /tMax exch def %
@@ -1246,8 +1416,6 @@ end %
 
 \newcommand{\fcProcessSurface}{%
 30 dict begin %
-%(processing Surface, printing stack: ) ==
-%pstack
 /theSurface exch def %
 /vMax exch def %
 /uMax exch def %
@@ -1289,14 +1457,14 @@ theColor %
 end %
 }
 
-\newcommand{\fcLineIIIdInScene}[3][]{
-\fcCurveIIIdInScene[#1]{0}{1}{#3 t \fcVectorTimesScalar #2 1 t sub \fcVectorTimesScalar \fcVectorPlusVector }
+\newcommand{\fcLineIIIdInScene}[3][arrows=,]{%
+\fcCurveIIIdInScene[#1]{0}{1}{#3 t \fcVectorTimesScalar #2 1 t sub \fcVectorTimesScalar \fcVectorPlusVector }%
 }
 
 %Format of curve: we store the curve in the format [tmin tmax [x y z] arrows red green blue (curve)]
-\newcommand{\fcCurveIIIdInScene}[4][]{
+\newcommand{\fcCurveIIIdInScene}[4][]{%
 \setkeys{fcGraphics}{#1}%
-\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3  {#4} (\fcArrows) \fcGetCurrentColorCode (curve)] ]/theIIIdObjects exch def}
+\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3  {#4} (\fcArrows) \fcGetCurrentColorCode (curve)] ]/theIIIdObjects exch def}%
 }
 
 %Format of surface: we store the surface in the format [umin vmin umax vmax [x y z] red green blue (surface)]
@@ -1409,8 +1577,6 @@ end
 %this function compares two patches:
 /LeftGreaterThanRight
 {2 dict begin 
-%(comparison f-n, stack: ) ==
-%pstack
 /v0right exch 0 get def %base point of patch extracted
 /v0left exch 0 get def %base point of patch extracted
 %(comparing: ) print
@@ -1430,7 +1596,6 @@ theZBuffer row get length{
 theZBuffer row get column get \fcBubbleSort
 }repeat
 }repeat
-(stack at end of bubble sort: ) == pstack
 end
 }
 
@@ -1472,18 +1637,18 @@ end
 %(PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
-{ \fcPatchColorVUorientation \space setrgbcolor}
-{ \fcPatchColorUVorientation \space setrgbcolor}
+{ \fcPatchColorVUorientation \space setrgbcolorVirtual}
+{ \fcPatchColorUVorientation \space setrgbcolorVirtual}
 ifelse
-newpath
-thePatch \fcPatchGetvZero \fcCoordsIIIdToPS moveto 
-thePatch \fcPatchGetvOne \fcCoordsIIIdToPS lineto 
-thePatch \fcPatchGetvThree \fcCoordsIIIdToPS lineto 
-thePatch \fcPatchGetvTwo \fcCoordsIIIdToPS lineto 
-thePatch \fcPatchGetvZero \fcCoordsIIIdToPS lineto
-closepath
-fill
-stroke
+newpathVirtual
+thePatch \fcPatchGetvZero \fcCoordsIIIdToPS movetoVirtual 
+thePatch \fcPatchGetvOne \fcCoordsIIIdToPS linetoVirtual
+thePatch \fcPatchGetvThree \fcCoordsIIIdToPS linetoVirtual 
+thePatch \fcPatchGetvTwo \fcCoordsIIIdToPS linetoVirtual
+thePatch \fcPatchGetvZero \fcCoordsIIIdToPS linetoVirtual
+closepathVirtual
+fillVirtual
+strokeVirtual
 }if
 end
 }

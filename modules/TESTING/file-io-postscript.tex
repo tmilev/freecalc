@@ -1,0 +1,25 @@
+\begin{frame}
+
+\begin{pspicture}(-1,-1)(1,1)
+\pstVerb{
+/fileIsAvailable true def
+errordict begin
+/invalidfileaccess 
+{ userdict begin /fileIsAvailable false def  end
+(ERROR: failed to open file for caching large IIId rendering operations. ) print
+(This is not fatal but will cause your graphics to compile incredibly slowly. ) print
+(To fix this, compile with pdflatex --shell-escape. ) print
+(Make sure the file is executed in a folder with write priviledges. ) print
+pop pop 
+} def
+end
+/theFile (./myfile.txt) (r) file def
+/theBuffer 20 string def
+theFile type (filetype) eq{
+theFile run
+theFile closefile
+} 
+if
+}
+\end{pspicture}
+\end{frame}
