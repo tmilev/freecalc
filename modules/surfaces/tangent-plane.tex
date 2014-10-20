@@ -4,16 +4,18 @@
 \column{0.4\textwidth}
 \begin{pspicture}(-2,-2)(2,2)
 \fcStartIIIdScene
-\fcSurfaceInScene[linecolor=orange, iterationsU=4, iterationsV=4, colorUV=cyan]{-1}{-1}{1}{1}{
+\fcSurfaceInScene[linecolor=orange, iterationsU=2, iterationsV=2, colorVU=cyan, colorUV=cyan, forceForeground=true]{-2}{-2}{2}{2}{
 3 dict begin
-/basePoint [30 cos 2 mul 0 30 sin 1.5 mul ] def
+/basePoint [60 sin 2 mul 0 60 cos 1.5 mul ] def
 /tangent1 [0 1 0] def
-/tangent2 [30 sin -2 mul 0 30 sin 1.5 mul] def
+/tangent2 [60 cos 2 mul 0 60 sin -1.5 mul] def
 basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector
 end
 }
-\fcEllipsoidInScene[linecolor=red, iterationsU=6, iterationsV=7, colorUV={1 0.5 0.5},  colorVU={1 0.5 0.5}]{0 0 0 2 1.5 1.5}
+\fcEllipsoidInScene[linecolor=red, iterationsU=12, iterationsV=22, colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]
+{0 0 0 2 1.5 1.5}
 \fcFinishIIIdScene
+\fcDotIIId{[60 sin 2 mul 0 60 cos 1.5 mul ]}
 \fcAxesIIId{3}{3}{3}
 \end{pspicture}
 \column{0.6\textwidth}
