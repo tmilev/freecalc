@@ -1,57 +1,9 @@
 \begin{frame}
   \frametitle{Linearizations}
 $$\boxed{ \; z= f(x_0,y_0) + f_x(x_0,y_0) (x-x_0) + f_y(x_0,y_0)(y-y_0) \; }\; .$$
-%
-$$L_{f,(x_0,y_0)} (x,y) = f(x_0,y_0) + f_x(x_0,y_0) (x-x_0) + f_y(x_0,y_0)(y-y_0)$$
-%
-is called the \textcolor[rgb]{0.98,0.00,0.00}{linearization} of $f$ at $(x_0,y_0)$.
 
-\pause
-\underline{Example}: Tangent plane to $z=x^2+xy+2y^2$
-
-at the point corresponding to $(x,y) = (4,1)$.
-
-Function $f(x,y) = x^2+xy+2y^2$. \pause Corresponding $z$ value:
-%
-$$f(4,1) = 16+4+2 = 22$$
-%
-\pause Partial derivatives \textcolor[rgb]{0.98,0.00,0.00}{at $(4,1)$}:
-%
-\begin{align*}
-  f_x(x,y) = 2x+y & \Longrightarrow f_x(4,1) = 9 \\
-  %
-  f_y(x,y) = x+4y & \Longrightarrow f_y(4,1) = 8
-\end{align*}
-%
-\pause Equation of tangent plane:
-%
-$$z = 22+ 9(x-4) + 8 (y-1) \Longleftrightarrow z = 9x+8y -22$$
-%
-\pause Linearization:
-%
-$$L_{f, (4,1)}(x,y) = 22+ 9(x-4) + 8 (y-1) = 9x+8y -22\; .$$
-%
-\end{frame}
-
-\begin{frame}
-  \frametitle{Good Linear Approximations}
-
-The linearization provides an \emph{approximation} of a function around a point.
-
-\underline{Question}: How does the error in output, $|f(x,y) - L_{f,(x_0,y_0)}|$, compare to the error in input, $\sqrt{(x-x_0)^2 + (y-y_0)^2}$, for small errors in input?
-
-\pause Limit of ratio:
-%
-$$\lim_{(x,y) \to (x_0,y_0)} \frac{|f(x,y) - L_{f,(x_0,y_0)}|}{\sqrt{(x-x_0)^2 + (y-y_0)^2}}$$
-
-\pause In our example, using $x=4+r\cos{\theta}$, $y=1+r\sin{\theta}$:
-%
-$$\lim_{(x,y) \to (4,1)} \frac{|x^2+xy+2y^2 - (9x+8y -22)|}{\sqrt{(x-4)^2+(y-1)^2}} = 0$$
-%
-
-\pause \underline{Definition}: A linear polynomial $P(x,y) = ax+by+c$ is called a \textcolor[rgb]{0.98,0.00,0.00}{good linear approximation} for $f(x,y)$ around the point $(x_0,y_0)$ if
-%
-$$\lim_{(x,y) \to (x_0,y_0)} \frac{|f(x,y) - P(x,y)|}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} = 0\; .$$
-
-\pause \underline{Conclusion}: $P(x,y) = 9x+8y-22$ is a good linear approximation for $f(x,y) = x^2+xy+2y^2$ around $(4,1)$.
+\begin{definition}
+The function
+$$L_{f,(x_0,y_0)} (x,y) = f(x_0,y_0) + f_x(x_0,y_0) (x-x_0) + f_y(x_0,y_0)(y-y_0)$$ is called the is called the \alert<1->{linearization} of $f$ at $(x_0,y_0)$.
+\end{definition}
 \end{frame}

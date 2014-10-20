@@ -1,0 +1,22 @@
+
+\begin{frame}
+\frametitle{Good Linear Approximations}
+%The linearization provides an \emph{approximation} of a function around a point.
+
+\underline{Question}: How does the error in output, $|f(x,y) - L_{f,(x_0,y_0)}|$, compare to the error in input, $\sqrt{(x-x_0)^2 + (y-y_0)^2}$, for small errors in input?
+
+\pause Limit of ratio:
+%
+$$\lim_{(x,y) \to (x_0,y_0)} \frac{|f(x,y) - L_{f,(x_0,y_0)}|}{\sqrt{(x-x_0)^2 + (y-y_0)^2}}$$
+
+\pause In our example, using $x=4+r\cos{\theta}$, $y=1+r\sin{\theta}$:
+%
+$$\lim_{(x,y) \to (4,1)} \frac{|x^2+xy+2y^2 - (9x+8y -22)|}{\sqrt{(x-4)^2+(y-1)^2}} = 0$$
+%
+
+\pause \underline{Definition}: A linear polynomial $P(x,y) = ax+by+c$ is called a \textcolor[rgb]{0.98,0.00,0.00}{good linear approximation} for $f(x,y)$ around the point $(x_0,y_0)$ if
+%
+$$\lim_{(x,y) \to (x_0,y_0)} \frac{|f(x,y) - P(x,y)|}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} = 0\; .$$
+
+\pause \underline{Conclusion}: $P(x,y) = 9x+8y-22$ is a good linear approximation for $f(x,y) = x^2+xy+2y^2$ around $(4,1)$.
+\end{frame}

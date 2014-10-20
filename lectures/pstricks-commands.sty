@@ -1,6 +1,6 @@
 \ProvidesPackage{pstricks-commands}
 \usepackage{etex, ifthen}
-\usepackage  %[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -38,8 +38,8 @@
 \newcommand{\fcNumCountourSegmentsPatchV}{10\space}
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcColorLine}{black}
-\newcommand{\fcForceForeground}{false\space}
-\newcommand{\fcLineWidth}{1\space}
+\newcommand{\fcForceForeground}{false}
+\newcommand{\fcLineWidth}{1}
 \newcommand{\fcScale}{1\space}
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
@@ -79,7 +79,7 @@ ifelse\space %
 \define@key{fcGraphics}{yLabel}[\renewcommand{\fcYLabel}{$y$}]{\renewcommand{\fcYLabel}{#1}}
 \define@key{fcGraphics}{zLabel}[\renewcommand{\fcZLabel}{$z$}]{\renewcommand{\fcZLabel}{#1}}
 \define@key{fcGraphics}{linecolor}[\renewcommand{\fcColorLine}{black}]{\renewcommand{\fcColorLine}{#1}}
-\define@key{fcGraphics}{linewidth}[\renewcommand{\fcLineWidth}{1\space}]{\renewcommand{\fcLineWidth}{#1\space}}
+\define@key{fcGraphics}{linewidth}[\renewcommand{\fcLineWidth}{1}]{\renewcommand{\fcLineWidth}{#1}}
 \define@key{fcGraphics}{linestyle}[\renewcommand{\fcLineStyle}{0}]{\renewcommand{\fcLineStyle}{#1}}
 \define@key{fcGraphics}{plotpoints}[\renewcommand{\fcPlotPoints}{200}]{\renewcommand{\fcPlotPoints}{#1}}
 \define@key{fcGraphics}{dashes}[\renewcommand{\fcDashLength}{300}]{\renewcommand{\fcDashLength}{#1 \fcConvertPSXUnit\space}}
@@ -671,26 +671,26 @@ stroke %
 
 \newcommand{\fcEllipsoidInScene}[2][iterationsU=22, iterationsV=22]{
 \setkeys{fcGraphics}{#1}%
-\pstVerb{
-/theIIIdObjects 
-[theIIIdObjects \fcArrayToStack [0 0 180 360
-{ #2\space 6 dict begin %
-  /c exch def %
-  /b exch def %
-  /a exch def %
-  /z1 exch def %
-  /y1 exch def %
-  /x1 exch def %
-  [ u sin v cos mul a mul x1 add 
-    u sin v sin mul b mul y1 add
-    u cos c mul z1 add
-  ]
-  end
-}
-\fcIterationsU\space \fcIterationsV\space  
-\fcGetColorCode{\fcColorPatchUV}\space \fcGetColorCode{\fcColorPatchVU}\space \fcGetColorCode{\fcColorLine}\space false (surface)] ]
-def
-}
+\pstVerb{%
+/theIIIdObjects% 
+[theIIIdObjects \fcArrayToStack [0 0 180 360%
+{ #2\space 6 dict begin%
+  /c exch def%
+  /b exch def%
+  /a exch def%
+  /z1 exch def%
+  /y1 exch def%
+  /x1 exch def%
+  [ u sin v cos mul a mul x1 add %
+    u sin v sin mul b mul y1 add %
+    u cos c mul z1 add %
+  ]%
+  end%
+}%
+\fcIterationsU\space \fcIterationsV\space %
+\fcGetColorCode{\fcColorPatchUV}\space \fcGetColorCode{\fcColorPatchVU}\space \fcGetColorCode{\fcColorLine}\space false (surface)]]%
+def%
+}%
 }
 
 \newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth }
@@ -1490,31 +1490,32 @@ doTraverseContours{ %
 end %
 }%
 
-\newcommand{\fcGetColorCode}[1]{
-2 dict begin
-/theColor {0 0 0} def %
-/colorNotFound true def %
-(#1) (black) eq (#1) (black ) eq or{/theColor {0 0 0} def /colorNotFound false def}if %
-(#1) (red) eq (#1) (red ) eq or{/theColor {1 0 0} def /colorNotFound false def}if %
-(#1) (blue) eq (#1) (blue ) eq or{/theColor {0 0 1} def /colorNotFound false def}if %
-(#1) (green) eq (#1) (green ) eq or{/theColor {0 1 0} def /colorNotFound false def}if %
-(#1) (brown) eq (#1) (brown ) eq or{/theColor {0.6484375 0.1640625 0.1640625} def /colorNotFound false def}if %
-(#1) (orange) eq (#1) (orange ) eq or{/theColor {1 0.647058824 0} def /colorNotFound false def}if %
+\newcommand{\fcGetColorCode}[1]{%
+2 dict begin%
+/theColor {0 0 0} def%
+/colorNotFound true def%
+(#1) (black) eq (#1) (black ) eq or{/theColor {0 0 0} def /colorNotFound false def}if%
+(#1) (red) eq (#1) (red ) eq or{/theColor {1 0 0} def /colorNotFound false def}if%
+(#1) (blue) eq (#1) (blue ) eq or{/theColor {0 0 1} def /colorNotFound false def}if%
+(#1) (green) eq (#1) (green ) eq or{/theColor {0 1 0} def /colorNotFound false def}if%
+(#1) (brown) eq (#1) (brown ) eq or{/theColor {0.6484375 0.1640625 0.1640625} def /colorNotFound false def}if%
+(#1) (orange) eq (#1) (orange ) eq or{/theColor {1 0.647058824 0} def /colorNotFound false def}if%
 (#1) (cyan) eq (#1) (cyan ) eq or {/theColor {0 1 1} def /colorNotFound false def}if %
 colorNotFound{/theColor {#1} def}if %
 theColor %
-end %
-}
+end%
+}%
 
 \newcommand{\fcLineIIIdInScene}[3][arrows=,]{%
-\fcCurveIIIdInScene[#1]{0}{1}{#3 t \fcVectorTimesScalar #2 1 t sub \fcVectorTimesScalar \fcVectorPlusVector }%
+\fcCurveIIIdInScene[#1]{0}{1}{#3 t \fcVectorTimesScalar #2 1 t sub \fcVectorTimesScalar \fcVectorPlusVector}%
 }
 
 %Format of curve: we store the curve in the format [tmin tmax [x y z] arrows red green blue (curve)]
 \newcommand{\fcCurveIIIdInScene}[4][]{%
 \setkeys{fcGraphics}{#1}%
-\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3  {#4} (\fcArrows) \fcGetColorCode{\fcColorLine} \fcLineWidth (curve)] ]/theIIIdObjects exch def}%
-}
+\pstVerb{%
+[theIIIdObjects \fcArrayToStack [#2\space #3{#4} (\fcArrows) \fcGetColorCode{\fcColorLine} \fcLineWidth (curve)]]/theIIIdObjects exch def}%
+}%
 
 %Format of surface: we store the surface in the format 
 %[umin vmin umax vmax 
@@ -1527,12 +1528,8 @@ end %
 %(surface)]. 
 \newcommand{\fcSurfaceInScene}[6][]{%
 \setkeys{fcGraphics}{#1}%
-\pstVerb{[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcIterationsU\space \fcIterationsV \space
-\fcGetColorCode{\fcColorPatchUV} \space 
-\fcGetColorCode{\fcColorPatchVU} \space 
-\fcGetColorCode{\fcColorLine}\space 
-\fcForceForeground\space
-(surface)] ]/theIIIdObjects exch def}
+\pstVerb{%
+[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcIterationsU\space \fcIterationsV \space \fcGetColorCode{\fcColorPatchUV} \space  \fcGetColorCode{\fcColorPatchVU} \space  \fcGetColorCode{\fcColorLine}\space  \fcForceForeground\space (surface)] ]/theIIIdObjects exch def}%
 }%
 
 \newcommand{\fcCurveIIIdNoSceneCode}{%
