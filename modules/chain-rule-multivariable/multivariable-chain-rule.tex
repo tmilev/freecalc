@@ -2,27 +2,35 @@
   \frametitle{Chain Rule}
 Differentials
 %
-$$dw=w_x(x,y,z)\textcolor[rgb]{0.98,0.00,0.00}{dx} +
-w_y(x,y,z)\textcolor[rgb]{0.00,0.00,1.00}{dy}+
-w_z(x,y,z)\textcolor[rgb]{0.00,0.50,0.00}{dz}$$
+\[
+\diff w=w_x(x,y,z){\color{red}{\diff x}} +
+w_y(x,y,z){\color{blue}{\diff y}}+
+w_z(x,y,z){\color{green}{\diff z}}
+\]
 %
 and
 %
-$$\textcolor[rgb]{0.98,0.00,0.00}{\diff x=x'(t)dt} \qquad
-\textcolor[rgb]{0.00,0.00,1.00}{\diff y = y'(t)dt} \qquad
-\textcolor[rgb]{0.00,0.50,0.00}{\diff z=z'(t)dt} \; .$$
+\[
+{\color{red}{\diff x=x'(t)\diff t}} \qquad
+{\color{blue}{\diff y = y'(t)\diff t}} \qquad
+{\color{green}{\diff z=z'(t)\diff t}} \; .
+\]
 %
 \pause Then
 %
-$$dw = \left( w_x(x,y,z) x'(t) + w_y(x,y,z) y'(t) +
-w_z(x,y,z) z'(t) \right) \diff t$$
+\[
+\diff \left(w(x(t), y(t), z(t)) \right)= \left( w_x(x,y,z) x'(t) + w_y(x,y,z) y'(t) +
+w_z(x,y,z) z'(t) \right) \diff t
+\]
 %
 \pause
 Therefore
 %
-$$\frac{dw}{\diff t}(t) = \frac{\partial w}{\partial x}(x,y,z) \frac{\diff x}{\diff t}(t) +
+\[
+\frac{\diff }{\diff t}(w(x(t), y(t), z(t))) = \frac{\partial w}{\partial x}(x,y,z) \frac{\diff x}{\diff t}(t) +
 \frac{\partial w}{\partial y}(x,y,z) \frac{\diff y}{\diff t}(t) +
-\frac{\partial w}{\partial z}(x,y,z) \frac{\diff z}{\diff t}(t)$$
+\frac{\partial w}{\partial z}(x,y,z) \frac{\diff z}{\diff t}(t)
+\]
 
 \pause
 Derivative of composition of functions $\Longrightarrow$ \alert<1->{Chain Rule}
