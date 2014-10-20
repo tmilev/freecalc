@@ -36,27 +36,27 @@ basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVec
 \column{0.6\textwidth}
 \begin{itemize}
 \item Graph surface $z=f(x,y)$, point $P(x_0,y_0,z_0)$ on the surface.
-\item<2-> Call $\fcv p(x)$ the curve given by $f(x,y)$ by keeping $y=y_0$ constant; \uncover<3->{call $\fcv q(x)$ the curve given by $f(x,y)$ by keeping $x=x_0$ constant.} 
+\item<2-> Call $\fcv p(x)$ the curve given by $f(x,y)$ by keeping $y=y_0$ constant; \uncover<3->{call $\fcv q(y)$ the curve given by $f(x,y)$ by keeping $x=x_0$ constant.} 
 \end{itemize}
 \end{columns}
 \begin{itemize}
 \item<4-> $\begin{array}{rclllrcl}
 \alert<4,5>{\fcv{p}(x)}&\alert<4,5>{=}& \alert<4,5>{\langle x,y_0, f(x,y_0) \rangle} &&&
 \uncover<5->{\alert<5>{\fcv p'(x_0)}}& \uncover<5->{ \alert<5>{ =}}& \uncover<5->{\alert<5>{ \langle 1,0,f_x(x_0,y_0)\rangle}} \\
-\alert<6,7>{\fcv q(x)}&\alert<6,7>{=}& \alert<6,7>{ \langle x_0,y, f(x_0,y) \rangle } &&&
+\alert<6,7>{\fcv q(y)}&\alert<6,7>{=}& \alert<6,7>{ \langle x_0,y, f(x_0,y) \rangle } &&&
 \uncover<7->{\alert<7>{ \fcv q'(y_0)}}&\uncover<7->{\alert<7>{=}}& \uncover<7->{\alert<7>{\langle 0,1,f_y(x_0,y_0)\rangle}} \; .
 \end{array}
 $
 \item<8-> Normal to tangent plane at $P$:
 $\alert<13>{ \fcv{n} =} \alert<9>{ \fcv{p}'(x_0) }\times \alert<10>{ \fcv q'(y_0)} =  \uncover<9->{\alert<11,12>{ \alert<9>{\langle 1,0,f_x(x_0,y_0)\rangle} \times \alert<10>{\langle 0,1,f_y(x_0,y_0)\rangle }} } \uncover<11->{ \alert<11,12>{ =}} 
-\uncover<12->{\alert<12,13>{\langle -f_x(x_0,y_0), -f_y(x_0,y_0), 1 \rangle}} \; .
+\uncover<12->{\alert<12,13,16>{\langle -f_x(x_0,y_0), -f_y(x_0,y_0), 1 \rangle}} \; .
 $
 \item<14-> Equation of tangent plane at $P(x_0,y_0,f(x_0,y_0))$:
-$\alert<14>{ \fcv{n} \cdot (\fcv{r}-\fcv{r}_0) = 0 }$
+$\alert<14>{ \alert<16>{ \fcv{n}} \cdot (\alert<15>{ \fcv{r}-\fcv{r}_0}) = 0 }$
 \uncover<15->{
-$-f_x(x_0,y_0) (x-x_0) -f_y(x_0,y_0)(y-y_0) + (z-f(x_0,y_0)) = 0  $
+$ \alert<16>{ -f_x(x_0,y_0)}\alert<15>{ (x-x_0)}  \alert<16>{ -f_y(x_0,y_0)}\alert<15>{ (y-y_0)} + \alert<15>{ (z-f(x_0,y_0))} = 0  $
 }
-\uncover<16->{
+\uncover<17->{
 $\boxed{ \; z= f(x_0,y_0) + f_x(x_0,y_0) (x-x_0) + f_y(x_0,y_0)(y-y_0) \; }\; .$
 }
 \end{itemize}

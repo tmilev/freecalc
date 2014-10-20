@@ -5,12 +5,12 @@ Compute $f_x$, $f_y$, where $f(x,y) = y^2\ln{(2x+y)}- e^y$.
 \[
 \renewcommand{\arraystretch}{1.5}
 \begin{array}{rcl}
-\uncover<2->{f_x &=&\displaystyle \frac{\partial f}{\partial x} = } \uncover<3->{\frac{\partial(y^2\ln{(2x+y)}- e^y)}{\partial x} =} \uncover<4->{\frac{\partial(y^2\ln{(2x+y)})}{\partial x} - \frac{\partial(e^y)}{\partial x} } \\
-\uncover<5->{&= &\displaystyle y^2 \frac{\partial(\ln{(2x+y)})}{\partial x} - 0 =}\uncover<6->{ y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial(2x+y)}{\partial x} =}\uncover<7->{ \frac{2y^2}{2x+y}\; .}\\~\\
-\uncover<8->{ f_y &=&\displaystyle \frac{\partial f}{\partial y} =}\uncover<9->{ \frac{\partial(y^2\ln{(2x+y)}- e^y)}{\partial y} =} \uncover<10->{ \frac{\partial(y^2\ln{(2x+y)})}{\partial y} - \frac{\partial(e^y)}{\partial y} } \\
-\uncover<11->{&  = &\displaystyle y^2 \frac{\partial(\ln{(2x+y)})}{\partial y} +\frac{\partial(y^2)}{\partial y} \ln{(2x+y)}
+\uncover<2->{f_x &=&\displaystyle \frac{\partial f}{\partial x} = } \uncover<3->{\frac{\partial}{\partial x}\left(y^2\ln{(2x+y)}- e^y\right) =} \uncover<4->{\frac{\partial}{\partial x}\left( y^2\ln{(2x+y)}\right) - \frac{\partial}{\partial x}\left(e^y\right) } \\
+\uncover<5->{&= &\displaystyle y^2 \frac{\partial}{\partial x}\left(\ln{(2x+y)}\right) - 0 =}\uncover<6->{ y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial}{\partial x}(2x+y) =}\uncover<7->{ \frac{2y^2}{2x+y}\; .}\\~\\
+\uncover<8->{ f_y &=&\displaystyle \frac{\partial f}{\partial y} =}\uncover<9->{ \frac{\partial}{\partial y}\left(y^2\ln{(2x+y)}- e^y\right) =} \uncover<10->{ \frac{\partial}{\partial y}\left(y^2\ln{(2x+y)}\right) - \frac{\partial}{\partial y}\left(e^y\right) } \\
+\uncover<11->{&  = &\displaystyle y^2 \frac{\partial}{\partial y}\left(\ln{(2x+y)}\right) +\frac{\partial}{\partial y}\left(y^2\right) \ln{(2x+y)}
 - e^y } \\
-\uncover<12->{&  = &\displaystyle y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial(2x+y)}{y} +2y\ln{(2x+y)} - e^y } \\
+\uncover<12->{&  = &\displaystyle 2y\ln{(2x+y)}+ y^2 \cdot \frac{1}{2x+y} \cdot \frac{\partial}{\partial y}(2x+y) - e^y } \\
 \uncover<13->{& = &\displaystyle \frac{y^2}{2x+y} +2y\ln{(2x+y)} - e^y\; .} 
 \end{array}
 \]
