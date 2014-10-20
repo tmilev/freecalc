@@ -2,28 +2,38 @@
 \frametitle{Tangent Plane}
 \begin{columns}
 \column{0.4\textwidth}
-\begin{pspicture}(-2,-2)(2,2)
-\fcStartIIIdScene
-\fcSurfaceInScene[linecolor=orange, iterationsU=2, iterationsV=2, colorVU=cyan, colorUV=cyan, forceForeground=true]{-2}{-2}{2}{2}{
-3 dict begin
-/basePoint [60 sin 2 mul 0 60 cos 1.5 mul ] def
-/tangent1 [0 1 0] def
-/tangent2 [60 cos 2 mul 0 60 sin -1.5 mul] def
-basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector
-end
-}
-\fcEllipsoidInScene[linecolor=red, iterationsU=12, iterationsV=22, colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]
-{0 0 0 2 1.5 1.5}
-\fcFinishIIIdScene
-\fcDotIIId{[60 sin 2 mul 0 60 cos 1.5 mul ]}
-\fcAxesIIId{3}{3}{3}
+\begin{pspicture}(-2,-2)(2,2)%
+\fcBoundingBox{-2}{-4}{4}{4}%
+\fcStartIIIdScene%
+\only<2->{%
+\fcSurfaceInScene[linecolor=orange,iterationsU=2,iterationsV=2,colorVU=cyan,colorUV=cyan,forceForeground=true]{-2}{-2}{2}{2}{%
+3 dict begin%
+/basePoint [60 sin 2 mul 0 60 cos 1.5 mul ] def%
+/tangent1 [0 1 0] def%
+/tangent2 [60 cos 2 mul 0 60 sin -1.5 mul] def basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector end%
+}%
+}%
+\fcEllipsoidInScene[linecolor=red,iterationsU=12,iterationsV=22,colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]{0 0 0 2 1.5 1.5}%
+\only<3->{%
+\fcCurveIIIdInScene[linewidth=3,linecolor=blue]{-60}{60}{[60 sin 2 mul t cos mul 60 sin 1.5 mul t sin mul 60 cos 1.5 mul]}%
+\fcCurveIIIdInScene[linewidth=3,linecolor=blue]{0}{120}{[t sin 2 mul 0 t cos 1.5 mul]}%
+}%
+\fcFinishIIIdScene%
+%\fcAxesIIId{3}{3}{3}%
+\uncover<4->{%
+\fcLineIIId[linewidth=3pt,linecolor=blue,arrows=->]{[60 sin 2 mul 0 60 cos 1.5 mul ]}{[60 sin 2 mul 0 60 cos 1.5 mul][0 1 0] \fcVectorPlusVector}%
+}%
+\uncover<5->{%
+\fcLineIIId[linewidth=3pt, linecolor=blue, arrows=->]{[60 sin 2 mul 0 60 cos 1.5 mul ]}{[60 sin 2 mul 0 60 cos 1.5 mul ] [60 cos 2 mul 0 60 sin -1.5 mul] \fcVectorPlusVector}%
+}%
+\fcDotIIId{[60 sin 2 mul 0 60 cos 1.5 mul ]}%
 \end{pspicture}
 \column{0.6\textwidth}
 \begin{itemize}
 \item Consider a surface $S$ in space and a point $P$ on the surface.
 \item<2-> How should we define the notion of ``a plane tangent to $S$ at $P$'' so that it matches our geometric intuition?
 \item<3-> Intuitively, it should include all tangents at $P$ to curves passing through $P$ and contained in the surface.
-\item<4-> Therefore it should be the geometric plane
+\item<6-> Therefore it should be the plane
 \begin{itemize}
 \item passing through $P$;
 \item parallel to the directions of all tangent vectors of curves passing through $P$ and contained in the surface.

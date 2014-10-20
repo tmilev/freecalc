@@ -1,26 +1,23 @@
 \begin{frame}
 \frametitle{Example: powerexponential}
-
-   Let $f(x) = x^x$. Compute $f'(x)$.
-
+Let $f(x) = x^x$. Compute $f'(x)$.
 \begin{itemize}
 \item Calculus I method: logarithmic differentiation or $x^x= e^{x\ln x}$.
 \item Calculus III method: chain rule.
 \end{itemize}
-
 \pause
 Let $w=w(u,v) = u^v$ and $u=u(x) = x$, $v=v(x) = x$.
 %
-$$
-\xymatrix{
- & w  &  \\
-u \ar[ur] & &  v \ar[ul] \\
-x \ar[u]&  & x \ar[u]
-}
-$$
-\pause
+\[~
+%\xymatrix{
+% & w  &  \\
+%u \ar[ur] & &  v \ar[ul] \\
+%x \ar[u]&  & x \ar[u]
+%}
+\]
+
 Then $f(x) = w(u(x),v(x))$ and
 %
-$$f'(x) = \frac{\partial w}{\partial u} \frac{du}{dx} + \frac{\partial w}{\partial v} \frac{dv}{dx} = vu^{v-1} + u^v\ln{u} = x\cdot x^{x-1} + x^x\ln{x} = x^x (1+\ln{x})\; .$$
+%$$f'(x) = \frac{\partial w}{\partial u} \frac{du}{dx} + \frac{\partial w}{\partial v} \frac{dv}{dx} = vu^{v-1} + u^v\ln{u} = x\cdot x^{x-1} + x^x\ln{x} = x^x (1+\ln{x})\; .$$
 
 \end{frame}

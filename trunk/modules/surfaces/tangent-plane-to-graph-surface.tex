@@ -1,29 +1,63 @@
 \begin{frame}
-  \frametitle{Tangent Plane to a Graph Surface}
-
-Graph surface $z=f(x,y)$, point $P(x_0,y_0,z_0)$ on the surface.
-
-Particular curves through $P$:\pause graphs of partial functions.
-%
-\begin{align*}
-  x \to \langle x,y_0, f(x,y_0) \rangle & \Longrightarrow \text{ tangent direction } \langle 1,0,f_x(x_0,y_0)\rangle \\
-%
-     y\to \langle x_0,y, f(x_0,y) \rangle & \Longrightarrow \text{ tangent direction } \langle 0,1,f_y(x_0,y_0)\rangle \; .
-\end{align*}
-
-Vector normal to the tangent plane:\pause
-%
-$$
-  \textbf{n} =  \langle 1,0,f_x(x_0,y_0)\rangle \times \langle 0,1,f_y(x_0,y_0)\rangle =
-\langle -f_x(x_0,y_0), -f_y(x_0,y_0), 1 \rangle\; .
-$$
-%
-Equation of the tangent plane at $P_0(x_0,y_0,z_0=f(x_0,y_0))$:
-%
-$$\textbf{n} \cdot (\textbf{r}-\textbf{r}_0) = 0 \Longleftrightarrow$$
-%
-$$-f_x(x_0,y_0) (x-x_0) -f_y(x_0,y_0)(y-y_0) + (z-f(x_0,y_0)) = 0 \Longleftrightarrow $$
-%
-$$\boxed{ \; z= f(x_0,y_0) + f_x(x_0,y_0) (x-x_0) + f_y(x_0,y_0)(y-y_0) \; }\; .$$
-%
+\frametitle{Tangent Plane to a Graph Surface}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-2.2,-2)(2,2)%
+\tiny%
+\fcBoundingBox{-2.2}{-1.4}{2.1}{2.2}%
+\pstVerb{%
+5 dict begin%
+/theEllipsoidTop {[u v u 2 div dup mul v 1.5 div dup mul add 1 exch sub sqrt]} def%
+/basePoint 2 dict begin /u 1 def /v 0 def theEllipsoidTop end def%
+/tangent1 [0 1 0] def%
+/tangent2 [1 0 -0.5] def% 
+}%
+\fcStartIIIdScene%
+\only<14->{%
+\fcSurfaceInScene[linecolor=orange,iterationsU=2,iterationsV=2,colorVU=cyan,colorUV=cyan,forceForeground=true]{-2}{-2}{2}{2}{%
+3 dict begin %
+basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector end%
+}%
+}%
+\fcSurfaceInScene[forceForeground=false, linecolor=red,iterationsU=7,iterationsV=8,colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]{-1.4}{-1}{1.4}{1}{theEllipsoidTop}%
+\fcFinishIIIdScene%
+\uncover<2->{\fcCurveIIId[linecolor=blue, linewidth=2pt]{-1.4}{1.4}{2 dict begin /u {t} def /v 0 def theEllipsoidTop end} }
+\uncover<3->{\fcCurveIIId[linecolor=blue, linewidth=2pt]{-1}{1}{2 dict begin /u 1 def /v {t} def theEllipsoidTop end} }
+\fcAxesIIId{3}{3}{3}%
+\fcDotIIId[linecolor=blue]{basePoint}%
+\uncover<5->{\fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown]{basePoint}{basePoint tangent2 \fcVectorPlusVector}}%
+\uncover<7->{\fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown]{basePoint}{basePoint tangent1 \fcVectorPlusVector}}%
+\uncover<13->{%
+\fcLineIIId[arrows=->, linewidth =2pt, linecolor=orange]{basePoint}{basePoint tangent2  tangent1 \fcVectorCrossVector \fcVectorPlusVector}%
+}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.6\textwidth}
+\begin{itemize}
+\item Graph surface $z=f(x,y)$, point $P(x_0,y_0,z_0)$ on the surface.
+\item<2-> Call $\fcv p(x)$ the curve given by $f(x,y)$ by keeping $y=y_0$ constant; \uncover<3->{call $\fcv q(x)$ the curve given by $f(x,y)$ by keeping $x=x_0$ constant.} 
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item<4-> $\begin{array}{rclllrcl}
+\alert<4,5>{\fcv{p}(x)}&\alert<4,5>{=}& \alert<4,5>{\langle x,y_0, f(x,y_0) \rangle} &&&
+\uncover<5->{\alert<5>{\fcv p'(x_0)}}& \uncover<5->{ \alert<5>{ =}}& \uncover<5->{\alert<5>{ \langle 1,0,f_x(x_0,y_0)\rangle}} \\
+\alert<6,7>{\fcv q(x)}&\alert<6,7>{=}& \alert<6,7>{ \langle x_0,y, f(x_0,y) \rangle } &&&
+\uncover<7->{\alert<7>{ \fcv q'(y_0)}}&\uncover<7->{\alert<7>{=}}& \uncover<7->{\alert<7>{\langle 0,1,f_y(x_0,y_0)\rangle}} \; .
+\end{array}
+$
+\item<8-> Normal to tangent plane at $P$:
+$\alert<13>{ \fcv{n} =} \alert<9>{ \fcv{p}'(x_0) }\times \alert<10>{ \fcv q'(y_0)} =  \uncover<9->{\alert<11,12>{ \alert<9>{\langle 1,0,f_x(x_0,y_0)\rangle} \times \alert<10>{\langle 0,1,f_y(x_0,y_0)\rangle }} } \uncover<11->{ \alert<11,12>{ =}} 
+\uncover<12->{\alert<12,13>{\langle -f_x(x_0,y_0), -f_y(x_0,y_0), 1 \rangle}} \; .
+$
+\item<14-> Equation of tangent plane at $P(x_0,y_0,f(x_0,y_0))$:
+$\alert<14>{ \fcv{n} \cdot (\fcv{r}-\fcv{r}_0) = 0 }$
+\uncover<15->{
+$-f_x(x_0,y_0) (x-x_0) -f_y(x_0,y_0)(y-y_0) + (z-f(x_0,y_0)) = 0  $
+}
+\uncover<16->{
+$\boxed{ \; z= f(x_0,y_0) + f_x(x_0,y_0) (x-x_0) + f_y(x_0,y_0)(y-y_0) \; }\; .$
+}
+\end{itemize}
 \end{frame}
