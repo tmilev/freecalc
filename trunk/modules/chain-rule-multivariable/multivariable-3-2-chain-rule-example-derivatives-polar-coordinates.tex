@@ -1,23 +1,73 @@
 \begin{frame}
-  \frametitle{Example: Derivatives in polar coordinates}
-
-Let $z=f(x,y)$ and $x=r\cos\theta$, $y=r\sin\theta$. Then
-%
-$$z=f(r\cos\theta, r\sin\theta) = g(r, \theta) \; .$$
-%
-$P(x,y) = P(r,\theta)$. Compute $\frac{\partial z}{\partial r} = \frac{\partial g}{\partial r}$ at $P$:
-%
-$$\xymatrix{
- &   &        & z &    &   & \\
+\uncover<5->{ Recall that 
+$
+\alert<5>{\frac{\partial z}{\partial x}=\left(\frac{\partial f}{\partial x}\right) (x,y)}$ and $\alert<5>{\frac{\partial z}{\partial y}=\left(\frac{\partial f}{\partial y}\right) (x,y)}$.
+}
+\begin{example}[Derivatives in polar coordinates]
+\begin{columns}
+\column{0.45\textwidth}
+$\xymatrix@R=1em@C=1em{
+& & & z &    &   & \\
  & x \ar[urr] &        &   &    & y \ar[ull] & \\
 r\ar[ur]&   & \theta \ar[ul]&   &  r\ar[ur] &   & \theta \ar[ul]
-}$$
-%
+}$
+\column{0.55\textwidth}
+Let  $\alert<3>{ x=r\cos\theta}$, $\alert<4>{y=r\sin\theta}$ and $z=f(x,y)$. 
+\begin{itemize}
+\item<alert@2-5> Compute $\frac{\partial z}{\partial r} $ via $\frac{\partial z}{\partial x}$ and $\frac{\partial z}{\partial y}$.
+\item<alert@6-> Express the differential operator $\frac{\partial}{\partial r}$ via $\frac{\partial}{\partial x}$ and $\frac{\partial}{\partial y}$.
+\end{itemize}
+
+\end{columns}
+\[ 
+\begin{array}{rcl}
+\uncover<2->{\displaystyle \frac{\alert<7>{\partial} \alert<6>{z}}{\alert<7>{\partial r}}  &=&\displaystyle \frac{\partial f}{\partial x}\alert<3>{\frac{\partial x}{\partial r}} + \frac{\partial f}{\partial y} \alert<4>{\frac{\partial y}{\partial r}}} 
+\uncover<3->{= \displaystyle \alert<5>{\frac{\partial f}{\partial x}} \alert<3>{\cos\theta }+ \alert<5>{\frac{\partial f}{\partial y}} \alert<4>{\sin\theta}} \\
+\uncover<5->{ &=&\displaystyle  \alert<7>{\cos\theta } \alert<5>{ \frac{ \alert<7>{\partial} \alert<6>{z}}{\alert<7>{\partial x}} } +\alert<7>{\sin\theta} \alert<5>{ \frac{\alert<7>{\partial} \alert<6>{z}}{\alert<7>{\partial y}}} \quad.}
+\end{array}
+\]
+\uncover<6->{
+The above is true for all differentiable $z=f(x,y)$, \uncover<7->{therefore
+\[
+\alert<7>{\frac{\partial}{\partial r} = \cos\theta\frac{\partial }{\partial x}  + \sin\theta\frac{\partial }{\partial y} }\quad .
+\]
+}}
+\end{example}
+\end{frame}
+
+\begin{frame}
+\uncover<5->{ Recall that 
 $
-  \frac{\textcolor[rgb]{0.98,0.00,0.00}{\partial} z}{\textcolor[rgb]{0.98,0.00,0.00}{\partial r}} (P) = \frac{\partial z}{\partial x} (P)\frac{\partial x}{\partial r} + \frac{\partial z}{\partial y}(P) \frac{\partial y}{\partial r} = \frac{\textcolor[rgb]{0.98,0.00,0.00}{\partial} z}{\textcolor[rgb]{0.98,0.00,0.00}{\partial x}}(P) \cos\theta + \frac{\textcolor[rgb]{0.98,0.00,0.00}{\partial} z}{\textcolor[rgb]{0.98,0.00,0.00}{\partial y}} (P) \sin\theta
-$
-%
-hence
-%
-$$\frac{\partial}{\partial r} = \cos\theta\frac{\partial }{\partial x}  + \sin\theta\frac{\partial }{\partial y} $$
+\alert<5>{\frac{\partial z}{\partial x}=\left(\frac{\partial f}{\partial x}\right) (x,y)}$ and $\alert<5>{\frac{\partial z}{\partial y}=\left(\frac{\partial f}{\partial y}\right) (x,y)}$.
+}
+\begin{example}[Derivatives in polar coordinates]
+\begin{columns}
+\column{0.45\textwidth}
+$\xymatrix@R=1em@C=1em{
+& & & z &    &   & \\
+ & x \ar[urr] &        &   &    & y \ar[ull] & \\
+r\ar[ur]&   & \theta \ar[ul]&   &  r\ar[ur] &   & \theta \ar[ul]
+}$
+\column{0.55\textwidth}
+Let  $\alert<3>{x=r\cos\theta}$, $\alert<4>{y=r\sin\theta}$ and $z=f(x,y)$. 
+\begin{itemize}
+\item<alert@2-5> Compute $\frac{\partial z}{\partial \theta} $ via $\frac{\partial z}{\partial x}$ and $\frac{\partial z}{\partial y}$.
+\item<alert@6-> Express the differential operator $\frac{\partial}{\partial \theta}$ via $\frac{\partial}{\partial x}$ and $\frac{\partial}{\partial y}$.
+\end{itemize}
+
+\end{columns}
+\[ 
+\begin{array}{rcl}
+\uncover<2->{\displaystyle \frac{\alert<7>{\partial} \alert<6>{z}}{\alert<7>{\partial \theta}}  &=&\displaystyle \frac{\partial f}{\partial x}\alert<3>{\frac{\partial x}{\partial \theta}} + \frac{\partial f}{\partial y} \alert<4>{\frac{\partial y}{\partial \theta}}} 
+\uncover<3->{= \displaystyle \alert<5>{\frac{\partial f}{\partial x}} \alert<3>{(-r\sin\theta) }+ \alert<5>{\frac{\partial f}{\partial y}} \alert<4>{r\cos\theta}} \\
+\uncover<5->{ &=&\displaystyle  \alert<7>{-r\sin\theta } \alert<5>{ \frac{ \alert<7>{\partial} \alert<6>{z}}{ \alert<7>{\partial x}} } +\alert<7>{r\cos\theta} \alert<5>{ \frac{\alert<7>{\partial} \alert<6>{z}}{\alert<7>{\partial y}}} \quad.}
+\end{array}
+\]
+\uncover<6->{
+The above is true for all differentiable $z=f(x,y)$, \uncover<7->{therefore
+\[
+\alert<7>{\frac{\partial}{\partial \theta} = -r\sin\theta\frac{\partial }{\partial x}  + r\cos\theta\frac{\partial }{\partial y} }\quad .
+\]
+}}
+\end{example}
 \end{frame}

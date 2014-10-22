@@ -1,0 +1,48 @@
+
+
+\begin{frame}
+\begin{example}[Partial Derivatives in Polar Coordinates]
+Express $\frac{\partial }{\partial x}$ and $\frac{\partial}{ \partial y}$ via $\frac{\partial }{\partial r}$ and $\frac{\partial}{\partial \theta}$, where $\alert<5,13,21>{ x=r\cos \theta}, \alert<4,14,20>{y=r\sin \theta}$.
+
+\begin{columns}
+\column{0.55\textwidth}
+\uncover<6->{\alert<6>{Suppose $ \theta\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$.}} \uncover<2->{Recall that}
+\[
+\begin{array}{rcl}
+\uncover<2->{\alert<6>{ \tan \theta} &\alert<6>{=}& \frac{ \alert<4>{\uncover<3->{\alert<3>{r} } \sin \theta}}{ \alert<5>{ \uncover<3->{\alert<3>{r}}\cos \theta}} } \uncover<4->{ = \alert<6>{ \frac{\alert<4>{y}}{\alert<5>{x}}}} \\
+\uncover<6->{\alert<6,11,12,18,19>{ \theta} &\alert<6,11,12,18,19>{=}& \alert<6,11,12,18,19>{\arctan \left(\frac{y}{x}\right)}}\\
+\uncover<7->{\alert<9,10,13,14,16,17,20,21>{r}}&\uncover<7->{\alert<9,10,13,14,16,17,20,21>{=}}&\uncover<7->{\alert<9,10,13,14,16,17,20,21>{\sqrt{x^2+y^2}}}\\
+\end{array}
+\]
+\column{0.45\textwidth}
+\uncover<8->{ 
+$\xymatrix@R=1em@C=0.5em{
+& & & z &    &   & \\
+ & r \ar[urr] &        &   &    & \theta \ar[ull] & \\
+x\ar[ur]&   & y \ar[ul]&   &  x\ar[ur] &   & y \ar[ul]
+}$
+}
+\end{columns}
+$ 
+\renewcommand{\arraystretch}{1.8}
+\begin{array}{rcl}
+\displaystyle \uncover<8->{\frac{\alert<23>{ \partial} \alert<22>{z}}{\alert<23>{\partial x}} &=& \displaystyle \frac{\partial z}{\partial r} \alert<9,10>{ \frac{ \partial r}{\partial x}} +\frac{\partial z}{\partial \theta} \alert<11,12>{ \frac{\partial \theta}{\partial x}}} 
+\uncover<9->{ = \displaystyle \frac{\partial z}{\partial r} \uncover<9>{ \alert<9>{ \textbf{?}}}\uncover<10->{\alert<10,13>{ \frac{x}{\sqrt{x^2+y^2}} }}  + \frac{\partial z}{\partial \theta} \uncover<11>{\alert<11>{\textbf{?}}}\uncover<12->{\left(\alert<12>{\alert<14>{ \frac{-y}{x^2+y^2}} }\right) }}\\
+\uncover<13->{&=&\displaystyle \alert<13,23>{ \cos\theta} \frac{ \alert<23>{\partial} \alert<22>{z}}{\alert<23>{\partial r}}  \alert<14,23>{- \frac{ \sin\theta }{ r}} \frac{ \alert<23>{\partial} \alert<22>{z}}{\alert<23>{\partial \theta}}} \\
+\uncover<15->{\displaystyle \frac{ \alert<23>{\partial} \alert<22>{z}}{\alert<23>{\partial y}} } &\uncover<15->{=}&\uncover<15->{ \displaystyle \frac{\partial z}{\partial r} \alert<16,17>{ \frac{ \partial r}{\partial y}} +\frac{\partial z}{\partial \theta} \alert<18,19>{ \frac{\partial \theta}{\partial x}}}      \uncover<16->{=\displaystyle \frac{\partial z}{\partial r} \uncover<16>{ \alert<16>{ \textbf{?}}}\uncover<17->{\alert<17,20>{ \frac{y}{\sqrt{x^2+y^2}} }}  + \frac{\partial z}{\partial \theta} \uncover<16-18>{\alert<18>{\textbf{?}}}\uncover<19->{\alert<19,21>{ \frac{x}{x^2+y^2}} }}\\
+&\uncover<20->{=}&\uncover<20->{\displaystyle \alert<20,23>{ \sin\theta} \frac{ \alert<23>{\partial} \alert<22>{z}}{\alert<23>{\partial r}} +  \alert<21,23>{\frac{ \cos\theta }{ r}} \frac{ \alert<23>{\partial} \alert<22>{z}}{\alert<23>{\partial \theta}}}
+\end{array}
+$
+
+\uncover<22->{ The above hold for all $z$, \uncover<23->{ therefore \alert<23>{$\begin{array}{rcl}
+\frac{\partial}{\partial x} &=&   \cos\theta \frac{ \partial }{\partial r} - \frac{ 1 }{ r}\sin\theta \frac{ \partial }{\partial \theta}\\
+\frac{\partial}{\partial y} &=& \sin \theta \frac{\partial }{\partial r} +\frac{1}{r}\cos \theta\frac{\partial}{\partial\theta}
+\end{array}
+$}.  }}
+
+\end{example}
+
+\vskip 8cm
+\end{frame}
+
+
