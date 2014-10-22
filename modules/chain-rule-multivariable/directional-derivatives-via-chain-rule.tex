@@ -1,46 +1,45 @@
 \begin{frame}
-\frametitle{Directional Derivatives}
-
-Recall:
+\frametitle{Directional Derivatives via the Chain Rule}
 \begin{itemize}
-  \item $f$, differentiable function,
-  \item $\textbf{u}=\langle u_1,u_2,u_3 \rangle$, unit vector,
-  \item $P(x_0,y_0,z_0)$, point.
+  \item Let $f$ differentiable function,
+  \item Let $\fcv{u}=\langle u_1,u_2,u_3 \rangle$, unit vector,
+  \item Let $P(x_0,y_0,z_0)$, point.
 \end{itemize}
-%
-What is the rate of change of $f$ at $P$ in the direction $\textbf{u}$?
+\uncover<2->{What is the rate of change of $f$ at $P$ in the direction $\fcv{u}$? Answer was studied: directional derivative.}
 
-\pause
-Directional derivative
-%
-$$(D_{\bm{u}}f)(P) = \left. \frac{d}{dt}\right|_{t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)$$  \end{frame}
+\uncover<3->{
+\[
+(D_{\fcv{u}}f)(P) = \frac{d}{dt}_{|t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)
+\]
+}
+\end{frame}
 
 \begin{frame}
-  \frametitle{}
-%
-$w =f(x,y,z)$ and
-%
-\begin{align*}
-  x = & x_0 + tu_1 \\
-  y = & y_0 + tu_2 \\
-  z = & z_0 + tu_3
-\end{align*}
-%
+\frametitle{}
+\[
+(D_{\fcv{u}}f)(P) =  \frac{d}{dt}_{|t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)
+\]
+
+Let $w =f(x,y,z)$ and
+$\left|\begin{array}{rcl}
+x&=& x_0 + tu_1 \\
+y&=& y_0 + tu_2 \\
+z&=& z_0 + tu_3
+\end{array}\right.$.
 \pause
-%
-\begin{align*}
-  \frac{dw}{dt} = & \frac{\partial f}{\partial x}(x,y,z) \frac{dx}{dt} + \frac{\partial f}{\partial y}(x,y,z) \frac{dy}{dt} + \frac{\partial f}{\partial z}(x,y,z) \frac{dz}{dt} = \\
-  = & \frac{\partial f}{\partial x}(x,y,z) u_1 + \frac{\partial f}{\partial y}(x,y,z) u_2 + \frac{\partial f}{\partial z}(x,y,z) u_3 = \\
-  = & \langle \frac{\partial f}{\partial x}(x,y,z) , \frac{\partial f}{\partial y}(x,y,z), \frac{\partial f}{\partial z}(x,y,z)\rangle \cdot \textbf{u}
-\end{align*}
-%
+\[\begin{array}{rcl}
+\frac{dw}{dt} &= & \frac{\partial f}{\partial x}(x,y,z) \frac{dx}{dt} + \frac{\partial f}{\partial y}(x,y,z) \frac{dy}{dt} + \frac{\partial f}{\partial z}(x,y,z) \frac{dz}{dt}  \\
+&= & \frac{\partial f}{\partial x}(x,y,z) u_1 + \frac{\partial f}{\partial y}(x,y,z) u_2 + \frac{\partial f}{\partial z}(x,y,z) u_3 \\
+&= & \langle \frac{\partial f}{\partial x}(x,y,z) , \frac{ \partial f}{ \partial y}(x,y,z), \frac{\partial f}{\partial z}(x,y,z)\rangle \cdot \fcv{u}
+\end{array}
+\]
 \pause
-Let
-%
-$$\textbf{W}_{f,(x_0,y_0,z_0)} =\langle \frac{\partial f}{\partial x}(x_0,y_0,z_0) , \frac{\partial f}{\partial y}(x_0,y_0,z_0), \frac{\partial f}{\partial z}(x_0,y_0,z_0)\rangle$$
-%
+Let $\fcv{W}_{f,(x_0,y_0,z_0)} =\langle \frac{\partial f}{\partial x}(x_0,y_0,z_0) , \frac{\partial f}{\partial y}(x_0,y_0,z_0), \frac{\partial f}{\partial z}(x_0,y_0,z_0)\rangle$
+
 \pause
 Then
 %
-$$(D_{\textbf{u}}f)(x_0,y_0,z_0) = \left. \frac{dw}{dt}\right|_{t=0} = \textbf{W}_{f,(x_0,y_0,z_0)} \cdot \textbf{u}\; .$$
+\[(D_{\fcv{u}}f)(x_0,y_0,z_0) = \frac{dw}{dt}_{t=0} = \fcv{W}_{f,(x_0,y_0,z_0)} \cdot \fcv{u}\; .\]
+
 \end{frame}
+
