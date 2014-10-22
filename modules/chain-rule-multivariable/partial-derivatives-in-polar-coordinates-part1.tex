@@ -1,0 +1,25 @@
+\begin{frame}
+\begin{example}[Partial Derivatives in Polar Coordinates]
+Express $\frac{\partial }{\partial x}$ and $\frac{\partial }{\partial y}$ via $\frac{\partial }{\partial r}$ and $\frac{\partial}{\partial \theta}$, where $x=r\cos \theta, y=r\sin \theta$.
+
+\uncover<2->{
+We computed previously that 
+\[
+\begin{array}{rcl}
+\frac{\partial}{\partial r}& =& ~~~~ \cos \theta\frac{\partial }{\partial x}  + ~~~ \sin\theta\frac{\partial }{\partial y}  \\ \frac{\partial}{\partial \theta} &=&  - r \sin\theta\frac{\partial }{\partial x}  + r \cos \theta\frac{\partial }{\partial y} \; .
+\end{array}
+\]
+}
+\uncover<3->{
+This is a linear system in $\frac{\partial}{\partial x}$ and $\frac{\partial}{\partial y}$.} \uncover<4->{To solve the system, \alert<4>{eliminate $\frac{\partial }{\partial x}$ by multiplying} the \alert<4>{first equality by $r\sin\theta$}, the \alert<4>{second by $\cos \theta$} and adding the two.} \uncover<5->{Similarly \alert<5>{eliminate $\frac{\partial}{ \partial y}$ by multiplying} the first \alert<5>{equality by $-r\cos \theta$} and \alert<5>{the second by $\sin \theta$} and adding the two.} \uncover<6->{Finally :
+\[
+\begin{array}{rcl}
+\frac{\partial}{\partial x} &=& \cos\theta\frac{\partial }{\partial r}  - \frac{1}{r} \sin\theta\frac{\partial }{\partial \theta} \\
+\frac{\partial}{\partial y} &= &\sin\theta\frac{\partial }{\partial r}  + \frac{1}{r} \cos\theta\frac{\partial }{\partial \theta}
+\end{array}
+\]
+}
+\end{example}
+
+\vskip 8cm
+\end{frame}

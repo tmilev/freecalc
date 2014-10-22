@@ -1,19 +1,23 @@
 \begin{frame}
-  \frametitle{The Laplace Operator}
-Differential Operator:
-\begin{itemize}
-  \item Input: function
-  \item Output: function
-  \item Method: algebraic operations and differentiation
-\end{itemize}
+\frametitle{The Laplace Operator}
+\begin{definition}
+The $n$-variable Laplace operator is the differential operator:
+\[
+\Delta=\sum\limits_{j=1}^n \frac{\partial^2 }{\partial x_j^2}=\frac{\partial^2 }{\partial x_1^2}+\dots +\frac{\partial^2 }{\partial x_n^2}\quad.
+\]
+In paticular the two-variable Laplace operator is:
+\[
+\Delta=\frac{\partial^2 }{\partial x^2} +\frac{\partial^2 }{\partial y^2}
+\]
+\end{definition}
+The Laplace operator is named after Pierre Laplace (1749-1827).
+\end{frame}
 
-\pause
-Laplace operator:
-%
-$$z \to \Delta z = \frac{\partial^2 z}{\partial x^2} +\frac{\partial^2 z}{\partial y^2} \Longrightarrow \Delta = \frac{\partial^2 }{\partial x^2} +\frac{\partial^2 }{\partial y^2}$$
+\begin{frame}
+\begin{example}
+Express the Laplace operator $\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}$ in polar coordinates.
 
-\pause
-In polar coordinates:
-%
-$$\Delta = \frac{1}{r}\frac{\partial}{\partial r} \left( r\frac{\partial }{\partial r} \right) +  \frac{1}{r^2}\frac{\partial^2 }{\partial \theta^2}\; .$$
+$$
+\Delta = \frac{1}{r}\frac{\partial}{\partial r} \left( r\frac{\partial }{\partial r} \right) +  \frac{1}{r^2}\frac{\partial^2 }{\partial \theta^2}\; .$$
+\end{example}
 \end{frame}
