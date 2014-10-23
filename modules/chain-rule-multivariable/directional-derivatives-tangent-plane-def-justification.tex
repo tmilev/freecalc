@@ -1,17 +1,84 @@
 \begin{frame}
+
 \begin{itemize}
-\item Let $z=f(x,y)$ be differentiable function let $P_0(x_0, y_0)$ be a point.
-\item The graph of $f(x,y)$ is the surface $S=\{(x,y, f(x,y)) \} $.
-\item We studied that plane tangent to $S$ at $(x_0, y_0, f(x_0 , y_0 ))$ is the space passing through that point and parallel to the tangent vectors of all curves on $S$.
-\item Let $\fcv r(t)$ be a differentiable curve in the $(x,y)$ - plane passing through $x_0, y_0$ at $t=0$:
+\item Let $z=f(x,y)$ be a function and let $(x_0, y_0)$ be a point such that $f$ is differentiable in a small disk near $(x_0, y_0)$.
+\item<2-> The graph of $f(x,y)$ is the surface $S=\{(x,y, f(x,y)) \} $.
+\item<3-> Let $(x,y)$ be a point in the domain of $f$. By the vertical line test there is exactly one point in $S$ whose first two coordinates are $x,y$. This is the point $(x,y, f(x,y))$.
+\item<4-> Let $\fcv q (t)= (x(t), y(t), z(t))$ be a curve lying in $S$ such that $x(0)=x_0$ and $y(0)=y_0$.
+\item<5-> By the preceding remarks it follows that $z(t)= f(x(t), y(t))$.
+\item<6-> Then the tangent vector of $\fcv q(t)$ at $t=0$ is
 \[
-\fcv (r)(t)= \langle r_1(t), r_2(t) \rangle, r_1(0)=x_0, r_2(0)=y_0\quad  .
-\]
-\item Every smooth curve on $S$ is of that form - the corresponding $\fcv r$ - curve in the $(x,y)$ plane is its projection.
-\item Then $\fcv r(t)$
-\[
-(r_1(t), r_2(t), )
+\begin{array}{rcl}
+\alert<12>{\displaystyle\frac{\diff  \fcv q}{\diff t}_{|t=0} }&\alert<12>{=}& \displaystyle \left(\frac{\diff x}{\diff t}, \frac{\diff y}{\diff t},  \alert<7>{\frac{\diff }{\diff t}\left( f(x(t), y(t))\right)}\right)_{|t=0}\\
+&\uncover<7->{\alert<0>{=}}&\displaystyle \uncover<7->{\left(\alert<8>{ \frac{\diff x}{\diff t}} , \alert<10>{\frac{\diff y}{\diff t}},  \alert<7>{ \alert<9>{\frac{\partial f}{\partial x} \frac{\diff x}{\diff t}} + \alert<11>{\frac{\partial f}{\partial y} \frac{\diff y}{\diff t}}} \right)_{|t=0}} \\
+&\uncover<8->{\alert<0>{=}}&\displaystyle \alert<12>{ \uncover<8->{ {\alert<8,9>{\frac{\diff x}{\diff t}}}_{|t=0}\left(\alert<8>{1}, 0, \alert<9>{\frac{\partial f}{\partial x}}  \right)_{|t=0}+ {\alert<10,11>{\frac{\diff y}{\diff t}}}_{|t=0}\left(0,\alert<10>{ 1},\alert<11>{ \frac{\partial f}{\partial y}  }\right)_{|t=0}}}
+\end{array}
 \]
 \end{itemize} 
 
 \end{frame}
+\begin{frame}
+\begin{columns}
+\column{0.4\textwidth}
+\uncover<2->{
+\begin{pspicture}(-2.2,-2)(2,2)%
+\tiny%
+\fcBoundingBox{-2.2}{-0.5}{2.1}{2.2}%
+\pstVerb{%
+5 dict begin%
+/theEllipsoidTop {[u v u 2 div dup mul v 1.5 div dup mul add 1 exch sub sqrt]} def%
+/basePoint 2 dict begin /u 1 def /v 0 def theEllipsoidTop end def%
+/tangent1 [0 1 0] def%
+/tangent2 [1 0 -0.5] def% 
+}%
+\fcStartIIIdScene%
+\fcSurfaceInScene[linecolor=orange,iterationsU=2,iterationsV=2,colorVU=cyan,colorUV=cyan,forceForeground=true]{-2}{-2}{2}{2}{%
+3 dict begin %
+basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector end%
+}%
+\fcSurfaceInScene[forceForeground=false, linecolor=red,iterationsU=7,iterationsV=8,colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]{-1.4}{-1}{1.4}{1}{theEllipsoidTop}%
+\fcFinishIIIdScene%
+\fcCurveIIId[linecolor=blue, linewidth=2pt]{-1.4}{1.4}{2 dict begin /u {t} def /v 0 def theEllipsoidTop end} 
+\fcCurveIIId[linecolor=blue, linewidth=2pt]{-1}{1}{2 dict begin /u 1 def /v {t} def theEllipsoidTop end} 
+\fcAxesIIId{3}{3}{3}%
+\fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown]{basePoint}{basePoint tangent2 \fcVectorPlusVector}
+\fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown]{basePoint}{basePoint tangent1 \fcVectorPlusVector}
+\uncover<3->{\fcCurveIIId[linecolor=orange, linewidth=2pt]{-0.7}{0.7}{2 dict begin /u {t 1 add} def /v {t } def theEllipsoidTop end} }
+\uncover<5->{
+\fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown]{basePoint}{basePoint tangent2 tangent1 \fcVectorPlusVector \fcVectorPlusVector}
+}
+\uncover<5>{
+\fcLineIIId[arrows=->, linewidth =2.5pt, linecolor=red]{basePoint}{basePoint tangent2 tangent1 \fcVectorPlusVector \fcVectorPlusVector}
+}
+\uncover<6>{
+\fcLineIIId[arrows=->, linewidth =2.5pt, linecolor=red]{basePoint}{basePoint tangent2 \fcVectorPlusVector}
+\fcLineIIId[arrows=->, linewidth =2.5pt, linecolor=red]{basePoint}{basePoint tangent1 \fcVectorPlusVector}
+}
+\fcDotIIId[linecolor=blue]{basePoint}%
+\pstVerb{end}%
+\end{pspicture}
+}
+\column{0.6\textwidth}
+\begin{itemize}
+\item $\fcv q(t)=(x(t), y(t), z(t))$ - smooth curve in $S=\{(x,y,f(x,y))\}$,
+\item $(x_0, y_0, z_0)$- point in $S$, $\fcv q(0)=(x(0), y(0), z(0))= (x_0,y_0, z_0)$.
+\item $\alert<1>{ \begin{array}{rcl}\displaystyle \alert<5>{ \frac{\diff  \fcv q}{\diff t}_{|t=0}}
+&=&\displaystyle \phantom{+}\alert<6>{ \frac{\diff x}{\diff t}_{|t=0} \left(1, 0, \frac{\partial f}{\partial x}  \right)_{|t=0} }\\
+&&\displaystyle \alert<6>{+\frac{\diff y}{\diff t}_{|t=0} \left(0, 1, \frac{\partial f}{\partial y}  \right)_{|t=0}}
+\end{array}}
+$.
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item<2-> Recall the tangent \only<4->{(\color{gray}space\color{black})}\only<-3>{\phantom{(}space\phantom{)}} \uncover<4->{\alert<4>{plane}} at $(x_0,y_0,z_0)$ was defined as the \only<4->{(\color{gray}space\color{black})}\only<-3>{\phantom{(}space\phantom{)}} passing through $(x_0,y_0,z_0)$ and spanned by the tangents of all curves lying in the surface and passing through $(x_0,y_0,z_0)$.
+\uncover<4->{
+\begin{corollary}[Justification of tangent plane definition]
+The tangent vector to any curve passing through $(x_0, y_0,z_0)$ is a linear combination of the vectors $ \left(1, 0, \frac{\partial f}{\partial x}  \right)$ and $\left(0, 1, \frac{\partial f}{\partial y}  \right)$.
+
+In particular the tangent space at $ (x_0, y_0, z_0)$ is a plane.
+\end{corollary}
+}
+\end{itemize}
+
+\end{frame}
+

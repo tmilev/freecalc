@@ -1101,7 +1101,7 @@ graphicsFile ( setrgbcolor ) writestring
 \fcSetUpGraphicsToScreen
 /graphicsCached false def
 /graphicsFileAvailable true def
-/graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) theIIIdObjects \fcToString \fcHashString (.txt) 4 \fcConcatenateMultiple def
+/graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString  theIIIdObjects \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
 /graphicsFile (file not open) def
 errordict begin
 /invalidfileaccess 
