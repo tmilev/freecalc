@@ -1,6 +1,6 @@
 \ProvidesPackage{pstricks-commands}
 \usepackage{etex, ifthen}
-\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage %[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -23,8 +23,8 @@
 \newcommand{\fcYLabel}{$y$}
 \newcommand{\fcZLabel}{$z$}
 \newcommand{\fcDelta}{0.5}
-\newcommand{\fcZBufferNumXIntervals}{10}
-\newcommand{\fcZBufferNumYIntervals}{10}
+\newcommand{\fcZBufferNumXIntervals}{20}
+\newcommand{\fcZBufferNumYIntervals}{20}
 \newcommand{\fcZBufferRowColumnsUnderInvestigation}{(empty) (empty)}
 \newcommand{\fcZBufferUparameterPointUnderInvestigation}{(empty) (empty)}
 \newcommand{\fcZBufferVparameterPointUnderInvestigation}{(empty) (empty)}
@@ -1150,18 +1150,107 @@ thePatchIndices {\fcPaintPatchIndexFilledDirectly} forall
 theContourCollection{\fcPaintContour} forall %
 }
 
+\newcommand{\fcProcessCurrentZBuffer}{
+/counterI -1 def
+(ere be i 1) ==
+(currentZBuffer is: ) ==
+currentZBuffer ==
+currentZBuffer length {
+/counterI counterI 1 add def
+/counterJ -1 def
+currentZBuffer length{
+/counterJ counterJ 1 add def
+counterI counterJ ne{
+/leftIndex currentZBuffer counterI get def
+/rightIndex currentZBuffer counterJ get def
+(comparing: )==
+leftIndex ==
+rightIndex ==
+leftIndex rightIndex LeftGreaterThanRight{
+rightIndex thePatchIncidenceGraph leftIndex get \fcContains not {
+(ere be i 2) ==
+thePatchIncidenceGraph leftIndex
+[ thePatchIncidenceGraph leftIndex get \fcArrayToStack rightIndex
+]
+put
+}if
+}if
+}if
+}repeat
+}repeat
+}
+
+\newcommand{\fcComputePatchOrder}{
+/thePatchIncidenceGraph [thePatchCollection length {[]}repeat] def
+/rowCounter -1 def
+\fcLeftPatchIndexGreaterPatchThanRight{-1}
+(computing patch order... ) print
+theZBuffer length {
+/rowCounter rowCounter 1 add def
+/columnCounter -1 def
+theZBuffer rowCounter get length {
+/columnCounter columnCounter 1 add def
+/currentZBuffer theZBuffer rowCounter get columnCounter get def
+\fcProcessCurrentZBuffer
+}repeat
+}repeat
+(... computing patch order done ) print
+}
+
 \newcommand{\fcSortPatchIndices}{
 (sorting a total of ) print thePatchCollection length == ( patches... ) print
-/counter -1 def
-/thePatchIndices [ thePatchCollection length {/counter counter 1 add def counter} repeat]def
-20 dict begin
-%patchIsBehindPatchesData shall have one entry for each patch.
+%thePatchIncidenceGraph shall have one entry for each patch.
 %The entry will consist of a list of all patch indices of 
-%patches that are in front of our patch.
-/patchIsBehindPatchesData thePatchCollection length array def %
-\fcLeftPatchIndexGreaterPatchThanRight{-1}
-thePatchIndices \fcBubbleSort
-(sorting patches done) print
+%patches that are behind our patch.
+/thePatchIndices [thePatchCollection length {(empty)} repeat]def
+20 dict begin
+\fcComputePatchOrder
+(patch incidence graph:) ==
+thePatchIncidenceGraph ==
+/accountPatch {
+  /patchIndex exch def
+  (accounting patch: ) print
+  patchIndex ==
+  /numAccountedLastCycle numAccountedLastCycle 1 add def
+  accountedPatches patchIndex true put
+  thePatchIndices numAccountedSoFar patchIndex put
+  /numAccountedSoFar numAccountedSoFar 1 add def
+} def
+/accountedPatches [thePatchCollection length {false} repeat] def
+/numAccountedSoFar 0 def
+{
+/numAccountedLastCycle 0 def
+/patchIndex -1 def 
+thePatchIncidenceGraph length {
+/patchIndex patchIndex 1 add def
+accountedPatches patchIndex get not
+{/patchShouldBePainted true def
+/patchBehindIndex -1 def
+thePatchIncidenceGraph patchIndex get length{
+/patchBehindIndex patchBehindIndex 1 add def
+accountedPatches thePatchIncidenceGraph patchIndex get patchBehindIndex get get not{
+/patchShouldBePainted false def exit
+}if
+}repeat
+patchShouldBePainted{
+patchIndex accountPatch
+}if
+}if
+}repeat
+numAccountedLastCycle 0 eq{
+(We have cyclically overlapping patches!) ==
+/patchIndex -1 def 
+thePatchIncidenceGraph length {
+/patchIndex patchIndex 1 add def
+accountedPatches patchIndex get not
+{ patchIndex accountPatch exit
+}if
+}repeat
+}if
+numAccountedSoFar thePatchIndices length eq{exit} if
+}loop
+(sorting patches done, sorted patches: ) print
+thePatchIndices ==
 end
 }
 
