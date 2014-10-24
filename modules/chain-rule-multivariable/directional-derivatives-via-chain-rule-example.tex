@@ -1,36 +1,30 @@
 \begin{frame}
-\frametitle{Example}
-
-Directional derivative
-\begin{itemize}
-  \item of function $f(x,y,z) = \ln{(x^2+2y^2-z^2)}$;
-  \item at the point $P(2,1,-1)$;
-  \item in the direction $\textbf{v}=\langle -1,2,1\rangle$.
-\end{itemize}
+\begin{example}
+Find the directional derivative of $f(x,y,z) = \ln{(x^2+2y^2-z^2)}$ at $P(2,1,-1)$ in the direction $\fcv{v}=\langle -1,2,1\rangle$.
 \pause
-A unit vector in the direction of $\textbf{v}$ is
+A unit vector in the direction of $\fcv{v}$ is
 %
-$$\textbf{u} = \frac{1}{|\textbf{v}|} \textbf{v} = \frac{1}{\sqrt{6}} \langle -1,2,1\rangle\; .$$
+$$\fcv{u} = \frac{1}{|\fcv{v}|} \fcv{v} = \frac{1}{\sqrt{6}} \langle -1,2,1\rangle\; .$$
 %
 \begin{overlayarea}{\textheight}{5cm}
 \only<3>{The partial derivatives are
-%
-\begin{align*}
-  \frac{\partial f}{\partial x} = \frac{2x}{x^2+2y^2-z^2} & \Longrightarrow \frac{\partial f}{\partial x}(2,1,-1) = \frac{4}{5} \\
-  %
-  \frac{\partial f}{\partial y} = \frac{4y}{x^2+2y^2-z^2} & \Longrightarrow \frac{\partial f}{\partial y}(2,1,-1) = \frac{4}{5} \\
-  %
-  \frac{\partial f}{\partial z} = \frac{-2z}{x^2+2y^2-z^2} & \Longrightarrow \frac{\partial f}{\partial z}(2,1,-1) = \frac{2}{5}
-\end{align*}
-%
-$$\textbf{W}_{f,(2,1,-1)} = \langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\rangle$$}
+\[
+\begin{array}{rcllrcl}
+\frac{\partial f}{\partial x} &=& \frac{2x}{x^2+2y^2-z^2} && \frac{\partial f}{\partial x}(2,1,-1) &=& \frac{4}{5} \\
+\frac{\partial f}{\partial y} &=& \frac{4y}{x^2+2y^2-z^2} && \frac{\partial f}{\partial y}(2,1,-1) &=& \frac{4}{5} \\
+\frac{\partial f}{\partial z} &=&\frac{-2z}{x^2+2y^2-z^2} && \frac{\partial f}{\partial z}(2,1,-1) &=& \frac{2}{5}
+\end{array}
+\]
+
+$$\fcv{W}_{f,(2,1,-1)} = \left\langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\right\rangle$$}
 %
 \only<4->{
 %
-$$\textbf{W}_{f,(2,1,-1)} = \langle f_x(2,1,-1), f_y(2,1,-1), f_z(2,1,-1) \rangle = \langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\rangle$$
+$$\fcv{W}_{f,(2,1,-1)} = \langle f_x(2,1,-1), f_y(2,1,-1), f_z(2,1,-1) \rangle = \langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\rangle$$
 %
-$$(D_{\textbf{u}}f)(2,1,-1) = \textbf{W}_{f,(2,1,-1)} \cdot \textbf{u} = \frac{\sqrt{6}}{5}$$
+$$(D_{\fcv{u}}f)(2,1,-1) = \fcv{W}_{f,(2,1,-1)} \cdot \fcv{u} = \frac{\sqrt{6}}{5}$$
 
-$(D_{\textbf{u}}f)(2,1,-1)>0 \Longrightarrow$ \pause if we start at $(2,1,-1)$ and move in the direction $\textbf{u}$, then $f$ is increasing.}
+$(D_{\fcv{u}}f)(2,1,-1)>0 \Longrightarrow$ \pause if we start at $(2,1,-1)$ and move in the direction $\fcv{u}$, then $f$ is increasing.}
   \end{overlayarea}
+\end{example}
 \end{frame}

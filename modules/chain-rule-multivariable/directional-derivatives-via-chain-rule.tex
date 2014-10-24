@@ -9,7 +9,7 @@
 
 \uncover<3->{
 \[
-(D_{\fcv{u}}f)(P) = \frac{d}{dt}_{|t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)
+(D_{\fcv{u}}f)(x_0,y_0, z_0) = \frac{\diff}{\diff t}_{|t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)
 \]
 }
 \end{frame}
@@ -17,29 +17,34 @@
 \begin{frame}
 \frametitle{}
 \[
-(D_{\fcv{u}}f)(P) =  \frac{d}{dt}_{|t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)
+(D_{\fcv{u}}f)(x_0,y_0,z_0) =  \frac{\diff }{\diff t}_{|t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)
 \]
 
-Let $w =f(x,y,z)$ and
+\uncover<2->{Let $w =f(x,y,z)$ and
 $\left|\begin{array}{rcl}
-x&=& x_0 + tu_1 \\
-y&=& y_0 + tu_2 \\
-z&=& z_0 + tu_3
+\alert<5>{x}&\alert<5>{=} &\alert<5>{x_0 + tu_1} \\
+\alert<6>{y}&\alert<6>{=} &\alert<6>{y_0 + tu_2} \\
+\alert<7>{z}&\alert<7>{=} &\alert<7>{z_0 + tu_3}
 \end{array}\right.$.
-\pause
-\[\begin{array}{rcl}
-\frac{dw}{dt} &= & \frac{\partial f}{\partial x}(x,y,z) \frac{dx}{dt} + \frac{\partial f}{\partial y}(x,y,z) \frac{dy}{dt} + \frac{\partial f}{\partial z}(x,y,z) \frac{dz}{dt}  \\
-&= & \frac{\partial f}{\partial x}(x,y,z) u_1 + \frac{\partial f}{\partial y}(x,y,z) u_2 + \frac{\partial f}{\partial z}(x,y,z) u_3 \\
-&= & \langle \frac{\partial f}{\partial x}(x,y,z) , \frac{ \partial f}{ \partial y}(x,y,z), \frac{\partial f}{\partial z}(x,y,z)\rangle \cdot \fcv{u}
+}
+\uncover<3->{
+\[
+\begin{array}{r@{~}c@{~}l}
+\displaystyle D_{\fcv u }f(x_0,y_0,z_0)&=&\displaystyle \frac{\diff w}{\diff t}_{|t=0} \\
+\uncover<4->{&= & \displaystyle  \frac{\partial f}{\partial x}(x,y,z)\alert<5>{\frac{\diff x}{\diff t}} + \frac{\partial f}{\partial y}(x,y,z) \alert<6>{\frac{\diff y}{\diff t} } + \frac{\partial f}{\partial z}(x,y,z) \alert<7>{\frac{\diff z}{\diff t} }} \\
+\uncover<5->{&= &\displaystyle  \frac{\partial f}{\partial x}(x,y,z)\alert<5>{u_1} + \frac{\partial f}{\partial y}(x,y,z) \alert<6>{u_2} + \frac{\partial f}{\partial z}(x,y,z)\alert<7->{ u_3} }\\
+\uncover<8->{ &= &\displaystyle  \langle \frac{\partial f}{\partial x}(x,y,z) , \frac{ \partial f}{ \partial y}(x,y,z), \frac{\partial f}{\partial z}(x,y,z)\rangle \cdot \fcv{u}}
 \end{array}
 \]
-\pause
+}
+\uncover<9->{
 Let $\fcv{W}_{f,(x_0,y_0,z_0)} =\langle \frac{\partial f}{\partial x}(x_0,y_0,z_0) , \frac{\partial f}{\partial y}(x_0,y_0,z_0), \frac{\partial f}{\partial z}(x_0,y_0,z_0)\rangle$
-
-\pause
+}
+\uncover<10->{
 Then
-%
-\[(D_{\fcv{u}}f)(x_0,y_0,z_0) = \frac{dw}{dt}_{t=0} = \fcv{W}_{f,(x_0,y_0,z_0)} \cdot \fcv{u}\; .\]
-
+\[
+(D_{\fcv{u}}f)(x_0,y_0,z_0) = \frac{\diff w}{\diff t}_{|t=0} = \fcv{W}_{f,(x_0,y_0,z_0)} \cdot \fcv{u}\; .
+\]
+}
 \end{frame}
 
