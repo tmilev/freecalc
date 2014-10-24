@@ -1,6 +1,6 @@
 \ProvidesPackage{pstricks-commands}
 \usepackage{etex, ifthen}
-\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage % [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -554,7 +554,7 @@ mark\space
 }
 
 \newcommand{\fcMarkCleanCheck}{
-counttomark 0 ne {(procedure did not clean up properly) == error}if pop
+counttomark 0 ne {(procedure did not clean up properly. Printing stack: ) == pstack == error}if pop
 }
 
 \newcommand{\fcProjectOntoScreen}{%
@@ -835,24 +835,13 @@ thePoint \fcZBufferRowColumn %
 /column exch def %
 /row exch def %
 /theZBuffEntry theZBuffer row get column get def %
-%theZBuffEntry length 0 eq {( <br>ERROR: z-buffer not computed properly, row, column: ) print row == column ==} if %
 /result true def %
-%/counterZBuff -1 def %
-%/numCoincidingPatches 0 def %
-%(got to main cycle) ==
-%theZBuffEntry length { %
-%/counterZBuff counterZBuff 1 add def %
-%/theZbuffPatch theZBuffEntry counterZBuff get def %
-%theZbuffPatch theNeighborhood \fcContains { /numCoincidingPatches numCoincidingPatches 1 add def }if %
-%}repeat %
-%(Num coinciding patches: )== numCoincidingPatches ==
-%(theNeighborhood:) == theNeighborhood ==
-%(thePoint:) == thePoint ==
 /counterZBuff -1 def %
 theZBuffEntry length { %
 /counterZBuff counterZBuff 1 add def %
-/theZbuffPatch theZBuffEntry counterZBuff get def %
-theZbuffPatch theNeighborhood \fcContains not{ %
+/theZbuffPatchIndex theZBuffEntry counterZBuff get def %
+/theZbuffPatch thePatchCollection theZbuffPatchIndex get def %
+theZbuffPatchIndex theNeighborhood \fcContains not{ %
 %(patch) == theZbuffPatch == (is not contained in neighborhood ) ==
 %theNeighborhood ==
 thePoint theZbuffPatch \fcPointIsBehindPatch 
@@ -868,19 +857,6 @@ ifelse
 ifelse %
 }repeat %
 result %
-end %
-}
-
-\newcommand{\fcZBufferAccountPoint}{ %
-5 dict begin %
-/thePoint exch def %
-thePoint \fcZBufferRowColumn %
-/currentColumn exch def %
-/currentRow exch def %
-/Zdepth theZBuffer currentRow get currentColumn get def %
-/currentZdepth thePoint \fcScreen\space pop \fcVectorScalarVector def %
-Zdepth (infty) eq {theZBuffer currentRow get currentColumn currentZdepth put }{ currentZdepth Zdepth lt {theZBuffer currentRow get currentColumn currentZdepth put} if %
-}ifelse %
 end %
 }
 
@@ -1135,41 +1111,58 @@ graphicsFile closefile
 }ifelse
 }
 
-\newcommand{\fcComputeContourData}{
-(Computing contour data ... ) print
-/doTraverseContours true def %
-/doTraversePatches false def %
-/processContour {} def
+\newcommand{\fcComputePatchesAndContours}{
+/totalNumPatches 0 def
+/totalNumContours 0 def
 \fcMarkClean
-/theContourCollection [theIIIdObjects {\fcProcessObject} forall] def
+theIIIdObjects {\fcObjectGetNumPatches /totalNumPatches exch totalNumPatches add def} forall
 \fcMarkCleanCheck
-(computing contour data done, total number of contours: ) print
-theContourCollection length ==
-}
-
-\newcommand{\fcComputePatchData}{
-(computing patch data ... ) print
-/doTraverseContours false def %
-/doTraversePatches true def %
-/processPatch {} def
-/thePatchCollection [theIIIdObjects {\fcProcessObject} forall] def
-(computing patch data done, total number of patches: ) print
+\fcMarkClean
+theIIIdObjects {\fcObjectGetNumContours /totalNumContours exch totalNumContours add def} forall
+\fcMarkCleanCheck
+/thePatchCollection [totalNumPatches {(empty)}repeat] def
+/theContourCollection [totalNumContours{(empty)} repeat] def
+(expected number of patches, contours: ) print
 thePatchCollection length == 
+theContourCollection length ==
+(...computing patches and contours ...) print
+/numPatchesComputedSoFar 0 def
+/numContoursComputedSoFar 0 def
+/counter -1 def
+theIIIdObjects length {
+/counter counter 1 add def
+theIIIdObjects counter get \fcObjectComputePatchesAndContours 
+theIIIdObjects counter get \fcObjectGetNumPatches 
+/numPatchesComputedSoFar exch numPatchesComputedSoFar add def
+theIIIdObjects counter get \fcObjectGetNumContours
+/numContoursComputedSoFar exch numContoursComputedSoFar add def
+} repeat
+thePatchCollection{(empty) eq {(ERROR: declared patch not computed!)}if }forall
+theContourCollection{(empty) eq {(ERROR: declared contour not computed!)}if }forall
+(... computing patches and contours done!) print
 }
 
 \newcommand{\fcPaintPatches}{
-thePatchCollection {\fcPaintPatchFilledDirectly} forall
+thePatchIndices {\fcPaintPatchIndexFilledDirectly} forall
 }
 
 \newcommand{\fcPaintContours}{
 theContourCollection{\fcPaintContour} forall %
 }
 
-\newcommand{\fcSortPatches}{
+\newcommand{\fcSortPatchIndices}{
 (sorting a total of ) print thePatchCollection length == ( patches... ) print
-\fcLeftPatchIsGreaterThanRight{-1}
-thePatchCollection \fcBubbleSort
+/counter -1 def
+/thePatchIndices [ thePatchCollection length {/counter counter 1 add def counter} repeat]def
+20 dict begin
+%patchIsBehindPatchesData shall have one entry for each patch.
+%The entry will consist of a list of all patch indices of 
+%patches that are in front of our patch.
+/patchIsBehindPatchesData thePatchCollection length array def %
+\fcLeftPatchIndexGreaterPatchThanRight{-1}
+thePatchIndices \fcBubbleSort
 (sorting patches done) print
+end
 }
 
 \newcommand{\fcFinishIIIdScene}{%
@@ -1184,9 +1177,7 @@ theIIIdObjects length 0 gt { %
 \fcSetupFiles
 graphicsCached not{
 % % % % % % % % % % % % % % % % % % %
-\fcComputeContourData
-% % % % % % % % % % % % % % % % % % %
-\fcComputePatchData
+\fcComputePatchesAndContours
 % % % % % % % % % % % % % % % % % % %
 \fcZBufferInitialize %
 (computing bounding box IIId scene... ) print %
@@ -1201,10 +1192,11 @@ getZBufferYmax 0.1 add setZBufferYmax %
 (bounding box computed: ) == ZBufferRectangle == %
 % % % % % % % % % % % % % % % % % % % % % % % % % %
 (computing z-buffer IIId scene... ) print %
-thePatchCollection {\fcZBufferPatch} forall
+/counter -1 def
+thePatchCollection length { /counter counter 1 add def counter \fcZBufferPatchIndex} repeat %
 (z buffer computed.) print %
 % % % % % % % % % % % % % % % % % % % % % % % % % %
-\fcSortPatches
+\fcSortPatchIndices
 \fcPaintPatches
 \fcPaintContours
 % % % % % %
@@ -1228,14 +1220,36 @@ if
 \pstVerb{end} %
 }%
 
-\newcommand{\fcProcessObject}{%
+\newcommand{\fcObjectGetNumContours}{%
 \fcArrayToStack %
 1 dict begin %
 /HandlerNotFound true def %
-HandlerNotFound{dup (surface) eq {pop \fcProcessSurface /HandlerNotFound false def} if} if %
-HandlerNotFound{dup (curve) eq {pop \fcProcessCurve /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (surface) eq {pop \fcSurfaceGetNumContours /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (curve) eq {pop \fcCurveInit 1 /HandlerNotFound false def} if} if %
+HandlerNotFound{== (ERROR: OBJECT GET NUMBER OF CONTOURS HANDLER NOT FOUND)} if %
+end %
+}%
+
+\newcommand{\fcObjectGetNumPatches}{%
+\fcArrayToStack %
+1 dict begin %
+/HandlerNotFound true def %
+HandlerNotFound{dup (surface) eq {pop \fcSurfaceGetNumPatches /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (curve) eq {pop \fcCurveInit 0 /HandlerNotFound false def} if} if %
+HandlerNotFound{== (ERROR: OBJECT NUMBER OF PATCHES HANDLER NOT FOUND)} if %
+end %
+}%
+
+\newcommand{\fcObjectComputePatchesAndContours}{%
+\fcMarkClean exch
+\fcArrayToStack %
+1 dict begin %
+/HandlerNotFound true def %
+HandlerNotFound{dup (surface) eq {pop \fcSurfaceComputePatchesAndContours /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (curve) eq {pop \fcCurveComputeContour /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
 end %
+\fcMarkCleanCheck
 }%
 
 \newcommand{\fcZBufferBoundingBoxPatchContour}{ %
@@ -1275,10 +1289,10 @@ theZBufferCurrent length {
 /counter counter 1 add def %
 1.1 setlinewidth
 1 0.7 0.7 setrgbcolor 
-thePoint theZBufferCurrent counter get \fcPointIsBehindPatch
+thePoint thePatchCollection theZBufferCurrent counter get get \fcPointIsBehindPatch
 {1 0 0 setrgbcolor 
 }if
-theZBufferCurrent counter get \fcPaintPatchHollowDirectly
+thePatchCollection theZBufferCurrent counter get get \fcPaintPatchHollowDirectly
 }repeat
 thePoint \fcZBufferPaintCellContainingPoint %
 [thePoint \fcCoordsIIIdToPStricks] theNeighborhood \fcIsInForeground
@@ -1348,6 +1362,33 @@ useArrows{[pointLeft 0 get \fcCoordsIIIdToPS] [pointRight 0 get \fcCoordsIIIdToP
 end %
 }
 
+\newcommand{\fcCurveInit}{
+/linewidth exch def
+/colorContour [ 5 2 roll] def
+/useArrows exch () ne def
+/theCurve exch def %
+/tMax exch def %
+/tMin exch def %
+/tIterations \fcPlotPoints\space def %
+}
+
+\newcommand{\fcCurveComputeContour}{
+30 dict begin %
+\fcCurveInit
+/DeltaT tMax tMin sub tIterations div def %
+/t tMin def %
+theContourCollection numContoursComputedSoFar
+[
+tIterations { %
+[theCurve ]
+/t t DeltaT add def %
+}repeat %
+[useArrows colorContour linewidth]
+] 
+put
+end %
+}
+
 \newcommand{\fcComputeSurfacePatch}{
 /oldU u def %
 /oldV v def %
@@ -1369,100 +1410,25 @@ forceForeground %
 /v oldV def %
 }
 
-\newcommand{\fcProcessSurfaceContour}{ %
-%(processing contour) ==
-/DeltaDeltaV DeltaV \fcNumCountourSegmentsPatchV\space div def %
-/DeltaDeltaU DeltaU \fcNumCountourSegmentsPatchU\space div def %
-/u uMin def %
-/counterU -1 def %
-uIterations 1 add{ %
-/counterU counterU 1 add def %
-/v vMin def %
-/patchLeft (empty) def %
-/patchRight (empty) def %
-[
-vIterations { %
-/patchLeftBack patchLeft def %
-/patchRightBack patchRight def %
-/patchLeft counterU uIterations lt {\fcComputeSurfacePatch}{(empty)}ifelse def %
-/patchRight u uMin ne {/uTemp u def /u uOld def  \fcComputeSurfacePatch /u uTemp def}{(empty)}ifelse def %
-/vOld v def %
-[theSurface patchLeft patchRight patchLeftBack patchRightBack]
-\fcNumCountourSegmentsPatchU\space 1 sub{/v v DeltaDeltaV add def [theSurface patchLeft patchRight]} repeat
-/v vOld DeltaV add def %
-}repeat %
-[theSurface patchLeft patchRight]
-[false colorContour 1]
-]
-/thePatchContour exch def %
-/contourIsUnderInvestigation \fcZBufferVparameterPointUnderInvestigation\space pop counterU eq def
-/indexPointUnderInvestigation
-\fcZBufferVparameterPointUnderInvestigation\space exch pop def
-thePatchContour processContour
-/uOld u def %
-/u u DeltaU add def %
-} repeat %
-/v vMin def %
-/counterV -1 def %
-vIterations 1 add{ %
-/counterV counterV 1 add def %
-/u uMin def %
-/patchLeft (empty) def %
-/patchRight (empty) def %
-[
-uIterations { %
-/patchLeftBack patchLeft def %
-/patchRightBack patchRight def %
-/patchLeft counterV vIterations lt {\fcComputeSurfacePatch}{(empty)}ifelse def %
-/patchRight v vMin ne {/vTemp v def /v vOld def  \fcComputeSurfacePatch /v vTemp def}{(empty)}ifelse def %
-/uOld u def %
-[theSurface patchLeft patchRight patchLeftBack patchRightBack]
-\fcNumCountourSegmentsPatchV\space 1 sub{/u u DeltaDeltaU add def [theSurface patchLeft patchRight]} repeat
-/u uOld DeltaU add def %
-}repeat %
-[theSurface patchLeft patchRight]
-[false colorContour 1]
-]
-/thePatchContour exch def %
-/contourIsUnderInvestigation \fcZBufferUparameterPointUnderInvestigation\space pop counterV  eq def
-/indexPointUnderInvestigation
-\fcZBufferUparameterPointUnderInvestigation\space exch pop def
-thePatchContour processContour
-/vOld v def %
-/v v DeltaV add def %
-} repeat %
+\newcommand{\fcSurfaceGetNumContours}{
+30 dict begin
+\fcSurfaceInit %
+uIterations 1 add vIterations 1 add add
+end
 }
 
-\newcommand{\fcProcessCurve}{
-30 dict begin %
-/linewidth exch def
-/colorContour [ 5 2 roll] def
-/useArrows exch () ne def
-/theCurve exch def %
-/tMax exch def %
-/tMin exch def %
-/tIterations \fcPlotPoints\space def %
-/DeltaT tMax tMin sub tIterations div def %
-/t tMin def %
-doTraverseContours{
-[
-tIterations { %
-[theCurve ]
-/t t DeltaT add def %
-}repeat %
-[useArrows colorContour linewidth]
-]
-processContour
-}if
-end %
+\newcommand{\fcSurfaceGetNumPatches}{
+30 dict begin
+\fcSurfaceInit %
+uIterations vIterations mul
+end
 }
 
-\newcommand{\fcProcessSurface}{%
-30 dict begin %
+\newcommand{\fcSurfaceInit}{
 /forceForeground exch def
-/colorContour [ 5 2 roll] def
-/colorVUpatch [5 2 roll ] def
-/colorUVpatch [5 2 roll ] def
+/colorContour exch def
+/colorVUpatch exch def
+/colorUVpatch exch def
 /vIterations exch def %
 /uIterations exch def %
 /theSurface exch def %
@@ -1470,23 +1436,94 @@ end %
 /uMax exch def %
 /vMin exch def %
 /uMin exch def %
+}
+
+\newcommand{\fcSurfaceComputePatchesAndContours}{%
+30 dict begin %
+\fcSurfaceInit
+\fcMarkClean
 /DeltaU uMax uMin sub uIterations div def %
 /DeltaV vMax vMin sub vIterations div def %
-doTraversePatches{
+/getPatchIndex {exch vIterations mul add numPatchesComputedSoFar add} def
+/accountPatch {getPatchIndex dup thePatchCollection exch get (empty) eq {thePatchCollection exch 3 -1 roll put}{pop pop}ifelse 
+} def
+/DeltaDeltaV DeltaV \fcNumCountourSegmentsPatchV\space div def %
+/DeltaDeltaU DeltaU \fcNumCountourSegmentsPatchU\space div def %
+% % % % % % % % % % % % % % % % % % % % %
+%process uv-contours
 /u uMin def %
-uIterations { %
+/counterU -1 def %
+uIterations 1 add{ %
+/counterU counterU 1 add def %
+/counterV -1 def %
 /v vMin def %
-vIterations{ %
-\fcComputeSurfacePatch %
-processPatch %
-/v v DeltaV add def %
+/patchLeftIndex (empty) def %
+/patchRightIndex (empty) def %
+[
+vIterations { %
+/counterV counterV 1 add def
+/patchLeftBackIndex patchLeftIndex def %
+/patchRightBackIndex patchRightIndex def %
+/patchLeftIndex counterU uIterations lt 
+{\fcComputeSurfacePatch counterU counterV accountPatch counterU counterV getPatchIndex}
+{(empty)}
+ifelse def %
+/patchRightIndex counterU 0 ne {counterU 1 sub counterV getPatchIndex}
+{(empty)} ifelse def %
+/vOld v def %
+[theSurface patchLeftIndex patchRightIndex patchLeftBackIndex patchRightBackIndex]
+\fcNumCountourSegmentsPatchU\space 1 sub{/v v DeltaDeltaV add def [theSurface patchLeftIndex patchRightIndex]} repeat
+/v vOld DeltaV add def %
 }repeat %
+[theSurface patchLeftIndex patchRightIndex]
+[false colorContour 1]
+]
+/thePatchContour exch def %
+%/contourIsUnderInvestigation \fcZBufferVparameterPointUnderInvestigation\space pop counterU eq def
+%/indexPointUnderInvestigation
+%\fcZBufferVparameterPointUnderInvestigation\space exch pop def
+theContourCollection counterU numContoursComputedSoFar add thePatchContour put
+/uOld u def %
 /u u DeltaU add def %
-}repeat %
-}if
-doTraverseContours{ %
-\fcProcessSurfaceContour
-} if %
+} repeat %
+% % % % % % % % % % % % % % % % % % % % %
+%process vu-contours
+/v vMin def %
+/counterV -1 def %
+vIterations 1 add{ %
+  /counterV counterV 1 add def %
+  /counterU -1 def
+  /u uMin def %
+  /patchLeftIndex (empty) def %
+  /patchRightIndex (empty) def %
+  [
+  uIterations { %
+  /counterU counterU 1 add def
+  /patchLeftBackIndex patchLeftIndex def %
+  /patchRightBackIndex patchRightIndex def %
+  /patchLeftIndex counterV vIterations lt 
+  {counterU counterV getPatchIndex}
+  {(empty)}
+  ifelse 
+  def %
+  /patchRightIndex counterV 0 ne {counterU counterV 1 sub getPatchIndex} {(empty)} ifelse def %
+  /uOld u def %
+  [theSurface patchLeftIndex patchRightIndex patchLeftBackIndex patchRightBackIndex]
+  \fcNumCountourSegmentsPatchV\space 1 sub{/u u DeltaDeltaU add def [theSurface patchLeftIndex patchRightIndex]} repeat
+  /u uOld DeltaU add def %
+  }repeat %
+  [theSurface patchLeftIndex patchRightIndex] 
+  [false colorContour 1]
+  ]
+  /thePatchContour exch def %
+  %/contourIsUnderInvestigation \fcZBufferUparameterPointUnderInvestigation\space pop counterV  eq def
+  %/indexPointUnderInvestigation
+  %\fcZBufferUparameterPointUnderInvestigation\space exch pop def
+  theContourCollection uIterations 1 add counterV add numContoursComputedSoFar add thePatchContour put
+  /vOld v def %
+  /v v DeltaV add def %
+} repeat %
+\fcMarkCleanCheck
 end %
 }%
 
@@ -1521,15 +1558,15 @@ end%
 %[umin vmin umax vmax 
 %[x(u,v) y(u,v) z(u,v)] coordinate functions 
 %uIterations vIterations   %number of curvilinear u,v-segments
-%red green blue %color of patches whose u,v-side is visible
-%red green blue %color of patches whose v,u-side is visible
-%red green blue %color of contours
+%[red green blue] %color of patches whose u,v-side is visible
+%[red green blue] %color of patches whose v,u-side is visible
+%[red green blue] %color of contours
 % foregroundstatus %true or false 
 %(surface)]. 
 \newcommand{\fcSurfaceInScene}[6][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
-[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcIterationsU\space \fcIterationsV \space \fcGetColorCode{\fcColorPatchUV} \space  \fcGetColorCode{\fcColorPatchVU} \space  \fcGetColorCode{\fcColorLine}\space  \fcForceForeground\space (surface)] ]/theIIIdObjects exch def}%
+[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcIterationsU\space \fcIterationsV \space [\fcGetColorCode{\fcColorPatchUV}] \space  [\fcGetColorCode{\fcColorPatchVU}] \space  [\fcGetColorCode{\fcColorLine}]\space  \fcForceForeground\space (surface)] ]/theIIIdObjects exch def}%
 }%
 
 \newcommand{\fcCurveIIIdNoSceneCode}{%
@@ -1552,11 +1589,8 @@ end %
 {\fcZBufferBoundingBoxPoint} forall
 }
 
-\newcommand{\fcZBufferPolyline}{ %
-{\fcZBufferAccountPoint} \fcSpliceArrayOperation pop
-}
-
 \newcommand{\fcContains}{ %
+%format: theElement theArray -> true if theElement is in the array, false else.
 3 dict begin %
 /theArray exch def %
 /theElement exch def %
@@ -1593,14 +1627,13 @@ areEqual
 end
 }
 
-\newcommand{\fcZBufferAccountPatchXY}{ %
+\newcommand{\fcZBufferAccountPatchIndexAtXY}{ %
 %(patch row col: ) print x == y ==
 5 dict begin %
 /currentArray theZBuffer row get column get def %
 /counter 0 def %
-true %
-currentArray length {currentArray counter get thePatch \fcAreEqual {pop false exit}if /counter counter 1 add def} repeat
-{ theZBuffer row get column [currentArray \fcArrayToStack thePatch ] put}if
+thePatchIndex currentArray \fcContains not
+{theZBuffer row get column [currentArray \fcArrayToStack thePatchIndex ] put}if
 end %
 }
 
@@ -1631,13 +1664,13 @@ put
 end 
 }
 
-\newcommand{\fcLeftPatchIsGreaterThanRight}[1]{
+\newcommand{\fcLeftPatchIndexGreaterPatchThanRight}[1]{
 %this function compares two patches:
 /LeftGreaterThanRight
 {
 6 dict begin 
-/rightPatch exch def
-/leftPatch exch def
+/rightPatch exch thePatchCollection exch get def
+/leftPatch exch thePatchCollection exch get def
 rightPatch \fcPatchGetForcedForegroundStatus leftPatch \fcPatchGetForcedForegroundStatus not and {true}{
 leftPatch \fcPatchGetForcedForegroundStatus rightPatch \fcPatchGetForcedForegroundStatus not and
 {false}{
@@ -1676,7 +1709,7 @@ def
 
 \newcommand{\fcZBufferSort}{
 3 dict begin
-\fcLeftPatchIsGreaterThanRight{1}
+\fcLeftPatchIndexGreaterPatchThanRight{1}
 /row -1 def
 theZBuffer length{
 /row row 1 add def
@@ -1699,7 +1732,7 @@ theZBuffer length{ %
 theZBuffer row get length{ %
 /column column 1 add def %
 /currentZBuffer theZBuffer row get column get def %
-currentZBuffer {\fcPaintPatchFilledDirectly} forall %
+currentZBuffer {\fcPaintPatchIndexFilledDirectly} forall %
 } repeat%
 }repeat %
 grestore
@@ -1723,6 +1756,10 @@ end
 4 get \fcArrayToStack \space}
 \newcommand{\fcPatchGetColorVU}{5 get \fcArrayToStack \space}
 \newcommand{\fcPatchGetForcedForegroundStatus}{6 get\space}
+
+\newcommand{\fcPaintPatchIndexFilledDirectly}{
+thePatchCollection exch get \fcPaintPatchFilledDirectly
+}
 
 \newcommand{\fcPaintPatchFilledDirectly}{
 1 dict begin
@@ -1767,9 +1804,10 @@ stroke
 end
 }
 
-\newcommand{\fcZBufferPatch}{ %
+\newcommand{\fcZBufferPatchIndex}{ %
 15 dict begin %
-/thePatch exch def %
+/thePatchIndex exch def %
+/thePatch thePatchCollection thePatchIndex get def
 %thePatch \fcPaintPatchHollowDirectly
 /secondPoint thePatch \fcPatchGetvTwo def %
 /firstPoint  thePatch \fcPatchGetvOne def %
@@ -1787,7 +1825,7 @@ secondDirection t iterationsSecond 1 sub div \fcVectorTimesScalar %
 firstComponent \fcVectorPlusVector \fcZBufferRowColumn %
 /column exch def %
 /row exch def %
-\fcZBufferAccountPatchXY %
+\fcZBufferAccountPatchIndexAtXY %
 /t t 1 add def %
 }repeat
 /s s 1 add def %
