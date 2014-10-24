@@ -1,0 +1,33 @@
+\begin{frame}
+\begin{pspicture}(-1, -1)(2,2)
+\fcBoundingBox{-3}{-3}{4}{4} %
+\fcStartIIIdScene%
+\fcSurfaceInScene[iterationsU=33, iterationsV=5]{0}{-1}{360}{1}{%
+[10 dict begin
+/R 2 def
+/r {0.6 v mul} def
+/theta u def
+/phi {u 0.5 mul} def
+/A {phi cos r mul R add} def
+theta cos A mul theta sin A mul phi sin r mul
+end %
+]%
+}%
+\fcSurfaceInScene[iterationsU=33, iterationsV=5, colorUV=cyan, colorVU=blue]{0}{-1}{360}{1}{%
+[[0 0 1] [0 1 0] [1 0 0] ]
+[10 dict begin
+/R 2 def
+/r {0.6 v mul} def
+/theta u def
+/phi {u 0.5 mul} def
+/A {phi cos r mul R add} def
+theta cos A mul theta sin A mul phi sin r mul
+end %
+] \fcMatrixTimesVector [-1.1 -1.1 0] \fcVectorPlusVector
+%
+}%
+%\fcLineIIIdInScene[linewidth=2, linecolor=cyan]{[-1 -1 -1]}{[1 1 1]}
+\fcFinishIIIdScene %
+%\fcAxesIIId{4}{4}{4}
+\end{pspicture}
+\end{frame}
