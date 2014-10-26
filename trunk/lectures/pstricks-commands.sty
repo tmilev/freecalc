@@ -798,21 +798,24 @@ end %
 
 \newcommand{\fcPointIsBehindPatch}{ %
 %a patch is assumed to be on the top of the stack
-9 dict begin %
+12 dict begin %
 /thePatch exch def
 /point exch def
-/v2 thePatch \fcPatchGetvTwo def %
-/v1 thePatch \fcPatchGetvOne def %
 /v0 thePatch \fcPatchGetvZero def %
-/normal1 v1 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
-/normal2 v2 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
+/v1 thePatch \fcPatchGetvOne def %
+/v2 thePatch \fcPatchGetvTwo def %
+/v3 thePatch \fcPatchGetvThree def %
+/normalLeft v1 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
+/normalRight v3 v2 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
+/normalBottom v2 v0 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
+/normalTop v3 v1 \fcVectorMinusVector \fcScreen\space pop \fcVectorCrossVector def %
 /patchNormal v1 v0 \fcVectorMinusVector v2 v0 \fcVectorMinusVector \fcVectorCrossVector def %
-point v0 \fcVectorMinusVector normal1 \fcVectorScalarVector %
-v2 point \fcVectorMinusVector normal1 \fcVectorScalarVector %
-mul 0 gt { %
-point v0 \fcVectorMinusVector normal2 \fcVectorScalarVector %
-v1 point \fcVectorMinusVector normal2 \fcVectorScalarVector %
-mul 0 gt %
+point v0 \fcVectorMinusVector normalLeft \fcVectorScalarVector %
+v2 point \fcVectorMinusVector normalRight \fcVectorScalarVector %
+mul 0 ge { %
+point v0 \fcVectorMinusVector normalBottom \fcVectorScalarVector %
+v1 point \fcVectorMinusVector normalTop \fcVectorScalarVector %
+mul 0 ge %
 { %
 point v0 \fcVectorMinusVector patchNormal \fcVectorScalarVector %
 \fcScreen\space pop patchNormal \fcVectorScalarVector %
@@ -1146,6 +1149,15 @@ theContourCollection{(empty) eq {(ERROR: declared contour not computed!)}if }for
 thePatchIndices {\fcPaintPatchIndexFilledDirectly} forall
 }
 
+\newcommand{\fcPaintPatchLabels}{
+/counter -1 def
+0 0 0 setrgbcolorVirtual
+thePatchCollection length 
+{/counter counter 1 add def
+counter thePatchCollection counter get \fcPatchPaintLabel
+}repeat
+}
+
 \newcommand{\fcPaintContours}{
 theContourCollection{\fcPaintContour} forall %
 }
@@ -1163,12 +1175,8 @@ currentZBuffer length{
 counterI counterJ ne{
 /leftIndex currentZBuffer counterI get def
 /rightIndex currentZBuffer counterJ get def
-(comparing: )==
-leftIndex ==
-rightIndex ==
-leftIndex rightIndex LeftGreaterThanRight{
+rightIndex leftIndex \fcLeftPatchIsBehindOrPatchesIntersect{
 rightIndex thePatchIncidenceGraph leftIndex get \fcContains not {
-(ere be i 2) ==
 thePatchIncidenceGraph leftIndex
 [ thePatchIncidenceGraph leftIndex get \fcArrayToStack rightIndex
 ]
@@ -1183,7 +1191,6 @@ put
 \newcommand{\fcComputePatchOrder}{
 /thePatchIncidenceGraph [thePatchCollection length {[]}repeat] def
 /rowCounter -1 def
-\fcLeftPatchIndexGreaterPatchThanRight{-1}
 (computing patch order... ) print
 theZBuffer length {
 /rowCounter rowCounter 1 add def
@@ -1202,6 +1209,10 @@ theZBuffer rowCounter get length {
 %thePatchIncidenceGraph shall have one entry for each patch.
 %The entry will consist of a list of all patch indices of 
 %patches that are behind our patch.
+%/counter -1 def
+%/thePatchIndices [thePatchCollection length {/counter counter 1 add def counter} repeat]def
+%thePatchIndices \fcBubbleSort
+%false{
 /thePatchIndices [thePatchCollection length {(empty)} repeat]def
 20 dict begin
 \fcComputePatchOrder
@@ -1224,15 +1235,16 @@ thePatchIncidenceGraph ==
 thePatchIncidenceGraph length {
 /patchIndex patchIndex 1 add def
 accountedPatches patchIndex get not
-{/patchShouldBePainted true def
+{/patchIsNext true def
 /patchBehindIndex -1 def
-thePatchIncidenceGraph patchIndex get length{
+/patchesBehindCurrent thePatchIncidenceGraph patchIndex get def
+patchesBehindCurrent length{
 /patchBehindIndex patchBehindIndex 1 add def
-accountedPatches thePatchIncidenceGraph patchIndex get patchBehindIndex get get not{
-/patchShouldBePainted false def exit
+accountedPatches patchesBehindCurrent patchBehindIndex get get not{
+/patchIsNext false def exit
 }if
 }repeat
-patchShouldBePainted{
+patchIsNext{
 patchIndex accountPatch
 }if
 }if
@@ -1251,7 +1263,10 @@ numAccountedSoFar thePatchIndices length eq{exit} if
 }loop
 (sorting patches done, sorted patches: ) print
 thePatchIndices ==
+(thePatchCollection: ) ==
+thePatchCollection ==
 end
+%}if
 }
 
 \newcommand{\fcFinishIIIdScene}{%
@@ -1288,9 +1303,8 @@ thePatchCollection length { /counter counter 1 add def counter \fcZBufferPatchIn
 \fcSortPatchIndices
 \fcPaintPatches
 \fcPaintContours
+\fcPaintPatchLabels
 % % % % % %
-%(sorting z buffer...) print
-%\fcZBufferSort
 %(z buffer sorted) print %
 % % % % % % % % % % % % % % % % % % % % % % % % % %
 %\fcZBufferPrint %
@@ -1753,61 +1767,151 @@ put
 end 
 }
 
-\newcommand{\fcLeftPatchIndexGreaterPatchThanRight}[1]{
-%this function compares two patches:
-/LeftGreaterThanRight
+\newcommand{\fcGaussianElimination}{
+15 dict begin 
+/theMatrix exch def
+/numRows theMatrix length def
+/numCols theMatrix 0 get length def
+/rowIndex 0 def
+/columnIndex -1 def
+{ /columnIndex columnIndex 1 add def
+  columnIndex numCols ge {exit}if
+  /candidateIndex -1 def
+  /counter rowIndex 1 sub def
+  numRows rowIndex sub {
+    /counter counter 1 add def
+    theMatrix counter get columnIndex get 0 ne {/candidateIndex counter def exit}if
+  }repeat
+%  (candidateIndex: ) ==
+%  candidateIndex ==
+  candidateIndex -1 ne{
+%  	(matrix before elimination: ) ==
+%  	theMatrix ==
+    /temp theMatrix rowIndex get def
+    theMatrix rowIndex theMatrix candidateIndex get put
+    theMatrix candidateIndex temp put
+    /pivotRow theMatrix rowIndex get def
+    /theCoeff 1 pivotRow columnIndex get div def
+    /pivotRow pivotRow  theCoeff \fcVectorTimesScalar def
+    theMatrix rowIndex pivotRow put
+    /counter -1 def
+    numRows {
+      /counter counter 1 add def
+      counter rowIndex ne{
+      theMatrix counter get dup columnIndex get pivotRow exch \fcVectorTimesScalar \fcVectorMinusVector theMatrix exch counter exch put
+      }if
+    }repeat
+    /rowIndex rowIndex 1 add def
+  }if
+  rowIndex numRows ge {exit}if
+}loop
+theMatrix
+end\space
+}
+
+\newcommand{\fcLeftSegmentIsBehindAndBothAreSkewORSegmentsIntersect}{
+%Let l1 l2 be the endpoints of the left segment,
+%r1, re - the endpoints of the right.
+%Let pl1, pl2, pr1, pr2 denote the projections onto the viewing 
+%screen of the corresponding endpoints.
+%Let
+%(a,c) be the vector pl1-pl2
+%(b,d) be the vector pr2-pr1
+%(e,f) be the vector pr2-pl2
+%We need to solve the system
+%(a b) (s)= (e)
+%(c d) (t)= (f)
+%The determinant of the system must be non-zero, else the segments are non-skew.
+% the projections of the segments intersect if 0 <= s<=1 
+% and 0<=t<=1.
+%In that case the point on the left segment that projects onto the point of interest is s*l1 +(1-s)l2. The point on the right segment that projects onto the point of interest is t*r1 +(1-t)*r2
+%
+25 dict begin
+\fcArrayToStack
+/r1 exch def 
+/r2 exch def
+\fcArrayToStack
+/l1 exch def
+/l2 exch def
+/pr1 [r1 \fcCoordsIIIdToPStricks] def
+/pr2 [r2 \fcCoordsIIIdToPStricks] def
+/pl1 [l1 \fcCoordsIIIdToPStricks] def
+/pl2 [l2 \fcCoordsIIIdToPStricks] def
+pl1 pl2 \fcVectorMinusVector \fcArrayToStack
+/c exch def
+/a exch def
+pr2 pr1 \fcVectorMinusVector \fcArrayToStack
+/d exch def
+/b exch def
+pr2 pl2 \fcVectorMinusVector \fcArrayToStack
+/f exch def
+/e exch def
+/theMatrix [[a b e][c d f]] \fcGaussianElimination def
+/a theMatrix 0 get 0 get def
+/d theMatrix 1 get 1 get def
+/e theMatrix 0 get 2 get def
+/f theMatrix 1 get 2 get def
+a 0 eq d 0 eq or {false}{
+/s e a div def
+/t f d div def
+s 0 ge s 1 le t 0 ge t 1 le and and and
 {
-6 dict begin 
-/rightPatch exch thePatchCollection exch get def
-/leftPatch exch thePatchCollection exch get def
+/leftPoint l1 s \fcVectorTimesScalar l2 1 s sub \fcVectorTimesScalar \fcVectorPlusVector def
+/rightPoint r1 t \fcVectorTimesScalar r2 1 t sub \fcVectorTimesScalar \fcVectorPlusVector def
+leftPoint  \fcScreen\space pop \fcVectorScalarVector
+rightPoint \fcScreen\space pop \fcVectorScalarVector
+ge
+}
+{false}
+ifelse
+}ifelse
+end
+}
+
+\newcommand{\fcLeftPatchIsBehindOrPatchesIntersect}{
+%this function compares two patches:
+40 dict begin 
+/rightIndex exch def
+/leftIndex exch def
+/rightPatch thePatchCollection rightIndex get def
+/leftPatch thePatchCollection leftIndex get def
 rightPatch \fcPatchGetForcedForegroundStatus leftPatch \fcPatchGetForcedForegroundStatus not and {true}{
 leftPatch \fcPatchGetForcedForegroundStatus rightPatch \fcPatchGetForcedForegroundStatus not and
 {false}{
-/numBlockedLeft 0 def
-/numBlockedRight 0 def
-leftPatch \fcPatchGetvZero  rightPatch \fcPointIsBehindPatch {/numBlockedLeft numBlockedLeft 1 add def}if
-leftPatch \fcPatchGetvOne   rightPatch \fcPointIsBehindPatch
-{/numBlockedLeft numBlockedLeft 1 add def}if
-leftPatch \fcPatchGetvTwo   rightPatch \fcPointIsBehindPatch
-{/numBlockedLeft numBlockedLeft 1 add def}if
-leftPatch \fcPatchGetvThree rightPatch \fcPointIsBehindPatch
-{/numBlockedLeft numBlockedLeft 1 add def}if
-rightPatch \fcPatchGetvZero  leftPatch \fcPointIsBehindPatch
-{/numBlockedRight numBlockedRight 1 add def}if
-rightPatch \fcPatchGetvOne   leftPatch \fcPointIsBehindPatch
-{/numBlockedRight numBlockedRight 1 add def}if
-rightPatch \fcPatchGetvTwo   leftPatch \fcPointIsBehindPatch
-{/numBlockedRight numBlockedRight 1 add def}if
-rightPatch \fcPatchGetvThree leftPatch \fcPointIsBehindPatch
-{/numBlockedRight numBlockedRight 1 add def}if
-numBlockedLeft numBlockedRight ne { numBlockedLeft numBlockedRight gt}
-{
-/v0right rightPatch \fcPatchGetvZero def %base point of patch extracted
-/v0left leftPatch \fcPatchGetvZero def %base point of patch extracted
-v0left \fcScreen\space pop \fcVectorScalarVector 
-v0right \fcScreen\space pop \fcVectorScalarVector 
-gt
+/lv0 leftPatch \fcPatchGetvZero def
+/lv1 leftPatch \fcPatchGetvOne def
+/lv2 leftPatch \fcPatchGetvTwo def
+/lv3 leftPatch \fcPatchGetvThree def
+/rv0 rightPatch \fcPatchGetvZero def
+/rv1 rightPatch \fcPatchGetvOne def
+/rv2 rightPatch \fcPatchGetvTwo def
+/rv3 rightPatch \fcPatchGetvThree def
+/ls0 [lv0 lv1] def 
+/ls1 [lv1 lv3] def 
+/ls2 [lv2 lv3] def 
+/ls3 [lv0 lv2] def 
+/rs0 [rv0 rv1] def 
+/rs1 [rv1 rv3] def 
+/rs2 [rv2 rv3] def 
+/rs3 [rv0 rv2] def 
+/result false def
+{ lv0 rightPatch \fcPointIsBehindPatch {/result true def exit }if
+  lv1 rightPatch \fcPointIsBehindPatch {/result true def exit }if
+  lv2 rightPatch \fcPointIsBehindPatch {/result true def exit }if
+  lv3 rightPatch \fcPointIsBehindPatch {/result true def exit }if
+  [ls0 ls1 ls2 ls3] 
+  { [rs0 rs1 rs2 rs3]
+    { %(printint stack) == pstack (printing stack done ) == 
+      exch dup 3 -1 roll \fcLeftSegmentIsBehindAndBothAreSkewORSegmentsIntersect{/result true def exit}if 
+    }forall 
+    pop 
+    result {exit}if
+  }forall 
+  exit
+}loop
+result
 }ifelse
 }ifelse
-}ifelse
-#1\space 0 lt {not}if
-end
-}
-def
-}
-
-\newcommand{\fcZBufferSort}{
-3 dict begin
-\fcLeftPatchIndexGreaterPatchThanRight{1}
-/row -1 def
-theZBuffer length{
-/row row 1 add def
-/column -1 def
-theZBuffer row get length{
-/column column 1 add def
-theZBuffer row get column get \fcBubbleSort
-}repeat
-}repeat
 end
 }
 
@@ -1847,10 +1951,38 @@ end
 \newcommand{\fcPatchGetForcedForegroundStatus}{6 get\space}
 
 \newcommand{\fcPaintPatchIndexFilledDirectly}{
-thePatchCollection exch get \fcPaintPatchFilledDirectly
+thePatchCollection exch get \fcPatchPaintFilledDirectly
 }
 
-\newcommand{\fcPaintPatchFilledDirectly}{
+\newcommand{\fcPatchGetPoint}{
+1 dict begin
+/thePatch exch def %
+thePatch \fcPatchGetvZero
+thePatch \fcPatchGetvOne
+thePatch \fcPatchGetvTwo
+thePatch \fcPatchGetvThree
+\fcVectorPlusVector
+\fcVectorPlusVector
+\fcVectorPlusVector
+0.25 \fcVectorTimesScalar
+end
+}
+
+\newcommand{\fcPatchPaintLabel}{
+3 dict begin
+/thePatch exch def
+20 string cvs 
+/Times-Roman findfont
+4 scalefont
+setfont
+newpath
+thePatch \fcPatchGetPoint \fcCoordsIIIdToPS moveto
+show
+stroke
+end
+}
+
+\newcommand{\fcPatchPaintFilledDirectly}{
 1 dict begin
 /thePatch exch def %
 %(thePatch: ) ==
