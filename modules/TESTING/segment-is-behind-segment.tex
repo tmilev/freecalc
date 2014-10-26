@@ -1,0 +1,23 @@
+\begin{frame}
+
+
+\begin{pspicture}(-1,-1)(1,1)
+\fcAxesIIId{2}{2}{2}
+\pstVerb{
+/a1 [0 0 0] def
+}
+\fcLineIIId[linecolor=red]{[0 0 0]}{[2 2 0]}
+\fcLineIIId[linecolor=red]{[0 1 0]} { [0 1 2]}
+\fcLineIIId[linecolor=red]{[0 1.5 -2]} { [0 1.5 2]}
+
+\pstVerb{
+[[0 1 0] [0 1 2]] [[0 0 0] [2 2 0]] \fcLeftSegmentIsBehindAndBothAreSkewORSegmentsIntersect == 
+[[0 1 0] [0 1 2]] [ [ 0 0 0] [0 1 2]]
+\fcLeftSegmentIsBehindAndBothAreSkewORSegmentsIntersect == 
+[[0 1.5 -2] [0 1.5 2]] [ [0 0 0] [2 2 0]]
+\fcLeftSegmentIsBehindAndBothAreSkewORSegmentsIntersect == 
+[[0 0 0] [2 2 0]] [ [0 1.5 -2] [0 1.5 2] ]
+\fcLeftSegmentIsBehindAndBothAreSkewORSegmentsIntersect == 
+}
+\end{pspicture}
+\end{frame}
