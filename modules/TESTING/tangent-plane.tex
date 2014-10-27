@@ -7,14 +7,14 @@
 /theEllipsoidTop {[u v u 2 div dup mul v 1.5 div dup mul add 1 exch sub sqrt]} def%
 /basePoint 2 dict begin /u 1 def /v 0 def theEllipsoidTop end def%
 /tangent1 [0 1 0] def%
-/tangent2 [1 0 -0.5] def% 
+/tangent2 [1 0 3 sqrt 6 div -1 mul] def% 
 }%
 \fcStartIIIdScene%
+\fcSurfaceInScene[linecolor=red, iterationsU=7, iterationsV=8, colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]{-1.4 }{ -1 }{1.4}{1}{theEllipsoidTop}%
 \fcSurfaceInScene[linecolor=orange,iterationsU=2,iterationsV=2,colorVU=cyan,colorUV=cyan]{-2}{-2}{2}{2}{%
 3 dict begin %
 basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector end%
 }%
-\fcSurfaceInScene[linecolor=red, iterationsU=7, iterationsV=8, colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]{-1.4 }{ -1 }{1.4}{1}{theEllipsoidTop}%
 \fcFinishIIIdScene%
 \fcAxesIIId{3}{3}{3}%
 \pstVerb{end}%

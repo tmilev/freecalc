@@ -1,6 +1,6 @@
 \ProvidesPackage{pstricks-commands}
 \usepackage{etex, ifthen}
-\usepackage %[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -688,7 +688,9 @@ stroke %
   end%
 }%
 \fcIterationsU\space \fcIterationsV\space %
-\fcGetColorCode{\fcColorPatchUV}\space \fcGetColorCode{\fcColorPatchVU}\space \fcGetColorCode{\fcColorLine}\space false (surface)]]%
+[\fcGetColorCode{\fcColorPatchUV}] 
+[\fcGetColorCode{\fcColorPatchVU}] 
+[\fcGetColorCode{\fcColorLine}] false (surface)]]%
 def%
 }%
 }
@@ -1164,9 +1166,9 @@ theContourCollection{\fcPaintContour} forall %
 
 \newcommand{\fcProcessCurrentZBuffer}{
 /counterI -1 def
-(ere be i 1) ==
-(currentZBuffer is: ) ==
-currentZBuffer ==
+%(ere be i 1) ==
+%(currentZBuffer is: ) ==
+%currentZBuffer ==
 currentZBuffer length {
 /counterI counterI 1 add def
 /counterJ -1 def
@@ -1175,7 +1177,7 @@ currentZBuffer length{
 counterI counterJ ne{
 /leftIndex currentZBuffer counterI get def
 /rightIndex currentZBuffer counterJ get def
-rightIndex leftIndex \fcLeftPatchIsBehindOrPatchesIntersect{
+rightIndex leftIndex \fcLeftPatchIsBehind{
 rightIndex thePatchIncidenceGraph leftIndex get \fcContains not {
 thePatchIncidenceGraph leftIndex
 [ thePatchIncidenceGraph leftIndex get \fcArrayToStack rightIndex
@@ -1198,6 +1200,10 @@ theZBuffer length {
 theZBuffer rowCounter get length {
 /columnCounter columnCounter 1 add def
 /currentZBuffer theZBuffer rowCounter get columnCounter get def
+% % % % %
+(processing z-buffer row, column:) print rowCounter == columnCounter ==
+(out of: ) print theZBuffer length == theZBuffer rowCounter get length ==
+% % % % %
 \fcProcessCurrentZBuffer
 }repeat
 }repeat
@@ -1261,10 +1267,10 @@ accountedPatches patchIndex get not
 }if
 numAccountedSoFar thePatchIndices length eq{exit} if
 }loop
-(sorting patches done, sorted patches: ) print
-thePatchIndices ==
-(thePatchCollection: ) ==
-thePatchCollection ==
+(sorting patches done) print
+%thePatchIndices ==
+%(thePatchCollection: ) ==
+%thePatchCollection ==
 end
 %}if
 }
@@ -1303,7 +1309,7 @@ thePatchCollection length { /counter counter 1 add def counter \fcZBufferPatchIn
 \fcSortPatchIndices
 \fcPaintPatches
 \fcPaintContours
-\fcPaintPatchLabels
+%\fcPaintPatchLabels
 % % % % % %
 %(z buffer sorted) print %
 % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -1669,7 +1675,11 @@ end%
 \newcommand{\fcSurfaceInScene}[6][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
-[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcIterationsU\space \fcIterationsV \space [\fcGetColorCode{\fcColorPatchUV}] \space  [\fcGetColorCode{\fcColorPatchVU}] \space  [\fcGetColorCode{\fcColorLine}]\space  \fcForceForeground\space (surface)] ]/theIIIdObjects exch def}%
+[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} \fcIterationsU\space \fcIterationsV 
+[\fcGetColorCode{\fcColorPatchUV}] 
+[\fcGetColorCode{\fcColorPatchVU}]
+[\fcGetColorCode{\fcColorLine}]
+\fcForceForeground\space (surface)] ]/theIIIdObjects exch def}%
 }%
 
 \newcommand{\fcCurveIIIdNoSceneCode}{%
@@ -1809,7 +1819,7 @@ theMatrix
 end\space
 }
 
-\newcommand{\fcLeftSegmentIsBehindAndBothAreSkewORSegmentsIntersect}{
+\newcommand{\fcLeftSegmentIsBehindSegmentsAreSkew}{
 %Let l1 l2 be the endpoints of the left segment,
 %r1, re - the endpoints of the right.
 %Let pl1, pl2, pr1, pr2 denote the projections onto the viewing 
@@ -1854,7 +1864,7 @@ pr2 pl2 \fcVectorMinusVector \fcArrayToStack
 a 0 eq d 0 eq or {false}{
 /s e a div def
 /t f d div def
-s 0 ge s 1 le t 0 ge t 1 le and and and
+s 0 gt s 1 lt t 0 gt t 1 lt and and and
 {
 /leftPoint l1 s \fcVectorTimesScalar l2 1 s sub \fcVectorTimesScalar \fcVectorPlusVector def
 /rightPoint r1 t \fcVectorTimesScalar r2 1 t sub \fcVectorTimesScalar \fcVectorPlusVector def
@@ -1865,6 +1875,17 @@ ge
 {false}
 ifelse
 }ifelse
+end
+}
+
+\newcommand{\fcLeftPatchIsBehind}{
+2 dict begin
+/rightIndex exch def 
+/leftIndex exch def 
+leftIndex rightIndex \fcLeftPatchIsBehindOrPatchesIntersect
+{ rightIndex leftIndex \fcLeftPatchIsBehindOrPatchesIntersect not
+}
+{false}ifelse
 end
 }
 
@@ -1895,14 +1916,14 @@ leftPatch \fcPatchGetForcedForegroundStatus rightPatch \fcPatchGetForcedForegrou
 /rs2 [rv2 rv3] def 
 /rs3 [rv0 rv2] def 
 /result false def
-{ lv0 rightPatch \fcPointIsBehindPatch {(pt behind patch: ) == lv0 == /result true def exit }if
-  lv1 rightPatch \fcPointIsBehindPatch {(pt behind patch: ) == lv1 == /result true def exit }if
-  lv2 rightPatch \fcPointIsBehindPatch {(pt behind patch: ) == lv2 == /result true def exit }if
-  lv3 rightPatch \fcPointIsBehindPatch {(pt behind patch: ) == lv3 == /result true def exit }if
+{ lv0 rightPatch \fcPointIsBehindPatch {/result true def exit }if
+  lv1 rightPatch \fcPointIsBehindPatch {/result true def exit }if
+  lv2 rightPatch \fcPointIsBehindPatch {/result true def exit }if
+  lv3 rightPatch \fcPointIsBehindPatch {/result true def exit }if
   [ls0 ls1 ls2 ls3] 
   { [rs0 rs1 rs2 rs3]
     { %(printint stack) == pstack (printing stack done ) == 
-      exch dup 3 -1 roll \fcLeftSegmentIsBehindAndBothAreSkewORSegmentsIntersect{/result true def exit}if 
+      exch dup 3 -1 roll \fcLeftSegmentIsBehindSegmentsAreSkew{/result true def exit}if 
     }forall 
     pop 
     result {exit}if
