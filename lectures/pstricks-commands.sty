@@ -1895,10 +1895,10 @@ leftPatch \fcPatchGetForcedForegroundStatus rightPatch \fcPatchGetForcedForegrou
 /rs2 [rv2 rv3] def 
 /rs3 [rv0 rv2] def 
 /result false def
-{ lv0 rightPatch \fcPointIsBehindPatch {/result true def exit }if
-  lv1 rightPatch \fcPointIsBehindPatch {/result true def exit }if
-  lv2 rightPatch \fcPointIsBehindPatch {/result true def exit }if
-  lv3 rightPatch \fcPointIsBehindPatch {/result true def exit }if
+{ lv0 rightPatch \fcPointIsBehindPatch {(pt behind patch: ) == lv0 == /result true def exit }if
+  lv1 rightPatch \fcPointIsBehindPatch {(pt behind patch: ) == lv1 == /result true def exit }if
+  lv2 rightPatch \fcPointIsBehindPatch {(pt behind patch: ) == lv2 == /result true def exit }if
+  lv3 rightPatch \fcPointIsBehindPatch {(pt behind patch: ) == lv3 == /result true def exit }if
   [ls0 ls1 ls2 ls3] 
   { [rs0 rs1 rs2 rs3]
     { %(printint stack) == pstack (printing stack done ) == 

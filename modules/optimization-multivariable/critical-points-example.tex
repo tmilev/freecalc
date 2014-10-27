@@ -1,59 +1,38 @@
 \begin{frame}
-  \frametitle{Example}
-
-Find the extreme points of $f(x,y) = x^4+y^4-4xy$ on $D=\mathbb{R}^2$.
-
+\begin{example}
+Find the critical points of $f(x,y) = x^4+y^4-4xy$ on $D=\mathbb{R}^2$.
 \begin{itemize}
-  \item \pause  All points are interior points%
-  %, so there are no boundary points included in the domain.
+\item \pause All points are interior; \pause the function is differentiable everywhere.
+\item \pause It remains to find the points $(x,y)$ for which $f_x(x,y)=f_y(x,y)=0$.
+\[
+\left| 
+\begin{array}{ll}
+f_x(x,y) & = 0 \\
+f_y(x,y) & = 0
+\end{array}
+\right.
+\Longleftrightarrow
+\left| \begin{array}{ll}
+4x^3-4y & = 0 \\
+4y^3-4x & = 0
+\end{array}
+\right.
+\Longleftrightarrow
+\left| \begin{array}{ll}
+x^3 & = y \\
+y^3 & = x
+\end{array}
+\right. \]
   %
-  \item \pause The function is differentiable everywhere
-  %, so directional derivatives exist at all points.
-  %
-  \item \pause It remains to check the points $(x,y)$ for which $f_x(x,y)=f_y(x,y)=0$.
-  %
-  $$\left\{ \begin{array}{ll}
-    f_x(x,y) & = 0 \\
-    %
-    f_y(x,y) & = 0
-  \end{array}
-  \right.
-  %
-  \Longleftrightarrow
-  %
-  \left\{ \begin{array}{ll}
-    4x^3-4y & = 0 \\
-    %
-    4y^3-4x & = 0
-  \end{array}
-  \right.
-  %
-  \Longleftrightarrow
-  %
-  \left\{ \begin{array}{ll}
-    x^3 & = y \\
-    %
-    y^3 & = x
-  \end{array}
-  \right. $$
-  %
-  \item \pause Solve the system.
-  \begin{itemize}
-    \item \pause Bad news: \pause This is a non-linear system, and there is no general method for solving non-linear systems.
-    %
-    \item \pause Good news: \pause THIS system is not that bad.\pause
-  \end{itemize}
-  %
-  There are THREE values of $x$ that work:
-  %
-  \begin{align*}
-    x=0 \Longrightarrow y=0 \Longrightarrow \text{ Point } (0,0)\\
-    %
-    x=1 \Longrightarrow y=1 \Longrightarrow \text{ Point } (1,1) \\
-    %
-    x=-1 \Longrightarrow y=-1 \Longrightarrow \text{ Point } (-1,-1)
-  \end{align*}
-  %
-  \pause Typical mistake: \pause $x^9 = x \Longleftrightarrow x^8=1$.
+\item \pause This system is a non-linear, haven't studied methods for those. \pause This system can be solved using ad-hoc methods.\pause
+\item 
+There are three values of $x$ that work:
+\begin{align*}
+x=0 \Longrightarrow y=0 \Longrightarrow \text{ Point } (0,0)\\
+x=1 \Longrightarrow y=1 \Longrightarrow \text{ Point } (1,1) \\
+x=-1 \Longrightarrow y=-1 \Longrightarrow \text{ Point } (-1,-1)
+\end{align*}
+\pause Typical mistake: \pause $x^9 = x \Longleftrightarrow x^8=1$.
 \end{itemize}
+\end{example}
 \end{frame}

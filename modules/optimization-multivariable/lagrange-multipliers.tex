@@ -1,0 +1,26 @@
+\begin{frame}\frametitle{Method of Lagrange Multipliers}
+\begin{problem}
+Find the maximum of a function $G(x,y,z)$ subject to the variable restriction $F(x,y,z)=0$.
+\end{problem}
+\begin{itemize}
+%\item The method for approaching this problem is named after Lagrange.
+\item Let $S=\{(x,y,z)| F(x,y,z)=0 \}$. 
+\item Suppose the max is achieved at $P(x_0,y_0,z_0)$. Let $\fcv r(t)=(x(t), y(t), z(t))$ be a smooth curve on $S$ such that $\fcv r(0)=P$.
+\item Then $G(\fcv r(t))= G(x(t), y(t) ,z(t))$ has maximum at $t=0$. 
+
+\[\begin{array}{rcl}
+\frac{\diff}{\diff t}_{|t=0} \left(G(\fcv r(t)) \right)&=&0 \\
+\left(\frac{\partial G}{\partial x}\frac{\diff x}{\diff t} +
+\frac{\partial G}{\partial y}\frac{\diff y}{\diff t} +
+\frac{\partial G}{\partial z}\frac{\diff z}{\diff t} \right)_{|t=0} &=&0\\
+\nabla G\cdot \fcv r'(0)&=&0
+\end{array}
+\]
+\item Therefore $\nabla G$ is $\perp$ to tangent at $P$ of every curve in $S$  through $P$. 
+\item Therefore $\nabla F(P)$ and $\nabla G(P)$ are parallel, i.e., there exists $\lambda$ s.t.: 
+
+$(\nabla G)(P)= \lambda (\nabla F)(P)$.
+\end{itemize}
+
+
+\end{frame}

@@ -1,30 +1,39 @@
 \begin{frame}
 \begin{example}
-Find the directional derivative of $f(x,y,z) = \ln{(x^2+2y^2-z^2)}$ at $P(2,1,-1)$ in the direction $\fcv{v}=\langle -1,2,1\rangle$.
-\pause
+Find the directional derivative of $f(x,y,z) = \ln{ (x^2+ 2y^2- z^2 )}$ at $P(2,1,-1)$ in the direction $\fcv{v}=\langle -1,2,1\rangle$.
+
+\uncover<2->{
 A unit vector in the direction of $\fcv{v}$ is
-%
-$$\fcv{u} = \frac{1}{|\fcv{v}|} \fcv{v} = \frac{1}{\sqrt{6}} \langle -1,2,1\rangle\; .$$
-%
-\begin{overlayarea}{\textheight}{5cm}
-\only<3>{The partial derivatives are
+\[
+\fcv{u} = \frac{1}{|\fcv{v}|} \fcv{v} = \frac{1}{\sqrt{6}} \langle -1, 2, 1 \rangle\; .
+\]
+}
+%\begin{overlayarea}{\textheight}{5cm}
+\only<3-6>{The partial derivatives are
 \[
 \begin{array}{rcllrcl}
-\frac{\partial f}{\partial x} &=& \frac{2x}{x^2+2y^2-z^2} && \frac{\partial f}{\partial x}(2,1,-1) &=& \frac{4}{5} \\
-\frac{\partial f}{\partial y} &=& \frac{4y}{x^2+2y^2-z^2} && \frac{\partial f}{\partial y}(2,1,-1) &=& \frac{4}{5} \\
-\frac{\partial f}{\partial z} &=&\frac{-2z}{x^2+2y^2-z^2} && \frac{\partial f}{\partial z}(2,1,-1) &=& \frac{2}{5}
+\alert<3,4>{\frac{\partial f}{\partial x}}&\alert<3,4>{=}&  \uncover<4->{\alert<4>{ \frac{ 2 x}{x^2+2y^2-z^2} }}&&  \uncover<5->{\alert<5,6>{ \frac{\partial f}{\partial x}( 2, 1, -1 )}} &\uncover<5->{\alert<5,6>{=}}& \uncover<6->{\alert<6>{ \frac{ 4}{5} }} \\
+\alert<3,4>{\frac{\partial f}{\partial y}} &\alert<3,4>{=}& \uncover<4->{\alert<4>{\frac{ 4 y}{x^2+2y^2-z^2} }}&& \uncover<5->{ \alert<5,6>{ \frac{\partial f}{\partial y}( 2, 1, -1 )}} &\uncover<5->{\alert<5,6>{=}}& \uncover<6->{\alert<6>{ \frac{ 4}{5}}} \\
+\alert<3,4>{\frac{\partial f}{\partial z}} &\alert<3,4>{ =}& \uncover<4->{\alert<4>{\frac{ - 2z }{x^2+2y^2-z^2}}} && \uncover<5->{ \alert<5,6>{ \frac{\partial f}{\partial z}(2,1,-1)}} &\uncover<5->{\alert<5,6>{=}}& \uncover<6->{ \alert<6>{ \frac{2}{5}}}
 \end{array}
 \]
+\[
+\uncover<6->{\alert<6>{\nabla f _{|(x,y,z)=(2,1,-1)} = \left\langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5} \right \rangle }}
+\]
+}
+\only<7->{
+\[
+\nabla f_{|(x,y,z)=(2,1,-1)} = \langle f_x, f_y, f_z \rangle_{|(x,y,z)= (2,1,-1) } = \left\langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\right\rangle
+\]
+\[
+\alert<7>{(D_{\fcv{u}}f)_{|(x,y,z)=(2,1,-1)} = \nabla f_{|(x,y,z)=(2,1,-1)} \cdot \fcv{u} =} \uncover<8->{\alert<8>{ \frac{ \sqrt{6}}{5}}}
+\]
 
-$$\fcv{W}_{f,(2,1,-1)} = \left\langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\right\rangle$$}
-%
-\only<4->{
-%
-$$\fcv{W}_{f,(2,1,-1)} = \langle f_x(2,1,-1), f_y(2,1,-1), f_z(2,1,-1) \rangle = \langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\rangle$$
-%
-$$(D_{\fcv{u}}f)(2,1,-1) = \fcv{W}_{f,(2,1,-1)} \cdot \fcv{u} = \frac{\sqrt{6}}{5}$$
-
-$(D_{\fcv{u}}f)(2,1,-1)>0 \Longrightarrow$ \pause if we start at $(2,1,-1)$ and move in the direction $\fcv{u}$, then $f$ is increasing.}
-  \end{overlayarea}
+\uncover<9->{
+$(D_{\fcv{u}}f)(2,1,-1)>0 $ implies that if we start at $(2, 1, -1)$ and move in the direction $\fcv{u}$, then $f$ is increasing.
+}
+} 
+%\end{overlayarea}
 \end{example}
+\vskip 5cm
 \end{frame}

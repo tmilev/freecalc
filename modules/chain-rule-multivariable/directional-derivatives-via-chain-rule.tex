@@ -1,15 +1,15 @@
 \begin{frame}
 \frametitle{Directional Derivatives via the Chain Rule}
 \begin{itemize}
-  \item Let $f$ differentiable function,
-  \item Let $\fcv{u}=\langle u_1,u_2,u_3 \rangle$, unit vector,
-  \item Let $P(x_0,y_0,z_0)$, point.
+\item Let $f$ differentiable function,
+\item Let $\fcv{u}=\langle u_1,u_2,u_3 \rangle$, unit vector,
+\item Let $P(x_0,y_0,z_0)$, point.
 \end{itemize}
 \uncover<2->{What is the rate of change of $f$ at $P$ in the direction $\fcv{u}$? Answer was studied: directional derivative.}
 
 \uncover<3->{
 \[
-(D_{\fcv{u}}f)(x_0,y_0, z_0) = \frac{\diff}{\diff t}_{|t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)
+(D_{\fcv{u}}f)_{(x,y,z)=(x_0,y_0, z_0)} = \frac{\diff}{\diff t}_{|t=0} f(x_0+tu_1, y_0+tu_2,z_0+tu_3)
 \]
 }
 \end{frame}
@@ -30,20 +30,20 @@ $\left|\begin{array}{rcl}
 \uncover<3->{
 \[
 \begin{array}{r@{~}c@{~}l}
-\displaystyle D_{\fcv u }f(x_0,y_0,z_0)&=&\displaystyle \frac{\diff w}{\diff t}_{|t=0} \\
-\uncover<4->{&= & \displaystyle  \frac{\partial f}{\partial x}(x,y,z)\alert<5>{\frac{\diff x}{\diff t}} + \frac{\partial f}{\partial y}(x,y,z) \alert<6>{\frac{\diff y}{\diff t} } + \frac{\partial f}{\partial z}(x,y,z) \alert<7>{\frac{\diff z}{\diff t} }} \\
-\uncover<5->{&= &\displaystyle  \frac{\partial f}{\partial x}(x,y,z)\alert<5>{u_1} + \frac{\partial f}{\partial y}(x,y,z) \alert<6>{u_2} + \frac{\partial f}{\partial z}(x,y,z)\alert<7->{ u_3} }\\
-\uncover<8->{ &= &\displaystyle  \langle \frac{\partial f}{\partial x}(x,y,z) , \frac{ \partial f}{ \partial y}(x,y,z), \frac{\partial f}{\partial z}(x,y,z)\rangle \cdot \fcv{u}}
+\displaystyle (D_{\fcv u }  f)(x_0,y_0,z_0)&=&\displaystyle \frac{\diff w}{\diff t}_{|t=0} \\
+\uncover<4->{&= &  \displaystyle  \left( \frac{\partial f}{\partial x}\alert<5>{\frac{\diff x}{\diff t}} + \frac{\partial f}{\partial y} \alert<6>{\frac{\diff y}{\diff t} } + \frac{\partial f}{\partial z} \alert<7>{\frac{\diff z}{\diff t} }\right)_{|t=0} } \\
+\uncover<5->{&= &\displaystyle  \alert<9>{\frac{\partial f}{ \partial x}} \alert<5,8>{u_1} + \alert<9>{ \frac{ \partial f}{\partial y}} \alert<6,8>{u_2} + \alert<9>{ \frac{ \partial f}{\partial z}} \alert<7,8>{ u_3} }\\
+\uncover<8->{ &= &\displaystyle \alert<9>{\left \langle \frac{\partial f}{\partial x} , \frac{ \partial f}{ \partial y}, \frac{\partial f}{\partial z}  \right \rangle } \cdot \alert<8>{ \fcv{u}}}
 \end{array}
 \]
 }
-\uncover<9->{
-Let $\fcv{W}_{f,(x_0,y_0,z_0)} =\langle \frac{\partial f}{\partial x}(x_0,y_0,z_0) , \frac{\partial f}{\partial y}(x_0,y_0,z_0), \frac{\partial f}{\partial z}(x_0,y_0,z_0)\rangle$
-}
 \uncover<10->{
+Let $\nabla f =\langle \frac{\partial f}{\partial x} , \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle$.
+}
+\uncover<11->{
 Then
 \[
-(D_{\fcv{u}}f)(x_0,y_0,z_0) = \frac{\diff w}{\diff t}_{|t=0} = \fcv{W}_{f,(x_0,y_0,z_0)} \cdot \fcv{u}\; .
+(D_{\fcv{u}}f)= \frac{\diff w}{\diff t}_{|t=0} = \nabla f \cdot \fcv{u}\; .
 \]
 }
 \end{frame}
