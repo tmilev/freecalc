@@ -1,32 +1,24 @@
 \begin{frame}
-  \frametitle{Gravity and Gradient}
-
-  Object at $(x_0,y_0,z_0 = f(x_0,y_0))$, moves along surface $z=f(x,y)$
-  \pause
-
-  Force: Component of $\textbf{G}= -mg\; \textbf{k}$ tangent to the surface
-
-  \pause
-  Normal to surface:
-  %
-  $$\textbf{n} = \langle -f_x(x_0,y_0), -f_y(x_0,y_0), 1\rangle = -\nabla f + \textbf{k}$$
-  \pause
-  $$\textbf{F} = \textbf{orth}_{\bm{n}} \textbf{G} =
-  -mg \; \textbf{orth}_{\bm{n}} \textbf{k}$$
-  \pause
-  $$\textbf{orth}_{\bm{n}} \textbf{k} =
-  \textbf{k} - \textbf{proj}_{\bm{n}} \textbf{k} =
-  \textbf{k} - \frac{\textbf{k}\cdot \textbf{n}}{|\textbf{n}|^2} \, \textbf{n} =
-  \textbf{k} - \frac{1}{|\textbf{n}|^2} (-\nabla f + \textbf{k})
-  $$
+\frametitle{Gravity and Gradient}
+\begin{itemize}
+\item Let an object move along surface $z=f(x,y)$.
+\item Let gravity $\fcv G$ be constant, $\fcv{G}= -mg\; \fcv{k}$. 
+\item  Normal to surface:
+$$\fcv{n} = \langle -f_x(x_0,y_0), -f_y(x_0,y_0), 1\rangle = -\nabla f + \fcv{k}$$
+\item Let $\fcv F$ be the component of $\fcv G$ effectively acting on the object. Object is restricted to the surface $\Rightarrow$ $\fcv F$ is the component of $\fcv G$ tangent to the surface.
+\[\begin{array}{rcl}
+\fcv{F} &=& \fcv{orth}_{\bm{n}} \fcv{G} = -mg \; \fcv{orth}_{\bm{n}} \fcv{k}\\
+\fcv{orth}_{\bm{n}} \fcv{k} &=& \fcv{k} - \fcv{proj}_{\bm{n}} \fcv{k} = \fcv{k} - \frac{\fcv{k}\cdot \fcv{n}}{|\fcv{n}|^2} \, \fcv{n} = \fcv{k} - \frac{1}{|\fcv{n}|^2} (-\nabla f + \fcv{k})
+\end{array}  
+\]
 \pause
-Horizontal component of $\textbf{F}$:
+Horizontal component of $\fcv{F}$:
 %
 $$\frac{mg}{1+|\nabla f|^2} (-\nabla f)$$
 \pause
 Gravity pulls object in the direction of fastest descent.
 
-\pause
-\underline{Question}: Is the object moving in that direction?
-
+%\pause
+%\underline{Question}: Is the object moving in that direction?
+\end{itemize}
 \end{frame}
