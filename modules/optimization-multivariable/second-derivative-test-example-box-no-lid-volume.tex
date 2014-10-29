@@ -1,0 +1,53 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.35\textwidth}
+\begin{pspicture}(-2,-2)(2,2)
+\fcBoundingBox{-0.3}{-0.5}{1.7}{1.1}
+\renewcommand{\fcScreen}{[-2 1 -1.2] 0}%
+\tiny%
+\fcStartIIIdScene%
+\fcPatchInScene{[0 0 0]}{[1 0 0]}{[0 0 1]}%
+\fcPatchInScene{[0 0 0]}{[0 0 1]}{[0 1 0]}%
+\fcPatchInScene{[0 0 0]}{[0 1 0]}{[1 0 0]}%
+\fcPatchInScene{[1 1 0]}{[1 1 1]}{[1 0 0]}%
+\fcPatchInScene{[1 1 0]}{[0 1 0]}{[1 1 1]}%
+\fcFinishIIIdScene[fastsort=true]%
+\uncover<2>{%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{[0 0 0]}{[1 0 0]}%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{[0 0 0]}{[0 1 0]}%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{[0 0 0]}{[0 0 1]}%
+}%
+\fcPutIIId[t]{[0.5 0 -0.1]}{$\uncover<2->{\alert<2>{x}}$}%
+\fcPutIIId[b]{[0 0.3 0]}{$\uncover<2->{\alert<2>{y}}$}%
+\fcPutIIId[r]{[0 0 0.5]}{$\uncover<2->{\alert<2>{z}}$}%
+\end{pspicture}
+\column{0.65\textwidth}
+Find the maximal volume of a box with no lid whose surface area is $10m^2$.
+
+\uncover<2->{ Let the three dimensions of the box be $\alert<2>{ x,y,z}$.} 
+\end{columns}
+\uncover<3->{We seek to maximize $V=xyz$.
+The restrictions are: $xy+2(zx+zy)=10 $. Therefore $ z=\frac{10-xy}{2(x+y)}$.
+Therefore $V=\frac{10-xy }{2(x+y)}xy$. We need to solve the system:
+
+$
+\begin{array}{rcl}
+0=V_x&=&\frac{-x y^{3}-\frac{1}2x^{2}y^{2}+5y^{2}}{(x+y)^2} \\
+0=V_y&=&\frac{-y x^{3}-\frac{1}2x^{2}y^{2}+5x^{2}}{(x+y)^2}
+\end{array}
+$
+
+We can assume $y\neq 0$, $x\neq 0$ (else the volume is zero). Then 
+$
+\begin{array}{rcl}
+0&=&-x y-\frac{1}2x^{2}+5\\
+0&=&-y x-\frac{1}2y^{2}+5\\
+\end{array}
+$
+
+Therefore $x^2=y^2$ and so $x=y$ (both quantities are positive). Therefore $\frac{3}{2}x^2=5$, and so $x=\sqrt{\frac{10}{3}}=y$. By EVT max exists $\Rightarrow$ is achieved for $x=y=\sqrt{\frac{10}{3}}$. Max volume $V_{max}=  \frac{5}{9}\sqrt{30} $.
+}
+\end{example}
+
+\end{frame}

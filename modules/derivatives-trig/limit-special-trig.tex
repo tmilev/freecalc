@@ -1,0 +1,79 @@
+% begin module limit-laws-ex5
+\begin{frame}
+\begin{example}[Special Trigonometric Limits Example]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Find}\quad \lim_{h\to 0}{\sin 4h \over h}%
+& \\%
+\uncover<2->{%
+\text{Plug in 0:}\quad%
+\frac%
+{\alert<handout:0| 2-3>{\sin(0)}}%
+{\alert<handout:0| 4>{(0)}}
+}%
+& \uncover<2->{%
+= \frac%
+{\uncover<3->{\alert<handout:0| 3>{0}}}%
+{\uncover<4->{\alert<handout:0| 4>{0}}}%
+}\\%
+\uncover<5->{%
+\intertext{Zero over zero is undefined, so we can't use direct substitution.}
+}%
+&\\ %
+\uncover<6->{%
+\intertext{To evaluate the limit we rewrite it in the form of 
+$\displaystyle \frac{\sin \theta}{\theta}$ so that we may use the fact that   $\displaystyle \lim_{\theta \to 0} \frac{\sin \theta}{\theta} =1$. 
+Therefore, we set $\theta = 4h$ and write}
+}%
+&\\ %
+\end{align*}
+\end{example}
+\end{frame}
+
+\begin{frame}
+\begin{example}[Special Trigonometric Limits Example]%
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\lim_{h\to 0}\frac{\sin 4h }{h}%
+\uncover<2->{%
+= \lim_{h\to 0} \frac{4}{4}\cdot\frac{\sin4h}{h}%
+}%
+ \uncover<3->{%
+&= \lim_{h\to 0} 4\cdot \frac{\sin {\alert<handout:0| 4>{4h}}}{{\alert<handout:0| 5>{4h}}}
+}\\ %
+& \uncover<4->{%
+= 4\cdot \frac{\sin({\alert<handout:0| 4>{\theta}})}{{\alert<handout:0| 5>{\theta}}}%
+}\\%
+\end{align*}
+\uncover<6->{%
+The new variable $\theta$ approaches zero as $h\to 0$ since $\theta$ 
+ is a constant multiple of $h$.
+ Therefore, we may change the limit as $h\to 0$ into a limit as $\theta \to 0$ 
+to obtain
+} %
+\begin{align*}
+\uncover<6->{%
+\lim_{h\to 0}{\frac{\sin 4h}{h}}
+} %
+& \uncover<6->{%
+=\lim_{\theta\to 0} 4\cdot \frac{\sin(\theta)}{\theta} 
+}\\%
+& \uncover<7->{%
+ =4\cdot {\alert<handout:0| 8-8>{\lim_{\theta\to 0} \frac{\sin(\theta)}{\theta}}}
+}\\%
+& \uncover<8->{%
+ =4\cdot {\alert<handout:0| 8-8>{1}}
+}\\%
+& \uncover<9->{%
+=4
+}
+\end{align*}
+\end{example}
+\end{frame}
+% end module limit-laws-ex5
