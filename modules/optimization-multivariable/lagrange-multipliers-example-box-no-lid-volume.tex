@@ -1,0 +1,39 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.35\textwidth}
+\begin{pspicture}(-2,-2)(2,2)
+\fcBoundingBox{-0.3}{-0.5}{1.7}{1.1}
+\renewcommand{\fcScreen}{[-2 1 -1.2] 0}%
+\tiny%
+\fcStartIIIdScene%
+\fcPatchInScene{[0 0 0]}{[1 0 0]}{[0 0 1]}%
+\fcPatchInScene{[0 0 0]}{[0 0 1]}{[0 1 0]}%
+\fcPatchInScene{[0 0 0]}{[0 1 0]}{[1 0 0]}%
+\fcPatchInScene{[1 1 0]}{[1 1 1]}{[1 0 0]}%
+\fcPatchInScene{[1 1 0]}{[0 1 0]}{[1 1 1]}%
+\fcFinishIIIdScene[fastsort=true]%
+\uncover<2>{%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{[0 0 0]}{[1 0 0]}%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{[0 0 0]}{[0 1 0]}%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{[0 0 0]}{[0 0 1]}%
+}%
+\fcPutIIId[t]{[0.5 0 -0.1]}{$\uncover<2->{\alert<2>{x}}$}%
+\fcPutIIId[b]{[0 0.3 0]}{$\uncover<2->{\alert<2>{y}}$}%
+\fcPutIIId[r]{[0 0 0.5]}{$\uncover<2->{\alert<2>{z}}$}%
+\end{pspicture}
+\column{0.65\textwidth}
+Find the maximal volume of a box with no lid whose surface area is $10m^2$.
+
+\uncover<2->{ Let the three dimensions of the box be $\alert<2>{ x,y,z}$.} 
+\end{columns}
+\uncover<3->{We seek to maximize $V=xyz$.
+The restriction is: $g(x,y,z)=xy+2(zx+zy)-10=0 $. By the Lagrange multiplier's method, we need to solve the system:
+\[
+ \nabla V= \langle yz, zx, xy \rangle =\lambda \nabla g=\lambda \langle2 z+y, 2 z+x, 2 y+2 x \rangle
+\]
+
+}
+\end{example}
+
+\end{frame}
