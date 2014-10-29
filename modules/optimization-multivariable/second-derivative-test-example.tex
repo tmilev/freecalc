@@ -1,37 +1,59 @@
 \begin{frame}
-  \frametitle{Back to Example}
-
-In the example of $f(x,y) = x^4+y^4-4xy$ we have
-%
+\begin{example}[Finding maxima, minima]
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1, -1)(1, 1)
+\tiny
+\fcBoundingBox{-3}{-2}{4}{6}
+\renewcommand{\fcScreen}{[-2 2 -2] 0}
+\fcStartIIIdScene
+\only<2->{\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=brown, linewidth=0.4] {-2}{-2}{2}{2}{[2 dict begin
+/x u def %u v sub 2 sqrt div def
+/y v def %u v add 2 sqrt div def
+/z x 4 exp  y 4 exp add -4 x mul y mul add def
+x y z
+end
+]}%
+{
+2 dict begin
+/x u def %u v sub 2 sqrt div def
+/y v def %u v add 2 sqrt div def
+/z x 4 exp  y 4 exp add -4 x mul y mul add def
+z 3 lt
+%y -1 mul x z add add 4 le
+end
+}%
+}%
+\fcAxesIIIdInScene[arrows=->, linecolor=black, linewidth=1]{4}{4}{6}%
+\fcFinishIIIdScene[fastsort=true]
+\fcPutIIId[l]{[4 0 0]}{$x$}
+\fcPutIIId[l]{[0 4 0]}{$y$}
+\fcPutIIId[b]{[0 0 6]}{$z$}
+\end{pspicture}  
+\column{0.7\textwidth}
+Find the local and global maxima and minima of $f(x,y) = x^4+y^4-4xy+1$.
 \begin{itemize}
   \item $f_{xx} = 12x^2$;
   \item $f_{xy} = -4$;
   \item $f_{yy}=12y^2$;
-  \item $D= f_{xx}f_{yy}-f_{xy}^2 = 144x^2y^2-16$
+  \item $D= f_{xx}f_{yy}-f_{xy}^2 = 9x^2y^2-1$
 \end{itemize}
 
-\pause
-At the critical points:
-
+Therefore the critical points are the following.
+\end{columns}
 \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-    $(x_0,y_0)$ & $f_{xx}(x_0,y_0)$ & $f_{yy}(x_0,y_0)$ & $f_{xy}(x_0,y_0)$ & $D(x_0,y_0)$ &  Conclusion \\
-    \hline
-    (0,0) & 0 & 0 & -4 & $-16 <0$ & Saddle point  \\
-    \hline
-    (1,1) & 12 & 12 & -4 & $144-16 > 0$ & Local min  \\
-    \hline
-    (-1,-1) & 12 & 12 & -4 & $144-16 > 0$ & Local min \\
-    \hline
-  \end{tabular}
-
-\medskip
+\hline
+$(x_0,y_0)$ & $f_{xx}$ & $f_{yy}$ & $f_{xy}$ & $D$ & Conclusion \\\hline
+(0,0) & 0 & 0 & -4 & $-16 <0$ & Saddle point  \\\hline
+(1,1) & 12 & 12 & -4 & $144-16 > 0$ & Local min  \\\hline
+(-1,-1) & 12 & 12 & -4 & $144-16 > 0$ & Local min \\\hline
+\end{tabular}
 \pause
+
 In this case it turns out that the two local minimum points are actually global minimum points, because
 %
-$$f(x,y) = x^4+y^4-4xy = (x^2-1)^2+(y^2-1)^2+2(x-y)^2 -2  \geqslant -2\; .$$
+$$f(x,y) = x^4+y^4-4xy = (x^2-1)^2+(y^2-1)^2+2(x-y)^2 -2  \geq -2\; .$$
 
-\pause
-But in general, global extreme points may not exist.
+\end{example}
 \end{frame}
