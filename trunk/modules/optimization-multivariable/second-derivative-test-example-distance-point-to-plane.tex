@@ -1,0 +1,24 @@
+\begin{frame}
+\begin{example}
+Let $P(\alert<3>{2,1,0})$ and let $\mathcal P$ be the plane $ \alert<6>{ 3x+2y+z=6}$. Find the shortest distance between $P$ and a point on $\mathcal P$.
+
+\uncover<2->{\alert<6>{Let $Q(x,y,z)$ be a point on $\mathcal P$.}} \uncover<3->{We seek to minimize $d =\sqrt{(x-\alert<3>{2})^2 +(y-\alert<3>{1})^2+z^2} $,} \uncover<4->{ equivalently to minimize $f=d^2$:}
+\uncover<5->{
+\[
+\alert<8-11>{f(x,y)}=(x-2)^2 +(y-1)^2+{\alert<6>{z}}^2 \uncover<6->{\alert<8-11>{= (x-2)^2+(y-1)^2+(\alert<6>{ 6-3x-2y} )^2}}\quad .
+\]
+}
+\uncover<7->{ To find the critical points, \alert<12,13>{solve the system}:
+$\begin{array}{rcl}
+\alert<12,13>{0=} \alert<8,9>{f_x(x,y)}&\alert<8,9>{=}& \uncover<8>{\alert<8>{ \textbf{?}}} \uncover<9->{\alert<9>{ 2(x-2) - 6 (6-3x-2y)=\alert<12,13>{ 20 x+12 y-40} }}\\
+\alert<12,13>{0=} \alert<10,11>{f_y(x,y)}&\alert<10,11>{=}& \uncover<10>{\alert<10>{\textbf{?}}} \uncover<11->{\alert<11>{ 2(y-1)-4(6-3x-2y)  =\alert<12,13>{ 12 x+10 y-26} }}\\
+\end{array}
+$ 
+}
+\uncover<13->{
+From first equation $x=\frac{10-3y}{5} $. Substitute in the second eqn.: $\frac{14}{5}y-2=0 $. Finally \alert<13>{$x=\frac{11}{7}$, $y=\frac{5}{7}$}. } \uncover<14->{ To find whether $\left(\frac{11}{7} , \frac{5}{7} \right)$ is local extremum, compute Hessian:}
+$\uncover<14->{\alert<14,15>{H=\left(\begin{array}{cc} \alert<19>{f_{xx}} & f_{xy}\\ 
+f_{yx}& f_{yy} \end{array}\right)=} } \uncover<14>{\alert<14>{\textbf{?}}} \uncover<15->{\alert<15>{ \left(\begin{array}{cc} \alert<19>{20}\uncover<19>{\alert<19>{>0}} & 12\\ 
+12\phantom{>0} & 10 \end{array}\right)}.} $ $\uncover<16->{ \alert<16,17>{ \alert<19>{ D} =\det H=}} \uncover<16>{ \alert<16>{\textbf{?}}} \uncover<17->{ \alert<17>{200-144=56}} \uncover<19->{\alert<19>{ >0}.}$ \uncover<18->{ Therefore we have a local \uncover<18>{\alert<18>{\textbf{?}}} \uncover<19->{ \alert<19>{minimum}} at $x= \frac{11}{7}$, $y=\frac{5}{7}$, \uncover<20->{and the min. is: $f\left(\frac{11}{7}, \frac{5}{7}\right) = \frac{\sqrt{14}}{7} $. }}
+\end{example}
+\end{frame}
