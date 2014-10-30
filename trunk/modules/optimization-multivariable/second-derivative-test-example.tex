@@ -6,30 +6,50 @@
 \begin{pspicture}(-1, -1)(1, 1)
 \tiny
 \fcBoundingBox{-3}{-2}{4}{6}
-\renewcommand{\fcScreen}{[-2 2 -2] 0}
+\renewcommand{\fcScreen}{[-4 -0.5 -2] 0}
 \fcStartIIIdScene
-\only<2->{\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=brown, linewidth=0.4] {-2}{-2}{2}{2}{[2 dict begin
+\only<1>{
+\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=black, linewidth=0.6]{-2.1}{-2.1}{2.1}{2.1}{[%
+2 dict begin %
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
 /z x 4 exp  y 4 exp add -4 x mul y mul add def
 x y z
 end
-]}%
+]}
 {
 2 dict begin
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
 /z x 4 exp  y 4 exp add -4 x mul y mul add def
-z 3 lt
-%y -1 mul x z add add 4 le
+z 3 le %
+end %
+}
+}
+\only<2>{
+\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=black, linewidth=0.6]{-2.1}{-2.1}{2.1}{2.1}{[%
+2 dict begin %
+/x u def %u v sub 2 sqrt div def
+/y v def %u v add 2 sqrt div def
+/z x 4 exp  y 4 exp add -4 x mul y mul add def
+x y z
 end
-}%
-}%
-\fcAxesIIIdInScene[arrows=->, linecolor=black, linewidth=1]{4}{4}{6}%
+]}
+{
+2 dict begin
+/x u def %u v sub 2 sqrt div def
+/y v def %u v add 2 sqrt div def
+/z x 4 exp  y 4 exp add -4 x mul y mul add def
+z 3 le %
+0.7 x mul y z add add 1.2 le and %
+end %
+}
+}
+\fcAxesIIIdInScene[arrows=->, linecolor=black, linewidth=1]{4}{4}{4.5}
 \fcFinishIIIdScene[fastsort=true]
 \fcPutIIId[l]{[4 0 0]}{$x$}
 \fcPutIIId[l]{[0 4 0]}{$y$}
-\fcPutIIId[b]{[0 0 6]}{$z$}
+\fcPutIIId[b]{[0 0 4.5]}{$z$}
 \end{pspicture}  
 \column{0.7\textwidth}
 Find the local and global maxima and minima of $f(x,y) = x^4+y^4-4xy+1$.
