@@ -1164,7 +1164,7 @@ theContourCollection{(empty) eq {(ERROR: declared contour not computed!)}if }for
 }
 
 \newcommand{\fcPaintPatches}{
-thePatchIndices {\fcPaintPatchIndexFilledDirectlyHideOutOfBoundsPatch} forall
+thePatchIndices {\fcPaintPatchIndexFilledDirectly} forall
 }
 
 \newcommand{\fcPaintPatchLabels}{
@@ -1243,7 +1243,7 @@ fastPatchSort
   	lt
     end
   } def
-  thePatchIndices \fcBubbleSort
+  thePatchIndices \fcMergeSort
   end
   (\string\n Sorting patches done. ) print
 }
@@ -1343,6 +1343,7 @@ thePatchCollection length { /counter counter 1 add def counter \fcZBufferPatchIn
 % % % % % % % % % % % % % % % % % % % % % % % % % %
 \fcSortPatchIndices
 \fcPaintPatches
+(got ere) ==
 \fcPaintContours
 %\fcPaintPatchLabels
 % % % % % %
@@ -1566,6 +1567,18 @@ theRestrictions not {/inBounds false def}if
 /u u DeltaU add def %
 theSurface %(x(u+Delta,v+Delta), y(u+Delta,v+Delta), z(u+Delta,v+Delta))
 theRestrictions not {/inBounds false def}if  
+[
+/u oldU def
+/v oldV def
+numContourUSegmentsPerPatch {theRestrictions{theSurface}if /u u DeltaDeltaU add def} repeat
+/u oldU DeltaU add def
+/v oldV def
+numContourVSegmentsPerPatch {theRestrictions{theSurface}if /v v DeltaDeltaV add def} repeat
+/v oldV DeltaV add def
+numContourVSegmentsPerPatch {theRestrictions{theSurface}if /u u DeltaDeltaU sub def} repeat
+/u oldU def
+numContourVSegmentsPerPatch {theRestrictions{theSurface}if /v v DeltaDeltaV sub def} repeat
+]
 [colorUVpatch % front color of patch
 colorVUpatch % back color of patch
 forceForeground %
@@ -1621,8 +1634,10 @@ theSurface type (arraytype) ne {(\string\n ERROR: surface must be an array. \str
 /getPatchIndex {exch vIterations mul add numPatchesComputedSoFar add} def
 /accountPatch {getPatchIndex dup thePatchCollection exch get (empty) eq {thePatchCollection exch 3 -1 roll put}{pop pop}ifelse 
 } def
-/DeltaDeltaV DeltaV \fcNumCountourSegmentsPatchV\space div def %
-/DeltaDeltaU DeltaU \fcNumCountourSegmentsPatchU\space div def %
+/numContourVSegmentsPerPatch \fcNumCountourSegmentsPatchV \space def
+/numContourUSegmentsPerPatch \fcNumCountourSegmentsPatchU \space def
+/DeltaDeltaV DeltaV numContourVSegmentsPerPatch div def %
+/DeltaDeltaU DeltaU numContourUSegmentsPerPatch div def %
 % % % % % % % % % % % % % % % % % % % % %
 %process uv-contours
 /u uMin def %
@@ -1646,7 +1661,7 @@ ifelse def %
 {(empty)} ifelse def %
 /vOld v def %
 [theSurface patchLeftIndex patchRightIndex patchLeftBackIndex patchRightBackIndex theRestrictions]
-\fcNumCountourSegmentsPatchU\space 1 sub{/v v DeltaDeltaV add def [theSurface patchLeftIndex patchRightIndex theRestrictions]} repeat
+numContourUSegmentsPerPatch 1 sub{/v v DeltaDeltaV add def [theSurface patchLeftIndex patchRightIndex theRestrictions]} repeat
 /v vOld DeltaV add def %
 }repeat %
 [theSurface patchLeftIndex patchRightIndex theRestrictions]
@@ -1683,7 +1698,7 @@ vIterations 1 add{ %
   /patchRightIndex counterV 0 ne {counterU counterV 1 sub getPatchIndex} {(empty)} ifelse def %
   /uOld u def %
   [theSurface patchLeftIndex patchRightIndex patchLeftBackIndex patchRightBackIndex theRestrictions]
-  \fcNumCountourSegmentsPatchV\space 1 sub{/u u DeltaDeltaU add def [theSurface patchLeftIndex patchRightIndex theRestrictions]} repeat
+  numContourVSegmentsPerPatch 1 sub{/u u DeltaDeltaU add def [theSurface patchLeftIndex patchRightIndex theRestrictions]} repeat
   /u uOld DeltaU add def %
   }repeat %
   [theSurface patchLeftIndex patchRightIndex theRestrictions] 
@@ -1831,6 +1846,57 @@ end
 thePatchIndex currentArray \fcContains not
 {theZBuffer row get column [currentArray \fcArrayToStack thePatchIndex ] put}if
 end %
+}
+
+\newcommand{\fcMergeSort}{
+2 dict begin
+/theArray exch def
+/mergeSortStartIndexLength {
+10 dict begin
+/theLength exch def
+/startIndex exch def
+{ theLength 1 eq 
+  { [theArray startIndex get]
+  	exit
+  } if
+  theLength 2 eq 
+  { theArray startIndex get theArray startIndex 1 add get
+    LeftGreaterThanRight
+    { [theArray startIndex 1 add get theArray startIndex get]
+    } 
+    { [theArray startIndex get theArray startIndex 1 add get]
+    } ifelse
+    exit  
+  } if
+  /leftLength theLength 2 div cvi def
+  /rightLength theLength leftLength sub def
+  /leftSorted startIndex leftLength mergeSortStartIndexLength def
+  /rightSorted startIndex leftLength add rightLength mergeSortStartIndexLength def
+  /counterLeft 0 def
+  /counterRight 0 def
+  [ theLength{ 
+      counterLeft leftLength ge{
+        /leftNext false def
+      }{
+        counterRight rightLength ge{ 
+          /leftNext true def
+        }{ 
+          /leftNext leftSorted counterLeft get rightSorted counterRight get  LeftGreaterThanRight not def
+        } ifelse
+      } ifelse  
+      leftNext{
+        leftSorted counterLeft get /counterLeft counterLeft 1 add def
+      }{
+        rightSorted counterRight get /counterRight counterRight 1 add def        
+      }ifelse
+    } repeat 
+  ]
+  exit  
+}loop
+end
+} def
+0 theArray length mergeSortStartIndexLength
+end
 }
 
 \newcommand{\fcBubbleSort}{
@@ -2049,15 +2115,11 @@ end
 \newcommand{\fcPatchGetvOne}{1 get\space}
 \newcommand{\fcPatchGetvTwo}{2 get\space}
 \newcommand{\fcPatchGetvThree}{3 get \space}
-\newcommand{\fcPatchGetColorUV}{
-4 get 0 get \fcArrayToStack \space}
-\newcommand{\fcPatchGetColorVU}{4 get 1 get \fcArrayToStack \space}
-\newcommand{\fcPatchGetForcedForegroundStatus}{4 get 2 get\space}
-\newcommand{\fcPatchGetInBounds}{4 get 3 get\space}
-
-\newcommand{\fcPaintPatchIndexFilledDirectlyHideOutOfBoundsPatch}{
-dup thePatchCollection exch get \fcPatchGetInBounds  {\fcPaintPatchIndexFilledDirectly}{pop} ifelse
-}
+\newcommand{\fcPatchGetColorUV}{5 get 0 get \fcArrayToStack \space}
+\newcommand{\fcPatchGetColorVU}{5 get 1 get \fcArrayToStack \space}
+\newcommand{\fcPatchGetForcedForegroundStatus}{5 get 2 get\space}
+\newcommand{\fcPatchGetInBounds}{5 get 3 get\space}
+\newcommand{\fcPatchGetContour}{4 get\space}
 
 \newcommand{\fcPaintPatchIndexFilledDirectly}{
 thePatchCollection exch get \fcPatchPaintFilledDirectly
@@ -2098,19 +2160,18 @@ end
 %thePatch ==
 %(PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
+thePatch \fcPatchGetContour length 0 gt{
 thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
-{ thePatch \fcPatchGetColorVU \space setrgbcolorVirtual}
-{ thePatch \fcPatchGetColorUV \space setrgbcolorVirtual}
+{ thePatch \fcPatchGetColorVU setrgbcolorVirtual}
+{ thePatch \fcPatchGetColorUV setrgbcolorVirtual}
 ifelse
 newpathVirtual
-thePatch \fcPatchGetvZero \fcCoordsIIIdToPS movetoVirtual 
-thePatch \fcPatchGetvOne \fcCoordsIIIdToPS linetoVirtual
-thePatch \fcPatchGetvThree \fcCoordsIIIdToPS linetoVirtual 
-thePatch \fcPatchGetvTwo \fcCoordsIIIdToPS linetoVirtual
-thePatch \fcPatchGetvZero \fcCoordsIIIdToPS linetoVirtual
+thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
+thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
 closepathVirtual
 fillVirtual
 strokeVirtual
+}if
 }if
 end
 }
@@ -2127,7 +2188,7 @@ thePatch \fcPatchGetvZero \fcCoordsIIIdToPS moveto
 thePatch \fcPatchGetvOne \fcCoordsIIIdToPS lineto 
 thePatch \fcPatchGetvThree \fcCoordsIIIdToPS lineto 
 thePatch \fcPatchGetvTwo \fcCoordsIIIdToPS lineto 
-thePatch \fcPatchGetvZero get \fcCoordsIIIdToPS lineto
+thePatch \fcPatchGetvZero \fcCoordsIIIdToPS lineto
 %closepath
 stroke
 }if

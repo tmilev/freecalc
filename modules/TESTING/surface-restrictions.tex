@@ -1,9 +1,12 @@
 \begin{frame}
-\psset{xunit=0.5cm, yunit=0.5cm}
+\psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1, -1)(1, 1)
-\renewcommand{\fcScreen}{[-2 2 -2] 0}
+\renewcommand{\fcScreen}{[-4 -0.5 -2] 0}
+
 \fcStartIIIdScene
-\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=brown, linewidth=0.4] {-2}{-2}{2}{2}{[2 dict begin
+\only<1>{
+\fcSurfaceInScene[iterationsU=35, iterationsV=35, linecolor=black, linewidth=0.6]{-2.1}{-2.1}{2.1}{2.1}{[%
+2 dict begin %
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
 /z x 4 exp  y 4 exp add -4 x mul y mul add def
@@ -15,11 +18,32 @@ end
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
 /z x 4 exp  y 4 exp add -4 x mul y mul add def
-z 3 lt
-%y -1 mul x z add add 4 le
-end
+z 3 le %
+end %
 }
-\fcAxesIIIdInScene[arrows=->, linecolor=black]{4}{4}{6}
+}
+\only<2>{
+\fcSurfaceInScene[iterationsU=35, iterationsV=35, linecolor=black, linewidth=0.6]{-2.1}{-2.1}{2.1}{2.1}{[%
+2 dict begin %
+/x u def %u v sub 2 sqrt div def
+/y v def %u v add 2 sqrt div def
+/z x 4 exp  y 4 exp add -4 x mul y mul add def
+x y z
+end
+]}
+{
+2 dict begin
+/x u def %u v sub 2 sqrt div def
+/y v def %u v add 2 sqrt div def
+/z x 4 exp  y 4 exp add -4 x mul y mul add def
+z 3 le %
+0.7 x mul y z add add 1.2 le and %
+end %
+}
+}
+\fcAxesIIIdInScene[arrows=->, linecolor=black, linewidth=1]{4}{4}{6}
 \fcFinishIIIdScene[fastsort=true]
 \end{pspicture} 
+
+\uncover<3>{}
 \end{frame}
