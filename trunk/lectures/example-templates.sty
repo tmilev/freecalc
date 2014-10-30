@@ -65,9 +65,10 @@
 \newcommand{\cR}{{\mathcal{R}}}
 \newcommand{\cD}{{\mathcal{D}}}
 \newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\fcUncoverAlert}[2]{\uncover<#1->{\alert<#1>{#2}}}
 \newcommand{\fcAnswer}[2]{ 
 \FPeval{\fcResult}{clip(#1-1)} 
-\mbox{\widthof{#2}}{\only<\fcResult>{\alert<\fcResult>{ \hfil \textbf{?} \hfil  }}\only<#1->{\alert<#1>{#2}}} 
+\uncover<\fcResult>{\alert<\fcResult>{\textbf{?}}} \uncover<#1->{\alert<#1>{#2}} 
 }
 \newcommand{\fcEvalToInt}[1]{\FPeval{\fcResult}{clip(#1)}\fcResult}
 \newcommand{\fcv}[1]{{\bf #1}} %this command stands for freecalc Vector

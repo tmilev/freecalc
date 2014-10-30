@@ -5,75 +5,87 @@
 \psset{xunit=0.5cm, yunit=0.5cm}
 \begin{pspicture}(-1, -1)(1, 1)
 \tiny
-\fcBoundingBox{-3}{-2}{4}{6}
-\renewcommand{\fcScreen}{[-4 -0.5 -2] 0}
-\fcStartIIIdScene
-\only<1>{
+\fcBoundingBox{-3}{-2.4	}{4}{4.5}
+\renewcommand{\fcScreen}{[-4 -0.5 -2] 0}%
+\fcStartIIIdScene%
+\only<23,24>{%
 \fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=black, linewidth=0.6]{-2.1}{-2.1}{2.1}{2.1}{[%
 2 dict begin %
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
-/z x 4 exp  y 4 exp add -4 x mul y mul add def
-x y z
-end
-]}
-{
-2 dict begin
+/z x 4 exp  y 4 exp add -4 x mul y mul add def %
+x y z %
+end %
+]}%
+{%
+2 dict begin %
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
-/z x 4 exp  y 4 exp add -4 x mul y mul add def
+/z x 4 exp  y 4 exp add -4 x mul y mul add def %
 z 3 le %
 end %
-}
-}
-\only<2>{
+}%
+}%
+\only<25>{%
 \fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=black, linewidth=0.6]{-2.1}{-2.1}{2.1}{2.1}{[%
 2 dict begin %
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
-/z x 4 exp  y 4 exp add -4 x mul y mul add def
-x y z
-end
-]}
-{
-2 dict begin
+/z x 4 exp  y 4 exp add -4 x mul y mul add def %
+x y z %
+end%
+]}%
+{%
+2 dict begin %
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
-/z x 4 exp  y 4 exp add -4 x mul y mul add def
+/z x 4 exp  y 4 exp add -4 x mul y mul add def %
 z 3 le %
 0.7 x mul y z add add 1.2 le and %
 end %
-}
-}
-\fcAxesIIIdInScene[arrows=->, linecolor=black, linewidth=1]{4}{4}{4.5}
-\fcFinishIIIdScene[fastsort=true]
-\fcPutIIId[l]{[4 0 0]}{$x$}
-\fcPutIIId[l]{[0 4 0]}{$y$}
-\fcPutIIId[b]{[0 0 4.5]}{$z$}
+}%
+}%
+\fcAxesIIIdInScene[arrows=->, linecolor=black, linewidth=1]{4}{4}{4.5}%
+\fcFinishIIIdScene[fastsort=true]%
+\uncover<14-23>{\fcCurveIIId[linecolor=blue]{-0.5}{0.5}{[t t -1 mul t 4 exp t 4 exp add 4 t t mul mul add ]}%
+\fcCurveIIId[linecolor=cyan]{-1}{1}{[t t t 4 exp t 4 exp add -4 t t mul mul add ]}%
+}%
+\uncover<18-23>{\fcCurveIIId[linecolor=cyan]{0}{1.5}{[t t t 4 exp t 4 exp add -4 t t mul mul add ]}}%
+\uncover<18-23>{\fcCurveIIId[linecolor=blue]{-0.5}{0.5}{[2 dict begin /x {1 t add} def /y {1 t sub} def x y x 4 exp  y 4 exp add -4 x mul y mul add end]}%
+}%
+\uncover<22-23>{\fcCurveIIId[linecolor=cyan]{-1.5}{0}{[2 dict begin /x {t} def /y {t} def x y x 4 exp  y 4 exp add -4 x mul y mul add end]}%
+}%
+\uncover<22-23>{\fcCurveIIId[linecolor=blue]{-0.5}{0.5}{[2 dict begin /x {-1 t add} def /y {-1 t sub} def x y x 4 exp  y 4 exp add -4 x mul y mul add end]}%
+}%
+\fcPutIIId[l]{[4 0 0]}{$x$}%
+\fcPutIIId[l]{[0 4 0]}{$y$}%
+\fcPutIIId[b]{[0 0 4.5]}{$z$}%
 \end{pspicture}  
 \column{0.7\textwidth}
-Find the local and global maxima and minima of $f(x,y) = x^4+y^4-4xy+1$.
-\begin{itemize}
-  \item $f_{xx} = 12x^2$;
-  \item $f_{xy} = -4$;
-  \item $f_{yy}=12y^2$;
-  \item $D= f_{xx}f_{yy}-f_{xy}^2 = 9x^2y^2-1$
-\end{itemize}
-
-Therefore the critical points are the following.
+Find the local and global maxima and minima of $f(x,y) = x^4+y^4-4xy$.
+\[
+\begin{array}{rcl}
+\alert<2,3>{f_{xx}}&\alert<2,3>{=}& \uncover<3->{\alert<3>{12x^2}}\\
+\alert<4,5>{f_{xy}}&\alert<4,5>{=}& \uncover<5->{\alert<5>{-4}}\\
+\alert<6,7>{f_{yy}}&\alert<6,7>{=}& \uncover<7->{\alert<7>{12y^2}}\\
+\alert<8,9>{D= f_{xx}f_{yy}-f_{xy}^2}&\alert<8,9>{=}& \uncover<9->{\alert<9>{ 144 x^2 y^2 - 16}.}
+\end{array}
+\]
+\uncover<10->{ The critical points were previously computed.}
 \end{columns}
+\uncover<10->{ 
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
-$(x_0,y_0)$ & $f_{xx}$ & $f_{yy}$ & $f_{xy}$ & $D$ & Conclusion \\\hline
-(0,0) & 0 & 0 & -4 & $-16 <0$ & Saddle point  \\\hline
-(1,1) & 12 & 12 & -4 & $144-16 > 0$ & Local min  \\\hline
-(-1,-1) & 12 & 12 & -4 & $144-16 > 0$ & Local min \\\hline
+$(x_0,y_0)$ & \alert<11>{$f_{xx}$} & \alert<11>{$f_{yy}$} & \alert<11>{$f_{xy}$} & \alert<11>{$D$} & \alert<13,14,17,18,21,22>{Extremum ?} \\\hline
+\alert<10-14>{$(0,0)$} & \uncover<11>{\alert<11>{\textbf{?}}} \fcUncoverAlert{12}{$0$} &\fcAnswer{12}{$0$} & \fcAnswer{12}{$-4$} & \fcAnswer{12}{$-16 <0$} & \fcAnswer{14}{Saddle point}  \\\hline
+\alert<10,15-18>{$(1,1)$} & \fcAnswer{16}{$12$} & \fcAnswer{16}{$12$} & \fcAnswer{16}{$-4$} & \fcAnswer{16}{$128 > 0$} & \fcAnswer{18}{Local min}  \\\hline
+\alert<10,19-22>{$(-1,-1)$} & \fcAnswer{20}{$12$} & \fcAnswer{20}{$12$} & \fcAnswer{20}{$-4$} & \fcAnswer{20}{$128 > 0$} & \fcAnswer{22}{Local min} \\\hline
 \end{tabular}
-\pause
+}
 
-In this case it turns out that the two local minimum points are actually global minimum points, because
-%
-$$f(x,y) = x^4+y^4-4xy = (x^2-1)^2+(y^2-1)^2+2(x-y)^2 -2  \geq -2\; .$$
+\uncover<26->{ In this case it turns out that the two local minimum points are actually global minimum points, because
+$f(x,y) = x^4+y^4-4xy = (x^2-1)^2+(y^2-1)^2+2(x-y)^2 -2  \geq -2\; .$
+}
 
 \end{example}
 \end{frame}
