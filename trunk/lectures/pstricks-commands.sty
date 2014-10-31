@@ -173,11 +173,44 @@ string exch          % s1 s2 s3 .. sN str   n
 pop  % str'
 }
 
-\newcommand{\fcRectangularRiemannSum}[6]{
+\newcommand{\fcRectangularRiemannSumCode}{
+20 dict begin
+/theFunction exch def
+/yIterations exch def
+/xIterations exch def
+/yMax exch def
+/xMax exch def
+/yMin exch def
+/xMin exch def
+/DeltaX xMax xMin sub xIterations div def
+/DeltaY yMax yMin sub yIterations div def
+/x xMin def
+xIterations{
+/y yMin def
+yIterations{
+/xOld x def
+/yOld y def
+/x x DeltaX 2 div add def
+/y y DeltaY 2 div add def
+/z theFunction def
+[xOld yOld 0]
+[xOld DeltaX add yOld 0]
+[xOld yOld DeltaY add 0]
+[xOld yOld z]
+\fcBoxIIIdFilledCode
+/x xOld def
+/y yOld DeltaY add def
+}repeat
+/x x DeltaX add def
+}repeat
+end
+}
+
+\newcommand{\fcRectangularRiemannSum}[8]{
 \setkeys{fcGraphics}{#1}
 \pscustom{%
 \code{%
-
+#2\space #3\space #4\space #5 \space #6\space #7\space {#8}\space \fcRectangularRiemannSumCode
 }%
 }%
 }
@@ -630,6 +663,70 @@ end %
 \fcPolyLineIIId[#1, linestyle=dashed]{visibleCorner vectorOne  vectorTwo vectorThree \fcVectorPlusVector \fcVectorPlusVector \fcVectorPlusVector dup vectorTwo \fcVectorMinusVector}%
 \fcPolyLineIIId[#1, linestyle=dashed]{visibleCorner vectorOne  vectorTwo vectorThree \fcVectorPlusVector \fcVectorPlusVector \fcVectorPlusVector dup vectorThree \fcVectorMinusVector}%
 \pstVerb{end}%
+}
+
+\newcommand{\fcParallelogramIIIdCode}{
+4 dict begin
+/v2 exch def
+/v1 exch def
+/v0 exch def
+/secondRun false def
+2 {
+newpath 
+v0 \fcCoordsPStricksToPS moveto
+v0 v1 \fcVectorPlusVector \fcCoordsPStricksToPS lineto
+v0 v1 v2 \fcVectorPlusVector \fcVectorPlusVector \fcCoordsPStricksToPS lineto
+v0 v2 \fcVectorPlusVector \fcCoordsPStricksToPS lineto
+v0 \fcCoordsPStricksToPS lineto
+closepath
+secondRun not {fill} if
+stroke
+/secondRun true def
+}repeat
+end
+}
+
+\newcommand{\fcPatchMakeFromThreeCorners}{
+5 dict begin 
+/options exch def
+/v2 exch def
+/v1 exch def 
+/v0 exch def
+/v3 v1 v2 \fcVectorPlusVector v0 \fcVectorMinusVector def
+[v0 v1 v2 v3 [v0 v1 v3 v2 v0] options]
+end
+}
+
+\newcommand{\fcZDepth}{
+\fcScreen\space pop \fcVectorScalarVector
+}
+
+\newcommand{\fcBoxIIIdFilledCode}{ 
+%input order
+% corner0 corner1 corner2 corner3
+15 dict begin
+/colorSides exch def
+/colorContour exch def
+/options [colorSides colorSides true true colorContour] def
+/corner3 exch def
+/corner2 exch def
+/corner1 exch def
+/corner0 exch def
+/v1 corner1 corner0 \fcVectorMinusVector def
+/v2 corner2 corner0 \fcVectorMinusVector def
+/v3 corner3 corner0 \fcVectorMinusVector def
+[
+corner0 corner1 corner2 options \fcPatchMakeFromThreeCorners
+corner0 corner2 corner3 options \fcPatchMakeFromThreeCorners
+corner0 corner3 corner1 options \fcPatchMakeFromThreeCorners
+corner1 corner1 v2 \fcVectorPlusVector corner1 v3 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
+corner2 corner1 v3 \fcVectorPlusVector corner2 v1 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
+corner3 corner3 v1 \fcVectorPlusVector corner3 v2 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
+]
+/LeftGreaterThanRight {\fcPatchGetPoint \fcZDepth exch \fcPatchGetPoint gt} def
+\fcMergeSort
+{dup \fcPatchPaintFilledDirectly \fcPatchPaintContourDirectly }forall 
+end
 }
 
 \newcommand{\fcBoxIIIdFilled}[5][]{%
@@ -1450,7 +1547,7 @@ theNeighborhood length 1 sub {
 theNeighborhood counter get theZBufferCurrent \fcContains not
 {3 setlinewidth 1 0 0 setrgbcolor
 }if
-theNeighborhood counter get \fcPaintPatchHollowDirectly
+theNeighborhood counter get \fcPatchPaintContourDirectly
 theNeighborhood counter get type (arraytype) eq
 {/numPatchesInNeighborhood numPatchesInNeighborhood 1 add def}if
 }repeat
@@ -1462,7 +1559,7 @@ theZBufferCurrent length {
 thePoint thePatchCollection theZBufferCurrent counter get get \fcPointIsBehindPatch
 {1 0 0 setrgbcolor 
 }if
-thePatchCollection theZBufferCurrent counter get get \fcPaintPatchHollowDirectly
+thePatchCollection theZBufferCurrent counter get get \fcPatchPaintContourDirectly
 }repeat
 thePoint \fcZBufferPaintCellContainingPoint %
 [thePoint \fcCoordsIIIdToPStricks] theNeighborhood \fcIsInForeground
@@ -1608,6 +1705,7 @@ numContourVSegmentsPerPatch {theRestrictions{theSurface}if /v v DeltaDeltaV sub 
 colorVUpatch % back color of patch
 forceForeground %
 inBounds %
+colorVUpatch
 ]
 (patch) %
 ] %patch data structure complete
@@ -2205,21 +2303,24 @@ strokeVirtual
 end
 }
 
-\newcommand{\fcPaintPatchHollowDirectly}{
-2 dict begin
+\newcommand{\fcPatchPaintContourDirectly}{
+1 dict begin
 /thePatch exch def %
-(thePatch: ) ==
-thePatch ==
-(PATCH TYPE: ) == thePatch type ==
+%(thePatch: ) ==
+%thePatch ==
+%(PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
-newpath
-thePatch \fcPatchGetvZero \fcCoordsIIIdToPS moveto 
-thePatch \fcPatchGetvOne \fcCoordsIIIdToPS lineto 
-thePatch \fcPatchGetvThree \fcCoordsIIIdToPS lineto 
-thePatch \fcPatchGetvTwo \fcCoordsIIIdToPS lineto 
-thePatch \fcPatchGetvZero \fcCoordsIIIdToPS lineto
-%closepath
-stroke
+thePatch \fcPatchGetContour length 0 gt{
+thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
+{ thePatch \fcPatchGetColorVU setrgbcolorVirtual}
+{ thePatch \fcPatchGetColorUV setrgbcolorVirtual}
+ifelse
+newpathVirtual
+thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
+thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
+closepathVirtual
+strokeVirtual
+}if
 }if
 end
 }
@@ -2228,7 +2329,7 @@ end
 15 dict begin %
 /thePatchIndex exch def %
 /thePatch thePatchCollection thePatchIndex get def
-%thePatch \fcPaintPatchHollowDirectly
+%thePatch \fcPatchPaintContourDirectly
 /secondPoint thePatch \fcPatchGetvTwo def %
 /firstPoint  thePatch \fcPatchGetvOne def %
 /basePoint   thePatch \fcPatchGetvZero def %
