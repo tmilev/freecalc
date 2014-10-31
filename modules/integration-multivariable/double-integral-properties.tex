@@ -1,0 +1,21 @@
+\begin{frame}
+\frametitle{Properties}
+\[
+\iint_{\mathcal{R}} f(P) \; \diff A = \lim_{\max_k(\text{diam}D_k) \to 0} \sum_k f(P_k) \; \text{area}(D_k)
+\]
+\begin{itemize}
+\item<2-> If $f$ is bounded and continuous, except maybe on a finite number of smooth curves, then the limit exists and is finite.
+\item  Linearity with respect to function
+\[
+\iint_{\mathcal{R}} [\lambda f(P) +\mu g(P)] \, \diff A = \lambda \, \iint_{\mathcal{R}} f(P) \, \diff A +\mu \, \iint_{\mathcal{R}} g(P) \, \diff A \; .
+\]
+\item Domain additivity: if $\mathcal{R}_1$ and $\mathcal{R}_2$ intersect only along boundaries:
+\[
+\iint_{\mathcal{R}_1\cup \mathcal{R}_2} f(P)\, \diff A = \iint_{\mathcal{R}_1} f(P)\, \diff A + \iint_{\mathcal{R}_2} f(P)\, \diff A 
+\]
+\item \pause Monotonicity property: If $m \leq f(P) \leq M$ for all $P$ in $\mathcal{R}$, then
+\[
+m \, \text{area}(\mathcal{R}) \leq \iint_{\mathcal{R}} f(P)\, \diff A \leq M \, \text{area} (\mathcal{R})\; .
+\]
+\end{itemize}
+\end{frame}

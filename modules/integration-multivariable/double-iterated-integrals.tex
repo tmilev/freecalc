@@ -1,0 +1,20 @@
+\begin{frame}
+  \frametitle{Iterated Integrals}
+%
+\begin{align*}
+  \int\!\!\!\int_{[a,b] \times [c,d]} f(x,y) \; dx\, dy \simeq \sum_{1\leqslant i,j \leqslant n} f(P_{ij}) \, \Delta x \, \Delta y = \\
+  = \sum_{1\leqslant i,j \leqslant n} f(x_i,y_j) \, \Delta x\, \Delta y = \sum_{j=1}^n \left( \sum_{i=1}^n f(x_i,y_j) \Delta x \right)\, \Delta y\; .
+\end{align*}
+
+\pause
+The sum with index $i$ is a Riemann sum for computing the integral
+%
+$$g(y_j) = \int_{x=a}^{x=b} f(x,y_j) \; dx$$
+%
+\pause
+$$\sum_{j=1}^n\left( \sum_{i=1}^n f(x_i,y_j) \Delta x \right) \Delta y \simeq \sum_{j=1}^n g(y_j) \Delta y \simeq \int_{y=c}^{y=d} g(y) \; dy$$
+%
+\pause
+$$\int\!\!\!\int_{[a,b] \times [c,d]} f(x,y) \; dx\, dy = \int_{y=c}^{y=d} g(y) \; dy = \int_{y=c}^{y=d} \left( \int_{x=a}^{x=b} f(x,y) \; dx \right) \; dy$$
+%
+\end{frame}

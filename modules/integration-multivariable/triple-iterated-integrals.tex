@@ -1,0 +1,31 @@
+\begin{frame}
+  \frametitle{Iterated Integrals}
+
+  There are two ways of slicing a 3D region $\cR$:
+  \begin{itemize}
+    \item By slices:
+    \begin{itemize}
+      \item Project the body on an axis;
+      \item Look at 2D slices perpendicular to that axis (CT-scan)
+    \end{itemize}
+      %
+      $$\iiint_{\cR}f(P) \, dV = \int_{\text{location of slice}} \left(\iint_{\text{slice}} f(P) \, dA\right) \, dh$$
+      %
+      \item By rods:
+      \begin{itemize}
+        \item Project the body on a plane;
+        \item Look at 1D slices perpendicular to that plane (rods)
+      \end{itemize}
+      %
+      $$\iiint_{\cR}f(P) \, dV = \iint_{\text{location of rod}} \left(\int_{\text{rod}} f(P) \, dh\right) \, dA$$
+      %
+  \end{itemize}
+  %
+  \begin{itemize}
+    \item Reduce the computation to computations of
+    \begin{itemize}
+      \item  a single integral and
+      \item a double integral
+    \end{itemize}
+  \end{itemize}
+\end{frame}

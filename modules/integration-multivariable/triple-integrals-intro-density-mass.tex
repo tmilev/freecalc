@@ -1,0 +1,24 @@
+\begin{frame}
+  \frametitle{Density to Mass}
+  \underline{Question}: If we know the density at every point, can we find the mass?
+
+  \underline{Answer}: Yes.
+
+\begin{itemize}
+  \item Partition the region $\cR$ into regions with small diameter; let $\cD=\{D_1,\ldots,D_N\}$ be such a partition, and let
+      %
+      $$\text{maxdiam}(\cD) = \max_{k} \text{diam}(D_k)\; .$$
+      %
+  \item For each region $D_k$, choose a sample point $P_k$ inside $D_k$:
+      %
+      $$\text{mass}(D_k) \simeq \rho(P_k) \text{vol}(D_k)\; .$$
+      %
+      \item Mass is approximated by the sum of the masses of the subregions:
+      %
+      $$\text{mass}(\cR) \simeq \sum_{k=1}^{N} \rho(P_k)\text{vol}(D_k)\; .$$
+      %
+      \item Take partitions with diameter closer and closer to 0:
+      %
+      $$\text{mass}(\cR) = \lim_{\text{maxdiam}(\cD) \to 0}  \sum_{k=1}^{N} \rho(P_k)\text{vol}(D_k)\; .$$
+\end{itemize}
+\end{frame}

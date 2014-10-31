@@ -1,0 +1,26 @@
+
+
+\begin{frame}
+  \frametitle{Midpoint Rule}
+
+  $\mathcal{R}$: rectangle \pause $\Longrightarrow$ rectangular coordinate system.
+
+  $\mathcal{R} = [a,b] \times [c,d]$, element of area $dA = dx\, dy$,
+
+%
+$$\int\!\!\!\int_{\mathcal{R}} f(P) \, dA = \int\!\!\!\int_{[a,b] \times [c,d]} f(x,y) \; dx\, dy\; .$$
+
+\pause If the double integral exists, then we approximate its value by a Riemann sum for a fine enough partition and a consistent choice of sample points.
+%
+\begin{itemize}
+  \item \pause Divide each side into $n$ equal pieces, and obtain a covering of $\mathcal{R}$ by $n^2$ smaller rectangles, of sides $\Delta x = \frac{b-a}{n}$ and $\Delta y = \frac{d-c}{n}$.
+  %
+  \item \pause Choose the sample points as the midpoints of the smaller rectangles: take $P_{ij}$ to be the midpoint of the rectangle $D_{ij}$ on the $i^{th}$ row and $j^{th}$ column (counting from bottom left corner).
+\end{itemize}
+%
+\pause
+$$\int\!\!\!\int_{[a,b] \times [c,d]} f(x,y) \; dx\, dy\;  = \lim_{n \to \infty} \sum_{1\leqslant i,j \leqslant n} f(P_{ij}) \, \text{area}(D_{ij})\; ,$$
+%
+$$\int\!\!\!\int_{[a,b] \times [c,d]} f(x,y) \; dx\, dy\;  \simeq \sum_{1\leqslant i,j \leqslant n} f(P_{ij}) \, \Delta x \, \Delta y\; .$$
+%
+\end{frame}
