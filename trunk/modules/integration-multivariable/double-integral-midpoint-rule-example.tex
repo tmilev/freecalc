@@ -1,0 +1,26 @@
+\begin{frame}
+  \frametitle{Example}
+
+  Use the Midpoint Rule to approximate
+%
+$$\int\!\!\!\int_{[0,4]\times [0,2]} x^2y\; dxdy\; ,$$
+%
+with each side divided into $n=2$ pieces.
+
+\pause
+The smaller rectangles have size $\frac{4-0}{2} \times \frac{2-0}{2} = 2\times 1$ and area $2$.
+
+\pause
+The midpoints are
+%
+$$P_{11} = (1,1/2), \quad P_{12} = (1,3/2), \quad P_{21} = (3,1/2),  \quad P_{22} = (3,3/2)\; .$$
+%
+\pause
+\begin{align*}
+  \int\!\!\!&\int_{[0,4]\times [0,2]} x^2y\; dxdy  \simeq \pause \\
+  & \simeq f(1,1/2) \cdot 2 +  f(3,1/2) \cdot 2 + f(1,3/2) \cdot 2  + f(3,3/2) \cdot 2 = \\
+  %
+  & = \left(1\cdot \frac{1}{2}\cdot 2 + 9 \cdot \frac{1}{2} \cdot 2\right) + \left(1\cdot \frac{3}{2} \cdot 2 + 9 \cdot \frac{3}{2} \cdot 2\right) = \\
+  &= 1+9+3+27 = 40\; .
+\end{align*}
+\end{frame}

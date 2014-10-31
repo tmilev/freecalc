@@ -1,0 +1,21 @@
+\begin{frame}
+  \frametitle{Strategy: Curvilinear Trapezoids (Type I)}
+%
+\begin{itemize}
+  \item \pause Identify the leftmost point, $(a,*)$, and the rightmost point, $(b,*)$.
+  \item \pause Draw a generic vertical slice at some value $x$ between $a$ and $b$.
+  \item \pause Find the lowest point on that slice, $(x,g_1(x))$ and the highest point, $(x,g_2(x))$.
+\end{itemize}
+\pause
+The region is the region bounded by:
+ \begin{itemize}
+   \item \pause vertical lines $\textcolor[rgb]{0.00,0.00,1.00}{x=a}$ and $\textcolor[rgb]{0.00,0.00,1.00}{x=b}$;
+   \item \pause the graphs of $\textcolor[rgb]{0.98,0.00,0.00}{y=g_1(x)}$ and $\textcolor[rgb]{0.98,0.00,0.00}{y=g_2(x)}$, with $g_1,g_2 \colon [a,b] \to \mathbb{R}$:
+ \end{itemize}
+%
+\pause
+$$\mathcal{R} = \{(x,y) \; | \; \textcolor[rgb]{0.00,0.00,1.00}{a \leqslant x \leqslant b}\; , \; \textcolor[rgb]{0.98,0.00,0.00}{g_1(x) \leqslant y \leqslant g_2(x)} \} \; .$$
+%
+\pause
+$$\int\!\!\!\int_{\mathcal{R}} f(x,y) \; dxdy = \int_{\textcolor[rgb]{0.00,0.00,1.00}{x=a}}^{\textcolor[rgb]{0.00,0.00,1.00}{x=b}} \left( \int_{\textcolor[rgb]{0.98,0.00,0.00}{y=g_1(x)}}^{\textcolor[rgb]{0.98,0.00,0.00}{y=g_2(x)}} f(\textcolor[rgb]{0.00,0.00,1.00}{x},\textcolor[rgb]{0.98,0.00,0.00}{y}) \; \textcolor[rgb]{0.98,0.00,0.00}{dy}\right) \; \textcolor[rgb]{0.00,0.00,1.00}{dx}$$
+\end{frame}

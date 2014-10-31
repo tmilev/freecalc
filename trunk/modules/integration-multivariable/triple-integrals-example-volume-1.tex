@@ -1,0 +1,29 @@
+\begin{frame}
+  \frametitle{Example: Volume}
+
+Volume of region $\cR$ bounded by  $x+2y+z=2$, $x=2y$, $x=0$, and $z=0$:
+%
+$$\text{vol}(\cR) = \iiint_{\cR} 1\cdot dV\; .$$
+%
+$\cR$: tetrahedron with vertices at $(0,0,0)$, $(0,1,0)$, $(0,0,2)$, and $(1, \frac{1}{2}, 0)$.
+
+\underline{Decomposition by slices}:
+\begin{itemize}
+  \item Projection of $\cR$ onto the $z-$axis: the segment from $z=0$ to $z=2$;
+  \item For a generic location $z$, the slice $S_z$:
+   \begin{itemize}
+     \item triangle $(0,0,z)$, $(0,1-\frac{z}{2},z)$, $(1-z, \frac{1}{2}-\frac{z}{2},z)$
+   \end{itemize}
+%
+$$\iiint_{\cR} 1\cdot dV = \int_{z=0}^{z=2} \left( \iint_{S_z} 1\cdot dxdy \right) \, dz$$
+%
+\item Projection of $S_z$ onto the $x-$axis: segment from $x=0$ to $x=1-z$.
+\item For a generic $x$ in that range, the vertical slice is
+\begin{itemize}
+  \item segment from $y=\frac{x}{2}$ to $y=1-\frac{z}{2} - \frac{x}{2}$
+\end{itemize}
+%
+$$\text{vol}(\cR) = \iiint_{\cR} 1\cdot dV = \int_{z=0}^{z=2} \left(\int_{x=0}^{x=1-z} \left( \int_{y=x/2}^{y=1-z/2-x/2} 1 \cdot dy \right) \, dx\right) \, dz\; .$$
+%
+\end{itemize}
+\end{frame}

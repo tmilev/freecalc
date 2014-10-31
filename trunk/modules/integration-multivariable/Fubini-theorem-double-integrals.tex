@@ -1,0 +1,16 @@
+\begin{frame}
+    \frametitle{Fubini's Theorem}
+Let $f \colon [a,b]\times[c,d] \to \mathbb{R}$ be a function that is
+\begin{itemize}
+  \item bounded
+  \item continuous, except maybe on a finite number of smooth curves.
+\end{itemize}
+If the iterated integrals exist, then
+%
+\begin{align*}
+  \int&\!\!\!\int_{[a,b]\times [c,d]}\!\!\!\! f(x,y) \; dxdy = \int_{\textcolor[rgb]{1.00,0.00,0.00}{y=c}}^{\textcolor[rgb]{0.98,0.00,0.00}{y=d}} \left( \int_{\textcolor[rgb]{0.00,0.00,1.00}{x=a}}^{\textcolor[rgb]{0.00,0.00,1.00}{x=b}} f(x,y) \; \textcolor[rgb]{0.00,0.00,1.00}{dx} \right) \; \textcolor[rgb]{0.98,0.00,0.00}{dy} = \\
+  & = \int_{\textcolor[rgb]{0.00,0.00,1.00}{x=a}}^{\textcolor[rgb]{0.00,0.00,1.00}{x=b}} \left( \int_{\textcolor[rgb]{0.98,0.00,0.00}{y=c}}^{\textcolor[rgb]{0.98,0.00,0.00}{y=d}} f(x,y) \; \textcolor[rgb]{0.98,0.00,0.00}{dy} \right) \; \textcolor[rgb]{0.00,0.00,1.00}{dx}\; .
+\end{align*}
+
+The iterated integrals exists if $f$ is continuous.
+\end{frame}

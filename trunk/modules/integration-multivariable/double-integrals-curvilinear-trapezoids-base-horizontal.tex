@@ -1,0 +1,19 @@
+\begin{frame}
+  \frametitle{Strategy: Curvilinear Trapezoids (Type II)}
+%
+\begin{itemize}
+  \item Identify the lowest point, $(*,c)$, and the highest point, $(*,d)$.
+  \item Draw a generic horizontal slice at some value $y$ between $c$ and $d$.
+  \item Find the leftmost point on that slice, $(h_1(y),y)$ and the rightmost point, $(h_2(y),y)$.
+\end{itemize}
+
+The region is bounded by:
+ \begin{itemize}
+   \item horizontal lines $\textcolor[rgb]{0.98,0.00,0.00}{y=c}$ and $\textcolor[rgb]{0.98,0.00,0.00}{y=d}$
+   \item graphs of $\textcolor[rgb]{0.00,0.00,1.00}{x=h_1(y)}$ and $\textcolor[rgb]{0.00,0.00,1.00}{x=h_2(y)}$, with  $h_1,h_2 \colon [c,d] \to \mathbb{R}$:
+ \end{itemize}
+%
+$$\mathcal{R} = \{(x,y) \; | \; \textcolor[rgb]{0.98,0.00,0.00}{c \leqslant y \leqslant d}\; , \; \textcolor[rgb]{0.00,0.00,1.00}{h_1(y) \leqslant x \leqslant h_2(y)} \} \; .$$
+%
+$$\int\!\!\!\int_{\mathcal{R}} f(x,y) \; dxdy = \int_{\textcolor[rgb]{0.98,0.00,0.00}{y=c}}^{\textcolor[rgb]{0.98,0.00,0.00}{y=d}} \left( \int_{\textcolor[rgb]{0.00,0.00,1.00}{x=h_1(y)}}^{\textcolor[rgb]{0.00,0.00,1.00}{x=h_2(y)}} f(\textcolor[rgb]{0.00,0.00,1.00}{x},\textcolor[rgb]{0.98,0.00,0.00}{y}) \; \textcolor[rgb]{0.00,0.00,1.00}{dx}\right) \; \textcolor[rgb]{0.98,0.00,0.00}{dy}$$
+\end{frame}
