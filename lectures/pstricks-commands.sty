@@ -1,6 +1,6 @@
 \ProvidesPackage{pstricks-commands}
 \usepackage{etex, ifthen}
-\usepackage %[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -28,6 +28,7 @@
 \newcommand{\fcZBufferRowColumnsUnderInvestigation}{(empty) (empty)}
 \newcommand{\fcZBufferUparameterPointUnderInvestigation}{(empty) (empty)}
 \newcommand{\fcZBufferVparameterPointUnderInvestigation}{(empty) (empty)}
+%\newcommand{\fcContourDebugged}{-1}
 \newcommand{\fcStartXIId}{0}
 \newcommand{\fcStartYIId}{0}
 \newcommand{\fcIterationsX}{9\space}
@@ -74,6 +75,7 @@ ifelse\space %
 \define@key{fcGraphics}{forceForeground}[\renewcommand{\fcForceForeground}{false\space}]{\renewcommand{\fcForceForeground}{#1\space}}
 \define@key{fcGraphics}{iterationsX}[\renewcommand{\fcIterationsX}{9\space}]{\renewcommand{\fcIterationsX}{#1\space}}
 \define@key{fcGraphics}{scale}[\renewcommand{\fcScale}{1}]{\renewcommand{\fcScale}{#1\space}}
+%\define@key{fcGraphics}{debugContour}[\renewcommand{\fcContourDebugged}{-1\space}]{\renewcommand{\fcContourDebugged}{#1\space}}
 \define@key{fcGraphics}{iterationsY}[\renewcommand{\fcIterationsY}{9\space}]{\renewcommand{\fcIterationsY}{#1\space}}
 \define@key{fcGraphics}{screenStyle}[\renewcommand{\fcScreenStyle}{z}]{\renewcommand{\fcScreenStyle}{#1}}
 \define@key{fcGraphics}{xLabel}[\renewcommand{\fcXLabel}{$x$}]{\renewcommand{\fcXLabel}{#1}}
@@ -1354,15 +1356,12 @@ thePatchCollection length { /counter counter 1 add def counter \fcZBufferPatchIn
 % % % % % % % % % % % % % % % % % % % % % % % % % %
 \fcSortPatchIndices
 \fcPaintPatches
-(got ere) ==
 \fcPaintContours
 %\fcPaintPatchSortOrder
-\fcPaintPatchLabels
-[
-thePatchCollection { \fcPatchGetPoint \fcScreen \space pop \fcVectorScalarVector } forall
-] ==
-(sorted indices: ) ==
-thePatchIndices ==
+%\fcPaintPatchLabels
+%[
+%thePatchCollection { \fcPatchGetPoint \fcScreen \space pop \fcVectorScalarVector } forall
+%] ==
 % % % % % %
 %(z buffer sorted) print %
 % % % % % % % % % % % % % % % % % % % % % % % % % %
