@@ -174,6 +174,10 @@ pop  % str'
 }
 
 \newcommand{\fcRectangularRiemannSumCode}{
+/theRiemannSumFigure exch def
+theRiemannSumFigure \fcSetupFiles
+graphicsCached not{
+theRiemannSumFigure \fcArrayToStack
 20 dict begin
 /theFunction exch def
 /yIterations exch def
@@ -184,6 +188,8 @@ pop  % str'
 /xMin exch def
 /DeltaX xMax xMin sub xIterations div def
 /DeltaY yMax yMin sub yIterations div def
+/theSideColor exch def
+/theContourColor exch def
 /x xMin def
 xIterations{
 /y yMin def
@@ -197,6 +203,8 @@ yIterations{
 [xOld DeltaX add yOld 0]
 [xOld yOld DeltaY add 0]
 [xOld yOld z]
+theContourColor
+theSideColor
 \fcBoxIIIdFilledCode
 /x xOld def
 /y yOld DeltaY add def
@@ -204,13 +212,15 @@ yIterations{
 /x x DeltaX add def
 }repeat
 end
+}if
 }
 
-\newcommand{\fcRectangularRiemannSum}[8]{
+\newcommand{\fcRectangularRiemannSum}[8][]{
 \setkeys{fcGraphics}{#1}
 \pscustom{%
 \code{%
-#2\space #3\space #4\space #5 \space #6\space #7\space {#8}\space \fcRectangularRiemannSumCode
+[[\fcGetColorCode{\fcColorLine}] [\fcGetColorCode{\fcColorPatchUV}]  #2\space #3\space #4\space #5 \space #6\space #7\space {#8}\space]
+\fcRectangularRiemannSumCode
 }%
 }%
 }
@@ -720,13 +730,23 @@ corner0 corner1 corner2 options \fcPatchMakeFromThreeCorners
 corner0 corner2 corner3 options \fcPatchMakeFromThreeCorners
 corner0 corner3 corner1 options \fcPatchMakeFromThreeCorners
 corner1 corner1 v2 \fcVectorPlusVector corner1 v3 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
-corner2 corner1 v3 \fcVectorPlusVector corner2 v1 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
+corner2 corner2 v3 \fcVectorPlusVector corner2 v1 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
 corner3 corner3 v1 \fcVectorPlusVector corner3 v2 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
 ]
-/LeftGreaterThanRight {\fcPatchGetPoint \fcZDepth exch \fcPatchGetPoint gt} def
+/LeftGreaterThanRight {\fcPatchGetPoint \fcZDepth exch \fcPatchGetPoint \fcZDepth gt} def
 \fcMergeSort
 {dup \fcPatchPaintFilledDirectly \fcPatchPaintContourDirectly }forall 
 end
+}
+
+\newcommand{\fcBoxIIIdFilledNew}[5][]{%
+\setkeys{fcGraphics}{#1}%
+\pscustom{%
+\code{%
+\fcSetUpGraphicsToScreen %
+#2\space #3\space #4\space #5\space[\fcGetColorCode{\fcColorLine}] [\fcGetColorCode{\fcColorPatchUV}] \fcBoxIIIdFilledCode%
+}%
+}%
 }
 
 \newcommand{\fcBoxIIIdFilled}[5][]{%
@@ -1207,7 +1227,7 @@ graphicsFile ( setrgbcolor ) writestring
 \fcSetUpGraphicsToScreen
 /graphicsCached false def
 /graphicsFileAvailable true def
-/graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString  theIIIdObjects \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
+/graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
 /graphicsFile (file not open) def
 errordict begin
 /invalidfileaccess 
@@ -1437,7 +1457,7 @@ theIIIdObjects length 0 gt { %
 %theIIIdObjects == %
 } if %
 60 dict begin %
-\fcSetupFiles
+theIIIdObjects \fcSetupFiles
 graphicsCached not{
 /fastPatchSort \fcFastPatchSort\space def
 % % % % % % % % % % % % % % % % % % %
@@ -2244,6 +2264,7 @@ end
 \newcommand{\fcPatchGetvThree}{3 get \space}
 \newcommand{\fcPatchGetColorUV}{5 get 0 get \fcArrayToStack \space}
 \newcommand{\fcPatchGetColorVU}{5 get 1 get \fcArrayToStack \space}
+\newcommand{\fcPatchGetColorContour}{5 get 4 get \fcArrayToStack \space}
 \newcommand{\fcPatchGetForcedForegroundStatus}{5 get 2 get\space}
 \newcommand{\fcPatchGetInBounds}{5 get 3 get\space}
 \newcommand{\fcPatchGetContour}{4 get\space}
@@ -2311,10 +2332,7 @@ end
 %(PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetContour length 0 gt{
-thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
-{ thePatch \fcPatchGetColorVU setrgbcolorVirtual}
-{ thePatch \fcPatchGetColorUV setrgbcolorVirtual}
-ifelse
+thePatch \fcPatchGetColorContour setrgbcolorVirtual
 newpathVirtual
 thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
 thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
