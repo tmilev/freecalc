@@ -2313,6 +2313,7 @@ thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
 { thePatch \fcPatchGetColorVU setrgbcolorVirtual}
 { thePatch \fcPatchGetColorUV setrgbcolorVirtual}
 ifelse
+0.5 setalpha
 newpathVirtual
 thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
 thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall

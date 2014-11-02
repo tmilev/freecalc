@@ -1,14 +1,15 @@
 \begin{frame}
 \frametitle{Riemann sum in two variables}
 Let $\mathcal{R}$ be a compact (closed, bounded) region in the plane, and let $f \colon \mathcal{R} \to \mathbb{R}$ be a function on $\mathcal{R}$.
-\uncover<2->{Let $\{D_k\}$ be finite set of regions covering $\mathcal{R}$} with the following properties.
+\uncover<2->{Let $\{D_k\}$ be finite set of regions covering $\mathcal{R}$} \uncover<3->{with the following properties.}
 \begin{itemize}
-\item Each $D_k$ is a compact set.
-\item The boundary of each $D_k$ is a collection of smooth curves.
-\item Two regions $D_i$ and $D_j$ may overlap only on their boundaries.
+\item<3-> Each $D_k$ is a compact set.
+\item<4-> The boundary of each $D_k$ is a collection of smooth curves.
+\item<5-> Two regions $D_i$ and $D_j$ may overlap only on their boundaries.
 \end{itemize}
-Let $\mathcal{P} = (P_k)_k$ be a collection of sample points, with $P_k \in D_k$ for all $k$.
+\uncover<6->{Let $P_k$ be a collection of sampling points with $P_k \in D_k$ for all $k$.}
 
+\uncover<7->{
 \begin{definition}[Riemann sum]
 The \emph{Riemann sum} defined by such data is
 $
@@ -16,4 +17,5 @@ $
 \displaystyle\sum\limits_k f(P_k) \; \text{area}(D_k)\; .
 $
 \end{definition}
+}
 \end{frame}
