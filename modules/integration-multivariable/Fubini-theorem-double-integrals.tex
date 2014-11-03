@@ -1,16 +1,18 @@
 \begin{frame}
-    \frametitle{Fubini's Theorem}
-Let $f \colon [a,b]\times[c,d] \to \mathbb{R}$ be a function that is
-\begin{itemize}
-  \item bounded
-  \item continuous, except maybe on a finite number of smooth curves.
-\end{itemize}
-If the iterated integrals exist, then
-%
-\begin{align*}
-  \int&\!\!\!\int_{[a,b]\times [c,d]}\!\!\!\! f(x,y) \; dxdy = \int_{\textcolor[rgb]{1.00,0.00,0.00}{y=c}}^{\textcolor[rgb]{0.98,0.00,0.00}{y=d}} \left( \int_{\textcolor[rgb]{0.00,0.00,1.00}{x=a}}^{\textcolor[rgb]{0.00,0.00,1.00}{x=b}} f(x,y) \; \textcolor[rgb]{0.00,0.00,1.00}{dx} \right) \; \textcolor[rgb]{0.98,0.00,0.00}{dy} = \\
-  & = \int_{\textcolor[rgb]{0.00,0.00,1.00}{x=a}}^{\textcolor[rgb]{0.00,0.00,1.00}{x=b}} \left( \int_{\textcolor[rgb]{0.98,0.00,0.00}{y=c}}^{\textcolor[rgb]{0.98,0.00,0.00}{y=d}} f(x,y) \; \textcolor[rgb]{0.98,0.00,0.00}{dy} \right) \; \textcolor[rgb]{0.00,0.00,1.00}{dx}\; .
-\end{align*}
-
-The iterated integrals exists if $f$ is continuous.
+\begin{theorem}
+If  $f$ is continuous the double integral $\displaystyle \iint _{ [a,b]\times [c,d]} f(x,y)\diff x \diff y$ exists.
+\end{theorem}
+\uncover<2->{
+\begin{theorem}[Fubini's Theorem]
+Suppose the double integral of $f$ exists. Then, except at a \alert<4>{set of measure $0$}, the iterated integrals exist and
+$\begin{array}{rcl}
+\displaystyle 
+\iint\limits_{[a,b]\times [c,d]} f(x,y) \; \diff x\diff y &=&\displaystyle \int \limits^{{\color{red}{y=d}}}_{{\color{red}{y=c}}} \left( \int \limits_{{\color{blue}{x=a}}}^{{\color{blue}{x=b}}} f(x,y) \; {\color{blue}{\diff x}} \right)  {\color{red}{\diff y}} \\
+&=&\displaystyle \int\limits_{{\color{blue}{x=a }}}^{{\color{blue}{x=b}}} 
+\left( \int \limits_{{\color{red}{y=c}}}^{{\color{red}{y=d}}} f(x,y)  {\color{red}{\diff y}} \right) {\color{blue}{\diff x}}\; .
+\end{array}$
+\end{theorem}
+}
+\uncover<3->{This theorem allows to integrate non-continuous functions.}
+\uncover<4->{The term ``\alert<4>{set of measure 0}'' is too technical to define here; usually studied in the subject(s) ``Real Analysis/Measure Theory''.} 
 \end{frame}

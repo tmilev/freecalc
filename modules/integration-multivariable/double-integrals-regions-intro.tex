@@ -1,24 +1,48 @@
 \begin{frame}
-  \frametitle{More General Regions}
+\frametitle{More General Regions}
+What makes the iterated integral method work over rectangular regions? \uncover<2->{For all values of one variable, all slices with respect to that variable are intervals in the other variable.} \uncover<3->{If the variable is $x$, then:}
 
-  What makes the iterated integral method work over rectangular regions?\pause
 
-\begin{quote}
-  For all values of one variable, all slices with respect to that variable are intervals in the other variable.
-\end{quote}
-\pause
-If the variable is $y$, then:
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(2,1)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{3}{2.7}
+\pstVerb{
+/f {x 170 mul sin 0.4 mul 0.6 add} def 
+/g {x 190 mul cos 0.4 mul 2 add x 4 div sub} def
+}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot{0.2 }{2}{f }
+\psplot{2 }{0.2}{g}
+}
+\multido{\na=4+1}{4}{%
+\pstVerb{1 dict begin /x \na\space 4 sub 0.5 mul 0.3 add def}%
+\only<\na->{\psline[linecolor=red, linewidth=2pt](! x f)(! x g)}%
+\only<\na->{%
+\psline[linestyle=dotted](! x f)(! x 0)%
+\rput[t](! x -0.1){$\alert<8>{x_{\fcEvalToInt{\na-3}}}$}%
+}%
+\pstVerb{end}%
+}%
+\uncover<3>{\rput[t](! 0.3 -0.1){$x_1$}}
+\psplot{0.2}{2}{f}
+\rput[l](2.1, 2.1){$y=g(x)$}
+\psplot{2}{0.2}{g}
+\rput[l](2, 0.2){$y=f(x)$}
+\end{pspicture}
+\column{0.7\textwidth}
 \begin{itemize}
-  \item we can integrate over each slice with respect to $x$,
-  \item obtaining a function that depends only on the location of the slice,
-  \item given by the $y-$value,
-  \item then we integrate the result again with respect to $y$.
+\item<3-> we can fix a value for $x$ 
+\item<4-> for the fixed $x$, integrate with respect to $y$,
+\item<8-> to obtain a function that depends only on $x$,
+\item<9-> then integrate the so obtained function in $x$ (with respect to $x$).
 \end{itemize}
-\pause
-We can apply the same procedure if the slices are intervals, with endpoints depending continuously on the location of the slice.\pause
-%
+\end{columns}
+\uncover<10->{So far we did this procedure for rectangular regions,} \uncover<11->{but as illustrated in the picture, this works if the \alert<11>{slices are intervals whose endpoints depend continuously} on the location of the slice.} 
 \begin{itemize}
-  \item Regions of type I: vertical slices are segments.
-  \item Regions of type II: horizontal slices are segments.
+\item<12-> Regions of type I: vertical slices are segments.
+\item<12-> Regions of type II: horizontal slices are segments.
 \end{itemize}
+\uncover<12->{We call such regions curvilinear trapezoids.}
 \end{frame}

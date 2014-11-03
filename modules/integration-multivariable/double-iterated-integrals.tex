@@ -1,20 +1,59 @@
 \begin{frame}
-  \frametitle{Iterated Integrals}
-%
-\begin{align*}
-  \int\!\!\!\int_{[a,b] \times [c,d]} f(x,y) \; dx\, dy \simeq \sum_{1\leqslant i,j \leqslant n} f(P_{ij}) \, \Delta x \, \Delta y = \\
-  = \sum_{1\leqslant i,j \leqslant n} f(x_i,y_j) \, \Delta x\, \Delta y = \sum_{j=1}^n \left( \sum_{i=1}^n f(x_i,y_j) \Delta x \right)\, \Delta y\; .
-\end{align*}
-
-\pause
-The sum with index $i$ is a Riemann sum for computing the integral
-%
-$$g(y_j) = \int_{x=a}^{x=b} f(x,y_j) \; dx$$
-%
-\pause
-$$\sum_{j=1}^n\left( \sum_{i=1}^n f(x_i,y_j) \Delta x \right) \Delta y \simeq \sum_{j=1}^n g(y_j) \Delta y \simeq \int_{y=c}^{y=d} g(y) \; dy$$
-%
-\pause
-$$\int\!\!\!\int_{[a,b] \times [c,d]} f(x,y) \; dx\, dy = \int_{y=c}^{y=d} g(y) \; dy = \int_{y=c}^{y=d} \left( \int_{x=a}^{x=b} f(x,y) \; dx \right) \; dy$$
-%
+\frametitle{Iterated Integrals}
+\begin{columns}
+\column{0.25\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\renewcommand{\fcScreen}{[-1 -1.1 -1] 0}
+\fcAxesIIId{3}{3}{4.5}%
+\uncover<1>{\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0}{2}{2} {25}{25}{ x 2 sub dup mul y 2 sub dup mul add 2 div}
+\fcStartIIIdScene%
+\fcSurfaceInScene[linecolor=blue, colorUV=blue]{0}{0}{2}{2}{[2 dict begin /x u def /y v def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}{}%
+\fcFinishIIIdScene%
+}%
+\uncover<2->{%
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0}{2}{0.4}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+\uncover<4,5,10>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0}{2}{0.4}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+}
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0.4}{2}{0.8}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+\uncover<6>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0.4}{2}{0.8}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+}
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0.8}{2}{1.2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+\uncover<7>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0.8}{2}{1.2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+}
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{1.2}{2}{1.6}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+\uncover<8>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{1.2}{2}{1.6}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+}
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{1.6}{2}{2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+\uncover<9>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{1.6}{2}{2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+}
+}%
+\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x t def /y 0 def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}
+\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x t def /y 2 def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}
+\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x 0 def /y t def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}
+\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x 2 def /y t def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}
+\fcPolyLineIIId{[2 0 2] [2 0 0] [2 2 0] [0 2 0] [0 2 2] }
+\end{pspicture}
+\column{0.75\textwidth}
+\[
+\begin{array}{rcl}
+\displaystyle \iint\limits_{[a,b] \times [c,d]} f(x,y)  \diff x  \diff y &\uncover<2->{\alert<2>{\approx}}&\displaystyle \uncover<2->{ \alert<2>{ \alert<3>{ \sum_{1 \leq i ,j \leq n}}  f ( x_i,y_j)   \Delta x  \Delta y }} \\
+&\uncover<3->{=}&\displaystyle  \uncover<3->{\alert<3,5-9>{ \sum \limits_{ j = 1 }^n } \left( \alert<4,10,11>{ \alert<3>{\sum_{i=1}^n} f(x_i,y_j) \Delta x  } \right) \Delta y}\; .
+\end{array}
+\]
+\end{columns}
+\uncover<10->{ The $j^{th}$ summand is a Riemann sum for $\displaystyle \alert<10,11>{ g(y_j) = \int_{x=a}^{x=b} f(x,y_j) \diff x }\quad.$}
+\[
+\begin{array}{r@{~}c@{~}l}
+\uncover<11->{\displaystyle \alert<14>{\sum_{j=1}^n}\left( \alert<11>{\alert<14>{\sum_{i=1}^n} f(x_i,y_j) \alert<14>{\Delta x}} \right) \alert<14>{\Delta y}} &\uncover<11->{\approx}&\displaystyle  \uncover<11->{ \alert<15>{\sum_{j=1}^n} \alert<11>{ g(y_j)} \alert<15>{\Delta y}} \uncover<11->{\alert<11>{\approx \int_{y=c}^{y=d} \alert<16>{ g(y)}  \diff y}}
+\\
+\uncover<13->{ \displaystyle \alert<14>{ \iint\limits_{[a,b] \times [c,d]}} f(x,y)  \alert<14>{\diff x \diff y }&=& \displaystyle  \alert<15>{\int\limits_{y=c}^{y=d}} g(y) \alert<15>{ \diff y }= \int\limits_{y=c}^{y=d} \left( \alert<16>{\int\limits_{x=a}^{x=b} f(x,y)  \diff x} \right)  \diff y}
+\end{array}
+\]
 \end{frame}
