@@ -1,21 +1,21 @@
 % begin module taylor-series-ex3
 \begin{frame}
-\begin{example}[Example 3, p. 775]
-Find the Taylor series for $f(x) = e^x$ at $a = 2$.
+\begin{example} 
+Find the Taylor series for $f(x) = e^x$ at $a = 3$.
 \begin{itemize}
 \item<2-| alert@2-3>  $f^{(n)}(x) = $ \uncover<3->{$e^x$.}
-\item<4-| alert@4-6>  $f^{(n)}(2) = $ \uncover<5->{$e^2$.}
+\item<4-| alert@4-6>  $f^{(n)}(3) = $ \uncover<5->{$e^3$.}
 \item<6->  Therefore the Taylor series is
 \end{itemize}
 \uncover<6->{%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
-\sum_{n=0}^\infty \frac{\alert<handout:0| 6>{f^{(n)}(2)}}{n!}(x-2)^n = \sum_{n=0}^\infty \frac{\alert<handout:0| 6>{e^2}}{n!}(x-2)^n %= e^2 + \frac{e^2}{1!}(x-2) + \frac{e^2}{2!}(x-2)^2 + \frac{e^3}{3!}(x-2)^3 + \cdots%
+\sum_{n=0}^\infty \frac{\alert<handout:0| 6>{f^{(n)}(3)}}{n!}(x-3)^n = \sum_{n=0}^\infty \frac{\alert<handout:0| 6>{e^3}}{n!}(x-3)^n %= e^3 + \frac{e^3}{1!}(x-3) + \frac{e^3}{2!}(x-3)^2 + \frac{e^3}{3!}(x-3)^3 + \cdots%
 \]
 }%
 \begin{itemize}
-\item<7->  To find the radius of convergence, let $a_n = \frac{e^2}{n!}(x-2)^n$.
+\item<7->  To find the radius of convergence, let $a_n = \frac{e^3}{n!}(x-3)^n$.
 \end{itemize}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
@@ -26,11 +26,11 @@ Find the Taylor series for $f(x) = e^x$ at $a = 2$.
 }%
  \uncover<8->{ = } %
 \uncover<8->{%
-\lim_{n\to\infty} \left| \frac{e^2\alert<handout:0| 9-10>{(x-2)^{n+1}}}{\alert<handout:0| 11-12>{(n+1)!}}\cdot \frac{\alert<handout:0| 11-12>{n!}}{e^2\alert<handout:0| 9-10>{(x-2)^n}}\right|%
+\lim_{n\to\infty} \left| \frac{e^3\alert<handout:0| 9-10>{(x-3)^{n+1}}}{\alert<handout:0| 11-12>{(n+1)!}}\cdot \frac{\alert<handout:0| 11-12>{n!}}{e^3\alert<handout:0| 9-10>{(x-3)^n}}\right|%
 }%
  \uncover<9->{ = } %
 \uncover<9->{%
-\alert<handout:0| 13-14>{\lim_{n\to\infty} \frac{\uncover<10->{\alert<handout:0| 10>{|x-2|}}}{\uncover<12->{\alert<handout:0| 12>{n+1}}}}%
+\alert<handout:0| 13-14>{\lim_{n\to\infty} \frac{\uncover<10->{\alert<handout:0| 10>{|x-3|}}}{\uncover<12->{\alert<handout:0| 12>{n+1}}}}%
 }%
  \uncover<13->{\alert<handout:0| 13-14>{ = }} %
 \uncover<14->{%
@@ -45,5 +45,21 @@ Find the Taylor series for $f(x) = e^x$ at $a = 2$.
 \item<17->  Just like the Maclaurin series, this series also represents $e^x$.
 \end{itemize}
 \end{example}
+\end{frame}
+
+\begin{frame}
+\begin{example} 
+Find the Taylor series for $f(x) = e^x$ at $a = 3$.
+\[
+\begin{array}{rcll|l}
+\displaystyle \uncover<2->{e^{x}}&\uncover<2->{=}&\displaystyle \uncover<2->{{\alert<3,4>{e}}^{\alert<4>{x-3} + \alert<3>{ 3}}} \uncover<3->{= \alert<3>{e^{3}}\alert<4,6>{e^{x-3}}} \uncover<5->{&& \begin{array}{l} \text{Recall that } \alert<6>{e^y=\sum\limits_{n=0}^\infty \frac{{y}^n}{n!}} \\ \uncover<6->{\text{Set } \alert<6>{y=x-3} }\end{array}} \\
+&\uncover<6->{=}&\displaystyle \uncover<6->{\alert<7>{e^3} \alert<6>{\sum\limits_{n=0}^\infty \frac{(x-3)^n}{n!}}}\\
+&\uncover<7->{=}&\displaystyle \uncover<7->{\sum\limits_{n=0}^\infty  \frac{\alert<7>{e^3}}{n!}(x-3)^n}
+\end{array}
+\]
+
+\uncover<8->{The radius of convergence was already computed to be $R=\infty$.}
+\end{example}
+\vskip 10 cm
 \end{frame}
 % end module taylor-series-ex3
