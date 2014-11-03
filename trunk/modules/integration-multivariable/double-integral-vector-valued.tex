@@ -1,28 +1,10 @@
 \begin{frame}
-  \frametitle{Vectorial Integrals}
+\frametitle{Vectorial Integrals}
+The double integral definition extends directly to f-ns with vector output.
+\begin{definition}
+\[
+\iint_{\mathcal{R}} \fcv{F}(P) \; \diff A = \lim_{\text{maxdiam}(\mathcal{D}) \to 0} \sum_k \fcv{F}(P_k) \; \text{area}(D_k)
+\]
+\end{definition}
 
-    $$\int\!\!\int_{\mathcal{R}} \fcv{F}(P) \; dA = \lim_{\text{maxdiam}(\mathcal{D}) \to 0} \sum_k \fcv{F}(P_k) \; \text{area}(D_k)$$
-%
-    The definition can be extended to functions with vectorial output.
-
-\underline{Example}: Electric force on a lamina
-
-    \begin{itemize}
-      \item Charge $Q$, at a fixed point
-      \item Charge $q$, uniformly distributed on a planar lamina $\mathcal{R}$
-      \item Total force on $Q$?
-    \end{itemize}
-    %
-    $$dq = (\text{density of charge}) \, dA = \frac{q}{A(\mathcal{R})}\, dA$$
-    %
-    $$d\fcv{F} = \frac{\epsilon Q dq}{|\fcv{r}|^3} \; \fcv{r}  =
-    \left( \epsilon \frac{Q q}{A(\mathcal{R}) |\fcv{r}|^3} \, \fcv{r}\right)\, dA$$
-    %
-    $$\fcv{F} = \int\!\!\!\int_{\mathcal{R}} d\fcv{F} =
-    \int\!\!\!\int_{\mathcal{R}} \left( \epsilon \frac{Q q}{A(\mathcal{R}) |\fcv{r}|^3} \, \fcv{r}\right)\, dA$$
-
-    \pause Constant Multiple Rule:
-    %
-    $$\int\!\!\int_{\mathcal{R}} c \fcv{F} \; dA =
-    c \int\!\!\int_{\mathcal{R}} \fcv{F} \; dA$$
 \end{frame}
