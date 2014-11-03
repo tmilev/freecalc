@@ -1,21 +1,27 @@
 \begin{frame}
 Let $S$ be a surface that has implicit equation $F(x,y, z)=0 $ for some differentiable function $F$. Let $P$ be a point on the surface.
+\uncover<2->{
 \begin{theorem}
 Suppose $\nabla F(P)\neq \fcv 0$. Then $\nabla F(P)$ is perpendicular to the tangent vector at $P$ of every differentiable curve lying in $S$ passing through $P$.
 \end{theorem}
+}
+\uncover<3->{
 \begin{proof}
 Suppose $\fcv r(t)= \langle x(t), y(t), z(t) \rangle$ is a curve in $S$. Compute:
 $
 \renewcommand{\arraystretch}{1.2}
 \begin{array}{rclll}
-F(x(t), y(t), z(t))&=&0&&\text{apply }\frac{\diff }{\diff t}\\
-\left(F_x \frac{\diff x}{\diff t}+F_y\frac{\diff y }{\diff t} +F_z\frac{\diff z}{\diff t}\right)_{|x=x(t), y=y(t), z=z(t)} &=&0\\
-\fcv r'(t)\cdot \langle F_x, F_y, F_z \rangle _{|x=x(t), y=y(t), z=z(t)}&=&0 \\
-\fcv r'(t)\cdot (\nabla F)_{|x=x(t), y=y(t), z=z(t)}&=&0\\ 
+\uncover<4->{ F(x(t), y(t), z(t))&=&0&&\text{apply }\frac{\diff }{\diff t}}\\
+\uncover<5->{\left(F_x \frac{\diff x}{\diff t}+F_y\frac{\diff y }{\diff t} +F_z\frac{\diff z}{\diff t}\right)_{|x=x(t), y=y(t), z=z(t)} &=&0}\\
+\uncover<6->{\fcv r'(t)\cdot \langle F_x, F_y, F_z \rangle _{|x=x(t), y=y(t), z=z(t)}&=&0} \\
+\uncover<7->{\fcv r'(t)\cdot (\nabla F)_{|x=x(t), y=y(t), z=z(t)}&=&0}\\ 
 \end{array}
 $
 \end{proof}
+}
+\uncover<8->{
 \begin{definition}[Tangent plane to level surface]
 Suppose $\nabla F(P)\neq 0$. We define the tangent plane to the surface $S$ at $P$ to be the plane passing through $P$ with normal vector $\nabla F(P)$.
 \end{definition}
+}
 \end{frame}
