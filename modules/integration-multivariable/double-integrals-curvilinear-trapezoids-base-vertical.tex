@@ -5,45 +5,77 @@
 \begin{pspicture}(-1,-1)(2,1)
 \tiny
 \fcAxesStandard{-0.5}{-0.5}{3}{2.7}
-\pstVerb{ 2 dict begin
-/f {x 170 mul sin 0.4 mul 0.6 add} def 
-/g {x 190 mul cos 0.4 mul 2 add x 4 div sub} def
+\pstVerb{ 10 dict begin
+/f1 {x 170 mul sin 0.4 mul 0.6 add} def 
+/f2 {x 190 mul cos 0.4 mul 2 add x 4 div sub} def
 }
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot{0.2 }{2}{f }
-\psplot{2 }{0.2}{g}
-}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot{0.2 }{2}{f1 }%
+\psplot{2 }{0.2}{f2}%
+}%
+\psplot{0.2}{2}{f1}%
+\psplot{2}{0.2}{f2}%
+\uncover<7>{%
+\psplot[linewidth=2pt, linecolor=red]{0.2}{2}{f1}%
+\psplot[linewidth=2pt, linecolor=red]{2}{0.2}{f2}%
+}%
 \pstVerb{/x 0.2 def}
-\psline(! x f)(! x g)
-\uncover<2>{\psline[linewidth=2pt, linecolor=red](! x f)(! x g)}
+\psline(! x f1)(! x f2)
+\uncover<2>{\psline[linewidth=2pt, linecolor=red](! x f1)(! x f2)}
 \uncover<2->{%
-\psline[linestyle=dotted](! x f)(! x 0)%
+\psline[linestyle=dotted](! x f1)(! x 0)%
+\rput[lt](! x -0.2 ){$~a$}
 }%
 \pstVerb{/x 2 def}
-\psline(! x f)(! x g)
-\uncover<3>{\psline[linewidth=2pt, linecolor=red](! x f)(! x g)}
-\psplot{0.2}{2}{f}
+\psline(! x f1)(! x f2)
+\uncover<3>{\psline[linewidth=2pt, linecolor=red](! x f1)(! x f2)}
+\uncover<3->{%
+\psline[linestyle=dotted](! x f1)(! x 0)%
+\rput[lt](! x -0.2 ){$~b$}
+}%
+\pstVerb{/x 1 def}
+\uncover<4>{\psline[linewidth=2pt, linecolor=red](! x f1)(! x f2)}
+\uncover<5->{\psline(! x f1)(! x f2)}
+\uncover<4->{%
+\psline[linestyle=dotted](! x f1)(! x 0)%
+\rput[lt](! x -0.2){$~x$}
+}%
+\uncover<6,7>{
+\psline[linecolor=red, linewidth=2pt](0.2, -0.5)(0.2, 2.7)
+\psline[linecolor=red, linewidth=2pt](2, -0.5)(2, 2.7)
+}
+\uncover<5->{%
+\fcFullDot{x}{f1}%
+\fcFullDot{x}{f2}%
+\rput[lb](! x f1){$~~(x,f(x))$}%
+\rput[lt](! x f2){$~~(x,g(x))$}%
+}%
 \rput[l](2.1, 2.1){$y=g(x)$}
-\psplot{2}{0.2}{g}
-\rput[l](2, 0.2){$y=f(x)$}
+\rput[l](2.1, 0.2){$y=f(x)$}
 \pstVerb{end}%
 \end{pspicture}
 \column{0.7\textwidth}
 \begin{itemize}
-\item<2> Identify the \alert<2>{leftmost point(s)}, $(a,?)$, and \alert<3>{the rightmost point(s)}, $(b,?)$.
-  \item \pause Draw a generic vertical slice at some value $x$ between $a$ and $b$.
-  \item \pause Find the lowest point on that slice, $(x,g_1(x))$ and the highest point, $(x,g_2(x))$.
+\item<2-> Identify the \alert<2>{leftmost point(s), with $x$-coordinate $x=a$} and \alert<3>{the rightmost point(s), $x=b$}.
+\item<4-> Draw a vertical slice at a value $x$ between $a$ and $b$.
+\item<5-> Find the lowest point on that slice, $(x,f(x))$ and the highest point, $(x,g(x))$.
 \end{itemize}
 \end{columns}
+\uncover<6->{
 The region is the region bounded by:
- \begin{itemize}
-   \item \pause vertical lines $\textcolor[rgb]{0.00,0.00,1.00}{x=a}$ and $\textcolor[rgb]{0.00,0.00,1.00}{x=b}$;
-   \item \pause the graphs of $\textcolor[rgb]{0.98,0.00,0.00}{y=g_1(x)}$ and $\textcolor[rgb]{0.98,0.00,0.00}{y=g_2(x)}$, with $g_1,g_2 \colon [a,b] \to \mathbb{R}$:
+\begin{itemize}
+\item<6-> the vertical lines $\alert<6>{x=a}$ and $\alert<6>{x=b}$;
+\item<7-> the graphs of $\alert<7>{y=f(x)}$ and $\alert<7>{y=g(x)}$, with $f,g \colon [a,b] \to \mathbb{R}$.
  \end{itemize}
-%
-\pause
-$$\mathcal{R} = \{(x,y) \; | \; \textcolor[rgb]{0.00,0.00,1.00}{a \leqslant x \leqslant b}\; , \; \textcolor[rgb]{0.98,0.00,0.00}{g_1(x) \leqslant y \leqslant g_2(x)} \} \; .$$
-%
-\pause
-$$\int\!\!\!\int_{\mathcal{R}} f(x,y) \; dxdy = \int_{\textcolor[rgb]{0.00,0.00,1.00}{x=a}}^{\textcolor[rgb]{0.00,0.00,1.00}{x=b}} \left( \int_{\textcolor[rgb]{0.98,0.00,0.00}{y=g_1(x)}}^{\textcolor[rgb]{0.98,0.00,0.00}{y=g_2(x)}} f(\textcolor[rgb]{0.00,0.00,1.00}{x},\textcolor[rgb]{0.98,0.00,0.00}{y}) \; \textcolor[rgb]{0.98,0.00,0.00}{dy}\right) \; \textcolor[rgb]{0.00,0.00,1.00}{dx}$$
+}
+\uncover<8->{
+\[
+\mathcal{R} = \{(x,y)  | {\color{blue}{a \leq x \leq b}} ,  {\color{red}{f(x) \leq y \leq g(x)}} \}  .
+\]
+}
+\uncover<9->{
+\[
+\iint_{\mathcal{R}} f(x,y) \; \diff x\diff y = \int_{{\color{blue}{x=a}}}^{{\color{blue}{x=b}}} \left( \int_{{\color{red}{y=f(x)}}}^{{\color{red}{y=g(x)}}} f({\color{blue}{x}},{\color{red}{y}})  {\color{red}{\diff y}} \right) \; \color{blue}{\diff x}
+\]
+}
 \end{frame}

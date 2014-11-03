@@ -1,19 +1,82 @@
 \begin{frame}
-  \frametitle{Strategy: Curvilinear Trapezoids (Type II)}
-%
-\begin{itemize}
-  \item Identify the lowest point, $(*,c)$, and the highest point, $(*,d)$.
-  \item Draw a generic horizontal slice at some value $y$ between $c$ and $d$.
-  \item Find the leftmost point on that slice, $(h_1(y),y)$ and the rightmost point, $(h_2(y),y)$.
-\end{itemize}
+\frametitle{Strategy: Curvilinear Trapezoids (Type II)}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(2,1)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{3.2}{2.7}
+\pstVerb{ 10 dict begin
+/f1 {t 170 mul sin 0.4 mul 0.6 add} def 
+/f2 {t 190 mul cos 0.4 mul 2 add t 4 div sub} def
+}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\parametricplot{0.2 }{2}{f1 t}%
+\parametricplot{2 }{0.2}{f2 t}%
+}%
+\parametricplot{0.2}{2}{f1 t}%
+\parametricplot{2}{0.2}{f2 t}%
+\uncover<7>{%
+\parametricplot[linewidth=2pt, linecolor=red]{0.2}{2}{f1 t}%
+\parametricplot[linewidth=2pt, linecolor=red]{2}{0.2}{f2 t}%
+}%
+\pstVerb{/t 0.2 def}
+\psline(! f1 t)(! f2 t)
+\uncover<2>{\psline[linewidth=2pt, linecolor=red](! f1 t)(! f2 t)}
+\uncover<2->{%
+\psline[linestyle=dotted](! f1 t)(! 0 t)%
+\rput[lb](! -0.2 t 0.1 add){$c~$}
+}%
+\pstVerb{/t 2 def}
+\psline(! f1 t)(! f2 t)
+\uncover<3>{\psline[linewidth=2pt, linecolor=red](! f1 t)(! f2 t)}
+\uncover<3->{%
+\psline[linestyle=dotted](! f1 t)(! 0 t)%
+\rput[rb](! -0.2 t 0.1 add){$d~$}
+}%
+\pstVerb{/t 1 def}
+\uncover<4>{\psline[linewidth=2pt, linecolor=red](! f1 t)(! f2 t)}
+\uncover<5->{\psline(! f1 t)(!  f2 t)}
+\uncover<4->{%
+\psline[linestyle=dotted](! f1 t)(! 0 t)%
+\rput[rb](! -0.2 t 0.1 add){$x~$}
+}%
+\uncover<6,7>{
+\psline[linecolor=red, linewidth=2pt](-0.5, 0.2)(2.7, 0.2)
+\psline[linecolor=red, linewidth=2pt](-0.5,2)(2.7, 2)
+}
+\uncover<5->{%
+\fcFullDot{f1}{t}%
+\fcFullDot{f2}{t}%
+\rput[b](! f1 t 0.2 add){$(f(y),y)$}%
+\rput[lt](! f2 t){$~~(g(y),y)$}%
+}%
+\rput[bl](2.2, 0.3){$x=g(y)$}
+\rput[br](0.9, 0.3){$x=f(y)$}
+\pstVerb{end}%
+\end{pspicture}
+\column{0.7\textwidth}
 
+\begin{itemize}
+\item<2-> Identify the \alert<2>{lowest point(s), with $y$-coordinate $y=c$} and \alert<3>{the topmost point(s), $y=d$}.
+\item<4-> Draw a generic horizontal slice at some value $y$ between $c$ and $d$.
+\item<5-> Find the lowest point on that slice, $(f(y),y)$ and the topmost point, $(g(y),y)$.
+\end{itemize}
+\end{columns}
+\uncover<6->{
 The region is bounded by:
- \begin{itemize}
-   \item horizontal lines $\textcolor[rgb]{0.98,0.00,0.00}{y=c}$ and $\textcolor[rgb]{0.98,0.00,0.00}{y=d}$
-   \item graphs of $\textcolor[rgb]{0.00,0.00,1.00}{x=h_1(y)}$ and $\textcolor[rgb]{0.00,0.00,1.00}{x=h_2(y)}$, with  $h_1,h_2 \colon [c,d] \to \mathbb{R}$:
- \end{itemize}
-%
-$$\mathcal{R} = \{(x,y) \; | \; \textcolor[rgb]{0.98,0.00,0.00}{c \leqslant y \leqslant d}\; , \; \textcolor[rgb]{0.00,0.00,1.00}{h_1(y) \leqslant x \leqslant h_2(y)} \} \; .$$
-%
-$$\int\!\!\!\int_{\mathcal{R}} f(x,y) \; dxdy = \int_{\textcolor[rgb]{0.98,0.00,0.00}{y=c}}^{\textcolor[rgb]{0.98,0.00,0.00}{y=d}} \left( \int_{\textcolor[rgb]{0.00,0.00,1.00}{x=h_1(y)}}^{\textcolor[rgb]{0.00,0.00,1.00}{x=h_2(y)}} f(\textcolor[rgb]{0.00,0.00,1.00}{x},\textcolor[rgb]{0.98,0.00,0.00}{y}) \; \textcolor[rgb]{0.00,0.00,1.00}{dx}\right) \; \textcolor[rgb]{0.98,0.00,0.00}{dy}$$
+\begin{itemize}
+\item<6-> horizontal lines $\alert<6>{y=c}$ and $\alert<6>{y=d}$
+\item<7-> graphs of $\alert<7>{x=f(y)}$ and $\alert<7>{x=g(y)}$, with  $f,g \colon [c,d] \to \mathbb{R}$:
+\end{itemize}
+}
+\uncover<8->{
+\[
+\mathcal{R} = \{(x,y) \; | \; \color{red}{c \leq y \leq d}\; , \; \color{blue}{f(y) \leq x \leq g(y)} \} \; .
+\]
+}
+\uncover<9->{
+\[
+\iint_{\mathcal{R}} f(x,y) \; \diff x\diff y = \int_{{\color{red}{y=c}}}^{{\color{red}{y=d}}} \left( \int_{{\color{blue}{x=f(y)}}}^{{\color{blue}{x=g(y)}}} f({\color{blue}{x}},{\color{red}{y}}) {\color{blue}{\diff x}} \right) \; \color{red}{\diff y}
+\]
+}
 \end{frame}
