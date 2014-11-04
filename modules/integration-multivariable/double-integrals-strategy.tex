@@ -1,0 +1,49 @@
+\begin{frame}
+\frametitle{Strategy for Computing a Double Integral}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{3.1}{2.3}%
+\fcLabels{3.1}{2.3}
+\uncover<5->{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\pscurve(0.3,0.3)(0.5, 0.5)(2, 0.1)(3, 0.5)(2.7,1)(2.9,2)(2,2)(0.2, 1.1)(2, 1.1)(2, 0.7)(0.05,0.7)(0.3,0.3)%
+}%
+}%
+\uncover<4->{\pscurve(0.3,0.3)(0.5, 0.5)(2, 0.1)(3, 0.5) (2.7,1) (2.9,2) (2,2)(0.2, 1.1)(2, 1.1)(2, 0.7)(0.05,0.7)(0.3,0.3)}%
+\uncover<6->{
+\fcFullDot[scale=0.7, linecolor=red]{0.04}{0.67}%
+\pscurve[linecolor=red, linewidth=1pt](0.3,0.3)(0.5, 0.5)(2, 0.1)(3, 0.5) (2.7,1) (2.9,2) (2,2)(0.2, 1.1)(2, 1.1)(2, 0.7)(0.05,0.7)(0.3,0.3)
+\psline[linecolor=red, linewidth=1pt](2.0735, 0.105)(2.0735, 2.03)
+\psline[linecolor=red, linewidth=1pt](2.0735, 2.0248)(2.89, 2.0248)
+\fcFullDot[scale=0.7, linecolor=red]{2.889}{2.025}
+\fcFullDot[scale=0.7, linecolor=red]{2.0735}{2.025}
+\fcFullDot[scale=0.7, linecolor=red]{0.19}{1.15}
+\fcFullDot[scale=0.7, linecolor=red]{2.0735}{0.105}
+\fcFullDot[scale=0.7, linecolor=red]{2.0735}{0.92}
+}
+\uncover<7->{
+\fcFullDot[scale=0.7, linecolor=red]{0.3}{0.3}
+\psline[linecolor=red, linewidth=1pt](0.3,0.3)(0.3, 0.867)
+\fcFullDot[scale=0.7, linecolor=red]{0.3}{0.867}
+}
+\end{pspicture}
+\column{0.6\textwidth}
+\begin{problem}
+Find the integral $\iint_{\mathcal R} f(x,y)\diff x \diff y$ over a region $\mathcal R$ enclosed by a set of smooth curves.
+\end{problem}
+\end{columns}
+\begin{itemize}
+\item<2-> We present a strategy for approaching the above problem. 
+\item<3-> The tractability of this strategy depends on the concrete description of $f$ and the enclosing curves.
+\begin{itemize}
+\item<4-> Plot the curve(s) enclosing $\mathcal R$.
+\item<5-> Identify the region $\mathcal R$.
+\item<6-> Chop $\mathcal R$ into curvilinear trapezoids; the trapezoids are allowed to intersect only on their boundaries.
+\item<7-> By possible subdivision ensure trapezoids have smooth boundaries.
+\item<8-> Integrate $f$ over the obtained curvilinear trapezoids \& collect terms.
+\end{itemize}
+\item<9-> Our strategy will be augmented/combined later with variable changes (via the multivariable substitution rule).
+\end{itemize}
+\end{frame}
