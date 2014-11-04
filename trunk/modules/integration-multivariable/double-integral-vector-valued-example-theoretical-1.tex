@@ -1,0 +1,21 @@
+\begin{frame}
+\frametitle{Theoretical example: Electric force on a lamina}
+\begin{itemize}
+\item Given: 
+\begin{itemize}
+\item a charge $Q$, located at the origin;
+\item charge $q$, uniformly distributed on a planar lamina $\mathcal{R}$.
+\end{itemize}
+\item What is the resulting (total) force $\fcv F$ on $Q$?
+\item<5-> Recall that the attraction force exerted on a \alert<6>{charge $Q$} located at the origin by \alert<7>{a charge $c$ located at a point} with \alert<6>{position vector $\fcv r$} is $\alert<6>{ \varepsilon Q} \alert<7>{c} \alert<6>{\frac{ \fcv r }{|\fcv r|^3}}$.
+\end{itemize}
+\[
+\renewcommand{\arraystretch}{1.8}
+\begin{array}{rcl}
+\uncover<2->{\alert<8>{\displaystyle \diff q}} &\uncover<2->{\alert<8>{=}} & \uncover<2->{(\text{density of charge})  \diff A} \uncover<3->{ =\displaystyle \alert<8>{ \frac{q}{A(\mathcal{R})} \diff A} }\\
+\displaystyle \uncover<4->{ \alert<10>{\diff \fcv{F}}} &\uncover<4->{\alert<10>{=}}& \displaystyle \uncover<4->{\alert<6>{ \varepsilon Q \frac{ \fcv{r }}{ | \fcv{ r}|^3}} \alert<7,8>{\diff q}} \uncover<8->{ = \alert<10>{\varepsilon \frac{Q \alert<8>{q}}{\alert<8>{A(\mathcal{R})} } \frac{ \fcv{r }}{ | \fcv{ r}|^3} \alert<8>{\diff A}}} \\
+\displaystyle \alert<12>{\uncover<9->{\fcv{F}}} &\uncover<9->{\alert<12>{=}} & \displaystyle \uncover<9->{\iint_{\mathcal{R}} \alert<10>{\diff \fcv{F}}} \uncover<10->{= \iint_{\mathcal{R} }  \alert<11>{\varepsilon \alert<10>{ \frac{ Q q}{A(\mathcal{R})} }  \frac{ \fcv{r}}{|\fcv{r}|^3}  \diff A}}\\
+\uncover<11,12->{&=&\displaystyle  \alert<12>{ \alert<11>{\varepsilon \frac{Q q}{A(\mathcal{R})}}  \iint_{\mathcal{R} } \frac{\fcv r}{ |\fcv{r}|^3} \diff A}}
+\end{array}
+\]
+\end{frame}

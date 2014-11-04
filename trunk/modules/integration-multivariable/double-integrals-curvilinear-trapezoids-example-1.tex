@@ -1,23 +1,50 @@
 \begin{frame}
-  \frametitle{Examples}
+\begin{example}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\fcBoundingBox{-0.1}{-1.2}{4}{4.5}
+\renewcommand{\fcScreen}{[-1 2 -3] 0}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\fcCurveIIId{0}{2}{[t t t mul 0]}
+\fcLineIIId{[2 4 0]}{[2 4 2.5]}
+\fcCurveIIId{2}{0}{[t 2 t mul t t mul 4 t t mul mul add 8 div]}
+}
+\fcCurveIIId[linewidth=0.5pt, linecolor=black]{0}{2}{[t t t mul 0]}
+\fcLineIIId[linewidth=0.5pt, linecolor=black]{[2 4 0]}{[2 4 2.5]}
+\fcCurveIIId[linewidth=0.5pt, linecolor=black, linestyle=dashed]{2}{0}{[t 2 t mul 0]}
+\fcStartIIIdScene
+\fcSurfaceInScene[linewidth=0.5, iterationsU=4, iterationsV=4, colorUV={0.2 0.7 0.9}]{0.00001}{0}{2}{1}{[2 dict begin /x u def /y {v 2 u mul mul 1 v sub u u mul mul add } def x y x x mul y y mul add 0.125 mul end]}{}
+\fcFinishIIIdScene[fastsort=true]
+\fcAxesIIId{3}{3}{3}
+\end{pspicture}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-0.5}{-0.5}{2.6}{5.2}
+\fcAxesStandard{-0.5}{-0.5}{2.5}{5}
+\fcLabels{2.5}{5}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot{0}{2}{x x mul}%
+\psline(2, 4)(0,0)%
+}%
+\psplot{-0.2}{2.2}{x x mul}
+\psline(-0.2, -0.4)(2.4, 4.8)
+\end{pspicture}
 
-  \begin{itemize}
-    \item $\mathcal{R}_1$: region bounded by $y=2x$ and $y=x^2$. Compute
-%
-$$\int\!\!\!\int_{\mathcal{R}_1} (x^2+y^2) \; dxdy$$
+\column{0.6\textwidth}
+Let $\mathcal{R}$ be the region bounded by $y=2x$ and $y=x^2$. Compute
+\[
+\iint_{\mathcal{R}} \frac18(x^2+y^2) \diff x\diff y
+\]
+Steps: 1. Plot the curves. 2. Identify the region. 3. If needed, chop region in curvilinear trapezoids.  
+\end{columns}
 
-\item $\mathcal{R}_2$: region bounded by $y=x-1$ and $y^2=2x+6$. Compute
-%
-$$ \int\!\!\!\int_{\mathcal{R}_2} xy \; dxdy$$
 
-\item $\mathcal{R}$: region bounded by
-$y=(x+1)^2$, $x=y-y^3$, the line $x=-1$ and the line $y=-1$. Set-up iterated integrals for
-%
-$$\int\!\!\!\int_{\mathcal{R}} f(x,y) \, dA \; .$$
 
-\item How do we compute
-%
-$$\int_0^1 \int_{3y}^3 e^{x^2} \, dx \; dy \; \qquad , \qquad  \int\!\!\!\int_{[0,\infty) \times [0,\infty)} e^{-x-y} \, dxdy $$
+\end{example}
 
-  \end{itemize}
+
 \end{frame}
