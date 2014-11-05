@@ -1,10 +1,29 @@
 \begin{frame}
 \begin{example}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.4}{-1.4}{2.1}{2.1}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psline(-1, -1)(0, -1)
+\parametricplot{-1}{1}{t t 3 exp sub t}
+\parametricplot{0}{-1}{t t 1 add dup mul}
+\psline(-1, 0)(-1, -1)
+}
+\parametricplot{-1.4 }{1.4}{t t 3 exp sub t}
+\parametricplot{-1.4}{2 sqrt 1 sub}{t t 1 add dup mul}
+\psline(-1, -1.4)(-1, 2)
+\psline(-1.4, -1)(2, -1)
+\fcAxesStandardNoFrame{-1.4}{-1.4}{2}{2}
+\fcLabels{2}{2}
+\end{pspicture}
+\column{0.6\textwidth}
+Let $\mathcal{R}$ be region bounded by $y=(x+1)^2$, $x=y-y^3$, the line $x=-1$ and the line $y=-1$. Set-up iterated integrals for \[
+\iint_{\mathcal{R}} f(x,y) \diff A .
+\]
 
- $\mathcal{R}$: region bounded by
-
-$y=(x+1)^2$, $x=y-y^3$, the line $x=-1$ and the line $y=-1$. Set-up iterated integrals for
-$$\iint_{\mathcal{R}} f(x,y) \, \diff A \; .$$
+\end{columns}
 \end{example}
 
 
