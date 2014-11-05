@@ -4,26 +4,64 @@
 \column{0.4\textwidth}
 \begin{pspicture}(-1,-1)(1,1)
 \tiny
-\fcBoundingBox{-1.4}{-1.4}{2.1}{2.1}
+\fcBoundingBox{-2.5}{-1.4}{2.1}{2.1}%
+\uncover<11->{%
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{%
-\psline(-1, -1)(0, -1)
-\parametricplot{-1}{1}{t t 3 exp sub t}
-\parametricplot{0}{-1}{t t 1 add dup mul}
-\psline(-1, 0)(-1, -1)
-}
-\parametricplot{-1.4 }{1.4}{t t 3 exp sub t}
-\parametricplot{-1.4}{2 sqrt 1 sub}{t t 1 add dup mul}
-\psline(-1, -1.4)(-1, 2)
-\psline(-1.4, -1)(2, -1)
-\fcAxesStandardNoFrame{-1.4}{-1.4}{2}{2}
+\psline(-1, -1)(0, -1)%
+\parametricplot{-1}{1}{t t 3 exp sub t}%
+\parametricplot{0}{-1}{t t 1 add dup mul}%
+\psline(-1, 0)(-1, -1)%
+}%
+}%
+\uncover<14->{%
+\pscustom*[linecolor=green]{%
+\psline(-1, -1)(0, -1)%
+\parametricplot{-1}{0}{t t 3 exp sub t}%
+\psline(0,0)(-1, 0)%
+\psline(-1,0)(-1, -1)%
+}%
+\rput[r](-0.5,-0.5){$\mathcal R_2$}
+\pscustom*[linecolor=cyan]{%
+\parametricplot{0}{1}{t t 3 exp sub t}%
+\parametricplot{0}{-1}{t t 1 add dup mul}%
+\psline(-1,0)(0,0)%
+}%
+\rput[b](-0.2,0.1){$\mathcal R_1$}
+}%
+\uncover<9->{\parametricplot[linecolor=red]{-1.4 }{1.6}{t t 3 exp sub t}}
+\uncover<7->{\parametricplot[linecolor=red]{-2.4}{2 sqrt 1 sub}{t t 1 add dup mul}}
+\uncover<3->{\psline[linecolor=red](-1, -1.4)(-1, 2)}
+\uncover<5->{\psline[linecolor=red](-2.4, -1)(2, -1)}
+\fcAxesStandardNoFrame{-2.5}{-1.4}{2}{2}
+\uncover<13->{
+\fcFullDot{0}{-1}%
+\fcFullDot{-1}{-1}%
+\fcFullDot{-1}{0}%
+\fcFullDot{0}{1}%
 \fcLabels{2}{2}
+}
+\uncover<18->{
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](0,0)(0,1)
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](0,0)(0,-1)
+}
+\uncover<20->{
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](! 0.5 sqrt 1 sub 0.5)(0.375,0.5)
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](-1,-0.5)(-0.375,-0.5)
+}
 \end{pspicture}
 \column{0.6\textwidth}
-Let $\mathcal{R}$ be region bounded by $y=(x+1)^2$, $x=y-y^3$, the line $x=-1$ and the line $y=-1$. Set-up iterated integrals for \[
-\iint_{\mathcal{R}} f(x,y) \diff A .
+Let $\mathcal{R}$ be region bounded by $y=(x+1)^2$, $x=y-y^3$, the line $x=-1$ and the line $y=-1$. Set-up iterated integrals for 
+\[
+\iint_{\mathcal{R}} f \diff A .
 \]
-
 \end{columns}
+\fcQuestion{2}{Plot $x=-1$.} \fcQuestion{4}{Plot $y=-1$.} \fcQuestion{6}{Plot $y=(x+1)^2$.} \fcQuestion{8}{Plot $x=y-y^3$.} \fcQuestion{10}{Identify the region.} \fcQuestion{12}{Compute the intersection points: the four points lying on the boundary of our region have coordinates:} \fcAnswer{13}{$(-1,-1), (0,-1), (-1,0), (0,1)$. } \uncover<14->{Split into two curvilinear trapezoids: $\mathcal R=\mathcal R_1\cup \mathcal R_2$, where $\mathcal R_1,\mathcal R_2$ are as indicated. }  \fcQuestion{15}{\alert<15-20>{The integral becomes:}}
+
+$\displaystyle
+\uncover<15->{\iint\limits_{\mathcal R_1}f \diff A+\iint\limits_{\mathcal R_2}f\diff A =  \int\limits_{{ \fcQuestion{17}{ y=}\fcAnswer{18}{0}}}^{ {\fcQuestion{17}{y=}\fcAnswer{18}{1}}} \int\limits_{{ \fcQuestion{19}{x=}\fcAnswer{20}{\sqrt{y}-1}} }^{ {\fcQuestion{19}{x=}\fcAnswer{20}{y-y^3}} } f  \fcAnswer{16}{\diff x\diff y}+ 
+\int\limits_{{ \fcQuestion{17}{ y= }\fcAnswer{18}{-1} }}^{{\fcQuestion{17}{ y=}\fcAnswer{18}{0} } } \int\limits_{{\fcQuestion{19}{x=}\fcAnswer{20}{-1} }}^{{\fcQuestion{19}{x=}\fcAnswer{20}{y-y^3}}} f  \fcAnswer{16}{\diff x\diff y} 
+}
+$
 \end{example}
 
 
