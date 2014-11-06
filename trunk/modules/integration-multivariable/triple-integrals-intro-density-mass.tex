@@ -1,24 +1,16 @@
 \begin{frame}
-  \frametitle{Density to Mass}
-  \underline{Question}: If we know the density at every point, can we find the mass?
-
-  \underline{Answer}: Yes.
-
+\frametitle{Density and Mass}
+\begin{question}
+Let $\mathcal R$ be a region in space. Suppose we know the density of $\mathcal R$ at every point. Can we find the mass of $\mathcal R$?
+\end{question}
 \begin{itemize}
-  \item Partition the region $\cR$ into regions with small diameter; let $\cD=\{D_1,\ldots,D_N\}$ be such a partition, and let
-      %
-      $$\text{maxdiam}(\cD) = \max_{k} \text{diam}(D_k)\; .$$
-      %
-  \item For each region $D_k$, choose a sample point $P_k$ inside $D_k$:
-      %
-      $$\text{mass}(D_k) \simeq \rho(P_k) \text{vol}(D_k)\; .$$
-      %
-      \item Mass is approximated by the sum of the masses of the subregions:
-      %
-      $$\text{mass}(\cR) \simeq \sum_{k=1}^{N} \rho(P_k)\text{vol}(D_k)\; .$$
-      %
-      \item Take partitions with diameter closer and closer to 0:
-      %
-      $$\text{mass}(\cR) = \lim_{\text{maxdiam}(\cD) \to 0}  \sum_{k=1}^{N} \rho(P_k)\text{vol}(D_k)\; .$$
+\item<2-> Partition the region $\cR$ into regions with $D_1,\dots, D_k$ with small diameter. Denote by $\text{maxdiam}(\cD) = \max_{k} \text{diam}(D_k)$ the maximum of the diameters of the $D_i$'s. 
+\item<3-> Choose a sample point $P_k$ inside each $D_k$. Then 
+$
+\text{mass}(D_k) \approx \rho(P_k) \text{vol}(D_k) .
+$
+\item<4-> Sum the above approximations to get an approximation for  $\text{mass}\mathcal R$: $\text{mass}(\cR) \approx \sum_{k=1}^{N} \rho(P_k)\text{vol}(D_k)\; .$
+\item<5-> Take the limit as the diameter of the partitions tends to zero:
+$$\text{mass}(\cR) = \lim_{\text{maxdiam}(\cD) \to 0}  \sum_{k=1}^{N} \rho(P_k)\text{vol}(D_k)\; .$$
 \end{itemize}
 \end{frame}
