@@ -1,27 +1,17 @@
 \begin{frame}
-  \frametitle{Triple Integrals}
-
-  $f$ defined on region $\cR$, \emph{scalar} or \emph{vectorial} function.
-
-  \begin{definition}
-  If the limit
-%
-$$\lim_{\text{maxdiam}(\cD) \to 0}  \sum_{k=1}^{N} f(P_k)\text{vol}(D_k)$$
-%
-exists and is finite, its value is called
-\begin{quote}
-  \emph{the integral of $f$ on $\cR$ with respect to volume}
-\end{quote}
- and is denoted by
-%
-$$\int\!\!\!\int\!\!\!\int_{\cR} f(P) \; dV\; .$$
-  \end{definition}
-
+\frametitle{Triple Integrals}
+Let $f$ be a scalar or vector-valued function on region $\cR$.
+\begin{definition}
+If the limit
+$$\lim_{\max_k\text{diam}(D_k) \to 0}  \sum_{k=1}^{N} f(P_k)\text{vol}(D_k)$$
+exists and is finite, its value is called  \emph{the integral of $f$ on $\cR$ with respect to volume} and is denoted by
+\[
+\iiint_{\cR} f(P) \diff V\quad .
+\]
+\end{definition}
 \begin{itemize}
-  \item If $f$ is a scalar function, then the value of the integral is a scalar;
-  \item If $f$ is a vectorial function, then the value of the integral is a vector.
+\item<2-> If $f$ is a scalar function, then the value of the integral is a scalar;
+\item<3-> If $f$ is a vector-valued function, then the value of the integral is a vector.
 \end{itemize}
-
 The limit does not always exist. It exists if the function $f$ is continuous.
-
 \end{frame}
