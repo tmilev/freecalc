@@ -8,7 +8,6 @@
 \usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
 \usepackage{makeidx}
 
-\usepackage{auto-pst-pdf}
 \usepackage{pst-math}
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
@@ -178,7 +177,7 @@ As the most important example of this we note that, while we have avoided a form
 Throughout this textbook, we use $\eqdef$ to define a formula, and we use $=$ to derive/deduce a formula. For example, when we write
 \[ 2+2=4
 \]
-we mean that we derive this equality (in this case, through the rules of elementary school arithmetics). When we derive an equality, both sides of the equality are already known objects (in the above case, the right hand side is the number $4$ and the left hand side is an expression build by the operation $+$ and two copies of the number $2$).  On the other hand, when we write
+we mean that we derive this equality (in this case, through the rules of elementary school arithmetics). When we derive an equality, both sides of the equality are already known objects (in the above case, the right hand side is the number $4$ and the left hand side is an expression built by the operation $+$ and two copies of the number $2$).  On the other hand, when we write
 \[
 \tan x\eqdef\frac{\sin x}{\cos x}\quad ,
 \]
@@ -755,21 +754,26 @@ We say that the limit of $f(x)$ as $x$ tends to $a$ exists and equals $L$ and we
 \]
 if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x$ with $0<|x-a|<\delta$ it follows that  $|f(x)-L|<\varepsilon$.
 \end{definition}
+We note that the expression ``the limit of $f(x)$ as $x$ tends to $a$ exists'' is to be regarded as a technical mathematical definition. This definition requires the existence of a quantity $\delta$ as a function of another quantity $\varepsilon $. We stress the fact that the word ``exists'' in the phrase ``the limits exists'' is used strictly as a technical mathematical term. It is not directly related to the use of the word ``exists'' in philosophical or other texts, and should not be interpreted in any way other than as a reference to Definition \ref{defLimit}.
 \subsection{A note on the limit notation.}
+We note that a proper English language negation of Definition \ref{defLimit} can be given as follows.
+\begin{proposition}\label{propLimitDoesntExist}
+$\lim\limits_{x\to a}f(x) $ does not exist as $x$ tends to $a$ if, for any number $L$, there exists a number $\varepsilon>0$ such that for all $\delta>0$ (no matter how small), there always exists an $x$ with $0<|x-a|<\delta$ so that $|f(x)-L|>\varepsilon$.
+\end{proposition}
+To be completely formal, we have to use the above sentence whenever the limit of $f(x)$ as $x$ tends to $a$ does not exist. 
+
+
 We make an important note about calculus notation: we defined the notation
 \[
 \lim\limits_{x\to a} f(x)=L
 \]
-on condition that for every $\varepsilon>0$ there exists a $\delta>0$ with certain properties,  the ``$\varepsilon, \delta$''-definition. In particular, we defined the notation $\lim\limits_{x\to a}f(x)$ only if the limit exists and is equal to some particular number $L$. However, in the rest of this book (as well as most other calculus textbooks), we use the notation
+on condition that for every $\varepsilon>0$ there exists a $\delta>0$ with certain properties,  the ``$\varepsilon, \delta$''-definition. In particular, we defined the notation $\lim\limits_{x\to a}f(x)$ only if the limit exists and is equal to some particular number $L$. However, like many other calculus textbooks, we adopt the convention that we can write
 \[
 \lim\limits_{x\to a}f(x)
 \]
-even if there exists no number $L$ that satisfies the requirements of Definition \ref{defLimit}. If that is the case, instead of saying the English language negation of Definition \ref{defLimit}, we simply say that `` $\lim\limits_{x\to a}f(x)$ does not exist''. We ask the reader to accept this slight informality in view of its great convenience and universal acceptance.
+even if there exists no number $L$ that satisfies the requirements of Definition \ref{defLimit}. If that is the case, instead of repeating the entire sentence of Proposition \ref{propLimitDoesntExist}, we simply say that ``$\lim\limits_{x\to a}f(x)$ does not exist''. We ask the reader to accept this slight informality in view of its great convenience and universal acceptance. The phrase ``does not exist'' is to be interpreted strictly as a reference to Proposition \ref{propLimitDoesntExist}; the use of the phrase is not directly related to the use of the phrase in philosophical or other texts.
 
-We note that English language dictates that the negation of Definition \ref{defLimit} is given as follows.
-\begin{proposition}\label{propLimitDoesntExist}
-$\lim\limits_{x\to a}f(x) $ does not exist if, for any number $L$, there exists a number $\varepsilon>0$ such that for all $\delta>0$ (no matter how small), there always exists an $x$ with $0<|x-a|<\delta$ so that $|f(x)-L|>\varepsilon$.
-\end{proposition}
+
 
 \subsection{Definition of neighborhood}
 When discussing limits, it is useful to speak of neighborhoods of points. Informally, a neighborhood of a point $a$ is an arbitrary collection of points that  includes all points sufficiently close to $a$ except possibly $a$. Formally, the definition of a neighborhood is given as follows.
@@ -1380,14 +1384,14 @@ Let $y\in \mathbb R$ (i.e., $y$ is a real number). Then
 \end{equation}
 \end{theorem}
 \[
-\overline {e^{iy}}= \sum_{n=0}^\infty \frac{\overbrace{\bar i}^{=-i} \bar y^n}{n!}= \sum_{n=0}^\infty \frac{(i(-y))^n}{n!}=  e^{-iy}= \frac{1}{e^{iy}}\quad .
+\overline {e^{iy}}= \sum_{n=0}^\infty \frac{\overbrace{\bar i}^{=-i} \bar y^n }{ n! }= \sum_{n=0}^\infty \frac{(i(-y))^n}{n!}=  e^{-iy}= \frac{1}{e^{iy}}\quad .
 \]
 \begin{theorem}
 Let $y\in \mathbb R$. Then $|e^{iy}|=1$.
 \end{theorem}
 \begin{proof}
 \[
-|e^{iy}|^2 \eqdef e^{iy}e^{-iy}\underbrace{=}_{\eqref{eqexponentiyconjugateisinverse}}1 \quad .
+|e^{iy}|^2 \eqdef e^{iy}e^{-iy}\underbrace{ =}_{ \eqref{eqexponentiyconjugateisinverse}} 1 \quad .
 \]
 For arbitrary $z$ we have that $|z|$ is a non-negative real number and so it follows that $|e^{iy}|=1$.
 \end{proof}
