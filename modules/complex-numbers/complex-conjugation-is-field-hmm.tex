@@ -1,0 +1,29 @@
+\begin{frame}
+\begin{theorem}[Conjugation preserves $+,\cdot$]
+\begin{enumerate}
+\item $\alert<18>{\overline {z\cdot w}=\overline z\cdot \overline w}$
+\item $\alert<25>{\overline {z+w}=\overline z+\overline w}$
+\end{enumerate}
+\end{theorem}
+\uncover<2->{
+\begin{proof}
+Let $\alert<4,11>{z=x+yi}$, $\alert<5,12>{w=u+vi}$.
+\begin{itemize}
+\item<3-> $\begin{array}{rcl}
+\alert<18>{\overline {\alert<4>{z}}\cdot \overline{\alert<5>{w}}}  &=& \uncover<4->{ \overline{(\alert<4>{x+yi})}\cdot \overline{(\alert<5>{u+vi})} } \uncover<6->{=  (\alert<7,9>{x} \alert<8,10>{-yi})( \alert<7,10>{u}\alert<8,9>{-vi})}\\
+\uncover<7->{&=& \alert<18>{(\alert<7>{xu}\alert<8>{-yv})\alert<9,10>{-}( \alert<9>{xv} +\alert<10>{yu} )\alert<9,10>{ i}}} \\
+\alert<18>{\overline{\alert<11>{z} \cdot \alert<12>{w}}} &=& \uncover<11->{ \overline{ (\alert<11>{\alert<13,15>{x} +\alert<14,16>{yi}})\alert<12>{ ( \alert<13,16>{u} +\alert<14,15>{iv})}}} \uncover<13->{ = \overline{ \alert<13>{xu} \alert<14>{-yv} + (\alert<15>{xv}+\alert<16>{yu})\alert<15,16>{i}}} \\
+\uncover<17->{&=&\alert<18>{ (xu-yv)-(xv+yu)i }\quad .}
+\end{array}
+$
+\item $\begin{array}{rcl}
+\alert<25>{\overline {z}+\overline{w}} &=&\uncover<19->{ \overline{(x+yi)}+\overline{(u+vi)}} \uncover<20->{=(x-yi)+(u-vi)}\\
+\uncover<21->{&=&\alert<25>{ (x+y)-(y+v)i}} \\
+\alert<25>{\overline{z+ w}} &=& \uncover<22->{\overline{(x+yi)+(u+iv)}} \uncover<23->{=\overline{(x+u)+(y+v)i}}\\
+\uncover<24->{&=&\alert<25>{(x+u)-(y+v)i }\quad .}
+\end{array}
+$
+\end{itemize}
+\end{proof}
+}
+\end{frame}

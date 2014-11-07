@@ -1,0 +1,65 @@
+\begin{frame}
+\begin{columns}
+\column{0.25\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcAxesStandard{-0.7}{-0.6}{2.5}{2.5}
+\fcLabels[$\Re$][$\Im$]{2.5}{2.5}
+\uncover<8-10>{%
+\fcPerpendicular{[0.5 1]}{[1 0] [0 0]}{0.1}%
+\fcPerpendicular{[0.5 1]}{[0 1] [0 0]}{0.1}%
+}%
+\uncover<8->{% 
+\fcFullDot{0.5}{1}%
+}%
+\uncover<14>{%
+\rput[tl](1,1.9 ){$c(x+yi)$}%
+\fcFullDot{1}{2}%
+\psline[arrows=->](0,0)(1,2)%
+}%
+\uncover<15>{%
+\rput[tl](0.25,0.4){$c(x+yi), 0<c<1$}%
+\fcFullDot{0.25}{0.5}%
+\psline[arrows=->](0,0)(0.25,0.5)%
+}%
+\uncover<16>{%
+\rput[bl](-0.25,-0.4 ){$~~~~~c(x+yi), c<0$}%
+\fcFullDot{-0.25}{-0.5}%
+\psline[arrows=->](0,0)(-0.25,-0.5)%
+}%
+\uncover<10->{\psline[arrows=->](0,0)(0.5,1)}%
+\uncover<11-13>{%
+\fcFullDot{1}{0.5}%
+\psline[arrows=->](0,0)(1,0.5)%
+}%
+\uncover<12-13>{%
+\fcFullDot{1.5}{1.5}%
+\psline[arrows=->](0.5,1)(1.5,1.5)%
+\psline[arrows=->](1,0.5)(1.5,1.5)%
+}%
+\uncover<12>{\rput[b](1.5,1.6){$\alert<12>{x+u+(y+w)i}$}}
+\uncover<13>{\rput[b](1.5,1.6){$\alert<13>{(x+u,y+w)}$}}
+\uncover<8,13>{\rput[lb](0,1.1){$\alert<8,13>{(x,y)}$}}
+\uncover<11,12>{\rput[tl](1,0.5){$\alert<11,12>{~u+wi}$}}
+\uncover<13>{\rput[tl](1,0.5){$\alert<13>{~(u,w)}$}}
+\uncover<9-12,14->{\rput[lb](0,1.1){$\alert<9,11,12>{x+yi}$}}
+\end{pspicture}
+\column{0.75\textwidth}
+\begin{definition}[Complex numbers]
+The complex numbers are the set $\{x+yi|x,y\in\alert<2>{\mathbb R}\}$. 
+\end{definition}
+\begin{itemize}
+\item<2-> Real numbers are usually denoted by $\mathbb R$.
+\item<3-> Complex numbers are usually denoted by $\mathbb C$.
+\end{itemize}
+\end{columns}
+\uncover<4->{Consider $z= \alert<5>{x}+\alert<6>{y}i$.}
+\begin{itemize}
+\item<5-> \alert<5,7>{$x$} is called the \alert<5,7>{real part} of $z$, \uncover<6->{ \alert<6,7>{$y$} is called the \alert<6,7>{imaginary part} of $z$.} \uncover<7->{We write $ \alert<7>{x=\Re z} =\Re(x+yi)$, $\alert<7>{y=\Im z} = \Im (x+yi)$.}
+\item<8-> Real \& imaginary part of $z$ can be used as $x,y$-coords. to depict $z$. 
+\item<10-> In this way we view complex number $x+iy$ as the point (position vector) $(x,y)$ in a two-dimensional space. 
+\item<11-> The addition of complex numbers corresponds to \alert<11-13>{vector addition}.
+\item<14-> \alert<14,15,16>{Multiplication by a real number $c$ } corresponds to \alert<14,15,16>{vector scalar multiplication by $c$ \alert<14,15,16>{(scaling)}}.
+\item<17-> The space the complex numbers is referred to as the \alert<17>{complex plane} (sometimes alternatively called the complex line).
+\end{itemize}
+\end{frame}

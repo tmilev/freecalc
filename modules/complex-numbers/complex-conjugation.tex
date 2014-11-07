@@ -1,0 +1,55 @@
+\begin{frame}
+
+\begin{columns}
+\column{0.2\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcAxesStandard{-0.4}{-1.5}{1.8}{1.5}%
+\fcLabels[$\Re$][$\Im$]{1.8}{1.5}%
+\fcFullDot{1}{0.5}%
+\rput[lb](1,0.5){$~x+iy$}%
+\psline[arrows=->](0,0)(1,0.5)%
+\uncover<3->{%
+\fcFullDot{1}{-0.5}%
+\psline[arrows=->](0,0)(1,-0.5)%
+\rput[lt](1,-0.5){$~x-iy$}%
+\fcPerpendicular{[1 0.5]}{[0 0] [1 0]}{0.07}%
+\fcPerpendicular{[1 -0.5]}{[0 0] [1 0]}{0.07}%
+}%
+\uncover<13->{%
+\rput[br](0.5, 0.25){$\alert<13>{|z|~}$}
+\psline[linecolor=red, linewidth=2pt](0,0)(1,0.5)
+}%
+\uncover<12->{%
+\rput[t](0.5, -0.1){$\alert<12,13>{x}$}
+\psline[linecolor=red, linewidth=2pt](0,0)(1,0)
+\rput[l](1, 0.25){$~~\alert<12,13>{y}$}
+\psline[linecolor=red, linewidth=2pt](1,0)(1,0.5)
+}%
+\end{pspicture}
+\column{0.8\textwidth}
+Let $z=x+iy$ be a complex number. 
+\begin{definition}[Complex conjugation]
+We say that $\alert<handout:0|1>{\bar z = \overline{(x+iy)}=x-iy}$ is the \alert<handout:0|1>{\emph{complex conjugate of $z$}}.
+\uncover<2->{
+The transformation that maps $z$ to $\bar z$ is called \emph{complex conjugation}.
+}
+\end{definition}
+\end{columns}
+\uncover<3->{In the complex plane, complex conj. = reflection across real axis.}
+\uncover<4->{%
+\begin{theorem}
+$z \bar z$ is a non-negative real number. $z\bar z$ equals $0$ if and only if $z=0$.
+\end{theorem}
+}%
+\uncover<5->{
+\begin{proof}
+$z \bar z= \uncover<6->{(x+iy)(x-iy)=}\uncover<7->{x^2\alert<8>{-}(\alert<8>{i}y)^{\alert<8>{2}}=} \uncover<8->{x^2\alert<8>{+}y^2}$ \uncover<8->{is real and non-negative.} \uncover<9->{ $z \bar z=0$ implies $x^2+y^2=0$,} \uncover<10->{which implies $x=y=0$.}
+\end{proof}
+}
+\uncover<11->{
+\begin{definition}
+The quantity $\alert<11,13>{|z|}=\sqrt{z\bar z}= \sqrt{ {\alert<12>{x}}^2+ { \alert<12>{y }}^2}$ is called the \alert<11>{\emph{absolute} value of $z$}.
+\end{definition}
+}
+\end{frame}

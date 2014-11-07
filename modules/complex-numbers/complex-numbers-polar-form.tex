@@ -1,0 +1,49 @@
+\begin{frame}
+\begin{columns}
+\column{0.4\textwidth}
+\uncover<4->{
+\begin{pspicture}(-2,-2)(2,2)
+\tiny
+\fcAxesStandard{-1.3}{-1.3}{2}{2}
+\fcLabels[\Re][\Im]{2}{2}
+\psparametricplot{0}{360}{t cos t sin}
+\rput[br](-0.03,1.03){$i$}
+\rput[tl](1.1,-0.1){$1$}
+\fcFullDot{0}{1}
+\fcFullDot{1}{0}
+\fcAngle{0}{1.047197551}{0.1}{$\theta$}
+\psline(0,0)(! 0.5 3 sqrt 2 div)
+\psline[linestyle=dotted](0,0)(! 1 3 sqrt)
+\rput(1.1,1.81){$~~z$}
+\fcFullDot{1}{3 sqrt}
+\uncover<5->{
+\fcFullDot{0.5}{3 sqrt 2 div}
+\rput[b](0.47,1){$\frac{z}{|z|}$}
+}
+\uncover<handout:0|5>{%
+\psline[linewidth=2pt, arrows=->, linecolor=red](0,0)(! 1 3 sqrt )
+}
+\fcPerpendicular{[0.5 3 sqrt 2 div]}{[0 0 ] [1 0]}{0.1}
+\end{pspicture}
+}%
+\column{0.6\textwidth}
+\begin{theorem}[Euler's formula]
+$e^{i\theta}=\cos \theta+i\sin \theta$.
+\end{theorem} 
+\begin{lemma}
+$\alert<handout:0|1>{\left|\frac{z}{|z|}\right| } \alert<2->{=\frac{|z|}{|z|}}\alert<3->{=1}$.
+\end{lemma}
+\end{columns}
+\begin{itemize}
+\item<4-> Let $z=x+iy$ be a non-zero complex number.
+\item<5-> Then $0$, $z$, $\frac{z}{|z|}$ lie on a ray \uncover<7->{and $\frac{z}{|z|}$ lies on the unit circle.}
+\item Let $\theta$ - angle between the real axis and the ray between $0$ and $z$.
+\item Then $\frac{z}{|z|}= \cos \theta +i\sin \theta$.
+\item This gives a geometric proof/motivation for Euler's formula when $\theta $ a real number (Euler's f-la holds over all complex numbers).
+\item Let $\rho = \ln |z|= \ln \sqrt{x^2+y^2}=\frac{1}{2}\ln(x^2+y^2)$.
+\item Then $z=|z|(\cos\theta+i\sin\theta)= e^{\rho}(\cos\theta+i\sin \theta)$.
+\end{itemize}
+\begin{definition}
+Let $z\neq 0$. Then $z=e^{\rho}(\cos\theta+i\sin \theta)$ is called polar form of $z $.
+\end{definition}
+\end{frame}
