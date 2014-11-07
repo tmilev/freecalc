@@ -1,0 +1,16 @@
+\begin{frame}
+\begin{theorem}
+Let $e(z)= \sum\limits_{n=0}^{\infty}\frac{z^n}{n!}$, $z,w\in \mathbb C$. Then $e(z)e(w)=e(z+w)$
+\end{theorem}
+\alert<1>{The following proof lies outside of the scope of Calculus II. We present it for completeness. You will not be tested on it. }
+\begin{proof}
+$
+\begin{array}{rcll|l}
+\displaystyle e(z)e(w)&=&\displaystyle  \sum_{n=0}^{\infty} \frac{z^n}{n!} \sum_{m=0}^{\infty} \frac{w^m}{m!} =  \displaystyle  \sum_{s=0}^{\infty}\sum_{k=0 }^s \frac{z^{k}w^{s-k}}{k! (s-k)!} \\ &=& \displaystyle  \sum_{s=0}^{\infty} \alert<2>{\sum_{k=0 }^s  } \frac{\alert<2>{z^{k}w^{s-k}}}{s!}\alert<2>{ \frac{s!}{k! (s-k)!}} =\displaystyle  \sum_{s=0}^{\infty} \frac{(z+w)^s}{s!}=e(z+w).
+\end{array}
+$
+\end{proof}
+\begin{lemma}[Newton Binomial formula]
+\alert<2>{$(z+w)^s=\sum_{k=0 }^s z^{k}w^{s-k} \frac{s!}{k! (s-k)!}$}.
+\end{lemma}
+\end{frame}
