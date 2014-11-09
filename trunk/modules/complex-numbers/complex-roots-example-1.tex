@@ -1,0 +1,36 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1.5,-1.5)(1.5,1.5)
+\tiny
+\fcAxesStandard{-1.5}{-1.5}{1.5}{1.5}
+\fcLabels[$\Re$][$\Im$]{1.5}{1.5}
+\uncover<10->{ 
+\fcFullDot{ 0}{1}
+\rput[l](0,1){~~$i$}
+\fcFullDot{ 1}{0}
+\rput[t](1,-0.1){$1$}
+\fcFullDot{-1}{0}
+\rput[b](-1,0.1){$-1$}
+\fcFullDot{ 0}{-1}
+\rput[r](0,-1){$-i~~$}
+}
+\end{pspicture}
+\column{0.7\textwidth}
+Find all complex solutions of the equation $z^4=1$.
+
+\medskip
+  
+\uncover<2->{Let $ z=|z|(\cos \theta+i\sin \theta) $ be the polar form of $z$ with $\theta\in(-\pi, \pi]$.} \uncover<3->{Since $|z|^4=|z^4|=1$ it follows that $|z|=1$} \uncover<4->{and so $z=\cos \theta+i\sin \theta $. }
+\end{columns}
+\uncover<5->{By de Moivre's equality $ z^4=\cos (4\theta ) + i \sin (4\theta)=1$.} \uncover<6->{This implies $\sin (4\theta)=0$, $\cos (4\theta)=1$} \uncover<7->{and so $4\theta=2k\pi$, $k$-integer.} \uncover<8->{Therefore $\theta = k\frac{\pi}{2}$.} \uncover<9->{Among those values, $\theta=-\frac{\pi}{2}, 0,\frac{\pi}{2}, \pi$ belong to $(-\pi,\pi]$.} \uncover<10->{Therefore the equation $z^4=1$ has 4 roots given by
+$\begin{array}{rcl}
+z&=&\cos \left( -\frac{\pi}{2}\right)+i\sin \left(-\frac{\pi } {2} \right)=-i\\
+z&=&\cos 0+i\sin 0=1\\
+z&=&\cos \left( \frac{\pi}{2}\right)+i\sin \left(\frac{\pi } {2} \right)=i\\
+z&=&\cos \pi+i\sin \pi =-1\quad .
+\end{array}
+$}
+\end{example}
+\end{frame}
