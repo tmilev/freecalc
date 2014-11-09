@@ -420,6 +420,11 @@ end
 \pstVerb{end}%
 }
 
+\newcommand{\fcAngleDegrees}[5][linecolor=red]{%
+\parametricplot[#1]{#2}{#3}{t cos #4\space mul t sin #4\space mul}%
+\rput(! #2\space #3\space add 2 div dup cos #4\space 0.2 add mul exch sin #4\space 0.2 add mul){#5}%
+}
+
 \makeatletter
 \newcommand{\fcAngle}[5][linecolor=\fcColorGraph]{%
 \ifPst@algebraic{%

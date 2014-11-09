@@ -22,7 +22,7 @@
 \fcFullDot{1}{3 sqrt}
 \uncover<5->{%
 \fcFullDot{0.5}{3 sqrt 2 div}%
-\rput[b](0.47,1){$\frac{z}{|z|}$}%
+\rput[bl](0.6,1){$\frac{z}{|z|} \uncover<10->{=\cos \theta+ i\sin \theta}$}%
 }%
 \uncover<handout:0|5>{%
 \psline[linewidth=2pt, arrows=->, linecolor=red](0,0)(! 1 3 sqrt )%
@@ -35,7 +35,7 @@
 \column{0.6\textwidth}
 \uncover<12->{
 \begin{theorem}[Euler's formula]
-$e^{i\theta}=\cos \theta+i\sin \theta$.
+\alert<12>{$e^{i\theta}=\cos \theta+i\sin \theta$}.
 \end{theorem}
 } 
 \begin{lemma}
@@ -46,14 +46,52 @@ $\alert<handout:0|1>{\left|\frac{z}{|z|}\right| } \uncover<2->{\alert<2>{=\frac{
 \item<4-> Let $z=x+iy$ be a non-zero complex number.
 \item<5-> Then $0$, $z$, $\frac{z}{|z|}$ lie on a ray \uncover<7->{and $\frac{z}{|z|}$ lies on the unit circle.}
 \item<8-> Let $\theta$ - angle between the real axis and the ray between $0$ and $z$.
-\item<9-> Then $\alert<15>{\frac{z}{|z|}= \alert<10>{\cos \theta} +i \alert<11>{\sin \theta}}$.
-\item<12-> This gives a geometric proof/motivation for Euler's formula when $\theta $ a real number. \uncover<13->{Euler's f-la does hold over all complex numbers.}
-\item<14-> Let $\alert<16>{\rho = \ln |z|}= \ln \sqrt{x^2+y^2}=\frac{1}{2}\ln(x^2+y^2)$.
-\item<15-> Then $\alert<15>{z=\alert<16>{|z|}(\cos\theta+i\sin\theta)}\uncover<16->{= \alert<16>{ e^{\rho}}( \cos \theta +i\sin \theta)}$.
+\item<9-> Then $\alert<15>{\frac{z}{|z|}= \alert<12>{ \alert<10>{ \cos \theta} +i \alert<11>{\sin \theta}}} \uncover<12->{ \alert<12>{= e^{i\theta}}} $.
+\item<13-> Let $\alert<16>{\rho = \ln \alert<14>{|z|} } \uncover<14->{ = \ln \alert<14>{\sqrt{ x^2+y^2} }}  \uncover<15->{= \frac{1}{2}\ln(x^2+y^2)}$.
+\item<16-> Then $\alert<16>{z=\alert<17>{|z|}( \cos\theta+ i\sin\theta) }\uncover<17->{= \alert<17>{ e^{\rho}}( \cos \theta +i\sin \theta)} \uncover<18->{ =e^{\rho} e^{i\theta } } = \uncover<19->{e^{\rho +i\theta}}$
 \end{itemize}
-\uncover<17->{
-\begin{definition}
+\uncover<20->{
+\begin{definition}[Polar form of complex numbers]
 Let $z\neq 0$. Then $z=e^{\rho}(\cos\theta+i\sin \theta)$ is called polar form of $z $.
 \end{definition}
 }
+\end{frame}
+
+\begin{frame}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-2,-2)(2,2)
+\tiny
+\fcAxesStandard{-1.3}{-1.3}{2}{2}
+\fcLabels[\Re][\Im]{2}{2}
+\psparametricplot{0}{360}{t cos t sin}%
+\rput[br](-0.03,1.03){$i$}
+\rput[tl](1.1,-0.1){$1$}
+\fcFullDot{0}{1}
+\fcFullDot{1}{0}
+\fcAngle{0}{1.047197551}{0.1}{$\theta$}
+\psline(0,0)(! 0.5 3 sqrt 2 div)%
+\psline[linestyle=dotted](0,0)(! 1 3 sqrt)%
+\rput[l](1.1,1.81){$z\uncover<2->{\alert<2>{= e^{\rho} e^{ i \theta}}}$}
+\fcFullDot{1}{3 sqrt}
+\fcFullDot{0.5}{3 sqrt 2 div}%
+\rput[lb](0.47,1){$\frac{z}{|z|}=e^{i\theta} $}%
+\fcPerpendicular{[0.5 3 sqrt 2 div]}{[0 0 ] [1 0]}{0.1}%
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{definition}[Polar form of complex numbers]
+Let $z\neq 0$. Then $z=e^{\rho}(\cos \alert<2>{ \theta} +i\sin \alert<2>{\theta} )$ is called polar form of $z $.
+\end{definition}
+\begin{itemize}
+\item<2-> \alert<2>{$\theta$} is called an argument of $z$. We write \[\theta=\arg z.\]
+\end{itemize}
+\end{columns}
+
+\begin{itemize}
+\item<3-> If $\theta$ is an argument of $z$, so is $\theta + 2k\pi$ for all integers $k$.
+\item<4-> If $\theta\in (-\pi, \pi]$, we say that $\theta$ is the principal argument of $z$.
+\item<5-> If we write $\theta=\arg z$ without clarifying the choice of the argument, it is implied that $\theta$ is the principal argument of $z$, $\theta\in (-\pi,\pi]$.
+\item<6-> One should never write $\theta=\arg z$ without clarifying the choice of argument.
+\item<7-> Euler's formula implies: $\alert<8>{z= e^{\rho}( \cos \theta +i\sin \theta)= e^{\rho} e^{i\theta}}$.
+\end{itemize}
 \end{frame}

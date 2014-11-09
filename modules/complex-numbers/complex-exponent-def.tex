@@ -1,40 +1,35 @@
 \begin{frame}
-\begin{definition}[Real exponent, Definition I, ``Kindergarten Definition'']
-Let $x\in \mathbb R$. The real exponent $e^x$ is defined as $\displaystyle \lim\limits_{\substack{p\to x \\ p\text{ is rational}}} e^p$.
-\end{definition}
-
-\begin{definition}[Exponent, Definition II]
-Let $z\in \mathbb C$. The complex exponent $e^z$ is defined by $\displaystyle e^z=e(z)= \sum\limits_{n=0}^\infty \frac{z^n}{n!}.$
-\end{definition}
-
-\end{frame}
-
-\begin{frame}
-\begin{theorem}
-When $z\in \mathbb R$, Definition I and Definition II are equivalent.
-\end{theorem}
-\begin{proof}
-Under Definition I the Maclaurin series of $e^z$ was computed to be $e^z=\sum\limits_{n=0}^\infty \frac{z^n}{n!}$. If Under Definition I, it can be shown that $e^z$ equals its Maclaurin series, which is the defining expression for Definition II.
-\end{proof}
-\end{frame}
-
-\begin{frame}
 \begin{definition}[Real exponent, Definition I]
-Let $x\in \mathbb R$. The real exponent $e^x$ is defined as $\displaystyle \lim\limits_{\substack{p\to x \\ p\text{ is rational}}} e^p$.
+Let $z\in \mathbb R$. The real exponent $e^z$ is defined as $\displaystyle \lim\limits_{\substack{p\to x \\ p\text{ is rational}}} e^p$.
 \end{definition}
-
+\uncover<2->{
 \begin{definition}[Exponent, Definition II]
-Let $z\in \mathbb C$. The complex exponent $e^z$ is defined by $\displaystyle e^z=e(z)= \sum\limits_{n=0}^\infty \frac{z^n}{n!}.$
+Let $z\in \mathbb C$. The complex exponent $e^z$ is defined by $\displaystyle e^z=e(z)= \sum \limits_{ n=0 }^\infty \frac{z^n}{n!}.$
 \end{definition}
-
+}
+\only<handout:1|1-8>{
 \begin{itemize}
-\item For real $x$, $e^x$ may be defined via Definition I. 
-\item For complex $z$, $e^z$ is defined via Definition II. 
-\item Since Definition II is valid when $z$ is a real number, it is a more general definition.
-\item A calculus course may be built by directly presenting Definition II. 
-\item If we assume Definition II, Definition I can be proce
+\item<3-> For real $z$, $e^z$ may be defined via Definition I. 
+\item<4-> For complex $z$, $e^z$ is defined via Definition II. 
+\item<5-> Real numbers are complex numbers (with zero imaginary part). Thus Definition II is also valid when $z$ is a real number, and therefore Definition II is more general.
+\item<6-> \alert<handout:0|8>{A calculus course may be built by presenting Definition II first and proving Definition I as a theorem.}
+\item<7-> \alert<handout:0|8>{Alternatively, a calculus course may be built by first presenting Definition I, and then expanding it to Definition II.}
 \end{itemize}
-
+}
+\only<handout:2|9->{
+\begin{theorem}
+\alert<9>{When $z\in \mathbb R$, Definition I and Definition II are equivalent.}
+\end{theorem}
+\only<handout:2|10-12>{
+\begin{proof}[Sketch of Proof. Definition I implies Definition II over $\mathbb R$]
+Under Definition I the Maclaurin series of $e^z$ was computed to be $\sum\limits_{n=0}^\infty \frac{z^n}{n!}$. \uncover<11->{Under Definition I, it can be shown that $e^z$ equals its Maclaurin series,} \uncover<12->{which is the defining expression for Definition II.}
+\end{proof}
+}
+\only<handout:3|13->{
+\begin{proof}[Sketch of Proof. Definition II implies Definition I over $\mathbb R$]
+We showed that $e(z+w)=e(z)e(w)$. \uncover<14->{Using that statement alone, one can show that the two definitions agree over the rational numbers.} \uncover<15->{Two continuous functions are equal if they are equal over the rationals,} \uncover<16->{and the theorem follows.}
+\end{proof}
+} %only
+} %only
 \vskip 10cm
-
 \end{frame}
