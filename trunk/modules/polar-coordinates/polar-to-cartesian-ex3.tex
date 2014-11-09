@@ -1,8 +1,28 @@
 % begin module polar-to-cartesian-ex3
 \begin{frame}
-\begin{example} %[Example 3, p. 677]
+\begin{example}
+\begin{columns}
+\column{0.25\textwidth}
+\psset{xunit=0.65cm, yunit=0.65cm}
+\begin{pspicture}(-1,-1)(2,2)
+\tiny
+\fcAxesStandard{-1.5}{-1.5}{1.5}{1.5}
+\fcLabels{1.5}{1.5}
+\uncover<9->{%
+\fcFullDot{1}{-1}%
+}%
+\uncover<11->{% 
+\fcAngleDegrees[arrows=->, linecolor=red]{0}{315}{0.2} { $\frac{7\pi}{4}$}%
+\psline(0,0)(1,-1)
+}%
+\uncover<13->{%
+\fcAngleDegrees{0}{-45}{0.4}{$~~-\frac{\pi}{4}$}
+}%
+\end{pspicture}
+\column{0.75\textwidth}
 Represent the point with Cartesian coordinates $(1,-1)$ in terms of polar coordinates.
-\begin{columns}[c]
+\end{columns}
+\begin{columns}
 \column{.6\textwidth}
 \begin{itemize}
 \item<3-| alert@3-4>  Suppose $r$ is positive.

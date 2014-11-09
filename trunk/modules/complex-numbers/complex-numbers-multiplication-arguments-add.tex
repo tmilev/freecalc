@@ -1,0 +1,84 @@
+\begin{frame}
+\frametitle{Geometric interpretation of complex multiplication}
+\begin{columns}
+\column{0.35\textwidth}
+
+\begin{pspicture}(-0.5, -0.5)(3,3)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{2.5}{2.5}
+\fcLabels[$\Re$][$\Im$]{2.5}{2.5}
+\pstVerb{10 dict begin /erho 2 def /esigma 1.4 def /alpha 10 def /beta 50 def }%
+\uncover<handout:0|14->{%
+\parametricplot[linecolor=gray, linewidth=0.5pt]{-10}{120}{t cos t sin}%
+\rput[t](1,-0.1){$~~1$}%
+}%
+\only<handout:0|15>{\pstVerb{/esigma 1.2 def}}%
+\only<handout:0|16>{\pstVerb{/esigma 1 def}}%
+\only<handout:0|17>{\pstVerb{/esigma 0.8 def}}%
+\only<handout:0|19>{\pstVerb{/beta 40 def}}%
+\only<handout:0|20>{\pstVerb{/beta 30 def}}%
+\only<handout:0|21>{\pstVerb{/beta 20 def}}%
+\uncover<handout:0|14->{\parametricplot[linecolor=gray, linewidth=0.5pt, linestyle=dashed]{5}{85}{t cos erho mul t sin erho mul} }%
+\pstVerb{
+/zx erho alpha cos mul def 
+/zy erho alpha sin mul def 
+/wx esigma beta cos mul def 
+/wy esigma beta sin mul def 
+/zwx erho esigma mul alpha beta add cos mul def 
+/zwy erho esigma mul alpha beta add sin mul def 
+}%
+\fcFullDot{wx}{wy}
+\fcFullDot{zx}{zy}
+\psline(0,0)(! zx zy)
+\psline(0,0)(! wx wy)
+\uncover<handout:0|3,12>{\psline[linecolor=red, linewidth=2pt](0,0)(! zx zy)}
+\uncover<handout:0|4,12>{\psline[linecolor=red, linewidth=2pt](0,0)(! wx wy)}
+\rput[tl](! zx zy){$~z$}
+\rput[tl](! wx wy){$~w$}
+\uncover<6->{\fcAngleDegrees{0}{alpha}{0.7}{$\alert<handout:0|6>{\alpha} $}}
+\uncover<7->{\fcAngleDegrees{0}{beta}{0.3}{$\alert<handout:0|7>{\beta}$}}
+\uncover<handout:0|6,10,11>{\fcAngleDegrees[linewidth=2pt, linecolor=red ] {0}{alpha}{0.7}{}}
+\uncover<handout:0|7>{\fcAngleDegrees[linewidth=2pt, linecolor=red ] {0}{beta}{0.3}{}}
+\uncover<9->{
+\fcFullDot{zwx}{zwy}
+\rput[tl](! zwx zwy){$~~ zw$}
+\psline(0,0)(!zwx zwy)
+}
+\uncover<handout:0|12>{\psline[linewidth=2pt, linecolor=red ](0,0)(!zwx zwy)}
+\uncover<10->{
+\fcAngleDegrees{alpha}{alpha beta add}{0.8}{$\beta$}
+}
+\uncover<handout:0|10,11>{
+\fcAngleDegrees[linewidth=2pt, linecolor=red ]{alpha}{alpha beta add}{0.8}{$\beta$}
+}
+\pstVerb{end}
+\end{pspicture}
+
+\column{0.65\textwidth}
+\begin{itemize}
+\item Let $z,w\neq 0 $ \uncover<2->{and let 
+
+\hfil $\alert<12>{ \alert<3>{ |z| =e^\rho},\quad \alert<4>{ |w|=e^\sigma}}.$
+}
+\item<5-> Let $\alpha,\beta$ be arguments of $z,w$. 
+$
+\begin{array}{rcl}
+z&=& e^{\rho}(\cos \alert<handout:0|6>{\alpha} + i \sin \alert<handout:0|6>{\alpha} )=e^{\rho +i\alpha} \\
+w&=& e^{\sigma}(\cos \alert<handout:0|7>{\beta} +i\sin \alert<handout:0|7>{\beta} )=e^{\sigma +i\beta} .\end{array} 
+$
+\end{itemize}
+\end{columns}
+\uncover<8->{%
+\begin{theorem}[Summary]
+$\begin{array}{rcl}
+\alert<9,10>{z w} &=& \alert<12>{e^\rho} ( \cos\alpha+ i\sin\alpha) \alert<12>{e^\sigma} ( \cos \beta +i\sin \beta )\\ &=&e^{\rho+i\alpha}e^{\sigma+i\beta} =e^{\rho+\sigma +i(\alpha+\beta)}\\
+&=& \alert<12>{e^{\rho+\sigma} }(\alert<10>{ \cos (\alpha+\beta)+i\sin (\alpha+\beta)} )  .\end{array}$
+\end{theorem}
+}%
+\begin{itemize}
+\item<10-> The argument (polar angle) of $zw$ is $\alert<10>{\alpha+\beta} $.
+\item<11-> $\Rightarrow$ Multiplying complex numbers adds arguments (polar angles).
+\item<12-> Multiplying complex numbers multiplies absolute values.
+\item<13-> \alert<13-17>{What happens to $zw$ when we change $|w|$?} \uncover<18->{ \alert<18-21>{When we change $\beta$?} }
+\end{itemize}
+\end{frame}

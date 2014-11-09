@@ -1,16 +1,22 @@
 \begin{frame}
 \begin{theorem}
-Let $e(z)= \sum\limits_{n=0}^{\infty}\frac{z^n}{n!}$, $z,w\in \mathbb C$. Then $e(z)e(w)=e(z+w)$
+Let $\alert<2>{e(z)= \sum\limits_{n=0}^{\infty}\frac{z^n }{ n!}}$, \uncover<2->{\alert<2>{$z\in \mathbb C$}.} \uncover<3->{Then $e(z ) e ( w ) =e(z+w)$.}
 \end{theorem}
-\alert<1>{The following proof lies outside of the scope of Calculus II. We present it for completeness. You will not be tested on it. }
+\uncover<2->{\alert<2>{Power series over $\mathbb C$ are defined similarly to power series over $\mathbb R$. }} \uncover<4->{\alert<4>{The following proof lies outside of scope Calc II. Details are omitted and get filled in a course of Complex Analysis. You will not be tested on it. }}
+\uncover<4->{
 \begin{proof}
+\uncover<5->{
 $
 \begin{array}{rcll|l}
-\displaystyle e(z)e(w)&=&\displaystyle  \sum_{n=0}^{\infty} \frac{z^n}{n!} \sum_{m=0}^{\infty} \frac{w^m}{m!} =  \displaystyle  \sum_{s=0}^{\infty}\sum_{k=0 }^s \frac{z^{k}w^{s-k}}{k! (s-k)!} \\ &=& \displaystyle  \sum_{s=0}^{\infty} \alert<2>{\sum_{k=0 }^s  } \frac{\alert<2>{z^{k}w^{s-k}}}{s!}\alert<2>{ \frac{s!}{k! (s-k)!}} =\displaystyle  \sum_{s=0}^{\infty} \frac{(z+w)^s}{s!}=e(z+w).
+\displaystyle e(z)e(w)&=&\displaystyle  \sum_{n=0}^{\infty} \frac{z^n}{n!} \sum_{m=0}^{\infty} \frac{w^m}{m!} =  \displaystyle  \sum_{s=0}^{\infty}\sum_{k=0 }^s \frac{z^{k}w^{s-k}}{k! (s-k)!} \\ &=& \displaystyle  \sum_{s=0}^{\infty} \alert<6>{\sum_{k=0 }^s  } \frac{\alert<6>{z^{k}w^{s-k}}}{s!}\alert<6>{ \frac{s!}{k! (s-k)!}} =\displaystyle  \sum_{s=0}^{\infty} \frac{(z+w)^s}{s!}=e(z+w).
 \end{array}
 $
+} %uncover
 \end{proof}
+} %uncover
+\uncover<6->{
 \begin{lemma}[Newton Binomial formula]
-\alert<2>{$(z+w)^s=\sum_{k=0 }^s z^{k}w^{s-k} \frac{s!}{k! (s-k)!}$}.
+\alert<6>{$(z+w)^s=\sum_{k=0 }^s z^{k}w^{s-k} \frac{s!}{k! (s-k)!}$}.
 \end{lemma}
+}
 \end{frame}
