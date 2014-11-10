@@ -1,21 +1,28 @@
 \begin{frame}
-  \frametitle{Example: Moment of Inertia}
-  
-  \begin{itemize}
-    \item Moment of inertia of a rectangular box with sides $2a$, $2b$, and $2c$;
-    \item Constant density $\rho$;
-    \item With respect to an axis through the center, perpendicular to a face;
-    \item Coordinate system $Oxyz$, $L=Oz$;
-    $$I_L = \int\!\!\!\int\!\!\!\int_{\cR} \rho\, \text{dist}^2(P,L)\, dV = \int\!\!\!\int\!\!\!\int_{\cR} \rho (x^2+y^2)\, dxdydz\; .$$
-    \item \underline{Decomposition by slices}:
-    \begin{itemize}
-    \item Projection of $\cR$ onto the $z-$axis: segment from $z=-c$ to $z=c$;
-%
-$$\iiint_{\cR} \rho (x^2+y^2)\, dxdydz = \int_{z=-c}^{z=c} \left( \iint_{S_z} \rho (x^2+y^2)\, dxdy \right) \, dz$$
-%    
-    \item For a generic location $z$, the slice $S_z$: $-a \leqslant x \leqslant a$, $-b \leqslant y \leqslant b$;
-%
-$$I_L = \int_{z=-c}^{z=c} \left(\int_{x=-a}^{x=a} \left( \int_{y=-b}^{y=b} \rho (x^2+y^2) \, dy \right)  dx\right)  dz\; = \frac{m(a^2+b^2)}{3} \; .$$
+\frametitle{Example: Moment of Inertia}
+\begin{itemize}
+\item Problem: compute the moment of inertia $I$
+\begin{itemize}
+\item \alert<2>{of a rectangular box with sides $2a$, $2b$, and $2c$}
+\item \alert<3>{rotating about an axis through center that is perpendicular to a face.}
+\item \alert<4>{The box has constant density $\rho$.}
+\end{itemize}
+\item<5-> Coord. system: rotation axis = $z$-axis, $x,y$ axes along box sides.
+\uncover<6->{
+\[
+I = \iiint_{\cR} \rho\, \text{dist}^2(P,L) \diff V = \iiint_{\cR} \rho (x^2+y^2)\, \diff x\diff y \diff z\; .
+\]
+}
+\item<7-> Decompose into slices as follows.
+\begin{itemize}
+\item<7> Project $\cR$ onto the $z-$axis \alert<8>{to get segment from $z=-c$ to $z=c$.}
+\[
+\iiint_{\cR} \rho (x^2+y^2) \diff x \diff y \diff z = \alert<8>{\int_{z=-c}^{z=c}} \left( \iint_{S_z} \rho (x^2+y^2)\, \diff x \diff y \right) \diff z
+\]    
+\item<9-> For a fixed $z$, the slice $S_z$ is: $-a \leq x \leq a$, $-b \leq  y \leq  b$.
+\[
+I_L = \int_{z=-c}^{z=c} \left(\int_{x=-a}^{x=a} \left( \int_{y=-b}^{y=b} \rho (x^2+y^2)  \diff y \right)  \diff x\right)  \diff z = \frac{m(a^2+b^2)}{3} .
+\]
 %
 
 \end{itemize}
