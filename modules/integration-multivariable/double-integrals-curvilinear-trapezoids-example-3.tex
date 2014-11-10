@@ -32,22 +32,30 @@
 \uncover<7->{\parametricplot[linecolor=red]{-2.4}{2 sqrt 1 sub}{t t 1 add dup mul}}
 \uncover<3->{\psline[linecolor=red](-1, -1.4)(-1, 2)}
 \uncover<5->{\psline[linecolor=red](-2.4, -1)(2, -1)}
-\fcAxesStandardNoFrame{-2.5}{-1.4}{2}{2}
-\uncover<13->{
+\fcAxesStandardNoFrame{-2.5}{-1.4}{2}{2}%
+\uncover<13->{%
 \fcFullDot{0}{-1}%
 \fcFullDot{-1}{-1}%
 \fcFullDot{-1}{0}%
 \fcFullDot{0}{1}%
-\fcLabels{2}{2}
-}
-\uncover<18->{
-\psline[linecolor=red, linewidth=1.5pt, arrows=<->](0,0)(0,1)
-\psline[linecolor=red, linewidth=1.5pt, arrows=<->](0,0)(0,-1)
-}
-\uncover<20->{
-\psline[linecolor=red, linewidth=1.5pt, arrows=<->](! 0.5 sqrt 1 sub 0.5)(0.375,0.5)
-\psline[linecolor=red, linewidth=1.5pt, arrows=<->](-1,-0.5)(-0.375,-0.5)
-}
+\fcLabels{2}{2}%
+}%
+\uncover<18->{%
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](0,0)(0,1)%
+\fcFullDot{0}{0}%
+\fcFullDot{0}{1}%
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](0,0)(0,-1)%
+\fcFullDot{0}{0}%
+\fcFullDot{0}{-1}%
+}%
+\uncover<20->{%
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](! 0.5 sqrt 1 sub 0.5)(0.375,0.5)%
+\fcFullDot{0.5 sqrt 1 sub}{0.5}%
+\fcFullDot{0.375}{0.5}%
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](-1,-0.5)(-0.375,-0.5)%
+\fcFullDot{-1}{-0.5}%
+\fcFullDot{-0.375}{-0.5}%
+}%
 \end{pspicture}
 \column{0.6\textwidth}
 Let $\mathcal{R}$ be region bounded by $y=(x+1)^2$, $x=y-y^3$, the line $x=-1$ and the line $y=-1$. Set-up iterated integrals for 

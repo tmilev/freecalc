@@ -57,10 +57,18 @@
 \fcFullDot{2}{4}
 }
 \uncover<15->{
-\psline[arrows=<->, linecolor=red, linewidth=1.5pt](0,0)(2,0)
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](0,0)(2,0)
+\fcFullDot{0}{0}
+\fcFullDot{2}{0}
+}
+\uncover<16->{
+\fcFullDot{1}{0}
 }
 \uncover<17->{
-\psline[arrows=<->, linecolor=red, linewidth=1.5pt](1,1)(1,2)
+\psline[linestyle=dotted](1,1)(1,0)
+\psline[linecolor=red, linewidth=1.5pt, arrows=<->](1,1)(1,2)
+\fcFullDot{1}{1}
+\fcFullDot{1}{2}
 }
 \end{pspicture}
 
@@ -83,8 +91,8 @@ $
 $
 \begin{array}{r@{~}c@{~}l}
 \uncover<14->{\alert<18,19>{\displaystyle \int\limits_{{ \fcQuestion{ 14}{x=} \fcAnswer{15}{0}}}^{{ \fcQuestion{ 14}{ x =}\fcAnswer{15}{2}}}\left( \int\limits_{{ \fcQuestion{16}{ y= }\fcAnswer{17}{x^2 }}}^{{\fcQuestion{ 16}{ y=} \fcAnswer{ 17}{2x}}} \frac{1}{8}\left(\alert<20,21>{x^2+y^2} \right) \diff y \right) \diff x}} \uncover<handout:2| 20->{&=&\displaystyle \frac{1 }{8} \int_{x=0 }^{x=2}  { \left[\fcAnswer{21}{\alert<22,23>{ x^2y +\frac{ y^3}{3}}} \right]}_{ \alert<23>{y=x^2}}^{ \alert<22>{y=2x} }\diff x} \\
-\uncover<handout:2| 22->{&=&\displaystyle \frac{1}{8}{\alert<24,25>{ \int}}_{0}^2 \alert<24,25>{\left( \alert<22>{4x^3+\frac{8}{3}x^3} \alert<23>{  -x^4 -\frac{ x^6 }{3}} \right)\diff x}} \\
-\uncover<handout:2| 24->{&=& \displaystyle \frac{1}{8} {\left[\fcAnswer{25}{-\frac{ 1}{21} x^{7}-\frac{1}{5} x^{5}+\frac{5}{3} x^{4}}\right]}_{x=0}^{x=2}\\ \uncover<26->{&=&\frac{62}{35}}}
+\uncover<handout:2| 22->{&=&\displaystyle \frac{1}{8}{\alert<24,25>{ \int}}_{0}^2 \alert<24,25>{\left( \alert<22>{ 2x^3+ \frac{8}{3}x^3} \alert<23>{  -x^4 -\frac{ x^6 }{3}} \right)\diff x}} \\
+\uncover<handout:2| 24->{&=& \displaystyle \frac{1}{8} {\left[\fcAnswer{25}{-\frac{ 1}{21} x^{7}-\frac{1}{5} x^{5}+\frac{7}{6} x^{4}}\right]}_{x=0}^{x=2}\\ \uncover<26->{&=&\frac{27}{35}}}
 \end{array}
 $
 
