@@ -20,12 +20,7 @@
 % To make everything into one file, we include the following style file directly.
 % This might need to be updated over time.
 \input{../pstricks-commands}
-
-
-
-
-
-\newcommand{\diff}{\text{\normalfont d}}
+\input{../example-templates}
 
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\Re}{\mathrm{Re}}
@@ -55,10 +50,8 @@
 \DeclareMathOperator{\arcsinh}{arcsinh}
 \DeclareMathOperator{\arccosh}{arcosh}
 \DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\maclaurin}{Maclaurin}
 \DeclareMathOperator{\taylor}{Taylor}
 
-\newcommand{\optionalDisplay}[1]{}
 \renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
@@ -4399,14 +4392,11 @@ We may or may not be allowed to plug in numbers for $x$ in the expression \eqref
 We may (formally) add, subtract, multiply, integrate, differentiate formal power series. With additional assumptions, we may be able to divide power series, as well as carry out formal substitutions replacing $x$ by a formal power series.
 
 Adding, subtracting and multiplying formal power series is carried out by ``uncovering the infinite brackets'', much in the way that finite expressions are added, subtracted and multiplied.
-\begin{itemize}
-\item
 \[
 \sum_{n=0}^\infty a_n x^n\pm \left(\sum_{n=0}^\infty b_n x^n\right)\eqdef \sum_{n=0}^\infty (a_n+b_n)x^n\quad .
 \]
-\item
 \[
-\begin{array}{rcl}
+\begin{array}{r@{~}c@{~}l}
 \displaystyle\left(\sum_{n=0}^\infty a_n x^n\right) \left(\sum_{n=0}^\infty b_n x^n\right) &=&
 (a_0 + a_1x+a_2x^2+\dots )(b_0 + b_1x+b_2x^2+\dots )\\&\eqdef&
 a_0b_0 + (a_0b_1+a_1b_0)x + (a_0b_2+a_1b_1+a_2b_0)x^2+\dots \\
@@ -4414,21 +4404,21 @@ a_0b_0 + (a_0b_1+a_1b_0)x + (a_0b_2+a_1b_1+a_2b_0)x^2+\dots \\
 &=&\displaystyle \sum_{n=0}^{\infty} \left(\sum_{k=0}^n a_k b_{n-k}  \right)x^n\quad .
 \end{array}
 \]
-\end{itemize}
 
 Formal power series can be (formally) differentiated and integrated.
 \[
 \begin{array}{rcl}
 \displaystyle
-\frac{d}{\diff x}\left(\sum_{n=0}^{\infty} a_n x^n\right) &=& \displaystyle \frac{d}{\diff x} \left(a_0 +a_1x+a_2x^2+\dots \right)\eqdef a_1+2 a_2 x+ 3a_3x^2 +\dots\\
+\frac{\diff}{\diff x}\left(\sum_{n=0}^{\infty} a_n x^n\right) &=& \displaystyle \frac{\diff}{\diff x} \left(a_0 +a_1x+a_2x^2+\dots \right)\\
+&\eqdef& a_1+2 a_2 x+ 3a_3x^2 +\dots\\
 &=&\displaystyle \sum_{n=1}^{\infty} na_nx^{n-1}\quad .
 \end{array}
 \]
 
 \[
 \begin{array}{rcl}
-\displaystyle \int \left(\sum_{n=0}^{\infty} a_n x^n\right)\diff x &=&\displaystyle \int (a_0 +a_1x+a_2x^2+\dots )\diff x\eqdef C+ a_0x +a_1\frac{x^2}{2}+a_2\frac{x^3}3+\dots
-\\
+\displaystyle \int \left(\sum_{n=0}^{\infty} a_n x^n\right)\diff x &=& \displaystyle \int (a_0 +a_1x+a_2x^2+\dots )\diff x\\
+&\eqdef& C+ a_0x +a_1\frac{x^2}{2}+a_2\frac{x^3}3+\dots\\
 &=&\displaystyle C+\sum_{n=1}^{\infty} \frac{a_n}{n+1}x^{n+1}\quad .
 \end{array}
 \]
@@ -4450,7 +4440,7 @@ f(g(x)) &\eqdef&\displaystyle a_0+ \sum_{k=1}^\infty a_k\left(\sum_{j=1}^{\infty
 &=&\displaystyle a_0+\sum_{n=1}^{\infty} \left(\sum_{k=1}^n a_k c_{k,n} \right)x^n\quad .
 \end{array}
 \]
-Clearly, the above formulas would be cumbersome to work with by hand except for the smallest of examples. In particular, all examples done in this course will use shortcuts that circumvent the preceding formulas. However, the preceding formulas may be needed for a complicated problem arising in practice/outside of the scope of this course. Furthermore, the formulas are well-suited for implementation in computer algebra systems.
+The above formulas would be cumbersome to work with by hand except for the smallest of examples. In particular, all examples done in this course will use shortcuts that circumvent the preceding formulas. However, the preceding formulas may be needed for a complicated problem arising in practice/outside of the scope of this course. Furthermore, the formulas are well-suited for implementation in computer algebra systems.
 
 \section{Maclaurin series as formal power series}\label{secMaclaurinSeries}
 \begin{definition}\label{defMaclaurinSeries}
@@ -4458,46 +4448,44 @@ Clearly, the above formulas would be cumbersome to work with by hand except for 
 \begin{equation}\label{eqMacLaurinDef}
 \begin{array}{rcl}
 \maclaurin (f(x))&\eqdef&\displaystyle \sum_{n=0}^{\infty}  \frac{f^{(n)} (0)}{n!} x^n\\
-&=& \displaystyle f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\dots+\frac{f^{(n)}(0)}{n!}x^n+\dots
+&=& \displaystyle f(0)+f'(0)x+ \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!} x^3 + \dots + \frac{f^{(n)}(0)}{n!}x^n+\dots
 \end{array}
 \end{equation}
 is called the Maclaurin series of $f(x)$.
 \end{definition}
-There is no standard notation for Maclaurin series. The notation $\maclaurin (f(x))$ used in this course is certainly unambiguous.
+There is no standard notation for Maclaurin series; we use the notation $\maclaurin (f(x))$.
+
 
 \begin{definition}\label{defTaylorSeries}
 \index{series!Taylor} Let $f(x)$ be a function that is infinitely differentiable at the point $p$. Then the formal power series
 \begin{equation}\label{eqTaylorDef}
 \begin{array}{rcl}
-\taylor_p (f(x))&\eqdef&\displaystyle \sum_{n=0}^{\infty}  \frac{f^{(n)} (p)}{n!} (x-p)^n\\&=& \displaystyle f(0)+f'(0)(x-p)+\frac{f''(0)}{2!}(x-p)^2+\dots+\frac{f^{(n)}(0)}{n!}(x-p)^n+\dots
+\taylor_p (f(x))&\eqdef&\displaystyle \sum_{n=0}^{\infty}  \frac{f^{(n)} (p) }{ n!} (x-p)^n\\&=& \displaystyle f(0)+f'(0)(x-p)+\frac{f''(0)}{2!}(x-p)^2 +\dots+ \frac{f^{(n)}(0)}{n!}(x-p)^n+\dots
 \end{array}
 \end{equation}
 is called the Taylor series of $f(x)$ at $p$. The Maclaurin series are a partial case of the Taylor series at the point $0$.
 \end{definition}
-There is no standard notation for Taylor series at $p$. The notation $\taylor_p(f(x))$ used in this course is certainly unambiguous.
+There is no standard notation for Taylor series at $p$; we use the notation $\taylor_p(f(x))$.
 
 The motivation for the definition of Maclaurin series is that, with some conditions on the function $f(x)$, given a number $a$ with sufficiently small absolute value, $f(a)$ equals the limit of the sum of the Maclaurin series of $f(x)$ when we carry out the substitution $x=a$. An analogous statement holds for Taylor series.
 
 In order to make the above point precise, we need to establish
 \begin{enumerate}
 \item under what conditions we can plug in a number in place of $x$ in \eqref{eqMacLaurinDef} and
-\item under what conditions does the sum \eqref{eqMacLaurinDef} equal the function $f(x)$ when we substitute values for $x$.
+\item under what conditions does the sum \eqref{eqMacLaurinDef} equal the function $f(x)$ (when we substitute values for $x$).
 \end{enumerate}
 This is one of the central goals of Section \ref{secSeriesConvergence} .
 
 In Section \ref{secFormalPowerSeries}, we learned how to carry out operations with formal power series. Therefore we may compute with Maclaurin series independent of proving properties 1) and 2) above. We postpone the investigation of problem 1)  to section \ref{secSeriesConvergence}. We shall not discuss problem 2) in this course (an illustration of the issue is given by Problem \ref{probDifferentiableNonAnalyticFunctionExample}). In the rest of this section, we will learn instead how to compute with Maclaurin series.
 
-When computing Maclaurin series, we may use the following properties. The main idea of these properties is that performing operations with functions and then taking Maclaurin series amounts to the same result as first taking the Maclaurin series and then performing the corresponding operation with the formal power series.
-\begin{itemize}
-\item
+When computing Maclaurin series, we can use the fact that performing operations with functions and then taking Maclaurin series amounts to the same result as first taking the Maclaurin series and then performing the corresponding operation with the formal power series. The operations on power series were defined in the most natural fashion. Therefore, if all functions were equal to their Maclaurin series, it would seem obvious that performing an operation on them and then taking the Maclaurin series amounts to the same thing as first taking the Maclaurin series and then performing the operation. However this remains true even if the functions involved are not equal to their Maclaurin series. 
 \[
 \maclaurin (f(x)\pm g(x))= \maclaurin (f(x))\pm \maclaurin(g(x))
 \]
-\item
 \[
 \maclaurin (f(x)* g(x))= \maclaurin (f(x))* \maclaurin(g(x))
 \]
-\item If $f(x)g(x)=1$ for all $x$ in a small interval $I$ containing $0$, then
+If $f(x)g(x)=1$ for all $x$ in a small interval $I$ containing $0$, then
 \[
 \maclaurin (f(x)*g(x))= 1\quad,
 \]
@@ -4505,99 +4493,69 @@ as well as
 \[
 \maclaurin\left(\frac{1}{f(x)}\right)= \maclaurin(g(x))\quad .
 \]
-\item A proof of the following two properties will be given in \ref{thDifferentiatingIntegratingPowerSeriesNonFormal}.
+The following two properties will discussed in more detail in \ref{thDifferentiatingIntegratingPowerSeriesNonFormal}.
 \[
-\maclaurin \left(\frac{df}{\diff x}(x)\right)= \frac{d}{\diff x}\left(\maclaurin(f(x)) \right)\quad .
+\maclaurin \left(\frac{\diff f}{\diff x}(x)\right)= \frac{\diff }{\diff x} \left( \maclaurin(f(x)) \right)\quad .
 \]
-\item
 \[
-\maclaurin \left(\int f(x)\diff x \right) = \int\left( \maclaurin(f(x))\right)\diff x \quad .
+\maclaurin \left(\int f(x)\diff x \right) = \int\left( \maclaurin( f(x) ) \right) \diff x \quad .
 \]
-\end{itemize}
 \subsubsection{The Maclaurin series of frequently used functions}
 We already studied the Maclaurin series of $e^x, \sin x, \cos x$ in \eqref{eqSinCosMaclaurinSeries} and \eqref{eqExponentFunctionDefinition}.
 
 \[
-(1-x)(1+x+x^2+\dots +x^n+\dots) = (1+\cancel{x}+\cancel{x^2}+\dots +\cancel{x^n} +\dots)- (\cancel{x}+\cancel{x^2}+\cancel{x^3}+\dots + \cancel{x^n}+\dots)= 1\quad .
+\begin{array}{r@{~}c@{~}l}
+(1-x)(1+x+x^2+\dots +x^n+\dots) &=& (1+\cancel{x}+\cancel{x^2}+\dots +\cancel{x^n} +\dots)\\
+&& -(\phantom{1+}\cancel{x}+\cancel{x^2}+\cancel{x^3}+\dots + \cancel{x^n}+\dots)\\
+&=& 1\quad .
+\end{array}
 \]
 Therefore
 \begin{equation}\label{eqInfiniteGeometricProgression}
 \maclaurin \left( \frac{1}{1-x}\right)= 1+x+x^2+\dots \quad .
 \end{equation}
 
-We want to compute
-\[
-\maclaurin\left(\frac{1}{(1-x)^n}\right)\quad ,
-\]
-where $n\geq 1$ is an integer. In order to do this note that $\frac{d}{\diff x}\left(\frac{1}{(1-x)^{n-1}}\right)= \frac{n-1}{(1-x)^{n}} $. Therefore
-\[
-\begin{array}{rcl}
-\displaystyle \frac{d^{n-1}}{\diff x^{n-1}} \left(\frac{1}{1-x}\right)&=&\displaystyle  \frac{d^{n-2}}{ \diff x^{n-2}} \left(\frac{1}{(1-x)^2}\right)= \frac{d^{n-3} }{\diff x^{ n-3}}\left(\frac{1*2}{(1-x)^3}\right) = \dots \\&=&\displaystyle \frac{d^{ n-k}}{ \diff x^{n-k} }\left( \frac{1 *2* \dots *(k-1)}{(1-x)^{k}}\right)= \frac{(n-1)!}{(1-x)^n} \quad .
-\end{array}
-\]
-Therefore
-\[\begin{array}{rcl}
-\displaystyle \maclaurin\left(\frac{1}{(1-x)^n}\right)&=& \displaystyle \frac{1}{(n-1)!}\frac{d^{n-1}}{\diff x^{n-1}} \maclaurin \left(\frac{1}{1-x}\right)\\
-&=& \displaystyle
-\frac{1}{(n-1)!}\frac{d^{n-1}}{\diff x^{n-1}}(1+x+x^2+\dots +x^k+\dots )\\
-&=& \displaystyle \frac{1}{(n-1)!}( (n-1)(n-2)\dots 1+n(n-1)\dots 2 x \\
-&&\displaystyle \phantom{\frac{1}{(n-1)!}( }+  \dots + k(k-1)\dots (k-n+2)x^{k-n+1}+\dots )\\
-&=&\displaystyle 1+ \frac{n (n-1)\dots 2}{(n-1)!} x + \dots + \frac{ k(k-1)\dots (k-n+2)}{(n-1)!}x^{k-n+1}+\dots \\
-&=&\displaystyle \binom{ n-1}{n-1} + \binom{n}{n-1}x+\dots + \binom{k}{n-1}x^{k-n+1}+\dots \\
-&=&\displaystyle\sum_{k=0}^\infty \binom {k}{n-1}x^{k-(n-1)}\quad .
-\end{array}
-\]
-For the very last equality recall the definition of the Newton binomial coefficient $\binom{k}{n}$, \eqref{eqBinomialCoeffDefinition}.
+\begin{problem}
+\input{../../modules/power-series/homework/newton-binomial-integer-generalized}
+\end{problem}
+\input{../../modules/power-series/homework/newton-binomial-integer-generalized-solution}
 
-More generally, let us compute
-\[
-\maclaurin (1+x)^q\quad ,
-\]
-where $q\in \mathbb R$ is an arbitrary rational number. Here, we recall that $(x^q)'=qx^{q-1}$ for all $q\in \mathbb R$ as proved in \eqref{eqXtotheAthDerivative}. Because $q$ is an arbitrary real number, we cannot use the trick from the preceding computation: we need to compute the Maclaurin series directly using the definition \eqref{eqMacLaurinDef}.
-\[
-\begin{array}{rcl}
-\frac{d}{\diff x}\left( (1+x)^q\right)&=& q (1+x)^{q-1}\\
-\frac{d^{2}}{\diff x^2}\left( (1+x)^q\right)&=& q(q-1) (1+x)^{q-2}\\
-\vdots \\
-\frac{d^{n}}{\diff x^n}\left( (1+x)^q\right)&=& q(q-1)(q-2)\dots (q-n+1) (1+x)^{q-n}\quad .
-\end{array}
-\]
-Therefore $\frac{d^{n}}{\diff x^n}\left( (1+x)^q\right)_{|x=0}=q(q-1)(q-2)\dots (q-n+1) (1+0)^{q-n}= q(q-1)(q-2)\dots (q-n+1)  $. Therefore
-\begin{equation}\label{eqNewtonBinomialGeneralized}
-\begin{array}{rcl}
-\displaystyle \maclaurin \left( (1+x)^q\right) &=& \displaystyle\sum_{ n=0}^{\infty}\frac{ 1}{n!}\frac{d^n }{\diff x^n} \left( (1+x)^q\right)_{|x=0} x^n  \\ &=&\displaystyle \sum_{n=0}^{\infty}  \frac{q(q-1)(q-2)\dots (q-n+1)}{n!}x^n= \sum_{n=0}^{\infty} \binom{q}{n}x^n\quad .
-\end{array}
-\end{equation}
-Note that the definition of binomial coefficient \eqref{eqBinomialCoeffDefinition} allows for $q$ to be an arbitrary real (and even complex) number. The above formula is a generalization of the Newton binomial formula. \index{binomial!generalized formula} As we shall soon learn, $\maclaurin \left( (1+x)^q\right)_{|x=c} =(1+c)^q $   for all $c\in (-1, 1)$.
+More generally, us let solve the following.
+\begin{problem}
+\input{../../modules/power-series/homework/newton-binomial-generalized}
+\end{problem}
+\input{../../modules/power-series/homework/newton-binomial-generalized-solution}
+
+As we shall soon learn, $\maclaurin \left( (1+x)^q\right)_{|x=c} =(1+c)^q $   for all $c\in (-1, 1)$.
 
 The power series of $\arctan x$.
 \[
 \begin{array}{rcl}
-\frac{d}{\diff x}\maclaurin (\arctan x)&=& \displaystyle \maclaurin\left( \frac{d}{\diff x}(\arctan x)\right)= \maclaurin \left(\frac{1}{1+x^2}\right) \\
+\frac{\diff}{\diff x}\maclaurin (\arctan x)&=& \displaystyle \maclaurin\left( \frac{\diff}{\diff x}(\arctan x)\right)= \maclaurin \left(\frac{1}{1+x^2}\right) \\
 &=&\displaystyle \maclaurin \left(\frac{1}{1-(-x^2)}\right)\\
-& \stackrel{\mathrm{using~} \eqref{eqInfiniteGeometricProgression} }{=} & 1+(-x^2)+(-x^2)^2+(-x^2)^3+\dots+ (-x^2)^n+\dots
+& \stackrel{\mathrm{use~} \eqref{eqInfiniteGeometricProgression} }{=} & 1+(-x^2)+(-x^2)^2+(-x^2)^3+\dots+ (-x^2)^n+\dots
 \\ &=& 1-x^2+x^4-x^6+\dots+ (-1)^nx^{2n}+\dots \quad .
 \end{array}
 \]
 Therefore
 \[
 \begin{array}{rcl}
-\maclaurin (\arctan x)&=&\displaystyle \int( 1-x^2+x^4-x^6+\dots (-1)^nx^{2n}+\dots )\diff x \\
-&=&\displaystyle  \underbrace{\arctan(0)}_{=0}+ x-\frac{x^3}3+\frac{x^5}5-\frac{x^7}7+\dots +(-1)^n\frac{x^{2n+1}}{2n+1}+\dots\\
+\maclaurin (\arctan x)&=&\displaystyle \int( 1-x^2+x^4-x^6+\dots (-1)^nx^{2n} + \dots )\diff x \\
+&=&\displaystyle  \underbrace{\arctan(0)}_{=0}+ x- \frac{ x^3}3 + \frac{ x^5}5 -\frac{ x^7}7+\dots +(-1)^n\frac{x^{2n+1}}{2n+1}+\dots\\
 &=&\displaystyle  \sum_{n=0}^{\infty} (-1)^n\frac{x^{2n+1}}{2n+1}\quad .
 \end{array}
 \]
 The power series of $\ln (1-x)$, $\ln(1+x)$.
 \[
 \begin{array}{rcl}
-\displaystyle \frac{d}{\diff x}\maclaurin(\ln (1-x))&=& \displaystyle \maclaurin \left(\frac{d}{\diff x}(\ln (1-x))\right) = \maclaurin \left(-\frac{1}{1-x}\right)\\
+\displaystyle \frac{\diff}{\diff x}\maclaurin(\ln (1-x))&=& \displaystyle \maclaurin \left(\frac{\diff}{\diff x}(\ln (1-x))\right) = \maclaurin \left( - \frac{ 1}{1-x}\right)\\
 &=& \displaystyle -1-x-x^2-\dots -x^n-\dots
 \end{array}
 \]
 Therefore
 \[
 \begin{array}{rcl}
-\displaystyle \maclaurin(\ln (1-x) )&=&\displaystyle \int (-1-x-x^2-\dots -x^n-\dots)\diff x \\&=&\displaystyle \underbrace{\ln (1-0)}_{=0} - x- \frac{x^2}{2}- \frac{x^3}{3}-\dots - \frac{x^n}{n}-\dots= -\displaystyle\sum_{n=1}\frac{x^n}{n} \quad .
+\displaystyle \maclaurin(\ln (1-x) )&=&\displaystyle \int (-1-x-x^2-\dots -x^n - \dots)\diff x \\&=&\displaystyle \underbrace{\ln (1-0)}_{=0} - x- \frac{ x^2 }{ 2}- \frac{x^3}{3}-\dots - \frac{x^n}{n}-\dots= -\displaystyle\sum_{ n=1} \frac{ x^n}{n} \quad .
 \end{array}
 \]
 Therefore
@@ -4607,13 +4565,13 @@ Therefore
 
 \[
 \begin{array}{rcl}
-\frac{d}{\diff x}\maclaurin(\arcsin{x})&=&\displaystyle \maclaurin\left(\frac{d}{\diff x}(\arcsin{x})\right)= \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right)\\
+\frac{\diff}{\diff x}\maclaurin(\arcsin{x})&=&\displaystyle \maclaurin \left( \frac{\diff}{\diff x}(\arcsin{x})\right)= \maclaurin \left( \frac{ 1}{ \sqrt{ 1-x^2 }}\right)\\
 &=&
-\maclaurin\left((1+(-x^2))^{-\frac{1}2}\right)\\
-&\stackrel{\eqref{eqNewtonBinomialGeneralized}}{=}&\displaystyle 1-\frac{1}{2}(-x^{2})+ \left(\frac{-\frac{1}{2}(-\frac{1}2-1)}{2!}\right)(-x^2)^2+ \dots\\
-&&\displaystyle + \left(\frac{-\frac{1}{2}(-\frac{1}2-1)\dots (-\frac{1}2-n+1)}{n!}\right)(-x^2)^n+\dots
+\maclaurin\left( (1+(-x^2))^{-\frac{1}2}\right)\\
+&\stackrel{\eqref{eqNewtonBinomialGeneralized}}{=}&\displaystyle 1-\frac{1}{2 }(- x^{2})+ \left(\frac{-\frac{1}{2}(-\frac{1}2-1)}{2!}\right)(-x^2)^2+ \dots\\
+&&\displaystyle + \left(\frac{-\frac{1}{2}(-\frac{1}2-1)\dots (- \frac{1}2 -n+1) }{n!}\right)(-x^2)^n+\dots
 \\
-&=& \displaystyle\sum\limits_{n=0}^{\infty} (-1)^n \binom{-\frac{1}{2}}{n} x^{2n}\quad .
+&=& \displaystyle\sum\limits_{n=0}^{\infty} (-1)^n \binom{-\frac{1}{2}}{n} x^{ 2n} \quad .
 \end{array}
 \]
 Therefore

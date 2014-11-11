@@ -54,6 +54,7 @@
 \DeclareMathOperator{\Arccot}{{\cot^{-1}}}
 \DeclareMathOperator{\Arcsec}{{\sec^{-1}}}
 \DeclareMathOperator{\Arccsc}{{\csc^{-1}}}
+\DeclareMathOperator{\maclaurin}{{\normalfont{Mc}}}
 \newcommand{\optionalDisplay}[1]{#1}
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\Re}{\mathrm{Re}}
@@ -78,11 +79,13 @@
 \FPeval{\fcResult}{clip(#1+1)}% 
 \uncover<#1->{\alert<handout:0| #1,\fcResult>{#2}}%
 }
+\newcommand{\refBad}[3]{%
+\ifthenelse{\equal{#1}{??}}%
+{#2}%
+{#3}%
+}
 \newcommand{\fcEvalToInt}[1]{\FPeval{\fcResult}{clip(#1)}\fcResult}
 \newcommand{\fcv}[1]{{\bf #1}} %this command stands for freecalc Vector
-
-
-
 
 %
 %  An example of logarithmic differentiation of a function with a 

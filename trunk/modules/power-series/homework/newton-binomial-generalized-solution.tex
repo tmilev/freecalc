@@ -1,0 +1,18 @@
+\solution{\ref{problemMaclaurin(1+x)^q}
+Since $q$ does not have to be an integer, we cannot directly relate its power series to the power series of $\frac{1}{1+x}$ or its derivatives. We therefore compute the Maclaurin series directly using \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}.
+\[
+\begin{array}{rcl}
+\frac{\diff}{\diff x}\left( (1+x)^q\right)&=& q (1+x)^{q-1}\\
+\frac{\diff^{2}}{\diff x^2}\left( (1+x)^q\right)&=& q(q-1) (1+x)^{q-2}\\
+\vdots \\
+\frac{\diff^{n}}{\diff x^n}\left( (1+x)^q\right)&=& q(q-1)(q-2)\dots (q-n+1) (1 +x )^{ q-n}\quad .
+\end{array}
+\]
+Therefore $\frac{\diff^{n}}{\diff x^n}\left( (1+x)^q\right)_{|x=0}=q( q-1) (q-2) \dots (q-n+1) (1+0)^{q-n}= q(q-1)(q-2)\dots (q-n+1)  $. Therefore
+\begin{equation}\label{eqNewtonBinomialGeneralized}
+\begin{array}{rcl}
+\displaystyle \maclaurin \left( (1+x)^q\right) &=& \displaystyle\sum_{ n=0}^{ \infty} \frac{ 1}{n!}\frac{\diff^n }{\diff x^n} \left( (1+x)^q \right)_{ |x=0 } x^n  \\ &=& \displaystyle \sum_{n=0}^{\infty}  \frac{q( q-1) (q-2)\dots (q-n+1) }{n!}x^n= \sum_{ n=0 }^{\infty} \binom{q}{n}x^n\quad .
+\end{array}
+\end{equation}
+For the last equality we recall the definition of binomial coefficient $\binom{ q }{n} = \frac{q(q-1)\dots (q-n+1)}{n!}$ and that it allows for $q$ to be an arbitrary complex number \refBad{\ref{eqBinomialCoeffDefinition}}{}{(see \eqref{eqBinomialCoeffDefinition})}. The above formula is a generalization of the Newton binomial formula\refBad{\ref{eqNewtonBinomialFormula}}{}{, \eqref{eqNewtonBinomialFormula}}. \index{binomial!generalized formula}
+}

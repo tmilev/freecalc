@@ -1,30 +1,12 @@
-\solution{\ref{problemMaclaurin 1/(1-x)^k}
-We have that
-\[
-\begin{array}{rclcl}
-\displaystyle \frac{\diff }{\diff x}\left(\frac{1}{1-x}\right)&=&\displaystyle  \frac{ (1-x)'}{(1-x)^2} &=&\displaystyle  \frac{1}{(1-x)^2}\\
-\displaystyle \frac{\diff^2 }{\diff x^2}\left(\frac{1}{1-x}\right)&=&\displaystyle \frac{\diff }{\diff x}\left(\frac{1}{ (1-x)^2}\right)=-2 \frac{(1-x)'}{(1-x)^3} &=&\displaystyle  \frac{2}{(1-x)^3}\\
-\displaystyle \frac{\diff^3 }{\diff x^3}\left(\frac{1}{1-x}\right)&=&\displaystyle  \frac{\diff }{\diff x}\left( \frac{2}{ (1-x)^3}\right)=2(-3) \frac{(1-x)'}{(1-x)^4}&=&\displaystyle  \frac{2\cdot 3}{(1-x)^4}\\
-\vdots \\
-\displaystyle \frac{\diff^{k-2} }{\diff x^{k-2}}\left(\frac{1}{1-x}\right)&&&=& \displaystyle   \frac{(k-2)!}{(1-x)^{k-1}}\\
-\displaystyle \frac{\diff^{k-2} }{\diff x^{k-2}}\left(\frac{1}{1-x}\right)&=&\displaystyle \displaystyle \frac{\diff }{\diff x} \left(\frac{(k-2)!}{(1-x)^{k-1}}\right) &=&\displaystyle   \frac{(k-1)!}{(1-x)^{k}}\\
-\vdots 
-\end{array}
-\]
-We can now compute Maclaurin series as follows:
+\solution{\ref{problemMaclaurin(ln(3-2x^2))}. 
+We solve this problem by using algebraic manipulations and substitutions to reduce it to the already studied power series expansion of $\ln (1-y)=-\sum\limits_{n=1}^\infty \frac{y^n}{n}$.
 \[
 \begin{array}{rcll|l}
-\displaystyle
-Maclaurin\left(\frac{1}{(1-x)^{k}}\right)&=& \displaystyle Maclaurin\left(\frac{1}{(k-1)!}  \frac{\diff^{k-1}}{\diff x^{k-1}}\left( \frac{1}{(1-x)}\right)\right)\\
-&=&\displaystyle \frac{1}{(k-1)!}  \frac{\diff^{k-1}}{\diff x^{k-1}} \left(Maclaurin\left(\frac{1}{1-x}\right)\right)\\
-&=&\displaystyle \frac{1}{(k-1)!}  \frac{\diff^{k-1}}{\diff x^{k-1}}\left(\sum\limits_{n=0}^{\infty} x^n\right)\\
-&=&\displaystyle \frac{1}{(k-1)!}  \left(\sum\limits_{n=0}^{\infty} n(n-1)\dots (n-k+2) x^{n-k+1}\right)&&\text{Recall }\binom{n}{k}= \frac{n(n-1)\dots (n-k+1)}{k!} \\
-&=&\displaystyle  \sum\limits_{n=0}^{\infty} \binom{n}{k-1} x^{n-k+1}&& 
-\text{Set } n-k+1=m\\
-&=&\displaystyle \sum\limits_{m=-k+1}^{\infty} \binom{m+k-1}{k-1} x^{m} &&
-\text{first }k-2 \text{ summands are zero}
-\\
-&=&\displaystyle  \sum\limits_{m=0}^{\infty} \binom{m+k-1}{k-1} x^{m} 
-\end{array} 
+\maclaurin\left(\ln \left(3-2x^2\right)\right)&=& \displaystyle \ln \left(3 \left(1 -\frac{2}{3} x^2\right)\right)\\
+&=&\displaystyle \ln 3+ \ln  \left(1 -\frac{2}{3} x^2\right)&&\text{Set } y=\frac{2}{3}x^2\\
+&=&\displaystyle \ln 3+\ln (1-y)\\
+&=&\displaystyle \ln 3-\sum\limits_{n=1}^\infty \frac{y^n}{n}&&\text{Substitute back } y=\frac{2}{3}x^2\\
+&=&\displaystyle \ln 3-\sum\limits_{n=1}^\infty \left(\frac{2}{3}\right)^n\frac{x^{2n}}{n}\quad .
+\end{array}
 \]
 }
