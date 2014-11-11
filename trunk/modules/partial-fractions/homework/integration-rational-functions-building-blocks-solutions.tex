@@ -1,0 +1,13 @@
+\solution{\ref{problemIntegrate x/(2x^2+x+1) dx'}
+\[
+\begin{array}{rcll|l}
+\displaystyle\int \frac{x }{2x^2+x+1}\diff x&=&\displaystyle \int \frac{x}{2\left( x^2 + 2x \frac{1}{4} +\frac{1}{2} \right) }\diff x =  \int \frac{x}{2\left( x^2 + 2 x \frac{1}{4}+\frac{1}{16}- \frac{1}{16} +\frac{1}{2} \right) }\diff x &&\begin{array}{l} \text{complete square}\\\text{in denominator}\end{array}\\ 
+&=&\displaystyle \frac{1}{2}\int \frac{x}{ \left(x+ \frac{1}{4} \right)^2 + \frac{7}{16} } \diff x \\
+&=&\displaystyle \frac{1}{2}\int \frac{  x+ \frac{1}{4} - \frac{1}{4}}{ \left(x+ \frac{1}{4} \right)^2 + \frac{7}{16} } \diff \left(x+\frac{1}{4}\right) &&\text{Set } u=x+\frac{1}{4}\\
+&=&\displaystyle \frac{1}{2}\int \frac{u-\frac{1}{4}}{u^2+\frac{7}{16}} \diff u \\
+&=&\displaystyle \frac{1}{2}\left(\int \frac{u}{u^2+\frac{7}{16}}\diff u - \frac{1}{4}\int \frac{1}{u^2+\frac{7}{16}}\diff u \right) \\
+&=&\displaystyle \frac{1}{2} \left(\frac{1}{2}\ln \left(u^2+\frac{7}{16}\right) - \frac{1}{4\sqrt{\frac{7}{16}}}\Arctan\left(\frac{u}{\sqrt{\frac{7}{16}}}\right)\right) +K\\
+&=& \displaystyle \frac{1}{4}\ln \left(x^2+ \frac{1}{2}x+\frac{1}{2} \right) + \frac{\sqrt{7}}{14}\Arctan\left(\frac{4x+1}{\sqrt{7}} \right) +K \quad .
+\end{array}
+\] 
+}
