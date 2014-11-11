@@ -1,0 +1,39 @@
+\solution{\ref{problemMaclaurinsqrt(1+x)}
+This problem follows directly from the formula $(1+x)^q=\sum\limits_{n=0}^\infty \binom{q}{n} x^n$. 
+\[
+\maclaurin \left(\sqrt{1+x}\right)=\maclaurin \left((1+x)^{\frac{1}{2}}\right)= \sum\limits_{n=0}^\infty \binom{\frac{1}{2}}{n} x^n\quad .
+\]
+}
+
+\solution{\ref{problemMaclaurin(1+x)^(-1/2)}
+This problem can be solved by computing the derivative of the preceding problem. However, it is easier to simply apply the generalized Newton Binomial formula.
+\[
+\maclaurin \left((1+x)^{-\frac{1}{2}}\right)= \sum\limits_{n=0}^\infty \binom{- \frac{1}{2 }}{ n} x^n\quad .
+\]
+}
+
+\solution{\ref{problemMaclaurin(1-x^2)^(-1/2)}
+This problem is solved by replacing $ x$ with $-x^2$ in Problem \ref{problemMaclaurin(1+x)^(-1/2)}. To avoid the possible confusion, we carry out the substitution by introducing an intermediate variable $y$.
+\[
+\begin{array}{rcll|l}
+\displaystyle \maclaurin \left(\left(1-x^2\right)^{-\frac{1}{2}} \right)&=& \displaystyle   \maclaurin \left(\left(1+y\right)^{-\frac{1}{2}} \right) && \text{Set }y= -x^2 \\
+&=&\displaystyle  \sum\limits_{n=0}^\infty \binom{- \frac{1}{2 }}{ n} y^n &&\text{Substitute back } y=-x^2\\
+&=& \displaystyle  \sum\limits_{ n=0 }^\infty (-1)^n \binom{- \frac{1}{2 }}{ n} x^{2n}\quad .
+\end{array}
+\]
+}
+
+\solution{\ref{problemMaclaurin(arcsin x)} 
+We have that $\frac{\diff }{\diff x}\left(\Arcsin x\right)=\frac{1}{ \sqrt{1- x^2}}$, and the Maclaurin series of $\frac{1}{ \sqrt{1- x^2}}$ were computed in Problem \ref{problemMaclaurin(1-x^2)^(-1/2)}. The power series of $\Arcsin x$ are therefore obtained via integration. 
+\[
+\begin{array}{rcll|l}
+\displaystyle \frac{\diff }{\diff x}\maclaurin (\Arcsin x)&=&\displaystyle  \maclaurin \left(\frac{\diff}{\diff x} \left(\Arcsin x\right) \right)\\
+&=&\displaystyle \maclaurin \left(\frac{1}{\sqrt{1-x^2}}\right) && \text{use Problem }\ref{problemMaclaurin(1-x^2)^(-1/2)} \\
+&=&\displaystyle \sum\limits_{ n=0 }^\infty (-1)^n \binom{- \frac{1}{2 }}{ n} x^{2n}\\
+\maclaurin \left(\Arcsin x\right)&=&\displaystyle \int \left(\sum\limits_{ n=0 }^\infty (-1)^n \binom{- \frac{1}{2 }}{ n} x^{2n}\right)\diff x\\
+&=&\displaystyle C+\sum\limits_{ n=0 }^\infty (-1)^n \binom{- \frac{1}{2 }}{ n} \int x^{2n}\diff x\\
+&=&\displaystyle C+\sum\limits_{ n=0 }^\infty (-1)^n \binom{- \frac{1}{2 }}{ n} \frac{ x^{2n+1}}{2n+1}&&C=0 \text{ since }\Arcsin 0=0\\
+&=&\displaystyle \sum\limits_{ n=0 }^\infty (-1)^n \binom{- \frac{1}{2 }}{ n} \frac{ x^{2n+1}}{2n+1}\quad .
+\end{array}
+\]
+}
