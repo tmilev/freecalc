@@ -1324,7 +1324,6 @@ theContourCollection{\fcPaintContour} forall %
 
 \newcommand{\fcProcessCurrentZBuffer}{
 /counterI -1 def
-%(ere be i 1) ==
 %(currentZBuffer is: ) ==
 %currentZBuffer ==
 currentZBuffer length {
@@ -1335,7 +1334,7 @@ currentZBuffer length{
 counterI counterJ ne{
 /leftIndex currentZBuffer counterI get def
 /rightIndex currentZBuffer counterJ get def
-rightIndex leftIndex \fcLeftPatchIsBehind{
+rightIndex leftIndex \fcLeftPatchIsBehind {
 rightIndex thePatchIncidenceGraph leftIndex get \fcContains not {
 thePatchIncidenceGraph leftIndex
 [ thePatchIncidenceGraph leftIndex get \fcArrayToStack rightIndex
@@ -1517,6 +1516,7 @@ if
 /HandlerNotFound true def %
 HandlerNotFound{dup (surface) eq {pop \fcSurfaceGetNumContours /HandlerNotFound false def} if} if %
 HandlerNotFound{dup (curve) eq {pop \fcCurveInit 1 /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (triangle) eq {pop \fcTriangleInSceneInit 1 /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT GET NUMBER OF CONTOURS HANDLER NOT FOUND)} if %
 end %
 }%
@@ -1527,6 +1527,7 @@ end %
 /HandlerNotFound true def %
 HandlerNotFound{dup (surface) eq {pop \fcSurfaceGetNumPatches /HandlerNotFound false def} if} if %
 HandlerNotFound{dup (curve) eq {pop \fcCurveInit 0 /HandlerNotFound false def} if} if %
+HandlerNotFound{dup (triangle) eq {pop \fcTriangleInSceneInit 1 /HandlerNotFound false def} if} if %
 HandlerNotFound{== (ERROR: OBJECT NUMBER OF PATCHES HANDLER NOT FOUND)} if %
 end %
 }%
@@ -1538,7 +1539,8 @@ end %
 /HandlerNotFound true def %
 HandlerNotFound{dup (surface) eq {pop \fcSurfaceComputePatchesAndContours /HandlerNotFound false def} if} if %
 HandlerNotFound{dup (curve) eq {pop \fcCurveComputeContour /HandlerNotFound false def} if} if %
-HandlerNotFound{== (ERROR: OBJECT PAINTING HANDLER NOT FOUND)} if %
+HandlerNotFound{dup (triangle) eq {pop \fcTriangleComputePatchesAndContours /HandlerNotFound false def} if} if %
+HandlerNotFound{== (ERROR: OBJECT PATCH-CONTOUR HANDLER NOT FOUND)} if %
 end %
 \fcMarkCleanCheck
 }%
@@ -1893,6 +1895,51 @@ end%
 [theIIIdObjects \fcArrayToStack [#2\space #3{#4} (\fcArrows) \fcGetColorCode{\fcColorLine} \fcLineWidth (curve)]]/theIIIdObjects exch def}%
 }%
 
+\newcommand{\fcSegmentCodeNoFirstPoint}{
+5 dict begin
+/right exch def
+/left exch def
+/Delta 1 \fcNumCountourSegmentsPatchU div def
+/t Delta def
+\fcNumCountourSegmentsPatchU {left 1 t sub \fcVectorTimesScalar right t \fcVectorTimesScalar \fcVectorPlusVector /t t Delta add def} repeat
+end
+}
+
+\newcommand{\fcTriangleComputePatchesAndContours}{
+25 dict begin
+\fcTriangleInSceneInit
+\fcMarkClean
+/currentPatch
+[ vertex0 vertex1 vertex2 vertex1 vertex2 \fcVectorPlusVector 0.5 
+\fcVectorTimesScalar
+[ vertex0 dup vertex1 \fcSegmentCodeNoFirstPoint vertex1 vertex2 \fcSegmentCodeNoFirstPoint vertex2 vertex0 \fcSegmentCodeNoFirstPoint]
+[[\fcGetColorCode{\fcColorPatchUV}] [\fcGetColorCode{\fcColorPatchVU}] false true [\fcGetColorCode{black}]] (patch)
+] def
+/currentContour
+[
+currentPatch \fcPatchGetContour {[exch true]}forall 
+[false [\fcGetColorCode{black}] 1] 
+]
+def
+thePatchCollection numPatchesComputedSoFar currentPatch put
+theContourCollection numContoursComputedSoFar currentContour put
+\fcMarkCleanCheck
+end
+}
+
+\newcommand{\fcTriangleInSceneInit}{
+/vertex2 exch def
+/vertex1 exch def
+/vertex0 exch def
+}
+
+%We give the patch by its corners v0, v1, v2. 
+\newcommand{\fcTriangleInScene}[4][]{%
+\setkeys{fcGraphics}{#1}%
+\pstVerb{%
+/theIIIdObjects [theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space (triangle)] ] def%
+}%
+}
 
 %Format of patch: we give the patch by its corners v0, v1, v2. The patch is spanned by v1-v0 and v2-v0
 \newcommand{\fcPatchInScene}[4][]{%
@@ -2267,12 +2314,12 @@ end
 \newcommand{\fcPatchGetvOne}{1 get\space}
 \newcommand{\fcPatchGetvTwo}{2 get\space}
 \newcommand{\fcPatchGetvThree}{3 get \space}
+\newcommand{\fcPatchGetContour}{4 get\space}
 \newcommand{\fcPatchGetColorUV}{5 get 0 get \fcArrayToStack \space}
 \newcommand{\fcPatchGetColorVU}{5 get 1 get \fcArrayToStack \space}
-\newcommand{\fcPatchGetColorContour}{5 get 4 get \fcArrayToStack \space}
 \newcommand{\fcPatchGetForcedForegroundStatus}{5 get 2 get\space}
 \newcommand{\fcPatchGetInBounds}{5 get 3 get\space}
-\newcommand{\fcPatchGetContour}{4 get\space}
+\newcommand{\fcPatchGetColorContour}{5 get 4 get \fcArrayToStack \space}
 
 \newcommand{\fcPaintPatchIndexFilledDirectly}{
 thePatchCollection exch get \fcPatchPaintFilledDirectly
@@ -2309,9 +2356,6 @@ end
 \newcommand{\fcPatchPaintFilledDirectly}{
 1 dict begin
 /thePatch exch def %
-%(thePatch: ) ==
-%thePatch ==
-%(PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetContour length 0 gt{
 thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
@@ -2333,9 +2377,6 @@ end
 \newcommand{\fcPatchPaintContourDirectly}{
 1 dict begin
 /thePatch exch def %
-%(thePatch: ) ==
-%thePatch ==
-%(PATCH TYPE: ) == thePatch type ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetContour length 0 gt{
 thePatch \fcPatchGetColorContour setrgbcolorVirtual
