@@ -5,7 +5,7 @@
 \begin{itemize}
 \item \alert<2>{of a rectangular box with sides $2a$, $2b$, and $2c$}
 \item \alert<3>{rotating about an axis through center that is perpendicular to a face.}
-\item \alert<4>{The box has constant density $\rho$.}
+\item \alert<4>{The box has constant density $\rho$.} \uncover<11->{Therefore it's mass is $m=8\rho abc $.}
 \end{itemize}
 \item<5-> Coord. system: rotation axis = $z$-axis, $x,y$ axes along box sides.
 \uncover<6->{
@@ -15,13 +15,13 @@ I = \iiint_{\cR} \rho\, \text{dist}^2(P,L) \diff V = \iiint_{\cR} \rho (x^2+y^2)
 }
 \item<7-> Decompose into slices as follows.
 \begin{itemize}
-\item<7> Project $\cR$ onto the $z-$axis \alert<8>{to get segment from $z=-c$ to $z=c$.}
+\item<7-> Project $\cR$ onto the $z-$axis \alert<8>{to get segment from $z=-c$ to $z=c$.}
 \[
 \iiint_{\cR} \rho (x^2+y^2) \diff x \diff y \diff z = \alert<8>{\int_{z=-c}^{z=c}} \left( \iint_{S_z} \rho (x^2+y^2)\, \diff x \diff y \right) \diff z
 \]    
 \item<9-> For a fixed $z$, the slice $S_z$ is: $-a \leq x \leq a$, $-b \leq  y \leq  b$.
 \[
-I_L = \int_{z=-c}^{z=c} \left(\int_{x=-a}^{x=a} \left( \int_{y=-b}^{y=b} \rho (x^2+y^2)  \diff y \right)  \diff x\right)  \diff z = \frac{m(a^2+b^2)}{3} .
+I_L = \alert<10,11>{ \int_{z=-c}^{z=c} \left(\int_{x=-a}^{x=a} \left( \int_{y=-b}^{y=b} \rho (x^2+y^2)  \diff y \right)  \diff x\right)  \diff z} \uncover<10->{\alert<10,11>{=}} \fcAnswer{11}{\frac{m(a^2+b^2)}{3}} \uncover<11->{.}
 \]
 %
 
