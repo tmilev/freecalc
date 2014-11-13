@@ -35,22 +35,22 @@
 \uncover<handout:0|4,12>{\psline[linecolor=red, linewidth=2pt](0,0)(! wx wy)}
 \rput[tl](! zx zy){$~z$}
 \rput[tl](! wx wy){$~w$}
-\uncover<6->{\fcAngleDegrees{0}{alpha}{0.7}{$\alert<handout:0|6>{\alpha} $}}
-\uncover<7->{\fcAngleDegrees{0}{beta}{0.3}{$\alert<handout:0|7>{\beta}$}}
+\uncover<6->{\fcAngleDegrees{0}{alpha}{0.7}{$\alert<handout:0|6,10,11>{\alpha} $}}
+\uncover<7->{\fcAngleDegrees{0}{beta}{0.3}{$\alert<handout:0|7,10,11>{\beta}$}}
 \uncover<handout:0|6,10,11>{\fcAngleDegrees[linewidth=2pt, linecolor=red ] {0}{alpha}{0.7}{}}
-\uncover<handout:0|7>{\fcAngleDegrees[linewidth=2pt, linecolor=red ] {0}{beta}{0.3}{}}
+\uncover<handout:0|7,10,11>{\fcAngleDegrees[linewidth=2pt, linecolor=red ] {0}{beta}{0.3}{}}
 \uncover<9->{
 \fcFullDot{zwx}{zwy}
 \rput[tl](! zwx zwy){$~~ zw$}
 \psline(0,0)(!zwx zwy)
 }
 \uncover<handout:0|12>{\psline[linewidth=2pt, linecolor=red ](0,0)(!zwx zwy)}
-\uncover<10->{
-\fcAngleDegrees{alpha}{alpha beta add}{0.8}{$\beta$}
-}
-\uncover<handout:0|10,11>{
-\fcAngleDegrees[linewidth=2pt, linecolor=red ]{alpha}{alpha beta add}{0.8}{$\beta$}
-}
+\uncover<10->{%
+\fcAngleDegrees{0}{alpha beta add}{0.8}{$~~~\alpha+\beta$}%
+}%
+\uncover<handout:0|10,11>{%
+\fcAngleDegrees[linewidth=2pt, linecolor=red ]{0}{alpha beta add}{0.8}{$~~~\alert<10,11>{\alpha+\beta}$}%
+}%
 \pstVerb{end}
 \end{pspicture}
 
@@ -71,12 +71,13 @@ $
 \uncover<8->{%
 \begin{theorem}[Summary]
 $\begin{array}{rcl}
-\alert<9,10>{z w} &=& \alert<12>{e^\rho} ( \cos\alpha+ i\sin\alpha) \alert<12>{e^\sigma} ( \cos \beta +i\sin \beta )\\ &=&e^{\rho+i\alpha}e^{\sigma+i\beta} =e^{\rho+\sigma +i(\alpha+\beta)}\\
-&=& \alert<12>{e^{\rho+\sigma} }(\alert<10>{ \cos (\alpha+\beta)+i\sin (\alpha+\beta)} )  .\end{array}$
+\alert<9>{z w} &=& \alert<12>{|z|}( \cos\alpha+ i\sin\alpha) \alert<12>{ |w|} ( \cos \beta +i\sin \beta )\\
+&=&e^\rho ( \cos\alpha+ i\sin\alpha) e^\sigma ( \cos \beta +i\sin \beta )= e^{ \rho + i \alpha} e^{\sigma+i\beta} \\
+&=&e^{\rho+\sigma +i(\alpha+\beta)} = \alert<12>{|z||w|} ( \cos (\alert<10>{\alpha+\beta})+i\sin (\alert<10>{\alpha+\beta}) ) .\end{array}$
 \end{theorem}
 }%
 \begin{itemize}
-\item<10-> The argument (polar angle) of $zw$ is $\alert<10>{\alpha+\beta} $.
+\item<10-> An argument (polar angle) of $zw$ is $\alert<10>{\alpha+\beta} $.
 \item<11-> $\Rightarrow$ Multiplying complex numbers adds arguments (polar angles).
 \item<12-> Multiplying complex numbers multiplies absolute values.
 \item<13-> \alert<13-17>{What happens to $zw$ when we change $|w|$?} \uncover<18->{ \alert<18-21>{When we change $\beta$?} }
