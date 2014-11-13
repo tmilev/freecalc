@@ -7,20 +7,37 @@
 \fcAxesStandard{-1.5}{-1.5}{1.5}{1.5}
 \fcLabels[$\Re$][$\Im$]{1.5}{1.5}
 \uncover<3->{ 
-\fcFullDot{ 0.5}{3 sqrt 2 div}
-\rput[l](! 0.5 3 sqrt 2 div){$~\frac{1}{2}+\frac{\sqrt{3} }{2} i$}
-\fcFullDot{ 0.5}{3 sqrt -2 div}
-\rput[l](! 0.5 3 sqrt -2 div){$~ \frac{1}{2}-\frac{\sqrt{3} }{2} i$}
-\fcFullDot{-1}{0}
-\rput[b](-1,0.1){$-1$}
+\fcFullDot{ 3 sqrt 2 div }{0.5}
+\rput[b](! 3 sqrt 2 div 0.5){$\frac{\sqrt{3} }{2} +\frac{1}{2}i$}
+\fcFullDot{ 3 sqrt -2 div }{0.5}
+\rput[b](! 3 sqrt -2 div 0.5){$-\frac{\sqrt{3} }{2} +\frac{1}{2}i$}
+\fcFullDot{0}{-1}
+\rput[tl](0, -1){$~-i$}
 }
 \end{pspicture}
 \column{0.7\textwidth}
-Find all complex numbers $z$ such that $z^3=-1$.
+Find all complex numbers $z$ such that $\alert<3>{z^3=i}$.
 
-%This slide is to be expanded to a fullly solved problem. For now, this is an exercise outline, problem is to be done on the board.
-\uncover<2->{\alert<2,3>{Answer:} \uncover<3->{\alert<3>{$-1, \frac{1}{2}+\frac{\sqrt{3}}{2}i, \frac{1}{2}- \frac{\sqrt{3}}{2}i$}}}
+\uncover<2->{Let $z= |z|(\cos \theta +i\sin \theta)$ be the polar form of $z$ for which $\theta \in (-\pi, \pi]$.} \uncover<3->{We have that $ 1=|\alert<3>{i}| =|\alert<3>{z^3}|= |z|^3 $. }\uncover<4->{Since $|z|$ is a positive real number, $|z|^3=1$ implies $|z|=1$. } 
+
+
 \end{columns}
+\[
+\begin{array}{rcll|l}
+i&= &\left(\cos (\theta)+i\sin (\theta)\right)^3 &&\text{de Moivre}\\
+\cos \left(\frac{\pi}{2}\right) + i \sin \left(\frac{\pi}{2}\right) &=& \cos(3\theta)+i\sin (3 \theta )&&\text{Polar form } i\\
+3\theta &=& \frac{\pi }{2} +2k\pi&&k \text{ any integer}\\
+\theta &=&\frac{\pi}{6}+\frac{2k}{3}\pi &&k \text{ any integer}
+\end{array}
+\]
+Values of $\theta $ that differ by even multiple of $\pi$ produce the same value for $z$ $\Rightarrow$ restrict our attention to $\theta\in\left(-\pi,\pi\right]$, i.e. $k=0,1,-1$  $\Rightarrow$ $\theta = \frac{\pi}{6}, \frac{5\pi}{6}, -\frac{\pi}{2}$. Our final answer is
+$\begin{array}{rcl}
+z&=&\cos\left(\frac{\pi}{6}\right)=\\
+z&=&\cos\left(\frac{\pi}{6}\right)=\\
+z&=&\cos\left(\frac{\pi}{6}\right)=
+\end{array}
+$
+
 
 \end{example}
 \end{frame}
