@@ -1,0 +1,113 @@
+\begin{frame}
+\begin{example}[Decomposition into slices]
+\begin{columns}
+\column{0.35\textwidth} 
+\begin{pspicture}(-1,-1)(1,1)%
+\tiny%
+\renewcommand{\fcScreen}{[-1 3 -1] 0}%
+\renewcommand{\fcDashes}{[0.5 2] 0}%
+\fcBoundingBox{-0.9}{-1.8}{3.3}{2.4}%
+\fcStartIIIdScene%
+\only<5-7>{\fcPatchInScene{[0 0 0]}{[0 1 0]}{[0 0 2]}}%
+\only<4-7>{\fcPatchInScene{[0 0 0]}{[1 0 0]}{[0 1 0]}}%
+\only<6,7>{\fcPatchInScene{[0 0 0]}{[0 0 2]}{[1 0.5 0]}}%
+\only<7>{%
+\fcTriangleInScene{[1 1.5 -2]}{[0 1 0]}{[1 0.5 0]}%
+}%
+\only<7->{%
+\fcTriangleInScene{[0 0 2]}{[0 1 0]}{[1 0.5 0]}%
+}%
+\only<8->{%
+\fcTriangleInScene{[0 0 0]}{[1 0.5 0]}{[0 0 2]}%
+\fcTriangleInScene{[0 0 0]}{[0 1 0]}{[0 0 2]}%
+\fcTriangleInScene{[0 0 0]}{[1 0.5 0]}{[0 1 0]}%
+}%
+\only<11->{%
+\fcTriangleInScene[forceForeground=true, colorUV={0 0 0.9}, linecolor=green, linestyle=none]{ [0 0 1]}{[0.5 0.25 1]}{[0 0.5 1]}%
+}%
+\fcAxesIIIdInScene[linecolor=black, linestyle=normal, arrows=->]{2}{3}{2.3}%
+\fcFinishIIIdScene%
+\uncover<8->{%
+\fcDotIIId[linecolor=blue]{[0 0 0]}%
+\fcDotIIId[linecolor=blue]{[0 1 0]}%
+\fcDotIIId[linecolor=blue]{[1 0.5 0]}%
+\fcDotIIId[linecolor=blue]{[0 0 2]}%
+}%
+\uncover<9,25>{%
+\fcLineIIId[linewidth=2pt, linecolor=green]{[0 0 2]}{[0 0 0]}%
+\fcDotIIId[linecolor=green]{[0 0 0]}%
+\fcDotIIId[linecolor=green]{[0 0 2]}%
+}%
+\uncover<10->{%
+\fcDotIIId[linecolor=green]{[0 0 1]}%
+\fcPutIIId[r]{[0 0 1]}{$(0,0,z)~$}%
+}%
+\uncover<12->{%
+\fcDotIIId[linecolor=green]{[0 0.5 1]}%
+\fcLineIIId[arrows=->, linecolor=black, linewidth=1pt, linestyle=dotted]{[0 1.5 1.8 ]}{[0 0.5 1]}%
+\fcPutIIId[l]{[0 1.5 1.8]}{$\alert<12>{\left(\fcAnswer{13}{0} , \fcAnswer{13} {1-\frac{z}{2}} ,\fcAnswer{13}{z} \right)}$}%
+}%
+\uncover<14->{%
+\fcDotIIId[linecolor=green]{[0.5 0.25 1]}%
+\fcLineIIId[arrows=->, linecolor=black, linewidth=1pt, linestyle=dotted]{[1 0.25 1.3 ]}{[0.5 0.25 1]}%
+\fcPutIIId[l]{[0.8 0.25 1.3]}{$\alert<14>{\left( \fcAnswer{15}{1-\frac{z}{2}}, \fcAnswer{15}{ \frac{1}{2} -\frac{ z}{4}}, \fcAnswer{15}{z} \right)}$}%
+}%
+\uncover<19-21,26>{%
+\fcLineIIId[linecolor=green, linewidth=2pt]{[0 0 0]}{[0.5 0 0]}%
+\fcDotIIId[linecolor=green]{[0 0 0]}%
+}%
+\uncover<19->{%
+\fcDotIIId[linecolor=blue]{[0.5 0 0]}%
+}%
+\uncover<19-21,26>{%
+\fcDotIIId[linecolor=green]{[0.5 0 0]}%
+}%
+\uncover<19>{%
+\fcPerpendicularIIId[linecolor=green]{[0 0 1]}{[0 0 0][1 0 0]}{0.2}%
+\fcPerpendicularIIId[linecolor=green]{[0.5 0.25 1]}{[0 0 0] [1 0 0]}{0.2}%
+\fcPerpendicularIIId[linecolor=green]{[0 0.5 1]}{[0 0 0] [1 0 0]}{0.3}%
+}%
+\uncover<21->{%
+\fcDotIIId[linecolor=green]{[0.25 0 0]}%
+}%
+\uncover<22-24,27>{%
+\fcLineIIId[linecolor=green, linewidth=2pt]{[0.25 0.125 1]}{[0.25 0.375 1]}%
+}%
+\fcPutIIId[l]{[2.05 0 0]}{$x$}%
+\fcPutIIId[l]{[0 3 0]}{$y$}%
+\fcPutIIId[b]{[0 0 2.4]}{$z$}%
+\end{pspicture}
+\column{0.65\textwidth}
+\vbox to 4.2cm{
+
+Compute the volume of the \alert<3-7>{region $\cR$ bounded by} \alert<7,12,13,14,15 >{$ x + 2y+z=2$}, \alert<6,14,15>{$x=2y$}, \alert<5,12,13>{$x=0$}, \alert<4>{$z=0$}.
+
+\uncover<2->{
+\hfil $\displaystyle \text{vol}(\cR) = \iiint_{\cR} 1\cdot \diff V .$
+}
+
+\uncover<3->{\alert<3-7>{$\cR$ is}} \uncover<3-7>{\alert<3-7>{\textbf{?}}} \uncover<8->{\alert<8>{a tetrahedron with vertices at $(0,0,0)$, $(0,1,0)$, $(0,0,2)$, and $\left(1, \frac{1}{2}, 0\right)$}.}
+
+}
+\end{columns}
+\only<1-17>{ 
+\uncover<9->{Project $\cR$ onto the $z-$axis to get segment from $z=0$ to $z=2$.} \fcQuestion{10}{Fix a value for $z$ to get the slice $S_z$ } \fcAnswer{11}{shown in the picture.}
+}
+\uncover<16->{
+\alert<17,18>{
+$\displaystyle \text{vol}(\cR) = \iiint_{\cR} 1\cdot \diff V = \int_{z=0}^{z=2} \left( \iint_{S_z} 1\cdot \diff x \diff y \right)  \diff z
+$
+}
+}
+
+\only<19->{
+Project $S_z$ onto $x$-axis to get segment from $x=0$ to $x=1-z$.} \uncover<21->{ Fix $x\in[0, 1-z]$.} \fcQuestion{22}{Vertical slice: segment from $y= \fcAnswer{23}{ \frac{ x }{2 }}$ to $y=\fcAnswer{23}{ 1-\frac{z}{2} - \frac{x}{2}}$.}
+\uncover<24->{
+$\displaystyle
+\text{vol}(\cR) = \iiint_{\cR} 1\cdot \diff V = \int_{\alert<25>{ z=0} }^{ \alert<25>{z=2} } \left( \int_{\alert<26>{x=0}}^{\alert<26>{ x=1-z}} \left( \int_{ \alert<27>{ y= \frac{ x}{2} }}^{\alert<27>{ y=1 -\frac{ z}{2} -\frac{x}{2}}} 1 \cdot \diff y \right)  \diff x\right) \diff z .
+$
+}
+\end{example}
+
+\vskip 10cm
+\end{frame}
