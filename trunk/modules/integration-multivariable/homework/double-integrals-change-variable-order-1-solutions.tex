@@ -1,0 +1,33 @@
+\solution{\ref{problemint_(y=0)^(y=sqrt(pi))int_(x=0)^(x=y)cos x^2 dx dy}
+The issue with this integral is that we cannot integrate  $\cos \left( x^2 \right)$ with respect to $x$ using (finitely many) elementary functions and their compositions. However, this expression is easy to integrate with respect to $y$. Therefore changing the order of integration (using Fubini's Theorem) could possibly help. Let the region of integration be $\mathcal R$. Then 
+\[
+\mathcal R=\{(x,y)| 0\leq y \leq \sqrt{\pi}, y\leq x \leq \sqrt{\pi} \}.
+\]
+We plot the region. It follows it is the triangle indicated in the figure below. When we fix the value of $x$, $y$ varies between $0$ and $x$. Therefore we can re-parametrize $\mathcal R$ via vertical slices:
+
+$\mathcal R=\{ (x,y)| 0\leq x\leq \sqrt{\pi}, 0\leq y\leq x \}. $
+
+\begin{pspicture}(-0.2,-0.2)(2,3)
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psline(0,0)(! 3.141592654 sqrt 0)(! 3.141592654 sqrt 3.141592654 sqrt)(0,0)
+}%
+\rput(1.3, 0.5 ){$\mathcal R$}
+\fcAxesStandardNoFrame{-0.4}{-0.4}{2}{3}
+\psline[linecolor=\fcColorGraph](0,0)(! 3.141592654 sqrt 0)(! 3.141592654 sqrt 3.141592654 sqrt)(0,0)
+\psline[linecolor=black, arrows=<->](1,1)(1, 0)
+\fcFullDot[linecolor=black]{1}{1}
+\fcFullDot[linecolor=black]{1}{0}
+\end{pspicture}
+By Fubini's theorem, the iterated integral equals the double integral, which in turn can be evaluated using the iterated integral using the second parametrization of $\mathcal R$.
+\[
+\begin{array}{rcll|l}
+\displaystyle \int_{ y=0}^{ y=\sqrt{\pi}} \int_{x=y}^{x=\sqrt{\pi}} \cos \left( x^2 \right) \diff x\diff y&=&\displaystyle  \iint_{\mathcal R} \cos \left(x^2\right)\diff x \diff y&&\text{By Fubini's Theorem}\\
+&=&\displaystyle  \int_{x=0}^{\sqrt{\pi}}\int_{y=0}^{y=x}\cos \left(x^2\right)\diff y \diff x  &&\text{again by Fubini's Theorem}\\ 
+&=&\displaystyle \int_{x=0}^{\sqrt{\pi}}\left[y\cos \left(x^2\right)\right]_{y=0}^{y=x}\diff x\\
+&=&\displaystyle \int_{x=0}^{\sqrt{\pi}}x\cos \left(x^2\right)\diff x\\
+&=&\displaystyle \int_{x=0}^{\sqrt{\pi}}\cos \left(x^2\right)\frac{1}{2} \diff \left(x^2\right)\\
+&=&\displaystyle \frac{1}{2}\left[\sin \left(x^2\right)\right]_{x=0}^{\sqrt{\pi}}\\
+&=&\displaystyle \frac{1}{2}\left(\sin \pi -\sin 0\right)=0\quad .
+\end{array}
+\]
+}
