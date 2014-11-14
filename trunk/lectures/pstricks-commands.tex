@@ -45,6 +45,10 @@
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
 \newcommand{\fcDashLength}{2}
+\newcommand{\fcContourOptions}{
+[(\fcArrows) () ne  [\fcGetColorCode{\fcColorLine}] \fcLineWidth [\fcDashes] (\fcLineStyle)]
+}
+\newcommand{\fcDashes}{[1 1] 0}
 \newcommand{\fcColorPatchUV}{1 0.5 0.5}
 \newcommand{\fcColorPatchVU}{0.7 0.2 0.2}
 \newcommand{\fcFastPatchSort}{false}
@@ -86,6 +90,7 @@ ifelse\space %
 \define@key{fcGraphics}{linestyle}[\renewcommand{\fcLineStyle}{0}]{\renewcommand{\fcLineStyle}{#1}}
 \define@key{fcGraphics}{fastsort}[\renewcommand{\fcFastPatchSort}{false}]{\renewcommand{\fcFastPatchSort}{#1}}
 \define@key{fcGraphics}{dashes}[\renewcommand{\fcDashLength}{300}]{\renewcommand{\fcDashLength}{#1 \fcConvertPSXUnit\space}}
+\define@key{fcGraphics}{dashes}[\renewcommand{\fcDashes}{[1 1] 0}]{\renewcommand{\fcDashes}{#1}}
 \define@key{fcGraphics}{arrows}[\renewcommand{\fcArrows}{}]{\renewcommand{\fcArrows}{#1}}
 \makeatother %undoes \makeatletter.
 
@@ -823,11 +828,10 @@ stroke %
 }%
 {true}
 \fcIterationsU\space \fcIterationsV\space %
-[\fcGetColorCode{\fcColorPatchUV}] 
-[\fcGetColorCode{\fcColorPatchVU}] 
-[false [\fcGetColorCode{\fcColorLine}] \fcLineWidth] 
-false (surface)
-]
+\fcPatchOptions %
+\fcContourOptions %
+(surface)%
+]%
 ]%
 def%
 }%
@@ -1317,7 +1321,6 @@ counter thePatchCollection thePatchIndices counter get get \fcPatchPaintLabel
 }repeat
 }
 
-
 \newcommand{\fcPaintContours}{
 theContourCollection{\fcPaintContour} forall %
 }
@@ -1628,17 +1631,24 @@ end
 dup length 1 sub get\space
 }
 
+\newcommand{\fcContourGetUseArrows}{dup length 1 sub get 0 get\space}
+\newcommand{\fcContourGetColor}    {dup length 1 sub get 1 get\space}
+\newcommand{\fcContourGetWidth}    {dup length 1 sub get 2 get\space}
+\newcommand{\fcContourGetDashes}   {dup length 1 sub get 3 get\space}
+\newcommand{\fcContourGetLineStyle}{dup length 1 sub get 4 get\space}
+
 \newcommand{\fcPaintContour}{ %
 20 dict begin %
 /theContour exch def %
+theContour \fcContourGetLineStyle (none) ne{
 /numSegments theContour length 2 sub def %
 /counter -1 def %
 /rightIsInForeground theContour 0 get \fcIsInForeground def %
 /style (none) def %
-theContour theContour length 1 sub get \fcArrayToStack %formatting data is on top of stack
-setlinewidthVirtual
-\fcArrayToStack setrgbcolorVirtual
-/useArrows exch def
+/useArrows theContour \fcContourGetUseArrows def
+/currentDashes {theContour \fcContourGetDashes \fcArrayToStack} def
+theContour \fcContourGetWidth setlinewidthVirtual
+theContour \fcContourGetColor \fcArrayToStack setrgbcolorVirtual
 numSegments{ %
   /counter counter 1 add def %
   /pointLeft theContour counter get def %
@@ -1649,7 +1659,7 @@ numSegments{ %
   /rightIsVisible pointRight \fcPointOnContourGetVisibility def %
   /oldStyle style def %
   /style leftIsInForeground rightIsInForeground or {(normal)}{(dashed)}ifelse def %
-  /setStyle {style (normal) eq{[] 0 setdashVirtual}{[1 1]0 setdashVirtual}ifelse } def
+  /setStyle {style (normal) eq{[] 0 setdashVirtual}{currentDashes setdashVirtual}ifelse } def
   leftIsVisible rightIsVisible and{
 	counter 0 eq{newpathVirtual}if
     style oldStyle ne{strokeVirtual setStyle %
@@ -1667,14 +1677,13 @@ numSegments{ %
   }if
 }repeat %
 strokeVirtual %
-useArrows{[pointLeft 0 get \fcCoordsIIIdToPS] [pointRight 0 get \fcCoordsIIIdToPS] plotArrowVirtual}if %
+useArrows{[] 0 setdashVirtual [pointLeft 0 get \fcCoordsIIIdToPS] [pointRight 0 get \fcCoordsIIIdToPS] plotArrowVirtual}if %
+}if %
 end %
 }
 
 \newcommand{\fcCurveInit}{
-/linewidth exch def
-/colorContour [ 5 2 roll] def
-/useArrows exch () ne def
+/contourOptions exch def
 /theCurve exch def %
 /tMax exch def %
 /tMin exch def %
@@ -1692,7 +1701,7 @@ tIterations { %
 [theCurve true]
 /t t DeltaT add def %
 }repeat %
-[useArrows colorContour linewidth]
+contourOptions
 ] 
 put
 end %
@@ -1753,11 +1762,12 @@ uIterations vIterations mul
 end
 }
 
-\newcommand{\fcSurfaceInit}{
-/forceForeground exch def
-/contourOptions exch def
-/colorVUpatch exch def
-/colorUVpatch exch def
+\newcommand{\fcSurfaceInit}{%
+/contourOptions exch def%
+/patchOptions exch def%
+/forceForeground patchOptions 3 get def%
+/colorVUpatch patchOptions 0 get def%
+/colorUVpatch patchOptions 1 get def%
 /vIterations exch def %
 /uIterations exch def %
 /theRestrictions exch def
@@ -1892,7 +1902,7 @@ end%
 \newcommand{\fcCurveIIIdInScene}[4][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
-[theIIIdObjects \fcArrayToStack [#2\space #3{#4} (\fcArrows) \fcGetColorCode{\fcColorLine} \fcLineWidth (curve)]]/theIIIdObjects exch def}%
+[theIIIdObjects \fcArrayToStack [#2\space #3{#4} \fcContourOptions (curve)] ]/theIIIdObjects exch def}%
 }%
 
 \newcommand{\fcSegmentCodeNoFirstPoint}{
@@ -1913,12 +1923,12 @@ end
 [ vertex0 vertex1 vertex2 vertex1 vertex2 \fcVectorPlusVector 0.5 
 \fcVectorTimesScalar
 [ vertex0 dup vertex1 \fcSegmentCodeNoFirstPoint vertex1 vertex2 \fcSegmentCodeNoFirstPoint vertex2 vertex0 \fcSegmentCodeNoFirstPoint]
-[[\fcGetColorCode{\fcColorPatchUV}] [\fcGetColorCode{\fcColorPatchVU}] false true [\fcGetColorCode{black}]] (patch)
+patchOptions (patch)
 ] def
 /currentContour
 [
 currentPatch \fcPatchGetContour {[exch true]}forall 
-[false [\fcGetColorCode{black}] 1] 
+contourOptions
 ]
 def
 thePatchCollection numPatchesComputedSoFar currentPatch put
@@ -1928,6 +1938,8 @@ end
 }
 
 \newcommand{\fcTriangleInSceneInit}{
+/contourOptions exch def
+/patchOptions exch def
 /vertex2 exch def
 /vertex1 exch def
 /vertex0 exch def
@@ -1937,7 +1949,7 @@ end
 \newcommand{\fcTriangleInScene}[4][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
-/theIIIdObjects [theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space (triangle)] ] def%
+/theIIIdObjects [theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space \fcPatchOptions \fcContourOptions (triangle)] ] def%
 }%
 }
 
@@ -1968,11 +1980,10 @@ end %
 \newcommand{\fcSurfaceInScene}[7][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
-[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} {#7} length (length restrictions: ) == dup == 0 ne {{#7}}{{true}}ifelse \fcIterationsU\space \fcIterationsV%
-[\fcGetColorCode{\fcColorPatchUV}]% 
-[\fcGetColorCode{\fcColorPatchVU}]%
-[false [\fcGetColorCode{\fcColorLine}] \fcLineWidth]%
-\fcForceForeground\space (surface)] ]/theIIIdObjects exch def}%
+[theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} {#7} length 0 ne {{#7}}{{true}}ifelse \fcIterationsU\space \fcIterationsV%
+\fcPatchOptions%
+\fcContourOptions%
+(surface)] ]/theIIIdObjects exch def}%
 }%
 
 \newcommand{\fcCurveIIIdNoSceneCode}{%
@@ -2310,6 +2321,10 @@ thePatch \fcPatchGetvTwo thePatch \fcPatchGetvZero \fcVectorMinusVector
 end
 }
 
+\newcommand{\fcPatchOptions}{%
+[[\fcGetColorCode{\fcColorPatchUV}] [\fcGetColorCode{\fcColorPatchVU}] \fcForceForeground \space true [\fcGetColorCode{\fcColorLine}] ]%
+}%
+
 \newcommand{\fcPatchGetvZero}{0 get\space}
 \newcommand{\fcPatchGetvOne}{1 get\space}
 \newcommand{\fcPatchGetvTwo}{2 get\space}
@@ -2356,6 +2371,8 @@ end
 \newcommand{\fcPatchPaintFilledDirectly}{
 1 dict begin
 /thePatch exch def %
+%(dbg data: )==
+%thePatch ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetContour length 0 gt{
 thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
