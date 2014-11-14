@@ -3,20 +3,60 @@
 An infinitely differentiable map $\fcv f:\mathbb R^n\to \mathbb R^n$ is called an (infinitely) smooth variable change. 
 \end{definition}
 \begin{itemize}
-\item Variable change $ f:\mathbb R^n\to \mathbb R^n$ is given by f-ns $f_1,\dots, f_n$. We write:
+\item<2-> Variable change $ f:\mathbb R^n\to \mathbb R^n$ is given by f-ns $f_1,\dots, f_n$. \uncover<3->{We write:
 
 \hfil $
 \fcv f:\left|\begin{array}{r@{~}c@{~}l}
-x_1 &=& f_1(y_1, \dots, y_n)\\
+\uncover<5->{\alert<5>{x_1} &=&} f_1(\alert<4>{ y_1, \dots, y_n})\\
 &\vdots&\\
-x_n &=&f_n(y_1,\dots, y_n) \quad .
+\uncover<5->{\alert<5>{x_n} &=&}f_n(\alert<4>{ y_1, \dots, y_n}) \quad .
 \end{array}\right.
 $
-\item The variables $y_1,\dots, y_n$ denote coordinates in the domain of $\fcv f$.
-\item We may include vars. $x_1,\dots, x_n$ denoting coords. in codomain of $\fcv f$.
+}
+\item<4-> The variables $\alert<4>{y_1,\dots, y_n}$ denote coordinates in the domain of $\fcv f$.
+\item<5-> We may include vars. $\alert<5>{x_1,\dots, x_n}$ denoting coords. in codomain of $\fcv f$.
+\item<6-> Fix $\alert<6>{y_2 ,\dots, y_n}$ and view $\fcv f$ as  curve with respect to $y_1$; plot.
+\item<11-14,15-> Do similarly with respect to the remaining variables.
 \end{itemize}
-\begin{pspicture}
-
+\hfil 
+\uncover<4->{
+\begin{pspicture}(-0.5, -0.5)(2,2)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{2}{2}
+\fcLabels[$y_1$][$y_2$]{2}{2}
+\multido{\na=6+1}{5}{%
+\pstVerb{/y2 \na\space 6 sub 0.3 mul 0.3 add def}%
+\uncover<\na->{%
+\psline[linecolor=red](! 0.2 y2)(! 1.6 y2)%
+\psline[linecolor=red](! -0.05 y2)(! 0.05 y2)%
+}%
+}%
+\multido{\na=11+1}{5}{%
+\pstVerb{/y1 \na\space 11 sub 0.3 mul 0.3 add def}%
+\uncover<\na->{%
+\psline[linecolor=red](! y1 0.2)(! y1 1.6)%
+\psline[linecolor=red](!  y1 -0.05)(! y1 0.05)%
+}%
+}%
 \end{pspicture}
-
+}
+\uncover<5->{\raisebox{1.25cm}{$\stackrel{\fcv f}{\to} $}}
+\uncover<5->{
+\begin{pspicture}(-0.5, -0.5)(2,2)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{2}{2}
+\fcLabels[$x_1$][$x_2$]{2}{2}
+\pstVerb{
+/theF { theta 57.295779513 mul cos r mul theta 57.295779513 mul sin r mul  } def
+}
+\multido{\na=6+1}{5}{%
+\pstVerb{/y2 \na\space 6 sub 0.3 mul 0.3 add def}%
+\uncover<\na->{\parametricplot[linecolor=blue]{0.2 }{1.6}{2 dict begin /r t def /theta y2 def theF end} }%
+}%
+\multido{\na=11+1}{5}{%
+\pstVerb{/y1 \na\space 11 sub 0.3 mul 0.3 add def}%
+\uncover<\na->{\parametricplot[linecolor=blue]{0.2 }{1.6}{2 dict begin /r y1 def /theta t def theF end} }%
+}%
+\end{pspicture}
+}
 \end{frame}
