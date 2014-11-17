@@ -3,11 +3,13 @@
 \column{0.4\textwidth}
 $
 \fcv f:\left|\begin{array}{r@{~}c@{~}l}
-\alert<2>{x_1} &=& \alert<2>{f_1}( y_1, \dots, y_n)\\
+x_1 &=& f_1( y_1, \dots, y_n)\\
 &\vdots&\\
-\alert<2>{x_n} &=& \alert<2>{f_n} ( y_1, \dots, y_n) \quad .
+x_n &=& f_n ( y_1, \dots, y_n) \quad .
 \end{array}\right.
 $
+
+%$J_{\fcv f}=\left( \begin{array}{ccc}  \frac{\partial x_1 }{\partial y_1} & \cdots & \frac{\partial x_1 }{\partial y_n} \\ \vdots & \ddots & \vdots \\  \frac{\partial x_n}{\partial y_1}  & \cdots & \frac{\partial x_n}{\partial y_n} \end{array}\right) $
 \column{0.6\textwidth}
 \begin{pspicture}(-0.5, -0.5)(2,2)
 \tiny
@@ -68,18 +70,12 @@ $
 \psline[linestyle=dotted, arrows=->](1.4, -0.25)(! 0.6 57.295779513 mul cos 1.7 mul 0.6 57.295779513 mul sin 1.7 mul)
 }%
 \end{pspicture} 
-\end{columns}
-\begin{definition}[Jacobian matrix]
-The Jacobian matrix of a variable change $\fcv f$ is defined as the matrix 
-\[
-J_{\fcv f}=\left( \begin{array}{ccc} \frac{\partial \alert<2>{f_1}}{\partial y_1} & \cdots & \frac{\partial \alert<2>{f_1}}{\partial y_n} \\ \vdots & \ddots & \vdots \\ \frac{\partial \alert<2>{f_n}}{\partial y_1} & \cdots & \frac{\partial \alert<2>{f_n}}{\partial y_n} \end{array}\right) \uncover<2->{= \left( \begin{array}{ccc} \alert<5>{ \frac{\partial \alert<2>{x_1} }{\partial y_1}} & \cdots & \frac{\partial \alert<2>{x_1} }{\partial y_n} \\ \vdots & \ddots & \vdots \\ \alert<5>{ \frac{\partial \alert<2>{x_n}}{\partial y_1} } & \cdots & \frac{\partial \alert<2>{x_n}}{\partial y_n} \end{array}\right) }
-\]
-\end{definition}
-\begin{itemize}
-\item<3-> Consider \alert<4>{curve given by $\fcv f$} with \alert<3>{parameter $y_1$} (other $y_j$'s-fixed).
-\item<5-> Then the tangent vector of that curve is $\alert<5>{\left( \frac{\partial x_1 }{\partial y_1},\dots , \frac{\partial x_n}{\partial y_1} \right)}$.
-\item<6-> Similar considerations holds for $\alert<6>{y_2}\uncover<7->{\alert<7>{,\dots, y_n}}$.
-\end{itemize}
 
+\end{columns}
+$\displaystyle \int\dots\int_{\mathcal S} \textbf{?} h(f_1,\dots, f_n) \textbf{?}  \diff y_1 \dots \diff y_n   =\int\dots\int_{\mathcal R} h(x_1,\dots, x_n)\diff x_1 \dots \diff x_n$
+ 
+\begin{itemize}
+\item 
+\end{itemize}
 
 \end{frame}
