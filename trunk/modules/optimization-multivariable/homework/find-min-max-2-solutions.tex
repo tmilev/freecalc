@@ -1,0 +1,53 @@
+\solution{
+\ref{problemextremax^2+x^2y+y^3-2y}
+The critical points of $f$ are given by:
+\[
+\begin{array}{rcl}
+\frac{\partial f}{\partial x}=0&=&2 x y+2 x\\
+\frac{\partial f}{\partial y}=0&=&3 y^{2}+x^{2}-4.
+\end{array}
+\]
+The first equality implies $x(y+1)=0$, and we have two cases: $x=0$ and $y=-1$.
+
+\noindent Case 1. $x=0$. We substitute in second equality and solve:
+\[
+\begin{array}{rcl}
+3y^2-4&=&0\\
+y^2&=&\frac{4}{3}\\
+y&=&\pm 2\frac{\sqrt{3}}{3}.
+\end{array}
+\]
+Case 1 provides us with two critical points, $(x,y)=\left(0, 2\frac{ \sqrt{ 3} }{3 }\right)$ and $(x,y)=\left(0,- 2\frac{\sqrt{3}}{3}\right)$.
+
+Case 2. $x\neq 0$. It follows that $y=-1$. We substitute in the second equality and solve:
+
+\[\begin{array}{rcl}
+3+x^2-4&=&0\\
+x^2&=&1\\
+x&=&\pm 1\quad .
+\end{array}
+\]
+Case 2 provides us with two additional critical points, $(x,y)=(1,-1)$ and $(x,y)=(-1,-1)$.
+
+The Hessian matrix of $f$ and its determinant are:
+\[
+H=\left(\begin{array}{cc} 2 y+2& 2 x\\
+2 x& 6 y \end{array}\right)\quad \det H=12y(y+1)-4x^{2}\quad .
+\]
+At $(x,y)=\left(0, 2\frac{ \sqrt{ 3} }{3 }\right)$, $\det H=  8\sqrt{3}+16 >0$, and $\frac{\partial f}{\partial x^2} >0$ so $f$ has a local minimum at that point.
+
+At $(x,y)=\left(0, -2\frac{ \sqrt{ 3} }{3 }\right)$, we have $\det H=  - 8 \sqrt{3} +16 >0$. We further have $\frac{\partial f}{\partial x^2}= 2( \frac{ 2}{\sqrt{3}}-1)<0 $ so $f$ has a local maximum at that point.
+
+Finally at $(x,y)= (\pm 1,-1)$, we have $\det H=-4<0$ and so both points are saddle points of $f$.
+
+Our final answer is as follows.
+
+\begin{tabular}{r|l}
+$(x,y)$ & critical point type\\\hline
+$\left(0 ,-2\frac{\sqrt{3}}{3}\right) $ &local maximum\\
+$\left(0,2\frac{\sqrt{3}}{3}\right) $ &local minimum\\
+$\left(-1,-1\right) $ & saddle\\
+$\left(1,-1\right) $ &saddle
+\end{tabular}
+
+}
