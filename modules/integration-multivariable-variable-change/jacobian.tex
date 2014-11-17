@@ -1,17 +1,53 @@
 \begin{frame}
-\hfil $
+$
 \fcv f:\left|\begin{array}{r@{~}c@{~}l}
 x_1 &=& f_1( y_1, \dots, y_n)\\
 &\vdots&\\
 x_n &=&f_n( y_1, \dots, y_n) \quad .
 \end{array}\right.
-$
+$  
+~ 
+\begin{pspicture}(-0.5, -0.5)(2,2)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{2}{2}
+\fcLabels[$y_1$][$y_2$]{2}{2}
+\multido{\na=6+1}{5}{%
+\pstVerb{/y2 \na\space 6 sub 0.3 mul 0.3 add def}%
+\psline(! 0.2 y2)(! 1.6 y2)%
+\psline(! -0.05 y2)(! 0.05 y2)%
+}%
+\multido{\na=11+1}{5}{%
+\pstVerb{/y1 \na\space 11 sub 0.3 mul 0.3 add def}%
+\psline(! y1 0.2)(! y1 1.6)%
+\psline(!  y1 -0.05)(! y1 0.05)%
+}%
+\end{pspicture} ~
+ \raisebox{1.25cm}{$\stackrel{\fcv f}{\to} $}  ~
+\begin{pspicture}(-0.5, -0.5)(2,2)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{2}{2}
+\fcLabels[$x_1$][$x_2$]{2}{2}
+\pstVerb{
+/theF { theta 57.295779513 mul cos r mul theta 57.295779513 mul sin r mul  } def
+}
+\multido{\na=6+1}{5}{%
+\pstVerb{/y2 \na\space 6 sub 0.3 mul 0.3 add def}%
+\parametricplot{0.2 }{1.6}{2 dict begin /r t def /theta y2 def theF end} }%
+\multido{\na=11+1}{5}{%
+\pstVerb{/y1 \na\space 11 sub 0.3 mul 0.3 add def}%
+\parametricplot{0.2 }{1.6}{2 dict begin /r y1 def /theta t def theF end}%
+}%
+\end{pspicture} 
 \begin{definition}[Jacobian matrix]
 The Jacobian matrix of a variable change $\fcv f$ is defined as the matrix 
 \[
-J_{\fcv f}=\left( \begin{array}{ccc} \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\ \vdots & \ddots & \vdots \\ \frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n} \end{array}\right) 
+J_{\fcv f}=\left( \begin{array}{ccc} \frac{\partial f_1}{\partial y_1} & \cdots & \frac{\partial f_1}{\partial y_n} \\ \vdots & \ddots & \vdots \\ \frac{\partial f_m}{\partial y_1} & \cdots & \frac{\partial f_m}{\partial y_n} \end{array}\right) =\left( \begin{array}{ccc} \frac{\partial x_1}{\partial y_1} & \cdots & \frac{\partial x_1}{\partial y_n} \\ \vdots & \ddots & \vdots \\ \frac{\partial x_m}{\partial y_1} & \cdots & \frac{\partial x_m}{\partial y_n} \end{array}\right) 
 \]
 \end{definition}
+\begin{itemize}
+\item Consider the curve with parameter $y_k$ given by $f$ by fixing all other $y_i$'s.
+\item Then the tangent vector of that curve is $\left(\frac{\partial x_1 }{\partial y_k},\dots , \frac{\partial x_n}{\partial y_k} \right)$
+\end{itemize}
 
 
 \end{frame}

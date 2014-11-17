@@ -1,11 +1,11 @@
 \solution{\ref{problemint_(y=0)^(y=sqrt(pi))int_(x=0)^(x=y)cos x^2 dx dy}
 The issue with this integral is that we cannot integrate  $\cos \left( x^2 \right)$ with respect to $x$ using (finitely many) elementary functions and their compositions. However, this expression is easy to integrate with respect to $y$. Therefore changing the order of integration (using Fubini's Theorem) could possibly help. Let the region of integration be $\mathcal R$. Then 
 \[
-\mathcal R=\{(x,y)| 0\leq y \leq \sqrt{\pi}, y\leq x \leq \sqrt{\pi} \}.
+\mathcal R=\left\{(x,y)| 0\leq y \leq \sqrt{\pi}, y\leq x \leq \sqrt{\pi} \right\}.
 \]
-We plot the region. It follows it is the triangle indicated in the figure below. When we fix the value of $x$, $y$ varies between $0$ and $x$. Therefore we can re-parametrize $\mathcal R$ via vertical slices:
+We plot the region to find it is the triangle indicated in the figure below. When we fix the value of $x$, $y$ varies between $0$ and $x$. Therefore we can re-parametrize $\mathcal R$ via vertical slices:
 
-$\mathcal R=\{ (x,y)| 0\leq x\leq \sqrt{\pi}, 0\leq y\leq x \}. $
+\[\mathcal R=\left \{ (x,y)| 0\leq x\leq \sqrt{\pi}, 0\leq y\leq x \right \}. \]
 
 \begin{pspicture}(-0.2,-0.2)(2,3)
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{%
@@ -22,12 +22,63 @@ By Fubini's theorem, the iterated integral equals the double integral, which in 
 \[
 \begin{array}{rcll|l}
 \displaystyle \int_{ y=0}^{ y=\sqrt{\pi}} \int_{x=y}^{x=\sqrt{\pi}} \cos \left( x^2 \right) \diff x\diff y&=&\displaystyle  \iint_{\mathcal R} \cos \left(x^2\right)\diff x \diff y&&\text{By Fubini's Theorem}\\
-&=&\displaystyle  \int_{x=0}^{\sqrt{\pi}}\int_{y=0}^{y=x}\cos \left(x^2\right)\diff y \diff x  &&\text{again by Fubini's Theorem}\\ 
-&=&\displaystyle \int_{x=0}^{\sqrt{\pi}}\left[y\cos \left(x^2\right)\right]_{y=0}^{y=x}\diff x\\
+&=& \displaystyle  \int_{x=0}^{\sqrt{\pi}}\int_{y=0}^{y=x}\cos \left(x^2\right)\diff y \diff x  &&\text{again by Fubini's Theorem}\\ 
+&=&\displaystyle \int_{x=0}^{\sqrt{\pi}}\left[y\cos \left( x^2 \right) \right]_{ y=0}^{y=x}\diff x\\
 &=&\displaystyle \int_{x=0}^{\sqrt{\pi}}x\cos \left(x^2\right)\diff x\\
 &=&\displaystyle \int_{x=0}^{\sqrt{\pi}}\cos \left(x^2\right)\frac{1}{2} \diff \left(x^2\right)\\
-&=&\displaystyle \frac{1}{2}\left[\sin \left(x^2\right)\right]_{x=0}^{\sqrt{\pi}}\\
+&=&\displaystyle \frac{1}{2}\left[\sin \left(x^2\right)\right]_{x=0}^{x= \sqrt{ \pi}}\\
 &=&\displaystyle \frac{1}{2}\left(\sin \pi -\sin 0\right)=0\quad .
 \end{array}
 \]
+}
+
+\solution{
+\ref{problemint_(y= 0)^(y=1)int_(x=sqrt y)^(x=y^(1/5)) e^(-x^3) dx xy}
+This problem exploits the same idea as Problem \ref{problemint_(y=0)^(y=sqrt(pi))int_(x=0)^(x=y)cos x^2 dx dy} - that sometimes changing the order of integration is helpful for the algebraic manipulations.
+
+Let the region of integration be $\mathcal R$. We have 
+\[
+\mathcal R=\left\{ (x,y)| \sqrt{y} \leq x\leq \sqrt[5]{y} , 0\leq y\leq 1 \right\}.
+\]
+$\mathcal R$ can be plotted as follows.
+\begin{center}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{1.5}{1.5}
+\fcLabels{1.5}{1.5}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\parametricplot[linecolor=\fcColorGraph]{0}{1}{t t mul t}
+\parametricplot[linecolor=\fcColorGraph]{1}{0}{t 5 exp t}
+}
+\parametricplot[linecolor=\fcColorGraph]{0}{1}{t t mul t}
+\parametricplot[linecolor=\fcColorGraph]{1}{0}{t 5 exp t}
+\psline[linecolor=black, arrows=<->](! 0.7 2 exp 0.7)(! 0.7 5 exp 0.7)
+\fcFullDot{0.7 2 exp }{0.7}
+\fcFullDot{0.7 5 exp }{0.7}
+\psline[linecolor=black, arrows=<->](! 0.35 dup 0.5 exp)(! 0.35 dup 0.2 exp)
+\fcFullDot[linecolor=black]{ 0.35 }{ 0.35  0.5 exp}
+\fcFullDot[linecolor=black]{ 0.35 }{ 0.35  0.2 exp}
+\rput[l](0.25, 0.4){$\begin{array}{r@{~}c@{~}l}x&=&\sqrt{y}\\ y&=&x^2 \end{array} $}
+\rput[b](0.7, 1){$\begin{array}{r@{~}c@{~}l}x&=&\sqrt[5]{y}\\ y&=&x^5 \end{array}$}
+\end{pspicture}
+\end{center}
+Therefore $\mathcal R$ can be reparametrized as follows. 
+\[
+\mathcal R=\left\{ (x,y)| x^5 \leq y\leq x^2 , 0\leq x \leq 1 \right\}.
+\]
+By Fubini's theorem, the iterated integral equals the double integral, which in turn can be evaluated using the iterated integral using the second parametrization of $\mathcal R$.
+\[
+\begin{array}{rcll|l}
+\displaystyle \int_{ y=0}^{ y=1} \int_{x=\sqrt{y}}^{x=\sqrt[5]{y}} e^{-x^3} \diff x\diff y&=&\displaystyle  \iint_{\mathcal R} e^{-x^3} \diff x \diff y&&\text{By Fubini's Theorem}\\
+&=&\displaystyle  \int_{x=0}^{1} \int_{y=x^5}^{y=x^2}e^{ -x^3} \diff y \diff x  &&\text{again by Fubini's Theorem}\\ 
+&=&\displaystyle \int_{x=0}^{1} \left[y e^{ -x^3} \right]_{ y=x^5 }^{ y= x^2 } \diff x\\
+&=&\displaystyle \int_{x=0}^{1}x^2 (1-x^3)e^{-x^3}  \diff x\\
+&= & \displaystyle \int_{x=0}^{1} (1-x^3)e^{-x^3}\frac{1}{3} \diff \left( x^3 \right)&&\text{Set }z=x^3\\
+&=&\displaystyle \frac{1}{3} \int_{z=0}^{1} (1-z)e^{-z} \diff z\\
+&=&\displaystyle \frac{1}{3}\left[ ze^{-z}\right]_{z=0}^{z=1}\\
+&=&\displaystyle \frac{1}{3}e^{-1}=\frac{1}{3e}.
+\end{array}
+\]
+
 }

@@ -1,5 +1,5 @@
 \usepackage{etex, ifthen}
-\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage %[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -1172,12 +1172,12 @@ graphicsFile run
 /arrowVirtual {} def
 /setrgbcolorVirtual {setrgbcolor} def
 /setlinewidthVirtual {setlinewidth} def
-/plotArrowVirtual {\fcArrowPlot} def
+/plotArrowHeadVirtual {\fcArrowPlot} def
 /setdashVirtual {setdash} def
 }
 
 \newcommand{\fcSetUpGraphicsToFileAndScreen}{
-graphicsFile ( /plotArrowVirtual {\fcArrowPlot} def ) writestring
+graphicsFile ( /plotArrowHeadVirtual {\fcArrowPlot} def ) writestring
 /storeNumberPairToGraphicsFile{
 \fcMarkClean 3 1 roll
 20 string cvs exch 20 string cvs graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( ) writestring
@@ -1225,9 +1225,9 @@ graphicsFile ( setrgbcolor ) writestring
 2 copy setdash
 20 string cvs exch \fcToString graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( setdash ) writestring 
 } def
-/plotArrowVirtual { 
+/plotArrowHeadVirtual { 
 2 copy \fcArrowPlot\space
-\fcToString exch \fcToString graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( plotArrowVirtual ) writestring
+\fcToString exch \fcToString graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( plotArrowHeadVirtual ) writestring
 }def
 }
 
@@ -1677,7 +1677,7 @@ numSegments{ %
   }if
 }repeat %
 strokeVirtual %
-useArrows{[] 0 setdashVirtual [pointLeft 0 get \fcCoordsIIIdToPS] [pointRight 0 get \fcCoordsIIIdToPS] plotArrowVirtual}if %
+useArrows{[] 0 setdashVirtual [pointLeft 0 get \fcCoordsIIIdToPS] [pointRight 0 get \fcCoordsIIIdToPS] plotArrowHeadVirtual}if %
 }if %
 end %
 }
@@ -1766,8 +1766,8 @@ end
 /contourOptions exch def%
 /patchOptions exch def%
 /forceForeground patchOptions 3 get def%
-/colorVUpatch patchOptions 0 get def%
-/colorUVpatch patchOptions 1 get def%
+/colorUVpatch patchOptions 0 get def%
+/colorVUpatch patchOptions 1 get def%
 /vIterations exch def %
 /uIterations exch def %
 /theRestrictions exch def
@@ -2368,6 +2368,36 @@ stroke
 end
 }
 
+\newcommand{\fcPlotArrow}{
+2 copy 
+exch
+newpath 
+\fcCoordsIIIdToPS moveto
+\fcCoordsIIIdToPS lineto 
+stroke
+exch [ exch \fcCoordsIIIdToPS ] exch [exch \fcCoordsIIIdToPS ] plotArrowHeadVirtual
+}
+
+
+\newcommand{\fcPatchPaintNormal}{
+1 dict begin 
+/thePatch exch def
+2 setlinewidth
+0 0 0 setrgbcolorVirtual 
+thePatch \fcPatchGetPoint 
+thePatch \fcPatchGetPoint thePatch \fcPatchGetNormal \fcVectorPlusVector 
+\fcPlotArrow
+1 1 0 setrgbcolorVirtual 
+thePatch \fcPatchGetvZero 
+thePatch \fcPatchGetvOne 
+\fcPlotArrow
+0 1 1 setrgbcolorVirtual 
+thePatch \fcPatchGetvZero 
+thePatch \fcPatchGetvTwo 
+\fcPlotArrow
+end
+}
+
 \newcommand{\fcPatchPaintFilledDirectly}{
 1 dict begin
 /thePatch exch def %
@@ -2375,9 +2405,9 @@ end
 %thePatch ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetContour length 0 gt{
-thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
-{ thePatch \fcPatchGetColorVU setrgbcolorVirtual}
-{ thePatch \fcPatchGetColorUV setrgbcolorVirtual}
+thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector  dup == (the goddamned fucking crap piece of shit) == 0 gt
+{ thePatch \fcPatchGetColorVU setrgbcolorVirtual (i'm fucking here!) == }
+{ thePatch \fcPatchGetColorUV setrgbcolorVirtual (i'm at the other fukcing place) ==}
 ifelse
 0.5 setalpha
 newpathVirtual
@@ -2386,6 +2416,7 @@ thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
 closepathVirtual
 fillVirtual
 strokeVirtual
+thePatch \fcPatchPaintNormal
 }if
 }if
 end

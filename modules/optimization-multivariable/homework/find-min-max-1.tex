@@ -9,11 +9,16 @@ These are problems from the maximum/minimum values section of the textbook. Use 
 
 \psset{xunit=0.4cm, yunit=0.4cm}
 \begin{pspicture}(-1, -1)(1,1)
-\renewcommand{\fcScreen}{[1 1.4 -1.5] 0}
+\tiny
+\renewcommand{\fcScreen}{[1 1.4 -1] 0}
 \fcStartIIIdScene
-\fcSurfaceInScene[linewidth=0.4]{-2}{-2}{3}{3}{[u v u 3 exp v 3 exp -3 u v mul mul 3 add add add]}{u 3 exp v 3 exp -3 u v mul mul 3 add add add dup 7 le exch -3 ge and}
+\fcAxesIIIdInScene{5}{5}{5}
+\fcPatchInScene{[0 0 0]}{[1 0 0]}{[0 1 0]}
+%\fcSurfaceInScene[colorUV=pink, linewidth=0.4]{-3}{-3}{4}{4}{[u v u 3 exp v 3 exp -3 u v mul mul 3 add add add]}{u 3 exp v 3 exp -3 u v mul mul 3 add add add dup 11 le exch -9 ge and}
 \fcFinishIIIdScene[fastsort=true]
-\fcAxesIIId{5}{5}{11}
+\fcPutIIId{[5 0 0]}{$x$}
+\fcPutIIId{[0 5 0]}{$y$}
+\fcPutIIId{[0 0 15]}{$z$}
 \end{pspicture}
 
 \item $f(x,y)= 3x-x^3-2y^2+y^4$.
