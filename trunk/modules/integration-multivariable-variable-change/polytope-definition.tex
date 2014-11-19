@@ -1,0 +1,41 @@
+\begin{frame}
+\frametitle{Polytope definition}
+\begin{itemize}
+\item Let $\fcv v_1= (v_{11},\dots, v_{1n}),\dots, \fcv v_{k}= (v_{k1}, \dots, v_{kn})$ be $k$ vectors in $n$-dimensional space, $k\leq n$.
+\item<2-> Let $\mathcal R$ be the region \alert<2-10>{spanned by} the vectors.
+\item<3-> That is, $\mathcal R=\left\{ \alert<4-6>{ t_1 \fcv v_1} +t_2\fcv v_2+\dots+ t_k\fcv v_k | t_1\in [0,1], \dots, t_k\in [0,1]\right\}$.
+\begin{definition}[polytope]
+We call a region $\mathcal R$ of the above form a $k$-dimensional polytope in $n$-dimensional space.
+\end{definition}
+\end{itemize}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}
+\renewcommand{\fcScreenStyle}{x}
+\fcAxesIIId{2}{4}{2}
+\pstVerb{5 dict begin /ver1 [1 0 0.2] def /ver2 [0 1 0.2] def /ver3 [1 1 2] def}
+\uncover<2->{
+\fcParallelogramIIId{[0 0 0]}{[1 0 0.2]}{[0 1 0.2]}
+\fcParallelogramHollowIIId{[0 0 0]}{[1 0 0.2]}{[0 1 0.2]}
+}
+\fcLineIIId[arrows=->]{[0 0 0]}{[1 0 0.2]}
+\fcLineIIId[arrows=->]{[0 0 0]}{[0 1 0.2]}
+\uncover<4->{
+\fcBoxIIIdFilledNew[dashes={[0.5 3] 0}]{[0 0 0]}{ver1}{ver2}{ver3}
+}
+\fcAxesIIId[linestyle=dotted]{2}{4}{2}
+\pstVerb{end}
+\end{pspicture}
+\column{0.6\textwidth}
+\begin{itemize}
+\item When $k,n$ are clear from context we can omit them.
+\begin{tabular}{c|c|c}
+$k$& $n$ & polytope\\\hline 
+$1$& any & segment (in $n$-dim space)\\
+$2$& $2$ & parallelogram \\
+$2$& $3$ & parallelogram in space\\
+$3$& $3$ & parallelepiped
+\end{tabular}
+\end{itemize}
+\end{columns}
+\end{frame}

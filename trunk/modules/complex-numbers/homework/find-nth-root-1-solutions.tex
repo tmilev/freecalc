@@ -1,0 +1,51 @@
+\solution{
+\ref{problemz^3=-i/8}
+
+Let $z=|z|(\cos \theta+i\sin \theta)$ be the polar form of $|z|$ for which $\theta\in(-\pi, \pi]$. We have  $|z|^3=\left| \frac{i}{8 } \right| = \frac{1}{8}$. Since $|z|$ is a positive real number it follows that $\displaystyle |z|=\sqrt[3]{\frac{1}{8}}=\frac{1}{2}$.
+
+We can write $\displaystyle-\frac{i}{8}$ in polar form as $\displaystyle - \frac{ i}{8} = \frac{1 }{8}\left( \cos\left(- \frac{ \pi}{2} \right) + i\sin\left(-\frac{\pi}{2}\right)  \right)$. Therefore 
+\[
+\begin{array}{rcll|l}
+z^3&=& \frac{-i}{8}&&\text{use de Moivre's formula} \\
+|z|^3\left(\cos (3\theta)+i\sin (3\theta)\right)&=&\frac{1 }{8}\left( \cos\left(- \frac{ \pi}{2} \right) + i\sin\left(-\frac{\pi}{2}\right)  \right) &&\text{use }|z|=\frac{1}{2}\\
+\cos (3\theta)+i\sin (3\theta)&=&\cos\left(- \frac{ \pi}{2} \right) + i\sin\left(-\frac{\pi}{2}\right) &&\begin{array}{l} \text{when sines and cosines} \\
+\text{coincide the angles differ}\\
+\text{by even multiple of }\pi\end{array}
+\\
+3\theta&=&-\frac{\pi}{2}+2k\pi, &&k-\text{integer}\\
+\theta&=&-\frac{\pi}{6}+k\frac{2\pi}{3}&&\theta\in(-\pi,\pi] \Rightarrow k=-1, 0, \text{ or }1  \\
+\theta&=&-\frac{5\pi}{6}, -\frac{\pi}{6}, \text{ or } \frac{\pi}{2}\quad .
+\end{array}
+\]
+To find out the values of $z$ in non-polar form, we simply plot the numbers $z=\frac{1}{2}(\cos \theta +i\sin \theta)$. The three complex solutions lie on a circle of radius $\frac{1}{2}$; the numbers form an equilateral triangle, as shown on the picture. To find the actual values for these complex numbers, we use known values of the trigonometric functions. Our final answer is as follows.
+
+\begin{pspicture} (-1.2,-1.2)(1.2,1.2)
+\tiny
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\fcLabels[$\Re$][$\Im$]{1.2}{1.2}
+\parametricplot[linecolor=gray]{0}{360}{t cos 0.5 mul t sin 0.5 mul}
+
+\psline[linecolor=blue](0,0)(!-150 cos 0.5 mul -150 sin 0.5 mul)
+\fcFullDot{-150 cos 0.5 mul}{-150 sin 0.5 mul}
+\rput[rt](! -150 cos 0.5 mul -150 sin 0.5 mul){$\frac{ \sqrt{3 }}{ 4} -\frac{i}{4}~$}
+
+\psline[linecolor=blue](0,0)(!-30 cos 0.5 mul -30 sin 0.5 mul)
+\fcFullDot{-30 cos 0.5 mul}{-30 sin 0.5 mul}
+\rput[lt](! -30 cos 0.5 mul -30 sin 0.5 mul){$~-\frac{ \sqrt{3 }}{ 4} -\frac{i}{4}$}
+
+\psline[linecolor=blue](0,0)(!90 cos 0.5 mul 90 sin 0.5 mul)
+\fcFullDot{90 cos 0.5 mul}{90 sin 0.5 mul}
+\rput[lb](0, 0.5){$~\frac{i}{2}$}
+
+\end{pspicture}
+\raisebox{1.2cm}{
+$
+\begin{array}{c|c}
+\text{polar form }&\text{ value}\\\hline 
+\frac{1}{2}\left(\cos \left(-\frac{5\pi}{6}\right) +i\sin \left(- \frac{ 5\pi }{6}\right) \right)&  -\frac{\sqrt{3}}{4}-\frac{i}{4} \\
+\frac{1}{2}\left(\cos \left(-\frac{\pi}{6}\right) +i\sin \left( -\frac{ \pi}{6} \right) \right)&  \frac{ \sqrt{3 }}{ 4} -\frac{i}{4} \\
+\frac{1}{2}\left(\cos \left(\frac{\pi}{2}\right) +i\sin \left(\frac{ \pi } {2} \right) \right)& \frac{i}{2} 
+\end{array}
+$
+}
+}

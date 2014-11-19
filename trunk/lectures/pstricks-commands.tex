@@ -1,5 +1,5 @@
 \usepackage{etex, ifthen}
-\usepackage %[dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -731,9 +731,20 @@ end
 /corner2 exch def
 /corner1 exch def
 /corner0 exch def
-/v1 corner1 corner0 \fcVectorMinusVector def
+/v1 corner1 corner0 \fcVectorMinusVector def 
 /v2 corner2 corner0 \fcVectorMinusVector def
 /v3 corner3 corner0 \fcVectorMinusVector def
+%the following code selects the corner closest to the viewing screen
+v1 \fcScreen\space pop \fcVectorScalarVector 0 lt 
+{/corner0 corner0 v1 \fcVectorPlusVector def /v1 v1 -1 \fcVectorTimesScalar def }if
+v2 \fcScreen\space pop \fcVectorScalarVector 0 lt 
+{/corner0 corner0 v2 \fcVectorPlusVector def /v2 v2 -1 \fcVectorTimesScalar def }if
+v3 \fcScreen\space pop \fcVectorScalarVector 0 lt 
+{/corner0 corner0 v3 \fcVectorPlusVector def /v3 v3 -1 \fcVectorTimesScalar def }if
+%the closest corner is selected, we are recomputing the box corners
+/corner1 corner0 v1 \fcVectorPlusVector def
+/corner2 corner0 v2 \fcVectorPlusVector def
+/corner3 corner0 v3 \fcVectorPlusVector def
 [
 corner0 corner1 corner2 options \fcPatchMakeFromThreeCorners
 corner0 corner2 corner3 options \fcPatchMakeFromThreeCorners
@@ -744,7 +755,19 @@ corner3 corner3 v1 \fcVectorPlusVector corner3 v2 \fcVectorPlusVector options \f
 ]
 /LeftGreaterThanRight {\fcPatchGetPoint \fcZDepth exch \fcPatchGetPoint \fcZDepth gt} def
 \fcMergeSort
-{dup \fcPatchPaintFilledDirectly \fcPatchPaintContourDirectly }forall 
+{dup \fcPatchPaintFilledDirectly \fcPatchPaintContourDirectly}forall 
+/cornerop corner0 v1 v2 v3 \fcVectorPlusVector \fcVectorPlusVector \fcVectorPlusVector def
+\fcLineFormatCode
+\fcDashes\space setdash
+%cornerop ==
+[v1 v2 v3]
+%dup ==
+{ %(here be i) == dup ==
+newpath 
+cornerop \fcCoordsIIIdToPS moveto
+cornerop exch \fcVectorMinusVector \fcCoordsIIIdToPS lineto
+stroke
+}forall
 end
 }
 
@@ -1487,7 +1510,7 @@ thePatchCollection length { /counter counter 1 add def counter \fcZBufferPatchIn
 (z buffer computed.) print %
 % % % % % % % % % % % % % % % % % % % % % % % % % %
 \fcSortPatchIndices
-\fcPaintPatches
+%\fcPaintPatches
 \fcPaintContours
 %\fcPaintPatchSortOrder
 %\fcPaintPatchLabels
@@ -2405,9 +2428,9 @@ end
 %thePatch ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetContour length 0 gt{
-thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector  dup == (the goddamned fucking crap piece of shit) == 0 gt
-{ thePatch \fcPatchGetColorVU setrgbcolorVirtual (i'm fucking here!) == }
-{ thePatch \fcPatchGetColorUV setrgbcolorVirtual (i'm at the other fukcing place) ==}
+thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
+{ thePatch \fcPatchGetColorVU setrgbcolorVirtual }
+{ thePatch \fcPatchGetColorUV setrgbcolorVirtual }
 ifelse
 0.5 setalpha
 newpathVirtual
@@ -2416,7 +2439,7 @@ thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
 closepathVirtual
 fillVirtual
 strokeVirtual
-thePatch \fcPatchPaintNormal
+%thePatch \fcPatchPaintNormal
 }if
 }if
 end
