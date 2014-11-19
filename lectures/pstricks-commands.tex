@@ -46,7 +46,7 @@
 \newcommand{\fcLineStyle}{0}
 \newcommand{\fcDashLength}{2}
 \newcommand{\fcContourOptions}{
-[(\fcArrows) () ne  [\fcGetColorCode{\fcColorLine}] \fcLineWidth [\fcDashes] (\fcLineStyle)]
+[(\fcArrows) (->) eq (\fcArrows) (<-) eq (\fcArrows) (<->) eq or or [\fcGetColorCode{\fcColorLine}] \fcLineWidth [\fcDashes] (\fcLineStyle)]
 }
 \newcommand{\fcDashes}{[1 1] 0}
 \newcommand{\fcColorPatchUV}{1 0.5 0.5}
@@ -1510,7 +1510,7 @@ thePatchCollection length { /counter counter 1 add def counter \fcZBufferPatchIn
 (z buffer computed.) print %
 % % % % % % % % % % % % % % % % % % % % % % % % % %
 \fcSortPatchIndices
-%\fcPaintPatches
+\fcPaintPatches
 \fcPaintContours
 %\fcPaintPatchSortOrder
 %\fcPaintPatchLabels
