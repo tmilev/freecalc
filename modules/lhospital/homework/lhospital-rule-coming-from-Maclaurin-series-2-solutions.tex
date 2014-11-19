@@ -12,3 +12,31 @@ The limit is of the form ``$\frac{0}{0}$'' so we are allowed to use L'Hospital's
 \end{array}
 \]
 }
+\solution{
+\ref{problemlim x to 0 (sin x - x)/(arctan x - x)}
+
+\noindent \textbf{Solution I.}
+\[
+\begin{array}{rcll|l}
+\displaystyle \lim\limits_{x\to 0}\frac{\sin x- x}{\Arctan x -x}&=&\displaystyle \lim\limits_{x\to 0} \frac{\left( x-\frac{x^3}{3!}+\frac{x^5}{5!}-\dots\right) -x}{\left( x-\frac{x^3}{3}+\frac{x^5}{5}-\dots\right)-x} &&\text{use the Maclaurin series of }\sin, \Arctan \\
+&=&\displaystyle \lim\limits_{x\to 0}\frac{- \frac{x^3 }{6} + x^5\left(\frac{1}{5!}-\dots\right) }{- \frac{ x^3}{3} + x^5 \left(\frac{1}{5}-\dots \right)  }&& \begin{array}{rcl}
+\text{The expressions in parenthesis }\\
+\text{are continous functions in x }
+\end{array}\\
+&=&\displaystyle \lim\limits_{x\to 0} \frac{-\frac{1}{6}+ x^2 \left(\frac{1}{5!}-\dots\right) }{- \frac{1}{3} +x^2 \left( \frac{1}{5}-\dots \right)  }\\
+&=&\displaystyle \frac{-\frac{1}{6}+0}{\frac{1}{3}+0}\\
+&=&\displaystyle \frac{1}{2}\quad .
+\end{array}
+\] 
+
+\noindent \textbf{Solution II.} 
+\[
+\begin{array}{rcll|l}
+\displaystyle \lim\limits_{x\to 0}\frac{\sin x- x}{\Arctan x -x}&=&\displaystyle \lim\limits_{x\to 0} \frac{\cos x -1 }{ \frac{1}{1+x^2}-1 } &&\text{L'Hospital rule}\\
+&=&\displaystyle \lim\limits_{x\to 0}\frac{-\sin x }{\frac{ -2x}{(1+x^2)^2} }&& \text{L'Hospital rule again}\\
+&=&\displaystyle \lim\limits_{x\to 0} \frac{(1+x^2)^2}{2}\frac{\sin x}{x}  \\
+&=&\displaystyle \lim\limits_{x\to 0} \frac{(1+x^2)^2}{2}\lim\limits_{x\to 0}\frac{\sin x}{x} \\
+&=&\displaystyle \frac{1}{2}\quad .
+\end{array}
+\] 
+}

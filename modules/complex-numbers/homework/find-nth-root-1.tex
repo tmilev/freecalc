@@ -1,15 +1,44 @@
-The answer key has not been proofread. Use with caution.
+Find all complex solutions of the equation. The answer key has not been proofread. Use with caution.
+
 \begin{enumerate}
-\item Find the fourth roots of $-16$.
+\item \label{problemz^3=-i/8} $\displaystyle z^3 = -\frac{i}{8}$.
+\answer{\begin{pspicture} (-1.2,-1.2)(1.2,1.2)
+\tiny
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\fcLabels[$\Re$][$\Im$]{1.2}{1.2}
+\parametricplot[linecolor=gray]{0}{360}{t cos 0.5 mul t sin 0.5 mul}
+\psline[linecolor=blue](0,0)(!-150 cos 0.5 mul -150 sin 0.5 mul)
+\fcFullDot{-150 cos 0.5 mul}{-150 sin 0.5 mul}
+\rput[rt](! -150 cos 0.5 mul -150 sin 0.5 mul){$\frac{ \sqrt{3 }}{ 4} -\frac{i}{4}~$}
+\psline[linecolor=blue](0,0)(!-30 cos 0.5 mul -30 sin 0.5 mul)
+\fcFullDot{-30 cos 0.5 mul}{-30 sin 0.5 mul}
+\rput[lt](! -30 cos 0.5 mul -30 sin 0.5 mul){$~-\frac{ \sqrt{3 }}{ 4} -\frac{i}{4}$}
+\psline[linecolor=blue](0,0)(!90 cos 0.5 mul 90 sin 0.5 mul)
+\fcFullDot{90 cos 0.5 mul}{90 sin 0.5 mul}
+\rput[lb](0, 0.5){$~\frac{i}{2}$}
+\end{pspicture}
+\raisebox{1.2cm}{
+$
+\begin{array}{c|c}
+\text{polar form }&\text{ value}\\\hline 
+\frac{1}{2}\left(\cos \left(-\frac{5\pi}{6}\right) +i\sin \left(- \frac{ 5\pi }{6}\right) \right)&  -\frac{\sqrt{3}}{4}-\frac{i}{4} \\
+\frac{1}{2}\left(\cos \left(-\frac{\pi}{6}\right) +i\sin \left( -\frac{ \pi}{6} \right) \right)&  \frac{ \sqrt{3 }}{ 4} -\frac{i}{4} \\
+\frac{1}{2}\left(\cos \left(\frac{\pi}{2}\right) +i\sin \left(\frac{ \pi } {2} \right) \right)& \frac{i}{2} 
+\end{array}
+$
+}}
+\item $z^4=-16$.
 
 \answer{$\pm \sqrt{2}\pm \sqrt{2}i$ (in all four combinations).}
 
-\item Find the third roots of $-27$.
+\item $z^3=-27$.
 
 \answer{$\frac{3}{2} +\frac{3\sqrt{3}}{2}i, \frac{3}{2} - \frac{3 \sqrt{3}}{2}i, -3$.}
 
-\item Find the eighth roots of $1$.
+\item $z^8=1$.
 
 \answer{$\pm\frac{\sqrt{2 }}{2}\pm\sqrt{2}{2}i $ (all four combinations), $\pm i$, $\pm 1$ (total 8 values).}
+
+
 \end{enumerate}
 
