@@ -209,6 +209,8 @@ yIterations{
 theContourColor
 theSideColor
 true
+false
+[\fcDashes]
 \fcBoxIIIdFilledCode
 /x xOld def
 /y yOld DeltaY add def
@@ -724,10 +726,12 @@ end
 %input order
 % corner0 corner1 corner2 corner3
 15 dict begin
+/currentDashes exch def
+/contourIsDashedIndependentOfVisibility exch def
 /sidesVisible exch def
 /colorSides exch def
 /colorContour exch def
-/options [colorSides colorSides true true colorContour] def
+/options [colorSides colorSides true true colorContour contourIsDashedIndependentOfVisibility currentDashes] def
 /corner3 exch def
 /corner2 exch def
 /corner1 exch def
@@ -750,9 +754,9 @@ v3 \fcScreen\space pop \fcVectorScalarVector 0 lt
 corner0 corner1 corner2 options \fcPatchMakeFromThreeCorners
 corner0 corner2 corner3 options \fcPatchMakeFromThreeCorners
 corner0 corner3 corner1 options \fcPatchMakeFromThreeCorners
-corner1 corner1 v2 \fcVectorPlusVector corner1 v3 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
-corner2 corner2 v3 \fcVectorPlusVector corner2 v1 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
-corner3 corner3 v1 \fcVectorPlusVector corner3 v2 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
+%corner1 corner1 v2 \fcVectorPlusVector corner1 v3 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
+%corner2 corner2 v3 \fcVectorPlusVector corner2 v1 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
+%corner3 corner3 v1 \fcVectorPlusVector corner3 v2 \fcVectorPlusVector options \fcPatchMakeFromThreeCorners
 ]
 /LeftGreaterThanRight {\fcPatchGetPoint \fcZDepth exch \fcPatchGetPoint \fcZDepth gt} def
 \fcMergeSort
@@ -760,7 +764,7 @@ sidesVisible{dup {\fcPatchPaintFilledDirectly }forall }if
 {\fcPatchPaintContourDirectly}forall 
 /cornerop corner0 v1 v2 v3 \fcVectorPlusVector \fcVectorPlusVector \fcVectorPlusVector def
 \fcLineFormatCode
-\fcDashes\space setdash
+currentDashes \fcArrayToStack setdash
 [v1 v2 v3]
 {
 newpath 
@@ -776,7 +780,7 @@ end
 \pscustom{%
 \code{%
 \fcSetUpGraphicsToScreen %
-#2\space #3\space #4\space #5\space[ \fcGetColorCode{\fcColorLine} ] [\fcGetColorCode{\fcColorPatchUV}] true \fcBoxIIIdFilledCode%
+#2\space #3\space #4\space #5\space[ \fcGetColorCode{\fcColorLine} ] [\fcGetColorCode{\fcColorPatchUV}] true (\fcLineStyle) (dashed) eq [\fcDashes] \fcBoxIIIdFilledCode%
 }%
 }%
 }
@@ -786,7 +790,7 @@ end
 \pscustom{%
 \code{%
 \fcSetUpGraphicsToScreen %
-#2\space #3\space #4\space #5\space[ \fcGetColorCode{\fcColorLine} ] [\fcGetColorCode{\fcColorPatchUV}] false \fcBoxIIIdFilledCode%
+#2\space #3\space #4\space #5\space[ \fcGetColorCode{\fcColorLine} ] [\fcGetColorCode{\fcColorPatchUV}] false (\fcLineStyle) (dashed) eq [\fcDashes] \fcBoxIIIdFilledCode%
 }%
 }%
 }
@@ -1774,7 +1778,9 @@ numContourVSegmentsPerPatch {theRestrictions{theSurface}if /v v DeltaDeltaV sub 
 colorVUpatch % back color of patch
 forceForeground %
 inBounds %
-colorVUpatch
+colorVUpatch %patch built-in contour color, used when drawing patch contour directly
+false %is contour dashed independent of visibility?
+[] %dashes not used
 ]
 (patch) %
 ] %patch data structure complete
@@ -2406,6 +2412,8 @@ end
 \newcommand{\fcPatchGetForcedForegroundStatus}{5 get 2 get\space}
 \newcommand{\fcPatchGetInBounds}{5 get 3 get\space}
 \newcommand{\fcPatchGetColorContour}{5 get 4 get \fcArrayToStack \space}
+\newcommand{\fcPatchGetIsDashed}{5 get 5 get \space}
+\newcommand{\fcPatchGetDashes}{5 get 6 get \fcArrayToStack \space}
 
 \newcommand{\fcPaintPatchIndexFilledDirectly}{
 thePatchCollection exch get \fcPatchPaintFilledDirectly
@@ -2497,6 +2505,7 @@ end
 1 dict begin
 /thePatch exch def %
 thePatch type (arraytype) eq{
+thePatch \fcPatchGetIsDashed {thePatch \fcPatchGetDashes setdashVirtual}if
 thePatch \fcPatchGetContour length 0 gt{
 thePatch \fcPatchGetColorContour setrgbcolorVirtual
 newpathVirtual
