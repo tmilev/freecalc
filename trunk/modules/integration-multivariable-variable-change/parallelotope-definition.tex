@@ -2,40 +2,80 @@
 \frametitle{Polytope definition}
 \begin{itemize}
 \item Let $\fcv v_1= (v_{11},\dots, v_{1n}),\dots, \fcv v_{k}= (v_{k1}, \dots, v_{kn})$ be $k$ vectors in $n$-dimensional space, $k\leq n$.
-\item<2-> Let $\mathcal R$ be the region \alert<2-10>{spanned by} the vectors.
-\item<3-> That is, $\mathcal R=\left\{ \alert<4-6>{ t_1 \fcv v_1} +t_2\fcv v_2+\dots+ t_k\fcv v_k | t_1\in [0,1], \dots, t_k\in [0,1]\right\}$.
+\item<2-> Let $\mathcal R$ be the region \alert<2-9>{spanned by} the vectors.
+\item<3-> That is, $\mathcal R=\left\{ \alert<4-6>{ t_1 \fcv v_1} +\alert<7-9>{t_2\fcv v_2} +\dots+ t_k\fcv v_k | \alert<4-6>{t_1\in [0,1]}, \dots, t_k\in [0,1]\right\}$.
+\uncover<10->{
 \begin{definition}[parallelotope]
 We call a region $\mathcal R$ of the above form a $k$-dimensional parallelotope in $n$-dimensional space.
 \end{definition}
+}
 \end{itemize}
 \begin{columns}
 \column{0.4\textwidth}
 \begin{pspicture}
-\renewcommand{\fcScreenStyle}{x}
-\fcAxesIIId{2}{4}{2}
-\pstVerb{5 dict begin /ver1 [1 0 0.2] def /ver2 [0 1 0.2] def /ver3 [1 1 2] def}
-\uncover<2->{
-\fcParallelogramIIId{[0 0 0]}{[1 0 0.2]}{[0 1 0.2]}
-\fcParallelogramHollowIIId{[0 0 0]}{[1 0 0.2]}{[0 1 0.2]}
-}
-\fcLineIIId[arrows=->]{[0 0 0]}{[1 0 0.2]}
-\fcLineIIId[arrows=->]{[0 0 0]}{[0 1 0.2]}
-\uncover<4->{
-\fcBoxIIIdFilledNew[dashes={[0.5 3] 0}]{[0 0 0]}{ver1}{ver2}{ver3}
-}
+\tiny
+\fcBoundingBox{-0.5}{-0.5}{2}{3.2}
+\renewcommand{\fcScreenStyle}{x}%
+\fcAxesIIId{2}{4}{2}%
+\pstVerb{5 dict begin /ver1 [1 0 0.2] def /ver2 [0 1 0.2] def /ver3 [1 1 2] def}%
+\only<1>{%
+\fcPutIIId[bl]{ver1}{$~\fcv v_1$}%
+\fcPutIIId[br]{ver2}{$\fcv v_2~$}%
+}%
+\uncover<2-11,16,17>{%
+\fcParallelogramIIId[linecolor=cyan]{[0 0 0]}{ver1}{ver2}%
+\fcParallelogramHollowIIId{[0 0 0]}{ver1}{ver2}%
+}%
+\uncover<1-11>{%
+\fcLineIIId[arrows=->]{[0 0 0]}{ver1}%
+\fcLineIIId[arrows=->]{[0 0 0]}{ver2}%
+}%
+\only<4>{\fcLineIIId[arrows=->, linecolor=red, linewidth=1.5pt]{[0 0 0]}{ver1 0.4 \fcVectorTimesScalar}
+\fcDotIIId{ver1 0.4 \fcVectorTimesScalar}%
+}%
+\only<5>{\fcLineIIId[arrows=->, linecolor=red, linewidth=1.5pt]{[0 0 0]}{ver1 0.5 \fcVectorTimesScalar}
+\fcDotIIId{ver1 0.5 \fcVectorTimesScalar}%
+}%
+\only<6-9>{\fcLineIIId[arrows=->, linecolor=red, linewidth=1.5pt]{[0 0 0]}{ver1 0.6 \fcVectorTimesScalar}
+\fcDotIIId{ver1 0.6 \fcVectorTimesScalar}%
+}%
+\only<7>{ %
+\fcLineIIId[arrows=->, linecolor=red, linewidth=1.5pt]{ver1 0.6 \fcVectorTimesScalar}{ver1 0.6 \fcVectorTimesScalar ver2 0.4 \fcVectorTimesScalar \fcVectorPlusVector}%
+\fcDotIIId{ver1 0.6 \fcVectorTimesScalar ver2 0.4 \fcVectorTimesScalar \fcVectorPlusVector}%
+}%
+\only<8>{ %
+\fcLineIIId[arrows=->, linecolor=red, linewidth=1.5pt]{ver1 0.6 \fcVectorTimesScalar}{ver1 0.6 \fcVectorTimesScalar ver2 0.5 \fcVectorTimesScalar \fcVectorPlusVector}%
+\fcDotIIId{ver1 0.6 \fcVectorTimesScalar ver2 0.5 \fcVectorTimesScalar \fcVectorPlusVector}%
+}%
+\only<9>{ %
+\fcLineIIId[arrows=->, linecolor=red, linewidth=1.5pt]{ver1 0.6 \fcVectorTimesScalar}{ver1 0.6 \fcVectorTimesScalar ver2 0.6 \fcVectorTimesScalar \fcVectorPlusVector}%
+\fcDotIIId{ver1 0.6 \fcVectorTimesScalar ver2 0.6 \fcVectorTimesScalar \fcVectorPlusVector}%
+}%
+\uncover<10,11,18,19>{%
+\fcBoxIIIdFilledNew[colorUV=cyan, dashes={[0.5 3] 0}]{[0 0 0]}{ver1}{ver2}{ver3}%
+}%
+\uncover<12,13>{%
+\fcLineIIId[linewidth=1.5pt]{[0 0 0]}{ver1}%
+}%
+\uncover<14,15>{%
+\fcParallelogramIIId[linecolor=cyan]{[0 0 0]}{[1 0 0]}{[1 1 0]}%
+\fcParallelogramHollowIIId{[0 0 0]}{[1 0 0]}{[1 1 0]}%
+}%
 \fcAxesIIId[linestyle=dotted]{2}{4}{2}
 \pstVerb{end}
 \end{pspicture}
 \column{0.6\textwidth}
 \begin{itemize}
-\item When $k,n$ are clear from context we can omit them.
+\item<11-> When $k,n$ are clear from context we can omit them.
+\uncover<12->{
 \begin{tabular}{c|c|c}
-$k$& $n$ & parallelotope\\\hline 
-$1$& any & segment (in $n$-dim space)\\
-$2$& $2$ & parallelogram \\
-$2$& $3$ & parallelogram in space\\
-$3$& $3$ & parallelepiped
+$k$& $n$ & parallelotope name\\\hline 
+\fcQuestion{12}{$1$}& \fcQuestion{12}{any} & \fcAnswer{13}{segment (in $n$-dim space)}\\
+\fcQuestion{14}{$2$}& \fcQuestion{14}{$2$} & \fcAnswer{15}{parallelogram} \\
+\fcQuestion{16}{$2$}& \fcQuestion{16}{$3$} & \fcAnswer{17}{parallelogram in space} \\
+\fcQuestion{18}{$3$}& \fcQuestion{18}{$3$} & \fcAnswer{19}{parallelepiped}
 \end{tabular}
+}
 \end{itemize}
 \end{columns}
 \end{frame}

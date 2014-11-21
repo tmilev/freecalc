@@ -27,19 +27,19 @@ Recall $C:\left|\begin{array}{rcl}x&=&\only<1>{f}\only<2->{\alert<2>{x}}(t)\\y&=
 \begin{itemize}
 \item<3-> Suppose we could eliminate the parameter $t$ and write $y=F(x)$ for some function $F$ near the point $(x,y)=(x(t), y(t))$. 
 \item<4-> Suppose in $x'(t)\neq 0$ for some $t$. 
-\item<5-> Compute:
+\uncover<5->{
 \[
 \begin{array}{rcll|l}
-\displaystyle y(t)&=&\displaystyle  F(x(t)) &&\text{apply } \frac{\diff }{\diff t}\\
-\displaystyle y'(t)&=&\displaystyle \frac{\diff} {\diff t} \left(F(x(t))\right)&&\text{use chain rule}\\
-&=&\displaystyle  F'(x(t)) y'(t)=F'(x(t))x'(t) &&\text{divide by } x'(t)\\
-\displaystyle \frac{\diff y}{\diff x}=F'(x(t)) &=&\displaystyle  \frac{y'(t) }{x'(t)}
+\displaystyle y&=&\displaystyle  F(x) &&\text{apply } \frac{\diff }{\diff t}\\
+\displaystyle \frac{\diff y}{\diff t}&=&\displaystyle \frac{\diff} {\diff t} \left(F(x)\right)&&\text{use chain rule}\\
+&=&\displaystyle  \frac{\diff F}{\diff x} \frac{\diff x}{\diff t}=\frac{\diff y}{\diff  x} \frac{\diff x}{\diff t} &&\text{divide by } x'(t)\\
+\displaystyle \frac{\diff y}{\diff x} &=&\displaystyle  \frac{\frac{\diff y}{\diff t} }{\frac{\diff x}{\diff t}}
 \end{array}
 \] 
+}
 \end{itemize}
 \begin{observation}
-If $\frac{\diff x}{\diff t}\neq 0$, we have $\displaystyle
-\frac{\diff y}{\diff x}= \frac{\frac{\diff y}{\diff t}}{\frac{\diff x}{\diff t}}\quad .
+If $\frac{\diff x}{\diff t}\neq 0$, we have $\displaystyle \frac{ \diff y}{ \diff x}= \frac{\frac{\diff y}{\diff t}}{\frac{\diff x}{\diff t}}\quad .
 $
 \end{observation}
 \end{frame}
