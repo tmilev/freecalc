@@ -17,15 +17,77 @@
 /innerCorner ver1 ver2 \fcVectorPlusVector 0.1 \fcVectorTimesScalar def
 /innerCornerBoxes ver1 ver2 ver3 \fcVectorPlusVector \fcVectorPlusVector 0.2 \fcVectorTimesScalar def
 }%
+\only<1>{
+\fcBoxIIIdFilledNew[dashes={[0.5 3] 0}, colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
+}
+\only<3>{
 \fcStartIIIdScene%
 \fcBoxIIIdInScene[colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
 \multido{\ra=0+0.2}{5}{%
-\fcBoxIIIdInScene[linewidth=0.5, colorUV={1 0.5 0.5}, forceForeground=true] {innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector ver1 0.8 \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector ver2 0.8 \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector perpendicular 0.2 \fcVectorTimesScalar \fcVectorPlusVector}%
+\fcBoxIIIdInScene[linewidth=0.5, colorUV={1 0.5 0.5}, forceForeground=true] {innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector ver1 0.8 \fcVectorTimesScalar \fcVectorPlusVector }{ innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector ver2 0.8 \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector perpendicular 0.2 \fcVectorTimesScalar \fcVectorPlusVector}%
 }%
-\fcAxesIIIdInScene{2}{2.5}{2}
-\fcFinishIIIdScene[true]
-
-\pstVerb{end}
+\fcAxesIIIdInScene{2}{2.5}{2}%
+\fcFinishIIIdScene[true]%
+}
+\only<1>{
+\pscustom{%
+\code{
+30 dict begin
+/boxSides
+[ [ver1 ver2 \fcVectorCrossVector 0] 
+  [ver1 ver2 \fcVectorCrossVector -1 \fcVectorScalarVector dup ver3 \fcVectorScalarVector]
+  [ver2 ver3 \fcVectorCrossVector 0] 
+  [ver2 ver3 \fcVectorCrossVector -1 \fcVectorScalarVector dup ver1 \fcVectorScalarVector]
+  [ver3 ver1 \fcVectorCrossVector 0] 
+  [ver3 ver1 \fcVectorCrossVector -1 \fcVectorScalarVector dup ver2 \fcVectorScalarVector]
+]
+def
+/isInBox {/currentPoint exch def true boxSides{\fcArrayToStack exch currentPoint \fcVectorScalarVector gt {pop false exit}if }forall } def
+/numIt 10 def %
+ver1 ver2 ver3 \fcVectorPlusVector \fcVectorPlusVector \fcArrayToStack
+/DeltaZ exch numIt div def %
+/DeltaY exch numIt div def %
+/DeltaX exch numIt div def %
+/DeltaXvector [DeltaX 0 0] def %
+/DeltaYvector [0 DeltaY 0] def %
+/DeltaZvector [0 0 DeltaZ] def %
+/counter1 -1 def
+numIt {
+/counter1 counter1 1 add def
+/counter2 -1 def
+numIt {
+/counter2 counter2 1 add def
+/counter3 -1 def
+numIt {
+/counter3 counter3 1 add def
+/startingCorner [DeltaX counter1 mul DeltaY counter2 mul DeltaZ coutner3 mul ] def 
+/theCorners 
+[startingCorner 
+ startingCorner DeltaXvector \fcVectorPlusVector
+ startingCorner DeltaYvector \fcVectorPlusVector
+ startingCorner DeltaZvector \fcVectorPlusVector
+ startingCorner DeltaXvector DeltaYvector \fcVectorPlusVector \fcVectorPlusVector
+ startingCorner DeltaYvector DeltaZvector \fcVectorPlusVector \fcVectorPlusVector
+ startingCorner DeltaZvector DeltaXvector \fcVectorPlusVector \fcVectorPlusVector
+ startingCorner DeltaXvector DeltaYvector DeltaZvector \fcVectorPlusVector \fcVectorPlusVector \fcVectorPlusVector 
+ ]
+def
+true theCorners{isInBox not{pop false exit}if }forall
+{startingCorner 
+ startingCorner DeltaXvector \fcVectorPlusVector
+ startingCorner DeltaYvector \fcVectorPlusVector
+ startingCorner DeltaZvector \fcVectorPlusVector
+ [\fcGetColorCode{black}] [1 0.5 0.5] true true [\fcDashes] \fcBoxIIIdFilledCode
+}if
+}repeat
+}repeat
+}repeat
+end
+}%
+}%
+\fcBoxIIIdHollowNew[dashes={[0.5 3] 0}, colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
+}%
+\pstVerb{end}%
 \end{pspicture}
 
 \column{0.75\textwidth}
@@ -36,12 +98,12 @@
 \end{itemize}
 \end{columns}
 \begin{theorem}
-$\Vol_n(\mathcal R_n)=h_n \Vol_{n-1}(\mathcal R_{n-1})= \displaystyle {\int\dots \int}_{\mathcal R_n} 1 \cdot \diff x_1\dots \diff x_n $.
+$\Vol_n(\mathcal R_n)=h_n \Vol_{n-1}(\mathcal R_{n-1})= \displaystyle {\int\dots \int}_{ \mathcal R_n} 1 \cdot \diff x_1\dots \diff x_n $.
 \end{theorem}
 \begin{itemize}
-\item Left hand side: approximate volume with slabs parallel to base.
-\item Right hand side: approx. vol. with boxes, sides along coord. axes.
-\item Theorem is fully intuitive but its proof is surprisingly laborious.
+\item<2-> \alert<2>{Right hand side: approx. vol. with boxes, sides along coord. axes.}
+\item<3-> \alert<3>{ Left hand side: approximate volume with slabs parallel to base.}
+\item<4-> Theorem is fully intuitive but its proof is surprisingly laborious.
 \end{itemize}
 
 \end{frame}
