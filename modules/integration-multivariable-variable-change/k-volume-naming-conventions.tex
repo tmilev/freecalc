@@ -1,0 +1,39 @@
+
+\begin{frame}
+\frametitle{Length, Surface Area, Volume as $k$-volumes}
+\begin{columns}
+\column{0.25\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}
+\tiny
+\fcBoundingBox{-0.5}{-0.5}{2}{3.2}
+\renewcommand{\fcScreenStyle}{x}%
+\pstVerb{5 dict begin /ver1 [1 0 0.2] def /ver2 [0 1 0.2] def /ver3 [1.4 1 2] def /perpFoot ver3 1 dict begin /normal ver1 ver2 \fcVectorCrossVector def normal normal ver3 \fcVectorScalarVector normal normal \fcVectorScalarVector div \fcVectorTimesScalar end \fcVectorMinusVector def}%
+\fcStartIIIdScene
+\fcBoxIIIdInScene[linewidth=1, linecolor=black, colorUV=cyan, dashes={[0.5 3] 0}, forceForeground=false]{[0 0 0]}{ver1}{ver2}{ver3}%
+\fcAxesIIIdInScene[linewidth=1, arrows=->, linecolor=black]{2}{4}{2}
+\fcFinishIIIdScene[true]
+\pstVerb{end}
+\end{pspicture}
+
+\column{0.75\textwidth}
+\begin{itemize}
+\item Let $ \fcv v_1=(v_{11}, \dots, v_{1n})$, $\dots$, $\fcv v_n=(v_{n1},\dots, v_{nn} )$ be $n$-vectors in $n$-dimensional space.
+\item Let $\mathcal R_k$ be the parallelotope spanned by $\fcv v_1, \dots, \fcv v_k$.
+\item Let $h_k$ be the height of $\mathcal R_k$ with base $\mathcal R_{k-1}$.
+\end{itemize}
+\end{columns}
+\begin{definition}[$k$-volume of a parallelotope]
+Define ${Vol}_1(\mathcal R_1)=|\fcv v_1|$. For $k>1$, define $\text{Vol}_{k}(\mathcal R_k)= h_k \text{Vol}_{k-1}( \mathcal R_{k-1})$.
+\end{definition}
+
+\begin{tabular}{cccc}
+& spanned by&  $\text{Vol}_k(\mathcal R_k)$& volume name  \\
+$\mathcal R_1$ & $\fcv v_1$ &$h_1=|\fcv v_1|$& length \\
+$\mathcal R_2$ & $\fcv v_1, \fcv v_2$ &  $h_1 h_2$   & (surface) area \\
+$\mathcal R_2$ & $\fcv v_1, \fcv v_2,\fcv v_3$ &  $h_1 h_2 h_3$   & volume \\
+\vdots&\vdots&\vdots&\vdots\\
+$\mathcal R_k$ & $\fcv v_1, \dots, \fcv v_k$ &  $h_1 \dots h_k$   & $k$-volume \\
+\end{tabular}
+ 
+\end{frame}

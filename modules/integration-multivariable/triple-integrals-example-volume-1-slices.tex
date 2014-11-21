@@ -8,9 +8,9 @@
 \renewcommand{\fcDashes}{[0.5 2] 0}%
 \fcBoundingBox{-0.9}{-1.8}{3.3}{2.4}%
 \fcStartIIIdScene%
-\only<5-7>{\fcPatchInScene{[0 0 0]}{[0 1 0]}{[0 0 2]}}%
-\only<4-7>{\fcPatchInScene{[0 0 0]}{[1 0 0]}{[0 1 0]}}%
-\only<6,7>{\fcPatchInScene{[0 0 0]}{[0 0 2]}{[1 0.5 0]}}%
+\only<5-7>{\fcPatchInScene{[0 0 0]}{[0 0 2]}{[0 1 0]}}%
+\only<4-7>{\fcPatchInScene{[0 0 0]}{[0 1 0]}{[1 0 0]}}%
+\only<6,7>{\fcPatchInScene{[0 0 0]}{[1 0.5 0]}{[0 0 2]}}%
 \only<7>{%
 \fcTriangleInScene{[1 1.5 -2]}{[0 1 0]}{[1 0.5 0]}%
 }%
@@ -101,10 +101,10 @@ $
 }
 
 \only<19->{
-Project $S_z$ onto $x$-axis to get segment from $x=0$ to $x=1-z$.} \uncover<21->{ Fix $x\in[0, 1-z]$.} \fcQuestion{22}{Vertical slice: segment from $y= \fcAnswer{23}{ \frac{ x }{2 }}$ to $y=\fcAnswer{23}{ 1-\frac{z}{2} - \frac{x}{2}}$.}
+Project $S_z$ onto $x$-axis to get segment from $x=0$ to $x=1-\frac{z}{2}$.} \uncover<21->{ Fix $x\in[0, 1-\frac{ z }{ 2}]$.} \fcQuestion{22}{Vertical slice: segment from $y= \fcAnswer{ 23}{ \frac{ x }{2 }}$ to $y=\fcAnswer{23}{ 1- \frac{ z}{2} - \frac{x}{2}}$.}
 \uncover<24->{
 $\displaystyle
-\text{vol}(\cR) = \iiint_{\cR} 1\cdot \diff V = \int_{\alert<25>{ z=0} }^{ \alert<25>{z=2} } \left( \int_{\alert<26>{x=0}}^{\alert<26>{ x=1-z}} \left( \int_{ \alert<27>{ y= \frac{ x}{2} }}^{\alert<27>{ y=1 -\frac{ z}{2} -\frac{x}{2}}} 1 \cdot \diff y \right)  \diff x\right) \diff z .
+\text{vol}(\cR) = \iiint_{\cR} 1\cdot \diff V = \int_{ \alert<25>{ z=0} }^{ \alert<25>{z=2} } \left( \int_ { \alert<26>{ x=0}}^{\alert<26>{ x=1-\frac{z}{2} }} \left( \int_{ \alert<27>{ y= \frac{ x}{2} }}^{\alert<27>{ y=1 -\frac{ z}{2} -\frac{x}{2}}} 1 \cdot \diff y \right)  \diff x\right) \diff z .
 $
 }
 \end{example}

@@ -1,0 +1,47 @@
+\begin{frame}
+\frametitle{Integral and Algebraic Volume Definitions Agree}
+\begin{columns}
+\column{0.25\textwidth}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}
+\tiny
+\fcBoundingBox{-0.2}{-0.2}{1.2}{1.5}%
+\renewcommand{\fcScreenStyle}{x}%
+\pstVerb{10 dict begin 
+/ver1 [1 0 0.05] def 
+/ver2 [0 1 0.05] def 
+/ver3 [0.3 0.3 1] def  
+/normal ver1 ver2 \fcVectorCrossVector def 
+/perpFoot ver3 normal normal ver3 \fcVectorScalarVector normal normal \fcVectorScalarVector div \fcVectorTimesScalar \fcVectorMinusVector def
+/perpendicular ver3 perpFoot \fcVectorMinusVector def
+/innerCorner ver1 ver2 \fcVectorPlusVector 0.1 \fcVectorTimesScalar def
+/innerCornerBoxes ver1 ver2 ver3 \fcVectorPlusVector \fcVectorPlusVector 0.2 \fcVectorTimesScalar def
+}%
+\fcStartIIIdScene%
+\fcBoxIIIdInScene[colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
+\multido{\ra=0+0.2}{5}{%
+\fcBoxIIIdInScene[linewidth=0.5, colorUV={1 0.5 0.5}, forceForeground=true] {innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector ver1 0.8 \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector ver2 0.8 \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector perpendicular 0.2 \fcVectorTimesScalar \fcVectorPlusVector}%
+}%
+\fcAxesIIIdInScene{2}{2.5}{2}
+\fcFinishIIIdScene[true]
+
+\pstVerb{end}
+\end{pspicture}
+
+\column{0.75\textwidth}
+\begin{itemize}
+\item Let $ \fcv v_1=(v_{11}, \dots, v_{1n})$, $\dots$, $\fcv v_n=(v_{n1},\dots, v_{nn} )$ be $n$-vectors in $n$-dimensional space.
+\item Let $\mathcal R_k$ be the parallelotope spanned by $\fcv v_1, \dots, \fcv v_k$.
+\item Let $h_k$ be the height of $\mathcal R_k$ with base $\mathcal R_{k-1}$.
+\end{itemize}
+\end{columns}
+\begin{theorem}
+$\Vol_n(\mathcal R_n)=h_n \Vol_{n-1}(\mathcal R_{n-1})= \displaystyle {\int\dots \int}_{\mathcal R_n} 1 \cdot \diff x_1\dots \diff x_n $.
+\end{theorem}
+\begin{itemize}
+\item Left hand side: approximate volume with slabs parallel to base.
+\item Right hand side: approx. vol. with boxes, sides along coord. axes.
+\item Theorem is fully intuitive but its proof is surprisingly laborious.
+\end{itemize}
+
+\end{frame}
