@@ -85,7 +85,7 @@ $J_{\fcv f}=\left( \begin{array}{ccc}  \frac{\partial x_1 }{\partial y_1} & \cdo
 (! 2 dict begin /r base1 def /theta base2 Delta add def theF end)
 (! 2 dict begin /r base1 def /theta base2 def theF end)
 }
-\rput[bl](1.1,1.1){${\color{green}{E}}\approx{\color{blue}C} \uncover<16->{ \approx } {\color{red}J}$}%
+\rput[bl](1.1,1.1){${\color{green}{E}}\approx{\color{blue}C} \uncover<16->{ \approx } \uncover<15->{{\color{red}J}}$}%
 \uncover<2>{%
 \psline[linecolor=red, arrows=->, linewidth=1.5pt]
 (! 2 dict begin /r base1 def /theta base2 def theF end)
@@ -134,12 +134,12 @@ $J_{\fcv f}=\left( \begin{array}{ccc}  \frac{\partial x_1 }{\partial y_1} & \cdo
 \item $\alert<1>{\Vol ({\color{blue}C})\approx \Vol_n({\color{green}E})}$.
 \item<2-> The first edge of ${\color{green}E}$ \uncover<3->{corresponds to the vector }
 $\begin{array}{r@{}c@{}l}
-\uncover<3->{\alert<7>{\fcv f(\alert<6>{ \fcv y+\Delta y_1 \fcv e_1})} - \alert<5>{\fcv f( \alert<4>{\fcv y} )}} &\uncover<8->{\approx}&\uncover<8->{ \Delta y_1 \alert<10>{ \left(D_{\fcv e_1}\left( \fcv f(\fcv y)\right)\right)}} \uncover<9->{=\Delta y_1 \alert<10>{\frac{\partial \fcv f}{\partial y_j}}}\\
-\uncover<10->{&=& \Delta y_1 \alert<10>{\left(\frac{\partial x_1}{\partial y_j},\dots, \frac{\partial x_n}{\partial y_1}  \right)}} \uncover<11->{ = \alert<11>{\left(\Delta y_1 \frac{\partial x_1}{\partial y_j},\dots, \Delta y_n \frac{\partial x_n}{\partial y_1}\right)}.}
+\uncover<3->{\alert<7>{\fcv f(\alert<6>{ \fcv y+\Delta y_1 \fcv e_1})} - \alert<5>{\fcv f( \alert<4>{\fcv y} )}} &\uncover<8->{\approx}&\uncover<8->{ \Delta y_1 \alert<10>{ \left(D_{\fcv e_1}\left( \fcv f(\fcv y)\right)\right)}} \uncover<9->{=\Delta y_1 \alert<10>{\frac{\partial \fcv f}{\partial y_1}}}\\
+\uncover<10->{&=& \Delta y_1 \alert<10>{\left(\frac{\partial x_1}{\partial y_1},\dots, \frac{ \partial x_n}{\partial y_1}  \right)}} \uncover<11->{ = \alert<11>{\left(\Delta y_1 \frac{ \partial x_1}{\partial y_1},\dots, \Delta y_1 \frac{\partial x_n}{\partial y_1}\right)}.}
 \end{array}
 $
 \item<12-> Similar considerations holds for the other edges of $E$.
-\item<15-> \alert<17>{ Let ${\color{red}J}$ be the parallelotope at $\fcv f(\fcv y)$ spanned by the vectors $\Delta y_1 \left( \frac{\partial x_1}{\partial y_1},\dots, \frac{\partial x_n}{\partial y_1} \right)$,\dots $\Delta y_n \left(\frac{\partial x_1}{\partial y_n},\dots, \frac{\partial x_n}{\partial y_n}\right) $.}
+\item<15-> \alert<17>{ Let ${\color{red}J}$ be the parallelotope at $\fcv f(\fcv y)$ spanned by the vectors $\Delta y_1 \left( \frac{\partial x_1}{\partial y_1},\dots, \frac{\partial x_n}{ \partial y_1} \right)$,\dots $\Delta y_n \left(\frac{\partial x_1}{\partial y_n},\dots, \frac{ \partial x_n}{\partial y_n}\right) $.}
 \item<16-> Then $\alert<17>{\Vol ({\color{blue}C}) \approx \Vol_n ( {\color{green}E} ) \approx \Vol_n({\color{red}J})}$.
 \end{itemize}
 
