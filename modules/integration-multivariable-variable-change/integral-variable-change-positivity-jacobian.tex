@@ -1,0 +1,37 @@
+\begin{frame}
+\begin{theorem}[Variable change in multivariable integrals]
+$f$ - smooth, \alert<7>{one-to-one}, $\alert<4>{f(\mathcal R)= \mathcal S}$, $\alert<6>{ \det \left( J_{ \fcv f} (\fcv y)\right) \geq 0}$.
+
+\medskip
+\small 
+\noindent $\displaystyle
+\idotsint\limits_{\alert<4>{\mathcal S}} h(x_1,\dots, x_n) \diff x_1 \dots \diff x_n   =\idotsint\limits_{\alert<4>{\mathcal R} }  h(f_1,\dots, f_n) \alert<3>{\det \left(J_{\fcv f}(\fcv y)\right) } \diff y_1 \dots \diff y_n ,
+$
+\end{theorem}
+\begin{itemize}
+\only<1-11>{
+\item<2-> One-variable subst. rule: $\displaystyle \int_{{\alert<4>{ f( a )}}}^{{\alert<4>{f(b)}}} h(x)\diff x= \int_{{\alert<4>{a}}}^{{\alert<4>{b}}} h(f(y)) \alert<3>{ f'(y)} \diff y $.
+\item<5-> The one-variable substitution rule is valid 
+\begin{itemize}
+\item<6-> \alert<6>{without positivity requirements} (arranged by compensating with minus sign when changing boundaries of integration)
+\item<7-> and \alert<7>{without requiring that $f$ be one to one} (compensated by neutralizing contributions arising from sign changes of $f'(y)$).
+\end{itemize} 
+}
+\item<8-> \alert<11,12>{Similarly integration can be generalized so multivar. subst. holds }
+\begin{itemize}
+\item<9-> \alert<11,12>{without positivity of $\det \left(J_{\fcv f} \right)$ (arranged by compensating with minus sign when changing orientation of spaces),}
+\item<10-> \alert<11,12>{without requiring that $\fcv f$ be one to one (compensated by neutralizing contributions arising from sign changes of $\det J_{\fcv f}$).}
+\end{itemize}
+\only<13->{
+\item<13->  When using the above generalization of $\int$, one writes 
+$\displaystyle
+\idotsint\limits_{\mathcal S} h(x_1,\dots, x_n) \diff x_1 \alert<14>{\wedge} \dots \alert<14>{\wedge} \diff x_n\quad .
+$
+\item<14-> The \alert<14>{wedge sign $\wedge $ stands for exterior product}.
+\item<15-> We will skip the theoretical details of the above generalization.
+\item<16-> However we will learn to compute with $\wedge$ in practice.
+}
+\end{itemize}
+
+\vskip 10cm
+\end{frame}

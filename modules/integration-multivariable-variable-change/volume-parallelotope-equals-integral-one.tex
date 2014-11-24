@@ -2,10 +2,10 @@
 \frametitle{Integral and Algebraic Volume Definitions Agree}
 \begin{columns}
 \column{0.25\textwidth}
-\psset{xunit=1.5cm, yunit=1.5cm}
+\psset{xunit=1.4cm, yunit=1.4cm}
 \begin{pspicture}
 \tiny
-\fcBoundingBox{-0.2}{-0.2}{1.2}{1.5}%
+\fcBoundingBox{-0.8}{-0.2}{2}{2}%
 \renewcommand{\fcScreenStyle}{x}%
 \pstVerb{10 dict begin 
 /ver1 [1 0 0.05] def 
@@ -17,33 +17,39 @@
 /innerCorner ver1 ver2 \fcVectorPlusVector 0.1 \fcVectorTimesScalar def
 /innerCornerBoxes ver1 ver2 ver3 \fcVectorPlusVector \fcVectorPlusVector 0.2 \fcVectorTimesScalar def
 }%
-\only<1>{
-\fcBoxIIIdFilledNew[dashes={[0.5 3] 0}, colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
-}
-\only<3>{
+\uncover<3->{%
 \fcStartIIIdScene%
-\fcBoxIIIdInScene[colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
+\fcBoxIIIdInScene[linewidth=1, colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
 \multido{\ra=0+0.2}{5}{%
 \fcBoxIIIdInScene[linewidth=0.5, colorUV={1 0.5 0.5}, forceForeground=true] {innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector ver1 0.8 \fcVectorTimesScalar \fcVectorPlusVector }{ innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector ver2 0.8 \fcVectorTimesScalar \fcVectorPlusVector}{innerCorner ver3 \ra \space \fcVectorTimesScalar \fcVectorPlusVector perpendicular 0.2 \fcVectorTimesScalar \fcVectorPlusVector}%
 }%
-\fcAxesIIIdInScene{2}{2.5}{2}%
+\fcAxesIIIdInScene[linewidth=1, arrows=->, xLabel={$x_1$}, yLabel={$x_2$}, zLabel={$x_3$}]{2}{2.5}{2}%
 \fcFinishIIIdScene[true]%
-}
-\only<1>{
+}%
+\uncover<1,2>{%
+\fcAxesIIId[linewidth=1pt, arrows=->]{2}{2.5}{2}%
+}%
+\uncover<1,2>{%
+\fcBoxIIIdFilledNew[linewidth=1, dashes={[0.5 3] 0}, colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
+}%
+\uncover<2>{%
 \pscustom{%
-\code{
+\code{%
+\fcSetUpGraphicsToScreen
 30 dict begin
 /boxSides
 [ [ver1 ver2 \fcVectorCrossVector 0] 
-  [ver1 ver2 \fcVectorCrossVector -1 \fcVectorScalarVector dup ver3 \fcVectorScalarVector]
+  [ver1 ver2 \fcVectorCrossVector -1 \fcVectorTimesScalar dup ver3 \fcVectorScalarVector]
   [ver2 ver3 \fcVectorCrossVector 0] 
-  [ver2 ver3 \fcVectorCrossVector -1 \fcVectorScalarVector dup ver1 \fcVectorScalarVector]
+  [ver2 ver3 \fcVectorCrossVector -1 \fcVectorTimesScalar dup ver1 \fcVectorScalarVector]
   [ver3 ver1 \fcVectorCrossVector 0] 
-  [ver3 ver1 \fcVectorCrossVector -1 \fcVectorScalarVector dup ver2 \fcVectorScalarVector]
+  [ver3 ver1 \fcVectorCrossVector -1 \fcVectorTimesScalar dup ver2 \fcVectorScalarVector]
 ]
 def
-/isInBox {/currentPoint exch def true boxSides{\fcArrayToStack exch currentPoint \fcVectorScalarVector gt {pop false exit}if }forall } def
-/numIt 10 def %
+/isInBox {/currentPoint exch def true boxSides{
+\fcArrayToStack exch currentPoint \fcVectorScalarVector gt {pop false exit}if 
+}forall } def
+/numIt 8 def %
 ver1 ver2 ver3 \fcVectorPlusVector \fcVectorPlusVector \fcArrayToStack
 /DeltaZ exch numIt div def %
 /DeltaY exch numIt div def %
@@ -52,6 +58,7 @@ ver1 ver2 ver3 \fcVectorPlusVector \fcVectorPlusVector \fcArrayToStack
 /DeltaYvector [0 DeltaY 0] def %
 /DeltaZvector [0 0 DeltaZ] def %
 /counter1 -1 def
+[
 numIt {
 /counter1 counter1 1 add def
 /counter2 -1 def
@@ -60,7 +67,7 @@ numIt {
 /counter3 -1 def
 numIt {
 /counter3 counter3 1 add def
-/startingCorner [DeltaX counter1 mul DeltaY counter2 mul DeltaZ coutner3 mul ] def 
+/startingCorner [DeltaX counter1 mul DeltaY counter2 mul DeltaZ counter3 mul ] def 
 /theCorners 
 [startingCorner 
  startingCorner DeltaXvector \fcVectorPlusVector
@@ -73,19 +80,30 @@ numIt {
  ]
 def
 true theCorners{isInBox not{pop false exit}if }forall
-{startingCorner 
+{[
+ startingCorner 
  startingCorner DeltaXvector \fcVectorPlusVector
  startingCorner DeltaYvector \fcVectorPlusVector
  startingCorner DeltaZvector \fcVectorPlusVector
- [\fcGetColorCode{black}] [1 0.5 0.5] true true [\fcDashes] \fcBoxIIIdFilledCode
+ [\fcGetColorCode{black}] [1 0.5 0.5] true false [[0.5 3] 0]
+ ]
 }if
 }repeat
 }repeat
 }repeat
+]
+/LeftGreaterThanRight {0 get \fcScreen\space pop \fcVectorScalarVector exch 0 get \fcScreen\space pop \fcVectorScalarVector gt} def
+\fcMergeSort
+dup
+{\fcArrayToStack \fcBoxIIIdFilledCode }forall
+{\fcArrayToStack 3 1 roll pop pop false true 3 -1 roll \fcBoxIIIdFilledCode}forall
 end
 }%
 }%
+}%
+\uncover<1,2>{%
 \fcBoxIIIdHollowNew[dashes={[0.5 3] 0}, colorUV=cyan]{[0 0 0]}{ver1}{ver2}{ver3}%
+\fcAxesIIId[linewidth=1pt, xLabel={$x_1$}, yLabel={$x_2$}, zLabel={$x_3$}, linestyle=dotted]{2}{2.5}{2}%
 }%
 \pstVerb{end}%
 \end{pspicture}
@@ -98,7 +116,7 @@ end
 \end{itemize}
 \end{columns}
 \begin{theorem}
-$\Vol_n(\mathcal R_n)=h_n \Vol_{n-1}(\mathcal R_{n-1})= \displaystyle {\int\dots \int}_{ \mathcal R_n} 1 \cdot \diff x_1\dots \diff x_n $.
+$\Vol_n(\mathcal R_n)=h_n \Vol_{n-1}(\mathcal R_{n-1})= \displaystyle {\int\dots \int}_{ \mathcal R_n} 1 \cdot \alert<2>{ \diff x_1\dots \diff x_n} $.
 \end{theorem}
 \begin{itemize}
 \item<2-> \alert<2>{Right hand side: approx. vol. with boxes, sides along coord. axes.}

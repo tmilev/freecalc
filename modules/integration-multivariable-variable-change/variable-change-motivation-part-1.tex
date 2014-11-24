@@ -1,0 +1,122 @@
+\begin{frame}
+\frametitle{Variable change in multivariable integrals}
+\begin{columns}
+\column{0.4\textwidth}
+$
+\fcv f:\left|\begin{array}{r@{~}c@{~}l}
+x_1 &=& f_1( y_1, \dots, y_n)\\
+&\vdots&\\
+x_n &=& f_n ( y_1, \dots, y_n) 
+\end{array}\right.
+$
+
+$J_{\fcv f}=\left( \begin{array}{ccc}  \frac{\partial x_1 }{\partial y_1} & \cdots & \frac{\partial x_1 }{\partial y_n} \\ \vdots & \ddots & \vdots \\  \frac{\partial x_n}{\partial y_1}  & \cdots & \frac{\partial x_n}{\partial y_n} \end{array}\right) $
+\column{0.6\textwidth}
+\begin{pspicture}(-0.5, -0.5)(2,2)
+\tiny%
+\fcAxesStandard{-1}{-1}{2}{2}%
+\fcLabels[$y_1$][$y_2$]{2}{2}%
+\pstVerb{%
+/Delta 0.3 def
+/base1 1.2 def
+/base2 0.6 def
+}%
+\uncover<4->{%
+\psline*[linecolor=pink](! base1 base2 )(! base1 Delta add base2 )(! base1 Delta add base2 Delta add )(! base1 base2 Delta add)(! base1 base2)%
+}%
+\multido{\na=6+1}{5}{%
+\pstVerb{/y2 \na\space 6 sub Delta mul Delta add def}%
+\psline(! 0.2 y2)(! 1.6 y2)%
+\psline(! -0.05 y2)(! 0.05 y2)%
+}%
+\multido{\na=11+1}{5}{%
+\pstVerb{/y1 \na\space 11 sub Delta mul Delta add def}%
+\psline(! y1 0.2)(! y1 1.6)%
+\psline(!  y1 -0.05)(! y1 0.05)%
+}%
+\only<1>{%
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(1,0)%
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(0,1)%
+\rput[t](0.5, -0.1){$\alert<1>{\fcv e_1}$}%
+\rput[r](-0.05, 0.5){$\alert<1>{\fcv e_2~}$}%
+}%
+\uncover<2->{\fcFullDot[linecolor=brown]{base1}{base2}}%
+\uncover<5->{%
+\fcFullDot[linecolor=brown]{base1 Delta add}{base2}%
+\fcFullDot[linecolor=brown]{base1}{base2 Delta add}%
+}%
+\uncover<3->{%
+\psline[arrows=|-|] (0.3, -0.3)(0.6,-0.3)%
+\rput[t](0.45, -0.45){$\Delta y_1$}%
+\psline[arrows=|-|] (-0.3,0.3)(-0.3,0.6)%
+\rput[r]( -0.45, 0.45){$\Delta y_2$}%
+}%
+\uncover<4->{%
+\rput[b](1.6,0.7){$~B$}%
+}%
+\end{pspicture} ~
+ \raisebox{1.25cm}{$\stackrel{\fcv f}{\to} $}  ~
+\begin{pspicture}(-0.5, -0.5)(2,2)
+\tiny
+\fcAxesStandard{-0.5}{-1}{2.5}{2}
+\fcLabels[$x_1$][$x_2$]{2.5}{2}
+\pstVerb{
+/theF { theta 57.295779513 mul cos r mul theta 57.295779513 mul sin r mul  } def
+/Delta 0.3 def
+/base1 1.2 def
+/base2 0.6 def
+}
+\uncover<7->{%
+\pscustom*[linecolor=blue]{%
+\parametricplot{base1}{base1 Delta add}{2 dict begin /r t def /theta base2 def theF end}%
+\parametricplot{base2}{base2 Delta add}{2 dict begin /r base1 Delta add  def /theta t def theF end}%
+\parametricplot{base1 Delta add}{base1}{2 dict begin /r t def /theta base2 Delta add def theF end}%
+\parametricplot{base2 Delta add}{base2}{2 dict begin /r base1 def /theta t def theF end}%
+}%
+}%
+\multido{\na=6+1}{5}{%
+\pstVerb{/y2 \na\space 6 sub 0.3 mul 0.3 add def}%
+\parametricplot{0.2 }{1.6}{2 dict begin /r t def /theta y2 def theF end} }%
+\multido{\na=11+1}{5}{%
+\pstVerb{/y1 \na\space 11 sub 0.3 mul 0.3 add def}%
+\parametricplot{0.2 }{1.6}{2 dict begin /r y1 def /theta t def theF end}%
+}%
+\uncover<8->{%
+\fcFullDot[linecolor=magenta]{2 dict begin /r base1 def /theta base2 def theF pop end}{2 dict begin /r base1 def /theta base2 def theF exch pop end}%
+\fcFullDot[linecolor=magenta]{2 dict begin /r base1 Delta add def /theta base2 def theF pop end}{2 dict begin /r base1 Delta add def /theta base2 def theF exch pop end}%
+\fcFullDot[linecolor=magenta]{2 dict begin /r base1 def /theta base2 Delta add def theF pop end}{2 dict begin /r base1 def /theta base2 Delta add def theF exch pop end}%
+}%
+\uncover<8->{%
+\pscustom*[linecolor=green]{%
+\psline
+(! 2 dict begin /r base1 def /theta base2 def theF end)
+(! 2 dict begin /r base1 Delta add def /theta base2 def theF end)
+(! [2 dict begin /r base1 def /theta base2 def theF end]
+   [2 dict begin /r base1 Delta add def /theta base2 def theF end]
+   [2 dict begin /r base1 def /theta base2 Delta add def theF end]
+\fcVectorPlusVector exch \fcVectorMinusVector \fcArrayToStack 
+)
+(! 2 dict begin /r base1 def /theta base2 Delta add def theF end)
+(! 2 dict begin /r base1 def /theta base2 def theF end)
+}
+}%
+\uncover<7->{\rput[bl](1.1,1.1){$\uncover<8->{{\color{green}{E}}}\uncover<9->{\approx}{\color{blue}C}$}}%
+\end{pspicture} 
+
+\end{columns}
+
+ 
+\begin{itemize}
+\item Let $\fcv e_1,\dots, \fcv e_n$ be the basis vectors. \uncover<2->{Fix a point $\fcv y=(y_1,\dots, y_n)$.}
+\item<3-> Let $\Delta y_1,\dots \Delta y_n$ be small numbers. \uncover<4->{Construct a small box $B$ with corner $\fcv y$ spanned by the vectors $\Delta y_1 \fcv e_1,\dots, \Delta y_n \fcv e_n$.} 
+\item<5-> Knowing the point $\fcv y$ and the corners $\fcv y +\Delta y_1 \fcv e_1,\dots, \fcv y+\Delta y_n\fcv e_n$ suffices to identify $B$. Mark those corners.
+\item<6-> $\Vol (B)=\Delta y_1, \dots, \Delta y_n$. 
+
+\item<7-> Let the image of $B$ be $f(B)={\color{blue}C}$. ${\color{blue}C} $ is a ``curvilinear box''. 
+\item<8-> Let ${\color{green}E}$ be the parrallelotope at $\fcv f(\fcv y)$ spanned by images of the marked corners of $B$. \uncover<9,10->{\alert<10>{Then $\Vol ({\color{blue}C})\approx \Vol_n ({\color{green}E})$.}}
+\end{itemize}
+
+\vskip 10cm
+\end{frame}
+
+

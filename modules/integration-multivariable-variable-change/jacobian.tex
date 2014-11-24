@@ -23,7 +23,8 @@ $
 \psline(! y1 0.2)(! y1 1.6)%
 \psline(!  y1 -0.05)(! y1 0.05)%
 }%
-\uncover<3->{\psline[linecolor=red, linewidth=2pt](1.2, 0.2)(1.2, 1.6)}
+\uncover<3->{\psline[linecolor=red, linewidth=2pt](0.2, 0.6)(1.6, 0.6)}
+\uncover<6->{\psline[linecolor=red, linewidth=2pt](1.2, 0.2)(1.2, 1.6)}
 \end{pspicture} ~
  \raisebox{1.25cm}{$\stackrel{\fcv f}{\to} $}  ~
 \begin{pspicture}(-0.5, -0.5)(2,2)
@@ -40,8 +41,9 @@ $
 \pstVerb{/y1 \na\space 11 sub 0.3 mul 0.3 add def}%
 \parametricplot{0.2 }{1.6}{2 dict begin /r y1 def /theta t def theF end}%
 }%
-\uncover<4->{\parametricplot[linecolor=red, linewidth=2pt]{0.2 }{1.6}{2 dict begin /r 1.2 def /theta t def theF end}}
-\uncover<5->{%
+\uncover<4->{\parametricplot[linecolor=red, linewidth=2pt]{0.2 }{1.6}{2 dict begin /r t def /theta 0.6 def theF end}}
+\uncover<6->{\parametricplot[linecolor=red, linewidth=2pt]{0.2 }{1.6}{2 dict begin /r 1.2 def /theta t def theF end}}
+\uncover<6->{%
 \fcFullDot{0.6 57.295779513 mul cos 1.2 mul }{0.6 57.295779513 mul sin 1.2 mul}
 \psline[linecolor=blue, linewidth=2pt, arrows=->](!
 0.6 57.295779513 mul cos 1.2 mul 
@@ -52,10 +54,10 @@ $
 0.6 57.295779513 mul sin 1.2 mul
 0.6 57.295779513 mul cos 1.2 mul add
 )}%
-\uncover<5->{%
-\rput[l](0.5, 1.5){$\alert<5>{\left( \frac{\partial x_1 }{\partial y_1},\dots , \frac{\partial x_n}{\partial y_1} \right)}$}
-}%
 \uncover<6->{%
+\rput[l](0.5, 1.5){$\alert<6>{\left( \frac{\partial x_1 }{\partial y_2},\dots , \frac{\partial x_n}{\partial y_2} \right)}$}
+}%
+\uncover<5->{%
 \psline[linecolor=blue, linewidth=2pt, arrows=->](!
 0.6 57.295779513 mul cos 1.2 mul 
 0.6 57.295779513 mul sin 1.2 mul
@@ -63,8 +65,8 @@ $
 0.6 57.295779513 mul cos 2.2 mul 
 0.6 57.295779513 mul sin 2.2 mul
 )}%
-\uncover<6->{%
-\rput[b](1.4, -0.5){$\alert<6>{\left( \frac{\partial x_1 }{\partial y_2},\dots , \frac{\partial x_n}{\partial y_2} \right)}$}
+\uncover<5->{%
+\rput[b](1.4, -0.5){$\alert<5>{\left( \frac{\partial x_1 }{\partial y_1},\dots , \frac{\partial x_n}{\partial y_1} \right)}$}
 \psline[linestyle=dotted, arrows=->](1.4, -0.25)(! 0.6 57.295779513 mul cos 1.7 mul 0.6 57.295779513 mul sin 1.7 mul)
 }%
 \end{pspicture} 
@@ -78,7 +80,7 @@ J_{\fcv f}=\left( \begin{array}{ccc} \frac{\partial \alert<2>{f_1}}{\partial y_1
 \begin{itemize}
 \item<3-> Consider \alert<4>{curve given by $\fcv f$} with \alert<3>{parameter $y_1$} (other $y_j$'s-fixed).
 \item<5-> Then the tangent vector of that curve is $\alert<5>{\left( \frac{\partial x_1 }{\partial y_1},\dots , \frac{\partial x_n}{\partial y_1} \right)}$.
-\item<6-> Similar considerations holds for $\alert<6>{y_2}\uncover<7->{\alert<7>{,\dots, y_n}}$.
+\item<6-> Similar considerations holds for $\alert<6>{y_2}\uncover<7->{\alert<7>{,\dots, y_n}.}$
 \end{itemize}
 
 

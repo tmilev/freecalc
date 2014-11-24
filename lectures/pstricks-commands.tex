@@ -714,7 +714,7 @@ end
 /v1 exch def 
 /v0 exch def
 /v3 v1 v2 \fcVectorPlusVector v0 \fcVectorMinusVector def
-[v0 v1 v2 v3 [v0 v1 v3 v2 v0] options]
+[v0 v1 v2 v3 [v0 v1 v1 v3 v3 v2 v2 v0] options]
 end
 }
 
@@ -916,7 +916,10 @@ end\space%
 \fcLineIIIdInScene[#1]{[0 0 0]}{[#2 0 0]}%
 \fcLineIIIdInScene[#1]{[0 0 0]}{[0 #3 0]}%
 \fcLineIIIdInScene[#1]{[0 0 0]}{[0 0 #4]}%
-}
+\rput[l](! [#2 0 0] \fcCoordsIIIdToPStricks){~\fcXLabel}%
+\rput[l](! [0 #3 0] \fcCoordsIIIdToPStricks){~\fcYLabel}%
+\rput[r](! [0 0 #4] \fcCoordsIIIdToPStricks){\fcZLabel~}%
+}%
 
 \newcommand{\fcAxesIIIdFullInScene}[4][linecolor=black, arrows=->]{%
 \setkeys{fcGraphics}{#1}%
@@ -931,11 +934,11 @@ end\space%
 \newcommand{\fcAxesIIId}[4][linecolor=black, arrows=->]{%
 \setkeys{fcGraphics}{#1}%
 \fcLineIIId[#1]{[0 0 0]}{[#2 0 0]}%
-\rput(! [#2 0 0] \fcCoordsIIIdToPStricks){\fcXLabel}%
 \fcLineIIId[#1]{[0 0 0]}{[0 #3 0]}%
-\rput(! [0 #3 0] \fcCoordsIIIdToPStricks){\fcYLabel}%
 \fcLineIIId[#1]{[0 0 0]}{[0 0 #4]}%
-\rput(! [0 0 #4] \fcCoordsIIIdToPStricks){\fcZLabel}%
+\rput[l](! [#2 0 0] \fcCoordsIIIdToPStricks){~\fcXLabel}%
+\rput[l](! [0 #3 0] \fcCoordsIIIdToPStricks){~\fcYLabel}%
+\rput[r](! [0 0 #4] \fcCoordsIIIdToPStricks){\fcZLabel~}%
 }
 
 \newcommand{\fcDotIIId}[2][linecolor=\fcColorGraph]{%
@@ -2505,7 +2508,7 @@ end
 1 dict begin
 /thePatch exch def %
 thePatch type (arraytype) eq{
-thePatch \fcPatchGetIsDashed {thePatch \fcPatchGetDashes setdashVirtual}if
+thePatch \fcPatchGetIsDashed {thePatch \fcPatchGetDashes setdashVirtual}{[] 0 setdashVirtual}ifelse
 thePatch \fcPatchGetContour length 0 gt{
 thePatch \fcPatchGetColorContour setrgbcolorVirtual
 newpathVirtual
