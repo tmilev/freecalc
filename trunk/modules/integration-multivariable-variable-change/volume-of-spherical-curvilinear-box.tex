@@ -1,5 +1,92 @@
 \begin{frame}
 \begin{example}
+\begin{columns}
+\column{0.6\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\fcBoundingBox{-0.6}{-1}{3.1}{2.5}
+\pstVerb{10 dict begin%
+/rhoMin 1 def%
+/rhoMax 2 def%
+/thetaMin 20 57.2957795 div def%
+/thetaMax 70 57.2957795 div  def%
+/phiMin 20 57.2957795 div def%
+/phiMax 70 57.2957795 div def%
+}%
+\fcAxesIIId[arrows=->, xLabel=$~~\rho$, yLabel=$~~\phi$, zLabel=$~~\theta$]{2.5}{3.8}{2.5}
+\pscustom*[linecolor=cyan]{%
+\fcPolyLineIIId{[rhoMin phiMin thetaMin] [rhoMax phiMin thetaMin] [rhoMax phiMax thetaMin] [rhoMax phiMax thetaMax] [rhoMin phiMax thetaMax] [rhoMin phiMin thetaMax] [rhoMin phiMin thetaMin]}
+}
+\fcLineIIId[linestyle=dashed]{[0 0 0]}{[0 3.8 0]}
+\fcDotIIId{[rhoMin 0 0 ]}
+\fcPutIIId[t]{[rhoMin 0 -0.2 ]}{$\rho_{min}$}
+\fcDotIIId{[rhoMax 0 0 ]}
+\fcPutIIId[t]{[rhoMax 0 -0.2 ]}{$\rho_{max}$}
+\fcDotIIId{[0 0 thetaMin  ]}
+\fcPutIIId[r]{[0 0 thetaMin]}{$\theta_{min}~~$}
+\fcDotIIId{[0 0 thetaMax]}
+\fcPutIIId[r]{[0 0 thetaMax]}{$\theta_{max}~~$}
+\fcDotIIId{[0  phiMin 0  ]}
+\fcPutIIId[b]{[0 phiMin 0.2 ]}{$~\phi_{min}$}
+\fcDotIIId{[0  phiMax 0  ]}
+\fcPutIIId[b]{[0 phiMax 0.2 ]}{$\phi_{max}$}
+\fcLineIIId[linecolor=blue, linestyle=dashed]{[rhoMin phiMax thetaMin]}{[rhoMax phiMax thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMax thetaMin]}{[rhoMax phiMin thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMin thetaMin]}{[rhoMin phiMin thetaMin]}
+\fcLineIIId[linecolor=blue, linestyle=dashed]{[rhoMin phiMin thetaMin]}{[rhoMin phiMax thetaMin]}
+\fcLineIIId[linecolor=blue, linestyle=dashed]{[rhoMin phiMax thetaMax]}{[rhoMin phiMax thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMax thetaMax]}{[rhoMax phiMax thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMin thetaMax]}{[rhoMax phiMin thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMin phiMin thetaMax]}{[rhoMin phiMin thetaMin]}
+\fcLineIIId[linecolor=blue]{[rhoMin phiMax thetaMax]}{[rhoMax phiMax thetaMax]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMax thetaMax]}{[rhoMax phiMin thetaMax]}
+\fcLineIIId[linecolor=blue]{[rhoMax phiMin thetaMax]}{[rhoMin phiMin thetaMax]}
+\fcLineIIId[linecolor=blue]{[rhoMin phiMin thetaMax]}{[rhoMin phiMax thetaMax]}
+\pstVerb{end}
+\end{pspicture} \raisebox{1cm}{$\stackrel{\fcv f}{\to}$}
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\fcBoundingBox{-0.3}{-1}{2.5}{2.5}
+\renewcommand{\fcScreen}{[-5 1 -2.4] 0}
+\pstVerb{10 dict begin%
+/rhoMin 1 def%
+/rhoMax 2 def%
+/thetaMin 20 def%
+/thetaMax 70 def%
+/phiMin 20 def%
+/phiMax 70 def%
+/xSph {theta cos phi sin rho mul mul} def%
+/ySph {theta sin phi sin rho mul mul} def%
+/zSph {phi cos rho mul} def%
+}%
+\fcAxesIIId{2}{2}{2}
+\pscustom*[linecolor=pink]{%
+\fcCurveIIId{phiMin}{phiMax}{[3 dict begin /rho rhoMin def /phi t def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMax def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId{thetaMin}{thetaMax}{[3 dict begin /rho rhoMax def /phi phiMax def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{phiMax}{phiMin}{[3 dict begin /rho rhoMax def /phi t def /theta thetaMax def xSph ySph zSph end]}
+\fcCurveIIId{thetaMax}{thetaMin}{[3 dict begin /rho rhoMax def /phi phiMin def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{rhoMax}{rhoMin}{[3 dict begin /rho t def /phi phiMin def /theta thetaMin def xSph ySph zSph end]}
+}%
+\fcLineIIId[linestyle=dashed]{[0 0 0]}{[0 2 0]}
+\fcCurveIIId{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMin def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMax def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMin def /theta thetaMax def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMax def /theta thetaMax def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, dash = 2.6pt,  linecolor=red] {thetaMin}{thetaMax}{[3 dict begin /rho rhoMin def /phi phiMin def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{thetaMin}{thetaMax}{[3 dict begin /rho rhoMax def /phi phiMin def /theta t def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{thetaMin}{thetaMax}{[3 dict begin /rho rhoMin def /phi phiMax def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{thetaMin}{thetaMax}{[3 dict begin /rho rhoMax def /phi phiMax def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{phiMin}{phiMax}{[3 dict begin /rho rhoMin def /phi t def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{phiMin}{phiMax}{[3 dict begin /rho rhoMin def /phi t def /theta thetaMax def xSph ySph zSph end]}
+\fcCurveIIId{phiMin}{phiMax}{[3 dict begin /rho rhoMax def /phi t def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId{phiMin}{phiMax}{[3 dict begin /rho rhoMax def /phi t def /theta thetaMax def xSph ySph zSph end]}
+\pstVerb{end}
+\end{pspicture}
+\column{0.4\textwidth}
 Find the volume of a spherical curvilinear box, given by the spherical coordinate inequalities $\rho_{min}\leq \rho \leq \rho_{max}$, $\phi_{min}\leq \phi\leq \phi_{max}$, $\theta_{min}\leq \theta\leq \theta_{max} $.
+\end{columns}
+
 \end{example}
 \end{frame}
