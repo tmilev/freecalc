@@ -1,0 +1,109 @@
+
+
+\begin{frame}
+\frametitle{Variable change in multivariable integrals}
+\begin{columns}
+\column{0.4\textwidth}
+$
+\fcv f:\left|\begin{array}{r@{~}c@{~}l}
+x_1 &=& f_1( y_1, \dots, y_n)\\
+&\vdots&\\
+x_n &=& f_n ( y_1, \dots, y_n) \quad .
+\end{array}\right.
+$
+
+$J_{\fcv f}=\left( \begin{array}{ccc}  \frac{\partial x_1 }{\partial y_1} & \cdots & \frac{\partial x_1 }{\partial y_n} \\ \vdots & \ddots & \vdots \\  \frac{\partial x_n}{\partial y_1}  & \cdots & \frac{\partial x_n}{\partial y_n} \end{array}\right) $
+\column{0.6\textwidth}
+\begin{pspicture}(-0.5, -0.5)(2,2)
+\tiny%
+\fcAxesStandard{-1}{-1}{2}{2}%
+\fcLabels[$y_1$][$y_2$]{2}{2}%
+\pstVerb{%
+/Delta 0.3 def
+/base1 1.2 def
+/base2 0.6 def
+}%
+\psline*[linecolor=pink](! base1 base2 )(! base1 Delta add base2 )(! base1 Delta add base2 Delta add )(! base1 base2 Delta add)(! base1 base2)%
+\multido{\na=6+1}{5}{%
+\pstVerb{/y2 \na\space 6 sub Delta mul Delta add def}%
+\psline(! 0.2 y2)(! 1.6 y2)%
+\psline(! -0.05 y2)(! 0.05 y2)%
+}%
+\multido{\na=11+1}{5}{%
+\pstVerb{/y1 \na\space 11 sub Delta mul Delta add def}%
+\psline(! y1 0.2)(! y1 1.6)%
+\psline(!  y1 -0.05)(! y1 0.05)%
+}%
+%\fcFullDot[linecolor=brown]{base1}{base2}%
+%\fcFullDot[linecolor=brown]{base1 Delta add}{base2}%
+%\fcFullDot[linecolor=brown]{base1}{base2 Delta add}%
+\psline[arrows=|-|] (0.3, -0.3)(0.6,-0.3)%
+\rput[t](0.45, -0.45){$\Delta y_1$}%
+\psline[arrows=|-|] (-0.3,0.3)(-0.3,0.6)%
+\rput[r]( -0.45, 0.45){$\Delta y_2$}%
+\rput[b](1.6,0.7){$~B$}%
+\end{pspicture} ~
+ \raisebox{1.25cm}{$\stackrel{\fcv f}{\to} $}  ~
+\begin{pspicture}(-0.5, -0.5)(2,2)
+\tiny
+\fcAxesStandard{-0.5}{-1}{2.5}{2}
+\fcLabels[$x_1$][$x_2$]{2.5}{2}
+\pstVerb{
+/theF { theta 57.295779513 mul cos r mul theta 57.295779513 mul sin r mul  } def
+/Delta 0.3 def
+/base1 1.2 def
+/base2 0.6 def
+/basePoint [2 dict begin /r base1 def /theta base2 def theF end] def
+/tangent2 [base2 57.295779513 mul sin -1 mul base1 mul base2 57.295779513 mul cos base1 mul] def
+/tangent1 [base2 57.295779513 mul cos base2 57.295779513 mul sin] def
+}
+\pscustom*[linecolor=blue]{%
+\parametricplot{base1}{base1 Delta add}{2 dict begin /r t def /theta base2 def theF end}%
+\parametricplot{base2}{base2 Delta add}{2 dict begin /r base1 Delta add  def /theta t def theF end}%
+\parametricplot{base1 Delta add}{base1}{2 dict begin /r t def /theta base2 Delta add def theF end}%
+\parametricplot{base2 Delta add}{base2}{2 dict begin /r base1 def /theta t def theF end}%
+}%
+\multido{\na=6+1}{5}{%
+\pstVerb{/y2 \na\space 6 sub 0.3 mul 0.3 add def}%
+\parametricplot{0.2 }{1.6}{2 dict begin /r t def /theta y2 def theF end} }%
+\multido{\na=11+1}{5}{%
+\pstVerb{/y1 \na\space 11 sub 0.3 mul 0.3 add def}%
+\parametricplot{0.2 }{1.6}{2 dict begin /r y1 def /theta t def theF end}%
+}%
+%\fcFullDot[linecolor=magenta]{2 dict begin /r base1 def /theta base2 def theF pop end}{2 dict begin /r base1 def /theta base2 def theF exch pop end}%
+%\fcFullDot[linecolor=magenta]{2 dict begin /r base1 Delta add def /theta base2 def theF pop end}{2 dict begin /r base1 Delta add def /theta base2 def theF exch pop end}%
+%\fcFullDot[linecolor=magenta]{2 dict begin /r base1 def /theta base2 Delta add def theF pop end}{2 dict begin /r base1 def /theta base2 Delta add def theF exch pop end}%
+\pscustom*[linecolor=green]{%
+\psline
+(! 2 dict begin /r base1 def /theta base2 def theF end)
+(! 2 dict begin /r base1 Delta add def /theta base2 def theF end)
+(! [2 dict begin /r base1 def /theta base2 def theF end]
+   [2 dict begin /r base1 Delta add def /theta base2 def theF end]
+   [2 dict begin /r base1 def /theta base2 Delta add def theF end]
+\fcVectorPlusVector exch \fcVectorMinusVector \fcArrayToStack 
+)
+(! 2 dict begin /r base1 def /theta base2 Delta add def theF end)
+(! 2 dict begin /r base1 def /theta base2 def theF end)
+}
+\rput[bl](1.1,1.1){${\color{green}{E}}\approx{\color{blue}C} \approx{\color{red}J}$}%
+\psline*[linecolor=red]
+(! basePoint \fcArrayToStack)
+(! basePoint tangent1 Delta \fcVectorTimesScalar \fcVectorPlusVector \fcArrayToStack)
+(! basePoint tangent1 tangent2 \fcVectorPlusVector Delta \fcVectorTimesScalar \fcVectorPlusVector \fcArrayToStack)
+(! basePoint tangent2 Delta \fcVectorTimesScalar \fcVectorPlusVector \fcArrayToStack)
+(! basePoint \fcArrayToStack)
+\end{pspicture} 
+\end{columns}
+\begin{itemize}
+\item \alert<1>{Let $J$ be the parallelotope at $\fcv f(\fcv y)$ spanned by the vectors $\alert<2>{\Delta y_1 \left( \frac{\partial x_1}{\partial y_1},\dots, \frac{\partial x_n}{\partial y_1} \right)}$, \dots, $\alert<3>{ \Delta y_n \left(\frac{\partial x_1}{\partial y_n},\dots, \frac{\partial x_n}{\partial y_n}\right) }$.} \uncover<7->{Suppose $\det J_{\fcv f}\geq 0$. }
+\item \alert<1>{$\alert<8>{ \Vol ({\color{blue}C}) \approx} \Vol_n ( {\color{green}E} ) \approx \Vol_n({\color{red}J}) \uncover<8->{= \alert<8>{ \det J_{\fcv f} \Delta y_1\dots \Delta y_n}}$}
+\end{itemize}
+$
+\begin{array}{r@{}c@{}l}
+\uncover<2->{\Vol_n(J)&=& \alert<7>{\pm} \left|\begin{array}{ccc}  \alert<2>{\alert<4>{ \Delta y_1} \frac{\partial x_1 }{\partial y_1}} & \cdots &\alert<3>{ \alert<5>{\Delta y_n} \frac{\partial x_1 }{\partial y_n}} \\ \vdots & \ddots & \vdots \\ \alert<2>{ \alert<4>{\Delta y_1}  \frac{\partial x_n}{\partial y_1}}  & \cdots &\alert<3>{ \alert<5>{\Delta y_n} \frac{\partial x_n}{\partial y_n}} \end{array} \right|}\! \uncover<4->{=\!\alert<7>{\pm} \alert<4>{ \Delta y_1} \dots \alert<5>{\Delta y_n} \alert<6>{ \left| \begin{array}{ccc}  \frac{ \partial x_1 }{\partial y_1} & \cdots & \frac{\partial x_1 }{\partial y_n} \\ \vdots & \ddots & \vdots \\  \frac{\partial x_n}{\partial y_1}  & \cdots & \frac{\partial x_n}{\partial y_n} \end{array}\right|}} \\
+\uncover<6->{&=& \alert<7>{\pm} \alert<6>{\det \left(J_{\fcv f}\right)} \Delta y_1\dots \Delta y_n \quad .}
+\end{array}
+$
+
+\vskip 10cm
+\end{frame}
