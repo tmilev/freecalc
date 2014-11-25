@@ -80,9 +80,30 @@ end]
 \fcDotIIId{theC}%
 \fcPutIIId[t]{theC [0 0 -0.1] \fcVectorPlusVector}{$C$}%
 }%
+\uncover<10,11>{%
+\fcLineIIId[linecolor=red, linewidth=1.5pt]{[0 0 0]}{theC}%
+}%
+\uncover<12,13>{%
+\fcLineIIId[linecolor=red, linewidth=1.5pt]{theP}{theC}%
+}%
+\uncover<14,15>{%
+\fcLineIIId[linecolor=red, linewidth=1.5pt]{theP}{theH}%
+}%
+\uncover<16,17>{%
+\fcLineIIId[linecolor=red, linewidth=1.5pt]{[0 0 0]}{theH}%
+}%
 \uncover<18->{%
-\fcP
-}
+\fcPerpendicularIIId{theH}{[0 0 0] [1 0 0]}{0.2}%
+}%
+\uncover<18,19>{%
+\fcLineIIId[linecolor=red, linewidth=1.5pt]{[0 0 0]}{[theH \fcArrayToStack pop pop 0 0]}%
+}%
+\uncover<20,21>{%
+\fcLineIIId[linecolor=red, linewidth=1.5pt]{theH}{[theH \fcArrayToStack pop pop 0 0]}%
+}%
+\uncover<22,23>{%
+\fcLineIIId[linecolor=red, linewidth=1.5pt]{theH}{theP}%
+}%
 \end{pspicture}
 \column{0.45\textwidth} 
 Find the volume of a toroid $T$ (the inside of a torus $S$) with major radius $R$ and minor radius $r$.
@@ -91,8 +112,8 @@ Find the volume of a toroid $T$ (the inside of a torus $S$) with major radius $R
 $
 S:\left|\begin{array}{r@{}c@{}l}
 \fcQuestion{18}{x}&\fcQuestion{18}{=}&\fcAnswer{19}{(R+r\cos \theta) \cos \phi} \\
-y&=&(R+r\cos \theta) \sin \phi\\
-z&=&r\sin \theta
+\alert<20,21>{y}&\alert<20,21>{=}& \fcAnswer{21} {(R+r\cos \theta) \sin \phi}\\
+\alert<22,23>{z}&\alert<22,23>{=}& \fcAnswer{23} {r\sin \theta}
 \end{array}\right.
 $
 }
@@ -104,9 +125,165 @@ $\begin{array}{rcl}
 \fcQuestion{10}{|OC|} & \fcQuestion{10}{=}& \fcAnswer{11}{R}\\
 \fcQuestion{12}{|PC|} & \fcQuestion{12}{=}& \fcAnswer{13}{r}\\
 \fcQuestion{14}{|PH|} & \fcQuestion{14}{=}& \fcAnswer{15}{r\sin\theta}\\
-\fcQuestion{16}{|OH|} & \fcQuestion{16}{=}& \fcAnswer{17}{R+r\cos\theta}\\
+\fcQuestion{16}{ \alert<18-21>{|OH|}} & \fcQuestion{16}{\alert<18-21>{=}}& \fcAnswer{17}{\alert<18-21>{R+r\cos\theta}}\\
 \end{array}.
 $  }
 \end{example}
+\vskip 10cm 
+\end{frame}
 
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.55\textwidth} 
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -0.75] -1}
+\fcBoundingBox{-2.9}{-1.8}{3.4}{2.2}
+\pstVerb{%
+/theMajorRadius 2 def
+/theMinorRadius 0.8 def
+/theT {[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]}
+def
+/phiP 60 def
+/thetaP 60 def
+/theP 2 dict begin /u phiP def /v thetaP def theT end def
+/theH [theP \fcArrayToStack pop 0] def
+/theC [phiP cos theMajorRadius mul phiP sin theMajorRadius mul 0] def
+}%
+\fcStartIIIdScene
+\only<2>{%
+\fcSurfaceInScene[linecolor=black, arrows=->, iterationsU=8, iterationsV=12 ]{0}{0}{120}{360}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+}%
+\only<3>{%
+\fcSurfaceInScene[linecolor=black, arrows=->, iterationsU=16, iterationsV=12 ]{0}{0}{240}{360}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+}%
+\only<4,5,9,10,13->{%
+\fcSurfaceInScene[linecolor=black, arrows=->, iterationsU=24, iterationsV=12 ]{0}{0}{360}{360}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+}%
+\fcAxesIIIdInScene{4}{4}{2.2}%
+\only<1>{%
+\fcCurveIIIdInScene[linewidth=2, linecolor=red]{0}{360}{2 dict begin /u 0 def /v t def theT end}%
+}%
+\only<2>{%
+\fcCurveIIIdInScene[linewidth=2, linecolor=red]{0}{360}{2 dict begin /u 120 def /v t def theT end}%
+}%
+\only<3>{%
+\fcCurveIIIdInScene[linewidth=2, linecolor=red]{0}{360}{2 dict begin /u 240 def /v t def theT end}%
+}%
+\only<4>{%
+\fcCurveIIIdInScene[linewidth=2, linecolor=red]{0}{360}{2 dict begin /u 0 def /v t def theT end}%
+}%
+\only<7>{%
+\fcSurfaceInScene[linecolor=black, linewidth=1, arrows=->, iterationsU=24, iterationsV=4 ]{0}{0}{360}{120}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+}%
+\only<8>{%
+\fcSurfaceInScene[linecolor=black, linewidth=1, arrows=->, iterationsU=24, iterationsV=8 ]{0}{0}{360}{240}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+}%
+\only<11>{%
+\fcSurfaceInScene[linecolor=black, linewidth=1, arrows=->, iterationsU=24, iterationsV=12 ]{0}{0}{360}{360}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius 0.33 mul def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+}%
+\only<12>{%
+\fcSurfaceInScene[linecolor=black, linewidth=1, arrows=->, iterationsU=24, iterationsV=12 ]{0}{0}{360}{360}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius 0.66 mul def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+}%
+\only<7>{\fcCurveIIId[linewidth=2pt, linecolor=red]{0}{360}{2 dict begin /u t def /v 120 def theT end}}%
+\only<8>{\fcCurveIIIdInScene[linewidth=2, linecolor=red]{0}{360}{2 dict begin /u t def /v 240 def theT end}}%
+\fcFinishIIIdScene[fastsort=true]%
+\only<6,9>{%
+\fcCurveIIId[arrows=->,linewidth=2pt, linecolor=red]{0}{360}{2 dict begin /u t def /v 0 def theT end}%
+}%
+\end{pspicture}
+\column{0.45\textwidth} 
+Find the volume of a toroid $T$ (the inside of a torus $S$) with major radius $R$ and minor radius $r$.
+
+$
+S:\left|\begin{array}{r@{}c@{}l}
+x&=&(R+r\cos \theta) \cos \phi \\
+y&=&(R+r\cos \theta) \sin \phi \\
+z&=& r\sin \theta
+\end{array}\right.
+$
+\end{columns}
+$
+T:\left|\begin{array}{r@{}c@{}l}
+x&=&(R+\rho\cos \theta) \cos \phi \\
+y&=&(R+\rho\cos \theta) \sin \phi \\
+z&=& \rho\sin \theta
+\end{array}\right. \rho\in[0, \uncover<1-13>{\alert<10-13>{\textbf{?}}} \uncover<14->{\alert<14>{r}}], \phi\in [0,\uncover<1-4>{\alert<1-4>{\textbf{?}}} \uncover<5->{\alert<5>{2\pi}}), \theta\in [0,\uncover<1-8>{\alert<6-8>{\textbf{?}}}\uncover<9->{\alert<9>{2\pi}}). 
+$
+
+\end{example}
+
+
+\vskip 10cm 
 \end{frame}
