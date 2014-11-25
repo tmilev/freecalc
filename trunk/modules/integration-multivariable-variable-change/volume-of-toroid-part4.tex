@@ -1,0 +1,75 @@
+\begin{frame}
+\begin{example}[Volume of toroid]
+\begin{columns}
+\column{0.6\textwidth} 
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -0.75] -1}
+\fcBoundingBox{-2.9}{-1.8}{3.4}{2.2}
+\pstVerb{%
+/theMajorRadius 2 def
+/theMinorRadius 0.8 def
+/theT {[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]}
+def
+/phiP 60 def
+/thetaP 60 def
+/theP 2 dict begin /u phiP def /v thetaP def theT end def
+/theH [theP \fcArrayToStack pop 0] def
+/theC [phiP cos theMajorRadius mul phiP sin theMajorRadius mul 0] def
+}%
+\fcStartIIIdScene
+\fcSurfaceInScene[linecolor=black, arrows=none, iterationsU=24, iterationsV=12 ]{0}{0}{360}{360}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+\fcAxesIIIdInScene{4}{4}{2.2}%
+\fcFinishIIIdScene[fastsort=true]%
+\end{pspicture}
+
+\column{0.4\textwidth} 
+Find the volume of a toroid $T$, major radius $R$ and minor radius $r$.
+
+$
+\fcv f:\left|\begin{array}{r@{}c@{}l}
+x&\alert<0>{=}&(R+\rho\cos \theta) \cos \phi \\
+y&\alert<0>{=}&(R+\rho\cos \theta) \sin \phi \\
+z&\alert<0>{=}& \rho\sin \theta
+\end{array}\right.
+$
+
+$ 
+J_{\fcv f}=\uncover<0->{
+\left(\begin{array}{ccc}
+\frac{\partial x}{ \partial \rho}& \frac{\partial x}{\partial \phi} &\frac{\partial x}{\partial \theta}\\
+\frac{\partial y}{ \partial \rho}& \frac{\partial y}{\partial \phi} &\frac{\partial y}{\partial \theta}\\
+\frac{\partial z}{ \partial \rho}& \frac{\partial z}{\partial \phi} &\frac{\partial z}{\partial \theta}\\
+\end{array}\right)
+}
+$
+\end{columns}
+$
+\begin{array}{r@{}c@{}l}
+\displaystyle \alert<0>{\Vol (T)}&\alert<0>{=}&\displaystyle \alert<0>{ \int \limits_{\theta = 0}^{\theta=2\pi} \int \limits_{\phi= 0}^{\phi=2\pi} \int\limits_{\rho =0}^{\rho=r} \det \left(\alert<0>{J_{\fcv f}}\right) \diff \rho \diff \phi \diff \theta } = \int \limits_{ 0}^{2\pi} \int \limits_{0}^{2\pi} \int\limits_{0}^{r} \alert<1>{(R+\rho\cos \theta) \rho} \diff \rho \diff \phi \diff \theta  \\
+\uncover<2->{&=& \int \limits_{ 0}^{2\pi} \int \limits_{0}^{2\pi} {\left[ \fcAnswer{3}{\frac{R\rho^2}{2}+\frac{\rho^3}{3}\cos \theta} \right]}_{{\rho=0}}^{{\rho=r}} \diff \phi \diff \theta \uncover<4->{ = \int \limits_{ 0}^{2\pi} \int \limits_{0}^{2\pi}\left( \frac{Rr^2}{2}+ \frac{r^3}{3}\cos \theta \right) \diff \phi \diff \theta  }}\\
+\uncover<4->{ &=&2\pi \alert<5>{\int_{0}^{2\pi}} \left( \frac{Rr^2}{2}+ \frac{r^3}{3} \alert<5>{\cos \theta} \right) \alert<5>{\diff \theta} }\uncover<5->{=2\pi \int_{0}^{2\pi} \frac{Rr^2}{2} \diff \theta }\uncover<6->{= 2Rr^2\pi^2}
+\end{array}
+$
+
+\end{example}
+
+
+\vskip 10cm 
+\end{frame}

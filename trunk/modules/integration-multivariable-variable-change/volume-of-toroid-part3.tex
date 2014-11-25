@@ -1,7 +1,7 @@
 \begin{frame}
-\begin{example}
+\begin{example}[Volume of toroid]
 \begin{columns}
-\column{0.55\textwidth} 
+\column{0.6\textwidth} 
 \begin{pspicture}(-1,-1)(1,1)
 \tiny
 \renewcommand{\fcScreen}{[-1 1 -0.75] -1}
@@ -38,24 +38,46 @@ end]
 \fcAxesIIIdInScene{4}{4}{2.2}%
 \fcFinishIIIdScene[fastsort=true]%
 \end{pspicture}
-\column{0.45\textwidth} 
-Find the volume of a toroid $T$ (the inside of a torus $S$) with major radius $R$ and minor radius $r$.
+
+\column{0.4\textwidth} 
+Find the volume of a toroid $T$, major radius $R$ and minor radius $r$.
 
 $
-S:\left|\begin{array}{r@{}c@{}l}
-x&=&(R+r\cos \theta) \cos \phi \\
-y&=&(R+r\cos \theta) \sin \phi \\
-z&=& r\sin \theta
+\fcv f:\left|\begin{array}{r@{}c@{}l}
+\alert<3,4,5,9>{x}&\alert<9>{=}&\alert<9>{(R+\alert<6>{\rho}\cos \alert<8>{\theta}) \cos \alert<7>{\phi}} \\
+\alert<3,4,5,9>{y}& \alert<9>{=}&\alert<9>{(R+\alert<6>{\rho}\cos \alert<8>{\theta}) \sin \alert<7>{\phi}} \\
+\alert<3,4,5,9>{z}&\alert<9>{=}& \alert<9>{\alert<6>{\rho}\sin \alert<8>{\theta}}
 \end{array}\right.
 $
+
+$ 
+\uncover<2->{\alert<2>{
+J_{\fcv f}=\alert<9>{
+\left(\begin{array}{ccc}
+\frac{\partial \alert<3>{x}}{ \partial \alert<6>{\rho}}& \frac{\partial \alert<4>{x}}{\partial \alert<7>{\phi}} &\frac{\partial \alert<5>{x}}{\partial \alert<8>{\theta}}\\
+\frac{\partial \alert<3>{y}}{ \partial \alert<6>{\rho}}& \frac{\partial \alert<4>{y}}{\partial \alert<7>{\phi}} &\frac{\partial \alert<5>{y}}{\partial \alert<8>{\theta}}\\
+\frac{\partial \alert<3>{z}}{ \partial \alert<6>{\rho}}& \frac{\partial \alert<4>{z}}{\partial \alert<7>{\phi}} &\frac{\partial \alert<5>{z}}{\partial \alert<8>{\theta}}\\
+\end{array}\right)
+}%
+}}%
+$
+
+
 \end{columns}
 $
-T:\left|\begin{array}{r@{}c@{}l}
-x&=&(R+\rho\cos \theta) \cos \phi \\
-y&=&(R+\rho\cos \theta) \sin \phi \\
-z&=& \rho\sin \theta
-\end{array}\right.
+\begin{array}{r@{}c@{}l}
+\displaystyle \alert<1>{\Vol (T)}&\alert<1>{=}&\displaystyle\alert<1>{\int \limits_{\theta = 0}^{\theta=2\pi} \int \limits_{\phi= 0}^{\phi=2\pi} \int\limits_{\rho =0}^{\rho=r} \det \left(\alert<2>{J_{\fcv f}}\right) \diff \rho \diff \phi \diff \theta } \uncover<11->{ =\int \limits_{0}^{2\pi} \int \limits_{0}^{2\pi} \int\limits_{0}^{r} \fcAnswer{12}{A\rho~} \diff \rho \diff \phi \diff \theta}  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \\
+\uncover<9->{
+J_{\fcv f}&=&\left( \begin{array}{ccc}
+\fcAnswer{10}{\cos \theta \cos\phi }&\fcAnswer{10}{-A\sin \phi }&\fcAnswer{10}{-\rho \sin \theta\cos \phi}\\
+\fcAnswer{10}{\cos \theta \sin\phi}&\fcAnswer{10}{A\cos \phi }&\fcAnswer{10}{-\rho \sin \theta\sin \phi}\\
+\fcAnswer{10}{\sin \theta}&\fcAnswer{10}{0}&\fcAnswer{10}{\rho \cos \theta}
+\end{array}\right)
+}%
+\end{array}
 $
+
+\uncover<10->{where we have set $\alert<12>{A=R+\rho \cos \theta}$.}
 
 \end{example}
 
