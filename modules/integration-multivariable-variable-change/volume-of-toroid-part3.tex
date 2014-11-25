@@ -1,0 +1,64 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.55\textwidth} 
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -0.75] -1}
+\fcBoundingBox{-2.9}{-1.8}{3.4}{2.2}
+\pstVerb{%
+/theMajorRadius 2 def
+/theMinorRadius 0.8 def
+/theT {[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]}
+def
+/phiP 60 def
+/thetaP 60 def
+/theP 2 dict begin /u phiP def /v thetaP def theT end def
+/theH [theP \fcArrayToStack pop 0] def
+/theC [phiP cos theMajorRadius mul phiP sin theMajorRadius mul 0] def
+}%
+\fcStartIIIdScene
+\fcSurfaceInScene[linecolor=black, arrows=->, iterationsU=24, iterationsV=12 ]{0}{0}{360}{360}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+\fcAxesIIIdInScene{4}{4}{2.2}%
+\fcFinishIIIdScene[fastsort=true]%
+\end{pspicture}
+\column{0.45\textwidth} 
+Find the volume of a toroid $T$ (the inside of a torus $S$) with major radius $R$ and minor radius $r$.
+
+$
+S:\left|\begin{array}{r@{}c@{}l}
+x&=&(R+r\cos \theta) \cos \phi \\
+y&=&(R+r\cos \theta) \sin \phi \\
+z&=& r\sin \theta
+\end{array}\right.
+$
+\end{columns}
+$
+T:\left|\begin{array}{r@{}c@{}l}
+x&=&(R+\rho\cos \theta) \cos \phi \\
+y&=&(R+\rho\cos \theta) \sin \phi \\
+z&=& \rho\sin \theta
+\end{array}\right.
+$
+
+\end{example}
+
+
+\vskip 10cm 
+\end{frame}
