@@ -496,38 +496,11 @@
 
 \section{Triple Integrals in Cylindrical Coordinates}
 \input{../../modules/integration-multivariable-variable-change/triple-integrals-in-cylindrical-coordinates} 
+\input{../../modules/integration-multivariable-variable-change/moment-inertia-cylindrical-shell} 
+
+
 \section{Triple Integrals in Spherical Coordinates}
 
-
-
-
-
-
-
-\begin{frame}
-  \frametitle{Moment of Inertia}
-
-  Moment of inertia with respect to an axis $L$:
-%
-$$I_L = \text{mass} \cdot \text{distance}^2$$
-
-\underline{Example}:  
-\begin{itemize}
-\item Homogeneous cylindrical shell $\mathcal{R}$;
-\begin{itemize}
-\item inner radius $R_1$, outer radius $R_2$ and height $H$
-\end{itemize}
-\item with respect to the axis $L$ of the cylinder.
-\end{itemize}
-
-If $h \colon \mathcal{R} \to [0,\infty)$ is the distance function, $h(P) = \text{distance}(P,L)$, then
-%
-$$dI_L = h^2 \, dm = h^2\, \rho \, dV$$
-%
-hence
-%
-$$I_L = \iiint_{\mathcal{R}} dI_L = \iiint_{\mathcal{R}} h^2 \; dm =\iiint_{\mathcal{R}} h^2 \, \rho \, dV = \int_{z=0}^{z=H} \left( \iint_{D_z} \rho h^2 \, dA \right) \, dz \, $$
-\end{frame}
 
 \begin{frame}
   \frametitle{Cylindrical Coordinates}
@@ -693,23 +666,26 @@ Therefore the center of mass is also on this axis!
         \includegraphics[width=2in]{../images/polar_element_area.eps}
     \end{figure}
 %
-$$\langle x, y \rangle = \textbf{T}(r,\theta) = \langle r\cos\theta, r\sin\theta\rangle$$
-%
-$$\textbf{T}(r+\Delta r,\theta)-\textbf{T}(r,\theta) \simeq (\Delta r) \textbf{T}_r(r,\theta)$$
-%
-$$\textbf{T}(r,\theta+\Delta \theta)-\textbf{T}(r,\theta) \simeq (\Delta \theta) \textbf{T}_\theta(r,\theta)$$
-%
-$$\text{Area}(D) \simeq |\textbf{T}_r \times \textbf{T}_\theta |\Delta r \Delta \theta =
+\[
+\langle x, y \rangle = \textbf{T}(r,\theta) = \langle r\cos\theta, r\sin\theta\rangle
+\]
+\[
+\textbf{T}(r+\Delta r,\theta)-\textbf{T}(r,\theta) \simeq (\Delta r) \textbf{T}_r(r,\theta)
+\]
+\[
+\textbf{T}(r,\theta+\Delta \theta)-\textbf{T}(r,\theta) \simeq (\Delta \theta) \textbf{T}_\theta(r,\theta)
+\]
+\[\text{Area}(D) \simeq |\textbf{T}_r \times \textbf{T}_\theta |\Delta r \Delta \theta =
 \left|
 \begin{array}{cc}
   \cos{\theta} & \sin{\theta} \\
   %
   -r\sin{\theta} & r\cos{\theta}
 \end{array}
-\right| \Delta r\, \Delta \theta = r\Delta r \Delta \theta \; .$$
-%
-$$dx\,dy = r dr\, d\theta\; .$$
-%
+\right| \Delta r\, \Delta \theta = r\Delta r \Delta \theta \; .
+\]
+\[dx\,dy = r dr\, d\theta\; .
+\]
 \end{frame}
 
 
