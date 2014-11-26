@@ -1,0 +1,38 @@
+\begin{frame}
+\frametitle{Triple Integrals in Cylindrical Coordiantes}
+\begin{itemize}
+\item Cylindrical coordinates: 
+$
+\fcv f:\left|
+\begin{array}{rcl}
+\alert<3,4,6>{x}&\alert<3,4,6>{=}&\alert<3,4,6>{r\cos \theta} \\
+\alert<3,4,7>{y}&\alert<3,4,7>{=}&\alert<3,4,7>{r\sin \theta}\\
+\alert<3,4>{z}&\alert<3,4>{=}& \alert<3,4>{z}
+\end{array}
+\right. \quad .
+$
+\item<2-> Jacobian: 
+$
+J_{\fcv f} = \left(\alert<3,4>{ \begin{array}{ccc} 
+\frac{\partial x}{\partial r}& \frac{\partial x}{\partial \theta} & \frac{\partial x}{\partial z} \\ 
+\frac{\partial y}{\partial r}& \frac{\partial y}{\partial \theta}& \frac{\partial y}{\partial z}\\ 
+\frac{\partial z}{\partial r}& \frac{\partial z}{\partial \theta}& \frac{\partial z}{\partial z}\\ 
+\end{array} }\right) \uncover<3->{= \alert<9,10>{\left( \begin{array}{ccc} 
+\fcAnswer{4}{\cos \theta } & \fcAnswer{4}{-r\sin\theta} &\fcAnswer{4}{0}\\ 
+\fcAnswer{4}{\sin \theta} & \fcAnswer{4}{r\cos\theta}&\fcAnswer{4}{0}\\
+\fcAnswer{4}{0} & \fcAnswer{4}{0} &\fcAnswer{4}{1}
+\end{array} \right)}}$.
+\uncover<5->{
+\begin{theorem}[Integral Variable Change in Polar Coordinates]
+$\displaystyle \iiint_{\fcv f(\mathcal R)} h(x,y,z)\diff x\diff y \diff z= \iiint_{\mathcal R}h (r\cos \theta, r\sin \theta,z) ~~r~~\diff r \diff \theta \diff z$.
+\end{theorem}
+\begin{proof}
+$\begin{array}{rcl}
+\uncover<6->{ \iiint_{\fcv f(\mathcal R)} h(\alert<6>{x}, \alert<7>{y},z) \alert<8>{ \diff x\diff y\diff z} &=&  \iint_{\mathcal R}h (\alert<6>{r\cos \theta}, \alert<7>{r\sin \theta}, z) \alert<8>{ \alert<9,10>{\det\left(J_{\fcv f}\right)} \diff r \diff \theta \diff z}} \\
+\uncover<9->{&=& \iint_{\mathcal R} h(r\cos \theta, r\sin\theta,z) \fcAnswer{10}{r} \diff r\diff \theta\diff z\quad. }
+\end{array}
+$
+\end{proof}
+}
+\end{itemize}
+\end{frame}

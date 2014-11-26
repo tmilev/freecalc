@@ -491,62 +491,18 @@
 \input{../../modules/integration-multivariable-variable-change/moment-inertia-2d-object-axis-in-same-plane} 
 \input{../../modules/integration-multivariable-variable-change/moment-inertia-annulus-axis-in-same-plane} 
 \input{../../modules/integration-multivariable-variable-change/use-of-polar-coordinates-in-double-integrals}
+\input{../../modules/integration-multivariable-variable-change/polar-coordinates-double-integral-example-1}
+\input{../../modules/integration-multivariable-variable-change/polar-coordinates-double-integral-improper-example-1}
 
 \section{Triple Integrals in Cylindrical Coordinates}
+\input{../../modules/integration-multivariable-variable-change/triple-integrals-in-cylindrical-coordinates} 
 \section{Triple Integrals in Spherical Coordinates}
 
 
 
 
-\begin{frame}
-  \frametitle{Example}
 
-  Let $\mathcal{R}=\mathcal{R}_{rectangular}$ be the region left of $y-$axis and between the circles $x^2+y^2=1$ and $x^2+y^2=4$.  Compute
-%
-$$\iint_{\mathcal{R}} (x+y)\, dxdy\; .$$
 
-\begin{itemize}
-  \item \pause The polar \textcolor[rgb]{0.98,0.00,0.00}{region} is
-    %
-    $$\mathcal{R}_{polar} = \{(r,\theta) \; | \; 1 \leqslant r \leqslant 2, \pi/2 \leqslant \theta \leqslant 3\pi/2 \} = [1,2]\times [\pi/2, 3\pi/2]\; .$$
-    %
-    \item \pause The \textcolor[rgb]{0.00,0.00,1.00}{function} is
-    %
-    $$g(r,\theta) = x+y = r\cos\theta+r\sin\theta = r(\cos\theta+\sin\theta)\; .$$
-    %
-    \item \pause The \textcolor[rgb]{0.00,0.59,0.00}{element of area} is $dxdy=r\, drd\theta$.
-\end{itemize}
-
-\pause Then the integral is
-%
-\begin{align*}
-  \int&\!\!\!\int_{\textcolor[rgb]{0.98,0.00,0.00}{\mathcal{R}}} \textcolor[rgb]{0.00,0.00,1.00}{(x+y)}\, \textcolor[rgb]{0.00,0.59,0.00}{dxdy} = \iint_{\textcolor[rgb]{0.98,0.00,0.00}{[1,2]\times [\pi/2, 3\pi/2]}} \!\!\!\!\! \textcolor[rgb]{0.00,0.00,1.00}{(r \cos\theta + r\sin\theta)} \cdot \textcolor[rgb]{0.00,0.59,0.00}{r dr\, d\theta} = \\
-  %
-  & = \left( \int_1^2 r^2\, dr \right)\left( \int_{\pi/2}^{3\pi/2} (\sin\theta+ \cos\theta) \, d\theta \right) = -\frac{14}{3}\; .
-\end{align*}
-\end{frame}
-
-\begin{frame}
-\frametitle{Improper Integrals in Polar Coordinates}
-
- $\mathcal{Q}$: first quadrant, $[0,\infty) \times [0,\infty)$. Compute
-\[\iint_Q e^{-x^2-y^2} \, dxdy\]
-%
-\pause
-%
-\[
-\begin{array}{rcl}
-\iint_{\textcolor[rgb]{0.98,0.00,0.00}{\mathcal{Q}}} \textcolor[rgb]{0.00,0.00,1.00}{e^{-x^2-y^2}} \, \textcolor[rgb]{0.00,0.59,0.00}{dx \,dy}  &=& \pause \iint_{\textcolor[rgb]{0.98,0.00,0.00}{[0,\infty) \times [0,\pi/2]}} \textcolor[rgb]{0.00,0.00,1.00}{e^{-r^2}} \, \textcolor[rgb]{0.00,0.59,0.00}{r\, dr \,d\theta} = \\
-& =& \left( \int_{\theta=0}^{\theta=\pi/2} d\theta \right) \left( \int_{r=0}^{r\to \infty} re^{-r^2} \, dr \right) = \frac{\pi}{2} \left. \frac{-e^{-r^2}}{2}\right|_{r=0}^{r\to \infty} = \frac{\pi}{4}\; .
-\end{array}
-\]
-%
-\pause \underline{Application}:
-%
-$$\frac{\pi}{4} = \iint_{[0,\infty) \times [0,\infty)} e^{-x^2}\, e^{-y^2}\, dxdy = \left( \int_0^\infty e^{-x^2} dx \right) \left( \int_0^\infty e^{-y^2} dy \right)$$
-
-$$\int_{-\infty}^{\infty} e^{-x^2} \, dx = \pause 2 \int_0^{\infty} e^{-x^2} \, dx = 2\left( \iint_{\mathcal{Q}_1} e^{-x^2-y^2} \, dx \,dy \right)^{1/2} = \sqrt{\pi} \; .$$
-\end{frame} 
 
 \begin{frame}
   \frametitle{Moment of Inertia}
