@@ -1,0 +1,42 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}
+\fcBoundingBox{-2.2}{-2.2}{2.2}{2.2}
+\uncover<5->{\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\parametricplot[linecolor=\fcColorGraph]{90}{270}{t cos t sin }
+\psline(0,-1)(0,-2)
+\parametricplot[linecolor=\fcColorGraph]{270}{90}{t cos 2 mul t sin 2 mul}
+\psline[linecolor=\fcColorGraph](0,2)(0,1)
+}}
+\fcAxesStandardNoFrame{-2.2}{-2.2}{2.2}{2.2}
+\uncover<2->{\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin }}
+\uncover<3->{\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos 2 mul t sin 2 mul}}
+\uncover<4->{\psline[linecolor=\fcColorGraph](0,-2.2)(0,2.2)}
+\end{pspicture} 
+\column{0.7\textwidth}
+Let $\mathcal{S}$ be the region \alert<5>{left of \alert<4>{the $y-$axis}} and between the circles $\alert<2>{x^2+y^2=1}$ and $x^2+y^2=4$.  Compute $\displaystyle \iint_{\mathcal{S}} (x+y) \diff x \diff y .$
+\end{columns}
+
+\uncover<6->{ $\fcv f:\left|\begin{array}{rcl}\alert<11,12>{x}&\alert<11,12>{=}&\alert<11,12>{r\cos \theta }\\\alert<11,12>{y}&\alert<11,12>{=}&\alert<11,12>{r \sin \theta } \end{array} \right. .$ Let $\mathcal R$ = parametr. of $\mathcal S$ in polar coord., $\fcv f(\mathcal R)=\mathcal S$.} 
+
+\uncover<7->{
+\hfil
+$
+\fcQuestion{7}{\mathcal{R}=} \left\{(r,\theta) | \fcAnswer{8}{\alert<14>{ 1 \leq r \leq 2, \frac{\pi}{2} \leq \theta \leq \frac{3\pi}{2}}} \right\} \uncover<9->{= [1,2]\times \left[\frac{\pi}{2}, \frac{3\pi}{2}\right]}\; .
+$
+\hfil
+}
+
+$
+\begin{array}{rcl}
+\uncover<10->{\iint_{\mathcal S}\alert<11,12>{(x+y)} \alert<10>{ \diff x \diff y} &=&\iint_{\alert<10>{\mathcal R}} \uncover<10,11>{ \alert<11>{ \textbf{?}}} \uncover<12->{\alert<12>{r(\sin \theta+\cos\theta )}} \alert<10>{r~ \diff r\diff \theta}} \\
+\uncover<13->{ &=& \int_{{ \fcQuestion{13}{ \theta= }\fcAnswer{14}{ \frac{ \pi }{2}} }}^{{ \fcQuestion{13}{ \theta=} \fcAnswer{14}{\frac{ 3\pi}{2}}}} \alert<15>{\int_{{\fcQuestion{13}{r=}\fcAnswer{14}{ 1}}}^{{ \fcQuestion{13}{ r =} \fcAnswer{14}{2} }}} \alert<15>{r^2}(\sin \theta+\cos \theta) \alert<15>{ \diff r} \diff \theta }\\
+\uncover<15->{&=& \alert<17,18>{ \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}}}  (\alert<17>{\sin\theta} +\alert<18>{\cos\theta} ) \alert<15,16>{ \left[\frac{r^3}{3}\right]_{r=1}^{r=2}}\alert<17,18> {\diff \theta }}\\
+\uncover<16->{&=&\alert<16>{ \frac{7}{3 }} \left[\alert<17>{-\cos\theta} + \alert<18>{\sin \theta} \right]_{ \alert<17,18>{ \frac{ \pi}{ 2 }} }^{ \alert<17,18>{ \frac{3\pi}{2}}} \uncover<19->{=-\frac{14}{3}}. }
+\end{array}
+$
+\end{example}
+\end{frame}

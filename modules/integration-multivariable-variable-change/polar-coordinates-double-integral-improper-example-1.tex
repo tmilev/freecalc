@@ -1,0 +1,59 @@
+\begin{frame}
+\begin{example}[Improper Integrals in Polar Coordinates]
+\begin{columns}
+\column{0.5\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-2,-2)(2,2)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -1.5] 0}
+\fcBoundingBox{-3}{-2.2}{3}{2.2}
+\fcStartIIIdScene
+\only<6->{%
+\fcSurfaceInScene[forceForeground=true, linecolor=cyan, colorUV=cyan]{0}{0}{1.9 2 sqrt mul}{90}{[v cos u mul v sin u mul 0]}{}%
+\fcSurfaceInScene[forceForeground=false, colorUV={1 0.5 0.5}, linecolor=black, iterationsV=20, iterationsU=20]{0}{0}{1.9 2 sqrt mul}{360}{[v cos u mul v sin u mul 2.718281828 u u mul -1 mul exp] }{}%
+}%
+\only<1-5>{\fcPatchInScene[forceForeground=true, colorUV=cyan, linecolor=cyan]{[0 0 0]}{[1.9 0 0]}{[0 1.9 0]}%
+\fcSurfaceInScene[forceForeground=false, colorUV={1 0.5 0.5}, linecolor=black, iterationsV=20, iterationsU=20]{-2}{-2}{2}{2}{[u v 2.718281828 u u mul v v mul add -1 mul exp] }{}%
+}%
+\fcAxesIIIdInScene{2.2}{2.2}{1.4}
+\fcFinishIIIdScene[fastSort=true]
+\end{pspicture}
+\begin{pspicture}(-0.2,-0.2)(3.05,3.05)
+\tiny
+\fcBoundingBox{-0.2}{-0.2}{3.05}{3.05}
+\uncover<6->{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\parametricplot{0}{90}{t cos 1.9 2 sqrt mul mul t sin 1.9 2 sqrt mul mul}%
+\psline(0,2.5)(0,0)(2.5,0)
+}%
+}%
+\psline*[linecolor=cyan!80](0,0)(1.9,0)(1.9,1.9)(0,1.9)(0,0)
+\rput[lb](2,2){$\mathcal S$}%
+\uncover<6->{%
+\parametricplot[arrows=->, linecolor=red]{0}{90}{t cos 0.6 mul t sin 0.6 mul}%
+\rput[rb](1, 1){$\alert<6>{r}~$}%
+\rput[l](0.5, 0.5){$~\alert<6>{\theta}$}%
+\psline[arrows=->, linecolor=red](0,0)(! 1.9 dup)% 
+}%
+\uncover<1-5>{\fcAxesStandardNoFrame{-0.2}{-0.2}{2}{2}}
+\uncover<6->{%
+\fcAxesStandardNoFrame{-0.2}{-0.2}{3}{3}%
+}%
+\end{pspicture}
+
+\column{0.5\textwidth}
+$\mathcal{S}$: first quadrant, $[0,\infty) \times [0,\infty)$. Compute
+$\iint_{\mathcal S} e^{-x^2-y^2} \, \diff x \diff y$ and use it to compute $\int_{-\infty }^{\infty}e^{-x^2}\diff x$.
+\end{columns}
+$
+\begin{array}{r@{}c@{}l}
+\uncover<2->{\alert<11,17,18>{ \iint_{\mathcal{S}} \alert<12>{ e^{\alert<3,4>{- x^2 - y^2}} } \alert<2>{ \diff x \diff y}}  &\alert<11,18>{=}& \int_{{\alert<5,6>{\theta=} \uncover<2-5>{\alert<5>{ \textbf{?}}} \uncover<6->{\alert<6>{0}} }}^{{\alert<5,6>{\theta=} \uncover<2-5>{\alert<5>{\textbf{?}}} \uncover<6->{ \alert<6>{ \frac{\pi }{ 2 } }} }} \int_{{\alert<5,6>{r=}  \uncover<2-5>{\alert<5>{ \textbf{?}}}  \uncover<6->{\alert<6>{0}}}}^{{ \uncover<6->{\alert<6>{r \to}} \uncover<2-5>{\alert<5>{ \textbf{?}}} \uncover<6->{\alert<6>{\infty}} }} e^{ \uncover<2-3>{ \alert<3>{\textbf{?}}} \uncover<4->{ \alert<4>{ - r^2}}} \alert<2>{r \diff r \diff\theta} } \\
+\uncover<7->{&\alert<0>{=}&  \alert<8>{\left( \int_{\theta=0}^{\theta=\frac{\pi}{2}} \diff \theta \right)}\alert<9>{ \left( \int_{r=0}^{r\to \infty} re^{-r^2}  \diff r \right)}}\uncover<8->{ = \alert<8>{\frac{\pi}{2}} \alert<9>{\left[ \frac{-e^{-r^2}}{2}\right]_{r=0}^{r\to \infty}} }\uncover<10->{=\alert<11,18>{ \frac{\pi}{4}}} \\
+\uncover<11->{\alert<11>{\frac{\pi}{4}} &\alert<11>{=}& \alert<11>{ \iint_{\alert<14>{[0,\infty)} \times \alert<13>{[0,\infty)}}\alert<12>{ \alert<13>{e^{-x^2}} \alert<14>{e^{-y^2}}} \alert<13>{\diff x} \alert<14>{\diff y}} }\\
+\uncover<13->{&\alert<0>{=}&  \alert<13>{\left( \int_0^\infty e^{-x^2} \diff x \right)} \alert<14>{\left( \int_0^\infty e^{-y^2} \diff y \right)} \uncover<15->{= \alert<17>{\left( \int_0^\infty e^{-x^2} \diff x \right)^2}}} \\
+\uncover<16->{\int_{\alert<16>{-\infty}}^{\alert<16>{\infty}} e^{-x^2} \diff x &\alert<0>{=}&  \alert<16>{2} \alert<17>{\int_{\alert<16>{0}}^{ \alert<16>{ \infty }} e^{-x^2}  \diff x }} \uncover<17->{= 2 \alert<17>{\left(\alert<18>{ \iint_{\mathcal{S}} e^{-x^2-y^2}  \diff x \diff y} \right)^{\frac{1}{2}}}} \uncover<18->{= 2\sqrt{\alert<18>{ \frac{\pi}{ 4 } } }}\uncover<19->{\sqrt{\pi}\; .}
+\end{array}
+$
+\end{example}
+
+\end{frame} 

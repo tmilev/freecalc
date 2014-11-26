@@ -1422,9 +1422,13 @@ fastPatchSort
   { 4 dict begin
   	/rightPatch exch thePatchCollection exch get def
   	/leftPatch  exch thePatchCollection exch get def
+    rightPatch \fcPatchGetForcedForegroundStatus leftPatch \fcPatchGetForcedForegroundStatus not and {true}{
+    leftPatch \fcPatchGetForcedForegroundStatus rightPatch \fcPatchGetForcedForegroundStatus not and
+    {false}{  	
   	leftPatch  \fcPatchGetPoint \fcScreen\space pop \fcVectorScalarVector
   	rightPatch \fcPatchGetPoint \fcScreen\space pop \fcVectorScalarVector
   	lt
+  	}ifelse}ifelse
     end
   } def
   thePatchIndices \fcMergeSort
