@@ -8,41 +8,42 @@ Suppose we have a polar curve $r = f(\theta )$, $a\leq \theta \leq b$.
 \psset{xunit=0.6cm, yunit=0.6cm}
 \begin{pspicture}(-0.5,-0.5)(2,2.4)
 \tiny
+\pstVerb{/theFunction {3 t sub} def}
 \uncover<2->{%
-\fcPolarWedge{0}{0.05}{3 t sub}%
+\fcPolarWedge{0}{0.05}{theFunction}%
 }%
 \uncover<3->{%
-\fcPolarWedge{0.05}{0.1}{3 t sub}%
+\fcPolarWedge{0.05}{0.1}{theFunction}%
 }%
 \uncover<4->{%
-\fcPolarWedge{0.1}{0.15}{3 t sub}%
+\fcPolarWedge{0.1}{0.15}{theFunction}%
 }%
 \uncover<5->{%
-\fcPolarWedge{0.15}{0.2}{3 t sub}%
+\fcPolarWedge{0.15}{0.2}{theFunction}%
 }%
 \uncover<6->{%
-\fcPolarWedge{0.2}{0.25}{3 t sub}%
+\fcPolarWedge{0.2}{0.25}{theFunction}%
 }%
 \uncover<7->{%
-\fcPolarWedge{0.25}{0.3}{3 t sub}%
+\fcPolarWedge{0.25}{0.3}{theFunction}%
 }%
 \uncover<8->{%
-\fcPolarWedge{0.3}{0.35}{3 t sub}%
+\fcPolarWedge{0.3}{0.35}{theFunction}%
 }%
 \uncover<9->{%
-\fcPolarWedge{0.35}{0.4}{3 t sub}%
+\fcPolarWedge{0.35}{0.4}{theFunction}%
 }%
 \uncover<10->{%
-\fcPolarWedge{0.4}{0.45}{3 t sub}%
+\fcPolarWedge{0.4}{0.45}{theFunction}%
 }%
 \uncover<11->{%
-\fcPolarWedge{0.45}{0.5}{3 t sub}%
+\fcPolarWedge{0.45}{0.5}{theFunction}%
 }%
 \uncover<12->{%
-\fcPolarWedge{0.5}{0.55}{3 t sub}%
+\fcPolarWedge{0.5}{0.55}{theFunction}%
 }%
 \uncover<13->{%
-\fcPolarWedgeSequence{0.55}{0.05}{20}{3 t sub}%
+\fcPolarWedgeSequence{0.55}{0.05}{20}{theFunction}%
 }%
 \fcAxesStandardNoFrame{-0.5}{-0.5}{3.2}{2.2}
 \rput[bl](1.5, 1.7){$r=f(\theta)$}
