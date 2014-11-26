@@ -1,0 +1,58 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-0.5,-0.5)(2,2.2)
+\tiny%
+\fcBoundingBox{-1.2}{-1.2}{1.2}{1.2}%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\parametricplot{360}{0}{t cos 0.3 mul t sin 0.3 mul}
+\parametricplot{0}{360}{t cos 0.8 mul t sin 0.8 mul}
+}
+\parametricplot[linecolor=\fcColorGraph]{360}{0}{t cos 0.3 mul t sin 0.3 mul}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos 0.8 mul t sin 0.8 mul}
+\pscurve[linecolor=red, arrows=->](0.1,1)(0.2, 1.1)(0, 1.2)(-0.2,1.1 )(-0.05,1)%
+\psline(0,-1.2)(0,1.2)%
+\rput[lb](0,-1.2){~~$\alert<3>{L}$}%
+\fcPerpendicular{[0.5 0.4]}{[0 0] [0 1]}{0.1}%
+\fcFullDot[linecolor=red]{0.5}{0.4}
+\rput[t](0.5,0.35 ){$(x,y)$}
+\uncover<4->{%
+\rput[b](0.6,0.8 ){$\alert<5,6>{ \alert<4>{ h(x,y)}\uncover<5->{=}} \fcAnswer{6}{x}$}%
+\psline[arrows=->, linestyle=dotted](0.6, 0.8)(0.25,0.4)
+}%
+\rput(-0.5, 0){$\mathcal R$}
+\end{pspicture}
+
+\column{0.7\textwidth}
+Find the moment of inertia of a ring-like lamina with \alert<8>{inner radius $R_1$, outer radius $R_2$} and \alert<3>{constant density $\rho$}, rotating about an axis that passes through its center and lying in the same plane.
+
+\uncover<7->{
+Let \alert<7,8>{$\mathcal S$} = parametr. of \alert<7,8>{$\mathcal R$ in polar coordinates}.
+
+$
+\begin{array}{rcl}
+\fcv f&:&\left|\begin{array}{rcl}\alert<11>{ x} &\alert<11>{=} & \alert<11>{ r\cos\theta} \\y&\alert<0>{=}&r\sin\theta \end{array}\right.\\
+\mathcal R&\alert<0>{=}& \fcv f (\mathcal S)\\
+\alert<7,8>{\mathcal S} &\alert<7,8>{=} &\{(\rho,\theta)| \fcAnswer{8}{ R_1\leq \rho\leq R_2} \}\quad .
+\end{array}
+$
+}
+\end{columns}
+\uncover<2->{
+$
+\begin{array}{r@{}c@{~}l}
+\displaystyle I_{total} &=&\displaystyle \iint_{\mathcal{R}} \alert<3>{ \rho} \, \alert<5,6>{{\alert<4>{h}}^2 \alert<4>{(x,y)}} \diff x\diff y \uncover<5->{=\rho \iint_{\alert<9>{\mathcal R}} \fcAnswer{6}{ \alert<10,11>{x^2} } \alert<9>{ \diff x\diff y} }
+\uncover<9->{=\displaystyle \rho \iint_{\alert<9,12,13>{\mathcal S}} \uncover<9,10>{ \alert<10>{ \textbf{?} }} \uncover<11->{\alert<11>{( r^2 \cos^2 \theta )}} \alert<9>{ r \diff r\diff \theta}}\\
+\uncover<12->{&=&\displaystyle \rho \alert<17>{ \int_{{ \fcQuestion{12}{ \theta = } \fcAnswer{13}{0} }}^{{ \fcQuestion{12}{ \theta=} \fcAnswer{13}{ 2 \pi} }}} \alert<16>{ \int_{{ \fcQuestion{12}{ r=} \fcAnswer{13}{R_1 }} }^{ { \fcQuestion{12}{r=}\fcAnswer{13}{R_2}}}} \alert<16>{r^3} \alert<17>{\cos^2 \theta } \alert<16>{\diff r} \alert<17>{\diff \theta} \fcQuestion{14}{=} \fcAnswer{15}{\rho\alert<16>{\frac{ (\alert<18>{R_1^4 - R_2^4} )}{4}} \alert<17>{\pi}}}\\
+\uncover<18->{&=& \displaystyle \frac{(\alert<18>{R_1^2+R_2^2})}{4} \alert<19>{\rho\pi(\alert<18>{R_1^2-R_2^2}) }} \uncover<19->{= \left( \frac{R_1^2+R_2^2}{4}\right)\alert<19>{ m},}
+\end{array}
+$
+
+\uncover<19->{\noindent where $m$ is the mass of the lamina.}
+}
+
+\end{example}
+
+\end{frame}
