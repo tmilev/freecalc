@@ -287,13 +287,13 @@ stroke
 \psline[linecolor=black!1](! #1 #2 )(! #1 #2 0.01 add)%
 \psline[linecolor=black!1](! #3 #4 )(! #3 #4 0.01 add)%
 }
-\newcommand{\fcAxesStandardNoFrame}[4]{%
-\psaxes[ticks=none, labels=none]{<->}(0,0)(#1,#2)(#3,#4)% \fcLabels[\fcDefaultXLabel][\fcDefaultYLabel]{#3}{#4}%
+\newcommand{\fcAxesStandardNoFrame}[5][]{%
+\psaxes[ticks=none, labels=none,#1]{<->}(0,0)(#2,#3)(#4,#5)% \fcLabels[\fcDefaultXLabel][\fcDefaultYLabel]{#3}{#4}%
 }%
 
-\newcommand{\fcAxesStandard}[4]{%
-\psframe*[linecolor=white](! #1\space #2)(! #3 \space 0.1 add #4 \space 0.1 add)%
-\fcAxesStandardNoFrame{#1}{#2}{#3}{#4}%
+\newcommand{\fcAxesStandard}[5][]{%
+\psframe*[linecolor=white](! #2\space #3)(! #4 \space 0.1 add #5 \space 0.1 add)%
+\fcAxesStandardNoFrame[#1]{#2}{#3}{#4}{#5}%
 }%
 \newcommand{\fcColorTangent}{blue}
 \newcommand{\fcColorGraph}{red}

@@ -1,0 +1,53 @@
+\begin{frame}
+\frametitle{Moment of Inertia}
+\begin{definition}[Moment of inertia of a mass point]
+\alert<10>{\alert<1>{The moment of inertia $I$} of \alert<2>{a point mass} } with mass $m$ \alert<3>{rotating about an axis $L$} is defined the quantity $\alert<10>{\alert<1>{I= {\alert<4>{h}}^2}m} $, where \alert<4>{$h$ is the distance between the point and the axis}.
+\end{definition}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-0.5,-0.5)(2,2.2)
+\tiny%
+\fcBoundingBox{-0.3}{-0.1}{3.2}{2.2}%
+\pscurve[linecolor=red, arrows=->](0.1,2)(0.2, 2.1)(0, 2.2)(-0.2,2.1 )(-0.05,2)%
+\psline(0,0)(0,2.2)%
+\rput[lb](0,0){~~$\alert<3>{L}$}%
+\uncover<3>{%
+\pscurve[linewidth=2pt, linecolor=red, arrows=->](0.1,2)(0.2, 2.1)(0, 2.2)(-0.2,2.1 )(-0.05,2)%
+\psline[linewidth=2pt,linecolor=red](0,0)(0,2.2)%
+}%
+\uncover<6->{%
+\pscurve*[linecolor=\fcColorAreaUnderGraph](1,1)(1.7,1)(1.9, 2)(1,2)(1,1)%
+\pscurve[linecolor=\fcColorGraph](1,1)(1.7,1)(1.9, 2)(1,2)(1,1)%
+}%
+\uncover<4->{%
+\fcPerpendicular{[1.5 1.5]}{[0 0] [0 1]}{0.1}%
+\rput[b](0.7,1.5){$\alert<4>{h} \uncover<7->{\alert<7>{(x,y)}}$}%
+}%
+\uncover<4>{\psline[linecolor=red, linewidth=2pt](1.5,1.5)(0,1.5)}
+\fcFullDot{1.5}{1.5}
+\uncover<2>{\fcFullDot[linecolor=red, scale=2]{1.5}{1.5}}
+\uncover<5->{\rput[tr](1.4, 1.4){$(x,y)$}}
+\rput[tl](1.6,1.7){$
+\begin{array}{l} 
+\uncover<11->{\alert<11>{ \Delta m\to \diff m}} \\
+\uncover<12->{\alert<12>{\Delta m\approx \rho(x,y)\Delta x\Delta y}}\\
+\uncover<13->{\alert<13>{\Delta x\cdot\Delta y\to \diff x \diff y}} \\
+\uncover<14->{\alert<14>{\diff m= \rho(x,y)\diff x\diff y }}
+\end{array}$}
+\uncover<11->{\psline[linecolor=black](1.4,1.4)(1.4,1.6)(1.6,1.6)(1.6,1.4)(1.4,1.4)}
+\uncover<6->{\rput(1.5, 0.8){$\mathcal R$}}
+\end{pspicture}
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item<5-> Fix an $(x,y)$-coordinate system.
+\item<6-> Let $\mathcal R$ be infinitely thin lamina in the plane with variable density $\rho(x,y)$.
+\item<7-> Let $h(x,y)$ be the distance between the point $(x,y)$ and $L$. 
+\item<8-> Let $I_{total}$ denote the total moment of inertia of the lamina.
+\end{itemize}
+\end{columns}
+\[
+\uncover<9->{I_{total}=\iint_{\mathcal R} \alert<10>{\diff \left( I(x, y) \right) }} \uncover<10->{ = \iint_{ \mathcal{R}} \alert<10>{ h^2 (x,y) \alert<11-14>{\diff m} }} \uncover<11->{ = \iint_{\mathcal{R}} h^2(x,y) \alert<11-14>{\rho(x,y)\diff x \diff y} } \quad .
+\]
+\end{frame}
