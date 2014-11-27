@@ -463,22 +463,24 @@ end
 }
 \makeatother
 
-\newcommand{\fcPolarWedge}[3]{%
+\newcommand{\fcPolarWedge}[4][fillstyle=solid, linecolor=blue, fillcolor=\fcColorAreaUnderGraph]{%
 \pstVerb{%
 2 dict begin% 
 /theta {t 57.295779513 mul} def%
-/r {#3} def%
+/r {#4} def%
 }%
-\psline*[linecolor=\fcColorAreaUnderGraph](0,0)%
-(! 1 dict begin /t #1\space def theta cos r mul theta sin r mul end)%
+\pscustom[#1]{%
+\psline(0,0)%
 (! 1 dict begin /t #2\space def theta cos r mul theta sin r mul end)%
+(! 1 dict begin /t #3\space def theta cos r mul theta sin r mul end)%
 (0,0)%
+} %
 \pstVerb{end}%
 }%
 
 \newcommand{\fcPolarWedgeSequence}[4]{%
 \multido{\ra=#1+#2}{#3}{%
-\fcPolarWedge{\ra}{\ra\space #2 add}{#4}
+\fcPolarWedge{\ra}{\ra\space #2 add}{#4}%
 }%
 }
 
