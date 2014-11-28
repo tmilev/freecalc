@@ -481,294 +481,31 @@
 \input{../../modules/integration-multivariable-variable-change/volume-of-toroid-part2}
 \input{../../modules/integration-multivariable-variable-change/volume-of-toroid-part3}
 \input{../../modules/integration-multivariable-variable-change/volume-of-toroid-part4}
+\input{../../modules/integration-multivariable-variable-change/volume-of-raised-horn}
+
 \input{../../modules/integration-multivariable-variable-change/integral-variable-change-positivity-jacobian} 
 %\input{../../modules/integration-multivariable-variable-change/area-of-ellipse}
 }
 
 \lect{Fall 2014}{Lecture 16}{16}{%
 \section{Double Integrals in Polar Coordinates}
-\input{../../modules/integration-multivariable-variable-change/double-integrals-in-polar-coordinates} 
-\input{../../modules/integration-multivariable-variable-change/moment-inertia-2d-object-axis-in-same-plane} 
-\input{../../modules/integration-multivariable-variable-change/moment-inertia-annulus-axis-in-same-plane} 
-\input{../../modules/integration-multivariable-variable-change/use-of-polar-coordinates-in-double-integrals}
-\input{../../modules/integration-multivariable-variable-change/polar-coordinates-double-integral-example-1}
-\input{../../modules/integration-multivariable-variable-change/polar-coordinates-double-integral-improper-example-1}
+%\input{../../modules/integration-multivariable-variable-change/double-integrals-in-polar-coordinates} 
+%\input{../../modules/integration-multivariable-variable-change/moment-inertia-2d-object-axis-in-same-plane} 
+%\input{../../modules/integration-multivariable-variable-change/moment-inertia-annulus-axis-in-same-plane} 
+%\input{../../modules/integration-multivariable-variable-change/use-of-polar-coordinates-in-double-integrals}
+%\input{../../modules/integration-multivariable-variable-change/polar-coordinates-double-integral-example-1}
+%\input{../../modules/integration-multivariable-variable-change/polar-coordinates-double-integral-improper-example-1}
 
 \section{Triple Integrals in Cylindrical Coordinates}
 \input{../../modules/integration-multivariable-variable-change/triple-integrals-in-cylindrical-coordinates} 
-\input{../../modules/integration-multivariable-variable-change/moment-inertia-cylindrical-shell} 
+%\input{../../modules/integration-multivariable-variable-change/moment-inertia-cylindrical-coordinates} 
 
-
+%\input{../../modules/integration-multivariable-variable-change/moment-inertia-cylindrical-shell} 
+%\input{../../modules/integration-multivariable-variable-change/mass-center-regular-circular-cone} 
 \section{Triple Integrals in Spherical Coordinates}
+\input{../../modules/integration-multivariable-variable-change/triple-integrals-in-spherical-coordinates} 
+\input{../../modules/integration-multivariable-variable-change/triple-integrals-in-spherical-coordinates-example-centroid-half-ball}\input{../../modules/integration-multivariable-variable-change/triple-integrals-in-spherical-coordinates-example-centroid-half-ball}
 
-
-\begin{frame}
-  \frametitle{Cylindrical Coordinates}
-  
-%
-\begin{itemize}
-  \item Sections perpendicular to the axis $L$ are rings;
-  \item Double integrals over such regions $\to$ use polar coordinates;
-  \item Rectangular-polar coordinates $\to$ cylindrical coordinates $(r,\theta,z)$
-\end{itemize}
-%
-Slice $D_z$: ring with inner radius $R_1$ and outer radius $R_2$. In polar coordinates:
-
-\begin{itemize}
-\item $D_z$ $\to$ $[R_1,R_2] \times [0,2\pi]$;
-\item  $dA = r\, dr d\theta$;
-\item $h(P) = r$
-\end{itemize}
-
-%
-\begin{align*}
-  I_L & = \int_{z=0}^{z=H} \left(
-  \iint_{[R_1,R_2] \times [0,2\pi]} \rho r^2 \, r\, dr\, d\theta \right) \, dz =\\
-  %
-  & = \int_{z=0}^{z=H} \left(
-  \int_{r=R_1}^{r=R_2} \left(\int_{\theta=0}^{\theta=2\pi} \rho r^3 \, d\theta \right) \, dr\right) \, dz = 2\pi \rho H \frac{R_2^4-R_1^4}{4} = \\
-  %
-  &= \rho \pi (R_2^2-R_1^2)H \cdot \frac{R_1^2+R_2^2}{2} = \frac{m(R_1^2+R_2^2)}{2}\; .
-\end{align*}
-\end{frame}
-
-\begin{frame}
-    \frametitle{General Set-up}
-%
-$$\iiint_{\mathcal{R}} f(P) \, dV\; .$$
-%
-\underline{Step 1}: Choose a suitable cylindrical coordinate system: $(x,y,z) = T(r, \theta, z)$.
-
-\underline{Step 2}: Change the region $\mathcal{R}$ to
-      %
-      $$\mathcal{R}_{cylindrical} = \{(r,\theta,z) \, | \, T(r,\theta,z) \in \mathcal{R} \}\, ,$$
-      %
-
-\underline{Step 3}: Change the function $f\colon \mathcal{R} \to \mathbb{R}$ to $g \colon \mathcal{R}_{cylindrical} \to \mathbb{R}$,
-      %
-      $$g(r,\theta,z) = f(T(r,\theta,z))\; .$$
-
-\underline{Step 4}: Change the element of volume $dV$ to $ (dA)_{polar} \, dz = r \,dr\, d\theta \, dz$.
-%
-$$\iiint_{\mathcal{R}} f(P) \, dV\; = \iiint_{\mathcal{R}_{cylindrical}} g(r,\theta,z) \cdot r\,dr\,d\theta\, dz \; .$$
-
-This method is efficient as long as the region $\cR_{cylindrical}$ is nice enough and the function $rg(r,\theta,z)$ is not too complicated.
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Example: Center of Mass}
-
-\begin{itemize}
-\item solid conical body $\cR$ of radius $R$ and height $H$;
-\item with density $\rho \colon \cR \to \RR$ proportional to the distance to the axis.
-\end{itemize}
- 
-The position vector of the center of mass is
-%
-$$\textbf{r}_C = \frac{1}{M} \iiint_{\cR} \textbf{r} \; dm = \frac{1}{M} \iiint_{\cR} \textbf{r} \; \rho \; dV\; ,$$
-%
-where
-%
-$$M = \iiint_{\cR}  dm = \iiint_{\cR}  \rho(P) \, dV$$
-%
-is the mass of the body.
-
-  Region best described in a coordinate system
-  \begin{itemize}
-    \item rectangular in one direction
-    \item polar on the orthogonal complement
-  \end{itemize}
-  %
-  Cylindrical coordinates!
-\end{frame}
-
-\begin{frame}
-  \frametitle{Set-up in Cylindrical Coordinates}
-
-\underline{Step 1}: Choose a suitable cylindrical coordinate system: $(x,y,z) = T(r, \theta, z)$.
-%
-\begin{itemize}
-\item origin at the vertex of the cone;
-\item positive $z-$axis along the axis of the cone.
-\end{itemize}
-
-\underline{Step 2}: Change the region $\mathcal{R}$ to
-      %
-      $$\mathcal{R}_{cylindrical} = \{(r,\theta,z) \, | \, T(r,\theta,z) \in \mathcal{R} \}\, ,$$
-      %
-      \begin{itemize}
-      \item the base is the disk $D$ with center on the $z-$axis and radius $R$ in the plane $z=H$;
-      \item the cone is given by $z= \frac{H}{R}\,r$.
-      \end{itemize}
-      %
-$$\cR_{cylindrical} = \left\{ (r,\theta,z) \; | \; 0 \leqslant \theta \leqslant 2\pi, 0 \leqslant r \leqslant R, \frac{H}{R} \,r \leqslant z \leqslant H\right\} \, .$$
-      
-      \end{frame}
-      
- \begin{frame}
-\underline{Step 3}: Change the density $\rho(P)$ to $g \colon \mathcal{R}_{cylindrical} \to \mathbb{R}$,
-      %
-      $$g(r,\theta,z) = f(T(r,\theta,z)) =  cr\; .$$
-
-\underline{Step 4}: Change the element of volume $dV$ to $ (dA)_{polar} \, dz = r \,dr\, d\theta \, dz$.
-%
-$$\iiint_{\mathcal{R}} f(P) \, dV\; = \iiint_{\mathcal{R}_{cylindrical}} g(r,\theta,z) \cdot r\,dr\,d\theta \, dz \; .$$
-
-Then
-%
-\begin{align*}
-  M & = \iiint_{\cR} \rho(P) \, dV = \iiint_{\cR_{cylindrical}} \!\!\!\!\! cr \cdot r\,dr\,d\theta\,dz = \\
-%
-  & = \iint_{D} \left( \int_{z=Rr/R}^{z=H} \rho(r,\theta,z) \, dz \right) \, dA \\
-  %
-  & = \iint_{[0,R]\times [0,2\pi]} \left( \int_{z=Hr/R}^{z=H} cr^2 dz \right) \, dr\, d\theta = \\
-  %
-  & = \int_{\theta =0}^{\theta=2\pi} \left( \int_{r=0}^{r=R} \left( \int_{z=Hr/R}^{z=H} cr^2 \, dz \right) \, dr \right) \, d\theta  = \frac{\pi c H R^3}{6}\; .
-\end{align*}
-%
-\end{frame}
-
-\begin{frame}
-  \frametitle{Center of Mass}
-
-$$M = \frac{\pi c H R^3}{6}\; .$$
-
-Dimensional analysis:
-%
-$$\rho = c r \Longrightarrow [m/d^3] = [c][d] \Longrightarrow [c] = [m/d^4] \Longrightarrow [M] = [m/d^4][d^4] = [m] \;  $$
-%
-
-\begin{itemize}
-\item region is symmetrical with respect to the axis of the cone;
-\item distribution of mass is symmetrical with respect to the axis of the cone
-\end{itemize}
-
-Therefore the center of mass is also on this axis!
-
-%
-\begin{align*}
-  z_C & = \frac{1}{M}  \iiint_{\cR} z \rho(P) \, dV = \frac{1}{M} \int_{\theta =0}^{\theta=2\pi} \left( \int_{r=0}^{r=R} \left( \int_{z=Hr/R}^{z=H} cr^2z \, dz \right) \, dr \right) \, d\theta = \\
-  %
-  & = \frac{6}{\pi c H R^3}\cdot \frac{2\pi c H^2 R^3}{15} = \frac{4}{5}\, H\; .
-\end{align*}
-\end{frame}
-
-\begin{frame}
-\frametitle{Area Scaling}
-\begin{figure}
-        \psfrag{Tr1th}{$\textbf{T}(r,\theta)$}
-        \psfrag{Tr2th}{$\textbf{T}(r+\Delta r,\theta)$}
-        \psfrag{dthTth}{$(\Delta \theta)\textbf{T}_\theta(r,\theta)$}
-        \psfrag{drTr}{$(\Delta r)\textbf{T}_r(r,\theta)$}
-        \psfrag{x}{$x$}
-        \psfrag{y}{$y$}
-        \includegraphics[width=2in]{../images/polar_element_area.eps}
-    \end{figure}
-%
-\[
-\langle x, y \rangle = \textbf{T}(r,\theta) = \langle r\cos\theta, r\sin\theta\rangle
-\]
-\[
-\textbf{T}(r+\Delta r,\theta)-\textbf{T}(r,\theta) \simeq (\Delta r) \textbf{T}_r(r,\theta)
-\]
-\[
-\textbf{T}(r,\theta+\Delta \theta)-\textbf{T}(r,\theta) \simeq (\Delta \theta) \textbf{T}_\theta(r,\theta)
-\]
-\[\text{Area}(D) \simeq |\textbf{T}_r \times \textbf{T}_\theta |\Delta r \Delta \theta =
-\left|
-\begin{array}{cc}
-  \cos{\theta} & \sin{\theta} \\
-  %
-  -r\sin{\theta} & r\cos{\theta}
-\end{array}
-\right| \Delta r\, \Delta \theta = r\Delta r \Delta \theta \; .
-\]
-\[dx\,dy = r dr\, d\theta\; .
-\]
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Element of volume in spherical coordinates}
-
-$T$:  transformation from spherical to rectangular coordinates:
-%
-$$(x,y,z) = T(\rho, \phi, \theta) = (\rho \sin\phi \cos\theta, \rho \sin\phi\sin\theta, \rho \cos\phi)\; .$$
-%
-Then
-%
-\begin{align*}
-  \textbf{T}_{\rho} = & \langle \sin\phi \cos\theta, \sin\phi\sin\theta, \cos\phi\rangle \\
-  \textbf{T}_{\phi} = & \langle \rho\cos\phi \cos\theta, \rho\cos\phi\sin\theta, - \rho\sin\phi\rangle \\
-  \textbf{T}_{\theta} = & \langle -\rho \sin\phi \sin\theta, \rho \sin\phi\cos\theta, 0\rangle
-\end{align*}
-%
-hence
-%
-$$J(T) = \textbf{T}_{\rho} \cdot (\textbf{T}_{\phi} \times \textbf{T}_{\theta}) = \left|
-\begin{array}{ccc}
-  \sin\phi \cos\theta &  \sin\phi\sin\theta & \cos\phi \\
-  %
-  \rho\cos\phi \cos\theta & \rho\cos\phi\sin\theta & - \rho\sin\phi \\
-  %
-  -\rho \sin\phi \sin\theta &  \rho \sin\phi\cos\theta & 0
-\end{array}\right| = \rho^2\sin\phi\; .$$
-%
-$$dx\, dy\, dz = dV = \rho^2\sin\phi\,  d\rho\, d\phi\, d\theta\; .$$
-\end{frame}
-
-\begin{frame}
-    \frametitle{Example: Centroid of a hemispherical region}
-
-Coordinate system: 
-%
-\begin{itemize}
-\item Origin: center of the sphere;
-\item $Oxy$ plane: base of the hemisphere.
-\item $Oz$ axis: towards the hemisphere
-\item Spherical coordinates: $(\rho, \phi, \theta)$.
-\end{itemize}
-
-Region symmetric with respect to the $z-$axis: the centroid is on that axis $\to$ $x_C=y_C=0$. 
-
-The $z-$coordinate is
-%
-$$z_C = \frac{1}{\text{Vol}(\cR)} \iiint_{\cR} z\, dV\; .$$
-%
-Spherical coordinate \textcolor[rgb]{0.98,0.00,0.00}{region}:
-%
-$$\textcolor[rgb]{0.98,0.00,0.00}{\cR_{spherical}} = \{ (\rho, \phi, \theta) \; | \; 0 \leqslant \rho \leqslant R,\; 0 \leqslant \phi \leqslant \frac{\pi}{2}, \; 0 \leqslant \theta \leqslant 2\pi \}\; ;$$
-%
-\textcolor[rgb]{0.00,0.00,0.98}{Function}:
-%
-$$z= \textcolor[rgb]{0.00,0.00,0.98}{\rho \cos\phi} \; ;$$
-%
-\textcolor[rgb]{0.00,0.98,0.00}{Element of volume}:
-%
-$$dV = \textcolor[rgb]{0.00,0.98,0.00}{\rho^2 \sin\phi \, d\rho\, d\phi\, d\theta}\; ;$$
-\end{frame}
-
-\begin{frame}
-\frametitle{Set-up}
-
-Therefore
-%
-\begin{align*}
-  z_C & = \frac{1}{\text{Vol}(\cR)} \iiint_{\textcolor[rgb]{0.98,0.00,0.00}{\cR}} \textcolor[rgb]{0.00,0.00,0.98}{z}\, \textcolor[rgb]{0.00,0.98,0.00}{dV}\;  \\
-  & = \frac{3}{2\pi R^3} \iiint_{\textcolor[rgb]{0.98,0.00,0.00}{\cR_{spherical}}} \textcolor[rgb]{0.00,0.00,0.98}{\rho \cos\phi} \cdot 
-  \textcolor[rgb]{0.00,0.98,0.00}{\rho^2\sin\phi \, d\rho\, d\phi\,d\theta} \\
-  %
-  & = \frac{3}{2\pi R^3} \int_{\theta =0}^{\theta=2\pi} \left(
-  \int_{\phi = 0}^{\phi=\pi/2} \left(
-  \int_{\rho = 0}^{\rho = R} \rho^3 \sin\phi\cos\phi \, d\rho
-  \right) \, d\phi
-  \right) \, d\theta  \\
-  & = \frac{3}{2\pi R^3} \left(\int_{\theta =0}^{\theta=2\pi} d\theta \right) \left( \int_{\phi = 0}^{\phi=\pi/2} \sin\phi\cos\phi\, d\phi \right) \left( \int_{\rho = 0}^{\rho = R} \rho^3 \, d\rho \right)  \\
-  %
-  & = \frac{3}{2\pi R^3} \cdot 2\pi \cdot \left( \left. \frac{1}{2}\sin^2\phi \right|_{\phi=0}^{\phi=\pi/2}\right) \cdot \left( \left. \frac{\rho^4}{4} \right|_{\rho=0}^{\rho=R} \right) = \frac{3}{8} \, R\; .
-\end{align*}
-\end{frame}
 }
 %\section{(Appendix G) Complex Numbers}
 % WARNING:  Appendix G is missing here.

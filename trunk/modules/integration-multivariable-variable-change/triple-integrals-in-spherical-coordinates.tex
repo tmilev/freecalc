@@ -1,0 +1,35 @@
+\begin{frame}
+\frametitle{Triple Integrals in Spherical Coordiantes}
+Spherical coordinates: 
+$
+\fcv f:\left|
+\begin{array}{rcl}
+\alert<3,4,6>{x}&\alert<3,4,6>{=}&\alert<3,4,6>{\rho\sin \phi \cos \theta} \\
+\alert<3,4,7>{y}&\alert<3,4,7>{=}&\alert<3,4,7>{\rho\sin \phi \sin \theta}\\
+\alert<3,4>{z}&\alert<3,4>{=}& \alert<3,4>{\rho \cos\phi}
+\end{array}
+\right. \quad .
+$
+
+\uncover<2->{$
+J_{\fcv f}=\left(\alert<3,4>{ \begin{array}{@{}ccc@{}} 
+\frac{\partial x}{\partial \rho}& \frac{\partial x}{\partial \theta} & \frac{\partial x}{\partial z} \\ 
+\frac{\partial y}{\partial \rho}& \frac{\partial y}{\partial \theta}& \frac{\partial y}{\partial z}\\ 
+\frac{\partial z}{\partial \rho}& \frac{\partial z}{\partial \theta}& \frac{\partial z}{\partial z}\\ 
+\end{array} }\right)\!\!\!\uncover<3->{=\!\!\!\alert<9,10>{\left(\begin{array}{@{\!\!\!\!\!}c@{~}c@{~}c@{}}
+\fcAnswer{4}{\sin \phi \cos \theta } & \fcAnswer{4}{\rho\cos\phi \cos\theta} &\fcAnswer{4}{-\rho \sin\phi \sin \theta}\\ 
+\fcAnswer{4}{\cos \phi \sin \theta} & \fcAnswer{4}{\rho\cos\phi \sin \theta }&\fcAnswer{4}{\rho\sin\phi \cos\theta }\\
+\fcAnswer{4}{\cos \phi} & \fcAnswer{4}{-\rho\sin\phi } &\fcAnswer{4}{0}
+\end{array} \right)}}$}
+\uncover<5->{
+\begin{theorem}[Integral Variable Change in Polar Coordinates]
+$ \iiint_{\fcv f(\mathcal R)} h(x,y,z)\diff x\diff y \diff z= \iiint_{\mathcal R}h (\rho\cos \phi\cos \theta, \rho\cos\phi \sin \theta,\rho \sin\phi ) ~~\rho^2\sin\phi~~\diff \rho \diff \phi \diff \theta$.
+\end{theorem}
+\begin{proof}
+$
+\uncover<6->{ \iiint_{\fcv f(\mathcal R)} h(\alert<6>{x}, \alert<7>{y},z) \alert<8>{ \diff x\diff y\diff z} = \iiint_{\mathcal R}h (\alert<6>{r\cos \theta}, \alert<7>{r\sin \theta}, z) \alert<8>{ \alert<9,10>{\det\left(J_{\fcv f}\right)} \diff \rho \diff \phi \diff \theta }} 
+\uncover<9->{= \iiint_{\mathcal R} h(\rho\cos \phi\cos \theta, \rho\cos\phi \sin \theta,\rho \sin\phi ) \fcAnswer{10}{\rho^2\sin\phi } \diff \rho \diff \phi \diff \theta\quad. }
+$
+\end{proof}
+}
+\end{frame}

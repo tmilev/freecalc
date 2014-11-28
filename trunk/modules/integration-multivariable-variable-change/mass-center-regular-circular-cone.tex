@@ -1,0 +1,97 @@
+\begin{frame}
+\begin{example}[Center of Mass of Regular Circular Cone]
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-1,-1)(2,2)
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsU=3, iterationsV=24]{0.02}{0}{2}{360}{[v cos u mul v sin u mul u]}{}
+\fcSurfaceInScene{0}{0}{2}{360}{[v cos u mul v sin u mul 2]}{}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\column{0.6\textwidth}
+Find the center of mass of a solid conical body $\mathcal S$ of radius $R$, height $H$ and density $\rho \colon \mathcal S \to \RR$ proportional to the distance to the axis.
+\end{columns}
+The position vector of the center of mass is
+\[\displaystyle \fcv r _C = \frac{1}{M} \iiint_{\cR} \fcv r \diff m = \frac{1}{M} \iiint_{\cR} \fcv r  \rho \diff V, \]
+where 
+\[\displaystyle M = \iiint_{\cR}  \diff m = \iiint_{\cR}  \rho(x,y, z)  \diff V\] 
+is the mass of the body. It appears that the problem is well suited for a description in cylindrical coordinates.
+\end{example}
+\end{frame}
+
+\begin{frame}
+\begin{example}[Center of Mass of Regular Circular Cone]
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-1,-1)(2,2)
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsU=3, iterationsV=24]{0.02}{0}{2}{360}{[v cos u mul v sin u mul u]}{}
+\fcSurfaceInScene{0}{0}{2}{360}{[v cos u mul v sin u mul 2]}{}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\column{0.6\textwidth}
+Find the center of mass of a solid conical body $\mathcal S$ of radius $R$, height $H$ and density $\rho \colon \mathcal S \to \RR$ proportional to the distance to the axis.
+\end{columns}
+\begin{itemize}
+\item Choose Cartesian coord. system so origin = cone vertex, positive $z-$axis is along axis of the cone.
+\item Fix cylindrical coordinate system, $\fcv f: \left|\begin{array}{rcl} x&=& r\cos \theta\\ y&=&r\sin \theta\\ z&=&z \end{array} \right.$.
+\item Let $\mathcal R$ be the re-parametrization of $\mathcal S$ in cylindrical coordinates: $\mathcal{R} = \{(r,\theta,z) | \fcv f(r,\theta,z) \in \mathcal{S} \} $. We aim to describe $\mathcal R$.
+\item Cone base = disk $D$, center on $z$-axis, radius $R$, in the plane $z=H$. $\Rightarrow$ 
+$
+\mathcal R = \left\{ (r,\theta,z) \; | \; 0 \leq \theta \leq 2\pi, 0 \leq r \leq R, \frac{H}{R} \,r \leq z \leq H\right\} \, .
+$
+\end{itemize}
+\end{example}
+\end{frame}
+      
+\begin{frame}
+\begin{example}[Center of Mass of Regular Circular Cone]
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-1,-1)(2,2)
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsU=3, iterationsV=24]{0.02}{0}{2}{360}{[v cos u mul v sin u mul u]}{}
+\fcSurfaceInScene{0}{0}{2}{360}{[v cos u mul v sin u mul 2]}{}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\column{0.6\textwidth}
+Find the center of mass of a solid conical body $\mathcal S$ of radius $R$, height $H$ and density $\rho \colon \mathcal S \to \RR$ proportional to the distance to the axis.
+\end{columns}
+We have
+\[\begin{array}{rcl}
+\displaystyle M & =&\displaystyle  \iiint_{\mathcal S} \rho(x,y,z) \diff x\diff y\diff z= \iiint_{\mathcal R}  cr \cdot r ~ \diff r\,\diff \theta \diff z  \\
+& =&\displaystyle  \iint_{[0,R]\times [0,2\pi]} \left( \int_{z=\frac{Hr}{R}}^{z=H} cr^2 \diff z \right)  \diff r \diff \theta \\
+& =&\displaystyle  \int_{\theta =0}^{\theta=2\pi} \left(\int_{r=0}^{r=R} \left( \int_{z=\frac{Hr}{R}}^{z=H} cr^2 \, \diff z \right)  \diff r \right) \diff \theta  = \frac{\pi c H R^3}{6}\; .
+\end{array}
+\]
+\end{example}
+\end{frame}
+
+
+\begin{frame}
+\begin{example}[Center of Mass of Regular Circular Cone]
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-1,-1)(2,2)
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsU=3, iterationsV=24]{0.02}{0}{2}{360}{[v cos u mul v sin u mul u]}{}
+\fcSurfaceInScene{0}{0}{2}{360}{[v cos u mul v sin u mul 2]}{}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\column{0.6\textwidth}
+Find the center of mass of a solid conical body $\mathcal S$ of radius $R$, height $H$ and density $\rho \colon \mathcal S \to \RR$ proportional to the distance to the axis.
+\end{columns}
+$M = \frac{\pi c H R^3}{6}$. 
+
+%Dimensional analysis: $\rho = c r \Rightarrow [m/d^3] = [c][d] \Rightarrow [c] = [m/d^4] \Rightarrow [M] = [m/d^4][d^4] = [m] \;  $
+%Dimensional analysis: has to be reworded or altogether removed. If we are to keep this remark, we need to 1) indicate that dimensional analysis is some form of error-checking; 2) make a separate slide explaining what dimensional analysis is; 3) in that slide, fix notation and follow fanatically.
+
+The region is symmetric with respect to the axis of the cone and the distribution of mass is symmetric with respect to axis of cone. Therefore the center of mass is also on this axis.
+
+$\begin{array}{r@{~}c@{~}l}
+z_C & =&\displaystyle \frac{1}{M}  \iiint_{\cR} z \rho(P)  \diff V = \frac{1}{M} \int_{\theta =0}^{\theta=2\pi} \left( \int_{r=0}^{r=R} \left( \int_{z=\frac{Hr}{R} }^{z=H} cr^2z \diff z \right)  \diff r \right) \diff \theta \\
+& =&\displaystyle \frac{6}{\pi c H R^3}\cdot \frac{2\pi c H^2 R^3}{15} = \frac{4}{5}\, H\; .
+\end{array}
+$
+\end{example}
+\end{frame}
