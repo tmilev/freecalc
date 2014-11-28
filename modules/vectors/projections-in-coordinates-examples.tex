@@ -1,6 +1,6 @@
 \begin{frame}
 \begin{example}
-Let $\fcv u=\langle 1,2,3\rangle$, $\fcv v=\langle 6,5,4 \rangle$.
+Let $\fcv u=( 1,2,3)$, $\fcv v=( 6,5,4 )$.
 \begin{itemize}
 \item Compute the scalar projection $\text{comp}_{\fcv v} \fcv u$ of $\fcv u$ onto $\fcv v$.
 \item Compute the vector projection ${\bf proj}_{\fcv v} \fcv u$ of $\fcv u$ onto $\fcv v$.
@@ -8,13 +8,13 @@ Let $\fcv u=\langle 1,2,3\rangle$, $\fcv v=\langle 6,5,4 \rangle$.
 \end{itemize}
 
 $
-\begin{array}{r@{}c@{}l} 
+\begin{array}{r@{}c@{}l}
 \uncover<2->{\displaystyle\text{comp}_{\fcv v}\fcv u&~=~& \displaystyle \frac{\fcv u\cdot \fcv v}{|\fcv v|} \\~\\}
-\uncover<2->{\displaystyle\alert<2,3>{ \text{comp}_{\langle 6,5,4\rangle} \langle 1,2,3\rangle }&\alert<2,3>{~=~}& \uncover<3->{\alert<3>{\displaystyle \frac{ \langle6, 5,4\rangle\cdot\langle1,2,3\rangle}{\sqrt{\langle 6, 5, 4 \rangle\cdot \langle 6, 5 ,4 \rangle}} = \frac{6\cdot 1 + 5\cdot 2 + 4\cdot 3}{\sqrt{6^2+5^2+4^2}} = \frac{28}{\sqrt{77}}}} \\~\\}
+\uncover<2->{\displaystyle\alert<2,3>{ \text{comp}_{( 6,5,4)} ( 1,2,3) }&\alert<2,3>{~=~}& \uncover<3->{\alert<3>{\displaystyle \frac{ (6, 5,4)\cdot(1,2,3)}{\sqrt{( 6, 5, 4 )\cdot ( 6, 5 ,4 )}} = \frac{6\cdot 1 + 5\cdot 2 + 4\cdot 3}{\sqrt{6^2+5^2+4^2}} = \frac{28}{\sqrt{77}}}} \\~\\}
 \uncover<4->{ {\bf proj}_{\fcv{v}} \textbf{u} &~=~&\displaystyle \frac{\fcv{u} \cdot \fcv{v}}{|\fcv{v}|^2} \fcv{v}\\~\\}
-\uncover<4->{\alert<4,5>{ {\bf proj}_{\langle 6,5,4\rangle} \langle 1,2,3\rangle }& \alert<4,5>{~ =~}&\uncover<5->{\alert<5>{ \frac{28}{77} \langle 6,5,4\rangle = \left\langle\frac{24}{11}, \frac{20}{11}, \frac{16}{11}\right\rangle}} \\}
-\uncover<6->{\alert<6,7>{{\bf orth}_{\langle 6,5,4\rangle} \langle 1,2,3\rangle} &\alert<6,7>{~=~}& \uncover<7->{\alert<7>{\langle 1,2,3\rangle -
-\textbf{proj}_{\langle 6,5,4\rangle} \langle 1,2,3\rangle= \left\langle-\frac{13}{11}, \frac{2}{11}, \frac{17}{11}\right\rangle }}}
+\uncover<4->{\alert<4,5>{ {\bf proj}_{( 6,5,4)} ( 1,2,3) }& \alert<4,5>{~ =~}&\uncover<5->{\alert<5>{ \frac{28}{77} ( 6,5,4) = \left(\frac{24}{11}, \frac{20}{11}, \frac{16}{11}\right)}} \\}
+\uncover<6->{\alert<6,7>{{\bf orth}_{( 6,5,4)} ( 1,2,3)} &\alert<6,7>{~=~}& \uncover<7->{\alert<7>{( 1,2,3) -
+\textbf{proj}_{( 6,5,4)} ( 1,2,3)= \left(-\frac{13}{11}, \frac{2}{11}, \frac{17}{11}\right) }}}
 \end{array}
 $
 \end{example}

@@ -9,7 +9,7 @@
 \fcStartIIIdScene%
 \fcPatchInScene{[0 0 0]}{[1 0 0]}{[0 0 1]}%
 \fcPatchInScene{[0 0 0]}{[0 0 1]}{[0 1 0]}%
-\fcPatchInScene{[0 0 0]}{[0 1 0]}{[1 0 0]}%	
+\fcPatchInScene{[0 0 0]}{[0 1 0]}{[1 0 0]}%
 \fcPatchInScene{[1 1 0]}{[1 1 1]}{[1 0 0]}%
 \fcPatchInScene{[1 1 0]}{[0 1 0]}{[1 1 1]}%
 \fcFinishIIIdScene[fastsort=true]%
@@ -25,7 +25,7 @@
 \column{0.65\textwidth}
 Find the maximal volume of a box with no lid whose surface area is $10m^2$.
 
-\uncover<2->{ Let the three dimensions of the box be $\alert<2>{ x,y,z}$.} 
+\uncover<2->{ Let the three dimensions of the box be $\alert<2>{ x,y,z}$.}
 \end{columns}
 \only<1-15>{%
 \uncover<3->{%
@@ -34,11 +34,11 @@ We seek to maximize $\alert<7,8>{V=xyz}$ \alert<4,5>{under the restriction}
 \fcAnswer{5}{
 \alert<14>{\alert<9,10>{ g(x,y,z)=xy+2(zx+yz)-10}=0} \quad .}
 \]
-} 
+}
 \uncover<6->{%
-By the Lagrange multiplier method, we need to solve the system 
+By the Lagrange multiplier method, we need to solve the system
 \[
-\fcAnswer{8}{\langle \alert<11>{yz}, \alert<12>{zx}, \alert<13>{xy} \rangle } \uncover<7->{\alert<7,8>{=}} \alert<7,8>{  \nabla V}= \lambda \alert<9,10>{ \nabla g} \uncover<9->{ \alert<9,10>{ =} \alert<11-13>{\lambda}}  \fcAnswer{10}{ \langle\alert<11>{ 2 z+y},\alert<12>{ 2 z+x}, \alert<13>{2 y+2 x} \rangle\quad .} 
+\fcAnswer{8}{( \alert<11>{yz}, \alert<12>{zx}, \alert<13>{xy} ) } \uncover<7->{\alert<7,8>{=}} \alert<7,8>{  \nabla V}= \lambda \alert<9,10>{ \nabla g} \uncover<9->{ \alert<9,10>{ =} \alert<11-13>{\lambda}}  \fcAnswer{10}{ (\alert<11>{ 2 z+y},\alert<12>{ 2 z+x}, \alert<13>{2 y+2 x} )\quad .}
 \]
 }
 \uncover<11->{In other words we are solving the following system.}
@@ -52,7 +52,7 @@ By the Lagrange multiplier method, we need to solve the system
 \alert<13>{x y} &\alert<13>{=}& \alert<13>{\lambda(2x+2y)} \\
 \alert<14,30>{10}&\alert<14,30>{=}&\alert<14,30>{x y+2(z x+y z)}
 \end{array}
-\right. 
+\right.
 }
 \uncover<17->{
 \Rightarrow
@@ -66,13 +66,13 @@ By the Lagrange multiplier method, we need to solve the system
 \]
 }
 \only<19-22>{%
-\uncover<19->{From the first two equalities we get $\alert<20>{2\lambda x z+\alert<21>{\lambda x y}= 2\lambda y z +\alert<21>{\lambda xy}} $} 
+\uncover<19->{From the first two equalities we get $\alert<20>{2\lambda x z+\alert<21>{\lambda x y}= 2\lambda y z +\alert<21>{\lambda xy}} $}
 \uncover<21->{%
-and so 
+and so
 \[
 \alert<22>{\lambda} x \alert<22>{z} = \alert<22>{\lambda} y\alert<22>{ z} \quad .
 \]
-}% 
+}%
 \uncover<22->{We have that $\lambda\neq 0, z\neq 0 $ (else the volume would be zero). Therefore }
 }
 \uncover<22->{%
@@ -90,5 +90,5 @@ Finally we substitute $y=x, z=\frac{x}{2}$ in the last equality \uncover<31->{to
 \uncover<32->{%
 Thus  $\alert<32,34>{x = \frac{\sqrt{30}}{3}}$ \uncover<33->{and therefore \alert<33,34>{$y = \frac{\sqrt{30}}{3}$,  $z = \frac{\sqrt{30}}{6}$,} \uncover<34->{\alert<34>{our final answer.}}}}
 \end{example}
-\vskip 10cm 
+\vskip 10cm
 \end{frame}

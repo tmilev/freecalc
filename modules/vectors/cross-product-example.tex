@@ -1,6 +1,6 @@
 \begin{frame}
 \[
-\fcv{u} \times \fcv{v} = \langle u_1, u_2, u_3 \rangle \times \langle v_1, v_2, v_3 \rangle =
+\fcv{u} \times \fcv{v} = ( u_1, u_2, u_3 ) \times ( v_1, v_2, v_3 ) =
 \left|  \begin{array}{ccc}
 \fcv{i} & \fcv{j} & \fcv{k} \\
 u_1 & u_2 & u_3 \\
@@ -8,12 +8,12 @@ v_1 & v_2 & v_3
 \end{array}\right|
 \]
 \begin{example}
-Find $\fcv u \times \fcv v$, where $\fcv{u} = \langle 1,2,3\rangle$ and $\fcv{v} = \langle 6,5,4 \rangle$. 
+Find $\fcv u \times \fcv v$, where $\fcv{u} = ( 1,2,3)$ and $\fcv{v} = ( 6,5,4 )$.
 \[
 \begin{array}{rcl}
 \uncover<2->{%
-\fcv{u} \times \fcv{v} &=& \langle 1, 2, 3 \rangle \times \langle 6, 5, 4 \rangle =
-\left|  
+\fcv{u} \times \fcv{v} &=& ( 1, 2, 3 ) \times ( 6, 5, 4 ) =
+\left|
 \begin{array}{ccc}
 \fcv{i} & \fcv{j} & \fcv{k} \\
 1 & 2 & 3 \\
@@ -22,15 +22,15 @@ Find $\fcv u \times \fcv v$, where $\fcv{u} = \langle 1,2,3\rangle$ and $\fcv{v}
 \right| \\
 } %uncover
 \uncover<3->{%
-&=& 
+&=&
 \left|\begin{array}{cc}
 2 & 3\\
 5 & 4
-\end{array}\right|\fcv{i} - 
+\end{array}\right|\fcv{i} -
 \left| \begin{array}{cc}
 1 & 3\\
 6 & 4
-\end{array}\right| \fcv{j} + 
+\end{array}\right| \fcv{j} +
 \left| \begin{array}{cc}
 1 & 2\\
 6 & 5
@@ -40,7 +40,7 @@ Find $\fcv u \times \fcv v$, where $\fcv{u} = \langle 1,2,3\rangle$ and $\fcv{v}
 &=&(2\cdot 4 -3\cdot 5) \fcv{i} - (1\cdot 4 - 3\cdot 6) \fcv{j} + (1 \cdot 5 - 2\cdot 6) \fcv{k} \\~\\
 }%uncover
 \uncover<5->{%
-&=& -7 \fcv{i} + 14 \fcv{j} -7 \fcv{k} =\langle -7, 14, -7\rangle\; .
+&=& -7 \fcv{i} + 14 \fcv{j} -7 \fcv{k} =( -7, 14, -7)\; .
 }
 \end{array}
 \]

@@ -2,7 +2,7 @@
 \frametitle{Directional Derivatives via the Chain Rule}
 \begin{itemize}
 \item Let $f$ differentiable function,
-\item Let $\fcv{u}=\langle u_1,u_2,u_3 \rangle$, unit vector,
+\item Let $\fcv{u}=( u_1,u_2,u_3 )$, unit vector,
 \item Let $P(x_0,y_0,z_0)$, point.
 \end{itemize}
 \uncover<2->{What is the rate of change of $f$ at $P$ in the direction $\fcv{u}$? Answer was studied: directional derivative.}
@@ -33,12 +33,12 @@ $\left|\begin{array}{rcl}
 \displaystyle (D_{\fcv u }  f)(x_0,y_0,z_0)&=&\displaystyle \frac{\diff w}{\diff t}_{|t=0} \\
 \uncover<4->{&= &  \displaystyle  \left( \frac{\partial f}{\partial x}\alert<5>{\frac{\diff x}{\diff t}} + \frac{\partial f}{\partial y} \alert<6>{\frac{\diff y}{\diff t} } + \frac{\partial f}{\partial z} \alert<7>{\frac{\diff z}{\diff t} }\right)_{|t=0} } \\
 \uncover<5->{&= &\displaystyle  \alert<9>{\frac{\partial f}{ \partial x}} \alert<5,8>{u_1} + \alert<9>{ \frac{ \partial f}{\partial y}} \alert<6,8>{u_2} + \alert<9>{ \frac{ \partial f}{\partial z}} \alert<7,8>{ u_3} }\\
-\uncover<8->{ &= &\displaystyle \alert<9>{\left \langle \frac{\partial f}{\partial x} , \frac{ \partial f}{ \partial y}, \frac{\partial f}{\partial z}  \right \rangle } \cdot \alert<8>{ \fcv{u}}}
+\uncover<8->{ &= &\displaystyle \alert<9>{\left ( \frac{\partial f}{\partial x} , \frac{ \partial f}{ \partial y}, \frac{\partial f}{\partial z}  \right ) } \cdot \alert<8>{ \fcv{u}}}
 \end{array}
 \]
 }
 \uncover<10->{
-Let $\nabla f =\langle \frac{\partial f}{\partial x} , \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle$.
+Let $\nabla f =( \frac{\partial f}{\partial x} , \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} )$.
 }
 \uncover<11->{
 Then
