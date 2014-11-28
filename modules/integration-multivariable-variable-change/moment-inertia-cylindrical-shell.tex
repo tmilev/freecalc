@@ -1,17 +1,28 @@
 \begin{frame}
-\frametitle{Moment of Inertia in Cylindrical Coordinates}
-\begin{itemize}
-\item Recall the moment of inertia with respect to an axis $L$ is:
-\[
-I = \text{mass} \cdot \text{distance}^2
-\]
-\item Let $h$ be the distance from a point $(x,y)$ to the axis $L$. 
-\item Therefore
+\begin{example}[Moment of inertia of cylindrical shell]
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\fcBoundingBox{-1.2}{-2}{2.2}{2}
+\renewcommand{\fcScreen}{[-1 1 -1] -1}
+\fcStartIIIdScene
+\fcSurfaceInScene[linewidth= 1, linecolor=black, iterationsV=1, iterationsU=24]{0}{-1}{360}{1}{[u cos u sin v]}{}
+\fcSurfaceInScene[iterationsV=1, iterationsU=24]{0}{-1}{360}{1}{[u cos 1.2 mul u sin 1.2 mul v]}{}
+\fcSurfaceInScene[iterationsV=1, iterationsU=24]{0}{1.2}{360}{1}{[u cos v mul u sin v mul 1]}{}
+\fcSurfaceInScene[iterationsV=1, iterationsU=24]{0}{1}{360}{1.2}{[u cos v mul u sin v mul -1]}{}
+\fcLineIIIdInScene[linewidth=3, linecolor=blue]{[0 0 -2.4]}{[0 0 2.4]}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+
+\column{0.7\textwidth}
+Find the moment of inertia of a cylindrical shell whose axis is the $z$-axis, is of height $H$, has inner radius $R_1$, outer radius $R_2$, and is rotating about the $z$-axis.
+\end{columns}
 \[
 \begin{array}{rcl}
-I_{total}&=& \iiint_{\mathcal{R}} \diff I = \iiint_{\mathcal{R}} h^2 \diff m =\iiint_{\mathcal{R}} h^2  \rho  \diff V \\
-&=& \int_{z=0}^{z=H} \left( \iint_{D_z} \rho h^2  \diff x\diff y \right)  \diff z 
+I&=& \int_{z=0}^{z=H} \left(\iint_{[R_1,R_2] \times [0,2\pi]} \rho r^2  r \diff r\, \diff\theta \right)  \diff z \\
+&=& \int_{z=0}^{z=H} \left( \int_{r=R_1}^{r=R_2} \left(\int_{\theta=0}^{\theta=2\pi} \rho r^3  \diff \theta \right)  \diff r\right) \, dz = 2\pi \rho H \frac{R_2^4-R_1^4}{4} \\
+&=& \rho \pi (R_2^2-R_1^2)H \cdot \frac{R_1^2+R_2^2}{2} = \frac{m (R_1^2 + R_2^2 )}{2}\; .
 \end{array}
 \]
-\end{itemize}
+\end{example}
 \end{frame}

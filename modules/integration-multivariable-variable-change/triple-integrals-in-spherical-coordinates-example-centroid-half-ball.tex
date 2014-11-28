@@ -1,0 +1,81 @@
+
+\begin{frame}
+\begin{example}[Centroid of (filled) hemisphere]
+\begin{columns}
+\column{0.6\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.3}{-0.5}{1.3}{1.4}
+\fcStartIIIdScene
+\fcSurfaceInScene{90}{0}{0}{360}{
+4 dict begin
+/rho 1 def
+/x u cos v cos mul rho mul def
+/y u cos v sin mul rho mul def
+/z u sin rho mul def
+[x y z]
+end
+}{}
+\fcAxesIIIdInScene{1.4}{1.4}{1.4}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\raisebox{0.85cm}{
+$\fcv f:\left|\begin{array}{r@{}c@{}l}x&=&\rho \cos\phi \cos\theta \\y&=&\rho \cos\phi \sin\theta \\z&=&\rho \sin\phi \end{array}\right.$
+}
+\column{0.4\textwidth}
+Find the centroid (geometric center) of a (filled) hemisphere. 
+\end{columns}
+\begin{itemize}
+\item Introduce Cartesian coordinates as illustrated.
+\item Let the coordinates of the centroid be $\left(x_C, y_C, z_C\right)$.
+\item Region is symmetric with respect to the $z-$axis $\Rightarrow$ centroid is on $z$-axis $\Rightarrow$  $x_C=y_C=0$.
+\item $z_C$, is the ``average'' of the $z$ coordinates of the figure:
+
+\hfil $\displaystyle z_C = \frac{1}{\text{Vol}(\mathcal S)} \iiint_{\mathcal S} z ~\diff x~\diff y~\diff z .
+$\hfil 
+\item Let $\mathcal R$ be the reparametrization of the region in spherical coordinates, $\fcv f (\mathcal R)=\mathcal S$. 
+$\mathcal R = \{ (\rho, \phi, \theta) | 0 \leq \rho \leq R, 0 \leq \phi \leq \frac{\pi}{2}, 0 \leq \theta \leq 2\pi \}.$
+\end{itemize}
+\end{example}
+\end{frame}
+
+\begin{frame}
+\begin{example}[Centroid of (filled) hemisphere]
+\begin{columns}
+\column{0.6\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.3}{-0.5}{1.3}{1.4}
+\fcStartIIIdScene
+\fcSurfaceInScene{90}{0}{0}{360}{
+4 dict begin
+/rho 1 def
+/x u cos v cos mul rho mul def
+/y u cos v sin mul rho mul def
+/z u sin rho mul def
+[x y z]
+end
+}{}
+\fcAxesIIIdInScene{1.4}{1.4}{1.4}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\raisebox{0.85cm}{
+$\fcv f:\left|\begin{array}{r@{}c@{}l}x&=&\rho \cos\phi \cos\theta \\y&=&\rho \cos\phi \sin\theta \\z&=&\rho \sin\phi \end{array}\right.$
+}
+\column{0.4\textwidth}
+Find the centroid (geometric center) of a (filled) hemisphere. 
+\end{columns}
+$\mathcal R = \{ (\rho, \phi, \theta) | 0 \leq \rho \leq R, 0 \leq \phi \leq \frac{\pi}{2}, 0 \leq \theta \leq 2\pi \}.$. Therefore
+\[\begin{array}{r@{~}c@{~}l}
+z_C & =&\displaystyle \frac{1}{\text{Vol}(\cR)} \iiint_{\mathcal R} z ~ \diff x \diff y \diff z  = \frac{3}{2\pi R^3} \iiint_{\mathcal R} \rho \cos\phi \cdot \rho^2\sin\phi \, \diff \rho\, \diff \phi\,\diff \theta  \\
+& =&\displaystyle \frac{3}{2\pi R^3} \int_{\theta =0}^{\theta=2\pi} \left( \int_{\phi = 0}^{\phi=\pi/2} \left( \int_{\rho = 0}^{\rho = R} \rho^3 \sin\phi\cos\phi \, \diff \rho \right) \, \diff \phi \right) \, \diff \theta  \\
+& =&\displaystyle \frac{3}{2\pi R^3} \left(\int_{\theta =0}^{\theta=2\pi} \diff \theta \right) \left( \int_{\phi = 0}^{\phi=\pi/2} \sin\phi\cos\phi\, \diff \phi \right) \left( \int_{\rho = 0}^{\rho = R} \rho^3 \, \diff \rho \right)  \\
+& =&\displaystyle \frac{3}{2\pi R^3} \cdot 2\pi \cdot \left( \left. \frac{1}{2}\sin^2\phi \right|_{\phi=0}^{\phi=\pi/2}\right) \cdot \left( \left. \frac{\rho^4}{4} \right|_{\rho=0}^{\rho=R} \right) = \frac{3}{8} \, R\; .
+\end{array}
+\]
+
+\end{example}
+
+
+
+\end{frame}
