@@ -1,14 +1,14 @@
 \begin{frame}
 \begin{example}[Limit may fail to exist]
 \[
-\lim_{(x,y) \to (0,0)} \frac{xy}{x^2+y^2} 
+\lim_{(x,y) \to (0,0)} \frac{xy}{x^2+y^2}
 \]
 
-\uncover<2->{Let $\fcv u= \langle 1,m\rangle$ and use directional limit along $\fcv u$:}
+\uncover<2->{Let $\fcv u= ( 1,m)$ and use directional limit along $\fcv u$:}
 
-\centering 
+\centering
 $\begin{array}{rcl}
-\uncover<2->{ \displaystyle\lim\limits_{t\to 0} f(t\fcv{u}) &=&\displaystyle\lim\limits_{t\to 0} f(t\langle 1,m\rangle)=\displaystyle\lim\limits_{t\to 0} f(t, tm)}\\
+\uncover<2->{ \displaystyle\lim\limits_{t\to 0} f(t\fcv{u}) &=&\displaystyle\lim\limits_{t\to 0} f(t( 1,m))=\displaystyle\lim\limits_{t\to 0} f(t, tm)}\\
 \uncover<3->{&=&\displaystyle\lim_{t\to 0}\frac{m \alert<4>{t^2}}{\alert<4>{t^2}+m^2\alert<4>{t^2}}}\\
 \uncover<4->{&=& \displaystyle\frac{m}{1+m^2}}\quad.
 \end{array}
@@ -28,7 +28,7 @@ $
 }
 \flushleft
 
-\uncover<10->{This expression depends only on $\theta$; as $r\to 0$ permits arbitrary behavior of $\theta$, we'd had guessed correctly that the limit doesn't exist.} 
+\uncover<10->{This expression depends only on $\theta$; as $r\to 0$ permits arbitrary behavior of $\theta$, we'd had guessed correctly that the limit doesn't exist.}
 
 \end{example}
 \end{frame}

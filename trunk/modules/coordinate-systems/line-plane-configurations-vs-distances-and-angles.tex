@@ -1,29 +1,48 @@
 \begin{frame}
 \frametitle{Line/Plane Configurations and Distances and Angles}
-\begin{figure}[h]
-  \psfrag{cP1}{$\mathcal{P}_1$}
-  \psfrag{cP2}{$\mathcal{P}_2$}
-  \psfrag{L1}{$L_1$}
-  \psfrag{L2}{$L_2$}
-  \psfrag{L}{$L$}  
-  \includegraphics[height=2in]{../../modules/coordinate-systems/pictures/perpendicularity.eps}
-  %\caption{Perpendicularity}
-  \label{fig:perpendicularity}
-\end{figure}
-%
+\hfil
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1,-1)(1,1)%
+\tiny%
+\renewcommand{\fcScreenStyle}{x}%
+\renewcommand{\fcNumCountourSegmentsPatchU}{200}
+\renewcommand{\fcNumCountourSegmentsPatchV}{200}
+%\renewcommand{\fcScreen}{[-1 1 -0.5] -1}
+\fcStartIIIdScene%
+\fcPatchInScene[colorUV={1 0.8 0.8}, colorVU={1 0.7 0.7}]{[-3 -1 0]}{[3 -1 0]}{[-3 1 0]}%
+\fcPatchInScene{[0 -1 0]}{[0 1 0]}{[0 -1 2]}%
+\fcPatchInScene{[0 -1 0]}{[0 1 0]}{[0 -1 -2]}%
+\fcLineIIIdInScene{[0 0 2]}{[0 0 -2]}%
+\fcLineIIIdInScene{[-2.4 -1 0]}{[-1 1 0]}%
+\only<6->{%
+\fcLineIIIdInScene{[-1 1 0]}{[0 17 7 div 0]}%
+\fcLineIIIdInScene{[0 1 0]}{[0 17 7 div 0]}%
+}%
+\fcFinishIIIdScene[fastsort=true]%
+\fcPerpendicularIIId{[0 -1 -1]}{[0 -1 0][-1 -1 0]}{0.2}%
+\fcPerpendicularIIId{[0 0 2]}{[0 0 0][0 1 0]}{0.2}%
+\fcPutIIId[t]{[3 -1 -0.1]}{$\mathcal P_1$}%
+\fcPutIIId[l]{[0 1 2]}{$~~\mathcal P_2$}%
+\fcPutIIId[l]{[0 0.4 0]}{$~~~L$}%
+\fcPutIIId[l]{[0 0 1.8]}{$~~L_2$}%
+\fcPutIIId[r]{[-1.8 0 0]}{$L_1~~$}%
+\only<3->{%
+\fcPerpendicularIIId{[-1.8 0 2]}{[-2.4 -1 0][-1 1 0] }{0.2}%
+\fcPutIIId[l]{[-1.8 0 2]}{$~~L_2' || L_2$}%
+}%
+\only<6->{%
+\fcPutIIId{[0 17 7 div 0]}{\fcAngleIIId[linecolor=red]{[0 -1 0]}{[-1 -10 7 div 0]}{0.7}}%
+}%
+\end{pspicture} \hfil
 \begin{itemize}
 %
-\item The planes $\mathcal{P}_1$ and $\mathcal{P}_2$ are perpendicular on each other;
-%
-\item The lines $L_2$ and $L$ are coplanar and perpendicular on each other;
-%
-\item The lines $L_1$ and $L_2$ are skew but perpendicular on each other;
-%
-\item The lines $L_1$ and $L$ are coplanar and not perpendicular;
-%
-\item The line $L_2$ is perpendicular to the plane $\mathcal{P}_1$;
-%
-\item The line $L_1$ is not perpendicular to the plane $\mathcal{P}_2$.
+\item The planes $\mathcal{P}_1$ and $\mathcal{P}_2$ are perpendicular on each other.
+
+\item<2-> The lines $L_2$ and $L$ are coplanar and perpendicular to each other.
+\item<3-> The lines $L_1$ and $L_2$ are skew and perpendicular to each other.
+\item<4-> The lines $L_1$ and $L$ are coplanar and not perpendicular.
+\item<5-> The line $L_2$ is perpendicular to the plane $\mathcal{P}_1$.
+\item<6-> The line $L_1$ is not perpendicular to the plane $\mathcal{P}_2$.
 \end{itemize}
 
 \end{frame}

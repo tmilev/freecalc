@@ -8,7 +8,7 @@
 \renewcommand{\fcScreen}{[-1.5 2 -0.5 ] 0}%
 \fcParallelogramIIId{[-0.1 -0.1 1]}{[1.6 -0.1 -0.7]}{[0 2 3]}%
 \fcLineIIId[arrows=->]{[1 1 1]}{[2 0 2]}%
-\fcPutIIId[l]{[1.5 0.5 1.5]}{$~~\fcv n\uncover<5->{\langle a,b,c\rangle}$}%
+\fcPutIIId[l]{[1.5 0.5 1.5]}{$~~\fcv n\uncover<5->{( a,b,c)}$}%
 \uncover<3->{%
 \fcPerpendicularIIId{[2 0 2]}{ [1 1 1] [0.2 0.4 1.2]}{0.4}%
 }%
@@ -32,9 +32,9 @@
 \column{0.7\textwidth}
 \begin{itemize}
 \item<1-> Point $P_0$, with position vector $ \fcv{r}_0$;
-\uncover<5->{$ \fcv{r}_0 = \langle x_0,y_0,z_0\rangle$}
+\uncover<5->{$ \fcv{r}_0 = ( x_0,y_0,z_0)$}
 \item<1-> Direction $ \fcv{n}$, non-zero vector.
-\uncover<5->{$ \fcv{n} = \langle a,b,c\rangle$}
+\uncover<5->{$ \fcv{n} = ( a,b,c)$}
 \item<1->Goal: describe plane passing through $P_0$ and orthogonal to $\fcv n$.
 \item<2-> Point $P$ with position $ \fcv{r}$ is on $\mathcal{P}$ $\Leftrightarrow$
 \item<3->{$ \alert<4>{\fcv{P}_0 \fcv{P}\uncover<4->{=\fcv r-\fcv r_0}} $ is orthogonal (normal) to $ \fcv{n}$ $\Leftrightarrow$}
@@ -45,7 +45,7 @@
 \end{columns}
 \uncover<7->{%
 \begin{definition}[\alert<7->{Implicit scalar equation}]
-$\alert<8>{ \langle x-x_0, y-y_0, z-z_0\rangle} \cdot \alert<9>{\langle a,b,c\rangle} = 0$ \uncover<10->{$\Leftrightarrow$} 
+$\alert<8>{ ( x-x_0, y-y_0, z-z_0)} \cdot \alert<9>{( a,b,c)} = 0$ \uncover<10->{$\Leftrightarrow$}
 \uncover<10->{\alert<10>{$a(x-x_0) + b(y-y_0)+c(z-z_0) = 0$}}
 \end{definition}
 } %uncover

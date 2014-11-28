@@ -1,11 +1,11 @@
 \begin{frame}
 \begin{example}
-Find the directional derivative of $f(x,y,z) = \ln{ (x^2+ 2y^2- z^2 )}$ at $P(2,1,-1)$ in the direction $\fcv{v}=\langle -1,2,1\rangle$.
+Find the directional derivative of $f(x,y,z) = \ln{ (x^2+ 2y^2- z^2 )}$ at $P(2,1,-1)$ in the direction $\fcv{v}=( -1,2,1)$.
 
 \uncover<2->{
 A unit vector in the direction of $\fcv{v}$ is
 \[
-\fcv{u} = \frac{1}{|\fcv{v}|} \fcv{v} = \frac{1}{\sqrt{6}} \langle -1, 2, 1 \rangle\; .
+\fcv{u} = \frac{1}{|\fcv{v}|} \fcv{v} = \frac{1}{\sqrt{6}} ( -1, 2, 1 )\; .
 \]
 }
 %\begin{overlayarea}{\textheight}{5cm}
@@ -18,12 +18,12 @@ A unit vector in the direction of $\fcv{v}$ is
 \end{array}
 \]
 \[
-\uncover<6->{\alert<6>{\nabla f _{|(x,y,z)=(2,1,-1)} = \left\langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5} \right \rangle }}
+\uncover<6->{\alert<6>{\nabla f _{|(x,y,z)=(2,1,-1)} = \left( \frac{4}{5}, \frac{4}{5}, \frac{2}{5} \right ) }}
 \]
 }
 \only<7->{
 \[
-\nabla f_{|(x,y,z)=(2,1,-1)} = \langle f_x, f_y, f_z \rangle_{|(x,y,z)= (2,1,-1) } = \left\langle \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\right\rangle
+\nabla f_{|(x,y,z)=(2,1,-1)} = ( f_x, f_y, f_z )_{|(x,y,z)= (2,1,-1) } = \left( \frac{4}{5}, \frac{4}{5}, \frac{2}{5}\right)
 \]
 \[
 \alert<7>{(D_{\fcv{u}}f)_{|(x,y,z)=(2,1,-1)} = \nabla f_{|(x,y,z)=(2,1,-1)} \cdot \fcv{u} =} \uncover<8->{\alert<8>{ \frac{ \sqrt{6}}{5}}}
@@ -32,7 +32,7 @@ A unit vector in the direction of $\fcv{v}$ is
 \uncover<9->{
 $(D_{\fcv{u}}f)(2,1,-1)>0 $ implies that if we start at $(2, 1, -1)$ and move in the direction $\fcv{u}$, then $f$ is increasing.
 }
-} 
+}
 %\end{overlayarea}
 \end{example}
 \vskip 5cm

@@ -1,18 +1,18 @@
 \begin{frame}
 Notation: $\fcv T$- unit tangent vector, $\fcv r$- position vector, $\kappa$-curvature.
 \begin{example}
-Compute the curvature of $\fcv{r}(t) = \langle \cos{t}, \sin{t}, t\rangle$.
+Compute the curvature of $\fcv{r}(t) = ( \cos{t}, \sin{t}, t)$.
 \begin{columns}
 \column{0.5\textwidth}
 $\begin{array}{rcl}
-\uncover<2->{\alert<2,3> {\fcv{r}'(t)}}& \uncover<2->{\alert<2,3>{=}}&\uncover<3->{\alert<3>{\displaystyle \langle -\sin{t}, \cos{t}, 1 \rangle }}\\
+\uncover<2->{\alert<2,3> {\fcv{r}'(t)}}& \uncover<2->{\alert<2,3>{=}}&\uncover<3->{\alert<3>{\displaystyle ( -\sin{t}, \cos{t}, 1 ) }}\\
 \uncover<4->{\alert<4,5>{ |\fcv{r}'(t)|}} & \uncover<4->{\alert<4,5>{=}}&\uncover<5->{\alert<5>{ \displaystyle \sqrt{2}}}\\
-\uncover<6->{\alert<6,7>{\fcv{T}(t)}} &\uncover<6->{\alert<6,7>{=}} &\displaystyle \uncover<7->{\alert<7>{ \frac{1}{\sqrt{2}} \langle -\sin{t}, \cos{t}, 1 \rangle }}\\
+\uncover<6->{\alert<6,7>{\fcv{T}(t)}} &\uncover<6->{\alert<6,7>{=}} &\displaystyle \uncover<7->{\alert<7>{ \frac{1}{\sqrt{2}} ( -\sin{t}, \cos{t}, 1 ) }}\\
 \end{array}
 $
 \column{0.5\textwidth}
 $\begin{array}{rcl}
-\uncover<8->{\alert<8,9>{\fcv{T}'(t)}} &\uncover<8->{\alert<8,9>{=}}& \uncover<9->{\alert<9>{\frac{1}{\sqrt{2}}\langle -\cos{t}, -\sin{t}, 0 \rangle }}\\
+\uncover<8->{\alert<8,9>{\fcv{T}'(t)}} &\uncover<8->{\alert<8,9>{=}}& \uncover<9->{\alert<9>{\frac{1}{\sqrt{2}}( -\cos{t}, -\sin{t}, 0 ) }}\\
 \uncover<10->{\alert<10,11>{|\fcv{T}'|}}&\uncover<10->{\alert<10,11>{=}}&\uncover<11->{\alert<11>{ \frac{1}{\sqrt{2}}}} \\
 \uncover<12->{\alert<12,13>{ \kappa(t)}} &\uncover<12->{\alert<12,13>{=}}& \uncover<13->{\alert<13>{ \frac{|\fcv{T}'(t)|}{|\fcv{r}'(t)|} =
 \frac{1}{2}}} \quad .\\
@@ -23,7 +23,7 @@ $
 \uncover<14->{Alternatively: }
 \[
 \begin{array}{rcl}
-\uncover<14->{\alert<14,15>{\fcv{r}''}} &\uncover<14->{\alert<14,15>{=}}& \uncover<15->{\alert<15>{ \langle -\cos{t}, -\sin{t}, 0 \rangle}} \\
+\uncover<14->{\alert<14,15>{\fcv{r}''}} &\uncover<14->{\alert<14,15>{=}}& \uncover<15->{\alert<15>{ ( -\cos{t}, -\sin{t}, 0 )}} \\
 \uncover<16->{\alert<16,17>{ \fcv{r}'' \times \fcv{r}'}} &\uncover<16->{\alert<16,17>{=}}&\uncover<17->{\alert<17>{\displaystyle \left|
 \begin{array}{ccc}
 \fcv{i} & \fcv{j} & \fcv{k} \\

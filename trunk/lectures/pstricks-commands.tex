@@ -1136,11 +1136,8 @@ end %
 }
 
 \newcommand{\fcStartIIIdScene}{%
-\pstVerb{%
-1 dict begin%
-/theIIIdObjects [] def %
+\pstVerb{1 dict begin /theIIIdObjects [] def}%
 }%
-}
 
 \newcommand{\fcZBufferPrint}{ %
 (printing Zbuffer...) == %
@@ -1483,7 +1480,7 @@ end
 }
 
 \newcommand{\fcFinishIIIdScene}[1][]{%
-\setkeys{fcGraphics}{#1}
+\setkeys{fcGraphics}{#1}%
 \pscustom{%
 \code{%
 %print the objects we are about to paint:
@@ -1539,7 +1536,7 @@ pstack %
 if
 }%
 }%
-\pstVerb{end} %
+\pstVerb{end}%
 }%
 
 \newcommand{\fcObjectGetNumContours}{%

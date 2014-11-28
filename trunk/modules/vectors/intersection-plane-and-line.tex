@@ -4,7 +4,7 @@
 \psset{xunit=2cm, yunit=2cm}
 \begin{pspicture}(-1.2, -1.2)(2,2)
 \renewcommand{\fcScreen}{[-4 -1 -1] 0}
-\tiny 
+\tiny
 \fcParallelogramIIId{[-1 -1 0]}{[1 -1 0]}{[-1 1 0]}
 \fcPutIIId{[-1 1 0]}{$\mathcal P$}
 %\fcLineIIId[arrows=->, linecolor=blue]{[0 0.5 0]}{[0 0.5 1]}
@@ -26,14 +26,14 @@
 \column{0.6\textwidth}
 \begin{itemize}
 \item Given: line $L: \quad\alert<6>{ \fcv{r}= \fcv{r}_1+t\fcv{u}}$,
-\item $\fcv r_1=\langle x_1, y_1, z_1\rangle$, $u=\langle p,q,r\rangle$,
+\item $\fcv r_1=( x_1, y_1, z_1)$, $u=( p,q,r)$,
 \item plane $\mathcal{P}: \alert<12>{\alert<4>{ax +by +cz} \alert<5>{ -d}=0}$.
 \item Goal: find the intersection between line and plane.
 \end{itemize}
 \end{columns}
-\uncover<2->{Let $P_0(\fcv r_0)$ be a point on the plane.} \uncover<3->{Then a point $P(\fcv r)$, $\fcv r=\langle x,y,z\rangle$ is on the plane if 
+\uncover<2->{Let $P_0(\fcv r_0)$ be a point on the plane.} \uncover<3->{Then a point $P(\fcv r)$, $\fcv r=( x,y,z)$ is on the plane if
 $
-\alert<12>{( \alert<4,7>{\fcv r}\alert<5,8>{-\fcv r_0})\alert<4,5,8>{\cdot \fcv n}=0}. 
+\alert<12>{( \alert<4,7>{\fcv r}\alert<5,8>{-\fcv r_0})\alert<4,5,8>{\cdot \fcv n}=0}.
 $
 } %uncover3
 \uncover<6->{A point $P(\fcv r) $ \alert<6>{on the line} is of the form $\alert<6,7>{\fcv r=\fcv r_1+t\fcv u}$,} \uncover<7->{therefore $P$ lies on both the line and the plane if:
@@ -42,7 +42,7 @@ $
 \uncover<9->{ (\fcv{r}_1-\fcv{r}_0)\cdot \fcv{n} + t \fcv{u} \cdot \fcv{n} &=& 0\\}
 \uncover<10->{t&=& -\frac{(\fcv{r}_1-\fcv r_0)\cdot\fcv  n}{\fcv u \cdot \fcv n}\\}
 \uncover<11->{\fcv r&= &\fcv r_1-\frac{\alert<12>{(\fcv{r}_1-\fcv r_0)\cdot\fcv  n}}{\fcv u \cdot \fcv n}\fcv u }\\
-\uncover<12->{&=& \langle x_1, y_1, z_1 \rangle-\frac{\alert<12>{ ax_1 +by_1+cz_1-d}}{ap + bq +cr }\langle p,q, r\rangle}
+\uncover<12->{&=& ( x_1, y_1, z_1 )-\frac{\alert<12>{ ax_1 +by_1+cz_1-d}}{ap + bq +cr }( p,q, r)}
 \end{array}
 \]
 }
