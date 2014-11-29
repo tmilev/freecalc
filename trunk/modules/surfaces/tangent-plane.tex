@@ -11,9 +11,9 @@
 /basePoint [60 sin 2 mul 0 60 cos 1.5 mul ] def%
 /tangent1 [0 1 0] def%
 /tangent2 [60 cos 2 mul 0 60 sin -1.5 mul] def basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector end%
+}{}%
 }%
-}%
-\fcEllipsoidInScene[linecolor=red,iterationsU=12,iterationsV=22,colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]{0 0 0 2 1.5 1.5}%
+\fcEllipsoidInScene[linecolor=red,iterationsU=12,iterationsV=22,colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}, forceForeground=false]{0 0 0 2 1.5 1.5}%
 \only<3->{%
 \fcCurveIIIdInScene[linewidth=3,linecolor=blue]{-60}{60}{[60 sin 2 mul t cos mul 60 sin 1.5 mul t sin mul 60 cos 1.5 mul]}%
 \fcCurveIIIdInScene[linewidth=3,linecolor=blue]{0}{120}{[t sin 2 mul 0 t cos 1.5 mul]}%
