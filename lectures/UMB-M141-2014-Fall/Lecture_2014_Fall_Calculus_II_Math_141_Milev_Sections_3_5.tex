@@ -1,6 +1,17 @@
+% % % % % % % %
+% % % % % % % %
+%IMPORTANT
+%compiles with
+%pdflatex -shell-escape
+%IMPORTANT
+% % % % % % % %
+% % % % % % % %
 \documentclass%
 %[handout]%
 {beamer}
+%IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
+\newcommand{\currentLecture}{17}
+
 
 \mode<presentation>
 {
@@ -22,8 +33,6 @@
 % does not look nice, try deleting the line with the fontenc.
 
 \graphicspath{{../../modules/}}
-
-\newcommand{\currentLecture}{17}
 
 \newcommand{\lect}[4]{
 \ifnum#3=\currentLecture

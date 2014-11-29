@@ -830,7 +830,7 @@ stroke %
 }%
 }
 
-\newcommand{\fcEllipsoidInScene}[2][iterationsU=22, iterationsV=22]{
+\newcommand{\fcEllipsoidInScene}[2][iterationsU=22, iterationsV=22]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
 /theIIIdObjects% 
@@ -844,11 +844,11 @@ stroke %
   /x1 exch def%
   [ u sin v cos mul a mul x1 add %
     u sin v sin mul b mul y1 add %
-    u cos c mul z1 add %
+    u cos c mul z1 add%
   ]%
   end%
 }%
-{true}
+{true}%
 \fcIterationsU\space \fcIterationsV\space %
 \fcPatchOptions %
 \fcContourOptions %
@@ -2008,7 +2008,8 @@ end %
 
 %Format of surface: we store the surface in the format 
 %[umin vmin umax vmax 
-%[x(u,v) y(u,v) z(u,v)] coordinate functions 
+%[x(u,v) y(u,v) z(u,v)] %coordinate functions 
+% restrictions %boolean function in u,v, when the function evaluates to false the surface is not drawn. A great tool for cutting surfaces.
 %uIterations vIterations   %number of curvilinear u,v-segments
 %[red green blue] %color of patches whose u,v-side is visible
 %[red green blue] %color of patches whose v,u-side is visible
