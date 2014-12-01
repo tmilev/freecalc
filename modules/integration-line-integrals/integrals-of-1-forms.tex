@@ -1,0 +1,19 @@
+\begin{frame}
+\frametitle{Integrals of 1-Forms}
+Let $\omega = P(x,y) \, \diff x + Q(x,y) \, \diff y$ be a 1-form, let $C$ be an oriented curve. Let $\fcv{r} \colon [a,b]\to C$, $\alert<7>{ \fcv{r}(t) = (x(t), y(t) )} $ be an orientation-compatible parametrization.
+\uncover<2->{Consider
+\[
+\int_{C} \omega = \int_{C} P(x,y)  \diff x + Q(x,y) \diff y \quad .
+\]
+}
+\uncover<3->{We compute this integral as follows.}
+\[
+\begin{array}{r@{}c@{}l}
+\uncover<4->{ \alert<5>{\diff x} &\alert<5>{=}&\alert<5>{x'(t)\diff t}} \\
+\uncover<4->{\alert<5>{\diff y} &\alert<5>{=}&\alert<5>{y'(t) \diff t}}\\
+\uncover<5->{P(x,y) \alert<5>{ \diff x} + Q(x,y)\alert<5>{ \diff y}  &\alert<0>{=}& \displaystyle \hphantom{\!\! \int_{a}^{b}\!\!\!} \left(P(x(t),y(t))\alert<5>{x'(t)} + Q(x(t),y(t))\alert<5>{y'(t)}\right)  \alert<5>{\diff t }} \\
+\uncover<6->{\displaystyle \int_{C} P(x,y)  \diff x + Q(x,y)  \diff y &\alert<0>{=}&\displaystyle \!\! \int_{a}^{b}\!\!\! \left(P(x(t),y(t))x'(t) + Q(x(t),y(t))y'(t)\right)  \diff t}
+\end{array}
+\]
+\uncover<7->{If we \alert<7>{re-parametrize the curve}, the substitution rule and the multivariable chain rule imply that the integral doesn't change.}
+\end{frame}

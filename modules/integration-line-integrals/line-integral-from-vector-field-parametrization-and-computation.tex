@@ -1,0 +1,20 @@
+\begin{frame}
+\frametitle{Line Integral Computations}
+\[
+\int_C \fcv{F} \cdot \fcv{dr} = \int_C \fcv{F} \cdot \fcv{T} \; \diff s
+\]
+$\fcv{r} \colon [a,b] \to C$: regular parametrization compatible with the orientation. \uncover<2->{Recall that
+\[
+\fcv{T} = \frac{1}{|\fcv{r}'(t)|}\fcv{r}'(t), \quad  \diff s = |\fcv{r}'(t)| \; \diff t \; \uncover<3->{\Rightarrow \fcv{T} \, \diff s = \fcv{r}'(t) \; \diff t = \fcv{dr}\; .}
+\]
+}
+\uncover<4->{
+Let $\fcv F$ be given by $\fcv{F}(x,y) = P(x,y) \fcv{i} + Q(x,y) \fcv{j}.$} \uncover<5->{Then we can compute the line integral as follows.}
+\[
+\begin{array}{r@{~}c@{~}l}
+\displaystyle \uncover<5->{ \fcv{r}'(t) &=& \displaystyle ( x'(t), y'(t) ) = x'(t) \fcv{i} + y'(t) \fcv{j}}\\
+\uncover<6->{\displaystyle \fcv{F} \cdot \fcv{dr}  &=&\displaystyle  \fcv{F}(\fcv{r}(t)) \cdot \fcv{r}'(t) \, \diff t = \left(P(x(t),y(t)) x'(t) + Q(x(t),y(t)) y'(t)\right) \, \diff t }\\
+\displaystyle\uncover<7->{ \int_C \fcv{F} \cdot \fcv{dr} &=&\displaystyle  \int_{t=a}^{t=b} \left(P(x(t),y(t)) x'(t) + Q(x(t),y(t)) y'(t)\right) \, \diff t}
+\end{array}
+\]
+\end{frame}

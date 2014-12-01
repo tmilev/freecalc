@@ -1,0 +1,52 @@
+\begin{frame}
+\frametitle{Definition of Line Integral}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny%
+\renewcommand{\fcScreen}{[-1 4 -1] 0}%
+\fcBoundingBox{-0.1}{-1}{3}{3}%
+%\fcAxesIIId{2}{2}{2}
+\newcommand{\numIterationsPlusOne}{6}%
+\newcommand{\numIterations}{5}%
+\pstVerb{
+10 dict begin
+/theCurveX {t 2 exp } def
+/theCurveY {t 180 mul sin  } def
+/tmax 2 def
+/tmin 0 def
+/Delta tmax tmin sub \numIterations\space div def
+/fOnTheCurve {theCurveY theCurveX 3 div add 1 add} def
+}%
+\pscustom*[linecolor=orange]{%
+\fcCurveIIId{tmin}{tmax}{[theCurveX theCurveY fOnTheCurve]}%
+\fcCurveIIId{tmax}{tmin}{[theCurveX theCurveY 0]}%
+}%
+\fcCurveIIId[linecolor=red]{tmax}{tmin}{[theCurveX theCurveY 0]}%
+\fcCurveIIId[linecolor=brown]{tmin}{tmax}{[theCurveX theCurveY fOnTheCurve]}%
+\pstVerb{1 dict begin /t tmin def}
+\fcLineIIId[linecolor=brown]{[theCurveX theCurveY fOnTheCurve]}{[theCurveX theCurveY 0]}%
+\pstVerb{/t tmax def}
+\fcLineIIId[linecolor=brown]{[theCurveX theCurveY fOnTheCurve]}{[theCurveX theCurveY 0]}%
+\pstVerb{/t 1.7 def}
+\fcPutIIId[t]{[theCurveX theCurveY -0.2]}{$C:\left|\begin{array}{r@{}c@{}l} x&=& h(t)\\ y&=&g(t)\end{array} \right.$}
+\fcPutIIId[b]{[theCurveX theCurveY fOnTheCurve]}{$f(x,y)$}
+\pstVerb{/t 0.1 def}
+\fcPutIIId[l]{[theCurveX theCurveY 0.3]}{$\int_C f(x,y)\diff s $}
+\pstVerb{end}
+\pstVerb{end}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{definition}
+Suppose the limit $$\lim_{\max_k(\text{segment length}) \to 0} \sum_{k=1}^N f(P_k) \cdot \text{length}(D_k)$$
+exists and is finite. Then we call this limit the \emph{line integral of $f$ on $C$ with respect to arclength}, and we denote it by 
+\[
+\int_C f(x,y) \diff s\quad .
+\]
+\end{definition}
+\end{columns}
+\uncover<2->{
+The line integral is guaranteed to exists if $f$ is a continuous functions or is bounded and continuous except at a finite number of points.
+}
+\end{frame}

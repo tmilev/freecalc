@@ -1,6 +1,4 @@
 % begin module polar-area-justification
-{% to make sure the newcommand below has limited scope.
-\newcommand{\thePolarCurve}{t 2 div 1 add}
 \begin{frame}[t]
 \begin{columns}
 \frametitle{Area swept by a polar curve: justification}
@@ -11,29 +9,50 @@
 \psline[linecolor=red!1](1.4, 2.3)(1.39, 2.3)%
 \psline[linecolor=red!1](-2.65, -1)(-2.649, -1)%
 \rput[t](0,-0.1){$O$}%
-\uncover<1>{
-\pscustom*[linecolor=cyan]{%
-\fcDrawPolar{0}{3.5}{\thePolarCurve}{linecolor=red, plotpoints=1000}%
-\psline(-2.575256, -0.964654)(0,0)(1,0)%
+\pstVerb{%
+10 dict begin
+/thePolarR {t 2 div 1 add} def
+/thePolarX {t 57.295779513 mul cos thePolarR mul} def
+/thePolarY {t 57.295779513 mul sin thePolarR mul} def
+/thetaMax 3.5 def
 }%
+\uncover<1>{%
+\pscustom*[linecolor=cyan]{%
+\fcDrawPolar[linecolor=red, plotpoints=1000]{0}{thetaMax}{thePolarR}%
+\pstVerb{1 dict begin /t thetaMax def}%
+\psline(! thePolarX thePolarY )(0,0)(1,0)%
+\pstVerb{end}%
+}%
+\pstVerb{1 dict begin /t thetaMax def}%
+\psline[linecolor=red](! thePolarX thePolarY )(0,0)(1,0)%
+\pstVerb{end}%
 }%
 \rput[t](1.2,-0.1){$x$}%
-\uncover<4-15>{%
-\rput[b](-0.832294, 1.85){$P_2$}%
-\rput[bl](0.84, 1.3){$P_1$}%
-\fcFullDot{\fcPolarCurveEvaluateX{1}{\thePolarCurve}}{\fcPolarCurveEvaluateY{1}{\thePolarCurve}}%
-\fcFullDot{\fcPolarCurveEvaluateX{2}{\thePolarCurve}}{\fcPolarCurveEvaluateY{2}{\thePolarCurve} }%
+\uncover<2-15>{%
+\rput[b](-0.832294, 1.85){$\alert<4>{P_2}$}%
+\rput[bl](0.84, 1.3){$\alert<4>{P_1}$}%
+\pstVerb{1 dict begin /t 1 def}%
+\fcFullDot{thePolarX}{thePolarY}%
+\pstVerb{/t 2 def}%
+\fcFullDot{thePolarX}{thePolarY}%
+\pstVerb{end}%
 }%
 \uncover<5-15>{%
-\psline[linecolor=cyan](0,0)(! \fcPolarCurveEvaluateXY{1}{\thePolarCurve})%
-\psline[linecolor=cyan](0,0)(! \fcPolarCurveEvaluateXY{2}{\thePolarCurve})%
+\pstVerb{1 dict begin /t 1 def}%
+\psline[linecolor=cyan](0,0)(! thePolarX thePolarY)%
+\pstVerb{/t 2 def}%
+\psline[linecolor=cyan](0,0)(! thePolarX thePolarY)%
+\pstVerb{end}%
 }%
 \uncover<7-15>{%
-\fcPolarWedge{1}{2}{\thePolarCurve}%
+\fcPolarWedge{1}{2}{thePolarR}%
 }%
 \uncover<8,9,10>{%
-\psline[linecolor=red, linewidth=2pt](0,0)(! \fcPolarCurveEvaluateXY{1}{\thePolarCurve})%
-\psline[linecolor=red, linewidth=2pt](0,0)(! \fcPolarCurveEvaluateXY{2}{\thePolarCurve})%
+\pstVerb{1 dict begin /t 1 def}%
+\psline[linecolor=red, linewidth=2pt](0,0)(! thePolarX thePolarY)%
+\pstVerb{/t 2 def}%
+\psline[linecolor=red, linewidth=2pt](0,0)(! thePolarX thePolarY)%
+\pstVerb{end}%
 }%
 \uncover<5-15>{%
 \rput[bl](0.50, 0.6){$r_1$}%
@@ -48,29 +67,30 @@
 \rput[b](0, 0.73){$ \alert<9,10>{\Delta}$}%
 }%
 \uncover<11-15>{%
-\fcPolarWedgeSequence{0}{1}{3}{\thePolarCurve}%
+\fcPolarWedgeSequence{0}{1}{3}{thePolarR}%
 }%
 \uncover<16>{%
-\fcPolarWedgeSequence{0}{0.75}{4}{\thePolarCurve}%
+\fcPolarWedgeSequence{0}{0.75}{4}{thePolarR}%
 }%
 \uncover<17>{%
-\fcPolarWedgeSequence{0}{0.5}{6}{\thePolarCurve}%
+\fcPolarWedgeSequence{0}{0.5}{6}{thePolarR}%
 }%
 \uncover<18>{%
-\fcPolarWedgeSequence{0}{0.3}{10}{\thePolarCurve}%
+\fcPolarWedgeSequence{0}{0.3}{10}{thePolarR}%
 }%
 \uncover<19>{%
-\fcPolarWedgeSequence{0}{0.2}{15}{\thePolarCurve}%
+\fcPolarWedgeSequence{0}{0.2}{15}{thePolarR}%
 }%
 \uncover<20->{%
-\fcPolarWedgeSequence{0}{0.1}{30}{\thePolarCurve}%
+\fcPolarWedgeSequence{0}{0.1}{30}{thePolarR}%
 }%
-\fcDrawPolar{0}{3.5}{\thePolarCurve}{linecolor=red, plotpoints=1000}%
+\fcDrawPolar[linecolor=red, plotpoints=1000]{0}{3.5}{thePolarR}%
 \psline[arrows=->](0,0)(1.2, 0)%
+\pstVerb{end}%
 \end{pspicture}
 
 \column{0.5\textwidth}
-\uncover<2->{Split $[a,b]$ into $N$ equal segments via points $a=\theta_0 \leq \theta_1 \leq \dots \leq \theta_{N-1} \leq \theta_N=b$.} \uncover<3->{The length of each segment is $\Delta=\frac{b-a}{N}$.} \uncover<4->{Let $r_i=f(\theta_i)$. Then each $\theta_i$ gives a point $P_i$ with polar coordinates $(\alert<5>{r_i},\alert<6>{\theta_i})$.}
+\uncover<2->{Split $[a,b]$ into $N$ equal segments via points $a=\theta_0 \leq \theta_1 \leq \dots \leq \theta_{N-1} \leq \theta_N=b$.} \uncover<3->{The length of each segment is $\Delta=\frac{b-a}{N}$.} \uncover<4->{Let $r_i=f(\theta_i)$. Then each $\theta_i$ gives a \alert<4>{point $P_i$} with polar coordinates $(\alert<5>{r_i},\alert<6>{\theta_i})$.}
 \end{columns}
 
 \only<1-12>{ \uncover<7->{The area swept by the curve is approximated by sum of areas of triangles given by connecting the origin with two consecutive vertices. Consider one such triangle, say, $OP_1P_2$.} \uncover<8->{By Euclidean geometry, the area of $\triangle OP_1P_2 $ is $\alert<8,9>{\frac{|OP_1| |OP_2| \uncover<8>{\alert<8>{ \textbf{?} }} \uncover<9->{\alert<9>{ \sin \Delta}}}{2}} \uncover<10->{=\frac{ r_1 r_2 \sin \Delta}{2}= \frac{ f(\theta_1) f(\theta_2) \sin \Delta}{2}} $.}
@@ -85,5 +105,4 @@
 \]
 }
 \end{frame}
-}% end of scoping block
 %end module polar-area-justification

@@ -1,0 +1,65 @@
+\begin{frame}
+\begin{example}
+\frametitle{1-Forms in Polar Coordinates}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\fcLabels{1.2}{1.2}
+\parametricplot[linecolor=\fcColorGraph, arrows=->]{45}{405}{t cos t sin}
+\end{pspicture}
+\column{0.6\textwidth}
+Let $C$ be a circle of radius $R$ centered at the origin, oriented counterclockwise. Compute the integral 
+\[
+\oint_C \frac{x}{x^2+y^2} \diff x+\frac{y}{x^2+y^2} \diff y
+\]
+\end{columns}
+\only<1-11>{
+\uncover<2->{ In polar coord.:  
+$
+\left| \begin{array}{rcl}
+\alert<4>{x}&\alert<4>{=}& \alert<4>{r\cos{\theta}}  \\
+\alert<4>{y}&\alert<4>{=}& \alert<4>{r\sin{\theta}}
+\end{array}\right.
+\Rightarrow 
+\left| \begin{array}{r@{}c@{}l}
+\fcQuestion{2}{\alert<6>{\diff x}} &\fcQuestion{2}{\alert<6>{=}}& \fcAnswer{3}{ \alert<6>{ \cos{\theta} \diff r - r\sin{\theta} \diff \theta} }\\ 
+\fcQuestion{2}{\alert<6>{\diff y}} &\fcQuestion{2}{\alert<6>{=}}& \fcAnswer{3}{ \alert<6>{ \sin{\theta} \diff r + r\cos{\theta} \diff \theta}}
+\end{array}\right.\quad .
+$
+}
+
+\abovedisplayskip 0pt
+\[
+\begin{array}{rcl}
+\uncover<4->{\displaystyle \alert<11>{\frac{\alert<4>{x}}{\alert<5>{x^2+y^2}} \diff x + \frac{\alert<4>{y}}{\alert<5>{x^2+y^2}}\diff y }& \alert<0>{=}& \phantom{+} \displaystyle \frac{\alert<4>{\alert<8>{r} \alert<7,9>{\cos\theta}} }{\alert<5,8>{r^2}} (\alert<6>{ \alert<9>{\cos{\theta} \diff r} \alert<7>{-  r\sin{\theta} \diff \theta}})}\\
+\uncover<4->{&&\displaystyle  + \frac{\alert<4>{\alert<8>{r} \alert<7,9>{ \sin \theta}}}{ \alert<5,8>{r^2}} ( \alert<6>{ \alert<9>{ \sin{\theta} \diff r} + \alert<7>{r \cos{\theta}  \diff \theta} })  }\\
+\uncover<7->{&\alert<0>{=}&\displaystyle \frac{1}{\alert<8>{r}}(\alert<9,10>{ \cos^2\theta + \sin^2\theta})\alert<9>{ \diff r}}\\
+\uncover<10->{&\alert<0>{=}& \alert<11>{\frac{1}{r}\diff r} \uncover<11->{ \alert<11>{ = \diff (\ln r)}}}
+\end{array}
+\]
+}
+
+\only<12->{
+\uncover<14->{In polar coordinates, $C$ is given by:
+$
+\alert<15>{C}: \left| \begin{array}{rcl}
+\alert<0>{\theta} &\alert<0>{=}& \alert<0>{t}\\
+\alert<16>{r(t)}&\alert<16>{=} & \alert<16>{R}\\
+\end{array}\right. ,\alert<15>{0 \leq t \leq 2\pi }.
+$
+}
+\[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{rcl}
+\displaystyle \alert<12,13>{\frac{x}{x^2+y^2} \diff x + \frac{y}{x^2+y^2}\diff y }& \alert<12,13>{=}&\alert<12,13>{ \diff (\ln(r)) }\\
+\displaystyle \uncover<13->{\oint_C \alert<13>{ \frac{x}{x^2+y^2} \diff x + \frac{ y }{x^2+y^2}\diff y} &=&\displaystyle  \oint_{\alert<15>{ C}}  \alert<13>{ \diff \alert<16>{(\ln (r(t)))} } \uncover<15->{= \int_{ \alert<15>{t=0}}^{ \alert<15>{t=2\pi}} \diff \alert<16>{(ln(r(t)))} }\\ 
+\uncover<17->{&=&[\ln(r(t))]_{t=0}^{t=2\pi}\uncover<18->{= \ln R-\ln R=0}}}
+\end{array}
+\]
+}
+\end{example}
+
+\vskip 10cm
+\end{frame}

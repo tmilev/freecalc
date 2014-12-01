@@ -1,0 +1,34 @@
+\begin{frame}
+\frametitle{Differential 1-Forms}
+Consider the expression $\fcv{F} \cdot \fcv{\diff r}$. Since $\alert<2>{ \fcv{r} =x\; \fcv{i} + y \; \fcv{j}}$, \uncover<2->{we have $\alert<6>{\fcv{ \alert<3>{ \diff } \alert<2>{ r}} =\alert<2,7>{ \fcv{i} } \alert<3>{\diff } \alert<2> {x} +\alert<2,7>{\fcv j }\alert<3>{ \diff} \alert<2>{y}} $.} \uncover<4->{If $\alert<5>{\fcv{F}(x,y) = P(x,y) \alert<7>{\fcv{i}} + Q(x,y) \alert<7>{\fcv{j}}}$, then
+
+\hfil
+$
+\alert<5>{\fcv{F}}\alert<7>{ \cdot} \alert<6>{ \fcv{\diff r}} = \alert<5>{ P(x,y)} \alert<6>{\diff x} + \alert<5>{ Q(x,y) } \alert<6>{\diff y}\; .
+$\hfil
+}
+\uncover<8->{
+\begin{definition}[Differential 1-form]
+An expression of the type
+
+\hfil$
+\begin{array}{rcll|l}
+\uncover<9->{\omega & =& P(x) \, \diff x && \text{(in 1D)}}\\
+\omega & =& P(x,y) \, \diff x + Q(x,y) \, \diff y && \text{(in 2D)}\\
+\uncover<9->{\omega & =& P(x,y,z) \, \diff x + Q(x,y,z) \, \diff y+ R(x,y,z) \diff z && \text{(in 3D)}}
+\end{array}
+$\hfil
+
+is called a \emph{1-form}.
+\end{definition}
+}
+\begin{itemize}
+\item<10-> $\int_C \fcv{F} \cdot \fcv{\diff r}$ is the integral of a 1-form over the oriented curve $C$.
+\item<11-> The definite integral $\int_a^b P(x) \,\diff x$ actually means
+\begin{itemize}
+\item<12-> the integral of the 1-form $\omega = P(x) \, \diff x$
+\item<13-> on the segment with endpoints $a$ and $b$
+\item<14-> oriented from $a$ to $b$.
+\end{itemize}
+\end{itemize}
+\end{frame}

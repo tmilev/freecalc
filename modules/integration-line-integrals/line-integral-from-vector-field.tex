@@ -1,0 +1,25 @@
+\begin{frame}
+\frametitle{Line Integrals from Vector Fields}
+\begin{itemize}
+\item Let $C$ be piecewise smooth, \emph{oriented} curve, parametrized via $\fcv r(t)$.
+\item<2-> Let $\diff s$ be the element of arclength.
+\item<3-> Let $\fcv{F}$ be a continuous vector defined on $C$.
+\item<4-> Let $\fcv{T}$ be unit tangent vector on $C$ compatible with orientation.
+\item<5-> Let $\fcv N$ be unit vector perpendicular to $\fcv T$ (only for planar curves).
+\uncover<6->{%
+\begin{definition}
+In any dimension, define the line integral of $\fcv{F}$ along $C$ as
+$\displaystyle
+\int_C \fcv{F} \cdot \fcv{\diff r} = \int_{C} \fcv{F} \cdot \fcv{T} ~\diff s, \text{ where }  \fcv{\diff r} = \fcv{T}~ \diff s \; .
+$
+
+\uncover<7->{In dimension 2, define the line integral of $\fcv F$ across $C$ as 
+$\displaystyle \int_{C} \fcv{F} \cdot \fcv{N}~\diff s = \int_C \fcv{F} \cdot \fcv{\diff n}, \text{ where } \fcv{\diff n} = \fcv{N}~\diff s \; .$
+}
+\end{definition}
+}
+\item<8-> Line integral = work done by force $\fcv{F}$ on particle moving along $C$.
+\item<9-> Line integral across $C$ = flux across a membrane: $\fcv{F}\cdot \fcv{N}$ is the normal component of $\fcv{F}$.
+ \end{itemize}
+
+\end{frame}

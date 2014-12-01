@@ -1,0 +1,23 @@
+\begin{frame}
+  \frametitle{Simply Connected Regions}
+
+  If $P_y(x,y) \neq Q_x(x,y)$, then \pause $\fcv{F}$ is not a gradient field.
+
+  \pause But if $P_y(x,y) = Q_x(x,y)$, is $\fcv{F}$ necessarily a gradient field?
+
+  \pause Unfortunately, NO!
+%
+$$\fcv{F}(x,y) = \frac{-y}{x^2+y^2} \, \fcv{i} + \frac{x}{x^2+y^2} \, \fcv{j} = P(x,y) \, \fcv{i} + Q(x,y)\, \fcv{j}\; ,$$
+%
+$$P_y(x,y) = \frac{y^2-x^2}{(x^2+y^2)^2} = Q_x(x,y) \; .$$
+%
+$$\oint_C \fcv{F} \cdot \fcv{\diff r} = \oint_C \frac{x}{x^2+y^2} \, dy - \frac{y}{x^2+y^2}\, dx = 2\pi \neq 0 \; .$$
+
+\pause \underline{Definition}: A domain $D$ is called \emph{simply connected} if every closed loop in $D$ can be deformed (``lassoed'') into a point inside $D$.
+
+\medskip
+
+If $\fcv{F}(x,y)=P(x,y) \, \fcv{i} + Q(x,y) \, \fcv{j}$ is defined on a simply connected domain $D$ and $P_y(x,y)=Q_x(x,y)$ over $D$, then $\fcv{F}$ is a gradient field.
+
+Similar for $\fcv{F} = P \, \fcv{i} + Q\, \fcv{j} + R\, \fcv{k}$
+\end{frame}

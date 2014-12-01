@@ -1,0 +1,29 @@
+\begin{frame}
+\begin{example}[Inverse Square Distance Fields]
+\begin{columns}
+\column{0.25\textwidth}
+\begin{pspicture}(-1.2,-1.2)(1.2,1.2)
+\tiny
+\fcAxesStandard{-1.5}{-1.5}{1.5}{1.5}
+\fcLabels{1.5}{1.5}
+\pscurve[linecolor=\fcColorGraph, arrows=->](1,1)(-1,1)(-1,-1)(1,-1)
+\fcFullDot{1}{1}
+\rput[t] (1,0.8){$A$}
+\fcFullDot{1}{-1}
+\rput[t] (1,-1.2){$B$}
+\end{pspicture}
+\column{0.75\textwidth}
+Let $\fcv{F}$ be the vector field space given by
+\[
+\fcv F (\fcv v) =  -\frac{1}{|\fcv v|^3}  \fcv v\quad ,
+\]
+where $\fcv v=(x,y)$ in 2D space and $\fcv v=(x,y,z)$ in 3D. Let $C$ be a smooth curve with endpoints $A$ and $B$. What is the work $W$ done by the field $\fcv{F}$ on a particle moving from $A$ to $B$ along $C$?
+\[W = \int_C \fcv{F} \cdot \fcv{\diff r}\; .
+\]
+\end{columns}
+$\fcv{r} \colon [a,b] \to C$: parametrization of $C$, with $A=\fcv{r}(a)$ and $B=\fcv{r}(b)$
+\[  
+W  = \int_C \fcv{F} \cdot \fcv{\diff r} = \int_a^b \fcv{F}(\fcv{r}(t)) \cdot \fcv{r}'(t) \, \diff t = \int_a^b - \frac{1}{|\fcv{r}(t)|^3} \, \fcv{r}(t) \cdot \fcv{r}'(t) \, \diff t \; .
+\]
+\end{example}
+\end{frame}

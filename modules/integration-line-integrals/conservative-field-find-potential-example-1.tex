@@ -1,0 +1,33 @@
+\begin{frame}
+\small
+  \frametitle{Finding a Scalar Potential}
+
+  Let $\fcv{F}(x,y) = (3+2xy) \, \fcv{i} + (x^2-3y^2)\, \fcv{j}$, defined on the entire plane. \pause
+
+  Then $P(x,y) = 3+2xy$ and $Q(x,y) = x^2-3y^2$ and $P_y = 2x=Q_x$.
+
+  \pause $P_y=Q_x$ and $\RR^2$ is simply connected $\Longrightarrow$ $\fcv{F}$ is a gradient field, $\fcv{F} = \nabla f$.
+
+  \begin{itemize}
+    \item \pause The scalar potential is, up to a constant, given by
+%
+$$f(x,y) = \int_C \fcv{F} \cdot \fcv{\diff r} \; .$$
+%
+    \item \pause Partially integrate $P$ and $Q$:
+    %
+    $$f_x = P(x,y) = 3+2xy \Longrightarrow f(x,y) = 3x+x^2y + c(y)$$
+    %
+    \pause
+    %
+    $$x^2-3y^2  = Q(x,y) = f_y = x^2+c'(y) \Longrightarrow c(y) = -y^3+a$$
+    %
+    \pause
+    %
+    $$f(x,y) = 3x+x^2y + c(y) = 3x+x^2y-y^3+a\; .$$
+  \end{itemize}
+
+\pause $C$: any smooth curve joining the points $(1,0)$ and $(0,1)$.
+%
+$$\int_C \fcv{F} \cdot \fcv{\diff r} = \int_C (\nabla f) \cdot \fcv{\diff r} = f(1,0) - f(0,1) = (3+a) - (-1+a) = 4\; .$$
+
+\end{frame}

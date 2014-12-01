@@ -7,22 +7,18 @@ Show that the parametric curve has multiple tangents at the point and find their
 \begin{pspicture}(-1.4, -2.399998)(1.4,2.499998)
 \tiny
 \fcAxesStandard{-1.15}{-2.149998}{1.15}{2.149998}
-
 %Calculator input: plotCurve{}(\cos{}t, 2 \sin{}(2 t), - \pi, \pi)
 \parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.14159}{3.14159}{t 57.29578 mul cos t 2 mul 57.29578 mul sin 2 mul }
 \end{pspicture}
 \item $x=\cos t \sin (3t)$, $y=\sin(t)\sin (3t)$, six tangents at $(x,y)=(0,0)$.
-
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1.280086, -1.399988)(1.4,1.0625)
 \tiny
 \fcAxesStandard{-1.030086}{-1.149988}{1.15}{0.7125}
-
 %Calculator input: plotCurve{}(\cos{}t \sin{}(3 t), \sin{}t \sin{}(3 t), -2 \pi, 2 \pi)
 \parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{-6.28319}{6.28319}{t 3 mul 57.29578 mul sin t 57.29578 mul cos mul t 3 mul 57.29578 mul sin t 57.29578 mul sin mul }
 \end{pspicture}
 \item $x=\cos t, y=\sin (3t)$, find the two points at which the curve has double tangent and find the slopes of both pairs of tangents.
-
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1.399995, -1.399999)(1.4,1.499999)
 \tiny
@@ -37,7 +33,6 @@ Show that the parametric curve has multiple tangents at the point and find their
 \begin{pspicture}(-0.9, -1.649998)(3.358221,1.5)
 \tiny
 \fcAxesStandard{-0.65}{-1.399998}{3.108221}{1.15}
-
 %Calculator input: plotCurve{}(t^{3}- t^{2}- t+1, t^{2}- t-1, -1, 2)
 \parametricplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{2}{ 1 t -1 mul add t 2 exp -1 mul add t 3 exp add -1 t -1 mul add t 2 exp add }
 \end{pspicture}
