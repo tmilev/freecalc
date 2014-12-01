@@ -1,0 +1,14 @@
+\begin{frame}
+\frametitle{Conservative Fields}
+\begin{definition}
+A vector field $\fcv{F}$ is called \emph{conservative} if for any two points $A$ and $B$ and any two paths $C_1$ and $C_2$ from $A$ to $B$ we have
+$\displaystyle \int_{C_1} \fcv{F} \cdot \fcv{\diff r} = \int_{C_2} \fcv{F}\cdot \fcv{\diff r}\; .$
+\end{definition}
+\begin{lemma}[alternative definition]
+A vector field $\fcv{F}$ is conservative if and only if every point $A$ every path $C$ starting and ending at $A$ we have $\displaystyle\oint_{C} \fcv{F} \cdot \fcv{\diff r} = 0\; .$
+\end{lemma}
+\begin{proof}
+The path $C = C_1 \cup (-C_2)$ starts and ends at $A$ and therefore 
+$\displaystyle 0= \oint_{C} \fcv{F} \cdot \fcv{\diff r} = \int_{C_1} \fcv{F} \cdot \fcv{\diff r} - \int_{C_2} \fcv{F} \cdot \fcv{\diff r}\; .$ $\Leftrightarrow$ $\displaystyle  \int_{C_1} \fcv{F} \cdot \fcv{\diff r} = \int_{C_2} \fcv{F} \cdot \fcv{\diff r}$
+\end{proof}
+\end{frame}

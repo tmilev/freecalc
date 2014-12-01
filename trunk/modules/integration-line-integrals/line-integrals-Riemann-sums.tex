@@ -1,0 +1,117 @@
+\begin{frame}
+\frametitle{Riemann Sums for Line Integrals}
+\begin{columns}
+
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny%
+\renewcommand{\fcScreen}{[-1 4 -1] 0}%
+\fcBoundingBox{-0.1}{-1}{3}{3}%
+%\fcAxesIIId{2}{2}{2}
+\newcommand{\numIterationsPlusOne}{6}%
+\newcommand{\numIterations}{5}%
+\pstVerb{
+10 dict begin
+/theCurveX {t 2 exp } def
+/theCurveY {t 180 mul sin  } def
+/tmax 2 def
+/tmin 0 def
+/indexOfInterest 4 def
+/Delta tmax tmin sub \numIterations\space div def
+/fOnTheCurve {theCurveY theCurveX 3 div add 1 add} def
+}%
+\fcCurveIIId{tmax}{tmin}{[theCurveX theCurveY 0]}%
+\uncover<12->{%
+\multido{\na=0+1}{\numIterations}%
+{%
+\fcParallelogramIIId[linecolor=cyan, linewidth=1]{1 dict begin /t tmin Delta \na\space mul add def [theCurveX theCurveY 0] end }{1 dict begin /t tmin Delta \na\space 1 add mul add def [theCurveX theCurveY 0] end}{1 dict begin [/t tmin Delta \na\space mul add def theCurveX theCurveY /t tmin Delta \na\space 0.5 add mul add def fOnTheCurve] end }%
+}%
+}%
+\uncover<4->{%
+\multido{\na=0+1}{\numIterationsPlusOne}%
+{%
+\pstVerb{ 1 dict begin /t tmin Delta \na\space mul add def}%
+\fcDotIIId[linecolor=blue]{[theCurveX theCurveY 0]}%
+\pstVerb{end}%
+}%
+}%
+\uncover<5->{%
+\multido{\na=0+1}{\numIterations}%
+{%
+\pstVerb{ 1 dict begin /t tmin Delta \na\space 0.5 add mul add def}%
+\fcDotIIId[linecolor=red]{[theCurveX theCurveY 0]}%
+\fcPutIIId[t]{[theCurveX theCurveY -0.2]}{$P_{\fcEvalToInt{\na+1}}$}%
+\pstVerb{end}%
+}%
+}%
+\uncover<10->{%
+\multido{\na=0+1}{\numIterations}%
+{%
+\pstVerb{ 1 dict begin /t tmin Delta \na\space 0.5 add mul add def}%
+\fcLineIIId{[theCurveX theCurveY 0]}{[theCurveX theCurveY fOnTheCurve]}%
+\pstVerb{end}%
+}%
+}%
+\uncover<10->{%
+\multido{\na=0+1}{\numIterations}%
+{%
+\pstVerb{ 1 dict begin /t tmin Delta \na\space 0.5 add mul add def}%
+\fcLineIIId[linecolor=red, linewidth=2pt]{[theCurveX theCurveY 0]}{[theCurveX theCurveY fOnTheCurve]}%
+\pstVerb{end}%
+}%
+}%
+\uncover<13->{%
+\pscustom*[linecolor=orange]{%
+\fcCurveIIId{tmin}{tmax}{[theCurveX theCurveY fOnTheCurve]}%
+\fcCurveIIId{tmax}{tmin}{[theCurveX theCurveY 0]}%
+}%
+}%
+\uncover<9->{%
+\fcCurveIIId[linecolor=brown]{tmin}{tmax}{[theCurveX theCurveY fOnTheCurve]}%
+}%
+\uncover<10->{%
+\multido{\na=0+1}{\numIterations}%
+{%
+\fcLineIIId[linecolor=blue, linewidth=0.5pt]{1 dict begin /t tmin Delta \na\space mul add def [theCurveX theCurveY 0] end }{1 dict begin /t tmin Delta \na\space 1 add mul add def [theCurveX theCurveY 0] end}%
+}%
+}%
+\uncover<11>{%
+\multido{\na=0+1}{\numIterations}%
+{%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{1 dict begin /t tmin Delta \na\space mul add def [theCurveX theCurveY 0] end }{1 dict begin /t tmin Delta \na\space 1 add mul add def [theCurveX theCurveY 0] end}%
+}%
+}%
+\uncover<8>{%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{1 dict begin /t tmin Delta indexOfInterest 1 sub mul add def [theCurveX theCurveY 0] end }{1 dict begin /t tmin Delta indexOfInterest mul add def [theCurveX theCurveY 0] end}%
+}%
+\pstVerb{ 1 dict begin /t tmin Delta indexOfInterest 0.5 sub mul add def}%
+\uncover<8,9>{%
+\fcLineIIId[linewidth=1pt]{[theCurveX theCurveY 0]}{[theCurveX theCurveY fOnTheCurve]}%
+}%
+\uncover<7>{%
+\fcLineIIId[linewidth=2pt, linecolor=red]{[theCurveX theCurveY 0]}{[theCurveX theCurveY fOnTheCurve]}%
+}%
+\uncover<13>{%
+\fcLineIIId[linewidth=1pt]{[theCurveX theCurveY 0]}{[theCurveX theCurveY fOnTheCurve]}%
+}%
+\pstVerb{end}%
+\pstVerb{end}
+\end{pspicture}
+
+\column{0.7\textwidth}
+\begin{itemize}
+\item Let $C$ be a piecewise smooth curve (endpoints included) in space.
+\item<2-> Let \alert<9>{$f$ be} a scalar or vector-valued \alert<9>{function defined on $C$}.
+\item<3-> We aim to define the integral of $f$ on $C$ with respect to arclength.
+\item<4-> Divide $C$ into pieces $D_1$, \ldots, $D_N$ with non-overlapping interiors;
+\end{itemize}
+
+\end{columns}
+
+\begin{itemize}
+\item<5-> Pick a sample point $P_k$ in each $D_k$. 
+\item<6-> The accumulation on $D_k$ is approximated by $ \alert<7>{f(P_k)} \cdot \alert<8>{\text{length}(D_k)}$.
+\item<10-> \alert<13>{The integral (total accumulation)} is approximated by the Riemann sum
+$$\alert<12>{ \sum_{k=1}^N \alert<10>{f(P_k)} \cdot\alert<11>{ \text{length}(D_k)}}$$
+\end{itemize}
+\end{frame}

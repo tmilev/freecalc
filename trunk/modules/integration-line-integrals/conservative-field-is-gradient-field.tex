@@ -1,0 +1,31 @@
+\begin{frame}
+  \frametitle{Conservative Field = Gradient Field}
+
+  \begin{itemize}
+    \item Let $\fcv{F}$ be conservative field. \pause Fix a point $A$ and define $f$ by
+%
+$$f(B)= f(\fcv{r}_B) = \int_C \fcv{F} \cdot \fcv{\diff r} \; ,$$
+%
+where $C$ is \emph{any} piecewise smooth curve joining $A$ to $B$.
+
+\pause Then $\fcv{F} = \nabla f$ $\Longrightarrow$ $\fcv{F}$ is a gradient field.
+
+Any function $f$ such that $\fcv{F}= \nabla f$ is called a \emph{scalar potential} for~$\fcv{F}$.
+
+\item \pause
+\fcv{Fundamental Theorem of Calculus} (Line Integral version):
+%
+\[
+\int_C (\nabla f) \cdot \fcv{\diff r} = \int_a^b \frac{\diff }{\diff t} (f(\fcv{r}(t)) \, \diff t = f(B) - f(A) \; ,
+\]
+%
+for every curve $\fcv{r} \colon [a,b] \to C$ joining $A$ to $B$.
+
+ \item \pause Let $\fcv{F} = \nabla f$ be gradient field. \pause For a curve $C$ joining points $A$ and $B$
+\[
+\int_C \fcv{F} \cdot \fcv{\diff r} =  \int_C (\nabla f )\cdot \fcv{\diff r}= f(B) - f(A)\;
+\]
+\pause depends only on $A$ and $B$, but not on $C$ $\Rightarrow$ $\fcv{F}$ is conservative.
+  \end{itemize}
+
+\end{frame}

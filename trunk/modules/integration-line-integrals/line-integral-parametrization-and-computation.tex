@@ -1,0 +1,21 @@
+\begin{frame}
+\frametitle{Parametrizations and Computations}
+Let $\fcv{r} \colon [a,b] \to C$ be a regular, piecewise smooth parametrization of $C$. Then $\int_C f(x,y)\diff s $ is computed as follows.
+
+\[
+\begin{array}{rcl}
+\displaystyle \diff s& =&\displaystyle  | \fcv{r}'(t) | \diff t \\
+\displaystyle \int_{(x,y)\in C} f(x,y)  \diff s &=&\displaystyle  \int_{a}^{b} f(\fcv{r}(t)) |\fcv{r}'(t)|  \diff t .
+\end{array}
+\]
+The result is independent of the parametrization of $C$ we use.
+\[
+\fcv{r}\colon [a,b] \to \RR^2\quad , \quad \fcv{r}(t) = ( x(t), y(t) )
+\]
+\[
+\begin{array}{r@{~}c@{~}l}
+\displaystyle \diff s &=&\displaystyle  |\fcv{r}'(t)| \diff t = \sqrt{(x'(t))^2 + (y'(t))^2} \, \diff t \\
+\displaystyle \int_C f(x,y)  \diff s  &=&\displaystyle  \int_{a}^{b} f(x(t),y(t))\sqrt{(x'(t))^2 + (y'(t))^2}  \diff t\; .
+\end{array}
+\]
+\end{frame}

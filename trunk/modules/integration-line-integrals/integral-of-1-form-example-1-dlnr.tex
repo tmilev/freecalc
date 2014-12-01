@@ -1,0 +1,35 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\fcLabels{1.2}{1.2}
+\parametricplot[linecolor=\fcColorGraph, arrows=->]{45}{405}{t cos t sin}
+\end{pspicture}
+\column{0.6\textwidth}
+Let $C$ be a circle of radius $R$ centered at the origin, oriented counterclockwise. Compute the integral 
+\[
+\oint_C \phantom{-} \frac{x}{x^2+y^2} \diff x+\frac{y}{x^2+y^2} \diff y
+\]
+\end{columns}
+
+\uncover<2->{\fcQuestion{2}{Parametrize:}
+$C: \left|\begin{array}{r@{~}c@{~}l} 
+\fcQuestion{2}{\alert<7,8>{x}} &\fcQuestion{2}{\alert<7,8>{=}}&  \fcAnswer{3}{ \alert<7,8>{ R \cos{t}}}\\
+\fcQuestion{2}{\alert<7,8>{y}} &\fcQuestion{2}{\alert<7,8>{=}} & \fcAnswer{3}{\alert<7,8>{ R \sin{ t}}}\\
+\fcQuestion{4}{\alert<6>{\diff x}} & \fcQuestion{4}{\alert<6>{=}}& \alert<6>{ \fcAnswer{5}{ ( - R \sin{ t} ) \diff t}} \\ 
+\fcQuestion{4}{\alert<6>{\diff y}} & \fcQuestion{4}{\alert<6>{=}}& \fcAnswer{5}{ \alert<6>{(R \cos{t} ) \diff t}} 
+\end{array}\right., \fcAnswer{3}{ 0 \leq t \leq 2\pi}$.}
+
+\[
+\begin{array}{r@{~}c@{~}l}
+\displaystyle \uncover<6->{\frac{\alert<7>{x}}{\alert<8>{x^2+y^2}} \alert<6>{ \diff x} + \frac{\alert<7>{y}}{\alert<8>{x^2+y^2}} \alert<6>{ \diff y} &=& \displaystyle \frac{\alert<7>{\alert<9>{R} \alert<10>{\cos{t}}} \alert<6>{(\!\alert<10>{-}\!R\alert<10>{\sin{t}} \diff t)} }{\alert<8,9>{ R^2} } +\frac{\alert<7>{\alert<9>{R}\alert<10>{\sin{t}}} \alert<6>{(\alert<9>{R} \alert<10>{ \cos{t}}\diff t)} }{\alert<8,9>{R^2}}} \\
+\uncover<9->{&=&0} \\
+\uncover<11->{\displaystyle \!\!\!\!\oint_C\! \frac{x}{x^2+y^2} \diff x - \frac{y}{x^2+y^2}\, \diff x & =&0\quad .}
+\end{array}
+\]
+\end{example}
+\vskip 10cm
+\end{frame}

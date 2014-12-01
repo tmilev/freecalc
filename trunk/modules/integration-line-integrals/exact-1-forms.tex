@@ -1,0 +1,25 @@
+\begin{frame}
+\small
+  \frametitle{Exact 1-Forms}
+
+  Let $\fcv{F}(x,y) = P(x,y) \, \fcv{i} + Q(x,y)\, \fcv{j}$ be a vector field, and $\omega = \fcv{F} \cdot \fcv{\diff r} = P(x,y) dx + Q(x,y) dy$ the corresponding 1-form. \pause
+%
+$$\fcv{F} = \nabla f \Longleftrightarrow P=f_x, Q=f_y \Longleftrightarrow Pdx + Qdy = f_xdx+f_ydy \Longleftrightarrow \omega = df$$
+%
+\pause 1-forms that are total differentials of functions are called \emph{exact}. Then
+%
+\begin{center}
+  $\fcv{F}$ is a gradient field $\Longleftrightarrow$ the 1-form $\omega = \fcv{F} \cdot \fcv{\diff r}$ is exact
+\end{center}
+
+\pause
+\fcv{Net Change Theorem} (Line Integral version):
+
+If $C$ is a curve joining points $A$ and $B$, then
+%
+$$\int_C df = \int_C (\nabla f) \cdot \fcv{\diff r} = f(B) - f(A)\; .$$
+
+\pause Compare to: $df = f'(x)\, dx$
+%
+$$\int_a^b df = \int_a^b f'(x)\, dx = f(b)-f(a)\; .$$
+\end{frame}
