@@ -1,19 +1,28 @@
 \begin{frame}
-\begin{example}[Inverse Square Distance Fields]
+\begin{example}[Inverse Square Dist. Field (Point Mass Gravity Field)]
 \begin{columns}
 \column{0.25\textwidth}
+\psset{xunit=0.2cm, yunit=0.2cm}
 \begin{pspicture}(-1.2,-1.2)(1.2,1.2)
 \tiny
-\fcAxesStandard{-1.5}{-1.5}{1.5}{1.5}
-\fcLabels{1.5}{1.5}
-\pscurve[linecolor=\fcColorGraph, arrows=->](1,1)(-1,1)(-1,-1)(1,-1)
-\fcFullDot{1}{1}
-\rput[t] (1,0.8){$A$}
-\fcFullDot{1}{-1}
-\rput[t] (1,-1.2){$B$}
+\fcAxesStandard{-6}{-6}{6}{6}
+\fcLabels{5.5}{5.5}
+\pscurve[linecolor=\fcColorGraph, arrows=->](5,5)(-5,5)(-5,-5)(5,-5)
+\fcFullDot{5}{5}
+\rput[t] (5,4.8){$A$}
+\fcFullDot{5}{-5}
+\rput[t] (5,-5.2){$B$}
+%\pstVerb{/theF {1 dict begin /r x x mul y y mul add sqrt def 
+%r 0 ne
+%{ 
+%x -1 mul r 3 exp div  y -1 mul r 3 exp div 
+%}{0 0}
+%ifelse end} def
+%}
+%\fcVectorField[arrows=->, linecolor=blue]{startX=-4.9, startY=-4.9, iterationsX=15, iterationsY=15, Delta=0.7}{theF}
 \end{pspicture}
 \column{0.75\textwidth}
-Let $\fcv{F}$ be the vector field space given by
+Let $\fcv{F}$ be the vector field given by
 \[
 \fcv F (\fcv v) =  -\frac{1}{|\fcv v|^3}  \fcv v\quad ,
 \]
