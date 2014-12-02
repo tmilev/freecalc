@@ -2660,6 +2660,7 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 %Example:\fcVectorField{startX= -2, startY=-2, iterationsX=9, iterationsY=9, Delta=0.5}{y -x}
 \newcommand{\fcVectorField}[3][linecolor=blue]{%
 \setkeys{fcGraphics}{#2}%
+#3
 \multido{\ra=\fcStartXIId+\fcDelta}{\fcIterationsX}{%
 \multido{\rb=\fcStartYIId+\fcDelta}{\fcIterationsY}{%
 \pstVerb{%
