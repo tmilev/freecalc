@@ -51,13 +51,13 @@ $
 \begin{pspicture}(-5.2,-5.2)(5.2,5.2)
 \tiny
 \fcAxesStandard{-5.1}{-5.1}{5.1}{5.1}
-\fcVectorField[linecolor=blue, arrows=->]{startX=-5, startY=-5, Delta=1, iterationsX=11, iterationsY=11}{1 dict begin /r x x mul y y mul add sqrt def  r 0 eq {0 0} {x r div  y r div} ifelse end}
+\fcVectorField[linecolor=blue, arrows=->]{-5}{-5}{11}{11}{1} {1 dict begin /r x x mul y y mul add sqrt def  r 0 eq {0 0} {x r div  y r div} ifelse end}
 \end{pspicture}
 \psset{xunit=0.3cm, yunit=0.3cm}
 ~~~ \begin{pspicture}(-5.2,-5.2)(5.2,5.2)
 \tiny
 \fcAxesStandard{-5.1}{-5.1}{5.1}{5.1}
-\fcVectorField[linecolor=blue, arrows=->]{startX=-5, startY=-5, Delta=1, iterationsX=11, iterationsY=11}{1 dict begin /r x x mul y y mul add sqrt def  r 0 eq {0 0} {-1 y mul r div  x r div} ifelse end}
+\fcVectorField[linecolor=blue, arrows=->]{-5}{-5}{11}{11 }{1}{1 dict begin /r x x mul y y mul add sqrt def  r 0 eq {0 0} {-1 y mul r div  x r div} ifelse end}
 \end{pspicture}
 }
 \item<4-> From the picture it is evident what trajectory would be followed by an object that ``\alert<5>{flows along the vector field}''.

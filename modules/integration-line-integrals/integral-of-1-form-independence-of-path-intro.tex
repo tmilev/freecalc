@@ -1,62 +1,50 @@
 \begin{frame}
-\begin{example}[Inverse Square Distance Fields]
+\begin{example}[Work Done by Point Mass Gravity Field]
 \begin{columns}
 \column{0.25\textwidth}
-\begin{pspicture}(-1.2,-1.2)(1.2,1.2)
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-2.2,-2.2)(2.2,2.2)
 \tiny
-\fcAxesStandard{-1.5}{-1.5}{1.5}{1.5}
-\fcLabels{1.5}{1.5}
-\pscurve[linecolor=\fcColorGraph, arrows=->](1,1)(-1,1)(-1,-1)(1,-1)
-\fcFullDot{1}{1}
-\rput[t] (1,0.8){$A$}
-\fcFullDot{1}{-1}
-\rput[t] (1,-1.2){$B$}
+\fcAxesStandard{-2.2}{-2.2}{2.2}{2.2}
+\fcVectorField[arrows=->, linecolor=blue]{ -2.1}{-2.1}{7}{7}{0.7}{
+x abs 0.001 lt y abs 0.001 lt and {0 0 }{[x y] -1 x x mul y y mul add sqrt 3 exp div 50 div \fcVectorTimesScalar \fcArrayToStack}ifelse
+}%
+\fcLabels{2.2}{2.2}
+\pscurve[linecolor=\fcColorGraph, arrows=->](1.5,1.5)(-1.5,1.5)(-1.5,-1.5)(1.5,-1.5)
+\uncover<12->{
+\psline[linecolor=brown, linewidth=2pt](1.5, -1.5)(0,0)
+\psline[linecolor=brown, linewidth=2pt](1.5, 1.5)(0,0)
+}
+\fcFullDot{1.5}{1.5}
+\rput[t] (1.5,1.3){$A$}
+\fcFullDot{1.5}{-1.5}
+\rput[t] (1.5,-1.7){$B$}
 \end{pspicture}
 \column{0.75\textwidth}
-Let $\fcv{F}$ be the vector field space given by
-\[
+Let $\fcv{F}$ be the vector field
+
+\hfil$
 \fcv F (\fcv v) =  -\frac{1}{|\fcv v|^3}  \fcv v\quad ,
-\]
-where $\fcv v=(x,y)$ in 2D space and $\fcv v=(x,y,z)$ in 3D. Let $C$ be a smooth curve with endpoints $A$ and $B$. What is the work $W$ done by the field $\fcv{F}$ on a particle moving from $A$ to $B$ along $C$?
+$\hfil
+
+Let $C$ be a smooth curve with endpoints $A$ and $B$. What is the work $W$ done by the field $\fcv{F}$ on a particle moving from $A$ to $B$ along $C$?
 \end{columns}
-\uncover<2->{
-\[W = \int_C \fcv{F} \cdot \fcv{\diff r}\; .
-\]}
-\uncover<3->{
-Let $\fcv{r} \colon [a,b] \to C$ be a parametrization of $C$, $A=\fcv{r}(a)$ and $B=\fcv{r}(b)$
-}
+\hfil$
+\uncover<2->{\alert<2,6>{ \fcv{r}(t) \cdot \fcv{r}'(t)}} \uncover<3->{= \frac{1}{2} \frac{\diff }{\diff t}(\fcv{r}(t) \cdot \fcv{r}(t))} \uncover<4->{ \alert<6>{= \frac{1}{2} \frac{\diff }{\diff t}\alert<5>{ |\fcv{r}(t)|^2}}.}
+$
 
-\[
-W  = \int_C \fcv{F} \cdot \fcv{\diff r} = \int_a^b \fcv{F}(\fcv{r}(t)) \cdot \fcv{r}'(t) \, \diff t \uncover<4->{ = \int_a^b - \frac{1}{|\fcv{r}(t)|^3} \, \fcv{r}(t) \cdot \fcv{r}'(t) \, \diff t \; .}
-\]
-\end{example}
-\end{frame}
+\medskip
 
-\begin{frame}
-\begin{example}[An Integral That Depends Path Endpoints Only]
-Let $C $ - curve, parametrized by $\fcv r$, starting point $\fcv r(a)=A$, endpoint $\fcv r(b)=B$. 
-
-$\hfil\displaystyle
-W  = \int_C \fcv{F} \cdot \fcv{\diff r} = \int_a^b \fcv{F}(\fcv{r}(t)) \cdot \fcv{r}'(t) \, \diff t = \int_a^b - \frac{1}{|\fcv{r}(t)|^3} \alert<2>{ \fcv{r}(t) \cdot \fcv{r}'(t)}  \diff t \; .
-$\hfil
-
-\uncover<2->{
-\hfil
-$\displaystyle
-\alert<2>{\fcv{r}(t) \cdot \fcv{r}'(t)}  \uncover<3->{= \frac{1}{2} \frac{\diff }{\diff t}(\fcv{r}(t) \cdot \fcv{r}(t))} \uncover<4->{= \frac{1}{2} \frac{\diff }{\diff t}|\fcv{r}(t)|^2}
-$\hfil
-}
-
-\uncover<5->{Make the variable change $u=|\fcv{r}(t)|^2$} \uncover<6->{ $\Rightarrow$ $\diff u = 2 \fcv{r}(t) \cdot \fcv{r}'(t)\, \diff t$}
-%
-%$$du =  \, \diff t = \frac{d}{\diff t}(\fcv{r}(t) \cdot \fcv{r}(t)) \, \diff t =  2 \fcv{r}(t) \cdot \fcv{r}'(t) \, \diff t$$
-%
-\[
-\begin{array}{rcl}
-\uncover<7->{W & =&\displaystyle \int_{u=|\fcv{r}(a)|^2}^{u=|\fcv{r}(b)|^2} \left(-\frac{1}{u^{\frac{3}{2}}}  \frac{1}{ 2} \right) \diff u}\uncover<8->{ = \left. u^{-\frac{1}{2}} \right|_{ u=|\fcv{r}(a )|^2}^{ u=| \fcv{r}(b)|^2} } \\
-\uncover<9->{& =&\displaystyle \frac{1}{|\fcv{r}(b)|} - \frac{1}{|\fcv{r}(a)|}}
+\uncover<5->{Set $\alert<9>{u=\alert<5>{ |\fcv{r}(t)|^2}}$} \uncover<6->{ $\Rightarrow$ $\alert<6,7>{\frac{1}{2}\diff u = \fcv{r}(t) \cdot \fcv{r}'(t) \diff t}$.}
+\[\displaystyle
+\begin{array}{r@{}c@{}l}
+\alert<1>{W }& \alert<1>{=}&\displaystyle \alert<1>{\int_C \fcv{F} \cdot \fcv{\diff r} = \int_a^b \fcv{F}(\fcv{r}(t)) \cdot \fcv{r}'(t)  \diff t = \int_{\alert<9>{a}}^{\alert<9>{b}} \left( - \frac{1}{\alert<8>{|\fcv{r}(t)|^3}} \alert<2,7>{ \fcv{r}(t) \cdot \fcv{r}'(t)}  \right)\alert<7>{ \diff t} \; .
+}\\
+\uncover<7->{& =&\displaystyle \int_{\alert<9>{u=|\fcv{r}(a)|^2}}^{\alert<9>{u=|\fcv{r}(b)|^2}} \left(-\frac{1}{\alert<8>{u^{\frac{3}{2}}}}  \right) \alert<7>{\frac{1}{ 2} \diff u} }\uncover<10->{ = \left[ u^{-\frac{1}{2}} \right]_{ u=|\fcv{r}(a )|^2}^{ u=| \fcv{r}(b)|^2} } \uncover<11->{= \alert<12>{\frac{1}{|\fcv{r}(b)|}} - \alert<12>{\frac{1}{|\fcv{r}(a)|}}}
 \end{array}
 \]
 \end{example}
-\uncover<10->{In this example, we established that the line integral depends only on the endpoints $A$ and $B$ but does not depend on the path $C$ from $A$ to $B$.}
+\uncover<13->{In this example, we established that the line integral depends only on the endpoints $A$ and $B$ but not on the connecting path.}
+
+\vskip 10cm 
 \end{frame}

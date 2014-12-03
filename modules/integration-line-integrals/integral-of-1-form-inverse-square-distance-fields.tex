@@ -1,38 +1,38 @@
 \begin{frame}
-\begin{example}[Inverse Square Dist. Field (Point Mass Gravity Field)]
+\begin{example}[Work Done by Point Mass Gravity Field]
 \begin{columns}
 \column{0.25\textwidth}
-\psset{xunit=0.2cm, yunit=0.2cm}
-\begin{pspicture}(-1.2,-1.2)(1.2,1.2)
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-2.2,-2.2)(2.2,2.2)
 \tiny
-\fcAxesStandard{-6}{-6}{6}{6}
-\fcLabels{5.5}{5.5}
-\pscurve[linecolor=\fcColorGraph, arrows=->](5,5)(-5,5)(-5,-5)(5,-5)
-\fcFullDot{5}{5}
-\rput[t] (5,4.8){$A$}
-\fcFullDot{5}{-5}
-\rput[t] (5,-5.2){$B$}
-%\pstVerb{/theF {1 dict begin /r x x mul y y mul add sqrt def 
-%r 0 ne
-%{ 
-%x -1 mul r 3 exp div  y -1 mul r 3 exp div 
-%}{0 0}
-%ifelse end} def
-%}
-%\fcVectorField[arrows=->, linecolor=blue]{startX=-4.9, startY=-4.9, iterationsX=15, iterationsY=15, Delta=0.7}{theF}
+\fcAxesStandard{-2.2}{-2.2}{2.2}{2.2}
+\fcVectorField[arrows=->, linecolor=blue]{ -2.1}{-2.1}{7}{7}{0.7}{
+x abs 0.001 lt y abs 0.001 lt and {0 0 }{[x y] -1 x x mul y y mul add sqrt 3 exp div 50 div \fcVectorTimesScalar \fcArrayToStack}ifelse
+}%
+\fcLabels{2.2}{2.2}
+\pscurve[linecolor=\fcColorGraph, arrows=->](1.5,1.5)(-1.5,1.5)(-1.5,-1.5)(1.5,-1.5)
+\fcFullDot{1.5}{1.5}
+\rput[t] (1.5,1.3){$A$}
+\fcFullDot{1.5}{-1.5}
+\rput[t] (1.5,-1.7){$B$}
 \end{pspicture}
 \column{0.75\textwidth}
-Let $\fcv{F}$ be the vector field given by
-\[
+Let $\fcv{F}$ be the vector field
+
+\hfil$
 \fcv F (\fcv v) =  -\frac{1}{|\fcv v|^3}  \fcv v\quad ,
-\]
-where $\fcv v=(x,y)$ in 2D space and $\fcv v=(x,y,z)$ in 3D. Let $C$ be a smooth curve with endpoints $A$ and $B$. What is the work $W$ done by the field $\fcv{F}$ on a particle moving from $A$ to $B$ along $C$?
-\[W = \int_C \fcv{F} \cdot \fcv{\diff r}\; .
-\]
+$\hfil
+
+Let $C$ be a smooth curve with endpoints $A$ and $B$. \alert<3>{What is the work $W$} done by the field $\fcv{F}$ on a particle moving from $A$ to $B$ along $C$?
 \end{columns}
-$\fcv{r} \colon [a,b] \to C$: parametrization of $C$, with $A=\fcv{r}(a)$ and $B=\fcv{r}(b)$
+\uncover<2->{Let $\fcv{r} \colon [a,b] \to C$ be a parametrization of $C$ with $A=\fcv{r}(a)$ and $B=\fcv{r}(b)$.}
+
 \[  
-W  = \int_C \fcv{F} \cdot \fcv{\diff r} = \int_a^b \fcv{F}(\fcv{r}(t)) \cdot \fcv{r}'(t) \, \diff t = \int_a^b - \frac{1}{|\fcv{r}(t)|^3} \, \fcv{r}(t) \cdot \fcv{r}'(t) \, \diff t \; .
+\alert<6>{%
+\uncover<3->{\alert<3>{W  = \int_C \fcv{F} \cdot \fcv{\diff r}}} \uncover<4->{ = \int_a^b \fcv{F}(\fcv{r}(t)) \cdot \fcv{r}'(t) \, \diff t }\uncover<5->{= \int_a^b \left(- \frac{1}{|\fcv{r}(t)|^3}  \fcv{r}(t) \cdot \fcv{r}'(t) \right) \diff t \; .}
+}
 \]
 \end{example}
+
+\vskip 10cm 
 \end{frame}
