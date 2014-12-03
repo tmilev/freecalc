@@ -1,0 +1,70 @@
+\begin{frame}
+\frametitle{Flux and Divergence}
+\begin{columns}
+\column{0.25\textwidth }
+\psset{xunit=0.5 cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-2.2}{-2.2}{2.2}{2.2}
+\pstVerb{%
+10 dict begin
+/theScale 1 def
+/theCurve {t 20 sub cos theScale mul t sin theScale mul} def
+/theTangent {[t 20 sub sin -1 mul theScale mul t cos theScale mul] \fcVectorNormalize } def
+/theNormal {[t 20 sub cos -1 mul  theScale mul t sin -1 mul theScale mul] \fcVectorNormalize} def%
+}%
+\uncover<1-7>{\pscustom*[linecolor=pink]{\parametricplot{0}{360}{ theCurve}}%
+\uncover<4->{\fcVectorField[linecolor=blue]{-1.5}{-1.5}{6}{6}{0.6}{x y add 6 div y 3 div }}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{ theCurve}%
+\pstVerb{1 dict begin /t 60 def}%
+\uncover<2->{%
+\psline[arrows=->](! theCurve )(! [theCurve] theTangent \fcVectorPlusVector \fcArrayToStack )%
+\rput[bl](! [theCurve] theTangent \fcVectorPlusVector \fcArrayToStack ){$~\alert<2>{\fcv T}$}%
+}%
+\uncover<3->{%
+\psline[arrows=->](! theCurve )(! [theCurve] theNormal \fcVectorPlusVector \fcArrayToStack )%
+\rput[tr](! [theCurve] theNormal \fcVectorPlusVector \fcArrayToStack -0.1 add){$~~\alert<3>{\fcv N}$}%
+}%
+}%
+\pstVerb{end}%
+\multido{\na=8+1}{4}{%
+\only<\na>{%
+\pstVerb{%
+/numIterations 5 def
+/theCounter \na\space 8 sub def
+/theScale numIterations theCounter 1 add sub numIterations div def%
+}%
+\pscustom*[linecolor=pink]{\parametricplot{0}{360}{theCurve}}%
+\fcVectorField[linecolor=blue]{-1.5}{-1.5}{6}{6}{0.6}{x y add 6 div y 3 div }%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{ theCurve}
+\pstVerb{1 dict begin /t 60 def}%
+\psline[arrows=->](! theCurve )(! [theCurve] theTangent \fcVectorPlusVector \fcArrayToStack )%
+\rput[bl](! [theCurve] theTangent \fcVectorPlusVector \fcArrayToStack ){$~\fcv T$}%
+\psline[arrows=->](! theCurve )(! [theCurve] theNormal \fcVectorPlusVector \fcArrayToStack )%
+\rput[tr](! [theCurve] theNormal \fcVectorPlusVector \fcArrayToStack -0.1 add){$~~\fcv N$}%
+\pstVerb{end}%
+}%
+}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.75\textwidth }
+Let $C$-smooth curve enclosing a region $D$. \uncover<2->{Let $\fcv T$ - unit tangent vector,} \uncover<3->{$\fcv{N}$- unit vector, normal to $C$ and pointing inwards towards $D$.} \uncover<4->{Let $\fcv F$ be smooth vector field.} \uncover<5->{Define outward flux of $\fcv F$ relative to $C$ via:}
+\uncover<5->{
+\[
+\text{Outward Flux } = -\oint_C \fcv{F} \cdot \fcv{N} \diff s = -\oint_C \fcv{F} \cdot \fcv{\diff n} \; ,
+\]
+where $\fcv{\diff n} =\fcv{N} \diff s$ and $\diff s$ is the element of arclength.
+}
+\end{columns}
+
+\uncover<6->{
+\begin{definition}
+The \emph{divergence} of a vector field $\fcv{F}$ at a point $P$ is the density of flux:
+\[
+\begin{array}{rcl}
+\displaystyle (\divg \fcv{F})(P) &= &\displaystyle  \alert<7-11>{\lim\limits_{D \to \{P\}}} \frac{\text{Outward flux across boundary}}{\text{Area}(D)} \\ &= &\displaystyle  \alert<7-11>{ \lim \limits_{ D\to \{P\}} }  \frac{1}{ \text{Area} ( D)} \oint_C \fcv{F} \cdot \fcv{dn}
+\end{array}
+\]
+\end{definition}
+}
+\end{frame}

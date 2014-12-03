@@ -1,0 +1,40 @@
+\begin{frame}
+  \frametitle{Computation in Rectangular Coordinates}
+\small
+\begin{itemize}
+  \item $\fcv{F} (x,y) = P(x,y) \fcv{i} + Q(x,y) \fcv{j}$
+  \item $\fcv{r} \colon [a,b] \to \RR^2$ be a positive, piecewise smooth parametrization by arclength of the boundary $C = \partial D$
+%
+$$\fcv{r}(t) = x(t) \fcv{i} + y(t) \fcv{j} \; .$$
+%
+$$
+  \fcv{T} (t)  = x'(t) \fcv{i} + y'(t) \fcv{j} \qquad \text{ and } \qquad
+  \fcv{N} (t)  = y'(t) \fcv{i} - x'(t) \fcv{j}
+$$
+%
+\end{itemize}
+
+Then
+%
+\begin{align*}
+  \oint_C \fcv{F} \cdot \fcv{dn} = & \int_a^b \left[P(x,y) y' - Q(x,y) x'\right]\, \diff t  = \oint_C P(x,y) dy - Q(x,y) dx \\
+%
+  \oint_C \fcv{F} \cdot \fcv{\diff r} = & \int_a^b \left[P(x,y) x'+ Q(x,y) y'\right]\, \diff t  = \oint_C P(x,y) dx + Q(x,y) dy
+\end{align*}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\begin{align*}
+  (\divg F )(p) = & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C \fcv{F} \cdot \fcv{dn} = \\ = & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C P(x,y) dy - Q(x,y) dx \\
+  (\curl_{\,\fcv{k}} \fcv{F})(p)= & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C \fcv{F} \cdot \fcv{\diff r} = \\ = & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C P(x,y) dx + Q(x,y) dy
+\end{align*}
+
+\pause \underline{Key fact}: If $f$ is a continuous function defined around $p$, then
+%
+$$\lim_{D \to \{p\}} \frac{1}{\text{Area}(D)} \iint_{D} f(q) dA = f(p)\; .$$
+
+\pause We need to convert the line integrals into double integrals.
+\end{frame}

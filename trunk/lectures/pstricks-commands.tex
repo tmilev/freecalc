@@ -430,6 +430,17 @@ end
 \rput(! #2\space #3\space add 2 div dup cos #4\space 0.2 add mul exch sin #4\space 0.2 add mul){#5}%
 }
 
+\newcommand{\fcAngleBetweenVectors}[5][linecolor=\fcColorGraph]{%
+\pstVerb{%
+3 dict begin%
+/firstV #2 \fcVectorNormalize def%
+/orthonormalV #3 dup firstV  \fcVectorProjectOntoVector \fcVectorMinusVector \fcVectorNormalize def%
+/theAngle firstV #3\space \fcVectorNormalize \fcVectorScalarVector arccos def%
+}%
+\parametricplot[#1]{0}{theAngle}{firstV t cos #4 mul \fcVectorTimesScalar orthonormalV t sin #4 mul \fcVectorTimesScalar \fcVectorPlusVector \fcArrayToStack}%
+\pstVerb{end}%
+}
+
 \makeatletter
 \newcommand{\fcAngle}[5][linecolor=\fcColorGraph]{%
 \ifPst@algebraic{%

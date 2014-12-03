@@ -1,0 +1,23 @@
+\begin{frame}
+\small
+  \frametitle{Divergence and Curl in Polar Coordinates}
+
+Suppose that in polar coordinates $(r, \theta)$, the field $\fcv{F}$ is given by
+%
+$$\fcv{F}(r, \theta) = P(r, \theta) \fcv{e}_{r} + Q(r, \theta) \fcv{e}_{\theta} \; ,$$
+%
+where $\fcv{e}_{r} = \fcv{e}_{r}(r, \theta)$ and $\fcv{e}_{\theta}=\fcv{e}_{\theta}(r, \theta)$ are the unit polar coordinate vectors.
+
+%
+$$\divg \fcv{F} =  \frac{1}{r} \frac{\partial (r P)}{\partial r} + \frac{1}{r} \frac{\partial Q}{\partial \theta} \quad \text{ and } \quad
+   \curl_{\fcv{k}} \fcv{F} =  \frac{1}{r} \frac{\partial (r Q)}{\partial r} - \frac{1}{r} \frac{\partial P}{\partial \theta}
+$$
+
+\begin{itemize}
+  \item \pause If $\fcv{F}$ is a radial field given in polar coordinates by $\fcv{F} = f(r,\theta)\fcv{e}_r$, then
+%
+$$\curl_{\fcv{k}} \fcv{F} = \frac{1}{r} \frac{\partial (r 0)}{\partial r} - \frac{1}{r}\frac{\partial f(r,\theta)}{\partial \theta} = - \frac{1}{r} \frac{\partial f}{\partial \theta} \, .$$
+\item \pause Radial fields $\fcv{F}(r,\theta) = f(r)\fcv{e}_r$ are irrotational.
+\end{itemize}
+
+\end{frame}

@@ -1,0 +1,26 @@
+\begin{frame}
+\small
+  \frametitle{Examples}
+
+\begin{itemize}
+  \item $\fcv{F}$: a vector field that
+  \begin{itemize}
+    \item rotates points around $p$,
+    \item with constant angular velocity $\omega$.
+  \end{itemize}
+  \item \pause In rectangular coordinates centered at $p$:
+  %
+  $$\fcv{F}(x,y) = -\omega y \fcv{i} + \omega x \fcv{j}$$
+  %
+  $$\curl_{\fcv{k}} \fcv{F} = \frac{\partial (\omega x)}{\partial x} - \frac{\partial (-\omega y)}{\partial y} = 2\omega \; ;$$
+  %
+  \item \pause In polar coordinates:
+  %
+  $$\fcv{F}(r, \theta) = \omega r \fcv{e}_{\theta}$$
+  %
+$$\curl_{\fcv{k}} \fcv{F} = \frac{1}{r}\frac{\partial (r \omega r)}{\partial r} - \frac{1}{r}\frac{\partial 0}{\partial \theta} = 2\omega \; .$$
+\end{itemize}
+
+\pause The divergence of this field is identically zero, so the field is incompressible.
+
+\end{frame}
