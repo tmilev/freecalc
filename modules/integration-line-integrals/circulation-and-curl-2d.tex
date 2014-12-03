@@ -1,0 +1,53 @@
+\begin{frame}
+\frametitle{Circulation and Flatland Curl}
+
+\begin{columns}
+\column{0.2\textwidth}
+\psset{xunit=0.75 cm, yunit=0.75cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-2}{-2}{2}{2}
+\pstVerb{%
+10 dict begin
+/theScale 1 def
+/theCurve {t 20 sub cos theScale mul t sin theScale mul} def
+/theTangent {[t 20 sub sin -1 mul theScale mul t cos theScale mul] \fcVectorNormalize } def
+/theNormal {[t 20 sub cos  -1 mul theScale mul t sin -1 mul theScale mul] \fcVectorNormalize} def
+}%
+\pscustom*[linecolor=pink]{\parametricplot{0}{360}{theCurve}}%
+%\fcVectorField[linecolor=blue]{-1.5}{-1.5}{6}{6}{0.6}{x y add 6 div y 3 div }%
+\parametricplot[arrows=->, linecolor=\fcColorGraph]{0}{360}{ theCurve}
+\pstVerb{1 dict begin /t 60 def}%
+\psline[arrows=->](! theCurve )(! [theCurve] theTangent \fcVectorPlusVector \fcArrayToStack )%
+\rput[bl](! [theCurve] theTangent \fcVectorPlusVector \fcArrayToStack ){$~\fcv T$}%
+\psline[arrows=->](! theCurve )(! [theCurve] theNormal \fcVectorPlusVector \fcArrayToStack )%
+\rput[tr](! [theCurve] theNormal \fcVectorPlusVector \fcArrayToStack -0.1 add){$~~\fcv N$}%
+\rput(! theCurve){%
+\fcAngleBetweenVectors[arrows=->, linecolor=blue]{theTangent }{theNormal}{0.3}{}%
+}%
+\pstVerb{end}%
+\pstVerb{end}
+\end{pspicture}
+\column{0.8\textwidth}
+\begin{itemize}
+\item<1-> Fix an orientation of the plane. Convention: a positive orientation in the plane corresponds to the counterclockwise motion.
+\item<2-> A regular parametrization of $C$ is \emph{positive} if $C$ is followed in a counterclockwise direction \uncover<3->{$\Leftrightarrow$ $ \fcv{T}, \fcv{N}$ are positively oriented.}
+\end{itemize}
+\end{columns}
+\uncover<4->{
+\[
+\text{Circulation } = \oint_C \fcv{F} \cdot \fcv{T} \diff s = \oint_C \fcv{F} \cdot \fcv{\diff r}\; .
+\]
+where $\diff s$ is the element of arclength.
+}
+
+\uncover<5->{%
+The \emph{Flatland curl} of $\fcv{F}$ at $p$:  the density of circulation
+%
+\begin{align*}
+(\curl_{\,\fcv{k}} \fcv{F})(p)= & \lim_{D \to \{p\}} \frac{\text{Circulation along boundary}}{\text{Area}(D)} =  \\ = &
+      \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C \fcv{F} \cdot \fcv{\diff r} \; .
+\end{align*}
+}%
+
+\end{frame}

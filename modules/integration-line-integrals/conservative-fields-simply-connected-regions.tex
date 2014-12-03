@@ -1,23 +1,98 @@
 \begin{frame}
-  \frametitle{Simply Connected Regions}
+\frametitle{Simply Connected Regions}
+If $P_y(x,y) \neq Q_x(x,y)$, then $\fcv{F}$ is not a gradient field.
 
-  If $P_y(x,y) \neq Q_x(x,y)$, then \pause $\fcv{F}$ is not a gradient field.
+\noindent \fcQuestion{2}{If $P_y(x,y) = Q_x(x,y)$, is $\fcv{F}$ necessarily a gradient field?} \fcAnswer{3}{No:}
+\abovedisplayskip 0pt
+\belowdisplayskip 0pt
+\[
+\begin{array}{r@{~}c@{~}l}
+\uncover<3->{\displaystyle \fcv{F} &=&\displaystyle  \alert<4,5>{-\frac{y}{x^2+y^2}} \fcv{i} + \alert<6>{ \frac{x}{x^2+y^2}} \fcv{j} = \alert<4,5>{P} \, \fcv{i} + \alert<6>{Q} \, \fcv{j} }\\
+\displaystyle \fcQuestion{4}{ P_y} &\fcQuestion{4}{=}& \displaystyle \fcAnswer{5}{\alert<6>{ \frac{y^2-x^2}{(x^2 +y^2 )^2}}} \uncover<6->{\alert<6>{= Q_x}} \\
+\uncover<7->{\displaystyle \oint_{C=\text{circ. around }(0,0)} \!\!\!\!\! \fcv{F} \cdot \fcv{\diff r} &=&\displaystyle  \oint_C \left(-\frac{y}{x^2+y^2}  \diff y +\frac{x}{x^2+y^2} \diff y\right) = 2\pi \neq 0 \; .}
+\end{array}
+\]
+\begin{columns} 
+\column{0.18\textwidth}
+\psset{xunit=0.75cm, yunit=0.75cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny%
+\fcBoundingBox{-1}{-1.24}{1}{1}
+\uncover<8->{%
+\fcFullDot{0}{0}%
+\pscustom*[linecolor=pink]{%
+\parametricplot{0}{360}{t cos t sin}%
+}%
+\uncover<14->{\rput[t](0,-1){simp. conn.}}%
+\pstVerb{20 dict begin 
+/shiftX 0.2 def
+/shiftY 0 def
+/theCurve {t 60 add cos 0.5 mul theScale mul shiftX add t 60 add sin 0.9 mul theScale mul shiftY add} def
+}%
+\multido{\na=9+1}{5}{%
+\pstVerb{%
+/numIterations 5 def
+/counter \na \space 9 sub def
+/theScale numIterations counter sub numIterations div def
+}%
+\only<\na>{\parametricplot{0}{360}{theCurve}}%
+}%
+\only<14->{%
+\pstVerb{/theScale 0 def /t 0 def}%
+\fcFullDot[linecolor=black]{theCurve pop}{theCurve exch pop}%
+}%
+\pstVerb{end}%
+} 
+\end{pspicture}
 
-  \pause But if $P_y(x,y) = Q_x(x,y)$, is $\fcv{F}$ necessarily a gradient field?
+\noindent\psset{xunit=0.75cm, yunit=0.75cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny%
+\fcBoundingBox{-1}{-1.24}{1}{1}
+\uncover<8->{%
+\fcFullDot{0}{0}%
+\pscustom*[linecolor=pink]{%
+\parametricplot{0}{360}{t cos t sin}%
+}%
+\uncover<17->{\rput[t](0,-1){not simp. conn.}}%
+\pstVerb{20 dict begin 
+/shiftX 0.2 def
+/shiftY 0 def
+/theCurve {t 60 add cos 0.5 mul theScale mul shiftX add t 60 add sin 0.9 mul theScale mul shiftY add} def
+}%
+\multido{\na=15+1}{2}{%
+\pstVerb{%
+/numIterations 5 def
+/counter \na \space 15 sub def
+/theScale numIterations counter sub numIterations div def
+}%
+\only<\na>{\parametricplot{0}{360}{theCurve}}%
+}%
+\only<17->{%
+\pstVerb{%
+/numIterations 5 def
+/counter 2 def
+/theScale numIterations counter sub numIterations div def
+}%
+\parametricplot{0}{360}{theCurve}%
+}%
+\fcFullDot{0}{0}
+\pstVerb{end}%
+} 
+\end{pspicture}
 
-  \pause Unfortunately, NO!
-%
-$$\fcv{F}(x,y) = \frac{-y}{x^2+y^2} \, \fcv{i} + \frac{x}{x^2+y^2} \, \fcv{j} = P(x,y) \, \fcv{i} + Q(x,y)\, \fcv{j}\; ,$$
-%
-$$P_y(x,y) = \frac{y^2-x^2}{(x^2+y^2)^2} = Q_x(x,y) \; .$$
-%
-$$\oint_C \fcv{F} \cdot \fcv{\diff r} = \oint_C \frac{x}{x^2+y^2} \, dy - \frac{y}{x^2+y^2}\, dx = 2\pi \neq 0 \; .$$
+\column{0.82\textwidth}
+\uncover<8->{
+\begin{definition}
+A domain $D$ is called \emph{simply connected} if every closed loop in $D$ can be deformed (``lassoed'') to a point inside $D$.
+\end{definition}
+}
+\uncover<18->{
+\begin{theorem}
+Let $\fcv{F}=P\, \fcv{i} + Q \fcv{j}$ and $P_y=Q_x$. Suppose $\fcv F$ is defined over a simply connected open set. Then $\fcv{F}$ is a gradient field.
+\end{theorem}
+}
+\end{columns}
 
-\pause \underline{Definition}: A domain $D$ is called \emph{simply connected} if every closed loop in $D$ can be deformed (``lassoed'') into a point inside $D$.
-
-\medskip
-
-If $\fcv{F}(x,y)=P(x,y) \, \fcv{i} + Q(x,y) \, \fcv{j}$ is defined on a simply connected domain $D$ and $P_y(x,y)=Q_x(x,y)$ over $D$, then $\fcv{F}$ is a gradient field.
-
-Similar for $\fcv{F} = P \, \fcv{i} + Q\, \fcv{j} + R\, \fcv{k}$
+%Similar for $\fcv{F} = P \, \fcv{i} + Q\, \fcv{j} + R\, \fcv{k}$
 \end{frame}

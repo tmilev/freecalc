@@ -1,30 +1,85 @@
 \begin{frame}
-\frametitle{Conservative Field = Gradient Field}
-\begin{itemize}
-\item Let $\fcv{F}$ be conservative field. Fix a point $A$ and define $f$ by
-\[
-f(B) = \int_C \fcv{F} \cdot \fcv{\diff r} \; ,
-\]
-where $C$ is any piecewise smooth curve joining $A$ to $B$.
+\frametitle{Conservative Field $ \Rightarrow$ Gradient Field}
+\begin{columns}
+\column{0.2\textwidth}
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-0.1}{-0.2}{1.3}{2.1}
+\fcFullDot{-0.1}{-0.1}
+\fcFullDot{1}{2}
+\uncover<7->{%
+\rput[tl](1.7,1.9){$(x+h,y)$}
+\fcFullDot{1.6}{2}
+}%
+\uncover<7>{%
+\psline[linecolor=red, linewidth=2pt](1,2)(1.6, 2)
+}%
+\uncover<8->{%
+\psline[linecolor=blue](1,2)(1.6, 2)
+}%
+\pscurve[arrows=->](-0.1,-0.1)(1,1)(1,2)
+\uncover<1-3>{%
+\pscurve[arrows=->](-0.1,-0.1)(0,1)(1,2)%
+\rput[rt](0.3,1.55){$C'$} %
+}%
+\rput[l](0.9,0.5){$C$}
+\rput[lt](0,-0.1){$A$}
+\rput[br](1.1,2.1){$(x,y)$}
+\end{pspicture}
+\column{0.8\textwidth}
+Let $\alert<13>{\fcv{F}=P\fcv i+Q\fcv j}$ be a smooth conservative field. \uncover<2->{ Fix pt. $A$ inside the domain of $\fcv {F}$.} \uncover<3->{Define $f$ by
+\alert<3>{$ \alert<6>{f}(B) = \int_C \alert<5>{\fcv{F}} \cdot \fcv{\diff r}
+$}, where \alert<4>{$C$ is any piecewise smooth curve from $A$ to $B$}.}
+\uncover<5->{
+\begin{theorem}
+$ \alert<5>{\fcv{F}} = \alert<6>{\nabla f}$.
+\end{theorem}
+}
+\end{columns}
+\uncover<5->{
+\begin{proof}
+\uncover<7->{ Let $h>0$; for $h$ small, \alert<7>{the segment $S$ from $(x,y)$ to $(x+h,y)$} is in the domain of $\fcv F$.} \uncover<8->{$S$ is given by $\alert<14,15>{\fcv r(t)= (x+t)\fcv i+y\fcv j,  t\in [0,h]}$.} \uncover<15->{\alert<15>{On $S$, $\diff r=\fcv i\diff t$}.}
 
-\pause Then $\fcv{F} = \nabla f$ $\Longrightarrow$ $\fcv{F}$ is a gradient field.
+$
+\begin{array}{r@{~}c@{~}l}
+\uncover<9->{\frac{\partial}{\partial x} (f) &=& \lim_{h\to 0}\frac{\alert<10>{ f(x+h,y)}-\alert<11>{f(x,y)} }{h}} \uncover<10->{ =\lim_{h\to 0} \frac{1}{h}\left( \alert<10>{ \int_{\alert<12>{C}+S} \fcv F \cdot \diff \fcv r} - \alert<11>{\int_{\alert<12>{C} } \fcv F\cdot \diff \fcv r} \right)} \\
+\uncover<12->{&=&\lim_{h\to 0}\frac{1}{h} \int_{ \alert<14, 15>{ S}} \alert<13>{ \fcv F} \cdot \alert<15>{\diff \fcv r}} \\
+\uncover<13->{&=&\lim_{h\to 0}\frac{1}{ h} \int_{ \alert<14>{ t=0}}^{\alert<14>{t=h}} \alert<13>{ \left( P( \alert<14>{x+t,y})\alert<17>{\fcv i} + Q( \alert<14>{ x +t,y}) \alert<16>{\fcv j} \right)} \cdot \alert<15>{\alert<16,17>{ \fcv i} \diff t}} \\
+\uncover<16->{&=&\int_{t=0}^h P(x+h,y)\diff t} \uncover<18->{=P(x,y),}
+\end{array}
+$
+\uncover<18->{where the last equality is the single-variable Fundamental Theorem of Calculus.} \uncover<19->{Similarly it follows that $\frac{\partial}{\partial y} (f)=Q(x,y)$.}
+\end{proof}
+}
+\end{frame}
 
-Any function $f$ such that $\fcv{F}= \nabla f$ is called a \emph{scalar potential} for~$\fcv{F}$.
 
-\item \pause
-\fcv{Fundamental Theorem of Calculus} (Line Integral version):
-%
-\[
-\int_C (\nabla f) \cdot \fcv{\diff r} = \int_a^b \frac{\diff }{\diff t} (f(\fcv{r}(t)) \, \diff t = f(B) - f(A) \; ,
-\]
-%
-for every curve $\fcv{r} \colon [a,b] \to C$ joining $A$ to $B$.
+\begin{frame}
+\frametitle{Gradient Field $\Rightarrow$ Conservative Field }
 
- \item \pause Let $\fcv{F} = \nabla f$ be gradient field. \pause For a curve $C$ joining points $A$ and $B$
+\begin{theorem}[Fundamental Theorem of Calculus for Line Integrals]
+$\displaystyle
+\int_C (\nabla f) \cdot \fcv{\diff r} = f(B) - f(A) \; ,
+$
+for every smooth curve $C$ from $A$ to $B$.
+\end{theorem}
+\begin{proof}
+$
+\begin{array}{rcl}
+\int_C (\nabla f) \cdot \fcv{\diff r} &=&\int_C f_x\diff x + f_y\diff y= \int_C \left( f_x x'(t) + f_y y'(t)\right)\diff t \\
+&=&\int_a^b \frac{\diff }{\diff t} (f(\fcv{r}(t))  \diff t = f(B) - f(A).
+\end{array}
+$
+\end{proof}
+
+\begin{definition}
+If $\fcv{F}= \nabla f$ then $f$ is called \emph{scalar potential} of $\fcv{F}$; $\fcv F$ is called \emph{gradient field}.
+\end{definition}
+
+Let $\fcv{F} = \nabla f$ be gradient field. For a curve $C$ joining points $A$ and $B$
 \[
 \int_C \fcv{F} \cdot \fcv{\diff r} =  \int_C (\nabla f )\cdot \fcv{\diff r}= f(B) - f(A)\;
 \]
-\pause depends only on $A$ and $B$, but not on $C$ $\Rightarrow$ $\fcv{F}$ is conservative.
-  \end{itemize}
-
+depends only on $A$ and $B$, but not on $C$ $\Rightarrow$ $\fcv{F}$ is conservative.
 \end{frame}

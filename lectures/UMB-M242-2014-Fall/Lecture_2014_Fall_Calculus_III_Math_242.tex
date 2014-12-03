@@ -519,26 +519,26 @@
 
 \lect{Fall 2014}{Lecture 17}{17}{%
 \section{Line integrals}
-%\input{../../modules/integration-line-integrals/line-surface-integrals-intro}
+\input{../../modules/integration-line-integrals/line-surface-integrals-intro}
 %%%%%\input{../../modules/integration-line-integrals/line-integral-intro} %<- needs a rewrite
-%\input{../../modules/integration-line-integrals/line-integrals-Riemann-sums}
-%\input{../../modules/integration-line-integrals/line-integral-definition}
-%\input{../../modules/integration-line-integrals/line-integral-parametrization-and-computation}
-%\input{../../modules/integration-line-integrals/line-integral-example-1}
+\input{../../modules/integration-line-integrals/line-integrals-Riemann-sums}
+\input{../../modules/integration-line-integrals/line-integral-definition}
+\input{../../modules/integration-line-integrals/line-integral-parametrization-and-computation}
+\input{../../modules/integration-line-integrals/line-integral-example-1}
 \subsection{Line Integral from Vector Field}
-%\input{../../modules/integration-line-integrals/line-integral-from-vector-field}
-%\input{../../modules/integration-line-integrals/line-integral-from-vector-field-parametrization-and-computation}
-%\input{../../modules/integration-line-integrals/line-integral-from-vector-field-example-1}
+\input{../../modules/integration-line-integrals/line-integral-from-vector-field}
+\input{../../modules/integration-line-integrals/line-integral-from-vector-field-parametrization-and-computation}
+\input{../../modules/integration-line-integrals/line-integral-from-vector-field-example-1}
 \subsection{Differential 1-forms}
-%\input{../../modules/integration-line-integrals/differential-1-forms}
-%\input{../../modules/integration-line-integrals/integrals-of-1-forms}
-%\input{../../modules/integration-line-integrals/line-integrals-over-closed-path-notation}
-%\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-darctan}
-%\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-dlnr}
-%\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-darctan-in-polar}
-%\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-dlnr-in-polar}
+\input{../../modules/integration-line-integrals/differential-1-forms}
+\input{../../modules/integration-line-integrals/integrals-of-1-forms}
+\input{../../modules/integration-line-integrals/line-integrals-over-closed-path-notation}
+\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-darctan}
+\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-dlnr}
+\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-darctan-in-polar}
+\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-dlnr-in-polar}
 
-%\input{../../modules/integration-line-integrals/integral-of-1-form-inverse-square-distance-fields}
+\input{../../modules/integration-line-integrals/integral-of-1-form-inverse-square-distance-fields}
 \input{../../modules/integration-line-integrals/integral-of-1-form-independence-of-path-intro}
 \input{../../modules/integration-line-integrals/conservative-fields}
 \input{../../modules/integration-line-integrals/conservative-field-is-gradient-field}
@@ -547,280 +547,28 @@
 
 \input{../../modules/integration-line-integrals/conservative-field-find-potential-example-1}
 \input{../../modules/integration-line-integrals/exact-1-forms}
-\input{../../modules/integration-line-integrals/conservation-of-energys}
+% % % % % %\input{../../modules/integration-line-integrals/conservation-of-energy}<-needs a rewrite
+% % % % % %\input{../../modules/integration-line-integrals/vector-fields-2d-tangents-normals-intro}<-needs a rewrite
+
+\input{../../modules/integration-line-integrals/flux-and-divergence-2d}
+
+\input{../../modules/integration-line-integrals/circulation-and-curl-2d}
+
+% % % % % % % %\input{../../modules/integration-line-integrals/curl-and-divergence-2d-in-coordinates} %<-needs a rewrite
+
+\input{../../modules/integration-line-integrals/greens-theorem}
 
 
+\input{../../modules/integration-line-integrals/divergence-and-curl-2d}
 
+\input{../../modules/integration-line-integrals/divergence-2d-interpretation}
 
-\small
+\input{../../modules/integration-line-integrals/curl-2d-interpretation}
 
+\input{../../modules/integration-line-integrals/curl-divergence-2d-polar}
 
+\input{../../modules/integration-line-integrals/curl-2d-example-rotational-field}
 
-
-
-
-\begin{frame}
-  \frametitle{Planar Vector Fields}
-
-    \begin{itemize}
-      \item $\fcv{F}$: smooth vector field defined on $\mathcal{R}$;
-      \item $\fcv{p}$: point in the interior of $\mathcal{R}$;
-      \item Question: How does $\fcv{F}$ impact the space around $p$?
-      \item \pause Method: study the effect of $\fcv{F}$ on the boundary $C =\partial D$ of a small region $D$ around $p$
-    \end{itemize}
-
-  \pause There are two fundamental effects:
-
-\begin{enumerate}
-  \item \pause Normal component of $\fcv{F}$ $\Longrightarrow$ moves matter across the boundary. Accumulation: \emph{flux across $C$};
-
-  \item \pause Tangential component of $\fcv{F}$ $\Longrightarrow$ moves matter along the boundary. Accumulation: \emph{circulation along $C$}.
-\end{enumerate}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Flux and Divergence}
-\small
-
-    \begin{itemize}
-      \item Convention: we measure the \emph{outward} flux;
-      \item $\fcv{N}$: unit vector, normal to $C$ and pointing outwards from $D$;
-    \end{itemize}
-%
-$$\text{Outward Flux } = \oint_C \fcv{F} \cdot \fcv{N} \diff s = \oint_C \fcv{F} \cdot \fcv{dn} \; ,$$
-%
-where $\fcv{dn} =\fcv{N} \diff s$ is the normal vectorial element of arclength
-
-\medskip
-
-\pause \emph{Divergence} of $\fcv{F}$ at $p$: the density of flux
-%
-\begin{align*}
-  (\divg \fcv{F})(p) = & \lim_{D \to \{p\}} \frac{\text{Outward flux across boundary}}{\text{Area}(D)} = \\ = & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C \fcv{F} \cdot \fcv{dn}
-\end{align*}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{Circulation and Flatland Curl}
-
-    \begin{itemize}
-      \item Convention: the plane has a predetermined orientation.
-      \item a regular parametrization of $C$ is \emph{positive} if $C$ is followed in a counterclockwise direction $\Longleftrightarrow$ $\{ \fcv{N}, \fcv{T}\}$ is positively oriented
-    \end{itemize}
-
-%
-$$\text{Circulation } = \oint_C \fcv{F} \cdot \fcv{T} \diff s = \oint_C \fcv{F} \cdot \fcv{\diff r}\; ,$$
-%
-where $\fcv{\diff r} = \fcv{r}'(t) \diff t = \fcv{T} \diff s$ is the tangent vectorial element of arclength.
-
-\medskip
-
-\pause The \emph{Flatland curl} of $\fcv{F}$ at $p$:  the density of circulation
-%
-\begin{align*}
-(\curl_{\,\fcv{k}} \fcv{F})(p)= & \lim_{D \to \{p\}} \frac{\text{Circulation along boundary}}{\text{Area}(D)} =  \\ = &
-      \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C \fcv{F} \cdot \fcv{\diff r} \; .
-\end{align*}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Computations in Rectangular Coordinates}
-\small
-\begin{itemize}
-  \item $\fcv{F} (x,y) = P(x,y) \fcv{i} + Q(x,y) \fcv{j}$
-  \item $\fcv{r} \colon [a,b] \to \RR^2$ be a positive, piecewise smooth parametrization by arclength of the boundary $C = \partial D$
-%
-$$\fcv{r}(t) = x(t) \fcv{i} + y(t) \fcv{j} \; .$$
-%
-$$
-  \fcv{T} (t)  = x'(t) \fcv{i} + y'(t) \fcv{j} \qquad \text{ and } \qquad
-  \fcv{N} (t)  = y'(t) \fcv{i} - x'(t) \fcv{j}
-$$
-%
-\end{itemize}
-
-Then
-%
-\begin{align*}
-  \oint_C \fcv{F} \cdot \fcv{dn} = & \int_a^b \left[P(x,y) y' - Q(x,y) x'\right]\, \diff t  = \oint_C P(x,y) dy - Q(x,y) dx \\
-%
-  \oint_C \fcv{F} \cdot \fcv{\diff r} = & \int_a^b \left[P(x,y) x'+ Q(x,y) y'\right]\, \diff t  = \oint_C P(x,y) dx + Q(x,y) dy
-\end{align*}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\begin{align*}
-  (\divg F )(p) = & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C \fcv{F} \cdot \fcv{dn} = \\ = & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C P(x,y) dy - Q(x,y) dx \\
-  (\curl_{\,\fcv{k}} \fcv{F})(p)= & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C \fcv{F} \cdot \fcv{\diff r} = \\ = & \lim_{D\to \{p\}} \frac{1}{\text{Area}(D)} \oint_C P(x,y) dx + Q(x,y) dy
-\end{align*}
-
-\pause \underline{Key fact}: If $f$ is a continuous function defined around $p$, then
-%
-$$\lim_{D \to \{p\}} \frac{1}{\text{Area}(D)} \iint_{D} f(q) dA = f(p)\; .$$
-
-\pause We need to convert the line integrals into double integrals.
-\end{frame}
-
-\begin{frame}
-\small
-  \frametitle{\textcolor[rgb]{0.00,1.00,0.00}{Green's Theorem}}
-
-\begin{theorem}[Green]
-  {\rm Let $D$ be a region whose boundary $C$ is piecewise smooth and positively oriented. If $P$ and $Q$ have continuous partial derivatives in an open region around $D$, then}
-  %
-  $$
-    \oint_C P(x,y) dx + Q(x,y) dy = \iint_D \left[\frac{\partial Q}{\partial x}(x,y) - \frac{\partial P}{\partial y}(x,y) \right] dxdy \; .
-  $$
-\end{theorem}
-%
-Companion formula:
-%
-  $$
-    \oint_C P(x,y) dy - Q(x,y) dx = \iint_D \left[\frac{\partial P}{\partial x}(x,y) + \frac{\partial Q}{\partial y}(x,y) \right] dxdy \; .
-  $$
-\end{frame}
-
-\begin{frame}
-\small
-  \frametitle{Divergence and Flatland Curl}
-
-  \begin{align*}(\curl_{\fcv{k}} \fcv{F})(p) = &  \lim_{D \to \{ p \}}  \frac{1}{\text{Area}(D)} \oint_{\partial D} \fcv{F} \cdot \fcv{\diff r} = \\
-  =& \lim_{D \to \{ p \}}  \frac{1}{\text{Area}(D)} \oint_{\partial D} P(x,y) dx+Q(x,y)dy = \\
-  = & \lim_{D \to \{ p\}}  \frac{1}{\text{Area}(D)} \iint_{D} \left[\frac{\partial Q}{\partial x} (x,y) - \frac{\partial P}{\partial y} (x,y) \right] \, dxdy = \\
-  = & \frac{\partial Q}{\partial x} (x_0,y_0) - \frac{\partial P}{\partial y} (x_0,y_0)
-  \end{align*}
-%
-$$
-  (\divg \fcv{F})(p) = \lim_{D \to \{p\}} \frac{1}{\text{Area}(D)} \oint_{\partial D} \fcv{F} \cdot \fcv{dn}   = \frac{\partial P}{\partial x} (x_0,y_0) + \frac{\partial Q}{\partial y} (x_0,y_0) \; .
-$$
-
-\pause Coordinate-free formulations of Green's theorem:
-%
-$$\oint_{\partial D} \fcv{F} \cdot \fcv{\diff r} = \iint_D \curl_{\fcv{k}} \fcv{F} \, dA \qquad \text{ and } \qquad
-\oint_{\partial D} \fcv{F} \cdot \fcv{dn} = \iint_{D} \divg \fcv{F} \, dA$$
-
-\end{frame}
-
-\begin{frame}
-\small
-  \frametitle{Interpretation of Divergence}
-
-$$\oint_{\partial D} \fcv{F} \cdot \fcv{dn} = \iint_{D} \divg \fcv{F} \, dA$$
-
-  \begin{itemize}
-    \item If $\divg \fcv{F}(p)>0$:
-    \begin{itemize}
-      \item \pause for small enough regions around $p$, $\fcv{F}$ carries more outside than it brings inside through the boundary;
-      \item \pause $p$ acts as a source.
-    \end{itemize}
-    \item If $\divg \fcv{F}(p)<0$:
-    \begin{itemize}
-      \item \pause for small enough regions around $p$, $\fcv{F}$ carries less outside than it brings inside through the boundary;
-      \item \pause $p$ acts as a sink
-    \end{itemize}
-    \item If the divergence is identically zero on a region $D$:
-    \begin{itemize}
-      \item \pause the outward flux through any closed curve is zero;
-      \item \pause the amount pushed inside in some places is equal to the amount pushed outside somewhere else;
-      \item The field $\fcv{F}$ is \emph{incompressible} or \emph{solenoidal}.
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-\small
-  \frametitle{Interpretation of Curl}
-
-  $$\oint_{\partial D} \fcv{F} \cdot \fcv{\diff r} = \iint_D \curl_{\fcv{k}} \fcv{F} \, dA $$
-
-  \begin{itemize}
-    \item If $\curl_{\fcv{k}} \fcv{F}(p)>0$:
-    \begin{itemize}
-      \item \pause $\fcv{F}$ tends to rotate points counter-clockwise around $p$;
-    \end{itemize}
-
-    \item If $\curl_{\fcv{k}} \fcv{F}(p)<0$:
-    \begin{itemize}
-      \item \pause $\fcv{F}$ tends to rotate points clockwise around $p$
-    \end{itemize}
-
-    \item If $\curl_{\fcv{k}} \fcv{F} \equiv 0$ on a region $D$:
-    \begin{itemize}
-      \item \pause $\fcv{F}$ is an \emph{irrotational field}
-      \item \pause the circulation along any closed curve $C$ that bounds a subregion of $D$ is zero.
-      \item \pause If $D$ is simply connected:
-      \begin{itemize}
-        \item \pause any closed curve in $D$ bounds a subregion of $D$;
-        \item \pause a zero circulation field is conservative.
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
-
-\pause On simply connected regions:
-\begin{center}
-  Irrotational field $\Longleftrightarrow$ Conservative field
-\end{center}
-
-\end{frame}
-
-\begin{frame}
-\small
-  \frametitle{Divergence and Curl in Polar Coordinates}
-
-Suppose that in polar coordinates $(r, \theta)$, the field $\fcv{F}$ is given by
-%
-$$\fcv{F}(r, \theta) = P(r, \theta) \fcv{e}_{r} + Q(r, \theta) \fcv{e}_{\theta} \; ,$$
-%
-where $\fcv{e}_{r} = \fcv{e}_{r}(r, \theta)$ and $\fcv{e}_{\theta}=\fcv{e}_{\theta}(r, \theta)$ are the unit polar coordinate vectors.
-
-%
-$$\divg \fcv{F} =  \frac{1}{r} \frac{\partial (r P)}{\partial r} + \frac{1}{r} \frac{\partial Q}{\partial \theta} \quad \text{ and } \quad
-   \curl_{\fcv{k}} \fcv{F} =  \frac{1}{r} \frac{\partial (r Q)}{\partial r} - \frac{1}{r} \frac{\partial P}{\partial \theta}
-$$
-
-\begin{itemize}
-  \item \pause If $\fcv{F}$ is a radial field given in polar coordinates by $\fcv{F} = f(r,\theta)\fcv{e}_r$, then
-%
-$$\curl_{\fcv{k}} \fcv{F} = \frac{1}{r} \frac{\partial (r 0)}{\partial r} - \frac{1}{r}\frac{\partial f(r,\theta)}{\partial \theta} = - \frac{1}{r} \frac{\partial f}{\partial \theta} \, .$$
-\item \pause Radial fields $\fcv{F}(r,\theta) = f(r)\fcv{e}_r$ are irrotational.
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-\small
-  \frametitle{Examples}
-
-\begin{itemize}
-  \item $\fcv{F}$: a vector field that
-  \begin{itemize}
-    \item rotates points around $p$,
-    \item with constant angular velocity $\omega$.
-  \end{itemize}
-  \item \pause In rectangular coordinates centered at $p$:
-  %
-  $$\fcv{F}(x,y) = -\omega y \fcv{i} + \omega x \fcv{j}$$
-  %
-  $$\curl_{\fcv{k}} \fcv{F} = \frac{\partial (\omega x)}{\partial x} - \frac{\partial (-\omega y)}{\partial y} = 2\omega \; ;$$
-  %
-  \item \pause In polar coordinates:
-  %
-  $$\fcv{F}(r, \theta) = \omega r \fcv{e}_{\theta}$$
-  %
-$$\curl_{\fcv{k}} \fcv{F} = \frac{1}{r}\frac{\partial (r \omega r)}{\partial r} - \frac{1}{r}\frac{\partial 0}{\partial \theta} = 2\omega \; .$$
-\end{itemize}
-
-\pause The divergence of this field is identically zero, so the field is incompressible.
-
-\end{frame}
 
 \begin{frame}
 \small
