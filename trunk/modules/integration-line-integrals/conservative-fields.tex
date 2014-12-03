@@ -1,14 +1,38 @@
 \begin{frame}
 \frametitle{Conservative Fields}
+\begin{columns}
+\column{0.25\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.2}{-0.2}{1.3}{2.1}
+\fcFullDot{-0.1}{-0.1}
+\fcFullDot{1}{2}
+\uncover<1-4>{\pscurve[arrows=->](-0.1,-0.1)(1,1)(1,2)}
+\uncover<1-3>{\pscurve[arrows=->](-0.1,-0.1)(-1,1)(-1,2)(1,2)}
+\uncover<4->{\pscurve[arrows=<-, linecolor=red, linewidth=2pt] (-0.1,-0.1)(-1,1)(-1,2)(1,2)}
+\uncover<5->{\pscurve[linewidth=2pt, linecolor=red](-0.1,-0.1)(1,1)(1,2)}
+\rput[l](0.9,0.5){$C_1$}
+\rput[lt](-1,1.95){$\alert<4>{\uncover<4->{-} C_2}$}
+\uncover<5->{\rput(0,1){$\alert<5>{C=C_1\cup (-C_2)}$}}
+%\pscurve[arrows=<-](0,0)(-1,1)(-1,2)(1,2)
+\rput[lt](0,-0.1){$A$}
+\rput[l](1.1,2){$B$}
+\end{pspicture}
+\column{0.75\textwidth}
 \begin{definition}
 A vector field $\fcv{F}$ is called \emph{conservative} if for any two points $A$ and $B$ and any two paths $C_1$ and $C_2$ from $A$ to $B$ we have
 $\displaystyle \int_{C_1} \fcv{F} \cdot \fcv{\diff r} = \int_{C_2} \fcv{F}\cdot \fcv{\diff r}\; .$
 \end{definition}
+\end{columns}
+\uncover<2->{
 \begin{lemma}[alternative definition]
 A vector field $\fcv{F}$ is conservative if and only if every point $A$ every path $C$ starting and ending at $A$ we have $\displaystyle\oint_{C} \fcv{F} \cdot \fcv{\diff r} = 0\; .$
 \end{lemma}
+}%
+\uncover<3->{
 \begin{proof}
-The path $C = C_1 \cup (-C_2)$ starts and ends at $A$ and therefore 
-$\displaystyle 0= \oint_{C} \fcv{F} \cdot \fcv{\diff r} = \int_{C_1} \fcv{F} \cdot \fcv{\diff r} - \int_{C_2} \fcv{F} \cdot \fcv{\diff r}\; .$ $\Leftrightarrow$ $\displaystyle  \int_{C_1} \fcv{F} \cdot \fcv{\diff r} = \int_{C_2} \fcv{F} \cdot \fcv{\diff r}$
+The path $\alert<5>{ C = C_1 \cup \alert<4>{(-C_2)}}$ starts and ends at $A$ \uncover<6->{and therefore 
+$\displaystyle \alert<8>{0=} \oint_{C} \fcv{F} \cdot \fcv{\diff r}\uncover<7->{ = \alert<8>{\int_{C_1} \fcv{F} \cdot \fcv{\diff r} - \int_{C_2} \fcv{F} \cdot \fcv{\diff r}} \; .}$ \uncover<8->{$\Leftrightarrow$ $\displaystyle  \alert<8>{\int_{C_1} \fcv{F} \cdot \fcv{\diff r} = \int_{C_2} \fcv{F} \cdot \fcv{\diff r}}$.}}
 \end{proof}
+}
 \end{frame}

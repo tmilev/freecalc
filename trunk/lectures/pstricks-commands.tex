@@ -130,16 +130,15 @@ end
 }
 
 \newcommand{\fcToString}{
-%(tostring function) ==
 1 dict begin
 /ToString
 {
-5 dict begin 
+5 dict begin
 cvlit
 /theData exch def
 theData type (arraytype) eq{
 ([)
-theData{ToString ( )} forall 
+theData{ToString ( )} forall
 (])
 theData length 2 mul 2 add \fcConcatenateMultiple
 }
@@ -152,20 +151,20 @@ end\space
 }
 
 \newcommand{\fcConcatenate}{ %Code taken from stackexchange, many thanks!
-exch dup length 
-2 index length add string    
+exch dup length
+2 index length add string
 dup dup 4 2 roll copy length
-4 -1 roll putinterval 
+4 -1 roll putinterval
 }
 
 \newcommand{\fcConcatenateMultiple}{ %Code taken from stackexchange, many thanks!
 %Usage: (s1) (s2) (s3) ... (sN) n  \fcConcatenateMultiple  (s1s2s3...sN)
 % s1 s2 s3 .. sN n                   % first sum the lengths
-dup 1 add  % s1 s2 s3 .. sN n n+1 
+dup 1 add  % s1 s2 s3 .. sN n n+1
 copy       % s1 s2 s3 .. sN n  s1 s2 s3 .. sN n
-0 exch     % s1 s2 s3 .. sN n  s1 s2 s3 .. sN 0 n 
+0 exch     % s1 s2 s3 .. sN n  s1 s2 s3 .. sN 0 n
 {exch length add} repeat % s1 s2 s3 .. sN  n   len  % then allocate string
-string exch          % s1 s2 s3 .. sN str   n   
+string exch          % s1 s2 s3 .. sN str   n
 0 exch               % s1 s2 s3 .. sN str  off  n
 -1 1 {               % s1 s2 s3 .. sN str  off  n  % copy each string
   2 add -1 roll       % s2 s3 .. sN str  off s1  % bottom to top
@@ -372,7 +371,7 @@ matrixRight 0 get length{
 matrixLeft rowCounter get length{
 /thirdCounter thirdCounter 1 add def
 /accum accum
-matrixLeft rowCounter get thirdCounter get 
+matrixLeft rowCounter get thirdCounter get
 matrixRight thirdCounter get columnCounter get
 mul add def
 }repeat
@@ -396,8 +395,8 @@ theMatrix length {
 /accum 0 def
 theVector length{
 /columnCounter columnCounter 1 add def
-/accum accum 
-theMatrix rowCounter get columnCounter get theVector columnCounter get mul 
+/accum accum
+theMatrix rowCounter get columnCounter get theVector columnCounter get mul
 add def
 }repeat
 accum
@@ -465,7 +464,7 @@ end
 
 \newcommand{\fcPolarWedge}[4][fillstyle=solid, linecolor=blue, fillcolor=\fcColorAreaUnderGraph]{%
 \pstVerb{%
-2 dict begin% 
+2 dict begin%
 /theta {t 57.295779513 mul} def%
 /r {#4} def%
 }%
@@ -610,8 +609,6 @@ counttomark 0 ne {(ERROR: procedure did not clean up properly. Printing stack: )
 }
 
 \newcommand{\fcProjectOntoScreen}{%
-%(calling project onto plane with arguments:) == %
-%dup == %
 3 dict begin %
 \fcScreen\space %
 /theD exch def %
@@ -678,7 +675,7 @@ end %
 /v0 exch def
 /secondRun false def
 2 {
-newpath 
+newpath
 v0 \fcCoordsPStricksToPS moveto
 v0 v1 \fcVectorPlusVector \fcCoordsPStricksToPS lineto
 v0 v1 v2 \fcVectorPlusVector \fcVectorPlusVector \fcCoordsPStricksToPS lineto
@@ -693,10 +690,10 @@ end
 }
 
 \newcommand{\fcPatchMakeFromThreeCorners}{
-5 dict begin 
+5 dict begin
 /options exch def
 /v2 exch def
-/v1 exch def 
+/v1 exch def
 /v0 exch def
 /v3 v1 v2 \fcVectorPlusVector v0 \fcVectorMinusVector def
 [v0 v1 v2 v3 [v0 v1 v1 v3 v3 v2 v2 v0] options]
@@ -707,7 +704,7 @@ end
 \fcScreen\space pop \fcVectorScalarVector
 }
 
-\newcommand{\fcBoxIIIdFilledCode}{ 
+\newcommand{\fcBoxIIIdFilledCode}{
 %input order
 % corner0 corner1 corner2 corner3
 15 dict begin
@@ -721,15 +718,15 @@ end
 /corner2 exch def
 /corner1 exch def
 /corner0 exch def
-/v1 corner1 corner0 \fcVectorMinusVector def 
+/v1 corner1 corner0 \fcVectorMinusVector def
 /v2 corner2 corner0 \fcVectorMinusVector def
 /v3 corner3 corner0 \fcVectorMinusVector def
 %the following code selects the corner closest to the viewing screen
-v1 \fcScreen\space pop \fcVectorScalarVector 0 lt 
+v1 \fcScreen\space pop \fcVectorScalarVector 0 lt
 {/corner0 corner0 v1 \fcVectorPlusVector def /v1 v1 -1 \fcVectorTimesScalar def }if
-v2 \fcScreen\space pop \fcVectorScalarVector 0 lt 
+v2 \fcScreen\space pop \fcVectorScalarVector 0 lt
 {/corner0 corner0 v2 \fcVectorPlusVector def /v2 v2 -1 \fcVectorTimesScalar def }if
-v3 \fcScreen\space pop \fcVectorScalarVector 0 lt 
+v3 \fcScreen\space pop \fcVectorScalarVector 0 lt
 {/corner0 corner0 v3 \fcVectorPlusVector def /v3 v3 -1 \fcVectorTimesScalar def }if
 %the closest corner is selected, we are recomputing the box corners
 /corner1 corner0 v1 \fcVectorPlusVector def
@@ -746,13 +743,13 @@ corner0 corner3 corner1 options \fcPatchMakeFromThreeCorners
 /LeftGreaterThanRight {\fcPatchGetPoint \fcZDepth exch \fcPatchGetPoint \fcZDepth gt} def
 \fcMergeSort
 sidesVisible{dup {\fcPatchPaintFilledDirectly }forall }if
-{\fcPatchPaintContourDirectly}forall 
+{\fcPatchPaintContourDirectly}forall
 /cornerop corner0 v1 v2 v3 \fcVectorPlusVector \fcVectorPlusVector \fcVectorPlusVector def
 \fcLineFormatCode
 currentDashes \fcArrayToStack setdash
 [v1 v2 v3]
 {
-newpath 
+newpath
 cornerop \fcCoordsIIIdToPS moveto
 cornerop exch \fcVectorMinusVector \fcCoordsIIIdToPS lineto
 stroke
@@ -820,9 +817,11 @@ visibleCorner vectorOne \fcVectorPlusVector dup vectorTwo \fcVectorPlusVector du
 \makeatother
 
 \newcommand{\fcLine}[3][]{%
+\setkeys{fcGraphics}{#1}
 \pscustom{%
 \code{%
-1 setlinewidth newpath %
+\fcLineFormatCode
+newpath %
 #2\space \fcCoordsPStricksToPS moveto %
 #3\space \fcCoordsPStricksToPS lineto %
 stroke %
@@ -833,7 +832,7 @@ stroke %
 \newcommand{\fcEllipsoidInScene}[2][iterationsU=22, iterationsV=22]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
-/theIIIdObjects% 
+/theIIIdObjects%
 [theIIIdObjects \fcArrayToStack [0 0 180 360%
 { #2\space 6 dict begin%
   /c exch def%
@@ -859,7 +858,7 @@ def%
 }%
 }
 
-\newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth }
+\newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth \fcGetColorCode{\fcColorLine} setrgbcolor}
 
 \newcommand{\fcCurveCode}{%
 %(calling fcCurveCode) == %
@@ -1021,14 +1020,14 @@ theZbuffPatchIndex theNeighborhood \fcContains not{ %
 %(patch) == theZbuffPatch == (is not contained in neighborhood ) ==
 %theNeighborhood ==
 thePoint theZbuffPatch \fcPointIsBehindOrInFrontOfPatch{true}
-{/result false def  
+{/result false def
 exit
 }
 { %(point is in front of patch) ==
 }
 ifelse
 }
-{ %(patch coincides with zbuff patch) == 
+{ %(patch coincides with zbuff patch) ==
 }
 ifelse %
 }repeat %
@@ -1053,7 +1052,7 @@ end %
 
 \newcommand{\fcZBufferBoundingBoxPoint}{ %
 %Account bounding box:
-\fcCoordsIIIdToPStricks % 
+\fcCoordsIIIdToPStricks %
 dup dup getZBufferYmin lt {setZBufferYmin}{pop}ifelse %
 dup getZBufferYmax gt {setZBufferYmax}{pop}ifelse %
 dup dup getZBufferXmin lt {setZBufferXmin}{pop}ifelse %
@@ -1088,9 +1087,9 @@ thePoint \fcZBufferRowColumn
 \fcZBufferComputeDeltaXDeltaY
 /lowerLeftX getZBufferXmin DeltaX column mul add def
 /lowerLeftY getZBufferYmin DeltaY row mul add def
-gsave 
+gsave
 0.6 0.6 1 setrgbcolor
-newpath 
+newpath
 [lowerLeftX lowerLeftY] \fcCoordsPStricksToPS moveto
 [lowerLeftX DeltaX add lowerLeftY] \fcCoordsPStricksToPS lineto
 [lowerLeftX DeltaX add lowerLeftY DeltaY add] \fcCoordsPStricksToPS lineto
@@ -1174,7 +1173,7 @@ thePatchCollection length zBufferNumCols zBufferNumRows mul lt
   zBufferNumCols 3 lt {/zBufferNumCols 3 def}if
   /zBufferNumRows zBufferNumCols def
   (There are only a few patches in the scene, I decreased z-buffer size to ) print zBufferNumCols == (rows and columns. ) print
-}if 
+}if
 /getZBufferDeltaX {getZBufferXmax getZBufferXmin sub zBufferNumCols div} def %
 /getZBufferDeltaY {getZBufferYmax getZBufferYmin sub zBufferNumRows div} def %
 /theZBuffer [zBufferNumRows {[zBufferNumCols{[]} repeat]}repeat] def %
@@ -1194,12 +1193,12 @@ graphicsFile run
 /arrowVirtual {} def
 /setrgbcolorVirtual {setrgbcolor} def
 /setlinewidthVirtual {setlinewidth} def
-/plotArrowHeadVirtual {\fcArrowPlot} def
+/plotArrowHeadVirtual {\fcArrowHeadPlotCode} def
 /setdashVirtual {setdash} def
 }
 
 \newcommand{\fcSetUpGraphicsToFileAndScreen}{
-graphicsFile ( /plotArrowHeadVirtual {\fcArrowPlot} def ) writestring
+graphicsFile ( /plotArrowHeadVirtual {\fcArrowHeadPlotCode} def ) writestring
 /storeNumberPairToGraphicsFile{
 \fcMarkClean 3 1 roll
 20 string cvs exch 20 string cvs graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( ) writestring
@@ -1212,7 +1211,7 @@ graphicsFile (moveto ) writestring
 } def
 /setlinewidthVirtual {
 dup setlinewidth
-20 string cvs graphicsFile exch writestring graphicsFile ( setlinewidth ) writestring 
+20 string cvs graphicsFile exch writestring graphicsFile ( setlinewidth ) writestring
 } def
 /linetoVirtual {
 2 copy lineto
@@ -1245,10 +1244,10 @@ graphicsFile ( setrgbcolor ) writestring
 } def
 /setdashVirtual {
 2 copy setdash
-20 string cvs exch \fcToString graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( setdash ) writestring 
+20 string cvs exch \fcToString graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( setdash ) writestring
 } def
-/plotArrowHeadVirtual { 
-2 copy \fcArrowPlot\space
+/plotArrowHeadVirtual {
+2 copy \fcArrowHeadPlotCode\space
 \fcToString exch \fcToString graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( plotArrowHeadVirtual ) writestring
 }def
 }
@@ -1260,13 +1259,13 @@ graphicsFile ( setrgbcolor ) writestring
 /graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
 /graphicsFile (file not open) def
 errordict begin
-/invalidfileaccess 
+/invalidfileaccess
 { userdict begin /graphicsFileAvailable false def end
 (ERROR: failed to open file for caching large IIId rendering operations. ) print
 (This is not fatal but will cause your graphics to compile incredibly slowly. ) print
 (To fix this, compile with pdflatex --shell-escape. ) print
 (Make sure the file is executed in a folder with write priviledges. \string\n) print
-pop pop 
+pop pop
 } def
 /undefinedfilename{
 (File doesn't exist. ) print
@@ -1303,15 +1302,15 @@ theIIIdObjects {\fcObjectGetNumContours /totalNumContours exch totalNumContours 
 /theContourCollection [totalNumContours{(empty)} repeat] def
 (\string\n) print (Expected number of patches, contours: ) print
 thePatchCollection length 20 string cvs print (, ) print
-theContourCollection length 20 string cvs print 
+theContourCollection length 20 string cvs print
 (. Computing patches and contours ...) print
 /numPatchesComputedSoFar 0 def
 /numContoursComputedSoFar 0 def
 /counter -1 def
 theIIIdObjects length {
 /counter counter 1 add def
-theIIIdObjects counter get \fcObjectComputePatchesAndContours 
-theIIIdObjects counter get \fcObjectGetNumPatches 
+theIIIdObjects counter get \fcObjectComputePatchesAndContours
+theIIIdObjects counter get \fcObjectGetNumPatches
 /numPatchesComputedSoFar exch numPatchesComputedSoFar add def
 theIIIdObjects counter get \fcObjectGetNumContours
 /numContoursComputedSoFar exch numContoursComputedSoFar add def
@@ -1328,7 +1327,7 @@ thePatchIndices {\fcPaintPatchIndexFilledDirectly} forall
 \newcommand{\fcPaintPatchLabels}{
 /counter -1 def
 0 0 0 setrgbcolorVirtual
-thePatchCollection length 
+thePatchCollection length
 {/counter counter 1 add def
 counter thePatchCollection counter get \fcPatchPaintLabel
 }repeat
@@ -1337,7 +1336,7 @@ counter thePatchCollection counter get \fcPatchPaintLabel
 \newcommand{\fcPaintPatchSortOrder}{
 /counter -1 def
 0 0 0 setrgbcolorVirtual
-thePatchIndices length 
+thePatchIndices length
 {/counter counter 1 add def
 counter thePatchCollection thePatchIndices counter get get \fcPatchPaintLabel
 }repeat
@@ -1376,7 +1375,7 @@ put
 /thePatchIncidenceGraph [thePatchCollection length {[]}repeat] def
 /rowCounter -1 def
 (computing patch order... ) print
-(processing z-buffer row, column:) print 
+(processing z-buffer row, column:) print
 theZBuffer length {
 /rowCounter rowCounter 1 add def
 /columnCounter -1 def
@@ -1396,7 +1395,7 @@ theZBuffer rowCounter get length {
 \newcommand{\fcSortPatchIndices}{
 (sorting a total of ) print thePatchCollection length == ( patches... ) print
 fastPatchSort
-{ (\string\n Sorting patches by their z-depth. This may be inaccurate but is fast. ) print 
+{ (\string\n Sorting patches by their z-depth. This may be inaccurate but is fast. ) print
   /counter -1 def
   /thePatchIndices [thePatchCollection length {/counter counter 1 add def counter} repeat] def
   20 dict begin
@@ -1406,7 +1405,7 @@ fastPatchSort
   	/leftPatch  exch thePatchCollection exch get def
     rightPatch \fcPatchGetForcedForegroundStatus leftPatch \fcPatchGetForcedForegroundStatus not and {true}{
     leftPatch \fcPatchGetForcedForegroundStatus rightPatch \fcPatchGetForcedForegroundStatus not and
-    {false}{  	
+    {false}{
   	leftPatch  \fcPatchGetPoint \fcScreen\space pop \fcVectorScalarVector
   	rightPatch \fcPatchGetPoint \fcScreen\space pop \fcVectorScalarVector
   	lt
@@ -1421,7 +1420,7 @@ fastPatchSort
 {
 (\string\n Sorting patches via the partial order induced by their visibility. This is slow but somewhat accurate. ) print
 %thePatchIncidenceGraph shall have one entry for each patch.
-%The entry will consist of a list of all patch indices of 
+%The entry will consist of a list of all patch indices of
 %patches that are behind our patch.
 /thePatchIndices [thePatchCollection length {(empty)} repeat] def
 20 dict begin
@@ -1441,7 +1440,7 @@ thePatchIncidenceGraph ==
 /numAccountedSoFar 0 def
 {
 /numAccountedLastCycle 0 def
-/patchIndex -1 def 
+/patchIndex -1 def
 thePatchIncidenceGraph length {
 /patchIndex patchIndex 1 add def
 accountedPatches patchIndex get not
@@ -1461,7 +1460,7 @@ patchIndex accountPatch
 }repeat
 numAccountedLastCycle 0 eq{
 (We have cyclically overlapping patches!) ==
-/patchIndex -1 def 
+/patchIndex -1 def
 thePatchIncidenceGraph length {
 /patchIndex patchIndex 1 add def
 accountedPatches patchIndex get not
@@ -1499,8 +1498,8 @@ graphicsCached not{
 (computing bounding box IIId scene... ) print %
 theContourCollection {\fcZBufferBoundingBoxPatchContour} forall
 thePatchCollection {\fcZBufferBoundingBoxPatch} forall
-%extend slightly the bounding box to take care of floating point errors at the 
-%border 
+%extend slightly the bounding box to take care of floating point errors at the
+%border
 getZBufferXmin 0.1 sub setZBufferXmin %
 getZBufferXmax 0.1 add setZBufferXmax %
 getZBufferYmin 0.1 sub setZBufferYmin %
@@ -1591,7 +1590,7 @@ gsave
 theNeighborhood ==
 thePoint \fcZBufferRowColumn
 /column exch def
-/row exch def 
+/row exch def
 /theZBufferCurrent theZBuffer row get column get def
 /counter 0 def
 /numPatchesInNeighborhood 0 def %
@@ -1610,16 +1609,16 @@ theNeighborhood counter get type (arraytype) eq
 theZBufferCurrent length {
 /counter counter 1 add def %
 1.1 setlinewidth
-1 0.7 0.7 setrgbcolor 
+1 0.7 0.7 setrgbcolor
 thePoint thePatchCollection theZBufferCurrent counter get get \fcPointIsBehindOrInFrontOfPatch{true}
-{1 0 0 setrgbcolor 
+{1 0 0 setrgbcolor
 }if
 thePatchCollection theZBufferCurrent counter get get \fcPatchPaintContourDirectly
 }repeat
 thePoint \fcZBufferPaintCellContainingPoint %
 [thePoint \fcCoordsIIIdToPStricks] theNeighborhood \fcIsInForeground
 {\fcFullDotCode}{\fcHollowDotCode}ifelse %
-0 0 0 setrgbcolor 
+0 0 0 setrgbcolor
 (nsize: ) numPatchesInNeighborhood 20 string cvs \fcConcatenate [thePoint \fcCoordsIIIdToPStricks ] \fcTextCode
 (bsize: ) theZBufferCurrent length 20 string cvs \fcConcatenate [thePoint \fcCoordsIIIdToPStricks 0.2 sub ] \fcTextCode
 grestore
@@ -1630,13 +1629,26 @@ end
 \fcZBufferRowColumnsUnderInvestigation\space column eq exch row eq and
 }
 
-\makeatletter
-\newcommand{\fcArrowPlot}{
-10 dict begin 
+\newcommand{\fcArrowHeadAndTailPlotCode}{
+2 copy 
+10 dict begin
 /pointRight exch def
 /pointLeft exch def
+newpath %
+pointLeft \fcCoordsPStricksToPS moveto %
+pointRight \fcCoordsPStricksToPS lineto %
+stroke %
+end
+\fcArrowHeadPlotCode
+}
+
+\makeatletter
+\newcommand{\fcArrowHeadPlotCode}{
+10 dict begin
+/pointRight exch [ exch \fcCoordsPStricksToPS ] def
+/pointLeft  exch [ exch \fcCoordsPStricksToPS ] def
  gsave
-/directionVector [pointRight pointLeft \fcVectorMinusVector \fcArrayToStack] def 
+/directionVector [pointRight pointLeft \fcVectorMinusVector \fcArrayToStack] def
 directionVector \fcVectorNorm 0 ne{
 /directionVector directionVector \fcVectorNormalize def
 }if
@@ -1645,7 +1657,7 @@ directionVector \fcVectorNorm 0 ne{
 [yPS  xPS -1 mul  -1 xPS mul -1 yPS mul pointRight \fcArrayToStack] concat
 %[1 0 0 1  pointRight 0 get \fcCoordsIIIdToPS ] concat
  newpath
- false 0.4 1.5 0.4 0.5 \tx@Arrow 
+ false 0.4 1.5 0.4 0.5 \tx@Arrow
  closepath
  stroke
  grestore
@@ -1694,16 +1706,16 @@ numSegments{ %
     pointRight 0 get \fcCoordsIIIdToPS linetoVirtual
   }if
   leftIsVisible rightIsVisible not and{
-    strokeVirtual 
+    strokeVirtual
     /style (invisible) def
   }if
   leftIsVisible not rightIsVisible and{
-    setStyle 
+    setStyle
     newpathVirtual pointRight 0 get \fcCoordsIIIdToPS movetoVirtual %
   }if
 }repeat %
 strokeVirtual %
-useArrows{[] 0 setdashVirtual [pointLeft 0 get \fcCoordsIIIdToPS] [pointRight 0 get \fcCoordsIIIdToPS] plotArrowHeadVirtual}if %
+useArrows{[] 0 setdashVirtual [pointLeft 0 get \fcCoordsIIIdToPStricks] [pointRight 0 get \fcCoordsIIIdToPStricks] plotArrowHeadVirtual}if %
 }if %
 end %
 }
@@ -1728,29 +1740,28 @@ tIterations { %
 /t t DeltaT add def %
 }repeat %
 contourOptions
-] 
+]
 put
 end %
 }
 
 \newcommand{\fcComputeSurfacePatch}{
-%(got ere n) ==
 /oldU u def %
 /oldV v def %
 /inBounds true def
 [ %start of patch data structure
 theSurface %(x(u,v), y(u,v), z(u,v))
-theRestrictions not {/inBounds false def}if  
+theRestrictions not {/inBounds false def}if
 /u u DeltaU add def %
 theSurface %(x(u+Delta,v), y(u+Delta,v), z(u+Delta,v))
-theRestrictions not {/inBounds false def}if  
+theRestrictions not {/inBounds false def}if
 /u oldU def %
 /v v DeltaV add def %
 theSurface %(x(u,v+Delta), y(u,v+Delta), z(u,v+Delta))
-theRestrictions not {/inBounds false def}if  
+theRestrictions not {/inBounds false def}if
 /u u DeltaU add def %
 theSurface %(x(u+Delta,v+Delta), y(u+Delta,v+Delta), z(u+Delta,v+Delta))
-theRestrictions not {/inBounds false def}if  
+theRestrictions not {/inBounds false def}if
 [
 /u oldU def
 /v oldV def
@@ -1809,7 +1820,7 @@ end
 
 \newcommand{\fcSurfaceComputePatchesAndContours}{%
 30 dict begin %
-{ %begin loop, used to simulate a jump instruction 
+{ %begin loop, used to simulate a jump instruction
 %exiting the loop = jumping at loop end
 \fcSurfaceInit
 /u uMin def
@@ -1820,7 +1831,7 @@ theSurface type (arraytype) ne {(\string\n ERROR: surface must be an array. \str
 /DeltaU uMax uMin sub uIterations div def %
 /DeltaV vMax vMin sub vIterations div def %
 /getPatchIndex {exch vIterations mul add numPatchesComputedSoFar add} def
-/accountPatch {getPatchIndex dup thePatchCollection exch get (empty) eq {thePatchCollection exch 3 -1 roll put}{pop pop}ifelse 
+/accountPatch {getPatchIndex dup thePatchCollection exch get (empty) eq {thePatchCollection exch 3 -1 roll put}{pop pop}ifelse
 } def
 /numContourVSegmentsPerPatch \fcNumCountourSegmentsPatchV \space def
 /numContourUSegmentsPerPatch \fcNumCountourSegmentsPatchU \space def
@@ -1841,7 +1852,7 @@ vIterations { %
 /counterV counterV 1 add def
 /patchLeftBackIndex patchLeftIndex def %
 /patchRightBackIndex patchRightIndex def %
-/patchLeftIndex counterU uIterations lt 
+/patchLeftIndex counterU uIterations lt
 {\fcComputeSurfacePatch counterU counterV accountPatch counterU counterV getPatchIndex}
 {(empty)}
 ifelse def %
@@ -1878,10 +1889,10 @@ vIterations 1 add{ %
   /counterU counterU 1 add def
   /patchLeftBackIndex patchLeftIndex def %
   /patchRightBackIndex patchRightIndex def %
-  /patchLeftIndex counterV vIterations lt 
+  /patchLeftIndex counterV vIterations lt
   {counterU counterV getPatchIndex}
   {(empty)}
-  ifelse 
+  ifelse
   def %
   /patchRightIndex counterV 0 ne {counterU counterV 1 sub getPatchIndex} {(empty)} ifelse def %
   /uOld u def %
@@ -1889,7 +1900,7 @@ vIterations 1 add{ %
   numContourVSegmentsPerPatch 1 sub{/u u DeltaDeltaU add def [theSurface patchLeftIndex patchRightIndex theRestrictions]} repeat
   /u uOld DeltaU add def %
   }repeat %
-  [theSurface patchLeftIndex patchRightIndex theRestrictions] 
+  [theSurface patchLeftIndex patchRightIndex theRestrictions]
   contourOptions
   ]
   /thePatchContour exch def %
@@ -1949,14 +1960,14 @@ end
 \fcTriangleInSceneInit
 \fcMarkClean
 /currentPatch
-[ vertex0 vertex1 vertex2 vertex1 vertex2 \fcVectorPlusVector 0.5 
+[ vertex0 vertex1 vertex2 vertex1 vertex2 \fcVectorPlusVector 0.5
 \fcVectorTimesScalar
 [ vertex0 dup vertex1 \fcSegmentCodeNoFirstPoint vertex1 vertex2 \fcSegmentCodeNoFirstPoint vertex2 vertex0 \fcSegmentCodeNoFirstPoint]
 patchOptions (patch)
 ] def
 /currentContour
 [
-currentPatch \fcPatchGetContour {[exch true]}forall 
+currentPatch \fcPatchGetContour {[exch true]}forall
 contourOptions
 ]
 def
@@ -1983,7 +1994,7 @@ end
 \fcPatchInScene[#1]{#5}{#5 #3 #2 \fcVectorMinusVector \fcVectorPlusVector}{#5 #4 #2 \fcVectorMinusVector \fcVectorPlusVector}%
 }
 
-%We give the patch by its corners v0, v1, v2. 
+%We give the patch by its corners v0, v1, v2.
 \newcommand{\fcTriangleInScene}[4][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
@@ -2006,16 +2017,16 @@ end %
 }{}%
 }
 
-%Format of surface: we store the surface in the format 
-%[umin vmin umax vmax 
-%[x(u,v) y(u,v) z(u,v)] %coordinate functions 
+%Format of surface: we store the surface in the format
+%[umin vmin umax vmax
+%[x(u,v) y(u,v) z(u,v)] %coordinate functions
 % restrictions %boolean function in u,v, when the function evaluates to false the surface is not drawn. A great tool for cutting surfaces.
 %uIterations vIterations   %number of curvilinear u,v-segments
 %[red green blue] %color of patches whose u,v-side is visible
 %[red green blue] %color of patches whose v,u-side is visible
 %[red green blue] %color of contours
-% foregroundstatus %true or false 
-%(surface)]. 
+% foregroundstatus %true or false
+%(surface)].
 \newcommand{\fcSurfaceInScene}[7][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
@@ -2056,16 +2067,13 @@ theArray length { %
 theElement theArray counter get \fcAreEqual {pop true exit}if %
 /counter counter 1 add def %
 }repeat %
-%(array: ) == theArray == 
-%dup { (does contain) ==}{ (does NOT contain) ==}ifelse %
-%theElement == %
 end %
 }
 
 \newcommand{\fcAreEqual}{ %
 1 dict begin
 /areEqual
-{5 dict begin 
+{5 dict begin
 /left exch def
 /right exch def
 left type  right type ne{false}
@@ -2084,7 +2092,6 @@ end
 }
 
 \newcommand{\fcZBufferAccountPatchIndexAtXY}{ %
-%(patch row col: ) print x == y ==
 5 dict begin %
 /currentArray theZBuffer row get column get def %
 /counter 0 def %
@@ -2100,18 +2107,18 @@ end %
 10 dict begin
 /theLength exch def
 /startIndex exch def
-{ theLength 1 eq 
+{ theLength 1 eq
   { [theArray startIndex get]
   	exit
   } if
-  theLength 2 eq 
+  theLength 2 eq
   { theArray startIndex get theArray startIndex 1 add get
     LeftGreaterThanRight
     { [theArray startIndex 1 add get theArray startIndex get]
-    } 
+    }
     { [theArray startIndex get theArray startIndex 1 add get]
     } ifelse
-    exit  
+    exit
   } if
   /leftLength theLength 2 div cvi def
   /rightLength theLength leftLength sub def
@@ -2119,24 +2126,24 @@ end %
   /rightSorted startIndex leftLength add rightLength mergeSortStartIndexLength def
   /counterLeft 0 def
   /counterRight 0 def
-  [ theLength{ 
+  [ theLength{
       counterLeft leftLength ge{
         /leftNext false def
       }{
-        counterRight rightLength ge{ 
+        counterRight rightLength ge{
           /leftNext true def
-        }{ 
+        }{
           /leftNext leftSorted counterLeft get rightSorted counterRight get  LeftGreaterThanRight not def
         } ifelse
-      } ifelse  
+      } ifelse
       leftNext{
         leftSorted counterLeft get /counterLeft counterLeft 1 add def
       }{
-        rightSorted counterRight get /counterRight counterRight 1 add def        
+        rightSorted counterRight get /counterRight counterRight 1 add def
       }ifelse
-    } repeat 
+    } repeat
   ]
-  exit  
+  exit
 }loop
 end
 } def
@@ -2172,11 +2179,11 @@ put
 /n n 1 sub def
 } repeat
 } if
-end 
+end
 }
 
 \newcommand{\fcGaussianElimination}{
-15 dict begin 
+15 dict begin
 /theMatrix exch def
 /numRows theMatrix length def
 /numCols theMatrix 0 get length def
@@ -2190,11 +2197,7 @@ end
     /counter counter 1 add def
     theMatrix counter get columnIndex get 0 ne {/candidateIndex counter def exit}if
   }repeat
-%  (candidateIndex: ) ==
-%  candidateIndex ==
   candidateIndex -1 ne{
-%  	(matrix before elimination: ) ==
-%  	theMatrix ==
     /temp theMatrix rowIndex get def
     theMatrix rowIndex theMatrix candidateIndex get put
     theMatrix candidateIndex temp put
@@ -2220,7 +2223,7 @@ end\space
 \newcommand{\fcLeftSegmentIsBehindSegmentsAreSkew}{
 %Let l1 l2 be the endpoints of the left segment,
 %r1, re - the endpoints of the right.
-%Let pl1, pl2, pr1, pr2 denote the projections onto the viewing 
+%Let pl1, pl2, pr1, pr2 denote the projections onto the viewing
 %screen of the corresponding endpoints.
 %Let
 %(a,c) be the vector pl1-pl2
@@ -2230,13 +2233,13 @@ end\space
 %(a b) (s)= (e)
 %(c d) (t)= (f)
 %The determinant of the system must be non-zero, else the segments are non-skew.
-% the projections of the segments intersect if 0 <= s<=1 
+% the projections of the segments intersect if 0 <= s<=1
 % and 0<=t<=1.
 %In that case the point on the left segment that projects onto the point of interest is s*l1 +(1-s)l2. The point on the right segment that projects onto the point of interest is t*r1 +(1-t)*r2
 %
 25 dict begin
 \fcArrayToStack
-/r1 exch def 
+/r1 exch def
 /r2 exch def
 \fcArrayToStack
 /l1 exch def
@@ -2278,10 +2281,10 @@ end
 
 \newcommand{\fcLeftPatchIsBehind}{
 2 dict begin
-/rightIndex exch def 
-/leftIndex exch def 
+/rightIndex exch def
+/leftIndex exch def
 leftIndex rightIndex \fcLeftPatchIsBehindOrPatchesIntersect
-{ 
+{
 rightIndex leftIndex \fcLeftPatchIsBehindOrPatchesIntersect not
 }
 {false}ifelse
@@ -2290,7 +2293,7 @@ end
 
 \newcommand{\fcLeftPatchIsBehindOrPatchesIntersect}{
 %this function compares two patches:
-40 dict begin 
+40 dict begin
 /rightIndex exch def
 /leftIndex exch def
 /rightPatch thePatchCollection rightIndex get def
@@ -2303,7 +2306,7 @@ leftPatch \fcPatchGetForcedForegroundStatus rightPatch \fcPatchGetForcedForegrou
 result {exit}if
 rightPatch \fcPatchGetContour {leftPatch \fcPointIsBehindOrInFrontOfPatch{false} {/result true def exit}if }forall
 exit
-}loop 
+}loop
 result
 }ifelse
 }ifelse
@@ -2312,7 +2315,7 @@ end
 
 \newcommand{\fcLeftPatchIsBehindOrPatchesIntersectOLDAndINCORRECT}{
 %this function compares two patches:
-40 dict begin 
+40 dict begin
 /rightIndex exch def
 /leftIndex exch def
 /rightPatch thePatchCollection rightIndex get def
@@ -2328,34 +2331,34 @@ leftPatch \fcPatchGetForcedForegroundStatus rightPatch \fcPatchGetForcedForegrou
 /rv1 rightPatch \fcPatchGetvOne def
 /rv2 rightPatch \fcPatchGetvTwo def
 /rv3 rightPatch \fcPatchGetvThree def
-/ls0 [lv0 lv1] def 
-/ls1 [lv1 lv3] def 
-/ls2 [lv2 lv3] def 
-/ls3 [lv0 lv2] def 
-/rs0 [rv0 rv1] def 
-/rs1 [rv1 rv3] def 
-/rs2 [rv2 rv3] def 
-/rs3 [rv0 rv2] def 
+/ls0 [lv0 lv1] def
+/ls1 [lv1 lv3] def
+/ls2 [lv2 lv3] def
+/ls3 [lv0 lv2] def
+/rs0 [rv0 rv1] def
+/rs1 [rv1 rv3] def
+/rs2 [rv2 rv3] def
+/rs3 [rv0 rv2] def
 /result false def
-4 leftIndex eq  3 rightIndex eq and {(4 behind 3?) == }if 
+4 leftIndex eq  3 rightIndex eq and {(4 behind 3?) == }if
 { lv0 rightPatch \fcPointIsBehindOrInFrontOfPatch{true} {/result true def 4 leftIndex eq  3 rightIndex eq and {(4 IS behind 3 for vertex reasons) == }if exit }if
   lv1 rightPatch \fcPointIsBehindOrInFrontOfPatch{true} {/result true def 4 leftIndex eq 3 rightIndex eq and {(4 IS behind 3 for vertex reasons) == }if exit }if
   lv2 rightPatch \fcPointIsBehindOrInFrontOfPatch{true} {/result true def 4 leftIndex eq 3 rightIndex eq and {(4 IS behind 3 for vertex reasons) == }if exit }if
   lv3 rightPatch \fcPointIsBehindOrInFrontOfPatch{true} {/result true def 4 leftIndex eq 3 rightIndex eq and {(4 IS behind 3 for vertex reasons) == }if exit }if
-  [ls0 ls1 ls2 ls3] 
+  [ls0 ls1 ls2 ls3]
   { [rs0 rs1 rs2 rs3]
-    { 
-    3 leftIndex eq  4 rightIndex eq and {(3 behind 4? 2nd) == pstack (STACK) ==}if 
-    %3 leftIndex eq  3 rightIndex eq and {(ere be i) == pstack }if 
-    %(printint stack) == pstack (printing stack done ) == 
-      exch dup 3 -1 roll \fcLeftSegmentIsBehindSegmentsAreSkew{/result true def exit}if 
-    }forall 
-    pop 
+    {
+    3 leftIndex eq  4 rightIndex eq and {(3 behind 4? 2nd) == pstack (STACK) ==}if
+    %3 leftIndex eq  3 rightIndex eq and {(ere be i) == pstack }if
+    %(printint stack) == pstack (printing stack done ) ==
+      exch dup 3 -1 roll \fcLeftSegmentIsBehindSegmentsAreSkew{/result true def exit}if
+    }forall
+    pop
     result {exit}if
-  }forall 
+  }forall
   exit
 }loop
-3 leftIndex eq 4 rightIndex eq and {(and the 34 RESULT result is...) == result ==}if 
+3 leftIndex eq 4 rightIndex eq and {(and the 34 RESULT result is...) == result ==}if
 result
 }ifelse
 }ifelse
@@ -2426,7 +2429,7 @@ end
 \newcommand{\fcPatchPaintLabel}{
 3 dict begin
 /thePatch exch def
-20 string cvs 
+20 string cvs
 /Times-Roman findfont
 4 scalefont
 setfont
@@ -2438,31 +2441,31 @@ end
 }
 
 \newcommand{\fcPlotArrow}{
-2 copy 
+2 copy
 exch
-newpath 
+newpath
 \fcCoordsIIIdToPS moveto
-\fcCoordsIIIdToPS lineto 
+\fcCoordsIIIdToPS lineto
 stroke
-exch [ exch \fcCoordsIIIdToPS ] exch [exch \fcCoordsIIIdToPS ] plotArrowHeadVirtual
+exch [ exch \fcCoordsIIIdToPStricks ] exch [exch \fcCoordsIIIdToPStricks ] plotArrowHeadVirtual
 }
 
 
 \newcommand{\fcPatchPaintNormal}{
-1 dict begin 
+1 dict begin
 /thePatch exch def
 2 setlinewidth
-0 0 0 setrgbcolorVirtual 
-thePatch \fcPatchGetPoint 
-thePatch \fcPatchGetPoint thePatch \fcPatchGetNormal \fcVectorPlusVector 
+0 0 0 setrgbcolorVirtual
+thePatch \fcPatchGetPoint
+thePatch \fcPatchGetPoint thePatch \fcPatchGetNormal \fcVectorPlusVector
 \fcPlotArrow
-1 1 0 setrgbcolorVirtual 
-thePatch \fcPatchGetvZero 
-thePatch \fcPatchGetvOne 
+1 1 0 setrgbcolorVirtual
+thePatch \fcPatchGetvZero
+thePatch \fcPatchGetvOne
 \fcPlotArrow
-0 1 1 setrgbcolorVirtual 
-thePatch \fcPatchGetvZero 
-thePatch \fcPatchGetvTwo 
+0 1 1 setrgbcolorVirtual
+thePatch \fcPatchGetvZero
+thePatch \fcPatchGetvTwo
 \fcPlotArrow
 end
 }
@@ -2470,8 +2473,6 @@ end
 \newcommand{\fcPatchPaintFilledDirectly}{
 1 dict begin
 /thePatch exch def %
-%(dbg data: )==
-%thePatch ==
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetContour length 0 gt{
 thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
@@ -2558,12 +2559,9 @@ counttomark 1 eq {%
 } ifelse %
 pop%
 /heel directionUnitVector thePoint basePoint \fcVectorMinusVector directionUnitVector \fcVectorScalarVector \fcVectorTimesScalar basePoint \fcVectorPlusVector def%
-%heel == %
 /perpendicularUnitVector thePoint heel \fcVectorMinusVector \fcVectorNormalize def %
-%perpendicularUnitVector == %
 /polyLineInput {%
 heel directionUnitVector heelSize \fcVectorTimesScalar \fcVectorMinusVector %
-%dup ==
 dup perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector %
 heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 } def%
@@ -2657,17 +2655,15 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 \fcSurfaceIIIdVConst[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
 }%
 
-%Example:\fcVectorField{startX= -2, startY=-2, iterationsX=9, iterationsY=9, Delta=0.5}{y -x}
-\newcommand{\fcVectorField}[3][linecolor=blue]{%
-\setkeys{fcGraphics}{#2}%
-#3
-\multido{\ra=\fcStartXIId+\fcDelta}{\fcIterationsX}{%
-\multido{\rb=\fcStartYIId+\fcDelta}{\fcIterationsY}{%
+%Use: \fcVectorFieldCenteredArrow[options]{startX}{startY}{iterationsX}{iterationsY}{Delta}{y -x}
+\newcommand{\fcVectorFieldCenteredArrow}[7][linecolor=blue]{%
+\multido{\ra=#2+#6}{#4}{%
+\multido{\rb=#3+#6}{#5}{%
 \pstVerb{%
 4 dict begin%
 /x \ra\space def%
 /y \rb\space def %
-#3\space%
+#7\space%
 /vY exch def%
 /vX exch def%
 }%
@@ -2678,3 +2674,38 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 }%end multido
 }%
 
+%Use: \fcVectorField[options]{startX}{startY}{iterationsX}{iterationsY}{Delta}{y -x}
+\newcommand{\fcVectorField}[7][linecolor=blue]{%
+\setkeys{fcGraphics}{#1}%
+\multido{\ra=#2+#6}{#4}{%
+\multido{\rb=#3+#6}{#5}{%
+\pstVerb{%
+6 dict begin%
+/x \ra\space def%
+/y \rb\space def %
+#7\space %
+/vY exch def%
+/vX exch def%
+}%
+\pscustom{%
+\code{%
+vX 0 ne vY 0 ne or{
+\fcLineFormatCode
+[x y] [x vX add y vY add] \fcArrowHeadAndTailPlotCode
+}if%
+}%
+}%
+\pscircle*[linecolor=red](! x y){0.02}%
+\pstVerb{end}%
+}%end multido
+}%end multido
+}%
+
+\newcommand{\fcBezier}[2][]{%
+\setkeys{fcGraphics}{#1}%
+\pscustom{%
+\code{%
+(NOT IMPLEMENTED YET) ==
+}%
+}%
+}
