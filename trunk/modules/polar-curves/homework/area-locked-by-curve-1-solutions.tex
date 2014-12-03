@@ -17,7 +17,7 @@ Suppose we have a curve $r=f(\theta), \theta\in [a,b]$ for which no two points l
 Therefore the area $a$ of $A$ is computed via the integrals
 \[
 \begin{array}{rcll|l}
-a&=&\displaystyle \int\limits_{\frac{\pi}{2}}^{\pi} \frac{1}{2} \left( {\underbrace{ 1}_{\text{inner curve}}}^2- \left(\underbrace{1+\sin(2\theta)}_{\text{outer curve}}\right)^2 \right)\diff \theta + \int \limits_{ \frac{3\pi}{2}}^{ 2\pi} \frac{1}{2} \left(1^2- (1+\sin(2\theta) )^2 \right) \diff \theta &&\text{use the symmetry of } A\\
+a&=&\displaystyle \int\limits_{\frac{\pi}{2}}^{\pi} \frac{1}{2} \left( {\underbrace{ 1}_{\text{outer curve}}}^2- \left(\underbrace{1+\sin(2\theta)}_{\text{inner curve}}\right)^2 \right)\diff \theta + \int \limits_{ \frac{3\pi}{2}}^{ 2\pi} \frac{1}{2} \left(1^2- (1+\sin(2\theta) )^2 \right) \diff \theta &&\text{use the symmetry of } A\\
 &=&\displaystyle  \int\limits_{\frac{\pi}{2}}^{\pi} \left(1^2-(1+\sin(2\theta))^2\right)\diff \theta= \int\limits_{\frac{\pi}{2}}^{\pi} \left( - 2\sin(2\theta) - \sin^2(2\theta)\right) \diff \theta  &&\text{use } \sin^2 z=\frac{1-\cos (2z)}{2} \\
 &=&\displaystyle  \int\limits_{\frac{\pi}{2}}^{\pi}  \left( -2\sin(2\theta) -\frac{1}{2} +\frac{1}{2}\cos (4\theta)\right)\diff \theta = \left[\cos (2\theta) -\frac{1}{2}\theta -\frac{1}{8}\sin (4\theta) \right]_{\frac{\pi}{2}}^{\pi} \\
 &=&2-\frac{\pi}{4}\quad .
@@ -65,7 +65,7 @@ r=\cos (2\theta)&=&\frac12\\
 \theta&=&\frac{\pi}{6}, \frac{7\pi}{6}, \frac{5\pi}{6}, \frac{11\pi}{6}
 \end{array}
 \]
-This gives us only four intersection points, and the computer-generated plot shows eight. Therefore the second case must occur as well: the two curves intersect also when
+This gives us only four intersection points, and the computer-generated plot shows eight. Therefore the second case must yield new intersection points: the two curves intersect also when
 \[
 \begin{array}{rcll|l}
 r=\cos (2\theta)&=&-\frac{1}{2}\\
