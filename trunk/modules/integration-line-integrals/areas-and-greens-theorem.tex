@@ -1,0 +1,61 @@
+\begin{frame}
+\small
+  \frametitle{Areas using Green's Theorem}
+
+  $$\oint_{C=\partial D} P(x,y) dx + Q(x,y) dy = \iint_D (Q_x(x,y) - P_y(x,y)) \, dx\, dy$$
+  
+\begin{itemize}
+  \item compute a double integral by computing a line integral;
+  \item compute a line integral by computing a double integral.
+\end{itemize}
+
+Example:
+%
+\begin{align*}
+\text{Area}(D) & = \iint_D 1 dA = \iint_D (Q_x(x,y) - P_y(x,y)) \, dx\, dy \\
+& = \oint_{C=\partial D} P(x,y) dx + Q(x,y) dy\; .
+\end{align*}
+%
+$Q_x - P_y = 1$: There are many such pairs. For example:
+%
+\begin{itemize}
+  \item $P(x,y) = -y$ and $Q(x,y) = 0$,
+  \item $P(x,y) = 0$ and $Q(x,y) = y$,
+  \item $P(x,y) = -y/2$ and $Q(x,y) = x/2$.
+\end{itemize}
+%
+$$\text{Area}(D) = \iint_D 1 dA = \oint_C -ydx = \oint_C xdy = \frac{1}{2}\oint_C xdy-ydx\; .$$
+\end{frame}
+
+
+
+\begin{frame}
+\small
+  \frametitle{}
+ 
+  The first line integral should look (almost) familiar! If $D$ is the region bounded by the horizontal segment from $(0,a)$ to $(0,b)$ (with $a<b$), the vertical lines $y=a$ and $y=b$, and the graph of a positive function $y=f(x)$ defined on $[a,b]$, then the boundary has four pieces. On the vertical lines the line integral is zero because $dx=0$ and on the horizontal segment the integral is also zero because $y=0$. The only piece with non-zero contribution is the graph. A parametrization consistent with its orientation is $x=t$, $y=f(t)$, with $t$ from $b$ to $a$. Hence
+%
+$$\text{Area}(D) = \oint_C -ydx = \int_b^a -f(t)\diff t = \int_a^b f(t) \diff t$$
+%
+hence
+%
+$$\int_a^b f(t) \diff t = \text{Area}(D)\; .$$
+%
+But if $f$ is negative on the interval $[a,b]$, then the parametrization of the graph consistent with its orientation is $x=t$, $y=f(t)$, with $t$ from $a$ to $b$. Then
+%
+$$\text{Area}(D) = \oint_C -ydx = \int_a^b -f(t)\diff t = - \int_a^b f(t) \diff t$$
+%
+hence
+%
+$$\int_a^b f(t) \diff t = - \text{Area}(D) \; .$$
+%
+This explains the convention for definite integrals as \emph{signed} areas and the reason why signed areas of regions below the horizontal axis $y=0$ are considered negative.
+
+  \underline{Example} We use Green's theorem to compute the area of the domain $D$ enclosed by ellipse $C$: $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$. The area is given by
+%
+$$\text{Area} = \int\!\!\!\int_D 1\; dA = \int_C x\, dy\; .$$
+%
+A parametrization of the ellipse $C$ is given by $x=a\cos{t}$, $y= b\sin{t}$, with $0 \leqslant t \leqslant 2\pi$. Therefore
+%
+$$\text{Area} = \int_C x\, dy = \int_{t=0}^{t=2\pi} a\cos{t}\, b\cos{t}\, \diff t = ab\int_0^{2\pi} \cos^2{t} \; \diff t = \pi ab\; .$$
+\end{frame}

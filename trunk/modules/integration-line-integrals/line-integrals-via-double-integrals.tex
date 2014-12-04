@@ -1,0 +1,25 @@
+\begin{frame}
+\small
+  \frametitle{Line Integrals using Double Integrals}
+
+  Let
+%
+$$\fcv{X} = (y^2+e^{\sqrt{1+x^2}}) \, \fcv{i} + (x-\sin{\frac{1}{1+y^2}})\, \fcv{j}$$
+%
+and let $C$ be the boundary of a square of side $a$ centered at the origin. We want to compute the circulation of $\fcv{X}$ along $C$. We have two alternatives:
+
+\begin{itemize}
+  \item Parametrize $C$ and then change the line integral into a sum of integrals over intervals in $\RR$.
+  \item Use Green's Theorem and change the line integral into an integral over the square region.
+\end{itemize}
+
+Given the hideous aspect of the field, the first method is not too appealing, and it is not recommended in this case. But the second one is definitely nicer, since the monster terms bring no contribution to the curl:
+%
+$$\curl_{\bm{k}} \fcv{X} = \partial_x (x-\sin{\frac{1}{1+y^2}}) - \partial_y (y^2+e^{\sqrt{1+x^2}}) = 1-2y \; .$$
+%
+Therefore
+%
+$$\int_C \fcv{X} \cdot \fcv{\diff r} = \int\!\!\!\int_D \curl_{\fcv{k}} \fcv{X} \, dA = \int\!\!\!\int_D (1-2y) dA = \text{Area}(D) = a^2\; ,$$
+%
+since the integral of $2y$ is zero due to symmetry.
+\end{frame}

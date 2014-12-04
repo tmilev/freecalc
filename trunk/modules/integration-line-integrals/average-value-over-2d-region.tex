@@ -1,0 +1,31 @@
+\begin{frame}
+\small
+  \frametitle{Average Values}
+
+\begin{itemize}
+\item $C$:  curve; $L(C)$: the length of $C$.
+\item $f$: a continuous function (with scalar of vectorial values) defined on $C$
+\end{itemize}
+
+The average value of $f$ on $C$ with respect to arclength is
+%
+$$\text{Average} = \frac{1}{L(C)} \int_C f(p)\,  \diff s$$
+%
+
+\underline{Example:} Average value of $f(x) = x^2$ on the circle of radius $R$ centered at the origin 
+%
+$$\text{Average} = \frac{1}{2\pi R} \int_C x^2 \, \diff s \; .$$
+%
+\pause
+%
+\begin{itemize}
+\item Parametrization:  $x=R\cos{t}$, $y=R\sin{t}$, with $0 \leqslant t \leqslant 2\pi$;
+\item Element of arclength: $\diff s = R\, \diff t$
+\end{itemize}
+ %
+\begin{align*}
+  \text{Average} = & \frac{1}{2\pi R} \int_C x^2 \, \diff s = \frac{1}{2\pi R} \int_{t=0}^{t=2\pi} R^2\cos^2{t}\,  R \, \diff t = \frac{R^3}{2\pi R} \int_0^{2\pi} \cos^2{t}\, \diff t \\
+  %
+  = & \frac{R^2}{2\pi} \int_0^{2\pi} \frac{1-\cos{(2t)}}{2}\, \diff t = \frac{R^2}{2\pi} \; \pi = \frac{R^2}{2}\; .
+\end{align*}
+\end{frame}
