@@ -569,207 +569,22 @@
 
 \input{../../modules/integration-line-integrals/curl-2d-example-rotational-field}
 
+\input{../../modules/integration-line-integrals/curl-2d-example-inverse-distance-square-field}
 
-\begin{frame}
-\small
-   \begin{itemize}
-     \item $\fcv{F}$: a field that
-     \begin{itemize}
-       \item pushes points away from a central source,
-       \item with magnitude inverse proportional to the square of the distance.
-     \end{itemize}
+\input{../../modules/integration-line-integrals/average-value-over-2d-region}
 
-     \item \pause In rectangular coordinates:
-%
-$$\fcv{F}(x,y) = \frac{ax}{(x^2+y^2)^{3/2}}\, \fcv{i} + \frac{ay}{(x^2+y^2)^{3/2}} \, \fcv{j}\, .$$
-%
-\item \pause In polar coordinates:
-%
-$$\fcv{F}(r,\theta) = ar^{-2} \fcv{e}_r$$
-%
-$$\divg \fcv{F} = \frac{1}{r} \frac{\partial (r a r^{-2})}{\partial r} + \frac{1}{r} \frac{\partial 0}{\partial \theta} = -\frac{a}{r^3}\; .$$
-%
-$$\curl_{\fcv{k}} \fcv{F} = 0\; .$$
-   \end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\small
-  \frametitle{Average Values}
-
-\begin{itemize}
-\item $C$:  curve; $L(C)$: the length of $C$.
-\item $f$: a continuous function (with scalar of vectorial values) defined on $C$
-\end{itemize}
-
-The average value of $f$ on $C$ with respect to arclength is
-%
-$$\text{Average} = \frac{1}{L(C)} \int_C f(p)\,  \diff s$$
-%
-
-\underline{Example:} Average value of $f(x) = x^2$ on the circle of radius $R$ centered at the origin 
-%
-$$\text{Average} = \frac{1}{2\pi R} \int_C x^2 \, \diff s \; .$$
-%
-\pause
-%
-\begin{itemize}
-\item Parametrization:  $x=R\cos{t}$, $y=R\sin{t}$, with $0 \leqslant t \leqslant 2\pi$;
-\item Element of arclength: $\diff s = R\, \diff t$
-\end{itemize}
- %
-\begin{align*}
-  \text{Average} = & \frac{1}{2\pi R} \int_C x^2 \, \diff s = \frac{1}{2\pi R} \int_{t=0}^{t=2\pi} R^2\cos^2{t}\,  R \, \diff t = \frac{R^3}{2\pi R} \int_0^{2\pi} \cos^2{t}\, \diff t \\
-  %
-  = & \frac{R^2}{2\pi} \int_0^{2\pi} \frac{1-\cos{(2t)}}{2}\, \diff t = \frac{R^2}{2\pi} \; \pi = \frac{R^2}{2}\; .
-\end{align*}
-\end{frame}
-
-\begin{frame}
-\small
-  \frametitle{Centroid and Center of Mass}
-
-\begin{itemize}
-\item Centroid:
-	$$x_c = \frac{1}{L} \int_C x\, \diff s \quad , \quad  y_c = \frac{1}{L} \int_C y\, \diff s \quad ,  \ldots $$
-	
-	\item Center of Mass:
-	$$x_{cm} = \frac{1}{M} \int_C x\, dm = \frac{1}{M} \int_C x \rho\, \diff s\quad , \quad  y_{cm}= \frac{1}{M} \int_C y\, dm = \frac{1}{M} \int_C y \rho\, \diff s\quad , \ldots $$
-	\end{itemize}
-
-  \underline{Example:} Semicircle $C$ of radius $R$.
-  \pause
-  \begin{itemize}
-  \item Upper half of the circle of radius $R$ centered at the origin;
-  \item Symmetry $\to$ $x_c = 0$;
-  \item $y_c$: average of the $y-$values with respect to arclength:
-  \end{itemize}
-%
-$$y_C = \frac{1}{\pi R} \int_C y\, \diff s = \frac{1}{\pi R}\int_{0}^{\pi} R\sin{t}\, R\, \diff s = \frac{R}{\pi} \left. (-\cos{t})\right|_0^\pi = \frac{2R}{\pi} \; .$$
-\end{frame}
-
-\begin{frame}
-\small
-  \frametitle{Areas using Green's Theorem}
-
-  $$\oint_{C=\partial D} P(x,y) dx + Q(x,y) dy = \iint_D (Q_x(x,y) - P_y(x,y)) \, dx\, dy$$
-  
-\begin{itemize}
-  \item compute a double integral by computing a line integral;
-  \item compute a line integral by computing a double integral.
-\end{itemize}
-
-Example:
-%
-\begin{align*}
-\text{Area}(D) & = \iint_D 1 dA = \iint_D (Q_x(x,y) - P_y(x,y)) \, dx\, dy \\
-& = \oint_{C=\partial D} P(x,y) dx + Q(x,y) dy\; .
-\end{align*}
-%
-$Q_x - P_y = 1$: There are many such pairs. For example:
-%
-\begin{itemize}
-  \item $P(x,y) = -y$ and $Q(x,y) = 0$,
-  \item $P(x,y) = 0$ and $Q(x,y) = y$,
-  \item $P(x,y) = -y/2$ and $Q(x,y) = x/2$.
-\end{itemize}
-%
-$$\text{Area}(D) = \iint_D 1 dA = \oint_C -ydx = \oint_C xdy = \frac{1}{2}\oint_C xdy-ydx\; .$$
-\end{frame}
+\input{../../modules/integration-line-integrals/centroids-mass-centers-2d-regions}
+\input{../../modules/integration-line-integrals/areas-and-greens-theorem}
+\input{../../modules/integration-line-integrals/line-integrals-via-double-integrals}
 
 
-\begin{frame}
-\small
-  \frametitle{}
- 
-  The first line integral should look (almost) familiar! If $D$ is the region bounded by the horizontal segment from $(0,a)$ to $(0,b)$ (with $a<b$), the vertical lines $y=a$ and $y=b$, and the graph of a positive function $y=f(x)$ defined on $[a,b]$, then the boundary has four pieces. On the vertical lines the line integral is zero because $dx=0$ and on the horizontal segment the integral is also zero because $y=0$. The only piece with non-zero contribution is the graph. A parametrization consistent with its orientation is $x=t$, $y=f(t)$, with $t$ from $b$ to $a$. Hence
-%
-$$\text{Area}(D) = \oint_C -ydx = \int_b^a -f(t)\diff t = \int_a^b f(t) \diff t$$
-%
-hence
-%
-$$\int_a^b f(t) \diff t = \text{Area}(D)\; .$$
-%
-But if $f$ is negative on the interval $[a,b]$, then the parametrization of the graph consistent with its orientation is $x=t$, $y=f(t)$, with $t$ from $a$ to $b$. Then
-%
-$$\text{Area}(D) = \oint_C -ydx = \int_a^b -f(t)\diff t = - \int_a^b f(t) \diff t$$
-%
-hence
-%
-$$\int_a^b f(t) \diff t = - \text{Area}(D) \; .$$
-%
-This explains the convention for definite integrals as \emph{signed} areas and the reason why signed areas of regions below the horizontal axis $y=0$ are considered negative.
 
-  \underline{Example} We use Green's theorem to compute the area of the domain $D$ enclosed by ellipse $C$: $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$. The area is given by
-%
-$$\text{Area} = \int\!\!\!\int_D 1\; dA = \int_C x\, dy\; .$$
-%
-A parametrization of the ellipse $C$ is given by $x=a\cos{t}$, $y= b\sin{t}$, with $0 \leqslant t \leqslant 2\pi$. Therefore
-%
-$$\text{Area} = \int_C x\, dy = \int_{t=0}^{t=2\pi} a\cos{t}\, b\cos{t}\, \diff t = ab\int_0^{2\pi} \cos^2{t} \; \diff t = \pi ab\; .$$
-\end{frame}
 
-\begin{frame}
-\small
-  \frametitle{Line Integrals using Double Integrals}
+\input{../../modules/integration-line-integrals/greens-theorem-to-integrate-darctanydivx}
 
-  Let
-%
-$$\fcv{X} = (y^2+e^{\sqrt{1+x^2}}) \, \fcv{i} + (x-\sin{\frac{1}{1+y^2}})\, \fcv{j}$$
-%
-and let $C$ be the boundary of a square of side $a$ centered at the origin. We want to compute the circulation of $\fcv{X}$ along $C$. We have two alternatives:
 
-\begin{itemize}
-  \item Parametrize $C$ and then change the line integral into a sum of integrals over intervals in $\RR$.
-  \item Use Green's Theorem and change the line integral into an integral over the square region.
-\end{itemize}
 
-Given the hideous aspect of the field, the first method is not too appealing, and it is not recommended in this case. But the second one is definitely nicer, since the monster terms bring no contribution to the curl:
-%
-$$\curl_{\bm{k}} \fcv{X} = \partial_x (x-\sin{\frac{1}{1+y^2}}) - \partial_y (y^2+e^{\sqrt{1+x^2}}) = 1-2y \; .$$
-%
-Therefore
-%
-$$\int_C \fcv{X} \cdot \fcv{\diff r} = \int\!\!\!\int_D \curl_{\fcv{k}} \fcv{X} \, dA = \int\!\!\!\int_D (1-2y) dA = \text{Area}(D) = a^2\; ,$$
-%
-since the integral of $2y$ is zero due to symmetry.
-\end{frame}
 
-\begin{frame}
-  \frametitle{}
-
-  We proved that the radial irrotational and incompressible fields are of the form
-%
-$$\fcv{X} = ar^{-1} \; \fcv{e}_r\; .$$
-%
-Let $C$ be a closed curve enclosing the domain $D$. If $D$ does not contain the origin, then we can use Green's theorem to conclude that
-%
-$$\oint_C \fcv{X} \cdot \fcv{\diff r} = \int_D \curl_{\bm{k}} \fcv{X} \, dA = 0$$
-%
-and
-%
-$$\oint_C \fcv{X} \cdot \fcv{\diff s} = \int_D \divg \fcv{X} \, dA = 0$$
-
-But if $D$ contains the origin, then we can't use Green's theorem \emph{like above}, because $\fcv{X}$ is not defined everywhere in $D$! But we can still use Green's theorem to reduce the computations to more manageable curves!
-
-Let $C_R$ be a circle of radius $R$ centered at the origin and contained in $D$, and let $E$ be the region between the circle $C_R$ and the curve $C$. We can now use Green's theorem on $E$, because $X$ is defined everywhere on $E$. However, extra caution is needed for the line integral on $C_R$, because the exterior from $E$ normal to $C_R$ orients the curve \emph{clockwise}! Therefore we get
-%
-$$\oint_C \fcv{X} \cdot \fcv{\diff s} - \oint_{C_R} \fcv{X} \cdot \fcv{\diff s} = \int_E \divg \fcv{X} \, dA = 0 \Longrightarrow \oint_C \fcv{X} \cdot \fcv{\diff s} = \oint_{C_R} \fcv{X} \cdot \fcv{\diff s}\;.$$
-%
-The last integral is easy to compute because $\fcv{X}$ is a constant multiple of a unit normal:
-%
-$$\oint_{C_R} \fcv{X} \cdot \fcv{\diff s} = \int_{C_R} aR^{-1} \diff s = \int_{0}^{2\pi} aR^{-1} \, R \, \diff s = 2\pi a \; .$$
-%
-Therefore the flux across any curve that encloses the origin is $2\pi a$.
-
-Similarly
-%
-%
-$$\oint_C \fcv{X} \cdot \fcv{\diff r} - \oint_{C_R} \fcv{X} \cdot \fcv{\diff r} = \int_E \curl_{\bm{k}} \fcv{X} \, dA = 0 \Longrightarrow \oint_C \fcv{X} \cdot \fcv{\diff r} = \oint_{C_R} \fcv{X} \cdot \fcv{\diff r} = 0\;,$$
-%
-because $\fcv{X}$ is normal to $C_R$. Hence the circulation along any curve is still 0, which is not really that surprising given that any field of the form $f(r)\fcv{e}_r$ is a gradient field.
-\end{frame}
 }
 
 \end{document}
