@@ -1,0 +1,35 @@
+\begin{frame}
+
+\begin{example}[Areas via line integrals]
+\begin{columns}
+\column{0.25\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.5}{-1.2}{1.5}{1.2}
+\parametricplot{0}{360}{t cos 1.3 mul t sin 0.9 mul}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{\parametricplot{0}{360}{t cos 1.3 mul t sin 0.9 mul}}
+\fcAxesStandardNoFrame{-1.4}{-1.2}{1.4}{1.2}
+\fcLabels{1.4}{1.1}
+\end{pspicture}
+\column{0.75\textwidth}
+Use Green's theorem to compute the area of the region $D$ enclosed by the ellipse $C$: $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$. 
+\end{columns}
+\uncover<2->{
+Let $C=\partial D$; $C$ is parametrized by 
+$C:\left|\begin{array}{rcl}
+x&=& a\cos t\\
+y&=& b\sin t
+\end{array} \right., t\in [0,2\pi]$.
+\abovedisplayskip 0pt
+\[
+\begin{array}{r@{~}c@{~}ll@{\!\!}|l}
+\displaystyle \text{Area}(D) &=&\displaystyle  \iint \diff A = \int_C x \diff y = \displaystyle  \int_{t=0}^{t=2\pi} a\cos{t}  \diff (b\sin t) &&\begin{array}{l}\text{Green's}\\\text{Thm.}\end{array}\\
+&=&\displaystyle \int_{t=0}^{t=2\pi} a\cos(t) b\cos (t) \diff t= ab\int_{t=0}^{t=2\pi} \cos^2{t} \diff t\\
+&=&\displaystyle \int_{t=0}^{2\pi} \left(\frac{1-\cos (2t)}{2} \right)\diff t \\
+&=&\displaystyle ab\left[\frac{\theta}{2}-\frac{\sin(2t)}{4} \right]_{t=0}^{2\pi}=   ab\pi.
+\end{array}
+\]
+}
+\end{example}
+
+\end{frame}

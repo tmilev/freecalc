@@ -1,0 +1,56 @@
+\begin{frame}
+\frametitle{Curve orientation}
+\vskip -0.1cm
+\begin{columns}
+\column{0.11\textwidth}
+\begin{pspicture}
+\pstVerb{/theCurve {t cos 2 t mul cos mul t sin 2 t mul cos mul t 50 div dup mul add t 90 div 3 exp sub} def
+/tmin -35 def
+/tmax 90 def
+}
+\uncover<1-14>{
+\parametricplot[linecolor=\fcColorGraph]{tmin}{tmax}{theCurve}
+\parametricplot[arrows=->,linecolor=\fcColorGraph]{tmin}{40}{theCurve}
+}
+\uncover<15->{
+\parametricplot[linewidth=2pt, linecolor=\fcColorGraph]{tmin}{tmax}{theCurve}
+\parametricplot[linewidth=2pt,  arrows=->, linecolor= \fcColorGraph]{ tmax}{ 30}{ theCurve}
+}
+\uncover<3->{
+\fcFullDot{/t tmin def theCurve pop}{/t tmin def theCurve exch pop}
+\fcFullDot{/t tmax def theCurve pop}{/t tmax def theCurve exch pop}
+}
+\rput(0.5,1){$\alert<15>{\uncover<15->{-}C}$} 
+\end{pspicture}
+
+\column{0.89\textwidth}
+\begin{itemize}
+%\item Let $C$ be a curve with one-to-one parametrization $\fcv r(t), t\in [a,b]$. 
+%\item Then $C$ starts at $A=\fcv r(a)$ and ends at $B=\fcv r(b)$.
+%\item We say that the curve is oriented from $A$ to $B$. 
+\item Let $C$ be curve image (not equipped with parametrization). 
+\item<2-> Suppose $C$ can be equipped with some one-to-one continuous parametrization of the form $\fcv r(t)$, $t\in [a,b]$ so that \alert<3>{$A=\fcv r(a)$ (starting point),  $B=\fcv r(b)$ (endpoint), $A\neq B$}.
+\end{itemize}
+\end{columns}
+\uncover<4->{
+\begin{definition}[Curve orientation, endpoints are distinct]
+\begin{itemize}
+\item<4-> We say the parametrization $\fcv r$ \emph{orients} the curve $C$.
+\item<5-> We say that two one-to-one parametrizations of $C$ have \emph{the same orientation} if they determine the same starting and endpoints. 
+\item<6-> To orient a curve image $C$ means to specify which of the two endpoints is a starting point and which - endpoint. 
+\end{itemize}
+\end{definition}
+}
+\begin{itemize}
+\only<1-9>{
+\item<7-> Alternatively, to orient a curve means to specify the order in which its points are traversed (``direction of flow'').
+\item<8-> The definition can be extended to when the parametr. is not one-to-one (allowing $A=B$). \uncover<9->{Requires 1-dimensional manifolds.}
+}
+\only<10->{
+\item<10-> Consider the curve parametrized by $\alert<11,12,15>{\fcv s(t)= \fcv r(b (1-t)+ t a) }$, $t\in [0,1]$. \uncover<11->{Then $\alert<11>{\fcv s(0)=\fcv r(b)}$ and $\alert<12>{\fcv s(1)=\fcv r(a)}$,} \uncover<13->{so the curve image coincides with that of $C$ but has opposite orientation.} \uncover<14->{We write \alert<15>{$-C$} for the curve with image as $C$ but opposite orientation.}
+}
+\end{itemize}
+
+\vskip 10cm
+
+\end{frame}

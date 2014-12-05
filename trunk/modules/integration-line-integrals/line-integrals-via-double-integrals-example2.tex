@@ -1,0 +1,35 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.2\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-2.3}{-2.3}{2.3}{2.3}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{\parametricplot{0}{360}{t cos 2 mul t sin 2 mul}}
+\parametricplot[linecolor=\fcColorGraph, arrows=->]{45}{225}{t cos 2 mul t sin 2 mul}
+\parametricplot[linecolor=\fcColorGraph, arrows=->]{225}{405}{t cos 2 mul t sin 2 mul}
+\fcAxesStandardNoFrame{-2.2}{-2.2}{2.2}{2.2}
+\fcLabels{2.2}{2.2}
+\end{pspicture}
+\column{0.8\textwidth}
+Integrate 
+
+$\displaystyle \int_{C} \left(y^3+  e^{\Arctan x}\right)\diff x +\left(-x^3+\ln \left(\cos y+\sqrt{y}+4\right) \right)\diff y $,
+
+where $C$ is the oriented boundary of the disk $D$ with radius $2$ and centered at the origin.
+\end{columns}
+\uncover<2->{
+Direct computation of the line integral appears intractable. Since $P_y$ and $Q_y$ are quite simple, it makes sense to use Green's Theorem.
+\[
+\begin{array}{rcll|l}
+\displaystyle \int_C P\diff x +Q\diff y&=&\displaystyle \int_{D} (Q_x-P_y)\diff x \diff y&&\text{Green's Thm.}\\
+&=&\displaystyle \int_{D}-3x^2-3y^2\diff x \diff y &&\text{use polar coords.}\\
+&=&\displaystyle \int_{\theta=0}^{2\pi}\int_{r=0}^{2} (-3r^2 )r\diff r \diff \theta\\
+&=&\displaystyle \int_{\theta=0}^{2\pi}\left[ \frac{3}{4} r^4 \right]_{r=0}^{r=2} \diff \theta= \displaystyle  24\pi \quad .
+\end{array}
+\]
+}
+\end{example}
+
+\end{frame}
