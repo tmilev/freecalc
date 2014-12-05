@@ -1,0 +1,40 @@
+\begin{frame}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(2,1)%
+\tiny%
+\fcAxesStandard{-0.5}{-0.5}{3.2}{2.7}%
+\pstVerb{
+/theCurve {
+t -90 gt t 90 le and {t cos 2 add t sin 1.5 add  }ifelse
+t 90 gt t 270 le {-t  cos 2 add t sin 1.5 add  }if
+} def
+/tmin -360 def
+/tmax 360 3 mul def
+}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\parametricplot{tmin}{tmax}{theCurve}
+}
+\end{pspicture}
+\column{0.7\textwidth}
+\vskip -0.2cm
+\begin{theorem}[Green]
+$\displaystyle  \oint_{\partial D}\left( P \diff x + Q \diff y\right) =  \iint_D \left( \frac{ \partial Q}{\partial x} - \frac{ \partial P}{ \partial y} \right) \diff x \diff y \; .$
+\end{theorem}
+\end{columns}
+\begin{proof} [When $D$= representable by curv. trapezoids in both directions]
+So far, we demonstrated that  
+$
+\begin{array}{rcl|l}
+\oint_{\partial D} P \diff x &=&\iint_D\left(- \frac{ \partial P}{ \partial y} \right) \diff x \diff y&  \text{curv. trapezoids vert. bases}\\
+\oint_{\partial D} Q \diff y&=& \iint_D  \frac{ \partial Q}{\partial x} \diff x \diff y &\text{curv. trapezoids horiz. bases}
+\end{array}
+$.
+
+Suppose $D$ can be represented as a union of curvilinear trapezoids with vertical bases, pairwise intersecting on their boundaries only.
+\end{proof}
+
+\vskip 10cm
+
+\end{frame}
