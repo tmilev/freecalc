@@ -14,23 +14,42 @@
 \psplot{2 }{0.2}{f2}%
 }%
 \psplot{0.2}{2}{f1}%
+\psplot[arrows=->]{0.2}{1.5}{f1}%
+\uncover<4,5,14>{%
+\psplot[linecolor=red, linewidth=2pt]{0.2}{2}{f1}%
+\psplot[arrows=->, linecolor=red, linewidth=2pt]{0.2}{1.5}{f1} %
+}%
 \psplot{2}{0.2}{f2}%
-\pstVerb{/x 0.2 def}
-\psline(! x f1)(! x f2)
+\psplot[arrows=->]{2}{0.6}{f2}%
+\uncover<8,9,15>{%
+\psplot[linecolor=red, linewidth=2pt]{2}{0.2}{f2}%
+\psplot[arrows=->, linecolor=red, linewidth=2pt]{2}{0.6}{f2}%
+}%
+\pstVerb{/x 0.2 def}%
+\psline(! x f2)(! x f1)%
+\psline[arrows=->](! x f2)(! x f1 f2 add 2 div)%
 \psline[linestyle=dotted](! x f1)(! x 0)%
-\rput[lt](! x -0.2 ){$~a$}
-\pstVerb{/x 2 def}
-\psline(! x f1)(! x f2)
-
+\uncover<10,11>{%
+\psline[linecolor=red, linewidth=2pt](! x f1)(! x f2)%
+\psline[linecolor=red, linewidth=2pt, arrows=->](! x f2)(! x f1 f2 add 2 div)%
+}%
+\rput[t](! x -0.2 ){$a$}%
+\pstVerb{/x 2 def}%
+\psline(! x f1)(! x f2)%
+\psline[arrows=->](! x f1)(! x f2 f1 add 2 div)%
+\uncover<6,7>{%
+\psline[linecolor=red, linewidth=2pt](! x f1)(! x f2)
+\psline[linecolor=red, linewidth=2pt, arrows=->](! x f1)(! x f2 f1 add 2 div)
+}%
 \psline[linestyle=dotted](! x f1)(! x 0)%
-\rput[lt](! x -0.2 ){$~b$}
-
-%\pstVerb{/x 1 def}
-%\psline[linewidth=2pt, linecolor=red](! x f1)(! x f2)
-%\psline(! x f1)(! x f2)
-%\psline[linestyle=dotted](! x f1)(! x 0)%
-%\rput[lt](! x -0.2){$~x$}
-
+\rput[t](! x -0.2 ){$b$}%
+\uncover<17->{%
+\pstVerb{/x 1 def}%
+\psline[linewidth=2pt, linecolor=red](! x f1)(! x f2)%
+%\psline(! x f1)(! x f2)%
+\psline[linestyle=dotted](! x f1)(! x 0)%
+\rput[t](! x -0.2){$t$}%
+}%
 \rput[l](2.1, 2.1){$y=g(x)$}
 \rput[l](2.1, 0.2){$y=f(x)$}
 \pstVerb{end}%
@@ -38,28 +57,29 @@
 \column{0.7\textwidth}
 \vskip -0.2cm
 \begin{theorem}[Green]
-$\displaystyle\oint_{\partial D} P \diff x + Q \diff y = \iint_D \left( \frac{ \partial Q}{\partial x} - \frac{ \partial P}{ \partial y} \right) \diff x \diff y \; .$
+$\displaystyle\alert<20>{\oint_{\partial D} P \diff x }+ Q \diff y =\alert<20>{ \iint_D} \left( \frac{ \partial Q}{\partial x} \alert<20>{- \frac{ \partial P}{ \partial y}} \right) \alert<20>{\diff x \diff y }\; .$
 \end{theorem}
 \end{columns}
 \begin{proof} [When $D$= representable by curv. trapezoids in both directions]
-Suppose $D$ - curv. trapezoid, vertical bases. Then $\partial D$ is the union of:
+\uncover<2->{Suppose $D$ - curv. trapezoid, vertical bases.} \uncover<3->{Then $\partial D$ is the union of:
 
 \begin{tabular}{|rclc|}\hline
-Curve & Parametrization& parameter interval& $\diff x$ \\\hline
-$C_1$:&$(t, f(t)),$& $t\in [a,b]$      &$\diff t$ \\
-$C_2$:&$(b,y),    $& $t\in [f(b),g(b)]$&$0$ \\ 
-$C_3$:&$(t,g(t)), $& $t\in [b,a]$      &$\diff t $\\
-$C_4$:&$(a,t),    $& $t\in [g(a),f(a)]$&$0$ .\\\hline
-\end{tabular}
+Curve & Parametrization& parameter interval& \alert<5,7,9,11,13>{$\diff x$} \\\hline
+\alert<4,14>{$C_1$}& \alert<4>{$(\alert<5>{t}, f(t))$}& \alert<4,14>{$t\in [a,b]$}&\alert<5>{$\diff t$} \\
+\alert<6,13>{$C_2$} &\alert<6>{$(\alert<7>{b},t)$} & \alert<6>{$t\in [f(b),g(b)]$} & \alert<7,13>{$0$} \\ 
+\alert<8,15>{$C_3$} & \alert<8>{$(\alert<9>{t},g(t)) $} & \alert<8,15>{$t\in [b, a]$}   & \alert<9>{$\diff t $}\\
+\alert<10,13>{$C_4$} & \alert<10>{$(\alert<11>{a},t)$}& \alert<10>{$t\in [g (a)  , f( a)]$} &\alert<11,13>{$0$} \\\hline
+\end{tabular}.
+}
 
 
 $
-\begin{array}{rcl}
-\int_{\partial D} P\diff x &=&\int_{C_1+C_2+C_3+C_4}P\diff x\\
-&=& \int_{t=a}^{t=b} P(t,f(t))\diff t+   \int_{t=b}^{t=a} P(t,g(t))\diff t \\
-&=& \int_{t=a}^{t=b}\left( P(t,f(t))-  P(t,g(t))\right)\diff t \\
-&=&\int_{t=a}^{t=b} \left(\int_{u=f(t)}^{u=g(t)} \left(-P_y(t,u)\right)\diff u\right)\diff t\\
-&=& \iint_{D} \left(-\frac{\partial P}{\partial y}\right)\diff x \diff y.
+\begin{array}{rcll@{\!}|l}
+\uncover<12->{\alert<20>{\oint_{\partial D} P\diff x} &\alert<20>{=}&\int_{\alert<14>{C_1}+ \alert<13>{ C_2 } + \alert<15>{C_3}+\alert<13>{C_4}}P\alert<13>{\diff x}}\\
+\uncover<13->{&\alert<0>{=}& \int_{\alert<14>{t=a}}^{\alert<14>{t=b}} P( \alert<14>{t,f(t) }) \diff t + \int_{\alert<15,16>{t=b}}^{\alert<15,16>{t=a}} P( \alert<15>{ t,g(t) } ) \diff t } \\
+\uncover<16->{&\alert<0>{=}& \int_{\alert<16>{t=a}}^{\alert<16>{t=b} }\left( \alert<17>{P(t, f( t )) \alert<16>{ -}  P(t , g(t))} \right)\diff t  &&\uncover<17->{\alert<17>{ \text{Use FTC}}}} \\
+\uncover<17->{&\alert<0>{=}&\alert<19>{\int_{t=a}^{t=b}} \left(\alert<17>{ \alert<19>{\int_{ u= f( t ) }^{u=g(t)}} \left( -P_y (t, u)\right)\alert<18>{\diff u}} \right) \alert<18>{ \diff t } &&\uncover<18->{\alert<18>{ \text{relabel }t,u \text{ to }x,y}}}\\
+\uncover<18->{&\alert<0>{=}&\alert<20>{ \alert<19>{ \iint_{D}} \left(-\frac{\partial P}{\partial y}\right) \alert<18>{ \diff x \diff y}}.}
 \end{array}
 $
 \end{proof}

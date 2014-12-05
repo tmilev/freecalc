@@ -1,0 +1,89 @@
+\begin{frame}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(2,1)%
+\tiny%
+\fcAxesStandard{-0.5}{-0.5}{3.2}{2.7}%
+\pstVerb{ 10 dict begin
+/f1 {t 170 mul sin 0.4 mul 0.6 add} def 
+/f2 {t 190 mul cos 0.4 mul 2 add t 4 div sub} def
+}%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\parametricplot{0.2 }{2}{f1 t}%
+\parametricplot{2 }{0.2}{f2 t}%
+}%
+\parametricplot{2}{0.2}{f1 t}%
+\parametricplot[arrows=->]{2}{1.1}{f1 t}%
+\parametricplot{0.2}{2}{f2 t}%
+\parametricplot[arrows=->]{0.2}{1.4}{f2 t}%
+\uncover<4>{%
+\parametricplot[linewidth=2pt, linecolor=red]{0.2}{2}{f1 t}%
+\parametricplot[linewidth=2pt, linecolor=red, arrows=->]{2}{1.1}{f1 t}%
+}%
+\uncover<6>{%
+\parametricplot[linewidth=2pt, linecolor=red]{2}{0.2}{f2 t}%
+\parametricplot[linewidth=2pt, linecolor=red, arrows=->]{0.2}{1.4}{f2 t}%
+}%
+\pstVerb{/t 0.2 def}%
+\psline(! f1 t)(! f2 t)%
+\psline[arrows=->](! f1 t)(! f2 f1 add 2 div t)%
+\uncover<5>{%
+\psline[linewidth=2pt, linecolor=red](! f1 t)(! f2 t)%
+\psline[linewidth=2pt, linecolor=red, arrows=->](! f1 t)(! f2 f1 add 2 div t)%
+}%
+\psline[linestyle=dotted](! f1 t)(! 0 t)%
+\rput[r](! -0.2 t){$a~$}%
+\pstVerb{/t 2 def}%
+\psline(! f1 t)(! f2 t)%
+\psline[arrows=->](! f2 t)(! f2 f1 add 2 div t)%
+\uncover<7>{%
+\psline[linewidth=2pt, linecolor=red](! f1 t)(! f2 t)%
+\psline[linewidth=2pt, linecolor=red, arrows=->](! f2 t)(! f2 f1 add 2 div t)
+}%
+\psline[linestyle=dotted](! f1 t)(! 0 t)%
+\rput[r](! -0.2 t){$b~$}%
+\pstVerb{/t 1 def}%
+\uncover<13>{\psline[linewidth=2pt, linecolor=red](! f1 t)(! f2 t)}%
+\uncover<14->{\psline(! f1 t)(!  f2 t)}%
+\uncover<13->{%
+\psline[linestyle=dotted](! f1 t)(! 0 t)%
+\rput[r](! -0.2 t){$t~$}%
+}%
+\rput[bl](2.2, 2.2){$x=g(y)$}%
+\rput[br](0.9, 2.2){$x=f(y)$}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.7\textwidth}
+\vskip -0.2cm
+\begin{theorem}[Green]
+$\displaystyle\alert<16>{\oint_{\partial D} }P \diff x + \alert<20>{Q \diff y} = \alert<16>{ \iint_D} \left( \alert<20>{\frac{ \partial Q}{\partial x}} - \frac{ \partial P}{ \partial y} \right) \alert<20>{\diff x \diff y }\; .$
+\end{theorem}
+\end{columns}
+\begin{proof} [When $D$= representable by curv. trapezoids in both directions]
+\uncover<2->{Suppose $D$ - curv. trapezoid, horiz. bases.} \uncover<3->{Then $\partial D$ is the union of:
+
+\begin{tabular}{|rclc|}\hline
+Curve & Parametrization& parameter interval& \alert<9>{$\diff y$} \\\hline
+\alert<4,10>{$C_1$}& \alert<4,10>{$( f(t),t)$}& \alert<4,10>{$t\in [b,a] $}& \alert<4>{ $ \diff t$} \\
+\alert<5>{$C_2$} &\alert<5>{$(a,t)$} & \alert<5>{$t\in [f(a),g(a)]$} & \alert<5,9>{ $ 0$} \\ 
+\alert<6,11>{$C_3$} & \alert<6,11>{$(g(t),t) $} & \alert<6,11>{$t\in [a, b]$} & \alert<6>{ $ \diff t $}\\
+\alert<7>{$C_4$} & \alert<7>{$(b,t)$}& \alert<7>{$t\in [g (b)  , f( b)]$} &\alert<7,9>{$0$} \\\hline
+\end{tabular}.
+}
+
+
+$
+\begin{array}{rcll@{\!}|l}
+\uncover<8->{\alert<16>{\oint_{\partial D} Q\diff y} &\alert<16>{=}& \int_{ \alert<10>{ C_1}+ \alert<9>{ C_2 } + \alert<11>{ C_3} + \alert<9>{ C_4}} Q \alert<9>{ \diff y}}\\
+\uncover<9->{&\alert<0>{=}& \int_{\alert<10,12>{t=b}}^{\alert<10,12>{t=a}} Q ( \alert<10>{ f(t),t }) \diff t + \int_{\alert<11>{t=a}}^{\alert<11>{t=b}} Q( \alert<11>{ g(t),t } ) \diff t } \\
+\uncover<12->{&\alert<0>{=}& \int_{\alert<12>{t=a}}^{\alert<12>{t=b} }\left( \alert<13>{\alert<12>{ -} Q( f( t ),t) + Q( g(t),t)} \right)\diff t  && \uncover<13->{ \alert<13>{ \text{Use FTC}}}} \\
+\uncover<13->{&\alert<0>{=}&\alert<15>{\int_{t=a}^{t=b}} \left(\alert<13>{ \alert<15>{\int_{ u= f( t ) }^{u=g(t)}} \left( Q_x ( u,t)\right)\alert<14>{\diff u}} \right) \alert<14>{ \diff t } &&\uncover<14->{\alert<14>{ \text{relabel }t,u \text{ to }x,y}}}\\
+\uncover<14->{&\alert<0>{=}&\alert<16>{ \alert<15>{ \iint_{D}} \left(\frac{ \partial Q}{\partial x}\right) \alert<14>{ \diff x \diff y}}.}
+\end{array}
+$
+\end{proof}
+
+\vskip 10cm
+
+\end{frame}

@@ -1,0 +1,21 @@
+\begin{frame}
+\begin{example}[Line integrals of $\diff \theta$ using Green's theorem]
+\begin{columns}
+\column{0.3\textwidth}
+
+\column{0.7\textwidth}
+Let $C$ be a closed curve, enclosing an open set $D$, and not passing through $(0,0)$. Compute 
+\[
+\oint_C \frac{-y}{x^2+y^2}\diff x + \frac{x}{x^2+y^2}\diff y
+\]
+provided that $D$ does not contain the origin.
+\end{columns}
+Since $D$ does not contain the origin we can use Green's theorem:
+\[
+\begin{array}{rcl}
+\oint_C \frac{-y}{x^2+y^2}\diff x + \frac{x}{x^2+y^2}\diff y&=& \oint_D\left( \frac{y^2-x^2}{(x^2+y^2)^2}-\frac{x^2-y^2}{(x^2+y^2)}\right)\diff x \diff y\\
+&=&0.
+\end{array}
+\]
+\end{example}
+\end{frame}
