@@ -1,10 +1,10 @@
 \begin{frame}
-\small
-  \frametitle{Line Integrals using Double Integrals}
+\begin{example}[Line Integrals using Double Integrals]
 
-  Let
-%
-$$\fcv{X} = (y^2+e^{\sqrt{1+x^2}}) \, \fcv{i} + (x-\sin{\frac{1}{1+y^2}})\, \fcv{j}$$
+Let
+\[
+\fcv{X} = (y^2+e^{\sqrt{1+x^2}}) \, \fcv{i} + (x-\sin{\frac{1}{1+y^2}})\, \fcv{j}
+\]
 %
 and let $C$ be the boundary of a square of side $a$ centered at the origin. We want to compute the circulation of $\fcv{X}$ along $C$. We have two alternatives:
 
@@ -22,4 +22,5 @@ Therefore
 $$\int_C \fcv{X} \cdot \fcv{\diff r} = \int\!\!\!\int_D \curl_{\fcv{k}} \fcv{X} \, dA = \int\!\!\!\int_D (1-2y) dA = \text{Area}(D) = a^2\; ,$$
 %
 since the integral of $2y$ is zero due to symmetry.
+\end{example}
 \end{frame}

@@ -1,0 +1,69 @@
+\begin{frame}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(2,1)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{3}{2.7}
+\pstVerb{ 10 dict begin
+/f1 {x 170 mul sin 0.4 mul 0.6 add} def 
+/f2 {x 190 mul cos 0.4 mul 2 add x 4 div sub} def
+}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot{0.2 }{2}{f1 }%
+\psplot{2 }{0.2}{f2}%
+}%
+\psplot{0.2}{2}{f1}%
+\psplot{2}{0.2}{f2}%
+\pstVerb{/x 0.2 def}
+\psline(! x f1)(! x f2)
+\psline[linestyle=dotted](! x f1)(! x 0)%
+\rput[lt](! x -0.2 ){$~a$}
+\pstVerb{/x 2 def}
+\psline(! x f1)(! x f2)
+
+\psline[linestyle=dotted](! x f1)(! x 0)%
+\rput[lt](! x -0.2 ){$~b$}
+
+%\pstVerb{/x 1 def}
+%\psline[linewidth=2pt, linecolor=red](! x f1)(! x f2)
+%\psline(! x f1)(! x f2)
+%\psline[linestyle=dotted](! x f1)(! x 0)%
+%\rput[lt](! x -0.2){$~x$}
+
+\rput[l](2.1, 2.1){$y=g(x)$}
+\rput[l](2.1, 0.2){$y=f(x)$}
+\pstVerb{end}%
+\end{pspicture}
+\column{0.7\textwidth}
+\vskip -0.2cm
+\begin{theorem}[Green]
+$\displaystyle\oint_{\partial D} P \diff x + Q \diff y = \iint_D \left( \frac{ \partial Q}{\partial x} - \frac{ \partial P}{ \partial y} \right) \diff x \diff y \; .$
+\end{theorem}
+\end{columns}
+\begin{proof} [When $D$= representable by curv. trapezoids in both directions]
+Suppose $D$ - curv. trapezoid, vertical bases. Then $\partial D$ is the union of:
+
+\begin{tabular}{|rclc|}\hline
+Curve & Parametrization& parameter interval& $\diff x$ \\\hline
+$C_1$:&$(t, f(t)),$& $t\in [a,b]$      &$\diff t$ \\
+$C_2$:&$(b,y),    $& $t\in [f(b),g(b)]$&$0$ \\ 
+$C_3$:&$(t,g(t)), $& $t\in [b,a]$      &$\diff t $\\
+$C_4$:&$(a,t),    $& $t\in [g(a),f(a)]$&$0$ .\\\hline
+\end{tabular}
+
+
+$
+\begin{array}{rcl}
+\int_{\partial D} P\diff x &=&\int_{C_1+C_2+C_3+C_4}P\diff x\\
+&=& \int_{t=a}^{t=b} P(t,f(t))\diff t+   \int_{t=b}^{t=a} P(t,g(t))\diff t \\
+&=& \int_{t=a}^{t=b}\left( P(t,f(t))-  P(t,g(t))\right)\diff t \\
+&=&\int_{t=a}^{t=b} \left(\int_{u=f(t)}^{u=g(t)} \left(-P_y(t,u)\right)\diff u\right)\diff t\\
+&=& \iint_{D} \left(-\frac{\partial P}{\partial y}\right)\diff x \diff y.
+\end{array}
+$
+\end{proof}
+
+\vskip 10cm
+
+\end{frame}

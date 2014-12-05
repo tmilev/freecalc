@@ -45,8 +45,8 @@ $
 \begin{array}{r@{~}c@{~}l}
 \uncover<9->{\frac{\partial}{\partial x} (f) &=& \lim_{h\to 0}\frac{\alert<10>{ f(x+h,y)}-\alert<11>{f(x,y)} }{h}} \uncover<10->{ =\lim_{h\to 0} \frac{1}{h}\left( \alert<10>{ \int_{\alert<12>{C}+S} \fcv F \cdot \diff \fcv r} - \alert<11>{\int_{\alert<12>{C} } \fcv F\cdot \diff \fcv r} \right)} \\
 \uncover<12->{&=&\lim_{h\to 0}\frac{1}{h} \int_{ \alert<14, 15>{ S}} \alert<13>{ \fcv F} \cdot \alert<15>{\diff \fcv r}} \\
-\uncover<13->{&=&\lim_{h\to 0}\frac{1}{ h} \int_{ \alert<14>{ t=0}}^{\alert<14>{t=h}} \alert<13>{ \left( P( \alert<14>{x+t,y})\alert<17>{\fcv i} + Q( \alert<14>{ x +t,y}) \alert<16>{\fcv j} \right)} \cdot \alert<15>{\alert<16,17>{ \fcv i} \diff t}} \\
-\uncover<16->{&=&\int_{t=0}^h P(x+h,y)\diff t} \uncover<18->{=P(x,y),}
+\uncover<13->{&=& \lim_{h\to 0}\frac{1}{ h} \int_{ \alert<14>{ t=0}}^{\alert<14>{t=h}} \alert<13>{ \left( P( \alert<14>{x+t,y})\alert<17>{\fcv i} + Q( \alert<14>{ x +t,y}) \alert<16>{\fcv j} \right)} \cdot \alert<15>{\alert<16,17>{ \fcv i} \diff t}} \\
+\uncover<16->{&=&\lim_{h\to 0}\frac{1}{ h}  \int_{t=0}^h P(x+h,y)\diff t} \uncover<18->{=P(x,y),}
 \end{array}
 $
 \uncover<18->{where the last equality is the single-variable Fundamental Theorem of Calculus.} \uncover<19->{Similarly it follows that $\frac{\partial}{\partial y} (f)=Q(x,y)$.}

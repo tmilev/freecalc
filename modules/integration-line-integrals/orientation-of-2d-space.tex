@@ -1,0 +1,30 @@
+\begin{frame}
+\frametitle{Orientation of 2D space and Pairs of 2D Vectors}
+%\vskip -0.2cm
+\begin{columns}
+\column{0.25\textwidth}
+\psset{xunit=0.75 cm, yunit=0.75cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.3}{-1.3}{1.4}{1.4}
+\fcAxesStandard{-1.3}{-1.3}{1.3}{1.3}
+\fcLabels{1.3}{1.3}
+\end{pspicture}
+\column{0.75\textwidth}
+\begin{itemize}
+\item When selecting Cartesian coord. system in the plane,
+\uncover<2->{ the letters $x$ and $y$ are \emph{a priori} equivalent.}
+\item<3-> To select an orientation means to declare an order on the variables $x$ and $y$.
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item<4-> One such order is \alert<4>{implicitly assumed when we write coordinates} as \alert<6>{by convention} \alert<5>{we write $x$ coord. first and $y$-coord. - second}.
+\item<7-> Unless stated otherwise, we assume $x$ is first and $y$-second.
+\uncover<8->{
+\begin{definition}[Orientation of pair of vectors in 2D]
+Let $\fcv u=(u_1,u_2)$ and $\fcv v=(v_1, v_2)$. We say that the ordered pair of vectors $(\fcv u, \fcv v )$ is \emph{positively oriented} if $\left|\begin{array}{rcl}u_1& v_1 \\ u_2& v_2\end{array} \right| >0$.
+\end{definition}
+}
+\item<9-> \alert<9>{The definition uses the orientation of space} as \alert<10>{the coordinates of $\fcv u$ and $\fcv v$ are listed in the order implied by the orientation}.
+\end{itemize}
+\end{frame}
