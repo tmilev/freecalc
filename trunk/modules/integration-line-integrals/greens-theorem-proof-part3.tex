@@ -5,17 +5,44 @@
 \begin{pspicture}(-1,-1)(2,1)%
 \tiny%
 \fcAxesStandard{-0.5}{-0.5}{3.2}{2.7}%
-\pstVerb{
-/theCurve {
-t -90 gt t 90 le and {t cos 2 add t sin 1.5 add  }ifelse
-t 90 gt t 270 le {-t  cos 2 add t sin 1.5 add  }if
-} def
-/tmin -360 def
-/tmax 360 3 mul def
-}
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\parametricplot{tmin}{tmax}{theCurve}
-}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psccurve(1, 0.5)(2, 0.2)(3,0.5)(3, 2.5)(2, 2.8) (1, 2.5 ) (1, 2)(2, 1.7)(2, 1.3)(1, 1)%
+}%
+\psccurve[linecolor=red, linewidth=1pt](1, 0.5)(2, 0.2)(3,0.5)(3, 2.5)(2, 2.8) (1, 2.5 ) (1, 2)(2, 1.7)(2, 1.3)(1, 1)%
+\uncover<2>{%
+\psecurve[linecolor=red, arrows=>->](2, 0.2)(3, 0.5)(3, 2.5)(2, 2.8)
+\psecurve[linecolor=red, arrows=>-](2, 2.8)(1, 2.5)(1, 2  )(2, 1.7)
+\psecurve[linecolor=red, arrows=>-](2, 1.3)(1, 1  )(1, 0.5)(2, 0.2)
+\psline[linecolor=red](2.065,0.2)(2.065,2.8)%
+\psline[linecolor=red, linewidth=0.3pt](2.165,0.4)(2.165,0.8)%
+\psline[linecolor=red, arrows=->, linewidth=0.3pt](2.165,0.8)(2.165,0.5)%
+\psline[linecolor=red, linewidth=0.3pt](2.165,2)(2.165,2.4)%
+\psline[linecolor=red, arrows=->, linewidth=0.3pt](2.165,2.4)(2.165,2.1)%
+\psline[linecolor=red, linewidth=0.3pt](1.965,0.4)(1.965,0.8)%
+\psline[linecolor=red, arrows=->, linewidth=0.3pt](1.965,0.4)(1.965,0.7)%
+\psline[linecolor=red, linewidth=0.3pt](1.965,2)(1.965,2.4)%
+\psline[linecolor=red, arrows=->, linewidth=0.3pt](1.965,2.1)(1.965,2.3)%
+}%
+\uncover<4>{%
+\psecurve[linecolor=orange, arrows=>-](2, 1.3)(1, 1  )(1, 0.5)(2, 0.2)
+\psecurve[linecolor=orange](2, 1.3)(1, 1  )(1, 0.5)(2, 0.2)
+\psline[linecolor=orange, arrows=->, linewidth=0.3pt](2.165,2.4)(2.165,2.1)%
+\psline[linecolor=orange, linewidth=0.3pt](1.965,0.4)(1.965,0.8)%
+\psline[linecolor=orange](2.065,0.2)(2.065,1.5)%
+}%
+\uncover<10>{%
+\psecurve[linecolor=red, arrows=>-](3, 0.5)(3, 2.5)(2, 2.8)(1, 2.5)
+\psecurve[linecolor=red, arrows=->](3, 2.5)(2, 2.8)(1, 2.5)(1, 2)
+\psecurve[linecolor=red, arrows=->](1, 0.5)(2, 0.2)(3, 0.5)(3, 2.5)
+\psecurve[linecolor=red, arrows=>-](1, 1  )(1, 0.5)(2, 0.2)(3, 0.5)
+\psline[linecolor=red](2.065,1.5)(3.3,1.5)
+\psline[linecolor=red, arrows=->, linewidth=0.3pt](2.3,1.6)(2.75,1.6)
+\psline[linecolor=red, linewidth=0.3pt](2.3,1.6)(3.06,1.6)
+\psline[linecolor=red, arrows=-<,linewidth=0.3pt](2.3,1.4)(2.75,1.4)
+\psline[linecolor=red, linewidth=0.3pt](2.3,1.4)(3.06,1.4)
+}%
+
+
 \end{pspicture}
 \column{0.7\textwidth}
 \vskip -0.2cm
@@ -27,12 +54,14 @@ $\displaystyle  \oint_{\partial D}\left( P \diff x + Q \diff y\right) =  \iint_D
 So far, we demonstrated that  
 $
 \begin{array}{rcl|l}
-\oint_{\partial D} P \diff x &=&\iint_D\left(- \frac{ \partial P}{ \partial y} \right) \diff x \diff y&  \text{curv. trapezoids vert. bases}\\
-\oint_{\partial D} Q \diff y&=& \iint_D  \frac{ \partial Q}{\partial x} \diff x \diff y &\text{curv. trapezoids horiz. bases}
+\oint_{\partial D} P \diff x &=& \iint_D\left(- \frac{ \partial P}{ \partial y} \right) \diff x \diff y&  \text{curv. trapezoids vert. bases}\\
+\oint_{\partial D} Q \diff y &=& \iint_D  \frac{ \partial Q}{\partial x} \diff x \diff y &\text{curv. trapezoids horiz. bases}
 \end{array}
 $.
-
-Suppose $D$ can be represented as a union of curvilinear trapezoids with vertical bases, pairwise intersecting on their boundaries only.
+\uncover<2->{
+Suppose $D$ can be represented as a union of curvilinear trapezoids with \alert<2>{vertical bases}, pairwise intersecting on their boundaries only. \uncover<3->{ The theorem holds over \alert<4>{each curvilinear trapezoid;}} the contributions of the extra line integrals arising from the subdivision cancel one another.
+}
+\uncover<2>{}
 \end{proof}
 
 \vskip 10cm
