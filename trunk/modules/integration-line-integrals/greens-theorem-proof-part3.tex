@@ -9,7 +9,7 @@
 \psccurve(1, 0.5)(2, 0.2)(3,0.5)(3, 2.5)(2, 2.8) (1, 2.5 ) (1, 2)(2, 1.7)(2, 1.3)(1, 1)%
 }%
 \psccurve[linecolor=red, linewidth=1pt](1, 0.5)(2, 0.2)(3,0.5)(3, 2.5)(2, 2.8) (1, 2.5 ) (1, 2)(2, 1.7)(2, 1.3)(1, 1)%
-\uncover<2>{%
+\uncover<2,3,4,5,6,7,9->{%
 \psecurve[linecolor=red, arrows=>->](2, 0.2)(3, 0.5)(3, 2.5)(2, 2.8)
 \psecurve[linecolor=red, arrows=>-](2, 2.8)(1, 2.5)(1, 2  )(2, 1.7)
 \psecurve[linecolor=red, arrows=>-](2, 1.3)(1, 1  )(1, 0.5)(2, 0.2)
@@ -23,14 +23,52 @@
 \psline[linecolor=red, linewidth=0.3pt](1.965,2)(1.965,2.4)%
 \psline[linecolor=red, arrows=->, linewidth=0.3pt](1.965,2.1)(1.965,2.3)%
 }%
+\uncover<7>{%
+\psline[linecolor=orange](2.065,0.2)(2.065,2.8)%
+\psline[linecolor=orange, linewidth=1pt](2.165,0.4)(2.165,0.8)%
+\psline[linecolor=orange, arrows=->, linewidth=1pt](2.165,0.8)(2.165,0.5)%
+\psline[linecolor=orange, linewidth=1pt](2.165,2)(2.165,2.4)%
+\psline[linecolor=orange, arrows=->, linewidth=1pt](2.165,2.4)(2.165,2.1)%
+\psline[linecolor=orange, linewidth=1pt](1.965,0.4)(1.965,0.8)%
+\psline[linecolor=orange, arrows=->, linewidth=1pt](1.965,0.4)(1.965,0.7)%
+\psline[linecolor=orange, linewidth=1pt](1.965,2)(1.965,2.4)%
+\psline[linecolor=orange, arrows=->, linewidth=1pt](1.965,2.1)(1.965,2.3)%
+}%
 \uncover<4>{%
-\psecurve[linecolor=orange, arrows=>-](2, 1.3)(1, 1  )(1, 0.5)(2, 0.2)
-\psecurve[linecolor=orange](2, 1.3)(1, 1  )(1, 0.5)(2, 0.2)
-\psline[linecolor=orange, arrows=->, linewidth=0.3pt](2.165,2.4)(2.165,2.1)%
+\pscustom*[linecolor=green]{%
+\psecurve[linecolor=orange, arrows=>-](2, 1.3)(1, 1  )(1, 0.5)(2, 0.2)%
+\psecurve[linecolor=orange](2,1.7)(2.05, 1.5)(2, 1.3)(1, 1  )(1, 0.5)(1.5, 0.23)(2, 0.2)(2.065,0.2)(3,0.5)%
+}%
+\psecurve[linecolor=orange, arrows=>-](2, 1.3)(1, 1  )(1, 0.5)(2, 0.2)%
+\psecurve[linecolor=orange](2,1.7)(2.05, 1.5)(2, 1.3)(1, 1  )(1, 0.5)(1.25, 0.3) (1.5, 0.23)(2, 0.2)(2.065,0.2)(3,0.5)%
+\psline[linecolor=orange, arrows=->, linewidth=0.3pt](1.965,0.4)(1.965,0.7)%
 \psline[linecolor=orange, linewidth=0.3pt](1.965,0.4)(1.965,0.8)%
 \psline[linecolor=orange](2.065,0.2)(2.065,1.5)%
 }%
-\uncover<10>{%
+\uncover<5>{%
+\pscustom*[linecolor=green]{%
+\psecurve(1, 0.5)(2.065, 0.2)(3,0.5)(3, 2.5)(2.065,2.8) (1, 2.5 )%
+\psline(2.065,2.8)(2.065,0.2)%
+}%
+\psecurve[linecolor=orange](1, 0.5)(2.065, 0.2)(3,0.5)(3, 2.5)(2.065,2.8) (1, 2.5 )%
+\psline[linecolor=orange](2.065,2.8)(2.065,0.2)%
+\psecurve[linecolor=orange, arrows=>->](2, 0.2)(3, 0.5)(3, 2.5)(2, 2.8)
+\psline[linecolor=orange, linewidth=0.3pt](2.165,2)(2.165,2.4)%
+\psline[linecolor=orange, arrows=->, linewidth=0.3pt](2.165,2.4)(2.165,2.1)%
+\psline[linecolor=orange, arrows=->, linewidth=0.3pt](2.165,0.8)(2.165,0.5)%
+\psline[linecolor=orange, linewidth=0.3pt](2.165,0.4)(2.165,0.8)%
+\psline[linecolor=orange](2.065,0.2)(2.065,1.5)%
+}%
+\uncover<6>{%
+\pscustom*[linecolor=green]{\psecurve[linecolor=orange](3, 2.5)(2.065,2.8) (1, 2.5 ) (1, 2)(2, 1.7)(2.05, 1.5)(2, 1.3)%
+\psline[linecolor=orange](2.065,1.5)(2.065,2.8)%
+}%
+\psecurve[linecolor=orange](3, 2.5)(2.065,2.8) (1, 2.5 ) (1, 2)(2, 1.7)(2.05, 1.5)(2, 1.3)
+\psline[linecolor=orange](2.065,1.5)(2.065,2.8)%
+\psline[linecolor=orange, linewidth=0.3pt](1.965,2)(1.965,2.4)%
+\psline[linecolor=orange, arrows=->, linewidth=0.3pt](1.965,2.1)(1.965,2.3)%
+}%
+\uncover<8->{%
 \psecurve[linecolor=red, arrows=>-](3, 0.5)(3, 2.5)(2, 2.8)(1, 2.5)
 \psecurve[linecolor=red, arrows=->](3, 2.5)(2, 2.8)(1, 2.5)(1, 2)
 \psecurve[linecolor=red, arrows=->](1, 0.5)(2, 0.2)(3, 0.5)(3, 2.5)
@@ -54,14 +92,16 @@ $\displaystyle  \oint_{\partial D}\left( P \diff x + Q \diff y\right) =  \iint_D
 So far, we demonstrated that  
 $
 \begin{array}{rcl|l}
-\oint_{\partial D} P \diff x &=& \iint_D\left(- \frac{ \partial P}{ \partial y} \right) \diff x \diff y&  \text{curv. trapezoids vert. bases}\\
-\oint_{\partial D} Q \diff y &=& \iint_D  \frac{ \partial Q}{\partial x} \diff x \diff y &\text{curv. trapezoids horiz. bases}
+\alert<7,9>{\oint_{\partial D} P \diff x} &\alert<7,9>{=}& \alert<7,9>{\iint_D\left(- \frac{ \partial P}{ \partial y} \right) \diff x \diff y}&  \text{curv. trapezoids vert. bases}\\
+\alert<8,9>{\oint_{\partial D} Q \diff y} &\alert<8,9>{=}& \alert<8,9>{ \iint_D  \frac{ \partial Q}{\partial x} \diff x \diff y }&\text{curv. trapezoids horiz. bases}
 \end{array}
 $.
-\uncover<2->{
-Suppose $D$ can be represented as a union of curvilinear trapezoids with \alert<2>{vertical bases}, pairwise intersecting on their boundaries only. \uncover<3->{ The theorem holds over \alert<4>{each curvilinear trapezoid;}} the contributions of the extra line integrals arising from the subdivision cancel one another.
-}
-\uncover<2>{}
+\begin{itemize}
+\item<2-> Suppose $D$ = union of curvilinear trapezoids with \alert<2>{vertical bases}, pairwise intersecting on their boundaries only. \uncover<3->{ The first equality holds over \alert<4,5,6>{each curvilinear trapezoid}} \uncover<7->{\alert<7>{$\Rightarrow$ it holds over the entire $D$} as contributions of extra line integrals cancel one another.} 
+\item<8-> Similarly if $D$ can be represented as union of curvilinear trapezoids with horizontal bases, the second equality holds.
+\item<9-> Adding the two equalities proves the theorem for regions that can be decomposed by curvilinear trapezoids in both directions.
+
+\end{itemize}
 \end{proof}
 
 \vskip 10cm
