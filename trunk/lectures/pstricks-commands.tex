@@ -1940,6 +1940,7 @@ end %
 (#1) (orange) eq (#1) (orange ) eq or{/theColor {1 0.647058824 0} def /colorNotFound false def}if%
 (#1) (cyan) eq (#1) (cyan ) eq or {/theColor {0 1 1} def /colorNotFound false def}if %
 (#1) (pink) eq (#1) (pink ) eq or {/theColor {1 0.75390625 0.796875} def /colorNotFound false def}if %
+(#1) (gray) eq (#1) (gray ) eq or {/theColor {0.5 0.5 0.5} def /colorNotFound false def}if %
 colorNotFound{/theColor {#1} def}if %
 theColor %
 end%
@@ -2712,11 +2713,44 @@ vX 0 ne vY 0 ne or{
 }%end multido
 }%
 
-\newcommand{\fcBezier}[2][]{%
+\newcommand{\fcGrid}[8][]{%
 \setkeys{fcGraphics}{#1}%
 \pscustom{%
 \code{%
-(NOT IMPLEMENTED YET) ==
+20 dict begin
+/startX #2\space def
+/startY #3\space def
+/iterationsX #4\space def
+/iterationsY #5\space def
+/DeltaX #6\space def
+/DeltaY #7\space def
+/stickyPiece (#8) () eq (#8) ( ) eq or {0}{#8}ifelse def
+\fcLineFormatCode
+/counterX -1 def
+iterationsX 1 add{
+/counterX counterX 1 add def
+/currentX1 counterX DeltaX mul startX add def
+/currentY1 0        stickyPiece sub DeltaY mul startY add def
+/currentY2 iterationsY stickyPiece add DeltaY mul startY add def
+/currentX2 currentX1 def
+newpath 
+[currentX1 currentY1] \fcCoordsPStricksToPS moveto
+[currentX2 currentY2] \fcCoordsPStricksToPS lineto
+stroke
+} repeat
+/counterY -1 def
+iterationsY 1 add{
+/counterY counterY 1 add def
+/currentX1 0        stickyPiece sub DeltaX mul startX add def
+/currentY1 counterY DeltaY mul startY add def
+/currentY2 currentY1 def
+/currentX2 iterationsX stickyPiece add DeltaX mul startX add def
+newpath 
+[currentX1 currentY1] \fcCoordsPStricksToPS moveto
+[currentX2 currentY2] \fcCoordsPStricksToPS lineto
+stroke
+} repeat
+end
 }%
 }%
 }
