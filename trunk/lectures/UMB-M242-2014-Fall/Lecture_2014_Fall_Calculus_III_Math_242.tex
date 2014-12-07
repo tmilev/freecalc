@@ -10,7 +10,7 @@
 %[handout]%
 {beamer}
 %IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
-\newcommand{\currentLecture}{18}
+\newcommand{\currentLecture}{19}
 
 
 
@@ -270,32 +270,10 @@
 \input{../../modules/multivariable-functions/level-sets}
 \subsection{Vector Fields}
 \input{../../modules/multivariable-functions/vector-fields}
-%\input{../../modules/multivariable-functions/vector-fields-decomposition-wrt-other-vector-fields} %<- this remark needs to be rewriten using standard mathematical language. At the moment this slide present a omelette of displacement vectors, vector fields, graphs of vector fields and vectors.
+%\input{../../modules/multivariable-functions/vector-fields-decomposition-wrt-other-vector-fields} %<- needs rewrite.
 }
 
-
 \lect{2014}{Lecture 7}{7}{
-\section{Surfaces}
-
-\subsection{Implicit functions}
-\input{../../modules/implicit-functions/implicit-vs-explicit-functions}
-\input{../../modules/implicit-functions/is-level-surface-graph-of-function}
-\input{../../modules/implicit-functions/is-level-surface-graph-of-function-example}
-\subsection{Parametrizations}
-\input{../../modules/multivariable-functions/parametrizations}
-
-\subsection{Quadric Surfaces}
-\input{../../modules/quadratic-surfaces/quadratic-surfaces-intro}
-\input{../../modules/quadratic-surfaces/quadratic-surfaces-imaginary-spheres}
-\input{../../modules/quadratic-surfaces/quadratic-surfaces-ellipsoids-spheres}
-%\input{../../modules/quadratic-surfaces/quadratic-surfaces-cone}
-\input{../../modules/quadratic-surfaces/quadratic-surfaces-summary-form1}
-\input{../../modules/quadratic-surfaces/quadratic-surfaces-summary-form2}
-
-% % % % % % % % % % % % % % % % % % % % %
-} %end lecture
-
-\lect{2014}{Lecture 8}{8}{
 \section{Curves in space}
 
 \input{../../modules/parametric-curves/parametric-equation-line-segment}
@@ -330,7 +308,7 @@
 \input{../../modules/parametric-curves/components-of-acceleration}
 }
 
-\lect{Fall 2014}{Lecture 9}{9}{
+\lect{Fall 2014}{Lecture 8}{8}{
 \section{Limits of Functions of Several Variables}
 \input{../../modules/continuity-multivariable/limits-intro}
 \input{../../modules/continuity-multivariable/limit-example}
@@ -347,7 +325,7 @@
 \input{../../modules/continuity-multivariable/continuity-vector-fields-example}
 }
 
-\lect{Fall 2014}{Lecture 10}{10}{
+\lect{Fall 2014}{Lecture 9}{9}{
 \section{Partial Derivatives}
 \input{../../modules/partial-derivatives/rate-of-change-example}
 \input{../../modules/partial-derivatives/rate-of-change-along-lines}
@@ -359,8 +337,6 @@
 \input{../../modules/partial-derivatives/partial-derivatives-higher-order}
 \input{../../modules/partial-derivatives/partial-derivatives-higher-order-example}
 \section{Linearizations}
-\input{../../modules/surfaces/tangent-plane}
-\input{../../modules/surfaces/tangent-plane-to-graph-surface}
 \input{../../modules/partial-derivatives/multivariable-function-linearizations}
 \section{Differentiability}
 \input{../../modules/partial-derivatives/differentiability}
@@ -370,7 +346,7 @@
 \input{../../modules/partial-derivatives/total-differential-and-linearization-example}
 }
 
-\lect{2014}{Lecture 11}{11}{
+\lect{Fall 2014}{Lecture 10}{10}{
 \section{Multivariable Chain Rule}
 \input{../../modules/chain-rule-multivariable/multivariable-chain-rule-motivation}
 \input{../../modules/chain-rule-multivariable/multivariable-chain-rule}
@@ -387,10 +363,6 @@
 
 \input{../../modules/harmonic-functions/laplace-operator}
 \input{../../modules/harmonic-functions/harmonic-functions-definition}
-\input{../../modules/chain-rule-multivariable/directional-derivatives-tangent-plane-def-justification}
-}
-
-\lect{2014}{Lecture 12}{12}{
 \section{Directional Derivatives via the Chain Rule }
 \input{../../modules/chain-rule-multivariable/directional-derivatives-via-chain-rule}
 \input{../../modules/chain-rule-multivariable/directional-derivatives-via-chain-rule-example}
@@ -401,6 +373,60 @@
 \input{../../modules/optimization-multivariable/gradient-in-polar}
 \input{../../modules/optimization-multivariable/gradient-in-polar-application}
 \input{../../modules/optimization-multivariable/gradient-and-gravity}
+}
+
+\lect{2014}{Lecture 11}{11}{
+\section{Surfaces}
+% % % % %\input{../../modules/surfaces/surfaces-intro} %<-needs a rewrite
+% % % % %\input{../../modules/surfaces/surfaces-parametrizations}<-needs a rewrite
+\input{../../modules/surfaces/implicit-equation-vs-explicit-parametrization}
+% % % % %\input{../../modules/surfaces/parametrized-surfaces}
+% % % % %\input{../../modules/surfaces/surfaces-example-plane-parametric-equation}
+% % % % %\input{../../modules/surfaces/surfaces-example-sphere-open-chart}
+% % % % %\input{../../modules/surfaces/level-surfaces-as-parametrized-surfaces}
+\subsection{Quadric Surfaces}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-intro}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-imaginary-spheres}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-ellipsoids-spheres}
+%\input{../../modules/quadratic-surfaces/quadratic-surfaces-cone}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-summary-form1}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-summary-form2}
+\section{Tangent Planes}
+\input{../../modules/surfaces/tangent-plane-intro}
+% % % % %\input{../../modules/surfaces/tangent-plane-definition}
+% % % % %\input{../../modules/surfaces/tangent-plane-example-1}
+\input{../../modules/surfaces/tangent-plane-to-graph-surface}
+%\input{../../modules/surfaces/tangent-plane-to-level-surface}
+
+% % % % % %WARNING
+% % % % % %the following slides need serious editing, are not ready for lecturing at the moment
+% % % % %\input{../../modules/surfaces/surfaces-of-revolution}
+% % % % %\input{../../modules/surfaces/surfaces-of-revolution-example-torus}
+% % % % %\input{../../modules/surfaces/tangent-plane-definition}
+\input{../../modules/chain-rule-multivariable/directional-derivatives-tangent-plane-def-justification}
+% % % % %\input{../../modules/surfaces/tangent-plane-example-1}
+% % % % %\input{../../modules/surfaces/regular-points-level-surface}
+% % % % %\input{../../modules/surfaces/tangent-plane-equation}
+% % % % %\input{../../modules/surfaces/tangent-plane-to-level-surface-example-1}
+% % % % %\input{../../modules/surfaces/tangent-planes-to-quadratic-surfaces}
+
+% % % % %\input{../../modules/surfaces/graph-and-level-surfaces}
+\input{../../modules/surfaces/is-level-surface-graph-of-function}
+% % %\input{../../modules/surfaces/is-level-surface-graph-of-function-example} % % % % %<-needs rewrite
+
+% % % % %\input{../../modules/surfaces/implicit-functions}
+% % % % %\input{../../modules/surfaces/implicit-functions-example-sphere}
+% % % % %\input{../../modules/surfaces/implicit-function-theorem}
+% % % % %\input{../../modules/surfaces/implicit-function-theorem-and-graph-surfaces}
+% % % % %\input{../../modules/surfaces/implicit-differentiation}
+% % % % %\input{../../modules/surfaces/implicit-differentiation-example-1}
+% % % % %\input{../../modules/surfaces/implicit-differentiation-and-tangent-plane-example-1}
+
+
+}
+
+\lect{2014}{Lecture 12}{12}{
+
 \section{Minima, Maxima}
 \input{../../modules/optimization-multivariable/maxima-minima-definitions}
 \input{../../modules/optimization-multivariable/critical-points}
@@ -411,6 +437,200 @@
 \input{../../modules/optimization-multivariable/extreme-value-theorem}
 \input{../../modules/optimization-multivariable/second-derivative-test-example-box-no-lid-volume}
 \section{Lagrange Multipliers}
+% % % % %\input{../../modules/optimization-multivariable/lagrange-multipliers-intro-via-Cobb-Douglas-Function}<-needs rewrite
+% % % % %\input{../../modules/optimization-multivariable/lagrange-multipliers-intro-via-Cobb-Douglas-Function-part-2}
+% % % %<-needs rewrite %\input{../../modules/optimization-multivariable/lagrange-multipliers-intro-via-Cobb-Douglas-Function-part-3}<-needs rewrite
+ 
+
+
+\input{../../modules/optimization-multivariable/lagrange-multipliers}
+% % % % %\input{../../modules/optimization-multivariable/lagrange-multipliers-remarks}<-needs rewrite
+
+
+
+
+
+
+\begin{frame}
+  \frametitle{Example}
+
+Find the maximum and the minimum values of $f(x,y) = xy$ on the region $D = \{ (x,y) \; | \; |x|+|y| \leqslant 2 \}$.
+\pause
+
+Region: \pause closed square of vertices $(2,0)$, $(0,2)$, $(-2,0)$, and $(0,-2)$.
+
+\pause
+
+The function is continuous and the domain is bounded and closed.
+
+Extreme Value Theorem $\Longrightarrow$ $f$ has global minimum and maximum points.
+
+\pause
+\underline{Strategy}:
+%
+\begin{itemize}
+  \item Find critical points in the interior of the disk;
+  \item Find extreme points on the boundary of the disk;
+  \item Compare the values.
+\end{itemize}
+
+\pause
+Since $f$ is differentiable everywhere, the interior extreme points are among the solutions of the system
+%
+$$\left\{
+\begin{array}{ll}
+  f_x(x,y) = &  0 \\
+  %
+  f_y(x,y) = &  0
+\end{array}
+\right.
+%
+\Longleftrightarrow
+%
+\left\{
+\begin{array}{ll}
+  y = &  0 \\
+  %
+  x= &  0
+\end{array}
+\right.
+$$
+\end{frame}
+
+\begin{frame}
+  Find the maximum and the minimum values of $f(x,y) = xy$ on the region $D = \{ (x,y) \; | \; |x|+|y| \leqslant 2 \}$.
+
+  Extreme points on the boundary: check each of the four sides.
+
+  For the segment joining $(2,0)$ with $(0,2)$ we get:
+%
+\begin{align*}
+  \text{Find min/max of } & f(x,y) = xy \\
+  %
+  \text{Subject to } & g(x,y) = x+y-2 =0
+\end{align*}
+
+
+\pause
+The Lagrange function is
+%
+$$F(x,y,\lambda) = f(x,y) - \lambda g(x,y) = xy - \lambda(x+y-2)$$
+
+\pause
+The critical points of $F$ are the solutions of the system
+%
+$$\left\{
+\begin{array}{ll}
+  F_x(x,y,\lambda) & = 0 \\
+  F_y(x,y,\lambda) & =0\\
+  F_\lambda(x,y,\lambda) & =0
+\end{array}
+\right. \Longleftrightarrow
+\left\{
+\begin{array}{ll}
+  y-\lambda & = 0 \\
+  x-\lambda & =0\\
+  x+y=2 & =0
+\end{array}
+\right. \Longleftrightarrow
+\left\{
+\begin{array}{ll}
+  x & = 1 \\
+  y & = 1\\
+  \lambda & =1
+\end{array}
+\right.
+ $$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Gradient Analysis}
+
+    \begin{itemize}
+      \item \pause $(\nabla f)_{(1,1)} = \langle y, x \rangle|_{x=1,y=1} = \langle 1,1\rangle$.
+      \item \pause If we move along the direction of the gradient at $(1,1)$:
+      \begin{itemize}
+        \item the value of the objective would increase;
+        \item the level curves of $f$ we cross no longer intersect the constraint
+        \item those levels of $f$ are unattainable on the constraint set $x+y=2$.
+      \end{itemize}
+      \item \pause The point $(1,1)$ corresponds to a local maxim.
+    \end{itemize}
+
+\pause
+Three more critical points on the boundary: $(-1,1)$, $(-1,-1)$, $(1,-1)$.
+
+\pause
+Compare the values at all points:
+\begin{itemize}
+  \item the global maximum is 1, attained at $(1,1)$ and $(-1,-1)$;
+  \item the global minimum is -1, attained at $(1,-1)$ and $(-1,1)$;
+  \item the critical point $(0,0)$ is a saddle point.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multiple Constraints}
+
+\begin{align*}
+  \text{ Find } & \min/\max f(x,y,z) \\
+  \text{ Subject to } & g(x,y,z) = 0 \\
+                      & h(x,y,z) = 0
+\end{align*}
+%
+\pause
+Each constraint defines a surface $\Longrightarrow$ their intersection defines a curve.
+
+\pause
+Condition: $(\nabla g)_P$$(\nabla h)_P$ are non-collinear for each intersection point $P$
+
+The level surface of $f$ through a point of extreme $P_0$ is tangent to the constraint curve, so $(\nabla f)(P_0)$ is perpendicular to the curve at $P_0$.
+
+Constraint curve included in both surfaces $\Longrightarrow$
+
+$(\nabla g)(P_0)$ and $(\nabla h)(P_0)$ are perpendicular to the curve $\Longrightarrow$
+
+\pause
+there exist constants $\lambda$ and $\mu$ such that
+%
+$$(\nabla f)(P_0) = \lambda (\nabla g)(P_0) + \mu (\nabla h)(P_0)\; .$$
+
+\pause
+The Lagrange function is in this case
+%
+$$F(x,y,z,\lambda,\mu) = f(x,y,z) - \lambda g(x,y,z) - \mu h(x,y,z)$$
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+
+  Find the extreme points of $x+2y$ on the intersection of the the cylinder $y^2+z^2=5$ and the plane $x+y+z=1$.
+
+\begin{itemize}
+  \item \pause Objective function: \pause $f(x,y,z) = x+2y$.
+  %
+  \item \pause Constraints: \pause $g(x,y,z) = y^2+z^2-5$ and $h(x,y,z) = x+y+z-1$.
+  %
+  \item \pause Lagrange function:\pause
+  %
+  $$F(x,y,z,\lambda,\mu) = x+2y - \lambda (y^2+z^2-5)- \mu (x+y+z-1)\; .$$
+  %
+  \item \pause Critical points of $F$: \pause $(1,\sqrt{5/2},-\sqrt{5/2})$ and $(1,-\sqrt{5/2},\sqrt{5/2})$
+  %
+\item \pause Values of objective function at these points:\pause
+  %
+  $$f(1,\sqrt{5/2},-\sqrt{5/2}) = 1+2\sqrt{5/2}, \quad  f(1,-\sqrt{5/2},\sqrt{5/2}) = 1-2\sqrt{5/2}\; .$$
+  %
+  \item \pause Constraint set is bounded and closed, function $f$ is continuous $\Longrightarrow$
+       $f$ attains its extreme on the constraint $\Longrightarrow$\\
+       $(1,-\sqrt{5/2},\sqrt{5/2})$ corresponds to an absolute minimum and $(1,\sqrt{5/2},-\sqrt{5/2})$ corresponds to an absolute maximum.
+  %
+  \item The minimum value is $f(1,-\sqrt{5/2},\sqrt{5/2}) = 1-2\sqrt{5/2}$ and the maximal value is $f(1,\sqrt{5/2},-\sqrt{5/2})=1+2\sqrt{5/2}$.
+\end{itemize}
+\end{frame}
+
 \input{../../modules/optimization-multivariable/gradient-normal-to-level-curve}
 \input{../../modules/optimization-multivariable/lagrange-multipliers}
 \input{../../modules/optimization-multivariable/lagrange-multipliers-example-box-no-lid-volume}
@@ -574,25 +794,18 @@
 \input{../../modules/integration-line-integrals/line-integrals-via-double-integrals-example2}
 \input{../../modules/integration-line-integrals/greens-theorem-to-integrate-darctanydivx-part1}
 \input{../../modules/integration-line-integrals/greens-theorem-to-integrate-darctanydivx-part2}
-
-
 % % % % % %%\input{../../modules/integration-line-integrals/divergence-and-curl-2d}
-
 % % % % % %%%\input{../../modules/integration-line-integrals/divergence-2d-interpretation}
-
 % % % % % %%\input{../../modules/integration-line-integrals/curl-2d-interpretation}
-
 % % % % % %%\input{../../modules/integration-line-integrals/curl-divergence-2d-polar}
-
 % % % % % %%\input{../../modules/integration-line-integrals/curl-2d-example-rotational-field}
-
 % % % % % %%\input{../../modules/integration-line-integrals/curl-2d-example-inverse-distance-square-field}
-
 % % % % % %%\input{../../modules/integration-line-integrals/average-value-over-2d-region}
-
 % % % % % %%\input{../../modules/integration-line-integrals/centroids-mass-centers-2d-regions}
-
-
 }
+
+\lect{Fall 2014}{Lecture 19 \alert<1->{Rough Draft}}{19}{
+}
+
 
 \end{document}

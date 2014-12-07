@@ -1,0 +1,42 @@
+\begin{frame}
+  \frametitle{Tangent Plane}
+
+  Let $\textbf{F} \colon D \to \RR^3$, $\textbf{F}(u,v) = (f(u,v), g(u,v), h(u,v))$ be a local parametrization of a surface $S$,
+
+  $P = \textbf{F}(u_0,v_0)$: point on $S$.
+
+  The \emph{tangent plane} to $S$ at $P$:
+  \begin{itemize}
+    \item passes through $P$;
+    \item contains vectors tangent at $P$ to curves on $S$ passing through $P$.
+  \end{itemize}
+\begin{overlayarea}{\textheight}{5cm}
+\only<2>{
+  We get curves on $S$ from curves in $D$, using $\textbf{F}$:
+%
+$$\gamma(t) = \textbf{F}(u(t), v(t)) = (f(u(t),v(t)), g(u(t),v(t)), h(u(t),v(t)))$$
+%
+$\gamma(0) = P$ $\Longrightarrow$ $u(0)=u_0$ and $v(0)=v_0$
+%
+$$\bm{\gamma}'(0) = u'(0)\textbf{F}_u(u_0,v_0) + v'(0) \textbf{F}_v(u_0,v_0)$$
+%
+Tangent vector at $P$: linear combination of $\textbf{F}_u$ and $\textbf{F}_v$.
+}
+\only<3>{
+Tangent plane: parallel to $\textbf{F}_u(u_0,v_0)$ and $\textbf{F}_v(u_0,v_0)$.
+
+Normal to the plane tangent to $S$ at $P=\textbf{F}(u_0,v_0)$:
+%
+$$\textbf{N}(u_0,v_0) = \textbf{F}_u(u_0,v_0) \times \textbf{F}_v(u_0,v_0)$$
+%
+Equation for the tangent plane:
+%
+$$(\textbf{r}-\textbf{F}(u_0,v_0)) \cdot \textbf{N}(u_0,v_0) = 0 \; .$$
+%
+Vectorial parametric equation for the line normal to $S$ at $P$:
+%
+$$\textbf{r}(t) = \textbf{F}(u_0,v_0) + t \textbf{N}(u_0,v_0)\; .$$
+}
+\end{overlayarea}
+
+\end{frame}

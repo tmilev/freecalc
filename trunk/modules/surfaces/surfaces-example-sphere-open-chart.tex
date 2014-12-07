@@ -1,0 +1,45 @@
+\begin{frame}
+\frametitle{Example: parametrization of part of sphere}
+\begin{itemize}
+\item Consider $f \colon (0,2\pi) \times (0,\pi) \to \RR^3$ given by
+\[f(t,s) = (R\sin{s}\cos{t}, R\sin{s}\sin{t},
+R\cos{s}) \; .\]
+
+\item<2-> The image of $f$ is a subset of the
+sphere of radius $R$ centered at the origin.
+
+\item<3-> Which points of the sphere are not covered
+by the image of $f$?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+
+  Let $R$ be fixed and
+  $\textbf{F} \colon (0,\pi)\times (0,2\pi) \to \RR^3$ be given by
+%
+$$\textbf{F}(s,t) = \langle R\sin{s}\cos{t}, R\sin{s}\sin{t}, R\cos{s}\rangle \; .$$
+%
+Image of $\textbf{F}$: \pause open subset on the sphere $S_R(O)$.\pause
+
+\begin{itemize}
+  \item  $\textbf{F}$ is defined on the open subset \pause $D= (0,\pi) \times (0,2\pi) \subset \RR^2$;\pause
+  \item $\textbf{F}$ is $1-1$: \pause $\textbf{F}(s_1,t_1) = \textbf{F}(s_2,t_2) \Longleftrightarrow (s_1,t_1) = (s_2,t_2)$;\pause
+  \item Components of $\textbf{F}$ are differentiable:\pause
+  %
+  $$f_1(s,t) = R\sin{s}\cos{t}, \quad
+  f_2(s,t) = R\sin{s}\sin{t}, \quad
+  f_3(s,t) = R\cos{s}\; .$$
+  %
+  \item \pause $\textbf{F}_s$ and $\textbf{F}_t$ are non-collinear:\pause
+  %
+  \begin{align*}
+    \textbf{F}_s & = \langle R\cos{s}\cos{t}, R\cos{s}\sin{t}, -R\sin{s} \rangle \\
+    \textbf{F}_t & = \langle -R\sin{s}\sin{t}, R\sin{s}\cos{t}, 0 \rangle
+  \end{align*}
+%
+$$|\textbf{F}_s \times \textbf{F}_t| = R^2\sin{s} \neq 0 $$
+\end{itemize}
+
+\end{frame}
