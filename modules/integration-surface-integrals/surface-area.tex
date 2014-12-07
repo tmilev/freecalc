@@ -1,0 +1,28 @@
+\begin{frame}
+  \frametitle{Surface Area}
+
+\begin{itemize}
+  \item $\varphi \colon D \to \RR^3$ be a local parametrization;
+  \item $(u_0,v_0)$ a point in the parameter space and $P = \varphi(u_0,v_0)$;
+  \item $B = [u_0,u_0 + \Delta u] \times [v_0,v_0+\Delta v]$: small rectangle in the parameter space;
+  \item $E=\varphi(B)$ the corresponding patch on the surface;
+\end{itemize}
+
+\pause
+$E \simeq$ curvilinear box on $S$ with one vertex at $\bm{\varphi}(u_0,v_0)$ and directions
+%
+\begin{align*}
+  \bm{\varphi}(u_0+\Delta u,v_0) - \bm{\varphi}(u_0,v_0) & \simeq  \bm{\varphi}_u (u_0,v_0) \Delta u \\
+  %
+  \bm{\varphi}(u_0,v_0+\Delta v) - \bm{\varphi}(u_0,v_0) & \simeq  \bm{\varphi}_v (u_0,v_0) \Delta v
+\end{align*}
+%
+$$\text{area}(E) \simeq |\bm{\varphi}_u(u_0,v_0) \Delta u \times \bm{\varphi}_v(u_0,v_0)\Delta v| = |\bm{\varphi}_u(u_0,v_0) \times \bm{\varphi}_v(u_0,v_0)| \Delta u \Delta v\; .$$
+%
+$$dS = |\bm{\varphi}_u(u,v) \times \bm{\varphi}_v(u,v)| \, du\, dv\, .$$
+%
+\pause If $B$ is a compact (bounded and closed) subset of $D$, then $S=\varphi(B)$ is a compact surface in space and
+%
+$$\text{Area}(S) = \iint_{S} \, 1\,dS = \iint_B |\bm{\varphi}_u(u,v) \times \bm{\varphi}_v(u,v)| \, du\, dv\; .$$
+%
+\end{frame}
