@@ -1,0 +1,122 @@
+
+
+\begin{frame}
+  \frametitle{Example}
+
+Find the maximum and the minimum values of $f(x,y) = xy$ on the region $D = \{ (x,y) \; | \; |x|+|y| \leqslant 2 \}$.
+\pause
+
+Region: \pause closed square of vertices $(2,0)$, $(0,2)$, $(-2,0)$, and $(0,-2)$.
+
+\pause
+
+The function is continuous and the domain is bounded and closed.
+
+Extreme Value Theorem $\Longrightarrow$ $f$ has global minimum and maximum points.
+
+\pause
+\underline{Strategy}:
+%
+\begin{itemize}
+  \item Find critical points in the interior of the disk;
+  \item Find extreme points on the boundary of the disk;
+  \item Compare the values.
+\end{itemize}
+
+\pause
+Since $f$ is differentiable everywhere, the interior extreme points are among the solutions of the system
+%
+$$\left\{
+\begin{array}{ll}
+  f_x(x,y) = &  0 \\
+  %
+  f_y(x,y) = &  0
+\end{array}
+\right.
+%
+\Longleftrightarrow
+%
+\left\{
+\begin{array}{ll}
+  y = &  0 \\
+  %
+  x= &  0
+\end{array}
+\right.
+$$
+\end{frame}
+
+
+
+\begin{frame}
+  Find the maximum and the minimum values of $f(x,y) = xy$ on the region $D = \{ (x,y) \; | \; |x|+|y| \leqslant 2 \}$.
+
+  Extreme points on the boundary: check each of the four sides.
+
+  For the segment joining $(2,0)$ with $(0,2)$ we get:
+%
+\begin{align*}
+  \text{Find min/max of } & f(x,y) = xy \\
+  %
+  \text{Subject to } & g(x,y) = x+y-2 =0
+\end{align*}
+
+
+\pause
+The Lagrange function is
+%
+$$F(x,y,\lambda) = f(x,y) - \lambda g(x,y) = xy - \lambda(x+y-2)$$
+
+\pause
+The critical points of $F$ are the solutions of the system
+%
+$$\left\{
+\begin{array}{ll}
+  F_x(x,y,\lambda) & = 0 \\
+  F_y(x,y,\lambda) & =0\\
+  F_\lambda(x,y,\lambda) & =0
+\end{array}
+\right. \Longleftrightarrow
+\left\{
+\begin{array}{ll}
+  y-\lambda & = 0 \\
+  x-\lambda & =0\\
+  x+y=2 & =0
+\end{array}
+\right. \Longleftrightarrow
+\left\{
+\begin{array}{ll}
+  x & = 1 \\
+  y & = 1\\
+  \lambda & =1
+\end{array}
+\right.
+ $$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Gradient Analysis}
+
+    \begin{itemize}
+      \item \pause $(\nabla f)_{(1,1)} = \langle y, x \rangle|_{x=1,y=1} = \langle 1,1\rangle$.
+      \item \pause If we move along the direction of the gradient at $(1,1)$:
+      \begin{itemize}
+        \item the value of the objective would increase;
+        \item the level curves of $f$ we cross no longer intersect the constraint
+        \item those levels of $f$ are unattainable on the constraint set $x+y=2$.
+      \end{itemize}
+      \item \pause The point $(1,1)$ corresponds to a local maxim.
+    \end{itemize}
+
+\pause
+Three more critical points on the boundary: $(-1,1)$, $(-1,-1)$, $(1,-1)$.
+
+\pause
+Compare the values at all points:
+\begin{itemize}
+  \item the global maximum is 1, attained at $(1,1)$ and $(-1,-1)$;
+  \item the global minimum is -1, attained at $(1,-1)$ and $(-1,1)$;
+  \item the critical point $(0,0)$ is a saddle point.
+\end{itemize}
+
+\end{frame}
