@@ -1,0 +1,32 @@
+\begin{frame}
+  \frametitle{Multiple Constraints}
+
+\begin{align*}
+  \text{ Find } & \min/\max f(x,y,z) \\
+  \text{ Subject to } & g(x,y,z) = 0 \\
+                      & h(x,y,z) = 0
+\end{align*}
+%
+\pause
+Each constraint defines a surface $\Longrightarrow$ their intersection defines a curve.
+
+\pause
+Condition: $(\nabla g)_P$$(\nabla h)_P$ are non-collinear for each intersection point $P$
+
+The level surface of $f$ through a point of extreme $P_0$ is tangent to the constraint curve, so $(\nabla f)(P_0)$ is perpendicular to the curve at $P_0$.
+
+Constraint curve included in both surfaces $\Longrightarrow$
+
+$(\nabla g)(P_0)$ and $(\nabla h)(P_0)$ are perpendicular to the curve $\Longrightarrow$
+
+\pause
+there exist constants $\lambda$ and $\mu$ such that
+%
+$$(\nabla f)(P_0) = \lambda (\nabla g)(P_0) + \mu (\nabla h)(P_0)\; .$$
+
+\pause
+The Lagrange function is in this case
+%
+$$F(x,y,z,\lambda,\mu) = f(x,y,z) - \lambda g(x,y,z) - \mu h(x,y,z)$$
+
+\end{frame}
