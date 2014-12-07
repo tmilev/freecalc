@@ -1,0 +1,39 @@
+\begin{frame}
+\frametitle{Surface Integral Motivation}
+
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-2.2,-2)(2,2)%
+\tiny%
+\fcBoundingBox{-2.2}{-1.4}{2.1}{2.2}%
+\pstVerb{%
+5 dict begin%
+/theEllipsoidTop {[u v u 2 div dup mul v 1.5 div dup mul add 1 exch sub sqrt]} def%
+/basePoint 2 dict begin /u 1 def /v 0 def theEllipsoidTop end def%
+/tangent1 [0 1 0] def%
+/tangent2 [1 0 3 sqrt 6 div -1 mul] def%
+}%
+\fcStartIIIdScene%
+\fcSurfaceInScene[forceForeground=false, linecolor=red, iterationsU=7, iterationsV=8, colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2} ]{ -1.4}{-1}{1.4 }{1 }{ theEllipsoidTop}{}%
+\fcFinishIIIdScene%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{itemize}
+\item Let $S$ be a surface in space and let $\diff S$ denote the element of surface area.
+\end{itemize}
+\end{columns}
+
+\begin{itemize}
+\item If $\rho$ is the density of the surface, then $\diff m = \rho \diff S$ is the element of mass, and the total mass is
+\[
+M = \iint_S \diff m = \iint_S \rho  \diff S \; .
+\]
+\item If $\fcv p$ is the pressure function - the density of force with respect to surface area - then the element of force is $\diff \fcv{F} = \diff \fcv p \diff S$. The total force exerted by pressure on the surface is then
+\[
+\fcv{F} = \iint_S \diff \fcv{F} = \iint_S \fcv p \diff S .
+\]
+\item How do we compute surface integrals?
+\end{itemize}
+\end{frame}
