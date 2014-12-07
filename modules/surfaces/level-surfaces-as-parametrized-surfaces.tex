@@ -1,0 +1,38 @@
+\begin{frame}
+  \frametitle{Level Surfaces as Parametrized Surfaces}
+
+Let $f \colon \RR^3 \to R$ be a differentiable function.
+\begin{itemize}
+  \item $P$ is a \emph{critical point} if $(\nabla f)(P) = 0$;
+  \item $c \in \RR$ is a \emph{critical value} if
+%
+$$f^{-1}(c) = \{ (x,y,z) \; | \; f(x,y,z) = c\}$$
+%
+contains a critical point.
+\item If $c$ is not a critical value then it is a \emph{regular} value.
+\end{itemize}
+
+Implicit Function Theorem $\Longrightarrow$
+
+If $c$ is a regular value taken by $f$, then $f^{-1}(c)$ is a smooth surface.
+
+\underline{Examples}:
+ \begin{overlayarea}{\textheight}{5cm}
+ \only<2>{
+ For $f(x,y,z) = ax+by+cz$ with $a$, $b$, $c$ not all zero,
+ \begin{itemize}
+ \item All points $P$ are regular points
+   \item All values $d$ are regular;
+   \item $f^{-1}(d)$ is a smooth surface: the plane $ax+by+cz=d$.
+ \end{itemize}
+ }
+
+ \only<3>{
+ For $f(x,y,z) = x^2+y^2-z^2$,
+ \begin{itemize}
+   \item $(0,0,0)$ is the only critical point $\Longrightarrow$ $0=f(0,0,0)$ is the only critical value.
+   \item $H=f^{-1}(1)$ is a smooth surface: $x^2+y^2-z^2=1$, a hyperboloid with one sheet.
+ \end{itemize}
+ }
+ \end{overlayarea}
+\end{frame}

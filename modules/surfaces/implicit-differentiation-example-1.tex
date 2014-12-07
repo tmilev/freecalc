@@ -1,0 +1,21 @@
+\begin{frame}
+  \frametitle{Example}
+
+  Show that the equation $x^3+y^3+z^3+6xyz =-4$ implicitly defines a function $z=f(x,y)$ around the point $(1,2)$, such that $f(1,2) = -1$. Compute the partial derivatives of this function at $(1,2)$.
+
+\pause
+\medskip
+
+Let $F(x,y,z) = x^3+y^3+z^3+6xyz$. Then
+%
+$$F_z(x,y,z) = 3z^2 + 6xy  \Longrightarrow F_z(1,2,-1) = 15$$
+%
+\pause Since $F_z(1,2,-1) \neq 0$, it follows that $F(x,y,z) = F(1,2,-1) = 1$ defines $z$ implicitly in terms of $(x,y)$ around $(1,2)$, and
+%
+$$z_x(x,y) = -\frac{F_x(x,y,z)}{F_z(x,y,z)} = -\frac{3x^2 + 6yz}{3z^2 + 6xy} \Longrightarrow z_x(1,2) = \frac{3}{5}\; .$$
+%
+\pause Similarly
+%
+$$z_y(x,y) = -\frac{F_y(x,y,z)}{F_z(x,y,z)} = -\frac{3y^2 + 6xz}{3z^2 + 6xy} \Longrightarrow z_y(1,2) = -\frac{2}{5}\; .$$
+
+\end{frame}

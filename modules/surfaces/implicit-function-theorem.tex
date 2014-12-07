@@ -1,0 +1,30 @@
+\begin{frame}
+  \frametitle{Implicit Function Theorem}
+
+    \begin{itemize}
+      \item $F$: function
+      \begin{itemize}
+        \item defined for all points in a ball around the point $P(x_0,y_0,z_0)$,
+        \item with continuous partial derivatives.
+      \end{itemize}
+      %
+      \item $S$: the level surface of $F$ through $P$, for the level $k = F(x_0,y_0,z_0)$.
+    \end{itemize}
+
+\pause If $F_z(x_0,y_0,z_0) \neq 0$, then there exists a function $z=f(x,y)$
+\begin{itemize}
+  \item defined on an open disk $D$ centered at $(x_0,y_0)$,
+  %
+  \item such that $F(x,y,f(x,y)) = k$ for all $(x,y)$ in $D$,
+  %
+  \item and such that $f(x_0,y_0) = z_0$.
+\end{itemize}
+
+\pause Moreover:
+\begin{itemize}
+  \item For each fixed disk $D$ the function $z=f(x,y)$ is unique.
+  \item The function $z=f(x,y)$ has partial derivatives and
+%
+$$z_x(x,y) = -\frac{F_x(x,y,z)}{F_z(x,y,z)}\quad \text{and}\quad z_y(x,y) = -\frac{F_y(x,y,z)}{F_z(x,y,z)}$$
+\end{itemize}
+\end{frame}

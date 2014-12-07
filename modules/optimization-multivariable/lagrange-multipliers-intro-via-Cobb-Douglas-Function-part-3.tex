@@ -1,0 +1,70 @@
+\begin{frame}
+  \frametitle{Geometric Method}
+
+  At the point $(K_0,L_0)$ of maximal production:\pause
+
+\begin{itemize}
+  \item Level curves $P(K,L) = P(K_0,L_0)$ and $C(K,L) = C(K_0,L_0)$ are tangent;\pause
+  \item Gradients of $P$ and $C$ at $(K_0,L_0)$ are  collinear.
+\end{itemize}
+
+\pause There exists a scalar $\lambda_0$ such that
+%
+\begin{align*}
+  (\nabla P)_{(K_0,L_0)} = & \lambda_0 (\nabla C)_{(K_0,L_0)} \pause \Longrightarrow
+\left\{ \begin{array}{ll}
+  P_K(K_0,L_0) = & \lambda_0 C_K(K_0,L_0) \\
+  %
+  P_L(K_0,L_0) = & \lambda_0 C_L(K_0,L_0)
+\end{array}
+\right. \\
+\Longrightarrow & \left\{ \begin{array}{ll}
+  P_K(K_0,L_0) = & 3 \lambda_0 \\
+  %
+  P_L(K_0,L_0) = & 2 \lambda_0
+\end{array}
+\right. \; \Longrightarrow \frac{P_K(K_0,L_0)}{3}=\frac{P_L(K_0,L_0)}{2}\; .
+\end{align*}
+%
+\end{frame}
+
+\begin{frame}
+  The triple $(K_0,L_0,\lambda_0)$ is a solution of the system
+%
+$$\left\{ \begin{array}{ll}
+  P_K(K,L) = & 3\lambda\\
+  %
+  P_L(K,L) = & 2\lambda  \\
+  %
+  C(K,L) = & 16
+\end{array} \right.
+%
+\Longleftrightarrow
+%
+\left\{ \begin{array}{ll}
+  \frac{3}{4} L^{1/4}K^{-1/4} = & 3\lambda\\
+  %
+  & \\
+  %
+  \frac{1}{4} L^{-3/4}K^{3/4} = & 2\lambda  \\
+  %
+  & \\
+  %
+  3K+2L = & 16
+\end{array} \right.
+$$
+
+\pause
+The system is not linear; we've not studied any methods for solving such systems. \pause
+
+In this particular case:
+%
+$$\frac{1}{4} L^{1/4}K^{-1/4} = \lambda = \frac{1}{8} L^{-3/4}K^{3/4} \Longrightarrow \frac{K}{L}=2 \Longrightarrow K = 2L\; .$$
+%
+From $K=2L$ and $3K+2L=16$ we get \pause $L=2$ and $K=4$.\pause
+
+How do we know that $K=4$ and $L=2$ corresponds to a maximum? \pause
+
+Geometric argument using the direction of the gradient $(\nabla P)(4,2)$.
+
+\end{frame}
