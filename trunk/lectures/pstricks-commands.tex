@@ -1489,7 +1489,7 @@ end
 }ifelse
 }
 
-\newcommand{\fcFinishIIIdScene}[1][]{%
+\newcommand{\fcFinishIIIdScene}[1][fastsort=false]{%
 \setkeys{fcGraphics}{#1}%
 \pscustom{%
 \code{%
@@ -1933,6 +1933,7 @@ end %
 /theColor {0 0 0} def%
 /colorNotFound true def%
 (#1) (black) eq (#1) (black ) eq or{/theColor {0 0 0} def /colorNotFound false def}if%
+(#1) (white) eq (#1) (white ) eq or{/theColor {1 1 1} def /colorNotFound false def}if%
 (#1) (red) eq (#1) (red ) eq or{/theColor {1 0 0} def /colorNotFound false def}if%
 (#1) (blue) eq (#1) (blue ) eq or{/theColor {0 0 1} def /colorNotFound false def}if%
 (#1) (green) eq (#1) (green ) eq or{/theColor {0 1 0} def /colorNotFound false def}if%

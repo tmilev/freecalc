@@ -1,0 +1,54 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+
+\column{0.4\textwidth}
+\column{0.6\textwidth}
+Compute the flux of  $\fcv{X} = ax \fcv{i}$ across the sphere $S$ of radius $R$ centered at the origin, positively oriented.
+\end{columns}
+
+A parametrization of $S$ is $\fcv f \colon [0,\pi] \times [0,2\pi]\to \RR^3$,
+
+\[
+\begin{array}{rcl}
+\fcv f &=& (R\sin{u}\cos{v}, R\sin{u}\sin{v}, R\cos{u}) \\
+\fcv f_u &=& \left( R\cos{u}\cos{v}, R\cos{u}\sin{v}, -R\sin{u}\right) \\
+\fcv f_v &= & \left( -R\sin{u}\sin{v}, R\sin{u}\cos{v}, 0 \right)\\
+\fcv f_u \times \fcv f_v & =& \left( R^2\sin^2{u}\cos{v}, R^2\sin^2{u}\sin{v}, R^2\sin{u}\cos{u} \right) \\
+&=& R\sin{u}  \fcv{r} = R^2\sin{u}\, \fcv{N}\\
+\iint_S \fcv{X} \cdot \fcv{\diff S}&= & \iint_D \fcv{X}(\fcv f(u,v)) \cdot (\fcv f_u \times \fcv f_v) \, \diff u\, \diff v  \\
+&= & \int_{u=0}^{u=\pi} \int_{v=0}^{v=2\pi} a\, R\sin{u}\cos{v}\, R^2\sin^2{u}\cos{v}\; \diff u\, \diff v  \\
+&= & aR^3 \left( \int_{u=0}^{u=\pi} \sin^3{u} \, \diff u \right) \left( \int_{v=0}^{v=2\pi} \cos^2{v}\, \diff v \right) \\
+&=& aR^3 \cdot \frac{4}{3} \cdot \pi = \frac{4\pi aR^3}{3}\; .
+\end{array}
+\]
+
+\end{example}
+\end{frame}
+
+\begin{frame}
+\begin{example}
+\begin{columns}
+
+\column{0.4\textwidth}
+\column{0.6\textwidth}
+Compute the fluxes of  $\fcv{X} = ax \fcv{i}$,  $\fcv{Y} = by \fcv{j}$,  $\fcv{Z}=cz \fcv k$ across the sphere $S$ of radius $R$ centered at the origin, positively oriented.
+\end{columns}
+
+$$\iint_S ax\fcv{i} \cdot \fcv{\diff S}= \frac{4\pi aR^3}{3} ,\quad
+\iint_S by\fcv{j} \cdot \fcv{\diff S}= \frac{4\pi bR^3}{3},\quad
+\iint_S cz\fcv{k} \cdot \fcv{\diff S}= \frac{4\pi cR^3}{3}
+ $$
+
+\pause If $\fcv{X} = ax\, \fcv{i} + by\, \fcv{j} + cz\, \fcv{k}$, then
+
+$$\iint_S \fcv{X} \cdot \fcv{\diff S} = \frac{4\pi R^3}{3} (a+b+c) = (a+b+c) \text{vol}(B)\; ,$$
+
+where $B$ is the volume of the ball enclosed by the sphere $S$.
+
+\[
+\divg \fcv{X} (0) = \lim_{R\to 0} \frac{3}{4\pi R^3} \iint_{S_R(0)} \fcv{X} \cdot \fcv{\diff S} = \lim_{R \to 0} (a+b+c) = a+b+c\; .
+\]
+
+\end{example}
+\end{frame}

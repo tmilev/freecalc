@@ -1,0 +1,44 @@
+\begin{frame}
+\frametitle{Surface Integral Definition}
+\begin{columns}
+\column{0.23\textwidth}
+\begin{pspicture}(-2.2,-2)(2,2)%
+\tiny%
+\renewcommand{\fcScreen}{[-1 1.9 -2.4] -1}
+\fcBoundingBox{-0.2}{-0.4}{1.2}{1.2}%
+\pstVerb{%
+25 dict begin%
+/sphereTopSurfaceDef {[u v u 1 div dup mul v 1 div dup mul add 2.6 exch sub sqrt]} def%
+/basePoint 2 dict begin /u 0 def /v 0 def sphereTopSurfaceDef end def%
+/basePointMovedDeltaU 2 dict begin /u 1 def /v 0 def sphereTopSurfaceDef end def%
+/basePointMovedDeltaV 2 dict begin /u 0 def /v 1 def sphereTopSurfaceDef end def%
+/tangent1 [0 1 0] def%
+/tangent2 [1 0 0] def%
+/uvC {1 0.8 0.8} def
+/vuC {0.7 0.2 0.2} def
+}%
+\fcStartIIIdScene%
+\fcSurfaceInScene[forceForeground=true, linecolor=black, iterationsU=2, iterationsV=2, colorUV= uvC, colorVU=vuC]{ -1}{-1}{1 }{1 }{sphereTopSurfaceDef}{}
+\fcFinishIIIdScene%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.77\textwidth}
+\begin{itemize}
+\item Let $S$ be a surface in space.
+\item Let $\fcv f\colon D \to S \subset \RR^3$ be global parametrization of $S$.
+\item Let $h$ be a continuous (scalar or vector-valued) function in 3 variables that is defined on $S$.
+\end{itemize}
+\end{columns}
+\begin{definition}
+\small $\displaystyle \iint\limits_{S=\fcv f(D)}\!\!h~   \diff S =\! \iint\limits_{D}\!\! h( \fcv f (u,v) ) ~ | \fcv f_u \times \fcv f_v|  \diff u \diff v=\! \iint\limits_{D}\!\! h( \fcv f (u,v) )   \sqrt{
+\left|\begin{array}{cc}
+\fcv f_u \cdot \fcv f_u &\fcv f_u \cdot \fcv f_v\\
+\fcv f_v \cdot \fcv f_u &\fcv f_v \cdot \fcv f_v 
+\end{array} \right|}  ~ \diff u \diff v .$
+\end{definition}
+We extend the definition to surfaces $S$ that don't necessarily have a global parametrization as follows.
+\begin{itemize}
+\item  Suppose $S$ can be split into finitely many pieces $S_1$, \ldots $S_N$ with non-overlapping interiors such that each piece $S_k$ has a global parametrization.
+\item We compute the surface integral over each $S_i$ and sum.
+\end{itemize}
+\end{frame}

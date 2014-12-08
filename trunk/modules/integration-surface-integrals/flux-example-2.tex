@@ -1,0 +1,42 @@
+\begin{frame}
+\begin{example}
+
+\begin{columns}
+
+\column{0.4\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(1,1)
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsV=12]{0}{0}{2}{360}{[v cos u mul v sin u mul 4 u u mul sub]}{}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+
+\column{0.6\textwidth}
+Let $S$ be the part of the paraboloid $z=4-x^2-y^2$ above the $xy-$plane, oriented upward, and $\fcv{X} = a \fcv{i} + b \fcv{j} + c \fcv{k}$. Compute
+$\iint_S \fcv {X} \cdot \fcv{\diff S} \; .$
+\end{columns}
+
+
+
+\pause Parametrization: $\varphi \colon B \to \RR^3$, $\varphi(u,v) = (v,u,4-u^2-v^2)$
+%
+$$\bm{\varphi}_u \times \bm{\varphi}_v = \langle 0,1,-2v\rangle \times \langle 1,0,-2u\rangle = \left| \begin{array}{ccc}
+i & j & k \\
+0 & 1 & -2v\\
+1 & 0 & -2u
+\end{array}\right| = -2u \, \textbf{i} - 2v\, \textbf{j} - \textbf{k }\; .$$
+%
+$$\textbf{N} = -\frac{\bm{\varphi}_u \times \bm{\varphi}_v}{|\bm{\varphi}_u \times \bm{\varphi}_v|}\; .$$
+%
+\begin{align*}
+  \textbf{X} &\cdot \textbf{dS}  = \textbf{X} \cdot \textbf{n} \, dS =  \textbf{X} \cdot \left( -\frac{\bm{\varphi}_u \times \bm{\varphi}_v}{|\bm{\varphi}_u \times \bm{\varphi}_v|}\right) \, |\bm{\varphi}_u \times \bm{\varphi}_v| \, du\, dv = \\
+  %
+  & = (a\, \textbf{i} +b\, \textbf{j} +c\, \textbf{k}) \cdot (2u \, \textbf{i} + 2v\, \textbf{j} + \textbf{k}) \, du\, dv = (2au +2bv +c)\, du\, dv\; ,
+\end{align*}
+%
+hence
+%
+$$\iint_S \textbf{X} \cdot \textbf{dS} = \iint_B (2au +2bv +c)\, du\, dv = c\,\iint_B \, du\, dv = c \cdot 4\pi = 4\pi\, c\; .$$
+
+\end{example}
+\end{frame}

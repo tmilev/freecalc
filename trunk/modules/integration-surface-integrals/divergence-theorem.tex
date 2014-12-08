@@ -1,0 +1,73 @@
+\begin{frame}
+  \frametitle{Divergence}
+
+\underline{Recall}: The \emph{divergence}\index{divergence} of $\textbf{X}$ at $p$ is the density of flux\index{density!of flux}:
+%
+$$(\divg \textbf{X})(p) = \lim_{D\to \{p\}} \frac{1}{\text{vol}(D)} \iint_S \bm{X} \cdot \bm{N}dS \; ,$$
+%
+if the limit exists. \pause The limit does exist when $X$ is reasonably smooth.
+
+\pause We have seen similar limits when we talked about average values:
+%
+$$f(P) = \lim_{D\to\{p\}} \frac{1}{\text{vol}(D)} \int\!\!\!\!\int\!\!\!\!\int_D f(Q)\, dV\; .$$
+%
+\pause However:
+\begin{itemize}
+  \item the definition of $\divg \textbf{X}$ involves a surface integral
+  \item the definition of average involves a triple integral
+\end{itemize}
+
+\pause We should somehow transform the surface integral into a triple integral.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Divergence Theorem}
+
+\begin{theorem}{\rm
+  Let $D$ be a compact set in space with boundary $S$ a piecewise smooth parametrized surface, oriented by the outward normal, and let
+%
+$$\textbf{X}(x,y,z) = P(x,y,z) \, \textbf{i} + Q(x,y,z) \, \textbf{j} + R(x,y,z)\, \textbf{k}$$
+%
+be a smooth vector field defined on $D$. Then
+%
+$$\iint_S \bm{X} \cdot \bm{dS} = \int\!\!\!\!\!\int\!\!\!\!\!\int_D \left(\frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \, dV$$
+}\end{theorem}
+%
+\pause \underline{Consequence}:
+%
+\begin{align*}
+  (\divg \textbf{X}) (p) = &
+\lim_{D\to \{P\}} \frac{1}{\text{vol}(D)}\int\!\!\!\!\!\int_S \textbf{X} \cdot \textbf{dS}  = \\
+= & \lim_{D\to \{P\}} \frac{1}{\text{vol}(D)}\int\!\!\!\!\!\int\!\!\!\!\!\int_D \left(\frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \, dV =
+  \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\; .
+\end{align*}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Divergence Theorem}
+
+%
+If $\textbf{X} = P\, \textbf{i} + Q\, \textbf{j} +R\, \textbf{k}$, then
+%
+$$\divg \textbf{X} = \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}  = ``\langle \partial_x, \partial_y, \partial_z \rangle \cdot \langle P, Q, R\rangle" =  ``\nabla \cdot \textbf{X}"\; .$$
+
+Intuitive notation:
+%
+$$\divg \textbf{X} = \nabla \cdot \textbf{X}\, .$$
+
+\pause Confirmed by the example of $\textbf{X} = ax \, \textbf{i} + by\, \textbf{j} + cz\, \textbf{k}$ $\Longrightarrow$ $\divg \textbf{X} = a+b+c$.\pause
+
+\begin{theorem}
+  %
+$$\iint_S \bm{X} \cdot \bm{dS} = \int\!\!\!\!\!\int\!\!\!\!\!\int_D \divg \textbf{X} \, dV$$
+\end{theorem}
+
+\begin{itemize}
+  \item \pause If $(\divg \textbf{X})(p)>0$, then \pause $p$ acts as a source;
+  \item \pause If $(\divg \textbf{X})(p)<0$, then \pause $p$ acts as a sink;
+  \item \pause If $\divg \textbf{X} \equiv 0$ on some domain $D$, then \pause $\textbf{X}$ is incompressible on $D$.
+\end{itemize}
+
+\end{frame}

@@ -1,0 +1,49 @@
+\begin{frame}
+  \frametitle{Surface Area of Surface of Revolution}
+\begin{columns}
+\column{0.35\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.5}{-1.5}{1.5}{1}
+\pstVerb{
+/hyperboloidExampleSR {[
+u cos v v mul 1 add sqrt mul
+u sin v v mul 1 add sqrt mul
+v
+]} def
+}
+\fcStartIIIdScene
+\only<3>{\fcSurfaceInScene[iterationsU=3]{0}{-1}{120}{1}{hyperboloidExampleSR}{}}
+\only<4>{\fcSurfaceInScene[iterationsU=6]{0}{-1}{240}{1}{hyperboloidExampleSR}{}}
+\only<5->{\fcSurfaceInScene[iterationsU=9]{0}{-1}{360}{1}{hyperboloidExampleSR}{}}
+\fcAxesIIIdInScene{2}{2}{2}
+\fcFinishIIIdScene[fastsort=true]
+\fcCurveIIId[linecolor=blue, linewidth=2pt]{-1}{1}{2 dict begin /u 0 def /v t def hyperboloidExampleSR end}
+\only<3>{\fcCurveIIId[linecolor=blue, linewidth=2pt]{-1}{1}{2 dict begin /u 120 def /v t def hyperboloidExampleSR end}}
+\only<4>{\fcCurveIIId[linecolor=blue, linewidth=2pt]{-1}{1}{2 dict begin /u 240 def /v t def hyperboloidExampleSR end}}
+\end{pspicture}
+\column{0.65\textwidth}
+\begin{itemize}
+\item Let $C$ be parametrized curve in the $x>0$ half plane of the $xz-$plane, parametrized by $x=h(u)$, $z=g(u)$, $a \leq u \leq b$.
+\item<2-> Let $S$ be the surface obtained by revolving $C$ about the $z-$axis.
+\end{itemize}
+
+\end{columns}
+\uncover<6->{
+Parametrize $S$:
+$\left|\begin{array}{rcl}
+x&=&h(v)\cos{u}\\ 
+y&=&h(v)\sin{u}\\
+z&=&g(v)
+\end{array}\right.,u \in[0,2\pi], v\in[a,b] $
+
+\[
+\begin{array}{rcl}
+\displaystyle \diff S &=& \displaystyle |\fcv f_u \times \fcv f_v| \diff u \diff v = h(v) \sqrt{(h'(v)^2+(g'(v))^2}  \diff u \diff v\\
+\displaystyle \text{Area}(S) &= & \displaystyle  \iint\limits_{[a,b]\times [0,2\pi]} h(v) \sqrt{(h'(v))^2+(g'(v))^2}  \diff u \diff v  \\
+&= &\displaystyle  2\pi \int_{[a,b]} h(v) \sqrt{(h'(v)^2+(g'(v))^2}  \diff v = 2\pi \int_C x \diff s
+\end{array}
+\]
+}
+\end{frame}
