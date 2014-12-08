@@ -1,73 +1,64 @@
 \begin{frame}
-  \frametitle{Divergence}
-
-\underline{Recall}: The \emph{divergence}\index{divergence} of $\textbf{X}$ at $p$ is the density of flux\index{density!of flux}:
-%
-$$(\divg \textbf{X})(p) = \lim_{D\to \{p\}} \frac{1}{\text{vol}(D)} \iint_S \bm{X} \cdot \bm{N}dS \; ,$$
-%
-if the limit exists. \pause The limit does exist when $X$ is reasonably smooth.
-
-\pause We have seen similar limits when we talked about average values:
-%
-$$f(P) = \lim_{D\to\{p\}} \frac{1}{\text{vol}(D)} \int\!\!\!\!\int\!\!\!\!\int_D f(Q)\, dV\; .$$
-%
-\pause However:
+\frametitle{Divergence}
 \begin{itemize}
-  \item the definition of $\divg \textbf{X}$ involves a surface integral
-  \item the definition of average involves a triple integral
+\item Recall that the divergence of $\fcv{X}$ at $p$ is the density of flux:
+$(\divg \fcv{X})(p) = \lim_{D\to \{p\}} \frac{1}{\text{vol}(D)} \iint_S \fcv{X} \cdot \fcv{N}\diff S \; ,$
+if the limit exists. 
+\item<2->  The limit does exist when $X$ is reasonably smooth.
+\item<3-> We have seen similar limits when we talked about average values:
+$f(P) = \lim_{D\to\{p\}} \frac{1}{\text{vol}(D)} \iiint_D f(Q)\, \diff V\; .$
+\item<4-> The definition of $\divg \fcv{X}$ involves a surface integral and the definition of average involves a triple integral.
+\item<5-> The next theorem establishes a connection between surface integrals and triple integrals.
 \end{itemize}
-
-\pause We should somehow transform the surface integral into a triple integral.
 \end{frame}
 
 \begin{frame}
   \frametitle{Divergence Theorem}
 
-\begin{theorem}{\rm
-  Let $D$ be a compact set in space with boundary $S$ a piecewise smooth parametrized surface, oriented by the outward normal, and let
-%
-$$\textbf{X}(x,y,z) = P(x,y,z) \, \textbf{i} + Q(x,y,z) \, \textbf{j} + R(x,y,z)\, \textbf{k}$$
-%
-be a smooth vector field defined on $D$. Then
-%
-$$\iint_S \bm{X} \cdot \bm{dS} = \int\!\!\!\!\!\int\!\!\!\!\!\int_D \left(\frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \, dV$$
-}\end{theorem}
-%
-\pause \underline{Consequence}:
-%
-\begin{align*}
-  (\divg \textbf{X}) (p) = &
-\lim_{D\to \{P\}} \frac{1}{\text{vol}(D)}\int\!\!\!\!\!\int_S \textbf{X} \cdot \textbf{dS}  = \\
-= & \lim_{D\to \{P\}} \frac{1}{\text{vol}(D)}\int\!\!\!\!\!\int\!\!\!\!\!\int_D \left(\frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \, dV =
+\begin{theorem}
+Let $D$ be a compact set in space with boundary $S$ a piecewise smooth parametrized surface, oriented by the outward normal, and let $\fcv{X}$ be a smooth vector field on $D$ given by
+\[\fcv{X}(x,y,z)= P (x,y,z) \fcv{i} + Q(x,y,z) \, \fcv{j} + R(x,y,z)\, \fcv{k}\quad .
+\]
+Then
+\[
+\iint_S \fcv{X} \cdot \fcv{\diff S} = \iiint_D \left(\frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \, \diff V
+\]
+\end{theorem}
+\begin{corollary}
+$
+\begin{array}{r@{~}c@{~}l}
+  (\divg \fcv{X}) (p) &= &
+\lim\limits_{D\to \{P\}} \frac{1}{\text{vol}(D)}\iint_S \fcv{X} \cdot \fcv{\diff S}   \\
+&= & \lim\limits_{D\to \{P\}} \frac{1}{\text{vol}(D)}\iiint_D \left(\frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \, \diff V =
   \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\; .
-\end{align*}
-
-
+\end{array}
+$
+\end{corollary}
 \end{frame}
 
 \begin{frame}
   \frametitle{Divergence Theorem}
 
 %
-If $\textbf{X} = P\, \textbf{i} + Q\, \textbf{j} +R\, \textbf{k}$, then
+If $\fcv{X} = P\, \fcv{i} + Q\, \fcv{j} +R\, \fcv{k}$, then
 %
-$$\divg \textbf{X} = \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}  = ``\langle \partial_x, \partial_y, \partial_z \rangle \cdot \langle P, Q, R\rangle" =  ``\nabla \cdot \textbf{X}"\; .$$
+$$\divg \fcv{X} = \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}  = ``\langle \partial_x, \partial_y, \partial_z \rangle \cdot \langle P, Q, R\rangle" =  ``\nabla \cdot \fcv{X}"\; .$$
 
 Intuitive notation:
 %
-$$\divg \textbf{X} = \nabla \cdot \textbf{X}\, .$$
+$$\divg \fcv{X} = \nabla \cdot \fcv{X}\, .$$
 
-\pause Confirmed by the example of $\textbf{X} = ax \, \textbf{i} + by\, \textbf{j} + cz\, \textbf{k}$ $\Longrightarrow$ $\divg \textbf{X} = a+b+c$.\pause
+\pause Confirmed by the example of $\fcv{X} = ax \, \fcv{i} + by\, \fcv{j} + cz\, \fcv{k}$ $\Longrightarrow$ $\divg \fcv{X} = a+b+c$.\pause
 
 \begin{theorem}
   %
-$$\iint_S \bm{X} \cdot \bm{dS} = \int\!\!\!\!\!\int\!\!\!\!\!\int_D \divg \textbf{X} \, dV$$
+$$\iint_S \fcv{X} \cdot \fcv{\diff S} = \iiint_D \divg \fcv{X} \, \diff V$$
 \end{theorem}
 
 \begin{itemize}
-  \item \pause If $(\divg \textbf{X})(p)>0$, then \pause $p$ acts as a source;
-  \item \pause If $(\divg \textbf{X})(p)<0$, then \pause $p$ acts as a sink;
-  \item \pause If $\divg \textbf{X} \equiv 0$ on some domain $D$, then \pause $\textbf{X}$ is incompressible on $D$.
+  \item \pause If $(\divg \fcv{X})(p)>0$, then \pause $p$ acts as a source;
+  \item \pause If $(\divg \fcv{X})(p)<0$, then \pause $p$ acts as a sink;
+  \item \pause If $\divg \fcv{X} \equiv 0$ on some domain $D$, then \pause $\fcv{X}$ is incompressible on $D$.
 \end{itemize}
 
 \end{frame}

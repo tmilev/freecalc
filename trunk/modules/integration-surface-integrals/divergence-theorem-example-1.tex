@@ -1,25 +1,30 @@
 \begin{frame}
-  \frametitle{Example}
+\begin{example}
+\begin{columns}
 
-$S$ is the part of the paraboloid $z=4-x^2-y^2$ above the $xy-$plane, oriented \emph{upward}; $\textbf{X} = a\, \textbf{i} + b\, \textbf{j} + c\, \textbf{k}$. Use the Divergence Theorem to compute
-%
-$$\iint_{S\uparrow} \textbf{X} \cdot \textbf{dS} \; .$$
-%
+\column{0.4\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(1,1)
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsV=12]{0}{0}{2}{360}{[v cos u mul v sin u mul 4 u u mul sub]}{}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
 
-\begin{itemize}
-  \item \pause \underline{Problem}: The surface $S$ does not enclose a region in space;
-  \item \pause We add the disk $D$ of radius 2 centered at the origin in the plane $z=0$;
-  %
-$$\iint_{S\uparrow \cup D\downarrow} \textbf{X} \cdot \textbf{dS} = \iint\!\!\!\int_R\; \divg \textbf{X} \; dV = 0\; ,$$
-%
-\item \pause $R$ orients $D$ with the \emph{downward} normal, hence
-        %
-%
-$$\iint_{S\uparrow} \textbf{X} \cdot \textbf{dS} = \iint_{D\uparrow} \textbf{X} \cdot \textbf{dS}$$
-%
-\end{itemize}
+\column{0.6\textwidth}
+Let $S$ be the part of the paraboloid $z=4-x^2-y^2$ above the $xy-$plane, oriented upward, and $\fcv{X} = a \fcv{i} + b \fcv{j} + c \fcv{k}$. Use the Divergence Theorem to compute
+$\iint_S \fcv {X} \cdot \fcv{\diff S} \; .$
+\end{columns}
+The surface $S$ does not enclose a region in space. However, we add the disk $D$ of radius 2 centered at the origin in the plane $z=0$ to make it closed. $R$ orients $D$ with the downward normal, hence
+\[
+\begin{array}{rcl}
+\iint_{S\uparrow \cup D\downarrow} \fcv{X} \cdot \fcv{\diff S} &=& \iiint_R\; \divg \fcv{X} \; \diff V = 0\; ,\\
+\iint_{S\uparrow} \fcv{X} \cdot \fcv{\diff S} &=& \iint_{D\uparrow} \fcv{X} \cdot \fcv{\diff S}\1uad .
 
-\pause The upward normal to $D$ is $\textbf{k}$, hence $\textbf{X}\cdot \textbf{dS}= \textbf{X}\cdot \textbf{k} \, dS= c\,dS$. Therefore
+\end{array}
+\]
+
+\pause The upward normal to $D$ is $\fcv{k}$, hence $\fcv{X}\cdot \fcv{\diff S}= \fcv{X}\cdot \fcv{k} \, \diff S= c\,\diff S$. Therefore
 %
-$$\iint_{S} \textbf{X} \cdot \textbf{dS} = \iint_{D} \textbf{X} \cdot \textbf{dS} = \iint_D c\, dS = c\cdot\text{area}(D) = 4\pi c\, .$$
+$$\iint_{S} \fcv{X} \cdot \fcv{\diff S} = \iint_{D} \fcv{X} \cdot \fcv{\diff S} = \iint_D c\, \diff S = c\cdot\text{area}(D) = 4\pi c\, .$$
+\end{example}
 \end{frame}
