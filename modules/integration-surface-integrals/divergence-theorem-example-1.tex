@@ -1,0 +1,25 @@
+\begin{frame}
+  \frametitle{Example}
+
+$S$ is the part of the paraboloid $z=4-x^2-y^2$ above the $xy-$plane, oriented \emph{upward}; $\textbf{X} = a\, \textbf{i} + b\, \textbf{j} + c\, \textbf{k}$. Use the Divergence Theorem to compute
+%
+$$\iint_{S\uparrow} \textbf{X} \cdot \textbf{dS} \; .$$
+%
+
+\begin{itemize}
+  \item \pause \underline{Problem}: The surface $S$ does not enclose a region in space;
+  \item \pause We add the disk $D$ of radius 2 centered at the origin in the plane $z=0$;
+  %
+$$\iint_{S\uparrow \cup D\downarrow} \textbf{X} \cdot \textbf{dS} = \iint\!\!\!\int_R\; \divg \textbf{X} \; dV = 0\; ,$$
+%
+\item \pause $R$ orients $D$ with the \emph{downward} normal, hence
+        %
+%
+$$\iint_{S\uparrow} \textbf{X} \cdot \textbf{dS} = \iint_{D\uparrow} \textbf{X} \cdot \textbf{dS}$$
+%
+\end{itemize}
+
+\pause The upward normal to $D$ is $\textbf{k}$, hence $\textbf{X}\cdot \textbf{dS}= \textbf{X}\cdot \textbf{k} \, dS= c\,dS$. Therefore
+%
+$$\iint_{S} \textbf{X} \cdot \textbf{dS} = \iint_{D} \textbf{X} \cdot \textbf{dS} = \iint_D c\, dS = c\cdot\text{area}(D) = 4\pi c\, .$$
+\end{frame}

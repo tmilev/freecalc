@@ -1,0 +1,47 @@
+\begin{frame}
+\frametitle{Computations Using Parametrizations}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-2.2,-2)(2,2)%
+\tiny%
+\fcBoundingBox{-2.2}{-1.4}{2.1}{2.2}%
+\pstVerb{%
+5 dict begin%
+/theEllipsoidTop {[u v u 2 div dup mul v 1.5 div dup mul add 1 exch sub sqrt]} def%
+/basePoint 2 dict begin /u 1 def /v 0 def theEllipsoidTop end def%
+/tangent1 [0 1 0] def%
+/tangent2 [1 0 3 sqrt 6 div -1 mul] def%
+}%
+\fcStartIIIdScene%
+\fcSurfaceInScene[forceForeground=false, linecolor=red, iterationsU=7, iterationsV=8, colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2} ]{ -1.4}{-1}{1.4 }{1 }{ theEllipsoidTop}{}%
+\fcFinishIIIdScene%
+\fcAxesIIId{3}{3}{3}%
+\fcDotIIId[linecolor=blue]{basePoint}%
+\fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown]{basePoint}{basePoint tangent2 \fcVectorPlusVector}
+\fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown ]{ basePoint }{ basePoint tangent1 \fcVectorPlusVector}
+\fcLineIIId[arrows=->, linewidth =2pt, linecolor=blue]{basePoint}{basePoint tangent2 tangent1 \fcVectorCrossVector \fcVectorPlusVector}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{itemize}
+\item Let $S$ be orientable with normal field $\fcv N$.
+\item Let $\fcv f \colon D \to S$ be a smooth parametrization of $S$.
+\item $\fcv f_u$ and $\fcv f_v$ are tangent vectors.
+\item $\fcv f_u \times \fcv f_v$ is a normal vector.     
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item We say the parametrization $\fcv f$ is \emph{compatible} with the orientation given by $\textbf{N}$ if $\fcv f_u \times \fcv f_v$ and $\fcv N$ point in the same direction.
+\item Equivalently:  the frame $\left(\fcv f_u, \fcv f_v, \fcv{N}\right)$ is positively oriented.
+\item If $\fcv f$ is a parametrization compatible with the orientation, then
+\[
+\begin{array}{rcl}
+\fcv {N} &=& \frac{\fcv f_u \times \fcv f_v}{|\fcv f_u \times \fcv f_v|}\\
+
+\fcv{\diff S} &=& \fcv{N} \diff S = \frac{\fcv f_u \times \fcv f_v}{|\fcv f_u \times \fcv f_v|}   \cdot |\fcv f_u \times \fcv f_v| \diff u \diff v = \fcv f_u \times \fcv f_v  \diff u \diff v\\
+\iint_S \fcv{X}\cdot \fcv{N} \diff S &=& \iint_S \fcv{X} \cdot \fcv{\diff S} = \iint_D \fcv{X} \cdot (\fcv f_u \times \fcv f_v) \diff u \diff v\; .
+\end{array}
+\]
+\end{itemize}
+\end{frame}

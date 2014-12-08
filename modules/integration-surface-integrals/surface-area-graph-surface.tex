@@ -1,0 +1,33 @@
+\begin{frame}
+\frametitle{Surface area of graph surface}
+
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.5cm,yunit=0.5cm}
+\begin{pspicture}(-3,-3)(3,5.5)
+\renewcommand{\fcScreen}{[-1 -1 -0.4] 0}
+\fcAxesIIId{5}{5}{5}
+\fcStartIIIdScene
+\fcSurfaceInScene[linewidth=0.3, linecolor=blue, iterationsU=40, iterationsV=40]{-4}{-4}{4}{4}{[2 dict /x u def /y v def begin x y x 3 exp x y 4 exp mul add x 5 div sub 10 mul 2.729 x dup mul y dup mul add neg exp mul 2.729 x 1.225 sub dup mul y dup mul add neg exp add end]}{}
+\fcFinishIIIdScene[fastsort=true]
+%\fcPlotIIId[linewidth=0.3pt, linecolor=blue]{iterationsX=50, iterationsY=50}{-4}{-4}{4}{4}{ x 3 exp x y 4 exp mul add x 5 div sub 10 mul 2.729 x dup mul y dup mul add neg exp mul 2.729 x 1.225 sub dup mul y dup mul add neg exp add}
+\end{pspicture}
+\column{0.6\textwidth}
+\begin{itemize}
+\item Suppose $\fcv f \colon D \to \RR^3$ is a graph surface, i.e., is of the form $ \fcv f(u,v) = (u,v,g(u,v))$ for some scalar function $g(u,v)$.
+\end{itemize}
+
+\end{columns}
+\[\begin{array}{rcl}
+\fcv f_u &=& \left(1, 0, g_u\right)\\
+\fcv f_v &=& \left( 0,1,g_v \right)\\
+\diff S &=& |\fcv f_u \times \fcv f_v| \diff u \diff v = \sqrt{1+(g_u)^2 + (g_v)^2} \diff u \diff v
+\end{array}
+\]
+\begin{itemize}
+\item Surface area of the graph surface: 
+\[
+\text{Area}(S) = \iint_B \sqrt{1+(f_u)^2 + (f_v)^2}\diff u \diff v
+\]
+\end{itemize}
+\end{frame}

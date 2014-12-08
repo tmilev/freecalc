@@ -1,0 +1,85 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.3}{-0.5}{1.3}{1.4}
+\fcStartIIIdScene
+\fcSurfaceInScene{90}{0}{0}{360}{
+4 dict begin
+/rho 1 def
+/x u cos v cos mul rho mul def
+/y u cos v sin mul rho mul def
+/z u sin rho mul def
+[x y z]
+end
+}{}
+\fcAxesIIIdInScene{1.4}{1.4}{1.4}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\column{0.7\textwidth}
+Find the centroid of a hemisphere $S$ of radius $R$. \uncover<2->{ By definition, the centroid of surface is $\frac{1}{\text{Area(S)}}\iint_{S} \fcv f \diff S $, where $\fcv f(u,v)$ is the position vector of $S$.}
+\end{columns}
+\uncover<3->{
+By symmetry, the centroid is on the $z$-axis; let its $z$-coordinate be $h$. \uncover<4->{Parametrize 
+$S:\left|\begin{array}{r@{~}c@{~}l}
+\fcv f(x,y)&=&\left(x,y,\sqrt{R^2-x^2-y^2}\right)\\
+(x,y)&\in& D =\text{disk radius }R
+\end{array}\right.$. }
+\[
+\begin{array}{r@{~}c@{~}l}
+\displaystyle \uncover<5->{\diff S&=&\displaystyle |\fcv f_x \times \fcv f_y|  \diff x  \diff y = \sqrt{1+z_x^2+z_y^2} \diff x \diff y = \frac{R}{\sqrt{R^2-x^2-y^2}}  \diff x \diff y}\\
+\displaystyle h &=&\displaystyle \frac{1}{\text{area}(S)}\, \iint_S z ~ \diff S =\displaystyle \frac{1}{2\pi R^2}  \iint_{D}  \frac{R\sqrt{R^2-x^2-y^2}}{\sqrt{R^2-x^2-y^2}} \diff x \diff y \\&=&\displaystyle \frac{1}{2\pi R} \iint_D  \diff x \diff y = \frac{\pi R^2}{2\pi R}=\frac{R}{2}\quad .
+\end{array}
+\]
+
+}
+\end{example}
+\vskip 10cm
+
+\end{frame}
+
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.3}{-0.5}{1.3}{1.4}
+\fcStartIIIdScene
+\fcSurfaceInScene{90}{0}{0}{360}{
+4 dict begin
+/rho 1 def
+/x u cos v cos mul rho mul def
+/y u cos v sin mul rho mul def
+/z u sin rho mul def
+[x y z]
+end
+}{}
+\fcAxesIIIdInScene{1.4}{1.4}{1.4}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\column{0.7\textwidth}
+Find the centroid of a hemisphere $S$ of radius $R$. By definition, the centroid of surface is $\frac{1}{\text{Area(S)}}\iint_{S} \fcv f \diff S $, where $\fcv f(u,v)$ is the position vector of $S$.
+\end{columns}
+
+The hemisphere can be also obtained by revolving the quarter of circle $(x,z) = (f(u), g(u)) = (R\cos{u}, R\sin{u})$, $0 \leq u \leq \frac{\pi}{2}$ about the $z-$axis.  
+
+\hfil $\displaystyle S: (R\cos{u}\cos{v}, R\cos{u}\sin{v}, R\sin{u}), u\in \left[0,\frac{\pi}{2}\right], v\in \left[0,2\pi\right].$
+
+\vskip -0.2cm
+\[
+\begin{array}{rcl}
+\diff S &=& |f|\sqrt{|f'|^2+|g'|^2} = R^2\cos{u}\;\\
+\iint_{S} z\diff S& = & \iint_{D} R\sin{u} R^2\cos{u}\diff u \diff v \\
+&=&  R^3 \left(\int\limits_{u=0}^{u=\frac{\pi}{2}} \sin{u}\cos{u}\, \diff u\right) \left( \int\limits_{v=0}^{v=2\pi}  \diff v \right)  \\
+& =& 2\pi R^3 \left. \frac{\sin^2{u}}{2} \right|_{u=0}^{u=\frac{\pi}{2}} =\pi R^3\; .\\
+\text{centroid }z-\text{coord}&=& \frac{1}{\text{area}(S)}\, \iint_S z \, \diff S = \frac{1}{2\pi R^2} \, \pi R^3 = \frac{R}{2}\;  
+\end{array}
+\]
+\end{example}
+
+
+\vskip 10cm
+\end{frame}
