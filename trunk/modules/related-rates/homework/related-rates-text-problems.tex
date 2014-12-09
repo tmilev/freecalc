@@ -1,4 +1,4 @@
-\begin{enumerate}
+\begin{enumerate}[ref={\fcProblemRef}]
 \item \label{problemRelatedRatesCubeExpands}  If $V$ is the volume of a cube with edge length $x$ and the cube expands as time passes, find $\frac{dV}{dt}$ in terms of $\frac{dx}{dt}$.
 
 \answer{$3x^2\frac{\diff x}{\diff t}$}
@@ -45,46 +45,3 @@ The minute hand on a watch is 10mm long and the hour hand is 5mm long. How fast 
 
 \end{enumerate}
 
-
-\solution{
-\ref{problemRelatedRatesCubeExpands}. The volume $V$ is given by $V=x^3$, therefore
-\[
-\frac{\diff V}{\diff t}= \frac{\diff }{\diff t}\left(x^3\right)= 3x^2\frac{\diff x}{\diff t}.
-\]
-}
-\solution{\ref{problemRelatedRatesSquareExpands}
-The area $A$ of the square is given by $A=x^2$, therefore
-\[
-\frac{\diff A}{\diff t}= \frac{\diff }{\diff t}\left(x^2\right)= 2x\frac{\diff x}{\diff t}.
-\]
-When $A=9 \text{cm}^2$, $x= 3\text{cm} $ ($=\sqrt{9\text{cm}^2}$), and so $\frac{\diff A}{\diff t}_{|x=3, \frac{\diff x}{\diff t}=1} = 2\cdot 3\text{cm} \cdot 1\text{cm/s} =6\text{cm}^2/\text{s}$.
-}
-\solution{\ref{problemRelatedRatesBallSurfaceAreaChanges}
-Let $S$ denote the surface area and $r$ the radius of the ball. Then $S=4\pi r^2$. Let the point of time be $t_0$. We are given that $\frac{\diff S}{\diff t}_{|t=t_0}= 5 \text{cm}^2/\text{s}$. On the other hand, 
-
-\[
-\begin{array}{rcl}
-\frac{\diff S}{\diff t}&=& \frac{\diff }{\diff t}\left(4\pi r^2\right)= 8\pi r \frac{\diff r}{\diff t}\\
-\frac{1}{8\pi}\frac{\diff S}{\diff t}
-\end{array}
-\]
-}
-\solution{\ref{problemRelatedRatesWatchHands}
-Let the angle between the two arrows be $\theta$. The cosine law states that  for a triangle with angle $\theta$ and sides $a, b, c$ we have that $c^2=a^2+b^2-2ab\cos \theta$ (where $c$ is the length of the side opposite to the angle $\theta$).
-
-Then by the cosine law, the distance between the tips of the two hands is
-1\[ 
-y=\sqrt{5^2+10^2+2\cdot 5\cdot 10 \cos  \theta}=\sqrt{125+100 \cos \theta}.
-\]
-
-The short hand makes 1 full revolution every 12 hours, and the long hand makes 1 full revolution every 1 hour. Therefore the angle $\theta$ measured from the small hand to the long hand changes at the (constant) rate of $\frac{11}{12}$ revolutions per hour, or what is the same, at the rate $\frac{d \theta}{d t} = \frac{11}{12} (2\pi)=\frac{11}{6}\pi$.
-
-The problem asks us to compute $\frac{d y}{d t}$ at two o'clock, i.e., at $t=2$. This is a straightforward computation using the chain rule:
-\[
-\begin{array}{rcll|l}
-\displaystyle \frac{\diff y}{\diff t}&=&\displaystyle \frac{1}{2} \frac{-100\sin \theta}{ \sqrt{125+100\cos \theta}}\frac{\diff \theta}{\diff t}&&\text{at 2 o'clock } \theta=\frac{\pi}{3} \text{ and } \frac{\diff \theta}{\diff t}=\frac{11}{6} \pi\\~\\
-\displaystyle {\frac{\diff y}{\diff t}}_{|t=2}&=&\displaystyle \frac{1}{2} \frac{-100 \sin \frac{\pi}{3} }{ \sqrt{125+100 \cos \frac{\pi}{3}}} \frac{11\pi}{6}=-\frac{55}{42}\sqrt{21} \pi \quad .
-\end{array}
-\]
-The measurement unit of speed is mm/hour, so the distance is changing at the rate of $-\frac{55}{42}\sqrt{21}$ mm/hour.
-}
