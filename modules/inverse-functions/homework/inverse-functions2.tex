@@ -1,55 +1,19 @@
 % begin homework inverse-functions2
 Find the inverse function and its domain. 
-\begin{enumerate}
-\item  $y=\ln (x+3)$.
+\begin{enumerate}[ref={\fcProblemRef}]
+\item  \label{problemFindInversey=ln(x+3)} $y=\ln (x+3)$.
+
 \answer{$f^{-1}(x)=e^x-3$}
+\item  $f(x)=e^{x^3}$.
 
-\solution{%
-\begin{align*}
-y & = \ln (x+3) \\
-e^y & = e^{\ln (x+3)} \\
-e^y & = x + 3 \\
-e^y - 3 & = x \\
-\text{Therefore} \quad f^{-1}(y) & = e^y - 3.
-\end{align*}
-The domain of $e^y$ is all real numbers, so the domain of $f^{-1}$ is all real numbers.  
-}%
-
-\item $f(x)=e^{x^3}$.
 \answer{$f^{-1}(x)=\sqrt[3]{\ln x}, \quad x>0$}
 
-\item $y=(\ln x)^2$, $x\geq 1$.
-\solution{ ~\\
-$ \begin{array}{rcll|l}y&=&(\ln x)^2 &&\mathrm{take~ \sqrt{~} ~on~both~sides,~ } y\geq 0 \\ \sqrt{y}&=&\ln x&&\mathrm{ ~exponentiate} \\ e^{\sqrt{y}}&=&e^{\ln x}=x \\ f^{-1}(y)&=&e^{\sqrt{y}} \\f^{-1}(x)&=&e^{\sqrt{x}} \end{array}$
-}
+\item \label{problemFindInversey=(lnx)^2} $y=(\ln x)^2$, $x\geq 1$.
+
 \answer{$f^{-1}(x)=e^{\sqrt{x}}, \quad x\geq 0 $}
 
-\pointsii{5}  $y=\frac{e^x}{1+2e^x}$.
+\pointsii{5} \label{problemFindInversey=e^x/(1+2e^x)}  $y=\frac{e^x}{1+2e^x}$.
+
 \hiddenanswer{$f^{-1}(x)= \ln \left(\frac{x}{1-2x}\right) $, \quad $x\in (0, \frac12) $}
-
-\solution{%
-\begin{align*}
-y & = \frac{e^x}{1+2e^x} \\
-y(1+2e^x) & = e^x \\
-y & = e^x(1-2y) \\
-\frac{y}{1-2y} & = e^x \\
-\ln\frac{y}{1-2y} & = \ln e^x \\
-\ln\frac{y}{1-2y} & = x \\
-\text{Therefore} \quad f^{-1}(y) & = \ln\frac{y}{1-2y}.
-\end{align*}
-The natural logarithm function is only defined for positive input values.  
-Therefore the domain is the set of all $y$ for which 
-\begin{align*}
-\frac{y}{1-2y} & > 0.
-\end{align*}
-This inequality holds if the numerator and denominator are both positive or both negative.  
-This happens if either
-\begin{enumerate}
-\item  $y > 0$ and $y < 1/2$, or 
-\item  $y < 0$ and $y > 1/2$.
-\end{enumerate}
-The latter option is impossible, so the domain is $\{ y \in \mathbb{R} \ | \ 0 < y < 1/2\}$.  
-}%
-
 \end{enumerate}
 % end homework inverse-functions2
