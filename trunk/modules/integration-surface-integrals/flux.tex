@@ -1,14 +1,31 @@
-
-
 \begin{frame}
 \frametitle{Flux}
-
-Let $S$ be an oriented surface with orientation given by the unit normal field $\fcv N$. Let $\fcv{F}$ be a smooth vector field on $S$.
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)%
+\tiny%
+%\renewcommand{\fcScreen}{[-2 1 -0.5] -1}
+\fcBoundingBox{-1.2}{-0.5}{1.3}{2.4}%
+\fcStartIIIdScene%
+\fcSurfaceInScene[colorUV={1 0.8 0.8}, iterationsU=3, iterationsV=3 ]{ -0.6}{ -0.6 }{ 0.6}{0.6}{[u v u 1 div dup mul v 1 div dup mul add 2.6 exch sub sqrt]}{}%
+\only<2,4->{%
+\fcVectorFieldAlongSurfaceInScene[arrows=->, linecolor=blue, iterationsU=3, iterationsV = 3 ]{ -0.6}{-0.6}{0.6}{0.6}{[u v u 1 div dup mul v 1 div dup mul add 2.6 exch sub sqrt]}{}{[u v u 1 div dup mul v 1 div dup mul add 2.6 exch sub sqrt] \fcVectorNormalize 0.7 \fcVectorTimesScalar}%
+}%
+\only<3->{%
+\fcVectorFieldAlongSurfaceInScene[arrows=->, linecolor=brown, iterationsU=3, iterationsV = 3 ]{ -0.6}{-0.6}{0.6}{0.6}{[u v u 1 div dup mul v 1 div dup mul add 2.6 exch sub sqrt]}{}{[u v 0.1 sub u 1 div dup mul v 1 div dup mul add 2.6 exch sub sqrt 0.8 sub] \fcVectorNormalize 0.7 \fcVectorTimesScalar}%
+}%
+%\fcAxesIIIdInScene{1.4}{1.4}{1.4}
+\fcFinishIIIdScene[fastsort=true]%
+\end{pspicture}
+\column{0.7\textwidth}
+Let $S$ be an oriented surface with orientation given by the \alert<2>{unit normal field $\fcv N$}. Let \alert<3>{$\fcv{F}$ be a smooth vector field on $S$}.
 \begin{definition}
 The flux of $\fcv{F}$ across $S$ is
 \[
-\iint_S \fcv{F}\cdot \fcv{N} \diff S = \iint_S \fcv{F} \cdot \fcv{\diff S} .
+\iint_S \alert<4>{\fcv{F}\cdot \fcv{N}} \diff S = \iint_S \fcv{F} \cdot \fcv{\diff S} .
 \]
 \end{definition}
+
+\end{columns}
 
 \end{frame}

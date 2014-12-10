@@ -1,0 +1,18 @@
+\begin{frame}
+  \frametitle{Stokes Theorem Corollaries}
+
+  \begin{itemize}
+    \item $\fcv{n}$: unit vector
+    \item $S$: plane through $p$ normal to $\fcv{n}$;
+    \item $C$: simple curve in $S$ around $p$;
+    \item $D$: domain enclosed by $C$.\pause
+    %
+    \begin{align*}
+    \fcv{X} = & \orth_{\fcv{n}} \fcv{X} + \proj_{\fcv{n}} \fcv{X} \Rightarrow \fcv{X}\cdot \fcv{T} = \orth_{\fcv{n}} \fcv{X} \cdot \fcv{T} \pause \\
+      \text{curl}_{\fcv{n}} &(\orth_{\fcv{n}} \fcv{X}) (p) = \lim_{D\to\{p\}} \frac{1}{\text{area}(D)} \oint_C \orth_{\fcv{n}} \fcv{X} \cdot \fcv{dr} = \\
+      = & \lim_{D\to\{p\}} \frac{1}{\text{area}(D)} \oint_C
+      \fcv{X}\cdot \fcv{dr} = \lim_{D\to\{p\}} \frac{1}{\text{area}(D)} \iint_D \fcv{Y}\cdot \fcv{n} \, \diff S = \fcv{Y}\cdot \fcv{n}
+    \end{align*}
+    \item \pause $\fcv{Y} = (\partial_y R - \partial_z Q) \, \fcv{i} +  (\partial_z P - \partial_x R) \, \fcv{j} + (\partial_x Q - \partial_y P) \, \fcv{k}$ works for all $\fcv{n}$ \, !!
+  \end{itemize}
+\end{frame}

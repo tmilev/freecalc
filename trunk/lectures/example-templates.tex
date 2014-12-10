@@ -63,11 +63,12 @@
 
 %\DeclareMathOperator{\Re}{Re}
 %\DeclareMathOperator{\Im}{Im}
-\DeclareMathOperator{\curl}{\bm{curl}}
+\newcommand{\fcv}[1]{{\bf #1}} %this command stands for freecalc Vector
+\DeclareMathOperator{\curl}{\fcv{curl}}
 \DeclareMathOperator{\divg}{div}
-\DeclareMathOperator{\proj}{\textbf{proj}}
-\DeclareMathOperator{\orth}{\textbf{orth}}
-\DeclareMathOperator{\grad}{\bm{grad}}
+\DeclareMathOperator{\proj}{\fcv{proj}}
+\DeclareMathOperator{\orth}{\fcv{orth}}
+\DeclareMathOperator{\grad}{\fcv{grad}}
 \newcommand{\RR}{{\mathbb{R}}}
 \newcommand{\cR}{{\mathcal{R}}}
 \newcommand{\cD}{{\mathcal{D}}}
@@ -87,7 +88,6 @@
 {#3}%
 }
 \newcommand{\fcEvalToInt}[1]{\FPeval{\fcResult}{clip(#1)}\fcResult}
-\newcommand{\fcv}[1]{{\bf #1}} %this command stands for freecalc Vector
 
 %
 %  An example of logarithmic differentiation of a function with a 

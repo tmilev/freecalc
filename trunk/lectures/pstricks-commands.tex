@@ -58,7 +58,7 @@
 {[] 0 setdash}%
 ifelse\space %
 }
-\newcommand{\fcScreen}{[-1 1 -0.5] -1} %default projection plane. Renew this command to change projection plane.
+\newcommand{\fcScreen}{[-1 1 -0.75] -1} %default projection plane. Renew this command to change projection plane.
 
 \newcommand{\fcSet}[1]{\setkeys{fcGraphics}{#1}}
 
@@ -2753,5 +2753,34 @@ stroke
 } repeat
 end
 }%
+}%
+}
+
+\newcommand{\fcVectorFieldAlongSurfaceInScene}[8][]{%
+\setkeys{fcGraphics}{#1}%
+\fcSurfaceInScene[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
+\pstVerb{%
+/theIIIdObjects [theIIIdObjects \fcArrayToStack 
+30 dict begin
+/theField {#8} def
+/theSurfaceObject exch def
+theSurfaceObject \fcArrayToStack pop \fcSurfaceInit
+/DeltaU uMax uMin sub uIterations div def
+/DeltaV vMax vMin sub vIterations div def
+/counterU -1 def %
+uIterations{
+/counterU counterU 1 add def
+/counterV -1 def %
+vIterations{
+/counterV counterV 1 add def
+/u DeltaU counterU 0.5 add mul uMin add def
+/v DeltaV counterV 0.5 add mul vMin add def
+/lineStart theSurface def
+/lineEnd theSurface theField \fcVectorPlusVector def
+[0 1 [lineEnd lineStart {1 t sub \fcVectorTimesScalar exch t \fcVectorTimesScalar \fcVectorPlusVector} \fcArrayToStack] cvx \fcContourOptions (curve)]
+}repeat
+}repeat
+end
+] def
 }%
 }

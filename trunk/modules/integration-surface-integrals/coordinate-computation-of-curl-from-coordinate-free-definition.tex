@@ -1,0 +1,29 @@
+\begin{frame}
+  \frametitle{Components of Curl in Rectangular Coordinates}
+
+      %
+$$\fcv{Y} \cdot \fcv{n} = \text{curl}_{\fcv{n}} (\orth_{\fcv{n}} \fcv{X})(p)$$
+
+If $\fcv{X}=P \, \fcv{i} + Q\, \fcv{j} + R\, \fcv{k}$, then
+\begin{itemize}
+  \item The $\fcv{k}$ normal orients the $xy-$plane as $\{ \fcv{i}, \fcv{j}\}$, because $\{\fcv{k}, \fcv{i}, \fcv{j}\} \sim \{\fcv{i}, \fcv{j}, \fcv{k}\}$
+%
+$$\fcv{Y} \cdot \fcv{k} = \text{curl}_{\fcv{k}} (\orth_{\fcv{k}} \fcv{X}) = \text{curl}_{\fcv{k}} (P\, \fcv{i} + Q\, \fcv{j}) = \partial_x Q - \partial_y P = Q_x - P_y\; .$$
+%
+\item \pause The $\fcv{j}$ normal orients the $xz-$plane as \pause $\{ \fcv{k}, \fcv{i}\}$, because $\{\fcv{j}, \fcv{k}, \fcv{i}\} \sim \{\fcv{i}, \fcv{j}, \fcv{k}\}$\pause
+%
+$$\fcv{Y} \cdot \fcv{j} = \text{curl}_{\fcv{j}} (R\, \fcv{k} + P\, \fcv{i}) = \partial_z P - \partial_x R = P_z - R_x\; .$$
+%
+\item \pause The $\fcv{i}$ normal orients the $yz-$plane as \pause $\{ \fcv{j}, \fcv{k}\}$, because $\{\fcv{i}, \fcv{j}, \fcv{k}\} \sim \{\fcv{i}, \fcv{j}, \fcv{k}\}$\pause
+%
+$$\fcv{Y} \cdot \fcv{i} = \text{curl}_{\fcv{i}} (Q\, \fcv{j} + R\, \fcv{k}) = \partial_y R - \partial_z Q = R_y - Q_z\; .$$
+\end{itemize}
+
+\pause If $\fcv{Y} = (\partial_y R - \partial_z Q) \, \fcv{i} +  (\partial_z P - \partial_x R) \, \fcv{j} + (\partial_x Q - \partial_y P) \, \fcv{k}$,
+then
+%
+$$\fcv{Y} \cdot \fcv{n} = \text{curl}_{\fcv{n}} (\orth_{\fcv{n}} \fcv{X})(p) \; $$
+%
+is true for $\fcv{n} = \fcv{i}$, $\fcv{j}$, and $\fcv{k}$. \pause Is it true for \emph{all} $\fcv{n}$?
+
+\end{frame}

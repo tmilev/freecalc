@@ -1,17 +1,22 @@
 \begin{frame}
 \frametitle{Divergence}
+\begin{definition}[May be taken as theorem]
+The divergence of $\fcv{X}$ at $p$ is the density of flux at $p$
+\[
+(\divg \fcv{X})(p) = \lim_{D\to \{p\}} \frac{1}{\text{vol}(D)} \iint_S \fcv{X} \cdot \fcv{N}\diff S \; ,
+\]
+if the limit exists.
+\end{definition}
 
 
 Let $\fcv{F}=P\fcv i+Q\fcv j+R\fcv k$ be a smooth vector field.
-\begin{definition}
-The divergece of $\fcv{F}$ is defined as
-\[
-\divg \fcv F =\frac{\diff P}{\diff x}+\frac{\diff Q}{\diff y}+\frac{\diff R}{\diff y}
-\]
-\end{definition}
+\begin{theorem}[May be taken as definition of $\divg$]
+The divergence of $\fcv{F}$ is defined as
+$\divg \fcv F =\frac{\diff P}{\diff x}+\frac{\diff Q}{\diff y}+\frac{\diff R}{\diff y}$
+\end{theorem}
 \begin{itemize}
 \item Recall that $\nabla g =\left(\frac{\partial g}{\partial x}, \frac{\partial g}{\partial y}, \frac{\partial g}{\partial z}  \right)$.
-\item We can write $\nabla =\left(\frac{\partial }{\partial x}, \frac{\partial }{\partial y}, \frac{\partial }{\partial z}  \right)$, $\fcv F=\left(P,Q,R\right)$
-\item Then we can write $\nabla \cdot \fcv F=\divg \fcv F$. 
+\item We can write $\nabla =\left(\frac{\partial }{\partial x}, \frac{\partial }{\partial y}, \frac{\partial }{\partial z}  \right)$, $\fcv F=\left(P,Q,R\right)$.
+\item We can write the formal equality $\nabla \cdot \fcv F=\divg \fcv F$. 
 \end{itemize}
 \end{frame}
