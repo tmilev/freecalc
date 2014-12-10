@@ -1,16 +1,17 @@
 \begin{frame}
-  \frametitle{Application}
+  \frametitle{Balloon Pressure Equilibrium}
 
 \begin{itemize}
-  \item \pause $\fcv{F}$: total force due to the difference in pressure between the interior of an inflated balloon and the exterior;
+\item \pause Let $\fcv{F}$ be the total displacement force due pressure difference between interior and exterior of inflated balloon:
 %
-$$\bm{F} =  \iint_S \, \diff \fcv{F} = \iint_S p \fcv{N} \, \diff S = \iint_S p\, \bm{\diff S} \; .$$
-%
+\[
+\fcv{F} =  \iint_S \, \diff \fcv{F} = \iint_S p \fcv{N} \, \diff S = \iint_S p\, \fcv{\diff S} \; .
+\]
 \item \pause For every unit vector $\fcv{u}$ we have
 %
-\begin{align*}
-  \fcv{F} \cdot \fcv{u} = \left(\iint_S p \fcv{N} \, \diff S \right) \cdot \fcv{u} = \iint_S p\, \fcv{u} \cdot  \fcv{N} \, \diff S = \iint\!\!\!\int_D \divg (p\, \fcv{u}) dV = 0
-\end{align*}
+\[
+  \fcv{F} \cdot \fcv{u} = \left(\iint_S p \fcv{N} \, \diff S \right) \cdot \fcv{u} = \iint_S p\, \fcv{u} \cdot  \fcv{N} \, \diff S = \iiint_D \divg (p\, \fcv{u}) \diff V = 0
+\]
 %
 because $\divg (p \fcv{u}) = 0$ since the vector field $\fcv{X}= p\, \fcv{u}$ is constant on $D$.
 \item Therefore $\fcv{F}\cdot \fcv{u} = 0$ for every unit vector $\fcv{u}$;
