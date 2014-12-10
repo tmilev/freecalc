@@ -1,25 +1,39 @@
 \begin{frame}
 \begin{example}
 \begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.8}{-1.95}{1.95}{1.95}
+\fcStartIIIdScene
+\fcAxesIIIdInScene{1.5}{1.5}{1.5}
+\fcSurfaceInScene[linewidth=0.3, colorUV=pink, linecolor= gray, iterationsV=16, iterationsU=12]{0}{0}{ 180 }{360 }{[ u sin v cos mul u sin v sin mul u cos]}{}%
+\fcVectorFieldAlongSurfaceInScene[linewidth=0.5, arrows=->, iterationsV=8, linecolor=brown, iterationsU=4]{ 30}{ 0}{ 150 }{ 360}{[ u sin v cos mul u sin v sin mul u cos]}{}{[ u sin v cos mul 0 0]}%
+\only<9->{%
+\fcVectorFieldAlongSurfaceInScene[arrows=->, iterationsV=8, linecolor=blue, iterationsU=4]{30}{0}{150}{360}{[ u sin v cos mul u sin v sin mul u cos]}{}{[ u sin v cos mul u sin v sin mul u cos]}%
+}%
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\column{0.7\textwidth}
+Compute the flux of  $\alert<12>{\fcv{X} =\alert<13>{ax} \fcv{i}}$ across the sphere $S$ of radius $R$ centered at the origin, positively oriented.
 
-\column{0.4\textwidth}
-\column{0.6\textwidth}
-Compute the flux of  $\fcv{X} = ax \fcv{i}$ across the sphere $S$ of radius $R$ centered at the origin, positively oriented.
+\fcQuestion{2}{Parametrize $S$:} \fcAnswer{3}{$\begin{array}{r@{~}c@{~}l}
+\alert<8>{\fcv f} &\alert<8>{=}&\phantom{\textbf{?}}  \alert<8>{( \alert<13>{R \sin{u} \cos{v}} , R\sin{u}\sin{v}, R\cos{u})} \\
+\fcQuestion{4}{\fcv f_u} &\fcQuestion{4}{\alert<0>{=}}& \fcAnswer{5}{\left( R\cos{u}\cos{v}, R\cos{u}\sin{v}, -R\sin{u}\right)} \\
+\fcQuestion{4}{\fcv f_v} &\fcQuestion{4}{\alert<0>{=}}& \fcAnswer{5}{\left( -R\sin{u}\sin{v}, R\sin{u}\cos{v}, 0 \right)}
+\end{array},
+$
+\alert<11>{$u\in [0, \pi]$, $v\in [0,2\pi]$}.}
 \end{columns}
-
-A parametrization of $S$ is $\fcv f \colon [0,\pi] \times [0,2\pi]\to \RR^3$,
-
+\abovedisplayskip 0pt
 \[
 \begin{array}{rcl}
-\fcv f &=& (R\sin{u}\cos{v}, R\sin{u}\sin{v}, R\cos{u}) \\
-\fcv f_u &=& \left( R\cos{u}\cos{v}, R\cos{u}\sin{v}, -R\sin{u}\right) \\
-\fcv f_v &= & \left( -R\sin{u}\sin{v}, R\sin{u}\cos{v}, 0 \right)\\
-\fcv f_u \times \fcv f_v & =& \left( R^2\sin^2{u}\cos{v}, R^2\sin^2{u}\sin{v}, R^2\sin{u}\cos{u} \right) \\
-&=& R\sin{u}  \fcv{r} = R^2\sin{u}\, \fcv{N}\\
-\iint_S \fcv{X} \cdot \fcv{\diff S}&= & \iint_D \fcv{X}(\fcv f(u,v)) \cdot (\fcv f_u \times \fcv f_v) \, \diff u\, \diff v  \\
-&= & \int_{u=0}^{u=\pi} \int_{v=0}^{v=2\pi} a\, R\sin{u}\cos{v}\, R^2\sin^2{u}\cos{v}\; \diff u\, \diff v  \\
-&= & aR^3 \left( \int_{u=0}^{u=\pi} \sin^3{u} \, \diff u \right) \left( \int_{v=0}^{v=2\pi} \cos^2{v}\, \diff v \right) \\
-&=& aR^3 \cdot \frac{4}{3} \cdot \pi = \frac{4\pi aR^3}{3}\; .
+\fcQuestion{6}{\alert<12>{\fcv f_u \times \fcv f_v}} &\fcQuestion{6}{\alert<12>{=}}&\fcAnswer{7}{\alert<8,12>{ \left( \alert<14>{ R^2{\alert<9>{\sin}}^2\alert<9>{u \cos  v  }} , R^2 { \alert<9>{\sin}}^2\alert<9>{{u}\sin{v}}, R^2 \alert<9>{ \sin{u} \cos{u}} \right)}} \\
+&\uncover<8->{=}& \uncover<8->{\alert<8>{ R\sin{u}  \fcv{f}}} \uncover<9->{ = R^2\sin{u}\, \alert<9>{\fcv{N}}}\\
+\uncover<10->{\iint_S \fcv{X} \cdot \alert<10>{\fcv{\diff S}}&= & \iint_{\alert<11>{D}} \alert<12>{\fcv{X}} \cdot \alert<10>{\alert<12>{(\fcv f_u \times \fcv f_v)} \, \diff u\, \diff v}}  \\
+\uncover<11->{&= & \int_{\alert<11>{u=0}}^{\alert<11>{u=\pi} } \int_{\alert<11>{v=0}}^{\alert<11>{v=2\pi}}\alert<12>{ \alert<13>{\alert<15>{a \, R}\alert<16>{\sin{u}} \alert<17>{ \cos{v}}} \, \alert<14>{\alert<15>{R^2} \alert<16>{ \sin^2 u }\alert<17>{ \cos v} }}\; \diff u\, \diff v  } \\
+\uncover<15->{&= &\alert<15>{ aR^3} \left( \alert<19>{ \int_{u =0}^{u=\pi}\alert<16>{ \sin^3{u}} \, \diff u } \right) \left( \alert<18>{ \int_{v=0}^{v=2\pi} \alert<17>{ \cos^2{v}}\, \diff v} \right) }\\
+\uncover<18->{ &=& aR^3 \cdot\alert<19>{ \frac{4}{3}} \cdot \alert<18>{\pi} = \frac{4\pi aR^3}{3}\; .}
 \end{array}
 \]
 
@@ -29,26 +43,42 @@ A parametrization of $S$ is $\fcv f \colon [0,\pi] \times [0,2\pi]\to \RR^3$,
 \begin{frame}
 \begin{example}
 \begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.8}{-1.75}{1.95}{1.75}
+\fcStartIIIdScene
+\fcAxesIIIdInScene{1.5}{1.5}{1.5}
+\fcSurfaceInScene[linewidth=0.3, colorUV=pink, linecolor= gray, iterationsV=16, iterationsU=12]{0}{0}{ 180 }{360 }{[ u sin v cos mul u sin v sin mul u cos]}{}%
+\only<2>{%
+\fcVectorFieldAlongSurfaceInScene[linewidth=0.5, arrows=->, iterationsV=8, linecolor=brown, iterationsU=4]{ 30}{ 0}{ 150 }{ 360}{[ u sin v cos mul u sin v sin mul u cos]}{}{[ u sin v cos mul 0 0]}%
+}%
+\only<3>{%
+\fcVectorFieldAlongSurfaceInScene[linewidth=0.5, arrows=->, iterationsV=8, linecolor=brown, iterationsU=4]{ 30}{ 0}{ 150 }{ 360}{[ u sin v cos mul u sin v sin mul u cos]}{}{[0 u sin v sin mul 0]}%
+}%
+\only<4->{%
+\fcVectorFieldAlongSurfaceInScene[linewidth=0.5, arrows=->, iterationsV=8, linecolor=brown, iterationsU=4]{ 30}{ 0}{ 150 }{ 360}{[ u sin v cos mul u sin v sin mul u cos]}{}{[0 0 u cos]}%
+}%
+\fcFinishIIIdScene[fastsort=true]%
+\end{pspicture}
+\column{0.7\textwidth}
+Compute the fluxes of  $\alert<2>{\fcv{X} = ax \fcv{i}}$,  $\alert<3>{\fcv{Y} = by \fcv{j}}$,  $\alert<4>{ \fcv{Z}=cz \fcv k}$ across the sphere $S$ of radius $R$ centered at the origin, positively oriented.
 
-\column{0.4\textwidth}
-\column{0.6\textwidth}
-Compute the fluxes of  $\fcv{X} = ax \fcv{i}$,  $\fcv{Y} = by \fcv{j}$,  $\fcv{Z}=cz \fcv k$ across the sphere $S$ of radius $R$ centered at the origin, positively oriented.
+
+\alert<5>{Compute the flux of $\fcv{X} = ax\, \fcv{i} + by\, \fcv{j} + cz\, \fcv{k}$. }
 \end{columns}
 
-$$\iint_S ax\fcv{i} \cdot \fcv{\diff S}= \frac{4\pi aR^3}{3} ,\quad
+$\iint_S ax\fcv{i} \cdot \fcv{\diff S}= \frac{4\pi aR^3}{3} ,\quad
 \iint_S by\fcv{j} \cdot \fcv{\diff S}= \frac{4\pi bR^3}{3},\quad
 \iint_S cz\fcv{k} \cdot \fcv{\diff S}= \frac{4\pi cR^3}{3}
- $$
+ $
 
-\pause If $\fcv{X} = ax\, \fcv{i} + by\, \fcv{j} + cz\, \fcv{k}$, then
+\uncover<5->{$\alert<5>{\iint_S \fcv{X} \cdot \fcv{\diff S} = \alert<6>{\frac{4\pi R^3}{3}} (a+b+c)} \uncover<6>{= (a+b+c) \alert<6>{\Vol(Ball_R)}}.$}
 
-$$\iint_S \fcv{X} \cdot \fcv{\diff S} = \frac{4\pi R^3}{3} (a+b+c) = (a+b+c) \text{vol}(B)\; ,$$
-
-where $B$ is the volume of the ball enclosed by the sphere $S$.
-
-\[
-\divg \fcv{X} (0) = \lim_{R\to 0} \frac{3}{4\pi R^3} \iint_{S_R(0)} \fcv{X} \cdot \fcv{\diff S} = \lim_{R \to 0} (a+b+c) = a+b+c\; .
-\]
 
 \end{example}
+\uncover<7->{\[
+\divg \fcv{X} (0) = \lim_{R\to 0} \frac{3}{4\pi R^3} \iint_{S_R(0)} \fcv{X} \cdot \fcv{\diff S} = \lim_{R \to 0} (a+b+c) = a+b+c\; .
+\]
+}
 \end{frame}
