@@ -1,0 +1,22 @@
+\begin{frame}
+  \frametitle{Div, Curl, Grad}
+
+$$\divg (\fcv{curl} \, \fcv{X})  = \nabla \cdot (\nabla \times \fcv{X}) = 0 \; .$$
+%
+\pause $B$: ball centered at $p$, with boundary a sphere $S$ centered at $p$.
+%
+$$\iiint_B \divg (\fcv{curl}\,\fcv{X}) \, dV = \iint_{S=\partial B} \fcv{curl}\, \fcv{X} \cdot \fcv{\diff S} = \oint_{\partial S} \fcv{X} \cdot \fcv{dr} = 0\; ,$$
+%
+$$\divg (\fcv{curl}\, \fcv{X}) (p) = \lim_{B \to \{p\}} \frac{1}{\text{vol}(B)} \iiint_B \divg (\fcv{curl}\, \fcv{X}) \, dV = 0\; .$$
+\pause
+%
+$$\fcv{curl} ( \fcv{grad} f ) = \nabla \times (\nabla f) = \fcv{0}\; .$$
+
+\pause $D$: disk centered at $p$, in the plane normal to $\fcv{n}$ at $p$, and $C=\partial D$
+%
+$$\iint_D \fcv{curl} \,(\fcv{grad} f) \cdot \fcv{n}\, \diff S = \iint_D \fcv{curl}\, (\fcv{grad} f) \cdot \fcv{\diff S} = \oint_C \fcv{grad} f \cdot \fcv{dr} = 0\; ,$$
+%
+$$\fcv{curl} \,(\fcv{grad} f) (p) \cdot \fcv{n} = \lim_{D\to \{p\}} \frac{1}{\text{area}(D)} \iint_D \fcv{curl} (\fcv{grad} f) \cdot \fcv{n}\, \diff S = 0\; ; $$
+%
+since this is valid for all unit vectors $\fcv{n}$, we conclude that $\fcv{curl} \,(\fcv{grad} f) (p)= \fcv{0}$.
+\end{frame}

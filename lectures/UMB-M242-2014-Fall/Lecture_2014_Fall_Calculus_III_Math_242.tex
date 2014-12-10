@@ -10,7 +10,7 @@
 %[handout]%
 {beamer}
 %IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
-\newcommand{\currentLecture}{16}
+\newcommand{\currentLecture}{20}
 
 
 
@@ -618,8 +618,10 @@
 }
 
 \lect{Fall 2014}{Lecture 19 \alert<1->{Rough Draft}}{19}{
+\section{Surface Integrals}
 \input{../../modules/integration-surface-integrals/surface-integrals-intro}
 \input{../../modules/vectors/magnitude-cross-product-and-gramm-determinants}
+\subsection{Surface area}
 \input{../../modules/integration-surface-integrals/surface-area}
 \input{../../modules/integration-surface-integrals/surface-area-graph-surface}
 \input{../../modules/integration-surface-integrals/surface-area-surface-of-revolution}
@@ -633,476 +635,39 @@
 %\input{../../modules/integration-surface-integrals/vector-fields-in-space-geometric-intro}<-needs rewrite
 \input{../../modules/integration-surface-integrals/surface-orientation}
 
-
+\subsection{Flux and Divergence}
 \input{../../modules/integration-surface-integrals/flux}
 \input{../../modules/integration-surface-integrals/divergence}
 \input{../../modules/integration-surface-integrals/flux-and-divergence}
 \input{../../modules/integration-surface-integrals/flux-computation}
 \input{../../modules/integration-surface-integrals/flux-example-1}
 \input{../../modules/integration-surface-integrals/flux-example-2}
+}
+
+\lect{Fall 2014}{Lecture 20 \alert<1->{Rough Draft}}{20}{
+\section{Divergence Theorem}
 \input{../../modules/integration-surface-integrals/divergence-theorem}
 \input{../../modules/integration-surface-integrals/divergence-theorem-example-1}
 \input{../../modules/integration-surface-integrals/divergence-theorem-application-balloon-pressure}
 \input{../../modules/integration-surface-integrals/divergence-theorem-archimedes-law}
-
-
-\begin{frame}
-  \frametitle{Rotational Effect}
-
-  \begin{itemize}
-    \item $\fcv{X}$ a smooth vector field defined on an open region;
-    \item $p$: a point in the region
-    \item Effect of $\fcv{X}$ around $p$:
-    \begin{itemize}
-      \item Radial effect $\leftrightsquigarrow$ measured by divergence,
-      $(\divg \fcv{X})(p)$
-      \item Rotational effect $\leftrightsquigarrow$ ...
-    \end{itemize}
-    \item \pause A rotation in space is determined by
-    \begin{itemize}
-      \item axis;
-      \item orientation;
-      \item angular velocity
-    \end{itemize}
-    \item \pause Information encoded in a vector $\fcv{Y}$
-    \item \pause 2D rotations are easier to understand
-  \end{itemize}
-
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Components}
-
-  \begin{itemize}
-    \item $\fcv{n}$: unit vector; $\fcv{Y} \cdot \fcv{n}$: scalar component of $\fcv{Y}$ onto $\fcv{n}$;
-    \item \pause ``Wish list": for each $\fcv{n}$, the component $\fcv{Y} \cdot \fcv{n}$:
-    \begin{itemize}
-      \item measures rotational effect in the plane $S$ normal to $\fcv{n}$.
-      \item is the Flatland curl of the projection of $\fcv{X}$ onto such a plane:
-  %
-  $$\fcv{Y} \cdot \fcv{n} = \text{curl}_{\fcv{n}} (\orth_{\fcv{n}} \fcv{X})(p)$$
-  %
-    \end{itemize}
-\item \pause Infinitely long and, technically, not even a list!
-  \end{itemize}
-
-\pause \underline{Questions}:
-\begin{itemize}
-  \item \pause What does $\text{curl}_{\fcv{n}}$ mean?
-  \item \pause IS there such a vector?
-\end{itemize}
-
-\pause \underline{Fact}:
-\begin{itemize}
-  \item If such a vector $\fcv{Y}$ exists, it is unique.
-\end{itemize}
-
-If $\fcv{A}$ and $\fcv{B}$ are vectors and $\fcv{A}\cdot \fcv{u} = \fcv{B}\cdot \fcv{u}$ for all unit vectors $\fcv{u}$, then $\fcv{A}=\fcv{B}$.
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Induced Orientation on a Surface}
-
-  \begin{itemize}
-    \item $S$: plane in space (an instance of Flatland); unit normal vector $\fcv{n}$;
-    \item $\text{curl}_{\fcv{n}}$: density of circulation;
-    \item \pause To measure circulation along curves in $S$
-    \begin{itemize}
-      \item we must consistently orient closed curves in $S$.
-      \item we must consistently orient $S$;
-    \end{itemize}
-    \item \pause We will do that not just for planes, but for more general surfaces.
-  \end{itemize}
-
-  \begin{itemize}
-    \item $S$: smooth surface;
-    \item $\fcv{n}$: smooth unit vector field normal to $S$;
-    \item $\fcv{n}$ orients $S$ by orienting every tangent plane to $S$:
-    \begin{itemize}
-      \item $\fcv{u}$, $\fcv{v}$ are non-collinear vectors tangent to $S$ at a point $p$;
-      \item \underline{Definition}: $\{\fcv{u},\fcv{v}\}$ is a positively oriented frame for the tangent plane if $\{\fcv{n},\fcv{u},\fcv{v}\}$ is positively oriented in space.
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Induced Orientation on a Curve}
-  \begin{itemize}
-    \item $S$: smooth surface, oriented by unit normal vector $\fcv{n}$;
-    \item $D$: region in $S$, bounded by a curve $C=\partial D$;
-    \item $\fcv{N}$ the unit vector field on $C$
-    \begin{itemize}
-      \item tangent to $S$;
-      \item normal to $C$;
-      \item pointing outward of $D$.
-    \end{itemize}
-    \item \pause $\fcv{N}$ orients $C$ by orienting tangents:
-    \begin{itemize}
-      \item $\fcv{T}$: unit tangent to $C$ (and hence tangent to $S$)
-      \item \underline{Definition}: $\fcv{T}$ is \emph{positively oriented} if $\{\fcv{N}, \fcv{T}\}$ is positively oriented in the plane tangent to $S$
-      \item $\Leftrightarrow$ $\{\fcv{n}, \fcv{N}, \fcv{T}\}$ is positively oriented in space $\Leftrightarrow$ $\fcv{T}=\fcv{n}\times \fcv{N}$
-    \end{itemize}
-  \end{itemize}
-
-\pause \underline{Recap}:
-\begin{itemize}
-  \item Orientation of space + unit normal to surface $\Rightarrow$ orientation on surface
-  \item Orientation of surface + unit normal to curve $\Rightarrow$ orientation of curve
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Example}
-
-\begin{itemize}
-  \item $S$: the unit sphere $x^2+y^2+z^2 = 1$;
-  \item oriented by the outward normal $\fcv{n}$;
-  \item $D = S \cap \{z\geqslant 0\}$ be the upper hemisphere;
-  \item Boundary of $D$: the circle $C= S \cap \{z=0\}$.
-\end{itemize}
-
-\pause At the point $p=(1,0,0)$
-\begin{itemize}
-  \item the normal $\fcv{n}$ is the vector \pause $\fcv{i}$;
-  \item the normal $\fcv{N}$ is the vector \pause $-\fcv{k}$;
-  \item positively oriented tangent to $C$:\pause
-%
-$$\fcv{T}= \fcv{n} \times \fcv{N} = \fcv{i} \times (-\fcv{k}) = \fcv{k}\times \fcv{i} = \fcv{j} \;,$$
-%
-\item \pause which orients $C$ counterclockwise in the $\{\fcv{i},\fcv{j}\}-$plane.
-\end{itemize}
-
-\pause If instead we use the lower hemisphere to orient $C$: at $p=(1,0,0)$
- \begin{itemize}
-   \item $\fcv{n}=\fcv{i}$, $\fcv{N}=\fcv{k}$, $\fcv{T}=\fcv{n}\times \fcv{N} = \fcv{i} \times \fcv{k} = -\fcv{j}$;
-   \item which orients $C$ clockwise in the $\{\fcv{i},\fcv{j}\}-$plane.
- \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Components of Curl in Rectangular Coordinates}
-
-      %
-$$\fcv{Y} \cdot \fcv{n} = \text{curl}_{\fcv{n}} (\orth_{\fcv{n}} \fcv{X})(p)$$
-
-If $\fcv{X}=P \, \fcv{i} + Q\, \fcv{j} + R\, \fcv{k}$, then
-\begin{itemize}
-  \item The $\fcv{k}$ normal orients the $xy-$plane as $\{ \fcv{i}, \fcv{j}\}$, because $\{\fcv{k}, \fcv{i}, \fcv{j}\} \sim \{\fcv{i}, \fcv{j}, \fcv{k}\}$
-%
-$$\fcv{Y} \cdot \fcv{k} = \text{curl}_{\fcv{k}} (\orth_{\fcv{k}} \fcv{X}) = \text{curl}_{\fcv{k}} (P\, \fcv{i} + Q\, \fcv{j}) = \partial_x Q - \partial_y P = Q_x - P_y\; .$$
-%
-\item \pause The $\fcv{j}$ normal orients the $xz-$plane as \pause $\{ \fcv{k}, \fcv{i}\}$, because $\{\fcv{j}, \fcv{k}, \fcv{i}\} \sim \{\fcv{i}, \fcv{j}, \fcv{k}\}$\pause
-%
-$$\fcv{Y} \cdot \fcv{j} = \text{curl}_{\fcv{j}} (R\, \fcv{k} + P\, \fcv{i}) = \partial_z P - \partial_x R = P_z - R_x\; .$$
-%
-\item \pause The $\fcv{i}$ normal orients the $yz-$plane as \pause $\{ \fcv{j}, \fcv{k}\}$, because $\{\fcv{i}, \fcv{j}, \fcv{k}\} \sim \{\fcv{i}, \fcv{j}, \fcv{k}\}$\pause
-%
-$$\fcv{Y} \cdot \fcv{i} = \text{curl}_{\fcv{i}} (Q\, \fcv{j} + R\, \fcv{k}) = \partial_y R - \partial_z Q = R_y - Q_z\; .$$
-\end{itemize}
-
-\pause If $\fcv{Y} = (\partial_y R - \partial_z Q) \, \fcv{i} +  (\partial_z P - \partial_x R) \, \fcv{j} + (\partial_x Q - \partial_y P) \, \fcv{k}$,
-then
-%
-$$\fcv{Y} \cdot \fcv{n} = \text{curl}_{\fcv{n}} (\orth_{\fcv{n}} \fcv{X})(p) \; $$
-%
-is true for $\fcv{n} = \fcv{i}$, $\fcv{j}$, and $\fcv{k}$. \pause Is it true for \emph{all} $\fcv{n}$?
-
-\end{frame}
-
-\begin{frame}
-
-\begin{theorem}[Stokes]{\rm
-Let $S$ be a smooth surface in space, oriented by the unit normal field $\fcv{n}$. Let $D$ be a region on $S$, bounded by the piecewise smooth curve $C=\partial D$, with unit tangent $\fcv{T}$ positively oriented by the outward pointing normal $\fcv{N}$. Let
-$\fcv{X}=P \, \fcv{i} + Q\, \fcv{j} + R\, \fcv{k}$ be a smooth vector field on $S$ and
-%
-$$  \fcv{Y} = (\partial_y R - \partial_z Q) \, \fcv{i} +  (\partial_z P - \partial_x R) \, \fcv{j} + (\partial_x Q - \partial_y P) \, \fcv{k} \; .
-$$
-%
-Then
-%
-$$\oint_C \fcv{X} \cdot \fcv{dr} = \int\!\!\! \int_D \fcv{Y} \cdot \fcv{\diff S}\, \; .$$}
-\end{theorem}
-
-Recall: $\fcv{X}\cdot \fcv{dr} = \fcv{T}\, ds$ and $\fcv{Y} \cdot \fcv{\diff S} = \fcv{n} \; \diff S$.
-
-\pause Idea of proof:
-\begin{itemize}
-  \item \pause Use a parametrization of $S$ to move the integrals to the parameter plane;
-  \item \pause Apply Green's Theorem in the parameter plane.
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Consequences}
-
-  \begin{itemize}
-    \item $\fcv{n}$: unit vector
-    \item $S$: plane through $p$ normal to $\fcv{n}$;
-    \item $C$: simple curve in $S$ around $p$;
-    \item $D$: domain enclosed by $C$.\pause
-    %
-    \begin{align*}
-    \fcv{X} = & \orth_{\fcv{n}} \fcv{X} + \proj_{\fcv{n}} \fcv{X} \Rightarrow \fcv{X}\cdot \fcv{T} = \orth_{\fcv{n}} \fcv{X} \cdot \fcv{T} \pause \\
-      \text{curl}_{\fcv{n}} &(\orth_{\fcv{n}} \fcv{X}) (p) = \lim_{D\to\{p\}} \frac{1}{\text{area}(D)} \oint_C \orth_{\fcv{n}} \fcv{X} \cdot \fcv{dr} = \\
-      = & \lim_{D\to\{p\}} \frac{1}{\text{area}(D)} \oint_C
-      \fcv{X}\cdot \fcv{dr} = \lim_{D\to\{p\}} \frac{1}{\text{area}(D)} \iint_D \fcv{Y}\cdot \fcv{n} \, \diff S = \fcv{Y}\cdot \fcv{n}
-    \end{align*}
-    \item \pause $\fcv{Y} = (\partial_y R - \partial_z Q) \, \fcv{i} +  (\partial_z P - \partial_x R) \, \fcv{j} + (\partial_x Q - \partial_y P) \, \fcv{k}$ works for all $\fcv{n}$ \, !!
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Curl of a Vector Field}
-
-\underline{Definition}:
-
-The \emph{curl} of a smooth field $X$ is the unique vector field $\curl X$ that satisfies
-%
-$$\fcv{curl}\, \fcv{X}\cdot \fcv{n} = \text{curl}_{\fcv{n}} (\orth_{\fcv{n}} \fcv{X})$$
-
-\pause In rectangular coordinates:
-
-If $\fcv{X}=P(x,y,z) \, \fcv{i} + Q(x,y,z)\, \fcv{j} + R(x,y,z)\, \fcv{k}$, then
-%
-$$
-  \fcv{curl}\, \fcv{X} = (\partial_y R - \partial_z Q) \, \fcv{i} +  (\partial_z P - \partial_x R) \, \fcv{j} + (\partial_x Q - \partial_y P) \, \fcv{k} \; ,
-$$
-%
-$$\fcv{curl}\, \fcv{X} = \left| \begin{array}{ccc}
-  \fcv{i} & \fcv{j} & \fcv{k} \\
-  %
-  \partial_x & \partial_y & \partial_z \\
-  %
-  P & Q & R
-\end{array}\right| = \nabla \times \fcv{X}\; .$$
-%
-
-\pause Stokes' Theorem:
-%
-$$\oint_C \fcv{X}\cdot \fcv{dr} = \iint_D \curl \fcv{X} \cdot \fcv{\diff S}\; .$$
-\end{frame}
-
-\begin{frame}
-  \frametitle{Example}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{Vector Potential}
-
-  Given a smooth vector field $\fcv{X}$, one can ask:
-%
-\begin{itemize}
-  \item Is $\fcv{X}$ the $\curl$ of a vector field?
-  \item \pause Any field $\fcv{G}$ such that $\fcv{X} = \fcv{curl}\, \fcv{G}$ is called a \emph{vector potential} for $\fcv{X}$.
-  \item \pause If $\fcv{X}=\nabla \times \fcv{G}$ is a curl field, then $\divg \fcv{X} = 0$.
-  \item \pause Two vector potentials differ by a gradient field.
-\end{itemize}
-\pause We can use Stokes' theorem to:
-\begin{itemize}
-  \item \pause Evaluate line integrals by computing a surface integral, or
-  %
-  \item \pause Evaluate a surface integral by computing a line integral.
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Application}
-Surface $D$ the part of the paraboloid $z=4-x^2-y^2$ above the $xy-$plane, oriented upward, $\fcv{X} = a\, \fcv{i} +b\, \fcv{j} +c\, \fcv{k}$
-%
-$$\iint_D \fcv{X} \cdot \fcv{\diff S} $$
-%
-
-\pause
-$\divg \fcv{X} =0$, hence $\fcv{X}$ may be the curl of a vector field $\fcv{G}=P\, \fcv{i} + Q\, \fcv{j} + R\, \fcv{k}$.\pause
-%
-$$Q_x - P_y = c, \qquad P_z-R_x = b, \qquad R_y-Q_z= a\; .$$
-%
-\pause One solution is $Q=cx$, $P=bz$, $R=ay$, hence $\fcv{G} = bz\, \fcv{i} + cx\, \fcv{j} + ay\, \fcv{k}$ is a vector potential for $\fcv{X}$. Then $\fcv{X}= \fcv{curl}\, \fcv{G}$ and therefore
-%
-$$\iint_D \fcv{X} \cdot \fcv{\diff S} = \iint_D \fcv{curl}\, \fcv{G}\, \cdot \fcv{\diff S} = \oint_C \fcv{G} \cdot \fcv{dr} = \oint_C bz\, dx + cx\, dy + ay\, dz\; ,$$
-%
-where $C =\partial D$, the circle of radius 2 centered at the origin, oriented counterclockwise;\pause $x=2\cos{t}$, $y=2\sin{t}$, $z=0$, with $0 \leqslant t \leqslant 2\pi$ is an orientation-compatible parametrization of $C$
-%
-$$\oint_{C} \fcv{G} \cdot \fcv{dr} = \int_{0}^{2\pi} 2c\cos{t} \, (2\cos{t}) \, dt = 4c\, \int_{0}^{2\pi} \cos^2{t} \, dt = 4\pi\,c \; .$$
-\end{frame}
-
-\begin{frame}
-  \frametitle{Div, Curl, Grad}
-
-$$\divg (\fcv{curl} \, \fcv{X})  = \nabla \cdot (\nabla \times \fcv{X}) = 0 \; .$$
-%
-\pause $B$: ball centered at $p$, with boundary a sphere $S$ centered at $p$.
-%
-$$\iiint_B \divg (\fcv{curl}\,\fcv{X}) \, dV = \iint_{S=\partial B} \fcv{curl}\, \fcv{X} \cdot \fcv{\diff S} = \oint_{\partial S} \fcv{X} \cdot \fcv{dr} = 0\; ,$$
-%
-$$\divg (\fcv{curl}\, \fcv{X}) (p) = \lim_{B \to \{p\}} \frac{1}{\text{vol}(B)} \iiint_B \divg (\fcv{curl}\, \fcv{X}) \, dV = 0\; .$$
-\pause
-%
-$$\fcv{curl} ( \fcv{grad} f ) = \nabla \times (\nabla f) = \fcv{0}\; .$$
-
-\pause $D$: disk centered at $p$, in the plane normal to $\fcv{n}$ at $p$, and $C=\partial D$
-%
-$$\iint_D \fcv{curl} \,(\fcv{grad} f) \cdot \fcv{n}\, \diff S = \iint_D \fcv{curl}\, (\fcv{grad} f) \cdot \fcv{\diff S} = \oint_C \fcv{grad} f \cdot \fcv{dr} = 0\; ,$$
-%
-$$\fcv{curl} \,(\fcv{grad} f) (p) \cdot \fcv{n} = \lim_{D\to \{p\}} \frac{1}{\text{area}(D)} \iint_D \fcv{curl} (\fcv{grad} f) \cdot \fcv{n}\, \diff S = 0\; ; $$
-%
-since this is valid for all unit vectors $\fcv{n}$, we conclude that $\fcv{curl} \,(\fcv{grad} f) (p)= \fcv{0}$.
-\end{frame}
-
-\begin{frame}
-  \frametitle{A Unifying Theme}
-
- \begin{center}
-   \boxed{
-\begin{tabular}{ccc}
-   Accumulation of a quantity &  & Accumulation of a  \\
-   over the boundary of & = & derived quantity \\
-   a closed domain &  &  over the entire domain
-\end{tabular}
-}
- \end{center}
-\begin{itemize}
-  \item the domain is oriented;
-  \item the orientation of the domain induces an orientation of the boundary.
-\end{itemize}
-
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Domains of Dimension One}
-
-\underline{Fundamental Theorem of Line Integrals}:
-\begin{itemize}
-  \item $C$: smooth curve, joining points $A$ and $B$, oriented from $A$ to $B$;
-  \item $\partial C = \{A,B\}$: boundary of $C$;
-  \item Orientation of $\partial C$: $A$, weight -1; $B$, weight +1;
-  \item $f$ a differentiable function defined on (an open neighborhood of) $C$.
-\end{itemize}
-%
-$$f(B)-f(A) =\int_C df \quad \Leftrightarrow \quad \int_{\partial C} f = \int_C df\;.$$
-
-$\fcv{r} \colon [a,b] \to \RR^n$, smooth parametrization of $C$ with $\fcv{r}(a) = A$ and $\fcv{r}(b)=B$:
-%
-$$
-  f(\fcv{r}(b)) - f(\fcv{r}(a)) = \int_C \nabla f \cdot  \fcv{dr}\; .
-$$
-
-
-\underline{Net Change Theorem}: If $f \colon [a,b] \to \RR$ is a differentiable function, then
-%
-$$
-   f(b)-f(a) = \int_{a}^b f'(x) \; dx\; .
-$$
-
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Domains of Dimension Two}
-
-\underline{Stokes' Theorem}:
-\begin{itemize}
-  \item $S$: surface, oriented by unit normal field $\fcv{n}$; $D$: domain on $S$;
-  \item $C=\partial D$: boundary of $D$, oriented by the outward unit normal $\fcv{N}$;
-  \item $\fcv{X}$: is a smooth field on $D$.
-\end{itemize}
-$$
-  \oint_{\partial D} \fcv{X} \cdot \fcv{dr} = \iint_D \fcv{curl} \fcv{X} \cdot \fcv{\diff S}
-$$
-
-If $\fcv{X} = P(x,y,z)\; \fcv{i} + Q(x,y,z)\, \fcv{j} + R(x,y,z)\; \fcv{k}$, then
-%
-$$ \fcv{curl} \fcv{X} =\langle \partial_y R - \partial_z Q, \partial_z P - \partial_x R, \partial_x Q - \partial_y P\rangle = \left| \begin{array}{ccc}
-  \fcv{i} & \fcv{j} & \fcv{k} \\
-  %
-  \partial_x & \partial_y & \partial_z \\
-  %
-  P & Q & R
-\end{array}\right| = \nabla \times \fcv{X}\; .$$
-
-\underline{Green's Theorem}: Particular case when $S$ is a plane, oriented by $\fcv{k}$.
-$$
-  \oint_{\partial D} P(x,y) dx + Q(x,y) dy = \iint_D \left( Q_x - P_y\right) dx\,dy
-$$
-$$
-  \oint_{\partial D} \fcv{X} \cdot \fcv{dr} = \iint_D \text{curl}_{\fcv{k}} \fcv{X}\, dA \quad , \quad
-  \oint_{\partial D} \fcv{X} \cdot \fcv{n}\,ds = \iint_D \divg  \fcv{X}\, dA
-$$
-\end{frame}
-
-\begin{frame}
-  \frametitle{Domains of Dimension Three}
-
-  \underline{Divergence Theorem}:
-   \begin{itemize}
-     \item $D$, domain in $\RR^3$;
-     \item $\partial D$: boundary of $D$, oriented by the outward unit normal $\fcv{n}$;
-     \item $X$: smooth vector field on $D$.
-   \end{itemize}
-%
-$$
-  \iint_{\partial D} \fcv{X} \cdot \fcv{\diff S} = \iiint_D \text{div} \fcv{X} \;dV \; ,
-$$
-%
-where $\fcv{X} \cdot \fcv{\diff S} = \fcv{X} \cdot \fcv{n} \, \diff S$.
-
-\medskip
-If $\fcv{X} = P(x,y,z)\; \fcv{i} + Q(x,y,z)\, \fcv{j} + R(x,y,z)\; \fcv{k}$, then
-%
-$$\divg \fcv{X} = P_x + Q_y + R_z = \nabla \cdot \fcv{X}.$$
-%
-$$\fcv{X}=\grad f \Rightarrow \curl \fcv{X} = \curl (\grad f) = \fcv{0} \Rightarrow \text{condition for scalar potential}$$
-%
-$$\fcv{X}=\curl \fcv{G} \Rightarrow \divg \fcv{X} = \divg (\curl \fcv{G}) = 0 \Rightarrow \text{condition for vector potential}$$
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Higher Dimensional Domains}
-
- \begin{center}
-   \boxed{
-\begin{tabular}{ccc}
-   Accumulation of a quantity &  & Accumulation of a  \\
-   over the boundary of & = & derived quantity \\
-   a closed domain &  &  over the entire domain
-\end{tabular}
-}
- \end{center}
-
-\begin{itemize}
-  \item the domain is oriented;
-  \item the orientation of the domain induces an orientation of the boundary.
-\end{itemize}
-
-
-
-\underline{General Stokes Theorem}:
-%
-$$\boxed{\int_{\partial M} \omega = \int_M d\omega}$$
-%
-
-\begin{itemize}
-  \item It would take too long to explain here what all that means,
-  \item Will be happy to do so in a future course, \emph{Analysis on Manifolds}.
-\end{itemize}
-
-\end{frame}
-
-
-
-
-
-
-
+%\input{../../modules/integration-surface-integrals/rotational-effect}<-needs a rewrite
+%\input{../../modules/integration-surface-integrals/vector-field-components} %<-needs a rewrite
+%\input{../../modules/integration-surface-integrals/induced-orientation-and-curl}
+%<-needs a rewrite
+\input{../../modules/integration-surface-integrals/curl-definition-in-coordinate-form}
+
+\input{../../modules/integration-surface-integrals/induced-orientation-boundary-curve}
+\input{../../modules/integration-surface-integrals/induced-orientation-boundary-curve-example-hemisphere}
+%\input{../../modules/integration-surface-integrals/coordinate-computation-of-curl-from-coordinate-free-definition}
+%<-needs a rewrite
+\input{../../modules/integration-surface-integrals/stokes-theorem}
+%\input{../../modules/integration-surface-integrals/stokes-theorem-corollaries}<-needs a rewrite
+\input{../../modules/integration-surface-integrals/stokes-theorem-applications}
+\input{../../modules/integration-surface-integrals/stokes-theorem-example-line-via-surface-integral-1}
+\input{../../modules/integration-surface-integrals/vector-potential}
+\input{../../modules/integration-surface-integrals/stokes-theorem-example-surface-via-line-integral-1}
+\input{../../modules/integration-surface-integrals/div-curl-grad}
+%\input{../../modules/integration-surface-integrals/unifying-theme-rough-draft}<-needs a rewrite
 }
 
 

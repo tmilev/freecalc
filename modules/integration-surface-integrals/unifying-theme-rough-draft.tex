@@ -1,0 +1,140 @@
+\begin{frame}
+  \frametitle{A Unifying Theme}
+
+ \begin{center}
+   \boxed{
+\begin{tabular}{ccc}
+   Accumulation of a quantity &  & Accumulation of a  \\
+   over the boundary of & = & derived quantity \\
+   a closed domain &  &  over the entire domain
+\end{tabular}
+}
+ \end{center}
+\begin{itemize}
+  \item the domain is oriented;
+  \item the orientation of the domain induces an orientation of the boundary.
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Domains of Dimension One}
+
+\underline{Fundamental Theorem of Line Integrals}:
+\begin{itemize}
+  \item $C$: smooth curve, joining points $A$ and $B$, oriented from $A$ to $B$;
+  \item $\partial C = \{A,B\}$: boundary of $C$;
+  \item Orientation of $\partial C$: $A$, weight -1; $B$, weight +1;
+  \item $f$ a differentiable function defined on (an open neighborhood of) $C$.
+\end{itemize}
+%
+$$f(B)-f(A) =\int_C df \quad \Leftrightarrow \quad \int_{\partial C} f = \int_C df\;.$$
+
+$\fcv{r} \colon [a,b] \to \RR^n$, smooth parametrization of $C$ with $\fcv{r}(a) = A$ and $\fcv{r}(b)=B$:
+%
+$$
+  f(\fcv{r}(b)) - f(\fcv{r}(a)) = \int_C \nabla f \cdot  \fcv{dr}\; .
+$$
+
+
+\underline{Net Change Theorem}: If $f \colon [a,b] \to \RR$ is a differentiable function, then
+%
+$$
+   f(b)-f(a) = \int_{a}^b f'(x) \; dx\; .
+$$
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Domains of Dimension Two}
+
+\underline{Stokes' Theorem}:
+\begin{itemize}
+  \item $S$: surface, oriented by unit normal field $\fcv{n}$; $D$: domain on $S$;
+  \item $C=\partial D$: boundary of $D$, oriented by the outward unit normal $\fcv{N}$;
+  \item $\fcv{X}$: is a smooth field on $D$.
+\end{itemize}
+$$
+  \oint_{\partial D} \fcv{X} \cdot \fcv{dr} = \iint_D \fcv{curl} \fcv{X} \cdot \fcv{\diff S}
+$$
+
+If $\fcv{X} = P(x,y,z)\; \fcv{i} + Q(x,y,z)\, \fcv{j} + R(x,y,z)\; \fcv{k}$, then
+%
+$$ \fcv{curl} \fcv{X} =\langle \partial_y R - \partial_z Q, \partial_z P - \partial_x R, \partial_x Q - \partial_y P\rangle = \left| \begin{array}{ccc}
+  \fcv{i} & \fcv{j} & \fcv{k} \\
+  %
+  \partial_x & \partial_y & \partial_z \\
+  %
+  P & Q & R
+\end{array}\right| = \nabla \times \fcv{X}\; .$$
+
+\underline{Green's Theorem}: Particular case when $S$ is a plane, oriented by $\fcv{k}$.
+$$
+  \oint_{\partial D} P(x,y) dx + Q(x,y) dy = \iint_D \left( Q_x - P_y\right) dx\,dy
+$$
+$$
+  \oint_{\partial D} \fcv{X} \cdot \fcv{dr} = \iint_D \text{curl}_{\fcv{k}} \fcv{X}\, dA \quad , \quad
+  \oint_{\partial D} \fcv{X} \cdot \fcv{n}\,ds = \iint_D \divg  \fcv{X}\, dA
+$$
+\end{frame}
+
+\begin{frame}
+  \frametitle{Domains of Dimension Three}
+
+  \underline{Divergence Theorem}:
+   \begin{itemize}
+     \item $D$, domain in $\RR^3$;
+     \item $\partial D$: boundary of $D$, oriented by the outward unit normal $\fcv{n}$;
+     \item $X$: smooth vector field on $D$.
+   \end{itemize}
+%
+$$
+  \iint_{\partial D} \fcv{X} \cdot \fcv{\diff S} = \iiint_D \text{div} \fcv{X} \;dV \; ,
+$$
+%
+where $\fcv{X} \cdot \fcv{\diff S} = \fcv{X} \cdot \fcv{n} \, \diff S$.
+
+\medskip
+If $\fcv{X} = P(x,y,z)\; \fcv{i} + Q(x,y,z)\, \fcv{j} + R(x,y,z)\; \fcv{k}$, then
+%
+$$\divg \fcv{X} = P_x + Q_y + R_z = \nabla \cdot \fcv{X}.$$
+%
+$$\fcv{X}=\grad f \Rightarrow \curl \fcv{X} = \curl (\grad f) = \fcv{0} \Rightarrow \text{condition for scalar potential}$$
+%
+$$\fcv{X}=\curl \fcv{G} \Rightarrow \divg \fcv{X} = \divg (\curl \fcv{G}) = 0 \Rightarrow \text{condition for vector potential}$$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Higher Dimensional Domains}
+
+ \begin{center}
+   \boxed{
+\begin{tabular}{ccc}
+   Accumulation of a quantity &  & Accumulation of a  \\
+   over the boundary of & = & derived quantity \\
+   a closed domain &  &  over the entire domain
+\end{tabular}
+}
+ \end{center}
+
+\begin{itemize}
+  \item the domain is oriented;
+  \item the orientation of the domain induces an orientation of the boundary.
+\end{itemize}
+
+
+
+\underline{General Stokes Theorem}:
+%
+$$\boxed{\int_{\partial M} \omega = \int_M d\omega}$$
+%
+
+\begin{itemize}
+  \item It would take too long to explain here what all that means,
+  \item Will be happy to do so in a future course, \emph{Analysis on Manifolds}.
+\end{itemize}
+
+\end{frame}

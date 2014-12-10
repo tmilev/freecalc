@@ -1,0 +1,20 @@
+\begin{frame}
+
+Surface $D$ the part of the paraboloid $z=4-x^2-y^2$ above the $xy-$plane, oriented upward, $\fcv{X} = a\, \fcv{i} +b\, \fcv{j} +c\, \fcv{k}$
+%
+$$\iint_D \fcv{X} \cdot \fcv{\diff S} $$
+%
+
+\pause
+$\divg \fcv{X} =0$, hence $\fcv{X}$ may be the curl of a vector field $\fcv{G}=P\, \fcv{i} + Q\, \fcv{j} + R\, \fcv{k}$.\pause
+%
+$$Q_x - P_y = c, \qquad P_z-R_x = b, \qquad R_y-Q_z= a\; .$$
+%
+\pause One solution is $Q=cx$, $P=bz$, $R=ay$, hence $\fcv{G} = bz\, \fcv{i} + cx\, \fcv{j} + ay\, \fcv{k}$ is a vector potential for $\fcv{X}$. Then $\fcv{X}= \fcv{curl}\, \fcv{G}$ and therefore
+%
+$$\iint_D \fcv{X} \cdot \fcv{\diff S} = \iint_D \fcv{curl}\, \fcv{G}\, \cdot \fcv{\diff S} = \oint_C \fcv{G} \cdot \fcv{dr} = \oint_C bz\, dx + cx\, dy + ay\, dz\; ,$$
+%
+where $C =\partial D$, the circle of radius 2 centered at the origin, oriented counterclockwise;\pause $x=2\cos{t}$, $y=2\sin{t}$, $z=0$, with $0 \leqslant t \leqslant 2\pi$ is an orientation-compatible parametrization of $C$
+%
+$$\oint_{C} \fcv{G} \cdot \fcv{dr} = \int_{0}^{2\pi} 2c\cos{t} \, (2\cos{t}) \, dt = 4c\, \int_{0}^{2\pi} \cos^2{t} \, dt = 4\pi\,c \; .$$
+\end{frame}
