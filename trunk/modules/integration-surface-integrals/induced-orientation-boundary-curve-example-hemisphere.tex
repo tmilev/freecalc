@@ -1,12 +1,29 @@
 \begin{frame}
-  \frametitle{Example}
+\begin{example}[Orientation of the equator of a sphere]
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.3}{-0.5}{1.3}{1.4}
+\fcStartIIIdScene
+\fcSurfaceInScene{90}{0}{0}{360}{
+4 dict begin
+/rho 1 def
+/x u cos v cos mul rho mul def
+/y u cos v sin mul rho mul def
+/z u sin rho mul def
+[x y z]
+end
+}{}
+\fcAxesIIIdInScene{1.4}{1.4}{1.4}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
 
-\begin{itemize}
-  \item $S$: the unit sphere $x^2+y^2+z^2 = 1$;
-  \item oriented by the outward normal $\fcv{n}$;
-  \item $D = S \cap \{z\geqslant 0\}$ be the upper hemisphere;
-  \item Boundary of $D$: the circle $C= S \cap \{z=0\}$.
-\end{itemize}
+\column{0.6\textwidth}
+Let $S$ be the unit sphere $x^2+y^2+z^2 = 1$ oriented by the outward normal $\fcv{n}$, $D = S \cap \{z\geq 0\}$ be the upper hemisphere. Introduce an orientation on the boundary of $D$ is the circle $C= S \cap \{z=0\}$.
+
+\end{columns}
+
 
 \pause At the point $p=(1,0,0)$
 \begin{itemize}
@@ -24,4 +41,5 @@ $$\fcv{T}= \fcv{n} \times \fcv{N} = \fcv{i} \times (-\fcv{k}) = \fcv{k}\times \f
    \item $\fcv{n}=\fcv{i}$, $\fcv{N}=\fcv{k}$, $\fcv{T}=\fcv{n}\times \fcv{N} = \fcv{i} \times \fcv{k} = -\fcv{j}$;
    \item which orients $C$ clockwise in the $\{\fcv{i},\fcv{j}\}-$plane.
  \end{itemize}
+\end{example}
 \end{frame}
