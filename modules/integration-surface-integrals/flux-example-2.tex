@@ -16,17 +16,17 @@ Let $S$ be the part of the paraboloid $z=4-x^2-y^2$ above the $xy-$plane, orient
 $\iint_S \fcv {X} \cdot \fcv{\diff S} \; .$
 \end{columns}
 
-Parametrization: $\fcv f \colon B \to \RR^3$, $\fcv f(u,v) = (v,u,4-u^2-v^2)$.
+Parametrization: $\fcv f \colon B \to \RR^3$, $\fcv f(u,v) = (u,v,4-u^2-v^2)$.
 
 $
 \begin{array}{r@{~}c@{~}l}
-\fcv f_u \times \fcv f_v &=& ( 0,1,-2v) \times ( 1,0,-2u) = \left| \begin{array}{ccc}
+\fcv f_u \times \fcv f_v &=& ( 1,0,-2u) \times ( 0,1,-2v) = \left| \begin{array}{ccc}
 i & j & k \\
-0 & 1 & -2v\\
-1 & 0 & -2u
+0 & 1 & -2u\\
+1 & 0 & -2v
 \end{array}\right| \\
-&=& -2u \, \fcv{i} - 2v\, \fcv{j} - \fcv{k }\\
-\fcv{N} &=& -\frac{\fcv f_u \times \fcv f_v}{|\fcv f_u \times \fcv f_v|}\; .\\
+&=& 2u \, \fcv{i} + 2v\, \fcv{j}+  \fcv{k }\\
+\fcv{N} &=& \frac{\fcv f_u \times \fcv f_v}{|\fcv f_u \times \fcv f_v|}\; .\\
 \fcv{X} \cdot \fcv{\diff S}  &=& \fcv{X} \cdot \fcv{n} \, \diff S =  \fcv{X} \cdot \left( -\frac{\fcv f_u \times \fcv f_v}{|\fcv f_u \times \fcv f_v|}\right) \, |\fcv f_u \times \fcv f_v|  \diff u \diff v = \\
 & =& (a \fcv{i} +b\, \fcv{j} +c \fcv{k}) \cdot (2u  \fcv{i} + 2v \fcv{j} + \fcv{k})  \diff u \diff v \\
 &=& (2au +2bv +c) \diff u \diff v \\

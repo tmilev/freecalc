@@ -8,7 +8,8 @@
 \tiny
 \fcBoundingBox{-2}{-1.4}{3}{4.5}
 \fcStartIIIdScene
-\fcSurfaceInScene[iterationsV=12]{0}{0}{2}{360}{[v cos u mul v sin u mul 4 u u mul sub]}{}
+\fcSurfaceInScene[colorUV=pink, iterationsV=12, iterationsU = 6, linecolor=gray ]{ 0}{0 }{2}{360}{[v cos u mul v sin u mul 4 u u mul sub]}{}
+\fcVectorFieldAlongSurfaceInScene[linecolor=blue, arrows=->, iterationsV=6, iterationsU =4 ]{ 2 6 div 2 mul}{ 0}{2}{360}{[v cos u mul v sin u mul 4 u u mul sub]}{}{[v cos u mul v sin u mul 4 u u mul sub add add 4 div dup dup]}
 \fcAxesIIIdInScene{3}{3}{4.5}
 \fcFinishIIIdScene[fastsort=true]
 \end{pspicture}
