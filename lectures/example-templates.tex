@@ -82,11 +82,6 @@
 \FPeval{\fcResult}{clip(#1+1)}% 
 \uncover<#1->{\alert<handout:0| #1,\fcResult>{#2}}%
 }
-\newcommand{\refBad}[3]{%
-\ifthenelse{\equal{#1}{??}}%
-{#2}%
-{#3}%
-}
 \newcommand{\fcEvalToInt}[1]{\FPeval{\fcResult}{clip(#1)}\fcResult}
 
 %

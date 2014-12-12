@@ -12,7 +12,7 @@ Now it is straightforward to see that the two lines are not parallel - indeed, o
 \]
 We note that if the vectors $\fcv u, \fcv v$ were parallel, then the cross product above would had been zero. Now the distance between the two lines is obtained by taking an arbitrary vector with tail on one line and head on the other, and computing the length of its projection it onto $\fcv n $. We use the vector $\fcv r= \fcv Q_0\fcv P_0$. Then the distance $d$ between the two lines is given by:
 \[
-d=\frac{|\fcv r \cdot \fcv n| }{|\fcv n|}= \frac{|\left(( 1,3,5) - |( 1,2,3)\right) \cdot \fcv  n|}{|\fcv n|}=\frac{ |( 0, 1, 2 )\cdot( 2, -4,2 )|}{|\fcv n|}=0.
+d=\frac{|\fcv r \cdot \fcv n| }{|\fcv n|}= \frac{|\left(( 1,3,5) - ( 1,2,3)\right) \cdot \fcv  n|}{|\fcv n|}=\frac{ |( 0, 1, 2 )\cdot( 2, -4,2 )|}{|\fcv n|}=0.
 \]
 Therefore the distance between the two lines is zero. This completes our solution.
 
@@ -35,4 +35,43 @@ From the first equality we get that $s=5t$. We substitute that into the second e
 (1,2,3)-\frac{1}{2}(5,3,1)= \left(-\frac{3}{2}, \frac{1}{2}, \frac{5}2\right)= (1,3,5)-\frac{5}{2}(1,1,1)\quad ;
 \]
 all our error checks have been successful.
+}
+
+\solution{\ref{problemDistanceLineLine(1,3,4)(2,3,1)to(1,2,2)(0,2,5)}
+We present a solution in a concise form suitable for exam taking.
+
+Let $L_1, L_2$ be the two lines.
+\[
+\begin{array}{rcll|l}
+\fcv u &=& (2,3,1)-(1,3,4)=(1,0,-3)&& \text{direction vector } L_1\\
+\fcv v &=& (0,2,5)-(1,2,2)=(-1,0,3)=-\fcv u&&\text{direction vector } L_2\\
+&&\text{Therefore } L_1 \parallel  L_2\\
+\fcv r&=&(2,3,1)-(0,2,5)=(2,1,-4) &&\text{arbitrary vector connecting } L_1, L_2\\
+L_1\parallel L_2\Rightarrow\\
+\text{dist}(L_1,L_2)&=&|\fcv{orth}_{\fcv u} \fcv r| \\
+&=&\left|\fcv r- \fcv {proj}_{\fcv u} \fcv r \right|\\
+&=&\left|\fcv r- \frac{\fcv r \cdot \fcv u}{|\fcv u|^2}\fcv{u} \right|\\
+&=&\left| (2,1,-4)-\frac{(2,1,-4)\cdot (1,0,-3)}{1^2+0^2+(-3)^2}(1,0,-3) \right|\\
+&=&\left|\left(\frac{3}{5}, 1, \frac{1}{5} \right)\right|\\
+&=&\sqrt{\left(\frac{3}{5}\right)^2+ 1^2+ \left(\frac{1}{5}\right)^2 }\\
+&=&\frac{\sqrt{35}}{5} \quad .
+\end{array}
+\]
+}
+
+\solution{\ref{problemDistanceLineLine(1,3,4)(2,3,1)to(1,2,2)(0,2,4)}
+
+We present a solution in a concise form suitable for exam taking.
+\[\begin{array}{rcll|l}
+\fcv u &=& (2,3,1)-(1,3,4)=(1,0,-3)&& \text{direction vector } L_1\\
+\fcv v &=& (0,2,4)-(1,2,2)=(-1,0,2)=-\fcv u&&\text{direction vector } L_2\\
+\fcv r &=& (1,3,4)-(1,2,2)=(0, 1, 2)  &&\text{arbitrary vector connecting } L_1,L_2\\
+\fcv n&=&u\times v=(0, 1, 0) &&\neq 0\Rightarrow L_1\not \parallel L_2\Rightarrow\\
+L_1\not \parallel L_2\Rightarrow \\
+\text{dist}(L_1,L_2)&=&\left|\fcv {proj}_{\fcv n} \fcv r\right|\\
+&=&\left|\fcv r \cdot \frac{\fcv n}{|\fcv n|}\right|\\
+&=&\left| (0,1,2)\cdot (0,1,0)\right|\\
+&=&1\quad .
+\end{array}
+\]
 }

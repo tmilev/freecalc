@@ -1,0 +1,21 @@
+\solution{\ref{problemComputeTangentNormalCurvature(tcost,tsint,-t)}
+
+\[
+\begin{array}{rcll|l}
+\fcv r(t)&=&\displaystyle  (t\cos t, t\sin t, -t)\\
+\fcv r'(t)&=&\displaystyle (\cos t -t\sin t, \sin t+t\cos t, -1)\\
+\fcv r''(t)&=&\displaystyle \left(- t \cos{}t-2 \sin{}t, - t \sin{}t+2 \cos{}t, 0\right)\\
+\fcv r'(t)\times \fcv r''(t)&=&\displaystyle  \left(- t \sin{}t+2 \cos{}t, t \cos{}t+2 \sin{}t, t^{2} \sin^{2}{}t+t^{2} \cos^{2}{}t+2 \sin^{2}{}t+2 \cos^{2}{}t\right) \\
+&=&\displaystyle (- t \sin{}t+2 \cos{}t, t \cos{}t+2 \sin{}t, t^{2}+2)\\
+\left|\fcv r'(t)\right|&=&\displaystyle  \sqrt{(\cos t-t\sin t)^2 +(\sin t +t\cos t)^2+(-1)^2 }\\
+&=&\displaystyle \sqrt{\cos^2 t -\cancel{2t\cos t\sin t} +t^2\sin^2t +\sin^2 t +\cancel{ 2t\sin t \cos t} +t^2\cos^2t }\\
+&=&\displaystyle \sqrt{2+t^2}\\
+\left|\fcv r'(t)\times \fcv r''(t) \right|&=&\displaystyle  \sqrt{(- t \sin{}t+2 \cos{}t)^{2}+(t \cos{}t+2 \sin{}t)^{2}+(t^{2}+2)^{2}} \\
+&=&\displaystyle \sqrt{t^{2} \sin^{2}{}t+t^{2} \cos^{2}{}t+4 \sin^{2}{}t+4 \cos^{2}{}t+t^{4}+4 t^{2}+4 }\\
+&=&\displaystyle \sqrt{t^{4}+5 t^{2}+8}\\
+\kappa&=& \frac{\left|\fcv r'(t)\times \fcv r''(t) \right|}{|\fcv r'(t)|^3}\\
+&=&\displaystyle \sqrt{\frac{t^{4}+5 t^{2}+8}{(2+t^2)^3}}\quad .
+\end{array}
+\]
+
+}
