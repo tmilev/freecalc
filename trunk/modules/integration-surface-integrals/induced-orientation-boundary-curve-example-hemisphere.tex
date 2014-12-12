@@ -1,45 +1,83 @@
 \begin{frame}
 \begin{example}[Orientation of the equator of a sphere]
 \begin{columns}
-\column{0.4\textwidth}
+\column{0.25\textwidth}
 \begin{pspicture}(-1,-1)(1,1)
-\tiny
-\fcBoundingBox{-1.3}{-0.5}{1.3}{1.4}
-\fcStartIIIdScene
-\fcSurfaceInScene{90}{0}{0}{360}{
-4 dict begin
-/rho 1 def
-/x u cos v cos mul rho mul def
-/y u cos v sin mul rho mul def
-/z u sin rho mul def
-[x y z]
-end
-}{}
-\fcAxesIIIdInScene{1.4}{1.4}{1.4}
-\fcFinishIIIdScene[fastsort=true]
+\tiny%
+\fcBoundingBox{-1.3}{-1.21}{1.7}{1.1}%
+\fcStartIIIdScene%
+\only<1-12>{%
+\fcSurfaceInScene[colorUV=pink]{0}{0}{90}{360}{%
+4 dict begin%
+/rho 1 def%
+/x u sin v cos mul rho mul def%
+/y u sin v sin mul rho mul def%
+/z u cos rho mul def%
+[x y z]%
+end%
+}{}%
+}%
+\only<13->{%
+\fcSurfaceInScene[colorUV=pink]{90}{0}{180}{360}{%
+4 dict begin%
+/rho 1 def%
+/x u sin v cos mul rho mul def%
+/y u sin v sin mul rho mul def%
+/z u cos rho mul def%
+[x y z]%
+end%
+}{}%
+}%
+\only<11>{%
+\fcCurveIIIdInScene[arrows=->, linecolor=red, linewidth=2]{0}{90}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=red, linewidth=2]{90}{180}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=red, linewidth=2]{180}{270}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=red, linewidth=2]{270}{360}{[t cos t sin 0]}%
+}%
+\only<12>{%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue, linewidth=1]{0}{90}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue]{90}{180}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue]{180}{270}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue]{270}{360}{[t cos t sin 0]}%
+}%
+\only<13->{%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue, linewidth=1]{90}{0}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue]{180}{90}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue]{270}{180}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue]{360}{270}{[t cos t sin 0]}%
+}%
+\fcAxesIIIdInScene[linecolor=black, linewidth=1, arrows=->]{2}{2}{1.2}%
+\fcFinishIIIdScene[fastsort=true]%
+\uncover<3->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue]{[1 0 0]}{[2 0 0]}%
+\fcPutIIId[b]{[1.8 0 0.1]}{\alert<9,10>{$\fcv n$}}%
+}%
+\uncover<3,9,11,12,14 >{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[2 0 0]}}%
+\uncover<4-12>{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=cyan]{[1 0 0]}{[1 1 0]}}%
+\uncover<13->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=gray]{[1 0 0]}{[1 1 0]}}%
+\uncover<10,11,12>{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[1 1 0]}}%
+\uncover<4-9,13->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=cyan]{[1 0 0]}{[1 -1 0]}}%
+\uncover<14>{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[1 -1 0]}}%
+\uncover<10-12>{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=gray]{[1 0 0]}{[1 -1 0]}}%
+\uncover<2->{\fcDotIIId{[1 0 0]}}%
+\uncover<5->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue!50]{[1 0 0]}{[1 0 -1]}}%
+\uncover<7,9>{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[1 0 -1]}}%
+\uncover<5-6>{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue!50]{[1 0 0]}{[1 0 1]}}%
+\uncover<7->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=gray]{[1 0 0]}{[1 0 1]}}%
+\uncover<7->{\fcPutIIId{[1 0.3 -1]}{$\alert<7,9,10>{\fcv N}$}}%
 \end{pspicture}
 
-\column{0.6\textwidth}
-Let $S$ be the unit sphere $x^2+y^2+z^2 = 1$ oriented by the outward normal $\fcv{n}$, $D = S \cap \{z\geq 0\}$ be the upper hemisphere. Introduce an orientation on the boundary of $D$ is the circle $C= S \cap \{z=0\}$.
+\column{0.75\textwidth}
+Let $S$ be the unit sphere $x^2+y^2+z^2 = 1$ oriented by the outward normal $\fcv{n}$, $D = S \cap \{z\geq 0\}$ be the upper hemisphere. Introduce an orientation on the boundary $C=\partial D$.
 
 \end{columns}
-
-
-\pause At the point $p=(1,0,0)$
 \begin{itemize}
-  \item the normal $\fcv{n}$ is the vector \pause $\fcv{i}$;
-  \item the normal $\fcv{N}$ is the vector \pause $-\fcv{k}$;
-  \item positively oriented tangent to $C$:\pause
-%
-$$\fcv{T}= \fcv{n} \times \fcv{N} = \fcv{i} \times (-\fcv{k}) = \fcv{k}\times \fcv{i} = \fcv{j} \;,$$
-%
-\item \pause which orients $C$ counterclockwise in the $\{\fcv{i},\fcv{j}\}-$plane.
+\item<2-> \fcQuestion{2}{At the point $(1,0,0)$ the normal to the surface $\fcv{n}$ equals} \fcAnswer{3}{$\fcv{i}$.}
+\item<4-> Let $\fcv T$ be a unit tangent to $C$ at $(1,0,0)$; then \alert<4>{$\fcv T=\fcv j$ or $-\fcv j$.}
+\item<5-> Let $\fcv{N}$ be unit vector perpendicular to $\fcv n$ and $\fcv T$, \fcQuestion{6}{pointing towards $D$} \uncover<6->{$\Rightarrow$} \fcQuestion{6}{$\fcv N$ equals} \fcAnswer{7}{$-\fcv k$.} 
+\item<8-> $\Rightarrow$ positively oriented tangent to $C$ is $\fcv{T}= \alert<9>{ \fcv{n} \times \fcv{N}} \fcQuestion{9}{= \fcv{i} \times (-\fcv{k})=} \fcAnswer{10}{ \fcv{j}.}$
+\item<12-> A viewer, standing along $\fcv n$ with feet on surface, and facing in the direction of the tangent, has the upper hemisphere on the left side.
+\item<13-> Change $D$ to be lower hemisphere: we get $\fcv{N}=\fcv{k}$, $\fcv{T}=\fcv{n}\times \fcv{N} = -\fcv{j}$.
+\item<14-> A viewer, standing along $\fcv n$ with feet on surface, and facing in the direction of the tangent, has the lower hemisphere again to the left.
 \end{itemize}
-
-\pause If instead we use the lower hemisphere to orient $C$: at $p=(1,0,0)$
- \begin{itemize}
-   \item $\fcv{n}=\fcv{i}$, $\fcv{N}=\fcv{k}$, $\fcv{T}=\fcv{n}\times \fcv{N} = \fcv{i} \times \fcv{k} = -\fcv{j}$;
-   \item which orients $C$ clockwise in the $\{\fcv{i},\fcv{j}\}-$plane.
- \end{itemize}
 \end{example}
 \end{frame}
