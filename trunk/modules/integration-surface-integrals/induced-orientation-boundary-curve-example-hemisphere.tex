@@ -40,18 +40,24 @@ end%
 \fcCurveIIIdInScene[arrows=->, linecolor=blue]{180}{270}{[t cos t sin 0]}%
 \fcCurveIIIdInScene[arrows=->, linecolor=blue]{270}{360}{[t cos t sin 0]}%
 }%
-\only<13->{%
+\only<13>{%
+\fcCurveIIIdInScene[arrows=->, linecolor=red, linewidth=2]{90}{0}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=red, linewidth=2]{180}{90}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=red, linewidth=2]{270}{180}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=red, linewidth=2]{360}{270}{[t cos t sin 0]}%
+}%
+\only<14>{%
 \fcCurveIIIdInScene[arrows=->, linecolor=blue, linewidth=1]{90}{0}{[t cos t sin 0]}%
-\fcCurveIIIdInScene[arrows=->, linecolor=blue]{180}{90}{[t cos t sin 0]}%
-\fcCurveIIIdInScene[arrows=->, linecolor=blue]{270}{180}{[t cos t sin 0]}%
-\fcCurveIIIdInScene[arrows=->, linecolor=blue]{360}{270}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue, linewidth=1]{180}{90}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue, linewidth=1]{270}{180}{[t cos t sin 0]}%
+\fcCurveIIIdInScene[arrows=->, linecolor=blue, linewidth=1]{360}{270}{[t cos t sin 0]}%
 }%
 \fcAxesIIIdInScene[linecolor=black, linewidth=1, arrows=->]{2}{2}{1.2}%
 \fcFinishIIIdScene[fastsort=true]%
 \uncover<3->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue]{[1 0 0]}{[2 0 0]}%
 \fcPutIIId[b]{[1.8 0 0.1]}{\alert<9,10>{$\fcv n$}}%
 }%
-\uncover<3,9,11,12,14 >{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[2 0 0]}}%
+\uncover<3,9,12,14 >{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[2 0 0]}}%
 \uncover<4-12>{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=cyan]{[1 0 0]}{[1 1 0]}}%
 \uncover<13->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=gray]{[1 0 0]}{[1 1 0]}}%
 \uncover<10,11,12>{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[1 1 0]}}%
@@ -59,25 +65,29 @@ end%
 \uncover<14>{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[1 -1 0]}}%
 \uncover<10-12>{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=gray]{[1 0 0]}{[1 -1 0]}}%
 \uncover<2->{\fcDotIIId{[1 0 0]}}%
-\uncover<5->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue!50]{[1 0 0]}{[1 0 -1]}}%
+\uncover<5-12>{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue!50]{[1 0 0]}{[1 0 -1]}}%
+\uncover<13->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=gray]{[1 0 0]}{[1 0 -1]}}%
+\uncover<13->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue!50]{[1 0 0]}{[1 0 1]}}%
 \uncover<7,9>{\fcLineIIId[arrows=->, linewidth=3pt, linecolor=red]{[1 0 0]}{[1 0 -1]}}%
 \uncover<5-6>{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=blue!50]{[1 0 0]}{[1 0 1]}}%
-\uncover<7->{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=gray]{[1 0 0]}{[1 0 1]}}%
-\uncover<7->{\fcPutIIId{[1 0.3 -1]}{$\alert<7,9,10>{\fcv N}$}}%
+\uncover<7-12>{\fcLineIIId[arrows=->, linewidth=2pt, linecolor=gray]{[1 0 0]}{[1 0 1]}}%
+\uncover<7-12>{\fcPutIIId{[1 0.3 -1]}{$\alert<7,9,10>{\fcv N}$}}%
+\uncover<13->{\fcPutIIId{[1 0.3 1]}{$\alert<7,9,10>{\fcv N}$}}%
 \end{pspicture}
 
 \column{0.75\textwidth}
 Let $S$ be the unit sphere $x^2+y^2+z^2 = 1$ oriented by the outward normal $\fcv{n}$, $D = S \cap \{z\geq 0\}$ be the upper hemisphere. Introduce an orientation on the boundary $C=\partial D$.
 
 \end{columns}
+\vskip -0.1cm
 \begin{itemize}
 \item<2-> \fcQuestion{2}{At the point $(1,0,0)$ the normal to the surface $\fcv{n}$ equals} \fcAnswer{3}{$\fcv{i}$.}
 \item<4-> Let $\fcv T$ be a unit tangent to $C$ at $(1,0,0)$; then \alert<4>{$\fcv T=\fcv j$ or $-\fcv j$.}
-\item<5-> Let $\fcv{N}$ be unit vector perpendicular to $\fcv n$ and $\fcv T$, \fcQuestion{6}{pointing towards $D$} \uncover<6->{$\Rightarrow$} \fcQuestion{6}{$\fcv N$ equals} \fcAnswer{7}{$-\fcv k$.} 
+\item<5-> Let $\fcv{N}$ be unit vector perpendicular to $\fcv n$ and $\fcv T$, \fcQuestion{6}{pointing outwards from $D$} \uncover<6->{$\Rightarrow$} \fcQuestion{6}{$\fcv N$ equals} \fcAnswer{7}{$-\fcv k$.} 
 \item<8-> $\Rightarrow$ positively oriented tangent to $C$ is $\fcv{T}= \alert<9>{ \fcv{n} \times \fcv{N}} \fcQuestion{9}{= \fcv{i} \times (-\fcv{k})=} \fcAnswer{10}{ \fcv{j}.}$
-\item<12-> A viewer, standing along $\fcv n$ with feet on surface, and facing in the direction of the tangent, has the upper hemisphere on the left side.
+\item<12-> A viewer, standing along $\fcv n$ with feet on surface, and facing in the direction of the tangent, has the surface to the left.
 \item<13-> Change $D$ to be lower hemisphere: we get $\fcv{N}=\fcv{k}$, $\fcv{T}=\fcv{n}\times \fcv{N} = -\fcv{j}$.
-\item<14-> A viewer, standing along $\fcv n$ with feet on surface, and facing in the direction of the tangent, has the lower hemisphere again to the left.
+\item<14-> A viewer, standing along $\fcv n$ with feet on surface, facing in the direction of the tangent, has the surface again to the left.
 \end{itemize}
 \end{example}
 \end{frame}
