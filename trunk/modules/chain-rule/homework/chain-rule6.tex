@@ -3,20 +3,20 @@ Differentiate the following functions with respect to $x$.
 Simplify your answers.  
 
 \begin{enumerate}
-\pointsii{5}  $y = \sqrt{\sec 4x}$
+\pointsii{5}  $y = \sqrt{\sec (4x)}$
 \solution{%
 \begin{align*}
-\text{Chain Rule: } \quad \frac{\diff y}{\diff x} & = \big( \frac{1}{2}(\sec 4x)^{-1/2}\big) \frac{\diff}{\diff x}(\sec 4x) \\
-\text{Chain Rule: } \quad \frac{\diff y}{\diff x} & = \Big( \frac{1}{2\sqrt{\sec 4x}}\Big) (\sec 4x \tan 4x)\frac{\diff}{\diff x}(4x) \\
- & = \Big( \frac{1}{2\sqrt{\sec 4x}}\Big) (\sec 4x \tan 4x)(4) \\
- & =  \frac{2\sec 4x\tan 4x}{\sqrt{\sec 4x}} \\
+\text{Chain Rule: } \quad \frac{\diff y}{\diff x} & = \big( \frac{1}{2}(\sec (4x))^{-\frac{1}{2}}\big) \frac{\diff}{\diff x}(\sec (4x)) \\
+\text{Chain Rule: } \quad \frac{\diff y}{\diff x} & = \Big( \frac{1}{2\sqrt{\sec (4x)}}\Big) (\sec (4x) \tan (4x))\frac{\diff}{\diff x}(4x) \\
+ & = \Big( \frac{1}{2\sqrt{\sec (4x)}}\Big) (\sec (4x) \tan (4x))(4) \\
+ & =  \frac{2\sec (4x)\tan (4x)}{\sqrt{\sec (4x)}} \\
 \intertext{There are many ways to simplify this answer, including both of the following.}
- & =  2\sqrt{\sec 4x}\tan 4x. \\
- & =  2(\sec 4x)^{3/2}\sin 4x. 
+ & =  2\sqrt{\sec (4x)}\tan (4x). \\
+ & =  2(\sec (4x))^{\frac{3}{2}}\sin (4x). 
 \end{align*}
 }%
 
-\item  $y = x^2\tan 5x$
+\item  $y = x^2\tan (5x)$
 %\solution{%
 %\begin{align*}
 %\text{Product Rule: } \quad \frac{\diff y}{\diff x} & = (x^2)\frac{\diff}{\diff x}(\tan 5x) + (\tan 5x)\frac{\diff}{\diff x}(x^2) \\
@@ -26,17 +26,17 @@ Simplify your answers.
 %\end{align*}
 %}%
 
-\pointsii{5}  $y = \frac{1+\sin x^2}{1+\cos x^2}$
+\pointsii{5}  $y = \frac{1+\sin \left(x^2\right)}{1+\cos \left(x^2\right)}$
 \solution{%
 \begin{align*}
-\text{Quotient Rule: } \quad \frac{\diff y}{\diff x} & = \frac{(1+\cos x^2)\frac{\diff}{\diff y}(1+\sin x^2) - (1+\sin x^2)\frac{\diff}{\diff x}(1+\cos x^2)}{(1+\cos x^2)^2} \\
-\intertext{By the Chain Rule, $\frac{\diff}{\diff x}(1+\cos x^2) = -2x\sin x^2$ and $\frac{\diff}{\diff x}(1+\sin x^2) = 2x\cos x^2$.}
-\frac{\diff y}{\diff x} & = \frac{(1+\cos x^2)(2x\cos x^2) - (1+\sin x^2)(-2x\sin x^2)}{(1+\cos x^2)^2} \\
- & = \frac{2x\cos x^2 + 2x\cos^2x^2 + 2x\sin x^2 + 2x\sin^2x^2}{(1+\cos x^2)^2} \\
- & = \frac{2x(\cos^2 x^2 + \sin^2 x^2) + 2x(\cos x^2 + \sin x^2)}{(1+\cos x^2)^2} \\
-\intertext{By the Pythagorean Identity, $\cos^2x^2 + \sin^2x^2 = 1$.}
-\frac{\diff y}{\diff x} & = \frac{2x + 2x(\cos x^2 + \sin x^2)}{(1+\cos x^2)^2} \\
- & = \frac{2x(1 + \cos x^2 + \sin x^2)}{(1+\cos x^2)^2}.
+\text{Quotient Rule: } \quad \frac{\diff y}{\diff x} & = \frac{(1+ \cos \left(x^2\right))\frac{\diff}{\diff y}(1+\sin \left(x^2\right)) - (1+\sin \left(x^2\right))\frac{\diff}{\diff x}(1+\cos \left(x^2\right))}{(1+\cos \left(x^2\right))^2} \\
+\intertext{By the Chain Rule, $\frac{\diff}{\diff x}(1+\cos \left(x^2\right)) = -2x\sin \left(x^2\right)$ and $\frac{\diff}{\diff x}(1+\sin \left(x^2\right)) = 2x\cos \left(x^2\right)$.}
+\frac{\diff y}{\diff x} & = \frac{(1+\cos \left(x^2\right))(2x\cos \left(x^2\right)) - (1+\sin \left(x^2\right))(-2x\sin \left(x^2\right))}{(1+\cos \left(x^2\right))^2} \\
+ & = \frac{2x\cos \left(x^2\right) + 2x\cos^2 \left(x^2\right) + 2x\sin \left(x^2\right) + 2x\sin^2 \left(x^2\right)}{(1+\cos \left(x^2\right))^2} \\
+ & = \frac{2x(\cos^2 \left(x^2\right) + \sin^2 \left(x^2\right)) + 2x(\cos \left(x^2\right) + \sin \left(x^2\right))}{(1+\cos \left(x^2\right))^2} \\
+\intertext{By the Pythagorean Identity, $\cos^2 \left(x^2\right) + \sin^2 \left(x^2\right) = 1$.}
+\frac{\diff y}{\diff x} & = \frac{2x + 2x(\cos \left(x^2\right) + \sin \left(x^2\right))}{(1+\cos \left(x^2\right))^2} \\
+ & = \frac{2x(1 + \cos \left(x^2\right) + \sin \left(x^2\right))}{(1+\cos \left(x^2\right))^2}.
 \end{align*}
 }%
 
