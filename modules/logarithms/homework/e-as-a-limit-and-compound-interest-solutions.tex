@@ -1,0 +1,36 @@
+\solution{\ref{problemEasLimitAndCompoundInterest1procentInterest200years}
+Each year, the sum increases by a factor of $\left(1+\frac{1}{100}\right)$. Therefore in $200$ years the sum will have increased by 
+\[
+\begin{array}{rcll|l}
+\left( 1+\frac{1}{100}\right)^{200} &=&\left(\left(1+\frac{1}{100}\right)^{100}\right)^{2}&&\text{equals } \left(1+\frac{1}{n}\right)^n \text{ for } n=100\\
+&\approx& e^2.
+\end{array}
+\]
+As a rough estimate for $e$ we can take $e\approx 2.7$, and so $e^2\approx 2.7^2=7.29$. Our sum will have increased approximately $7.3$ times. A calculator computation shows that 
+\[
+\left( 1+\frac{1}{100}\right)^{200}\approx 7.316018 ,
+\] 
+so our ``in the head'' estimate is fairly accurate. Notice that the calculator computation is on its own an approximation - it was carried using double floating point precision arithmetics, which does introduce some minimal errors. Such round off errors, of course, are also present in modern banking transactions, so do not need to adjust for those.
+}
+
+\solution{\ref{problemEasLimitAndCompoundInterestWhatIsMorecompoundInterest2percent150yearsOrsimpleInterest11percent}
+Simple interest of $11\%$ per $150$ years a profit of 
+\[
+0.11*150= 15+1.5=16.5,
+\]
+or altogether $17.5$-fold increase of our initial sum. A $2\%$ compound interest for $150$ years yields a 
+\[
+\begin{array}{rcl}
+\left(1+\frac{2}{100}\right)^{150}&=&\left(\left(1+\frac{1}{50}\right)^{50}\right)^3\\
+&\approx& e^3
+\end{array}
+\]
+-fold increase of our sum. To establish which of the two options yields more money, we need to compare $e^{3}$ to $17.5$ (without using a calculator). In the solution of \ref{problemEasLimitAndCompoundInterest1procentInterest200years} we established that $e^2\approx 7.3$, so $e^3\approx e\cdot 7.3\approx 2.7\cdot 7.3=2\cdot 7 +2\cdot 0.3 +0.7\cdot7+0.7\cdot 0.3=14+0.6+4.9+0.21=19.71\approx 19.7$. We can say that the compound interest results in approximately $19.7$-fold increase of the initial sum, so the compound interest is more profitable. A calculator computation shows that 
+\[
+\left(1+\frac{2}{100}\right)^{150}\approx 19.499603\quad .
+\]
+Our error of approximately $0.2$ was not optimal, yet fairly accurate for an ``in the head'' computation.
+
+
+
+}
