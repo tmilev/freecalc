@@ -1,0 +1,162 @@
+~
+\begin{itemize}
+\item Write the Jacobian matrix of the indicated variable change.
+\item Set up an integral expressing the volume of the region using the indicated variable change and the multivariable integral substitution rule. 
+\item Integrate to find the volume of the region. 
+\end{itemize}
+
+\begin{enumerate}[ref={\fcProblemRef}]
+\item Spherical coordinates; use to find the volume of a ball of radius $R$.
+
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\fcBoundingBox{-0.3}{-1}{2.5}{2.5}
+\renewcommand{\fcScreen}{[-5 1 -2.4] 0}
+\fcStartIIIdScene
+\fcAxesIIIdInScene{2}{2}{2}
+\fcSurfaceInScene[iterationsU=16, iterationsV=6]{0}{0}{180}{360}
+{
+[
+v cos u sin mul
+v sin u sin mul
+u cos 
+]
+}{}
+\fcFinishIIIdScene
+\end{pspicture}
+\item Spherical coordinates; use to find the volume of a curvilinear spherical box, given in spherical coordinates by $\rho_{min}\leq \rho \leq \rho_{max}$, $\phi_{min}\leq \phi\leq \phi_{max}$, $\theta_{min}\leq \theta\leq \theta_{max} $.
+
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\fcBoundingBox{-0.3}{-1}{2.5}{2.5}
+\renewcommand{\fcScreen}{[-5 1 -2.4] 0}
+\pstVerb{10 dict begin%
+/rhoMin 1 def%
+/rhoMax 2 def%
+/thetaMin 20 def%
+/thetaMax 70 def%
+/phiMin 20 def%
+/phiMax 70 def%
+/xSph {theta cos phi sin rho mul mul} def%
+/ySph {theta sin phi sin rho mul mul} def%
+/zSph {phi cos rho mul} def%
+}%
+\fcAxesIIId{2}{2}{2}
+\pscustom*[linecolor=pink]{%
+\fcCurveIIId{phiMin}{phiMax}{[3 dict begin /rho rhoMin def /phi t def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMax def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId{thetaMin}{thetaMax}{[3 dict begin /rho rhoMax def /phi phiMax def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{phiMax}{phiMin}{[3 dict begin /rho rhoMax def /phi t def /theta thetaMax def xSph ySph zSph end]}
+\fcCurveIIId{thetaMax}{thetaMin}{[3 dict begin /rho rhoMax def /phi phiMin def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{rhoMax}{rhoMin}{[3 dict begin /rho t def /phi phiMin def /theta thetaMin def xSph ySph zSph end]}
+}%
+\fcLineIIId[linestyle=dashed]{[0 0 0]}{[0 2 0]}
+\fcCurveIIId{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMin def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMax def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMin def /theta thetaMax def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{rhoMin}{rhoMax}{[3 dict begin /rho t def /phi phiMax def /theta thetaMax def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, dash = 2.6pt,  linecolor=red] {thetaMin}{thetaMax}{[3 dict begin /rho rhoMin def /phi phiMin def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{thetaMin}{thetaMax}{[3 dict begin /rho rhoMax def /phi phiMin def /theta t def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{thetaMin}{thetaMax}{[3 dict begin /rho rhoMin def /phi phiMax def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{thetaMin}{thetaMax}{[3 dict begin /rho rhoMax def /phi phiMax def /theta t def xSph ySph zSph end]}
+\fcCurveIIId{phiMin}{phiMax}{[3 dict begin /rho rhoMin def /phi t def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId[linestyle=dashed, linecolor=red]{phiMin}{phiMax}{[3 dict begin /rho rhoMin def /phi t def /theta thetaMax def xSph ySph zSph end]}
+\fcCurveIIId{phiMin}{phiMax}{[3 dict begin /rho rhoMax def /phi t def /theta thetaMin def xSph ySph zSph end]}
+\fcCurveIIId{phiMin}{phiMax}{[3 dict begin /rho rhoMax def /phi t def /theta thetaMax def xSph ySph zSph end]}
+\pstVerb{end}
+\end{pspicture}
+\item Ellipsoidal coordinates: 
+$\fcv f: \left|\begin{array}{rcl} x&=&a\rho\sin\phi\cos \theta \\ y&=&b\rho\sin\phi\sin\theta\\ z&=&c\rho\cos \phi \end{array} \right.$; use to find the volume of an ellipsoid $\frac{x^2}{a^2} +\frac{y^2}{b^2} +\frac{y^2 }{c^2 }=1$, $a,b,c>0$.
+
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\fcBoundingBox{-0.3}{-1}{2.5}{2.5}
+\renewcommand{\fcScreen}{[-5 1 -2.4] 0}
+\fcStartIIIdScene
+\fcAxesIIIdInScene{2}{2}{2}
+\fcSurfaceInScene[iterationsU=12, iterationsV=24]{0}{0}{180}{360}
+{
+[
+v cos u sin mul 
+v sin u sin mul 2 mul
+u cos 0.8 mul
+]
+}{}
+\fcFinishIIIdScene
+\end{pspicture}
+
+\item Variable change: $
+T:\left|\begin{array}{r@{}c@{}l}
+x&=&(R+\rho\cos \theta) \cos \phi \\
+y&=&(R+\rho\cos \theta) \sin \phi \\
+z&=& \rho\sin \theta
+\end{array}\right.  
+$; use to find the volume of a torus with major radius $R$ and minor radius $r$, i.e., the figure given by $\rho\in[0, r], \phi\in [0,2\pi], \theta\in [0,2\pi]$.
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\renewcommand{\fcScreen}{[-1 1 -0.75] -1}
+\fcBoundingBox{-2.9}{-1.8}{3.4}{2.2}
+\pstVerb{%
+/theMajorRadius 2 def
+/theMinorRadius 0.8 def
+/theT {[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]}
+def
+/phiP 60 def
+/thetaP 60 def
+/theP 2 dict begin /u phiP def /v thetaP def theT end def
+/theH [theP \fcArrayToStack pop 0] def
+/theC [phiP cos theMajorRadius mul phiP sin theMajorRadius mul 0] def
+}%
+\fcStartIIIdScene
+\fcSurfaceInScene[linecolor=black, arrows=none, iterationsU=24, iterationsV=12 ]{0}{0}{360}{360}{
+[5 dict begin 
+/R theMajorRadius def
+/r theMinorRadius def
+/A R r v cos mul add def
+u cos A mul 
+u sin A mul 
+v sin r mul
+end]
+}{}%
+\fcAxesIIIdInScene{4}{4}{2.2}%
+\fcFinishIIIdScene[fastsort=true]%
+\psset{xunit=0.5cm, yunit=0.5cm}
+\end{pspicture}
+\item \label{problemVolumeRaisedHorn} Variable change: 
+$
+\left|\begin{array}{rcl}
+x&=& \left(2+ \rho\cos \theta\right) \cos\phi\\
+y&=& \left(2+ \rho\cos \theta\right) \sin\phi\\
+z&=& \rho \cos \theta + \frac{\phi}{3}  
+\end{array}\right., 
+$
+use to find the volume of the horn given by $\theta\in [0,2\pi], \phi \in [0,3\pi], \rho \in\left[0, \frac{\phi}{9}\right] $.
+
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-4}{-1.5}{4}{6}
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsU=16, iterationsV=8]{0}{0}{540}{360}{
+8 dict begin
+/uRad u 57.295779513 div def
+/vRad v 57.295779513 div def
+/R 2 def
+/r  uRad 9 div def
+/A v cos r mul R add def
+/x u cos A mul def
+/y u sin A mul def
+/z v sin r mul uRad 3 div add def
+[x y z]
+end
+}{}
+\fcAxesIIIdInScene{4}{4}{6}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\end{enumerate}
