@@ -3,24 +3,24 @@ The integrand is a rational function and therefore we can solve this problem by 
 \[
 x^4+2= \left(x^2+\sqrt[4]{8}x+\sqrt{2} \right)\left(x^2-\sqrt[4]{8}x+\sqrt{2}\right)\quad.
 \]
-As the problem asks us to only establish whether the integral is convergent rather than actually produce a numerical value for the integral, we can give a much simpler solution. As the function is even it suffices to show that $\displaystyle \int\limits_0^\infty \frac{x^2}{x^4+2}\diff x$ is convergent.
+The problem asks us only to establish the convergence of the integral; it does not ask us to compute its actual numerical value. Therefore we can give a much simpler solution. The function is even and therefore it suffices to show that $\displaystyle \int\limits_0^\infty \frac{x^2}{x^4+2}\diff x$ is convergent.
 
 We have that 
 \[
-\int\limits_{0}^\infty \frac{x^2}{x^4+2}\diff x= \int\limits_{0}^1 \frac{x^2}{x^4+2}\diff x+\int\limits_{1}^\infty \frac{x^2}{x^4+2}\diff x\quad.
+\int\limits_{0}^\infty \frac{x^2}{x^4+2}\diff x= \int\limits_{0}^1 \frac{x^2}{ x^4 +2 }\diff x+\int\limits_{1}^\infty \frac{x^2}{x^4+2}\diff x\quad.
 \]
 The function $ \frac{x^2}{x^4+2}$ is continuous so $\int\limits_{0}^1 \frac{x^2}{x^4+2}\diff x$ integrates to a number, which does not affect the convergence of the above expression. Therefore the convergence of our integral is governed by the convergence of $\int\limits_{1}^\infty \frac{x^2}{x^4+2}\diff x$. To establish that that integral is convergent, we use the comparison theorem as follows.
 \[
 \begin{array}{rcll|l}
 \displaystyle
-\int\limits_{1}^\infty \frac{x^2}{x^4+2}\diff x&\leq & \displaystyle \int\limits_{1}^\infty \frac{x^2}{x^4}\diff x && \begin{array}{l} \text{we have that } x^4+2>x^4\\ \text{and therefore }\displaystyle \frac{x^2}{x^4+2}\leq \frac{x^2}{x^4}\end{array}\\
+\int\limits_{1}^\infty \frac{x^2}{x^4+2}\diff x&\leq & \displaystyle \int \limits_{ 1}^\infty \frac{x^2}{x^4}\diff x && \begin{array}{l} \text{we have that } x^4+2>x^4\\ \text{and therefore }\displaystyle \frac{x^2}{x^4+2}\leq \frac{x^2}{x^4}\end{array}\\
 &=&\displaystyle \int_1^{\infty} x^{-2}\diff x\\
 &=&\displaystyle \lim\limits_{t\to \infty} \left[ -\frac{1}{x}\right]_{1}^{t}\\
 &=&\displaystyle  \lim\limits_{t\to\infty} 1- \frac{1}{t}\\
 &=&\displaystyle  1
 \end{array}
 \]
-We have that $\displaystyle \frac{x^2}{x^4+2}\geq 0 $ and by the preceding computation we have that $\displaystyle\int_{1}^\infty \frac{x^2}{x^4+2} \diff x \leq 1$. Therefore by the comparison theorem $\displaystyle\int_{1}^\infty \frac{x^2}{x^4+2} \diff x $ is convergent.
+We have that $\displaystyle \frac{x^2}{x^4+2}\geq 0 $ and by the preceding computation we have that $\displaystyle\int_{1}^\infty \frac{x^2}{x^4+2} \diff x \leq 1$. Therefore by the comparison theorem $\displaystyle\int_{1}^\infty \frac{ x^2}{x^4+2} \diff x $ is convergent.
 }
 
 \solution{\ref{problemConvergencesqrt(x)e^-sqrt(x)zerotoinfty}
