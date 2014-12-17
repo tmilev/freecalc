@@ -1,5 +1,26 @@
 \begin{frame}
 \begin{example}
-Find the volume of the ellipsoid $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{y^2}{c^2}=1$, $a,b,c>0$.
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-2, -2)(2,2)
+\tiny
+\fcBoundingBox{-0.3}{-1}{2.5}{2.5}
+\renewcommand{\fcScreen}{[-5 1 -2.4] 0}
+\fcStartIIIdScene
+\fcAxesIIIdInScene{2}{2}{2}
+\fcSurfaceInScene[iterationsU=12, iterationsV=24]{0}{0}{180}{360}
+{
+[
+v cos u sin mul 
+v sin u sin mul 2 mul
+u cos 0.8 mul
+]
+}{}
+\fcFinishIIIdScene
+\end{pspicture}
+
+\column{0.7\textwidth}
+Find the volume of the ellipsoid $\frac{x^2}{a^2} +\frac{y^2}{b^2}+ \frac{y^2}{ c^2} = 1$, $a,b,c>0$.
+\end{columns}
 \end{example}
 \end{frame}
