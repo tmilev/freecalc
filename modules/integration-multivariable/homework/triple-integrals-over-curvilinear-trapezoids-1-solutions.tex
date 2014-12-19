@@ -1,5 +1,5 @@
 \solution{\ref{problemIntegratex+y+zoverx+3y+z=2,x=0,z=0,x=3y}
-First we need to plot the four planes enclosing our region $\mathcal R$. A region of non-zero volume in dimension $n$ is bounded by at least $n+1$ planes; since our region is given by $4$ planes, our region, if bounded, must be a tetrahedron (the only type of figure in dimension $3$ with $4$ sides is a tetrahedron). Since we have the equations of our planes, we know their normal vectors. Therefore we can quickly plot those planes as indicated in the figure. We see that the corresponding figure is a tetrahedron. A tetrahedron is given by its four vertices; let us compute those. Each of the vertices lies on three of the four planes, so it is determined by solving the system given by those four planes. The points and the systems used to find them are indicated in the figure.
+First we need to plot the four planes enclosing our region $\mathcal R$. A region of non-zero volume in dimension $n$ is bounded by at least $n+1$ planes; since our region is given by $4$ planes, our region, if bounded, must be a tetrahedron (the only type of figure in dimension $3$ with $4$ sides is a tetrahedron). Since we have the equations of our planes, we know their normal vectors. Therefore we can quickly plot those planes as indicated in the figure. We see that the corresponding figure is indeed a tetrahedron. A tetrahedron is given by its four vertices; let us compute those. Each of the vertices lies on three of the four planes, so it is determined by solving the system given by those four planes. The points and the systems used to find them are indicated in the figure.
 
 \begin{pspicture}(-1,-1.8)(5,2.6)%
 \tiny%
@@ -8,7 +8,6 @@ First we need to plot the four planes enclosing our region $\mathcal R$. A regio
 \fcBoundingBox{-0.9}{-1.8}{3.3}{2.6}%
 \fcStartIIIdScene%
 \fcPatchInScene{[0 0 0]}{[0 0 2]}{[0 2 3 div 0]}
-\fcPatchInScene{[0 0 0]}{[0 2 3 div 0]}{[1 0 0]}
 \fcPatchInScene{[0 0 0]}{[1 1 3 div 0]}{[0 0 2]}
 \fcTriangleInScene{[1 4 3 div -2]}{[0 2 3 div 0]}{[1 1 3 div 0]}%
 \fcTriangleInScene{[0 0 2]}{[0 2 3 div 0]}{[1 1 3 div 0]}%
@@ -28,4 +27,117 @@ First we need to plot the four planes enclosing our region $\mathcal R$. A regio
 \fcLineIIId[arrows=->, linestyle=dotted]{[3.4 1 1.53]} {[0 2 3 div 0]}
 \end{pspicture}
 
+Next, we need to parametrize the tetrahedron $\mathcal R$. There is a simple way to parametrize a tetrahedron by using one of its vertices and the three edges adjacent to that vertex. The integral resulting from this parametrization would require the multivariable substitution rule. Rather than doing that, let us solve the problem directly by more elementary means. We proceed to parametrize the tetrahedron directly by the variables $x,y,z$.
+
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-1,-1.8)(5,2.6)%
+\tiny%
+\renewcommand{\fcScreen}{[-1 3 -1] 0}%
+\renewcommand{\fcDashes}{[0.5 2] 0}%
+\fcBoundingBox{-0.9}{-0.3}{3.3}{2.6}%
+\fcStartIIIdScene%
+\fcTriangleInScene{[0 0 0]}{[0 0 2]}{[0 2 3 div 0]}
+\fcTriangleInScene{[0 0 0]}{[1 1 3 div 0]}{[0 0 2]}
+\fcTriangleInScene{[0 0 2]}{[0 2 3 div 0]}{[1 1 3 div 0]}%
+\fcTriangleInScene[forceForeground=true, colorUV=blue, colorVU=blue]{[0 0 1]}{[0 1 3 div 1]}{[0.5 1 6 div 1]}
+\fcAxesIIIdInScene[linecolor=black, linestyle=normal, arrows=->]{2}{3}{2.3}%
+\fcFinishIIIdScene%
+\fcPutIIId[r]{[0 0 2]}{$(0, 0, 2)~~$}
+\fcPutIIId[rt]{[0 0 0]}{$(0, 0, 0)~~$}
+\fcPutIIId[br]{[0  2 3 div 0]}{$\left(0, \frac{2}{3}, 0 \right)~~$}
+\fcPutIIId[lb]{[1 1 3 div 0]}{$~~\left(1, \frac{1}{3}, 0 \right)$}
+\fcDotIIId[linecolor=blue]{[0 0 1]}
+\fcDotIIId[linecolor=blue]{[0 1 3 div 1]}
+\fcDotIIId[linecolor=blue]{[0.5 1 6 div 1]}
+\fcPutIIId[r]{[0 0 1]}{$A~~$}
+\fcPutIIId[lb]{[0 1 3 div 1]}{$~B$}
+\fcPutIIId[l]{[0.5 1 6 div 1]}{$~~~C$}
+\end{pspicture}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\psline*[linecolor=blue](0,0)(! 0.5 1 6 div)(! 0 1 3 div)
+\fcAxesStandardNoFrame{-0.5}{-0.5}{2}{1}
+\fcLabels{2}{1}
+\rput[tr](2,1){$z=const$}
+\psline(!-0.5 -0.5 3 div ) (!2 2 3 div)
+\psline(! -0.5 0.5) (! 2 -1 3 div)
+\fcFullDot{0}{0}
+\fcFullDot{0.5}{1 6 div}
+\fcFullDot{0}{1 3 div}
+
+\rput[br](-0.05, 0.05){$(0,0)=A$}
+\rput[br](-0.05, 0.4){$\left(0,\frac{2-z}{3}\right)=B$}
+\rput[l](0.62, 0.167){$C=\left(\frac{2-z}{2}, \frac{2-z }{ 6} \right) $}
+\rput[rb](1.2, 0.4){$3y=x$}
+\rput[tr](1.4, -0.2){$y=\frac{2-z-x}{3}$}
+
+\psline[linestyle=dashed](! 0.25 0.25 3 div)(0.25,0)
+\psline[linecolor=green, linewidth=2pt](! 0.25 0.25 3 div)(0.25,0.25)
+\rput(0.25, -0.05){$x$}
+\end{pspicture}
+
+
+We start our parametrization by selecting one of the variables $x,y,z$ and letting it vary over an interval. We choose the variable $z$ (the other two choices would also work, we leave those for exercise). Since no restrictions are placed on the variables $x,y$, the possible $z$ coordinates of all points in the tetrahedron are between $0$ and $2$, as evident from the figure. Now fix a value $z=const$ between $0$ and $2$. The points on the tetrahedron with the fixed $z$-coordinate are obtained by intersecting the tetrahedron with the plane $z=const$. The intersection is a triangle; let its vertices be $A,B,C$ as labeled in the figure. %We plot the cross-section with the plane $z=const$ separately. 
+Inside the plane $z=const$, the triangle $ABC$ has sides given by the lines $y=3x$ and $ x+3y+z=2$, or what is the same, $y=\frac{2-z-x}{3}$. The coordinates of $C$ are solutions to the system 
+\[
+\left|\begin{array}{rcl}
+3y&=&x\\
+x+3y+z&=&2
+\end{array}
+\right.
+\Rightarrow (x,y)=\left(\frac{2-z}{2}, \frac{2-z}{6}\right).
+\] 
+The $y$ coordinate of $B$ is obtained by setting $x=0$ in $y=\frac{2-z-x}{3}$, in other words, the coordinates of $B$ are $\left(0, \frac{2-z}{3}\right)$. We have two variants -fix an interval for $x$ next, or fix an interval for $y$ next.
+
+\noindent\textbf{ Variant I.} Fix a value for $x$. The points of the triangle $ABC$ have $x$ coordinates between $0$ and the $x$-coordinate of the point $C$, in other words, $x\in \left[0, \frac{2-z}{2}\right]$. Finally, for the fixed value for $x$, the variable $y$ varies between $\frac{x}{3}$ and $\frac{2-z-x}{3}$. Our integral becomes
+\[
+\begin{array}{rcl}
+\displaystyle \iiint_{\mathcal R}(x+y+z)\diff x \diff y \diff z&=& \displaystyle \int_{z=0}^{z=2} \int_{x=0}^{ x=\frac{2-z}{2}} \int_{y=\frac{x}{3}}^{y=\frac{ 2-z-x}{3}} (x+y +z)\diff y \diff x \diff z  \\
+&=&\displaystyle \int_{z=0}^{z=2} \int_{x=0}^{ x=\frac{2-z}{2}}  \left[x y+\frac{y^2}{2} +z y\right]_{y=\frac{x}{3}}^{y=\frac{2-z-x}{3}} \diff x \diff z\\
+&=&\displaystyle \int_{z=0}^{z=2} \int_{x=0}^{ x=\frac{2-z}{2}}  \left(-\frac{5}{18} z^{2}-\frac{2}{3} x^{2}-\frac{8}{9} x z+\frac{4}{9} z+\frac{4}{9} x+\frac{2}{9} \right) \diff x \diff z\\
+&=&\displaystyle \int_{z=0}^{z=2}\left[-\frac{4}{9} x^{2} z-\frac{5}{18} x z^{2}-\frac{2}{9} x^{3}+\frac{2}{9} x^{2}+\frac{4}{9} z x+\frac{2}{9} x 
+\right]_{x=0}^{x=\frac{2-z}{2}}\diff z\\
+&=&\displaystyle\int_{z=0}^{z=2}\left(\frac{1}{18} z^{3}-\frac{1}{6} z^{2}+\frac{2}{9}\right) \diff z\\
+&=&\displaystyle \left[\frac{1}{72} z^{4}-\frac{1}{18} z^{3}+\frac{2}{9} z\right]_{z=0}^{z=2}\\
+&=& \displaystyle\frac{2}{9}\quad .
+\end{array}
+\]
+ 
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\psline*[linecolor=blue](0,0)(! 0.5 1 6 div)(! 0 1 3 div)
+\fcAxesStandardNoFrame{-0.5}{-0.5}{2}{1}
+\fcLabels{2}{1}
+\rput[tr](2,1){$z=const$}
+\psline(!-0.5 -0.5 3 div ) (!2 2 3 div)
+\psline(! -0.5 0.5) (! 2 -1 3 div)
+\fcFullDot{0}{0}
+\fcFullDot{0.5}{1 6 div}
+\fcFullDot{0}{1 3 div}
+\rput[br](-0.05, 0.4){$\left(0,\frac{2-z}{3}\right)=B$}
+\rput[l](0.62, 0.167){$C=\left(\frac{2-z}{2}, \frac{2-z }{ 6} \right) $}
+\rput[rb](1.2, 0.4){$3y=x$}
+\rput[tr](1.4, -0.2){$x=2-z-3y$}
+ 
+\psline[linecolor=green, linewidth=2pt](! 0 0.25)(0.25,0.25)
+\psline[linecolor=green, linewidth=2pt](! 0 1 12 div )(! 1 4 div 1 12 div)
+\psline[linestyle=dashed](! 0 1 6 div )(! 0.5 1 6 div)
+\end{pspicture}
+
+\noindent\textbf{ Variant II.} Fix a value for $y$. The points of the triangle $ABC$ have $y$-coordinates between $0$ and $\frac{2-z}{3}$. For the fixed value of $y$, the variable $x$ varies between $0$ and either $3y$ or $\frac{2-z-x}{3}$ - whichever is smaller. In other words, $x\in \left[0, \min \{3y, 2-z-3y\} \right]$. To avoid the use of the minimum function, we need to subdivide our triangle $ABC$ into two triangles: $y\in \left[0, \frac{2- z}{6}\right], x\in \left[0, 3y\right]$ and $y\in\left[\frac{2-z}{6}, \frac{2-z}{3} \right], x\in[0, 2-z-3y]$. Our integral becomes
+\[
+\begin{array}{rcl}
+\displaystyle \iiint_{\mathcal R}(x+y+z)\diff x \diff y \diff z&=& \displaystyle \phantom{+}\int_{z=0}^{z=2} \int_{y=0}^{ y=\frac{2-z}{6}} \int_{x=0}^{x=3y} (x+y +z)\diff x \diff y \diff z  \\
+&&\displaystyle+ \int_{z=0}^{z=2} \int_{y=\frac{2-z}{6}}^{ y=\frac{2-z}{3}} \int_{x=0}^{x=2-z-3y} (x+y +z)\diff x \diff y \diff z\\
+&=& \displaystyle \phantom{+}\int_{z=0}^{z=2} \int_{y=0}^{ y=\frac{2-z}{6}} \left[\frac{1}{2} x^{2}+z x+y x \right]_{x=0}^{x=3y} \diff y \diff z  \\
+&&\displaystyle+ \int_{z=0}^{z=2} \int_{y=\frac{2-z}{6}}^{ y=\frac{2-z}{3}} \left[\frac{1}{2} x^{2}+z x+y x \right]_{x=0}^{x=2-z-3y} \diff y \diff z\\
+&=&\displaystyle \phantom{+}\int_{z=0}^{z=2} \int_{y=0}^{ y=\frac{2-z}{6}} \left(\frac{15}{2} y^{2}+3 z y \right) \diff y \diff z  \\
+&&\displaystyle+ \int_{z=0}^{z=2} \int_{y=\frac{2-z}{6}}^{ y=\frac{2-z}{3}} \left(-\frac{1}{2} z^{2}+\frac{3}{2} y^{2}- y z-4 y+2 \right) \diff y \diff z\\
+&=&\displaystyle \phantom{+}\int_{z=0}^{z=2} \left[\frac{3}{2} z y^{2}+\frac{5}{2} y^{3} \right]_{y=0}^{ y=\frac{2-z}{6}} \diff z  \\
+&&\displaystyle+ \int_{z=0}^{z=2} \left[-\frac{1}{2} z^{2} y-\frac{1}{2} y^{2} z+\frac{1}{2} y^{3}-2 y^{2}+2 y \right]_{y=\frac{2-z}{6}}^{ y=\frac{2-z}{3}}  \diff z\\
+&=&\displaystyle \int_{z=0}^{z=2} \left(\frac{1}{18} z^{3}-\frac{1}{6} z^{2}+\frac{2}{9} \right)\diff z\\
+&=&\displaystyle\frac{2}{9}\quad .
+\end{array}
+\]
+The fact that the two variants produce the same answer serves as an error check for our computations.
 }
