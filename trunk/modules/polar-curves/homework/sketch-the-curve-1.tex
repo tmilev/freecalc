@@ -1,4 +1,4 @@
-\begin{enumerate}
+~\begin{enumerate}[ref={\fcProblemRef}]
 \item Sketch the curve given in polar coordinates by $r=2\sin \theta $. What kind of a figure is this curve? Find an equation satisfied by the curve in the $(x,y)$-coordinates.
 \item Sketch the curve given in polar coordinates by $r=4\cos \theta $. What kind of a figure is this curve? Find an equation satisfied by the curve in the $(x,y)$-coordinates.
 \item \label{problemPolarSketchr=2sec(theta)}  Sketch the curve given in polar coordinates by $r=2\sec \theta $. What kind of a figure is this curve? Find an equation satisfied by the curve in the $(x,y)$-coordinates.
@@ -11,44 +11,3 @@
 
 \end{enumerate}
 
-\solution{\ref{problemPolarSketchr=2sec(theta)}.
-Recall from trigonometry that if we draw a unit circle as shown below, $\sec \theta$ is given by the signed distance as indicated on the figure. Therefore it is clear that the curve given in polar coordinates by $y=\sec \theta$ is the vertical line passing through $x=1$. Analogous considerations can be made for a circle of radius $2$, from where it follows that $y=2\sec \theta$ is the vertical line passing through $x=2$.
-
-Alternatively, we can find an equation in the $(x,y)$-coordinates of the cuve by the direct computation: \[x= r\cos \theta= 2\sec\theta \cos \theta = 2\quad .
-\]
-\psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-1.39998, -1.399995)(1.4,2.7)
-\tiny
-\fcAxesStandard{-1.14998}{-1.149995}{1.15}{2.6}
-%Calculator command: drawPolar{}(1, 0, 2 \pi)
-\parametricplot[linecolor=\fcColorGraph, plotpoints=1000, algebraic=false]{0}{6.28319}{ 1 t 57.29578 mul cos mul 1 t 57.29578 mul sin mul }
-\fcAngle{0}{1.107149}{0.2}{$\theta$}
-\psline(0,0)(1,2)
-\psline(1,-1)(1,2.6)
-\fcLengthIndicator{-0.1}{0.05}{0.9}{2.05}{}
-\rput[r](0.5,1.1){$\sec \theta$}
-\end{pspicture}
-}
-\solution{
-\ref{problemPolarSketchr=2sec(theta+pi/4)}.
-
-\noindent \textbf{Approach I.}
-Adding an angle $\alpha$ to the angle polar coordinate of a point corresponds to rotating that point counterclockwise at an angle $\alpha$ about the origin. Therefore a point $P$ with polar coordinates $P\left( 2\sec \left(\theta + \frac{\pi }{ 4} \right) ,\theta\right)$ is obtained by rotating at an angle $-\frac{\pi}{4}$ the point $Q$ with polar coordinates $Q\left( 2\sec \left(\theta + \frac{\pi }{ 4} \right) ,\theta+ \frac{\pi}{4} \right)$. The point $P$ lies on the curve with equation $r=2\sec \left(\theta+ \frac{\pi}{4}\right)$ and the point $Q$ lies on the curve with equation $r=2\sec \theta$ - the latter curve is the curve from problem \ref{problemPolarSketchr=2sec(theta)}. Thus the curve in the current problem is obtained by rotating the curve from \ref{problemPolarSketchr=2sec(theta)} at an angle of $-\frac{\pi}{4}$. As the curve in Problem \ref{problemPolarSketchr=2sec(theta)} is the vertical line $x=2$, the curve in the present problem is also a line. Rotation at an angle of $-\frac{\pi}{4}$ of a vertical line yields a line with slope $1$. When $\theta=0$, $x=\frac{2}{\frac{\sqrt{2}}{2}}= 2\sqrt{2}$, $y=0$ and the curve passes through $(2\sqrt{2}, 0)$. We know the slope of a line and a point through which it passes; therefore the $(x,y)$-coordinates of our curve satisfy
-\[
-y=x-2\sqrt{2}\quad .
-\]
-
-\noindent \textbf{Approach II. } We compute
-\[
-\begin{array}{rcll|l}
-x&=&\displaystyle r\cos \theta = \frac{2\cos \theta}{\cos (\theta +\frac{\pi}{4})} &&\text{multiply by }\cos \left(\frac{\pi}{4}\right)=\frac{\sqrt{2}}{2} \\
-y&=&\displaystyle r\sin \theta = \frac{2\sin \theta}{\cos (\theta +\frac{\pi}{4})} &&\text{multiply by }-\sin \left(\frac{\pi}{4}\right)= -\frac{\sqrt{2 }}{2} \\\hline
-&&&&\text{add the above }
-\\
-x\cos \left(\frac{\pi}{4} \right) -y \sin\left( \frac{\pi}{4}\right)&=&\displaystyle  2 \frac{\cos \theta\cos  \left(\frac{\pi}{4} \right) - \sin \theta \sin  \left(\frac{\pi}{4} \right) }{\cos  \left(\theta +\frac{\pi}{4} \right)} &&\text{use } \cos (\alpha+\beta)=\cos \alpha\cos \beta-\sin\alpha\sin\beta\\
-\frac{\sqrt{2}}{2}\left(x-y\right)&=&\displaystyle 2\frac{\cos\left(\theta +\frac{\pi}{4} \right)}{\cos\left(\theta +\frac{\pi}{4} \right)}=2\\
-y&=&\displaystyle x-2\sqrt{2},
-\end{array}
-\]
-and therefore our curve is the line given by the equation above.
-}
