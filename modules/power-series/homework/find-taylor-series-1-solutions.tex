@@ -1,0 +1,26 @@
+\solution{
+\ref{problemTaylorSeries a=1 ln(sqrt(x^2-2x+2))}
+\[
+\begin{array}{rcll|l}
+\displaystyle \ln \left( \sqrt{x^2-2x+2} \right) &=&\displaystyle  \frac{ 1}{2} \ln \left( (x-1)^2+1\right)&&\text{use } \ln(1+y) =  \sum \limits_{n=1 }^ \infty (-1)^{n+1} \frac{y^n}{n}, |y|< 1 \\
+&=&\displaystyle \frac{1}{2}\sum\limits_{n=1}^{\infty} (-1)^{n+1}\frac{\left((x-1)^2\right)^{n}}{n}\\
+&=&\displaystyle \sum \limits_{n=1}^{\infty} (-1)^{n+1} \frac{( x-1)^{2n}}{2n}\quad .
+\end{array}
+\]
+
+We will determine the interval of convergence of the series as well. If we use the fact that $\ln(1+y) =  \sum \limits_{n=1 }^ \infty (-1)^{n+1} \frac{y^n}{n}$ holds for $ -1<y\leq 1$, it follows immediately that the above equality holds for $ 0<(x-1)^2\leq 1$, which holds for $x\in[0,2]$. Let us however compute the interval of convergence without using the aforementioned fact.
+
+Let $a_n$ be the $n^{th}$ term of our series, i.e., let 
+\[
+a_n= (-1)^{n+1} \frac{( x-1)^{2n}}{2n}\quad .
+\]
+We use the ratio test:
+\[
+\begin{array}{rcl}
+\displaystyle \lim \limits_{ n\to \infty}\left| \frac{a_{n + 1} }{a_n }\right|&=&\displaystyle \lim \limits_{ n\to \infty }\left| \frac{(-1)^{n+2}(x-1)^{2n+2} }{ (2n+2)} \frac{ 2 n}{ (-1)^{n+1} ( x-1)^{2n} } \right|\\
+&=&\displaystyle \lim_{n\to \infty} (x-1)^2 \frac{n}{n+1}\\
+&=&\displaystyle (x-1)^2\quad .
+\end{array}
+\] 
+By the ratio test, the series is divergent for $ (x-1)^2>1$, i.e., for $|x-1|>1$, and convergent for $(x-1)^2<1$, i.e., for $|x-1|<1$. The ratio test is inconclusive at only two points: $x-1=1$, i.e., $x=2$ and $x-1=-1$, i.e., $x=0$. At both points the series becomes $\displaystyle \sum\limits_{n=1}^{\infty} (-1)^{n+1} \frac{ 2^{ 2n}}{2n}$ and the series is convergent at both points by the alternating series test.
+}

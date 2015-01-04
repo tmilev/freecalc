@@ -1,0 +1,37 @@
+\solution{
+\ref{problemint(sqrt(9-x^2)/(x^2)dx)}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{\sqrt{9-x^2}}{x^2}\diff x&=&\displaystyle  \int \frac{3 \sqrt{\cos^2\theta }}{ 9 \sin^2 \theta }(3\cos\theta)\diff \theta && \begin{array}{l}
+\text{Set }x=3\sin \theta \\
+\text{for }\theta\in  \left[\frac{\pi}{2},0\right)\cup  \left(0,\frac{\pi}{2}\right] \\
+\diff x=3\cos \theta\diff \theta
+\end{array}
+\\
+&=&\displaystyle  9 \int \frac{|\cos \theta|}{\sin^2\theta}\cos\theta \diff \theta &&\begin{array}{l}
+\text{For } \theta\in \left[\frac{\pi}{2},0\right)\cup  \left(0,\frac{\pi}{2}\right] \\
+\text{we have} |\cos \theta|=\cos \theta\\
+\end{array}\\
+&=&\displaystyle \int \cot^2 \theta \diff \theta\\
+&=&\displaystyle \int (csc^2\theta -1)\diff \theta\\
+&=&\displaystyle -\cot \theta-\theta+C \\
+&=&\displaystyle -\frac{\sqrt{9-x^2}}{x} - \Arcsin \left( \frac{x}{3}\right) + C,
+\end{array}
+\]
+where we expressed $\cot \theta$ via $\sin\theta$ by considering the following triangle.
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-0.15,-0.4)(3.3,1.2)
+\tiny
+\psframe*[linecolor=white](-0.1,-0.4)(3.3,1.2)
+\psline(0,0)(3, 0)(3,1)(0,0)
+\psline(2.9,0)(2.9, 0.1)(3,0.1)
+\parametricplot{0}{1 3 div arcsin}{t cos 0.4 mul t sin  0.4 mul}
+\rput(0.5, 0.05){$\theta$}
+\rput[l](3.1, 0.5){$x$}
+\rput[br](1.5, 0.55){$3$}
+\rput[t](1.5, -0.1){$\sqrt{9-x^2} $}
+%bounding box for pdflatex compilation:
+\psline[linecolor=red!1](-0.11, -0.4 )(-0.105, -0.4)
+\psline[linecolor=red!1](3.3, 1.21)(3.3, 1.205)
+\end{pspicture}
+}
