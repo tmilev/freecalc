@@ -1,6 +1,34 @@
 Find all complex solutions of the equation. The answer key has not been proofread. Use with caution.
 
 \begin{enumerate}[ref={\fcProblemRef}]
+\item \label{problemz^3=i} $z^{3}=i$.
+
+\answer{\begin{pspicture} (-1.2,-1.2)(1.2,1.2)
+\tiny
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-1.4,-1.4)(1.4,1.4)
+\rput[t](1.4,-0.1){$Re$}
+\rput[r](-0.1,1.4){$Im$}
+\parametricplot[linecolor=gray]{0}{360}{t cos t sin }
+\psline[linecolor=blue](0,0)(!150 cos 150 sin )
+\fcFullDot{ 150 cos}{150 sin }
+\rput[rt](! 150 cos  150 sin ){$-\frac{ \sqrt{3 }}{ 2} +\frac{i}{2}~$}
+\psline[linecolor=blue](0,0)(!30 cos 30 sin)
+\fcFullDot{30 cos}{30 sin}
+\rput[lt](! 30 cos 30 sin ){$~\frac{ \sqrt{3 }}{ 2} +\frac{i}{2}$}
+\psline[linecolor=blue](0,0)(!-90 cos -90 sin )
+\fcFullDot{!-90 cos}{-90 sin}
+\rput[lt](0, -1.1){$-i$}
+\end{pspicture}
+\raisebox{1.2cm}{
+$
+\begin{array}{c|c}
+\text{polar form }&\text{ value}\\\hline 
+\cos \left(\frac{5\pi}{6}\right) +i\sin \left( \frac{ 5\pi }{6}\right)&  -\frac{\sqrt{3}}{2}+\frac{i}{2} \\
+\cos \left(\frac{\pi}{6}\right) +i\sin \left( \frac{ \pi}{6} \right) &  \frac{ \sqrt{3 }}{ 2} +\frac{i}{2} \\
+\cos \left(-\frac{\pi}{2}\right) +i\sin \left(-\frac{ \pi } {2} \right)& -i
+\end{array}
+$
+}}
 \item \label{problemz^3=-i/8} $\displaystyle z^3 = -\frac{i}{8}$.
 \answer{\begin{pspicture} (-1.2,-1.2)(1.2,1.2)
 \tiny

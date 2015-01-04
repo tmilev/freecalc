@@ -1,6 +1,5 @@
 \solution{
 \ref{probelmSum_n=3^infty 3/(n^2-3n+2) } 
-%Solution contributed by student Kreg Hanning
 \[
 \begin{array}{rcll|l}
 \displaystyle \sum_{n=3}^{\infty} \frac{3}{n^2-3n+2} &=&\displaystyle  \sum_{n=3}^{\infty}\left( \frac{3}{n-2} - \frac{3}{n-1} \right)  &&\text{use partial fractions, see below}\\
@@ -17,5 +16,20 @@ In the above we used the partial fraction decomposition of $\displaystyle \frac{
 Therefore, the final partial fraction decomposition is the following. 
 \[
 \frac{3}{n^{2}-3n +2}=\frac{-3}{(n -1)}+\frac{3}{(n -2)}.
+\]
+}
+
+\solution{\ref{problemsumn=2^inftyln(1-1/n^2)}.
+\[
+\begin{array}{rcl}
+\displaystyle \sum_{n=2}^\infty \ln \left(1-\frac{1}{n^2}\right)&=&\displaystyle \sum_{n=2}^\infty\left( \ln \left(1-\frac{1}{n}\right)+\ln \left(1+\frac{1}{n}\right)\right)\\
+&=&\displaystyle \sum_{n=2}^\infty\left( \ln \left(\frac{n-1}{n}\right)+\ln \left(\frac{n+1}{n}\right)\right)\\
+&=&\displaystyle\sum_{n=2}^\infty \left( \ln (n-1)-2\ln (n)+\ln (n+1)\right)\\
+&=&\displaystyle \left(\ln 1 -2\ln 2+\cancel{ \ln 3}\right) +\left(\ln 2\cancel{-2\ln 3}+\cancel{\ln 4} \right)\\
+&&\displaystyle +\left(\cancel{\ln 3}\cancel{-2\ln 4}+\cancel{\ln 5} \right)+\cancel{\dots}\dots \\
+&=&\displaystyle\lim_{n\to \infty} \left(-\ln 2 -\ln n+\ln(n+1)\right)\\
+&=&\displaystyle\lim_{n\to \infty} \left(-\ln 2 +\ln\left( \frac{ n+1}{ n } \right) \right)\\
+&=&-\ln 2\quad .
+\end{array}
 \]
 }
