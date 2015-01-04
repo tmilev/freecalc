@@ -1,3 +1,19 @@
+\solution{\ref{problemint(e^(-sqrtx)dx)}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int e^{-\sqrt{x}}\diff x&=& \displaystyle \int 2y e^{-y}\diff y&&\text{Subst.: } \begin{array}{rcl} \sqrt{x}&=&y\\
+\frac{1}{2\sqrt{x}}\diff x&=&\diff y\\
+\diff x&=&2y\diff y
+\end{array}
+\\
+&=&\displaystyle \int 2y \diff \left(-e^{-y}\right) &&\text{int. by parts}\\
+&=&-2ye^{-y}+2\int e^{-y}\diff y\\
+&=&-2ye^{-y}-2e^{-y}+C\\
+&=&-2\sqrt{x}e^{-\sqrt{x}} -2e^{-\sqrt{x}}+C\quad .
+\end{array}
+\]
+}
+
 \solution{
 \ref{problemIntegrateArcsinSquared}. 
 \[
@@ -11,3 +27,4 @@
 \end{array}
 \]
 }
+

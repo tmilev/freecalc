@@ -3,7 +3,7 @@ The integrand is a rational function and therefore we can solve this problem by 
 \[
 x^4+2= \left(x^2+\sqrt[4]{8}x+\sqrt{2} \right)\left(x^2-\sqrt[4]{8}x+\sqrt{2}\right)\quad.
 \]
-The problem asks us only to establish the convergence of the integral; it does not ask us to compute its actual numerical value. Therefore we can give a much simpler solution. The function is even and therefore it suffices to show that $\displaystyle \int\limits_0^\infty \frac{x^2}{x^4+2}\diff x$ is convergent.
+The problem asks us only to establish the convergence of the integral; it does not ask us to compute its actual numerical value. Therefore we can give a much simpler solution. The function is even and therefore it suffices to establish whether $\displaystyle \int\limits_0^\infty \frac{x^2}{x^4+2}\diff x$ is convergent.
 
 We have that 
 \[
@@ -17,10 +17,10 @@ The function $ \frac{x^2}{x^4+2}$ is continuous so $\int\limits_{0}^1 \frac{x^2}
 &=&\displaystyle \int_1^{\infty} x^{-2}\diff x\\
 &=&\displaystyle \lim\limits_{t\to \infty} \left[ -\frac{1}{x}\right]_{1}^{t}\\
 &=&\displaystyle  \lim\limits_{t\to\infty} 1- \frac{1}{t}\\
-&=&\displaystyle  1
+&=&\displaystyle  1\quad .
 \end{array}
 \]
-We have that $\displaystyle \frac{x^2}{x^4+2}\geq 0 $ and by the preceding computation we have that $\displaystyle\int_{1}^\infty \frac{x^2}{x^4+2} \diff x \leq 1$. Therefore by the comparison theorem $\displaystyle\int_{1}^\infty \frac{ x^2}{x^4+2} \diff x $ is convergent.
+In this way we showed $ \displaystyle\int_{1}^\infty \frac{x^2}{x^4+2} \diff x \leq 1$. Therefore, as $\displaystyle \frac{x^2 }{ x^4 + 2}\geq 0 $ is positive, we can apply the comparison theorem to get that $\displaystyle\int_{1}^\infty \frac{ x^2}{x^4+2} \diff x $ is convergent.
 }
 
 \solution{\ref{problemConvergencesqrt(x)e^-sqrt(x)zerotoinfty}
@@ -29,24 +29,24 @@ It is possible to show that this integral is convergent by using the comparison 
 \[
 \begin{array}{rcll|l}
 \displaystyle \int \sqrt{x} e^{-\sqrt{x}} \diff x&=& \displaystyle \int \sqrt{x} e^{-\sqrt{x}} \frac{2\sqrt{x} \diff x}{2\sqrt{x}} &&\text{use }  \diff \sqrt{x} = \frac{\diff x}{2\sqrt{x}} \\
-&=& \displaystyle \int \sqrt{x} e^{-\sqrt{x}} \left(2\sqrt{x} \diff \sqrt{x}\right) &&\text{Set } \sqrt{x}=u\\
-&=&\displaystyle 2\int u^2 e^{-u}\diff u\\
-&=&\displaystyle 2\left( -\int u^2 \diff \left(e^{-u}\right) \right) &&\text{integrate by parts} \\
-&=&\displaystyle 2\left(- u^2e^{-u}+\int e^{-u}\diff \left(u^2\right) \right) \\
+&=& \displaystyle \int \sqrt{x} e^{-\sqrt{x}} \left(2 \sqrt{x} \diff \sqrt{x}\right) &&\text{Set } \sqrt{x}=u\\
+&=& \displaystyle 2\int u^2 e^{-u}\diff u\\
+&=& \displaystyle 2\left( -\int u^2 \diff \left( e^{-u} \right) \right) &&\text{integrate by parts} \\
+&=& \displaystyle 2\left(- u^2e^{-u}+\int e^{-u}\diff \left(u^2\right) \right) \\
 &=&\displaystyle 2\left(- u^2e^{-u}+\int 2 u e^{-u}\diff u \right)\\
-&=&\displaystyle 2\left(- u^2e^{-u}-\int 2 u \diff e^{-u} \right) &&\text{integrate by parts again}\\
+&=&\displaystyle 2\left(- u^2e^{-u}-\int 2 u \diff e^{ -u} \right) &&\text{integrate by parts again}\\
 &=&\displaystyle 2\left(- u^2e^{-u}- 2 u  e^{-u}+ \int 2e^{-u}\diff u \right) \\
-&=&\displaystyle 2\left( - u^2e^{-u} -2ue^{-u} -2e^{-u}\right)+C\\
-&=&\displaystyle 2\left( - xe^{-\sqrt{x}} -2\sqrt{x}e^{-\sqrt{x}} -2e^{-\sqrt{x}}\right)+C
+&=&\displaystyle 2\left( - u^2e^{-u} -2ue^{-u} -2e^{ -u} \right)+C\\
+&=&\displaystyle 2\left( - xe^{-\sqrt{x}} -2\sqrt{x } e^{ -\sqrt{x}} -2e^{-\sqrt{x}}\right)+C
 \end{array}
 \]
 Therefore 
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \sqrt{x} e^{-\sqrt{x}} \diff x&=&\displaystyle\lim\limits_{t\to \infty} 2\left[ - xe^{-\sqrt{x}} -2\sqrt{x}e^{-\sqrt{x}} -2e^{-\sqrt{x}}\right]_{0}^{\infty}\\
-&=&\displaystyle 4+ \lim\limits_{t\to \infty} 4\left( -te^{-\sqrt{t}} -\sqrt{t}e^{-\sqrt{t}}- e^{-\sqrt{t}} \right) && \text{Set }u=\sqrt{t}\\
-&=&\displaystyle 4- 4\lim\limits_{u\to \infty} \left(u^2e^{-u} + ue^{-u}+e^{-u}\right)\\
-&=& \displaystyle 4- 4\lim\limits_{u\to \infty} \frac{u^2+u+1}{e^u} &&\text{use L'Hospital's rule for limit, see below}\\
+\displaystyle \int \sqrt{x} e^{-\sqrt{x}} \diff x&=& \displaystyle \lim\limits_{t\to \infty} 2\left[ - xe^{- \sqrt{ x} } -2\sqrt{x}e^{-\sqrt{x}} -2e^{- \sqrt{x}} \right]_{ 0}^{\infty}\\
+&=&\displaystyle 4+ \lim\limits_{t\to \infty} 4\left( -te^{ -\sqrt{t}} -\sqrt{t}e^{-\sqrt{t}}- e^{-\sqrt{t}} \right) && \text{Set }u=\sqrt{t}\\
+&=&\displaystyle 4- 4\lim\limits_{u\to \infty} \left( u^2 e^{-u} + ue^{-u}+e^{-u}\right)\\
+&=& \displaystyle 4- 4\lim\limits_{u\to \infty} \frac{ u^2 + u+1}{e^u} &&\text{use L'Hospital's rule for limit, see below}\\
 &=& 4\quad ,
 \end{array}
 \]
