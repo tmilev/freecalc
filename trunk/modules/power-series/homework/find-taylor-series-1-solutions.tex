@@ -1,5 +1,4 @@
-\solution{
-\ref{problemTaylorSeries a=1 ln(sqrt(x^2-2x+2))}
+\solution{\ref{problemTaylorSeries a=1 ln(sqrt(x^2-2x+2))}
 \[
 \begin{array}{rcll|l}
 \displaystyle \ln \left( \sqrt{x^2-2x+2} \right) &=&\displaystyle  \frac{ 1}{2} \ln \left( (x-1)^2+1\right)&&\text{use } \ln(1+y) =  \sum \limits_{n=1 }^ \infty (-1)^{n+1} \frac{y^n}{n}, |y|< 1 \\
@@ -23,4 +22,19 @@ We use the ratio test:
 \end{array}
 \] 
 By the ratio test, the series is divergent for $ (x-1)^2>1$, i.e., for $|x-1|>1$, and convergent for $(x-1)^2<1$, i.e., for $|x-1|<1$. The ratio test is inconclusive at only two points: $x-1=1$, i.e., $x=2$ and $x-1=-1$, i.e., $x=0$. At both points the series becomes $\displaystyle \sum\limits_{n=1}^{\infty} (-1)^{n+1} \frac{ 2^{ 2n}}{2n}$ and the series is convergent at both points by the alternating series test.
+}
+
+\solution{\ref{problemTaylorlnxarounda=2}
+This solution is similar to the solution of \ref{problemTaylorSeries a=1 ln(sqrt(x^2-2x+2))}, but we have written it in a concise fashion suitable for test taking. 
+
+Denote Taylor series at $a$ by $\taylor_a$ and recall that the Maclaurin series of are just $\taylor_0$, the Taylor series at $0$.
+\[
+\begin{array}{rcll|l}
+\displaystyle \taylor_2(\ln x)&=& \displaystyle \taylor_2 (\ln \left((x-2)+2\right))\\
+&=&\displaystyle \taylor_2\left(\ln \left(2\left(\frac{x-2}{2}+1\right) \right)\right)\\
+&=&\displaystyle \taylor_2\left(\ln 2+ \ln \left(1+\frac{x-2}{2} \right) \right)&& T_0(\ln (1+y))=\sum\limits_{n=1}^\infty \frac{(-1)^{n+1}y^n}{n}\\
+&=&\displaystyle \ln 2 + \sum_{n=1}^{\infty }\frac{(-1)^{n+1} \left(\frac{x-2}{2}\right)}{n}\\
+&=&\displaystyle \ln 2 +\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{2^n} (x-2)^n\quad .
+\end{array}
+\]
 }

@@ -1,4 +1,53 @@
-\solution{
+\noindent \solution{\ref{problemz^3=i}. Let $z=|z|(\cos \theta+i\sin \theta)$ be the polar form of $|z|$ for which $\theta\in(-\pi, \pi]$. We have  $|z|^3=\left| i \right| = 1$. Therefore $|z|=1$.
+
+
+We can write $\displaystyle i$ in polar form as $\displaystyle i = \cos\left(\frac{ \pi}{2} \right) + i\sin\left(\frac{\pi}{2}\right)$. Therefore 
+\[
+\begin{array}{rcll|l}
+z^3&=& i&&\text{use de Moivre's formula} \\
+|z|^3 \left(\cos (3\theta)+i\sin (3\theta)\right)&=& \cos\left(\frac{ \pi}{2} \right) + i\sin\left(\frac{\pi}{2}\right) &&\text{use }|z|=1\\
+\cos (3\theta)+i\sin (3\theta) &=&\cos\left(\frac{ \pi}{2} \right) + i\sin\left(\frac{\pi}{2}\right) &&\begin{array}{l}\text{when sines and cosines} \\
+\text{coincide the angles differ}\\
+\text{by even multiple of }\pi\end{array}
+\\
+3\theta&=&\frac{\pi}{2}+2k\pi, &&k-\text{integer}\\
+\theta&=&\frac{\pi}{6}+k\frac{2\pi}{3}&&\theta\in(-\pi,\pi] \Rightarrow k=-1, 0, \text{ or }1  \\
+\theta&=&-\frac{\pi}{2}, \frac{\pi}{6}, \text{ or } \frac{5\pi}{6}\quad .
+\end{array}
+\]
+
+
+To find out the values of $z$ in non-polar form, we simply plot the numbers $z=(\cos \theta +i\sin \theta)$. The three complex solutions lie on a circle of radius $1$; the numbers form an equilateral triangle, as shown on the picture. To find the actual values for these complex numbers, we use known values of the trigonometric functions. Our final answer is as follows.
+
+\begin{pspicture} (-1.2,-1.2)(1.2,1.2)
+\tiny
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-1.4,-1.4)(1.4,1.4)
+\rput[t](1.4,-0.1){$Re$}
+\rput[r](-0.1,1.4){$Im$}
+\parametricplot[linecolor=gray]{0}{360}{t cos t sin }
+\psline[linecolor=blue](0,0)(!150 cos 150 sin )
+\psdot*(! 150 cos 150 sin )
+\rput[rt](! 150 cos  150 sin ){$-\frac{ \sqrt{3 }}{ 2} +\frac{i}{2}~$}
+\psline[linecolor=blue](0,0)(!30 cos 30 sin)
+\psdot*(!30 cos  30 sin )
+\rput[lt](! 30 cos 30 sin ){$~\frac{ \sqrt{3 }}{ 2} +\frac{i}{2}$}
+\psline[linecolor=blue](0,0)(!-90 cos -90 sin )
+\psdot*(!-90 cos -90 sin )
+\rput[lt](0, -1.1){$-i$}
+\end{pspicture}
+\raisebox{1.2cm}{
+$
+\begin{array}{c|c}
+\text{polar form }&\text{ value}\\\hline 
+\cos \left(\frac{5\pi}{6}\right) +i\sin \left( \frac{ 5\pi }{6}\right)&  -\frac{\sqrt{3}}{2}+\frac{i}{2} \\
+\cos \left(\frac{\pi}{6}\right) +i\sin \left( \frac{ \pi}{6} \right) &  \frac{ \sqrt{3 }}{ 2} +\frac{i}{2} \\
+\cos \left(-\frac{\pi}{2}\right) +i\sin \left(-\frac{ \pi } {2} \right)& -i
+\end{array}
+$
+}
+}
+
+\noindent \solution{
 \ref{problemz^3=-i/8}
 
 Let $z=|z|(\cos \theta+i\sin \theta)$ be the polar form of $|z|$ for which $\theta\in(-\pi, \pi]$. We have  $|z|^3=\left| \frac{i}{8 } \right| = \frac{1}{8}$. Since $|z|$ is a positive real number it follows that $\displaystyle |z|=\sqrt[3]{\frac{1}{8}}=\frac{1}{2}$.

@@ -19,6 +19,19 @@
 
 
 \answer{$\frac{\pi}{6}+\frac{\sqrt{3}}{4} $}
+\item \label{problem-Area-swept-byr=sin2theta_outsider=1/2} Below is a computer generated plot of the curve $r=\sin(2\theta)$. Find the area locked inside one petal of the curve and outside of the circle $\displaystyle x^2+y^2=\frac{1}{4}$.
+
+\psset{unit =1.5cm, linewidth=1\pslinewidth}
+\begin{pspicture}(1,2)
+\psaxes[labels=none, ticks=none, arrows=->](0,0)(-1.5,-1.5)(1.5,1.5)
+\pscustom*[linecolor=cyan]{
+\parametricplot[linecolor=red, plotpoints=300]{15}{75}{t cos t 2 mul sin mul t sin t 2 mul sin mul}
+\parametricplot[linecolor=red]{75}{15}{t cos 0.5 mul  t sin 0.5 mul}
+}
+\parametricplot[linecolor=red, plotpoints=300]{0}{360}{t cos t 2 mul sin mul t sin t 2 mul sin mul}
+\parametricplot[linecolor=red, plotpoints=300]{0}{360}{t cos 0.5 mul  t sin 0.5 mul}
+\end{pspicture}
+
 %\item The curve given in polar coordinates by $r=1+\cos (3t)$ is plotted below. Find the area \textbf{outside} of the curve and \textbf{inside} the circle $x^2+y^2=\frac14$.
 
 %\begin{pspicture}(-1.611991, -2.182513)(2.4,2.282513) \tiny \fcAxesStandard{-1.361991}{-1.932513}{2.15}{1.932513}
