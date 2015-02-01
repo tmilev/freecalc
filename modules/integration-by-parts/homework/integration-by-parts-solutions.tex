@@ -28,3 +28,18 @@
 \]
 }
 
+\solution{\ref{problemintsin(ln x)dx}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \sin (\ln x)\diff x&=&\displaystyle  x\sin (\ln x)-\int x\diff (\sin (\ln x)) &&\text{integrate by parts}\\
+&=&\displaystyle  x\sin (\ln x ) - \int x \left(\cos (\ln x)\right) \left(\ln x\right)'\diff x\\
+&=&\displaystyle x\sin (\ln x)-\int \cos (\ln x)\diff x &&\text{integrate by parts again}\\
+&=&\displaystyle  x\sin (\ln x)- \left( x\cos (\ln x)-\int  x\diff (\cos (\ln x)) \right)\\
+&=&\displaystyle x\sin (\ln x)-x\cos (\ln x)+\int x (-\sin (\ln x))(\ln x)'\diff x\\
+&=&\displaystyle x\sin (\ln x)-x\cos (\ln x)-\int \sin (\ln x)\diff x &&\text{add } \int \sin (\ln x)\diff x \text{ to both sides}\\
+\displaystyle 2\int \sin (\ln x)\diff x&=&\displaystyle  x\sin (\ln x)-x\cos (\ln x)\\
+\displaystyle \int \sin (\ln x)\diff x&=&\displaystyle \frac{x}{2} \left(\sin (\ln x)-\cos (\ln x) \right)
+\end{array}
+\]
+}
+
