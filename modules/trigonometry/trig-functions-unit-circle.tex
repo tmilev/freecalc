@@ -43,21 +43,27 @@
 \uncover<6->{
 \psline[linecolor=green](0,0)(0.447213595,0)
 }
-\uncover<7->{
-\psline[linecolor=purple](1,0)(1,2)
-}
-\uncover<8->{
-\psline[linecolor=cyan](1,0)(1,-0.5)
-\rput[l](1.05,-0.5){$E$}
-\psline[linecolor=black](0,0)(1,-0.5)
-\psline(0.04472136,-0.02236068)(0.06708204,0.02236068) (0.02236068, 0.04472136)
-}
-\uncover<9->{
-\psline[linecolor=magenta](0,0)(1,2)
-}
-\uncover<10->{
+\uncover<7->{%
+\psline[linecolor=purple](1,0)(1,2)%
+}%
+\uncover<9->{%
+\psline[linecolor=cyan](1,0)(1,-0.5)%
+}%
+\uncover<8->{%
+\psline(0.04472136,-0.02236068)(0.06708204,0.02236068) (0.02236068, 0.04472136)%
+\rput[l](1.05,-0.5){$E$}%
+\psline[linecolor=black](0,0)(1,-0.5)%
+\rput(1, -0.5){\fcAngleBetweenVectors[linecolor=black]{ [0 1]}{[-2 1]}{0.2}{$\theta$}}%
+\rput[rb](0.9,-0.3){$\theta$}%
+%\fcAngle{90}{90 2 atan add}{0.2}{$\theta$}
+}%
+\uncover<10->{%
+\psline[linecolor=magenta](0,0)(1,2)%
+}%
+\uncover<11->{
 \psline[linecolor=orange](0,0)(1,-0.5)
 }
+
 \end{pspicture}
 \column{0.6\textwidth}
 On picture: circle of radius $1$ centered at point $O$ with coordinates $(0,0)$. \uncover<2->{Let \alert<2>{$\angle DOB=\theta$}.} \uncover<3->{\alert<3>{Let $OB$ intersect the circle at point $A$}.} \uncover<4->{Then the coordinates of $A$ are $(\color{green}\cos \theta \color{black},\color{blue}\sin\theta \color{black} )$.}
@@ -70,11 +76,11 @@ On picture: circle of radius $1$ centered at point $O$ with coordinates $(0,0)$.
 
 \uncover<7->{$\color{purple} \tan \theta\color{black} = \frac{|BD|}{|OD|}=\frac{|BD|}{1}=|BD|$.}
 
-\uncover<8->{$\color{cyan} \cot \theta\color{black} = \frac{|DE|}{|OD|}=\frac{|DE|}{1}=|DE|$.}
+\uncover<8->{$\color{cyan} \cot \theta \uncover<9->{\color{black} = \frac{|DE|}{|OD|} = \frac{|DE|}{1}=|DE|}$.}
 
-\uncover<9->{$\color{magenta} \sec\theta \color{black} =\frac{|OB|}{|OD|}=\frac{|OB|}{1}=|OB|$.}
+\uncover<10->{$\color{magenta} \sec\theta \color{black} =\frac{|OB|}{|OD|}=\frac{|OB|}{1}=|OB|$.}
 
-\uncover<10->{$ \color{orange}\csc\theta \color{black} =\frac{|OE|}{|DO|}=\frac{|OE|}{1}=|OE|$.}
+\uncover<11->{$ \color{orange}\csc\theta \color{black} =\frac{|OE|}{|DO|}=\frac{|OE|}{1}=|OE|$.}
 
 
 \end{columns}
