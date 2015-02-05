@@ -1,0 +1,53 @@
+\begin{frame}
+\frametitle{Geometric proof: angle sum trig formulas}
+
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=5cm, yunit=5cm}
+\begin{pspicture}(-0.02, -0.1)(1.2,1.2)
+\fcBoundingBox{-0.02}{-0.1}{1.2}{1.2}
+\tiny%
+\pstVerb{%
+/alpha 20 def
+/beta 20 def
+/pointA {beta cos alpha cos mul 0} def
+/pointB {beta cos alpha cos mul beta cos alpha sin mul} def
+/pointC {alpha beta add cos alpha beta add sin} def
+/pointD {alpha beta add cos 0} def
+/pointH {alpha beta add cos alpha beta add cos alpha tan mul} def
+}%
+%\only<2->{\pstVerb{/alpha 25 def}}
+%\only<3->{\pstVerb{/alpha 30 def}}
+%\only<4->{\pstVerb{/alpha 35 def}}
+%\only<5->{\pstVerb{/alpha 40 def}}
+%\only<6->{\pstVerb{/beta 25 def}}
+%\only<7->{\pstVerb{/beta 30 def}}
+%\only<8->{\pstVerb{/beta 35 def}}
+%\only<9->{\pstVerb{/beta 40 def}}
+%\only<10->{\pstVerb{/beta 55 def}}
+\psline(0,0)(! pointC)%
+\fcPerpendicular{[pointC]}{[pointB]}{0.06}%
+\fcPerpendicular{[pointC]}{[pointA]}{0.06}%
+\fcPerpendicular{[pointB]}{[1 0]}{0.06}%
+\fcAngleBetweenVectors{[pointA]}{[pointB]}{0.2}{$~~~\alpha$}%
+\fcAngleBetweenVectors{[pointB]}{[pointC]}{0.2}{$~~~~\beta$}%
+\psline(0,0)(! pointB)
+\psline(0,0)(! pointA)
+\rput[t](0,0){ $O$}
+\rput[lt](! pointA){ $A$}
+\rput[l](! pointB){ $B$}
+\rput[lb](! pointC){ $C$}
+\rput[br](! [pointC] 0.5 \fcVectorTimesScalar \fcArrayToStack ){$1$}
+%\rput[br](! [pointB] 0.5 \fcVectorTimesScalar \fcArrayToStack ){$\cos \beta$}
+\rput[l](! [pointC] [pointB] \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack ){$~\sin \beta$}
+\rput[l](! [pointB] [pointA] \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack ){$~\cos \beta\sin \alpha$}
+\rput[t](! pointD -0.05 add){$D$}
+\rput[rb](! pointH){$H~~$}
+\rput(! pointH){\fcAngleDegrees{-90}{-90 alpha sub}{0.2}{$90^\circ-\alpha$}}
+\end{pspicture}
+\column{0.6\textwidth}
+
+\end{columns}
+
+\end{frame}
+

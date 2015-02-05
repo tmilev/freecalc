@@ -438,6 +438,7 @@ end
 /theAngle firstV #3\space \fcVectorNormalize \fcVectorScalarVector arccos def%
 }%
 \parametricplot[#1]{0}{theAngle}{firstV t cos #4 mul \fcVectorTimesScalar orthonormalV t sin #4 mul \fcVectorTimesScalar \fcVectorPlusVector \fcArrayToStack}%
+\rput(! firstV theAngle 2 div cos #4 mul \fcVectorTimesScalar orthonormalV theAngle 2 div sin #4 mul \fcVectorTimesScalar \fcVectorPlusVector \fcArrayToStack){#5}
 \pstVerb{end}%
 }
 
@@ -2581,7 +2582,7 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 }%
 }
 
-\newcommand{\fcPerpendicular}[4][]{%
+\newcommand{\fcPerpendicular}[4][ ]{%
 \fcPerpendicularComputeHeel{#2}{#3}{#4}%
 \psline[#1](! thePoint \fcArrayToStack)(! heel \fcArrayToStack)%
 \listplot[linecolor=red]{ [polyLineInput] {\fcArrayToStack} \fcSpliceArrayOperation \fcArrayToStack}%
