@@ -10,6 +10,7 @@
 \crefformat{footnote}{#2\footnotemark[#1]#3}
 
 \newtoggle{solutions}
+\newtoggle{solutionsExtra}
 \newtoggle{answers}
 
 \input{../../lectures/example-templates} %warning this path is relative to the file that uses the \usepackage command, not relative to the style file.
@@ -24,6 +25,12 @@
 {\begin{proof}[\bfseries\upshape Solution]\renewcommand{\qedsymbol}{}}%
 {\end{proof}}%
 \newcommand{\solution}[1]{\iftoggle{solutions}{\begin{solutionEnvironment}#1\end{solutionEnvironment}}{}}
+%solutionExtra is identical to the solution command, except that it useses a different toggle. 
+%The solutionExtra command should only be used for
+%problems that have already extremely similar counterparts solved. 
+%solutionExtra serves to archive LaTeX'ed solution which 
+%are to never be given to the students.
+\newcommand{\solutionExtra}[1]{\iftoggle{solutionsExtra}{\begin{solutionEnvironment}#1\end{solutionEnvironment}}{}}
 
 \newcommand{\homeworkEnd}{\end{enumerate}\end{document}}
 \newcommand{\homeworkStart}[2]{\title{\course \\ Homework \ #1}\date{%
