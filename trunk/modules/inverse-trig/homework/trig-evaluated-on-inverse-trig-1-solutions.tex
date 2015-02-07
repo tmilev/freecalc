@@ -27,7 +27,8 @@ Now we use the double angle formula to find $\sin(2\Arcsin x)$.
 \end{align*}
 }
 
-\solution{\ref{problemsin(3arcsin x)}. Use the result of Problem \ref{problemsin(2arcsin x)}. This also requires the addition formula for sine: 
+\solution{\ref{problemsin(3arcsin x)}. 
+Use the result of Problem \ref{problemsin(2arcsin x)}. This also requires the addition formula for sine: 
 \[
 \sin(A+B) = \sin A \cos B + \sin B\cos A,
 \]
@@ -43,8 +44,31 @@ and the double angle formula for cosine:
 & =& (2\sin y \cos y)\cos y + \sin y (\cos^2 y - \sin^2 y)&&\text{Use double angle formulas} \\
 & =& 2\sin y \cos^2 y + \sin y \cos^2 y - \sin^3 y \\
 & =& 3\sin y \cos^2 y - \sin^3 y \\
+& =& 3\sin y (1-\sin^2 y) - \sin^3 y \\
 & =& 3x(1-x^2) - x^3 \\
 & =& 3x - 4x^3.
+\end{array}
+\]
+The solution is complete. Let us analyze the above to extract a general strategy for solving such problems. 
+\begin{enumerate}
+\item Identify the inverse trigonometric expression- $\Arcsin x, \Arccos x, \Arctan x, \dots$. In the present problem that was $y=\Arcsin x$. 
+\item Our problem is now a trigonometric function of $y$.
+\item Using trig identities and algebra, rewrite the problem as a trigonometric expression involving only the trig function that transforms $y$ to $x$. In the present problem we rewrote everything using $\sin y$.
+\item Use the fact that $\sin (\Arcsin x)=x$.
+\end{enumerate}
+}
+
+\solution{\ref{problemsin(3arccos(x))} We use the same strategy outlined in the solution of Problem \ref{problemsin(3arcsin x)}. Set $y = \Arccos x$ and so $\cos(y) = x$. Therefore:
+
+\[
+\begin{array}{rcll|l}
+\sin(3y) &=& \sin(2y +y)\\
+&=& \sin(2y)\cos y + \sin y \cos (2y)\\
+&=& 2\sin y \cos y \cos y + \sin y (2\cos^2y-1)\\
+&=& 2\sin y \cos^2y + \sin y (2\cos^2y-1)
+\\
+&=&\sin y(4\cos^2 y-1) &&\text{use }\begin{array}{rcl} \cos y&=&x\\\sin y &=& \sqrt{1-x^2}\end{array}\\
+&=&\sqrt{1-x^2}(4x^2-1)\quad .
 \end{array}
 \]
 }
