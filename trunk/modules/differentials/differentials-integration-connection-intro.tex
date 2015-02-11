@@ -1,13 +1,25 @@
 %begin module differentials-integration-connection-intro
 \begin{frame}
+\begin{columns}
+
+\column{0.3\textwidth}
+\begin{pspicture}(-0.2,-0.2)(1,1)
+\fcRiemannSum{0.2}{1.6}{x x x mul mul 0.2 add sqrt}{7}{0}
+\fcAxesStandardNoFrame{-0.2}{-0.2}{2}{2}
+\end{pspicture}
+\column{0.7\textwidth}
 \begin{itemize}
-\item<1-> We defined $\displaystyle\int f(x) \diff x$ as an anti-derivative of $f(x)$ and $\displaystyle \only<2>{\color{red} } \only<3>{ \color{black} } \int\limits^{b}_{a} \uncover<2>{\color{black}}  \alert<4>{f( x) }\alert<3>{ \diff x} $ as the definite integral of $f$.
-\item<2-> The $\alert<2>{\int}$ sign stands for the \alert<2>{limit of a Riemann sum} (sum of \alert<3,4>{approximating rectangles}).
+\item<1->  $\displaystyle \only<2>{\color{red} } \only<3>{ \color{black} } \int\limits^{b}_{a} \uncover<2>{\color{black}}  \alert<4>{f( x) }\alert<3>{ \diff x} $ is the definite integral of $f$.
+\item<1-> $\displaystyle\alert<2>{ \int} f(x) \diff x$ anti-derivative used for definite integral.
+\item<2-> $\alert<2>{\int}$ stands for the \alert<2>{limit of a Riemann sum} (sum of \alert<3,4>{approximating rectangles}).
+\end{itemize}
+\end{columns}
+\begin{itemize}
+
 \item<3-> $\alert<3>{\diff x}$ ``encodes''  \alert<3>{the length of the base} of an ``\alert<5>{infinitesimally small}'' approximating rectangle\uncover<4->{, $\alert<4>{f(x)}$ stands for the \alert<4>{height}.}
-\item<5-> ``\alert<5>{Infinitesimally small}'' is an informal expression. 
 \item<6-> Formally, the expression $f(x) \diff x$ is a differential form (the same differential forms discussed in the preceding slides).
 \item<7-> We did not give a complete formal definition of a differential form, but we showed how to compute with those. 
-\item<8-> Computing with differential forms is consistent with computing with integrals: the integrals of equal differential forms are equal.  This follows directly from the Net Change Theorem (the substitution rule for integrals), which in turn follows from the Fundamental Theorem of Calculus and the Chain Rule.
+\item<8-> Differential forms are consistent with integrals: integrals of equal differential forms are equal (follows from Net Change Theorem (subst. rule)).
 \end{itemize}
 \end{frame}
 
