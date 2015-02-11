@@ -175,6 +175,28 @@ string exch          % s1 s2 s3 .. sN str   n
 pop  % str'
 }
 
+\newcommand{\fcRiemannSum}[6][linecolor=\fcColorGraph]{%
+\pstVerb{%
+15 dict begin 
+/numIntervals #5\space def
+/leftEnd #2\space def
+/rightEnd #3\space def
+/pointRatio #6\space def
+/DeltaX rightEnd leftEnd sub numIntervals div def
+/function {#4} def
+}%
+\multido{\ra=0+1}{#5}{%
+\pstVerb{/iteration \ra\space def
+/currentLeft iteration DeltaX mul leftEnd add def
+/x pointRatio DeltaX mul currentLeft add def
+}%
+\psline*[linecolor=cyan](! currentLeft dup == 0)(! currentLeft DeltaX add 0)(! currentLeft DeltaX add function)(! currentLeft function) (! currentLeft 0)%
+\psline[linecolor=blue](! currentLeft 0)(! currentLeft DeltaX add 0)(! currentLeft DeltaX add function)(! currentLeft function) (! currentLeft 0)%
+}%
+\psplot[#1]{leftEnd}{rightEnd}{function}
+\pstVerb{end}
+}
+
 \newcommand{\fcRectangularRiemannSumCode}{
 /theRiemannSumFigure exch def
 theRiemannSumFigure \fcSetupFiles
