@@ -2,24 +2,59 @@
 \begin{frame}
 \begin{columns}
 
-\column{0.3\textwidth}
-\begin{pspicture}(-0.2,-0.2)(1,1)
-\fcRiemannSum{0.2}{1.6}{x x x mul mul 0.2 add sqrt}{7}{0}
-\fcAxesStandardNoFrame{-0.2}{-0.2}{2}{2}
+\column{0.25\textwidth}
+\begin{pspicture}(-0.2,-0.2)(3,1)%
+\tiny%
+\fcBoundingBox{-0.3}{-0.4}{3}{2}
+\pstVerb{
+5 dict begin
+/theFunctioN {x 0.7 sub dup mul 0.3 add x div} def
+/leftEndPt 0.4 def
+/rightEndPt 2.8 def
+/fa 1 dict begin /x leftEndPt def theFunctioN end def
+/fb 1 dict begin /x rightEndPt def theFunctioN end def
+}%
+\uncover<1-2>{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot{leftEndPt}{rightEndPt}{theFunctioN}%
+\psline(! rightEndPt fb)(! rightEndPt 0)(! leftEndPt 0) (! leftEndPt fa)%
+}%
+\psplot[linecolor=\fcColorGraph]{leftEndPt}{rightEndPt}{theFunctioN}%
+}%
+\only<3>{%
+\fcRiemannSum{0.4}{2.8}{theFunctioN}{4}{0}%
+\fcLengthIndicatorTwo[t]{leftEndPt}{-0.2}{1}{-0.2}{$\vphantom{\overline{X}} \Delta x$}%
+}%
+\only<4>{%
+\fcRiemannSum{leftEndPt}{rightEndPt}{theFunctioN}{8}{0}%
+\fcLengthIndicatorTwo[t]{leftEndPt}{-0.2}{0.7}{-0.2}{$\vphantom{\overline{X}} \Delta x$}%
+}%
+\only<5>{%
+\fcRiemannSum{leftEndPt}{rightEndPt}{theFunctioN}{12}{0}%
+\fcLengthIndicatorTwo[t]{leftEndPt}{-0.2}{0.6}{-0.2}{$\vphantom{\overline{X}} \Delta x$}%
+}%
+\only<6->{%
+\fcRiemannSum{leftEndPt}{rightEndPt}{theFunctioN}{24}{0}%
+\fcLengthIndicatorTwo[t]{leftEndPt}{-0.2}{0.5}{-0.2}{$\vphantom{\overline{X}} \Delta x$}%
+}%
+\fcAxesStandardNoFrame{-0.2}{-0.2}{3}{2}%
+\only<7>{\psline[linecolor=red, linewidth=2pt](! leftEndPt 0)(! 0.5 0)}
+\only<8>{\psline[linecolor=red, linewidth=2pt](! leftEndPt 0)(! leftEndPt fa)}
+\pstVerb{end}%
 \end{pspicture}
-\column{0.7\textwidth}
+\column{0.75\textwidth}
 \begin{itemize}
-\item<1->  $\displaystyle \only<2>{\color{red} } \only<3>{ \color{black} } \int\limits^{b}_{a} \uncover<2>{\color{black}}  \alert<4>{f( x) }\alert<3>{ \diff x} $ is the definite integral of $f$.
-\item<1-> $\displaystyle\alert<2>{ \int} f(x) \diff x$ anti-derivative used for definite integral.
-\item<2-> $\alert<2>{\int}$ stands for the \alert<2>{limit of a Riemann sum} (sum of \alert<3,4>{approximating rectangles}).
+\item<1->  $\displaystyle \only<3>{\color{red} } \int \limits^{{\only<3>{\color{black} } b}}_{{\only<3>{\color{black} } a}} \only<3>{\color{black}}  \alert<5>{f( x) }\alert<7>{ \diff x} $ is the definite integral of $f$.
+\item<2-> $\displaystyle\alert<3>{ \int} f(x) \diff x$ = corresponding anti-derivative.
+\item<3-> $\alert<3-6>{\int}$ stands for the \alert<3-6>{limit of a Riemann sum} (sum of \alert<7,8,9>{approximating rectangles}).
 \end{itemize}
 \end{columns}
 \begin{itemize}
 
-\item<3-> $\alert<3>{\diff x}$ ``encodes''  \alert<3>{the length of the base} of an ``\alert<5>{infinitesimally small}'' approximating rectangle\uncover<4->{, $\alert<4>{f(x)}$ stands for the \alert<4>{height}.}
-\item<6-> Formally, the expression $f(x) \diff x$ is a differential form (the same differential forms discussed in the preceding slides).
-\item<7-> We did not give a complete formal definition of a differential form, but we showed how to compute with those. 
-\item<8-> Differential forms are consistent with integrals: integrals of equal differential forms are equal (follows from Net Change Theorem (subst. rule)).
+\item<7-> $\alert<7>{\diff x}$ ``encodes''  \alert<3>{the base length} of ``\alert<5>{infinitesimally small}'' approximating rectangle\uncover<8->{, $\alert<8>{f(x)}$ is the \alert<8>{height}.}
+\item<9-> $f(x) \diff x$ is a differential form as discussed already.
+\item<10-> We postponed a formal definition of differential form to another course, but we showed how to compute with those. 
+\item<11-> \alert<11>{This is consistent:} \alert<12>{integrals of equal differential forms are equal} \uncover<13->{(follows from Net Change Theorem (subst. rule)).}
 \end{itemize}
 \end{frame}
 
