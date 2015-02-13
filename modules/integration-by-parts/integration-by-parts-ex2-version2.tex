@@ -1,0 +1,18 @@
+% begin module integration-by-parts-ex2
+\begin{frame}
+\alert<2,3>{Integration by parts:} $\displaystyle \int \alert<2>{u} \diff \alert<3>{v} = \alert<2>{u} \alert<3>{v} - \int \alert<3>{v} \diff \alert<2>{u}.$
+
+\begin{example}
+
+
+$\begin{array}{rcll|l}
+\displaystyle \int \alert<2>{\ln x} \diff \alert<3>{x}&=&\displaystyle \uncover<2->{(\alert<2>{\ln x}) \alert<3>{x}- \int \alert<3>{x} \alert<4>{\diff (\alert<2>{\ln x})} && \text{integrate by parts}}\\
+\uncover<4->{&=& \displaystyle x\ln x - \int x \alert<4>{\alert<5,6>{(\ln x)'} \diff x}}\\
+\uncover<5->{&=&\displaystyle x\ln x - \int \alert<7>{x \fcAnswer{6}{\frac{1}{x}}}\diff x}\\
+\uncover<7->{&=&\displaystyle x\ln x- \alert<8,9>{\int \diff x}}\\
+\uncover<8->{&=&\displaystyle x\ln x - \fcAnswer{9}{x+C\quad .}}
+\end{array}
+$
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex2
