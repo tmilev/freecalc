@@ -1,0 +1,25 @@
+% begin module integration-by-parts-ex5
+\begin{frame}
+
+\alert<2,3>{Integration by parts:} $\displaystyle \int \alert<4>{u} \diff \alert<5>{v} = \alert<4>{ u} \alert<5>{v} - \int \alert<5>{v} \diff \alert<4>{u}.$
+
+\begin{example}
+\uncover<16->{\alert<16,17,19>{Set $w=1+x^2$.}}
+$
+\begin{array}{rcll|l}
+\displaystyle \alert<2,3>{\int_0^1 \alert<4>{ \Arctan x} \diff \alert<5>{x}} &\alert<2,3>{=}& \displaystyle \fcAnswer{3}{ \left[ \alert<6,7>{\alert<4>{ ( \Arctan x)} \alert<5>{x}} \right]_{{\alert<7>{ x=0}} }^{{\alert<6>{x= 1}}} - \int_{0}^1\alert<5>{ x} \alert<8,9>{ \diff \left( \alert<4>{ \Arctan x} \right)}} \\
+\uncover<6->{&\alert<0>{=}&\displaystyle \alert<6>{ 1\cdot \alert<10,11>{ \Arctan 1}} \alert<7>{- 0\cdot \arctan 0}- \int_{x=0}^{x=1}\alert<12,13>{ x} \uncover<6-8>{ \alert<8>{ \textbf{?}}} \uncover<9->{ \alert<9>{ \frac{1}{1+x^2} \alert<12,13>{\diff x } }}}\\
+\uncover<10->{&\alert<0>{=} &\displaystyle  \fcAnswer{11}{ \frac{ \pi }{ 4}} - \int_{x=0}^{x=1}\frac{ 1}{1+x^2}\diff \left( \uncover<10-12>{\alert<12>{\textbf{?}}} \uncover<13->{\alert<13>{ \frac{x^2}{\alert<14>{2} }} } \right)}\\
+\uncover<14->{&\alert<0>{=}&\displaystyle \frac{\pi}{4}- \alert<14>{ \frac{1}{2}} \int_{x =0}^{ x=1} \frac{ 1}{ \alert<16,17>{1+ x^2}}\diff ( \uncover<15->{ \alert<16,17>{ \alert<15>{ 1+ } x^2}} )}\\ 
+\uncover<17->{&\alert<0>{=}&\displaystyle\frac{\pi}{4} -\frac{1 }{2 } \alert<18>{ \int_{x=0}^{x=1}\frac{1}{ \alert<17>{ w}} \diff \alert<17>{w }}}
+\uncover<18->{=\displaystyle \frac{\pi}{4} -\frac{1}{2} \alert<18>{ \left[ \ln |\alert<19>{w}|\right]_{x=0}^{x=1}} }\\
+\uncover<19->{&\alert<0>{=}&\displaystyle \frac{\pi}{4} -\frac{ 1}{2} \left[\ln \left(\alert<19,20,21>{ 1+ x^2 } \right) \right]_{\alert<21>{x=0}}^{\alert<20>{ x=1}} }\\
+\uncover<20->{&\alert<0>{=}&\displaystyle \frac{\pi}{4}- \frac{1}{2} \left( \alert<20>{\ln 2}- \alert<21>{\ln 1} \right)\uncover<22->{=\frac{\pi }{4}-\frac{1}{2}\ln 2\quad .}}
+\end{array}
+$
+
+
+
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex5
