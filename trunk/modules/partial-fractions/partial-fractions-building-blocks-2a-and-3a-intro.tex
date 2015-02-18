@@ -1,0 +1,22 @@
+\begin{frame}
+\frametitle{Building blocks IIa and IIIa}
+Building block IIa: $\int \frac{x}{1+x^2}\diff x$.  Building block IIIa: $\int \frac{1}{1+x^2 }\diff x.$
+\begin{example}[Block IIa]
+\[
+\begin{array}{r@{~}c@{~}ll|l}
+\displaystyle \int \frac{\alert<2>{x}}{1+x^2 }\alert<2>{ \diff x} \uncover<2->{&=&\displaystyle \int \frac{1 }{ (1 +x^2) }\alert<2>{ \frac{\alert<3>{\diff (x^2)}}{2}}} \\
+\uncover<3->{&=&\displaystyle  \int \frac{1 }{\alert<4>{1+x^2 }} \frac{\alert<3,4>{\diff (1+x^2)}}{2}}  \uncover<4->{&&\text{Set }\alert<4,6>{u=1+x^2}} \\
+\uncover<4->{&=&\displaystyle\alert<5>{\int \frac{1}{\alert<4>{u}}} \frac{\alert<4>{\alert<5>{\diff u}}}{2}  } \\
+\uncover<5->{&=&\displaystyle\frac12\alert<5>{ \ln |\alert<6>{u}|}+C\uncover<6->{=\frac{1}{2}\ln \left(\alert<6>{1+x^2}\right)+C\quad .} }
+\end{array}
+\]
+\end{example}
+\uncover<7->{
+\begin{example}[Block IIIa]
+\[
+\displaystyle \int \frac{1}{1+x^2 }\diff x \uncover<8->{=\Arctan x +C}
+\]
+\end{example}
+}
+\vspace{2cm} 
+\end{frame}
