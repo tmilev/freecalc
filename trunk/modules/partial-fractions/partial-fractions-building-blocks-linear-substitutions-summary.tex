@@ -1,18 +1,23 @@
 \begin{frame}
-\frametitle{Linear substitutions leading to building blocks}
+\frametitle{Building block integral summary}
+\begin{tabular}{|c|c|c|c|c|}\hline
+Type & a & b & Type a, lin. sub. & Type b, lin. sub \\\hline
+I &   $\only<2>{\color{red}} \int \frac{1}{x}\diff x $  &$\only<2>{\color{red}}\int \frac{1}{x^n}\diff x$ & $\only<5>{ \color{red}}\int \frac{A}{ax+b}\diff x $ &  $\only<5>{ \color{red}}\int \frac{A}{(a x+ b)^n}\diff x $\\\hline
+II & $\only<2>{\color{red}}\int \frac{x}{x^2+1}\diff x\only<3->{\color{black}}$ &$\only<2>{\color{red}}\int \frac{x}{\left(x^2+1\right)^n}\diff x\only<3->{ \color{black}} $ & $\only<6>{ \color{red}}\int \frac{A\left(x+ \frac{b}{2a} \right)}{\alert<7>{ax^2+bx+c}}\diff x $ &  $\only<9->{\color{gray}} \int \frac{A\left(x+ \frac{b}{2a} \right)}{\left(\alert<8>{ ax^2 +bx+c}\right)^n}\diff x  $\\\hline
+III & $\only<2>{\color{red}}\int \frac{1}{x^2+1}\diff x\only<3->{\color{black}}$ &$\only<2,3>{\color{red}}\int \frac{1}{\left(x^2+1\right)^n}\diff x$ & $\only<6>{ \color{red}}\int \frac{B}{\alert<7>{ax^2+bx+c}}\diff x $ &  $\only<9->{\color{gray}}\int \frac{B}{\left( \alert<8>{a x^2+bx+ c}\right)^n}\diff x $\\\hline
+\end{tabular}
+where $A,B$ are arbitrary constants and $a,b,c$ are constants with \alert<6,7>{$b^2-4ac<0$}. The quadratics in the denominators have no real roots.
+
+
 \begin{itemize}
-\item In the previous slides we showed how to solve building block integrals I, II and III:
-$\displaystyle \int \frac{1}{x^n }\diff x$, $\displaystyle \int \frac{x}{(1+x^2)^n }\diff x$, $\displaystyle \int \frac{1}{(1+x^2)^n }\diff x$
-\item<2-> Every integral of the form
-$\displaystyle \int \frac{1}{(ax+b)^n }\diff x$
-can be transformed using linear substitution to building block I. We did that in full detail.
-\item<3-> Every integral of the form  
-$\displaystyle \int \frac{Ax+B}{(ax^2+bx+c)^{n} }\diff x$
-for which $b^2-4ac<0$ can be transformed using linear substitutions to a sum of building blocks II and III. 
+\item<2-> We solved building blocks I, II and III \uncover<3->{\alert<3>{in almost complete detail.}}
+\item<4-> The types in the remaining columns can be transformed to building block ones:
 \begin{itemize}
-\item<4-> For $n=1$ (blocks IIa and IIIa) we showed a complete example how to do that. 
-\item<5-> For $n>1$ the integrals are transformed to blocks IIb and IIIb in a completely analogous fashion using the same techniques. An extended example can be found in Calculus for beginners, Chapter Techniques of Integration.
+\item<5-> Block I, linear substitutions: done in full detail.
+\item<6-> Block IIa, IIIa, linear substitutions: done in full detail. \uncover<7->{\alert<7>{To derive substitution: complete the square.}}
+\item<8-> Block IIb, IIIb, linear substitutions: \alert<8>{to derive substitution: again, complete the square;} \uncover<9->{\alert<9>{computations are analogous and we leave them for exercise.}}
 \end{itemize}
 \end{itemize}
+
 
 \end{frame}
