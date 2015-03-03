@@ -1,0 +1,31 @@
+\solution{\ref{problemIntegrate x/(2x^2+x-1)dx}
+The quadratic in the denominator has real roots and therefore can be factored using real numbers. We therefore use partial fractions.
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{x }{2x^2+x-1}\diff{}x&=&\displaystyle \int \frac{\frac{1}{2}x}{\left( x+1\right)\left(x-\frac{1}{2}\right)} \diff x &&\text{partial fractions, see below}\\
+&=&\displaystyle  \int \frac{\frac{1}{3} }{\left( x+1\right)}\diff {}x +\int \frac{\frac{1}{6}}{ \left(x - \frac{1}{2}\right)} \diff {}x\\
+&=&\displaystyle \frac{1}{3} \ln |x+1|+\frac{1}{6} \ln \left|x-\frac{1}{2}\right| +C\quad .
+\end{array}
+\]
+Except for showing how the partial fraction decomposition was obtained, our solution is complete. 
+
+We proceed to compute the partial fraction decomposition used above. In what follows, we will use the most straightforward technique - the method of coefficient comparison. This technique is the most laborious for a human but is perhaps the easiest to implement on a computer. The computations below were indeed carried out by a computer program written for the purpose. We note that the method of coefficient comparison is fast enough for a human, but  techniques such as the one used in the solution of Problem \ref{problemint(3x^2+2x-1)/((x-1)(x^2+1))dx} are much easier when not equipped with a computer.
+
+We aim to decompose into partial fractions the following function (the denominator has been factored). 
+\[
+\frac{x }{2x^{2}+x -1}=\frac{x }{ \left(x +1\right)\left(2x -1\right)} = \frac{A_1}{x+1}+\frac{A_2}{2x-1}\quad .
+\]
+After clearing denominators, we get the following equality. 
+\[x = A_{1} (2x -1)+A_{2} (x +1)
+\]
+After rearranging we get that the following polynomial must vanish. Here, by ``vanish'' we mean that the coefficients of the powers of $x$ must be equal to zero.
+\[(A_{2} +2A_{1} -1)x +(A_{2} -A_{1} )\quad .
+\]
+In other words, we need to solve the following system.
+\[
+\begin{array}{llll} & 2A_{1} & +A_{2} & =1\\ & -A_{1} & +A_{2} & =0\\\end{array}
+\] 
+
+\begin{longtable}{cc} System status&Action \\\hline $\begin{array}{llll} & 2A_{1} & +A_{2} & =1\\ & -A_{1} & +A_{2} & =0\\\end{array}$ & Selected pivot column 2. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llll} & A_{1} & +\frac{A_{2} }{2} & =\frac{1}{2}\\ & & \frac{3}{2}A_{2} & =\frac{1}{2}\\\end{array}$& Selected pivot column 3. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llll} & A_{1} & & =\frac{1}{3}\\ & & A_{2} & =\frac{1}{3}\\\end{array}$& Final result.\\ \end{longtable}
+Therefore, the final partial fraction decompocsition is: \[\frac{\frac{x }{2}}{x^{2}+\frac{x }{2} -\frac{1}{2} } =\frac{ \frac{ 1}{3}}{(x +1)}+ \frac{\frac{1}{3}}{(2x -1)}\]
+}
