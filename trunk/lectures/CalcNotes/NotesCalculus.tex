@@ -5,22 +5,35 @@
 
 %Notes: modify command \optionalDisplay to speed up computation times.
 \usepackage{etex}
-\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref,ifthen}
+\usepackage{amsthm}
 \usepackage{makeidx}
 
 \usepackage{pst-math}
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
 \usepackage{multicol}
+\usepackage{enumitem}
 \usepackage{multirow}
 \usepackage{rotating}
 \usepackage{cancel}
 \usepackage{caption}
+\usepackage{longtable}
+\usepackage{etoolbox}
+\usepackage{comment}
+\usepackage{cleveref}
 
 % To make everything into one file, we include the following style file directly.
 % This might need to be updated over time.
 \input{../pstricks-commands}
 \input{../example-templates}
+
+\crefformat{footnote}{#2\footnotemark[#1]#3}
+
+\newtoggle{solutions}
+\newtoggle{solutionsExtra}
+\newtoggle{answers}
+\newcommand{\fcProblemRef}{\arabic*}
 
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\Re}{\mathrm{Re}}
@@ -31,7 +44,7 @@
 \newenvironment{tableFixed}{~\\~\medskip\begin{minipage}{\textwidth}\captionsetup{type=table} }{ \medskip \end{minipage} \medskip }
 \newenvironment{figureFixed}{~\\~\medskip\begin{minipage}{\textwidth} \captionsetup{type=figure} }{ \medskip \end{minipage} \medskip }
 
-\newenvironment{proof}[1][]{ \textbf{Proof#1.} }{$\Box$\medskip}
+%\newenvironment{proof}[1][]{ \textbf{Proof#1.} }{$\Box$\medskip}
 \newenvironment{proofOptional}[1][]{ \noindent \textbf{(Optional) Proof#1.}}{$\Box$\medskip}
 \newenvironment{solution}{\medskip\noindent\textbf{Solution.} }{$\Box$}
 \newtheorem{theorem}{Theorem}[section]
@@ -39,8 +52,7 @@
 \newtheorem{criterion}[theorem]{Criterion}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{example}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
 \newtheorem{problem}[theorem]{Problem}
 
 
@@ -50,7 +62,6 @@
 \DeclareMathOperator{\arcsinh}{arcsinh}
 \DeclareMathOperator{\arccosh}{arcosh}
 \DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\taylor}{Taylor}
 
 \renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
