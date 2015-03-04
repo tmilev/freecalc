@@ -1,0 +1,20 @@
+% begin module trig-integrals-ex10
+\begin{frame}
+\begin{example}
+$
+\begin{array}{r@{~}c@{~}@{}l@{}l@{\!\!\!\!}|l}
+\displaystyle\int \cos^5 x \sin^2 x \diff x&=&\displaystyle \int \cos^4 x \sin^2x \diff (\sin x)&&\begin{array}{l}\text{Can we }
+\text{rewrite}\\\cos^4 x \text{ via } \sin x\text{?} \end{array}\\
+&=&\displaystyle\int \left(\cos^2 x\right)^2\sin^2x\diff (\sin x)\\
+&=&\displaystyle\int \left(1-\sin^2 x\right)^2\sin^2x\diff (\sin x) && \text{Set } u=\sin x\\
+&=&\displaystyle\int \left(1-u^2\right)^2u^2\diff u\\
+&=&\displaystyle\int \left( 1-2u^2+u^4  \right)u^2\diff u\\
+&=&\displaystyle\int \left( u^2-2u^4+u^6  \right)\diff u\\
+&=&\displaystyle \frac{u^3}{3}-2\frac{u^5}{5}+\frac{u^6}{6}+C\\
+&=&\displaystyle \frac{\sin^3 x}{3}-2\frac{\sin^5x}{5}+\frac{\sin^7 x}{7}+C\quad .
+
+\end{array}
+$
+\end{example}
+\end{frame}
+% end module trig-integrals-ex2
