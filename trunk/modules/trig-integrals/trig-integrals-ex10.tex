@@ -1,18 +1,19 @@
 % begin module trig-integrals-ex10
 \begin{frame}
+\vskip -0.15cm
 \begin{example}
 $
-\begin{array}{r@{~}c@{~}@{}l@{}l@{\!\!\!\!}|l}
-\displaystyle\int \cos^5 x \sin^2 x \diff x&=&\displaystyle \int \cos^4 x \sin^2x \diff (\sin x)&&\begin{array}{l}\text{Can we }
-\text{rewrite}\\\cos^4 x \text{ via } \sin x\text{?} \end{array}\\
-&=&\displaystyle\int \left(\cos^2 x\right)^2\sin^2x\diff (\sin x)\\
-&=&\displaystyle\int \left(1-\sin^2 x\right)^2\sin^2x\diff (\sin x) && \text{Set } u=\sin x\\
-&=&\displaystyle\int \left(1-u^2\right)^2u^2\diff u\\
-&=&\displaystyle\int \left( 1-2u^2+u^4  \right)u^2\diff u\\
-&=&\displaystyle\int \left( u^2-2u^4+u^6  \right)\diff u\\
-&=&\displaystyle \frac{u^3}{3}-2\frac{u^5}{5}+\frac{u^6}{6}+C\\
-&=&\displaystyle \frac{\sin^3 x}{3}-2\frac{\sin^5x}{5}+\frac{\sin^7 x}{7}+C\quad .
-
+\begin{array}{@{\!\!}r@{~}c@{~}@{}l@{}l@{\!\!\!\!}|l}
+\displaystyle\int \alertNoH{2}{\cos^5 x} \sin^2 x \diff x&\uncover<2->{=}&\uncover<2->{\displaystyle \int \alertNoH{2}{\cos^4 x} \sin^2x \alertNoH{3,4}{ \alertNoH{2}{\cos x} \diff  x}} \\
+&\uncover<3->{=}&\uncover<3->{\displaystyle \int \alertNoH{5,6}{\cos^4 x} \sin^2x \diff (\fcAnswer{4}{\sin x})} \uncover<5->{&& \alertNoH{5,6,7}{ \begin{array}{l}\text{Can we }
+\text{rewrite}\\\cos^4 x \text{ via } \sin x\text{?} \end{array}}}\\
+&\uncover<6->{=}&\uncover<6->{\displaystyle\int \alertNoH{6}{\left(\alertNoH{7}{\cos^2 x} \right)^2}\sin^2x\diff (\sin x)}\\
+&\uncover<7->{=}&\uncover<7->{\displaystyle\int \left(\alertNoH{7}{1-\alertNoH{8}{\sin}^2 \alertNoH{8}{x}}\right)^2\alertNoH{8}{\sin}^2\alertNoH{8}{x}\diff (\alertNoH{8}{\sin x})} \uncover<8->{&& \text{Set } \alertNoH{8,16}{u=\sin x}}\\
+&\uncover<8->{=}&\uncover<8->{\displaystyle\int \alertNoH{9}{\left(1-\alertNoH{8}{u}^2\right)^2}\alertNoH{8}{u}^2\diff \alertNoH{8}{u}}\\
+&\uncover<9->{=}&\uncover<9->{\displaystyle\int\alertNoH{10}{ \left( \alertNoH{9}{1-2u^2+u^4}  \right)u^2} \diff u}\\
+&\uncover<10->{=}&\uncover<10->{\displaystyle\alertNoH{11,12}{ \alertNoH{13,14,15}{\int} \left( \alertNoH{10}{\alertNoH{13}{u^2}-2\alertNoH{14}{u^4}+\alertNoH{15}{u^6}}  \right)\alertNoH{13,14,15}{\diff u}}}\\
+&\uncover<11->{=}& \fcAnswer{12}{\displaystyle \alertNoH{13}{ \frac{\alertNoH{16}{u}^3 }{3}} -2 \alertNoH{14}{ \frac{ \alertNoH{ 16}{u}^5}{5}} + \alertNoH{15}{ \frac{ \alertNoH{ 16}{ u}^7}{ 7}}+C}\\
+\uncover<16->{&=&\displaystyle \frac{ \alertNoH{16}{\sin}^3 \alertNoH{16}{x}}{3}-2\frac{\alertNoH{16}{\sin}^5\alertNoH{16}{x}}{5}+ \frac{\alertNoH{16}{\sin}^7 \alertNoH{16}{x}}{7}+C\quad .}
 \end{array}
 $
 \end{example}
