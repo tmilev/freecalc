@@ -1,0 +1,73 @@
+\solution{\ref{prob1plussqrt3}.
+
+\noindent Solution I. We have that
+\[
+|z|=\sqrt{z\bar z}= \sqrt{\left(1+i\sqrt{3}\right)\left(1-i\sqrt{3}\right)}=\sqrt{1^2+\sqrt{3}^2}=\sqrt{4}=2\quad .
+\]
+Recall \refBad{\ref{eqEulerExp}}{that}{from \eqref{eqEulerExp} that} $e^{\rho +i \varphi}= e^{\rho}(\cos\varphi+i\sin \varphi) $ and therefore
+\[
+\begin{array}{rcl}
+\cos \varphi &=&\displaystyle \frac{|z|\cos \varphi}{|z|}= \frac{\Re z}{|z|} =  \frac{1}{2}\\
+\sin \varphi &=&\displaystyle \frac{|z|\sin \varphi}{|z|}= \frac{\Im z}{|z|} =  \frac{\sqrt{3}}2\\
+\tan \varphi &=&\displaystyle \frac{\sin \varphi}{\cos \varphi}=  \frac{\sqrt{3}}3\quad .
+\end{array}
+\]
+Therefore $\varphi$ is of the form $\varphi =  \arctan \left(\frac{\sqrt{3}}3\right)= \frac{\pi}3+k\pi$. However $\varphi$ cannot be of the form $ \frac{\pi}3+(2k+1)\pi$ because $\cos \left(\frac{\pi}3+(2k+1)\pi\right)=-\frac 12$. On the other hand, $\sin \left(\frac{\pi}{3}+2k\pi\right) = \frac{\sqrt{3}}2$ and $\cos \left(\frac{\pi}{3}+2k\pi\right) = \frac {1}{2})$. Therefore
+\[
+\varphi =\frac{\pi}{3}+2k\pi, \quad \quad \mathrm{for~all~} k\in \mathbb Z
+\]
+(Recall that $\mathbb Z$ denotes the integers).
+
+As studied in class $e^{\rho}=|z|=2$, and therefore $\rho = \ln (e^\rho)= \ln |z|=\ln 2 $. Therefore we get the answer
+\[
+1+i\sqrt{3} = e^{\ln 2 +i \left(\frac{\pi}3+2k\pi  \right) }
+\]
+for all $k\in \mathbb Z$. To finish the task we need to plot the number $z$.
+
+\optionalDisplay{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-3,-4)(4,4)
+\psline[linecolor=gray](-1.5,0)(2.5,0) % x-axis
+\psline[linecolor=gray](0,-1.5)(0,2.5) % y-axis
+\rput[l](2.5,0){$\Re z$}
+\rput[b](0,2.5){$\Im z$}
+\rput[bl](0.03,1.03){$i$}
+\rput[bl](1,-0.1){$1$}
+\rput[c](0,1){$\bullet$}
+\rput[c](1,0){$\bullet$}
+\psplot{-1}{0.5}{1 x x mul sub sqrt}
+
+\psplot[linecolor=red]{0.5}{1}{1 x x mul sub sqrt}
+
+\psplot{-1}{1}{1 x x mul sub sqrt -1 mul}
+
+\psline(0,0)(0.5,0.866)
+\rput[c](0.5,0.866){$\bullet$}
+\rput[l](0.47,1){$\frac{z}{|z|}$}
+\psline[linestyle=dotted](0.5,0.866)(1,1.74)
+\rput[l](1.1,1.81){$z=1+i\sqrt{3} $}
+\rput[c](1,1.74){$\bullet$}
+
+\rput[t](-2,-3){$-2-3i$}
+\psline[linestyle=dotted](0,0)(-2,-3)
+\rput[c](-2,-3){$\bullet$}
+
+\rput[l](0.84,0.65){$\varphi= \frac\pi 3 $}
+\end{pspicture*}
+} %optionalDisplay
+
+\noindent Solution II. We draw the number $z$ as above. We compute that $\sin \varphi = \frac{\Im z}{|z|}= \frac{ \sqrt{3} }{2}$, $\cos \varphi= \frac{\Re z}{|z| } = \frac{1 }{2}$. Therefore we have that
+\[
+1+i\sqrt{3}= e^{\ln|1+i\sqrt{3}| + i\left(\frac{\pi}3 +2 k \pi \right)}=  e^{\ln 2 + i\left(\frac{\pi}3 +2k \pi \right) }\quad .
+\]
+}
+
+\solution{\ref{prob2plus3i}. 
+
+We draw the number as indicated on the figure. We compute that $\sin \varphi =-\frac{3}{\sqrt{13}}$, $\cos \varphi = - \frac{ 2}{\sqrt{13}}$, $\tan \varphi = \frac{3}{2}$. By the convention of our course, $\arctan \varphi\in \left(- \frac{ \pi}{2}, \frac{\pi}{2}\right)$. Therefore $\varphi= \left( \Arctan \left( \frac{3}{2}\right) +\pi\right)+2k\pi $ for all $k\in \mathbb Z$. Finally, we get
+\[
+\begin{array}{rcl}
+-2-3i&=& e^{\ln|-2-3i| + i \left(\left(\Arctan \left( \frac{ 3}{2} \right) +\pi\right) +2k\pi\right)}= e^{\ln \sqrt{13}  + i\left(\left(\Arctan\left(\frac{3}{2}\right) + \pi \right) +2k\pi\right)} \\&=&  e^{\frac{1}2\ln 13  + i \left( \left( \Arctan\left(\frac{3}{2}\right) +\pi\right) +2k \pi \right) } \quad .
+\end{array}
+\]
+}
