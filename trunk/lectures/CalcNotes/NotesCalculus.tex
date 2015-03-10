@@ -33,13 +33,12 @@
 \newtoggle{solutions}
 \newtoggle{solutionsExtra}
 \newtoggle{answers}
-\newcommand{\fcProblemRef}{\arabic*}
+\newcommand{\fcProblemRef}{\thetheorem.\arabic*}
 
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\Re}{\mathrm{Re}}
 \newcommand{\eqdef}{\textbf{:=}}
 \newcommand{\eqAttention}{\stackrel{(!)}{=}}
-\newcommand{\importantFormula}[1]{\begin{equation} \boxed{#1} \end{equation}}
 \newcommand{\importantText}[1]{ \framebox{#1}}
 \newenvironment{tableFixed}{~\\~\medskip\begin{minipage}{\textwidth}\captionsetup{type=table} }{ \medskip \end{minipage} \medskip }
 \newenvironment{figureFixed}{~\\~\medskip\begin{minipage}{\textwidth} \captionsetup{type=figure} }{ \medskip \end{minipage} \medskip }
@@ -54,7 +53,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{problem}[theorem]{Problem}
-
+\newtheorem{prop}[theorem]{Proposition}
 
 \DeclareMathOperator{\arccot}{arccot}
 \DeclareMathOperator{\arcsec}{arcsec}
@@ -285,8 +284,10 @@ $f$ is injective if every horizontal line $y=const$ intersects the graph $y=f(x)
 \end{criterion}
 
 \begin{definition}\index{function!inverse}
-Let $f:X\to Y$ be a function from a set $X$ onto its codomain $Y$, such that $f$ is a bijection (different elements are sent to different ones and every element in the target set has a preimage). Then the function $g: Y\to X$ is called an inverse of $f$ if $g(f(x))=x$ for all $x\in X$ and $f(g(y))=Y$ for all $y\in Y$.
+Let $f:X\to Y$ be a function from a set $X$ onto its codomain $Y$, such that $f$ is a bijection (different elements are sent to different ones and every element in the target set has a preimage). Then the function $g: Y\to X$ is called the inverse of $f$ if $g(f(x))=x$ for all $x\in X$ and $f(g(y))=Y$ for all $y\in Y$.
 \end{definition}
+
+The inverse of $f$ ``undoes'' the action of $f$.
 
 \subsection{Inverse function notation }
 \noindent The inverse of $f$ is denoted as $f^{-1}$. This notation is one of the most frequent causes of student confusion. In attempt to resolve that confusion we make a few important notes on notation. First and foremost,
@@ -301,7 +302,7 @@ It is important to note that the notation $f^{2}(x)$ is an abbreviation for $(f(
 \[
 f^{n}(x)= \left\{ \begin{array}{ll}\text{stands for } \left(f(x)\right)^n & \text{when } n=1,2,3,\dots \\
 \text{stands for inverse of } f \text{ applied to }x&\text{when } n=-1\\
-\text{should not be used }  & \text{when } n\neq -1, 1,2,3,\dots .
+\text{should be avoided }  & \text{when } n\neq -1, 1,2,3,\dots .
 \end{array} \right.
 \]
 \textbf{Advice.} To avoid confusion, use whenever possible/convenient use the completely unambiguous $\frac{1}{f(x)}$ instead of $\left(f(x)\right)^{-1}$.
@@ -395,17 +396,19 @@ Before we define complex division we cover the operation of complex conjugation.
 \[\overline{a+ib}\eqdef a-ib \quad .
 \]
 
-\begin{proposition}
+\begin{prop}
 Complex conjugation respects both addition and multiplication:
-\importantFormula{
+\begin{equation} \boxed{
 \label{eqComplexConjugationIsAddHMM}
 \overline {z +w}= \bar z +\bar w\quad .
 }
-\importantFormula{
+\end{equation}
+\begin{equation}\boxed{
 \label{eqComplexConjugationIsFieldHMM}  \overline {z w}= \bar z \bar w\quad .
 }
+\end{equation}
 
-\end{proposition}
+\end{prop}
 \begin{proof}
 We leave the proof of \eqref{eqComplexConjugationIsAddHMM} to the reader. Let $z= a+ib$ and $w=c+id$. Then
 \begin{equation*}
@@ -435,31 +438,14 @@ Therefore division of arbitrary complex numbers is defined as
 \frac{a+ib}{c+id}=(a+ib)\frac{1}{c+id}= \frac{(a+ib)(c-id)}{(c+id)(c-id)}= \frac{ac+bd}{c^2+d^2}+i\frac{(bc-ad)}{c^2+d^2} \quad .
 \]
 
-\subsection{Problems and exercises}
-\begin{problem}\label{probComplexNumbersBasicOperations}
-Carry out the operations. For items 4-6 you can first take a look at the Newton Binomial formula \eqref{eqNewtonBinomialFormula}.
-\begin{multicols}{3}
-\begin{enumerate}
-\item $(5+3i)^2$.
-\item $(5+3i)/(2-3i)$.
-\item $(5+3i)^{-2}$.
-\item $(1+i)^3$.
-\item $(1+i)^4$.
-\item \label{eq(1+i)^5} $(1+i)^5$.
-\item \label{eq(1+i)^-5} $(1+i)^{-5}$.
-\end{enumerate}
-\end{multicols}
+\subsection{Exercises and examples}
+\begin{problem}
+\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1}
 \end{problem}
-\begin{solution}
+\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1-solutions}
 
-\ref{eq(1+i)^5}.
-By the Newton Binomial formula  \eqref{eqNewtonBinomialFormula}, we have that $(1+i)^5= 1 + 5i + 10 i^2+ 10i^3+5i^4+i^5= 1-10+5 +i(5-10+1)=-4-4i$.
 
-\ref{eq(1+i)^-5}. Using the preceding example, we have that \[
-(1+i)^{-5}=\frac{1}{(1+i)^5}=\frac{1}{ -4-4i}=\frac{-4+4i}{(-4-4i)(-4+4i)}=\frac{-4+4i}{32}=-\frac{1}{8}+\frac{1}{8}i\quad .
-\]
 
-\end{solution}
 \section[\optionalMaterial A dictionary of numbers]{\optionalMaterial A dictionary of numbers: integers, rational numbers, algebraic numbers, transcendental numbers, real numbers, complex numbers}
 %\end{comment}
 %\begin{comment}
@@ -483,20 +469,21 @@ The number $n!$ is read as ``$n$ factorial''. The first few factorial values are
 1!&=&1\\
 2!&=&2\\
 3!&=&6\\
-4!&=&4*3!=24\\
-5!&=&5*4!=120\\
-6!&=&6*5!=720\\
-7!&=&7*6!=5040  \\
+4!&=&4\cdot 3!=24\\
+5!&=&5\cdot 4!=120\\
+6!&=&6\cdot 5!=720\\
+7!&=&7\cdot 6!=5040  \\
 &\vdots&\quad \quad .
 \end{array}
 \]
 
 \index{binomial!formula} Newton binomial formula.
 \index{binomial!coefficient definition} Let $k\in \mathbb Z_{>0}$. The binomial coefficient $\binom{x}{k}$ is read as ``$x$ choose $k$''.
-\importantFormula{\label{eqBinomialCoeffDefinition}
+\begin{equation}\boxed{
+\label{eqBinomialCoeffDefinition}
 \binom{x}{k}\eqdef \frac{ \overbrace{ x(x-1)(x-2)(x-3)\dots (x-k+1)}^{\mathrm{k~multiplicands~total}} } {k!} \quad .
 }
-
+\end{equation}
 \[\binom{x}{0}\eqdef 1 \quad .
 \]
 
@@ -510,13 +497,14 @@ Suppose $k,n\in \mathbb Z_{\geq 0}$ (non-negative integers). Then
 
 
 
-\importantFormula{\label{eqNewtonBinomialFormula}
+\begin{equation}\boxed{\label{eqNewtonBinomialFormula}
 \begin{array}{rcl}
 (a+b)^{n} &=&\displaystyle \sum\limits_{i=0}^n \binom {n}{k} a^{n-k}b^{k} \\
 &=&\displaystyle \binom{n}{0} a^n + \binom{n}{1}\phantom{n}a^{n-1}b +\dots+ \binom{n}{n-1} \phantom{n} ab^{n-1} + \binom{n}{n} b^n\\
 &=&\displaystyle \phantom{\binom{n}{0}}a^n + \phantom{\binom{n}1} n a^{n-1}b+\dots + \phantom{\binom{n}{n-1}} na b^{n-1}+\phantom{\binom{n}{n}} b^n \quad .
 \end{array}
 }
+\end{equation}
 
 \chapter{Limits, continuity, derivatives}
 \section{The tangent problem}
@@ -761,9 +749,9 @@ if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x$ with 
 We note that the expression ``the limit of $f(x)$ as $x$ tends to $a$ exists'' is to be regarded as a technical mathematical definition. This definition requires the existence of a quantity $\delta$ as a function of another quantity $\varepsilon $. We stress the fact that the word ``exists'' in the phrase ``the limits exists'' is used strictly as a technical mathematical term. It is not directly related to the use of the word ``exists'' in philosophical or other texts, and should not be interpreted in any way other than as a reference to Definition \ref{defLimit}.
 \subsection{A note on the limit notation.}
 We note that a proper English language negation of Definition \ref{defLimit} can be given as follows.
-\begin{proposition}\label{propLimitDoesntExist}
+\begin{prop}\label{propLimitDoesntExist}
 $\lim\limits_{x\to a}f(x) $ does not exist as $x$ tends to $a$ if, for any number $L$, there exists a number $\varepsilon>0$ such that for all $\delta>0$ (no matter how small), there always exists an $x$ with $0<|x-a|<\delta$ so that $|f(x)-L|>\varepsilon$.
-\end{proposition}
+\end{prop}
 To be completely formal, we have to use the above sentence whenever the limit of $f(x)$ as $x$ tends to $a$ does not exist.
 
 
@@ -918,7 +906,7 @@ We leave it to the reader to reason that for an arbitrary constant $c $, we have
 In the next theorem, we show how to compose the above basic ``building block'' limits into more complicated limits.
 \begin{theorem} Let $f$ and $g$ be functions defined in punctured neighborhoods of $a$ and suppose both limits $\lim\limits_{x\to a} f(x) $ and $\lim\limits_{x\to a} g(x) $ exist. Then the limits on the right hand side exist and the equalities hold.
 \[
-\begin{array}{lcll}
+\begin{array}{rcll}
 \displaystyle \lim\limits_{x\to a} c f(x) \pm \lim\limits_{x\to a}d g(x)&=& \displaystyle \lim\limits_{x\to a}c f(x)\pm d g(x) &  c,d \text{ are arbitrary constants}\\~\\
 \displaystyle \lim\limits_{x\to a} f(x)\lim\limits_{x\to a}  g(x) &=&\displaystyle  \lim \limits_{x\to a} f(x)g(x)\\~\\
 \displaystyle \frac{\lim\limits_{x\to  } f(x)} {\lim\limits_{x\to a}g(x)} &=&\displaystyle  \lim \limits_{x\to a} \frac{f(x)}{g(x)} &\text{ provided }\displaystyle \lim\limits_{x\to a} g(x)\neq 0 \quad .
@@ -972,18 +960,18 @@ exists. If the limit exists, we say that it equals the derivative of $f$ at the 
 \label{secDefTangent}
 
 \subsection{Computing derivatives}
-Recall that for a function of a variable $z$, $\frac{d}{\diff x}(f(x))$ denotes the derivative of $f(x)$. The notations $\frac{d}{\diff x}(f(x))$ and $f'(x)$ are equivalent.
+Recall that for a function of a variable $z$, $\frac{\diff }{\diff x}(f(x))$ denotes the derivative of $f(x)$. The notations $\frac{\diff }{\diff x}(f(x))$ and $f'(x)$ are equivalent.
 
 Let $n$ be an integer.
 \[
-\frac{d}{\diff x} (x^n)= n x^{n-1}\quad .
+\frac{\diff }{\diff x} (x^n)= n x^{n-1}\quad .
 \]
 \[
-\frac{d}{\diff x} (f(x)g(x)) = f'(x)g(x)+f(x)g'(x) \quad .
+\frac{\diff }{\diff x} (f(x)g(x)) = f'(x)g(x)+f(x)g'(x) \quad .
 \]
 Let $f(y)$ and $g(x)$ be differentiable functions.  Then
 \[
-\frac{d}{\diff x} \left(f( g(x))\right)= g'(x) f'(g(x)) \quad .
+\frac{\diff }{\diff x} \left(f( g(x))\right)= g'(x) f'(g(x)) \quad .
 \]
 
 
@@ -991,36 +979,40 @@ Let $f(y)$ and $g(x)$ be differentiable functions.  Then
 
 \section{Differentials}
 Let $f$ be a differentiable function of a variable $x$. Introduce formal expressions $\diff(f(x))$ (abbreviated as $\diff f$) and $\diff x$ so that they obey the following rule.
-\importantFormula{
+\begin{equation}\boxed{
 f'(x)\diff x\eqdef \diff(f(x))\quad \quad,
 }
+\end{equation}
 in abbreviated notation
-\importantFormula{
+\begin{equation}\boxed{
 f'\diff x = \diff f\quad \quad .
 }
+\end{equation}
 
 $\diff (f(x))$ is called the \emph{differential} of $f$, and expressions of the form $g(x)\diff x$ are called \emph{differential forms}.
 
 Differentials obey the laws
 \[
 \begin{array}{rcll}
-d(f+C)&=&df \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
-d(Cf)&=&Cdf \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
-d(f+g)&=&df+dg \quad\quad\quad\quad \quad &(\mathrm{linearity})\\
-d(fg)&=&gdf+fdg \quad\quad\quad\quad \quad &(\mathrm{Leibniz~rule})\\
+\diff (f+C)&=&\diff f \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
+\diff (Cf)&=&C\diff f \quad \quad &\mathrm{if~} C \mathrm{~is~constant}\\
+\diff (f+g)&=&\diff f+\diff g \quad\quad\quad\quad \quad &(\mathrm{linearity})\\
+\diff (fg)&=&g\diff f+f\diff g \quad\quad\quad\quad \quad &(\mathrm{Leibniz~rule})\\
 \end{array}
 \]
 %Try to prove these laws from the definition!
 We recall the notation $\displaystyle \int f(x)\diff x$ stands for the class of anti-derivatives of $f(x)$, i.e., for the functions $F(x)$ for which $F'(x) = f(x)$.
 
 The fact that $f(x)+C=\displaystyle \int f'(x)\diff x$ is translated into differential notation as
-\importantFormula{
+\begin{equation}\boxed{
 \displaystyle \diff \left(\int f(x)\diff x\right)= f(x)\diff x\quad ,
 }
+\end{equation}
 and
-\importantFormula{
+\begin{equation}\boxed{
 \int \diff f(x)= f(x)+C\quad .
 }
+\end{equation}
 
 
 
@@ -1028,21 +1020,31 @@ and
 
 \section{Exponent function, $\sin$ and $\cos$}
 \subsection{Exponent function: integer vs non-integer exponent}
-We recall that when $n$ is an integer,  $a^{n}$ denotes the expression $\underbrace{a*\dots *a}_{n\text{ times}}$.
+We recall that when $n$ is an integer,  $a^{n}$ denotes the expression $\underbrace{a\cdot\dots \cdot a}_{n\text{ times}}$.
 
 
 \subsection{Definition of $e^x$}
 Consider the infinite sum
-\importantFormula{\label{eqExponentFunctionDefinition}
+\begin{equation}\boxed{\label{eqExponentFunctionDefinition}
 \begin{array}{rcl}
 \displaystyle e^{z}&\eqdef &\displaystyle \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1+z+\frac{z^{2}}{2}+\frac{z^3}{6}+\frac{z^4}{24}+\frac{z^5}{120}+\dots+\frac{z^n}{n!}+\dots\\
 \end{array} \quad .
 }
-First and foremost we need to justify the notation $e^z$ which is most frequently used to denote exponents: we postpone the precise definition of infinite sums to Section \ref{secSequencesPowerSeries}.
+\end{equation}
+We postpone the precise definition of infinite sums to Section \ref{secSequencesPowerSeries}, we rely on his or her intuition for the time being.
 \begin{definition}\label{defNaturalExponent}
 \index{exponent function} The function $e^z$ defined by equation \eqref{eqExponentFunctionDefinition} is called the natural exponent function.
 \end{definition}
-It is one of the basic rules of arithmetics that $a^n a^{m}= a^{n+m} $. However, we defined $e^x$ via the infinite sum \eqref{eqExponentFunctionDefinition}, rather than using the rules of arithmetics. It is then not clear why, if at all, we should have that $e^{z+w}=e^{z}e^{w}$. In other words, it is not clear why the infinite sum
+The notation $e^z$ is used to denote exponents however it appears we have used it to denote an infinite sum instead. For example if $z$ is a positive integer, the notation $e^z$ would suggest that 
+\[
+\begin{array}{rcll|l}
+e^{z}&=& \underbrace{e\cdots e}_{z \text{ times} } && z\text{ is integer}>0\\
+e^{z+w}&=&\underbrace{e \cdots e}_{z+w \text{ times} }&& z,w\text{ are integers}>0\\
+&=&\underbrace{e\cdots  e}_{z \text{ times} }\underbrace{e\cdots  e}_{w \text{ times} }\\
+&=& e^z e^w\quad .
+\end{array}
+\]
+However, we just defined $e^x$ via the infinite sum \eqref{eqExponentFunctionDefinition}, rather than the rules of arithmetics. It is then not clear why, if at all, we should have that $e^{z+w}=e^{z}e^{w}$. In other words, it is not clear why the infinite sum
 \[
 e^{z+w} =\left(\sum\limits_{n=0}^{\infty} \frac{(z+w)^n}{n!}\right)
 \]
@@ -1052,11 +1054,11 @@ e^{z} e^w=\left(\sum\limits_{n=0}^{\infty} \frac{z^n}{n!}\right)\left(\sum\limit
 \]
 The equality $e^{z+w}= e^{z}e^{w}$ does indeed hold, as we show in the following Theorem \ref{thExponentArgumentsAddWhenMultiplying}. In other words, exponents add when we multiply exponent functions and when $n$ is an integer we have that
 \begin{equation}\label{eqExponentToIntegerPowerRespectsArithmetics}
-e^{n z}= e^{\underbrace{z+\dots +z}_{n\text{ times}} }=\underbrace{ e^{z}*\dots * e^{z}}_{n \text{ times}}  \quad .
+e^{n z}= e^{\underbrace{z+\dots +z}_{n\text{ times}} }=\underbrace{ e^{z}\cdots  e^{z}}_{n \text{ times}}  \quad .
 \end{equation}
 In this way our definition of  $e^{z}$ using an infinite sum \eqref{eqExponentFunctionDefinition} is consistent with the rules of arithmetics studied in high school.
 
-While the Definition of $e^z$ via the infinite sum \eqref{eqExponentFunctionDefinition} does not immediately reveal the arithmetic properties of the exponent function, it is extremely useful for almost all other purposes. We start with a definition of the number $e$ which simultaneously shows how to get very accurate approximations for $e$.
+While the Definition of $e^z$ via the infinite sum \eqref{eqExponentFunctionDefinition} does not immediately reveal the arithmetic properties of the exponent function, it is extremely useful for almost all other purposes. We start with a definition of the number $e$ which simultaneously shows how to get very accurate approximations for it.
 \begin{definition}\label{defE} \index{e}\index{Euler!number}\index{Napier!constant}
 The number $e$ given by
 \[
@@ -1072,7 +1074,7 @@ Then \eqref{eqExponentFunctionDefinition} becomes
 \[
 e^z\eqdef \displaystyle\lim\limits_{N\to \infty} f(z, N)\quad .
 \]
-Thus it is clear how to find numerical approximations for $e^z= 1+z+\frac{z^{2}}{2} +\frac{z^3}{6} +\frac{z^4}{24} +\frac{z^5}{120} +\dots+\frac{z^n}{n!}+\dots$: pick a large number $N$, evaluate the sum of the first $N$ summands, discard the remaining ones, and declare the so obtained number, $f(z,N)$, to be an approximation of \eqref{eqExponentFunctionDefinition}. Up to the author's knowledge, this is in fact how computers evaluate the exponent $e^z$. The question of how to pick a sufficiently large $N$ so that the error is sufficiently small will be handled in Section \ref{secSeriesConvergence}.
+Thus it is clear how to find numerical approximations for $e^z= 1+z+\frac{z^{2}}{2} +\frac{z^3}{6} +\frac{z^4}{24} +\frac{z^5}{120} +\dots+\frac{z^n}{n!}+\dots$: pick a large number $N$, evaluate the sum of the first $N$ summands, discard the remaining ones, and declare the so obtained number, $f(z,N)$, to be an approximation of \eqref{eqExponentFunctionDefinition}. Up to the author's knowledge, this is in fact how computers evaluate the exponent $e^z$. The question of how to pick a sufficiently large $N$ so that the error is sufficiently small will be addressed in Section \ref{secSeriesConvergence}.
 
 The careful reader has already noticed that the equality \eqref{eqExponentFunctionDefinition}, evaluated via \eqref{eqExponentSeriesLimit}, involves a limit which we have not shown to exist. We immediately fix this.
 \begin{theorem} The infinite sum \eqref{eqExponentFunctionDefinition} used to define $e^z$ is well-defined, i.e. the limit $\displaystyle\lim_{N\to \infty} f(z, N)$ given in \eqref{eqExponentSeriesLimit} exists for all $z$.
@@ -1081,9 +1083,10 @@ We postpone the proof of this theorem to Section \ref{secSeriesConvergence}.
 
 We now give the promised proof of the arithmetic properties of the exponent function.
 \begin{theorem}\label{thExponentArgumentsAddWhenMultiplying}
-Recall that $e^x$ is defined via \eqref{eqExponentFunctionDefinition}. Then we have that \importantFormula{
+Recall that $e^x$ is defined via \eqref{eqExponentFunctionDefinition}. Then we have that \begin{equation}\boxed{
 e^{z} e^{w}=e^{z+w}\quad ,
 }
+\end{equation}
 \end{theorem}
 \begin{proofOptional}
 \[
@@ -1134,12 +1137,14 @@ For $z\in \mathbb R$, we will be in position to prove Theorem \ref{th(1+x/n)^n=e
 
 \begin{definition}
 The functions $\sin z$ and $\cos z$ are defined as
-\importantFormula{
+\begin{equation}\boxed{
 \sin z\eqdef \frac{e^{iz}-e^{-iz}}{2i} \quad ,
 }
-\importantFormula{
+\end{equation}
+\begin{equation}\boxed{
 \cos z\eqdef \frac{e^{iz}+e^{-iz}}{2}\quad ,
 }
+\end{equation}
 where we recall that $i$ stands for the imaginary unit ($i^2=-1$).
 \end{definition}
 \begin{theorem}\label{thSinCosMaclaurinSeries} We have the following equalities
@@ -1185,9 +1190,10 @@ We look at the power series for $\sin x$ and $\cos x$ given by \eqref{eqSinCosMa
 \end{proof}
 
 \begin{theorem}
-\importantFormula{\label{eqsinSquaredPlusCosSquared}
+\begin{equation}\boxed{\label{eqsinSquaredPlusCosSquared}
 \sin^2 z +\cos^2 z= 1\quad .
 }
+\end{equation}
 
 \end{theorem}
 \begin{proofOptional}
@@ -1209,9 +1215,10 @@ By  \eqref{eqsinSquaredPlusCosSquared} $\sin^2 x+\cos ^2 x=1$. Since $x$ is a re
 \subsection{Euler's formula}
 \begin{theorem}[Euler's formula]
 We have the following equality.
-\importantFormula{\label{eqEulerExp}
+\begin{equation}\boxed{\label{eqEulerExp}
 e^{iz}= \cos z+ i\sin z \quad .
 }
+\end{equation}
 \end{theorem}
 \begin{proofOptional}
 \[
@@ -1316,16 +1323,18 @@ Use the trick used to derive \eqref{eqSin2xCos2x} to derive a formula for $\sin(
 The proof of the following theorem is a bit more difficult and we omit it from the current version of this textbook. A proof might be included in a future version of this textbook.
 \begin{theorem}\label{thPiExists}
 There exists a positive real number $x$ such that \index{$\pi$}
-\importantFormula{
+\begin{equation}\boxed{
 e^{ix}=i\quad .
 }
+\end{equation}
 \end{theorem}
 
 \begin{definition}
 Define $\pi$ to be the smallest positive real number, the existence of which is guaranteed by \ref{thPiExists} for which
-\importantFormula{
+\begin{equation}\boxed{
 e^{i\frac{\pi}{2} }= i\quad .
 }
+\end{equation}
 \end{definition}
 
 
@@ -1400,9 +1409,9 @@ Let $y\in \mathbb R$. Then $|e^{iy}|=1$.
 For arbitrary $z$ we have that $|z|$ is a non-negative real number and so it follows that $|e^{iy}|=1$.
 \end{proof}
 
-\begin{proposition}
+\begin{prop}
 Let $x\in \mathbb R$. Then $e^x$ is a positive real number.
-\end{proposition}
+\end{prop}
 
 Let $\rho, \varphi\in \mathbb R$ (real numbers). Then the expression
 \[
@@ -1417,21 +1426,24 @@ Then $\varphi$ is called argument of $a+ib$. We write \[\varphi=\arg z\quad .\] 
 \]
 Look at figure \ref{figUnitCircleSineCosine}. Identify the parts of figure \ref{figUnitCircleSineCosine} corresponding to every term you see in the above formula.
 Let $e^{\rho+i\phi}$ and $e^{\tau+i\psi}$ be two complex numbers. Then $e^{\rho+i\phi}e^{\tau+i\psi} = e^{\rho+\tau+i(\phi+\psi)}$. Therefore
-\importantFormula{
-\mathrm{Multiplying~complex~numbers~adds~arguments~and~multiplies~absolute~values.}
+\begin{equation}\boxed{
+\text{Multiplying complex numbers adds arguments and multiplies absolute values.}
 }
+\end{equation}
 
 \subsection{$\log z$, $\ln x$, $\tan z$, $\arctan z$, $\arcsin x$, $\arccos x$}
 Consider the exponent function $e: \mathbb R \to \mathbb R$. Then the range of the exponent function is the positive real numbers. Define $\ln y$ to be the inverse of $e^x$ in this range. In other words, $\ln(y)$ is defined when $y$ is a positive real number. In mathematical notation, $\ln: (0,+\infty)\to \mathbb R$. Then we have that
-\importantFormula{
+\begin{equation}\boxed{
 \ln (e^x)\eqdef x\quad\quad \quad \quad  e^{\ln y}\eqdef y\quad .
 }
+\end{equation}
 
 Let $z$ be a complex number for which $\cos z\neq 0$.
 
-\importantFormula{
+\begin{equation}\boxed{
 \tan z\eqdef \frac{\sin z}{\cos z}\quad .
 }
+\end{equation}
 
 Let $x$ be a real number. Consider the tangent function acting in the interval $(-\frac{\pi}{2}, \frac{\pi}{2})$, in mathematical notation, $\tan :(-\frac{\pi}{2}, \frac{\pi}{2})\to \mathbb R$. Then the function $\tan(x)$ has an inverse which is called $\arctan(x)$. In other words,
 \[
@@ -1439,9 +1451,10 @@ Let $x$ be a real number. Consider the tangent function acting in the interval $
 \]
 
 Let $D$ be the set of complex numbers which are neither negative real numbers nor zero. Consider the exponent function $e: D\to \mathbb C$ which maps $z\in D$ to $e^z$. Then define $\log_{(-\pi,\pi)} z$, or $\log z$ for short, to be the inverse of this function, that is,
-\importantFormula{
+\begin{equation}\boxed{
 e^{\log z} = z\quad \quad \quad \log (e^w)=w\quad .
 }
+\end{equation}
 The imaginary part of $\log_{(-\pi,\pi)}(z)$ is a number in the interval $(-\pi,\pi)$, i.e.,
 \[
 -\pi<\Im(\log z)<\pi\quad .
@@ -1474,9 +1487,10 @@ where we have used that for an arbitrary real number $t$ we have that $|t|=\sqrt
 
 \begin{theorem}\label{thLogarithmComplex}
 \index{logarithm!complex} Let $z$ be a complex number such that $\Re z>0$. Then
-\importantFormula{
+\begin{equation}\boxed{
 \log z = \ln |z| + i\arctan \left(\frac{\Im z}{\Re z}\right)\quad .
 }
+\end{equation}
 \end{theorem}
 \begin{proofOptional}
 ~We aim to prove that $e^{\log z}=z$. Set
@@ -1751,9 +1765,10 @@ Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
 \section{Derivatives of trigonometric, exponent functions and their inverses}
 
 \begin{theorem}The function $e^z$ is differentiable and
-\importantFormula{\label{eqDerivativeexponent}
+\begin{equation}\boxed{\label{eqDerivativeexponent}
 \frac{d}{d z}\left( e^z\right)= e^z
 }
+\end{equation}
 \end{theorem}
 The fact that $e^z$ is differentiable follows from the more general Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal} the proof of which we postpone to Section \ref{secSequencesPowerSeries}. More precisely, Theorem \ref{thDifferentiatingIntegratingPowerSeriesNonFormal} states that, under certain conditions, differentiating infinite sums is the same as first differentiating each summand and then adding. Assuming that theorem, the algebra behind proving that $\frac{\diff}{\diff z}\left( e^z\right)=e^z$ is straightforward, as we show below.
 
@@ -1772,9 +1787,10 @@ The fact that $e^z$ is differentiable follows from the more general Theorem \ref
 
 \begin{theorem}
 The derivative of $\ln x$ is given by
-\importantFormula{
+\begin{equation}\boxed{
 (\ln x)' = \frac{1}x
 }
+\end{equation}
 \end{theorem}
 \begin{proof}
 \[
@@ -1803,7 +1819,7 @@ Therefore
 \end{proof}
 \begin{theorem}
 The derivatives of $\sin x, \cos x, \tan x, \cot x$ are given by
-\importantFormula{
+\begin{equation}\boxed{
 \begin{array}{rcl}
 (\sin x)'&=&\cos x\\
 (\cos x)'&=&-\sin x\\
@@ -1811,6 +1827,7 @@ The derivatives of $\sin x, \cos x, \tan x, \cot x$ are given by
 (\cot x)'&=&-\frac{1}{\sin ^2 x}\quad .
 \end{array}
 }
+\end{equation}
 \end{theorem}
 \begin{proof}
 \[
@@ -1892,18 +1909,21 @@ Derivative of $ \arcsinh z$, $ \arccosh z$, $ \arctanh z$.
 \chapter{Techniques of integration}
 \section{Integration by parts}
 Integration by parts can be formulated using differential forms as
-\importantFormula{
+\begin{equation}\boxed{
 \int f dg+ \int g df = fg\quad,
 }
+\end{equation}
 or alternatively as
-\importantFormula{
+\begin{equation}\boxed{
 \int f(x) g'(x)\diff x = fg- \int g(x) f'(x)\diff x \quad .
 }
+\end{equation}
 Combining the above with the fundamental theorem of Calculus yields the definite integral version
-\importantFormula{
-\int\limits_{x=a}^{b} f(x) g'(x)\diff x = \left.fg\phantom\int\right|_{x=a}^b - \int\limits_{x=a}^b g(x) f'(x)\diff x \quad.
+\begin{equation}\boxed{
+\int\limits_{x=a}^{b} f(x) g'(x)\diff x = \left.fg\phantom\int\right|_{x=a}^{x=b} - \int\limits_{x=a}^b g(x) f'(x)\diff x \quad.
 }
-Idea of integration by parts: suppose we already know the integral of $g(x)$, say $d(G(x))=g(x)\diff x$. Suppose for some reason we consider the integral of $f'(x)\diff x$ to be easier than the integral of $f(x)\diff x$. If we want to integrate $f(x)g(x)\diff x= f(x)d(G(x))$, then we may use integration by parts to get
+\end{equation}
+We now discuss when and how to use integration by parts. Suppose we already know the integral of $g(x)$, say $d(G(x))=g(x)\diff x$. Suppose for some reason we consider the integral of $f'(x)\diff x$ to be easier than the integral of $f(x)\diff x$. If we want to integrate $f(x)g(x)\diff x= f(x)d(G(x))$, then we may use integration by parts to get
 \[
 \int f(x)\underbrace{g(x)\diff x}_{=d(G(x))}= f(x)g(x)- \int G(x) \underbrace{f'(x)\diff x}_{=d(f(x))}\quad .
 \]
@@ -1917,7 +1937,7 @@ Compute $\displaystyle \int x \sin x \diff x$.
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int x \underbrace{\sin x \diff x}_{=-d\cos x} = -\int x d\cos x = -x\cos x + \int \cos x \diff x = -x \cos x +\sin x +C\quad .
+\displaystyle\int x \underbrace{\sin x \diff x}_{=-\diff(\cos x)} = -\int x \diff(\cos x) = -x\cos x + \int \cos x \diff x = -x \cos x +\sin x +C\quad .
 \end{array}
 \]
 \end{solution}
@@ -3206,9 +3226,10 @@ Every ``well behaved'' figure can be subdivided into curved trapezoids. In our c
 
 Let $F$ be the solid of revolution obtained by rotating a curved trapezoid $x\in[a,b], z\in [f_1(x), f_2(x)]$, $f_1(x)<f_2(x)$ around the $z$ axis, as shown on the preceding figure. Then the volume of $F$ is computed by
 
-\importantFormula{\label{eqVolumeRotationalSolid}
+\begin{equation}\boxed{\label{eqVolumeRotationalSolid}
 volume(F) = \int\limits_{a}^b 2\pi x (\underbrace{f_1(x)-f_2(x)}_{=: h(x)}) \diff x=  \int\limits_{a}^b 2\pi x h(x) \diff x\quad .
 }
+\end{equation}
 
 A motivation for the above computation may be given as follows. The volume of the ``cylindrical shell'' figure enclosed between an inner cylinder of radius $r$ and an outer cylinder of radius $r+\Delta$ and height $h$ equals the difference of the volumes of the two cylinders
 \[
@@ -3486,10 +3507,11 @@ y(t)&=&f_2(t)\\
 \end{array}\right., t\in [a,b]\quad .
 \]
 Suppose in addition $f_1(t), f_2(t)$ are differentiable. Then the \emph{length} of $\gamma$ is defined as
-\importantFormula{
+\begin{equation}\boxed{
 \label{eqDefLengthCurve}
 \int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}\diff t \quad .
 }
+\end{equation}
 Similarly, the length of a curve sitting in 3-dimensional space is given by
 \[
 \int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2+f_3'(t)^2}\diff t \quad .
@@ -3511,13 +3533,14 @@ y(s)&=&g_2(s)\\
 \end{array}\right. , s\in [p,q]\quad ,
 \end{equation}
 both differentiable, such that both are injective (i.e., every point $(x(t), y(t))$ has exactly one preimage, see Section \ref{secInverseFunctionBasics}).
-\importantFormula{
+\begin{equation}\boxed{
 \begin{array}{c}
 \text{If the parametric curve is differentiable and injective (one to one),}\\
 \text{the length of the image of a curve } C
 \text{does not depend on the parametric curve.}
 \end{array}
 }
+\end{equation}
 We have that $t$ can be expressed as function of $s$, namely, $t(s)= \gamma_1(\gamma_2^{-1}(s))$. Furthermore, as a function of $s$ from $[a,b]$ to $[p,q]$, $t$ is bijective (this follows from the fact that both $\gamma_1$ and $\gamma_2$ are injective).
 
 We will prove the preceding item if $t$ as a function of $s$ is  continuously differentiable.
@@ -3666,10 +3689,10 @@ r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
 } %optionalDisplay
 
 \index{area!enclosed by curve in polar coord.} Let $r=f(\theta), \theta\in [a,b]$ be a curve given in polar coordinates.  Let $A$ denote the figure given by the union of the segments connecting each point the curve to the origin. Suppose no two points on the curve lie on the same ray from the origin. Then the area of $A$ is given by
-\importantFormula{\label{eqAreaUnderPolarCurve}
+\begin{equation}\boxed{\label{eqAreaUnderPolarCurve}
 area(A)\eqdef \int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta\quad .
 }
-
+\end{equation}
 A motivation for the above definition may be given as follows.
 \psset{xunit=1cm,yunit=1cm}
 
@@ -3725,10 +3748,10 @@ We substitute $g_1(\theta)=f(\theta)\cos\theta$, $g_2(\theta)=f(\theta)\sin\thet
 \end{array}
 \]
 Regrouping the above expression using $\sin^2\theta+\cos^2\theta=1$ we finally get that the length of a curve given in polar coordinates as $r=f(\theta)$ is computed as
-\importantFormula{\label{eqCurveLengthPolarCoords}
+\begin{equation}\boxed{\label{eqCurveLengthPolarCoords}
 \int\limits_{a}^b \sqrt{f^2(\theta)+ (f'(\theta))^2}d\theta
 }
-
+\end{equation}
 Find the area of the figure that lies outside of figure enclosed by $r_1=3\cos\theta_1, \theta_1\in [0,\pi)$ and inside the figure enclosed by $r_2=1+\cos\theta_2, \theta\in [-\pi,\pi)$. %Find the perimeter of the curve.
 
 \begin{solution}
@@ -4153,7 +4176,7 @@ if for every positive number $M$ there is an index $N$ depending on $M$ such tha
 Note that even though we write $\lim \limits_{n\to \infty} a_n=+\infty$, the sequence $\{a_n\}$ is divergent (this terminology is rather unfortunate, but can be justified as preferable when studying a field of mathematics called ``Topology'').
 
 If $\{a_n\}$ and $\{b_n\}$ are convergent sequences, and $c$ is constant, then
-\importantFormula{
+\begin{equation}\boxed{
 \begin{array}{rcl}
 \lim \limits_{n\to \infty} (a_n+b_n)&=&\lim \limits_{n\to \infty} a_n+ \lim \limits_{n\to \infty} b_n\\
 \lim \limits_{n\to \infty} (a_n-b_n)&=&\lim \limits_{n\to \infty} a_n- \lim \limits_{n\to \infty} b_n\\
@@ -4162,17 +4185,17 @@ If $\{a_n\}$ and $\{b_n\}$ are convergent sequences, and $c$ is constant, then
 \lim \frac{a_n}{b_n}&=&\frac{\lim \limits_{n\to \infty} a_n}{\lim \limits_{n\to \infty} b_n} \quad\quad\quad \mathrm{if~}\lim \limits_{n\to \infty} b_n\neq 0 \mathrm{~and~} b_n\neq 0\mathrm{~for~all~}n\quad .
 \end{array}
 }
-
+\end{equation}
 \importantText{
 If $\lim\limits_{n\to \infty} a_n=L$ and $f$ is a function that is continuous at $L$, then
 $\lim \limits_{n\to \infty} f(a_n)=f(L)$.
 }
 
 The sequence $\{r^n\}$ is convergent if $1< r\leq 1$ for $r$- real, and divergent for other values of $r$.
-\importantFormula{\label{eqLimitRtoTheNth}
+\begin{equation}\boxed{\label{eqLimitRtoTheNth}
 \lim\limits_{n\to \infty}r^n= \left\{\begin{array}{ll} 0 & \mathrm{if~} -1<r<1\\ 1& \mathrm{if~} r=1\end{array} \right.\quad .
 }
-
+\end{equation}
 A sequence $\{a_n\}$ is increasing if $a_n<a_{n+1}$ for all $n$. A sequence is decreasing if $a_n>a_{n+1}$ for all $n$. A sequence is monotonic if it is either increasing or decreasing. \index{sequence!monotonic} \index{sequence!increasing} \index{sequence!decreasing}
 
 A sequence $\{a_n\}$ is bounded above by $M$ if $a_n<M$ for all $n$. A sequence is bounded below by $M$ if $a_n>M$ for all $n$. If a sequence is bounded above and below it is called a bounded sequence. \index{sequence!bounded, below and above}
@@ -4675,9 +4698,10 @@ Compute the limits. You may use L'Hospital's rule. For the limits for which $x\t
 Let $\{a_k\}_{k=1}^\infty$ be an infinite sequence. Define $S_n= a_1+a_2+a_3+\dots+a_n$. We say that $S_n$ is the $n^{th}$ partial sum of the sequence $\{a_k\}_{k=0}^\infty$.\index{sum!partial of a sequence}
 
 Let $\{a_k\}_{k=1}^\infty$ be an infinite sequence, and $S_n$ be the partial sum of the sequence as defined above. Provided that the limit $\lim\limits_{n\to\infty} S_n$ exists, we define the infinite sum $\sum\limits_{k=1}^\infty a_k $ as
-\importantFormula{
+\begin{equation}\boxed{
 \sum_{k=1}^{\infty}a_n\eqdef \lim\limits_{n\to \infty} S_n\quad .
 }
+\end{equation}
 We furthermore say that the infinite sum $\sum\limits_{k=1}^{\infty}a_n$ \emph{converges} (or is \emph{convergent}). If the above limit does not exist, we may still write $\sum\limits_{k=1}^{\infty}a_n$, but we say that the sum \emph{diverges} (or is \emph{divergent}). \index{convergent!series (infinite sum)}\index{divergent!series (infinite sum)}
 
 We have already used infinite series to define $e^x$ in \eqref{eqExponentFunctionDefinition}. We have not proved yet that the series \eqref{eqExponentFunctionDefinition} is convergent (for all $x$). In the coming sections we fix this.
@@ -4704,10 +4728,11 @@ S_{2^n-1}&=&1+\frac{1}2+\frac13 +\dots +\frac{1}{2^n-1}\\
 Therefore $\lim\limits_{n\to \infty} S_{n}=\infty $. The series \eqref{eqHarmonicSeries} is called \emph{harmonic series}.\index{series!harmonic}
 
 Suppose $|z|<1$. Then $\sum_{n=0}^{\infty} z^n$ is convergent and we have
-\importantFormula{
+\begin{equation}\boxed{
 \label{eqGeometricProgressionSeries}
 \frac{1}{1-z}=1+z+z^2+z^3+\dots +z^n+\dots= \sum_{n=0}^{\infty} z^n\quad.
 }
+\end{equation}
 If $|z|\geq 1$ the summand $z^n$ does not tend to $0$ and therefore the \emph{geometric series} \eqref{eqGeometricProgressionSeries} is divergent. \index{series!geometric}
 
 Let us prove \eqref{eqGeometricProgressionSeries}. We have that

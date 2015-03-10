@@ -8,7 +8,7 @@
 \usepackage{rotating}
 \usepackage{fp}
 \usepackage{calc}
-\usepackage{bm} 
+\usepackage{bm}
 \usepackage[all,cmtip]{xy}
 \RequirePackage{xstring}
 
@@ -35,10 +35,10 @@
 % \chainruletwice
 % \youWillNotBeTested
 % \optionalDisplay  %Dummy command needed for compatibility with Calculus notes.
-% \Arcsin 
-% \Arccos 
-% \Arctan 
-% \Arccot 
+% \Arcsin
+% \Arccos
+% \Arctan
+% \Arccot
 % \diff
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -76,12 +76,12 @@
 \newcommand{\cD}{{\mathcal{D}}}
 \newcommand{\cP}{{\mathcal{P}}}
 \newcommand{\fcUncoverAlert}[2]{\uncover<#1->{\alert<#1>{#2}}}
-\newcommand{\fcAnswer}[2]{ 
-\FPeval{\fcResult}{clip(#1-1)} 
-\uncover<handout:0|\fcResult>{\alert<\fcResult>{\textbf{?}}} \uncover<#1->{\alert<handout:0|#1>{#2}} 
+\newcommand{\fcAnswer}[2]{
+\FPeval{\fcResult}{clip(#1-1)}
+\uncover<handout:0|\fcResult>{\alert<\fcResult>{\textbf{?}}} \uncover<#1->{\alert<handout:0|#1>{#2}}
 }
-\newcommand{\fcQuestion}[2]{% 
-\FPeval{\fcResult}{clip(#1+1)}% 
+\newcommand{\fcQuestion}[2]{%
+\FPeval{\fcResult}{clip(#1+1)}%
 \uncover<#1->{\alert<handout:0| #1,\fcResult>{#2}}%
 }
 \newcommand{\fcEvalToInt}[1]{\FPeval{\fcResult}{clip(#1)}\fcResult}
@@ -89,10 +89,10 @@
 \ifthenelse{\equal{#1}{??}}%
 {#2}%
 {#3}%
-}
+}%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
 \newcommand{\alertNoH}[2]{\alert<#1>{#2}}
 %
-%  An example of logarithmic differentiation of a function with a 
+%  An example of logarithmic differentiation of a function with a
 %  variable base and exponent.
 %  #1 is the base.
 %  #2 is the exponent.
@@ -263,7 +263,7 @@ y'%
 %
 %  An example of a derivative with the Product Rule, using the symbol f(x).
 %  It looks as follows:
-%  
+%
 %  Differentiate f(x) = #1 #2.
 %  Product Rule: f'(x) = (#1)(d/dx)(#2) + (#2)(d/dx)(#1)
 %   = (#1)(#4) + (#2)(#3)
@@ -301,9 +301,9 @@ y'%
 
 
 %
-%  An example of a derivative with the Constant Multiple Rule. 
+%  An example of a derivative with the Constant Multiple Rule.
 %  It looks as follows:
-%  
+%
 %  Find the derivative of #1 = #2.
 %   #1 = (#3)(#4).
 %   d#1/dx = (d/dx)((#3)(#4))
@@ -357,7 +357,7 @@ y'%
 %
 %  An example of a derivative with the Quotient Rule, using the symbol y.
 %  It looks as follows:
-%  
+%
 %  Differentiate y = #1 / #2.
 %  Quotient Rule: dy/dx = ((#2)(d/dx)(#1)-(#1)(d/dx)(#2))/(#2)^2
 %   = ((#2)(#3)-(#1)(#4))/(#2)^2
@@ -408,13 +408,13 @@ y'%
 %
 %  An example of an indefinite integral with the Substitution Rule.
 %  It looks as follows:
-%  
+%
 %  Find \int (#1, with nothing substituted for UU and VV).
 %  Let u = #2
 %  Then du = #3.
 %  Therefore #4 = #5.
-%  Substitute: \int (#1, with the alert command for u and du 
-%          substituted for UU and VV respectively) 
+%  Substitute: \int (#1, with the alert command for u and du
+%          substituted for UU and VV respectively)
 %  = \int (#6, with the alert command for u and du substituted for UU and VV)
 %  = (#7, with u substituted for UU) + C
 %  = (#8, with #2 substituted for UU) + C
@@ -469,21 +469,21 @@ y'%
 
 %
 %  An example of a definite integral with the Substitution Rule.
-%  There are nine arguments to the function.  The ninth is a string of four 
-%  groups of the form {AA}{BB}{CC}{DD} where AA is the lower limit of 
+%  There are nine arguments to the function.  The ninth is a string of four
+%  groups of the form {AA}{BB}{CC}{DD} where AA is the lower limit of
 %  integration, BB is the upper limit of integration, CC is the lower limit
 %  of integration with respect to u, and DD is the upper limit of integration
 %  with respect to u.
 %  It looks as follows:
-%  
+%
 %  Find \int_{AA}^{BB} (#1, with nothing substituted for UU and VV).
 %  Let u = #2
 %  Then du = #3.
 %  #4 = #5.
 %  When x = AA, u = CC.
 %  When x = BB, u = DD.
-%  Substitute: \int_{AA}^{BB} (#1, with the alert command for u and du 
-%          substituted for UU and VV respectively) 
+%  Substitute: \int_{AA}^{BB} (#1, with the alert command for u and du
+%          substituted for UU and VV respectively)
 %  = \int_{CC}^{DD} (#6, with the alert command for u and du substituted for UU and VV)
 %  = [#7, with u substituted for UU]_{CC}^{DD}
 %  = #8.
@@ -559,17 +559,17 @@ _{\uncover<14->{\alert<handout:0| 14>{
 
 %
 %  An example of a definite integral with the Substitution Rule.
-%  There are nine arguments to the function.  The ninth is a string of two 
-%  groups of the form {AA}{BB} where AA is the lower limit of 
-%  integration and BB is the upper limit of integration.  
+%  There are nine arguments to the function.  The ninth is a string of two
+%  groups of the form {AA}{BB} where AA is the lower limit of
+%  integration and BB is the upper limit of integration.
 %  It looks as follows:
-%  
+%
 %  Find \int_{AA}^{BB} (#1, with nothing substituted for UU and VV).
 %  Let u = #2
 %  Then du = #3.
 %  #4 = #5.
-%  Substitute: \int (#1, with the alert command for u and du 
-%          substituted for UU and VV respectively) 
+%  Substitute: \int (#1, with the alert command for u and du
+%          substituted for UU and VV respectively)
 %  = \int (#6, with the alert command for u and du substituted for UU and VV)
 %  = #7, with u substituted for UU
 %  = #8.
@@ -704,7 +704,7 @@ _{\StrMid{#9}{1}{1}}%
 %
 %  An example of a derivative with the Chain Rule, using the symbol f(x).
 %  It looks as follows:
-%  
+%
 %  Differentiate f(x) = #1.
 %  Let h(x) = #2
 %  Let g(x) = #3
@@ -766,7 +766,7 @@ f'(x)%
 
 %
 %  Similar to chainrulefofx but in different style.
-%  It looks as follows: 
+%  It looks as follows:
 %
 %  Recall the chain rule (...).
 %******************************
@@ -785,7 +785,7 @@ f'(x)%
 {\renewcommand{\arraystretch}{1.2}
 $
 \begin{array}{rclll}
-\alert<1-| handout:0>{\left(g(h(x))\right)'}&\alert<1-| handout:0>{=}&\alert<1-| handout:0>{g'(h(x))\cdot  h'(x)}&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\ 
+\alert<1-| handout:0>{\left(g(h(x))\right)'}&\alert<1-| handout:0>{=}&\alert<1-| handout:0>{g'(h(x))\cdot  h'(x)}&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
 (g(u))'&\alert<0>{=}&g'(u) u'&\text{where } u=h(x)& \text{(notation 2)}\\
 \displaystyle\frac{\diff y}{\diff x} &\alert<0>{=}& \displaystyle\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
 \end{array}
@@ -839,7 +839,7 @@ f'(x)%
 
 %
 %  Similar to chainrulefofx but in different style.
-%  It looks as follows: 
+%  It looks as follows:
 %
 %  Recall the chain rule (...).
 %******************************
@@ -858,7 +858,7 @@ f'(x)%
 {\renewcommand{\arraystretch}{1.2}
 $
 \begin{array}{rclll}
-\alert<0>{\left(g(h(x))\right)'}&\alert<0>{=}&g'(h(x))  \cdot  h'(x)&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~} \\ 
+\alert<0>{\left(g(h(x))\right)'}&\alert<0>{=}&g'(h(x))  \cdot  h'(x)&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~} \\
 \alert<1->{(g(u))'}&\alert<1->{=}&\alert<1->{g'(u) u'}&\text{where } u=h(x)& \text{(notation 2)}\\
 \displaystyle\frac{\diff y}{\diff x} &\alert<0>{=}& \displaystyle\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
 \end{array}
@@ -912,7 +912,7 @@ f'(x)%
 
 %
 %  Similar to chainrulefofx but in different style.
-%  It looks as follows: 
+%  It looks as follows:
 %
 %  Recall the chain rule (...).
 %******************************
@@ -930,7 +930,7 @@ f'(x)%
 {\renewcommand{\arraystretch}{1.2}
 $
 \begin{array}{rclll}
-\alert<0>{\left(g(h(x))\right)'}&\alert<0>{=}&g'(h(x))  \cdot  h'(x)&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~} \\ 
+\alert<0>{\left(g(h(x))\right)'}&\alert<0>{=}&g'(h(x))  \cdot  h'(x)&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~} \\
 (g(u))'&\alert<0>{=}&g'(u) u'&\text{where } u=h(x)& \text{(notation 2)}\\
 \displaystyle\alert<1->{\frac{\diff y}{\diff x}}&\alert<1->{=}&\displaystyle\alert<1->{\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x}} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
 \end{array}
@@ -976,15 +976,15 @@ $
 }
 
 %
-%  An example of an infinite limit calculation. 
+%  An example of an infinite limit calculation.
 %  There are nine arguments to the function.  The ninth is a string of six
 %  plus and minus signs.  Let AA, BB, CC, DD, EE, and FF denote these plus
 %  and minus signs.  Then the output of the function looks as follows:
-%  
+%
 %  Find lim_{x \to #1^AA} (#2, with x substituted for UU)/(#3, with x substituted for UU).
 %  Plug in #1.
 %  (#2, with (#1) substituted for UU)/(#3, with (#1) substituted for UU) = #4/0.
-%  The numerator is non-zero and the denominator is zero.  
+%  The numerator is non-zero and the denominator is zero.
 %  Therefore the answer is DNE, infty, or -infty.
 %  Factor: (#3, with x substituted for UU)/(#4, with x substituted for UU) = (#5 #6)/(#7 #8)
 %  \to ((BB)(CC))/((DD)(EE))
@@ -1081,10 +1081,10 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 
 
 %
-%  An example of a limit calculation with factoring. 
-%  
-%  It looks as follows.  
-%  
+%  An example of a limit calculation with factoring.
+%
+%  It looks as follows.
+%
 %  Find lim_{x \to #1} (#2, with x substituted for UU)/(#3, with x substituted for UU).
 %  Plug in #1.
 %  (#2, with (#1) substituted for UU)/(#3, with (#1) substituted for UU) = 0/0.
@@ -1171,10 +1171,10 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 
 
 %
-%  An example of a limit calculation with a conjugate radical. 
-%  
-%  It looks as follows.  
-%  
+%  An example of a limit calculation with a conjugate radical.
+%
+%  It looks as follows.
+%
 %  Find lim_{x \to #1} (#2, with x substituted for UU)/(#3, with x substituted for UU).
 %  Plug in #1.
 %  (#2, with (#1) substituted for UU)/(#3, with (#1) substituted for UU) = 0/0.
@@ -1265,10 +1265,10 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 
 
 %
-%  An example of a limit calculation with direct substitution.  
-%  
-%  It looks as follows.  
-%  
+%  An example of a limit calculation with direct substitution.
+%
+%  It looks as follows.
+%
 %  Find lim_{x \to #1} (#2, with x substituted for UU)/(#3, with x substituted for UU).
 %  Plug in #1.
 %  (#2, with (#1) substituted for UU)/(#3, with (#1) substituted for UU) = 0/0.
@@ -1324,17 +1324,17 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 
 
 %
-%  An example Newton's Method.  
-%  
-%  It looks as follows.  
-%  
-%  Starting with x_1 = #1, find the third approximation x_3 to the root of the equation #2.  
-%  
+%  An example Newton's Method.
+%
+%  It looks as follows.
+%
+%  Starting with x_1 = #1, find the third approximation x_3 to the root of the equation #2.
+%
 %  f(x) = (#3, with x substituted for UU).
 %  f'(x) = (#4, with x substituted for UU).
 %  Newton's Method: x_{n+1} = x_n - f(x_n)/f'(x_n) = x_n - (#3, with x_n substituted for UU)/(#4, with x_n substituted for UU).
-%  
-%  x_2 = x_1 - (#3, with x_1 substituted for UU)/(#4, with x_1 substituted for UU)     x_3 = x_2 - (#3, with x_2 substituted for UU)/(#4, with x_2 substituted for UU)     
+%
+%  x_2 = x_1 - (#3, with x_1 substituted for UU)/(#4, with x_1 substituted for UU)     x_3 = x_2 - (#3, with x_2 substituted for UU)/(#4, with x_2 substituted for UU)
 %   = (#1) - (#3, with (#1) substituted for UU)/(#4, with (#1) substituted for UU)     = (#5) - (#3, with (#5) substituted for UU)/(#4, with (#5) substituted for UU)
 %  = #5.      = #6.
 %
@@ -1346,7 +1346,7 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 ]%
 \ifthenelse{\equal{#7}{0}}%
 {%
-Starting with $x_1 = #1$, find the third approximation $x_3$ to the root of the equation $#2$.  
+Starting with $x_1 = #1$, find the third approximation $x_3$ to the root of the equation $#2$.
 }%
 {#7}%
 \abovedisplayskip=0pt
@@ -1394,7 +1394,7 @@ x_3 %
 {\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 10>{(#1)}}\noexploregroups \expandarg}%
 {\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 10>{(#1)}}\noexploregroups \expandarg}%
 }%
-& % 
+& %
 & \uncover<13->{%
  = \alert<handout:0| 13>{(#5)} - \frac%
 {\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 13>{(#5)}}\noexploregroups \expandarg}%
@@ -1403,7 +1403,7 @@ x_3 %
 & \uncover<11->{%
  = #5.%
 }%
-& % 
+& %
 & \uncover<14->{%
  = #6.
 }%
@@ -1415,7 +1415,7 @@ x_3 %
 %
 %  An example of a derivative using the Chain Rule twice, using dy/dx.
 %  It looks as follows:
-%  
+%
 %  Differentiate: y = #1.
 %		  dy\dx  = d\dx(#1)
 %  Chain Rule:     = (#2) (d/dx)(#3)
