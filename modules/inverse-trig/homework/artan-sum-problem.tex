@@ -8,31 +8,3 @@
 \]
 if the left hand side lies between $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$.
 \end{enumerate}
-\solution{\ref{problemTangentAngleSumLaw} We start by recalling the formulas \[\begin{array}{rcl}\cos(a+b)&=&\cos a \cos b-\sin a \sin b\\ \sin (a+b)&=&\sin a \cos b+\sin b \cos a\quad .
-\end {array}
-\] 
-These formulas have been previously studied; alternatively they follow from Euler's formula and the computation 
-\[
-\begin{array}{rcl}
-\cos (a+b) +i\sin (a+b)&=& e^{i(a+b)}= e^{ia}e^{ib}=(\cos a+ i\sin a)(\cos b +i \sin b)\\
-&=&\cos a \cos b-\sin a \sin b +i(\sin a \cos b+\sin b \cos a)\quad .
-\end{array}
-\]
-Now \ref{problemTangentAngleSumLaw} is done via a straightforward computation:
-\begin{equation}\label{eqTangentAngleSumLaw}
-\begin{array}{rcl}
-\tan(a+b)&=&\displaystyle \frac{\sin (a+b)}{\cos (a+b)}=\frac{\sin a \cos b+\sin b \cos a}{\cos a\cos b-\sin a\sin b}=\frac{(\sin a\cos b+\sin b \cos a)\frac{1}{\cos a\cos b}}{(\cos a \cos b-\sin a \sin b)\frac{1}{\cos a\cos b}}\\
-&=&\displaystyle \frac{\tan a +\tan b}{1-\tan a \tan b}\quad .
-\end{array}
-\end{equation}
-\noindent \ref{problemArctangentAngleSumLaw} is a consequence of \ref{problemTangentAngleSumLaw}. Let $a=\Arctan x$, $b=\Arctan y$. Then \eqref{eqTangentAngleSumLaw} becomes 
-\[
-\tan (\Arctan x+\Arctan y)= \frac{\tan (\Arctan x)+\tan(\Arctan y)}{1-\tan (\Arctan x)\tan (\Arctan y)}=\frac{x+y}{1-xy}\quad,
-\]
-where we use the fact that $\tan (\Arctan w)=w$ for all $w$. We recall that $\Arctan (\tan z)=z$ whenever $z\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$. Now take $\Arctan$ on both sides of the above equality to obtain 
-\[
-\Arctan x +\Arctan y=\Arctan\left(\frac{x+y}{1-xy}\right)\quad .
-\]
-
-}
-

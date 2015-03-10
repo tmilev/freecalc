@@ -33,6 +33,8 @@
 \newtoggle{solutions}
 \newtoggle{solutionsExtra}
 \newtoggle{answers}
+\toggletrue{answers}
+\toggletrue{solutions}
 \newcommand{\fcProblemRef}{\thetheorem.\arabic*}
 
 \renewcommand{\Im}{\mathrm{Im}}
@@ -61,6 +63,12 @@
 \DeclareMathOperator{\arcsinh}{arcsinh}
 \DeclareMathOperator{\arccosh}{arcosh}
 \DeclareMathOperator{\arctanh}{arctanh}
+\renewcommand{\Arcsin}{\arcsin}
+\renewcommand{\Arccos}{\arccos}
+\renewcommand{\Arctan}{\arctan}
+\renewcommand{\Arccot}{\arccot}
+\renewcommand{\Arcsec}{\arcsec}
+
 
 \renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
@@ -69,7 +77,15 @@
 \renewcommand{\emph}{\textbf}
 \newcommand{\additionalProblemLabel}{}
 
-\newcommand{\answer}[1]{}
+\newcommand{\answer}[1]{\iftoggle{answers}{ \hfill{~} \rotatebox{180}{\tiny answer: #1}}{}} %
+\newcommand{\hiddenanswer}[1]{\iftoggle{solutions}{ %
+\iftoggle{answers}{ %
+\hfill{~} \rotatebox{180}{\tiny answer: #1}}
+{}} %
+{}} %
+\newcommand{\points}[1]{\item}
+\newcommand{\pointsii}[1]{\item}
+
 %\newcommand{\diff}{\text{d}}
 
 \makeindex
@@ -431,7 +447,7 @@ Division of a complex number by a real number is defined in the manner suggested
 \]
 In order to have that be the inverse operation to multiplication, it follows that the division of $1$ by a number must be defined by
 \[
-\frac{1}{c+id}= \frac{c-id}{(c+id)(c-id)}=\frac{c}{c^2+d^2}-i\frac{d}{c^2+d^2}  \quad c+id\neq 0.
+\frac{1}{c+id}= \frac{c-id}{(c+id)(c-id)}=\frac{c}{c^2+d^2}-i\frac{\diff}{c^2+d^2}  \quad c+id\neq 0.
 \]
 Therefore division of arbitrary complex numbers is defined as
 \[
@@ -440,9 +456,9 @@ Therefore division of arbitrary complex numbers is defined as
 
 \subsection{Exercises and examples}
 \begin{problem}
-\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1}
+%\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1}
 \end{problem}
-\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1-solutions}
+%\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1-solutions}
 
 
 
@@ -1517,184 +1533,76 @@ e^{\ln |z| + i\varphi}=\Re z+i\Im z = z\quad ,
 which completes the proof.
 \end{proofOptional}
 
-\subsubsection{Exercises}
-\begin{problem}\label{probComplexLogs}
-Plot the number $z$ on the complex plane (you may use one drawing only for all the numbers). Find all real numbers $\varphi$ and $\rho$ for which $z=e^{\rho+i\varphi}$. Your answer may contain expressions of the form $\arcsin x$, $\arccos x$, $\arctan x$, $\ln x$, only if $x$ is a real number.
-\begin{enumerate}
-\item \label{prob1plussqrt3} $z=1+i\sqrt{3}$.
-\item \label{prob2plus3i} $z=-2-3i$.
-\item $z=1-i\sqrt{(3)}$.
-\item $z=1+i$.
-\item $z=-1-i$.
-\item $z=\frac{\sqrt{3}+i}4$.
-\item $z=-i$.
-\item $z=3+4i$.
-\end{enumerate}
-\end{problem}
-\begin{solution} [ of problem  \ref{probComplexLogs}.\ref{prob1plussqrt3}.]
+\subsubsection{Examples and Exercises}
 
-\noindent Solution I. We have that
-\[
-|z|=\sqrt{z\bar z}= \sqrt{(1+i\sqrt{3})(1-i\sqrt{3})}=\sqrt{1^2+\sqrt{3}^2}=\sqrt{4}=2\quad .
-\]
-Recall from \eqref{eqEulerExp} $e^{\rho +i \varphi}= e^{\rho}(\cos\varphi+i\sin \varphi) $ and therefore
-\[
-\begin{array}{rcl}
-\cos \varphi &=& \frac{|z|\cos \varphi}{|z|}= \frac{\Re z}{|z|} =  \frac{1}{2}\\
-\sin \varphi &=& \frac{|z|\sin \varphi}{|z|}= \frac{\Im z}{|z|} =  \frac{\sqrt{3}}2\\
-\tan \varphi &=& \frac{\sin \varphi}{\cos \varphi}=  \frac{\sqrt{3}}3\quad .
-\end{array}
-\]
-Therefore $\varphi$ is of the form $\varphi =  \arctan \left(\frac{\sqrt{3}}3\right)= \frac{\pi}3+k\pi$. However $\varphi$ cannot be of the form $ \frac{\pi}3+(2k+1)\pi$ because $\cos \left(\frac{\pi}3+(2k+1)\pi\right)=-\frac 12$. On the other hand, $\sin (\frac{\pi}{3}+2k\pi) = \frac{\sqrt{3}}2$ and $\cos (\frac{\pi}{3}+2k\pi) = \frac {1}{2})$. Therefore
-\[
-\varphi =\frac{\pi}{3}+2k\pi, \quad \quad \mathrm{for~all~} k\in \mathbb Z
-\]
-(Recall that $\mathbb Z$ denotes the integers).
 
-As studied in class $e^{\rho}=|z|=2$, and therefore $\rho = \ln (e^\rho)= \ln |z|=\ln 2 $. Therefore we get the answer
-\[
-1+i\sqrt{3} = e^{\ln 2 +i \left(\frac{\pi}3+2k\pi  \right) }
-\]
-for all $k\in \mathbb Z$. To finish the task we need to plot the number $z$.
 
-\optionalDisplay{
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-3,-4)(4,4)
-\psline[linecolor=gray](-1.5,0)(2.5,0) % x-axis
-\psline[linecolor=gray](0,-1.5)(0,2.5) % y-axis
-\rput[l](2.5,0){$\Re z$}
-\rput[b](0,2.5){$\Im z$}
-\rput[bl](0.03,1.03){$i$}
-\rput[bl](1,-0.1){$1$}
-\rput[c](0,1){$\bullet$}
-\rput[c](1,0){$\bullet$}
-\psplot{-1}{0.5}{1 x x mul sub sqrt}
-
-\psplot[linecolor=red]{0.5}{1}{1 x x mul sub sqrt}
-
-\psplot{-1}{1}{1 x x mul sub sqrt -1 mul}
-
-\psline(0,0)(0.5,0.866)
-\rput[c](0.5,0.866){$\bullet$}
-\rput[l](0.47,1){$\frac{z}{|z|}$}
-\psline[linestyle=dotted](0.5,0.866)(1,1.74)
-\rput[l](1.1,1.81){$z=1+i\sqrt{3} $}
-\rput[c](1,1.74){$\bullet$}
-
-\rput[t](-2,-3){$-2-3i$}
-\psline[linestyle=dotted](0,0)(-2,-3)
-\rput[c](-2,-3){$\bullet$}
-
-\rput[l](0.84,0.65){$\varphi= \frac\pi 3 $}
-\end{pspicture*}
-} %optionalDisplay
-
-\noindent Solution II. We draw the number $z$ as above. We compute that $\sin \varphi = \frac{\Im z}{|z|}= \sqrt{3}/2$, $\cos \varphi= \frac{\Re z}{|z|}=1/2$. Therefore we have that
-\[
-1+i\sqrt{3}= e^{\ln|1+i\sqrt{3}| + i(\frac{\pi}3 +2k\pi)}= e^{\ln 2 + i(\frac{\pi}3 +2k\pi)}\quad .
-\]
-\end{solution}
-
-\begin{solution}
-[of \ref{probComplexLogs}.\ref{prob2plus3i}. ]
-
-We draw the number as indicated on the figure. We compute that $\sin \varphi =-\frac{3}{\sqrt{13}}$, $\cos \varphi=-\frac{2}{\sqrt{13}}$, $\tan \varphi = \frac{3}{2}$. By the convention of our course, $\arctan \varphi\in (-\frac{\pi}{2}, \frac{\pi}{2})$. Therefore $\varphi= \left(\arctan\left(\frac{3}{2}\right) +\pi\right)+2k\pi $ for all $k\in \mathbb Z$. Finally, we get
-\[
-\begin{array}{rcl}
--2-3i&=& e^{\ln|-2-3i| + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)}= e^{\ln \sqrt{13}  + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)} \\&=&  e^{\frac{1}2\ln 13  + i\left(\left(\arctan\left(\frac{3}{2}\right) +\pi\right) +2k\pi\right)}\quad .
-\end{array}
-\]
-
-\end{solution}
 \begin{problem}
-Simplify the expressions.
-\begin{enumerate}
-\item $\sin(\arccos x)$.
-\item $\tan (\arccos x)$.
-\item $\cos (\arctan x)$.
-\item $\sin (2 \arctan x)$.
-\end{enumerate}
+\input{../../modules/complex-numbers/homework/plot-complex-number-find-principal-argument-1}
 \end{problem}
+\input{../../modules/complex-numbers/homework/plot-complex-number-find-principal-argument-1-solutions}
+
 \begin{problem}
-\begin{itemize}
-\item Let $a+b\neq k\pi $ for any $k\in \mathbb Z$ (integers). Prove that
-\[
-\frac{\tan a + \tan b}{1-\tan a \tan b }= \tan (a+b)\quad .
-\]
-\item Let $x$ and $y$ be real. Prove that, for $xy\neq 1$, we have
-\[\arctan x+\arctan y= \arctan \frac{x+y}{1-xy}
-\]
-if the left hand side lies between $(-\frac{\pi}{2}, \frac{\pi}{2})$.
-\end{itemize}
+\input{../../modules/complex-numbers/homework/frac-linear-transformations-preserving-unit-circle}
+\end{problem}
+
+\begin{problem}
+\input{../../modules/inverse-trig/homework/trig-evaluated-on-inverse-trig-1}
+\end{problem}
+
+\input{../../modules/inverse-trig/homework/trig-evaluated-on-inverse-trig-1-solutions}
+
+\begin{problem}
+\input{../../modules/inverse-trig/homework/trig-evaluated-on-inverse-trig-2}
+\end{problem}
+\input{../../modules/inverse-trig/homework/trig-evaluated-on-inverse-trig-2-solutions}
+
+\begin{problem} \input{../../modules/inverse-trig/homework/trig-evaluated-on-inverse-trig-3}
+\end{problem}
+\input{../../modules/inverse-trig/homework/trig-evaluated-on-inverse-trig-3-solutions}
+
+
+\begin{problem}
+\input{../../modules/inverse-trig/homework/artan-sum-problem}
 \end{problem}
 
 
-\begin{problem}\label{probFracLin}
-Find $f^{-1}$.
-\begin{enumerate}
-\item \label{probFracLinTransfExample}  $f(x)= \frac{5x+6}{4x+5}$.
-\item  $f(x)= \frac{2x-3}{-3x+4}$.
-\item \label{probFracLinPreservingUnitCircle} Let $a$ be a complex number. $\displaystyle f(x)=\frac{x-a}{\bar a x-1}$.
-\item  Let $x$ be a complex number that lies on the unit circle, i.e., $x=e^{i\varphi}$ for some real number $\varphi$, or equivalently a number such that $ x \bar x = |x|^2 =1$. Prove that $f(x)$ lies on the unit circle, where $f(x)$ is the function given in point \ref{probFracLinPreservingUnitCircle} of the current problem.
-\end{enumerate}
-If you would like to find about the origin of this problem, google ``fractional linear transformation''.
-\end{problem}
-\begin{solution}
-\textbf{\ref{probFracLin}.\ref{probFracLinTransfExample}.} Set $f(x)=y$. Then
-\[
-\begin{array}{rcl}
-y&=&\displaystyle \frac{5x+6}{4x+5}\\
-y(4x+5)&=&5x+6\\
-x(4y-5)&=&-5y+6\\
-x&=&\displaystyle \frac{-5y+6}{4y-5}\quad .
-\end{array}
-\]
-Therefore the function $x=g(y):=\frac{-5y+6}{4y-5}$ is the inverse of $f(x)$. In mathematical notation, $g=f^{-1}$. The function $g$ is defined for $y\neq 5/4$.
 
-Let us check our work.
-\[
-g(f(x))=  \frac{-5f(x) +6}{4f(x)-5}=  \frac{-5\frac{(5x+6)}{4x+5} +6}{4\frac{(5x+6)}{4x+5}-5}= \frac{-5(5x+6) +6(4x+5)}{4(5x+6)-5(4x+5)}=\frac{-x}{-1}=x\quad ,
-\]
-as expected.
-\end{solution}
-\section{Plots of trigonometric functions and their inverses}\label{secGraphsTrigFunc}
+\section{Plots of trigonometric functions and their inverses} \label{secGraphsTrigFunc}
 Let $x\in \mathbb R$ ($x$- real number). Then $\sin x$ and $\cos x$ can be drawn as follows.
 
 \optionalDisplay{
 \psset{xunit=0.5cm,yunit=0.5cm}
 \begin{pspicture*}(-10,-3)(10,3)
-\psline[linecolor=gray]{->}(-9.5,0)(9.5,0) % x-axis
-\psline[linecolor=gray]{->}(0,-2.5)(0,2.5) % y-axis
+\fcAxesStandard{-9.5}{-2.5}{9.5}{2.5}
 \rput[l](9.5,0){$x$}
 \rput[b](0,2.5){$y$}
 \rput(4,1.6){$y=\sin x$}
 \rput[lt](1,0){1}
-\psline[linecolor=gray](1,-0.1)(1,0.1) % x unit mark
+\psline(1,-0.1)(1,0.1) % x unit mark
 \rput[bl](0,1){1}
-\psline[linecolor=gray](-0.1,1)(0.1,1) % y unit mark
+\psline(-0.1,1)(0.1,1) % y unit mark
 
-\psplot{-9.5}{0}{x 180 mul 3.1415 div sin}
-\psplot{1.571}{9.5}{x 180 mul 3.1415 div sin}
+\psplot[linecolor=\fcColorGraph]{-9.5}{0}{x 180 mul 3.1415 div sin}
+\psplot[linecolor=\fcColorGraph]{1.571}{9.5}{x 180 mul 3.1415 div sin}
 
-\psplot[linecolor=red,linewidth=1.5pt]{0}{1.571}{x 180 mul 3.1415 div sin}
+\psplot[linecolor=green,linewidth=1.5pt]{0}{1.571}{x 180 mul 3.1415 div sin}
 \end{pspicture*}
 
 
 \begin{pspicture*}(-10,-3)(10,3)
-\psline[linecolor=gray]{->}(-9.5,0)(9.5,0) % x-axis
-\psline[linecolor=gray]{->}(0,-2.5)(0,2.5) % y-axis
+\fcAxesStandard{-9.5}{-2.5}{9.5}{2.5}
 \rput[l](9.5,0){$x$}
 \rput[b](0,2.5){$y$}
 \rput(4,1.6){$y=\cos x$}
 \rput[lt](1,0){1}
-\psline[linecolor=gray](1,-0.1)(1,0.1) % x unit mark
+\psline(1,-0.1)(1,0.1) % x unit mark
 \rput[bl](0,1){1}
-\psline[linecolor=gray](-0.1,1)(0.1,1) % y unit mark
+\psline(-0.1,1)(0.1,1) % y unit mark
+\psplot[linecolor=\fcColorGraph]{-9.5}{-1.571}{x 180 mul 3.1415 div cos}
+\psplot[linecolor=\fcColorGraph]{0}{9.5}{x 180 mul 3.1415 div cos}
 
-\psplot{-9.5}{-1.571}{x 180 mul 3.1415 div cos}
-\psplot{0}{9.5}{x 180 mul 3.1415 div cos}
-
-\psplot[linecolor=red,linewidth=1.5pt]{-1.571}{0}{x 180 mul 3.1415 div cos}
+\psplot[linecolor=green,linewidth=1.5pt]{-1.571}{0}{x 180 mul 3.1415 div cos}
 
 \end{pspicture*}
 
@@ -1702,50 +1610,47 @@ Let $x\in \mathbb R$ ($x$- real number). Then $\sin x$ and $\cos x$ can be drawn
 
 \psset{xunit=0.5cm,yunit=0.5cm}
 \begin{pspicture*}(-3,-10)(10,10)
-\psline[linecolor=gray]{->}(-3,0)(9.5,0) % x-axis
-\psline[linecolor=gray]{->}(0,-3)(0,9.5) % y-axis
+\fcAxesStandard{-3}{-3}{9.5}{9.5}
 \rput[l](9.5,0){$x$}
 \rput[b](0,9.5){$y$}
 \rput(2,7.6){$y=e^x$}
 \rput[lt](1,0){1}
-\psline[linecolor=gray](1,-0.1)(1,0.1) % x unit mark
+\psline(1,-0.1)(1,0.1) % x unit mark
 \rput[br](0,1){1}
-\psline[linecolor=gray](-0.1,1)(0.1,1) % y unit mark
-\rput[c](1,2.71828){$\bullet$}
+\psline(-0.1,1)(0.1,1) % y unit mark
+\fcFullDot{1}{2.71828}
 \rput[l](1.1,2.71828){$e\approx 2.71828$}
 
-\psplot{0}{3}{ 2.7182818284 x exp}
-\psplot{-3}{0}{1 2.7182818284 div x -1 mul exp}
-\psplot{0.0497870684}{10}{  x ln}
+\psplot[linecolor=\fcColorGraph]{0}{3}{ 2.7182818284 x exp}
+\psplot[linecolor=\fcColorGraph]{-3}{0}{1 2.7182818284 div x -1 mul exp}
+\psplot[linecolor=\fcColorGraph]{0.0497870684}{10}{  x ln}
 \rput(7.0,2.3){$y=\ln x$}
-\psline[linestyle=dotted](-3,-3)(9.5,9.5)
+\psline[linestyle=dashed, linecolor=blue](-3,-3)(9.5,9.5)
 \end{pspicture*}
 
 Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
 
 \psset{xunit=0.5cm,yunit=0.5cm}
 \begin{pspicture*}(-5,-10)(10,10)
-\psline[linecolor=gray]{->}(-5,0)(5.5,0) % x-axis
-\psline[linecolor=gray]{->}(0,-3)(0,9.5) % y-axis
+\fcAxesStandard{-5}{-3}{5}{9.5}
 \rput[l](5.5,0){$x$}
 \rput[b](0,9.5){$y$}
 \rput[t](1,-0.1){1}
-\psline[linecolor=gray](1,-0.1)(1,0.1) % x unit mark
+\psline(1,-0.1)(1,0.1) % x unit mark
 \rput[lb](1.570796327,0.1){$\frac{\pi}2$}
-\psline[linecolor=gray](1.570796327,-0.1)(1.570796327,0.1) % pi/2 unit mark
+\psline(1.570796327,-0.1)(1.570796327,0.1) % pi/2 unit mark
 \rput[br](0,1){1}
-\psline[linecolor=gray](-0.1,1)(0.1,1) % y unit mark
+\psline(-0.1,1)(0.1,1) % y unit mark
 
 \multido{\r=-1.570796327+1.570796327}{3}{%
-\put(\r,0){\psplot{-1.552}{1.552}{ 180 x mul  3.1415 div tan} }
-\put(\r,0){\psline[linestyle=dotted](1.570796327,-10)(1.570796327,10) }
+\put(\r,0){\psplot[linecolor=\fcColorGraph]{-1.552}{1.552}{ 180 x mul  3.1415 div tan} }
+\put(\r,0){\psline[linestyle=dashed](1.570796327,-10)(1.570796327,10) }
 }
 
 \end{pspicture*}
 \psset{xunit=0.5cm,yunit=0.5cm}
 \begin{pspicture*}(-5,-5)(5,5)
-\psline[linecolor=gray]{->}(-5,0)(4.5,0) % x-axis
-\psline[linecolor=gray]{->}(0,-3)(0,4.5) % y-axis
+\fcAxesStandard{-5}{-3}{4.5}{4.5}
 \rput[l](4.5,0){$x$}
 \rput[b](0,4.5){$y$}
 \rput[t](1,-0.1){1}
@@ -1755,9 +1660,9 @@ Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
 \rput[br](0,1){1}
 \psline[linecolor=gray](-0.1,1)(0.1,1) % y unit mark
 
-\psplot{-5}{5}{ x ATAN}
-\psline[linestyle=dotted](-5,1.570796327)(5,1.570796327)
-\psline[linestyle=dotted](-5,-1.570796327)(5,-1.570796327)
+\psplot[linecolor=\fcColorGraph]{-5}{5}{ x ATAN}
+\psline[linecolor=blue, linestyle=dashed](-5,1.570796327)(5,1.570796327)
+\psline[linecolor=blue, linestyle=dashed](-5,-1.570796327)(5,-1.570796327)
 \rput(3,0.5){$y=\arctan x$}
 \end{pspicture*}
 } %end of optionalDisplay
@@ -1766,7 +1671,7 @@ Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
 
 \begin{theorem}The function $e^z$ is differentiable and
 \begin{equation}\boxed{\label{eqDerivativeexponent}
-\frac{d}{d z}\left( e^z\right)= e^z
+\frac{\diff}{\diff z}\left( e^z\right)= e^z
 }
 \end{equation}
 \end{theorem}
@@ -1821,10 +1726,10 @@ Therefore
 The derivatives of $\sin x, \cos x, \tan x, \cot x$ are given by
 \begin{equation}\boxed{
 \begin{array}{rcl}
-(\sin x)'&=&\cos x\\
+(\sin x)'&=&\displaystyle \cos x\\
 (\cos x)'&=&-\sin x\\
-(\tan x)'&=&\frac{1}{\cos ^2 x}\\
-(\cot x)'&=&-\frac{1}{\sin ^2 x}\quad .
+(\tan x)'&=&\displaystyle \frac{1}{\cos ^2 x}\\
+(\cot x)'&=&\displaystyle -\frac{1}{\sin ^2 x}\quad .
 \end{array}
 }
 \end{equation}
@@ -1839,27 +1744,28 @@ The derivatives of $\sin x, \cos x, \tan x, \cot x$ are given by
 \]
 The derivative of $\cot x$ is computed in a similar fashion and we leave it to the reader.
 \end{proof}
-
-Derivative of $\arcsin x, \arccos x, \arctan x$.
+\begin{theorem}
+The derivatives of $\Arcsin x, \Arccos x, \Arctan x$ are given by 
 \[
 \begin{array}{rcl}
-(\arcsin x)'&=&\frac{1}{\sqrt{1-x^2}} \\
-(\arccos x)'&=&-\frac{1}{\sqrt{1-x^2}}\\
-(\arctan x)'&=&\frac{1}{1+x^2}\quad .\\
+(\Arcsin x)'&=&\displaystyle \frac{1}{\sqrt{1-x^2}} \\
+(\Arccos x)'&=&\displaystyle -\frac{1}{\sqrt{1-x^2}}\\
+(\Arctan x)'&=&\displaystyle \frac{1}{1+x^2}\quad .\\
 \end{array}
 \]
+\end{theorem}
 \begin{proof}
 \[
 \begin{array}{rcl}
-\sin(\arcsin x)&=& x  \quad\quad\left|\frac{d}{\diff x}\right. \\
+\sin(\arcsin x)&=&\displaystyle  x  \quad\quad\left|\frac{\diff}{\diff x}\right. \\
 (\arcsin x)'\cos (\arcsin x) &=& 1\\
 (\arcsin x)'\sqrt{1-\sin^2(\arcsin x) } &=& 1\\
-(\arcsin x)' &=&\frac{1}{\sqrt{1-x^2}}\quad .
+(\arcsin x)' &=&\displaystyle \frac{1}{\sqrt{1-x^2}}\quad .
 \end{array}
 \]
 \[
 \begin{array}{rcl}
-\cos(\arccos x)&=& x \quad\quad\left|\frac{d}{\diff x}\right. \\
+\cos(\arccos x)&=&\displaystyle  x \quad\quad\left|\frac{\diff}{\diff x}\right. \\
 -(\arccos x)'\sin (\arccos x) &=& 1\\
 -(\arccos x)'\sqrt{1-\cos^2(\arccos x) } &=& 1\\
 (\arccos x)' &=&-\frac{1}{\sqrt{1-x^2}}\quad .
@@ -1867,7 +1773,7 @@ Derivative of $\arcsin x, \arccos x, \arctan x$.
 \]
 \[
 \begin{array}{rcl}
-\tan(\arctan x)&=& x \quad\quad\left|\frac{d}{\diff x}\right. \\
+\tan(\arctan x)&=& x \quad\quad\left|\frac{\diff}{\diff x}\right. \\
 -(\arctan x)'\frac{1}{ (\cos{\arctan x})} &=& 1 \quad \quad \quad \mathrm{use~} \frac{1}{\cos^2x}= 1+\tan^2x\\
 -(\arctan x)'(1+\tan^2(\arctan x) &=& 1\\
 (\arctan x)' &=&\frac{1}{1+x^2}\quad .
@@ -1891,11 +1797,11 @@ You may notice that the above looks very similar to the definition that $f$ be d
 
 \optionalMaterial
 \[\begin{array}{l}
-\mathrm{The~derivatives~of~holomorphic~functions~are~computed} \\
-\mathrm{by~the~same~rules~as~those~for~real~functions.} \\
+\text{The derivatives of holomorphic functions are computed} \\
+\text{by the same rules as those for real functions.} \\
 \end{array}
 \]
-This means you can use identities such as $(ix)'=i$. $(e^{ix})'=ie^{ix}$, $(\cos (ix))'= -i\sin(ix)$. Of the functions we studied so far, $e^z, \sin z, \cos z$ are holomoprhic functions everywhere, the functions $\arctan z$, $\log z$ are holomorphic in neighborhoods of the values of $z$ for which they are defined, and the functions $\Im z, \Re z, |z|$ are not holomorphic.
+This means you can use identities such as $(ix)'=i$. $(e^{ix})'=ie^{ix}$, $(\cos (ix))'= -i\sin(ix)$. Of the functions we studied so far, $e^z, \sin z, \cos z$ are holomoprhic functions everywhere, the functions $\arctan z$, $\log z$ are holomorphic in neighborhoods of the values of $z$ for which they are defined and continuous, and the functions $\Im z, \Re z, |z|$ are not holomorphic.
 
 
 
@@ -1910,7 +1816,7 @@ Derivative of $ \arcsinh z$, $ \arccosh z$, $ \arctanh z$.
 \section{Integration by parts}
 Integration by parts can be formulated using differential forms as
 \begin{equation}\boxed{
-\int f dg+ \int g df = fg\quad,
+\int f \diff g+ \int g \diff f = fg\quad,
 }
 \end{equation}
 or alternatively as
@@ -1920,12 +1826,12 @@ or alternatively as
 \end{equation}
 Combining the above with the fundamental theorem of Calculus yields the definite integral version
 \begin{equation}\boxed{
-\int\limits_{x=a}^{b} f(x) g'(x)\diff x = \left.fg\phantom\int\right|_{x=a}^{x=b} - \int\limits_{x=a}^b g(x) f'(x)\diff x \quad.
+\int\limits_{x=a}^{x=b} f(x) g'(x)\diff x = \left.fg\phantom\int\right|_{x=a}^{x=b} - \int\limits_{x=a}^{x=b} g(x) f'(x)\diff x \quad.
 }
 \end{equation}
 We now discuss when and how to use integration by parts. Suppose we already know the integral of $g(x)$, say $d(G(x))=g(x)\diff x$. Suppose for some reason we consider the integral of $f'(x)\diff x$ to be easier than the integral of $f(x)\diff x$. If we want to integrate $f(x)g(x)\diff x= f(x)d(G(x))$, then we may use integration by parts to get
 \[
-\int f(x)\underbrace{g(x)\diff x}_{=d(G(x))}= f(x)g(x)- \int G(x) \underbrace{f'(x)\diff x}_{=d(f(x))}\quad .
+\int f(x)\underbrace{g(x)\diff x}_{=\diff (G(x))}= f(x)g(x)- \int G(x) \underbrace{f'(x)\diff x}_{=\diff (f(x))}\quad .
 \]
 If the function $G(x)$ is not too complicated, then $f'(x)G(x)\diff x$ may be easier to integrate than $f(x)g(x)\diff x$. If that is the case, integrating by parts pays off, and we should use the technique.
 
@@ -3545,7 +3451,7 @@ We have that $t$ can be expressed as function of $s$, namely, $t(s)= \gamma_1(\g
 
 We will prove the preceding item if $t$ as a function of $s$ is  continuously differentiable.
 
-\begin{proof} (on condition $t(s)$ is continuously differentiable). In order to avoid confusion throughout this proof, we will denote derivatives with respect to $s$ by $\frac{d}{\diff s}$, and derivatives with respect to $t$ by $\frac{d}{\diff t}$.
+\begin{proof} (on condition $t(s)$ is continuously differentiable). In order to avoid confusion throughout this proof, we will denote derivatives with respect to $s$ by $\frac{\diff}{\diff s}$, and derivatives with respect to $t$ by $\frac{\diff}{\diff t}$.
 
 We claim that $\frac{\diff t}{\diff s}(s)$ does not change sign. Suppose the contrary. The endpoints of the interval $[a,b]$ (where $t$ lives) must be mapped to the endpoints $p,q$ of the interval where $s$ lives. Suppose first $t(a)=p<q=t(b)$.  Then there exist points $s_0$ and $s_1$ such that  $\frac{\diff t}{\diff s}(s_0)<0$. As $t(s)$ is continuously differentiable, there exists a small interval  $s_0\in [w, z]$ such that $\frac{\diff t}{\diff s}(s)<0$. Then by the fundamental theorem of Calculus $t(w)>t(z)$ but $w<z$. By the intermediate value theorem, in the interval $[z,b]$, the function $t(s)$ achieves all values between $t(z)$ and $t(b)=q$. In particular, it achieves the value $t(z)<t(w)<q$. But then $t$ as a function of $s$ achieves the value $t(w)$ at least twice (once at $w$ and once at a point in $[z,q]$). On the other hand, we already saw that $t$ is bijective, and cannot achieve the same value twice. Contradiction. The other case, in which $t(a)=q>p=t(b)$, is treated in a similar fashion.
 
@@ -3561,7 +3467,7 @@ Unlike computations of indefinite integrals, where we make variable changes on t
 = \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2 + \frac{df_2 }{\diff t}(t(s))^2} \frac{\diff t}{\diff s}\diff s \\
 \displaystyle
 \stackrel{\frac{\diff t}{\diff s}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left( \underbrace{ \frac{\diff t}{\diff s}(s) f_1( t(s)) }_{ \text{chain rule} } \right)^2+ \left( \underbrace{ \frac{ \diff t}{\diff s}(s) \frac{df_2}{\diff t} (t(s))}_{ \text{chain rule}} \right)^2}\diff s \\
-=\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{d}{\diff s}\left(f_1(t(s))\right)\right)^2+ \left(\frac{d}{\diff s}\left(f_2(t(s))\right)\right)^2}\diff s \\
+=\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{\diff}{\diff s}\left(f_1(t(s))\right)\right)^2+ \left(\frac{\diff}{\diff s}\left(f_2(t(s))\right)\right)^2}\diff s \\
 =\displaystyle \int\limits_{s=p}^q \sqrt{ \frac{ dg_1}{ \diff s}( s)^2 + \frac{dg_2}{\diff s}(s)^2}\diff s,
 \quad
 \end{array}
@@ -4068,7 +3974,7 @@ Suppose that it so happened that $R'(x)=S(x)$. Then \eqref{eqDFQlinearStep1} bec
 \begin{equation}\label{eqDFQlinearStep2}
 \begin{array}{rcl}
 \underbrace{R(x)\frac{\diff y}{\diff x} + R'(x)y}_{\mathrm{product~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
-\frac{d}{\diff x} \left(R(x)y \right)&=& Q(x)\quad .
+\frac{\diff}{\diff x} \left(R(x)y \right)&=& Q(x)\quad .
 \end{array}
 \end{equation}
 In the above we can introduce a new function $z(x)= y(x)R(x)$, and the equation becomes
@@ -4101,8 +4007,8 @@ First we find an integrating factor $T(x)$. By the theoretical section, $T(x)$ i
 \[
 \begin{array}{rcl}
 \displaystyle e^{\frac{x^2}2}\frac{\diff y}{\diff x}+ yxe^{\frac{x^2}2}&=&\displaystyle xe^{\frac{x^2}2}\\
-\underbrace{\frac{d}{\diff x} \left(y(x) e^{\frac{x^2}2} \right)}_{\mathrm{rename~}x~\mathrm{to~}t\mathrm{~and~integrate}}&=&\underbrace{xe^{\frac{x^2}2}}_{\mathrm{rename~}x\mathrm{~to~}t\mathrm{~and~integrate}}\\
-\displaystyle\int\limits_{t=x_0}^x \frac{d}{\diff t} \left(y(t) e^{\frac{t^2}2}\right) \diff t &=&\displaystyle \int\limits_{t=x_0}^x  te^{\frac{t^2}2}\diff t\\
+\underbrace{\frac{\diff}{\diff x} \left(y(x) e^{\frac{x^2}2} \right)}_{\mathrm{rename~}x~\mathrm{to~}t\mathrm{~and~integrate}}&=&\underbrace{xe^{\frac{x^2}2}}_{\mathrm{rename~}x\mathrm{~to~}t\mathrm{~and~integrate}}\\
+\displaystyle\int\limits_{t=x_0}^x \frac{\diff}{\diff t} \left(y(t) e^{\frac{t^2}2}\right) \diff t &=&\displaystyle \int\limits_{t=x_0}^x  te^{\frac{t^2}2}\diff t\\
 \displaystyle\left.y(t) e^{\frac{t^2}2}\right|_{t=x_0}^x&=&\displaystyle \left.e^{\frac{t^2}2}\right|_{t=x_0}^{t=x}\\
 \displaystyle y(x)e^{\frac{x^2}2}- y(x_0)e^{\frac{x_0^2}2}&=&\displaystyle e^{\frac{x^2}2}- e^{\frac{x_0^2}2}\\
 y(x)&=&\displaystyle \frac{e^{\frac{x^2}2}- e^{\frac{x_0^2}2}+ y(x_0)e^{\frac{x_0^2}2}}{e^{\frac{x^2}2}}\\
