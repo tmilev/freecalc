@@ -1911,47 +1911,9 @@ Compute $\displaystyle\int \sin^n x \diff x$.
 \end{problem}
 
 \begin{problem}
-Evaluate the indefinite integral. Illustrate the steps of your solutions. Check your answer using a computer algebra system.
-\begin{multicols}{2}
-\begin{enumerate}
-\item
-$\displaystyle \int x^2\cos 2x \diff x$
-\item
-$\displaystyle \int x^2e^{ax}\diff x$
-\item
-$\displaystyle \int x^2e^{-ax}\diff x$
-\item \label{eqProblemA}
-$\displaystyle \int x^2\frac{(e^{ax}+e^{-ax})^2}4\diff x$
-\item
-$\displaystyle \int \cos^2x \diff x$
-\item
-$\displaystyle \int x\ln x \diff x
-$
-\item
-$\displaystyle \int \frac{x}{1+x^2} \diff x$
-\item
-$\displaystyle  \int \arctan x \diff x$
-\item
-$\displaystyle  \int \arcsin x \diff x$
-\item
-$\displaystyle \int \frac{\ln x}{\sqrt{x}}\diff x $
-\item
-$\displaystyle \int (\arcsin x)^2 \diff x $ \quad \quad (Hint: Try substituting $x=\sin y$)
-\item
-$\displaystyle \int \frac{1}{\cos^2 x}\diff x$\quad \quad (Hint: What is the derivative of $\tan x$?)
-\item
-$\displaystyle \int (\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x = \frac{1}{\cos^2x }-1$ )
-\item
-$\displaystyle \int x(\tan^2 x) \diff x $ \quad \quad (Hint: $\tan^2 x \diff x= d(F(x))$, where $F(x)$ is the answer from the preceding problem)
-\item
-$\displaystyle \int\arctan (\frac{1}x)\diff x$
-\item
-$\displaystyle \int \sin (\ln (x)) \diff x $
-\item
-$\displaystyle \int x^2\cos^2x \diff x$ (Can you solve using complex numbers and Problem \ref{eqProblemA}?).
-\end{enumerate}
-\end{multicols}
+\input{../../modules/integration-by-parts/homework/integration-by-parts}
 \end{problem}
+\input{../../modules/integration-by-parts/homework/integration-by-parts-solutions}
 
 \section{Integration of rational functions}\label{secIntegrationRationalFunctions}
 
@@ -2004,7 +1966,7 @@ and
 \]
 can be transformed to combinations of integrals of the forms:
 \[
-\int \frac{1}{(y+a)^n}\diff y,
+\int \frac{1}{y^n}\diff y,
 \]
 \[
 \int \frac{1}{(y^2+1)^n}\diff y,
@@ -2016,50 +1978,60 @@ Each of these ``building block'' integrals has different behavior for $n=1$ and 
 \subsubsection{Integrals of the form $\displaystyle\int \frac{1}{(x+a)^n}\diff x$.}
 For $n=1$ we get
 \begin{equation}\label{eqBuildingBlockInt1base}
-\int \frac{1}{x+a}\diff x=\int {\frac{1}{x+a}d(x+a)}= \ln |x+a| +C\quad .
+\int \frac{1}{x}\diff x=\ln |x| +C\quad .
 \end{equation}
 Let $n> 1$. Then
 \begin{equation}\label{eqBuildingBlockInt1N}
-\int \frac{1}{(x+a)^n}\diff x= -\frac{1}{(n-1)(x+a)^{n-1}}+C \quad .
+\int \frac{1}{x^n}\diff x=\int x^{-n}\diff x= -\frac{1}{(n-1)x^{n-1}}+C \quad .
 \end{equation}
 \subsubsection{Integrals of the form $\displaystyle\int \frac{x}{(1+x ^2)^n} \diff x $.}
-If we use the substitution $y=x^2$, we get $\diff y=2x\diff x $ and so $\displaystyle\int \frac{x}{(1+x ^2)^n} \diff x = \displaystyle\int \frac{\frac12 \diff y}{(y+1)^n} $, i.e., our integral is transformed to an integral of the form \eqref{eqBuildingBlockInt1base} or  \eqref{eqBuildingBlockInt1N}. In short form, this can be written as follows.
-
-For $n=1$ we have
+If we use the substitution $y=x^2+1$, we get $\diff y=2x\diff x $ and so $\displaystyle \int \frac{x}{(1+x ^2)^n} \diff x = \displaystyle\int \frac{\frac12 \diff y}{y^n} $, i.e., our integral is transformed to an integral of the form \eqref{eqBuildingBlockInt1base} or  \eqref{eqBuildingBlockInt1N}. In other words, for $n=1$ we have
 \[
-\int \frac{x}{x^2+1}\diff x= \int \frac{\frac{1}2 d(x^2+1)}{x^2+1}= \frac{1}{2}\ln (x^2+1) +C\quad .
-\]
-For $n>1, n\in \mathbb Z$ we have
-\[
-\int \frac{x}{(x^2+1)^n}\diff x= \int \frac{\frac{1}2d(x^2+1)}{(x^2+1)^n}= -\frac{1}{2(n-1)(x+a)^{n-1} } +C\quad .
+\int \frac{x}{x^2+1}\diff x= \int \frac{\frac{1}2 \diff\left(x^2+1\right)}{x^2+1}= \frac{1}{2}\ln \left(x^2+1\right) +C\quad .
 \]
 \subsubsection {Integrals of the form $\displaystyle\int \frac{1}{(1+x ^2)^n} \diff x $.}
-For $n=1$ we can recall that the derivative of $\arctan x$ is $\displaystyle\frac{1}{1+x^2}$, in other words
-\[
-\int \frac{1}{x^2+1}\diff x= \arctan x+C\quad .
-\]
-For $n>1, n\in \mathbb Z$, we are solving the integral
+Set 
 \begin{equation}\label{eqBuildingBlock3N}
-\int \frac{1}{(1+x ^2)^n}\diff x\quad .
+J(n)=\int \frac{1}{(1+x ^2)^n}\diff x\quad .
 \end{equation}
-This ``building block'' integral and is considerably more challenging than the preceding ``building blocks''. There is a trick to solving \eqref{eqBuildingBlock3N}. Consider the integral $\displaystyle\int \frac{1}{(1+x ^2)^{n-1}}\diff x$ and integrate it by parts:
+We are looking for a formula for $J(n)$. For $n=1$ we can recall that the derivative of $\Arctan x$ is $\displaystyle\frac{1}{1+x^2}$, in other words
 \[
-\begin{array}{rcl}
-\displaystyle \int \underbrace{\frac{1}{(1+x ^2)^{n-1}}}_{f(x)}d\underbrace{x}_{g(x)}&=&\displaystyle \frac{x}{(1+x ^2)^{n-1}}-\int x d\left(\frac{1}{(1+x ^2)^{n-1}}\right)\\
+J(1)=\int \frac{1}{x^2+1}\diff x= \Arctan x+C\quad .
+\]
+For $n>1, n\in \mathbb Z$, finding a formula for $J(n)$ is considerably more challenging than the preceding ``building blocks''. There is a trick to solving \eqref{eqBuildingBlock3N}: we integrate $\displaystyle J(n-1)= \int \frac{1}{(1+x ^2)^{n-1}}\diff x$ by parts:
+
+$
+\begin{array}{r@{~}c@{~}l@{}l@{}|l}
+J(n-1)&=&\displaystyle \int \frac{1}{(1+x ^2)^{n-1}}\diff x &&\text{int. by parts}\\
+&=&\displaystyle \frac{x}{(1+x ^2)^{n-1}}-\int x \diff \left(\frac{1}{(1+x ^2)^{ n - 1 } } \right)\\
 &=&\displaystyle\frac{x}{(1+x ^2)^{n-1}}- \int 2(-n+1)\frac{x^2}{(1+x^2)^n}\diff x\\
 &=&\displaystyle\frac{x}{(1+x ^2)^{n-1}}+2(n-1) \int \frac{(1+x^2-1)}{(1+x^2)^n}\diff x\\
-&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}} +2(n-1)\int \frac{1}{(1+x^2)^{n-1}}\diff x \\&&\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}\diff x\quad .
+&=&\displaystyle\frac{x}{(1+x ^2)^{n-1}} +2(n-1)\int \frac{1}{(1+x^2)^{n-1}}\diff x \\&&\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}\diff x\\
+&=&\displaystyle  \frac{x}{(1+x ^2)^{n-1}} +2(n-1)J(n-1)-2(n-1)J(n).
 \end{array}
-\]
-Transfer the left-hand side term $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}\diff x$ and the right-hand side term  $\displaystyle -2(n-1) \int \frac{1}{(1+x^2)^n}\diff x$ to the opposite sides to obtain that
-\[
-\int \frac{1}{(1+x^2)^n}\diff x= \frac{x}{(2n-2)(1+x ^2)^{n-1}}+ \frac{2n-3}{2n-2}\int \frac{1}{(1+x^2)^{n-1}}\diff x\quad .
-\]
-In this way we expressed the integral $\displaystyle\int \frac{1}{(1+x^2)^n}\diff x$ using a simpler one, $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}\diff x$. In a similar fashion, we may express $\displaystyle\int \frac{1}{(1+x^2)^{n-1}}\diff x$ using $\displaystyle\int \frac{1}{(1+x^2)^{n-2}}\diff x$, and so on, until we reach $\displaystyle\int \frac{1}{(1+x^2)}\diff x=\arctan x +C$. Our answer may be summarized as
+$
+
+\noindent Transfer the term involving $J(n)$ to the left hand side, and the term involving $J(n-1)$ to the right hand side to obtain that
 \[
 \begin{array}{rcl}
-\displaystyle \int \frac{1}{(1+x^2)^n}\diff x&=& \displaystyle  \frac{x}{(1+x ^2)^{n-1}}+\frac{2n-3}{2n-2}\left(\frac{x}{(1+x^2)^{n-2}}+\frac{2n-5}{2n-4}\left(\dots\right)\right)\\ \\ &&\mathrm{using~}\Sigma \mathrm{~notation:}\\ \\
-&=&\displaystyle \frac{(2n-3 )(2n-5)\dots 1}{(2n-2)(2n-4)\dots 2}\arctan x+  \frac{x}{(2n-2)(1+x ^2)^{n-1}} \\&&\displaystyle + \sum_{s=3}^{n} \frac{(2n-3 )(2n-5)\dots (2s-3)}{(2n-2)(2n-4)\dots (2s-2)} \frac{x}{(2s-4)(1+x^2)^{s-2}} \quad .
+\displaystyle (2n-2)J(n)&=&\displaystyle \frac{x}{(1+x ^2)^{n-1}}+ (2n-3)J(n-1)\\
+\displaystyle J(n)&=&\displaystyle \frac{x}{(2n-2)(1+x ^2)^{n-1}}+ \frac{2n-3}{2n-2}J(n-1)
+\end{array}
+\]
+In this way we expressed the integral $J(n)$ using a simpler one, $J(n-1)$. In a similar fashion, we may express $J(n-1)$ via $J(n-2)$, and so on, until we reach $\displaystyle J(1)= \int \frac{1}{(1+x^2)}\diff x=\arctan x +C$. Our answer may be summarized as
+\[
+\begin{array}{rcl}
+\displaystyle \int \frac{1}{(1+x^2)^n}\diff x&=& \displaystyle  \frac{x}{(2n-2)(1+x ^2)^{ n-1}}+\frac{2n-3}{2n-2} J(n-1)\\
+&=&\displaystyle \frac{x}{(2n-2)(1+x ^2)^{n-1}}\\
+&&\displaystyle +\frac{2n-3}{2n-2} \left(\frac{x}{(2n -4)(1 +x^2 )^{n -2}} +\frac{ 2n-5 }{2n-4} J(n-3) \right)\\
+&=&\dots\\ \\
+&&\mathrm{using~}\Sigma \mathrm{~notation:}\\ \\
+&=&\displaystyle \frac{(2n-3 )(2n-5)\dots 1}{(2n-2)(2n-4)\dots 2}\arctan x\\
+&&\displaystyle + 
+\frac{1}{(2n-2)}\frac{x}{ \left(1+x^2\right)^{n-1}}\\
+&&\displaystyle + 
+\sum_{s=2}^{n} \frac{(2n-3) }{(2n-2)}\dots \frac{(2n-2s+1)}{(2n-2s+2)} \frac{1}{(2n-2s)}\frac{x}{ \left(1+x^2\right)^{n-s}}
+\quad .
 \end{array}
 \]
 
@@ -2091,6 +2063,8 @@ On a timed exam, carry out this step only if done with the other problems.
 \end{itemize}
 
 \subsection{A large example illustrating the full algorithm }
+
+
 \begin{problem}
 Integrate
 \[
