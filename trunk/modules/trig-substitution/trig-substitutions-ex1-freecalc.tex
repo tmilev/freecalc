@@ -1,0 +1,45 @@
+% begin module trig-substitutions-ex3
+\begin{frame}
+\begin{example} 
+$
+\begin{array}{@{\!}r@{}c@{}l@{}l@{~}|l}
+\displaystyle \int \frac{1}{x^2 \sqrt{x^2+\alertNoH{2}{9}}} \diff x&\uncover<2->{=}&\uncover<2->{\displaystyle  \int \frac{1}{\alertNoH{5}{x}^2 \alertNoH{2}{3}\sqrt{\left(\alertNoH{3,5}{\frac{x}{\alertNoH{2}{3}}} \right)^{\alertNoH{2}{2}}+\alertNoH{2}{1}}}\diff \alertNoH{5}{x}} \uncover<3->{&&
+\begin{array}{@{}r@{~}c@{~}l}
+&&\text{Set } \\
+\alertNoH{3,5}{\frac{x}{\alertNoH{4}{3}}}&\alertNoH{3,5}{=}& \alertNoH{3,5}{\cot \theta}\\ 
+\uncover<4->{\alertNoH{5}{x}&\alertNoH{5}{=}& \alertNoH{5}{\alertNoH{4}{3}\cot\theta}}
+\end{array}} \\
+&\uncover<5->{=}&\displaystyle \uncover<5->{\int \frac{1}{(\alertNoH{5}{\alertNoH{6}{3} \cot\theta})^{\alertNoH{6}{2}} \alertNoH{6}{3} \sqrt{\alertNoH{7,8}{ \alertNoH{5}{\cot}^2\alertNoH{5}{\theta}+1}} }\alertNoH{9,10}{\diff (\alertNoH{5}{3\cot \theta})}} \uncover<3->{&& \theta \in (0, \pi)}\\
+&\uncover<6->{=}&\displaystyle \uncover<6->{ \int \frac{ 1}{\alertNoH{6,11}{27} \cot^{2}\theta \alertNoH{12}{\sqrt{ \fcAnswerUncover{6}{8}{\csc^2\theta}}}} \alertNoH{9,10}{\left(\fcAnswerUncover{6}{10}{-\alertNoH{11}{3}\csc^2\theta} \right)\diff \theta }}\uncover<12->{ && \begin{array}{@{}l}\theta\in(0,\pi)\Rightarrow \\ \alertNoH{12}{\csc\theta>0} \end{array}}\\
+&\uncover<11->{=}&\displaystyle \uncover<11->{\alertNoH{11}{\frac{1}{9}} \int \alertNoH{13}{\frac{ -\csc^2\theta }{ \cot^{2}\theta \alertNoH{12}{\csc\theta}}} \diff \theta}\\
+&\uncover<13->{=}&\displaystyle\uncover<13->{ \frac{1}{9}\int \alertNoH{13}{ \frac{ \alertNoH{14,15}{-\sin\theta }}{\cos^2\theta}} \alertNoH{14,15}{\diff \theta} }
+\uncover<14->{=\frac{1}{9}\int \frac{1}{\alertNoH{16}{\cos}^2\alertNoH{16}{\theta}} \alertNoH{15}{\diff(\fcAnswer{15}{\alertNoH{16}{ \cos\theta}})}} \uncover<16->{ &&\text{Set } \alertNoH{16,19}{u=\cos\theta}}\\
+&\uncover<16->{=}&\uncover<16->{\displaystyle \alertNoH{17,18}{\frac{1}{9} \int \frac{\diff \alertNoH{16}{u}}{\alertNoH{16}{u}^2}}} \uncover<17->{=   \fcAnswer{18}{ -\frac{\alertNoH{19}{1}}{9\alertNoH{19}{u}}}+C} \uncover<19->{=-\frac{ \alertNoH{19-24}{\csc \theta} }{9} +C }
+\uncover<20->{&&
+\raisebox{-0.5cm}{
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-0.8,-0.8)(4.6,3.2)
+\tiny
+\psframe*[linecolor=white](-0.8,-0.8)(4.6,3.2)
+\psline(0,0)(4, 0)(4,3)(0,0)
+\psline(3.8,0)(3.8, 0.2)(4,0.2)
+\fcAngle{0}{3 4 div ATAN}{0.8}{}
+\rput[bl](1, 0.2){$\alertNoH{20}{\theta}$}
+\rput[l](4.2, 1.5){$\fcAnswer{21}{3}$}
+\rput[t](2, -0.2){$\fcAnswer{21}{\alertNoH{24}{x}}$}
+\rput[br](2, 1.5){$\fcAnswer{23}{\alertNoH{24}{\sqrt{x^2+9}}}$}
+%bounding box for pdflatex compilation:
+\psline[linecolor=red!1](-0.11, -0.3 )(-0.105, -0.3)
+\psline[linecolor=red!1](2.3, 1.21)(2.3, 1.205)
+\end{pspicture}
+}
+}
+\\
+\uncover<24->{&=&\displaystyle -\frac{\alertNoH{24}{ \sqrt{x^2+9}}}{9\alertNoH{24}{x}}+C}
+\end{array}
+$
+
+
+\end{example}
+\end{frame}
+% end module trig-substitutions-ex3
