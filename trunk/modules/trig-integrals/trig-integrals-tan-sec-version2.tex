@@ -1,0 +1,18 @@
+% begin module trig-integrals-sin-cos
+\begin{frame}
+\frametitle{Partial strategy for fast evaluation of $\int \tan^m x \sec^n x \diff x$}
+$
+\begin{array}{@{\!\!\!\!\!}r@{}c@{}l@{}|l}
+\displaystyle \int \tan^m x \alertNoH{2}{ \sec^n x \diff x} &\uncover<2->{=}& \uncover<2->{\displaystyle  \int \tan^mx \alertNoH{2}{\alertNoH{3}{\sec^{n-2}x} \diff (\tan x)}} & \!\!\!\!\! \begin{array}{l} \alertNoH{4,11}{n-\text{even}}, \alertNoH{4,11}{n\geq 2} \\ \uncover<2->{\alertNoH{2}{ \phantom{=}\sec^2 x\diff x} \\\alertNoH{2}{=\diff (\tan x)} }\end{array}\\
+& \uncover<3->{=}&\uncover<3->{\displaystyle \int \alertNoH{5 }{ \tan}^m \alertNoH{5}{x}  \alertNoH{3}{ \! \left(1 + \alertNoH{ 5}{\tan}^2\alertNoH{5}{x}\right)^{ \alertNoH{ 4}{ \frac{ n-2}{ 2}}}} \!\! \diff (\alertNoH{5}{ \tan x })} \uncover<3->{& \!\!\!\!\! \alertNoH{3}{\begin{array}{l}  \text{Express }\sec x \\ \text{ via } \tan x\end{array}}} \\
+&\uncover<5->{=}&\uncover<5->{\displaystyle \int \alertNoH{ 5 }{u}^{m}\left(1+ \alertNoH{5}{u}^2 \right)^{ \frac{ n- 2}{ 2}}\diff \alertNoH{5}{u}& \text{Set } \alertNoH{5}{u=\tan x} } \\\hline
+\displaystyle \int \alertNoH{6}{\tan^m x \sec^n x \diff x} &\uncover<6->{=}&\uncover<6->{ \displaystyle  \int \alertNoH{6,7}{\tan^{m-1}x} \alertNoH{6}{\sec^{n-1} x \diff (\sec x )}} & \!\!\!\!\! \begin{array}{l}\alertNoH{8,11}{ m-\text{odd, }} \alertNoH{9,11}{n\geq 1}\\ \uncover<6->{\alertNoH{6}{\phantom{=} \tan x\sec x\diff x}\\
+\alertNoH{6}{=\diff (\sec x)}} \end{array}\\
+&\uncover<7->{=}&\displaystyle \uncover<7->{ \int \!\!\alertNoH{7}{\left(\alertNoH{10 }{ \sec}^2\alertNoH{10 }{x}- 1  \right)^{ \alertNoH{8}{\frac{ m-1 }{2}}}}\!\!\! \alertNoH{10}{\sec}^{\alertNoH{9}{n-1}} \alertNoH{10}{x} \diff (\alertNoH{10}{\sec x}) &\!\!\!\!\!  \alertNoH{7}{ \begin{array} {l}  \text{Express }\tan x \\ \text{ via } \sec x\end{array}}} \\
+&\uncover<10->{=}&\uncover<10->{\displaystyle \int \left(\alertNoH{10}{u}^2-1\right)^{ \frac{ m- 1}{ 2}} \alertNoH{10}{u}^n\diff \alertNoH{10}{u}& \text{Set } \alertNoH{10}{u=\sec x}}
+\end{array}
+$
+
+\uncover<11->{\alertNoH{11}{ Outside of the above cases} we either use \alertNoH{12}{more tricks or} resort to \alertNoH{12}{the general method $x=2\arctan t$}.} 
+\end{frame}
+% end module trig-integrals-sin-cos

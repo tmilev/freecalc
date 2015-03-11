@@ -1,0 +1,17 @@
+% begin module trig-integrals-ex12
+\begin{frame}
+\begin{example}
+$
+\begin{array}{@{\!}r@{~}c@{}l@{}l@{}|l}
+\displaystyle \int \tan^8 x\alertNoH{2}{\sec^4 x} \diff x&\uncover<2->{=}&\displaystyle  \uncover<2->{\int \tan^8 x \alertNoH{2}{\sec^2 x} \alertNoH{3,4}{\alertNoH{2}{\sec^2 x} \diff x}}\\
+&\uncover<3->{=}&\displaystyle \uncover<3->{\int \tan^8 x \alertNoH{5,6}{\sec^2 x} \alertNoH{3,4}{\diff \left( \fcAnswer{4}{\tan x}\right) }} \uncover<5->{&& \alertNoH{5,6}{\begin{array}{l}\text{Can we rewrite}\\ \sec^2 x \text{ via }\tan x\text{?}\end{array}}}\\
+&\uncover<5->{=}&\uncover<5->{\displaystyle \int \alertNoH{7}{\tan}^8\alertNoH{7}{x} \left(\fcAnswer{6}{1+\alertNoH{7}{\tan}^2 \alertNoH{7}{x}}\right)\diff (\alertNoH{7}{\tan x})} \uncover<7->{&&\text{Set } \alertNoH{7,13}{u=\tan x} }\\
+&\uncover<7->{=}&\displaystyle\uncover<7->{\int \alertNoH{7}{u}^8\left( 1+\alertNoH{7}{u}^2 \right)\diff \alertNoH{7}{u}}\\
+&\uncover<8->{=}&\displaystyle \uncover<8->{\alertNoH{9,10}{ \alertNoH{11,12}{\int} \left( \alertNoH{11}{u^8}+\alertNoH{12}{u^{10}}\right)\alertNoH{11,12}{\diff u}}}\\
+&\uncover<9->{=}&\displaystyle \fcAnswer{10}{ \alertNoH{11}{\frac{\alertNoH{13}{u}^9}{9}} +\alertNoH{12}{\frac{\alertNoH{13}{u}^{11}}{11}} +C} \\
+&\uncover<13->{=}&\displaystyle \uncover<13->{ \frac{ \alertNoH{13}{ \tan}^9 \alertNoH{13}{x}}{9}+ \frac{ \alertNoH{13}{\tan}^{11} \alertNoH{13}{x} }{ 11 }+C\quad.}
+\end{array}
+$
+\end{example}
+\end{frame}
+% end module trig-integrals-ex5
