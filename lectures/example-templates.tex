@@ -78,8 +78,13 @@
 \newcommand{\fcUncoverAlert}[2]{\uncover<#1->{\alert<#1>{#2}}}
 \newcommand{\fcAnswer}[2]{
 \FPeval{\fcResult}{clip(#1-1)}
-\uncover<handout:0|\fcResult>{\alert<\fcResult>{\textbf{?}}} \uncover<#1->{\alert<handout:0|#1>{#2}}
+\uncover<handout:0|\fcResult>{\alert<handout:0|\fcResult>{\textbf{?} }} \uncover<#1->{\alert<handout:0|#1>{\!\!\!#2}}
 }
+\newcommand{\fcAnswerUncover}[3]{
+\FPeval{\fcResult}{clip(#2-1)}
+\uncover<handout:0|#1-\fcResult>{\alert<handout:0|\fcResult>{\textbf{?}}} \uncover<#2->{\alert<handout:0|#2>{\!\!\!#3}}
+}
+
 \newcommand{\fcQuestion}[2]{%
 \FPeval{\fcResult}{clip(#1+1)}%
 \uncover<#1->{\alert<handout:0| #1,\fcResult>{#2}}%
