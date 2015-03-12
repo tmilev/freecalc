@@ -1,0 +1,27 @@
+% begin module trig-integrals-tann-secm-strategy-and-tan-and-sec
+\begin{frame}
+\vskip -0.1cm
+\begin{example}
+$\begin{array}{rcll|l}
+\displaystyle \int \tan x \diff x&\uncover<2->{=}&\displaystyle \uncover<2->{\int \frac{\alertNoH{3,4}{ \sin x}}{\cos x} \alertNoH{3,4}{\diff x} } \uncover<3->{= \int \frac{1}{ \alertNoH{5}{\cos x}}\alertNoH{3,4}{ \diff (\fcAnswer{4}{ \alertNoH{6}{-} \alertNoH{5}{\cos x}})}} \uncover<5->{&& \text{Set }\alertNoH{5,8}{u = \cos x}}\\
+& \uncover<5->{=}&\displaystyle  \uncover<5->{\alertNoH{6}{-} \alertNoH{7}{\int \frac{\diff \alertNoH{5}{u}}{\alertNoH{5}{u}}}} \uncover<7->{ = }  \uncover<7->{- \alertNoH{7}{\ln |\alertNoH{8}{u}|} + C}\\
+& \uncover<8->{ = } &\displaystyle  \uncover<8->{\alertNoH{9}{-}\ln |\alertNoH{8,9}{\cos x}| + C} \uncover<9->{ = } \displaystyle  \uncover<9->{\ln |\alertNoH{9}{\sec x}| + C}\\
+\end{array}
+$
+\end{example}
+\uncover<10->{The following can be/was computed via $x=2\arctan t$. \uncover<11->{Alternatively:}}
+\begin{example}
+$
+\begin{array}{rcll|l}
+\displaystyle \uncover<10->{\int \sec x \diff x} &\uncover<11->{=}&\displaystyle  \uncover<11->{\int \alertNoH{12,13}{\sec x}\frac{\alertNoH{11}{(\alertNoH{12}{\sec x} + \alertNoH{13}{\tan x})}}{\alertNoH{11}{(\sec x + \tan x)}}\diff x} \\
+&\uncover<12->{=}& \displaystyle \uncover<12->{\int \frac{ \alertNoH{12,14}{\sec^2 x }+ \alertNoH{13,15}{\sec x \tan x}}{\sec x + \tan x}\alertNoH{14,15}{\diff x}}\\
+&\uncover<14->{=}& \displaystyle \uncover<14->{\int \frac{ \alertNoH{14, 15}{\diff} (\alertNoH{16}{\alertNoH{14}{\tan x} + \alertNoH{15}{ \sec x}})}{\alertNoH{16}{\sec x + \tan x}}} \uncover<16->{&& \text{Set } \alertNoH{16,18}{u = \sec x + \tan x}}\\
+&\uncover<16->{=}& \displaystyle \uncover<16->{\alertNoH{17}{ \int \frac{\diff \alertNoH{16}{u}}{\alertNoH{16}{u}}}}
+\uncover<17->{=} \uncover<17->{\alertNoH{17}{\ln |\alertNoH{18}{u}|} + C}\\
+&\uncover<18->{=}& \uncover<18->{\ln |\alertNoH{18}{\sec x + \tan x}| + C .}\\
+\end{array}
+$
+\end{example}
+
+\end{frame}
+% end module trig-integrals-tann-secm-strategy-and-tan-and-sec
