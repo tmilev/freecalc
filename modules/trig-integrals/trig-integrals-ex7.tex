@@ -1,17 +1,16 @@
 % begin module trig-integrals-ex7
 \begin{frame}
-\begin{example} %[Example 7, p. 500]
-\begin{eqnarray*}
-\int \tan^3 x \diff x%
- & \uncover<2->{ = } & %
-\uncover<2->{\int \tan x \tan^2 x \diff x}\\%
- & \uncover<3->{ = } & %
-\uncover<3->{\int \tan x (\sec^2 x - 1)\diff x}\\%
- & \uncover<4->{ = } & %
-\uncover<4->{\int \tan x \sec^2 x \diff x - \int \tan x \diff x}\\%
- & \uncover<5->{ = } & %
-\uncover<5->{\frac{\tan^2 x}{2}  -  \ln|\sec x|  + C}\\%
-\end{eqnarray*}
+\begin{example} 
+$\begin{array}{rcll|l}
+\displaystyle \int \alertNoH{2}{\tan^3 x} \diff x & \uncover<2->{ = } & \displaystyle \uncover<2->{\int \alertNoH{2}{\tan x} \alertNoH{2,3}{\tan^2 x} \diff x}\\%
+& \uncover<3->{ = } & \displaystyle \uncover<3->{ \int \tan x \left(\alertNoH{3}{\alertNoH{4}{\sec^2 x}  \alertNoH{5}{-1}}\right)\diff x}\\%
+& \uncover<4->{ = } & \displaystyle \uncover<4->{\int \tan x \alertNoH{6,7}{\alertNoH{4}{\sec^2 x} \diff x} \alertNoH{5}{-} \alertNoH{8,9}{\int \tan x \diff x}}\\%
+&\uncover<6->{=}&\displaystyle \uncover<6->{\int \alertNoH{10}{\tan x } \alertNoH{6,7}{\diff (\fcAnswer{7}{\alertNoH{10}{\tan x}})} \alertNoH{11}{- \fcAnswerUncover{6}{9}{\ln |\sec x|} }} \uncover<10->{&& \text{Set } \alertNoH{10,14}{u=\tan x}} \\
+& \uncover<10->{ = } & \displaystyle \uncover<10->{\alertNoH{12}{ \int \alertNoH{10}{u} \diff \alertNoH{10}{u} }\alertNoH{11}{+ \ln \left|\alertNoH{13}{\frac{1}{\sec x}}\right|} }\\
+&\uncover<12->{=}&\displaystyle \uncover<12->{ \alertNoH{12}{\frac{\alertNoH{14}{ u}^2}{2}} + \ln \left|\alertNoH{13}{\cos x}\right|+C} \\
+&\uncover<14->{=}&\displaystyle \uncover<14->{\frac{\alertNoH{14}{ \tan}^2 \alertNoH{14}{x}}{2} + \ln|\cos x|  + C}\\
+\end{array}
+$
 \end{example}
 \end{frame}
 % end module trig-integrals-ex7

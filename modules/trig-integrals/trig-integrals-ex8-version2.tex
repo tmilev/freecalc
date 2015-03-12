@@ -1,0 +1,18 @@
+% begin module trig-integrals-ex8
+\begin{frame}
+\begin{example} 
+$
+\begin{array}{r@{~}c@{~}ll|l}
+\displaystyle \alertNoH{15}{\int \alertNoH{2}{\sec^3 x} \diff x} &\uncover<2->{=}&\displaystyle \uncover<2->{\int \alertNoH{2}{\sec x}\alertNoH{2,3,4}{ \sec^2 x} \alertNoH{3,4}{\diff x}}\\
+&\uncover<3->{=}&\displaystyle \uncover<3->{\int \alertNoH{5}{\sec x} \alertNoH{3, 4}{ \diff (\alertNoH{6}{\fcAnswer{4}{\tan x}})}} \uncover<5->{&& \alertNoH{5, 6}{ \begin{array}{@{}l}\text{Integrate }\\ \text{by parts}\end{array}}}\\
+&\uncover<5->{=}&\displaystyle \uncover<5->{\alertNoH{ 5}{\sec x} \alertNoH{6}{\tan x} - \int \alertNoH{6}{\tan x}  \alertNoH{7,8}{ \diff ( \alertNoH{5}{\sec x})}}\\
+&\uncover<7->{=}&\displaystyle \uncover<7->{\sec x \tan x - \int  \alertNoH{11}{\alertNoH{9,10}{\tan}^{\uncover<10->{\alertNoH{10}{2}}} \alertNoH{9,10}{ x}} \fcAnswer{8}{\sec x \only<handout:0|-9>{ \alertNoH{9}{ \tan x}}} \alertNoH{7,8}{\diff x}}\\
+&\uncover<11->{=}&\displaystyle \uncover<11->{\sec x \tan x \alertNoH{14}{-} \int (\alertNoH{11}{\alertNoH{12}{\sec^2 x}\alertNoH{14}{-} \alertNoH{13}{1}})\alertNoH{12,13}{\sec x} \diff x}\\
+&\uncover<12->{=}&\displaystyle \uncover<12->{\sec x \tan x \alertNoH{15}{- \int\alertNoH{12}{ \sec^3 x} \diff x} \alertNoH{14}{+} \alertNoH{16,17}{ \int \alertNoH{13}{\sec x}\diff x}} \\
+\displaystyle \uncover<15->{\alertNoH{15}{\alertNoH{18}{2} \int \sec^3 x \diff x}} &\uncover<15->{=}& \displaystyle \uncover<15->{\sec x \tan x + \fcAnswerUncover{15}{17}{\ln \left|\sec x +\tan x \right|}+C}\\
+\displaystyle \uncover<18->{\int \sec^3 x \diff x} &\uncover<18->{=}&\displaystyle \uncover<18->{ \alertNoH{18}{\frac{1}{2}}\left( \sec x \tan x +\ln \left|\sec x +\tan x \right|\right)+K.}
+\end{array}
+$
+\end{example}
+\end{frame}
+% end module trig-integrals-ex8

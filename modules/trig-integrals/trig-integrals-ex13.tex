@@ -1,53 +1,23 @@
 % begin module trig-integrals-ex13
 \begin{frame}
+\vskip -0.2cm
 \begin{example} 
 $
-\begin{array}{@{\!\!}r@{}c@{}l@{}l@{}|l}
+\begin{array}{@{\!\!}r@{}c@{}l@{}l@{\!\!\!\!\!\!\!\!\!\!}|l}
 \displaystyle\int \alertNoH{2}{\tan^5 x \sec^9 x} \diff x&\uncover<2->{=}&\uncover<2->{\displaystyle \int \alertNoH{2}{\tan^4 x \sec^8x} \alertNoH{3,4}{ \alertNoH{2}{\tan x\sec x} \diff  x}} \\
 &\uncover<3->{=}&\uncover<3->{\displaystyle \int \alertNoH{5,6}{\tan^4 x} \sec^8x \alertNoH{3,4}{\diff (\fcAnswer{4}{\sec x})}} \uncover<5->{&& \alertNoH{5,6,7}{ \!\!\!\!\begin{array}{l}\text{Can we }
 \text{rewrite}\\\tan^4 x \text{ via } \sec x\text{?} \end{array}}}\\
 &\uncover<6->{=}&\uncover<6->{\displaystyle\int \alertNoH{6}{\left(\alertNoH{7}{\tan^2 x} \right)^2}\sec^8x\diff (\sec x)}\\
 &\uncover<7->{=}&\uncover<7->{\displaystyle\int \left(\alertNoH{7}{\alertNoH{8}{\sec}^2 \alertNoH{8}{x}-1}\right)^2\alertNoH{8}{\sec}^8\alertNoH{8}{x}\diff (\alertNoH{8}{\sec x})} \uncover<8->{&& \!\!\text{Set } \alertNoH{8,16}{u=\sec x}}\\
 &\uncover<8->{=}&\uncover<8->{\displaystyle\int \alertNoH{9}{ \left(1- \alertNoH{8}{u}^2\right)^2}\alertNoH{8}{u}^8\diff \alertNoH{8}{u}}\\
-&\uncover<9->{=}&\uncover<9->{\displaystyle\int\alertNoH{10}{ \left( \alertNoH{9}{1-2u^2+u^4}  \right)u^2} \diff u}\\
-&\uncover<10->{=}&\uncover<10->{\displaystyle\alertNoH{11,12}{ \alertNoH{13,14,15}{\int} \left( \alertNoH{10}{\alertNoH{13}{u^2}-2\alertNoH{14}{u^4}+\alertNoH{15}{u^6}}  \right)\alertNoH{13,14,15}{\diff u}}}\\
-&\uncover<11->{=}& \fcAnswer{12}{\displaystyle \alertNoH{13}{ \frac{\alertNoH{16}{u}^3 }{3}} -2 \alertNoH{14}{ \frac{ \alertNoH{ 16}{u}^5}{5}} + \alertNoH{15}{ \frac{ \alertNoH{ 16}{ u}^7}{ 7}}+C}\\
-\uncover<16->{&=&\displaystyle \frac{ \alertNoH{16}{\sin}^3 \alertNoH{16}{x}}{3}-2\frac{\alertNoH{16}{\sin}^5\alertNoH{16}{x}}{5}+ \frac{\alertNoH{16}{\sin}^7 \alertNoH{16}{x}}{7}+C\quad .}
+&\uncover<9->{=}&\uncover<9->{\displaystyle\int\alertNoH{10}{ \left( \alertNoH{9}{1-2u^2+u^4}  \right)u^8} \diff u}\\
+&\uncover<10->{=}&\uncover<10->{\displaystyle\alertNoH{11,12}{ \alertNoH{13,14,15}{\int} \left( \alertNoH{10}{\alertNoH{13}{u^8}- 2 \alertNoH{14}{ u^{10}} +\alertNoH{15}{u^{12}}}  \right) \alertNoH{13,14,15}{\diff u}}}\\
+&\uncover<11->{=}& \fcAnswer{12}{\displaystyle \alertNoH{13}{ \frac{\alertNoH{16}{u}^9 }{9}} -2 \alertNoH{14}{ \frac{ \alertNoH{ 16}{u}^{11}}{11}} + \alertNoH{15}{ \frac{ \alertNoH{ 16}{ u}^{13}}{ 13}}+C}\\
+\uncover<16->{&=&\displaystyle \frac{ \alertNoH{16}{\sec}^{9} \alertNoH{16}{x}}{9}-2\frac{\alertNoH{16}{\sec}^{11}\alertNoH{16}{x}}{11}+ \frac{\alertNoH{16}{\sec}^{13} \alertNoH{16}{x}}{13}+C\quad .}
 \end{array}
 $
 
-$\int \tan^5 x \sec^9 x \diff x$.
-\begin{itemize}
-\item<2->  We could separate $\sec^2 x$, but that leaves $\sec^5 x$ left over, which doesn't convert easily to $\tan x$. 
-\item<3->  Instead split off $\tan x\sec x$ and express the remaining $\tan^4 x$ in terms of $\sec x$:
-\item<4->  \alert<handout:0| 10>{$\tan^4 x = (\alert<handout:0| 4-5>{\tan^2 x})^2 = (\uncover<5->{\alert<handout:0| 5>{\sec^2 x - 1}})^2$}.
-\item<6->  Now let \alert<handout:0| 6-7,11,15>{$u = \uncover<7->{\sec x}$}, so \alert<handout:0| 8-9,12>{$\diff u = \uncover<9->{\tan x \sec x\diff x}$}.
-\end{itemize}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<10->{%
-\int \alert<handout:0| 10>{\tan^5 x}\sec^7 x \diff x 
-}%
-& \uncover<10->{ = } &%
-\uncover<10->{%
-\int \alert<handout:0| 10>{(\alert<handout:0| 11>{\sec^2 x} - 1)^2}\alert<handout:0| 11>{\sec^6 x}\alert<handout:0| 12>{\sec x\alert<handout:0| 10>{\tan x}\diff x}
-}\\%
-& \uncover<11->{ = } &%
-\uncover<11->{%
-\int (\alert<handout:0| 11>{u^2} - 1)^2\alert<handout:0| 11>{u^6}\alert<handout:0| 12>{\diff u}
-}  \uncover<13->{ = } \uncover<13->{%
-\int (u^{10} - 2u^8 + u^6)\diff u
-}\\%
-& \uncover<14->{ = } &%
-\uncover<14->{%
-\left( \frac{\alert<handout:0| 15>{u^{11}}}{11} - 2\frac{\alert<handout:0| 15>{u^9}}{9} +\frac{\alert<handout:0| 15>{u^7}}{7}\right) + C
-}\\%
-& \uncover<15->{ = } &%
-\uncover<15->{%
-\frac{1}{11}\alert<handout:0| 15>{\sec^{11} x} - \frac{2}{9}\alert<handout:0| 15>{\sec^9 x} + \frac{1}{7}\alert<handout:0| 15>{\sec^7 x} + C
-}%
-\end{eqnarray*}
+
 \end{example}
 \end{frame}
 % end module trig-integrals-ex6
