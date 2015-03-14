@@ -35,7 +35,9 @@
 \newtoggle{answers}
 \toggletrue{answers}
 \toggletrue{solutions}
-\newcommand{\fcProblemRef}{\thetheorem.\arabic*}
+
+\newcommand{\fcProblemRef}{\theproblem.\theenumi}
+\newcommand{\fcSubProblemRef}{\theenumi.\theenumii}
 
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\Re}{\mathrm{Re}}
@@ -1828,7 +1830,7 @@ Combining the above with the fundamental theorem of Calculus yields the definite
 \int\limits_{x=a}^{x=b} f(x) g'(x)\diff x = \left.fg\phantom\int\right|_{x=a}^{x=b} - \int\limits_{x=a}^{x=b} g(x) f'(x)\diff x \quad.
 }
 \end{equation}
-We now discuss when and how to use integration by parts. Suppose we already know the integral of $g(x)$, say $d(G(x))=g(x)\diff x$. Suppose for some reason we consider the integral of $f'(x)\diff x$ to be easier than the integral of $f(x)\diff x$. If we want to integrate $f(x)g(x)\diff x= f(x)d(G(x))$, then we may use integration by parts to get
+We now discuss when and how to use integration by parts. Suppose we already know the integral of $g(x)$, say $\diff (G(x))=g(x)\diff x$. Suppose for some reason we consider the integral of $f'(x)\diff x$ to be easier than the integral of $f(x)\diff x$. If we want to integrate $f(x)g(x)\diff x= f(x)\diff (G(x))$, then we may use integration by parts to get
 \[
 \int f(x)\underbrace{g(x)\diff x}_{=\diff (G(x))}= f(x)g(x)- \int G(x) \underbrace{f'(x)\diff x}_{=\diff (f(x))}\quad .
 \]
@@ -1852,7 +1854,7 @@ Compute $\displaystyle \int x^2 e^x \diff x$.
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int x^2 \underbrace{e^x \diff x}_{d (e^x)} &=& \int x^2 \diff e^x= x^2e^x - \int e^x2x\diff x=  x^2e^x - \int 2x\diff e^x \\
+\displaystyle\int x^2 \underbrace{e^x \diff x}_{\diff  (e^x)} &=& \int x^2 \diff e^x= x^2e^x - \int e^x2x\diff x=  x^2e^x - \int 2x\diff e^x \\
 &=& x^2e^x- 2xe^x+ \int 2e^x \diff x= x^2e^x-2xe^x+2e^x+C\quad .
 \end{array}
 \]
@@ -1862,7 +1864,7 @@ Compute $\displaystyle \int \ln x \diff x $.
 \end{problem}
 \begin{solution}
 \[
-\int \ln x \diff x = x\ln x - \int x d(\ln x)= x\ln x -\int \frac{x}{x}\diff x= x\ln x-x+C\quad .
+\int \ln x \diff x = x\ln x - \int x \diff (\ln x)= x\ln x -\int \frac{x}{x}\diff x= x\ln x-x+C\quad .
 \]
 \end{solution}
 \begin{problem}
@@ -1871,8 +1873,8 @@ Compute $\displaystyle \int \sin x e^x \diff x$.
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int \sin x \underbrace{e^x \diff x}_{=\diff e^x}&=&\displaystyle\sin x e^x - \int e^xd(\sin x)=\sin x e^x - \int \cos x \underbrace{e^x \diff x}_{=\diff e^x}\\
-&=& \displaystyle\sin x e^x - e^x\cos x +\int e^x d(\cos x) \\
+\displaystyle\int \sin x \underbrace{e^x \diff x}_{=\diff e^x}&=&\displaystyle\sin x e^x - \int e^x\diff (\sin x)=\sin x e^x - \int \cos x \underbrace{e^x \diff x}_{=\diff e^x}\\
+&=& \displaystyle\sin x e^x - e^x\cos x +\int e^x \diff (\cos x) \\
 &=& e^x\sin x -e^x\cos x-\int e^x\sin x \diff x\quad .
 \end{array}
 \]
@@ -1884,8 +1886,8 @@ Compute $\displaystyle\int \arctan x \diff x$.
 \begin{solution}
 \[
 \begin{array}{rcl}
-\displaystyle\int \arctan x \diff x &=& x\displaystyle \arctan x - \int x d(\arctan x)= x\arctan x - \int \frac{x}{x^2+1}\diff x\\
-&=& \displaystyle  x\arctan x - \int \frac{\frac{1}2d(x^2)}{x^2+1}=  x\arctan x - \int \frac{\frac{1}2d(x^2+1)}{x^2+1}\\
+\displaystyle\int \arctan x \diff x &=& x\displaystyle \arctan x - \int x \diff(\arctan x)= x\arctan x - \int \frac{x}{x^2+1}\diff x\\
+&=& \displaystyle  x\arctan x - \int \frac{\frac{1}2\diff(x^2)}{x^2+1}=  x\arctan x - \int \frac{\frac{1}2\diff(x^2+1)}{x^2+1}\\
 &=&\displaystyle  x\arctan x - \frac12\ln (x^2+1) +C\quad .
 \end{array}
 \]
@@ -2141,8 +2143,8 @@ We may solve the above linear system using the standard algorithm for solving li
 \displaystyle\int x \diff x &= &\displaystyle \frac{x ^2}2+C\\
 \displaystyle\int \frac{1}{x-1} \diff x &=&\displaystyle  \ln|x-1|+C\\
 \displaystyle\int \frac{x-1}{2x^2+3} \diff x &=& \displaystyle \int\frac{x}{2x^2+3}\diff x -\frac{1}{3}\int \frac{1}{\frac23x^2+1}\diff x\\
-&=& \displaystyle  \int \frac{d(\frac{x^2}2)}{2x^2+3}\diff x-\frac{1}{3} \int \frac{1}{\left(\sqrt{\frac23}x\right)^2+1} d x\\
-&=&\displaystyle  \frac{1}{4} \int \frac{d(2x^2+3)}{2x^2+3}\diff x- \frac{1}{3}\int \frac{\frac{d (\sqrt{\frac23}x)} {\sqrt{\frac23}}} {\left( \sqrt{\frac23}x\right)^2+1} \\
+&=& \displaystyle  \int \frac{\diff\left(\frac{x^2}2\right) }{2x^2+3}\diff x-\frac{1}{3} \int \frac{1}{\left(\sqrt{\frac23}x\right)^2+1} d x\\
+&=&\displaystyle  \frac{1}{4} \int \frac{\diff(2x^2+3)}{2x^2+3}\diff x- \frac{1}{3}\int \frac{\frac{d (\sqrt{\frac23}x)} {\sqrt{\frac23}}} {\left( \sqrt{\frac23}x\right)^2+1} \\
 &=&\displaystyle   \frac{1}{4}\ln (2x^2+3)-\frac{\sqrt{6}}{6}\arctan (\sqrt{\frac23}x)+C
 \quad .
 \end{array}
@@ -3435,8 +3437,8 @@ The length of $C$ is by definition
 Unlike computations of indefinite integrals, where we make variable changes on the fly, when dealing with definite integrals, we may make variable changes only when they are bijective (one-to-one and onto, Section \ref{secInverseFunctionBasics}). By the conditions on the parametrization of the curve we may make a variable change under the definite integral. Suppose first $\frac{\diff t}{\diff s}(s)\geq 0$ and therefore $t(a)=p<q=t(b)$. Therefore
 \[
 \begin{array}{l}
-\phantom{=}\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{\diff t}(t(s))\right)^2+\left(\frac{df_2}{\diff t}(t(s))\right)^2}d(t(s)) \\
-\displaystyle =  \int \limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2+ \frac{df_2}{\diff t}(t(s))^2}d(t(s))\\
+\phantom{=}\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{\diff t}(t(s))\right)^2+\left(\frac{df_2}{\diff t}(t(s))\right)^2}\diff(t(s)) \\
+\displaystyle =  \int \limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2+ \frac{df_2}{\diff t}(t(s))^2}\diff(t(s))\\
 = \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2 + \frac{df_2 }{\diff t}(t(s))^2} \frac{\diff t}{\diff s}\diff s \\
 \displaystyle
 \stackrel{\frac{\diff t}{\diff s}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left( \underbrace{ \frac{\diff t}{\diff s}(s) f_1( t(s)) }_{ \text{chain rule} } \right)^2+ \left( \underbrace{ \frac{ \diff t}{\diff s}(s) \frac{df_2}{\diff t} (t(s))}_{ \text{chain rule}} \right)^2}\diff s \\
@@ -4732,7 +4734,7 @@ converges.
 
 \begin{solution}
 Consider $\frac{1}{x\ln x}$. We have that $\displaystyle f'(x)= -\frac{1}{x^2\ln x}- \frac{1}{x^2(\ln x)^2}<0$ for $x>2$. Therefore the sum converges if and only if $\int\limits_{x=2}^{\infty}\frac{1}{x\ln x}\diff x$ converges. We have that
-\[ \int\limits_{x=2}^{\infty}\frac{1}{x\ln x}\diff x= \int\limits_{x=2}^\infty \frac{1}{\ln x}d(\ln x) = \left.\ln (\ln x)\right|_{x=2}^{\infty}= \lim\limits_{x\to \infty} \ln (\ln x ) - \ln (\ln 2)=\infty
+\[ \int\limits_{x=2}^{\infty}\frac{1}{x\ln x}\diff x= \int\limits_{x=2}^\infty \frac{1}{\ln x}\diff(\ln x) = \left.\ln (\ln x)\right|_{x=2}^{\infty}= \lim\limits_{x\to \infty} \ln (\ln x ) - \ln (\ln 2)=\infty
 \]
 and the integral diverges.
 \end{solution}
