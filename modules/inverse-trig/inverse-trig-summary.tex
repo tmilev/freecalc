@@ -5,19 +5,19 @@ The remaining inverse trigonometric functions aren't used as often:
 \begin{array}{llcrcl}
 y = \Arccsc x &%
 (|x| \geq 1) &%
-\alert<0>{\Leftrightarrow}&%
+\alertNoH{0}{\Leftrightarrow}&%
 \csc y = x &%
 \text{ and } &%
 y\in \left(0,\frac{\pi}{2}\right] \cup \left(\pi , \frac{3\pi}{2} \right] \\%
-\alert<2>{y = \Arcsec x }&%
-\alert<2>{(|x| \geq 1) }&%
-\alert<2>{\Leftrightarrow}&%
-\alert<2>{\sec y = x }&%
-\alert<2>{\text{ and } }&%
-\alert<2>{y\in  \left[0,\frac{\pi}{2}\right) \cup \left[\pi , \frac{3\pi}{2}\right) }\\%
+\alertNoH{2}{y = \Arcsec x }&%
+\alertNoH{2}{(|x| \geq 1) }&%
+\alertNoH{2}{\Leftrightarrow}&%
+\alertNoH{2}{\sec y = x }&%
+\alertNoH{2}{\text{ and } }&%
+\alertNoH{2}{y\in  \left[0,\frac{\pi}{2}\right) \cup \left[\pi , \frac{3\pi}{2}\right) }\\%
 y = \Arccot x &%
 (|x| \in \mathbb{R}) &%
-\alert<0>{\Leftrightarrow}&%
+\alertNoH{0}{\Leftrightarrow}&%
 \cot y = x &%
 \text{ and } &%
 y\in (0,\pi )
@@ -28,12 +28,12 @@ y\in (0,\pi )
 We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \[
 \begin{array}{llcrcl}
-\alert<1>{y = \Arcsec x }&%
-\alert<1>{(|x| \geq 1) }&%
-\alert<1>{\Leftrightarrow }&%
-\alert<1>{\sec y = x }&%
-\alert<1>{\text{ and } }&%
-\alert<1>{y\in\only<1-6>{\alert<1-6>{\textbf{?}}} \uncover<7->{\alert<7>{ \left[0,\frac{\pi}{2}\right) \cup \left[\pi , \frac{3\pi}{2}\right) }}}
+\alertNoH{1}{y = \Arcsec x }&%
+\alertNoH{1}{(|x| \geq 1) }&%
+\alertNoH{1}{\Leftrightarrow }&%
+\alertNoH{1}{\sec y = x }&%
+\alertNoH{1}{\text{ and } }&%
+\alertNoH{1}{y\in\only<1-6>{\alertNoH{1-6}{\textbf{?}}} \uncover<7->{\alertNoH{7}{ \left[0,\frac{\pi}{2}\right) \cup \left[\pi , \frac{3\pi}{2}\right) }}}
 \end{array}
 \]
 
@@ -44,7 +44,7 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \tiny
 \fcAxesStandard{-5.15}{-5.15}{5.15}{5.15}
 
-\uncover<1-7>{
+\uncover<handout:0|1-7>{
 \psline[linestyle=dashed](-1.570796327,-5 )(-1.570796327,5)
 \psline[linestyle=dashed](1.570796327,-5 )(1.570796327,5)
 \psline[linestyle=dashed](4.71238898,-5 )(4.71238898,5)
@@ -73,11 +73,11 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \uncover<9->{
 \rput[tr](4.9,1.15){$y=\Arcsec x$}
 }
-\uncover<2-3>{%
+\uncover<handout:0|2-3>{%
 %Function formula: 1/\cos{}x
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-4.511031}{-1.772154}{x 57.29578 mul cos -1 exp }
 }%
-\uncover<2-3>{%
+\uncover<handout:0|2-3>{%
 %Function formula: 1/\cos{}x
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1.369438}{0}{x 57.29578 mul cos -1 exp }
 }%uncover
@@ -86,7 +86,7 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \psplot[linecolor=gray!40, linestyle=dotted, plotpoints=1000]{-1.369438}{0}{x 57.29578 mul cos -1 exp }
 \fcFullDot{0}{1}
 }%
-\uncover<2-8>{%
+\uncover<handout:0|2-8>{%
 %Function formula: 1/\cos{}x
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{1.369438}{x 57.29578 mul cos -1 exp }
 }%
@@ -94,7 +94,7 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 %Function formula: 1/\cos{}x
 \psplot[linecolor=gray, plotpoints=1000]{0}{1.369438}{x 57.29578 mul cos -1 exp }
 }%
-\uncover<2-4,6>{
+\uncover<handout:0|2-4,6>{
 %Function formula: 1/\cos{}x
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{1.772154}{3.141592654}{x 57.29578 mul cos -1 exp }
 }%
@@ -103,7 +103,7 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \psplot[linecolor=gray!40, linestyle=dotted, plotpoints=1000]{1.772154}{3.141592654}{x 57.29578 mul cos -1 exp }
 \fcFullDot{3.141592654}{-1}
 }%
-\uncover<2-3,5,7,8>{
+\uncover<handout:0|2-3,5,7,8>{
 %Function formula: 1/\cos{}x
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{3.141592654}{4.511031}{x 57.29578 mul cos -1 exp }
 }%uncover
@@ -112,7 +112,7 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \psplot[linecolor=gray,  plotpoints=1000]{3.141592654}{4.511031}{x 57.29578 mul cos -1 exp }
 }%uncover
 
-\uncover<4,6>{
+\uncover<handout:0|4,6>{
 %Function formula: 1/\cos{}x
 \psplot[linecolor=gray!40, linestyle=dotted, plotpoints=1000]{3.141592654}{4.511031}{x 57.29578 mul cos -1 exp }
 \fcFullDot{3.141592654}{-1}
@@ -143,7 +143,7 @@ We will however make use of $\Arcsec x$: we discuss in detail its domain.
 \column{0.57\textwidth}
 \begin{itemize}
 \item<2-> \noindent Plot $\sec x$.
-\item<3-> Restrict domain to make one-to-one: Two common choices: \alert<4>{$x\in \left[0, \frac{\pi}{2}\right)\cup\left(\frac{\pi}{2}, \pi \right] $} and \alert<5>{$x\in \left[0, \frac{\pi}{2} \right) \cup \left[\pi,\frac{3\pi}{2} \right) $}.
+\item<3-> Restrict domain to make one-to-one: Two common choices: \alertNoH{4}{$x\in \left[0, \frac{\pi}{2}\right)\cup\left(\frac{\pi}{2}, \pi \right] $} and \alertNoH{5}{$x\in \left[0, \frac{\pi}{2} \right) \cup \left[\pi,\frac{3\pi}{2} \right) $}.
 
 \item<6-> $x\in \left[0, \frac{\pi}{2}\right)\cup\left(\frac{\pi}{2}, \pi \right] $ is good because the domain is easiest to remember: an interval without a point. \textbf{NOT our choice.}
 

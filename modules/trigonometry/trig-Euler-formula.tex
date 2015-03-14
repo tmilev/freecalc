@@ -9,8 +9,8 @@ where $e \approx 2.71828$ is Euler's/Napier's constant .
 \end{theorem}
 \begin{proof} 
 Recall $n!=1\cdot2\cdot 3\cdot \dots \cdot(n-1)\cdot n$. Borrow from Calc II the f-las:
-\only<1>{\\ \vspace{5cm} ~}
-\only<2>{
+\onlyNoH{1}{\vskip 3.7cm }
+\only<handout:1|2>{
 \[
 \sin x= x-\frac{x^3}{3!}+\frac{x^5}{5!}-\dots +\frac{(-1)^nx^{2n+1}}{(2n+1)!}+\dots 
 \]
@@ -21,30 +21,31 @@ Recall $n!=1\cdot2\cdot 3\cdot \dots \cdot(n-1)\cdot n$. Borrow from Calc II the
 e^{x}=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots + \frac{x^n}{n!}+\dots 
 \]
 } 
-\only<3->{
+\only<handout:2|3->{
 \\~\\
 \begin{tabular}{rclllllll}
-$\uncover<6->{\alert<6>{i}}\sin x$ & $ =$  & & $\phantom{+}\uncover<6->{\alert<6>{i}} x$ & &$-\uncover<6->{\alert<6>{i}}\frac{~~x^3~~}{3!}$ & & $+\uncover<6->{\alert<6>{i}}\frac{~~x^5~~}{5!}$ & $-\dots$ \\
+$\uncover<6->{\alertNoH{6}{i}}\sin x$ & $ =$  & & $\phantom{+}\uncover<6->{\alertNoH{6}{i}} x$ & &$-\uncover<6->{\alertNoH{6}{i}}\frac{~~x^3~~}{3!}$ & & $+\uncover<6->{\alertNoH{6}{i}}\frac{~~x^5~~}{5!}$ & $-\dots$ \\
 \\
 $\cos x$ & $ =$  & $1$ &  & $-\frac{~~~x^{2}~~~}{2!}$ & & $+\frac{~~~x^4~~~}{4!}$ &  & $+\dots$ \\\hline
-$e^{\only<3>{z} \only<4->{ \alert<4>{ix}} }$& $= $ & $1$ 
-& $+\only<3>{z} \only<4->{\alert<4>{ix}}  $
-&$\only<-4>{+}\only<5->{\alert<5>{-}} \frac{ 
-\only<3>{z^2}\only<4>{\alert<4>{(ix)^2}}\only<5->{\alert<5>{~~x^2~~}}  \vphantom{(ix)^2}
+$e^{\onlyNoH{3}{z} \only<4->{ \alertNoH{4}{ix}} }$& $= $ & $1$ 
+& $+\onlyNoH{3}{z} \only<4->{\alertNoH{4}{ix}}  $
+&$\onlyNoH{-4}{+}\only<5->{\alertNoH{5}{-}} \frac{ 
+\onlyNoH{3}{z^2}\onlyNoH{4}{\alertNoH{4}{(ix)^2}}\only<5->{\alertNoH{5}{~~x^2~~}}  \vphantom{(ix)^2}
 }{2!}$ 
-&$\only<-4>{+}\only<5->{\alert<5>{-i}} \frac{ 
-\only<3>{z^3}\only<4>{\alert<4>{(ix)^3}}\only<5->{\alert<5>{~x^3~}}  \vphantom{(ix)^3}
+&$\onlyNoH{-4}{+}\only<5->{\alertNoH{5}{-i}} \frac{ 
+\onlyNoH{3}{z^3}\onlyNoH{4}{\alertNoH{4}{(ix)^3}}\only<5->{\alertNoH{5}{~x^3~}}  \vphantom{(ix)^3}
 }{3!}$ 
 & $+ \frac{ 
-\only<3>{z^4}\only<4>{\alert<4>{(ix)^4}}\only<5->{\alert<5>{~~~x^4~~~}}  \vphantom{(ix)^4}
+\onlyNoH{3}{z^4}\onlyNoH{4}{\alertNoH{4}{(ix)^4}}\only<5->{\alertNoH{5}{~~~x^4~~~}}  \vphantom{(ix)^4}
 }{4!}$ 
-&$+ \uncover<5->{\alert<5>{i}}\frac{ 
-\only<3>{z^5}\only<4>{\alert<4>{(ix)^5}}\only<5->{\alert<5>{~~x^5~~}}  \vphantom{(ix)^4}
+&$+ \uncover<5->{\alertNoH{5}{i}}\frac{ 
+\onlyNoH{3}{z^5}\onlyNoH{4}{\alertNoH{4}{(ix)^5}}\only<5->{\alertNoH{5}{~~x^5~~}}  \vphantom{(ix)^4}
 }{5!}$ 
-& $\only<-4>{+}\only<5->{\alert<5>{-}}\dots$ 
+& $\onlyNoH{-4}{+}\only<5->{\alertNoH{5}{-}}\dots$ 
 \end{tabular}
 \\~ \\~\\
-\alert<3>{Rearrange.} \uncover<4->{\alert<4>{Plug-in ${z=ix}$}.} \uncover<5->{\alert<5>{Use ${i^2=-1}$.}} \uncover<6->{\alert<6>{Multiply $\sin x$ by $i$}.} \uncover<7->{\alert<7>{Add to get $e^{ix}=\cos x+i\sin x$}.}
+\alertNoH{3}{Rearrange.} \uncover<4->{\alertNoH{4}{Plug-in ${z=ix}$}.} \uncover<5->{\alertNoH{5}{Use ${i^2=-1}$.}} \uncover<6->{\alertNoH{6}{Multiply $\sin x$ by $i$}.} \uncover<7->{\alertNoH{7}{Add to get $e^{ix}=\cos x+i\sin x$}.}
 }
 \end{proof}
+\vskip 5cm 
 \end{frame}

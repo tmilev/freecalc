@@ -1,7 +1,7 @@
 % begin module FTC1-proof
 \begin{frame}
 \begin{theorem}[The Fundamental Theorem of Calculus part 1]
-Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \displaystyle \int_a^x f(t) \diff t$ for all $x\in [a,b]$. Then $G$ is differentiable and $G'(x) = f(x)$.
+Let \alertNoH{2}{$f$ be a function continuous on $[a, b]$} and let $G(x) = \displaystyle \int_a^x f(t) \diff t$ for all $x\in [a,b]$. Then $G$ is differentiable and $G'(x) = f(x)$.
 \end{theorem}
 \begin{proof}[Proof]
 \begin{columns}
@@ -104,26 +104,26 @@ Let \alert<2>{$f$ be a function continuous on $[a, b]$} and let $G(x) = \display
 \column{0.73\textwidth}
 
 \only<1-15>{
-\uncover<2->{\alert<2>{Let $\varepsilon >0$. There \alert<3>{exists $\delta$} such that $\alert<8>{\alert<6>{|\alert<5>{f(t)}-\alert<4>{f(x)}|} < \varepsilon}$ for all $t$ for which $|x-t|<\delta$}.} \uncover<3->{\alert<7>{Then for all $0<h<\delta$:} }
+\uncover<2->{\alertNoH{2}{Let $\varepsilon >0$. There \alertNoH{3}{exists $\delta$} such that $\alertNoH{8}{\alertNoH{6}{|\alertNoH{5}{f(t)}-\alertNoH{4}{f(x)}|} < \varepsilon}$ for all $t$ for which $|x-t|<\delta$}.} \uncover<3->{\alertNoH{7}{Then for all $0<h<\delta$:} }
 \[
 \begin{array}{rlll|l}
-\uncover<8->{\alert<8>{\varepsilon} &\alert<8>{ > \hphantom{ \int_{ x}^{ x+h}(} f(t)-f(x) } & \alert<8>{ > - \varepsilon }  &\uncover<9->{&\text{integrate}} }\\
-\uncover<9->{h\varepsilon  & >\alert<12>{ \alert<10,11>{\int_{x }^{x+h}} ( \alert<10>{ f(t)}-\alert<11>{f(x)})\alert<10,11>{ dt} }&>-h\varepsilon &\uncover<13->{& \text{divide~by~}\alert<13>{h }} } \\
-\uncover<13->{\varepsilon& >\frac{\alert<14>{\int_{x }^{x+h}}(f(t) -\alert<14>{f(x)}) \alert<14>{dt}}{ \alert<13,14>{ h} }& >-\varepsilon}\\
-\uncover<14->{\alert<15>{\varepsilon}&\alert<15>{>} \frac{\int_{x }^{x+h}f(t)dt }{h}- \alert<14>{\frac{h f(x)}{h}} &\alert<15>{ > - \varepsilon}}\\
+\uncover<8->{\alertNoH{8}{\varepsilon} &\alertNoH{8}{ > \hphantom{ \int_{ x}^{ x+h}(} f(t)-f(x) } & \alertNoH{8}{ > - \varepsilon }  &\uncover<9->{&\text{integrate}} }\\
+\uncover<9->{h\varepsilon  & >\alertNoH{12}{ \alertNoH{10,11}{\int_{x }^{x+h}} ( \alertNoH{10}{ f(t)}-\alertNoH{11}{f(x)})\alertNoH{10,11}{ dt} }&>-h\varepsilon &\uncover<13->{& \text{divide~by~}\alertNoH{13}{h }} } \\
+\uncover<13->{\varepsilon& >\frac{\alertNoH{14}{\int_{x }^{x+h}}(f(t) -\alertNoH{14}{f(x)}) \alertNoH{14}{dt}}{ \alertNoH{13,14}{ h} }& >-\varepsilon}\\
+\uncover<14->{\alertNoH{15}{\varepsilon}&\alertNoH{15}{>} \frac{\int_{x }^{x+h}f(t)dt }{h}- \alertNoH{14}{\frac{h f(x)}{h}} &\alertNoH{15}{ > - \varepsilon}}\\
 \uncover<15->{\varepsilon&\color{red} >  \left| \color{black} \frac{\int_{x }^{x+h}f(t)dt }{h} - f(x)\color{red} \right|}\\
 \end{array}
 \]
 }
 
 \only<16->{
-\uncover<17->{In analogous fashion  \alert<17>{we can handle the case $h<0$}, to prove:} \alert<23>{ for any $\varepsilon >0$ there exists $\delta>0$ so that for \\ all $\only<16>{0<h\phantom{|}} \alert<17>{\only<17->{\phantom{0<}|h|}} \alert<17>{<\delta}$ we have $\left| \frac{\int_{x }^{x+h}f(t)dt }{h}-f(x)\right|<\varepsilon$.}
+\uncover<17->{In analogous fashion  \alertNoH{17}{we can handle the case $h<0$}, to prove:} \alertNoH{23}{ for any $\varepsilon >0$ there exists $\delta>0$ so that for \\ all $\only<16>{0<h\phantom{|}} \alertNoH{17}{\only<17->{\phantom{0<}|h|}} \alertNoH{17}{<\delta}$ we have $\left| \frac{\int_{x }^{x+h}f(t)dt }{h}-f(x)\right|<\varepsilon$.}
 
 \[
 \begin{array}{l}
-\uncover<18->{\displaystyle G'(x)=\lim\limits_{h\to 0}\frac{ \alert<20>{ G(x+h)} -\alert<21>{G(x)}}{h} }\\
-\uncover<19->{\displaystyle \phantom{ G'(x) }= \lim\limits_{h\to 0}  \frac{ \alert<20>{ \alert<22>{\int_{a}^{x+h}} f(t)dt} - \alert<21>{ \alert<22>{\int_{a}^{x}} f(t)dt}}{h} }\\
-\uncover<22->{\displaystyle \phantom{ G'(x) }= \alert<23>{\lim\limits_{h\to 0}\frac{\alert<22>{\int_{x}^{x+h}}f(t)dt }{h} \uncover<23->{=f(x)}}}
+\uncover<18->{\displaystyle G'(x)=\lim\limits_{h\to 0}\frac{ \alertNoH{20}{ G(x+h)} -\alertNoH{21}{G(x)}}{h} }\\
+\uncover<19->{\displaystyle \phantom{ G'(x) }= \lim\limits_{h\to 0}  \frac{ \alertNoH{20}{ \alertNoH{22}{\int_{a}^{x+h}} f(t)dt} - \alertNoH{21}{ \alertNoH{22}{\int_{a}^{x}} f(t)dt}}{h} }\\
+\uncover<22->{\displaystyle \phantom{ G'(x) }= \alertNoH{23}{\lim\limits_{h\to 0}\frac{\alertNoH{22}{\int_{x}^{x+h}}f(t)dt }{h} \uncover<23->{=f(x)}}}
 \end{array}
 \]
 
