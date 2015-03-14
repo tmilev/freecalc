@@ -2,12 +2,12 @@
 \frametitle{Linear substitutions leading to block IIa }
 Building block IIa: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
 
-\uncover<2->{\alert<2>{``Theoretical way''} to solve example below: transform to IIa; this \alert<2>{is slow}. } \uncover<3->{ \alert<3>{\textbf{Feel free to skip slide, we will redo in next slide with a shortcut.}}}
+\uncover<2->{\alertNoH{2}{``Theoretical way''} to solve example below: transform to IIa; this \alertNoH{2}{is slow}. } \uncover<3->{ \alertNoH{3}{\textbf{Feel free to skip slide, we will redo in next slide with a shortcut.}}}
 \begin{example}
 \[
 \renewcommand{\arraystretch}{0}
 \begin{array}{r{c}ll|l}
- \int \frac{ x }{2x^2+3} 
+ \int \frac{ x }{2x^2+3}
 \diff x \uncover<4->{
 &=& \int\frac{x}{3\left(\frac{2}{3} x^2+1\right)} \diff x = \int\frac{x}{3\left(\left(\sqrt{\frac{2}{3}} x\right)^2+1\right)} \diff x\\
 &=& \frac{3}{2}\int\frac{\sqrt{\frac{2}{3}} x}{3\left(\left(\sqrt{\frac{2}{3}} x\right)^2+1\right)} \diff \left( \sqrt{\frac{2}{3}}x \right)  && \text{Set } u=\sqrt{\frac{2}{3}}x\\
@@ -39,11 +39,11 @@ The example below can be done directly, without transforming to block IIa.
 \begin{example}
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{\alert<2>{ x} }{2x^2+3} \alert<2>{ \diff x} \uncover<2->{&=&\displaystyle \int\frac{1}{2x^2+3} \alert<2,3>{ \diff \left( \frac{x^2}{2} \right)}} \\
-\uncover<3->{&=&\displaystyle \int\frac{1}{\alert<5>{2x^2+3}} \alert<3,4>{\diff} \left(\frac{\alert<5>{\alert<3>{ 2x^2} \uncover<4->{\alert<4>{+3}}} }{ \alert<3>{4}}\right)} \uncover<5->{&&\text{Set } \alert<5,7>{ u=2x^2+3} } \\
-\uncover<5->{&=&\displaystyle \frac{1}{4}\alert<6>{ \int \frac{1}{\alert<5>{u}}\diff \alert<5>{u}}}\\
-\uncover<6->{&=&\displaystyle \frac{1}{4}\alert<6>{ \ln \alert<7>{|u|}}+C}\\
-\uncover<7->{&=&\displaystyle \frac{1}{4}\ln (\alert<7>{2x^2+3})+C}
+\displaystyle \int \frac{\alertNoH{2}{ x} }{2x^2+3} \alertNoH{2}{ \diff x} \uncover<2->{&=&\displaystyle \int\frac{1}{2x^2+3} \alertNoH{2,3}{ \diff \left( \frac{x^2}{2} \right)}} \\
+\uncover<3->{&=&\displaystyle \int\frac{1}{\alertNoH{5}{2x^2+3}} \alertNoH{3,4}{\diff} \left(\frac{\alertNoH{5}{\alertNoH{3}{ 2x^2} \uncover<4->{\alertNoH{4}{+3}}} }{ \alertNoH{3}{4}}\right)} \uncover<5->{&&\text{Set } \alertNoH{5,7}{ u=2x^2+3} } \\
+\uncover<5->{&=&\displaystyle \frac{1}{4}\alertNoH{6}{ \int \frac{1}{\alertNoH{5}{u}}\diff \alertNoH{5}{u}}}\\
+\uncover<6->{&=&\displaystyle \frac{1}{4}\alertNoH{6}{ \ln \alertNoH{7}{|u|}}+C}\\
+\uncover<7->{&=&\displaystyle \frac{1}{4}\ln (\alertNoH{7}{2x^2+3})+C}
 \end{array}
 \]
 
