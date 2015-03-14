@@ -1,25 +1,25 @@
 % begin module integration-by-parts-ex4
 \begin{frame}
-\alert<4,5,12,13>{Integration by parts:} $\displaystyle \int \alert<6,14>{u} \diff \alert<7,15>{v} = \alert<6 ,14>{ u} \alert<7,15>{v} - \int \alert<7,15>{v} \diff \alert<6,14>{u}.$
+\alertNoH{4,5,12,13}{Integration by parts:} $\displaystyle \int \alertNoH{6,14}{u} \diff \alertNoH{7,15}{v} = \alertNoH{6 ,14}{ u} \alertNoH{7,15}{v} - \int \alertNoH{7,15}{v} \diff \alertNoH{6,14}{u}.$
 
 
-\begin{example} 
+\begin{example}
 $
 \begin{array}{rcl}
-\displaystyle \alert<22>{ \int \alert<2,3>{e^x} \sin x \alert<2,3>{\diff x}}
-\only<1-20>{%
-&\alert<0>{=}&\displaystyle \uncover<2->{ \alert<4,5>{\int \alert<6>{\sin x}~ \alert<2,3>{\diff \left(\alert<7>{\fcAnswer{3}{ e^x}} \right)}}} \\
-&\uncover<4->{\alert<4,5>{=}} &\displaystyle \fcAnswer{5}{ \alert<6>{(\sin x)}\alert<7>{e^x} -\int \alert<7>{e^x} \alert<8,9>{\diff (\alert<6>{\sin x})}} \\
-\uncover<8->{ &\alert<0>{=}&\displaystyle e^x \sin x - \int \alert<10,11>{e^x}\fcAnswer{9}{ \cos x \alert<10,11>{\diff x}}} \\
-\uncover<10->{&\alert<0>{=}&\displaystyle  e^x\sin x  - \alert<12,13>{ \int \alert<14>{\cos x} \alert<10,11>{ \diff \left( \alert<15>{\fcAnswer{11}{e^x}}\right)}}}\\
-\uncover<12->{&\alert<0>{=}&\displaystyle e^x \sin x  \alert<16>{-} \left( \fcAnswer{13}{ (\alert<14>{\cos x}) \alert<15>{ e^x} \alert<16>{-}  \int \alert<15>{e^x} \alert<17,18>{\diff (\alert<14>{\cos x})}} \right)} \\
-\uncover<16->{&\alert<0>{=}&\displaystyle e^x\sin x - \cos x e^x  \alert<16>{+} \int e^x \uncover<16-17>{\alert<17>{ \textbf{?}}} \uncover<18->{\alert<18>{(\alert<19>{-} \sin x)\diff x}}}  \\
+\displaystyle \alertNoH{22}{ \int \alertNoH{2,3}{e^x} \sin x \alertNoH{2,3}{\diff x}}
+\only<handout:1|1-20>{%
+&\alertNoH{0}{=}&\displaystyle \uncover<2->{ \alertNoH{4,5}{\int \alertNoH{6}{\sin x}~ \alertNoH{2,3}{\diff \left(\alertNoH{7}{\fcAnswer{3}{ e^x}} \right)}}} \\
+&\uncover<4->{\alertNoH{4,5}{=}} &\displaystyle \fcAnswer{5}{ \alertNoH{6}{(\sin x)}\alertNoH{7}{e^x} -\int \alertNoH{7}{e^x} \alertNoH{8,9}{\diff (\alertNoH{6}{\sin x})}} \\
+\uncover<8->{ &\alertNoH{0}{=}&\displaystyle e^x \sin x - \int \alertNoH{10,11}{e^x}\fcAnswer{9}{ \cos x \alertNoH{10,11}{\diff x}}} \\
+\uncover<10->{&\alertNoH{0}{=}&\displaystyle  e^x\sin x  - \alertNoH{12,13}{ \int \alertNoH{14}{\cos x} \alertNoH{10,11}{ \diff \left( \alertNoH{15}{\fcAnswer{11}{e^x}}\right)}}}\\
+\uncover<12->{&\alertNoH{0}{=}&\displaystyle e^x \sin x  \alertNoH{16}{-} \left( \fcAnswer{13}{ (\alertNoH{14}{\cos x}) \alertNoH{15}{ e^x} \alertNoH{16}{-}  \int \alertNoH{15}{e^x} \alertNoH{17,18}{\diff (\alertNoH{14}{\cos x})}} \right)} \\
+\uncover<16->{&\alertNoH{0}{=}&\displaystyle e^x\sin x - \cos x e^x  \alertNoH{16}{+} \int e^x \fcAnswerUncover{16}{18}{ ( \alertNoH{ 19}{-} \sin x)\diff x} }  \\
 } %only<1-21>
-\uncover<19->{ &\alert<20,21>{=}&\alert<20,21>{ \displaystyle e^x\sin x - \cos x e^x  \alert<22>{ \alert<19>{-}\int e^x \sin x \diff x}}} \\ 
-\displaystyle \uncover<22->{ \alert<22>{\alert<23>{2}\int e^x \sin x \diff x} &\alert<0>{=}&\displaystyle e^x\sin x - \cos x e^x
+\uncover<19->{ &\alertNoH{20,21}{=}&\alertNoH{20,21}{ \displaystyle e^x\sin x - \cos x e^x  \alertNoH{22}{ \alertNoH{ 19}{-}\int e^x \sin x \diff x}}} \\
+\displaystyle \uncover<handout:2|22->{ \alertNoH{22}{\alertNoH{23}{2}\int e^x \sin x \diff x} &\alertNoH{0}{=}&\displaystyle e^x\sin x - \cos x e^x
 }
 \\
-\uncover<23->{\displaystyle \int e^x \sin x \diff x &\alert<0>{=}&\displaystyle \frac{1}{\alert<23>{2}}\left(e^x\sin x - \cos x e^x\right) \uncover<24->{\alert<24>{+C}}
+\uncover<handout:2|23->{\displaystyle \int e^x \sin x \diff x &\alertNoH{ 0 }{ =}&\displaystyle \frac{1}{ \alertNoH{23}{2} }\left( e^x\sin x - \cos x e^x\right) \uncover<24->{\alertNoH{24}{+C}}
 }
 \end{array}
 $

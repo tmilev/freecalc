@@ -1,19 +1,19 @@
 %module FTC part1 solving problems.
 \begin{frame}
 \begin{theorem}
-Let $A,B$-numbers, $a(x), b(x)$ -differentiable functions with $A<a(x)<B$, $A<b(x)<B$. Let $f$ - continuous on $[A,B]$  and $\displaystyle G(x)=\int_{a(x)}^{b(x)} f(t)dt$. Then  $ \alert<11>{G'(x)=f(b(x))b'(x)-f(a(x))a'(x)}$.
+Let $A,B$-numbers, $a(x), b(x)$ -differentiable functions with $A<a(x)<B$, $A<b(x)<B$. Let $f$ - continuous on $[A,B]$  and $\displaystyle G(x)=\int_{a(x)}^{b(x)} f(t)dt$. Then  $ \alertNoH{11}{G'(x)=f(b(x))b'(x)-f(a(x))a'(x)}$.
 \end{theorem}
 \begin{proof}
-\uncover<2->{\alert<6>{Let $c\in (A, B)$}.} \uncover<3->{Set $\alert<7>{\displaystyle h(u)=\int_{c}^{u}f(t)dt}$.} \uncover<4->{FTC part 1 states that $h'(u)=f(u)$.} 
+\uncover<2->{\alertNoH{6}{Let $c\in (A, B)$}.} \uncover<3->{Set $\alertNoH{7}{\displaystyle h(u)=\int_{c}^{u}f(t)dt}$.} \uncover<4->{FTC part 1 states that $h'(u)=f(u)$.}
 
 $\begin{array}{rcl}
-\uncover<5->{\displaystyle G(x)&=&\displaystyle\int_{a(x)}^{b(x)} f(t)dt}\uncover<6->{= \int_{\alert<6>{c}}^{b(x)} f(t)dt+ \int_{\alert<7>{a(x)}}^{\alert<6>{\alert<7>{c}}} f(t)dt} \\
-\uncover<7->{&=&\displaystyle \int_c^{b(x)} f(t)dt\alert<7>{-}\int_{\alert<7>{c}}^{\alert<7>{a(x)}}f(t)dt}\uncover<8->{=\alert<8>{h(b(x))-h(a(x)) } \quad.}
+\uncover<5->{\displaystyle G(x)&=&\displaystyle\int_{a(x)}^{b(x)} f(t)dt}\uncover<6->{= \int_{\alertNoH{6}{c}}^{b(x)} f(t)dt+ \int_{\alertNoH{7}{a(x)}}^{\alertNoH{6}{\alertNoH{7}{c}}} f(t)dt} \\
+\uncover<7->{&=&\displaystyle \int_c^{b(x)} f(t)dt\alertNoH{7}{-}\int_{\alertNoH{7}{c}}^{\alertNoH{7}{a(x)}}f(t)dt}\uncover<8->{=\alertNoH{8}{h(b(x))-h(a(x)) } \quad.}
 \end{array}$
 
 \uncover<9->{Then} \uncover<10->{using the chain rule we get}
 
-$ \uncover<9->{\displaystyle\alert<11>{  G'(x)}= \left(h(b(x))-h(a(x)) \right)'} \uncover<10->{= h'(b(x)) b'(x)-h'(a(x))a'(x)}\uncover<11->{=\alert<11>{f(b(x))b'(x)-f(a(x))a'(x)},}
+$ \uncover<9->{\displaystyle\alertNoH{11}{  G'(x)}= \left(h(b(x))-h(a(x)) \right)'} \uncover<10->{= h'(b(x)) b'(x)-h'(a(x))a'(x)}\uncover<11->{=\alertNoH{11}{f(b(x))b'(x)-f(a(x))a'(x)},}
 $\uncover<11->{ as desired.}
 \end{proof}
 \end{frame}

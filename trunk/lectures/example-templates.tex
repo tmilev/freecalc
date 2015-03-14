@@ -95,7 +95,15 @@
 {#2}%
 {#3}%
 }%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
-\newcommand{\alertNoH}[2]{\alert<#1>{#2}}
+\newcommand{\alertNoH}[2]{\alert<handout:0|#1>{#2}}
+%code blocks regular expression that replaces all strings of the form \alert<a> where a does not contain the | character by \alertNoH{a}:
+%Find:
+%\\alert<\([^>^|]*\)>
+%Replace:
+%\\alertNoH{\1}
+
+
+\newcommand{\onlyNoH}[2]{\only<handout:0|#1>{#2}}
 %
 %  An example of logarithmic differentiation of a function with a
 %  variable base and exponent.
@@ -791,8 +799,8 @@ f'(x)%
 $
 \begin{array}{rclll}
 \alert<1-| handout:0>{\left(g(h(x))\right)'}&\alert<1-| handout:0>{=}&\alert<1-| handout:0>{g'(h(x))\cdot  h'(x)}&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \\
-(g(u))'&\alert<0>{=}&g'(u) u'&\text{where } u=h(x)& \text{(notation 2)}\\
-\displaystyle\frac{\diff y}{\diff x} &\alert<0>{=}& \displaystyle\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
+(g(u))'&\alert<handout:0|0>{=}&g'(u) u'&\text{where } u=h(x)& \text{(notation 2)}\\
+\displaystyle\frac{\diff y}{\diff x} &\alert<handout:0|0>{=}& \displaystyle\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
 \end{array}
 $
 }
@@ -863,9 +871,9 @@ f'(x)%
 {\renewcommand{\arraystretch}{1.2}
 $
 \begin{array}{rclll}
-\alert<0>{\left(g(h(x))\right)'}&\alert<0>{=}&g'(h(x))  \cdot  h'(x)&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~} \\
-\alert<1->{(g(u))'}&\alert<1->{=}&\alert<1->{g'(u) u'}&\text{where } u=h(x)& \text{(notation 2)}\\
-\displaystyle\frac{\diff y}{\diff x} &\alert<0>{=}& \displaystyle\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
+\alertNoH{0}{\left(g(h(x))\right)'}&\alertNoH{0}{=}&g'(h(x))  \cdot  h'(x)&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~} \\
+\alertNoH{1-}{(g(u))'}&\alertNoH{1-}{=}&\alertNoH{1-}{g'(u) u'}&\text{where } u=h(x)& \text{(notation 2)}\\
+\displaystyle\frac{\diff y}{\diff x} &\alertNoH{0}{=}& \displaystyle\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
 \end{array}
 $
 }
@@ -935,9 +943,9 @@ f'(x)%
 {\renewcommand{\arraystretch}{1.2}
 $
 \begin{array}{rclll}
-\alert<0>{\left(g(h(x))\right)'}&\alert<0>{=}&g'(h(x))  \cdot  h'(x)&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~} \\
-(g(u))'&\alert<0>{=}&g'(u) u'&\text{where } u=h(x)& \text{(notation 2)}\\
-\displaystyle\alert<1->{\frac{\diff y}{\diff x}}&\alert<1->{=}&\displaystyle\alert<1->{\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x}} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
+\alertNoH{0}{\left(g(h(x))\right)'}&\alertNoH{0}{=}&g'(h(x))  \cdot  h'(x)&& \text{(notation 1)} {~~~~~~~~~~~~~~~~~~~~} \\
+(g(u))'&\alertNoH{0}{=}&g'(u) u'&\text{where } u=h(x)& \text{(notation 2)}\\
+\displaystyle\alertNoH{1-}{\frac{\diff y}{\diff x}}&\alertNoH{1-}{=}&\displaystyle\alertNoH{1-}{\frac{\diff y}{\diff u}  \frac{\diff u}{\diff x}} &\text{where } y=g(u)& \text{(notation 3)}\quad.\\
 \end{array}
 $
 }

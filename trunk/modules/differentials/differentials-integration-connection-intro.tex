@@ -14,22 +14,22 @@
 /fa 1 dict begin /x leftEndPt def theFunctioN end def
 /fb 1 dict begin /x rightEndPt def theFunctioN end def
 }%
-\uncover<1-2>{%
+\uncover<handout:0|1-2>{%
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{%
 \psplot{leftEndPt}{rightEndPt}{theFunctioN}%
 \psline(! rightEndPt fb)(! rightEndPt 0)(! leftEndPt 0) (! leftEndPt fa)%
 }%
 \psplot[linecolor=\fcColorGraph]{leftEndPt}{rightEndPt}{theFunctioN}%
 }%
-\only<3>{%
+\only<handout:0|3>{%
 \fcRiemannSum{0.4}{2.8}{theFunctioN}{4}{0}%
 \fcLengthIndicatorTwo[t]{leftEndPt}{-0.2}{1}{-0.2}{$\vphantom{\overline{X}} \Delta x$}%
 }%
-\only<4>{%
+\only<handout:0|4>{%
 \fcRiemannSum{leftEndPt}{rightEndPt}{theFunctioN}{8}{0}%
 \fcLengthIndicatorTwo[t]{leftEndPt}{-0.2}{0.7}{-0.2}{$\vphantom{\overline{X}} \Delta x$}%
 }%
-\only<5>{%
+\only<handout:0|5>{%
 \fcRiemannSum{leftEndPt}{rightEndPt}{theFunctioN}{12}{0}%
 \fcLengthIndicatorTwo[t]{leftEndPt}{-0.2}{0.6}{-0.2}{$\vphantom{\overline{X}} \Delta x$}%
 }%
@@ -44,17 +44,17 @@
 \end{pspicture}
 \column{0.75\textwidth}
 \begin{itemize}
-\item<1->  $\displaystyle \only<3>{\color{red} } \int \limits^{{\only<3>{\color{black} } b}}_{{\only<3>{\color{black} } a}} \only<3>{\color{black}}  \alert<5>{f( x) }\alert<7>{ \diff x} $ is the definite integral of $f$.
-\item<2-> $\displaystyle\alert<3>{ \int} f(x) \diff x$ = corresponding anti-derivative.
-\item<3-> $\alert<3-6>{\int}$ stands for the \alert<3-6>{limit of a Riemann sum} (sum of \alert<7,8,9>{approximating rectangles}).
+\item<1->  $\displaystyle \only<3>{\color{red} } \int \limits^{{\only<3>{\color{black} } b}}_{{\only<3>{\color{black} } a}} \only<3>{\color{black}}  \alertNoH{5}{f( x) }\alertNoH{7}{ \diff x} $ is the definite integral of $f$.
+\item<2-> $\displaystyle\alertNoH{3}{ \int} f(x) \diff x$ = corresponding anti-derivative.
+\item<3-> $\alertNoH{3-6}{\int}$ stands for the \alertNoH{3-6}{limit of a Riemann sum} (sum of \alertNoH{7,8,9}{approximating rectangles}).
 \end{itemize}
 \end{columns}
 \begin{itemize}
 
-\item<7-> $\alert<7>{\diff x}$ ``encodes''  \alert<3>{the base length} of ``\alert<5>{infinitesimally small}'' approximating rectangle\uncover<8->{, $\alert<8>{f(x)}$ is the \alert<8>{height}.}
+\item<7-> $\alertNoH{7}{\diff x}$ ``encodes''  \alertNoH{3}{the base length} of ``\alertNoH{5}{infinitesimally small}'' approximating rectangle\uncover<8->{, $\alertNoH{8}{f(x)}$ is the \alertNoH{8}{height}.}
 \item<9-> $f(x) \diff x$ is a differential form as discussed already.
-\item<10-> We postponed a formal definition of differential form to another course, but we showed how to compute with those. 
-\item<11-> \alert<11>{This is consistent:} \alert<12>{integrals of equal differential forms are equal} \uncover<13->{(follows from Net Change Theorem (subst. rule)).}
+\item<10-> We postponed a formal definition of differential form to another course, but we showed how to compute with those.
+\item<11-> \alertNoH{11}{This is consistent:} \alertNoH{12}{integrals of equal differential forms are equal} \uncover<13->{(follows from Net Change Theorem (subst. rule)).}
 \end{itemize}
 \end{frame}
 

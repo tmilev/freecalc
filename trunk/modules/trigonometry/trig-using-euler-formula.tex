@@ -2,44 +2,44 @@
 \begin{frame}
 \frametitle{Trigonometric Identities Revisited}
 \begin{itemize}
-\item<alert@5,7,15,21,23> $e^{ix}=\cos x+i\sin x$  \hfill~ (Euler's Formula).
-\item<alert@6,14,22> $e^{ix} e^{iy} = e^{ix+iy}=e^{i(x+y)}$\hfill~ (exponentiation rule: valid for $\mathbb C$).
-\item<alert@12> $e^0=1$ \hfill~(exponentiation rule).
-\item<2->\alert<16>{$\sin (-x) =-\sin x$, $\cos (-x)=\cos x$} \hfill~ (easy to remember).
+\item \alertNoH{5,7,15,21,23}{ $e^{ix}=\cos x+i\sin x$  \hfill~ (Euler's Formula).}
+\item \alertNoH{6,14,22}{ $e^{ix} e^{iy} = e^{ix+iy}=e^{i(x+y)}$\hfill~ (exponentiation rule: valid for $\mathbb C$).}
+\item \alertNoH{12}{ $e^0=1$ \hfill~(exponentiation rule).}
+\item<2->\alertNoH{16}{$\sin (-x) =-\sin x$, $\cos (-x)=\cos x$} \hfill~ (easy to remember).
 \end{itemize}
-\only<2>{\alert<2>{ All trigonometric formulas can be easily derived using the above formulas.} }
+\only<handout:0|2>{\alertNoH{2}{ All trigonometric formulas can be easily derived using the above formulas.} }
 
 \footnotesize
-\only<1-2>{\vspace{10cm}}
+\only<handout:0|1-2>{\vspace{10cm}}
 
 
-\only<3-10>{ %Example1
+\only<handout:1|3-10>{ %Example1
 \footnotesize
 \begin{example}
 \[
 \begin{array}{rcl}
-\alert<9>{\sin (x+y)}&\alert<9>{=}& \alert<9>{\sin x \cos y + \sin y \cos x}\\
-\alert<10>{\cos (x+y)}&\alert<10>{=}& \alert<10>{\cos x \cos y - \sin x \sin y} \quad .
+\alertNoH{9}{\sin (x+y)}&\alertNoH{9}{=}& \alertNoH{9}{\sin x \cos y + \sin y \cos x}\\
+\alertNoH{10}{\cos (x+y)}&\alertNoH{10}{=}& \alertNoH{10}{\cos x \cos y - \sin x \sin y} \quad .
 \end{array}
 \]
 \end{example}
 \begin{proof}
-\uncover<4->{ 
+\uncover<4->{
 \[
-\begin{array}{rcl}
-\alert<5,6>{e^{i(x+y)}}&=&\uncover<5->{\alert<5>{\cos (x+y)+i\sin (x+y)}}\\
+\begin{array}{r@{~}c@{~}l}
+\alertNoH{5,6}{e^{i(x+y)}}&=&\uncover<5->{\alertNoH{5}{\cos (x+y)+i\sin (x+y)}}\\
 
-\uncover<6->{\alert<6,7>{e^{ix} e^{iy}}} &\uncover<6->{=} &\uncover<6->{\cos (x+y)+i\sin (x+y)}\\
- 
-\uncover<7->{\alert<7>{(\cos x+i\sin x)(\cos y+i\sin y)}} &\uncover<7->{=}&\uncover<7->{\cos (x+y)+i\sin (x+y)}\\
+\uncover<6->{\alertNoH{6,7}{e^{ix} e^{iy}}} &\uncover<6->{=} &\uncover<6->{\cos (x+y)+i\sin (x+y)}\\
 
-\uncover<8->{{\alert<10>{\cos x\cos y- \sin x \sin y}+i(\alert<9>{\sin x \cos y +\sin y \cos x)}}} &\uncover<8->{=}&\uncover<8->{\alert<10>{\cos (x+y)}+i\alert<9>{\sin (x+y)}}\\
+\uncover<7->{\alertNoH{7}{(\cos x+i\sin x)(\cos y+i\sin y)}} &\uncover<7->{=}&\uncover<7->{\cos (x+y)+i\sin (x+y)}\\
+
+\uncover<8->{{\alertNoH{10}{\cos x\cos y- \sin x \sin y}+i(\alertNoH{9}{\sin x \cos y +\sin y \cos x)}}} &\uncover<8->{=}&\uncover<8->{\alertNoH{10}{\cos (x+y)}+i\alertNoH{9}{\sin (x+y)}}\\
 \end{array}
 \]
-\uncover<9->{\alert<9>{
-Compare coefficient in front of $i$ 
-} and } 
-\uncover<10->{\alert<10>{
+\uncover<9->{\alertNoH{9}{
+Compare coefficient in front of $i$
+} and }
+\uncover<10->{\alertNoH{10}{
 remaining terms} to get the desired equalities.
 }
 }
@@ -47,20 +47,20 @@ remaining terms} to get the desired equalities.
 \end{proof}
 }
 } %end Example1
-\only<11-18>{ %
+\only<handout:2|11-18>{
 \begin{example}
 \[
-\alert<18>{\sin^2 x+\cos^2x=1}
+\alertNoH{18}{\sin^2 x+\cos^2x=1}
 \]
 \end{example}
 \begin{proof}
 \uncover<12->{ %Example2
 \[
 \begin{array}{rcl}
-\alert<12,18>{1}&\alert<12>{=}&\alert<12>{e^{0}}\\
-&\uncover<13->{=}&\uncover<13->{\alert<14>{ e^{ix-ix}=}}\uncover<14->{\alert<14,15>{ e^{ix} e^{-ix}}=}\uncover<15->{\alert<15>{ (\cos x+i\sin x)(\alert<16>{\cos (-x)+i\sin (-x)})}} \\
-&\uncover<16->{=}&\uncover<16->{(\cos x+i\sin x)(\alert<16>{\cos x-i\sin x})=}\uncover<17->{\cos^2 x -i^2\sin^2x}\\
-&\uncover<18->{\alert<18>{=}}&\uncover<18->{\alert<18>{\cos^2x+\sin^2x}\quad.}
+\alertNoH{12,18}{1}&\alertNoH{12}{=}&\alertNoH{12}{e^{0}}\\
+&\uncover<13->{=}&\uncover<13->{\alertNoH{14}{ e^{ix-ix}=}}\uncover<14->{\alertNoH{14,15}{ e^{ix} e^{-ix}}=}\uncover<15->{\alertNoH{15}{ (\cos x+i\sin x)(\alertNoH{16}{\cos (-x)+i\sin (-x)})}} \\
+&\uncover<16->{=}&\uncover<16->{(\cos x+i\sin x)(\alertNoH{16}{\cos x-i\sin x})=}\uncover<17->{\cos^2 x -i^2\sin^2x}\\
+&\uncover<18->{\alertNoH{18}{=}}&\uncover<18->{\alertNoH{18}{\cos^2x+\sin^2x}\quad.}
 \end{array}
 \]
 }
@@ -70,33 +70,33 @@ remaining terms} to get the desired equalities.
 \vspace{3cm}
 } %end Example2
 
-\only <19->{ %Example3
+\only<handout:3|19->{ %Example3
 \footnotesize
 \begin{example}
 \[
 \begin{array}{rcl}
-\alert<25>{\sin 2x}&\alert<25>{=}& \alert<25>{2\sin x \cos x}\\
-\alert<26>{\cos 2x}&\alert<26>{=}& \alert<26>{\cos^2 x - \sin^2 x } \quad .
+\alertNoH{25}{\sin 2x}&\alertNoH{25}{=}& \alertNoH{25}{2\sin x \cos x}\\
+\alertNoH{26}{\cos 2x}&\alertNoH{26}{=}& \alertNoH{26}{\cos^2 x - \sin^2 x } \quad .
 \end{array}
 \]
 \end{example}
 \begin{proof}
-\uncover<20->{ 
+\uncover<20->{
 \[
 \begin{array}{rcl}
-\alert<21,22>{e^{i(2x)}}&=&\uncover<21->{\alert<21>{\cos 2x+i\sin 2x}}\\
+\alertNoH{21,22}{e^{i(2x)}}&=&\uncover<21->{\alertNoH{21}{\cos 2x+i\sin 2x}}\\
 
-\uncover<22->{\alert<22,23>{e^{ix} e^{ix}}} &\uncover<22->{=} &\uncover<22->{\cos 2x+i\sin 2x}\\
- 
-\uncover<24->{\alert<24>{(\cos x+i\sin x)^2=}} \uncover<23->{\alert<23>{(\cos x+i\sin x)(\cos x+i\sin x)}} &\uncover<23->{=}&\uncover<23->{\cos 2x+i\sin 2x}\\
+\uncover<22->{\alertNoH{22,23}{e^{ix} e^{ix}}} &\uncover<22->{=} &\uncover<22->{\cos 2x+i\sin 2x}\\
 
-\uncover<24->{ \alert<24>{\alert<26>{\cos^2 x- \sin^2 x  }+i(\alert<25>{2\sin x \cos x})} } &\uncover<24->{=}&\uncover<24->{\alert<26>{\cos 2x}+i\alert<25>{\sin 2x}}\\
+\uncover<24->{\alertNoH{24}{(\cos x+i\sin x)^2=}} \uncover<23->{\alertNoH{23}{(\cos x+i\sin x)(\cos x+i\sin x)}} &\uncover<23->{=}&\uncover<23->{\cos 2x+i\sin 2x}\\
+
+\uncover<24->{ \alertNoH{24}{\alertNoH{26}{\cos^2 x- \sin^2 x  }+i(\alertNoH{25}{2\sin x \cos x})} } &\uncover<24->{=}&\uncover<24->{\alertNoH{26}{\cos 2x}+i\alertNoH{25}{\sin 2x}}\\
 \end{array}
 \]
-\uncover<25->{\alert<25>{
-Compare coefficient in front of $i$ 
-} and } 
-\uncover<26->{\alert<26>{
+\uncover<25->{\alertNoH{25}{
+Compare coefficient in front of $i$
+} and }
+\uncover<26->{\alertNoH{26}{
 remaining terms} to get the desired equalities.
 }
 }
