@@ -1,12 +1,12 @@
 \begin{frame}
 \frametitle{Linear substitutions leading to blocks IIa and IIIa}
-Building block IIa: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
+Building block IIa: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2} \ln(1+ x^2)+C$.
 
 Building block IIIa: $\int \frac{1}{1+x^2 }\diff x=\Arctan x+C.$
 
 
 \begin{example}
-\uncover<2->{\alert<2-4>{No real roots $\Rightarrow$ complete the square.}} \uncover<7->{Let \alert<7,27,30>{$u= x+ \frac{1}{2} $}}\uncover<16->{, let \alert<16,28>{$z=\frac{2u}{\sqrt{3}}$}.}  
+\uncover<2->{\alertNoH{2-4}{No real roots $\Rightarrow$ complete the square.}} \uncover<7->{Let \alertNoH{7,27,30}{$u= x+ \frac{1}{2} $}}\uncover<16->{, let \alertNoH{16,28}{$z=\frac{2u}{\sqrt{3}}$}.}
 
 $
 \begin{array}{r@{~}c@{~}l}
@@ -14,31 +14,31 @@ $
 %
 \vphantom{\int \frac{u}{u^2+\frac{3}{4}}\diff u}
 %
-\int\frac{x}{\alert<2>{x^2+\alert<3>{x}+1}}\diff x &=&
-\only<handout:1|1-10>{\uncover<2->{ \displaystyle \int \frac{x}{\alert<2>{ \alert<4>{ x^2+\alert<3>{2\cdot\frac{1}{2}x} +\frac{1}{4} } \alert<5>{-\frac{1}{4} +1}} } \alert<6>{\diff x} }  \\
-\uncover<4->{&=&\displaystyle \int \frac{\alert<7>{x+\frac{1}{2}}-\frac{1}{2}}{ \alert<4>{\left(\alert<7>{x+\frac{1}2}\right)^2}+\alert<5>{\frac{3}{4}} }\alert<6>{\diff \left(\alert<7>{x+\frac{1}{2}}\right) }}\\
-\uncover<7->{&=&\displaystyle \int \frac{\alert<7,8>{u} \alert<9>{ -\frac{1}{2}} }{{\alert<7>{u}}^2+\frac{3}{4}}\diff \alert<7>{u}} \\
-\uncover<8->{&=&\alert<10>{ \displaystyle \int \frac{\alert<8>{u}}{u^2+\frac{3}{4}}\diff u\alert<9>{-\frac{1}{2}}\int \frac{1}{u^2+\frac{3}{4}}\diff u}}
+\int\frac{x}{\alertNoH{2}{x^2+\alertNoH{3}{x}+1}}\diff x &=&
+\only<handout:1|1-10>{\uncover<2->{ \displaystyle \int \frac{x}{\alertNoH{2}{ \alertNoH{4}{ x^2+\alertNoH{3}{2\cdot\frac{1}{2}x} +\frac{1}{4} } \alertNoH{5}{-\frac{1}{4} +1}} } \alertNoH{6}{\diff x} }  \\
+\uncover<4->{&=&\displaystyle \int \frac{\alertNoH{7}{x+\frac{1}{2}}-\frac{1}{2}}{ \alertNoH{4}{\left(\alertNoH{7}{x+\frac{1}2}\right)^2}+\alertNoH{5}{\frac{3}{4}} }\alertNoH{6}{\diff \left(\alertNoH{7}{x+\frac{1}{2}}\right) }}\\
+\uncover<7->{&=&\displaystyle \int \frac{\alertNoH{7,8}{u} \alertNoH{9}{ -\frac{1}{2}} }{{\alertNoH{7}{u}}^2+\frac{3}{4}}\diff \alertNoH{7}{u}} \\
+\uncover<8->{&=&\alertNoH{10}{ \displaystyle \int \frac{\alertNoH{8}{u}}{u^2+\frac{3}{4}}\diff u\alertNoH{9}{-\frac{1}{2}}\int \frac{1}{u^2+\frac{3}{4}}\diff u}}
 }
 
 \only<handout:2-|11->{
-\alert<11>{\displaystyle\alert<25>{ \int \frac{u}{u^2+\frac{3}{4}}\diff u} -\frac{1}{2} \alert<12,18>{\int \frac{1}{u^2+\frac{3}{4}}\diff u}} \\
+\alertNoH{11}{\displaystyle\alertNoH{25}{ \int \frac{u}{u^2+\frac{3}{4}}\diff u} -\frac{1}{2} \alertNoH{12,18}{\int \frac{1}{u^2+\frac{3}{4}}\diff u}} \\
 }
 \only<handout:2|11-18>{
-\only<12->{\displaystyle \alert<12,18>{ \int \frac{1}{\alert<13>{u^2+\frac{3}{4}} }\diff u}\uncover<13->{&=& \displaystyle \int \frac{1}{\alert<13>{\frac{3}{4}\left( \alert<14>{\frac{4}{3}u^2} +1\right)}}\alert<15>{\diff u}}}\\
-\uncover<14->{&=&\displaystyle \int \frac{1}{\frac{3}{4}\left(\alert<14>{ \left(\alert<16>{ \frac{2u}{ \sqrt{3}}}\right)^2} +1\right)} \alert<15>{ \frac{\sqrt{3} }{2} \diff \left(\alert<16>{ \frac{2u}{\sqrt{3}}}\right) }}\\
-\uncover<16->{&=&\displaystyle \frac{2\sqrt{3}}{3}\int \frac{1}{\alert<16>{z}^2+1}\diff \alert<16>{z}}\uncover<17->{ = \alert<18>{\frac{2\sqrt{3}}{3} \Arctan z}+C}
+\only<12->{\displaystyle \alertNoH{12,18}{ \int \frac{1}{\alertNoH{13}{u^2+\frac{3}{4}} }\diff u}\uncover<13->{&=& \displaystyle \int \frac{1}{\alertNoH{13}{\frac{3}{4}\left( \alertNoH{14}{\frac{4}{3}u^2} +1\right)}}\alertNoH{15}{\diff u}}}\\
+\uncover<14->{&=&\displaystyle \int \frac{1}{\frac{3}{4}\left(\alertNoH{14}{ \left(\alertNoH{16}{ \frac{2u}{ \sqrt{3}}}\right)^2} +1\right)} \alertNoH{15}{ \frac{\sqrt{3} }{2} \diff \left(\alertNoH{16}{ \frac{2u}{\sqrt{3}}}\right) }}\\
+\uncover<16->{&=&\displaystyle \frac{2\sqrt{3}}{3}\int \frac{1}{\alertNoH{16}{z}^2+1}\diff \alertNoH{16}{z}}\uncover<17->{ = \alertNoH{18}{\frac{2\sqrt{3}}{3} \Arctan z}+C}
 }
-\only<handout:3,4|19->{&=& \displaystyle \vphantom{\int \frac{u}{u^2+\frac{3}{4}}\diff u} \only<handout:3|19-24>{\alert<20>{\int \frac{u}{u^2+\frac{3}{4}}\diff u}} \only<handout:4|25->{\alert<25>{ \frac{1}{2}\ln \left(\alert<27>{u}^2+\frac{3}{4}\right) } }- \frac{1}{2}\alert<19>{ \frac{2\sqrt{3}}{3} \Arctan \alert<28>{z} }+C\\
+\only<handout:3,4|19->{&=& \displaystyle \vphantom{\int \frac{u}{u^2+\frac{3}{4}}\diff u} \only<handout:3|19-24>{\alertNoH{20}{\int \frac{u}{u^2+\frac{3}{4}}\diff u}} \only<handout:4|25->{\alertNoH{25}{ \frac{1}{2}\ln \left(\alertNoH{27}{u}^2+\frac{3}{4}\right) } }- \frac{1}{2}\alertNoH{19}{ \frac{2\sqrt{3}}{3} \Arctan \alertNoH{28}{z} }+C\\
 }
 \only<handout:3|20-25>{ \\
-\displaystyle \alert<20,25>{\int \frac{\alert<21>{ u} }{u^2+\frac{3}{4}}\alert<21>{ \diff u} } \uncover<21->{ &=& \displaystyle\int \frac{1}{u^2+\frac{3}{4}}\diff \alert<21>{\left(\frac{u^2}{\alert<22>{2}}\right)}}\\
-\uncover<22->{&=&\displaystyle \alert<22>{\frac{1}{2}}\int \frac{1}{\alert<24>{u^2+\frac{3}{4}}}\diff \left(\alert<24>{ u^2\uncover<23->{ \alert<23>{ +\frac{3}{4}} }} \right)}\uncover<24->{ =\alert<25>{ \frac{1}{2}\ln \left(\alert<24>{u^2 +\frac{3}{4}} \right)}+C}
+\displaystyle \alertNoH{20,25}{\int \frac{\alertNoH{21}{ u} }{u^2+\frac{3}{4}}\alertNoH{21}{ \diff u} } \uncover<21->{ &=& \displaystyle\int \frac{1}{u^2+\frac{3}{4}}\diff \alertNoH{21}{\left(\frac{u^2}{\alertNoH{22}{2}}\right)}}\\
+\uncover<22->{&=&\displaystyle \alertNoH{22}{\frac{1}{2}}\int \frac{1}{\alertNoH{24}{u^2+\frac{3}{4}}}\diff \left(\alertNoH{24}{ u^2\uncover<23->{ \alertNoH{23}{ +\frac{3}{4}} }} \right)}\uncover<24->{ =\alertNoH{25}{ \frac{1}{2}\ln \left(\alertNoH{24}{u^2 +\frac{3}{4}} \right)}+C}
 }
 
 \only<handout:4|26->{
-\uncover<27->{&=&\displaystyle \frac{1}{2}\ln  \left( \alert<29>{ {\alert<27>{\left(x+\frac{1}{2}\right)}}^2 + \frac{3}{4}}\right) - \frac{\sqrt{3}}{3} \Arctan \left( \alert<28>{ \frac{\alert<30>{2u }}{ \sqrt{3}}} \right)+C} \\
-\uncover<29->{&=&\displaystyle \frac{1}{2}\ln \left(\alert<29>{x^2+x+1}\right) - \frac{\sqrt{3}}{3} \Arctan \left(\frac{\alert<30>{2x+1}}{\sqrt{3}}\right)+C
+\uncover<27->{&=&\displaystyle \frac{1}{2}\ln  \left( \alertNoH{29}{ {\alertNoH{27}{\left(x+\frac{1}{2}\right)}}^2 + \frac{3}{4}}\right) - \frac{\sqrt{3}}{3} \Arctan \left( \alertNoH{28}{ \frac{\alertNoH{30}{2u }}{ \sqrt{3}}} \right)+C} \\
+\uncover<29->{&=&\displaystyle \frac{1}{2}\ln \left(\alertNoH{29}{x^2+x+1}\right) - \frac{\sqrt{3}}{3} \Arctan \left(\frac{\alertNoH{30}{2x+1}}{\sqrt{3}}\right)+C
 }
 }
 

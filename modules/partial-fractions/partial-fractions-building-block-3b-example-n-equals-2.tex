@@ -1,0 +1,30 @@
+%begin module partial-fractions-building-block-3b-example-n-equals-2
+\begin{frame}
+\frametitle{Building block IIIb: example illustrating main idea}
+\begin{example}
+Integrate $\int \frac{\diff x}{(x^2+1)^2}$. We start with an already known integral:
+\[
+\begin{array}{rcl}
+\uncover<2->{\alertNoH{12,13}{\alertNoH{15}{\Arctan x}+C}}
+\only<handout:1|1-12>{
+\uncover<2->{
+&=&\displaystyle \int \alertNoH{3}{\frac{1}{x^2+1}}\diff \alertNoH{4}{ x}}\\
+\uncover<3->{&=&\displaystyle \alertNoH{3}{\frac{1}{x^2+1}} \alertNoH{4}{ x}-\int \alertNoH{4}{x} \alertNoH{5,6}{ \diff \left(\alertNoH{3}{\frac{1}{x^2+1}}\right)} }\\
+\uncover<5->{&=&\displaystyle \frac{x}{x^2+1} \alertNoH{7}{-} \int \alertNoH{7}{ x} \left( \fcAnswer{6}{ \alertNoH{7}{-} \frac{\alertNoH{7}{ 2x} }{ (x^2+1)^2}} \right) \alertNoH{5,6}{ \diff x} }\\
+\uncover<7->{&=&\displaystyle \frac{x}{x^2+1}\alertNoH{7}{ +2} \int \frac{ \uncover<8->{\alertNoH{8}{-\alertNoH{10}{1}}+}\alertNoH{9}{ \alertNoH{7}{ x^2} \uncover<8->{\alertNoH{8}{+1}}}}{\alertNoH{9,10}{(x^2+1)^2}}\diff x }\\
+\uncover<9->{&=&\displaystyle  \frac{x}{x^2+1}+2\alertNoH{11}{\int \alertNoH{9}{\frac{1}{x^2+1}} \diff x}-2\int \alertNoH{10}{\frac{1}{(x^2+1)^2}}\diff x}\\
+} %only<1-12>
+\uncover<11->{ &\alertNoH{12,13}{=}&\displaystyle \alertNoH{12,13}{ \frac{x}{x^2+1}+ \alertNoH{15}{2\alertNoH{11}{\Arctan x} }\alertNoH{14}{ -2 \int \frac{\diff x}{(x^2+1)^2}}} {~~~~~~~~~~~~~~~}}
+\end{array}
+\]
+\only<handout:2|13->{
+\uncover<14->{Rearrange terms \uncover<16->{and divide by $2$ to get the desired integral:}
+\[
+\alertNoH{14}{\uncover<handout:0|14,15>{2} \int \frac{\diff x}{(1+x^2)^2}}=\uncover<16->{\frac{1}{2}} \left(\frac{x}{x^2+1}+ \alertNoH{15}{\Arctan x}  \right)+\uncover<handout:0|14,15>{L}\uncover<16->{K}\quad .
+\]
+}%uncover14
+}%uncover13
+\end{example}
+\vspace{8cm}
+\end{frame}
+%end module partial-fractions-building-block-3b-example-n-equals-2

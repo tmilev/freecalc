@@ -1,24 +1,24 @@
 %begin module partial-fractions-building-block-1b
 \begin{frame}
 \frametitle{Building block Ib}
-Building block Ib: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff x$, $n\neq 1$. 
-\begin{example}[Block Ib] 
+Building block Ib: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff x$, $n\neq 1$.
+\begin{example}[Block Ib]
 \[
-\int \frac{1}{x^n}\diff x \uncover<2->{\alert<2,3>{= \int x^{-n}\diff x}}\uncover<3->{\alert<3>{=}} \uncover<4->{\alert<4>{\frac{x^{-n+1}}{-n+1} +C}}
+\int \frac{1}{x^n}\diff x \uncover<2->{\alertNoH{2,3}{= \int x^{-n}\diff x}}\uncover<3->{\alertNoH{3}{=}} \uncover<4->{\alertNoH{4}{\frac{x^{-n+1}}{-n+1} +C}}
 \]
 \end{example}
 \end{frame}
 \begin{frame}
 \frametitle{Linear substitutions leading to building block Ib}
-Building block Ib: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff x= \frac{x^{-n+1}}{-n+1} +C$, $n\neq 1$. 
-\begin{example} Integrate 
+Building block Ib: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff x= \frac{x^{-n+1}}{-n+1} +C$, $n\neq 1$.
+\begin{example} Integrate
 \[
 \begin{array}{rcll|l}
-\alert<8>{\displaystyle \int \frac{1}{(3x+5)^3 }\diff x} \uncover<2->{&=&\displaystyle \int \frac{1}{(3x+5)^3 }\frac{\alert<3>{ \diff (\alert<2>{3} x)}}{\alert<2>{3}}} \\
-\uncover<3->{&=&\displaystyle \int \frac{1}{(\alert<4>{3x+5})^3 }\frac{\alert<3>{\diff ( \alert<4>{3 x+5})}}{3}} \uncover<4->{&&\text{Set }\alert<4,7>{ u=3x+5}{~~~~~~~~~~~~~~~~~~~} } \\
-\uncover<4->{&=&\displaystyle \int\alert<5>{ \frac{1}{{\alert<4>{u}}^3} } \frac{\diff \alert<4>{u}}{3}}\\
-\uncover<5->{ &=&\displaystyle \frac{1}{3} \alert<6>{\int \alert<5>{ u^{-3}} \diff u}} \uncover<6->{ =\frac{1}{3} \alert<6>{ \frac{{\alert<7>{u}}^{-2}}{(-2)}}+C}\\
-\uncover<7->{&=&\displaystyle \alert<8>{-\frac{1}{6(\alert<7>{3x+5})^2}+C}\quad .}
+\alertNoH{8}{\displaystyle \int \frac{1}{(3x+5)^3 }\diff x} \uncover<2->{&=&\displaystyle \int \frac{1}{(3x+5)^3 }\frac{\alertNoH{3}{ \diff (\alertNoH{2}{3} x)}}{\alertNoH{2}{3}}} \\
+\uncover<3->{&=&\displaystyle \int \frac{1}{(\alertNoH{4}{3x+5})^3 }\frac{\alertNoH{3}{\diff ( \alertNoH{4}{3 x+5})}}{3}} \uncover<4->{&&\text{Set }\alertNoH{4,7}{ u=3x+5}{~~~~~~~~~~~~~~~~~~~} } \\
+\uncover<4->{&=&\displaystyle \int\alertNoH{5}{ \frac{1}{{\alertNoH{4}{u}}^3} } \frac{\diff \alertNoH{4}{u}}{3}}\\
+\uncover<5->{ &=&\displaystyle \frac{1}{3} \alertNoH{6}{\int \alertNoH{5}{ u^{-3}} \diff u}} \uncover<6->{ =\frac{1}{3} \alertNoH{6}{ \frac{{\alertNoH{7}{u}}^{-2}}{(-2)}}+C}\\
+\uncover<7->{&=&\displaystyle \alertNoH{8}{-\frac{1}{6(\alertNoH{7}{3x+5})^2}+C}\quad .}
 \end{array}
 \]
 
@@ -26,15 +26,15 @@ Building block Ib: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff x=
 \end{frame}
 \begin{frame}
 \frametitle{Lin. subst. leading to building block Ib: general case}
-Building block Ib: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff x= \frac{x^{-n+1}}{-n+1} +C$, $n\neq 1$. 
-\begin{example} Let $n\neq 1$. Integrate 
+Building block Ib: $\displaystyle \int \frac{1}{x^n }\diff x=\int x^{-n}\diff x= \frac{x^{-n+1}}{-n+1} +C$, $n\neq 1$.
+\begin{example} Let $n\neq 1$. Integrate
 \[
 \begin{array}{rcll|l}
-\displaystyle \alert<1>{\int \frac{1}{(ax+b)^n }\diff x} &=&\displaystyle \int \frac{1}{(ax+b)^n }\frac{\diff (a x)}{a} \\
+\displaystyle \alertNoH{1}{\int \frac{1}{(ax+b)^n }\diff x} &=&\displaystyle \int \frac{1}{(ax+b)^n }\frac{\diff (a x)}{a} \\
 &=&\displaystyle \int \frac{1}{(ax+b)^n }\frac{\diff (a x+b)}{a} &&\text{Set }u=ax+b\\
 &=&\displaystyle \int\frac{1}{u^3}\frac{\diff u}{a}\\
 &=&\displaystyle \frac{1}{a}\int u^{-n} \diff u =-\frac{1}{a} \frac{u^{-n+1}}{(n-1)}+C\\
-&=&\displaystyle \alert<1>{-\frac{1}{ a(n-1)(ax+b)^{n-1}}+C}\quad .
+&=&\displaystyle \alertNoH{1}{-\frac{1}{ a(n-1)(ax+b)^{n-1}}+C}\quad .
 \end{array}
 \]
 

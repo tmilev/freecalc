@@ -2,15 +2,15 @@
 \frametitle{Linear substitutions leading to blocks IIa and IIIa}
 %Building block IIa: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
 
-Building block IIIa: \alert<7>{$ \int \frac{1}{x^2+1 }\diff x=\Arctan x+C.$}
+Building block IIIa: \alertNoH{7}{$ \int \frac{1}{x^2+1 }\diff x=\Arctan x+C.$}
 \begin{example}
 \[
 \begin{array}{rcll|l}
-\displaystyle \alert<8>{\int \frac{1}{\alert<2>{x^2+2}}\diff x} \uncover<2->{ &=&\displaystyle \int\frac{1}{\alert<2>{ 2} \alert<2>{\left(  \alert<3>{\frac{1}{2}x^2} +1\right)}} \alert<4>{\diff x} }\\
-\uncover<3->{&=&\displaystyle \int \frac{1}{\alert<6>{2} \left( \alert<3>{\left(\alert<5>{ \frac{x}{ \sqrt{2}}} \right)^2} +1  \right)} \alert<4,6>{\sqrt{2}\diff\left(\alert<5>{ \frac{ x}{\sqrt{2}}}\right)}} \uncover<5->{ &&\text{ Set } \alert<5,8>{u= \frac{x}{\sqrt{2}}} }\\
-\uncover<5->{&=&\displaystyle \alert<6>{\frac{1}{\sqrt{2}}} \alert<7>{\int \frac{1}{{\alert<5>{u}}^2+1}\diff \alert<5>{u}}}\\
-\uncover<7->{&=&\displaystyle \frac{1}{\sqrt{2}}\alert<7>{\Arctan (\alert<8>{u})+C}} \\
-\uncover<8->{&=&\displaystyle \alert<8>{ \frac{1}{\sqrt{2}} \Arctan\left(\alert<7>{\frac{x}{\sqrt{2}}}\right)+C}}
+\displaystyle \alertNoH{8}{\int \frac{1}{\alertNoH{2}{x^2+2}}\diff x} \uncover<2->{ &=&\displaystyle \int\frac{1}{\alertNoH{2}{ 2} \alertNoH{2}{\left(  \alertNoH{3}{\frac{1}{2}x^2} +1\right)}} \alertNoH{4}{\diff x} }\\
+\uncover<3->{&=&\displaystyle \int \frac{1}{\alertNoH{6}{2} \left( \alertNoH{3}{\left(\alertNoH{5}{ \frac{x}{ \sqrt{2}}} \right)^2} +1  \right)} \alertNoH{4,6}{\sqrt{2}\diff\left(\alertNoH{5}{ \frac{ x}{\sqrt{2}}}\right)}} \uncover<5->{ &&\text{ Set } \alertNoH{5,8}{u= \frac{x}{\sqrt{2}}} }\\
+\uncover<5->{&=&\displaystyle \alertNoH{6}{\frac{1}{\sqrt{2}}} \alertNoH{7}{\int \frac{1}{{\alertNoH{5}{u}}^2+1}\diff \alertNoH{5}{u}}}\\
+\uncover<7->{&=&\displaystyle \frac{1}{\sqrt{2}}\alertNoH{7}{\Arctan (\alertNoH{8}{u})+C}} \\
+\uncover<8->{&=&\displaystyle \alertNoH{8}{ \frac{1}{\sqrt{2}} \Arctan\left(\alertNoH{7}{\frac{x}{\sqrt{2}}}\right)+C}}
 \end{array}
 \]
 
@@ -22,15 +22,15 @@ Building block IIIa: \alert<7>{$ \int \frac{1}{x^2+1 }\diff x=\Arctan x+C.$}
 \frametitle{Linear substitutions leading to blocks IIa and IIIa}
 %Building block IIa: $ \int \frac{x}{1+x^2}\diff x = \frac{1}{2}\ln(1+x^2)+C$.
 
-Building block IIIa: $ \int \frac{1}{x^2+1 }\diff x=\Arctan x+C$. \alert<1>{\textbf{Let $a>0$.}}
+Building block IIIa: $ \int \frac{1}{x^2+1 }\diff x=\Arctan x+C$. \alertNoH{1}{\textbf{Let $a>0$.}}
 \begin{example}
 \[
 \begin{array}{rcll|l}
-\displaystyle \alert<1>{\int \frac{1}{x^2+a\vphantom{2}}\diff x } &=&\displaystyle \int\frac{1}{ a\left(\frac{1}{a\vphantom{2}}x^2 +1\right)} \diff x \\
-\uncover<1->{&=&\displaystyle \int \frac{1}{a\left(\alert<0>{ \left(\frac{x}{ \sqrt{a\vphantom{2}}} \right)^2} +1  \right)} \sqrt{a\vphantom{2}}\diff\left( \frac{ x}{\sqrt{a\vphantom{2}}}\right)} \uncover<1->{&& \text{ Set } u= \frac{x}{\sqrt{a}}} \\ %the uncover and alert commands are to preserve latex spacing. This may be a LaTeX bug, but please keep the two uncover<1-> and the alert commands where they are!
+\displaystyle \alertNoH{1}{\int \frac{1}{x^2+a\vphantom{2}}\diff x } &=&\displaystyle \int\frac{1}{ a\left(\frac{1}{a\vphantom{2}}x^2 +1\right)} \diff x \\
+\uncover<1->{&=&\displaystyle \int \frac{1}{a\left(\alertNoH{0}{ \left(\frac{x}{ \sqrt{a\vphantom{2}}} \right)^2} +1  \right)} \sqrt{a\vphantom{2}}\diff\left( \frac{ x}{\sqrt{a\vphantom{2}}}\right)} \uncover<1->{&& \text{ Set } u= \frac{x}{\sqrt{a}}} \\ %the uncover and alert commands are to preserve latex spacing. This may be a LaTeX bug, but please keep the two uncover<1-> and the alert commands where they are!
 &=&\displaystyle \frac{1}{\sqrt{a\vphantom{2}}} \int \frac{1}{{u}^2+1}\diff u \\
 &=&\displaystyle \frac{1}{\sqrt{a\vphantom{2}}}\Arctan (u)+C \\
-&=&\alert<1>{ \displaystyle \frac{1}{\sqrt{a\vphantom{2}}} \Arctan\left(\frac{x}{\sqrt{a}}\right)+C}
+&=&\alertNoH{1}{ \displaystyle \frac{1}{\sqrt{a\vphantom{2}}} \Arctan\left(\frac{x}{\sqrt{a}}\right)+C}
 \end{array}
 \]
 

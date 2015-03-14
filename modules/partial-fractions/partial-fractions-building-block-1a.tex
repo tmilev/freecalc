@@ -1,24 +1,24 @@
 %begin module partial-fractions-building-block-1a
 \begin{frame}
 \frametitle{Building block Ia}
-Building block Ia: $\displaystyle \int \frac{1}{x }\diff x$. 
+Building block Ia: $\displaystyle \int \frac{1}{x }\diff x$.
 \begin{example} Integrate building block Ia
 \[
-\int \frac{1}{x }\diff x \uncover<2->{\alert<2,3>{ =}}\uncover<3->{\alert<3>{\ln | x | +C} }
+\int \frac{1}{x }\diff x \uncover<2->{\alertNoH{2,3}{ =}}\uncover<3->{\alertNoH{3}{\ln | x | +C} }
 \]
 \end{example}
 \end{frame}
 \begin{frame}
 \frametitle{Linear substitutions leading to building block Ia}
-Building block Ia: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$. 
-\begin{example} Integrate 
+Building block Ia: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$.
+\begin{example} Integrate
 \[
 \begin{array}{r@{~}c@{~}ll|l}
-\displaystyle \alert<9>{\int \frac{1}{-4x+5 }\diff x} \uncover<2->{&=&\displaystyle \int \frac{1}{(-4x+5) }\frac{\alert<3>{ \diff (\alert<2>{-4} x)}}{ (\alert<2>{-4})}} \\
-\uncover<3->{&=&\displaystyle \int \frac{1}{\alert<4>{(-4x+5)} } \frac{\alert<3>{\diff (\alert<4>{-4x+5})}}{ (-4)} \uncover<4->{&&\text{Set } \alert<4,8>{u=-4x+5}}}\\
-\uncover<4->{&=&\displaystyle \int \alert<6>{\frac{1}{\alert<4>{u}}}\frac{\diff \alert<4>{u}}{(\alert<5>{-4})}}\\
-\uncover<5->{&=&\displaystyle \alert<5>{-\frac{1}{4}} \alert<7>{\int \alert<6>{u^{-1}} \diff u} }\uncover<7->{=-\frac{1}{4}\alert<7>{\ln |\alert<8>{u}|}+C}\\
-\uncover<8->{&=&\displaystyle \alert<9>{-\frac{1}{4}\ln |\alert<8>{-4x+5}|  +C}\quad .}
+\displaystyle \alertNoH{9}{\int \frac{1}{-4x+5 }\diff x} \uncover<2->{&=&\displaystyle \int \frac{1}{(-4x+5) }\frac{\alertNoH{3}{ \diff (\alertNoH{2}{-4} x)}}{ (\alertNoH{2}{-4})}} \\
+\uncover<3->{&=&\displaystyle \int \frac{1}{\alertNoH{4}{(-4x+5)} } \frac{\alertNoH{3}{\diff (\alertNoH{4}{-4x+5})}}{ (-4)} \uncover<4->{&&\text{Set } \alertNoH{4,8}{u=-4x+5}}}\\
+\uncover<4->{&=&\displaystyle \int \alertNoH{6}{\frac{1}{\alertNoH{4}{u}}}\frac{\diff \alertNoH{4}{u}}{(\alertNoH{5}{-4})}}\\
+\uncover<5->{&=&\displaystyle \alertNoH{5}{-\frac{1}{4}} \alertNoH{7}{\int \alertNoH{6}{u^{-1}} \diff u} }\uncover<7->{=-\frac{1}{4}\alertNoH{7}{\ln |\alertNoH{8}{u}|}+C}\\
+\uncover<8->{&=&\displaystyle \alertNoH{9}{-\frac{1}{4}\ln |\alertNoH{8}{-4x+5}|  +C}\quad .}
 \end{array}
 \]
 
@@ -26,15 +26,15 @@ Building block Ia: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$.
 \end{frame}
 \begin{frame}
 \frametitle{Lin. subst. leading to building block Ia: general case}
-Building block Ia: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$. 
-\begin{example} Integrate 
+Building block Ia: $\displaystyle \int \frac{1}{x }\diff x=\ln |x|+ C$.
+\begin{example} Integrate
 \[
 \begin{array}{r@{~}c@{~}ll|l}
-\displaystyle \alert<1>{ \int \frac{1}{\phantom{-}ax+b }\diff x}&=&\displaystyle \int \frac{1}{(\phantom{-}ax + b) }\frac{\diff (\phantom{-}a x)}{a} \\
+\displaystyle \alertNoH{1}{ \int \frac{1}{\phantom{-}ax+b }\diff x}&=&\displaystyle \int \frac{1}{(\phantom{-}ax + b) }\frac{\diff (\phantom{-}a x)}{a} \\
 &=&\displaystyle \int \frac{1}{(\phantom{-}ax+b) }\frac{\diff (\phantom{-}ax+b)}{a} &&\text{Set }u=ax+b{~~~~~~~~~~~~~~~~~}\\
 &=&\displaystyle \int\frac{1}{u}\frac{\diff u}{\phantom{(-}a\phantom{)}}\\
 &=&\displaystyle \phantom{-}\frac{1}{a}\int u^{-1} \diff u =\phantom{-}\frac{1}{a}\ln |u|+C\\
-&=&\displaystyle\alert<1>{ \phantom{-}\frac{1}{a}\ln |ax+b|  +C}\quad .
+&=&\displaystyle\alertNoH{1}{ \phantom{-}\frac{1}{a}\ln |ax+b|  +C}\quad .
 \end{array}
 \]
 
