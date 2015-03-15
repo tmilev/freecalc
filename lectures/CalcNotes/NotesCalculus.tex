@@ -72,7 +72,7 @@
 \renewcommand{\Arcsec}{\arcsec}
 
 
-\renewcommand{\optionalDisplay}[1]{#1}
+\renewcommand{\optionalDisplay}[1]{}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
 \newcommand{\optionalMaterial}{\textbf{(Optional)}}
@@ -473,7 +473,7 @@ Let $n$ be a positive integer, i.e., let $n \in \mathbb Z_{\geq 0}$ (non-negativ
 \begin{definition}[Factorial] \index{factorial}
 For $n>0$, we define the number $n!$ by
 \[
-n!\eqdef n*(n-1)*(n-2)*\dots *4*3*2*1 \quad  .
+n!\eqdef n\cdot(n-1)\cdot(n-2)\cdots 4\cdot 3\cdot 2 \cdot 1 \quad  .
 \]
 and we define
 \[
@@ -991,9 +991,6 @@ Let $f(y)$ and $g(x)$ be differentiable functions.  Then
 \frac{\diff }{\diff x} \left(f( g(x))\right)= g'(x) f'(g(x)) \quad .
 \]
 
-
-
-
 \section{Differentials}
 Let $f$ be a differentiable function of a variable $x$. Introduce formal expressions $\diff(f(x))$ (abbreviated as $\diff f$) and $\diff x$ so that they obey the following rule.
 \begin{equation}\boxed{
@@ -1334,7 +1331,7 @@ The fact that $\varphi$ measures the arc drawn with red in the figure \ref{figUn
 \begin{problem}
 Use the trick used to derive \eqref{eqSin2xCos2x} to derive a formula for $\sin(3z)$ and $\cos (3z)$. Your solution may start like this. ``We have that $(e^{iz})^3=e^{3iz}=\cos (3z)+i\sin(3z)$. On the other hand, $(e^{iz})^3= \dots$''.
 \end{problem}
-\subsection{Definition of $\pi$, polar form of complex numbers}\label{secPolarFormComplexNumbers}
+\subsection{Definition of $\pi$}
 \label{secDefinitionPi}
 
 The proof of the following theorem is a bit more difficult and we omit it from the current version of this textbook. A proof might be included in a future version of this textbook.
@@ -1404,7 +1401,7 @@ Recall that $\overline{a+ib}=a-ib$  (complex conjugation). Then recall \eqref{eq
 \]
 
 \[
-\overline {z^n}= \overline {\underbrace{z*z*\dots*z}_{n\mathrm{~times}}} = \underbrace{\bar z* \bar z *\dots * \bar z}_{n\mathrm{~times}}= \bar {z}^n
+\overline {z^n}= \overline {\underbrace{z\cdots z}_{n\mathrm{~times}}} = \underbrace{\bar z\cdots  \bar z}_{n\mathrm{~times}}= \bar {z}^n
 \]
 
 \begin{theorem}
@@ -1429,6 +1426,11 @@ For arbitrary $z$ we have that $|z|$ is a non-negative real number and so it fol
 \begin{prop}
 Let $x\in \mathbb R$. Then $e^x$ is a positive real number.
 \end{prop}
+
+
+\chapter{Logarithms and inverse trigonometric functions}
+\subsection{Polar form of complex numbers}
+\label{secPolarFormComplexNumbers}
 
 Let $\rho, \varphi\in \mathbb R$ (real numbers). Then the expression
 \[
@@ -1535,9 +1537,6 @@ which completes the proof.
 \end{proofOptional}
 
 \subsubsection{Examples and Exercises}
-
-
-
 \begin{problem}
 \input{../../modules/complex-numbers/homework/plot-complex-number-find-principal-argument-1}
 \end{problem}
@@ -1629,7 +1628,8 @@ Let $x\in \mathbb R$ ($x$- real number). Then $\sin x$ and $\cos x$ can be drawn
 \psline[linestyle=dashed, linecolor=blue](-3,-3)(9.5,9.5)
 \end{pspicture*}
 
-Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
+Let $x\in \mathbb R$. Then $\tan x$ can be plotted as follows.
+
 
 \psset{xunit=0.5cm,yunit=0.5cm}
 \begin{pspicture*}(-5,-10)(10,10)
@@ -1647,8 +1647,9 @@ Let $x\in \mathbb R$. Then $\tan x$ is plotted as follows.
 \put(\r,0){\psplot[linecolor=\fcColorGraph]{-1.552}{1.552}{ 180 x mul  3.1415 div tan} }
 \put(\r,0){\psline[linestyle=dashed](1.570796327,-10)(1.570796327,10) }
 }
-
 \end{pspicture*}
+
+
 \psset{xunit=0.5cm,yunit=0.5cm}
 \begin{pspicture*}(-5,-5)(5,5)
 \fcAxesStandard{-5}{-3}{4.5}{4.5}
@@ -1852,7 +1853,7 @@ There is no 100\% recipe when integration by parts makes the problem easier. How
 \input{../../modules/integration-by-parts/homework/integrate-x-power-n-e-power-x}
 \end{problem}
 \input{../../modules/integration-by-parts/homework/integrate-x-power-n-e-power-x-solution}
-\section{Integration of rational functions}\label{secIntegrationRationalFunctions}
+\section{Integration of rational functions} \label{secIntegrationRationalFunctions}
 
 
 \subsection{The theory behind integrating rational functions}
@@ -1999,7 +2000,7 @@ On a timed exam, carry out this step only if done with the other problems.
 \item The present textbook does not cover the material alluded to in the preceding item. Therefore we will be able to perform the algorithm for integration of rational functions only when the denominator can be (easily) factored into radicals. We assure the reader that all examples in this textbook were selected to be doable by hand by the average student. 
 \end{itemize}
 \subsection{Examples and exercises}
-\subsubsection{Integrals solved via Linear Substitutions and Building blocks}
+\subsubsection{Linear Substitutions leading to Building block integrals}
 \begin{problem}
 \input{../../modules/partial-fractions/homework/integration-rational-functions-building-blocks}
 \end{problem}
@@ -2008,6 +2009,8 @@ On a timed exam, carry out this step only if done with the other problems.
 \begin{problem}
 \input{../../modules/partial-fractions/homework/integration-rational-functions-building-block-II-and-III-parametric}
 \end{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-building-block-II-and-III-parametric-solution}
+
 
 \begin{problem}
 \input{../../modules/partial-fractions/homework/integration-rational-functions-building-block-III-b-parametric}
@@ -2031,7 +2034,7 @@ On a timed exam, carry out this step only if done with the other problems.
 
 
 \section{Trigonometric integrals}\label{secTrigIntegrals}
-\subsection{\optionalMaterial Integration of arbitrary rational trigonometric integrals}\label{secTrigIntegralsWith2Arctan}
+\subsection{\optionalMaterial General method for solving rational trigonometric integrals}\label{secTrigIntegralsWith2Arctan}
 Let $R$ be a rational function in two variables. Integrals of the form
 \[
 \int R(\sin \theta,\cos \theta )\diff \theta
@@ -2061,44 +2064,33 @@ We are ready to express $\cos \theta$ and $\sin \theta$ via $t$:
 \end{array}
 \]
 The differential $\diff \theta$ can expressed via $\diff t$ from $\theta=2\arctan t$. The substitution $\theta=2\arctan t$ can be summarized as:
-\[
+\begin{equation}\label{eqTrigIntegralsWeistrassSub}
 \begin{array}{rcl}
 \cos \theta&=&\displaystyle  \frac{1- t^2}{1+t^2} \\
 \sin \theta&=&\displaystyle \frac{2t}{1+t^2}\\
 \diff \theta&=&\displaystyle \frac{2}{t^2+1}\diff t \\
 t&=&\displaystyle \tan \left(\frac {\theta}{2}\right)
 \end{array}
-\]
+\end{equation}
+\subsubsection{\optionalMaterial Examples and exercises}
+\begin{problem}
+\input{../../modules/trig-integrals/homework/rationalizing-substitution-1}
+\end{problem}
 
-\subsection{\optionalMaterial Integration of arbitrary rational trigonometric integrals: Method II}
+\input{../../modules/trig-integrals/homework/rationalizing-substitution-1-solutions}
 
-\subsection{\optionalMaterial Examples of trigonometric integrals}
-Integrate
-\[
-\int \frac{\diff x}{2\sin x-\cos x +5}\quad .
-\]
-\begin{solution}
-Set $x=2\arctan t$. Therefore
-\[
-\begin{array}{rcl}
-\displaystyle \int \frac{\diff x}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2\diff t}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)}= \int \frac{\diff t}{3t^2+2t+2}
-\end{array}
-\]
-We substitute $t=z-1/3$. Therefore $\diff t=\diff z$ and $3t^2+2t+2=3z^2-2z+1/3+2z-2/3+2=3z^2+5/3= 5/3(9/5z^2+1)= 5/3((3/\sqrt{5}z)^2+1)$. We substitute $3/\sqrt{5}z=w$, $\diff t=\diff z=\sqrt{5}/3dw$. Finally we get
-\[
-\begin{array}{rcl}
-\displaystyle \int \frac{\diff t}{3t^2+2t+2}&=& \displaystyle \int \frac{\frac{\sqrt{5}}{3}dw}{\frac{5}{3}(w^2+1)}= \frac{\sqrt{5}}{5}\arctan w+C\\
-&=&\displaystyle \frac{\sqrt{5}}{5}\arctan\left( \frac{\sqrt{5}}{5}(3t+1) \right)+C\\
-&=&\displaystyle \frac{\sqrt{5}}{5}\arctan \left(\frac{3\tan \left(\frac{x}{2}\right)+1}{\sqrt{5}}\right)+C\quad .
-\end{array}
-\]
-\end{solution}
+
+
+\subsection{\optionalMaterial Method II for solving rational trigonometric integrals}
+\textbf{To be written.}
+
+
 \subsection{Trigonometric integrals: quick ad hoc methods}
 
 \section{Integrals of the form $\displaystyle \int R(x, \sqrt{ax^2+bx+c}) \diff x$}
 Let $R$ be a rational function in two variables. We recall that a rational function in two variables is simply a quotient of two polynomials in two variables. An example of a rational function in two variables would be $R(z,w)= \frac{zw+1}{z+w}$.
 
-Radicals of the form  $\sqrt{ay^2+by+c})$, $a\neq 0$, $b^2-4ac\neq 0$ can be transformed using linear substitutions (by ``completing the square'') to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$. In Section \ref{secEulerIntegralsAndLinearSubstitutions} we shall exercise such linear substitutions to transform our integral to one of the forms
+Let $ay^2+by+c$, $a\neq 0$ be a quadratic that is not a perfect square and that takes on positive values for some real $y$. Then $\sqrt{ay^2+by+c})$ can be transformed using linear substitutions (by ``completing the square'') to a multiple of one of the following radicals: $\sqrt{x^2+1}$, $\sqrt{-x^2+1}$,  $\sqrt{x^2-1}$. In Section \ref{secEulerIntegralsAndLinearSubstitutions} we shall exercise such linear substitutions to transform our integral to one of the forms
 \begin{equation}\label{eqIntegralQuadraticRadicalX}
 \int R(x, \sqrt{x^2+1})\diff x,\qquad  \int R(x, \sqrt{-x^2+1})\diff x, \qquad  \int R(x, \sqrt{x^2-1})\diff x\quad .
 \end{equation}
@@ -2138,40 +2130,15 @@ It is then most natural to select the range for $\theta$ so that the sign choice
 Finally we note that the Euler substitutions - the last three rows of the table - are a consequence of the trigonometric substitutions and need not be memorized. We shall show in full detail why that is so by the end of the present section.
 
 We start the technical part of this section by exercising the familiar procedure of completing the square to transform integrals of the form $\int R(x,\sqrt{ax^2+bx+c}) \diff x$ to integrals of the forms $\int R(x, \sqrt{x^2+1})\diff x$,  $\int R(x, \sqrt{-x^2+1})\diff x$, $\int R(x, \sqrt{x^2-1})\diff x$.
-\subsection{Linear substitutions transforming $\displaystyle \sqrt{ax^2+bx+c}$ to $\displaystyle \sqrt{u^2+1}, \sqrt{-u^2 +1}, \sqrt{u^2-1} $} \label{secEulerIntegralsAndLinearSubstitutions}
-The present section involves only the technique of completing the square, which was already exercised in Section \ref{secIntegrationRationalFunctions}. A student confident in the material may skip this section.
-\begin{problem}
-Use a linear substitution to transform $\sqrt{x^2+x+1}$ to (a multiple of) an expression of the form $\sqrt{u^2+1}$.
-\end{problem}
-\begin{solution}
-\[
-\begin{array}{rcl}
-\displaystyle \sqrt{x^2+x+1}&=&\displaystyle \sqrt{ x^2+2\frac{1}{2}x +\frac{1}{4}-\frac{1}{4} +1} \\
-&=&\displaystyle  \sqrt{ \left(x+\frac{1}{2} \right)^2- }\\
-&=&\displaystyle \sqrt{\frac{3}{4}\left( \frac{4}{3} \left(x+\frac{1}{2}\right)^2+1 \right)}\\
-&=&\displaystyle \frac{\sqrt{3}}{2} \sqrt{\left( \frac{2}{ \sqrt{3}} \left( x+\frac{1}{2}\right)\right)^2+1}\\
-&=&\displaystyle \frac{\sqrt{3}}{2} \sqrt{u^2+1},
-\end{array}
-\]
-where $u=\frac{2}{\sqrt{3}}\left( x+\frac{1}{2}\right) = \frac{2 \sqrt{3}}{3}x+\frac{\sqrt{3}}{3}$.
-\end{solution}
+\subsection[Transforming radicals of quadratics to basic form]{Examples and Exercises: Linear substitutions transforming $\displaystyle \sqrt{ax^2+bx+c}$ to $\displaystyle \sqrt{u^2+1}, \sqrt{-u^2 +1}, \sqrt{u^2-1} $} \label{secEulerIntegralsAndLinearSubstitutions}
+Suppose we have a quadratic that is not a perfect square and is not strictly negative. In the present section we demonstrate how to transform the radical of such a quadratic to a multiple of one of the three forms $\sqrt{u^2+1}$, $\sqrt{-u^2 +1}$, $\sqrt{u^2-1} $. The transformation consists in completing the square, which was already exercised in Section \ref{secIntegrationRationalFunctions}. A student confident in this technique may skip this section.
 
+Due to the elementary nature of this section we skip all theory and solve a few examples instead.
 \begin{problem}
-Use a linear substitution to transform $\sqrt{-2x^2+x+1}$ to a multiple of an expression of the form $\sqrt{-u^2+1}$.
+\input{../../modules/trig-substitution/homework/prepare-radical-of-quadratic-for-integration-complete-square}
 \end{problem}
-\begin{solution}
-\[
-\begin{array}{rcl}
-\displaystyle \sqrt{-2x^2+x+1}&=&\displaystyle \sqrt{ -2\left( x^2-\frac{1}{2}x -\frac{1}{2}\right) } \\
-&=&\displaystyle \sqrt{ -2\left(x^2-2\frac{1}{4}x +\frac{1}{16}-\frac{1}{16}-\frac{1}{2}\right) }\\
-&=&\displaystyle \sqrt{-2\left( \left(x- \frac{1}{16} \right)^2 -\frac{9}{16} \right)}\\
-&=&\displaystyle  \sqrt{\frac{9}{8}\left(- \frac{16}{9} \left( x-\frac{1}{16}\right)^2+1 \right)}\\
-&=&\displaystyle  \frac{3}{\sqrt{8}} \sqrt{-\left( \frac{4}{3} \left(x-\frac{1}{16}\right)\right)^2+1 }\\
-&=&\displaystyle \frac{ 3}{\sqrt{8}} \sqrt{-u^2+1}
-\end{array}
-\]
-where $u=\frac{4}{3}\left(x-\frac{1}{16}\right) = \frac{4}{3}x - \frac{1}{12}$.
-\end{solution}
+\input{../../modules/trig-substitution/homework/prepare-radical-of-quadratic-for-integration-complete-square-solutions}
+
 \subsection{Integrals of the form $\displaystyle \int R(x,\sqrt{x^2+1})\diff x$}
 We recall that in this section $R$ stands for a rational function in two variables. The two trigonometric substitution which transform
 \[
@@ -2831,1024 +2798,7 @@ Solve the integral. Illustrate each step of your solution.
 \]
 \end{enumerate}
 \end{problem}
-\chapter{Applications of integration}
-\section{Volumes of solids of revolution}
-A solid of revolution is the set of points obtained by rotating a 2-dimensional set of points lying inside a plane $P$ around an axis lying in the plane $P$.
 
-Example. \label{itemExampleFigureRotationalSolid}
-%\multido{\rA=\deltaX+\deltaX}{10}{%
-%\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=20, fillcolor=gray](0,0,0){\rA\space \deltaX\space add}{\rA\space sqrt}
-%\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=20, fillcolor=gray](0,0,0){\rA}{\rA\space sqrt}
-%}%
-
-%\psSolid[action=draw*,h={\rA\space\rA\space mul},r1={\rA\space\deltaX\space add}, r0={\rA},object=anneau](0,0,0)
-
-\optionalDisplay{
-
-\psset{xunit=1.5cm,yunit=1.5cm}
-\begin{pspicture*}(-0.3,-0.5)(4,4.5)
-%\psset{lightsrc=80 30 30,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
-\psline[linecolor=gray]{->}(0,0)(3.5,0) % x-axis
-\psline[linecolor=gray]{->}(0,0)(0,3.5) % z-axis
-\rput[l](3.5,0){$x$}
-\rput[b](0,3.5){$z$}
-\pscurve[linecolor=red]{->}(0.1,3)(0.2, 3.1)(0, 3.2)(-0.2,3.1 )(-0.05,3)
-\pscustom[linewidth=2pt, linecolor=blue, fillstyle=solid,fillcolor=lightgray]{
-\psplot{3}{0.3}{1 x div}
-\psplot{0.3}{3}{2.71828 -1 x mul exp}
-\closepath
-%\pscurve(0.3, 3.33) (0.3, 1.349858808)
-}
-\pscustom[linewidth=0.5pt, linecolor=blue, fillstyle=solid,fillcolor=red]{
-\psline(2, 0.135335283)(2.1,0.135335283)(2.1,0.5)(2,0.5)
-\closepath
-%\pscurve(0.3, 3.33) (0.3, 1.349858808)
-}
-\rput(0.3,0){\psline(0,-0.03)(0,0.03)}
-\rput(3,0){\psline(0,-0.03)(0,0.03)}
-\rput[t](0.3,-0.1){$a$}
-\rput[t](3,-0.1){$b$}
-\rput(1.6,1){$z=f_2(x)$}
-\rput[t](0.6,0.3){$z=f_1(x)$}
-\end{pspicture*}
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-4,-3)(4,4.5)
-%\psset{lightsrc=80 30 30,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
-\psset{lightsrc=50 20 20,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
-\newcommand{\deltaXcustom}{0.1}
-\newcommand{\rB}{3.3\space\rA\space sub}
-\newcommand{\innerCycleX}{
-%\pstIIIDCylinder[fillstyle=solid, linecolor=gray, increment=30, fillcolor=green]
-\pstThreeDEllipse[fillstyle=solid, fillcolor=lightgray](0,0,{1\space\rB\space div})(\rB\space\deltaXcustom\space add,0,0)(0,\rB\space\deltaXcustom\space add,0)
-\pstThreeDEllipse[fillstyle=solid](0,0,{1\space\rB\space div})(\rB,0,0)(0,\rB,0)
-%
-\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=30, fillcolor=green]
-(0,0,{2.71828\space -1\space \rB\space mul\space exp})
-{\rB\space \deltaXcustom\space add}
-{1 \space \rB\space div\space 2.71828\space -1\space \rB\space mul\space exp \space sub }
-\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=30, fillcolor=white]
-(0,0,{2.71828\space -1\space \rB\space mul\space exp})
-{\rB}
-{1 \space \rB\space div\space 2.71828\space -1\space \rB\space mul\space exp \space sub }
-}
-\multido{\rA=0.3+\deltaXcustom}{14}{%
-\innerCycleX
-}%
-\pstThreeDEllipse[fillstyle=solid, fillcolor=red](0,0,{1\space 2\space div})( 2\space\deltaXcustom\space add,0,0)(0,2\space\deltaXcustom\space add,0)
-\pstThreeDEllipse[fillstyle=solid, fillcolor=white](0,0,{1\space 2\space div})(2,0,0)(0,2,0)
-\pstIIIDCylinder[fillstyle=none, linecolor=red, increment=1, fillcolor=green]
-(0,0,{2.71828\space -1\space 2\space mul\space exp})
-{2\space \deltaXcustom\space add}
-{1 \space 2\space div\space 2.71828\space -1\space 2\space mul\space exp \space sub }
-\pstIIIDCylinder[fillstyle=none, linecolor=red, increment=3, fillcolor=white]
-(0,0,{2.71828\space -1\space 2\space mul\space exp})
-{2}
-{1 \space 2\space div\space 2.71828\space -1\space 2\space mul\space exp \space sub }
-%
-\multido{\rA=1.4+\deltaXcustom}{17}{%
-\innerCycleX
-}%
-\defFunction[algebraic]%
-{etoMinusT}(t)
-{t}{0 }{e^(-t)}
-\psSolid[object=courbe,r=0,
-range=0.3 2.8,
-linecolor=blue,
-linewidth=0.03,
-resolution=360,
-function=etoMinusT]%
-\defFunction[algebraic]%
-{oneOverT}(t)
-{t}{0 }{1/t}
-\psSolid[object=courbe,r=0,
-range=0.3 2.8,
-linecolor=blue,
-linewidth=0.03,
-resolution=360,
-function=oneOverT]%
-
-\psSolid[object=line, linecolor=blue,
-args=0.3 0 0.740818221 0.3 0 3.33]
-\psSolid[object=line, linecolor=blue,
-args=2.8 0 0.060810063 2.8 0 0.357142857]
-\axesIIID[](-1,-1,-1)(4,4,4)
-\end{pspicture*}
-} %optionalDisplay end
-For the purposes of these lectures, we introduce the notion of a ``curved trapezoid''. A figure in the $x,z$ plane is called a ``curved trapezoid'' if it is enclosed by two functions $f_1(x), f_2(x)$ in the interval $[a,b]$ with $f_1(x)<f_2(x)$ as $x$ varies in the interval $[a,b]$.
-
-In other words, a ``curved trapezoid'' is a figure that can be given as the set of points $(x,z)$ for which $x\in [a, b]$ , $z\in [f_1(x), f_2(x)]$. A curved trapezoid is drawn in the preceding item.
-
-The term ``curved trapezoid'' is not standard, and we use it only for the purpose of the current section.
-
-Every ``well behaved'' figure can be subdivided into curved trapezoids. In our course, we shall only consider such ``well-behaved'' figures.
-
-Let $F$ be the solid of revolution obtained by rotating a curved trapezoid $x\in[a,b], z\in [f_1(x), f_2(x)]$, $f_1(x)<f_2(x)$ around the $z$ axis, as shown on the preceding figure. Then the volume of $F$ is computed by
-
-\begin{equation}\boxed{\label{eqVolumeRotationalSolid}
-volume(F) = \int\limits_{a}^b 2\pi x (\underbrace{f_1(x)-f_2(x)}_{=: h(x)}) \diff x=  \int\limits_{a}^b 2\pi x h(x) \diff x\quad .
-}
-\end{equation}
-
-A motivation for the above computation may be given as follows. The volume of the ``cylindrical shell'' figure enclosed between an inner cylinder of radius $r$ and an outer cylinder of radius $r+\Delta$ and height $h$ equals the difference of the volumes of the two cylinders
-\[
-h(\pi (r+\Delta)^2-\pi r^2)=h\pi (\cancel{r^2}+2r\Delta+\Delta^2- \cancel{ r^2}) = h\pi (2r\Delta+\Delta^2)\quad .
-\]
-
-\optionalDisplay{
-\psset{xunit=2cm,yunit=2cm}
-\psset{lightsrc=50 20 20,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
-
-\begin{pspicture*}(-1,-1)(1,1)
-\defFunction[algebraic]{innerC}(t)
-{cos(t)}{sin(t)}{}
-\defFunction[algebraic]{outerC}(t)
-{1.1*cos(t)}{1.1*sin(t)}{}
-\psSolid[object=prisme,h=0.6,
-fillcolor=red,
-resolution=30,
-base=0 6.3 {outerC} CourbeR2+
-6.3  0 {innerC} CourbeR2+](0,0,-0.6)
-\psline[linecolor=black, linewidth=0.3pt, arrows={|-|}] (0,0.4) (0.55,0.4)
-\psline[linecolor=black, linewidth=0.3pt, arrows={|-|}] (0,0.7) (0.607,0.7)
-\rput(0.25, 0.52 ){\tiny $r$}
-\rput(0.30, 0.82 ){\tiny $r+\Delta$}
-\psline[linecolor=black, linewidth=0.3pt, arrows={|-|}] (0.7,0) (0.7,-0.3)
-\rput[l](0.75, -0.15 ){\tiny $h$}
-\end{pspicture*}
-}
-
-Let $N$ be a large integer and set $\Delta:= \frac{b-a}{N}$. Split the interval $[a,b]$ into $N$ equal segments $[a,a+\Delta], [a+ \Delta(x), a+ 2\Delta] ,\dots, [b-\Delta, b]$. The length of each segment is $\Delta$. Then the volume of our solid of revolution is approximated by the sum of the volumes of the cylindrical shells of inner radius $a+ k\Delta $, outer radius $a+(k+1)\Delta$, and height $h(a+k\Delta)$, where we have set
-\[
-h(x)\eqdef f_2(x)-f_1(x)\quad .
-\]
-In other words, the volume of a solid of revolution is approximated by
-\[
-\begin{array}{l}
-\displaystyle\sum_{k=0}^{k=N-1} \underbrace{ \underbrace{h(a+k\Delta)}_{\mathrm{height}}(\underbrace{\pi (\underbrace{(a+k\Delta)+\Delta}_{ \mathrm{rad.~outer~cylinder}} ) ^2}_{\mathrm{area~base~outer~cyl.}}-\underbrace{\pi (\underbrace{a+k \Delta}_{\mathrm{rad.~inner~c.}})^2}_{\mathrm{area~base~inner~c.}})}_{\mathrm{volume~k^{th}~cylindrical~shell}} \\
-=\displaystyle \underbrace{\sum_{k=0}^{k=N-1} 2\pi(a+k\Delta)  h(a+k\Delta) \Delta }_{\mathrm{approximates~} \int\limits_{a}^b 2\pi x h(x) \diff x }  + \Delta \left(\underbrace{\sum_{k=0}^{k=N-1} \pi  h(a+k\Delta)\Delta}_{\mathrm{approximates~} \int\limits_{a}^b h(x) \diff x }\right)
-\end{array}
-\]
-As we subdivide into finer intervals, i.e., $N$ tends to zero, $\Delta$ (as a function of $N$) tends to zero, and the first summands tends to $\int\limits_{a}^b 2\pi x h(x) \diff x $. On the other hand, the second multiplicand of the second summand approximates $\int\limits_{a}^b h(x) \diff x $, in particular it is bounded. Therefore the entire second summand equals $\Delta$ times a bounded quantity, and therefore approaches zero as $\Delta$ tends to zero.
-
-
-\textbf{Remark.} The above motivation may be regarded as a proof of the volume formula. The main reason we do not call the above motivation ``a proof'' is that we have not given a definition of volume. \textbf{Optional material, (!).} Here is an informal brief sketch  of a definition of volume. If a figure $X$ can be represented as a set of the form $X= \{(x,y,z)| x\in [a,b], y\in [f_1(x), f_2(x)], z\in [g_1(x,y),  g_2(x,y)]\}$, its volume can be defined as
-\[
-\int\limits_a^b \left(\int\limits_{f_1(x)}^{f_2(x)}\left(\int\limits_{g_1(x,y)}^{g_2(x,y)} 1 ~ \diff s \right)\diff t \right)dv \quad .
-\]
-By allowing finite sums of figures of the above kind, and by allowing subdivision of figures into components of the above kind, we can define volume of a much wider set of figures. This set of figures includes all 3-dimensional figures of practical significance to  the natural sciences.
-
-However, there are a lot of important details to take care of - for example, what do we do if the figures of the above form intersect along a (2-dimensional) wall, and how do these integrals behave when we re-parametrize the coordinates system. In order to handle these details smoothly, as well as to define volume of figures that cannot be represented with finitely many operations by  figures of the above form,  we need to define volume as follows. (Disclaimer: non-defined mathematical terms follow. The terms are given as starting keywords for students who have additional interest in the subject and would like to google them.) The volume of a \emph{measurable} figure $X$ equals the \emph{infimium of the of the sums of volumes of (possibly infinitely many) rectangular parallelepipeds whose union covers $X$}. The words in the preceding sentence express the simplest idea of measuring volume: namely, approximate volume by increasingly finer rectangular parallelepipeds. However, molding this simple idea into a precise mathematical definition, although not difficult or conceptually hard (however somewhat lengthy, as the preceding ``complicated'' words indicate), is outside of the scope of the current course. We note that one area of mathematics in which a precise definition of volume is given is ``Measure Theory''.
-\subsubsection{Strategy for computing the volume of a solid of revolution}
-
-A typical problem for finding the volume of a solid of revolution will ask you to find the volume of a figure obtained by rotating a figure in the $(x,z)$ plane around an axis. The actual letters in the problem might be different from $(x,z)$. The axis of rotation might be the $x$-axis, the $z$-axis, or any other axis given by the equation of any line. The figure in the $(x,z)$ plane will usually be given as the figure enclosed by two or more curves in the plane.
-
-If the axis of rotation does not pass through $(0,0)$, we should change the coordinate system so that the axis of rotation passes through zero. This is easy to do. Suppose the axis of rotation passes through some point $(s,t)$. Then if the change the coordinate system by setting $u\eqdef x-s, v\eqdef z-t$, then when $(x,z)=(s,t)$, we would have that $(u,v)=(0,0)$. In other words, we may replace everywhere $x=u+s$, $z=v+t$, and work with the new coordinates $(u,v)$.
-
-Suppose now the axis of rotation passes through $(0,0)$, but is neither the $x$ nor the $z$ axis. Suppose in addition the axis of rotation passes through the point $(a,b)$, $a\neq 0$. Then the axis of rotation passes through the point $(\frac{a}{\sqrt{a^2+b^2}},\frac{b}{\sqrt{a^2+b^2}})$ as well (this is one of the two points on the line whose distance to $(0,0)$ is one). Then we can change the coordinate system by
-\begin{equation}\label{eqRotateXZtoUV}
-\begin{array}{rcl}
-u &=&\frac{1}{\sqrt{a^2+b^2}}\left( bx-az\right)\\
-v &=& \frac{1}{\sqrt{a^2+b^2}}\left( ax+bz\right)\quad .
-\end{array}
-\end{equation}
-If $(x,y)= (\frac{a}{\sqrt{a^2+b^2}}, \frac{b}{ \sqrt{a^2 +b^2}})$, it follows that $(u,v)=(0,1)$, and so the axis of rotation passes through the point $(0,1)$ in the $(u,v)$-coordinates, i.e., the axis of rotation is the $v$-axis. It is important that the substitution \eqref{eqRotateXZtoUV} preserves volumes. This does not happen for all linear substitutions (transformations); the linear transformations for which this happens are called ``volume preserving''.
-
-One way to motivate the fact that substitution \eqref{eqRotateXZtoUV} preserves volumes (without actually proving it), is to show that the transformation \eqref{eqRotateXZtoUV} is a rotation. The lengths $\sqrt{a^2+b^2}$, $|a|$ and $|b|$ form a right-angle triangle, and therefore $\frac{a}{\sqrt{a^2+b^2}}$ is the cosine of the angle $\varphi$ indicated on the figure below and $\frac{b}{\sqrt{a^2+b^2}}$ is the sine. If we set $\mathbf e_1\eqdef(1,0)$, $\mathbf e_2\eqdef(0,1)$, then a vector in the $(x,z)$ plane is given by $x\mathbf e_1+z\mathbf e_2$. If we set $\mathbf v_1\eqdef (\cos\varphi, -\sin \varphi), \mathbf v_2\eqdef (\sin \varphi, \cos \varphi)$, then a vector in the plane may be alternatively given as $u\mathbf v_1+ v\mathbf v_2$. Therefore if we want to change coordinate system so that the axes are aligned along $\mathbf v_1, \mathbf v_2$, we need to have that
-\[
-(x, z)=x\mathbf e_1+z\mathbf e_2= u \mathbf v_1 +v \mathbf v_2=( u\cos \varphi+ v\sin\varphi, -u\sin \varphi+v\cos\varphi)\quad ,
-\]
-and therefore
-\[
-\left|\begin{array}{rcl}
-x&=& u\cos \varphi+ v\sin\varphi\\
-z&=&  -u\sin \varphi+v\cos\varphi\quad .
-\end{array}\right.
-\]
-Solving this system for $u,v$, we get that
-\[
-\left|\begin{array}{rcl}
-u&=&  x\cos \varphi-z\sin\varphi\\
-v&=& x\sin \varphi+z\cos\varphi\quad .
-\end{array}\right.
-\]
-\optionalDisplay{
-\psset{xunit=3cm,yunit=3cm}
-\begin{pspicture*}(-2,-2)(3,2)
-\psline[linecolor=gray]{->}(-1.5,0)(1.5,0) % x-axis
-\psline[linecolor=gray]{->}(0,-1.5)(0,1.5) % y-axis
-\rput[l](1.5,0){$x$}
-\rput[b](0,1.5){$z$}
-\rput[bl](0.03,1.03){$(0,1)$}
-\rput[bl](1,-0.15){$(1,0)$}
-\rput[c](0,1){$\bullet$}
-\rput[c](1,0){$\bullet$}
-
-\psplot[linestyle=dotted, arrows={<-}]{0}{0.5}{1 x x mul sub sqrt}
-\psplot[linestyle=dotted, arrows={->}]{0.866}{1}{1 x x mul sub sqrt -1 mul}
-
-\psplot[linecolor=red]{0}{0.05}{0.01000001 x x mul sub sqrt}
-
-\rput(0.5, 0){\psplot{-0.1}{0}{ 0.01001 x x mul sub sqrt 1 mul}}
-\rput[l](0.53, 0.34){$\cos\varphi$ $= \frac{a}{\sqrt{a^2+b^2}}$}
-\rput[t](0.34, -0.03){$\sin\varphi$}
-
-\psline(0,0)(0.5,0.866)
-\psline(0,0)(0.866, -0.5)
-\rput[c](0.5,0.866){$\bullet$}
-\rput[c](0.866,-0.5){$\bullet$}
-
-\rput(1.3,1){$( \sin \varphi, \cos \varphi) = \left( \frac{a}{\sqrt{a^2+b^2}}, \frac{b}{\sqrt{a^2+b^2}}\right)$}
-\rput(1.3,-0.6){$(\cos\varphi, -\sin \varphi)= \left( \frac{b}{\sqrt{a^2+b^2}}, \frac{-a}{\sqrt{a^2+b^2}}\right)$}
-\psline[linestyle=dotted](0.5,0.866)(1,1.74)
-
-\rput(1.1,1.81){$(a,b)$}
-\rput[c](1,1.74){$\bullet$}
-\rput(0.8, 1.392){\pscurve[linecolor=red]{->}(0.0866, -0.05) (0.224, -0.014)(0.1, 0.174)(-0.124, 0.1866 )(-0.0866, 0.05)}
-
-\psline(0.5,0)(0.5,0.866)
-\rput[l](0.01,0.2){$\varphi$}
-\end{pspicture*}
-} %end optionalDisplay
-
-Substituting $\sin \varphi = \frac{a}{\sqrt{a^2+b^2}}, \sin \varphi = \frac{b}{\sqrt{a^2+b^2}}$ we get the substitution \eqref{eqRotateXZtoUV}. Observation of the figure shows that this transformation in fact corresponds to rotation. As rotations preserve volumes, we have transformed the problem of rotating around an arbitrary axis to a problem of rotating around the vertical axis $u=0$.
-
-A formal definition of rotation is given in the subject of linear algebra, or in more advanced Calculus I courses. Alternatively, a very good explanation may be found at the Wikipedia page
-
-\url{http://en.wikipedia.org/wiki/Rotation_(mathematics)} .
-
-Suppose now we are rotating the figure around the $z$ axis. The next task is to plot the curves in the $(x,z)$-plane that determine the figure.
-
-Once we have plotted the figure, we use vertical lines to split it into ``curved trapezoids'', i.e.,  figures bounded by a line $x=a$, a curve $z=f_1(x)$, a line $x=b$ and a curve $z=f_2(x)$ with $a< b$ and $f_1(x)\leq f_2(x)$ for $x\in [a,b]$. One such figure is illustrated in \ref{itemExampleFigureRotationalSolid}.
-
-If the figure lies entirely on one side of the $z$ axis, we simply apply the volume formula  \eqref{eqVolumeRotationalSolid}.
-\subsubsection{Example problem}
-\begin{problem}
-Compute the volume of the rotational solid obtained by rotating the figure enclosed between the curves $z=-x+3$, $z= \frac{1}x$.
-\end{problem}
-\begin{solution}
-First we plot the figure and the axis of rotation.
-
-\optionalDisplay{
-\psset{xunit=1.5cm,yunit=1.5cm}
-\begin{pspicture*}(-3,-2)(4,4.5)
-%\psset{lightsrc=80 30 30,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
-\psline[linecolor=gray]{->}(-2,0)(3.5,0) % x-axis
-\psline[linecolor=gray]{->}(0,-2)(0,3.5) % z-axis
-\rput[l](3.5,0){$x$}
-\rput[b](0,3.5){$z$}
-
-\psline[linestyle=dotted](-4,3)(3,-4)
-\psline[linestyle=dotted](4,3)(-3,-4)
-
-\rput{45}(3,2.1){$u$}
-\rput{45}(-2,1.1){$v$}
-\rput{45}(-1,0){
-\pscurve[linecolor=red]{->}(0,0)(0.2, 0.1)(0, 0.2)(-0.2,0.1 )(-0.05,0)
-}
-\pscustom[linewidth=2pt, linecolor=blue, fillstyle=solid,fillcolor=lightgray]{
-\psplot{0.381966011}{2.618033989}{1 x div}
-\psline(2.618033989, 0.381966011)(0.381966011,2.618033989)
-\closepath
-%\pscurve(0.3, 3.33) (0.3, 1.349858808)
-}
-\rput(1, 1){$\bullet$}
-\rput(-0.5, -0.5){$\bullet$}
-\psline[linestyle=dotted](-0.5, -0.5)(1,1)
-\rput(1.6,1){$z=\frac{1}x$}
-\end{pspicture*}
-}
-
-Next we change coordinates so that the axis of rotation becomes the $z$ axis. First, we need to change coordinate system so the axis of rotation passes through the origin. The axis of rotation passes through $(x,z)=(-1,0)$ and therefore we can change basis by $y=x+1$, i.e., $x=y-1$. In the new variables, the axis of rotation has equation $z+y=0$. $z+y$ passes through $(-1,1)$, and therefore we may set, according to \eqref{eqRotateXZtoUV},
-\[
-u=\frac{\sqrt{2}}{2}(y+z)\quad,\quad v=\frac{\sqrt{2}}{2}(-y+z)\quad .
-\]
-Solving for $x$ and $z$, we get that $z=\frac{\sqrt{2}}{2}(u+v)$, $x=y-1=\frac{\sqrt{2}}{2}(u-v)-1$. Our axis of revolution becomes $u=0$. Therefore we would like to express the bounding curves in the form $v=f(u)$ for some function $f$. Therefore the curve $z=\frac{1}{x}$ is expressed in $(u,v)$ as
-\[
-\frac{\sqrt{2}}{2}(u+v)= \frac{1}{\frac{\sqrt{2}}{2}(u-v)-1}
-\]
-We solve by expressing $v$ in terms of $u$:
-\[
-\begin{array}{l}
-\frac{1}{2}(u^2-v^2)-\frac{\sqrt{2}}{2}(u+v)=1 \\
-v^2+\sqrt{2}v+2-\sqrt{2}u- u^2=0 \\
-v_{1,2}=\frac{-\sqrt{2}\pm \sqrt{2-4(2-\sqrt{2}u- u^2)} }2=
-\frac{-\sqrt{2}\pm \sqrt{-6+\sqrt{2}u+ u^2} }2\quad .
-\\
-\end{array}
-\]
-The smallest possible value of $u$ is $\frac{3\sqrt{2}}2$, which is also seen on our picture.  The other bounding curve, $x+z-3=0$, becomes $y-1+z-3=\sqrt{2}u -4=0 $,i.e., $u=2\sqrt{2}$. We see that the figure in the $(u,v)$-plane is enclosed by the two functions $\frac{-\sqrt{2}+ \sqrt{-6+\sqrt{2}u+ u^2} }2>\frac{-\sqrt{2}- \sqrt{-6+\sqrt{2}u+ u^2} }2$ and $u\in [\frac{3\sqrt{2}}2, 2\sqrt{2}]$.  Applying the formula \eqref{eqVolumeRotationalSolid}, we get the integral
-\[
-\int\limits_{u=\frac{3\sqrt{2}}2}^{2\sqrt{2}} 2\pi u\left(\sqrt{-6+\sqrt{2}u+ u^2}\right)du\quad .
-\]
-We can solve this integral using Euler substitution, Section \ref{secEulerSubTrigIntegrals}. %This will be done in later versions of the notes.
-\end{solution}
-
-\subsection{Length of curves} \label{secCurveLength}
-\index{curve}\index{curve!parametric} A parametric curve (or simply curve) is defined as an n-tuple of functions mapping a given interval $[a,b]$ to an n-tuple of real numbers. For the purposes of our course, a curve will map the interval $[a,b]$ onto either a two dimensional space (denoted by $\mathbb R^2$), or a 3-dimensional space (denoted by $\mathbb R^3$). Thus, a curve $f:[a,b]\to \mathbb R^2$ is given by the two functions (one for each coordinate):
-\[
-\begin{array}{rcl}
-\gamma:[a,b]&\to& \mathbb R^2\\
-\gamma(t)&\eqdef& (f_1(t), f_2(t))
-\end{array}\quad .
-\]
-An alternative and less formal notation for a curve is
-\[
-\gamma:\left|
-\begin{array}{rcl}
-x(t)&=&f_1(t)\\
-y(t)&=&f_2(t)\\
-\end{array}\right., t\in [a,b]\quad .
-\]
-In a similar fashion, a curve in the 3-dimensional space is given by
-\[
-\gamma:\left|
-\begin{array}{rcl}
-x(t)&=&f_1(t)\\
-y(t)&=&f_2(t)\\
-z(t)&=&f_3(t)\\
-\end{array}\right., t\in [a,b]\quad .
-\]
-This definition is extended to an arbitrary number of variables in the obvious way.
-
-\index{curve!image}The \emph{image of a curve} $f:[a,b]\to \mathbb R^2$ is the set of points in $\mathbb R^2$ of the form $f(t)$ as $t$ runs over all points in the interval $[a,b]$.
-
-Colloquially, as often happens during lectures and scientific talks, we call both the parametric curves (which are functions) and their  and images (which are sets of points in the plane) using the word ``curve''. We try to avoid this informality in the present notes.
-
-It is important to distinguish between a parametric curve and the image of the curve. For example, the curves
-\[
-\gamma_1:\left|
-\begin{array}{rcl}
-x&=&t^2\\
-y&=&t^2\\
-\end{array}\right., t\in [0,1]\quad .
-\]
-\[\gamma_2:\left|
-\begin{array}{rcl}
-x(t)&=&t\\
-y(t)&=&t\\
-\end{array}\right., t\in [0,1]\quad .
-\]
-both represent the straight segment connecting $(0,0)$ and $(1,1)$, but ``traverse'' the segment at different ``speeds''. Another example is given by
-\[
-\gamma_1:\left|
-\begin{array}{rcl}
-x(t)&=&t\\
-y(t)&=&\sqrt{1-t^2}\\
-\end{array}\right., t\in [0,1]
-\]
-and
-\[
-\gamma_2:\left|
-\begin{array}{rcl}
-x(t)&=&\cos t\\
-y(t)&=&\sin t\\
-\end{array}\right., t\in [0, \frac{\pi}{2}]\quad .
-\]
-These two parametric curves correspond to a quarter of a circle (which quarter?), however the two parametric curves traverse the quarter circle in different directions (which ones?) and at different speeds.
-
-Images of curves are often given implicitly with a relation between $x$ and $y$. For example, the unit circle is given by
-\[
-x^2+y^2=1\quad .
-\]
-In the previous points, we showed two different parametric curves of a quarter circle.
-
-To parametrize a curve whose image is given by a relation between $x$ and $y$ is a highly non-trivial task. For example, if the relation is of the form $y^2=x^3+px+q$ for parameters $p,q$, the problem of deciding (using computer) whether there is a point with rational coordinates $(x,y)$ that satisfies the equation is an active area of mathematical research. %There are cryptographic schemes based on results in this area.
-
-In fact, the Euler substitution in Section \ref{secEulerSubTrigIntegrals} is an example of a parametrization of curves of the form $y^2=\pm x^2\pm 1$.
-
-\index{curve!length}Definition of curve length. Let $\gamma$ be given by
-\[
-\gamma:\left|
-\begin{array}{rcl}
-x(t)&=&f_1(t)\\
-y(t)&=&f_2(t)\\
-\end{array}\right., t\in [a,b]\quad .
-\]
-Suppose in addition $f_1(t), f_2(t)$ are differentiable. Then the \emph{length} of $\gamma$ is defined as
-\begin{equation}\boxed{
-\label{eqDefLengthCurve}
-\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}\diff t \quad .
-}
-\end{equation}
-Similarly, the length of a curve sitting in 3-dimensional space is given by
-\[
-\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2+f_3'(t)^2}\diff t \quad .
-\]
-
-Suppose an image of a curve $C\subset \mathbb R^2$ has two different parametrizations
-\begin{equation}\label{eqDefCurve1}
-\gamma_1:\left|
-\begin{array}{rcl}
-x(t)&=&f_1(t)\\
-y(t)&=&f_2(t)\\
-\end{array}\right., t\in [a,b]\quad ,
-\end{equation}
-\begin{equation}\label{eqDefCurve2}
-\gamma_2:\left|
-\begin{array}{rcl}
-x(s)&=&g_1(s)\\
-y(s)&=&g_2(s)\\
-\end{array}\right. , s\in [p,q]\quad ,
-\end{equation}
-both differentiable, such that both are injective (i.e., every point $(x(t), y(t))$ has exactly one preimage, see Section \ref{secInverseFunctionBasics}).
-\begin{equation}\boxed{
-\begin{array}{c}
-\text{If the parametric curve is differentiable and injective (one to one),}\\
-\text{the length of the image of a curve } C
-\text{does not depend on the parametric curve.}
-\end{array}
-}
-\end{equation}
-We have that $t$ can be expressed as function of $s$, namely, $t(s)= \gamma_1(\gamma_2^{-1}(s))$. Furthermore, as a function of $s$ from $[a,b]$ to $[p,q]$, $t$ is bijective (this follows from the fact that both $\gamma_1$ and $\gamma_2$ are injective).
-
-We will prove the preceding item if $t$ as a function of $s$ is  continuously differentiable.
-
-\begin{proof} (on condition $t(s)$ is continuously differentiable). In order to avoid confusion throughout this proof, we will denote derivatives with respect to $s$ by $\frac{\diff}{\diff s}$, and derivatives with respect to $t$ by $\frac{\diff}{\diff t}$.
-
-We claim that $\frac{\diff t}{\diff s}(s)$ does not change sign. Suppose the contrary. The endpoints of the interval $[a,b]$ (where $t$ lives) must be mapped to the endpoints $p,q$ of the interval where $s$ lives. Suppose first $t(a)=p<q=t(b)$.  Then there exist points $s_0$ and $s_1$ such that  $\frac{\diff t}{\diff s}(s_0)<0$. As $t(s)$ is continuously differentiable, there exists a small interval  $s_0\in [w, z]$ such that $\frac{\diff t}{\diff s}(s)<0$. Then by the fundamental theorem of Calculus $t(w)>t(z)$ but $w<z$. By the intermediate value theorem, in the interval $[z,b]$, the function $t(s)$ achieves all values between $t(z)$ and $t(b)=q$. In particular, it achieves the value $t(z)<t(w)<q$. But then $t$ as a function of $s$ achieves the value $t(w)$ at least twice (once at $w$ and once at a point in $[z,q]$). On the other hand, we already saw that $t$ is bijective, and cannot achieve the same value twice. Contradiction. The other case, in which $t(a)=q>p=t(b)$, is treated in a similar fashion.
-
-The length of $C$ is by definition
-\[
-\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}\diff t \quad .
-\]
-Unlike computations of indefinite integrals, where we make variable changes on the fly, when dealing with definite integrals, we may make variable changes only when they are bijective (one-to-one and onto, Section \ref{secInverseFunctionBasics}). By the conditions on the parametrization of the curve we may make a variable change under the definite integral. Suppose first $\frac{\diff t}{\diff s}(s)\geq 0$ and therefore $t(a)=p<q=t(b)$. Therefore
-\[
-\begin{array}{l}
-\phantom{=}\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{\diff t}(t(s))\right)^2+\left(\frac{df_2}{\diff t}(t(s))\right)^2}\diff(t(s)) \\
-\displaystyle =  \int \limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2+ \frac{df_2}{\diff t}(t(s))^2}\diff(t(s))\\
-= \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2 + \frac{df_2 }{\diff t}(t(s))^2} \frac{\diff t}{\diff s}\diff s \\
-\displaystyle
-\stackrel{\frac{\diff t}{\diff s}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left( \underbrace{ \frac{\diff t}{\diff s}(s) f_1( t(s)) }_{ \text{chain rule} } \right)^2+ \left( \underbrace{ \frac{ \diff t}{\diff s}(s) \frac{df_2}{\diff t} (t(s))}_{ \text{chain rule}} \right)^2}\diff s \\
-=\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{\diff}{\diff s}\left(f_1(t(s))\right)\right)^2+ \left(\frac{\diff}{\diff s}\left(f_2(t(s))\right)\right)^2}\diff s \\
-=\displaystyle \int\limits_{s=p}^q \sqrt{ \frac{ dg_1}{ \diff s}( s)^2 + \frac{dg_2}{\diff s}(s)^2}\diff s,
-\quad
-\end{array}
-\]
-where in the very last equality we use the definition of $t$ as a function of $s$ and \eqref{eqDefCurve2}. This is exactly what we wanted to prove. The case when $t(a)=q>p=t(b)$ is handled similarly.
-\end{proof}
-
-A motivation for the definition may be given as follows. Let $[a,b]$ be subdivided into $N$ intervals $[a,a+\Delta ], \dots, [a+k\Delta, a+(k+1)\Delta],\dots, [b-\Delta, b]$, $\Delta=\frac{b-a}{N}$. Then the straight segment connecting the point $(x,y)=(f_1(t), f_2(t))$ with $(f_1(t+\Delta), f_2(t+\Delta))$ has length $\sqrt{(f_1(t)-f_1(t+\Delta))^2 + (f_2(t)-f_2(t+\Delta))^2}= \sqrt{\left(\frac{(f_1(t)-f_1(t+\Delta)}{\Delta}\right)^2 + \left(\frac{(f_2(t)- f_2(t+\Delta)}{\Delta} \right)^2}\Delta$. Summing up over all intervals, we get that the piecewise linear curve approximating our smooth curve has length
-\[
-\sum_{k=1}^{N-1} \sqrt{\left(\frac{(f_1(a+k\Delta)-f_1(a+(k-1)\Delta)}{\Delta}\right)^2 + \left(\frac{(f_2(a+k\Delta)- f_2(a+(k-1)\Delta)}{\Delta} \right)^2}\Delta\quad .
-\]
-As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by the definition of derivative, the radical term tends uniformly to $\sqrt{f_1'(t)^2+f_2'(t)^2}$. Therefore the entire sum approximates the integral \eqref{eqDefLengthCurve}.
-
-\optionalDisplay{
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture}(-1,-1)(4,4.3)
-\psaxes[ ticks=none, arrows={->}](0,0)(4,4)
-\rput[b](0,4.1){\tiny$y$}
-\rput[b](4.1,0){\tiny$x$}
-
-\psplot[linecolor=blue, plotstyle=curve]{0.2}{4} { x 2 div x 180 mul  sin 1 add  mul 1 add x 3 div  sub   }  %{ x x mul 4 div x 180 mul  sin 1 add  mul   }
-\psplot[linecolor=black!50, plotpoints=11,plotstyle=line]{0.2}{4}{ x 2 div x 180 mul  sin 1 add  mul 1 add x 3 div  sub   }
-\psline[linecolor=red!50](2.1,1.674467844)(2.1,2.650886477)(2.48,2.650886477)
-\rput[t](1.9,2.3){\tiny$\diff y$}
-\rput[t](2.28,2.85){\tiny$\diff x$}
-
-
-\rput[t](1,1.8){\tiny$(x(t), y(t))$}
-\pscurve[arrows={->}, linestyle=dotted](1,1.8)(1.3, 1.5)(2.1,1.674467844)
-\pscurve[arrows={->}, linestyle=dotted](2,4)(2.5, 3.55)(2.48,2.650886477)
-
-\rput[b](2,4){\tiny$(x(t+\Delta), y(t+\Delta))$}
-%\pscurve[linecolor=blue](0.2,1)(0.4,0.9)(0.8,0.5)(1.2,0.3)(1.6,1.5)(2, 0.5)(2.4, 2)(3.2, 1.5)(3.6, 1.4)(4, 2)
-
-\end{pspicture}
-}
-
-%\chapter{Polar coordinates}
-\section{Polar coordinates}
-Polar coordinates of a point $P=(x,y)$ in the plane are any two numbers $(r, \theta)$, $r\geq 0$, for which $(x,y)=(r\cos\theta, r\sin \theta)$. In other words, the relation between the Cartesian coordinates $(x,y)$ and the polar coordinates $(r,\theta)$ of a point $P$ is given by
-\[
-\left|\begin{array}{rcl}
-x&=&r\cos \theta\\
-y&=&r\sin\theta
-\end{array}\right.
-\]
-
-In these lectures, we allow polar coordinates with $ r<0$; this is the commonly accepted convention.
-
-To obtain polar coordinates from Cartesian coordinates we compute that $x^2+y^2= r^2(\cos^2 \theta+\sin^2\theta)=r^2$ and therefore $r=\pm\sqrt{x^2+y^2}$. Furthermore we have that $\frac{y}{x}= \frac{\cancel{r}\sin \theta}{\cancel{r}\cos \theta}=\tan \theta$. To summarize:
-\[
-\left|\begin{array}{rcl}
-r&=&\pm\sqrt{x^2+y^2}\\
-\tan\theta&=&\frac{y}{x} \quad \mathrm{if~}x\neq 0 \quad .
-\end{array}\right.
-\]
-Note that the equality $\tan \theta = \frac{y}{x}$ is not always defined. Also note that  $\tan \theta=\frac{y}{x}$ does not determine $\theta$ uniquely, as it is not clear in which interval $(k\pi -\frac{\pi}{2}, k\pi+\frac{\pi}{2})$, $k\in \mathbb Z$ does $\theta$ lie.
-
-$r$ denotes the distance from $P$ to the origin and $\theta$ denotes the angle between the segment $OP$ and the $x$-axis, as indicated on the picture below.
-
-\optionalDisplay{
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-1.5,-1.5)(5,4)
-\psline[linecolor=gray](-1.5,0)(2.5,0) % x-axis
-\psline[linecolor=gray](0,-1.5)(0,2.5) % y-axis
-\parametricplot[linecolor=red]{0}{60}{t cos 0.25 mul t 1000 div 1 add mul t sin 0.25 mul t 1000 div 1 add mul}
-\parametricplot[linecolor=red, arrows=->]{0}{780}{t cos 0.55 mul t 1000 div 1 add mul t sin 0.55 mul t 1000 div 1 add mul}
-\psline(0,0)(2,  3.464)
-\rput(2,  3.464){$\bullet$}
-\rput[lt](2,  3.264){$P= (r\cos \theta, r\sin \theta)$}
-\rput(0.35,  0.25){$\theta$}
-\end{pspicture*}
-} %optionalDisplay
-
-Polar coordinates are not unique: if $(r, \theta)$ are polar coordinates of $P=(x,y)$, then so are $(r, \theta+2\pi)$. More precisely, the point $P_1$ with polar coordinates $(r_1, \theta_1)$ coincides with a point $P_2$ with polar coordinates $(r_2, \theta_2)$ if one of the three mutually exclusive possibilities holds:
-\begin{itemize}
-\item $r_1=r_2\neq 0$ and $\theta_1=\theta_2+2k\pi, k\in \mathbb Z $,
-\item $r_1=-r_2\neq 0$ and $\theta_1=\theta_2+(2k+1)\pi, k\in \mathbb Z$,
-\item $r_1=r_2=0 $ and $\theta$ is arbitrary.
-\end{itemize}
-
-
-
-
-We have already encountered polar coordinates when studying polar form of complex numbers. Let $z\eqdef x+iy$, $x,y\in \mathbb R$. Then we recall from section \ref{secPolarFormComplexNumbers} that there exist real numbers $\rho$, $r\eqdef e^\rho$ and $\theta$ such that $z=x+iy= e^{\rho+i\theta}= e^\rho(\cos \theta+i\sin \theta)= r(\cos \theta + i\sin \theta)$. We recall the latter equality is the polar form of the complex number $z$. Then $(r, \theta)$ are the polar coordinates of the point $(x,y)$.
-
-The relationship between polar form of complex numbers and polar coordinates can be summed up in the following equalities.
-\[
-\begin{array}{rclclcl}
-r(\cos \theta+i\sin\theta) &=&  x+iy&=& z&=&\Re (z)+i\Im(z)\\
-r\cos\theta&=&x&=&\Re(z)\\
-r\sin\theta&=&y&=&\Im(z)\\
-\theta&&&=& \arg (z)\\
-\tan \theta &=&\displaystyle\frac{y}{x}&=&\displaystyle\frac{\Im (z)}{\Re (z)}\\
-r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
-\end{array}
-\]
-
-\index{cardioid}\index{spiral} Sometimes a curve is given in polar coordinates by specifying a relationship between $r$ and $\theta$, such as $r=\theta$ (spiral) or $r=1+\sin \theta$ (cardioid), $r=2\cos \theta$ (circle of radius one centered at $(1,0)$).
-
-\optionalDisplay{
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-5,-5)(5,5)
-\rput (3,3){$r=\theta$}
-\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\parametricplot[linecolor=red, plotpoints=500]{0}{720}{t cos t mul 180 div t sin t mul 180 div }
-\end{pspicture*}
-
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-5,-5)(5,5)
-\rput (3,3){$r=1+\sin\theta$}
-\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\parametricplot[linecolor=red, plotpoints=500]{0}{360}{1 t sin add t cos mul
- 1 t sin add t sin mul}
-\end{pspicture*}
-
-\psset{xunit=1cm,yunit=1cm}
-\begin{pspicture*}(-5,-5)(5,5)
-\rput (3,3){$r=2\cos\theta$}
-\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
-\parametricplot[linecolor=red, plotpoints=500]{0}{360}
-{ t cos 2 mul t cos mul
-  t cos 2 mul t sin mul}
-\end{pspicture*}
-} %optionalDisplay
-
-\index{area!enclosed by curve in polar coord.} Let $r=f(\theta), \theta\in [a,b]$ be a curve given in polar coordinates.  Let $A$ denote the figure given by the union of the segments connecting each point the curve to the origin. Suppose no two points on the curve lie on the same ray from the origin. Then the area of $A$ is given by
-\begin{equation}\boxed{\label{eqAreaUnderPolarCurve}
-area(A)\eqdef \int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta\quad .
-}
-\end{equation}
-A motivation for the above definition may be given as follows.
-\psset{xunit=1cm,yunit=1cm}
-
-\optionalDisplay{
-\begin{pspicture*}(-4,-1)(7.3,5.4)
-\newcommand{\dThetA}{20}
-\rput(4,5){$r=f(\theta)$}
-\psaxes[labels=none]{<->}(0,0)(-3.5,-0.5)(4.5,5.2)
-\multido{\rb=10+\dThetA}{6}{%
-\pstVerb{/rR \rb\space 30 div 2 add def
-/rRPlusTheta \rb\space \dThetA\space add 30 div 2 add def
-}
-\pscustom[fillcolor=blue!30, fillstyle=solid, linecolor=blue]{\psline(0,0)(! rR \rb \space cos mul rR \rb \space sin mul) (! rRPlusTheta \rb \space\dThetA\space add cos mul rRPlusTheta \rb \space \dThetA\space add sin mul) }
-}
-\parametricplot[linecolor=red, plotpoints=500]{10}{130}
-{ t 30 div 2 add  t cos mul
-  t 30 div 2 add  t sin mul}
-\parametricplot[linecolor=red]{30}{50} %{! \dThetA 10 add}
-{t cos 1 mul
- t sin 1 mul }
-\rput[lt](0.8, 0.8){\tiny$\Delta\theta$}
-\parametricplot[linecolor=red, arrows=->]{0}{30} %{! \dThetA 10 add}
-{t cos 0.5 mul
- t sin 0.5 mul }
-\rput[lt](0.55,0.3){\tiny$\theta_1$}
-\parametricplot[linecolor=red, arrows=->]{0}{50} %{! \dThetA 10 add}
-{t cos 0.85 mul
- t sin 0.85 mul }
-\rput[lt](0.85,0.4){\tiny$\theta_2$}
-
-\rput[tr] (-0.1,-0.1){$O$}
-\rput[tl] (2.7,1.5){$P=(f(\theta_1)\cos \theta_1, f(\theta_1)\sin \theta_1)$}
-\rput[tl] (2.51,2.95){$Q=(f(\theta_2)\cos \theta_2, f(\theta_2)\sin \theta_2)$}
-\end{pspicture*}
-} %optionalDisplay
-
-Let $N$ be a large number. Split the interval $[a,b]$ using $N+1$ equally spaced points $a=\theta_0 \leq\theta_1 \leq\dots \leq \theta_{N-1}\leq \theta_N=b$ into $N$ segments of the same length. Denote the length of each such segment by $\Delta \theta$. Then $\Delta\theta= \frac{b-a}{N}$. Then the area of $A$ is approximated by triangles with vertices on the curve. Those vertices are of the form $(f(\theta_j)\cos \theta_j, f(\theta_{j+1} )\cos \theta_{j+1})$ as drawn in the figure. Consider one such triangle, $OPQ$, as indicated in the figure. The area of triangle $OPQ $ is $\frac{|OP| |OQ|\sin (\Delta \theta )}{2}= \frac{f(\theta_1) f(\theta_2)\sin (\Delta \theta )}{2} $. In other words the area of $A$ is approximated by
-\[
-\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j+1})\sin (\Delta \theta )}{2}= \frac{\sin(\Delta\theta)}{ \Delta \theta } \sum_{j= 0}^{N-1} \frac{f(\theta_j)f(\theta_{j}+ \Delta\theta) \Delta \theta}{2}\quad .
-\]
-In the above sum, the multiplicand $\frac{ \sin( \Delta \theta )}{ \Delta\theta}$ tends to $1$ as $\Delta\theta$ tends to $0$. Therefore as $\Delta$ tends to zero, the expression tends to the limit of the second multiplicand. On the other hand, one can show that the second multiplicand approximates the integral $\int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta$. This motivates definition of area given in \eqref{eqAreaUnderPolarCurve}.
-
-Curve length of curve of the form $\gamma:|r=f(\theta),\theta\in [a,b]$. Then $(x,y)= (r\cos\theta, r\sin \theta)= (\underbrace{f(\theta)\cos\theta}_{=:g_1(\theta)}, \underbrace{ f(\theta)\sin\theta}_{=:g_2(\theta)} $. Recall the definition of curve length \eqref{eqDefLengthCurve}:
-\[
-\int\limits_{a}^b\sqrt{\left(\frac{dg_1}{d\theta}\right)^2+\left(\frac{dg_2}{d\theta}\right)^2}d\theta \quad.
-\]
-We substitute $g_1(\theta)=f(\theta)\cos\theta$, $g_2(\theta)=f(\theta)\sin\theta$ and carry out the operations:
-\[
-\begin{array}{l}
-\displaystyle\int\limits_{a}^b\sqrt{ (-\sin\theta f(\theta) + \cos\theta f'(\theta) )^2+(\cos\theta f(\theta)+\sin \theta f'(\theta) )^2}\diff\theta=\\
-\displaystyle \int \limits_{a}^b \sqrt{\sin^2\theta f^2(\theta)- \cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)}+\cos^2\theta (f'(\theta))^2}\\
-\phantom{\int\limits_a^b} \overline{+ \cos^2\theta f^2(\theta)+\cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)} \sin^2 (f'(\theta))^2 }\diff\theta\quad .
-\end{array}
-\]
-Regrouping the above expression using $\sin^2\theta+\cos^2\theta=1$ we finally get that the length of a curve given in polar coordinates as $r=f(\theta)$ is computed as
-\begin{equation}\boxed{\label{eqCurveLengthPolarCoords}
-\int\limits_{a}^b \sqrt{f^2(\theta)+ (f'(\theta))^2}d\theta
-}
-\end{equation}
-Find the area of the figure that lies outside of figure enclosed by $r_1=3\cos\theta_1, \theta_1\in [0,\pi)$ and inside the figure enclosed by $r_2=1+\cos\theta_2, \theta\in [-\pi,\pi)$. %Find the perimeter of the curve.
-
-\begin{solution}
-\optionalDisplay{
-\begin{pspicture}(-1, -4)(4,4)
-\pscustom*[fillcolor=red!20, linecolor=red!20]{
-\parametricplot[linecolor=red, plotpoints=1000]{-60}{60}{3 t cos mul t cos mul 3 t cos mul t sin mul}
-\parametricplot[linecolor=red, plotpoints=1000]{60}{-60}{1 t cos add t cos mul 1 t cos add t sin mul}
-}
-\parametricplot[linecolor=red, plotpoints=1000]{0}{360}{1 t cos add t cos mul 1 t cos add t sin mul}
-\parametricplot[linecolor=red, plotpoints=1000]{0}{360}{3 t cos mul t cos mul 3 t cos mul t sin mul}
-\psaxes[labels=none]{<->}(0,0)(-1,-2.5)(3.5,2.5)
-\rput[c](0.75,1.299){$\bullet$}
-\rput[c](0.75,-1.299){$\bullet$}
-\rput[b](0.85,1.51){$\left(\frac{3}4,\frac{3\sqrt{3}}{4} \right)$}
-\rput[t](0.85,-1.51){$\left(\frac{3}4,-\frac{3\sqrt{3}}{4} \right)$}
-\psline[linestyle=dotted](0,0)(0.75,1.299)
-\psline[linestyle=dotted](0,0)(0.75,-1.299)
-\end{pspicture}
-} %optionalDisplay
-
-We first plot the curves using computer to get the above picture. We see that the curve $r_1=3\cos\theta_1$ is a circle and that $r_2=1+\cos\theta_2$ is a cardioid (rotated at an angle of $-\frac{\pi}{2}$). Let us verify that indeed $r_1=3\cos\theta_1$ is a circle. Multiplying by $r_1$ we get $r_1^2=3r_1\cos\theta_1= 3x$. Therefore $x^2+y^2-3x=0$, or, after completing the square, $\left(x- \frac{3}{2} \right)^2+y^2 =\frac{9}{4}$. Thus $r_1=3\cos\theta_1$ is a circle centered at $\left(\frac{3}{2},0\right)$ and with radius $\frac{3}{2}$. From the picture we see that the two curves intersect in three points, one of which is the origin. We get an additional intersection of the two curves when $r_1=r_2$, $\theta_1=\theta_2$ and $1+\cos\theta=3\cos\theta$, where we have set $\theta:=\theta_1 = \theta_2$. In other words, $\cos\theta=\frac{1}{2}$ and as $\theta\in [0,\pi)$, we get $\theta=\pm \frac{\pi}{3}$. Thus we have a second intersection point $x=\frac{3}{4}$, $y=\frac{3\sqrt{3}}{4}$. By symmetry with respect to the $x$ axis we get that the final intersection point is $(x,y)=\left(\frac{3}4,-\frac{3\sqrt{3}}{4}\right) $.
-
-Therefore the area of the enclosed curve is given by the area of the figure obtained by connecting $r=3\cos\theta, \theta\in(-\frac{\pi}{3}, \frac{\pi}{3})$ to the origin minus the area of the figure obtained by connecting $r=1+\cos\theta, \theta\in(-\frac{\pi}{3}, \frac{\pi}{3})$ to the origin. We can now use \eqref{eqAreaUnderPolarCurve} to get the answer
-
-\[
-\begin{array}{rcl}
-\displaystyle\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}2\left(9\cos^2\theta-(1+\cos\theta)^2\right) d\theta&=& \displaystyle\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}2\left(8\underbrace{\cos^2\theta}_{=\frac{1+\cos(2\theta)}2  }-1-2\cos\theta \right) d\theta\\
-&=&\displaystyle\frac{1}2\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \left(4+4 \cos 2\theta-1-2\cos\theta \right) d\theta
-\\
-&=&\pi+\left.\sin2\theta\right|_{\theta=-\frac{\pi}{3}}^{\theta=\frac{\pi}3}-\left.\sin\theta\right|_{\theta=-\frac{\pi}{3}}^{\theta=\frac{\pi}3}\\
-&=&\pi
-\end{array}
-\]
-\end{solution}
-
-\chapter{A bit of differential equations}
-\section{Some terminology and background}
-A differential equation is an equation that contains at least one derivative (first, second, third,...) of an unknown function.
-
-The \emph{order} of a differential equation is the order of the highest derivative that appears in the equation.
-
-An example of a differential equation is
-\begin{equation}\label{eqDFQsimplestExample}
-\frac{\diff P}{\diff t} = k P\quad ,
-\end{equation}
-where $t$ is a variable, $k$ is a constant and $P(t)$ is a function.
-
-Let us interpret $P$ as population size as a function of the time $t$, and $k$ as some natural rate of growth constant. If $k$ is positive (and the population $P$ is positive), so is $\frac{d P}{\diff t}$. As the first derivative of $P$ is positive, $P$ will increase with time, at an ever growing rate. We can plug in the function $P(t)= e^{k t}$ and verify that it satisfies the equation.
-
-Differential equations are used to model processes in the natural sciences. For example, \ref{eqDFQsimplestExample} models ideal population growth with infinite resources and unlimited environment - the increase in population is proportional to the size of the population.
-
-A more complicated example is the logistic differential equation
-\[
-\frac{\diff P }{\diff t} = k P\left(1- \frac{P}{M}\right)\quad.
-\]
-Here, $k$, $t$, $P$ have the same interpretation as before, and $M$ is the carrying capacity of the environment. In this model, while $P$ is smaller than the carrying capacity $M$,  $\frac{dP}{\diff t}$ will be positive, and the population will increase with time. However, if the population is larger than the carrying capacity $M$, $\frac{d P }{\diff t}$ will be negative and the population will decrease.
-
-Another example of a differential equation is the motion of a spring
-\[
-m\frac{\diff^2 y (t)}{\diff t^2}= -k y,
-\]
-where $m$ and $k$ are constants ($m$ stands for mass and $k$ for the spring's constant). Here, we recall the notation $\frac{d^2 y (t)}{\diff t^2}= y''(t)$ means second derivative.
-
-
-Differential equations may have \emph{initial conditions}, i.e., we may be given the value of the unknown function or its derivatives in one or more points. For example, in \eqref{eqDFQsimplestExample}, we may add the initial condition $P(t_0)= 10$, to say that at time $t=t_0$, $P(t)=10$.
-
-If we are given initial conditions $y(x_0)=y_0$, we say that we have  an \emph{initial condition differential equation}.
-
-Initial conditions are critical for a solution of a differential equation. For example, if $P(t_0)=0$, \eqref{eqDFQsimplestExample} has only solution $P(t)=0$, buf if $P(t_0)=10$, \eqref{eqDFQsimplestExample} has only solution $P(t)=10  e^{k(t-t_0)}$.
-\subsection{Direction fields}
-Suppose we have a differential equation of the form
-\begin{equation}\label{eqDFQwithDirectionFlow}
-\frac{\diff y}{\diff x}= F(x,y)\quad.
-\end{equation}
-
-At each point $(x_0,y_0)$, let us plot a segment of the line with slope $F(x_0,y_0)$ passing through $(x_0,y_0)$. The resulting picture is called a direction field.
-
-Examples.
-
-\optionalDisplay{
-\psset{xunit=1cm,yunit=1cm}
-\SpecialCoor
-\begin{pspicture}(-5,-5)(5,5)
-\psaxes{<->}(0,0)(-5,-5)(5,5)
-\rput (5,5){The direction field $\frac{\diff y}{\diff x}=xy$}%
-\fcDirectionFieldDefault{x y mul}{-4}{-4}{0.5}{17}
-\end{pspicture}
-
-\begin{pspicture}(-5,-5)(5,5)
-\psaxes{<->}(0,0)(-5,-6)(5,5)
-\rput (5,5){The direction field $\frac{\diff y}{\diff x}=x+y$}
-\fcDirectionFieldDefault{x y add}{-4}{-4}{0.5}{17}
-\end{pspicture}
-}%optionalDisplay
-
-$\frac{\diff y}{\diff x}= F(x,y)$ has different solutions depending on the initial condition given by the $y(x_0)=y_0$ starting point $(x_0, y_0)$. A solution of a differential equation of the form \eqref{eqDFQwithDirectionFlow} corresponds to the trajectory of a point ``flowing'' along the direction field. If drawn with increasing precision, the blue segments representing the direction field begin to resemble smooth curves; those curves indeed approximate solutions of the differential equation.
-
-Euler's method for approximating solutions. Fix a small ``approximation step'' $h$. Let $x_n:=x_0+nh$ be the point at distance $n$ times our small approximation step from $x_0$. Suppose the initial condition differential equation problem
-\[
-\frac{\diff y}{\diff x}= F(x,y)\quad.
-\]
-with initial conditions $y(x_0)=y_0$  has a solution $y(x)$. Then approximate values for $y_n\approx y(x_n)$ are given by
-\begin{equation}\label{eqEulerApproxDFQ}
-y_n \eqdef y_{n-1} + h F(x_{n-1}, y_{n-1})\quad .
-\end{equation}
-A motivation for Euler's method can be given as follows. At a point $x$, for a very small interval $(x,x+h)$, the function $y(x)$ is approximately linear, and is approximated by $y(x+h)\approx y(x)+ h y'(x) $. On the other hand, $y'(x)$ equals $F(x, y(x))$. Now if we have already approximated $y(x_{n-1})\approx y_{n-1}$, we known $y'(x_{n-1}) \approx F(x_{n-1}, y_{n-1})$ and  we can approximate $y(x_{n-1}+h)\approx y_n $ by \eqref{eqEulerApproxDFQ}.
-
-%Euler's method has a number of drawbacks, both computationally and algebraically, and is not used in practice. However, it illustrates the main idea of approximating solutions to differential equations: approximate at a point $x$ the value of $y(x+h)$ (as a function of $h$) by a well-known function in $h$ (linear, quadratic, third power, fourth power,\dots), move along the approximation for a very short distance $h$, and recompute.
-
-We note that there are a number of issues which arise from Euler's method. For example, Euler's method requires that $F(x,y)$ be defined for values of $y$ traversed by the solution of the differential equation. This does not happen, for example, for the direction field given by $\frac{\diff y}{\diff x}= - \frac{x}{y}$: that direction field is not well defined as $y$ approaches $0$. However, we will soon be able to compute that solutions of the differential equation  $\frac{\diff y}{\diff x}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$. In particular, such solutions can be extended to values for which $y=0$.
-
-\optionalDisplay{
-\begin{pspicture}(-6,-1)(6,6)
-\psaxes{<->}(0,0)(-6,-1)(6,6)
-\rput (5,5){The direction field $\frac{\diff y}{\diff x}=-\frac{x}{y}$}
-\fcDirectionFieldFull{x y div -1 mul}{-4}{0.001}{0.5}{17}{8}{0.2}{0.02}{linecolor=blue}%
-\end{pspicture}
-} %optionalDisplay
-%\begin{pspicture}
-%\end{pspicture}
-
-\subsection{Separable equations} \label{secSeparableDFQs}
-A differential equation is separable if it can be written in the form
-\begin{equation}\label{eqDFQSeparable}
-\frac{\diff y}{\diff x}= f(x)g(y)\quad .
-\end{equation}
-We recall that $y(x)$ denotes $y$ as a function of at $x$, and that $y(t)$ denotes the expression obtained by substituting $x=t$ in the expression for $y$.
-
-A separable differential equation can be solved as follows. Divide out by $g(y)$:
-\[
-\frac{\diff y}{\diff x} \frac{1}{g(y)}= f(t)\quad .
-\]
-Let $x_0$ be a constant and $t$ a variable. We now integrate \eqref{eqDFQSeparable} from $x=x_0$ to $x=t$. This will ultimately give us an expression for $y(t)$.
-\begin{equation}\label{eqSeparableDFQSolution1}
-\begin{array}{rcl}
-\displaystyle \int\limits_{x=x_0}^{x=t}\frac{1}{g(y(x))} \underbrace{\frac{\diff y}{\diff x}\diff x}_{= \diff (y(x))}&=&\displaystyle \int \limits_{ x=x_0}^{ x=t}  f(x)\diff x
-\\
-\displaystyle \int\limits_{x= x_0}^{x=t}\frac{ 1}{g( y(x))} \diff (y(x))&=&\displaystyle \int \limits_{ x=x_0}^{x=t}  f(x)\diff x
-\quad .
-\end{array}
-\end{equation}
-Suppose now $\displaystyle \frac{\diff y }{\diff x}$ is non-zero and does not change sign for $x\in [x_0, t]$.  Then $y$ is a one to one and onto map (=bijection) between $[x_0, t]$ and $[y(x_0), y(t)]$ (recall the definition of one to one and onto (=bijection) from Section \ref {secInverseFunctionBasics}). Therefore we may carry out the variable change $z=y(x)$, $z\in [y(x_0), y(t)]$:
-\begin{equation}\label{eqSeparableDFQSolution2}
-\displaystyle \int \limits_{ z=y(t)}^{z=y(x_0)}\frac{1}{g(z)} \diff z=\displaystyle \int\limits_{x=x_0}^{x=t}  f(x)\diff x\quad .
-\end{equation}
-Suppose we can solve $\displaystyle \int \frac{1}{g(z)}\diff z = G(z)+C_1$ and $\displaystyle \int  f(t)\diff t=F(t)+C_2$. Using the Fundamental theorem of Calculus we can rewrite \eqref{eqSeparableDFQSolution2} as
-\[
-\left.G(z)\right]_{z=y(x_0)}^{z=y(t)}=
-G(y(t))-G(y(x_0)) = \left. F(x) \right]_{x=x_0}^{x=t}= F(t)-F(x_0)
-\]
-which we rearrange to:
-\[
-G(y)-F(t)-G(y(x_0))+ F(x_0)=0\quad .
-\]
-Finally, we may replace the dummy variable $t$ back to the variable $x$ to get a relation between $ x$ and $y$:
-\begin{equation}\label{eqDFQSeparableSolution}
-G(y)-F(t)-G(y(x_0))+ F(x_0)=-0
-\end{equation}
-If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If we cannot solve for $y$ explicitly, we may leave the relationship  \eqref{eqDFQSeparableSolution} as an implicit solution to the differential equation.
-\subsection{The logistic equation and other examples of separable differential equations}
-\begin{example} Solve the logistic equation
-\[
-\frac{\diff P}{\diff t}= k P\left(1-\frac{P}{M}\right)\quad.
-\]
-where $k>0$ and $M>0$ (``environment carrying capacity'') are fixed positive constants and the initial population $P(0)$ is positive.
-\end{example}
-We recall that in the logistic equation, $P$ stands for population size.
-
-\begin{solution}
-Case 0. If the initial population is $P(0)$ is zero, the population will clearly stay zero, and so if $P(0)=0$ then $P(t)=0$ is the solution to our equation.
-
-Case 1. If $P(0)=M$, then the population growth $\frac{\diff P}{\diff t}$ equals zero, the population is stable and constant function $ P(t)=P(0)$ is the solution to our equation.
-
-Case 2. Suppose now $P(0)\neq M$ and $P(0)\neq 0$. As the logistic equation is separable, we can solve it using Section \ref{secSeparableDFQs}:
-
-\begin{equation}\label{eqLogisticEq}
-{
-\renewcommand*{\arraystretch}{2}
-\begin{array}{rcll|l}
-\displaystyle \frac{\diff P}{\diff t}&=&\displaystyle k P\left(1-\frac{P}{M}\right)\\
-\displaystyle \frac{\diff P}{\diff t}&=&\displaystyle \frac{kP(M-P)}{M}\\
-\displaystyle \frac{M}{kP(M-P)}\frac{\diff P}{\diff t}&=&1 &&
-\begin{array}{l}
-\text{As } P(0)\neq M,\\
-P(0)\neq 0,\\
-\text{can integrate } \int\limits_{t=0}^{t=s}\diff t
-\end{array}\\
-\displaystyle \frac{1}{k} \int\limits_{t=0}^{t=s} \frac{M}{P(M-P)}\frac{\diff P}{ \diff t}\diff t&=&\displaystyle \int\limits_{t=0}^{t=s}1\diff t &&\text{V. change } \frac{\diff P}{\diff t}\diff t= \diff P\\
-\displaystyle \frac{1}{k} \int\limits_{t=0}^{t=s} \frac{M}{P(M-P)} \diff P &=& \left[t\right]_{t=0}^{t=s} =s &&\text{split part. fractions}\\
-\displaystyle \frac{1}{k}\int\limits_{t=0}^{t=s} \left( \frac{1}{P} +\frac{1}{M-P} \right)\diff P &=&s\\
-\displaystyle \frac{1}{k}\left[ \ln | P|  - \ln |M-P| \right]_{t=0}^{t=s}&=&s\\
-\displaystyle \frac{1}{k}\left(\ln |P(s)|-\ln |M-P(s)|-\right.\\
-\left.(\ln P(0)-\ln |M-P(0)|) \right)&=&s\\
-\displaystyle \ln \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&k s &&\text{exponentiate}\\
-\displaystyle \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&e^{ks} \quad .
-\end{array}
-}
-\end{equation}
-
-\noindent Case 2.1. $P(0)<M$, i.e., the initial population is smaller than the carrying capacity $M$ of the environment. As assumed by our model, population varies continuously with time and therefore for all small enough $s $ we have that $P(s)<M$ as well. Then, for small $s$, the absolute value is no longer needed and we can compute
-\begin{equation}\label{eqLogisticEquationCase1}
-\begin{array}{rcl}
-\displaystyle \frac{ P(s)(M-P(0))}{P(0)(M-P(s))}&=&\displaystyle e^{ks} \\
-\displaystyle P(s)(M-P(0)) &=& \displaystyle  P(0)(M-P(s))e^{ks}\\
-\displaystyle P(s)(M-P(0)+P(0)e^{ks})&=&\displaystyle P(0)M e^{ks}\\
-\displaystyle P(s)&=&\displaystyle  MP(0) \frac{e^{ks}}{M-P(0)+P(0)e^{ks}} \\
-\displaystyle P(s)&=&\displaystyle  M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} \\
-\end{array}
-\end{equation}
-Since $\frac{M}{P(0)}>1 $, we have that $\frac{M}{P(0)}-1+e^{ks}>e^{ks}$ and therefore $ 1>\frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}}>0 $. Finally we get that
-\[
-0<P(s)= M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} <M\quad .
-\]
-So far, our solution was shown to be valid only for small $s$. However, the solution $P(s)$ we obtained satisfies $P(s)<M$ for all values of $s$. Thus we conclude that, in Case 2.1, the absolute values in $ \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|$ are not needed for any value $s$. Our solution to the logistic equation in Case 1 is then $\displaystyle P(s)=\displaystyle  M \frac{e^{ks}}{ \frac{M}{P(0)} -1+ e^{ks}}$.
-
-
-\noindent Case 2.2. $P(0)>M$, i.e., the initial population is greater than the carrying capacity $M$ of the environment. As assumed by our model, population varies continuously with time and therefore for all small enough $s $ we have that $P(s)>M$ as well. Then, for small $s$, we  have that
-\[
-\left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|=\frac{-P(s)(M-P(0))}{-P(0)(M-P(s))}=\frac{ P(s)(M-P(0))}{P(0)(M-P(s))} \quad .
-\]
-Notice that by the above computation, the left hand side of \eqref{eqLogisticEq} coincides in cases 2.1 and 2.2. Therefore the computations in Case 2.2 are identical to the computations \eqref{eqLogisticEquationCase1} from Case 2.1. We can therefore conclude that, for small $s$, we have $\displaystyle P(s)=\displaystyle  M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} $. Now notice that $\frac{M}{P(0)}-1<0$. Therefore $ \frac{M}{ P(0) }-1+e^{ks} < e^{ks}$ and it follows that
-\[
-P(s)= M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} >M\quad .
-\]
-In this way, the solution for $P(s)$ obtained by us satisfies $P(s)>M$ for all values of $s$. We conclude that the absolute values in $ \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|$ are not needed in Case 2.2 as well. Then the solution to Case 2.2 is identical to that of Case 2.1.
-
-We conclude that the solution to the logistic equation in Case 2 is
-\begin{equation}\label{eqLogisticEquationAnswer}
-P(s)=\displaystyle  M P(0) \frac{e^{ks}}{ M -P(0)+ P(0)e^{ks}} \quad .
-\end{equation}
-Notice that if we substitute $P(0)=M$ in the above formula (Case 1), we get that $P(s)=M$, the same answer as in Case 1. Furthermore notice that when $P(0)=0 $ (Case 0), formula \eqref{eqLogisticEquationAnswer} yields $P(s)=0$, the same answer as that in Case 0. Therefore our formula \eqref{eqLogisticEquationAnswer} gives the solution to the logistic equation in all cases.
-\end{solution}
-
-
-In the graph below, we have plotted the solution to the logistic equation for $k=1$ and various initial population values $P(0)$. The shapes of the curves confirm visually the considerations made in Cases 1-4. Notice that the plots make sense for negative time as well: for $s<0$, the function $P(s)$ measures what must have been the population in the past so as to yield the population present at time $s=0$.
-
-\optionalDisplay{
-\psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-0.700000, -0.700000)(6.200000,2.435064)
-
-\tiny
-\psaxes[ticks=none, labels=none, arrows=<->](0, 0)(-0.500000, -0.550000)(6.000000, 2.235064)
-\fcLabelOnXaxis{6}{$s$}
-\fcLabelOnYaxis{2.235064}{$P$}
-%Function formula: \frac{11/10*e^{x}}{11/10*e^{x}-1/10}
-
-\psplot[linecolor=red, plotpoints=1000]{-0.100000}{6.000000 }{2.718281828 x exp 1.1000000 mul -0.1000000 2.718281828 x exp 1.1000000 mul add div }
-
-%Function formula: \frac{2*e^{x}}{2*e^{x}-1}
-
-\psplot[linecolor=green, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 2.0000000 mul -1.0000000 2.718281828 x exp 2.0000000 mul add div }
-
-%Function formula: \frac{3/10*e^{x}}{3/10*e^{x}+7/10}
-
-\psplot[linecolor=red, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.3000000 mul 0.7000000 2.718281828 x exp 0.3000000 mul add div }
-
-%Function formula: \frac{1/5*e^{x}}{1/5*e^{x}+4/5}
-
-\psplot[linecolor=blue, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.2000000 mul 0.8000000 2.718281828 x exp 0.2000000 mul add div }
-
-%Function formula: \frac{1/10*e^{x}}{1/10*e^{x}+9/10}
-
-\psplot[linecolor=magenta, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.1000000 mul 0.9000000 2.718281828 x exp 0.1000000 mul add div }
-
-%Function formula: \frac{2/5*e^{x}}{2/5*e^{x}+3/5}
-
-\psplot[linecolor=brown, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.4000000 mul 0.6000000 2.718281828 x exp 0.4000000 mul add div }
-
-%Function formula: \frac{3/2*e^{x}}{3/2*e^{x}-1/2}
-
-\psplot[linecolor=cyan, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 1.5000000 mul -0.5000000 2.718281828 x exp 1.5000000 mul add div }
-
-%Function formula: \frac{13/10*e^{x}}{13/10*e^{x}-3/10}
-
-\psplot[linecolor=blue, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 1.3000000 mul -0.3000000 2.718281828 x exp 1.3000000 mul add div }
-
-\end{pspicture}
-}
-
-\begin{problem}~\label{problemDFQseparable-yprime=ysquared-1}
-\input{../../modules/diff-eq-separable/homework/separable-DFQs-1}
-\end{problem}
-\renewcommand{\additionalProblemLabel}{\ref{problemDFQseparable-yprime=ysquared-1}.}
-\input{../../modules/diff-eq-separable/homework/separable-DFQs-1-solution}
-\renewcommand{\additionalProblemLabel}{}
-
-The following problem is the so called ``mixing problem''.
-\begin{problem}
-\input{../../modules/diff-eq-separable/homework/mixing-problem-1}
-\end{problem}
-\input{../../modules/diff-eq-separable/homework/mixing-problem-1-solution}
-
-\subsubsection{Exercises}
-\begin{problem} \input{../../modules/diff-eq-separable/homework/separable-DFQs-2}
-\end{problem}
-\begin{problem}
-\input{../../modules/diff-eq-separable/homework/mixing-problem-2}
-\end{problem}
-\subsection{Linear differential equations}
-A differential equation is \emph{linear} if it is of the form
-\begin{equation}\label{eqDFQlinear}
-\frac{\diff y}{\diff x} + P(x)y=Q(x)
-\end{equation}
-for some functions $P(x),Q(x)$.
-
-A linear differential equation \eqref{eqDFQlinear} can be solved as follows.
-
-Let us make the problem slightly more general by considering an equation of the form
-\begin{equation}\label{eqDFQlinearStep1}
-R(x)\frac{\diff y}{\diff x} + S(x)y=Q(x)\quad .
-\end{equation}
-Suppose that it so happened that $R'(x)=S(x)$. Then \eqref{eqDFQlinearStep1} becomes
-\begin{equation}\label{eqDFQlinearStep2}
-\begin{array}{rcl}
-\underbrace{R(x)\frac{\diff y}{\diff x} + R'(x)y}_{\mathrm{product~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
-\frac{\diff}{\diff x} \left(R(x)y \right)&=& Q(x)\quad .
-\end{array}
-\end{equation}
-In the above we can introduce a new function $z(x)= y(x)R(x)$, and the equation becomes
-\[
-\frac{\diff z}{\diff x}= Q(x)\quad ,
-\]
-which we already can solve by integrating both sides to obtain $z(x)= \int\limits_{t=x_0}^x Q(t)\diff t $, or finally, if $R(x)\neq 0$, we get $y(x)= \frac{1}{R(x)}\int\limits_{t=x_0}^x Q(t)\diff t $.
-Let us now try to solve \eqref{eqDFQlinear} by finding a multiplier function $T(x)$ that does not vanish, such that when we multiply \eqref{eqDFQlinear}, we obtain an equation of the form \eqref{eqDFQlinearStep2}. Indeed, in order to get an equation of the form \eqref{eqDFQlinearStep2}, we need that $\frac{dT}{\diff x}= (TP(x))$. The latter is a separable differential equation for $T(x)$.  We solve the equation as studied in the preceding section.
-\begin{equation}\label{eqDFQlinearStep3}
-\begin{array}{rcl}
-\frac{dT}{\diff x}\frac{1}{T}&=&P(x)\\
-\int\frac{dT}{T}&=&\int P(x)\diff x\\
-\ln |T|&=&  \int P(x)\diff x+C\\
-T&=&De^{\int P(x)\diff x},
-\end{array}
-\end{equation}
-where $C$ is an arbitrary constant and $D=e^C$. As we have no initial conditions on $\frac{dT}{\diff x}= (TP(x))$ (in fact, we made up that equation ourselves), we are free to choose arbitrary initial conditions. This is reflected in the fact that, somewhat informally, we used indefinite integral instead of definite in the solution of \eqref{eqDFQlinearStep3}.
-
-Motivated by the preceding discussion, define $T(x)\eqdef e^{\int P(x)\diff x}$, where the constant added to the indefinite integral is chosen arbitrarily. $T(x)$ is thus defined only up to a constant.
-
-Multiply \eqref{eqDFQlinear} by $T(x)$ on both sides and transform \eqref{eqDFQlinear} to \eqref{eqDFQlinearStep1}, which we already solved.
-\subsubsection{Example of linear differential equations}
-Solve
-\begin{equation}\label{eqDFQlinearexample1}
-\frac{\diff y}{\diff x}+ y x=x\quad .
-\end{equation} Find a solution such that $y(0)=3$.
-
-\begin{solution}
-First we find an integrating factor $T(x)$. By the theoretical section, $T(x)$ is up to a multiplicative constant equal to $e^{\int x \diff x}= e^{\frac{x^2}2 +C}$. We may choose $T(x):= e^{\frac{x^2}2}$. We multiply \eqref{eqDFQlinearexample1} by $e^{\frac{x^2}2}$ and solve as follows.
-\[
-\begin{array}{rcl}
-\displaystyle e^{\frac{x^2}2}\frac{\diff y}{\diff x}+ yxe^{\frac{x^2}2}&=&\displaystyle xe^{\frac{x^2}2}\\
-\underbrace{\frac{\diff}{\diff x} \left(y(x) e^{\frac{x^2}2} \right)}_{\mathrm{rename~}x~\mathrm{to~}t\mathrm{~and~integrate}}&=&\underbrace{xe^{\frac{x^2}2}}_{\mathrm{rename~}x\mathrm{~to~}t\mathrm{~and~integrate}}\\
-\displaystyle\int\limits_{t=x_0}^x \frac{\diff}{\diff t} \left(y(t) e^{\frac{t^2}2}\right) \diff t &=&\displaystyle \int\limits_{t=x_0}^x  te^{\frac{t^2}2}\diff t\\
-\displaystyle\left.y(t) e^{\frac{t^2}2}\right|_{t=x_0}^x&=&\displaystyle \left.e^{\frac{t^2}2}\right|_{t=x_0}^{t=x}\\
-\displaystyle y(x)e^{\frac{x^2}2}- y(x_0)e^{\frac{x_0^2}2}&=&\displaystyle e^{\frac{x^2}2}- e^{\frac{x_0^2}2}\\
-y(x)&=&\displaystyle \frac{e^{\frac{x^2}2}- e^{\frac{x_0^2}2}+ y(x_0)e^{\frac{x_0^2}2}}{e^{\frac{x^2}2}}\\
-y(x)&=&\displaystyle 1+{e^{\frac{x_0^2-x^2}2}}(y(x_0)-1)\quad.
-\end{array}
-\]
-
-In order to find a solution for which $y(0)=3$, we simply plug in $x_0=0$, $y(x_0)=3$, to get $y(x)=1+2e^{\frac{-x^2}2}$.
-
-\optionalDisplay{
-\begin{pspicture}(-5,-5)(5,5)
-\psaxes{<->}(0,0)(-5,-5)(5,5)
-\newcommand{\Xstart}{1}
-\newcommand{\Ystart}{1}
-\psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add}
-\renewcommand{\Xstart}{0}
-\renewcommand{\Ystart}{-1}
-\psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add}
-\renewcommand{\Xstart}{0}
-\renewcommand{\Ystart}{3}
-\psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add}
-
-\rput (5,5){The direction field $\frac{\diff y}{\diff x}=x-xy$}
-
-\fcDirectionFieldDefault{x x y mul sub}{-4}{-4}{0.5}{17}
-\end{pspicture}
-} %end \optionalDisplay
-\end{solution}
 
 \chapter{Sequences, limits, formal power series}\label{secSequencesPowerSeries}
 \section{Sequences, limits of sequences}
@@ -4782,6 +3732,1027 @@ In an analogous fashion we can prove that
 which completes the proof of the theorem.
 \end{proof}
 
+
+
+\chapter{Applications of integration}
+\section{Volumes of solids of revolution}
+A solid of revolution is the set of points obtained by rotating a 2-dimensional set of points lying inside a plane $P$ around an axis lying in the plane $P$.
+
+Example. \label{itemExampleFigureRotationalSolid}
+%\multido{\rA=\deltaX+\deltaX}{10}{%
+%\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=20, fillcolor=gray](0,0,0){\rA\space \deltaX\space add}{\rA\space sqrt}
+%\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=20, fillcolor=gray](0,0,0){\rA}{\rA\space sqrt}
+%}%
+
+%\psSolid[action=draw*,h={\rA\space\rA\space mul},r1={\rA\space\deltaX\space add}, r0={\rA},object=anneau](0,0,0)
+
+\optionalDisplay{
+
+\psset{xunit=1.5cm,yunit=1.5cm}
+\begin{pspicture*}(-0.3,-0.5)(4,4.5)
+%\psset{lightsrc=80 30 30,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
+\psline[linecolor=gray]{->}(0,0)(3.5,0) % x-axis
+\psline[linecolor=gray]{->}(0,0)(0,3.5) % z-axis
+\rput[l](3.5,0){$x$}
+\rput[b](0,3.5){$z$}
+\pscurve[linecolor=red]{->}(0.1,3)(0.2, 3.1)(0, 3.2)(-0.2,3.1 )(-0.05,3)
+\pscustom[linewidth=2pt, linecolor=blue, fillstyle=solid,fillcolor=lightgray]{
+\psplot{3}{0.3}{1 x div}
+\psplot{0.3}{3}{2.71828 -1 x mul exp}
+\closepath
+%\pscurve(0.3, 3.33) (0.3, 1.349858808)
+}
+\pscustom[linewidth=0.5pt, linecolor=blue, fillstyle=solid,fillcolor=red]{
+\psline(2, 0.135335283)(2.1,0.135335283)(2.1,0.5)(2,0.5)
+\closepath
+%\pscurve(0.3, 3.33) (0.3, 1.349858808)
+}
+\rput(0.3,0){\psline(0,-0.03)(0,0.03)}
+\rput(3,0){\psline(0,-0.03)(0,0.03)}
+\rput[t](0.3,-0.1){$a$}
+\rput[t](3,-0.1){$b$}
+\rput(1.6,1){$z=f_2(x)$}
+\rput[t](0.6,0.3){$z=f_1(x)$}
+\end{pspicture*}
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-4,-3)(4,4.5)
+%\psset{lightsrc=80 30 30,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
+\psset{lightsrc=50 20 20,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
+\newcommand{\deltaXcustom}{0.1}
+\newcommand{\rB}{3.3\space\rA\space sub}
+\newcommand{\innerCycleX}{
+%\pstIIIDCylinder[fillstyle=solid, linecolor=gray, increment=30, fillcolor=green]
+\pstThreeDEllipse[fillstyle=solid, fillcolor=lightgray](0,0,{1\space\rB\space div})(\rB\space\deltaXcustom\space add,0,0)(0,\rB\space\deltaXcustom\space add,0)
+\pstThreeDEllipse[fillstyle=solid](0,0,{1\space\rB\space div})(\rB,0,0)(0,\rB,0)
+%
+\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=30, fillcolor=green]
+(0,0,{2.71828\space -1\space \rB\space mul\space exp})
+{\rB\space \deltaXcustom\space add}
+{1 \space \rB\space div\space 2.71828\space -1\space \rB\space mul\space exp \space sub }
+\pstIIIDCylinder[fillstyle=none, linecolor=gray, increment=30, fillcolor=white]
+(0,0,{2.71828\space -1\space \rB\space mul\space exp})
+{\rB}
+{1 \space \rB\space div\space 2.71828\space -1\space \rB\space mul\space exp \space sub }
+}
+\multido{\rA=0.3+\deltaXcustom}{14}{%
+\innerCycleX
+}%
+\pstThreeDEllipse[fillstyle=solid, fillcolor=red](0,0,{1\space 2\space div})( 2\space\deltaXcustom\space add,0,0)(0,2\space\deltaXcustom\space add,0)
+\pstThreeDEllipse[fillstyle=solid, fillcolor=white](0,0,{1\space 2\space div})(2,0,0)(0,2,0)
+\pstIIIDCylinder[fillstyle=none, linecolor=red, increment=1, fillcolor=green]
+(0,0,{2.71828\space -1\space 2\space mul\space exp})
+{2\space \deltaXcustom\space add}
+{1 \space 2\space div\space 2.71828\space -1\space 2\space mul\space exp \space sub }
+\pstIIIDCylinder[fillstyle=none, linecolor=red, increment=3, fillcolor=white]
+(0,0,{2.71828\space -1\space 2\space mul\space exp})
+{2}
+{1 \space 2\space div\space 2.71828\space -1\space 2\space mul\space exp \space sub }
+%
+\multido{\rA=1.4+\deltaXcustom}{17}{%
+\innerCycleX
+}%
+\defFunction[algebraic]%
+{etoMinusT}(t)
+{t}{0 }{e^(-t)}
+\psSolid[object=courbe,r=0,
+range=0.3 2.8,
+linecolor=blue,
+linewidth=0.03,
+resolution=360,
+function=etoMinusT]%
+\defFunction[algebraic]%
+{oneOverT}(t)
+{t}{0 }{1/t}
+\psSolid[object=courbe,r=0,
+range=0.3 2.8,
+linecolor=blue,
+linewidth=0.03,
+resolution=360,
+function=oneOverT]%
+
+\psSolid[object=line, linecolor=blue,
+args=0.3 0 0.740818221 0.3 0 3.33]
+\psSolid[object=line, linecolor=blue,
+args=2.8 0 0.060810063 2.8 0 0.357142857]
+\axesIIID[](-1,-1,-1)(4,4,4)
+\end{pspicture*}
+} %optionalDisplay end
+For the purposes of these lectures, we introduce the notion of a ``curved trapezoid''. A figure in the $x,z$ plane is called a ``curved trapezoid'' if it is enclosed by two functions $f_1(x), f_2(x)$ in the interval $[a,b]$ with $f_1(x)<f_2(x)$ as $x$ varies in the interval $[a,b]$.
+
+In other words, a ``curved trapezoid'' is a figure that can be given as the set of points $(x,z)$ for which $x\in [a, b]$ , $z\in [f_1(x), f_2(x)]$. A curved trapezoid is drawn in the preceding item.
+
+The term ``curved trapezoid'' is not standard, and we use it only for the purpose of the current section.
+
+Every ``well behaved'' figure can be subdivided into curved trapezoids. In our course, we shall only consider such ``well-behaved'' figures.
+
+Let $F$ be the solid of revolution obtained by rotating a curved trapezoid $x\in[a,b], z\in [f_1(x), f_2(x)]$, $f_1(x)<f_2(x)$ around the $z$ axis, as shown on the preceding figure. Then the volume of $F$ is computed by
+
+\begin{equation}\boxed{\label{eqVolumeRotationalSolid}
+volume(F) = \int\limits_{a}^b 2\pi x (\underbrace{f_1(x)-f_2(x)}_{=: h(x)}) \diff x=  \int\limits_{a}^b 2\pi x h(x) \diff x\quad .
+}
+\end{equation}
+
+A motivation for the above computation may be given as follows. The volume of the ``cylindrical shell'' figure enclosed between an inner cylinder of radius $r$ and an outer cylinder of radius $r+\Delta$ and height $h$ equals the difference of the volumes of the two cylinders
+\[
+h(\pi (r+\Delta)^2-\pi r^2)=h\pi (\cancel{r^2}+2r\Delta+\Delta^2- \cancel{ r^2}) = h\pi (2r\Delta+\Delta^2)\quad .
+\]
+
+\optionalDisplay{
+\psset{xunit=2cm,yunit=2cm}
+\psset{lightsrc=50 20 20,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
+
+\begin{pspicture*}(-1,-1)(1,1)
+\defFunction[algebraic]{innerC}(t)
+{cos(t)}{sin(t)}{}
+\defFunction[algebraic]{outerC}(t)
+{1.1*cos(t)}{1.1*sin(t)}{}
+\psSolid[object=prisme,h=0.6,
+fillcolor=red,
+resolution=30,
+base=0 6.3 {outerC} CourbeR2+
+6.3  0 {innerC} CourbeR2+](0,0,-0.6)
+\psline[linecolor=black, linewidth=0.3pt, arrows={|-|}] (0,0.4) (0.55,0.4)
+\psline[linecolor=black, linewidth=0.3pt, arrows={|-|}] (0,0.7) (0.607,0.7)
+\rput(0.25, 0.52 ){\tiny $r$}
+\rput(0.30, 0.82 ){\tiny $r+\Delta$}
+\psline[linecolor=black, linewidth=0.3pt, arrows={|-|}] (0.7,0) (0.7,-0.3)
+\rput[l](0.75, -0.15 ){\tiny $h$}
+\end{pspicture*}
+}
+
+Let $N$ be a large integer and set $\Delta:= \frac{b-a}{N}$. Split the interval $[a,b]$ into $N$ equal segments $[a,a+\Delta], [a+ \Delta(x), a+ 2\Delta] ,\dots, [b-\Delta, b]$. The length of each segment is $\Delta$. Then the volume of our solid of revolution is approximated by the sum of the volumes of the cylindrical shells of inner radius $a+ k\Delta $, outer radius $a+(k+1)\Delta$, and height $h(a+k\Delta)$, where we have set
+\[
+h(x)\eqdef f_2(x)-f_1(x)\quad .
+\]
+In other words, the volume of a solid of revolution is approximated by
+\[
+\begin{array}{l}
+\displaystyle\sum_{k=0}^{k=N-1} \underbrace{ \underbrace{h(a+k\Delta)}_{\mathrm{height}}(\underbrace{\pi (\underbrace{(a+k\Delta)+\Delta}_{ \mathrm{rad.~outer~cylinder}} ) ^2}_{\mathrm{area~base~outer~cyl.}}-\underbrace{\pi (\underbrace{a+k \Delta}_{\mathrm{rad.~inner~c.}})^2}_{\mathrm{area~base~inner~c.}})}_{\mathrm{volume~k^{th}~cylindrical~shell}} \\
+=\displaystyle \underbrace{\sum_{k=0}^{k=N-1} 2\pi(a+k\Delta)  h(a+k\Delta) \Delta }_{\mathrm{approximates~} \int\limits_{a}^b 2\pi x h(x) \diff x }  + \Delta \left(\underbrace{\sum_{k=0}^{k=N-1} \pi  h(a+k\Delta)\Delta}_{\mathrm{approximates~} \int\limits_{a}^b h(x) \diff x }\right)
+\end{array}
+\]
+As we subdivide into finer intervals, i.e., $N$ tends to zero, $\Delta$ (as a function of $N$) tends to zero, and the first summands tends to $\int\limits_{a}^b 2\pi x h(x) \diff x $. On the other hand, the second multiplicand of the second summand approximates $\int\limits_{a}^b h(x) \diff x $, in particular it is bounded. Therefore the entire second summand equals $\Delta$ times a bounded quantity, and therefore approaches zero as $\Delta$ tends to zero.
+
+
+\textbf{Remark.} The above motivation may be regarded as a proof of the volume formula. The main reason we do not call the above motivation ``a proof'' is that we have not given a definition of volume. \textbf{Optional material, (!).} Here is an informal brief sketch  of a definition of volume. If a figure $X$ can be represented as a set of the form $X= \{(x,y,z)| x\in [a,b], y\in [f_1(x), f_2(x)], z\in [g_1(x,y),  g_2(x,y)]\}$, its volume can be defined as
+\[
+\int\limits_a^b \left(\int\limits_{f_1(x)}^{f_2(x)}\left(\int\limits_{g_1(x,y)}^{g_2(x,y)} 1 ~ \diff s \right)\diff t \right)dv \quad .
+\]
+By allowing finite sums of figures of the above kind, and by allowing subdivision of figures into components of the above kind, we can define volume of a much wider set of figures. This set of figures includes all 3-dimensional figures of practical significance to  the natural sciences.
+
+However, there are a lot of important details to take care of - for example, what do we do if the figures of the above form intersect along a (2-dimensional) wall, and how do these integrals behave when we re-parametrize the coordinates system. In order to handle these details smoothly, as well as to define volume of figures that cannot be represented with finitely many operations by  figures of the above form,  we need to define volume as follows. (Disclaimer: non-defined mathematical terms follow. The terms are given as starting keywords for students who have additional interest in the subject and would like to google them.) The volume of a \emph{measurable} figure $X$ equals the \emph{infimium of the of the sums of volumes of (possibly infinitely many) rectangular parallelepipeds whose union covers $X$}. The words in the preceding sentence express the simplest idea of measuring volume: namely, approximate volume by increasingly finer rectangular parallelepipeds. However, molding this simple idea into a precise mathematical definition, although not difficult or conceptually hard (however somewhat lengthy, as the preceding ``complicated'' words indicate), is outside of the scope of the current course. We note that one area of mathematics in which a precise definition of volume is given is ``Measure Theory''.
+\subsubsection{Strategy for computing the volume of a solid of revolution}
+
+A typical problem for finding the volume of a solid of revolution will ask you to find the volume of a figure obtained by rotating a figure in the $(x,z)$ plane around an axis. The actual letters in the problem might be different from $(x,z)$. The axis of rotation might be the $x$-axis, the $z$-axis, or any other axis given by the equation of any line. The figure in the $(x,z)$ plane will usually be given as the figure enclosed by two or more curves in the plane.
+
+If the axis of rotation does not pass through $(0,0)$, we should change the coordinate system so that the axis of rotation passes through zero. This is easy to do. Suppose the axis of rotation passes through some point $(s,t)$. Then if the change the coordinate system by setting $u\eqdef x-s, v\eqdef z-t$, then when $(x,z)=(s,t)$, we would have that $(u,v)=(0,0)$. In other words, we may replace everywhere $x=u+s$, $z=v+t$, and work with the new coordinates $(u,v)$.
+
+Suppose now the axis of rotation passes through $(0,0)$, but is neither the $x$ nor the $z$ axis. Suppose in addition the axis of rotation passes through the point $(a,b)$, $a\neq 0$. Then the axis of rotation passes through the point $(\frac{a}{\sqrt{a^2+b^2}},\frac{b}{\sqrt{a^2+b^2}})$ as well (this is one of the two points on the line whose distance to $(0,0)$ is one). Then we can change the coordinate system by
+\begin{equation}\label{eqRotateXZtoUV}
+\begin{array}{rcl}
+u &=&\frac{1}{\sqrt{a^2+b^2}}\left( bx-az\right)\\
+v &=& \frac{1}{\sqrt{a^2+b^2}}\left( ax+bz\right)\quad .
+\end{array}
+\end{equation}
+If $(x,y)= (\frac{a}{\sqrt{a^2+b^2}}, \frac{b}{ \sqrt{a^2 +b^2}})$, it follows that $(u,v)=(0,1)$, and so the axis of rotation passes through the point $(0,1)$ in the $(u,v)$-coordinates, i.e., the axis of rotation is the $v$-axis. It is important that the substitution \eqref{eqRotateXZtoUV} preserves volumes. This does not happen for all linear substitutions (transformations); the linear transformations for which this happens are called ``volume preserving''.
+
+One way to motivate the fact that substitution \eqref{eqRotateXZtoUV} preserves volumes (without actually proving it), is to show that the transformation \eqref{eqRotateXZtoUV} is a rotation. The lengths $\sqrt{a^2+b^2}$, $|a|$ and $|b|$ form a right-angle triangle, and therefore $\frac{a}{\sqrt{a^2+b^2}}$ is the cosine of the angle $\varphi$ indicated on the figure below and $\frac{b}{\sqrt{a^2+b^2}}$ is the sine. If we set $\mathbf e_1\eqdef(1,0)$, $\mathbf e_2\eqdef(0,1)$, then a vector in the $(x,z)$ plane is given by $x\mathbf e_1+z\mathbf e_2$. If we set $\mathbf v_1\eqdef (\cos\varphi, -\sin \varphi), \mathbf v_2\eqdef (\sin \varphi, \cos \varphi)$, then a vector in the plane may be alternatively given as $u\mathbf v_1+ v\mathbf v_2$. Therefore if we want to change coordinate system so that the axes are aligned along $\mathbf v_1, \mathbf v_2$, we need to have that
+\[
+(x, z)=x\mathbf e_1+z\mathbf e_2= u \mathbf v_1 +v \mathbf v_2=( u\cos \varphi+ v\sin\varphi, -u\sin \varphi+v\cos\varphi)\quad ,
+\]
+and therefore
+\[
+\left|\begin{array}{rcl}
+x&=& u\cos \varphi+ v\sin\varphi\\
+z&=&  -u\sin \varphi+v\cos\varphi\quad .
+\end{array}\right.
+\]
+Solving this system for $u,v$, we get that
+\[
+\left|\begin{array}{rcl}
+u&=&  x\cos \varphi-z\sin\varphi\\
+v&=& x\sin \varphi+z\cos\varphi\quad .
+\end{array}\right.
+\]
+\optionalDisplay{
+\psset{xunit=3cm,yunit=3cm}
+\begin{pspicture*}(-2,-2)(3,2)
+\psline[linecolor=gray]{->}(-1.5,0)(1.5,0) % x-axis
+\psline[linecolor=gray]{->}(0,-1.5)(0,1.5) % y-axis
+\rput[l](1.5,0){$x$}
+\rput[b](0,1.5){$z$}
+\rput[bl](0.03,1.03){$(0,1)$}
+\rput[bl](1,-0.15){$(1,0)$}
+\rput[c](0,1){$\bullet$}
+\rput[c](1,0){$\bullet$}
+
+\psplot[linestyle=dotted, arrows={<-}]{0}{0.5}{1 x x mul sub sqrt}
+\psplot[linestyle=dotted, arrows={->}]{0.866}{1}{1 x x mul sub sqrt -1 mul}
+
+\psplot[linecolor=red]{0}{0.05}{0.01000001 x x mul sub sqrt}
+
+\rput(0.5, 0){\psplot{-0.1}{0}{ 0.01001 x x mul sub sqrt 1 mul}}
+\rput[l](0.53, 0.34){$\cos\varphi$ $= \frac{a}{\sqrt{a^2+b^2}}$}
+\rput[t](0.34, -0.03){$\sin\varphi$}
+
+\psline(0,0)(0.5,0.866)
+\psline(0,0)(0.866, -0.5)
+\rput[c](0.5,0.866){$\bullet$}
+\rput[c](0.866,-0.5){$\bullet$}
+
+\rput(1.3,1){$( \sin \varphi, \cos \varphi) = \left( \frac{a}{\sqrt{a^2+b^2}}, \frac{b}{\sqrt{a^2+b^2}}\right)$}
+\rput(1.3,-0.6){$(\cos\varphi, -\sin \varphi)= \left( \frac{b}{\sqrt{a^2+b^2}}, \frac{-a}{\sqrt{a^2+b^2}}\right)$}
+\psline[linestyle=dotted](0.5,0.866)(1,1.74)
+
+\rput(1.1,1.81){$(a,b)$}
+\rput[c](1,1.74){$\bullet$}
+\rput(0.8, 1.392){\pscurve[linecolor=red]{->}(0.0866, -0.05) (0.224, -0.014)(0.1, 0.174)(-0.124, 0.1866 )(-0.0866, 0.05)}
+
+\psline(0.5,0)(0.5,0.866)
+\rput[l](0.01,0.2){$\varphi$}
+\end{pspicture*}
+} %end optionalDisplay
+
+Substituting $\sin \varphi = \frac{a}{\sqrt{a^2+b^2}}, \sin \varphi = \frac{b}{\sqrt{a^2+b^2}}$ we get the substitution \eqref{eqRotateXZtoUV}. Observation of the figure shows that this transformation in fact corresponds to rotation. As rotations preserve volumes, we have transformed the problem of rotating around an arbitrary axis to a problem of rotating around the vertical axis $u=0$.
+
+A formal definition of rotation is given in the subject of linear algebra, or in more advanced Calculus I courses. Alternatively, a very good explanation may be found at the Wikipedia page
+
+\url{http://en.wikipedia.org/wiki/Rotation_(mathematics)} .
+
+Suppose now we are rotating the figure around the $z$ axis. The next task is to plot the curves in the $(x,z)$-plane that determine the figure.
+
+Once we have plotted the figure, we use vertical lines to split it into ``curved trapezoids'', i.e.,  figures bounded by a line $x=a$, a curve $z=f_1(x)$, a line $x=b$ and a curve $z=f_2(x)$ with $a< b$ and $f_1(x)\leq f_2(x)$ for $x\in [a,b]$. One such figure is illustrated in \ref{itemExampleFigureRotationalSolid}.
+
+If the figure lies entirely on one side of the $z$ axis, we simply apply the volume formula  \eqref{eqVolumeRotationalSolid}.
+\subsubsection{Example problem}
+\begin{problem}
+Compute the volume of the rotational solid obtained by rotating the figure enclosed between the curves $z=-x+3$, $z= \frac{1}x$.
+\end{problem}
+\begin{solution}
+First we plot the figure and the axis of rotation.
+
+\optionalDisplay{
+\psset{xunit=1.5cm,yunit=1.5cm}
+\begin{pspicture*}(-3,-2)(4,4.5)
+%\psset{lightsrc=80 30 30,viewpoint=100 45 30 rtp2xyz,Decran=110,linewidth=0.2pt}
+\psline[linecolor=gray]{->}(-2,0)(3.5,0) % x-axis
+\psline[linecolor=gray]{->}(0,-2)(0,3.5) % z-axis
+\rput[l](3.5,0){$x$}
+\rput[b](0,3.5){$z$}
+
+\psline[linestyle=dotted](-4,3)(3,-4)
+\psline[linestyle=dotted](4,3)(-3,-4)
+
+\rput{45}(3,2.1){$u$}
+\rput{45}(-2,1.1){$v$}
+\rput{45}(-1,0){
+\pscurve[linecolor=red]{->}(0,0)(0.2, 0.1)(0, 0.2)(-0.2,0.1 )(-0.05,0)
+}
+\pscustom[linewidth=2pt, linecolor=blue, fillstyle=solid,fillcolor=lightgray]{
+\psplot{0.381966011}{2.618033989}{1 x div}
+\psline(2.618033989, 0.381966011)(0.381966011,2.618033989)
+\closepath
+%\pscurve(0.3, 3.33) (0.3, 1.349858808)
+}
+\rput(1, 1){$\bullet$}
+\rput(-0.5, -0.5){$\bullet$}
+\psline[linestyle=dotted](-0.5, -0.5)(1,1)
+\rput(1.6,1){$z=\frac{1}x$}
+\end{pspicture*}
+}
+
+Next we change coordinates so that the axis of rotation becomes the $z$ axis. First, we need to change coordinate system so the axis of rotation passes through the origin. The axis of rotation passes through $(x,z)=(-1,0)$ and therefore we can change basis by $y=x+1$, i.e., $x=y-1$. In the new variables, the axis of rotation has equation $z+y=0$. $z+y$ passes through $(-1,1)$, and therefore we may set, according to \eqref{eqRotateXZtoUV},
+\[
+u=\frac{\sqrt{2}}{2}(y+z)\quad,\quad v=\frac{\sqrt{2}}{2}(-y+z)\quad .
+\]
+Solving for $x$ and $z$, we get that $z=\frac{\sqrt{2}}{2}(u+v)$, $x=y-1=\frac{\sqrt{2}}{2}(u-v)-1$. Our axis of revolution becomes $u=0$. Therefore we would like to express the bounding curves in the form $v=f(u)$ for some function $f$. Therefore the curve $z=\frac{1}{x}$ is expressed in $(u,v)$ as
+\[
+\frac{\sqrt{2}}{2}(u+v)= \frac{1}{\frac{\sqrt{2}}{2}(u-v)-1}
+\]
+We solve by expressing $v$ in terms of $u$:
+\[
+\begin{array}{l}
+\frac{1}{2}(u^2-v^2)-\frac{\sqrt{2}}{2}(u+v)=1 \\
+v^2+\sqrt{2}v+2-\sqrt{2}u- u^2=0 \\
+v_{1,2}=\frac{-\sqrt{2}\pm \sqrt{2-4(2-\sqrt{2}u- u^2)} }2=
+\frac{-\sqrt{2}\pm \sqrt{-6+\sqrt{2}u+ u^2} }2\quad .
+\\
+\end{array}
+\]
+The smallest possible value of $u$ is $\frac{3\sqrt{2}}2$, which is also seen on our picture.  The other bounding curve, $x+z-3=0$, becomes $y-1+z-3=\sqrt{2}u -4=0 $,i.e., $u=2\sqrt{2}$. We see that the figure in the $(u,v)$-plane is enclosed by the two functions $\frac{-\sqrt{2}+ \sqrt{-6+\sqrt{2}u+ u^2} }2>\frac{-\sqrt{2}- \sqrt{-6+\sqrt{2}u+ u^2} }2$ and $u\in [\frac{3\sqrt{2}}2, 2\sqrt{2}]$.  Applying the formula \eqref{eqVolumeRotationalSolid}, we get the integral
+\[
+\int\limits_{u=\frac{3\sqrt{2}}2}^{2\sqrt{2}} 2\pi u\left(\sqrt{-6+\sqrt{2}u+ u^2}\right)du\quad .
+\]
+We can solve this integral using Euler substitution, Section \ref{secEulerSubTrigIntegrals}. %This will be done in later versions of the notes.
+\end{solution}
+
+\subsection{Length of curves} \label{secCurveLength}
+\index{curve}\index{curve!parametric} A parametric curve (or simply curve) is defined as an n-tuple of functions mapping a given interval $[a,b]$ to an n-tuple of real numbers. For the purposes of our course, a curve will map the interval $[a,b]$ onto either a two dimensional space (denoted by $\mathbb R^2$), or a 3-dimensional space (denoted by $\mathbb R^3$). Thus, a curve $f:[a,b]\to \mathbb R^2$ is given by the two functions (one for each coordinate):
+\[
+\begin{array}{rcl}
+\gamma:[a,b]&\to& \mathbb R^2\\
+\gamma(t)&\eqdef& (f_1(t), f_2(t))
+\end{array}\quad .
+\]
+An alternative and less formal notation for a curve is
+\[
+\gamma:\left|
+\begin{array}{rcl}
+x(t)&=&f_1(t)\\
+y(t)&=&f_2(t)\\
+\end{array}\right., t\in [a,b]\quad .
+\]
+In a similar fashion, a curve in the 3-dimensional space is given by
+\[
+\gamma:\left|
+\begin{array}{rcl}
+x(t)&=&f_1(t)\\
+y(t)&=&f_2(t)\\
+z(t)&=&f_3(t)\\
+\end{array}\right., t\in [a,b]\quad .
+\]
+This definition is extended to an arbitrary number of variables in the obvious way.
+
+\index{curve!image}The \emph{image of a curve} $f:[a,b]\to \mathbb R^2$ is the set of points in $\mathbb R^2$ of the form $f(t)$ as $t$ runs over all points in the interval $[a,b]$.
+
+Colloquially, as often happens during lectures and scientific talks, we call both the parametric curves (which are functions) and their  and images (which are sets of points in the plane) using the word ``curve''. We try to avoid this informality in the present notes.
+
+It is important to distinguish between a parametric curve and the image of the curve. For example, the curves
+\[
+\gamma_1:\left|
+\begin{array}{rcl}
+x&=&t^2\\
+y&=&t^2\\
+\end{array}\right., t\in [0,1]\quad .
+\]
+\[\gamma_2:\left|
+\begin{array}{rcl}
+x(t)&=&t\\
+y(t)&=&t\\
+\end{array}\right., t\in [0,1]\quad .
+\]
+both represent the straight segment connecting $(0,0)$ and $(1,1)$, but ``traverse'' the segment at different ``speeds''. Another example is given by
+\[
+\gamma_1:\left|
+\begin{array}{rcl}
+x(t)&=&t\\
+y(t)&=&\sqrt{1-t^2}\\
+\end{array}\right., t\in [0,1]
+\]
+and
+\[
+\gamma_2:\left|
+\begin{array}{rcl}
+x(t)&=&\cos t\\
+y(t)&=&\sin t\\
+\end{array}\right., t\in [0, \frac{\pi}{2}]\quad .
+\]
+These two parametric curves correspond to a quarter of a circle (which quarter?), however the two parametric curves traverse the quarter circle in different directions (which ones?) and at different speeds.
+
+Images of curves are often given implicitly with a relation between $x$ and $y$. For example, the unit circle is given by
+\[
+x^2+y^2=1\quad .
+\]
+In the previous points, we showed two different parametric curves of a quarter circle.
+
+To parametrize a curve whose image is given by a relation between $x$ and $y$ is a highly non-trivial task. For example, if the relation is of the form $y^2=x^3+px+q$ for parameters $p,q$, the problem of deciding (using computer) whether there is a point with rational coordinates $(x,y)$ that satisfies the equation is an active area of mathematical research. %There are cryptographic schemes based on results in this area.
+
+In fact, the Euler substitution in Section \ref{secEulerSubTrigIntegrals} is an example of a parametrization of curves of the form $y^2=\pm x^2\pm 1$.
+
+\index{curve!length}Definition of curve length. Let $\gamma$ be given by
+\[
+\gamma:\left|
+\begin{array}{rcl}
+x(t)&=&f_1(t)\\
+y(t)&=&f_2(t)\\
+\end{array}\right., t\in [a,b]\quad .
+\]
+Suppose in addition $f_1(t), f_2(t)$ are differentiable. Then the \emph{length} of $\gamma$ is defined as
+\begin{equation}\boxed{
+\label{eqDefLengthCurve}
+\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}\diff t \quad .
+}
+\end{equation}
+Similarly, the length of a curve sitting in 3-dimensional space is given by
+\[
+\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2+f_3'(t)^2}\diff t \quad .
+\]
+
+Suppose an image of a curve $C\subset \mathbb R^2$ has two different parametrizations
+\begin{equation}\label{eqDefCurve1}
+\gamma_1:\left|
+\begin{array}{rcl}
+x(t)&=&f_1(t)\\
+y(t)&=&f_2(t)\\
+\end{array}\right., t\in [a,b]\quad ,
+\end{equation}
+\begin{equation}\label{eqDefCurve2}
+\gamma_2:\left|
+\begin{array}{rcl}
+x(s)&=&g_1(s)\\
+y(s)&=&g_2(s)\\
+\end{array}\right. , s\in [p,q]\quad ,
+\end{equation}
+both differentiable, such that both are injective (i.e., every point $(x(t), y(t))$ has exactly one preimage, see Section \ref{secInverseFunctionBasics}).
+\begin{equation}\boxed{
+\begin{array}{c}
+\text{If the parametric curve is differentiable and injective (one to one),}\\
+\text{the length of the image of a curve } C
+\text{does not depend on the parametric curve.}
+\end{array}
+}
+\end{equation}
+We have that $t$ can be expressed as function of $s$, namely, $t(s)= \gamma_1(\gamma_2^{-1}(s))$. Furthermore, as a function of $s$ from $[a,b]$ to $[p,q]$, $t$ is bijective (this follows from the fact that both $\gamma_1$ and $\gamma_2$ are injective).
+
+We will prove the preceding item if $t$ as a function of $s$ is  continuously differentiable.
+
+\begin{proof} (on condition $t(s)$ is continuously differentiable). In order to avoid confusion throughout this proof, we will denote derivatives with respect to $s$ by $\frac{\diff}{\diff s}$, and derivatives with respect to $t$ by $\frac{\diff}{\diff t}$.
+
+We claim that $\frac{\diff t}{\diff s}(s)$ does not change sign. Suppose the contrary. The endpoints of the interval $[a,b]$ (where $t$ lives) must be mapped to the endpoints $p,q$ of the interval where $s$ lives. Suppose first $t(a)=p<q=t(b)$.  Then there exist points $s_0$ and $s_1$ such that  $\frac{\diff t}{\diff s}(s_0)<0$. As $t(s)$ is continuously differentiable, there exists a small interval  $s_0\in [w, z]$ such that $\frac{\diff t}{\diff s}(s)<0$. Then by the fundamental theorem of Calculus $t(w)>t(z)$ but $w<z$. By the intermediate value theorem, in the interval $[z,b]$, the function $t(s)$ achieves all values between $t(z)$ and $t(b)=q$. In particular, it achieves the value $t(z)<t(w)<q$. But then $t$ as a function of $s$ achieves the value $t(w)$ at least twice (once at $w$ and once at a point in $[z,q]$). On the other hand, we already saw that $t$ is bijective, and cannot achieve the same value twice. Contradiction. The other case, in which $t(a)=q>p=t(b)$, is treated in a similar fashion.
+
+The length of $C$ is by definition
+\[
+\int\limits_{a}^b \sqrt{f_1'(t)^2+f_2'(t)^2}\diff t \quad .
+\]
+Unlike computations of indefinite integrals, where we make variable changes on the fly, when dealing with definite integrals, we may make variable changes only when they are bijective (one-to-one and onto, Section \ref{secInverseFunctionBasics}). By the conditions on the parametrization of the curve we may make a variable change under the definite integral. Suppose first $\frac{\diff t}{\diff s}(s)\geq 0$ and therefore $t(a)=p<q=t(b)$. Therefore
+\[
+\begin{array}{l}
+\phantom{=}\displaystyle \int\limits_{t(s)=a}^b \sqrt{\left(\frac{df_1}{\diff t}(t(s))\right)^2+\left(\frac{df_2}{\diff t}(t(s))\right)^2}\diff(t(s)) \\
+\displaystyle =  \int \limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2+ \frac{df_2}{\diff t}(t(s))^2}\diff(t(s))\\
+= \displaystyle \int\limits_{s=p}^q \sqrt{\frac{df_1}{\diff t}( t(s))^2 + \frac{df_2 }{\diff t}(t(s))^2} \frac{\diff t}{\diff s}\diff s \\
+\displaystyle
+\stackrel{\frac{\diff t}{\diff s}(s)\geq 0}{=}  \int\limits_{s=p}^q \sqrt{ \left( \underbrace{ \frac{\diff t}{\diff s}(s) f_1( t(s)) }_{ \text{chain rule} } \right)^2+ \left( \underbrace{ \frac{ \diff t}{\diff s}(s) \frac{df_2}{\diff t} (t(s))}_{ \text{chain rule}} \right)^2}\diff s \\
+=\displaystyle \int\limits_{s=p}^q \sqrt{ \left(\frac{\diff}{\diff s}\left(f_1(t(s))\right)\right)^2+ \left(\frac{\diff}{\diff s}\left(f_2(t(s))\right)\right)^2}\diff s \\
+=\displaystyle \int\limits_{s=p}^q \sqrt{ \frac{ dg_1}{ \diff s}( s)^2 + \frac{dg_2}{\diff s}(s)^2}\diff s,
+\quad
+\end{array}
+\]
+where in the very last equality we use the definition of $t$ as a function of $s$ and \eqref{eqDefCurve2}. This is exactly what we wanted to prove. The case when $t(a)=q>p=t(b)$ is handled similarly.
+\end{proof}
+
+A motivation for the definition may be given as follows. Let $[a,b]$ be subdivided into $N$ intervals $[a,a+\Delta ], \dots, [a+k\Delta, a+(k+1)\Delta],\dots, [b-\Delta, b]$, $\Delta=\frac{b-a}{N}$. Then the straight segment connecting the point $(x,y)=(f_1(t), f_2(t))$ with $(f_1(t+\Delta), f_2(t+\Delta))$ has length $\sqrt{(f_1(t)-f_1(t+\Delta))^2 + (f_2(t)-f_2(t+\Delta))^2}= \sqrt{\left(\frac{(f_1(t)-f_1(t+\Delta)}{\Delta}\right)^2 + \left(\frac{(f_2(t)- f_2(t+\Delta)}{\Delta} \right)^2}\Delta$. Summing up over all intervals, we get that the piecewise linear curve approximating our smooth curve has length
+\[
+\sum_{k=1}^{N-1} \sqrt{\left(\frac{(f_1(a+k\Delta)-f_1(a+(k-1)\Delta)}{\Delta}\right)^2 + \left(\frac{(f_2(a+k\Delta)- f_2(a+(k-1)\Delta)}{\Delta} \right)^2}\Delta\quad .
+\]
+As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by the definition of derivative, the radical term tends uniformly to $\sqrt{f_1'(t)^2+f_2'(t)^2}$. Therefore the entire sum approximates the integral \eqref{eqDefLengthCurve}.
+
+\optionalDisplay{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-1,-1)(4,4.3)
+\psaxes[ ticks=none, arrows={->}](0,0)(4,4)
+\rput[b](0,4.1){\tiny$y$}
+\rput[b](4.1,0){\tiny$x$}
+
+\psplot[linecolor=blue, plotstyle=curve]{0.2}{4} { x 2 div x 180 mul  sin 1 add  mul 1 add x 3 div  sub   }  %{ x x mul 4 div x 180 mul  sin 1 add  mul   }
+\psplot[linecolor=black!50, plotpoints=11,plotstyle=line]{0.2}{4}{ x 2 div x 180 mul  sin 1 add  mul 1 add x 3 div  sub   }
+\psline[linecolor=red!50](2.1,1.674467844)(2.1,2.650886477)(2.48,2.650886477)
+\rput[t](1.9,2.3){\tiny$\diff y$}
+\rput[t](2.28,2.85){\tiny$\diff x$}
+
+
+\rput[t](1,1.8){\tiny$(x(t), y(t))$}
+\pscurve[arrows={->}, linestyle=dotted](1,1.8)(1.3, 1.5)(2.1,1.674467844)
+\pscurve[arrows={->}, linestyle=dotted](2,4)(2.5, 3.55)(2.48,2.650886477)
+
+\rput[b](2,4){\tiny$(x(t+\Delta), y(t+\Delta))$}
+%\pscurve[linecolor=blue](0.2,1)(0.4,0.9)(0.8,0.5)(1.2,0.3)(1.6,1.5)(2, 0.5)(2.4, 2)(3.2, 1.5)(3.6, 1.4)(4, 2)
+
+\end{pspicture}
+}
+
+%\chapter{Polar coordinates}
+\section{Polar coordinates}
+Polar coordinates of a point $P=(x,y)$ in the plane are any two numbers $(r, \theta)$, $r\geq 0$, for which $(x,y)=(r\cos\theta, r\sin \theta)$. In other words, the relation between the Cartesian coordinates $(x,y)$ and the polar coordinates $(r,\theta)$ of a point $P$ is given by
+\[
+\left|\begin{array}{rcl}
+x&=&r\cos \theta\\
+y&=&r\sin\theta
+\end{array}\right.
+\]
+
+In these lectures, we allow polar coordinates with $ r<0$; this is the commonly accepted convention.
+
+To obtain polar coordinates from Cartesian coordinates we compute that $x^2+y^2= r^2(\cos^2 \theta+\sin^2\theta)=r^2$ and therefore $r=\pm\sqrt{x^2+y^2}$. Furthermore we have that $\frac{y}{x}= \frac{\cancel{r}\sin \theta}{\cancel{r}\cos \theta}=\tan \theta$. To summarize:
+\[
+\left|\begin{array}{rcl}
+r&=&\pm\sqrt{x^2+y^2}\\
+\tan\theta&=&\frac{y}{x} \quad \mathrm{if~}x\neq 0 \quad .
+\end{array}\right.
+\]
+Note that the equality $\tan \theta = \frac{y}{x}$ is not always defined. Also note that  $\tan \theta=\frac{y}{x}$ does not determine $\theta$ uniquely, as it is not clear in which interval $(k\pi -\frac{\pi}{2}, k\pi+\frac{\pi}{2})$, $k\in \mathbb Z$ does $\theta$ lie.
+
+$r$ denotes the distance from $P$ to the origin and $\theta$ denotes the angle between the segment $OP$ and the $x$-axis, as indicated on the picture below.
+
+\optionalDisplay{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-1.5,-1.5)(5,4)
+\psline[linecolor=gray](-1.5,0)(2.5,0) % x-axis
+\psline[linecolor=gray](0,-1.5)(0,2.5) % y-axis
+\parametricplot[linecolor=red]{0}{60}{t cos 0.25 mul t 1000 div 1 add mul t sin 0.25 mul t 1000 div 1 add mul}
+\parametricplot[linecolor=red, arrows=->]{0}{780}{t cos 0.55 mul t 1000 div 1 add mul t sin 0.55 mul t 1000 div 1 add mul}
+\psline(0,0)(2,  3.464)
+\rput(2,  3.464){$\bullet$}
+\rput[lt](2,  3.264){$P= (r\cos \theta, r\sin \theta)$}
+\rput(0.35,  0.25){$\theta$}
+\end{pspicture*}
+} %optionalDisplay
+
+Polar coordinates are not unique: if $(r, \theta)$ are polar coordinates of $P=(x,y)$, then so are $(r, \theta+2\pi)$. More precisely, the point $P_1$ with polar coordinates $(r_1, \theta_1)$ coincides with a point $P_2$ with polar coordinates $(r_2, \theta_2)$ if one of the three mutually exclusive possibilities holds:
+\begin{itemize}
+\item $r_1=r_2\neq 0$ and $\theta_1=\theta_2+2k\pi, k\in \mathbb Z $,
+\item $r_1=-r_2\neq 0$ and $\theta_1=\theta_2+(2k+1)\pi, k\in \mathbb Z$,
+\item $r_1=r_2=0 $ and $\theta$ is arbitrary.
+\end{itemize}
+
+
+
+
+We have already encountered polar coordinates when studying polar form of complex numbers. Let $z\eqdef x+iy$, $x,y\in \mathbb R$. Then we recall from section \ref{secPolarFormComplexNumbers} that there exist real numbers $\rho$, $r\eqdef e^\rho$ and $\theta$ such that $z=x+iy= e^{\rho+i\theta}= e^\rho(\cos \theta+i\sin \theta)= r(\cos \theta + i\sin \theta)$. We recall the latter equality is the polar form of the complex number $z$. Then $(r, \theta)$ are the polar coordinates of the point $(x,y)$.
+
+The relationship between polar form of complex numbers and polar coordinates can be summed up in the following equalities.
+\[
+\begin{array}{rclclcl}
+r(\cos \theta+i\sin\theta) &=&  x+iy&=& z&=&\Re (z)+i\Im(z)\\
+r\cos\theta&=&x&=&\Re(z)\\
+r\sin\theta&=&y&=&\Im(z)\\
+\theta&&&=& \arg (z)\\
+\tan \theta &=&\displaystyle\frac{y}{x}&=&\displaystyle\frac{\Im (z)}{\Re (z)}\\
+r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
+\end{array}
+\]
+
+\index{cardioid}\index{spiral} Sometimes a curve is given in polar coordinates by specifying a relationship between $r$ and $\theta$, such as $r=\theta$ (spiral) or $r=1+\sin \theta$ (cardioid), $r=2\cos \theta$ (circle of radius one centered at $(1,0)$).
+
+\optionalDisplay{
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-5,-5)(5,5)
+\rput (3,3){$r=\theta$}
+\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
+\parametricplot[linecolor=red, plotpoints=500]{0}{720}{t cos t mul 180 div t sin t mul 180 div }
+\end{pspicture*}
+
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-5,-5)(5,5)
+\rput (3,3){$r=1+\sin\theta$}
+\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
+\parametricplot[linecolor=red, plotpoints=500]{0}{360}{1 t sin add t cos mul
+ 1 t sin add t sin mul}
+\end{pspicture*}
+
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture*}(-5,-5)(5,5)
+\rput (3,3){$r=2\cos\theta$}
+\psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
+\parametricplot[linecolor=red, plotpoints=500]{0}{360}
+{ t cos 2 mul t cos mul
+  t cos 2 mul t sin mul}
+\end{pspicture*}
+} %optionalDisplay
+
+\index{area!enclosed by curve in polar coord.} Let $r=f(\theta), \theta\in [a,b]$ be a curve given in polar coordinates.  Let $A$ denote the figure given by the union of the segments connecting each point the curve to the origin. Suppose no two points on the curve lie on the same ray from the origin. Then the area of $A$ is given by
+\begin{equation}\boxed{\label{eqAreaUnderPolarCurve}
+area(A)\eqdef \int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta\quad .
+}
+\end{equation}
+A motivation for the above definition may be given as follows.
+\psset{xunit=1cm,yunit=1cm}
+
+\optionalDisplay{
+\begin{pspicture*}(-4,-1)(7.3,5.4)
+\newcommand{\dThetA}{20}
+\rput(4,5){$r=f(\theta)$}
+\psaxes[labels=none]{<->}(0,0)(-3.5,-0.5)(4.5,5.2)
+\multido{\rb=10+\dThetA}{6}{%
+\pstVerb{/rR \rb\space 30 div 2 add def
+/rRPlusTheta \rb\space \dThetA\space add 30 div 2 add def
+}
+\pscustom[fillcolor=blue!30, fillstyle=solid, linecolor=blue]{\psline(0,0)(! rR \rb \space cos mul rR \rb \space sin mul) (! rRPlusTheta \rb \space\dThetA\space add cos mul rRPlusTheta \rb \space \dThetA\space add sin mul) }
+}
+\parametricplot[linecolor=red, plotpoints=500]{10}{130}
+{ t 30 div 2 add  t cos mul
+  t 30 div 2 add  t sin mul}
+\parametricplot[linecolor=red]{30}{50} %{! \dThetA 10 add}
+{t cos 1 mul
+ t sin 1 mul }
+\rput[lt](0.8, 0.8){\tiny$\Delta\theta$}
+\parametricplot[linecolor=red, arrows=->]{0}{30} %{! \dThetA 10 add}
+{t cos 0.5 mul
+ t sin 0.5 mul }
+\rput[lt](0.55,0.3){\tiny$\theta_1$}
+\parametricplot[linecolor=red, arrows=->]{0}{50} %{! \dThetA 10 add}
+{t cos 0.85 mul
+ t sin 0.85 mul }
+\rput[lt](0.85,0.4){\tiny$\theta_2$}
+
+\rput[tr] (-0.1,-0.1){$O$}
+\rput[tl] (2.7,1.5){$P=(f(\theta_1)\cos \theta_1, f(\theta_1)\sin \theta_1)$}
+\rput[tl] (2.51,2.95){$Q=(f(\theta_2)\cos \theta_2, f(\theta_2)\sin \theta_2)$}
+\end{pspicture*}
+} %optionalDisplay
+
+Let $N$ be a large number. Split the interval $[a,b]$ using $N+1$ equally spaced points $a=\theta_0 \leq\theta_1 \leq\dots \leq \theta_{N-1}\leq \theta_N=b$ into $N$ segments of the same length. Denote the length of each such segment by $\Delta \theta$. Then $\Delta\theta= \frac{b-a}{N}$. Then the area of $A$ is approximated by triangles with vertices on the curve. Those vertices are of the form $(f(\theta_j)\cos \theta_j, f(\theta_{j+1} )\cos \theta_{j+1})$ as drawn in the figure. Consider one such triangle, $OPQ$, as indicated in the figure. The area of triangle $OPQ $ is $\frac{|OP| |OQ|\sin (\Delta \theta )}{2}= \frac{f(\theta_1) f(\theta_2)\sin (\Delta \theta )}{2} $. In other words the area of $A$ is approximated by
+\[
+\sum_{j=0}^{N-1} \frac{f(\theta_j)f(\theta_{j+1})\sin (\Delta \theta )}{2}= \frac{\sin(\Delta\theta)}{ \Delta \theta } \sum_{j= 0}^{N-1} \frac{f(\theta_j)f(\theta_{j}+ \Delta\theta) \Delta \theta}{2}\quad .
+\]
+In the above sum, the multiplicand $\frac{ \sin( \Delta \theta )}{ \Delta\theta}$ tends to $1$ as $\Delta\theta$ tends to $0$. Therefore as $\Delta$ tends to zero, the expression tends to the limit of the second multiplicand. On the other hand, one can show that the second multiplicand approximates the integral $\int\limits_{\theta=a}^b \frac{f(\theta)^2}{2}d\theta$. This motivates definition of area given in \eqref{eqAreaUnderPolarCurve}.
+
+Curve length of curve of the form $\gamma:|r=f(\theta),\theta\in [a,b]$. Then $(x,y)= (r\cos\theta, r\sin \theta)= (\underbrace{f(\theta)\cos\theta}_{=:g_1(\theta)}, \underbrace{ f(\theta)\sin\theta}_{=:g_2(\theta)} $. Recall the definition of curve length \eqref{eqDefLengthCurve}:
+\[
+\int\limits_{a}^b\sqrt{\left(\frac{dg_1}{d\theta}\right)^2+\left(\frac{dg_2}{d\theta}\right)^2}d\theta \quad.
+\]
+We substitute $g_1(\theta)=f(\theta)\cos\theta$, $g_2(\theta)=f(\theta)\sin\theta$ and carry out the operations:
+\[
+\begin{array}{l}
+\displaystyle\int\limits_{a}^b\sqrt{ (-\sin\theta f(\theta) + \cos\theta f'(\theta) )^2+(\cos\theta f(\theta)+\sin \theta f'(\theta) )^2}\diff\theta=\\
+\displaystyle \int \limits_{a}^b \sqrt{\sin^2\theta f^2(\theta)- \cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)}+\cos^2\theta (f'(\theta))^2}\\
+\phantom{\int\limits_a^b} \overline{+ \cos^2\theta f^2(\theta)+\cancel{2\sin\theta\cos\theta f'(\theta)f(\theta)} \sin^2 (f'(\theta))^2 }\diff\theta\quad .
+\end{array}
+\]
+Regrouping the above expression using $\sin^2\theta+\cos^2\theta=1$ we finally get that the length of a curve given in polar coordinates as $r=f(\theta)$ is computed as
+\begin{equation}\boxed{\label{eqCurveLengthPolarCoords}
+\int\limits_{a}^b \sqrt{f^2(\theta)+ (f'(\theta))^2}d\theta
+}
+\end{equation}
+Find the area of the figure that lies outside of figure enclosed by $r_1=3\cos\theta_1, \theta_1\in [0,\pi)$ and inside the figure enclosed by $r_2=1+\cos\theta_2, \theta\in [-\pi,\pi)$. %Find the perimeter of the curve.
+
+\begin{solution}
+\optionalDisplay{
+\begin{pspicture}(-1, -4)(4,4)
+\pscustom*[fillcolor=red!20, linecolor=red!20]{
+\parametricplot[linecolor=red, plotpoints=1000]{-60}{60}{3 t cos mul t cos mul 3 t cos mul t sin mul}
+\parametricplot[linecolor=red, plotpoints=1000]{60}{-60}{1 t cos add t cos mul 1 t cos add t sin mul}
+}
+\parametricplot[linecolor=red, plotpoints=1000]{0}{360}{1 t cos add t cos mul 1 t cos add t sin mul}
+\parametricplot[linecolor=red, plotpoints=1000]{0}{360}{3 t cos mul t cos mul 3 t cos mul t sin mul}
+\psaxes[labels=none]{<->}(0,0)(-1,-2.5)(3.5,2.5)
+\rput[c](0.75,1.299){$\bullet$}
+\rput[c](0.75,-1.299){$\bullet$}
+\rput[b](0.85,1.51){$\left(\frac{3}4,\frac{3\sqrt{3}}{4} \right)$}
+\rput[t](0.85,-1.51){$\left(\frac{3}4,-\frac{3\sqrt{3}}{4} \right)$}
+\psline[linestyle=dotted](0,0)(0.75,1.299)
+\psline[linestyle=dotted](0,0)(0.75,-1.299)
+\end{pspicture}
+} %optionalDisplay
+
+We first plot the curves using computer to get the above picture. We see that the curve $r_1=3\cos\theta_1$ is a circle and that $r_2=1+\cos\theta_2$ is a cardioid (rotated at an angle of $-\frac{\pi}{2}$). Let us verify that indeed $r_1=3\cos\theta_1$ is a circle. Multiplying by $r_1$ we get $r_1^2=3r_1\cos\theta_1= 3x$. Therefore $x^2+y^2-3x=0$, or, after completing the square, $\left(x- \frac{3}{2} \right)^2+y^2 =\frac{9}{4}$. Thus $r_1=3\cos\theta_1$ is a circle centered at $\left(\frac{3}{2},0\right)$ and with radius $\frac{3}{2}$. From the picture we see that the two curves intersect in three points, one of which is the origin. We get an additional intersection of the two curves when $r_1=r_2$, $\theta_1=\theta_2$ and $1+\cos\theta=3\cos\theta$, where we have set $\theta:=\theta_1 = \theta_2$. In other words, $\cos\theta=\frac{1}{2}$ and as $\theta\in [0,\pi)$, we get $\theta=\pm \frac{\pi}{3}$. Thus we have a second intersection point $x=\frac{3}{4}$, $y=\frac{3\sqrt{3}}{4}$. By symmetry with respect to the $x$ axis we get that the final intersection point is $(x,y)=\left(\frac{3}4,-\frac{3\sqrt{3}}{4}\right) $.
+
+Therefore the area of the enclosed curve is given by the area of the figure obtained by connecting $r=3\cos\theta, \theta\in(-\frac{\pi}{3}, \frac{\pi}{3})$ to the origin minus the area of the figure obtained by connecting $r=1+\cos\theta, \theta\in(-\frac{\pi}{3}, \frac{\pi}{3})$ to the origin. We can now use \eqref{eqAreaUnderPolarCurve} to get the answer
+
+\[
+\begin{array}{rcl}
+\displaystyle\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}2\left(9\cos^2\theta-(1+\cos\theta)^2\right) d\theta&=& \displaystyle\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}2\left(8\underbrace{\cos^2\theta}_{=\frac{1+\cos(2\theta)}2  }-1-2\cos\theta \right) d\theta\\
+&=&\displaystyle\frac{1}2\int\limits_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \left(4+4 \cos 2\theta-1-2\cos\theta \right) d\theta
+\\
+&=&\pi+\left.\sin2\theta\right|_{\theta=-\frac{\pi}{3}}^{\theta=\frac{\pi}3}-\left.\sin\theta\right|_{\theta=-\frac{\pi}{3}}^{\theta=\frac{\pi}3}\\
+&=&\pi
+\end{array}
+\]
+\end{solution}
+
+
+\chapter{A bit of differential equations}
+\section{Some terminology and background}
+A differential equation is an equation that contains at least one derivative (first, second, third,...) of an unknown function.
+
+The \emph{order} of a differential equation is the order of the highest derivative that appears in the equation.
+
+An example of a differential equation is
+\begin{equation}\label{eqDFQsimplestExample}
+\frac{\diff P}{\diff t} = k P\quad ,
+\end{equation}
+where $t$ is a variable, $k$ is a constant and $P(t)$ is a function.
+
+Let us interpret $P$ as population size as a function of the time $t$, and $k$ as some natural rate of growth constant. If $k$ is positive (and the population $P$ is positive), so is $\frac{d P}{\diff t}$. As the first derivative of $P$ is positive, $P$ will increase with time, at an ever growing rate. We can plug in the function $P(t)= e^{k t}$ and verify that it satisfies the equation.
+
+Differential equations are used to model processes in the natural sciences. For example, \ref{eqDFQsimplestExample} models ideal population growth with infinite resources and unlimited environment - the increase in population is proportional to the size of the population.
+
+A more complicated example is the logistic differential equation
+\[
+\frac{\diff P }{\diff t} = k P\left(1- \frac{P}{M}\right)\quad.
+\]
+Here, $k$, $t$, $P$ have the same interpretation as before, and $M$ is the carrying capacity of the environment. In this model, while $P$ is smaller than the carrying capacity $M$,  $\frac{dP}{\diff t}$ will be positive, and the population will increase with time. However, if the population is larger than the carrying capacity $M$, $\frac{d P }{\diff t}$ will be negative and the population will decrease.
+
+Another example of a differential equation is the motion of a spring
+\[
+m\frac{\diff^2 y (t)}{\diff t^2}= -k y,
+\]
+where $m$ and $k$ are constants ($m$ stands for mass and $k$ for the spring's constant). Here, we recall the notation $\frac{d^2 y (t)}{\diff t^2}= y''(t)$ means second derivative.
+
+
+Differential equations may have \emph{initial conditions}, i.e., we may be given the value of the unknown function or its derivatives in one or more points. For example, in \eqref{eqDFQsimplestExample}, we may add the initial condition $P(t_0)= 10$, to say that at time $t=t_0$, $P(t)=10$.
+
+If we are given initial conditions $y(x_0)=y_0$, we say that we have  an \emph{initial condition differential equation}.
+
+Initial conditions are critical for a solution of a differential equation. For example, if $P(t_0)=0$, \eqref{eqDFQsimplestExample} has only solution $P(t)=0$, buf if $P(t_0)=10$, \eqref{eqDFQsimplestExample} has only solution $P(t)=10  e^{k(t-t_0)}$.
+\subsection{Direction fields}
+Suppose we have a differential equation of the form
+\begin{equation}\label{eqDFQwithDirectionFlow}
+\frac{\diff y}{\diff x}= F(x,y)\quad.
+\end{equation}
+
+At each point $(x_0,y_0)$, let us plot a segment of the line with slope $F(x_0,y_0)$ passing through $(x_0,y_0)$. The resulting picture is called a direction field.
+
+Examples.
+
+\optionalDisplay{
+\psset{xunit=1cm,yunit=1cm}
+\SpecialCoor
+\begin{pspicture}(-5,-5)(5,5)
+\psaxes{<->}(0,0)(-5,-5)(5,5)
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=xy$}%
+\fcDirectionFieldDefault{x y mul}{-4}{-4}{0.5}{17}
+\end{pspicture}
+
+\begin{pspicture}(-5,-5)(5,5)
+\psaxes{<->}(0,0)(-5,-6)(5,5)
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=x+y$}
+\fcDirectionFieldDefault{x y add}{-4}{-4}{0.5}{17}
+\end{pspicture}
+}%optionalDisplay
+
+$\frac{\diff y}{\diff x}= F(x,y)$ has different solutions depending on the initial condition given by the $y(x_0)=y_0$ starting point $(x_0, y_0)$. A solution of a differential equation of the form \eqref{eqDFQwithDirectionFlow} corresponds to the trajectory of a point ``flowing'' along the direction field. If drawn with increasing precision, the blue segments representing the direction field begin to resemble smooth curves; those curves indeed approximate solutions of the differential equation.
+
+Euler's method for approximating solutions. Fix a small ``approximation step'' $h$. Let $x_n:=x_0+nh$ be the point at distance $n$ times our small approximation step from $x_0$. Suppose the initial condition differential equation problem
+\[
+\frac{\diff y}{\diff x}= F(x,y)\quad.
+\]
+with initial conditions $y(x_0)=y_0$  has a solution $y(x)$. Then approximate values for $y_n\approx y(x_n)$ are given by
+\begin{equation}\label{eqEulerApproxDFQ}
+y_n \eqdef y_{n-1} + h F(x_{n-1}, y_{n-1})\quad .
+\end{equation}
+A motivation for Euler's method can be given as follows. At a point $x$, for a very small interval $(x,x+h)$, the function $y(x)$ is approximately linear, and is approximated by $y(x+h)\approx y(x)+ h y'(x) $. On the other hand, $y'(x)$ equals $F(x, y(x))$. Now if we have already approximated $y(x_{n-1})\approx y_{n-1}$, we known $y'(x_{n-1}) \approx F(x_{n-1}, y_{n-1})$ and  we can approximate $y(x_{n-1}+h)\approx y_n $ by \eqref{eqEulerApproxDFQ}.
+
+%Euler's method has a number of drawbacks, both computationally and algebraically, and is not used in practice. However, it illustrates the main idea of approximating solutions to differential equations: approximate at a point $x$ the value of $y(x+h)$ (as a function of $h$) by a well-known function in $h$ (linear, quadratic, third power, fourth power,\dots), move along the approximation for a very short distance $h$, and recompute.
+
+We note that there are a number of issues which arise from Euler's method. For example, Euler's method requires that $F(x,y)$ be defined for values of $y$ traversed by the solution of the differential equation. This does not happen, for example, for the direction field given by $\frac{\diff y}{\diff x}= - \frac{x}{y}$: that direction field is not well defined as $y$ approaches $0$. However, we will soon be able to compute that solutions of the differential equation  $\frac{\diff y}{\diff x}= -\frac{x}{y}$ for $y>0$ behave locally likes arcs of circles whose radii depending on the starting point $(x_0, y_0)$. In particular, such solutions can be extended to values for which $y=0$.
+
+\optionalDisplay{
+\begin{pspicture}(-6,-1)(6,6)
+\psaxes{<->}(0,0)(-6,-1)(6,6)
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=-\frac{x}{y}$}
+\fcDirectionFieldFull{x y div -1 mul}{-4}{0.001}{0.5}{17}{8}{0.2}{0.02}{linecolor=blue}%
+\end{pspicture}
+} %optionalDisplay
+%\begin{pspicture}
+%\end{pspicture}
+
+\subsection{Separable equations} \label{secSeparableDFQs}
+A differential equation is separable if it can be written in the form
+\begin{equation}\label{eqDFQSeparable}
+\frac{\diff y}{\diff x}= f(x)g(y)\quad .
+\end{equation}
+We recall that $y(x)$ denotes $y$ as a function of at $x$, and that $y(t)$ denotes the expression obtained by substituting $x=t$ in the expression for $y$.
+
+A separable differential equation can be solved as follows. Divide out by $g(y)$:
+\[
+\frac{\diff y}{\diff x} \frac{1}{g(y)}= f(t)\quad .
+\]
+Let $x_0$ be a constant and $t$ a variable. We now integrate \eqref{eqDFQSeparable} from $x=x_0$ to $x=t$. This will ultimately give us an expression for $y(t)$.
+\begin{equation}\label{eqSeparableDFQSolution1}
+\begin{array}{rcl}
+\displaystyle \int\limits_{x=x_0}^{x=t}\frac{1}{g(y(x))} \underbrace{\frac{\diff y}{\diff x}\diff x}_{= \diff (y(x))}&=&\displaystyle \int \limits_{ x=x_0}^{ x=t}  f(x)\diff x
+\\
+\displaystyle \int\limits_{x= x_0}^{x=t}\frac{ 1}{g( y(x))} \diff (y(x))&=&\displaystyle \int \limits_{ x=x_0}^{x=t}  f(x)\diff x
+\quad .
+\end{array}
+\end{equation}
+Suppose now $\displaystyle \frac{\diff y }{\diff x}$ is non-zero and does not change sign for $x\in [x_0, t]$.  Then $y$ is a one to one and onto map (=bijection) between $[x_0, t]$ and $[y(x_0), y(t)]$ (recall the definition of one to one and onto (=bijection) from Section \ref {secInverseFunctionBasics}). Therefore we may carry out the variable change $z=y(x)$, $z\in [y(x_0), y(t)]$:
+\begin{equation}\label{eqSeparableDFQSolution2}
+\displaystyle \int \limits_{ z=y(t)}^{z=y(x_0)}\frac{1}{g(z)} \diff z=\displaystyle \int\limits_{x=x_0}^{x=t}  f(x)\diff x\quad .
+\end{equation}
+Suppose we can solve $\displaystyle \int \frac{1}{g(z)}\diff z = G(z)+C_1$ and $\displaystyle \int  f(t)\diff t=F(t)+C_2$. Using the Fundamental theorem of Calculus we can rewrite \eqref{eqSeparableDFQSolution2} as
+\[
+\left.G(z)\right]_{z=y(x_0)}^{z=y(t)}=
+G(y(t))-G(y(x_0)) = \left. F(x) \right]_{x=x_0}^{x=t}= F(t)-F(x_0)
+\]
+which we rearrange to:
+\[
+G(y)-F(t)-G(y(x_0))+ F(x_0)=0\quad .
+\]
+Finally, we may replace the dummy variable $t$ back to the variable $x$ to get a relation between $ x$ and $y$:
+\begin{equation}\label{eqDFQSeparableSolution}
+G(y)-F(t)-G(y(x_0))+ F(x_0)=-0
+\end{equation}
+If it is possible to solve the above equation for $y$ as a function of $x$, we get the desired solution of our differential equation. If we cannot solve for $y$ explicitly, we may leave the relationship  \eqref{eqDFQSeparableSolution} as an implicit solution to the differential equation.
+\subsection{The logistic equation and other examples of separable differential equations}
+\begin{example} Solve the logistic equation
+\[
+\frac{\diff P}{\diff t}= k P\left(1-\frac{P}{M}\right)\quad.
+\]
+where $k>0$ and $M>0$ (``environment carrying capacity'') are fixed positive constants and the initial population $P(0)$ is positive.
+\end{example}
+We recall that in the logistic equation, $P$ stands for population size.
+
+\begin{solution}
+Case 0. If the initial population is $P(0)$ is zero, the population will clearly stay zero, and so if $P(0)=0$ then $P(t)=0$ is the solution to our equation.
+
+Case 1. If $P(0)=M$, then the population growth $\frac{\diff P}{\diff t}$ equals zero, the population is stable and constant function $ P(t)=P(0)$ is the solution to our equation.
+
+Case 2. Suppose now $P(0)\neq M$ and $P(0)\neq 0$. As the logistic equation is separable, we can solve it using Section \ref{secSeparableDFQs}:
+
+\begin{equation}\label{eqLogisticEq}
+{
+\renewcommand*{\arraystretch}{2}
+\begin{array}{rcll|l}
+\displaystyle \frac{\diff P}{\diff t}&=&\displaystyle k P\left(1-\frac{P}{M}\right)\\
+\displaystyle \frac{\diff P}{\diff t}&=&\displaystyle \frac{kP(M-P)}{M}\\
+\displaystyle \frac{M}{kP(M-P)}\frac{\diff P}{\diff t}&=&1 &&
+\begin{array}{l}
+\text{As } P(0)\neq M,\\
+P(0)\neq 0,\\
+\text{can integrate } \int\limits_{t=0}^{t=s}\diff t
+\end{array}\\
+\displaystyle \frac{1}{k} \int\limits_{t=0}^{t=s} \frac{M}{P(M-P)}\frac{\diff P}{ \diff t}\diff t&=&\displaystyle \int\limits_{t=0}^{t=s}1\diff t &&\text{V. change } \frac{\diff P}{\diff t}\diff t= \diff P\\
+\displaystyle \frac{1}{k} \int\limits_{t=0}^{t=s} \frac{M}{P(M-P)} \diff P &=& \left[t\right]_{t=0}^{t=s} =s &&\text{split part. fractions}\\
+\displaystyle \frac{1}{k}\int\limits_{t=0}^{t=s} \left( \frac{1}{P} +\frac{1}{M-P} \right)\diff P &=&s\\
+\displaystyle \frac{1}{k}\left[ \ln | P|  - \ln |M-P| \right]_{t=0}^{t=s}&=&s\\
+\displaystyle \frac{1}{k}\left(\ln |P(s)|-\ln |M-P(s)|-\right.\\
+\left.(\ln P(0)-\ln |M-P(0)|) \right)&=&s\\
+\displaystyle \ln \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&k s &&\text{exponentiate}\\
+\displaystyle \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|&=&e^{ks} \quad .
+\end{array}
+}
+\end{equation}
+
+\noindent Case 2.1. $P(0)<M$, i.e., the initial population is smaller than the carrying capacity $M$ of the environment. As assumed by our model, population varies continuously with time and therefore for all small enough $s $ we have that $P(s)<M$ as well. Then, for small $s$, the absolute value is no longer needed and we can compute
+\begin{equation}\label{eqLogisticEquationCase1}
+\begin{array}{rcl}
+\displaystyle \frac{ P(s)(M-P(0))}{P(0)(M-P(s))}&=&\displaystyle e^{ks} \\
+\displaystyle P(s)(M-P(0)) &=& \displaystyle  P(0)(M-P(s))e^{ks}\\
+\displaystyle P(s)(M-P(0)+P(0)e^{ks})&=&\displaystyle P(0)M e^{ks}\\
+\displaystyle P(s)&=&\displaystyle  MP(0) \frac{e^{ks}}{M-P(0)+P(0)e^{ks}} \\
+\displaystyle P(s)&=&\displaystyle  M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} \\
+\end{array}
+\end{equation}
+Since $\frac{M}{P(0)}>1 $, we have that $\frac{M}{P(0)}-1+e^{ks}>e^{ks}$ and therefore $ 1>\frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}}>0 $. Finally we get that
+\[
+0<P(s)= M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} <M\quad .
+\]
+So far, our solution was shown to be valid only for small $s$. However, the solution $P(s)$ we obtained satisfies $P(s)<M$ for all values of $s$. Thus we conclude that, in Case 2.1, the absolute values in $ \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|$ are not needed for any value $s$. Our solution to the logistic equation in Case 1 is then $\displaystyle P(s)=\displaystyle  M \frac{e^{ks}}{ \frac{M}{P(0)} -1+ e^{ks}}$.
+
+
+\noindent Case 2.2. $P(0)>M$, i.e., the initial population is greater than the carrying capacity $M$ of the environment. As assumed by our model, population varies continuously with time and therefore for all small enough $s $ we have that $P(s)>M$ as well. Then, for small $s$, we  have that
+\[
+\left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|=\frac{-P(s)(M-P(0))}{-P(0)(M-P(s))}=\frac{ P(s)(M-P(0))}{P(0)(M-P(s))} \quad .
+\]
+Notice that by the above computation, the left hand side of \eqref{eqLogisticEq} coincides in cases 2.1 and 2.2. Therefore the computations in Case 2.2 are identical to the computations \eqref{eqLogisticEquationCase1} from Case 2.1. We can therefore conclude that, for small $s$, we have $\displaystyle P(s)=\displaystyle  M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} $. Now notice that $\frac{M}{P(0)}-1<0$. Therefore $ \frac{M}{ P(0) }-1+e^{ks} < e^{ks}$ and it follows that
+\[
+P(s)= M \frac{e^{ks}}{\frac{M}{P(0)}-1+e^{ks}} >M\quad .
+\]
+In this way, the solution for $P(s)$ obtained by us satisfies $P(s)>M$ for all values of $s$. We conclude that the absolute values in $ \left|\frac{ P(s)(M-P(0))}{P(0)(M-P(s))}\right|$ are not needed in Case 2.2 as well. Then the solution to Case 2.2 is identical to that of Case 2.1.
+
+We conclude that the solution to the logistic equation in Case 2 is
+\begin{equation}\label{eqLogisticEquationAnswer}
+P(s)=\displaystyle  M P(0) \frac{e^{ks}}{ M -P(0)+ P(0)e^{ks}} \quad .
+\end{equation}
+Notice that if we substitute $P(0)=M$ in the above formula (Case 1), we get that $P(s)=M$, the same answer as in Case 1. Furthermore notice that when $P(0)=0 $ (Case 0), formula \eqref{eqLogisticEquationAnswer} yields $P(s)=0$, the same answer as that in Case 0. Therefore our formula \eqref{eqLogisticEquationAnswer} gives the solution to the logistic equation in all cases.
+\end{solution}
+
+
+In the graph below, we have plotted the solution to the logistic equation for $k=1$ and various initial population values $P(0)$. The shapes of the curves confirm visually the considerations made in Cases 1-4. Notice that the plots make sense for negative time as well: for $s<0$, the function $P(s)$ measures what must have been the population in the past so as to yield the population present at time $s=0$.
+
+\optionalDisplay{
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-0.700000, -0.700000)(6.200000,2.435064)
+
+\tiny
+\psaxes[ticks=none, labels=none, arrows=<->](0, 0)(-0.500000, -0.550000)(6.000000, 2.235064)
+\fcLabelOnXaxis{6}{$s$}
+\fcLabelOnYaxis{2.235064}{$P$}
+%Function formula: \frac{11/10*e^{x}}{11/10*e^{x}-1/10}
+
+\psplot[linecolor=red, plotpoints=1000]{-0.100000}{6.000000 }{2.718281828 x exp 1.1000000 mul -0.1000000 2.718281828 x exp 1.1000000 mul add div }
+
+%Function formula: \frac{2*e^{x}}{2*e^{x}-1}
+
+\psplot[linecolor=green, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 2.0000000 mul -1.0000000 2.718281828 x exp 2.0000000 mul add div }
+
+%Function formula: \frac{3/10*e^{x}}{3/10*e^{x}+7/10}
+
+\psplot[linecolor=red, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.3000000 mul 0.7000000 2.718281828 x exp 0.3000000 mul add div }
+
+%Function formula: \frac{1/5*e^{x}}{1/5*e^{x}+4/5}
+
+\psplot[linecolor=blue, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.2000000 mul 0.8000000 2.718281828 x exp 0.2000000 mul add div }
+
+%Function formula: \frac{1/10*e^{x}}{1/10*e^{x}+9/10}
+
+\psplot[linecolor=magenta, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.1000000 mul 0.9000000 2.718281828 x exp 0.1000000 mul add div }
+
+%Function formula: \frac{2/5*e^{x}}{2/5*e^{x}+3/5}
+
+\psplot[linecolor=brown, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 0.4000000 mul 0.6000000 2.718281828 x exp 0.4000000 mul add div }
+
+%Function formula: \frac{3/2*e^{x}}{3/2*e^{x}-1/2}
+
+\psplot[linecolor=cyan, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 1.5000000 mul -0.5000000 2.718281828 x exp 1.5000000 mul add div }
+
+%Function formula: \frac{13/10*e^{x}}{13/10*e^{x}-3/10}
+
+\psplot[linecolor=blue, plotpoints=1000]{-0.100000}{6.000000}{2.718281828 x exp 1.3000000 mul -0.3000000 2.718281828 x exp 1.3000000 mul add div }
+
+\end{pspicture}
+}
+
+\begin{problem}~\label{problemDFQseparable-yprime=ysquared-1}
+\input{../../modules/diff-eq-separable/homework/separable-DFQs-1}
+\end{problem}
+\renewcommand{\additionalProblemLabel}{\ref{problemDFQseparable-yprime=ysquared-1}.}
+\input{../../modules/diff-eq-separable/homework/separable-DFQs-1-solution}
+\renewcommand{\additionalProblemLabel}{}
+
+The following problem is the so called ``mixing problem''.
+\begin{problem}
+\input{../../modules/diff-eq-separable/homework/mixing-problem-1}
+\end{problem}
+\input{../../modules/diff-eq-separable/homework/mixing-problem-1-solution}
+
+\subsubsection{Exercises}
+\begin{problem} \input{../../modules/diff-eq-separable/homework/separable-DFQs-2}
+\end{problem}
+\begin{problem}
+\input{../../modules/diff-eq-separable/homework/mixing-problem-2}
+\end{problem}
+\subsection{Linear differential equations}
+A differential equation is \emph{linear} if it is of the form
+\begin{equation}\label{eqDFQlinear}
+\frac{\diff y}{\diff x} + P(x)y=Q(x)
+\end{equation}
+for some functions $P(x),Q(x)$.
+
+A linear differential equation \eqref{eqDFQlinear} can be solved as follows.
+
+Let us make the problem slightly more general by considering an equation of the form
+\begin{equation}\label{eqDFQlinearStep1}
+R(x)\frac{\diff y}{\diff x} + S(x)y=Q(x)\quad .
+\end{equation}
+Suppose that it so happened that $R'(x)=S(x)$. Then \eqref{eqDFQlinearStep1} becomes
+\begin{equation}\label{eqDFQlinearStep2}
+\begin{array}{rcl}
+\underbrace{R(x)\frac{\diff y}{\diff x} + R'(x)y}_{\mathrm{product~rule~}(fg)'=f'g+g'f}&=&Q(x)\\
+\frac{\diff}{\diff x} \left(R(x)y \right)&=& Q(x)\quad .
+\end{array}
+\end{equation}
+In the above we can introduce a new function $z(x)= y(x)R(x)$, and the equation becomes
+\[
+\frac{\diff z}{\diff x}= Q(x)\quad ,
+\]
+which we already can solve by integrating both sides to obtain $z(x)= \int\limits_{t=x_0}^x Q(t)\diff t $, or finally, if $R(x)\neq 0$, we get $y(x)= \frac{1}{R(x)}\int\limits_{t=x_0}^x Q(t)\diff t $.
+Let us now try to solve \eqref{eqDFQlinear} by finding a multiplier function $T(x)$ that does not vanish, such that when we multiply \eqref{eqDFQlinear}, we obtain an equation of the form \eqref{eqDFQlinearStep2}. Indeed, in order to get an equation of the form \eqref{eqDFQlinearStep2}, we need that $\frac{dT}{\diff x}= (TP(x))$. The latter is a separable differential equation for $T(x)$.  We solve the equation as studied in the preceding section.
+\begin{equation}\label{eqDFQlinearStep3}
+\begin{array}{rcl}
+\frac{dT}{\diff x}\frac{1}{T}&=&P(x)\\
+\int\frac{dT}{T}&=&\int P(x)\diff x\\
+\ln |T|&=&  \int P(x)\diff x+C\\
+T&=&De^{\int P(x)\diff x},
+\end{array}
+\end{equation}
+where $C$ is an arbitrary constant and $D=e^C$. As we have no initial conditions on $\frac{dT}{\diff x}= (TP(x))$ (in fact, we made up that equation ourselves), we are free to choose arbitrary initial conditions. This is reflected in the fact that, somewhat informally, we used indefinite integral instead of definite in the solution of \eqref{eqDFQlinearStep3}.
+
+Motivated by the preceding discussion, define $T(x)\eqdef e^{\int P(x)\diff x}$, where the constant added to the indefinite integral is chosen arbitrarily. $T(x)$ is thus defined only up to a constant.
+
+Multiply \eqref{eqDFQlinear} by $T(x)$ on both sides and transform \eqref{eqDFQlinear} to \eqref{eqDFQlinearStep1}, which we already solved.
+\subsubsection{Example of linear differential equations}
+Solve
+\begin{equation}\label{eqDFQlinearexample1}
+\frac{\diff y}{\diff x}+ y x=x\quad .
+\end{equation} Find a solution such that $y(0)=3$.
+
+\begin{solution}
+First we find an integrating factor $T(x)$. By the theoretical section, $T(x)$ is up to a multiplicative constant equal to $e^{\int x \diff x}= e^{\frac{x^2}2 +C}$. We may choose $T(x):= e^{\frac{x^2}2}$. We multiply \eqref{eqDFQlinearexample1} by $e^{\frac{x^2}2}$ and solve as follows.
+\[
+\begin{array}{rcl}
+\displaystyle e^{\frac{x^2}2}\frac{\diff y}{\diff x}+ yxe^{\frac{x^2}2}&=&\displaystyle xe^{\frac{x^2}2}\\
+\underbrace{\frac{\diff}{\diff x} \left(y(x) e^{\frac{x^2}2} \right)}_{\mathrm{rename~}x~\mathrm{to~}t\mathrm{~and~integrate}}&=&\underbrace{xe^{\frac{x^2}2}}_{\mathrm{rename~}x\mathrm{~to~}t\mathrm{~and~integrate}}\\
+\displaystyle\int\limits_{t=x_0}^x \frac{\diff}{\diff t} \left(y(t) e^{\frac{t^2}2}\right) \diff t &=&\displaystyle \int\limits_{t=x_0}^x  te^{\frac{t^2}2}\diff t\\
+\displaystyle\left.y(t) e^{\frac{t^2}2}\right|_{t=x_0}^x&=&\displaystyle \left.e^{\frac{t^2}2}\right|_{t=x_0}^{t=x}\\
+\displaystyle y(x)e^{\frac{x^2}2}- y(x_0)e^{\frac{x_0^2}2}&=&\displaystyle e^{\frac{x^2}2}- e^{\frac{x_0^2}2}\\
+y(x)&=&\displaystyle \frac{e^{\frac{x^2}2}- e^{\frac{x_0^2}2}+ y(x_0)e^{\frac{x_0^2}2}}{e^{\frac{x^2}2}}\\
+y(x)&=&\displaystyle 1+{e^{\frac{x_0^2-x^2}2}}(y(x_0)-1)\quad.
+\end{array}
+\]
+
+In order to find a solution for which $y(0)=3$, we simply plug in $x_0=0$, $y(x_0)=3$, to get $y(x)=1+2e^{\frac{-x^2}2}$.
+
+\optionalDisplay{
+\begin{pspicture}(-5,-5)(5,5)
+\psaxes{<->}(0,0)(-5,-5)(5,5)
+\newcommand{\Xstart}{1}
+\newcommand{\Ystart}{1}
+\psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add}
+\renewcommand{\Xstart}{0}
+\renewcommand{\Ystart}{-1}
+\psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add}
+\renewcommand{\Xstart}{0}
+\renewcommand{\Ystart}{3}
+\psplot[linecolor=green]{-4}{4}{ 2.718281828 \Xstart\space \Xstart\space mul x x mul sub exp \Ystart\space 1 sub mul 1 add}
+
+\rput (5,5){The direction field $\frac{\diff y}{\diff x}=x-xy$}
+
+\fcDirectionFieldDefault{x x y mul sub}{-4}{-4}{0.5}{17}
+\end{pspicture}
+} %end \optionalDisplay
+\end{solution}
 
 
 %\section{Index}
