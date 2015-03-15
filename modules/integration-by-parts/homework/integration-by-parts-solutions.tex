@@ -34,18 +34,19 @@
 }
 
 \solution{\ref{problemintcos^2xdxviaIntByParts}. Later, we shall study general methods for solving trigonometric integrals that will cover this example. Let us however show one way to solve this integral by integration by parts. 
-\[
-\begin{array}{rcll|l}
+
+\noindent$
+\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
 \displaystyle \int \cos^2 x \diff x&=&\displaystyle x\cos^2x - \int x\diff (\cos^2 x)\\
-&=&\displaystyle x\cos^2 x - \int x2\cos x (-\sin x)\diff x&&\text{Use } \sin (2x)=2\sin x \cos x\\
+&=&\displaystyle x\cos^2 x - \int x2\cos x (-\sin x)\diff x&& \sin (2x)=2\sin x \cos x\\
 &=&\displaystyle x \cos^2x +\int x\sin (2x)\diff x\\
 &=&\displaystyle x \cos^2x +\int x \diff \left(\frac{-\cos (2x)}{2}\right)\\
 &=&\displaystyle x \cos^2x +x\left(\frac{-\cos (2x)}{2}\right) -\int \left(\frac{-\cos (2x)}{2}\right)\diff x\\
-&=&\displaystyle \frac{x}{2}\left(2\cos^2 x - \cos (2x)\right)+ \frac{\sin (2x)}{4}+C &&\text{use } \cos (2x)=\cos^2x-\sin^2 x \\
-&=&\displaystyle \frac{x}{2}\left(2\cos^2x - (\cos^2x-\sin^2x) \right) + \frac{\sin (2x)}{4}+C&&\text{use }\cos^2x+\sin^2x=1\\
+&=&\displaystyle \frac{x}{2}\left(2\cos^2 x - \cos (2x)\right)+ \frac{\sin (2x)}{4}+C &&\cos (2x)=\cos^2x-\sin^2 x \\
+&=&\displaystyle \frac{x}{2}\left(2\cos^2x - (\cos^2x-\sin^2x) \right) + \frac{\sin (2x)}{4}+C&&\cos^2x+\sin^2x=1\\
 &=&\displaystyle \frac{x}{2} + \frac{\sin (2x)}{4}+C\quad .\\
 \end{array}
-\]
+$
 }
 
 \solution{\ref{problemintarctanxdx}
@@ -117,7 +118,7 @@ $
 \solution{\ref{problemintlnx/sqrt(x)dx}
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{\ln x}{\sqrt{x}}\diff x&=&\int \ln x 2\diff \left(\sqrt{x}\right)&&\text{integrate by parts}\\
+\displaystyle \int \frac{\ln x}{\sqrt{x}}\diff x&=&\displaystyle \int (\ln x) 2\diff \left(\sqrt{x}\right)&&\text{integrate by parts}\\
 &=&\displaystyle (\ln x)2\sqrt{x}- \int 2\sqrt{x}\diff (\ln x)\\ 
 &=&\displaystyle 2\sqrt{x}\ln x - 2\int \frac{\sqrt{x}}{x}\diff x\\
 &=&\displaystyle 2\sqrt{x}\ln x - 2\int x^{-\frac{1}{2}}\diff x\\
