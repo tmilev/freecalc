@@ -7,17 +7,51 @@ The quadratic in the denominator has real roots and therefore can be factored us
 &=&\displaystyle \frac{1}{3} \ln |x+1|+\frac{1}{6} \ln \left|x-\frac{1}{2}\right| +C\quad .
 \end{array}
 \]
-Except for showing how the partial fraction decomposition was obtained, our solution is complete. 
-
-We proceed to compute the partial fraction decomposition used above. In what follows, we will use the most straightforward technique - the method of coefficient comparison. This technique is the most laborious for a human but is perhaps the easiest to implement on a computer. The computations below were indeed carried out by a computer program written for the purpose. We note that the method of coefficient comparison is fast enough for a human, but  techniques such as the one used in the solution of Problem \ref{problemint(3x^2+2x-1)/((x-1)(x^2+1))dx} are easier when not equipped with a computer.
+Except for showing how the partial fraction decomposition was obtained, our solution is complete. We proceed to compute the partial fraction decomposition used above. 
 
 We aim to decompose into partial fractions the following function (the denominator has been factored). 
 \[
 \frac{x }{2x^{2}+x -1}=\frac{x }{ \left(x +1\right)\left(2x -1\right)} = \frac{A_1}{x+1}+\frac{A_2}{2x-1}\quad .
 \]
 After clearing denominators, we get the following equality. 
-\[x = A_{1} (2x -1)+A_{2} (x +1)
+\begin{equation}\label{eqproblemIntegrate x/(2x^2+x-1)dx-1}
+x = A_{1} (2x -1)+A_{2} (x +1)\quad.
+\end{equation}
+Next, we need to find values for $A_1$ and $A_2$ such that the equality above becomes an identity. We show two variants to do that: the method of substitutions and the method of coefficient comparison.
+
+\textbf{Variant I.} This variant relies on the fact that if substitute an arbitrary value for $x$ in \eqref{eqproblemIntegrate x/(2x^2+x-1)dx-1} we get a relationship that must be satisfied by the coefficients $A_1$ and $A_2$. We immediately see that setting $x=\frac{1}{2}$ (notice $x=\frac{1}{2}$ is a root of the denominator) will annihilate the term $A_1(2x-1)$ and we can immediately solve for $A_2$. Similarly, setting $x=-1$ ($x=-1$ is the other root of the denominator) annihilates the term $A_2(x+1)$ and we can immediately solve for $A_1$.
+
+\begin{itemize}
+\item Set $x=\frac{1}{2}$. The equation \eqref{eqproblemIntegrate x/(2x^2+x-1)dx-1} becomes 
+
+$\begin{array}{rcl}
+\displaystyle \frac{1}{2}&=&\displaystyle A_1\cdot 0 + A_2\left(\frac{1}{2}+1\right) \\
+\displaystyle \frac{1}{2}&=&\displaystyle \frac{3}{2}A_2\\
+\displaystyle A_2&=&\displaystyle \frac{1}{3}.
+\end{array}
+$
+\item Set $x=-1$. The equation \eqref{eqproblemIntegrate x/(2x^2+x-1)dx-1} becomes 
+
+$\begin{array}{rcl}
+\displaystyle -1&=&\displaystyle A_1(2\cdot (-1)- 1) + A_2\cdot 0 \\
+\displaystyle -1&=&\displaystyle -3A_2\\
+\displaystyle A_2&=&\displaystyle \frac{1}{3}.
+\end{array}
+$
+\end{itemize}
+Therefore we have the partial fraction decomposition
+\[
+\begin{array}{rcl}
+\displaystyle \frac{x}{2x^2+x-1}&=&\displaystyle \frac{A_1}{x+1}+ \frac{A_2}{2x-1}\\
+&=&\displaystyle \frac{\frac{1}{3}}{x+1}+ \frac{\frac{1}{3}}{2x-1}\\
+&=&\displaystyle  \frac{\frac{1}{3}}{x+1} +\frac{\frac{1}{6}}{x-\frac{1}{2}}\quad .
+\end{array}
 \]
+
+
+\textbf{Variant II.} 
+We show the most straightforward technique for finding a partial fraction decomposition - the method of coefficient comparison. Although this technique is completely doable in practice by hand, it is often the most laborious for a human. We note that techniques such as the one given in the preceding solution Variant are faster on many (but not all) problems. The present technique is also arguably the easiest to implement on a computer. The computations below were indeed carried out by a computer program written for the purpose. 
+
 After rearranging we get that the following polynomial must vanish. Here, by ``vanish'' we mean that the coefficients of the powers of $x$ must be equal to zero.
 \[(A_{2} +2A_{1} -1)x +(A_{2} -A_{1} )\quad .
 \]
@@ -26,7 +60,7 @@ In other words, we need to solve the following system.
 \begin{array}{llll} & 2A_{1} & +A_{2} & =1\\ & -A_{1} & +A_{2} & =0\\\end{array}
 \] 
 
-\begin{longtable}{cc} System status&Action \\\hline $\begin{array}{llll} & 2A_{1} & +A_{2} & =1\\ & -A_{1} & +A_{2} & =0\\\end{array}$ & Selected pivot column 2. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llll} & A_{1} & +\frac{A_{2} }{2} & =\frac{1}{2}\\ & & \frac{3}{2}A_{2} & =\frac{1}{2}\\\end{array}$& Selected pivot column 3. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llll} & A_{1} & & =\frac{1}{3}\\ & & A_{2} & =\frac{1}{3}\\\end{array}$& Final result.\\ \end{longtable}
+\begin{longtable}{cc} System status&Action \\\hline $\begin{array}{llll} & 2A_{1} & +A_{2} & =1\\ & -A_{1} & +A_{2} & =0\\\end{array}$ & Sel. pivot column 2. Eliminate non-pivot entries. \\\hline $\begin{array}{llll} & A_{1} & +\frac{A_{2} }{2} & =\frac{1}{2}\\ & & \frac{3}{2}A_{2} & =\frac{1}{2}\\\end{array}$& Sel. pivot column 3. Eliminate non-pivot entries. \\\hline $\begin{array}{llll} & A_{1} & & =\frac{1}{3}\\ & & A_{2} & =\frac{1}{3}\\\end{array}$& Final result.\\ \end{longtable}
 Therefore, the final partial fraction decompocsition is: 
 \[
 \frac{\frac{x }{2}}{x^{2}+\frac{x }{2} -\frac{1}{2} } =\frac{ \frac{ 1}{3}}{(x +1)}+ \frac{\frac{1}{3}}{(2x -1)}\quad .

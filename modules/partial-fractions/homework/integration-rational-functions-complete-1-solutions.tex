@@ -18,19 +18,32 @@ We seek to find $A_i$'s that turn the above expression into an identity. Just as
 
 
 After clearing denominators, we get the following equality. 
-\[\begin{array}{rcl}
--2x^{3}-3x^{2}-4x -2 &=& A_{1} (x +1)(x^{2}+2)+A_{2} (x^{2}+2)+(A_{3} + A_{4} x)(x +1)^{2}\\
-0&=&(A_{4} +A_{1} +2)x^{3}+(2A_{4} +A_{3} +A_{2} +A_{1} +3)x^{2}+(A_{4} +2A_{3} +2A_{1} +4)x +(A_{3} +2A_{2} +2A_{1} +2)\quad .
+
+\noindent$\begin{array}{@{}rcl@{}}
+-2x^{3}-3x^{2}-4x -2 &=& A_{1} (x +1)(x^{2}+2)+A_{2} (x^{2}+2)\\
+&&+(A_{3} + A_{4} x)(x +1)^{2}\\
+0&=&(A_{4} +A_{1} +2)x^{3}\\
+&&+(2A_{4} +A_{3} +A_{2} +A_{1} +3)x^{2}\\
+&&+(A_{4} +2A_{3} +2A_{1} +4)x \\
+&&+(A_{3} +2A_{2} +2A_{1} +2)\quad .
 \end{array}
-\]
-In order to turn the above into an identity we need to select $A_i$'s such that the coefficients of all powers of $x$ become zero. In other words, we need to solve the following system. 
+$
+
+\noindent In order to turn the above into an identity we need to select $A_i$'s such that the coefficients of all powers of $x$ become zero. In other words, we need to solve the following system. 
 \[
 \begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & A_{1} & +A_{2} & +A_{3} & +2A_{4} & =-3\\ & 2A_{1} & & +2A_{3} & +A_{4} & =-4\\ & 2A_{1} & +2A_{2} & +A_{3} & & =-2\quad .\\
 \end{array}
 \] 
 This is a system of linear equations. There exists a standard method for solving system of linear equations called Gaussian Elimination (also known as Row-Echelon Form Reduction Method). This method is very well suited for computer implementation. We illustrate it on this particular example; for a description of the method in full generality we direct the reader to a standard course in Linear algebra. 
 
-\begin{longtable}{cc} System status & Action \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & A_{1} & +A_{2} & +A_{3} & +2A_{4} & =-3\\ & 2A_{1} & & +2A_{3} & +A_{4} & =-4\\ & 2A_{1} & +2A_{2} & +A_{3} & & =-2\\\end{array}$& Selected pivot column 2. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & +A_{3} & +A_{4} & =-1\\ & & & 2A_{3} & -A_{4} & =0\\ & & 2A_{2} & +A_{3} & -2A_{4} & =2\\\end{array}$& Selected pivot column 3. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & +A_{3} & +A_{4} & =-1\\ & & & 2A_{3} & -A_{4} & =0\\ & & & -A_{3} & -4A_{4} & =4\\\end{array}$& Selected pivot column 4. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & & +\frac{3}{2}A_{4} & =-1\\ & & & A_{3} & -\frac{A_{4} }{2} & =0\\ & & & & -\frac{9}{2}A_{4} & =4\\\end{array}$& Selected pivot column 5. Eliminated the non-zero entries in the pivot column. \\\hline $\begin{array}{llllll} & A_{1} & & & & =-\frac{10}{9}\\ & & A_{2} & & & =\frac{1}{3}\\ & & & A_{3} & & =-\frac{4}{9}\\ & & & & A_{4} & =-\frac{8}{9}\\\end{array}$& Final result.\\ \end{longtable}Therefore, the final partial fraction decomposition is the following. \[\frac{x^{4}}{x^{4}+2x^{3}+3x^{2}+4x +2}=1+ \frac{-2x^{3}-3x^{2}-4x -2}{x^{4}+2x^{3}+3x^{2}+4x +2}=1+ \frac{-\frac{10}{9}}{(x +1)}+\frac{\frac{1}{3}}{(x +1)^{2}}+\frac{-\frac{8}{9}x -\frac{4}{9}}{(x^{2}+2)}\]
+\begin{longtable}{cc} System status & Action \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & A_{1} & +A_{2} & +A_{3} & +2A_{4} & =-3\\ & 2A_{1} & & +2A_{3} & +A_{4} & =-4\\ & 2A_{1} & +2A_{2} & +A_{3} & & =-2\\\end{array}$& Sel. pivot column 2. Eliminate non-pivot entries. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & +A_{3} & +A_{4} & =-1\\ & & & 2A_{3} & -A_{4} & =0\\ & & 2A_{2} & +A_{3} & -2A_{4} & =2\\\end{array}$& Sel. pivot column 3. Eliminate non-pivot entries. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & +A_{3} & +A_{4} & =-1\\ & & & 2A_{3} & -A_{4} & =0\\ & & & -A_{3} & -4A_{4} & =4\\\end{array}$& Sel. pivot column 4. Eliminate non-pivot entries. \\\hline $\begin{array}{llllll} & A_{1} & & & +A_{4} & =-2\\ & & A_{2} & & +\frac{3}{2}A_{4} & =-1\\ & & & A_{3} & -\frac{A_{4} }{2} & =0\\ & & & & -\frac{9}{2}A_{4} & =4\\\end{array}$& Sel. pivot column 5. Eliminate non-pivot entries. \\\hline $\begin{array}{llllll} & A_{1} & & & & =-\frac{10}{9}\\ & & A_{2} & & & =\frac{1}{3}\\ & & & A_{3} & & =-\frac{4}{9}\\ & & & & A_{4} & =-\frac{8}{9}\\\end{array}$& Final result.\\ \end{longtable}
+
+Therefore, the final partial fraction decomposition is the following. 
+\[\begin{array}{rcl}
+\displaystyle \frac{x^{4}}{x^{4}+2x^{3}+3x^{2}+4x +2}&=&\displaystyle 1+ \frac{-2x^{3}- 3x^{2}-4x -2}{x^{4}+2x^{3}+3x^{2}+4x +2}\\
+&=&\displaystyle 1+ \frac{-\frac{10}{9}}{(x +1)}+\frac{\frac{1}{3}}{(x +1)^{2}}+\frac{-\frac{8}{9}x -\frac{4}{9}}{(x^{2}+2)}
+\end{array}
+\]
 
 Therefore we can integrate as follows.
 \[
@@ -65,17 +78,17 @@ We can now compute the integral as follows.
 This problem can be solved directly with a substitution shortcut, or by the standard method. 
 
 \textbf{Variant I (standard method).}
-\[
-\begin{array}{rcll|l}
-\displaystyle \int \frac{x^5}{x^3-1}\diff x&=&\displaystyle \int\left( x^2+\frac{x^2}{x^3-1}\right)\diff x  &&\text{Use polynomial long division }\\
-&=&\displaystyle\frac{x^3}{3}+\int \frac{x^2}{(x-1)(x^2+x+1)}\diff x&&\text{Decompose into part. frac.}\\
-&=&\displaystyle\frac{x^3}{3}+\int \left(\frac{\frac{1}{3}}{x -1}+\frac{\frac{2}{3}x +\frac{1}{3}}{x^{2}+x +1}\right)\diff x &&\text{complete square in last summand}\\
-&=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{2}{3}\int \frac{x+\frac{1}{2}}{\left(x+\frac{1}{2}\right)^2+ \frac{3}{4}}\diff x &&\text{Substitute  } \begin{array}{rcl} u&=&\left(x+\frac{1}{2}\right)^2+ \frac{3}{4}\\\frac{1}{2}\diff u&= &\left(x+\frac{1}{2}\right) \diff x\end{array}\\
+
+\noindent$\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\displaystyle \int \frac{x^5}{x^3-1}\diff x&=&\displaystyle \int\left( x^2+\frac{x^2}{x^3-1}\right)\diff x  &&\text{Polyn. long div. }\\
+&=&\displaystyle\frac{x^3}{3}+\int \frac{x^2}{(x-1)(x^2+x+1)}\diff x&&\text{part. frac.}\\
+&=&\displaystyle\frac{x^3}{3}+\int \left(\frac{\frac{1}{3}}{x -1}+\frac{\frac{2}{3}x +\frac{1}{3}}{x^{2}+x +1}\right)\diff x &&\text{complete square}\\
+&=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{2}{3}\int \frac{x+\frac{1}{2}}{\left(x+\frac{1}{2}\right)^2+ \frac{3}{4}}\diff x &&\text{Set } \begin{array}{rcl} u&=&\left(x+\frac{1}{2}\right)^2+ \frac{3}{4}\\\frac{1}{2}\diff u&= &\left(x+\frac{1}{2}\right) \diff x\end{array}\\
 &=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{1}{3} \int \frac{\diff u}{u}\\
 &=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{1}{3}\ln |u|+C\\
 &=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{1}{3}\ln |x^2+x+1|+C\\
 \end{array}
-\]
+$
 
 \textbf{Variant II (shortcut method).}
 \[
