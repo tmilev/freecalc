@@ -1854,7 +1854,6 @@ There is no 100\% recipe when integration by parts makes the problem easier. How
 \input{../../modules/integration-by-parts/homework/integrate-x-power-n-e-power-x-solution}
 \section{Integration of rational functions}\label{secIntegrationRationalFunctions}
 
-\subsection{A few examples}
 
 \subsection{The theory behind integrating rational functions}
 Every rational function may be represented as a sum of a polynomial and a proper fraction. A fraction is proper if its numerator is a polynomial of smaller degree than the denominator.
@@ -1994,139 +1993,42 @@ On a timed exam, carry out this step only if done with the other problems.
 \optionalMaterial A few notes on factoring polynomials are in order.
 \begin{itemize}
 \item There are algorithms for factoring a polynomial $D(x)$ over the rational numbers.
-\item There is a ``closed form'' formula for finding the roots of an arbitrary polynomial of degree 4 or less. Here, ``closed form'' formula means it is written with finitely many radicals (second, third, \dots roots), addition, subtraction, division and multiplication.
-\item A polynomial of degree 5 will generically have roots not of the above form (i.e., its roots cannot be written using finitely many arithmetic and radical operations). For concrete polynomials, there may be exceptions. All examples in our calculus course will fall under this exception.
-\item One can ``solve'' an arbitrary polynomial equation of degree 5 or more by allowing operations involving additional (transcendental) functions. These functions may be described using infinite power series, just as we will later come to describe the radical function $\sqrt{1+z}$ (see \eqref{eqNewtonBinomialGeneralized}). However, studying the properties of these transcendental functions - for example, whether one such function may be used for two different polynomials or how to systematically implement them using computer algebra systems - are still an area of active mathematical research. The branch of mathematics that deals with the question of solving polynomial equations is called ``Galois Theory''.
+\item There is a ``closed form'' formula for finding the roots of an arbitrary polynomial of degree 4 or less using radicals and the arithmetic operations. Here, ``closed form'' formula means it is written with finitely many radicals (second, third, \dots roots), addition, subtraction, division and multiplication.
+\item A polynomial of degree 5 will in general have roots  that cannot be written using finitely many arithmetic and radical operations. For concrete polynomials, there may be exceptions. All examples in the present textbook will fall under this exception.
+\item One can ``solve'' an arbitrary polynomial equation of degree 5 or more by allowing operations involving additional (transcendental) functions. These functions may be described, for example, using infinite power series, just as we will later come to describe the radical function $\sqrt{1+z}$ (see \eqref{eqNewtonBinomialGeneralized}). However, studying the properties of these transcendental functions - for example, whether one such function may be used for two different polynomials or how to systematically implement them using computer algebra systems - are still an area of active mathematical research. The branch of mathematics that deals with the question of solving polynomial equations is called ``Galois Theory''.
+\item The present textbook does not cover the material alluded to in the preceding item. Therefore we will be able to perform the algorithm for integration of rational functions only when the denominator can be (easily) factored into radicals. We assure the reader that all examples in this textbook were selected to be doable by hand by the average student. 
 \end{itemize}
-
-\subsection{A large example illustrating the full algorithm }
-
+\subsection{Examples and exercises}
+\subsubsection{Integrals solved via Linear Substitutions and Building blocks}
+\begin{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-building-blocks}
+\end{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-building-blocks-solutions}
 
 \begin{problem}
-Integrate
-\[
-\int \frac{x^{6}-x^{5}+\frac{9}{2} x^{4}-4 x^{3}+\frac{13}{2} x^{2}-\frac{7}{2} x+\frac{11}{4}}{x^{5}-x^{4}+3 x^{3}-3 x^{2}+\frac{9}{4} x-\frac{9}{4}} \diff x\quad .
-\]
+\input{../../modules/partial-fractions/homework/integration-rational-functions-building-block-II-and-III-parametric}
 \end{problem}
 
-\begin{solution}
-
-\noindent\textbf{Step 1.} Reduce the fraction so that numerator has smaller degree than the denominator. Using polynomial division we see that
-\[
-\begin{array}{l}
-x^{6}-x^{5}+\frac{9}{2} x^{4}-4 x^{3}+\frac{13}{2} x^{2}-\frac{7}{2} x + \frac{11}{4} \\ = (x^{5}-x^{4}+3 x^{3}-3 x^{2} + \frac{9}{4} x-\frac{9}{4}) x +\frac{3}{2} x^{4}-x^{3} +\frac{17}{4} x^{2}-\frac{5}{4} x +\frac{11}{4}\quad ,
-\end{array}
-\]
-and therefore
-\[
-\frac{x^{6}-x^{5}+\frac{9}{2} x^{4}-4 x^{3}+\frac{13}{2} x^{2}-\frac{7}{2} x+\frac{11}{4}}{x^{5}-x^{4}+3 x^{3}-3 x^{2}+\frac{9}{4} x-\frac{9}{4}} = x+\frac{6 x^{4}-4 x^{3}+17 x^{2}-5 x+11}{4x^{5}-4 x^{4}+12 x^{3}-12 x^{2}+9 x-9}
-\]
-Set
-\[
-N(x)\eqdef 6 x^{4}-4 x^{3}+17 x^{2}-5 x+11
-\]
-and
-\[
-D(x)\eqdef 4x^{5}-4 x^{4}+12 x^{3}-12 x^{2}+9 x-9\quad .
-\]
-
-\noindent\textbf{Step 2.} (Split into partial fractions). Factor the denominator $D(x)=4x^{5}-4 x^{4}+12 x^{3}-12 x^{2}+9 x-9$. In many high schools, one studies how to find all rational roots of $D(x)$, on condition $D(x)$ has integer coefficients. There, one is taught that if $\frac{p}{q}$ is a rational number, then $\pm \frac{p}{q}$ may be a root of the integer coefficient polynomial $D(x)$ only if $p$ is a divisor of the constant term of $D(x)$, and $q$ is a divisor of the leading coefficient of $D(x)$. Since in our case the leading coefficient is 4 and the constant term is -9, the only possible rational roots of $D(x)$ are $\pm 1, \pm 3, \pm 9, \pm 1/2, \pm 3/2, \pm 9/2, \pm 1/4, \pm 3/4, \pm 9/4$. A rational number $r$ is a root of $D(x)$ if and only if substituting $x=r$ yields 0. Direct check shows that, for example,  $D(-1)=-50$. However, $D(1)=0$ and therefore using polynomial division we get that $D(x)=(x-1)(4x^{4}+12x^{2}+9)$. We recognize that the second multiplicand is an exact square and therefore $D(x)=(x-1)(2x^2+3)^2$.
-
-\textbf{Note.} As explained in the theoretical part, finding the roots of polynomials is a non-trivial task and we cannot systematically give an algebraic solution beyond degree 4. Splitting rational functions to partial fractions in Calculus therefore relies on a certain amount of guesswork.
-
-So far we got
-\[
-\frac{N(x)}{D(x)}= \frac{6 x^{4}-4 x^{3}+17 x^{2}-5 x+11}{(x-1)(2x^2+3)^2}\quad .
-\]
-In order to split $\frac{N(x)}{D(x)}$ into partial fractions, we need to find numbers $A, B, C, D, E$ such that
-\[
-\frac{6 x^{4}-4 x^{3}+17 x^{2}-5 x+11}{(x-1)(2x^2+3)^2}= \frac{A}{(x-1)}+\frac{Bx+C}{(2x^2+3)}+\frac{Dx+E}{(2x^2+3)^2}\quad .
-\]
-After clearing denominators, we see that this amounts to finding $A, B, C, D, E$ such that
-\[
-6 x^{4}-4 x^{3}+17 x^{2}-5 x+11= A(2x^2+3)^2+ (Bx+C)(2x^2+3)(x-1) + (Dx+E)(x-1)\quad .
-\]
-Plugging in $x=1$ we see that $25=25A $ and so $A=1$. We may plug back $A=1$ and regroup to get
-\[
-2x^{4}-4x^{3}+5x^{2}-5x+2= (Bx+C)(2x^2+3)(x-1) + (Dx+E)(x-1)\quad .
-\]
-Dividing both sides by $(x-1)$ we get
-\[
-2x^{3}-2x^{2}+3x-2= (Bx+C)(2x^2+3)+Dx+E\quad .
-\]
-Regrouping we get
-\[
-x^{3}(2- 2B) + x^2(-2-2C)+x(3-3B-D)+(-2-3C-E)=0\quad.
-\]
-As $x$ is an indeterminate, the above expression may vanish only if all coefficients in the preceding expression vanish. Therefore we get the system
-\[
-\left| \begin{array}{rcl}
-2-2B&=&0\\
--2-C&=&0\\
-3-3B-D&=&0\\
--2-3C-E&=&0\quad .
-\end{array}   \right.
-\]
-We may solve the above linear system using the standard algorithm for solving linear systems (the algorithm is called row reduction and is also known as Gaussian elimination). The latter algorithm is studied in any standard the Linear algebra course. Alternatively, we see from the first equations $B=1$, $C=-1$, and substituting in the remaining equations we see $D=0$, $E=1$. Finally, we check that
-\[
-\frac{x^{6}-x^{5}+\frac{9}{2} x^{4}-4 x^{3}+\frac{13}{2} x^{2}-\frac{7}{2} x+\frac{11}{4}}{x^{5}-x^{4}+3 x^{3}-3 x^{2}+\frac{9}{4} x-\frac{9}{4}}
-=x+\frac{1}{(x-1)}+\frac{x-1}{(2x^2+3)}+\frac{1}{(2x^2+3)^2}\quad .
-\]
-\textbf{Step 3.} (Find the integral of each partial fraction).
-\[
-\begin{array}{rcl}
-\displaystyle\int x \diff x &= &\displaystyle \frac{x ^2}2+C\\
-\displaystyle\int \frac{1}{x-1} \diff x &=&\displaystyle  \ln|x-1|+C\\
-\displaystyle\int \frac{x-1}{2x^2+3} \diff x &=& \displaystyle \int\frac{x}{2x^2+3}\diff x -\frac{1}{3}\int \frac{1}{\frac23x^2+1}\diff x\\
-&=& \displaystyle  \int \frac{\diff\left(\frac{x^2}2\right) }{2x^2+3}\diff x-\frac{1}{3} \int \frac{1}{\left(\sqrt{\frac23}x\right)^2+1} d x\\
-&=&\displaystyle  \frac{1}{4} \int \frac{\diff(2x^2+3)}{2x^2+3}\diff x- \frac{1}{3}\int \frac{\frac{d (\sqrt{\frac23}x)} {\sqrt{\frac23}}} {\left( \sqrt{\frac23}x\right)^2+1} \\
-&=&\displaystyle   \frac{1}{4}\ln (2x^2+3)-\frac{\sqrt{6}}{6}\arctan (\sqrt{\frac23}x)+C
-\quad .
-\end{array}
-\]
-The last integral is
-\[
-\begin{array}{rcll|l}
-\displaystyle \int \frac{1}{(2x^2+3)^2}\diff x&=&\displaystyle  \frac{1}{9} \int \frac{\frac{\diff\left(\sqrt{\frac{2}{3}}x\right)}{\sqrt{\frac23}}}{\left(\left(\sqrt{\frac23}x\right)^2+1\right)^2}\\
-&=&\displaystyle  \frac{\sqrt{6}}{18}\int \frac{d\left(\sqrt{\frac23}x\right)}{\left(\left(\sqrt{\frac23}x\right)^2+1\right)^2} &&\text{Set }y=\sqrt{\frac23}x\\
-&=&\displaystyle  \frac{\sqrt{6}}{18}\int \frac{\diff y}{(y^2+1)^2}\quad.
-\end{array}
-\]
-The general form of the integral $\displaystyle\int \frac{\diff y}{(y^2+1)^2}$ was solved after \eqref{eqBuildingBlock3N} by integration by parts. As a review of the theory, we redo the computations directly.
-\[
-\begin{array}{rcl}
-C+\arctan y &=&\displaystyle \int \frac{\diff y}{y^2+1}\\
-&=&\displaystyle \frac{y}{y^2+1} +\int \frac{2y^2dy }{( y^2+ 1 )^2}= \frac{y}{y^2+1}+\int \frac{2(y^2+1-1)\diff y}{(y^2+1)^2}\\
-&=&\displaystyle \frac{y}{y^2+1} + 2\int \frac{\diff y}{ ( y^2 +1)}- 2\int \frac{\diff y}{(y^2+1)^2}\quad.
-\end{array}
-\]
-Transferring summands we get
-\[
-\int \frac{\diff y}{(y^2+1)^2}= \frac{1}{2} \left( \frac{ y }{y^2+1} +\arctan y\right) +C\quad .
-\]
-We recall that $y=\sqrt{\frac{2}{3}}x$ and therefore
-\[
-\int \frac{\diff x}{(2x^2+3)^2}=\frac{\sqrt{6}}{36}\left(\frac{\sqrt{\frac{2}{3}}x}{\left(\sqrt{\frac{2}{3}}x\right)^2+1}+\arctan \left( \sqrt{\frac{2}{3}}x\right)\right) +C
-\]
-
-To get the final answer we need to collect all terms, to get a final answer:
-\[
-\frac{1}{6}\left(\frac{x}{2x^2+3}\right) - \frac{5\sqrt{6}}{36} \arctan \left(\sqrt{\frac{2}{3}}x \right) +\frac{1}{4} \ln (2x^2+3) +\ln|x-1|+\frac{x ^2 } 2+ C\quad .
-\]
-\end{solution}
-\subsubsection{Exercises}
 \begin{problem}
-Evaluate the indefinite integral.
-\begin{enumerate}
-\item $\displaystyle \int \frac1{x^2+x+1}\diff x$
-\item $\displaystyle \int \frac1{4x^2+4x+1}\diff x$
-\item $\displaystyle \int \frac1{2x^2+5x+1}\diff x$
-\item $\displaystyle \int \frac{15x^2-4x-81}{ (x-3)(x+4) (x-1) } \diff x$
-\item $\displaystyle \int \frac {x^{4} +10x^{3}+ 18x^{2}+ 2x- 13}{ x^{4} +4x^{3}+3x^{2}-4x-4}\diff x$
-
-Check first that $x^{4}+4x^{3} +3x^{2} -4x -4=(x-1)(x+2)^2(x+1)$.
-\end{enumerate}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-building-block-III-b-parametric}
 \end{problem}
+\subsubsection{Partial fractions: Quadratic term in the denominator}
+\begin{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-quadratics-in-denominator-1}
+\end{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-quadratics-in-denominator-1-solutions}
+\subsubsection{Partial fractions: Complete algorithm}
+\begin{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-complete-1}
+\end{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-complete-1-solutions}
+
+\subsubsection{A large example illustrating the full algorithm}
+\begin{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-complete-large-example-1}
+\end{problem}
+\input{../../modules/partial-fractions/homework/integration-rational-functions-complete-large-example-1-solution}
+
 
 \section{Trigonometric integrals}\label{secTrigIntegrals}
 \subsection{\optionalMaterial Integration of arbitrary rational trigonometric integrals}\label{secTrigIntegralsWith2Arctan}
