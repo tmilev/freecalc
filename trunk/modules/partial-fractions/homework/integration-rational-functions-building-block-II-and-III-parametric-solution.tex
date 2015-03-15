@@ -1,15 +1,18 @@
 \solution{\ref{problemIntegrateBuildingBlockIIaandIIIa}. 
 
-\[
-\begin{array}{rcll|l}
-\displaystyle\int \frac{Ax +B}{ax^2+bx+c}\diff x&=&\displaystyle \int \frac{Ax+B}{a\left( x^2 + 2x \frac{b}{2a} +\frac{c}{a} \right) }\diff x =  \int \frac{Ax+B}{a\left( x^2 + 2x \frac{b}{2a}+\frac{b^2}{4a^2}- \frac{b^2}{4a^2} +\frac{c}{a} \right) }\diff x &&\begin{array}{l} \text{complete square}\\\text{in denominator}\end{array}\\ 
+\noindent$
+\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\displaystyle\int \frac{Ax +B}{ax^2+bx+c}\diff x&=&\displaystyle \int \frac{Ax+B}{a\left( x^2 + 2x \frac{b}{2a} +\frac{c}{a} \right) }\diff x \\
+&=&\displaystyle  \int \frac{Ax+B}{a\left( x^2 + 2x \frac{b}{2a}+\frac{b^2}{4a^2}- \frac{b^2}{4a^2} +\frac{c}{a} \right) }\diff x &&\begin{array}{l} \text{complete square}\\\text{in denominator}\end{array}\\ 
 &=&\displaystyle \frac{1}{a}\int \frac{Ax+B}{ \left(x+ \frac{b}{2a} \right)^2 + \frac{4ac-b^2}{4a^2} } \diff x &&\text{Set }D=  \frac{4ac-b^2}{4a^2} \\
 &=&\displaystyle \frac{1}{a}\int \frac{A \left( x+ \frac{b}{2a} - \frac{b}{2a}\right) +B}{ \left(x+ \frac{b}{2a} \right)^2 + D } \diff \left(x+\frac{b}{2a}\right) &&\text{Set } u=x+\frac{b}{2a}\\
 &=&\displaystyle \frac{1}{a}\int \frac{Au+ B- \frac{Ab}{2a}}{u^2+D} \diff u &&\text{Set }C=B-\frac{Ab}{2a} \\
 &=&\displaystyle \frac{1}{a}\left(A\int \frac{u}{u^2+D}\diff u + C\int \frac{1}{u^2+D}\diff u \right) \\
 &=&\displaystyle \frac{1}{a} \left(\frac{A}{2}\ln (u^2+D) + \frac{C}{\sqrt{D}}\Arctan\left(\frac{u}{\sqrt{D}}\right)\right) +K\\
-&=& \displaystyle \frac{1}{a} \left(\frac{A}{2}\ln \left(x^2+ \frac{b}{a}x+\frac{c}{a} \right) + \frac{C}{\sqrt{D}}\Arctan\left(\frac{x+\frac{b}{2a}}{\sqrt{D}} \right)\right) +K \quad .
+&=& \displaystyle \frac{1}{a} \left(\frac{A}{2}\ln \left(x^2+ \frac{b}{a}x+\frac{c}{a} \right)\right. \\
+&&\displaystyle \left.+ \frac{C}{\sqrt{D}}\Arctan\left(\frac{x+\frac{b}{2a}}{\sqrt{D}} \right)\right) +K.
 \end{array}
-\] 
-The solution is complete. Question to the student: where do we use $b^2-4ac<0$?
+$ 
+
+\noindent The solution is complete. Question to the student: where do we use $b^2-4ac<0$?
 }
