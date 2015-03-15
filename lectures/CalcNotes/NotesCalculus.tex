@@ -457,9 +457,9 @@ Therefore division of arbitrary complex numbers is defined as
 
 \subsection{Exercises and examples}
 \begin{problem}
-%\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1}
+\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1}
 \end{problem}
-%\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1-solutions}
+\input{../../modules/complex-numbers/homework/complex-number-arithmetics-1-solutions}
 
 
 
@@ -1838,85 +1838,20 @@ If the function $G(x)$ is not too complicated, then $f'(x)G(x)\diff x$ may be ea
 
 There is no 100\% recipe when integration by parts makes the problem easier. However, with practice and experience, on small examples, one can quickly judge when integration by parts helps.
 \subsection{Examples and exercises}
-\begin{problem}
-Compute $\displaystyle \int x \sin x \diff x$.
-\end{problem}
-\begin{solution}
-\[
-\begin{array}{rcl}
-\displaystyle\int x \underbrace{\sin x \diff x}_{=-\diff(\cos x)} = -\int x \diff(\cos x) = -x\cos x + \int \cos x \diff x = -x \cos x +\sin x +C\quad .
-\end{array}
-\]
-\end{solution}
-\begin{problem}
-Compute $\displaystyle \int x^2 e^x \diff x$.
-\end{problem}
-\begin{solution}
-\[
-\begin{array}{rcl}
-\displaystyle\int x^2 \underbrace{e^x \diff x}_{\diff  (e^x)} &=& \int x^2 \diff e^x= x^2e^x - \int e^x2x\diff x=  x^2e^x - \int 2x\diff e^x \\
-&=& x^2e^x- 2xe^x+ \int 2e^x \diff x= x^2e^x-2xe^x+2e^x+C\quad .
-\end{array}
-\]
-\end{solution}
-\begin{problem}
-Compute $\displaystyle \int \ln x \diff x $.
-\end{problem}
-\begin{solution}
-\[
-\int \ln x \diff x = x\ln x - \int x \diff (\ln x)= x\ln x -\int \frac{x}{x}\diff x= x\ln x-x+C\quad .
-\]
-\end{solution}
-\begin{problem}
-Compute $\displaystyle \int \sin x e^x \diff x$.
-\end{problem}
-\begin{solution}
-\[
-\begin{array}{rcl}
-\displaystyle\int \sin x \underbrace{e^x \diff x}_{=\diff e^x}&=&\displaystyle\sin x e^x - \int e^x\diff (\sin x)=\sin x e^x - \int \cos x \underbrace{e^x \diff x}_{=\diff e^x}\\
-&=& \displaystyle\sin x e^x - e^x\cos x +\int e^x \diff (\cos x) \\
-&=& e^x\sin x -e^x\cos x-\int e^x\sin x \diff x\quad .
-\end{array}
-\]
-Transferring $\displaystyle\int e^x\sin x \diff x$ to the left hand side we get $\displaystyle 2\int \sin x e^x \diff x = \sin x e^x-e^x\cos x$, or finally, $\displaystyle \int \sin x e^x \diff x=\frac12 \left(\sin x e^x- e^x\cos x\right)$.
-\end{solution}
-\begin{problem}
-Compute $\displaystyle\int \arctan x \diff x$.
-\end{problem}
-\begin{solution}
-\[
-\begin{array}{rcl}
-\displaystyle\int \arctan x \diff x &=& x\displaystyle \arctan x - \int x \diff(\arctan x)= x\arctan x - \int \frac{x}{x^2+1}\diff x\\
-&=& \displaystyle  x\arctan x - \int \frac{\frac{1}2\diff(x^2)}{x^2+1}=  x\arctan x - \int \frac{\frac{1}2\diff(x^2+1)}{x^2+1}\\
-&=&\displaystyle  x\arctan x - \frac12\ln (x^2+1) +C\quad .
-\end{array}
-\]
-\end{solution}
-\begin{problem}
-Compute $\displaystyle \int x^n e^x \diff x$.
-\end{problem}
-\begin{solution}
-\[
-\begin{array}{rcl}
-\displaystyle\int x^n e^x \diff x &=& \displaystyle\int x^n \diff e^x= x^n e^x- \int  e^x \diff x^n= x^n e^x- n\int  x^{n-1}e^x \diff x=\\
-&=&\displaystyle x^ne^x- n\left(\int x^{n-1}\diff e^x \right)= x^ne^x - n\left(x^{n-1}e^x- \int (n-1)x^{n-2}e^x \diff x\right)\\
-&=&\displaystyle x^{n}e^x-nx^{n-1}xe^x+n(n-1)\int x^{n-2}e^x \diff x =\dots\\
-&=&\displaystyle x^ne^{x}- nx^{n-1}e^x + n(n-1 )x^{n-2 } e^x + \dots \\
-&&+(-1)^kn(n-1)(n-2)\dots(n-k+1)x^{n-k}e^x+\dots +(-1)^n n! e^x+C\\
-&=&\displaystyle C+\sum_{k=0}^{n} (-1)^n\frac{n!}{(n-k)!} x^{n-k} e^x \quad .
-\end{array}
-\]
-\end{solution}
-\begin{problem}
-Compute $\displaystyle\int \sin^n x \diff x$.
 
+\begin{problem}
+\input{../../modules/integration-by-parts/homework/integration-by-parts2}
 \end{problem}
+\input{../../modules/integration-by-parts/homework/integration-by-parts2-solutions}
 
 \begin{problem}
 \input{../../modules/integration-by-parts/homework/integration-by-parts}
 \end{problem}
 \input{../../modules/integration-by-parts/homework/integration-by-parts-solutions}
-
+\begin{problem}
+\input{../../modules/integration-by-parts/homework/integrate-x-power-n-e-power-x}
+\end{problem}
+\input{../../modules/integration-by-parts/homework/integrate-x-power-n-e-power-x-solution}
 \section{Integration of rational functions}\label{secIntegrationRationalFunctions}
 
 \subsection{A few examples}

@@ -1,48 +1,3 @@
-\solution{\ref{problemint(e^(-sqrtx)dx)}
-\[
-\begin{array}{rcll|l}
-\displaystyle \int e^{-\sqrt{x}}\diff x&=& \displaystyle \int 2y e^{-y}\diff y&&\text{Subst.: } \begin{array}{rcl} \sqrt{x}&=&y\\
-\frac{1}{2\sqrt{x}}\diff x&=&\diff y\\
-\diff x&=&2y\diff y
-\end{array}
-\\
-&=&\displaystyle \int 2y \diff \left(-e^{-y}\right) &&\text{int. by parts}\\
-&=&-2ye^{-y}+2\int e^{-y}\diff y\\
-&=&-2ye^{-y}-2e^{-y}+C\\
-&=&-2\sqrt{x}e^{-\sqrt{x}} -2e^{-\sqrt{x}}+C\quad .
-\end{array}
-\]
-}
-
-\solution{\ref{problemintlnx/sqrt(x)dx}
-\[
-\begin{array}{rcll|l}
-\displaystyle \int \frac{\ln x}{\sqrt{x}}\diff x&=&\int \ln x 2\diff \left(\sqrt{x}\right)&&\text{integrate by parts}\\
-&=&\displaystyle (\ln x)2\sqrt{x}- \int 2\sqrt{x}\diff (\ln x)\\ 
-&=&\displaystyle 2\sqrt{x}\ln x - 2\int \frac{\sqrt{x}}{x}\diff x\\
-&=&\displaystyle 2\sqrt{x}\ln x - 2\int x^{-\frac{1}{2}}\diff x\\
-&=&\displaystyle 2\sqrt{x}\ln x - 4\sqrt{x}+C\\
-&=&\displaystyle 2\sqrt{x}(\ln x -2)+C\quad .
-\end{array}
-\]
-}
-
-\solution{
-\ref{problemIntegrateArcsinSquared}. 
-\[
-\begin{array}{rcll|l}
-\displaystyle \int (\Arcsin x)^2 \diff x &=&\displaystyle  \int \left(\Arcsin(\sin y)\right)^2 \diff  (\sin y) &&\text{Set } x= \sin y\\
-&=&\displaystyle \int y^2 \cos y \diff y =  \int y^2 \diff (\sin y)  &&\text{Integrate by parts}\\
-&=&\displaystyle y^2\sin y - \int 2y\sin y  \diff y\\
-&=&\displaystyle y^2\sin y + \int 2y  \diff (\cos y ) & &\text{Integrate by parts}\\
-&=&\displaystyle y^2\sin y + 2y \cos y - 2\int \cos y \diff y\\
-&=&\displaystyle y^2\sin y+2y \cos y - 2\sin y +C &&\text{Substitute } y=\Arcsin x\\
-&=& \displaystyle x(\arcsin x)^2 \\
-&&\displaystyle+2\sqrt{1-x^2}\arcsin x - 2x+C\quad .
-\end{array}
-\]
-}
-
 \solution{\ref{problemintxtan^2xdx}
 \[
 \begin{array}{rcll|l}
@@ -62,8 +17,82 @@
 
 }
 
+\solution{\ref{problemint(e^(-sqrtx)dx)}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int e^{-\sqrt{x}}\diff x&=& \displaystyle \int 2y e^{-y}\diff y&&\text{Subst.: } \begin{array}{rcl} \sqrt{x}&=&y\\
+\frac{1}{2\sqrt{x}}\diff x&=&\diff y\\
+\diff x&=&2y\diff y
+\end{array}
+\\
+&=&\displaystyle \int 2y \diff \left(-e^{-y}\right) &&\text{int. by parts}\\
+&=&-2ye^{-y}+2\int e^{-y}\diff y\\
+&=&-2ye^{-y}-2e^{-y}+C\\
+&=&-2\sqrt{x}e^{-\sqrt{x}} -2e^{-\sqrt{x}}+C\quad .
+\end{array}
+\]
+}
 
-\solution{\ref{problemintsin(ln x)dx}
+\solution{\ref{problemintcos^2xdxviaIntByParts}. Later, we shall study general methods for solving trigonometric integrals that will cover this example. Let us however show one way to solve this integral by integration by parts. 
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \cos^2 x \diff x&=&\displaystyle x\cos^2x - \int x\diff (\cos^2 x)\\
+&=&\displaystyle x\cos^2 x - \int x2\cos x (-\sin x)\diff x&&\text{Use } \sin (2x)=2\sin x \cos x\\
+&=&\displaystyle x \cos^2x +\int x\sin (2x)\diff x\\
+&=&\displaystyle x \cos^2x +\int x \diff \left(\frac{-\cos (2x)}{2}\right)\\
+&=&\displaystyle x \cos^2x +x\left(\frac{-\cos (2x)}{2}\right) -\int \left(\frac{-\cos (2x)}{2}\right)\diff x\\
+&=&\displaystyle \frac{x}{2}\left(2\cos^2 x - \cos (2x)\right)+ \frac{\sin (2x)}{4}+C &&\text{use } \cos (2x)=\cos^2x-\sin^2 x \\
+&=&\displaystyle \frac{x}{2}\left(2\cos^2x - (\cos^2x-\sin^2x) \right) + \frac{\sin (2x)}{4}+C&&\text{use }\cos^2x+\sin^2x=1\\
+&=&\displaystyle \frac{x}{2} + \frac{\sin (2x)}{4}+C\quad .\\
+\end{array}
+\]
+}
+
+\solution{\ref{problemintarctanxdx}
+\[
+\begin{array}{rcl}
+\displaystyle\int \arctan x \diff x &=& x\displaystyle \arctan x - \int x \diff(\arctan x)\\
+&=&\displaystyle x\arctan x - \int \frac{x}{x^2+1}\diff x\\
+&=& \displaystyle  x\arctan x - \int \frac{\frac{1}2\diff(x^2)}{x^2+1}\\
+&=&\displaystyle  x\arctan x - \int \frac{\frac{1}2\diff(x^2+1)}{x^2+1}\\
+&=&\displaystyle  x\arctan x - \frac12\ln (x^2+1) +C\quad .
+\end{array}
+\]
+}
+
+\solution{
+\ref{problemintArcsinSquared}. 
+\[
+\begin{array}{rcll|l}
+\displaystyle \int (\Arcsin x)^2 \diff x &=&\displaystyle  \int \left(\Arcsin(\sin y)\right)^2 \diff  (\sin y) &&\text{Set } x= \sin y\\
+&=&\displaystyle \int y^2 \cos y \diff y =  \int y^2 \diff (\sin y)  &&\text{Integrate by parts}\\
+&=&\displaystyle y^2\sin y - \int 2y\sin y  \diff y\\
+&=&\displaystyle y^2\sin y + \int 2y  \diff (\cos y ) & &\text{Integrate by parts}\\
+&=&\displaystyle y^2\sin y + 2y \cos y - 2\int \cos y \diff y\\
+&=&\displaystyle y^2\sin y+2y \cos y - 2\sin y +C &&\text{Substitute } y=\Arcsin x\\
+&=& \displaystyle x(\arcsin x)^2 \\
+&&\displaystyle+2\sqrt{1-x^2}\arcsin x - 2x+C\quad .
+\end{array}
+\]
+}
+
+\solution{\ref{problemintsinxe^xdx}
+\[
+\begin{array}{rcll|l}
+\displaystyle\int \sin x \underbrace{e^x \diff x}_{=\diff e^x}&=&\displaystyle\sin x e^x - \int e^x\diff (\sin x)=\sin x e^x - \int \cos x \underbrace{e^x \diff x}_{=\diff e^x}\\
+&=& \displaystyle\sin x e^x - e^x\cos x +\int e^x \diff (\cos x) \\
+&=& e^x\sin x -e^x\cos x-\int e^x\sin x \diff x &&
+\begin{array}{l}
+\text{add }\int e^x\sin x \diff x\\
+\text{to both sides}
+\end{array}\\
+\displaystyle 2\int \sin x e^x \diff x& =&\displaystyle \sin x e^x-e^x\cos x\\
+\displaystyle \int \sin x e^x \diff x&=&\displaystyle \frac{1}{2} \left(\sin x e^x- e^x\cos x\right)\quad .
+\end{array}
+\]
+}
+
+\solution{\ref{problemintsin(ln x)dx}.
 
 \noindent$
 \begin{array}{@{\!\!}r@{~}c@{~}ll|l}
@@ -77,6 +106,25 @@
 \displaystyle \int \sin (\ln x)\diff x&=&\displaystyle \frac{x}{2} \left(\sin (\ln x)-\cos (\ln x) \right)\quad .
 \end{array}
 $
+}
+
+\solution{\ref{problemintlnxdx}
+\[
+\int \ln x \diff x = x\ln x - \int x \diff (\ln x)= x\ln x -\int \frac{x}{x}\diff x= x\ln x -x+C\quad .
+\]
+}
+
+\solution{\ref{problemintlnx/sqrt(x)dx}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{\ln x}{\sqrt{x}}\diff x&=&\int \ln x 2\diff \left(\sqrt{x}\right)&&\text{integrate by parts}\\
+&=&\displaystyle (\ln x)2\sqrt{x}- \int 2\sqrt{x}\diff (\ln x)\\ 
+&=&\displaystyle 2\sqrt{x}\ln x - 2\int \frac{\sqrt{x}}{x}\diff x\\
+&=&\displaystyle 2\sqrt{x}\ln x - 2\int x^{-\frac{1}{2}}\diff x\\
+&=&\displaystyle 2\sqrt{x}\ln x - 4\sqrt{x}+C\\
+&=&\displaystyle 2\sqrt{x}(\ln x -2)+C\quad .
+\end{array}
+\]
 }
 
 
