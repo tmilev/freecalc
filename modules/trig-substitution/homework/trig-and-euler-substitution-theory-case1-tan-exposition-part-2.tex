@@ -1,0 +1,41 @@
+We recall that the substitution $\theta=2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $\theta=2\arctan t$ after the substitution $x=\tan\theta$:
+\[
+\begin{array}{rcll|l}
+x&=&\displaystyle \tan \theta &&\text{use } \theta=2\arctan t \\
+&=&\displaystyle \tan \left(2\arctan t\right)&&\displaystyle  \text{use\refBad{\ref{eqSinCosViaTan}}{}{ \eqref{eqSinCosViaTan}}: } \tan 2z=\frac{\sin (2z)}{\cos (2z)}=\frac{2\tan z}{1-\tan^2 z}\\
+&=&\displaystyle \frac{2\tan (\arctan t)}{1-\tan^2 (\arctan t)}\\
+&=&\displaystyle \frac{2t}{1-t^2}\quad .
+\end{array}
+\]
+We can furthermore compute
+\begin{equation}\label{eqsqrtx2plus1Euler1}
+\begin{array}{rcll|l}
+\displaystyle \sqrt{x^2+1}&=&\displaystyle  \sqrt{ \left( \frac{ 2t}{1-t^2}\right)^2+1 }\\
+&=&\displaystyle \sqrt{\frac{4t^2+(1-t^2)^2}{(1-t^2)^2} }\\
+&=&\displaystyle \sqrt{\frac{(1+t^2)^2}{(1-t^2)^2}} && \sqrt{(1-t^2)^2 } = 1-t^2  \text{ because } |t|<1\\
+&=&\displaystyle \frac{1+t^2}{1-t^2}\\
+&=&\displaystyle \frac{2-(1-t^2)}{1-t^2}\\
+&=&\displaystyle -1+ \frac{2 }{1-t^2 } \quad .
+\end{array}
+\end{equation}
+From $\displaystyle \sqrt{x^2+1}=-1+\frac{2}{1-t^2}$ and $\displaystyle x=\frac{2t}{1-t^2}$ we can express $t$ via $x$:
+\[
+\begin{array}{rcll|l}
+\displaystyle \sqrt{x^2+1}&=&\displaystyle -1+ \frac{2}{ 1 - t^2 }\\
+&=&\displaystyle -1+\frac{1}{t}\left(\frac{2t}{1 -t^2} \right) &&\displaystyle \text{use } x= \frac{2t}{1-t^2}\\
+&=&\displaystyle -1+\frac{x}{t}\\
+\displaystyle 1+\sqrt{x^2+1}&=&\displaystyle \frac{x}{t}\\
+\displaystyle t&=&\displaystyle \frac{x}{1+\sqrt{x^2+1}}\\ &=& \displaystyle \frac{x}{1+\sqrt{x^2+1}} \left(\frac{ 1-\sqrt{x^2+1} }{1 - \sqrt{ x^2+1}}\right)\\
+&=& \displaystyle  \frac{x(1- \sqrt{x^2 +1 } ) }{ 1- x^2-1}\\
+&=&\displaystyle \frac{\sqrt{x^2+1}-1}{x}\quad .
+\end{array}
+\]
+The differential $\diff x$ can expressed via $\diff t$ from $\displaystyle x=1+ \frac{2 }{t^2 -1}$. The Euler substitution  $x=\tan \theta=\tan (2\arctan t)$ can now be summarized as follows.
+\begin{equation}\label{eqEulerSub-case1-tan(2arctant)}
+\begin{array}{rcl}
+x&=&\displaystyle \frac{2t}{1-t^2}\\
+\displaystyle\sqrt{x^2+1}&=& \displaystyle -1+ \frac{2 }{1-t^2} \\
+\displaystyle \diff x&=&\displaystyle \frac{2(1+t^2)} {(1-t^2)^2} \diff t\\
+t &=&\displaystyle \frac{\sqrt{x^2+1}-1}{x}\quad .
+\end{array}
+\end{equation}
