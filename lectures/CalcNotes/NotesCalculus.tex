@@ -2225,108 +2225,25 @@ As demonstrated in the present section, it is sufficient to memorize the substit
 \sqrt{-x^2+1}=1-xt\quad .
 \]
 \begin{problem}
- Let the variables $x$ and $t$ be related via $\sqrt{-x^2+1}=1-xt$.
-\begin{enumerate}
-\item Express $x$ via $t$.
-\item Express $\sqrt{-x^2+1}$ via $t$ alone.
-\item Express $\diff x$ via $t$ and $\diff t$.
-\end{enumerate}
+\input{../../modules/trig-substitution/homework/euler-substitution-theory-alternative-case1-sin}
 \end{problem}
 
 \subsubsection{The trigonometric substitution $x=\cos \theta$, $\theta\in\left[0, \pi\right] $}
 We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\cos \theta$ and the corresponding Euler substitution $x=\cos (2\arctan t)$  on her or his own, and only then to read the rest of this section.
 
-The trigonometric substitution $x=\cos \theta$ is given by
-\[
-\begin{array}{rcll|l}
-\displaystyle \sqrt{-x^2+1}&=&\displaystyle \sqrt{1-\cos^2\theta}\\
-&=&\displaystyle \sqrt{\sin^2\theta} &&\begin{array}{l} \text{when }\theta\in\left[-\frac{\pi}{2}, \frac{\pi}{2} \right] \text{we have}\\
-\sin \theta\geq 0 \text{ and so } \sqrt{\sin^2\theta}=\sin \theta
-\end{array} \\
-&=&\displaystyle \sin \theta\quad .
-\end{array}
-\]
-The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\cos \theta$. The substitution $x=\cos \theta $ can be now summarized as:
-\begin{equation*}
-\begin{array}{rcl}
-x&=&\cos \theta\\
-\sqrt{-x^2+1}&=&\sin \theta\\
-\diff x&=& -\sin \theta \diff \theta\\
-\theta&=&\arccos x \quad .
-\end{array}
-\end{equation*}
-\subsubsection{The Euler substitution $x=\cos \theta$, $\theta=2\arctan t$, $ 0<t $}
-We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\cos \theta$:
+\input{../../modules/trig-substitution/homework/trig-and-euler-substitution-theory-case1-cos-exposition-part-1}
 
-\begin{equation*}
-\begin{array}{rcll|l}
-x&=&\displaystyle \cos \theta &&\text{use } \theta=2\arctan t\\
-&=&\displaystyle \cos (2\arctan t) &&\text{use } \eqref{eqSinCosViaTan}: \displaystyle \cos (2z) = \frac{ 1-\tan^2 z }{1+ \tan^2 z}\\
-&=&\displaystyle \frac{1-\tan^2(\arctan t)}{1+\tan^2( \arctan t)} \\
-&=&\displaystyle \frac{1-t^2}{1+t^2} \quad .
-\end{array}
-\end{equation*}
-We can furthermore compute
-\begin{equation}\label{eqsqrt1minusxsquaredE2}
-\begin{array}{rcll|l}
-\sqrt{-x^2+1 }&=&\displaystyle \sqrt{1- \left(\frac{1-t^2}{1+t^2}\right)^2}\\
-&=&\displaystyle \sqrt{\frac{(1+t^2)^2-(1-t^2)^2}{(1+t^2)^2} }\\
-&=&\displaystyle \sqrt{\frac{4t^2}{(1+t^2)^2}} &&\displaystyle \sqrt{4t^2}=2t\text{ because } t>0\\
-&=&\displaystyle \frac{2t}{1+t^2}\quad .\\
-\end{array}
-\end{equation}
-The differential $\diff x$ can be computed from $x=\frac{1-t^2}{1+t^2}$. Finally, we can express $t$ via $x$ with a little algebra:
+\subsubsection{The Euler substitution $x=\cos \theta$, $\theta=2\arctan t$, $ t\geq 0 $}
+\input{../../modules/trig-substitution/homework/trig-and-euler-substitution-theory-case1-cos-exposition-part-2}
 
-\[
-\begin{array}{rcll|l}
-\displaystyle x&=&\displaystyle \frac{1-t^2}{1+t^2}\\
-\displaystyle (1+t^2)x&=&\displaystyle 1-t^2\\
-\displaystyle t^2(x+1)&=&\displaystyle 1-x\\
-\displaystyle t^2&=&\displaystyle \frac{1-x}{1+x}\\
-\displaystyle t&=&\displaystyle \sqrt{\frac{1-x}{1+x}}&& \text{here we use } t>0\\
-\displaystyle t&=&\displaystyle \frac{\sqrt{1-x}}{\sqrt{ 1+x}} \frac{ \sqrt{1+x}}{\sqrt{1+x}} \\
-\displaystyle t&=&\displaystyle \frac{\sqrt{-x^2+1}}{x+1}\quad .
-\end{array}
-\]
-The Euler substitution $x= \cos (2\arctan t)$ can be now summarized as:
-\[
-\begin{array}{rcl}
-x&=&\displaystyle \frac{1-t^2}{1+t^2}\\
-\sqrt{-x^2+1}&=&\displaystyle \frac{2t}{1+t^2}  \\
-\diff x&=&\displaystyle  -\frac{4 t}{(t^{2}+1)^{2}} \diff t\\
-t&=&\displaystyle \frac{\sqrt{-x^2+1}}{x+1} \quad .
-\end{array}
-\]
 As demonstrated in the present section, it is sufficient to memorize the substitution $x=\sin (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
 \[
 \sqrt{-x^2+1}=(1-x)t\quad .
 \]
 \begin{problem}
-Let the variables $x$ and $t$ be related via $\sqrt{-x^2+1}= ( 1-x)t$.
-\begin{enumerate}
-\item Express $x$ via $t$.
-\item Express $\sqrt{-x^2+1}$ via $t$ alone.
-\item Express $\diff x$ via $t$ and $\diff t$.
-\end{enumerate}
+\input{../../modules/trig-substitution/homework/euler-substitution-theory-alternative-case1-cos}
 \end{problem}
-\begin{solution}
-
-\noindent (1)
-\[
-\begin{array}{rcll|l}
-\sqrt{-x^2+1}&=&(1-x)t&&\text{square both sides}\\
-(1-x)(1+x)&=&(1-x)^2t^2&&\text{divide by } (1-x)\\
-1+x&=&(1-x)t^2\\
-x(1+t^2)&=&t^2-1\\
-x&=&\displaystyle \frac{t^2-1}{t^2+1}= 1-\frac{2}{t^2+1}\quad .
-\end{array}
-\]
-
-\noindent (2) Using (1) we get
-\[
-\sqrt{-x^2+1}=(1-x)t=\left(1-\left(1-\frac{2t}{t^2+1}\right)\right)t= \frac{ 2t}{ t^2+1}\quad .
-\]
-\end{solution}
+\input{../../modules/trig-substitution/homework/euler-substitution-theory-alternative-case1-cos-solution}
 
 \subsection{Integrals of the form $\displaystyle \int R(x, \sqrt{x^2 -1}) \diff x$}
 We recall that in this section $R$ stands for a rational function in two variables. The two trigonometric substitution which transform
