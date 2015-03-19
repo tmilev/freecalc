@@ -1,0 +1,44 @@
+We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\sin \theta$:
+
+\begin{equation*}
+\begin{array}{rcll|l}
+x&=&\displaystyle \sin \theta &&\text{use } \theta=2\arctan t\\
+&=&\displaystyle \sin (2\arctan t) &&\text{use} \refBad{\ref{eqSinCosViaTan}}{~}{\eqref{eqSinCosViaTan}: } \displaystyle \sin (2z) = \frac{ 2 \tan z}{1+ \tan^2 z}\\
+&=&\displaystyle \frac{2\tan(\arctan t)}{1+\tan^2( \arctan t)} \\
+&=&\displaystyle \frac{2t}{1+t^2} \quad .
+\end{array}
+\end{equation*}
+We can furthermore compute
+\begin{equation}\label{eqsqrt1minusxsquaredE1}
+\begin{array}{rcll|l}
+\sqrt{-x^2+1 }&=&\displaystyle \sqrt{1- \left(\frac{2t}{1+t^2}\right)^2}\\
+&=&\displaystyle \sqrt{\frac{(1+t^2)^2-4t^2}{(1+t^2)^2} }\\
+&=&\displaystyle \sqrt{\frac{(1-t^2)^2}{(1+t^2)^2}} &&\displaystyle \sqrt{(1-t^2)^2}=1-t^2\text{ because } |t|\leq 1\\
+&=&\displaystyle \frac{1-t^2}{1+t^2}\\
+&=&\displaystyle \frac{2-(1+t^2) }{1+t^2}\\
+&=&\displaystyle -1+\frac{2}{1+t^2}\quad .
+\end{array}
+\end{equation}
+The differential $\diff x$ can be computed from $x=\frac{2t}{1+t^2}$. Finally, we can express $t$ via $x$ with a little algebra:
+
+\[
+\begin{array}{rcll|l}
+\displaystyle \sqrt{-x^2+1}&=&\displaystyle -1 + \frac{2}{ 1+ t^2} \\
+&=& \displaystyle  -1 +\frac{1 }{t} \left( \frac{2t}{1+t^2}\right) &&\text{use } x= \frac{2t}{1+t^2}\\
+&=&\displaystyle -1 +\frac{x}{t} &&+1 \text{ to both sides}\\
+\displaystyle \frac{x}{t}&=&1+\displaystyle \sqrt{-x^2+1}\\
+t&=&\displaystyle \frac{x}{1+\sqrt{-x^2+1}}\\ &=&\displaystyle\frac{x}{(1+\sqrt{-x^2+1})} \frac{(1-\sqrt{- x^2+ 1})}{(1 - \sqrt{ -x^2+1})} \\
+&=&\displaystyle \frac{ 1-\sqrt{-x^2+1}}{x} \quad .
+\end{array}
+\]
+
+The Euler substitution $x= \sin (2\arctan t)$ can be now summarized as:
+
+\[
+\begin{array}{rcl}
+x&=&\displaystyle \frac{2t}{1+t^2}\\
+\sqrt{-x^2+1}&=&\displaystyle -1+\frac{2}{1+t^2}  \\
+\diff x&=&\displaystyle  2\left(\frac{1-t^2 }{(1+ t^2)^2} \right) \diff t\\
+t&=&\displaystyle \frac{ 1-\sqrt{-x^2+1}}{x} \quad .
+\end{array}
+\]

@@ -455,7 +455,7 @@ Therefore division of arbitrary complex numbers is defined as
 \frac{a+ib}{c+id}=(a+ib)\frac{1}{c+id}= \frac{(a+ib)(c-id)}{(c+id)(c-id)}= \frac{ac+bd}{c^2+d^2}+i\frac{(bc-ad)}{c^2+d^2} \quad .
 \]
 
-\subsection{Exercises and examples}
+\subsection{Examples and Exercises}
 \begin{problem}
 \input{../../modules/complex-numbers/homework/complex-number-arithmetics-1}
 \end{problem}
@@ -1327,7 +1327,7 @@ The fact that $\varphi$ measures the arc drawn with red in the figure \ref{figUn
 } %end optionalDisplay
 \label{figUnitCircleSineCosine}
 \end{figure} %
-\subsubsection{Exercises}
+\subsubsection{Examples and Exercises}
 \begin{problem}
 Use the trick used to derive \eqref{eqSin2xCos2x} to derive a formula for $\sin(3z)$ and $\cos (3z)$. Your solution may start like this. ``We have that $(e^{iz})^3=e^{3iz}=\cos (3z)+i\sin(3z)$. On the other hand, $(e^{iz})^3= \dots$''.
 \end{problem}
@@ -1980,7 +1980,14 @@ In this section we summarize the algorithm for integrating rational functions $\
 \frac{N(x)}{D(x)}=Q(x) +\frac{R(x)}{D(x)}\quad .
 \]
 \item Factor $D(x)$, i.e., produce the decomposition \eqref{eqFactorOverReals}. In many problems, $D(x)$ will be presented to you in already factored form.
-\item Split $\frac{R(x)}{D(x)}$ into partial fractions, i.e., write it in the form \eqref{eqSplitPF}.
+\item Split $\frac{R(x)}{D(x)}$ into partial fractions, i.e., write it in the form \eqref{eqSplitPF}. To do so one needs to do the following.
+\begin{itemize}
+\item Clear denominators on both sides in equation \eqref{eqSplitPF}.
+\item Uncover parenthesis and group all terms according to powers of $x$. 
+\item Form a system of equations by comparing the coefficients of $x$ on both sides of so obtained equality.
+\item The so obtained system is linear; solve using standard methods.
+\item \textbf{Remark.} Shortcuts to this procedure can be obtained by substituting well-chosen values for $x$. Such shortcuts will be demonstrated on examples.
+\end{itemize}
 \item Using linear substitutions, transform each partial fraction into a multiple of one of the ``building block'' integrals $\displaystyle \int \frac{1}{(1+y^2)^n}\diff y$, $\displaystyle \int \frac{y}{(1+y^2)^n}\diff y$, $\displaystyle \int \frac{1}{(y+C)^n}\diff y$, $n\geq 2$.
 \item Solve the ``building blocks'' integrals as we did earlier in this section.
 \item Collect the ``building blocks'' to a single answer.
@@ -2135,6 +2142,8 @@ We start the technical part of this section by exercising the familiar procedure
 Suppose we have a quadratic that is not a perfect square and is not strictly negative. In the present section we demonstrate how to transform the radical of such a quadratic to a multiple of one of the three forms $\sqrt{u^2+1}$, $\sqrt{-u^2 +1}$, $\sqrt{u^2-1} $. The transformation consists in completing the square, which was already exercised in Section \ref{secIntegrationRationalFunctions}. A student confident in this technique may skip this section.
 
 Due to the elementary nature of this section we skip all theory and solve a few examples instead.
+\subsubsection{Examples and Exercises}
+
 \begin{problem}
 \input{../../modules/trig-substitution/homework/prepare-radical-of-quadratic-for-integration-complete-square}
 \end{problem}
@@ -2145,167 +2154,53 @@ We recall that in this section $R$ stands for a rational function in two variabl
 \[
 \int R(x, \sqrt{x^2+1})\diff x
 \]
-to integral of rational function are $x=\tan \theta$ and $x=\cot \theta$.
+to integral of rational function are $x=\tan \theta$ and $x=\cot \theta$. We study both in the following two sections. Students interested in practical applications may want to read only one of the sections, say, Section \ref{secTrigSubtanTheta} (and its subsection \ref{secTrigSubtan(2arctant)}). Students interested in a deeper understanding of the material may want to read one of the sections, say,  Section \ref{secTrigSubtanTheta} (and its subsection \ref{secTrigSubtan(2arctant)}), and then derive the other Section \ref{secTrigSubcotTheta} on their own, and finally compare their work with the exposition in Section \ref{secTrigSubcotTheta}.
 \subsubsection{The trigonometric substitution $x=\tan \theta$, $\displaystyle \theta\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ }\label{secTrigSubtanTheta}
-The trigonometric substitution $x=\tan \theta$ is given by
-\[
-\begin{array}{rcll|l}
-\displaystyle \sqrt{ x^2+1}&=&\displaystyle \sqrt{\tan^2 \theta+1}\\
-&=&\displaystyle   \sqrt{ \frac{ \sin^2 \theta}{ \cos^2 \theta} +1}\\
-&=&\displaystyle \sqrt{ \frac{ \sin^2\theta+\cos^2 \theta}{ \cos^2 \theta}} \\
-&=& \displaystyle \sqrt{\frac{1}{\cos^2\theta}} && \begin{array}{l} \displaystyle \text{when }\theta\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \text{ we have }\\ ~ \cos \theta > 0\text{ and so } \sqrt{\cos^2 \theta}=\cos\theta \end{array}\\
-&=&\displaystyle  \frac{1}{\cos \theta}= \sec \theta\quad .
-\end{array}
-\]
-The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\tan \theta$. The substitution $x=\tan \theta$ can be now summarized as:
-\[
-\begin{array}{rcl}
-x&=&\displaystyle \tan \theta\\
-\sqrt{x^2+1}& =& \displaystyle \frac{1}{\cos \theta}=\sec \theta\\
-\diff x &=&\displaystyle \frac{\diff \theta}{\cos^2\theta}= \sec^2 \theta \diff \theta\\
-\theta& =& \arctan x\quad .
-\end{array}
-\]
-\subsubsection{The Euler substitution $x=\tan \theta$, $\theta=2\arctan t$, $-1<  t< 1$}
-We recall that the substitution $\theta=2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $\theta=2\arctan t$ after the substitution $x=\tan\theta$:
-\[
-\begin{array}{rcll|l}
-x&=&\displaystyle \tan \theta &&\text{use } \theta=2\arctan t \\
-&=&\displaystyle \tan \left(2\arctan t\right)&&\displaystyle  \text{use \eqref{eqSinCosViaTan}: } \tan 2z=\frac{\sin (2z)}{\cos (2z)}=\frac{2\tan z}{1-\tan^2 z}\\
-&=&\displaystyle \frac{2\tan (\arctan t)}{1-\tan^2 (\arctan t)}\\
-&=&\displaystyle \frac{2t}{1-t^2}\quad .
-\end{array}
-\]
-We can furthermore compute
-\begin{equation}\label{eqsqrtx2plus1Euler1}
-\begin{array}{rcll|l}
-\displaystyle \sqrt{x^2+1}&=&\displaystyle  \sqrt{ \left( \frac{ 2t}{1-t^2}\right)^2+1 }\\
-&=&\displaystyle \sqrt{\frac{4t^2+(1-t^2)^2}{(1-t^2)^2} }\\
-&=&\displaystyle \sqrt{\frac{(1+t^2)^2}{(1-t^2)^2}} && \sqrt{(1-t^2)^2 } = 1-t^2  \text{ because } |t|<1\\
-&=&\displaystyle \frac{1+t^2}{1-t^2}\\
-&=&\displaystyle \frac{2-(1-t^2)}{1-t^2}\\
-&=&\displaystyle -1+ \frac{2 }{1-t^2 } \quad .
-\end{array}
-\end{equation}
-From $\displaystyle \sqrt{x^2+1}=-1+\frac{2}{1-t^2}$ and $\displaystyle x=\frac{2t}{1-t^2}$ we can express $t$ via $x$:
-\[
-\begin{array}{rcll|l}
-\displaystyle \sqrt{x^2+1}&=&\displaystyle -1+ \frac{2}{ 1 - t^2 }\\
-&=&\displaystyle -1+\frac{1}{t}\left(\frac{2t}{1 -t^2} \right) &&\displaystyle \text{use } x= \frac{2t}{1-t^2}\\
-&=&\displaystyle -1+\frac{x}{t}\\
-\displaystyle 1+\sqrt{x^2+1}&=&\displaystyle \frac{x}{t}\\
-\displaystyle t&=&\displaystyle \frac{x}{1+\sqrt{x^2+1}} =\frac{x}{1+\sqrt{x^2+1}} \left(\frac{ 1-\sqrt{x^2+1} }{1 - \sqrt{ x^2+1}}\right)\\
-\displaystyle t&=& \displaystyle  \frac{x(1- \sqrt{x^2 +1 } ) }{ 1- x^2-1}\\
-\displaystyle t&=&\displaystyle \frac{\sqrt{x^2+1}-1}{x}\quad .
-\end{array}
-\]
-The differential $\diff x$ can expressed via $\diff t$ from $\displaystyle x=1+ \frac{2 }{t^2 -1}$. The Euler substitution  $x=\tan \theta=\tan (2\arctan t)$ can now be summarized as:
-\begin{equation}\label{eqEulerSub1.1}
-\begin{array}{rcl}
-x&=&\displaystyle \frac{2t}{1-t^2}\\
-\displaystyle\sqrt{x^2+1}&=& \displaystyle -1+ \frac{2 }{1-t^2} \\
-\displaystyle \diff x&=&\displaystyle \frac{2(1+t^2)} {(1-t^2)^2} \diff t\\
-t &=&\displaystyle \frac{\sqrt{x^2+1}-1}{x}\quad .
-\end{array}
-\end{equation}
+\input{../../modules/trig-substitution/homework/trig-and-euler-substitution-theory-case1-tan-exposition-part-1}
+
+\subsubsection{The Euler substitution $x=\tan \theta$, $\theta=2\arctan t$, $-1<  t< 1$} \label{secTrigSubtan(2arctant)}
+\input{../../modules/trig-substitution/homework/trig-and-euler-substitution-theory-case1-tan-exposition-part-2}
+
+
 As demonstrated in the present section, it is sufficient to memorize the substitution $x=\tan (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
 \[
 \sqrt{x^2+1}=\frac{x}{t}-1\quad .
 \]
-\begin{problem} Let the variables $x$ and $t$ be related via $\sqrt{x^2+1}=\frac{x}{t}-1$.
-\begin{enumerate}
-\item Express $x$ via $t$.
-\item Express $\sqrt{x^2+1}$ via $t$ alone.
-\item Express $\diff x$ via $t$ and $\diff t$.
-\end{enumerate}
+\begin{problem} 
+\input{../../modules/trig-substitution/homework/euler-substitution-theory-alternative-case1-tan}
 \end{problem}
 
 
-\subsubsection{The trigonometric substitution $x=\cot \theta$, $\theta \in \left(0, \pi\right)$}
+\subsubsection{The trigonometric substitution $x=\cot \theta$, $\theta \in \left(0, \pi\right)$}\label{secTrigSubcotTheta}
 We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\cot \theta$ and the corresponding Euler substitution $x=\cot (2\arctan t)$  on her or his own, and only then to read the rest of this section.
 
-The trigonometric substitution $x=\cot \theta$ is given by
-\begin{equation*}
-\begin{array}{rcll|l}
-\displaystyle \sqrt{ x^2+1}&=&\displaystyle \sqrt{\cot^2 \theta+1}\\
-&=&\displaystyle \sqrt{\frac{\cos^2\theta}{ \sin^2 \theta} + 1}\\
-&=&\displaystyle \sqrt{ \frac{ \cos^2 \theta+\sin^2\theta}{ \sin^2 \theta}} \\
-&=& \displaystyle  \sqrt{\frac{1}{\sin^2\theta}} && \begin{array}{l}\displaystyle \text{when }\theta\in \left(0 , \pi\right) \text{ we have }\\ ~ \sin \theta \geq 0\text{ and so } \sqrt{\sin^2 \theta}=\sin\theta  \end{array}\\
-&=&\displaystyle  \frac{1}{\sin \theta}= \csc \theta\quad .
-\end{array}
-\end{equation*}
-The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\cot \theta$. The substitution $x=\cot \theta$ can be now summarized as:
-\[
-\begin{array}{rcl}
-x&=&\displaystyle \cot \theta\\
-\sqrt{x^2+1}&=&\displaystyle \frac{1}{\sin \theta}=\csc \theta\\
-\diff x&=&\displaystyle  -\frac{\diff \theta}{\sin^2\theta} = - \csc^2 \theta \diff \theta\\
-\theta& =& \arccot x\quad .
-\end{array}
-\]
+\input{../../modules/trig-substitution/homework/trig-and-euler-substitution-theory-case1-cot-exposition-part-1}
+
 
 
 \subsubsection{The Euler substitution $x=\cot \theta$, $\theta=2\arctan t$, $t>0$}
-We recall that the substitution $\theta=2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $\theta=2\arctan t$ after the substitution $x=\cot\theta$:
-\[
-\begin{array}{rcll|l}
-x&=&\displaystyle \cot \theta &&\text{use } \theta=2\arctan t\\
-&=& \displaystyle \cot \left(2\arctan t\right) &&\displaystyle  \text{use \eqref{eqSinCosViaTan}: } \cot 2z=\frac{\cos (2z)}{\sin (2z)}=\frac{1-\tan^2z}{2\tan z } \\
-&=&\displaystyle \frac{1-\tan^2 (\arctan t)}{2 \tan (\arctan t)} \\
-&=&\displaystyle \frac{1-t^2}{2t}\\
-&=&\displaystyle \frac{1}{2}\left(\frac{1}t -t\right)\quad .
-\end{array}
-\]
-We can furthermore compute
-\begin{equation} \label{eqsqrtx2plus1Euler2}
-\begin{array}{rcll|l}
-\displaystyle \sqrt{x^2+1}&=& \displaystyle  \sqrt{ \frac{1}{4} \left(\frac{1}t -t \right)^2 +1}\\
-&=&\displaystyle \frac{1}{2} \sqrt{\left( \frac{1}{t} +t \right)^2} & &\displaystyle \sqrt{\left(\frac{1}{t}+t\right)^2} = \frac{1}{t} +t \text{ because }t>0\\
-&=&\displaystyle \frac{1}{2}\left(\frac{1}{t}+t\right)\quad .
-\end{array}
-\end{equation}
-The differential $\diff x$ can via $\diff x $ as follows.
-\[
-\diff x=\diff \left(\frac{1}{2} \left( \frac{1}{t} - t\right)\right) = -\frac{1}{2} \left(\frac{1}{t^2}-1\right)\quad .
-\]
-Finally, we can subtract $\displaystyle x=\frac{1}{2} \left( \frac{1}{t} - t\right)$ from  $\displaystyle \sqrt{x^2+1}= \frac{1}{2} \left( \frac{1 }{ t} +t\right)$ to get that \[t=\sqrt{x^2+1}-x \quad .\]
-The Euler substitution $x=\cot \theta= \cot (\arctan 2t)$ can be now summarized as:
-\begin{equation}\label{eqEulerSub1.2}
-\begin{array}{rcl}
-x&=&\displaystyle \frac12\left(\frac{1}{t}- t\right)\\
-\displaystyle\sqrt{x^2+1}&=& \displaystyle \frac12 \left(\frac1t +t\right)\\
-\displaystyle \diff x&=&\displaystyle -\frac12\left(\frac{1}{t^2}+1\right) \diff t\\
-t &=&\sqrt{x^2+1}-x\quad .
-\end{array}
-\end{equation}
+\input{../../modules/trig-substitution/homework/trig-and-euler-substitution-theory-case1-cot-exposition-part-2}
+
+
+
 As demonstrated in the present section, it is sufficient to memorize the substitution $x=\cot (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
 \[
 \sqrt{x^2+1}=x+t\quad .
 \]
-\begin{problem} Let the variables $x$ and $t$ be related via $\sqrt{x^2+1}=x+t$.
-\begin{enumerate}
-\item Express $x$ via $t$.
-\item Express $\sqrt{x^2+1}$ via $t$ alone.
-\item Express $\diff x$ via $t$ and $\diff t$.
-\end{enumerate}
+\begin{problem} 
+\input{../../modules/trig-substitution/homework/euler-substitution-theory-alternative-case1-cot}
 \end{problem}
-\begin{solution}
+\input{../../modules/trig-substitution/homework/euler-substitution-theory-alternative-case1-cot-solution}
 
-\noindent(1)
-\[
-\begin{array}{rcll|l}
-\sqrt{x^2+1}&=& x+t &&\text{square both sides}  \\
-x^2+1&=&x^2+2xt+t^2\\
--2xt&=&t^2-1\\
-x&=&\displaystyle\frac{1}{2}\left(\frac{1}{t}-t \right) \quad .
-\end{array}
-\]
+\subsubsection{Summary of the case $\sqrt{x^2+1}$}
+Our considerations so far are summarized in the following theorem. We recall that in the present section $R$ stands for a rational function of two variables. 
+\begin{theorem}
+The substitutions \eqref{eqEulerSub-case1-tan(2arctant)} and \eqref{eqEulerSub-case1-cot(2arctant)} both transform all integrals of the form $ \int R(x, \sqrt{ x^2+1})\diff x$ to integrals of rational functions.
+\end{theorem}
+We note that the Euler substitution \eqref{eqEulerSub-case1-cot(2arctant)} corresponding to $x=\cot \theta$ appears to lead to a slightly more convenient for a human algebra; we may show a slight preference for \eqref{eqEulerSub-case1-cot(2arctant)}  over \eqref{eqEulerSub-case1-tan(2arctant)}. This is of course mostly a matter of taste, as both substitutions ultimately lead to the same indefinite integrals (up to addition of a constant).
+\subsubsection{Examples and Exercises}
 
-\noindent(2) We use (1):
-\[
-\sqrt{x^2+1}= x+t = \frac{1}{2}\left(\frac{1}{t}-t \right)+t=\frac{1}{2}\left(\frac{1}{t}+t \right)\quad.
-\]
-\end{solution}
+
 \subsection{Integrals of the form $\displaystyle \int R(x,\sqrt{-x^2+1})\diff x$}
 We recall that in this section $R$ stands for a rational function in two variables. The two trigonometric substitution which transform
 \[
@@ -2314,73 +2209,17 @@ We recall that in this section $R$ stands for a rational function in two variabl
 to integral of rational function are $x=\sin \theta$ and $x=\cos \theta$.
 
 \subsubsection{The trigonometric substitution $x=\sin \theta$, $\theta \in \left[-\frac{\pi}{2},-\frac{\pi}{2} \right]$}
-We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\sin \theta$ and the corresponding Euler substitution $x=\sin (2\arctan t)$  on her or his own, and only then to read the rest of this section.
+We challenge the interested student who has read Section \ref{secTrigSubtanTheta} to first try to derive the trigonometric substitution $x=\sin \theta$ and the corresponding Euler substitution $x=\sin (2 \arctan t)$  on her or his own, and only then to read the rest of this section.
 
 
-The trigonometric substitution $x=\sin \theta$ is given by
-\[
-\begin{array}{rcll|l}
-\displaystyle \sqrt{-x^2+1}&=&\displaystyle \sqrt{1-\sin^2\theta}\\
-&=&\displaystyle \sqrt{\cos^2\theta} &&\begin{array}{l} \text{when }\theta\in\left[-\frac{\pi}{2}, \frac{\pi}{2} \right] \text{we have}\\
-\cos \theta\geq 0 \text{ and so } \sqrt{\cos^2\theta}=\cos \theta
-\end{array} \\
-&=&\displaystyle \cos \theta\quad .
-\end{array}
-\]
-The differential $\diff x$ can be expressed via $\diff \theta$ from $x=\sin \theta$. The substitution $x=\sin \theta $ can be now summarized as:
-\begin{equation*}
-\begin{array}{rcl}
-x&=&\sin \theta\\
-\sqrt{-x^2+1}&=&\sin \theta\\
-\diff x&=& \cos \theta \diff \theta\\
-\theta&=&\arcsin x \quad .
-\end{array}
-\end{equation*}
+\input{../../modules/trig-substitution/homework/trig-and-euler-substitution-theory-case1-sin-exposition-part-1}
+
 \subsubsection{The Euler substitution $x=\sin \theta$, $\theta=2\arctan t$ , $-1\leq t\leq 1$}
-We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\sin \theta$:
+\input{../../modules/trig-substitution/homework/trig-and-euler-substitution-theory-case1-sin-exposition-part-2}
 
-\begin{equation*}
-\begin{array}{rcll|l}
-x&=&\displaystyle \sin \theta &&\text{use } \theta=2\arctan t\\
-&=&\displaystyle \sin (2\arctan t) &&\text{use } \eqref{eqSinCosViaTan}: \displaystyle \sin (2z) = \frac{ 2 \tan z}{1+ \tan^2 z}\\
-&=&\displaystyle \frac{2\tan(\arctan t)}{1+\tan^2( \arctan t)} \\
-&=&\displaystyle \frac{2t}{1+t^2} \quad .
-\end{array}
-\end{equation*}
-We can furthermore compute
-\begin{equation}\label{eqsqrt1minusxsquaredE1}
-\begin{array}{rcll|l}
-\sqrt{-x^2+1 }&=&\displaystyle \sqrt{1- \left(\frac{2t}{1+t^2}\right)^2}\\
-&=&\displaystyle \sqrt{\frac{(1+t^2)^2-4t^2}{(1+t^2)^2} }\\
-&=&\displaystyle \sqrt{\frac{(1-t^2)^2}{(1+t^2)^2}} &&\displaystyle \sqrt{(1-t^2)^2}=1-t^2\text{ because } |t|\leq 1\\
-&=&\displaystyle \frac{1-t^2}{1+t^2}\\
-&=&\displaystyle \frac{2-(1+t^2) }{1+t^2}\\
-&=&\displaystyle -1+\frac{2}{1+t^2}\quad .
-\end{array}
-\end{equation}
-The differential $\diff x$ can be computed from $x=\frac{2t}{1+t^2}$. Finally, we can express $t$ via $x$ with a little algebra:
 
-\[
-\begin{array}{rcll|l}
-\displaystyle \sqrt{-x^2+1}&=&\displaystyle -1 + \frac{2}{ 1+ t^2} \\
-\displaystyle \sqrt{-x^2+1}&=& \displaystyle  -1 +\frac{1 }{t} \left( \frac{2t}{1+t^2}\right) &&\text{use } x= \frac{2t}{1+t^2}\\
-\displaystyle \sqrt{-x^2+1}&=&\displaystyle -1 +\frac{x}{t} \\
-\displaystyle \frac{x}{t}&=&1+\displaystyle \sqrt{-x^2+1}\\
-t&=&\displaystyle \frac{x}{1+\sqrt{-x^2+1}} =\frac{x}{(1+\sqrt{-x^2+1})} \frac{(1-\sqrt{- x^2+ 1})}{(1 - \sqrt{ -x^2+1})} \\
-t&=&\displaystyle \frac{ 1-\sqrt{-x^2+1}}{x} \quad .
-\end{array}
-\]
 
-The Euler substitution $x= \sin (2\arctan t)$ can be now summarized as:
 
-\[
-\begin{array}{rcl}
-x&=&\displaystyle \frac{2t}{1+t^2}\\
-\sqrt{-x^2+1}&=&\displaystyle -1+\frac{2}{1+t^2}  \\
-\diff x&=&\displaystyle  2\left(\frac{1-t^2 }{(1+ t^2)^2} \right) \diff t\\
-t&=&\displaystyle \frac{ 1-\sqrt{-x^2+1}}{x} \quad .
-\end{array}
-\]
 As demonstrated in the present section, it is sufficient to memorize the substitution $x=\sin (2\arctan t)$ in order to derive the equalities above. An alternative way to memorize the Euler substitution is through the equality
 \[
 \sqrt{-x^2+1}=1-xt\quad .
@@ -2739,7 +2578,7 @@ Integrate
 \]
 \end{problem}
 
-\section{Exercises}
+\section{Examples and Exercises}
 \begin{problem}
 Solve the integral. Illustrate each step of your solution.
 \[
@@ -3282,7 +3121,7 @@ Therefore
 \maclaurin(\arcsin x)=\int \maclaurin\left(\frac{1}{\sqrt{1-x^2}}\right) \diff x =\underbrace{0}_{=\arcsin 0} +\sum_{n=1}^{\infty} (-1)^n \binom{-\frac{1}{2}}{n} \frac{x^{2n+1}}{2n+1}\quad .
 \]
 
-\subsubsection{Exercises}
+\subsubsection{Examples and Exercises}
 \begin{problem}
 Compute the Maclaurin series of the following.
 \begin{multicols}{2}
@@ -3348,7 +3187,7 @@ We are now in position to prove \eqref{eq(1+x/n)^n=e^x}.
 \[
 \lim\limits_{n\to \infty} \left(1+\frac{p}{n}\right)^n= \lim_{\substack{n\to \infty \\ x=\frac{1}{n}\\x\to 0}} \left(1+xp\right)^{\frac{1}{x}} \stackrel{\eqref{eqLhospitalExample2}}{=}e^p
 \]
-\subsubsection{Exercises}
+\subsubsection{Examples and Exercises}
 \begin{problem}
 Compute the limits. You may use L'Hospital's rule. For the limits for which $x\to 0$, you are allowed to alternatively use the (not yet proved fact) that whenever $x$ belongs to a small enough neighborhood of 0, analytic functions equal their Maclaurin series (all functions given below are analytic in a small enough neighborhood of 0). You may of course also use any other method that works.
 \begin{enumerate}
@@ -4668,7 +4507,7 @@ The following problem is the so called ``mixing problem''.
 \end{problem}
 \input{../../modules/diff-eq-separable/homework/mixing-problem-1-solution}
 
-\subsubsection{Exercises}
+\subsubsection{Examples and Exercises}
 \begin{problem} \input{../../modules/diff-eq-separable/homework/separable-DFQs-2}
 \end{problem}
 \begin{problem}

@@ -1,12 +1,12 @@
 \solution{\ref{problemInt1/(3+cos x)dx}
-This integral is of none of the forms that can be integrated quickly. Therefore we have to use the standard rationalizing substitution $x=2\Arctan t$, $t=\tan \left(\frac{x}{2}\right)$. We recall that from the double angle formulas it follows that 
+We to use the standard rationalizing substitution $x=2\Arctan t$, $t=\tan \left(\frac{x}{2}\right)$. We recall that from the double angle formulas it follows that 
 \[
 \cos (2\Arctan t)=\frac{\cos^2(\Arctan t)- \sin^2(2\Arctan t)}{\cos^{2}(\Arctan t)+\sin^2(\Arctan t)}=\frac{1-t^2}{1+t^2}\quad .
 \]
 Therefore we can solve the integral as follows.
 \[
 \begin{array}{rcll|l}
-\displaystyle \int \frac{1}{3+\cos x}\diff x&=&\displaystyle \int \frac{1}{3+\cos (2\Arctan t)}\diff \left(2\Arctan t\right) &&\text{Substitute } x=2\Arctan t\\
+\displaystyle \int \frac{1}{3+\cos x}\diff x&=&\displaystyle \int \frac{1}{3+\cos (2\Arctan t)}\diff \left(2\Arctan t\right) &&\text{Set } x=2\Arctan t\\
 &=& \displaystyle \int \frac{1}{\left(3+\frac{1- t^2}{ 1+t^2}\right)} \frac{ 2}{\left(1+ t^2\right) } \diff t\\
 &=&\displaystyle \int\frac{2}{4+2t^2}\diff t\\
 &=&\displaystyle \int \frac{1}{2 +t^2}\diff t\\
@@ -24,10 +24,10 @@ However, as proposed in the hint, the substitution $x=\Arctan t$ works much fast
 \[
 \begin{array}{rcll|l}
 \displaystyle \int \frac{1}{2+\tan x}\diff x&=&\displaystyle \int \frac{1}{2+\tan (\Arctan t)}\diff \left(\Arctan t\right) &&\text{Substitute } x=\Arctan t\\
-&=& \displaystyle \int \frac{1}{\left(2+t\right)} \frac{ 1}{\left(1+ t^2\right) } \diff t && \text{Decompose into partial fractions}\\
+&=& \displaystyle \int \frac{1}{\left(2+t\right)} \frac{ 1}{\left(1+ t^2\right) } \diff t && \text{part. fractions}\\
 &=&\displaystyle \int \left( \frac{\frac{1}{5}}{(t +2)}+\frac{-\frac{t }{5}+\frac{2}{5}}{(t^{2}+1)}\right)\diff t
 \\
-&=&\displaystyle \frac{1}{5}\ln |t+2|-\frac{1}{10}\ln (t^2+1)+\frac{2}{5}\arctan t+C &&\text{Substitute back } t=\tan x \\
+&=&\displaystyle \frac{1}{5}\ln |t+2|-\frac{1}{10}\ln (t^2+1)+\frac{2}{5}\arctan t+C && t=\tan x \\
 &=&\displaystyle \frac{1}{5}\ln \left|\tan x+ 2\right|-\frac{1}{10}\ln (\tan^2 x+1)+\frac{2}{5}x+C\\
 &=&\displaystyle \frac{1}{5}\ln |\tan x+ 2|+\frac{1}{5}\ln \left|\cos x\right|+\frac{2}{5}x+C\\
 &=&\displaystyle \frac{1}{5} \ln \left|(\tan x+2)\cos x\right|+\frac{2}{5}x+C\\
@@ -39,14 +39,14 @@ However, as proposed in the hint, the substitution $x=\Arctan t$ works much fast
 \solution{\ref{problemint1/(2sinx-cosx+5)dx}.
 
 Set $x=2\arctan t$. As studied\refBad{\ref{eqTrigIntegralsWeistrassSub}}{}{ in equation \ref{eqTrigIntegralsWeistrassSub}}, this substitution implies $\cos x= \frac{1-t^2}{1+t^2}$, $\sin x= \frac{2t}{1+t^2}$, $\diff x=\frac{2}{1+t^2}\diff t$. Therefore
-\[
-\begin{array}{rcll|l}
+
+\noindent$\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
 \displaystyle \int \frac{\diff x}{2\sin x-\cos x +5}&=&\displaystyle \int \frac{2\diff t}{(1+t^2)\left(2\frac{2t}{t^2+1}- \frac{(-t^2+1) }{t^2+1}+5\right)} &&\text{Set }x=2\Arctan t\\
 &=&\displaystyle \int \frac{\diff t}{3t^2+2t+2}\\
 &=&\displaystyle \int  \frac{\diff t}{3\left(t^2+\frac{2}{3}t+ \frac{1}{9}-\frac{1}{9}+\frac{2}{3}\right)}\\
 &=&\displaystyle \int  \frac{\diff t}{3 \left( \left(t + \frac{ 1}{ 3 } \right)^2+\frac{5}{9}\right)}\\
-&=&\displaystyle \int  \frac{\diff t}{\frac{5}{3} \left( \left( \frac{3}{\sqrt{5}}\left(t + \frac{ 1}{ 3 }\right) \right)^2+1\right)} && \text{Subst.:} 
-\begin{array}{r@{~}c@{~}l}w&=& \frac{3}{\sqrt{5}}\left(t + \frac{ 1}{ 3 }\right) \\
+&=&\displaystyle \int  \frac{\diff t}{\frac{5}{3} \left( \left( \frac{3}{\sqrt{5}}\left(t + \frac{ 1}{ 3 }\right) \right)^2+1\right)} &&  
+\begin{array}{r@{~}c@{~}l}&&\text{Set}\\ w&=& \frac{3}{\sqrt{5}}\left(t + \frac{ 1}{ 3 }\right) \\
 &=& \frac{\sqrt{5}}{5}(3t+1)\\
 \diff w &=& \frac{3}{\sqrt{5}} \diff t\\
 \diff t &=&\frac{\sqrt{5}}{3}\diff w
@@ -58,5 +58,5 @@ Set $x=2\arctan t$. As studied\refBad{\ref{eqTrigIntegralsWeistrassSub}}{}{ in e
 &=&\displaystyle \frac{\sqrt{5}}{5}\arctan\left( \frac{\sqrt{5}}{5}(3t+1) \right)+C\\
 &=&\displaystyle \frac{\sqrt{5}}{5}\arctan \left(\frac{\sqrt{5}}{5}\left(3\tan \left(\frac{x}{2}\right)+1\right)\right)+C\quad .
 \end{array}
-\]
+$
 }
