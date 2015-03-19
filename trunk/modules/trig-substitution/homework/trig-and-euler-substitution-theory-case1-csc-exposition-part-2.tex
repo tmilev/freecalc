@@ -1,0 +1,41 @@
+We recall that the substitution $\theta = 2\arctan t$ transforms a trigonometric integral into an integral of a rational function. We now apply the substitution $2\arctan t$ after the substitution $x=\csc \theta$:
+\begin{equation*}
+\begin{array}{rcll|l}
+x&=&\displaystyle \csc \theta =\frac{1}{\sin \theta} & & \text{use } \theta=2\arctan t\\
+&=&\displaystyle \frac{1}{\sin (2\arctan t)} && \text{use\refBad{\ref{eqSinCosViaTan}}{ }{\eqref{eqSinCosViaTan}: }} \displaystyle \sin (2z) = \frac{ 2\tan z }{1+ \tan^2 z}\\
+&=&\displaystyle \frac{1+\tan^2(\arctan t)}{2\tan( \arctan t)} \\
+&=&\displaystyle \frac{1+t^2}{2t} \\
+&=&\displaystyle \frac{1}{2}\left(\frac{1}t+t\right)\quad .
+\end{array}
+\end{equation*}
+We can furthermore compute
+\begin{equation}\label{eqsqrtxsquareminus1E1}
+\begin{array}{rcll|l}
+\sqrt{x^2-1 }&=&\displaystyle \sqrt{ \left( \frac{1+t^2}{ 2t } \right)^2 -1}\\
+&=& \displaystyle \sqrt{\frac{(1+t^2)^2-4t^2 }{ 4t^2} }\\
+&=&\displaystyle \sqrt{\frac{(1-t^2)^2}{4t^2}} &&\displaystyle \frac{1-t^2}{2t}>0\text{ when } t\in (-\infty, -1) \cup \left[0, 1 \right)  \\
+&=&\displaystyle \frac{1-t^2}{2t}\\
+&=&\displaystyle\frac{1}{2}\left(\frac{1}{t}-t\right)\quad .\\
+\end{array}
+\end{equation}
+The differential $\diff x$ can be computed from $x=\frac{1}{2}\left(\frac{1}{t}-t\right)$. Finally, we can express $t$ via $x$ with a little algebra:
+
+\[
+\begin{array}{rcll|l}
+\displaystyle \sqrt{x^2-1 }&=&\displaystyle \frac{1-t^2}{2t}\\
+\displaystyle \sqrt{x^2-1 }&=&\displaystyle \frac{2-(1+t^2)}{2t} &&\displaystyle \text{use } x=\frac{1+t^2}{2t}\\
+\displaystyle \sqrt{x^2-1}&=&\displaystyle \frac{1}{t}-x\\
+\displaystyle \frac{1}{t}&=&\displaystyle \sqrt{x^2-1}+x\\
+t&=& \displaystyle \frac{1}{\sqrt{x^2-1}+x}= \frac{1}{(\sqrt{x^2-1}+x)} \frac{ (-\sqrt{x^2-1}+x)} {(-\sqrt{x^2-1}+x)}\\
+t&=&\displaystyle x-\sqrt{x^2-1}
+\end{array}
+\]
+The Euler substitution $x= \cos (2\arctan t)$ can be now summarized as:
+\[
+\begin{array}{rcl}
+x&=&\displaystyle \frac{1}{2}\left(\frac{1}{t}+t\right)\\
+\sqrt{-x^2+1}&=&\displaystyle\frac12 \left(\frac{1}{t} - t \right) \\
+\diff x&=&\displaystyle  -\frac{1}{2}\left(\frac{1}{t^2}+1\right) \diff t\\
+t&=&\displaystyle x-\sqrt{x^2-1}\quad .
+\end{array}
+\]
