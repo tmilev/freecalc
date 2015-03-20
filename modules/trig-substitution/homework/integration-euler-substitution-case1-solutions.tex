@@ -1,4 +1,4 @@
-\solution{
+\solution{\ref{problemIntegratesqrt(x^2+1)dx}
 We carry out the Euler substitution $t=\sqrt{x^2+1}-x$\refBad{\ref{eqEulerSub-case1-cot(2arctant)}}{.}{ given in  \eqref{eqEulerSub-case1-cot(2arctant)}}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac{1}{2} \left(\frac1{t^2} +1\right)\diff t$ to get
 \noindent$
 \begin{array}{@{}r@{}c@{}l}
@@ -57,4 +57,31 @@ $
 &&\displaystyle ~~~~~~ \left.+ \frac{1}{2}\ln \left( \sqrt{(2x+1)^2+1 }+2x+1\right) \right)+C
 \end{array}
 \]
+}
+
+\solution{\ref{problemintsqrt(x^2+1)/(x+1)dx}
+
+$\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\displaystyle \int \frac{\sqrt{ x^2+1}}{x+1}\diff x&=& \displaystyle \int \frac{ \frac{1}{2}\left(\frac{1}{t}+t \right) }{ \frac{1}{2}\left(\frac{1}{t}-t \right)+1 }\diff \left(\frac{1}{2} \left(\frac{1}{t}-t \right) \right) &&\begin{array}{l}\text{Euler sub: }\\ \begin{array}{rcl} x&=&\frac{1}{2}\left(\frac{1}{t}-t\right) \\
+\sqrt{x^2+1}&=&\frac{1}{2}\left(\frac{1}{t}+t\right)
+\end{array}\end{array}\\
+&=&\displaystyle \int \frac{1+t^2}{1-t^2+2t }\frac{1}{2} \left(-t^{-2}-1 \right)\diff t\\
+&=&\displaystyle \int \frac{1}{2} \frac{(1+t^2)\left(-t^{-2}-1 \right)}{1-t^2+2t } \diff t\\
+&=&\displaystyle \frac{1}{2} \int \frac{ t^{4}+2 t^{2}+1}{ t^{4}-2 t^{3}-t^{2}} \diff t &&\text{use pol. long div.}\\
+&=&\displaystyle \frac{1}{2}\int \left(1+\frac{ 2t^{3}+ 3t^{2} +1}{ t^2\left(t^{2}-2 t-1\right)}\right) \diff t &&\text{part. fractions}\\
+&=&\displaystyle \frac{1}{2}\int \left(1+ \frac{2\sqrt{2}}{t -\sqrt{2}-1}+\frac{-2\sqrt{2}}{t +\sqrt{2}-1}+\frac{2}{t }+\frac{-1}{t^{2}}\right)\diff t\\
+&=&\displaystyle -\sqrt{2} \ln{}\left|t+\sqrt{2}-1\right|+\sqrt{2} \ln{}\left|t-\sqrt{2}-1\right|\\
+&&\displaystyle+\frac{1}{2} t^{-1}+\ln{}\left|t\right|+\frac{1}{2} t +C&&\text{use } t=\sqrt{x^2+1}-x\\
+&=&\displaystyle -\sqrt{2} \ln{}\left(\sqrt{x^{2}+1}- x+\sqrt{2}-1\right)\\
+&&\displaystyle +\sqrt{2} \ln{}\left(\sqrt{x^{2}+1}- x-\sqrt{2}-1\right)\\
+&&\displaystyle + \ln{} \left( \sqrt{x^{2}+1}- x\right)\\
+&&\displaystyle +\frac{1}{2} \left(\sqrt{x^{2}+1}- x\right)^{-1}+\frac{1}{2} \sqrt{x^{2}+1}-\frac{1}{2} x &&\text{Last 3 terms simplify}\\
+&=&\displaystyle -\sqrt{2} \ln{}\left(\sqrt{x^{2}+1}- x+\sqrt{2}-1\right) \\
+&&\displaystyle +\sqrt{2} \ln{}\left(\sqrt{x^{2}+1}- x-\sqrt{2}-1\right)\\
+&&\displaystyle + \ln{} \left( \sqrt{x^{2}+1}- x\right)\\
+&&+ \sqrt{x^{2}+1}
+
+\end{array}
+$
+
 }
