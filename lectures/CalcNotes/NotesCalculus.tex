@@ -1517,12 +1517,12 @@ where we have used that for an arbitrary real number $t$ we have that $|t|=\sqrt
 \[
 \arctan \left(\frac{\Im z}{\Re z}\right)\quad .
 \]
-By definition $\varphi\in  (-\frac{\pi}{2}, \frac{\pi}{2})$ and therefore we may apply \eqref{eqSinCosViaTan} as follows.
+By definition $\varphi\in  \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ and therefore we may apply \eqref{eqSinCosViaTan} as follows.
 \[
 e^{\ln |z| + i\varphi}= e^{\ln |z|} (\cos\varphi+i\sin\varphi )=|z|(\cos\varphi+i\sin\varphi ) \stackrel{\eqref{eqSinCosViaTan}}{=}
 |z| \left(\frac{1}{\sqrt{1+\tan^2\varphi}} +i \frac{\tan \varphi}{\sqrt{1+\tan^2\varphi}} \right)\quad .
 \]
-On the other hand, as $\varphi\in  (-\frac{\pi}{2}, \frac{\pi}{2})$, we have that $\tan\varphi= \tan\left(\arctan\left(\frac{\Im z}{\Re z}\right)\right)= \frac{\Im z}{\Re z}$. Therefore
+On the other hand, as $\varphi\in  \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$, we have that $\tan\varphi= \tan\left(\arctan\left(\frac{\Im z}{\Re z}\right)\right)= \frac{\Im z}{\Re z}$. Therefore
 \[
 \begin{array}{rcl}
 \displaystyle e^{\ln |z| + i\varphi}&=&\displaystyle \underbrace{|z|}_{\sqrt{(\Re z)^2+(\Im z)^2}} \left(\frac{1}{\sqrt{1+\frac{(\Im z)^2}{(\Re z)^2}}} +i \frac{\frac{\Im z}{\Re z}}{\sqrt{1+\frac{(\Im z)^2}{(\Re z)^2}}} \right) \\
@@ -2313,13 +2313,11 @@ As demonstrated in the present section, it is sufficient to memorize the substit
 \input{../../modules/trig-substitution/homework/trig-substitution-sin-cos-1-solutions}
 
 \subsubsection{Trig or Euler substitution, solutions use Euler substitution}
-\begin{problem}
-\input{../../modules/trig-substitution/homework/euler-substitution-theory-case2}
-\end{problem}
 \input{../../modules/trig-substitution/homework/euler-substitution-theory-case2-solution}
 \begin{problem}
 \input{../../modules/trig-substitution/homework/integration-euler-substitution-case1-integral-radical-quadratic}
 \end{problem}
+
 
 \begin{problem}
 \input{../../modules/trig-substitution/homework/euler-substitution-theory-case3}
@@ -2331,47 +2329,14 @@ As demonstrated in the present section, it is sufficient to memorize the substit
 \end{problem}
 \input{../../modules/trig-substitution/homework/integration-euler-substitution-case1-solutions}
 \begin{problem}
-\input{../../modules/trig-substitution/homework/integration-euler-substitution-case1-2}
-\end{problem}
-\begin{problem}
 \input{../../modules/trig-substitution/homework/integration-euler-substitution-case2}
-\end{problem}
-\begin{problem}
-\input{../../modules/trig-substitution/homework/integration-euler-substitution-case2-2}
 \end{problem}
 \begin{problem}
 \input{../../modules/trig-substitution/homework/integration-euler-substitution-case3}
 \end{problem}
-\begin{problem}
-\input{../../modules/trig-substitution/homework/integration-euler-substitution-case3-2}
-\end{problem}
 
 
-\begin{problem}
 
-Integrate
-\[
-\int \frac{\diff x}{x+\sqrt{x^2+x+1}}\quad .
-\]
-\end{problem}
-%\begin{solution}
-%Substitute first  $x=t-1/2$, $\diff x=\diff t$, and then $t=\frac{\sqrt{3}}2 u$, $\diff t=\frac{\sqrt{3}}2 du$:
-%\[
-%\begin{array}{rcl}
-%\displaystyle\int \frac{\diff x}{x+\sqrt{x^2+x+1}}&=&\displaystyle \int \frac{\diff t}{t-1/2+\sqrt{t^2+3/4}} =\\
-%&=&\displaystyle \int \frac{\frac{\sqrt{3}}2du}{ \frac{\sqrt{3}}{2}u-1/2+\frac{\sqrt{3}}{2}\sqrt{u^2+1}}= \int \frac{du}{ u-\frac{\sqrt{3}}{3}+\sqrt{u^2+1}}\\ \quad .
-%\end{array}
-%\]
-%According to recipe, we substitute $\sqrt{u^2+1}= u+s$ as computed in \ref{eqEulerSub1}, to get $\displaystyle du=\left(-\frac{1}{2s^2}-2\right) \diff s$, $\displaystyle \sqrt{u^2+1}=\frac{1}{2s}-s$, $u=\displaystyle\frac{1}{2s}-2s$:
-%\[
-%\begin{array}{rcl}
-%\displaystyle
-%\int \frac{\diff x}{x+\sqrt{x^2+x+1}}
-%&=&\displaystyle \int \frac{\left(-\frac{1}{2s^2}-2\right) \diff s}{ \frac{1}{2s}-2s-\frac{\sqrt{3}}{3}+\frac{1}{2s}-s}\\
-%\quad .
-%\end{array}
-%\]
-%\end{solution}
 \begin{problem}
 Integrate
 \[

@@ -1,36 +1,43 @@
-\begin{solution}
-We carry out the Euler substitution $t=\sqrt{x^2+1}-x$ given in \eqref{eqEulerSub1.2}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac12 \left(\frac1{t^2} +1\right)\diff t$ to get
-\[
-\begin{array}{rcl}
+\solution{
+We carry out the Euler substitution $t=\sqrt{x^2+1}-x$\refBad{\ref{eqEulerSub-case1-cot(2arctant)}}{.}{ given in  \eqref{eqEulerSub-case1-cot(2arctant)}}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac{1}{2} \left(\frac1{t^2} +1\right)\diff t$ to get
+\noindent$
+\begin{array}{@{}r@{}c@{}l}
 \displaystyle\int \sqrt{(x^2+1)}\diff x&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)\diff t\\
 &=&\displaystyle -\frac 1 4\int \left( \frac{1}{t^3}+ 2\frac{1}t +t\right)\diff t\\
 &=&\displaystyle -\frac{1}4 \left(-\frac{t^{-2}}{2}+2\ln|t|+\frac{t^2}2 \right)+C\\
 &=&\displaystyle\frac{1}{8} \left(\frac{1}{(\sqrt{x^2+1} - x )^2 }
 - (\sqrt{x^2+1}-x)^2\right)\\
-&&\displaystyle -\frac12 \ln (\sqrt{x^2+1}-x)+C
+&&\displaystyle -\frac12 \ln \left(\sqrt{x^2+1}-x\right)+C
 \end{array}
-\]
-The above expression gives a perfectly good answer to the problem. However, the expression $\frac{1}{(\sqrt{x^2 +1}- x)^2 }- (\sqrt{x^2+1}-x)^2$ can be transformed to a simpler looking expression with a little algebra:
-\[\begin{array}{rcl}
+$
+
+\noindent The above expression gives a perfectly good answer to the problem. However, the expression $\frac{1}{(\sqrt{x^2 +1}- x)^2 }- (\sqrt{x^2+1}-x)^2$ can be transformed to a simpler looking expression with a little algebra:
+
+\noindent$
+\begin{array}{@{}r@{}c@{}l@{}}
 \displaystyle\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2&=&\displaystyle
 \frac{(\sqrt{x^2+1}+x)^2}{(\sqrt{x^2+1}-x)^2  (\sqrt{x^2+1}+x)^2 } \\
 &&\displaystyle - (\sqrt{x^2+1}-x)^2 \\
 &=&\displaystyle \frac{(\sqrt{x^2+1}+x)^2}{\underbrace{((\sqrt{x^2+1})^2-x^2)^2}_{=1} }- (\sqrt{x^2+1}-x)^2 \\
 &=&\displaystyle 4x\sqrt{x^2+1}
 \end{array}
-\]
-The expression $\ln (\sqrt{x^2+1}-x)$ can be transformed to
-\[
-\ln \left(\frac{(\sqrt{x^2+1}-x)(\sqrt{x^2+1}+x)}{\sqrt{x^2+1}+x}\right)=\ln \left(\frac{1}{\sqrt{x^2+1}+x}\right)= -\ln (\sqrt{x^2+1}+x)
-\]
-Finally, we get
+$
+
+\noindent The expression $\ln \left(\sqrt{x^2+1}-x\right)$ can be transformed to
+
+\noindent $\begin{array}{rcl}
+\displaystyle \ln \left(\frac{\left( \sqrt{x^2+1} - x\right) \left( \sqrt{x^2+1}+ x\right) }{ \sqrt{x^2+1 }+x}\right) &=& \displaystyle \ln \left(\frac{1}{\sqrt{x^2+1}+x}\right)\\
+&=& \displaystyle  -\ln \left(\sqrt{x^2+1}+x\right)
+\end{array}
+$
+
+\noindent Finally, we get
 \[
 \begin{array}{rcl}
-\displaystyle \int \sqrt{(x^2+1)}\diff x&=&\frac{1}2\left(x\sqrt{x^2+1}+\ln (\sqrt{x^2+1}+x)+C \right)\quad .
+\displaystyle \int \sqrt{(x^2+1)}\diff x&=&\frac{1}2\left(x\sqrt{x^2+1}+\ln \left(\sqrt{x^2+1}+x\right)+C \right)\quad .
 \end{array}
 \]
-\end{solution}
-
+}
 
 \solution{\ref{problemIntegrate sqrt(2x^2+2x+1)dx}
 \[
@@ -44,7 +51,7 @@ Finally, we get
 &=&\displaystyle - \frac{\sqrt{2} }{16}  \left( -\frac{t^{-2}}{2} + 2\ln |t| + \frac{t^2}{2}\right)+C\\
 &=& \displaystyle \frac{\sqrt{2}}{4} \left(-\frac{1}{4}\left( -\frac{\left(\sqrt{u^2+1}-u \right)^{-2} }{2} \right.\right.\\
 &&\displaystyle ~~~~~~~  +  2\ln \left(\sqrt{u^2+1}-u \right)\\
-&&\displaystyle ~~~~~~~  \left.\left.+ \frac{\left(\sqrt{u^2+1}-u \right)^2 }{2}\right)\right)+C&&\text{simplifies by theory}\\
+&&\displaystyle ~~~~~~~  \left.\left.+ \frac{\left(\sqrt{u^2+1}-u \right)^2 }{2}\right)\right)+C&&\text{simplifies by \ref{problemIntegratesqrt(x^2+1)dx}}\\
 &=&\displaystyle \frac{\sqrt{2}}{4} \left( \frac{1}{2} u\sqrt{u^2+1}+\frac{1}{2}\ln\left(\sqrt{u^2+1}+u \right) \right) +C \\
 &=&\displaystyle \frac{\sqrt{2}}{4} \left( \frac{1}{2} (2x+1)\sqrt{(2x+1)^2+1 }\right.\\
 &&\displaystyle ~~~~~~ \left.+ \frac{1}{2}\ln \left( \sqrt{(2x+1)^2+1 }+2x+1\right) \right)+C
