@@ -1,0 +1,34 @@
+\solution{\ref{problemintsqrt(1-x^2)/(1+x)dx} In this problem solution we use the standard substitution $x=\cos (2\Arctan t)$. We recall \refBad{\ref{eqEulerSubx=cos(2arctant)}}{that}{from \eqref{eqEulerSubx=cos(2arctant)} that}
+
+\noindent $\begin{array}{rcl}
+\displaystyle x& =&\displaystyle \cos(2\Arctan t)= \frac{1-t^2}{1+t^2}\\
+\Arccos (x)&=& 2 \Arctan t\\
+\displaystyle \diff x &=&\displaystyle  -\frac{4t}{(1+t^2)^2}\diff t\\
+\displaystyle \sqrt{1-x^2}&=&\displaystyle \sin (2\Arctan t)= \frac{2t}{1+t^2}\\
+t&=&\displaystyle \frac{\sqrt{1-x^2}}{x+1}\quad .
+\end{array}
+$
+
+\noindent $
+\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\displaystyle \int  \frac{\sqrt{1-x^2}}{1+x}\diff x&=& \displaystyle \int t \left(-\frac{4t}{\left(1+t^2\right)^2} \right)\diff t&&\begin{array}{l} \text{Set }x=\frac{1-t^2}{1+t^2}\\
+\text{Use f-las above}
+\end{array}
+\\
+&=&\displaystyle -4\int\frac{t^2}{\left(1+t^2\right)^2}\diff t\\
+&=&\displaystyle -4\int\frac{1+t^2-1}{\left(1+t^2\right)^2 }\diff t\\
+&=&\displaystyle -4\int\left(\frac{1}{1+t^2} -\frac{1}{\left(1+t^2\right)^2}\right)\diff t\\
+&=&\displaystyle -4\left(\Arctan t - \frac{1}{2}\left(\Arctan t+ \frac{t}{1+t^2} \right) \right)+C\\
+&=&\displaystyle -2\left(\Arctan {}t - \frac{t}{1+t^2} \right) +C\\
+&=&\displaystyle -2\left( \Arctan {}\left(\frac{\sqrt{1-x^2}}{1+x} \right) - \frac{1}{2}\sqrt{1-x^2} \right) +C\\
+&=&\displaystyle -2 \Arctan {}t  +\sqrt{1-x^2} +C &&\text{Use f-las above}
+\\
+&=&\displaystyle -\Arccos x+ \sqrt{1-x^2}  +C\\
+&=&\displaystyle \Arcsin x +\sqrt{1-x^2}+K\quad .
+\end{array}
+$
+
+We have included the last equality to remind the student that derivatives of $\Arcsin(x)$ and $\Arccos x$ are negatives of one another.
+
+
+}
