@@ -1,0 +1,66 @@
+\solution{\ref{problemintsecxdx}
+
+\textbf{Variant I.} This variant uses the standard method for solving trigonometric integrals with the substitution $x=\arctan (2t)$.
+
+\noindent 
+$\begin{array}{rcll|l}
+\displaystyle \int \sec x \diff x&=&\displaystyle \int \sec (2\arctan t) \diff (2\arctan t)&& \text{Set } x= 2\arctan t\\
+&=&\displaystyle \int \frac{1}{\cos (2\arctan t)} \frac{2}{1+t^2}\diff t&& \text{Use \refBad{\ref{eqsin2zViaTanzcos2zViaTanz}}{}{\eqref{\label{eqsin2zViaTanzcos2zViaTanz}}:}} \cos (2 z)= \frac{1-\tan^2 z }{1+\tan^2 z}\\
+&=&\displaystyle \int \frac{1}{\frac{1 -t^2}{1 +t^2}} \frac{ 2 }{ 1+t^2}\diff t\\
+&=&\displaystyle \int \frac{2}{1-t^2}\diff t&&\text{part. fractions}\\
+&=&\displaystyle \int \left(\frac{1}{1-t}+ \frac{1}{ 1+t} \right)\diff t\\
+&=&\displaystyle  -\ln |1-t|+\ln |1+t|+C \\
+&=&\displaystyle \ln \left|\frac{1+t}{1-t}\right| &&\text{Subst. } t=\tan \left(\frac{x}{2}\right) \\
+&=&\displaystyle \ln \left|\frac{1+\tan \left( \frac{ x}{2} \right)}{ 1-\tan \left(\frac{x}{2}\right)} \right|+C&& \text{Last step: see below}\\
+&=&\displaystyle \ln |\sec x +\tan x |+C\quad .
+\end{array}
+$
+
+The expression $\ln \left| \frac{1+\tan \left(\frac{x}{2} \right) } {1 -\tan \left(\frac{x}{2}\right)} \right|$ presents a perfectly good answer, which would certainly would qualify for a correct test answer. However, as shown above, it can be rewritten into the shorter form $\ln |\sec x +\tan x |$. Below we quickly prove that $\displaystyle \frac{1+\tan \left(\frac{x}{2} \right) } {1 -\tan \left(\frac{x}{2}\right)}$ equals $\sec x +\tan x$.
+
+$\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\displaystyle \sec x+\tan x &=&\displaystyle  \frac{1+\sin x}{\cos x}&&\begin{array}{@{}r@{}c@{}l}\text{Use:}\\
+\sin x &=& 2\sin \left(\frac{x}{2}\right)\\ \cos x&=& \cos^2 \left(\frac{x}{2}\right) -\sin^2 \left(\frac{x}{2}\right)\\ 1&=&\cos^2 \left(\frac{x}{2}\right)+ \sin^2 \left(\frac{x}{2}\right) \end{array}\\
+&=&\displaystyle  \frac{\cos^2\left(\frac{x}{2}\right)+ \sin^2\left(\frac{x}{2}\right)+2\sin \left(\frac{x}{2}\right) \cos \left(\frac{x}{2}\right)}{\cos^2 \left(\frac{x}{2}\right) -\sin^2\left(\frac{x}{2}\right)}\\
+&=&\displaystyle \frac{\left(\sin \left(\frac{x}{2}\right)+ \cos\left( \frac{ x}{ 2}\right) \right)^{2}}{ {\left(\cos \left( \frac{ x}{ 2} \right)-\sin \left( \frac{x }{2}\right)\right)} \left(\cos  \left(\frac{x}{2}\right)+\sin \left(\frac{x}{2}\right)\right)}\\
+&=&\displaystyle \frac{\left(\sin \left(\frac{x}{2}\right)+ \cos\left( \frac{ x}{ 2}\right) \right)\frac{1}{\cos  \left(\frac{x}{2}\right) } }{ \left(\cos  \left(\frac{x}{2}\right)- \sin \left( \frac{ x}{2} \right)\right)\frac{1}{\cos\left(\frac{x}{2}\right)}}\\
+&=&\displaystyle \frac{1+\tan \left(\frac{x}{2} \right)}{1 -\tan\left( \frac{ x}{2} \right)}
+\end{array}
+$
+
+
+\textbf{Variant II. } This variant present a quick solution by multiplying and dividing our integrand by the multiplier $\sec x+\tan x$. Of course, the idea of using that multiplier comes from knowing the answer to the problem in advance (which can be obtained, for example, by using Variant I of the solution).
+
+$\begin{array}{rcll|l}
+\displaystyle \int \sec x \diff x&=&\displaystyle \int \sec x \frac{\sec x +\tan x }{\sec x+\tan x }\diff x  \\
+&=& \displaystyle \int \frac{\sec^2 x+\sec x\tan x }{\sec x +\tan x }\diff x&&
+\begin{array}{rcl}
+\diff (\tan x )&=&\sec^2 x\diff x\\
+\diff (\sec x)&=&\sec x\tan x \diff x
+\end{array}\\
+&=&\displaystyle  \int \frac{\diff (\sec x+\tan x) }{\sec x +\tan x} &&\text{Set }u=\sec x +\tan x\\
+&=&\displaystyle \int \frac{\diff u}{u}\\
+&=&\displaystyle \ln |u|+C\\
+&=&\displaystyle \ln |\sec x +\tan x|+C\quad .
+\end{array}
+$
+
+}
+
+
+\solution{\ref{problemintsec^3xdx} This problem can be solved with the general method by setting $x=2\Arctan t$. However, using the preceding problem we can arrive at a shorter solution as follows.
+
+\noindent $
+\begin{array}{rcll|l}
+\displaystyle \int \sec^3 x \diff x&=&\displaystyle \int  \sec x \diff (\tan x) &&\text{int. by parts}\\
+&=&\displaystyle  \sec x\tan x - \int \tan x \diff (\sec x)\\
+&=&\displaystyle \sec x \tan x - \int \sec x \tan^2 x\diff x &&\tan^2 x =\sec^2x-1\\
+&=&\displaystyle \sec x \tan x - \int\sec x (\sec^2x-1)\diff x\\
+&=&\displaystyle \sec x \tan x - \int \sec^3 x \diff x+\int \sec x \diff x &&\text{Use Problem }\ref{problemintsecxdx}\\
+&=&\displaystyle \sec x \tan x -\int \sec^3x \diff x+\ln |\sec x +\tan x|&& \begin{array}{l} + \int \sec^3x \diff x \\ 
+\text{ to both sides}\end{array} \\
+\displaystyle 2\int \sec^3x \diff x&=&\displaystyle \left(\sec x\tan x +\ln |\sec x+\tan x| \right) +C\\
+\displaystyle \int \sec^3x \diff x&=&\displaystyle \frac{1}{2}\left(\sec x\tan x +\ln |\sec x+\tan x| \right) +K\\
+\end{array}
+$
+}
