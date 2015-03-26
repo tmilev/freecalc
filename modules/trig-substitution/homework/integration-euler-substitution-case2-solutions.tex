@@ -1,4 +1,27 @@
-\solution{\ref{problemintsqrt(1-x^2)/(1+x)dx} In this problem solution we use the standard substitution $x=\cos (2\Arctan t)$. We recall \refBad{\ref{eqEulerSubx=cos(2arctant)}}{that}{from \eqref{eqEulerSubx=cos(2arctant)} that}
+\solution{\ref{problemintsqrt(1-x^2)dx} 
+
+\textbf{Variant I.} This integral is possibly fastest to solve directly using a trig substitution. In the next variant of the solution we show the Euler substitution.
+
+\noindent $
+\begin{array}{rcl@{}l@{}|l}
+\displaystyle \int \sqrt{1-x^2}\diff x &=&\displaystyle  \int \sqrt{1-\cos^2\theta}\diff (\cos \theta) &&\text{Set }x=\cos \theta, \theta\in[0,\pi]\\
+&=&\displaystyle \int \sqrt{\sin^2\theta } (-\sin \theta)\diff \theta &&\theta\in [0,\pi]\Rightarrow \sin \theta\geq 0\\
+&=&\displaystyle -\int \sin^2\theta \diff \theta && \sin^2\theta= \frac{1+\cos (2\theta) }{2}\\
+&=&\displaystyle-\int \frac{1+\cos (2\theta)}{2}\diff \theta\\
+&=&\displaystyle - \frac{\theta}{2}-\frac{ \sin (2\theta)}{4}+C&&
+\begin{array}{rcl}
+\theta &=&\arccos \theta
+\end{array}
+\end{array}
+$
+
+
+\textbf{Variant II.} We show how to do this integral via the Euler substitution $x=\cos (2\Arctan t)$.
+
+\textbf{Variant III. }
+}
+
+\solution{\ref{problemintsqrt(1-x^2)/(1+x)dx} In this problem solution we use the standard Euler substitution $x=\cos (2\Arctan t)$. We recall \refBad{\ref{eqEulerSubx=cos(2arctant)}}{that}{from \eqref{eqEulerSubx=cos(2arctant)} that}
 
 \noindent $\begin{array}{rcl}
 \displaystyle x& =&\displaystyle \cos(2\Arctan t)= \frac{1-t^2}{1+t^2}\\
