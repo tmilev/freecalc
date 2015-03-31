@@ -1,50 +1,26 @@
 %end module integral-radical-x-squared-plus-one
 \begin{frame}
-Recall Euler substitution: $x=\frac12\left(\frac{1}{t}- t \right)$, $\alertNoH{2}{\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)}$, $\alertNoH{12,13,14}{ t=\sqrt{x^2+1}-x} $, $\alertNoH{3}{ \diff x=-\frac12 \left(\frac1{t^2} +1\right)\diff t}$.
+\vskip -0.05cm
+Euler substitution: $\alertNoH{17}{x=\frac12\left(\frac{1}{t}- t \right)}$, $\alertNoH{2,18}{\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)}$, $\alertNoH{16,19}{ t=\sqrt{x^2+1}-x} $, $\alertNoH{3}{ \diff x=-\frac12 \left(\frac1{t^2} +1\right)\diff t}$. \uncover<16->{Recall \alertNoH{16}{$t>0$}.}
+\vskip -0.25cm
 \begin{example}
+%\vskip -0.1cm
 $
-\begin{array}{rcl}
-\displaystyle \int \alertNoH{2}{ \sqrt{x^2+1}} \alertNoH{3}{ \diff x} \vphantom{ \frac{1}{8}\left(\frac{1}{ (\sqrt{ x^2 +1} -x)^2} - (\sqrt{x^2+1}- x)^2 \right) } &=&
+\begin{array}{@{\!\!}r@{}c@{~}l@{}}
+\displaystyle \int \alertNoH{2}{ \sqrt{x^2+1}} ~\alertNoH{3}{ \diff x}  &=&
 \displaystyle
-\only<1-16>{
+
 \uncover<2->{ \alertNoH{3}{-} \int  \alertNoH{2}{\alertNoH{4 }{ \frac12} \left(\alertNoH{5,6}{\frac1t} +\alertNoH{7,8}{t}\right)} \alertNoH{3}{\alertNoH{4}{ \frac{1}{2}} \left(\alertNoH{5,7}{ \frac 1 {t^2}} +\alertNoH{6,8}{1} \right)\diff t}} \\
 \uncover<4->{ &=&\displaystyle -\alertNoH{4}{ \frac 1 4} \alertNoH{9,10,11}{ \int} \left(\alertNoH{5}{ \alertNoH{9}{ \frac{ 1 }{ t^3}}} + \alertNoH{6,7,10}{2\frac{1}t} + \alertNoH{8,11}{t} \right) \alertNoH{9,10,11}{ \diff t} } \\
-\uncover<9->{&=&\displaystyle \alertNoH{15}{-\frac{1}4} \left( \alertNoH{9}{ \alertNoH{15}{ -}\frac{ \alertNoH{12}{ t^{-2}}}{\alertNoH{15}{2}}} +\alertNoH{10}{ \alertNoH{15}{2} \ln\alertNoH{14}{ |t|} }+ \alertNoH{11}{\frac{\alertNoH{13}{ t^2}}{\alertNoH{15}{2}}} \right)+C}\\
-\uncover<12->{&=&}
-}
-\uncover<12->{\displaystyle \only<1-24>{  \alertNoH{16,17,24}{ \alertNoH{15}{\frac{1}{8}} \alertNoH{18}{\left(\frac{1}{\alertNoH{12}{ (\sqrt{ x^2 +1} -x)^2}} - \alertNoH{13}{\left(\sqrt{x^2+1}- x\right)^2} \right)} } }}\only<25->{
-\alertNoH{25}{ \frac{1}{2}x\sqrt{x^2+1}}
-} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}  \\
-\uncover<12->{ && \displaystyle \alertNoH{16,17}{ \only<1-30>{ \alertNoH{15}{ -}} \only<31->{\alertNoH{31}{+} } \alertNoH{15}{ \frac12}  \alertNoH{26,30}{\ln \left( \alertNoH{ 14}{ \sqrt{x^2+1} \only<1-30>{-}\only<31->{ \alertNoH{ 31}{ +} } x} \right)} +C}}
+\uncover<9->{&=&\displaystyle \alertNoH{12,15}{-} \alertNoH{14,15}{\frac{1}4} \left( \alertNoH{9}{ \alertNoH{12}{ -}\frac{ \alertNoH{12}{ t^{-2}}}{\alertNoH{13}{2}}} +\alertNoH{10}{ \alertNoH{15}{2} \ln\alertNoH{16}{ |t|} }+ \alertNoH{11}{\frac{\alertNoH{12}{ t^2}}{\alertNoH{13}{2}}} \right)+C}\\
+\uncover<12->{&=&\displaystyle \alertNoH{13}{\frac{1}{2}} \left( \alertNoH{17}{ \alertNoH{14}{\frac{1}{2}} \alertNoH{12}{\left( t^{-1} - t \right)}} \alertNoH{18}{ \alertNoH{14}{\frac{1}{2}} \alertNoH{12}{ \left(t^{-1}+t \right)}} \right) \alertNoH{15}{-\frac{1}{2}}\ln \alertNoH{16,19}{t}+C} \\
+\uncover<17->{&=&\displaystyle \frac{1}{2} \alertNoH{17}{x} \alertNoH{18} {\sqrt{x^2+1}} \alertNoH{20}{-} \frac{1}{2} \alertNoH{20}{ \ln \left(\alertNoH{19}{ \sqrt{x^2+1} -x} \right)} +C }\\ 
+\uncover<20->{&=&\displaystyle \displaystyle \frac{1}{2} x \sqrt{ x^2+1}+ \frac{1}{2}\alertNoH{20}{ \ln \frac{ \uncover<handout:0|20>{1} \uncover<21->{\alertNoH{21,22}{\sqrt{ x^2 +1} +x}}}{ \alertNoH{23}{ \left(\sqrt{x^2+1} -x\right) \uncover<21->{ \alertNoH{21}{ \left(\sqrt{x^2+1} + x\right)}}} }} +C}\\
+\uncover<22->{&=&\displaystyle  \frac{1}{2}x \sqrt{x^2+1}+ \frac{1}{2} \ln \left( \alertNoH{22}{\sqrt{x^2+1}+x} \right)+C}
 \end{array}
 $
 
-\noindent \only<17-25>{The answer is good. However, let's simplify.
 
-\noindent
-\uncover<18->{
-$
-\begin{array}{l}
-\phantom{=}
-\displaystyle \alertNoH{18}{ \frac{1}{(\sqrt{x^2+1}-x)^2}- \left( \sqrt{ x^2+1 }-x\right)^2} \\
-\uncover<19->{= \displaystyle \frac{ \alertNoH{19}{ ( \sqrt{ x^2 + 1} +x )^2} }{\alertNoH{20}{ ( \sqrt{x^2 +1} -x )}^2  	\alertNoH{19}{\alertNoH{20}{(\sqrt{x^2+1}+x)}^2} } - \left( \sqrt{ x^2+1}-x\right)^2} \\
-\uncover<20->{ =\displaystyle \frac{(\sqrt{x^2+1}+x)^2}{  \alertNoH{21,22}{\alertNoH{20}{((\sqrt{x^2 +1 } )^2 -x^2 )}^2 } \uncover<21,22>{\alertNoH{21,22}{=1}}  } - \left( \sqrt{x^2 +1 } -x \right)^2} \\
-\displaystyle \uncover<22->{=\left(\sqrt{x^2+1}+x\right)^2-\left( \sqrt{ x^2 + 1 } -x\right)^2} \uncover<23->{ = \alertNoH{24,25}{ 4x\sqrt{x^2+1}}}
-\end{array}
-$
-} %uncover<18->
-} %only<17-25>
-
-\only<26->{
-The last expression can be transformed to:
-\[
-\begin{array}{rcl}
-\displaystyle
-\alertNoH{26}{\ln} \left(\frac{\alertNoH{26,28}{\left(\sqrt{x^2+1}-x\right)} \uncover<27->{ \alertNoH{27,28}{\left( \sqrt{x^2+1}+ x \right)} }}{ \uncover<27->{ \alertNoH{27}{ \sqrt{x^2 +1} +x}}} \right)
-&=& \displaystyle \uncover<28->{\alertNoH{29}{ \ln \left( \frac{\alertNoH{28}{ 1} }{ \sqrt{x^2+1}+x}\right)} }\\ \uncover<29->{&=&\alertNoH{29,30,31}{ -\ln \left( \sqrt{x^2 + 1} +x\right)}}
-\end{array}
-\]
-}
 \end{example}
 
 \vspace{8cm}

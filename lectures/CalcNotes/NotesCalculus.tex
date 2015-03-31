@@ -447,7 +447,7 @@ Division of a complex number by a real number is defined in the manner suggested
 \[
 \frac{a+ib}{c}= \frac{a}{c}+i\frac{b}{c}, \quad c\neq 0\quad .
 \]
-In order to have that be the inverse operation to multiplication, it follows that the division of $1$ by a number must be defined by
+In order to have that division be the inverse operation to multiplication, it follows that the division of $1$ by a number must be defined by
 \[
 \frac{1}{c+id}= \frac{c-id}{(c+id)(c-id)}=\frac{c}{c^2+d^2}-i\frac{\diff}{c^2+d^2}  \quad c+id\neq 0.
 \]
@@ -1030,14 +1030,34 @@ and
 \end{equation}
 
 
+\chapter{Exponents, complex numbers and trigonometric functions: Euclidean geometry approach} \label{chapterExponentsTrigFromEuclideanGeometry}
 
-\chapter{Exponents, complex numbers and trigonometric functions}
+In the present chapter we construct via Euclidean geometry the trigonometric functions. We furthermore construct the exponent function. Finally, we relate the two using Euler's formula. 
 
-\section{Exponent function, $\sin$ and $\cos$}
+An alternative approach to the construction of the trigonometric and exponent function exists through power series. We present that alternative approach in Chapter \ref{chapterExponentsTrigFromPowerSeries}. The two approaches to the construction of trigonometric and exponent functions are equivalent as we shall prove in the end of Chapter \ref{chapterExponentsTrigFromPowerSeries}. 
+
+We present the Euclidean geometry approach to trigonometry first as historically, it appeared first. We note that the alternative exposition of the material in Chapter \ref{chapterExponentsTrigFromPowerSeries} is algebraically more elegant and more useful for practical computational purposes. On the other hand, the present chapter has the advantage of making the geometric interpretation of the trigonometric functions immediately obvious - in Chapter \ref{chapterExponentsTrigFromPowerSeries} that becomes apparent only after a reasonable amount of algebraic preparation.
+
+
+The two alternative chapters \ref{chapterExponentsTrigFromEuclideanGeometry} and \ref{chapterExponentsTrigFromPowerSeries} are independent of one another and can be read in both orders. A shorter Calculus course may choose one of the two chapters and present the other as an optional reading.
+
+A good understanding of trigonometry requires that the reader be familiar with the material in both chapters. 
+
+ 
 \subsection{Exponent function: integer vs non-integer exponent}
 We recall that when $n$ is an integer,  $a^{n}$ denotes the expression $\underbrace{a\cdot\dots \cdot a}_{n\text{ times}}$.
 
+\chapter{Exponents, complex numbers and trigonometric functions: power series approach} \label{chapterExponentsTrigFromPowerSeries}
+In Chapter \ref{chapterExponentsTrigFromEuclideanGeometry} we presented a construction of the trigonometric functions and exponents through Euclidean geometry. The present chapter is an alternative exposition of the topics of trigonometric function and exponents by using power series. The two expositions are of course equivalent: we prove that in the end of this chapter.
 
+
+The power series approach to trigonometry postpones the geometric insight provided by the Euclidean geometry definition for the benefit of providing a much cleaner algebraic and numerical apparatus. In addition the power series approach makes the relation between trigonometry and exponents obvious. For example, Euler's formula holds essentially by definition.
+
+The present chapter also gives answers to important questions such as how to compute (approximations of) the trigonometric and exponent functions using a computer, and is thus closer to applications in our modern computer-equipped world. 
+
+
+
+\section{Exponent function, $\sin$ and $\cos$}
 \subsection{Definition of $e^x$}
 Consider the infinite sum
 \begin{equation}\boxed{\label{eqExponentFunctionDefinition}
@@ -2333,13 +2353,6 @@ As demonstrated in the present section, it is sufficient to memorize the substit
 \end{problem}
 
 \section{Examples and Exercises}
-\begin{problem}
-Solve the integral. Illustrate each step of your solution.
-\[
-\int \frac{1}{\cos x}\diff x\quad .
-\]
-Hint: you may  1) solve this problem with the standard method from class: substitute $x=2 \arctan t$ 2)  multiply top and bottom by $\cos x$, use $\cos x \diff x = (\sin x)' \diff x = d\sin x$ 3) use any other method you like to solve this problem.
-\end{problem}
 \begin{problem}~
 \begin{enumerate}
 \item
@@ -2359,39 +2372,6 @@ Carry out the substitution: $x=\frac12\left(e^s- e^{-s}\right)$. You do not need
 \end{enumerate}
 \end{problem}
 
-\begin{problem}
-Solve the integral.
-\[
-\int \frac{1}{(1+x^2)^2}\diff x
-\]
-\end{problem}
-
-\begin{problem}
-Solve the integral. Illustrate each step of your solution.
-\begin{enumerate}
-\item
-\[
-\int \frac{1}{(1 + \cos x)^2}\diff x
-\]
-\item
-\[
-\int \frac{1}{(2+\cos x)^2}\diff x
-\]
-\end{enumerate}
-\end{problem}
-\begin{problem}
-Solve the integral. Illustrate each step of your solution.
-\begin{enumerate}
-\item
-\[
-\int \frac{1}{(1 + \sqrt{2x^2+x+1})}\diff x
-\]
-\item
-\[
-\int \frac{1}{(1 + \sqrt{2x^2+x+1})^2}\diff x
-\]
-\end{enumerate}
-\end{problem}
 
 
 \chapter{Sequences, limits, formal power series}\label{secSequencesPowerSeries}

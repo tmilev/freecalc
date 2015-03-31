@@ -1,44 +1,58 @@
 \solution{\ref{problemIntegratesqrt(x^2+1)dx}
 
-We carry out the Euler substitution $t=\sqrt{x^2+1}-x$\refBad{\ref{eqEulerSub-case1-cot(2arctant)}}{.}{ given in  \eqref{eqEulerSub-case1-cot(2arctant)}}. We plug in $\sqrt{x^2+1}=\frac{1}2\left(\frac 1 t +t\right)$, $\diff x=-\frac{1}{2} \left(\frac1{t^2} +1\right)\diff t$ to get
+We recall the Euler substitution for $ \sqrt{x^2+1 } $\refBad{\ref{eqEulerSub-case1-cot(2arctant)}}{}{  given in  \eqref{eqEulerSub-case1-cot(2arctant)}}:
+
+$\begin{array}{rcl}
+\displaystyle x&=&\displaystyle \frac{1}{2}\left(\frac{1}{t}-t\right)\\
+\displaystyle \sqrt{x^2+1}&=&\displaystyle \frac{1}2\left(\frac 1 t +t\right)\\
+\displaystyle \diff x&=&\displaystyle -\frac{1}{2} \left(\frac1{t^2} +1\right)\diff t\\
+\displaystyle t&=&\displaystyle \sqrt{x^2+1}-x\quad .
+\end{array}$
+
+Therefore
 
 \noindent$
-\begin{array}{@{}r@{}c@{}l}
+\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
 \displaystyle\int \sqrt{(x^2+1)}\diff x&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)\diff t\\
 &=&\displaystyle -\frac 1 4\int \left( \frac{1}{t^3}+ 2\frac{1}t +t\right)\diff t\\
-&=&\displaystyle -\frac{1}4 \left(-\frac{t^{-2}}{2}+2\ln|t|+\frac{t^2}2 \right)+C\\
-&=&\displaystyle\frac{1}{8} \left(\frac{1}{(\sqrt{x^2+1} - x )^2 }
-- (\sqrt{x^2+1}-x)^2\right)\\
-&&\displaystyle -\frac12 \ln \left(\sqrt{x^2+1}-x\right)+C
+&=&\displaystyle -\frac{1}4 \left(- \frac{t^{-2}}{2}+ 2\ln|t|+ \frac{t^2}2 \right)+C\\
+&=&\displaystyle\frac{1}{8}\left(t^{-2}-t^2\right) + \frac{1}{2}\ln |t|+C &&\begin{array}{l}a^2-b^2=\\(a-b)(a+b)\end{array}\\
+&=&\displaystyle \frac{1}{2} \left( \underbrace {\frac{1}{2}\left(t^{-1}  -t \right) }_{=x} \right) \left(\underbrace{\frac{1}{2}\left(t^{-1}+t\right)}_{=\sqrt{x^2+1} } \right)+\frac{1}{2}\ln |t|+C\\
+&=&\displaystyle \frac{1}{2} x\sqrt{x^2+1}-\frac{1}{2} \ln \left|\sqrt{x^2+1}-x\right|+C &&\text{See below}\\
+&=&\displaystyle \frac{1}{2} x\sqrt{x^2+1}+\frac{1}{2} \ln \left(\sqrt{x^2+1}+x\right) +C\quad .
 \end{array}
 $
 
-\noindent The above expression gives a perfectly good answer to the problem. However, the expression $\frac{1}{(\sqrt{x^2 +1}- x)^2 }- (\sqrt{x^2+1}-x)^2$ can be transformed to a simpler looking expression with a little algebra:
+\noindent Our problem is solved.  
+
+A few comments are in order. In the above expression we would have obtained a perfectly good answer to the problem if we plugged in $t=\sqrt{x^2+1}-x$ into the fourth line, however our answer would look much more complicated. Indeed, had we not used the formula $a^2-b^2=(a-b)(a+b)$ in the fourth line, the term $t^{-2}-t^{2}$ would be equal to $\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2$. In turn, the term $\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2$ can be simplified to $4x\sqrt{x^2+1}$ as follows. We note that the computations below are included here illustrate some of the algebraic issues arising when dealing with integrals of radicals.
 
 \noindent$
 \begin{array}{@{}r@{}c@{}l@{}}
-\displaystyle\frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2&=&\displaystyle
+\displaystyle t^{-2}-t^{2}&=&\displaystyle \frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2\\
+&=&\displaystyle
 \frac{(\sqrt{x^2+1}+x)^2}{(\sqrt{x^2+1}-x)^2  (\sqrt{x^2+1}+x)^2 } \\
 &&\displaystyle - (\sqrt{x^2+1}-x)^2 \\
 &=&\displaystyle \frac{(\sqrt{x^2+1}+x)^2}{\underbrace{((\sqrt{x^2+1})^2-x^2)^2}_{=1} }- (\sqrt{x^2+1}-x)^2 \\
-&=&\displaystyle 4x\sqrt{x^2+1}
+&=&\displaystyle 4x\sqrt{x^2+1}\quad .
 \end{array}
 $
 
-\noindent The expression $\ln \left(\sqrt{x^2+1}-x\right)$ can be transformed to
+Of course, the above computations are unnecessary if we use the formula $a^2-b^2=(a-b) (a+b)$ as done in the original solution. 
 
-\noindent $\begin{array}{rcl}
-\displaystyle \ln \left(\frac{\left( \sqrt{x^2+1} - x\right) \left( \sqrt{x^2+1}+ x\right) }{ \sqrt{x^2+1 }+x}\right) &=& \displaystyle \ln \left(\frac{1}{\sqrt{x^2+1}+x}\right)\\
-&=& \displaystyle  -\ln \left(\sqrt{x^2+1}+x\right)
+\noindent We note that in the last transformation we transformed $\ln \left| \sqrt{x^2+1}-x\right|$ to $\ln \left( \sqrt{x^2+1}-x\right)$ because the quantity $\sqrt{x^2+1}-x$ is always positive. The proof of that fact we leave for the reader's exercise.
+
+Finally, we note that as a last simplification to our solution, we used the transformation $\ln |t|= \ln \left(\sqrt{x^2+1}-x\right) = -\ln|\frac{1}{t}|= -\ln \left(\sqrt{x^2+1}+x \right)$. This is seen as follows.
+
+\noindent $\begin{array}{rcll|l}
+\displaystyle \ln |t|&=&\displaystyle  -\ln \left|\frac{1}{t}\right|\\
+&=&\displaystyle -\ln \left(\frac{1}{ \sqrt{x^2+1} - x}\right)&&\text{rationalize}\\
+&=&\displaystyle - \ln \left(\frac{ \left( \sqrt{x^2+1}+ x\right) }{\left( \sqrt{x^2+1} - x\right) \left(\sqrt{x^2+1 }+x\right) } \right)\\
+&=& \displaystyle -\ln \left(\frac{\sqrt{x^2+1}+x}{x^2+1-x^2}\right)\\
+&=& \displaystyle  -\ln \left(\sqrt{x^2+1}+x\right)\quad .\\
 \end{array}
 $
 
-\noindent Finally, we get
-\[
-\begin{array}{rcl}
-\displaystyle \int \sqrt{(x^2+1)}\diff x&=&\frac{1}2\left(x\sqrt{x^2+1}+\ln \left(\sqrt{x^2+1}+x\right)+C \right)\quad .
-\end{array}
-\]
 }
 
 \solution{\ref{problemIntegrate sqrt(2x^2+2x+1)dx}
