@@ -1,5 +1,9 @@
-\solution{\ref{problemIntegratesqrt(x^2+1)dx}
+\solution{\ref{problemIntegratesqrt(x^2+1)dx}. 
 
+This problem can be solved both via the Euler substitution and by transforming to a trigonometric integral and solving the trigonometric integral on its own. We present both variants. 
+
+
+\ref{problemIntegratesqrt(x^2+1)dx}.\textbf{Variant I.}
 We recall the Euler substitution for $ \sqrt{x^2+1 } $\refBad{\ref{eqEulerSub-case1-cot(2arctant)}}{}{  given in  \eqref{eqEulerSub-case1-cot(2arctant)}}:
 
 $\begin{array}{rcl}
@@ -40,16 +44,48 @@ $
 
 Of course, the above computations are unnecessary if we use the formula $a^2-b^2=(a-b) (a+b)$ as done in the original solution. 
 
-\noindent We note that in the last transformation we transformed $\ln \left| \sqrt{x^2+1}-x\right|$ to $\ln \left( \sqrt{x^2+1}-x\right)$ because the quantity $\sqrt{x^2+1}-x$ is always positive. The proof of that fact we leave for the reader's exercise.
+\noindent We note that in the last transformation we transformed $\ln \left| \sqrt{x^2+1}-x\right|$ to $\ln \left( \sqrt{ x^2+1}-x\right)$ because the quantity $\sqrt{x^2+1}-x$ is always positive. The proof of that fact we leave for the reader's exercise.
 
-Finally, we note that as a last simplification to our solution, we used the transformation $\ln |t|= \ln \left(\sqrt{x^2+1}-x\right) = -\ln|\frac{1}{t}|= -\ln \left(\sqrt{x^2+1}+x \right)$. This is seen as follows.
+Finally, we note that as a last simplification to our solution, we used the transformation $\ln |t|= \ln \left( \sqrt{x^2+1} -x\right) = -\ln|\frac{1}{t}|= -\ln \left( \sqrt{x^2+1} +x \right)$. This is seen as follows.
 
 \noindent $\begin{array}{rcll|l}
-\displaystyle \ln |t|&=&\displaystyle  -\ln \left|\frac{1}{t}\right|\\
-&=&\displaystyle -\ln \left(\frac{1}{ \sqrt{x^2+1} - x}\right)&&\text{rationalize}\\
+\displaystyle \ln |t|&=&\displaystyle  -\ln \left| \frac{1}{ t} \right| \\
+&=&\displaystyle -\ln \left(\frac{1}{ \sqrt{x^2+1} - x} \right) && \text{rationalize}\\
 &=&\displaystyle - \ln \left(\frac{ \left( \sqrt{x^2+1}+ x\right) }{\left( \sqrt{x^2+1} - x\right) \left(\sqrt{x^2+1 }+x\right) } \right)\\
-&=& \displaystyle -\ln \left(\frac{\sqrt{x^2+1}+x}{x^2+1-x^2}\right)\\
+&=& \displaystyle -\ln \left(\frac{\sqrt{x^2+1}+x}{x^2 +1 -x^2 }\right)\\
 &=& \displaystyle  -\ln \left(\sqrt{x^2+1}+x\right)\quad .\\
+\end{array}
+$
+
+\ref{problemIntegratesqrt(x^2+1)dx}. \textbf{Variant II.} In this variant we transform to a trigonometric integral and solve it using ad-hoc methods. We recall that if we decided to solve the trigonometric integral using the standard substitution $\theta=2\arctan t$, we would arrive at one of the Euler substitutions.
+
+\noindent $
+\begin{array}{@{}r@{~}c@{~}l@{}l@{}|l}
+\displaystyle \int \sqrt{x^2+1}\diff x&=&\displaystyle \int \sqrt{\tan^2\theta+1}~\diff (\tan \theta) && \begin{array}{l} \text{Set }\\ x=\tan \theta \\ \theta\in \left(-\frac{\pi}{2}, \frac{\pi }{2}\right)\end{array}\\
+&=&\displaystyle \int \sqrt{sec^2\theta}\sec^2\theta\diff \theta && \sec\theta>0\\
+&=&\displaystyle \int \sec^3\theta\diff \theta&&\text{Problem } \refBad{\ref{problemintsec^3xdx}}{\text{solved already}}{\ref{problemintsec^3xdx}} \\
+&=&\displaystyle \frac{1}{2}\left(\tan \theta \sec \theta+\ln|\sec\theta +\tan \theta | \right)+C&&
+\begin{array}{@{}l}
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-0.8,-0.8)(4.6,3.2)
+\tiny
+\fcBoundingBox{-1}{-0.8}{4.6}{3.2}
+\psline(0,0)(4, 0)(4,3)(0,0)
+\psline(3.8,0)(3.8, 0.2)(4,0.2)
+\fcAngle{0}{3 4 div ATAN}{0.8}{}
+\rput[bl](1, 0.2){$\theta$}
+\rput[l](4.2, 1.5){$x$}
+\rput[t](2, -0.2){$1$}
+\rput[br](2, 1.5){$\sqrt{x^2+1}$}
+%bounding box for pdflatex compilation:
+\psline[linecolor=red!1](-0.11, -0.3 )(-0.105, -0.3)
+\psline[linecolor=red!1](2.3, 1.21)(2.3, 1.205)
+\end{pspicture}\\
+\sec\theta=\sqrt{x^2+1}\\
+\tan \theta=x
+\end{array}
+\\
+&=&\displaystyle \frac{1}{2}\left(x \sqrt{x^2+1} +\ln\left(\sqrt{x^2+1}+x \right) \right)+C
 \end{array}
 $
 
@@ -70,7 +106,7 @@ $
 &&\displaystyle ~~~~~~~  \left.\left.+ \frac{\left(\sqrt{u^2+1}-u \right)^2 }{2}\right)\right)+C&&\text{use Problem \ref{problemIntegratesqrt(x^2+1)dx}}\\
 &=&\displaystyle \frac{\sqrt{2}}{4} \left( \frac{1}{2} u\sqrt{u^2+1}+\frac{1}{2}\ln\left(\sqrt{u^2+1}+u \right) \right) +C \\
 &=&\displaystyle \frac{\sqrt{2}}{4} \left( \frac{1}{2} (2x+1)\sqrt{(2x+1)^2+1 }\right.\\
-&&\displaystyle ~~~~~~ \left.+ \frac{1}{2}\ln \left( \sqrt{(2x+1)^2+1 }+2x+1\right) \right)+C
+&&\displaystyle ~~~~~~ \left.+ \frac{1}{2}\ln \left( \sqrt{(2x+1)^2+1 }+2x+1\right) \right)+C.
 \end{array}
 \]
 }
@@ -78,24 +114,24 @@ $
 \solution{\ref{problemintsqrt(x^2+1)/(x+1)dx}
 
 $\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
-\displaystyle \int \frac{\sqrt{ x^2+1}}{x+1}\diff x&=& \displaystyle \int \frac{ \frac{1}{2}\left(\frac{1}{t}+t \right) }{ \frac{1}{2}\left(\frac{1}{t}-t \right)+1 }\diff \left(\frac{1}{2} \left(\frac{1}{t}-t \right) \right) &&\begin{array}{l}\text{Euler sub: }\\ \begin{array}{rcl} x&=&\frac{1}{2}\left(\frac{1}{t}-t\right) \\
+\displaystyle \int \frac{\sqrt{ x^2+1}}{x+1}\diff x&=& \displaystyle \int \frac{ \frac{1}{2}\left(\frac{1}{t}+t \right) }{ \frac{1}{2}\left(\frac{1}{t}-t \right)+1 }\diff \left(\frac{1}{2} \left(\frac{1}{t}-t \right) \right) &&\begin{array}{l}\text{Euler sub: }\\ \begin{array}{@{\!\!\!\!\!}r@{}c@{}l} x&=&\frac{1}{2}\left(\frac{1}{t}-t\right) \\
 \sqrt{x^2+1}&=&\frac{1}{2}\left(\frac{1}{t}+t\right)
 \end{array}\end{array}\\
-&=&\displaystyle \int \frac{1+t^2}{1-t^2+2t }\frac{1}{2} \left(-t^{-2}-1 \right)\diff t\\
+&=&\displaystyle \int \left(\frac{1+t^2}{1-t^2+2t }\right)\frac{1}{2} \left(-t^{-2}-1 \right)\diff t\\
 &=&\displaystyle \int \frac{1}{2} \frac{(1+t^2)\left(-t^{-2}-1 \right)}{1-t^2+2t } \diff t\\
-&=&\displaystyle \frac{1}{2} \int \frac{ t^{4}+2 t^{2}+1}{ t^{4}-2 t^{3}-t^{2}} \diff t &&\text{use pol. long div.}\\
+&=&\displaystyle \frac{1}{2} \int \frac{ t^{4}+2 t^{2}+1}{ t^{4}-2 t^{3}-t^{2}} \diff t &&\text{pol. long div.}\\
 &=&\displaystyle \frac{1}{2}\int \left(1+\frac{ 2t^{3}+ 3t^{2} +1}{ t^2\left(t^{2}-2 t-1\right)}\right) \diff t &&\text{part. fractions}\\
 &=&\displaystyle \frac{1}{2}\int \left(1+ \frac{2\sqrt{2}}{t -\sqrt{2}-1}+\frac{-2\sqrt{2}}{t +\sqrt{2}-1}+\frac{2}{t }+\frac{-1}{t^{2}}\right)\diff t\\
 &=&\displaystyle -\sqrt{2} \ln{}\left|t+\sqrt{2}-1\right|+\sqrt{2} \ln{}\left|t-\sqrt{2}-1\right|\\
-&&\displaystyle+\frac{1}{2} t^{-1}+\ln{}\left|t\right|+\frac{1}{2} t +C&&\text{use } t=\sqrt{x^2+1}-x\\
+&&\displaystyle+\frac{1}{2} t^{-1}+\ln{}\left|t\right|+\frac{1}{2} t +C&& t=\sqrt{x^2+1}-x\\
 &=&\displaystyle -\sqrt{2} \ln{}\left(\sqrt{x^{2}+1}- x+\sqrt{2}-1\right)\\
 &&\displaystyle +\sqrt{2} \ln{}\left(\sqrt{x^{2}+1}- x-\sqrt{2}-1\right)\\
 &&\displaystyle + \ln{} \left( \sqrt{x^{2}+1}- x\right)\\
-&&\displaystyle +\frac{1}{2} \left(\sqrt{x^{2}+1}- x\right)^{-1}+\frac{1}{2} \sqrt{x^{2}+1}-\frac{1}{2} x &&\text{Last 3 terms simplify}\\
+&&\displaystyle +\frac{1}{2} \left(\sqrt{x^{2}+1}- x\right)^{-1}+\frac{1}{2} \sqrt{x^{2}+1}-\frac{1}{2} x+C &&\begin{array}{l}\text{Last 3 terms}\\ \text{simplify}\end{array}\\
 &=&\displaystyle -\sqrt{2} \ln{}\left(\sqrt{x^{2}+1}- x+\sqrt{2}-1\right) \\
 &&\displaystyle +\sqrt{2} \ln{}\left(\sqrt{x^{2}+1}- x-\sqrt{2}-1\right)\\
 &&\displaystyle + \ln{} \left( \sqrt{x^{2}+1}- x\right)\\
-&&+ \sqrt{x^{2}+1}\quad .
+&&+ \sqrt{x^{2}+1}+C\quad .
 
 \end{array}
 $
