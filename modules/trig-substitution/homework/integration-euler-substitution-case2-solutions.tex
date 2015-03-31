@@ -6,19 +6,98 @@
 \begin{array}{rcl@{}l@{}|l}
 \displaystyle \int \sqrt{1-x^2}\diff x &=&\displaystyle  \int \sqrt{1-\cos^2\theta}\diff (\cos \theta) &&\text{Set }x=\cos \theta, \theta\in[0,\pi]\\
 &=&\displaystyle \int \sqrt{\sin^2\theta } (-\sin \theta)\diff \theta &&\theta\in [0,\pi]\Rightarrow \sin \theta\geq 0\\
-&=&\displaystyle -\int \sin^2\theta \diff \theta && \sin^2\theta= \frac{1+\cos (2\theta) }{2}\\
-&=&\displaystyle-\int \frac{1+\cos (2\theta)}{2}\diff \theta\\
-&=&\displaystyle - \frac{\theta}{2}-\frac{ \sin (2\theta)}{4}+C&&
-\begin{array}{rcl}
-\theta &=&\arccos \theta
+&=&\displaystyle -\int \sin^2\theta \diff \theta && \sin^2\theta= \frac{1-\cos (2\theta) }{2}\\
+&=&\displaystyle-\int \frac{1-\cos (2\theta)}{2}\diff \theta\\
+&=&\displaystyle - \frac{\theta}{2}+\frac{ \sin (2\theta)}{4}+C\\
+&=&\displaystyle - \frac{\theta}{2}+\frac{ 2\sin \theta\cos \theta }{4}+C
+&&
+\begin{array}{@{}r@{}c@{}l}
+x &=&\cos \theta\\
+\theta &=&\Arccos x\\
+\sin \theta&=&\sin \left(\Arccos x\right)\\
+&=&\sqrt{1-x^2}
 \end{array}
+\\
+&=&\displaystyle -\frac{\Arccos x}{2}+ \frac{x\sqrt{1-x^2} }{2} + C\\
+&=&\displaystyle \frac{\Arcsin x}{2}+\frac{x\sqrt{1- x^2} }{2} + K\quad ,
 \end{array}
 $
+where for the last equality we recall that the derivative of $\Arcsin x$ is minus the derivative of $\Arccos x$.
+
 
 
 \textbf{Variant II.} We show how to do this integral via the Euler substitution $x=\cos (2\Arctan t)$.
 
-\textbf{Variant III. }
+$
+\begin{array}{rcl@{}l@{}|l}
+\displaystyle \int \sqrt{1-x^2}\diff x &=&\displaystyle  \int \sqrt{1-\cos^2\theta}\diff (\cos \theta) &&\begin{array}{@{}r@{}c@{}l} &&\text{Set }\\
+x&=&\cos(2\Arctan t)\\
+\frac{1}{2}\Arccos x&=&\Arctan t\\ 
+x&=&\frac{1-t^2}{1+t^2}\\
+&=& \frac{2}{1+t^2}-1\\
+\sqrt{1-x^2}&=&\frac{2t}{1+t^2}\\
+\end{array}\\
+&=&\displaystyle \int \frac{2t}{1+t^2}\diff \left(\frac{1-t^2}{1+t^2} \right) \\
+&=&\displaystyle \int \frac{2t}{1+t^2} \left(\frac{-4t}{\left(1+t^2\right)^2}\right)\diff t &&\begin{array}{l}
+\text{Integral rational}\\
+\text{function}\\
+\text{we skip details}
+\end{array} \\
+&=&\displaystyle \frac{-t}{t^{2}+1}+\frac{2 t}{ \left(t^{2}+1\right)^{2}}\\
+&&\displaystyle - \Arctan{}t+C \\
+&=&\displaystyle -\frac{1}{2}\sqrt{1-x^2} +\frac{\sqrt{1-x^2}}{t^2+1} \\
+&&- \Arctan t+C\\
+&=&\displaystyle \frac{1}{2} \sqrt{1-x^2} \left(\frac{ 2}{ t^2 +1} -1\right)\\
+&&-\Arctan t+C\\
+&=&\displaystyle \frac{x\sqrt{1-x^2}}{2}-\frac{1}{2}\arccos x+C\\
+&=&\displaystyle \frac{x\sqrt{1-x^2}}{2}+\frac{1}{2}\arcsin x+K,
+\end{array}
+$
+where for the very last equality we used the fact that the derivatives of $\arcsin x$ and $\arccos x$ are negatives of one another.
+
+\textbf{Variant III. } We show how to do this integral geometrically, provided already know the area of a sector of circle. Of course, here we assume we have already derived the formula for an area of a circle. We warn the reader that if we did use an integral to derive the formula for sector area, it is possible we are making a circular reasoning argument. The danger is of course not real we did the integral purely algebraically in the preceding solution variants. In this way, the present solution Variant is simply a geometric interpretation of the problem.
+
+By the Fundamental Theorem of Calculus, the indefinite integral measures up to a constant the area locked under the graph of $\sqrt{1-x^2}$. This graph is a part of a circle. Therefore, up to a constant, $\int\sqrt{1-t^2}\diff t$ equals $\int_{0}^{x}\sqrt{1-t^2}\diff t$. In turn $\int_{0}^{x}\sqrt{1-t^2}\diff t$ is given by the area highlighted in the picture below.
+
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}
+\tiny
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot[linecolor=\fcColorGraph]{0}{0.75}{1 x x mul sub sqrt}
+\psline(! 0.75 1 0.75 0.75 mul sub sqrt)(0.75, 0)
+\psline(0.75, 0)(0,0)
+}
+\fcAxesStandardNoFrame{-0.3}{-0.3}{1.2}{1.2}
+
+\psplot[linecolor=\fcColorGraph, linewidth=1.5pt]{0}{0.75}{1 x x mul sub sqrt}
+\psplot{0.75}{1}{1 x x mul sub sqrt}
+\rput[t](0.75,-0.05){$P$}
+\fcFullDot{0.75}{0}
+\rput(0.375, -0.1){$x$}
+\psline(0,0)(! 0.75 1 0.75 dup mul sub sqrt)(0.75, 0)
+\rput[l](0.2, 0.5){$A$}
+\rput[b](0.5, 0.2){$B$}
+\rput[lb](0.45, 0.9){$\Arcsin x $}
+\fcFullDot{0}{1}
+\rput[r](-0.1, 1){$P$}
+\rput[l](0.8, 0.3){$\sqrt{1-x^2}$} 
+\rput[l](0.8, 0.65){$Q$}
+\fcFullDot{0.75}{1 0.75 0.75 mul sub sqrt}
+\rput[tr](-0.05, -0.05){$O$}
+\end{pspicture}
+\[
+\begin{array}{rcll|l}
+\text{Area}(A)&=&\displaystyle  \frac{\text{length }\left( \stackrel{\frown}{ PQ}
+\right) }{2\pi } \pi= \frac{\text{length }\left(
+\stackrel{\frown}{ PQ}
+\right)}{2} = \frac{\Arcsin x}{2}\\
+\text{Area}(B)&=&\displaystyle \text{Area}(\triangle OPQ)= \frac{x \sqrt{1-x^2} }{2}\\
+\displaystyle \int_{0}^x\sqrt{1-t^2}\diff t&=&\displaystyle  \text{Area}(A)+\text{Area}(B)\\
+&=&\displaystyle \frac{\Arcsin x}{2}+\frac{x\sqrt{1-x^2}}{2}\\
+&\Rightarrow\\
+\displaystyle\int\sqrt{1-x^2}\diff x&=&  \displaystyle \frac{\Arcsin x}{2} + \frac{x\sqrt{1-x^2}}{2}+C\quad .
+\end{array}
+\] 
 }
 
 \solution{\ref{problemintsqrt(1-x^2)/(1+x)dx} In this problem solution we use the standard Euler substitution $x=\cos (2\Arctan t)$. We recall \refBad{\ref{eqEulerSubx=cos(2arctant)}}{that}{from \eqref{eqEulerSubx=cos(2arctant)} that}
