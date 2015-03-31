@@ -1,6 +1,6 @@
-\solution{\ref{problemintsecxdx}
+\solution{\ref{problemintsecxdx}. \textbf{Variant I.} 
 
-\textbf{Variant I.} This variant uses the standard method for solving trigonometric integrals with the substitution $x=\arctan (2t)$.
+This variant uses the standard method for solving trigonometric integrals with the substitution $x=\arctan (2t)$.
 
 \noindent 
 $\begin{array}{rcll|l}
@@ -28,8 +28,35 @@ $\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
 \end{array}
 $
 
+\ref{problemintsecxdx}. \textbf{Variant II.} This variant is based on the following observation. For an odd number $m>0 $, we studied a quick technique for integrating $\int \sin^n x \cos^m x \diff x $: namely, use the transformation $\cos x \diff x = \diff (\sin x)$ and change variables $u=\sin x $. This trick relies heavily on the fact that $m$ is odd (as we need to express the remaining even power of $\cos x$ via $\sin x$). However, the positivity of $m$ is not essential: by multiplying top and bottom by $\cos x$ we can make this technique work also for odd negative values of $m$. We illustrate the technique in the solution below.
 
-\textbf{Variant II. } This variant present a quick solution by multiplying and dividing our integrand by the multiplier $\sec x+\tan x$. Of course, the idea of using that multiplier comes from knowing the answer to the problem in advance (which can be obtained, for example, by using Variant I of the solution).
+$\begin{array}{rcll|l}
+\displaystyle \int \sec x \diff x&=&\displaystyle \int \frac{1}{\cos x}\diff x\\
+&=&\displaystyle \int \frac{\cos x}{\cos^2x}\diff x\\
+&=&\displaystyle \int \frac{\diff (\sin x)}{1-\sin^2x}&&\text{Set }u=\sin x\\
+&=&\displaystyle \int \frac{\diff u}{1-u^2}\\
+&=&\displaystyle \int \frac{\diff u}{(1+u)(1-u)}&&\text{part. fractions}\\
+&=&\displaystyle \int \left(\frac{\frac{1}{2}}{1+u} +\frac{ \frac{1}{ 2}}{1 -u} \right)\diff u \\
+&=&\displaystyle \frac{1}{2}\left(\ln |1+u|-\ln|1-u| \right)+C\\
+&=&\displaystyle \frac{1}{2}\ln \left|\frac{1+u}{1-u} \right|+C &&\text{Subst. back } u=\sin x \\
+&=&\displaystyle \frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right|+C&&\text{Last step: see below}\\
+&=&\displaystyle \ln|\sec x+\tan x|+C\quad .
+\end{array}
+$
+
+The expression $\frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right|+C$ gives a perfectly good answer (which is even the preferred one in a number of textbooks). Let us show however that $\frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right|$ equals $\ln |\sec x+\tan x|$, the answer given in the other variants.
+
+$\begin{array}{rcll|l}
+\displaystyle \frac{1}{2}  \ln \left|\frac{1+\sin x}{1-\sin x}\right|&=& \frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right| &&\text{Mult. \& div by } 1+\sin x\\
+&=&\frac{1}{2}\ln \left|\frac{(1+\sin x)^2}{(1-\sin x)(1+\sin x)}\right|\\
+&=&\frac{1}{2}\ln \left|\frac{(1+\sin x)^2}{\cos^2x}\right|&& \text{use }\frac{1}{2}\ln |a|= \ln |a|^{\frac{1}{2}}\\
+&=&\ln \sqrt{\left|\frac{(1+\sin x)^2}{\cos^2x}\right|}\\
+&=&\ln \left|\frac{1+\sin x}{\cos x}\right|\\
+&=&\ln |\sec x +\tan x|\quad .
+\end{array}
+$
+
+\ref{problemintsecxdx}. \textbf{Variant III. } This variant present a quick solution by multiplying and dividing our integrand by the multiplier $\sec x+\tan x$. Of course, the idea of using that multiplier comes from knowing the answer to the problem in advance (which can be obtained, for example, by using the preceding solution variants).
 
 $\begin{array}{rcll|l}
 \displaystyle \int \sec x \diff x&=&\displaystyle \int \sec x \frac{\sec x +\tan x }{\sec x+\tan x }\diff x  \\
@@ -44,7 +71,6 @@ $\begin{array}{rcll|l}
 &=&\displaystyle \ln |\sec x +\tan x|+C\quad .
 \end{array}
 $
-
 }
 
 
@@ -60,7 +86,7 @@ $
 &=&\displaystyle \sec x \tan x -\int \sec^3x \diff x+\ln |\sec x +\tan x|&& \begin{array}{l} + \int \sec^3x \diff x \\ 
 \text{ to both sides}\end{array} \\
 \displaystyle 2\int \sec^3x \diff x&=&\displaystyle \left(\sec x\tan x +\ln |\sec x+\tan x| \right) +C\\
-\displaystyle \int \sec^3x \diff x&=&\displaystyle \frac{1}{2}\left(\sec x\tan x +\ln |\sec x+\tan x| \right) +K\\
+\displaystyle \int \sec^3x \diff x&=&\displaystyle \frac{1}{2}\left(\sec x\tan x +\ln |\sec x+\tan x| \right) +K\quad .
 \end{array}
 $
 }
