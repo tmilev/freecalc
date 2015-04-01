@@ -1,16 +1,13 @@
 % begin module sequence-ex7
 \begin{frame}
-\begin{example}[Example 7, p. 716]
+\begin{example} %[Example 7, p. 716]
 Is $a_n = \frac{(-1)^n}{n}$ convergent or divergent?
-\begin{columns}[c]
-\column{.5\textwidth}
-\ \only<handout:0| -4>{%
-\includegraphics[height=4cm]{sequences/pictures/12-01-ex7a.pdf}%
-}%
-\only<5->{%
-\includegraphics[height=4cm]{sequences/pictures/12-01-ex7b.pdf}%
-}%
-\column{.5\textwidth}
+
+
+
+
+
+
 \[
 \uncover<2->{%
 \lim_{n\to\infty}\left| \frac{(-1)^n}{n}\right| = %
@@ -31,7 +28,29 @@ Therefore, by the corollary to the Squeeze Theorem,
 \uncover<6->{%
 Therefore $\left\{ \frac{(-1)^n}{n} \right\}$ is convergent.
 }%
-\end{columns}
+
+\psset{xunit=0.4cm,yunit=0.4cm}
+\begin{pspicture}(-1,-6)(28.5,2.6)
+\tiny
+\fcBoundingBox{-1}{-2}{28.2}{2.6}
+\fcAxesStandard{-1}{-2}{27}{2}
+\rput[b](0,2.2){$a$}
+\rput[l](27.2, 0){$n$}
+\fcYTickWithLabel{1}{$1$}
+\fcXTickWithLabel{1}{$1$}
+\fcXTickWithLabel{2}{$2$}
+\fcXTickWithLabel{3}{$3$}
+\uncover<5->{%
+\multido{\na=0+1}{13}{%
+\pstVerb{2 dict begin /na \na\space def /x na  def}%
+\fcFullDot[scale=0.6, linecolor=red]{x 1 add 2 mul}{1 x 1 add 2 mul div  }%
+\fcFullDot[scale=0.6, linecolor=red]{x 2 mul 1 add}{-1 x 2 mul 1 add div  }%
+\pstVerb{end}%
+}%
+}
+\end{pspicture}
+
+
 \end{example}
 \end{frame}
 % end module sequence-ex7
