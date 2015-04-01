@@ -20,7 +20,7 @@
 \fcFullDot[linecolor=red]{na}{na na 1 add div}%
 }%
 \only<\naPlusTwo->{%
-\fcFullDot[linecolor=black]{na}{na na 1 add div}
+\fcFullDot[scale=0.6, linecolor=red]{na}{na na 1 add div}
 }%
 \only<\naPlusOne->{%
 \pstVerb{end}%
@@ -30,7 +30,7 @@
 \multido{\na=10+1}{6}{%
 \pstVerb{1 dict begin /na \na\space def}%
 \fcXTickWithLabel{na}{$\na$}%
-\fcFullDot[linecolor=black]{na}{na na 1 add div}%
+\fcFullDot[scale=0.6, linecolor=red]{na}{na na 1 add div}%
 \pstVerb{end}%
 }%
 \psline[linestyle=dashed, linewidth = 0.4pt, linecolor=blue](0,1)(15,1)%
@@ -50,20 +50,20 @@
 \psline(1,-0.02)(1, 0.02)
 \uncover<2->{
 \rput[t](! 1 2 div -0.03){$a_1$}
-\psline(! 1 2 div -0.02)(! 1 2 div 0.02)
+\psline[linewidth=0.3pt](! 1 2 div -0.02)(! 1 2 div 0.02)
 }
 \uncover<3->{
 \rput[t](! 2 3 div -0.03){$a_2$}
-\psline(! 2 3 div -0.02)(! 2 3 div 0.02)
+\psline[linewidth=0.3pt](! 2 3 div -0.02)(! 2 3 div 0.02)
 }
 \uncover<4->{
 \rput[t](! 3 4 div -0.03){$a_3$}
-\psline(! 3 4 div -0.02)(! 3 4 div 0.02)
+\psline[linewidth=0.3pt](! 3 4 div -0.02)(! 3 4 div 0.02)
 }
 \multido{\na=5+1}{6}{%
 \FPeval{\naMinusOne}{clip(\na-1)}%
 \only<\na->{%
-\psline(!\na\space 1 sub \na\space div -0.02)(!\na\space 1 sub \na\space div 0.02)%
+\psline[linewidth=0.3pt](!\na\space 1 sub \na\space div -0.02)(!\na\space 1 sub \na\space div 0.02)%
 }%
 \only<\na>{%
 \rput[t](!\na\space 1 sub \na\space div -0.03){$a_{\naMinusOne}$}%
@@ -71,7 +71,7 @@
 }%
 \uncover<11->{%
 \multido{\na=11+1}{25}{%
-\psline(!\na\space 1 sub \na\space div -0.02)(!\na\space 1 sub \na\space div 0.02)%
+\psline[linewidth=0.3pt](!\na\space 1 sub \na\space div -0.02)(!\na\space 1 sub \na\space div 0.02)%
 }%
 \psline*(! 35 36 div -0.02 )(! 1 -0.02 )(! 1 0.02 )(! 35 36 div 0.02 )(! 35 36 div -0.02 )
 }
