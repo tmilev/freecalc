@@ -36,30 +36,77 @@ Consider the exponential function $y = r^x$.}%
 \]
 Therefore $\displaystyle \lim_{n\to\infty}r^n = 0$.}
 
-\uncover<16->{If $r < -1$, then $r^n$ diverges, just like $(-1)^n$.}
+\uncover<16->{If $r \leq -1$, then $r^n$ diverges. \uncover<17->{In particular, $(-1)^n$ diverges. }}
 \column{.4\textwidth}
-\ \only<handout:0| -7>{%
-\includegraphics[height=3.8cm]{sequences/pictures/12-01-ex10a.pdf}%
-}%
-\only<handout:0| 8-9>{%
-\includegraphics[height=3.8cm]{sequences/pictures/12-01-ex10b.pdf}%
-}%
-\only<handout:0| 10-11>{%
-\includegraphics[height=3.8cm]{sequences/pictures/12-01-ex10c.pdf}%
-}%
-\only<12->{%
-\includegraphics[height=3.8cm]{sequences/pictures/12-01-ex10d.pdf}%
-}%
 
-\ \only<handout:0| -14>{%
-\includegraphics[height=3.8cm]{sequences/pictures/12-01-ex10e.pdf}%
+\psset{xunit=0.35cm,yunit=0.35cm}
+\begin{pspicture}(-1,-1.1)(10,9)
+\tiny
+\fcBoundingBox{-1}{-1}{9.5}{9.6}
+\fcAxesStandard{-1}{-1}{9}{9}
+\rput[b](0,9.2){$a$}
+\rput[l](9.2, 0){$n$}
+\fcYTickWithLabel{1}{$1$}
+\fcXTickWithLabel{1}{$1$}
+\uncover<8->{\multido{\na=1+1}{9}{%
+\pstVerb{2 dict begin /na \na\space def /x na  def}%
+\fcFullDot[scale=0.4, linecolor=blue]{x}{1.25 x exp}%
+\pstVerb{end}%
 }%
-\only<handout:0| 15>{%
-\includegraphics[height=3.8cm]{sequences/pictures/12-01-ex10f.pdf}%
+\rput[b](7, 6){$\color{blue}{r>1}$}%
 }%
-\only<16->{%
-\includegraphics[height=3.8cm]{sequences/pictures/12-01-ex10g.pdf}%
+\uncover<10->{\multido{\na=1+1}{9}{%
+\pstVerb{2 dict begin /na \na\space def /x na  def}%
+\fcFullDot[scale=0.4, linecolor=red]{x}{0.8 x exp}%
+\pstVerb{end}%
 }%
+\rput[b](7, 0.2){$\color{red}{r<1}$}%
+}%
+\uncover<12->{\multido{\na=1+1}{9}{%
+\pstVerb{2 dict begin /na \na\space def /x na  def}%
+\fcFullDot[scale=0.4, linecolor=black]{x}{1}%
+\pstVerb{end}%
+}%
+\rput[br](9.2, 1.2){${r=1}$}%
+}%
+\end{pspicture}
+
+\psset{xunit=0.35cm,yunit=0.35cm}
+\begin{pspicture}(-1,-6)(10,6)
+\tiny
+\fcBoundingBox{-1}{-5}{9.5}{5.6}
+\fcAxesStandard{-1}{-5}{9}{5}
+\rput[b](0,5.2){$a$}
+\rput[l](9.2, 0){$n$}
+\fcYTickWithLabel{1}{$1$}
+\fcXTickWithLabel{1}{$1$}
+\fcXTick{2}
+\fcXTick{3}
+\fcXTick{4}
+\uncover<16->{\multido{\na=1+1}{9}{%
+\pstVerb{2 dict begin /na \na\space def /x na  def}%
+\fcFullDot[scale=0.4, linecolor=blue]{x}{-1.15 x exp}%
+\pstVerb{end}%
+}%
+\rput[b](7, 3.4){$\color{blue}{r<-1}$}%
+}%
+\uncover<15->{\multido{\na=1+1}{9}{%
+\pstVerb{2 dict begin /na \na\space def /x na  def}%
+\fcFullDot[scale=0.4, linecolor=red]{x}{-0.8 x exp}%
+\pstVerb{end}%
+}%
+\rput[b](7, 0.2){$\color{red}{-1<r<0}$}%
+}%
+\uncover<17->{\multido{\na=1+1}{9}{%
+\pstVerb{2 dict begin /na \na\space def /x na  def}%
+\fcFullDot[scale=0.4, linecolor=black]{x}{-1 x exp}%
+\pstVerb{end}%
+}%
+\rput[br](9.2, 1.2){$r=-1$}%
+}%
+\end{pspicture}
+
+
 \end{columns}
 \end{example}
 \end{frame}
