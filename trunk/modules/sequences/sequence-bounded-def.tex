@@ -12,7 +12,28 @@ a_n > M \qquad \textrm{for all}\qquad  n\geq 1.
 A bounded sequence is a sequence that is bounded below and above.
 \end{definition}
 \begin{center}
-\includegraphics[height=3.5cm]{sequences/pictures/12-01-bounded.pdf}%
+
+\psset{xunit=0.4cm,yunit=0.4cm}
+\begin{pspicture}(-1,-6)(28.5,2.6)
+\tiny
+\fcAxesStandard{-1}{-1}{27}{7}
+\rput[b](0,7.2){$a$}
+\rput[l](27.2, 0){$n$}
+
+\fcYTickWithLabel{6.5}{$M$}
+\fcYTickWithLabel{5}{$L$}
+\psline[linecolor=blue, linewidth=0.7pt](0, 6.5)(27, 6.5)
+\psline[linestyle=dashed, linewidth=0.7pt](0, 5)(27, 5)
+\fcXTickWithLabel{1}{$1$}
+%\fcXTickWithLabel{2}{$2$}
+%\fcXTickWithLabel{3}{$3$}
+\multido{\na=1+1}{27}{%
+\pstVerb{2 dict begin /na \na\space def /x na  def}%
+\fcFullDot[scale=0.5, linecolor=red]{x}{ x x mul x sub 1 sub x x mul 1 add div 4 mul 1 add }%
+\pstVerb{end}%
+}%
+\end{pspicture}
+
 \end{center}
 \end{frame}
 % end module sequence-bounded-def
