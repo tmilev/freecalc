@@ -1,44 +1,71 @@
 % begin module integral-test-below
 \begin{frame}
 \begin{columns}
-\column{.6\textwidth}
+\column{.56\textwidth}
 \[
-\sum_{n=1}^\infty \frac{1}{\sqrt{n}} = \alert<handout:0| 6-10>{\frac{1}{\sqrt{1}}} \alert<handout:0| 7-10>{+\frac{1}{\sqrt{2}}} \alert<handout:0| 8-10>{+ \frac{1}{\sqrt{3}}} \alert<handout:0| 9-10>{+ \frac{1}{\sqrt{4}}} \alert<handout:0| 9-10>{+ \cdots} 
+\alertNoH{15}{ \sum_{n=1}^\infty \alertNoH{5,11}{\frac{1}{\sqrt{n}}} =\alertNoH{6-10}{\frac{1}{\sqrt{1}}} \alertNoH{7-10}{+\frac{1}{\sqrt{2}}} \alertNoH{8-10}{+ \frac{1}{\sqrt{3}}} \alertNoH{9-10}{+ \frac{1}{\sqrt{4}}} \alertNoH{10}{+ \cdots} }
 \]
 \begin{itemize}
 \item<2->  Use a computer to calculate partial sums.
-\item<3->  Looks like it's diverging.
+\item<3->  Appears to be diverging.
 \item<4->  How do we prove it?
-\item<5->  Use $f(x) = \frac{1}{\sqrt{x}}$.
+\item<5->  Use $\alertNoH{5,11}{f(x) = \frac{1}{\sqrt{x}}}$.
 \end{itemize}
 \begin{center}
 \uncover<5->{%
-\only<handout:0| -5>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-belowa.pdf}%
+
+\psset{xunit=1.1cm, yunit=1.1cm}
+\begin{pspicture}(-0.3,-0.8)(6.5,1.2)%
+\tiny%
+\fcBoundingBox{-0.3}{-0.8}{6.5}{1.2}%
+\fcLabels{6.3}{1.5}%
+\newcommand{\oneBlock}[2]{%
+\pstVerb{1 dict begin /x ####1\space def}%
+\psline*[linecolor=####2](! x 0)(!x 1 x sqrt div)(!x 1 add 1 x sqrt div)(! x 1 add 0)(! x 0)%
+\psline[linecolor=brown](! x 0)(!x 1 x sqrt div)(!x 1 add 1 x sqrt div)(! x 1 add 0)(! x 0)%
+\pstVerb{end}%
+}%
+\newcommand{\oneBlockLabel}[2]{%
+\pstVerb{1 dict begin /theArgument ####1\space def}%
+\psline[arrows=->, linewidth=0.5pt](! theArgument 0.5 add -0.2)(! theArgument 0.5 add 0.5 theArgument sqrt div)%
+\rput[t](! theArgument 0.5 add -0.3 ){####2}%
+\pstVerb{end}%
+}%
+\uncover<handout:1,3|6-11,15->{\oneBlock{1}{orange}}%
+\uncover<handout:1|6-11>{\oneBlockLabel{1}{$\alertNoH{6}{a_1=1\vphantom{\frac{1}{\sqrt{2}}}}$}}%
+\uncover<handout:1,3|7-11,15-> {\oneBlock{2}{orange}}%
+\uncover<handout:1|7-11>{\oneBlockLabel{2}{$\alertNoH{7}{a_2=\frac{1}{\sqrt{2}}}$}}%
+\uncover<handout:1,3|8-11,15->{\oneBlock{3}{orange}}%
+\uncover<handout:1|8-11> {\oneBlockLabel{3}{$\alertNoH{8}{a_3=\frac{1}{\sqrt{3}}}$}}%
+\uncover<handout:1,3,4|9-11,15-> {\oneBlock{4}{orange}}%
+\uncover<handout:1|9-11> {\oneBlockLabel{4}{$\alertNoH{9}{a_4=\frac{1}{2}}$}}%
+\uncover<handout:1,3,4|10-11,15->{\oneBlock{5}{orange}}%
+\uncover<handout:1|10-11>{\oneBlockLabel{5}{$\alertNoH{10}{a_5=\frac{1}{\sqrt{5}}}$}}%
+\uncover<handout:2|12,13,14>{%
+\pscustom*[linecolor=orange]{
+\psplot{1}{6.2}{1 x sqrt div}
+\psline(6.2, 0)(1,0)(1,1)
 }%
 }%
-\only<handout:0| 6>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-belowb.pdf}%
+\uncover<handout:2,3,4|14->{%
+\rput[t](2.6, -0.3){\alertNoH{13,14,15}{infinite area}}%
+\psline[arrows=->, linewidth=0.5pt](2.6, -0.2)(2.6, 0.4)%
 }%
-\only<handout:0| 7>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-belowc.pdf}%
-}%
-\only<handout:0| 8>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-belowd.pdf}%
-}%
-\only<handout:1| 9-10>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-belowf.pdf}%
-}%
-\only<handout:2| 11>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-belowg.pdf}%
-}%
-\only<handout:3| 12>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-belowh.pdf}%
-}%
+\psplot[linecolor=\fcColorGraph]{1}{6.3}{1 x sqrt div}%
+\rput(2, 1.2){$\alertNoH{5}{y=\frac{1}{\sqrt{x}}}$}%
+\fcXTickWithLabel{1}{$1$}%
+\fcXTickWithLabel{2}{$2$}%
+\fcXTickWithLabel{3}{$3$}%
+\fcXTickWithLabel{4}{$4$}%
+\fcXTickWithLabel{5}{$5$}%
+\fcXTickWithLabel{6}{$6$}%
+\fcAxesStandardNoFrame{-0.3}{-0.3}{6.3}{1.5}%
+\end{pspicture}
+}
 \end{center}
-\column{.4\textwidth}
+\column{.44\textwidth}
 \uncover<2->{%
-\[
+$
 \begin{array}{|r@{\ }|r|}
 \hline
 n & s_n = \sum_{i=1}^n \frac{1}{\sqrt{i}}\\
@@ -52,13 +79,13 @@ n & s_n = \sum_{i=1}^n \frac{1}{\sqrt{i}}\\
   5000 & 139.9681 \\
 \hline
 \end{array}
-\]
+$
 }%
 \begin{itemize}
 \item<6->  $\frac{1}{\sqrt{1}}$ is the area of a rectangle.
 \item<7->  So is $\frac{1}{\sqrt{2}}$.
-\item<handout:2-| 10-| alert@10-11>  $\int_1^\infty \frac{1}{\sqrt{x}}\diff x$ is \uncover<11->{divergent.}
-\item<handout:3-| 12->  Therefore $\sum_{n=1}^\infty \frac{1}{\sqrt{n}}$ is divergent.
+\item<handout:2-| 11->  \alertNoH{13,14}{\alertNoH{12}{$ \int_1^\infty \alertNoH{11}{\frac{1}{ \sqrt{x}}} \diff x$} is} \fcAnswerUncover{11}{14}{divergent.}
+\item<handout:3-| 15->  Therefore $\sum_{n=1}^\infty \frac{1}{\sqrt{n}}$ is divergent.
 \end{itemize}
 \end{columns}
 \end{frame}
