@@ -1,50 +1,71 @@
 % begin module integral-test-above
 \begin{frame}
 \begin{columns}
-\column{.6\textwidth}
+\column{.57\textwidth}
 \[
-\sum_{n=1}^\infty \frac{1}{n^2} = \alert<handout:0| 6-10,14>{\frac{1}{1^2}} \alert<handout:0| 7-10,14>{+\alert<handout:0| 13>{\frac{1}{2^2}}} \alert<handout:0| 8-10,13-14>{+ \frac{1}{3^2}} \alert<handout:0| 9-10,13-14>{+ \frac{1}{4^2}} \alert<handout:0| 10,13-14>{+ \cdots} 
+\alertNoH{15}{\sum_{n=1}^\infty \alertNoH{5,11}{\frac{1}{n^2}} =} \alertNoH{6-10,15}{\frac{1}{1^2}} \alertNoH{ 7-10,14,15}{+\alertNoH{14}{\frac{1}{2^2}}} \alertNoH{ 8-10, 14-15}{+ \frac{1}{3^2}} \alertNoH{9-10,14-15}{+ \frac{1}{4^2}} \alertNoH{10,14-15}{+ \cdots} 
 \]
 \begin{itemize}
 \item<2->  Use a computer to calculate partial sums.
-\item<3->  Looks like it's converging.
+\item<3->  Appears to be converging.
 \item<4->  How do we prove it?
-\item<5->  Use $f(x) = \frac{1}{x^2}$.
+\item<5->  Use $\alertNoH{11}{f(x) = \frac{1}{x^2}}$.
 \end{itemize}
 \begin{center}
 \uncover<5->{%
-\only<handout:0| -5>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-abovea.pdf}%
+\psset{xunit=1.2cm, yunit=1.2cm}
+\begin{pspicture}(-0.3,-0.8)(5.4,1.2)%
+\tiny%
+\fcBoundingBox{-0.3}{-0.8}{5.4}{1.2}%
+\fcLabels{5.5}{1.5}%
+\newcommand{\oneBlock}[2]{%
+\pstVerb{1 dict begin /x ####1\space def}%
+\psline*[linecolor=####2](! x 0)(!x 1 x x mul div)(!x 1 sub 1 x x mul div)(! x 1 sub 0)(! x 0)%
+\psline[linecolor=brown](! x 0)(!x 1 x x mul div)(!x 1 sub 1 x x mul div)(! x 1 sub 0)(! x 0)%
+\pstVerb{end}%
+}%
+\newcommand{\oneBlockLabel}[2]{%
+\pstVerb{1 dict begin /x ####1\space def}%
+\psline[arrows=->, linewidth=0.5pt](! x 0.5 sub -0.2)(! x 0.5 sub 0.5 x x mul div)%
+\rput[t](! x 0.5 sub -0.3 ){####2}%
+\pstVerb{end}%
+}%
+\uncover<handout:1,4|6-11,15->{\oneBlock{1}{orange}}%
+\uncover<handout:1|6-11>{\oneBlockLabel{1}{$\alertNoH{6}{a_1=1\vphantom{\frac{1}{4}}}$}}%
+\uncover<handout:3|14>{\oneBlock{1}{gray}}%
+\uncover<handout:1,3,4|7-11,14-> {\oneBlock{2}{orange}}%
+\uncover<handout:1|7-11>{\oneBlockLabel{2}{$\alertNoH{7}{a_2=\frac{1}{4}}$}}%
+\uncover<handout:1,3,4|8-11,14->{\oneBlock{3}{orange}}%
+\uncover<handout:1|8-11> {\oneBlockLabel{3}{$\alertNoH{8}{a_3=\frac{1}{9}}$}}%
+\uncover<handout:1,3,4|9-11,14-> {\oneBlock{4}{orange}}%
+\uncover<handout:1|9-11> {\oneBlockLabel{4}{$\alertNoH{9}{a_4=\frac{1}{16}}$}}%
+\uncover<handout:1,3,4|10-11,13->{\oneBlock{5}{orange}}%
+\uncover<handout:1|10-11>{\oneBlockLabel{5}{$\alertNoH{10}{a_5=\frac{1}{25}}$}}%
+\uncover<handout:2|12,13>{%
+\pscustom*[linecolor=orange]{
+\psplot{1}{5.2}{1 x x mul div}
+\psline(5.2, 0)(1,0)(1,1)
 }%
 }%
-\only<handout:0| 6>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-aboveb.pdf}%
+\uncover<handout:2,3,4|13->{%
+\rput[t](2.6, -0.3){\alertNoH{13,14,15}{finite area}}%
+\psline[arrows=->, linewidth=0.5pt](2.6, -0.2)(2.6, 0.1)%
 }%
-\only<handout:0| 7>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-abovec.pdf}%
-}%
-\only<handout:0| 8>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-aboved.pdf}%
-}%
-\only<handout:0| 9>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-abovee.pdf}%
-}%
-\only<handout:1| 10-11>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-aboveg.pdf}%
-}%
-\only<handout:2| 12>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-aboveh.pdf}%
-}%
-\only<handout:3| 13>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-abovei.pdf}%
-}%
-\only<handout:4| 14>{%
-\includegraphics[width=6.5cm]{series/pictures/12-03-integral-test-abovej.pdf}%
-}%
+\psplot[linecolor=\fcColorGraph]{1}{5.2}{1 x x mul div}%
+\rput(2, 0.8){$y=\frac{1}{x^2}$}%
+\fcXTickWithLabel{1}{$1$}%
+\fcXTickWithLabel{2}{$2$}%
+\fcXTickWithLabel{3}{$3$}%
+\fcXTickWithLabel{4}{$4$}%
+\fcXTickWithLabel{5}{$5$}%
+\fcAxesStandardNoFrame{-0.3}{-0.3}{5.5}{1.5}%
+\end{pspicture}
+} %
+
 \end{center}
-\column{.4\textwidth}
+\column{.43\textwidth}
 \uncover<2->{%
-\[
+$
 \begin{array}{|r@{\ }|c|}
 \hline
 n & s_n = \sum_{i=1}^n \frac{1}{i^2}\\
@@ -58,13 +79,13 @@ n & s_n = \sum_{i=1}^n \frac{1}{i^2}\\
   5000 & 1.6447 \\
 \hline
 \end{array}
-\]
+$
 }%
 \begin{itemize}
 \item<6->  $\frac{1}{1^2}$ is the area of a rectangle.
 \item<7->  So is $\frac{1}{2^2} = \frac{1}{4}$.
-\item<handout:2-| 11-| alert@11-12>  The improper integral $\int_1^\infty \frac{1}{x^2}\diff x$ is \uncover<12->{convergent.}
-\item<handout:4-| 14->  Therefore $\sum_{n=1}^\infty \frac{1}{n^2}$ is convergent.
+\item<handout:2-| 11->  The improper integral \alertNoH{12,13 }{$ \int_1^\infty \alertNoH{11}{\frac{1}{x^2}} \diff x$ is}  \fcAnswerUncover{12}{13}{convergent.}
+\item<handout:4-| 15->  Therefore $\alertNoH{14}{ \sum_{n=1}^\infty \frac{1}{n^2}}$ is convergent.
 \end{itemize}
 \end{columns}
 \end{frame}
