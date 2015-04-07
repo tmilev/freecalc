@@ -5,6 +5,7 @@
 \begin{pspicture}(-3,-3)(3,3)
 \tiny
 \fcAxesStandard{-3}{-3}{3}{3}
+\fcXTickWithLabel{1}{$1$}
 \psplot[linecolor=gray]{-3}{3 ln}{2.718281828 x exp}
 \psplot[linecolor=\fcColorGraph]{2.718281828 -3 exp}{3 }{x ln}
 \psline[linecolor=blue, linestyle=dashed](-3,-3)(3,3)
@@ -12,8 +13,17 @@
 \rput[r](3, -2){$y=\ln x$}
 \end{pspicture}
 }
+\uncover<18->{
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-3,-3)(3,3)
+\tiny
+\fcAxesStandard{-3}{-3}{3}{3}
+\psplot[linecolor=\fcColorGraph]{0.01}{2.6 }{x ln x mul}
+\rput[r](1.6, 1){$y=x\ln x$}
+\end{pspicture}
+}
 \begin{example}
-Evaluate $\lim_{x\rightarrow 0^+} \alertNoH{5-6}{x}\alertNoH{3-4}{\ln x}$.
+Evaluate $\lim\limits_{x\rightarrow 0^+} \alertNoH{18}{ \alertNoH{5-6}{x} \alertNoH{3-4}{ \ln x} }$.
 \begin{itemize}
 \item<2-| alert@3-4>  $\lim\limits_{x\rightarrow 0^+} \ln x = \fcAnswer{4}{-\infty}$.
 \item<2-| alert@5-6>  $\lim\limits_{x\rightarrow 0^+} x = \fcAnswer{6}{0}$.
