@@ -1,36 +1,50 @@
 % begin module indeterminate-products-ex6
 \begin{frame}
+\uncover<4->{
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-3,-3)(3,3)
+\tiny
+\fcAxesStandard{-3}{-3}{3}{3}
+\psplot[linecolor=gray]{-3}{3 ln}{2.718281828 x exp}
+\psplot[linecolor=\fcColorGraph]{2.718281828 -3 exp}{3 }{x ln}
+\psline[linecolor=blue, linestyle=dashed](-3,-3)(3,3)
+\rput[l](-2.5, 1){$y=e^x$}
+\rput[r](3, -2){$y=\ln x$}
+\end{pspicture}
+}
 \begin{example}
-Evaluate $\lim_{x\rightarrow 0^+} \alert<handout:0| 5-6>{x}\alert<handout:0| 3-4>{\ln x}$.
+Evaluate $\lim_{x\rightarrow 0^+} \alertNoH{5-6}{x}\alertNoH{3-4}{\ln x}$.
 \begin{itemize}
-\item<2-| alert@3-4>  $\lim_{x\rightarrow 0^+} \ln x = $ \uncover<4->{$-\infty$.}
-\item<2-| alert@5-6>  $\lim_{x\rightarrow 0^+} x = $ \uncover<6->{$0$.}
+\item<2-| alert@3-4>  $\lim\limits_{x\rightarrow 0^+} \ln x = \fcAnswer{4}{-\infty}$.
+\item<2-| alert@5-6>  $\lim\limits_{x\rightarrow 0^+} x = \fcAnswer{6}{0}$.
 \item<7->  This is an indeterminate form of type $0(-\infty )$ (or $-\infty / (1/0)$).
 \item<8->  Apply L'Hospital's rule:
 \end{itemize}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<9->{%
-\lim_{x\rightarrow 0^+} x\ln x & \uncover<9->{=} & %
+\[
+\begin{array}{rcl}
+\displaystyle \uncover<9->{%
+\lim_{x\rightarrow 0^+} x\ln x & \uncover<9->{=} &\displaystyle  %
 }%
 \uncover<10->{%
-\lim_{x\rightarrow 0^+} \frac{\ln x}{1/x} = %
+\lim_{x\rightarrow 0^+} \frac{\ln x}{\frac{1}{x}} = %
 }%
 \uncover<11->{%
-\lim_{x\rightarrow 0^+} \frac{\alert<handout:0| 13-14>{\frac{\diff}{\diff x} (\ln x)}}{\alert<handout:0| 15-16>{\frac{\diff}{\diff x} (1/x)}} \\
-& \uncover<12->{=} & %
+\lim_{x\rightarrow 0^+} \frac{\alertNoH{12-13}{\frac{\diff}{\diff x} (\ln x)}}{\alertNoH{14-15}{\frac{\diff}{\diff x} \left(\frac{1}{x}\right)}} \\
+& \uncover<12->{=} &\displaystyle  %
 }%
 \uncover<12->{%
-\lim_{x\rightarrow 0^+} \frac{\uncover<14->{\alert<handout:0| 14>{1/x}}}{\uncover<16->{\alert<handout:0| 16>{-1/x^2}}} %
+\lim_{x\rightarrow 0^+} \frac{\fcAnswerUncover{12}{13}{ \frac{1}{x}} }{ \fcAnswerUncover{12 }{15}{ -\frac{ 1}{x^2}}} %
 }%
-\uncover<17->{%
+\uncover<16->{%
  = \lim_{x\rightarrow 0^+}(-x)%
 }%
-\uncover<18->{%
+\uncover<17->{%
   = 0.
 }%
-\end{eqnarray*}
+\end{array}
+\]
 \end{example}
 \end{frame}
 % end module indeterminate-products-ex6
