@@ -1,37 +1,78 @@
 % begin module sequence-ex2
 \begin{frame}
-Not all sequences can be represented by a simple formula.
-\begin{example}[Sequences without a simple formula]
-\begin{enumerate}
-\item  Consider the sequence $( p_n)$, where $p_n$ is the population of the world as of January 1 of year $n$.  This has no simple formula.
-\item<2->  Let $a_n$ be the $n^{th}$ digit of the number $e$.  The first few terms of $( a_n)$:
-\uncover<2->{%
-\begin{center}
-$ 7, 1, 8, 2, 8, 1, 8, 2, 8, 4, 5, \ldots $ 
-\end{center} 
-}%
-\item<3->  The Fibonacci sequence $( f_n)$ is defined recursively by
+\frametitle{Sequences via recursion}
+\begin{itemize}
+\item Sequences can be defined by recursive formulas.
+\item<2-> A sequence formula is recursive if it expresses the term $a_n$ via the preceding terms $a_1, a_2,\dots, a_{n-1}$, rather than directly as a function of $n$.
+\uncover<3->{
+\begin{example}[Defining sequences by recursion]
+Define recursively the Fibonacci sequence $( f_n)_{n=1}^{\infty}$ by requesting that
 \[
-f_1 = 1 \qquad f_2 = 1 \qquad f_n = f_{n-1} + f_{n-2}, \quad n\geq 3
+f_1 = \alertNoH{4}{1} \qquad f_2 = \alertNoH{4}{1} \qquad \alertNoH{5-14}{ f_n = f_{n-1} + f_{n-2}}, \quad n\geq 3.
 \]
 \uncover<4->{%
 The first few terms are
-\abovedisplayskip=1pt
-\belowdisplayskip=1pt
-\[
-\alert<handout:0| 4-5>{1},%
-\alert<handout:0| 4-7>{1},%
-\uncover<5-| handout:0>{\alert<handout:0| 5-9>{{2},}}%
-\uncover<7-| handout:0>{\alert<handout:0| 7-11>{{3},}}%
-\uncover<9-| handout:0>{\alert<handout:0| 9-13>{{5},}}%
-\uncover<11-| handout:0>{\alert<handout:0| 11-13>{{8},}}%
-\uncover<13-| handout:0>{\alert<handout:0| 13>{{13},\ldots }}%
-\]
+
+\hfil \hfil$\alertNoH{4-6}{1},%
+\alertNoH{4-8}{1},%
+\uncover<handout:0|4->{
+\fcAnswer{6}{\alertNoH{6-10}{{2},}}%
+\fcAnswer{8}{\alertNoH{8-12}{{3},}}%
+\fcAnswer{10}{\alertNoH{10-14}{{5},}}%
+\fcAnswer{12}{\alertNoH{12-14}{{8},}}%
+\fcAnswer{14}{{13},\ldots }%
+}
+$
 }%
-\uncover<14->{%
-The Fibonacci sequence can be described by a formula, but not a simple one $\left(\displaystyle a_n=\frac{\sqrt{5}}{5}\left( \left(\frac{1+\sqrt{5 }}{2} \right)^n- \left(\frac{1-\sqrt{5}}{2}\right)^n\right) \right)$.%
+\end{example}
+}
+\item<15->
+In fact the Fibonacci sequence can be described by a formula, but it is not very simple: $\displaystyle a_n=\frac{ \sqrt{5}}{ 5} \left( \left(\frac{1+\sqrt{5 }}{2} \right)^n- \left(\frac{ 1-\sqrt{ 5}}{2}\right)^n\right) $.%
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sequences via inclusion criterion}
+\begin{itemize}
+\item A sequence can also be given by specifying a criterion to check whether a number should be included in the sequence or not.
+
+\uncover<2->{
+\begin{example}[Defining sequence by criterion]
+Define $\left(p_n\right)_{n=1}^{\infty}$ as the sequence of all primes.
+
+\hfil \hfil $\left(2,3,5,7,11, 13, 17, 19, 23, 29, 31,\dots\right)$
+
+\end{example}
+}
+\item<3-> We know how to check whether a number is prime.
+\item<4-> For example, a crude test for whether a number is prime is to check whether it is divisible by all positive numbers smaller than it.
+\item<5-> Our sequence is well defined; we could generate it, say, by computer.
+\item<6-> However, we have given no closed or even recursive formula to generate the entire sequence.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Sequences defined indirectly}
+
+\begin{itemize}
+\item We note that in addition to the illustrated ways to define sequences, we are also free to use for the task any well-posed statement. 
+\item<2-> Such ways to define a sequence may be very indirect or obscure and we will not use them in our course.
+\item<3-> We hint the challenges that can arise by using arbitrary (but well-posed) definitions on a few examples.
+\end{itemize}
+\begin{example}
+\begin{enumerate}
+\item<4->  Let $a_n$ be the $n^{th}$ digit in the decimal expansion of the number $e$. \uncover<5->{The first few terms of $( a_n)$:
+\begin{center}
+$2, 7, 1, 8, 2, 8, 1, 8, 2, 8, 4, 5, \ldots $ 
+\end{center} 
 }%
+
+\item<6-> Consider the sequence $( p_n)$, where $p_n$ is the population of the world as of January 1 of year $n$. 
 \end{enumerate}
 \end{example}
 \end{frame}
+
 % end module sequence-ex2
+
+
+
