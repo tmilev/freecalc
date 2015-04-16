@@ -1,51 +1,49 @@
 % begin module series-telescoping-ex6
 \begin{frame}
-\begin{example} %[Example 6, p. 727]
-Show that the series $\sum_{n=1}^\infty \frac{1}{n(n+1)}$ is convergent and find its sum.
-\begin{itemize}
-\item<2-| alert@2-3>  Is this a geometric series?  \uncover<3->{No.}%
-\item<4->  Use partial fractions:
-\end{itemize}
-\uncover<4->{%
+\vskip -0.12cm
+\begin{example} 
+Show the series $\displaystyle \sum_{n=1}^\infty \frac{1}{n(n+1)}$ is convergent and find its sum.
+
+\uncover<2->{ \alertNoH{2-6}{ Is this a geometric series?}  \fcAnswerUncover{2}{6}{No, because} $ \displaystyle \uncover<3->{\alertNoH{6}{ \frac{\alertNoH{4}{a_{n+1}}} { \alertNoH{3}{ a_n}}}} \uncover<3->{= \frac{ \alertNoH{4}{\frac{1}{\alertNoH{5}{(n+1)} (n+2) }}}{\alertNoH{3}{ \frac{1}{n\alertNoH{5}{(n+1)}}}}} \uncover<5->{= \frac{ n}{n+2}}$ \uncover<5->{ \alertNoH{5,6}{is not constant.}} } \uncover<7->{\alertNoH{7,8}{Decompose  $a_n$ into partial fractions:}}
+
+
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+$
+\begin{array}{rcl}
+\uncover<7->{
+a_n &=&\displaystyle \alertNoH{7,8,10}{\frac{1}{n(n+1)} =}\fcAnswer{8}{\alertNoH{10}{  \frac{1}{n} - \frac{1}{n+1}}}
+}\\
+\uncover<9->{%
+\alertNoH{18}{s_k}%
+}%
+& \uncover<9->{ = } &\displaystyle %
+\uncover<9->{%
+\sum_{n=1}^k \alert<handout:0| 10>{\frac{1}{n(n+1)}}%
+}  \uncover<10->{ = } \uncover<10->{%
+\sum_{i=1}^n \alert<handout:0| 10>{\left( \frac{1}{n} - \frac{1}{n+1}\right)}%
+}\\%
+& \uncover<11->{ = } &\displaystyle%
+\uncover<11->{%
+\left( \alertNoH{16}{1} \alertNoH{12}{- \frac{1}{2}}\right) %
++ \left( \alertNoH{12}{\frac{1}{2}} \alertNoH{13}{- \frac{1}{3}}\right) %
++ \left( \alertNoH{13}{\frac{1}{3}} \alertNoH{14}{- \frac{1}{4}}\right) %
++ \alertNoH{14-15}{\cdots} %
++ \left( \alertNoH{15}{\frac{1}{k}} \alertNoH{16}{- \frac{1}{k+ 1}}\right) %
+}\\%
+& \uncover<16->{\alertNoH{18}{ = }} &\displaystyle%
+\uncover<16->{%
+\alertNoH{16,18}{1 - \frac{1}{k+1}}%
+}%
+\end{array}
+$
+\uncover<17->{%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
-a_n = \alert<handout:0| 7>{\frac{1}{n(n+1)} \uncover<5->{ = \frac{1}{n} - \frac{1}{n+1}}}%
+\text{Therefore }\quad \sum_{n=1}^\infty \frac{1}{n(n+1)} = \lim_{k\to\infty} \alert<handout:0| 18>{s_k} \uncover<18->{= \lim_{k\to\infty} \alertNoH{18}{\left( 1 - \frac{1}{k+1}\right)}} \uncover<19>{= 1}%
 \]
 }%
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<6->{%
-\alert<handout:0| 15>{s_n}%
-}%
-& \uncover<6->{ = } &%
-\uncover<6->{%
-\sum_{i=1}^n \alert<handout:0| 7>{\frac{1}{i(i+1)}}%
-}  \uncover<7->{ = } \uncover<7->{%
-\sum_{i=1}^n \alert<handout:0| 7>{\left( \frac{1}{i} - \frac{1}{i+1}\right)}%
-}\\%
-& \uncover<8->{ = } &%
-\uncover<8->{%
-\left( \alert<handout:0| 13>{1} - \alert<handout:0| 9>{\frac{1}{2}}\right) %
-+ \left( \alert<handout:0| 9>{\frac{1}{2}} - \alert<handout:0| 10>{\frac{1}{3}}\right) %
-+ \left( \alert<handout:0| 10>{\frac{1}{3}} - \alert<handout:0| 11>{\frac{1}{4}}\right) %
-+ \alert<handout:0| 11-12>{\cdots} %
-+ \left( \alert<handout:0| 12>{\frac{1}{n}} \alert<handout:0| 13>{- \frac{1}{n+ 1}}\right) %
-}\\%
-& \uncover<13->{\alert<handout:0| 15>{ = }} &%
-\uncover<13->{%
-\alert<handout:0| 13,15>{1 - \frac{1}{n+1}}%
-}%
-\end{eqnarray*}
-\uncover<14->{%
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
-\textrm{Therefore}\quad \sum_{i=1}^\infty \frac{1}{i(i+1)} = \lim_{n\to\infty} \alert<handout:0| 15>{s_n} \uncover<15->{= \lim_{n\to\infty} \alert<handout:0| 15>{\left( 1 - \frac{1}{n+1}\right)}} \uncover<16>{= 1}%
-\]
-}%
-\vspace{-.1in}
 \end{example}
 \end{frame}
 % end module series-telescoping-ex6
