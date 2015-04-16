@@ -1,0 +1,36 @@
+\solution{\ref{problemlim_n->infty((n+1)/n)^n}. 
+
+Consider $f(x)= \left( \frac{x+1}{x} \right)^x$, where $x$ is a positive number. We will now show that $\lim\limits_{x\to \infty}f(x)$ exists. Since the limit is of the form $1^{\infty}$, we will start by finding the limit of the logarithm $\ln (f(x))$. We will then exponentiate that limit to find the limit of $f(x)$.
+
+\[
+\begin{array}{rcll|l}
+\displaystyle \lim\limits_{x\to \infty} \ln \left(\left(\frac{x+1}{x}\right)^x\right)&=& \displaystyle \lim\limits_{x\to \infty} x\ln \left(\frac{x+1}{x}\right)\\
+&=&\displaystyle \lim\limits_{x\to \infty} \frac{\ln \left(\frac{x+1}{x}\right)}{\frac{1}{x}}\\
+&=& \displaystyle \lim\limits_{x\to \infty} \frac{\ln \left(1+ \frac{1}{x}\right)}{\frac{1}{x}} && \begin{array}{l} \text{Form ``}\frac{0}{0}\text{''}\\\text{L'Hospital rule}\end{array}\\
+&=&\displaystyle  \lim\limits_{x\to \infty}\frac{ \frac{1}{1+ \frac{1}{x}} \left(1+\frac{1}{x}\right)'}{-\frac{1}{x^2}} \\
+&=&\displaystyle \lim\limits_{x\to \infty} \frac{\frac{1}{ \left(1+\frac{1}{x}\right) } \cancel{\left(-\frac{1}{x^2}\right)} }{ \cancel{ \left(-\frac{1}{x^2}\right)} } \\
+&=&\displaystyle  \lim\limits_{x\to \infty}\frac{1}{1+\frac{1}{x}}\\
+&=&1\\
+\displaystyle \lim\limits_{x\to \infty} \left(\frac{x+1}{x}\right)^x&=&\displaystyle \lim\limits_{x\to \infty} e^{\ln \left(\left(\frac{x+1}{x}\right)^x\right)}&&\text{The exponent is continuous}\\
+&=&\displaystyle  e^{\lim\limits_{x\to \infty} \ln \left(\left(\frac{x+1}{x}\right)^x\right)}\\
+&=&\displaystyle e^{1} &&\text{use preceding}\\
+&=&\displaystyle e\quad .
+\end{array}
+\] 
+Therefore $\displaystyle \lim\limits_{\substack{n\to \infty\\ n-\text{ integer}}} \left(\frac{n+1}{n}\right)^n = \lim\limits_{\substack{x\to \infty\\ x-\text{ real}}} \left(\frac{x+1}{x}\right)^x=e$ and the sequence converges (to $e$).
+
+}
+
+\solution{ \ref{problemlim_n->infty((2n+1)/n)^n}. 
+
+This problem can be solved in fashion similar to Problem \ref{problemlim_n->infty((2n+1)/n)^n}. However there is a much simpler solution:
+
+\[
+\begin{array}{rcll|l}
+\frac{2n+1}{n}&\geq& 2 &&\text{for }n>0\\
+\displaystyle \lim\limits_{n\to\infty}\left(\frac{2n+1}{n}\right)^n&\geq& \displaystyle  \lim\limits_{n\to\infty}2^n &&\begin{array}{l}\text{limits respect non-strict inequalities}\\ \lim\limits_{n\to\infty}2^n \text{ computed in Problem \ref{problemlim_n->infty2^n}} \end{array}\\
+\displaystyle \lim\limits_{n\to\infty}\left(\frac{2n+1}{n}\right)^n &=&\infty \quad .
+\end{array}
+\]
+
+}

@@ -2,7 +2,7 @@
 \begin{frame}
 %The Squeeze Theorem also works for sequences:
 \begin{theorem}[The Squeeze Theorem for Sequences]
-If $\only<2->{\color{blue}} a_n\color{black}\leq \only<4->{\color{red}} b_n \color{black} \leq\only<3->{ \color{darkgreen}}c_n$ for $n \geq n_0$ and $\lim_{n\to\infty} a_n = L = \lim_{n\to\infty}c_n$, then $\alertNoH{5}{ \lim_{n\to\infty}b_n=L}$.
+If $\only<2->{\color{blue}} a_n\color{black}\leq \only<4->{\color{red}} b_n \color{black} \leq\only<3->{ \color{darkgreen}}c_n$ for $n \geq n_0$ and $\alertNoH{2}{ \lim\limits_{n\to\infty} } \only<2->{\color{blue}} a_n \color{black} \alertNoH{2}{=} \alertNoH{2,3}{L} \alertNoH{3}{= \lim\limits_{n\to\infty}} \only<3->{\color{darkgreen}} c_n$, then $\alertNoH{5}{ \lim\limits_{n\to\infty}b_n=L}$.
 \end{theorem}
 \psset{xunit=1cm, yunit=1cm}
 \hfil
@@ -10,11 +10,11 @@ If $\only<2->{\color{blue}} a_n\color{black}\leq \only<4->{\color{red}} b_n \col
 \tiny
 \fcBoundingBox{-0.5}{-0.5}{7}{2.9}
 \fcAxesStandard{-0.5}{-0.5}{7}{2.6}%
-\uncover<1,4->{%
+\uncover<1-7>{%
 \rput[b](0,2.65){$a$}%
 \rput[l](7.1,0){$n$}%
 }%
-\uncover<handout:0|2,3>{%
+\uncover<handout:0|8->{%
 \rput[b](0,2.7){$y$}%
 \rput[l](7.1,0){$x$}%
 }%
@@ -25,8 +25,8 @@ If $\only<2->{\color{blue}} a_n\color{black}\leq \only<4->{\color{red}} b_n \col
 \uncover<4->{\fcFullDot[scale=0.6, linecolor=red]{t }{1 t 1 add div t 180 mul sin mul 1 add}}%
 \pstVerb{end}%
 }%
-\uncover<5->{\psline[linewidth =0.4pt, linestyle=dashed, linecolor=blue](0, 1)(7, 1)}
-\rput[r](-0.1, 1){\uncover<5->{\alertNoH{5}{$L$}}}
+\uncover<2->{\psline[linewidth =0.4pt, linestyle=dashed, linecolor=blue](0, 1)(7, 1)}
+\rput[r](-0.1, 1){\uncover<2->{\alertNoH{5}{$L$}}}
 \uncover<3-8>{\rput[b](0.2, 2){\color{darkgreen}$c_n$}}
 \uncover<4-9>{\rput[t](0.2, 1.4){\color{red}$b_n$}}
 \uncover<2-7>{\rput[b](0.2, 0.4){\color{blue}$a_n$}}
