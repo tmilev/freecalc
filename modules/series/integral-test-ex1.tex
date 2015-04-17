@@ -1,20 +1,51 @@
 % begin module integral-test-ex1
 \begin{frame}
-\begin{example}[Example 1, p. 735]
-Test the series $\displaystyle \sum_{n=1}^\infty \frac{1}{n^2+1}$ for convergence.
+\begin{example} %[Example 1, p. 735]
+Test the series $\displaystyle \sum_{n=1}^\infty \frac{1}{ n^2 + 1 }$ for convergence.
 
 \uncover<2->{%
 $f(x) = \frac{1}{x^2+1}$ is continuous, positive, and decreasing on $[1,\infty )$, so use the Integral Test.
 }%
-\begin{eqnarray*}
-\uncover<3->{\int_1^\infty \frac{1}{x^2+1}\diff x} & \uncover<3->{ = } & \uncover<3->{\lim_{t\to\infty} \int_1^t \alert<handout:0| 4-5>{\frac{1}{x^2+1}}\diff x} \\
-& \uncover<4->{ = } & \uncover<4->{\lim_{t\to\infty}\left[ \uncover<5->{\alert<handout:0| 5>{\arctan x}}\right]_{\alert<handout:0| 7-8>{1}}^{\alert<handout:0| 6>{t}}}\\
-& \uncover<6->{ = } & \uncover<6->{\alert<handout:0| 9-10>{\lim_{t\to\infty}}\left( \alert<handout:0| 6,9-10>{\arctan t} - \uncover<8->{\alert<handout:0| 8>{\pi/4}} \right)}\\
-& \uncover<9->{ = } &  \uncover<10->{\alert<handout:0| 10>{\pi/2}} \uncover<9->{- \pi/4} \uncover<11->{= \pi/4} 
-\end{eqnarray*}
-\uncover<12->{%
-Therefore $\sum_{n=1}^\infty \frac{1}{n^2+1}$ is \uncover<13->{convergent.}%
+\begin{columns}
+\column{0.67\textwidth}
+\[
+\begin{array}{rcl}
+\displaystyle \uncover<3->{\int_1^{\alertNoH{3}{\infty}} \frac{1}{x^2+1}\diff x} & \uncover<3->{ = } &\displaystyle  \uncover<3->{ \alertNoH{3}{ \lim\limits_{ t\to\infty}} {\alertNoH{4,5}{\int}}_{\!\!\! 1}^{\alertNoH{3}{ t} } \alertNoH{4-5}{\frac{1}{x^2+1} \diff x} } \\
+& \uncover<4->{ = } & \displaystyle \uncover<4->{\lim\limits_{t \to\infty} \left[ \fcAnswer{5}{\alertNoH{6,7,8}{\Arctan  x} } \right]_{ \alertNoH{7-8}{1}}^{\alertNoH{6 }{t}}}\\
+& \uncover<6->{ = } &\displaystyle \uncover<6->{ \alertNoH{9-12 }{ \lim\limits_{ t\to \infty }}\left( \alertNoH{6, 9-12}{ \Arctan t } - \fcAnswerUncover{6}{8}{ \frac{\pi}{4}} \right)}\\
+& \uncover<9->{ = } &\displaystyle  \fcAnswerUncover{9}{12}{ \frac{\pi}{2}} \uncover<9->{- \frac{\pi}{4}} \uncover<13->{= \frac{\pi}{4}} 
+\end{array}
+\]
+\uncover<14->{%
+Therefore $\sum\limits_{n=1}^\infty \frac{1}{n^2+1}$ is \fcAnswer{15}{convergent.}%
 }%
+
+\column{0.33\textwidth}
+\uncover<6->{
+\psset{xunit=1.2cm, yunit=1.2cm}
+\begin{pspicture}(-1.3,-1.3)(1.2,3)
+\tiny%
+\fcBoundingBox{-1.3}{-1.3}{1.7}{3}%
+\fcAxesStandardNoFrame{-1.2}{-1.2}{1.2}{3}%
+\psline(1,-1)(1,3)%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\newcommand{\theArctan}{1}%
+\only<10->{\renewcommand{\theArctan}{1.6}}%
+\only<11->{\renewcommand{\theArctan}{2.2}}%
+\only<11->{\renewcommand{\theArctan}{2.8}}%
+\only<handout:0|8>{%
+\fcPerpendicular{[1 1]}{[1 0]}{0.1}%
+\fcPerpendicular{[1 1]}{[0 1]}{0.1}%
+}%
+\psline[linewidth=2pt, linecolor=blue](1,0)(1, \theArctan )%
+\rput[l](! 1.1 \theArctan\space 2 div ){$\alertNoH{9-12}{ t \only<handout:0|8>{ =1} \uncover<12->{\to\infty}}$}%
+\parametricplot[arrows=->,linewidth=1.5pt, linecolor=darkgreen]{0}{ \theArctan\space ATAN 57.295779513 mul}{t cos 0.3 mul t sin 0.3 mul}%
+\rput[l](0.3, 0.2){$\alertNoH{9-12}{\Arctan t}  \only<handout:0|8>{ =\frac{\pi}{4}} \uncover<12->{ \alertNoH{12}{ \to \frac{\pi}{2}}}$}%
+\psline(0,0)(1,\theArctan)%
+\end{pspicture}
+\vskip -0.2cm
+}
+\end{columns}
 \end{example}
 \end{frame}
 % end module integral-test-ex1
