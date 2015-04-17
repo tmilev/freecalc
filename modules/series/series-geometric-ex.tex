@@ -1,32 +1,26 @@
 % begin module series-geometric-ex
 \begin{frame}
-\begin{example}
-Find the sum of the geometric series
+\uncover<2->{
+Recall that the sum of a \alertNoH{2,8}{geometric series} is 
 \[
--2 + \frac{6}{5} - \frac{18}{25} + \frac{54}{125} - \cdots
+\begin{array}{rclcl}
+\displaystyle \alertNoH{2,5,8}{ \alertNoH{3,10,12}{a} +\alertNoH{12}{ \alertNoH{3}{a} r} +\alertNoH{3}{a} r^2+\alertNoH{3}{a}r^3+\dots} \uncover<3->{&=&\displaystyle  \alertNoH{3}{a}\left( \alertNoH{4}{ 1+ r+r^2+r^3+\dots} \right)} \uncover<4->{&=&\displaystyle \frac{a}{\alertNoH{4}{1-r}} }\\\uncover<5->{&&\text{alternatively}}\\
+\uncover<5->{\displaystyle \alertNoH{5}{ \sum\limits_{ \alertNoH{6}{n=1} }^{ \infty} \alertNoH{13}{a} \alertNoH{14}{ r}^{\alertNoH{6}{ n-1}}}} \uncover<6->{= \sum\limits_{\alertNoH{6}{m=0} }^{\infty}\alertNoH{7}{a} r^{\alertNoH{6}{m}}} \uncover<7->{&=& \displaystyle  \alertNoH{7}{a} \sum\limits_{m= 0}^{\infty}r^m} \uncover<5->{&=& \displaystyle \frac{\alertNoH{13}{a}}{1-\alertNoH{14}{r}}}
+\end{array}
 \]
+}
+\begin{example}
+ Find the sum of \alertNoH{8}{the geometric series\quad \quad 
+$\displaystyle \alertNoH{10,12,13}{-2} + \alertNoH{12}{\frac{6}{5}} - \frac{18}{25} + \frac{54}{125} - \cdots$}
+\vskip -0.2cm
 \begin{itemize}
-\item<2-| alert@2-3>  The first term is $a = $ \uncover<3->{$-2$.}
-\item<2-| alert@4-5>  The common ratio is $r = $ \uncover<5->{$-\frac{3}{5}$.}
-\item<6->  Therefore the sum is
+\item<9-| alert@9-10>  The first term is $a = \fcAnswer{10}{-2}$.
+\item<11-| alert@11-12>  The common ratio is $r = \fcAnswer{12}{ \alertNoH{13}{ \frac{\frac{6}{5}}{-2}= - \frac{ 3}{5}}}$.
+\item<13->  Therefore the sum is
+\[
+\uncover<13->{\sum_{n=1}^\infty \alertNoH{13}{(-2)}{\alertNoH{14}{ \left( - \frac{3}{5} \right) } }^{n-1} = \frac{ \alertNoH{13}{(-2)}}{\alertNoH{15}{ 1- \alertNoH{14}{\left( - \frac{3}{5}\right)}}}} \uncover<15->{ = -\frac{\alertNoH{ 16}{2} }{ \alertNoH{15}{ \frac{ \alertNoH{ 16} {8}} {\alertNoH{ 17}{5} }}}}  \uncover<16->{ = -\frac{\alertNoH{17}{5}}{\alertNoH{16}{4}}}
+\]
 \end{itemize}
-\begin{eqnarray*}
-\uncover<6->{%
-\sum_{n=1}^\infty (-2)\left( - \frac{3}{5}\right)^{n-1}%
-}%
-& \uncover<6->{ = } &%
-\uncover<6->{%
-\frac{(-2)}{1-\left( - \frac{3}{5}\right)}%
-}\\%
-& \uncover<7->{ = } &%
-\uncover<7->{%
--\frac{2}{\frac{8}{5}}%
-}\\%
-& \uncover<8->{ = } &%
-\uncover<8->{%
--\frac{5}{4}%
-}%
-\end{eqnarray*}
 \end{example}
 \end{frame}
 % end module series-geometric-ex

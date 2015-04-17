@@ -1,15 +1,19 @@
 % begin module integral-test-ex2
 \begin{frame}
-\begin{example}[Example 2, p. 735]
+\begin{example}
 For which values of $p$ is the series $\displaystyle \sum_{n=1}^\infty \frac{1}{n^p}$ convergent?
 \begin{itemize}
-\item<2-| alert@2-3>  If $p < 0$, then $\lim_{n\to\infty}\frac{1}{n^p} = $\uncover<3->{$\infty$.}
-\item<4-| alert@4-5>  If $p = 0$, then $\lim_{n\to\infty}\frac{1}{n^p} = $\uncover<5->{$1$.}
-\item<6-| alert@6-7>  In either case, the series is \uncover<7->{divergent.}
-\item<8->  If $p > 0$, then $f(x) = \frac{1}{x^p}$ is continuous, positive, and decreasing on $[1, \infty)$, so we can use the Integral Test.
-\item<9->  $\displaystyle \int_1^\infty \frac{1}{x^p}\diff x$ is \alert<handout:0| 9-10>{convergent if \uncover<10->{$p > 1$.}}
-\item<9->  $\displaystyle \int_1^\infty \frac{1}{x^p}\diff x$ is \alert<handout:0| 11-12>{divergent if \uncover<12->{$p \leq 1$.}}
-\item<13->  Therefore $\displaystyle \sum_{n=1}^\infty \frac{1}{n^p}$ is convergent if $p > 1$ and divergent if $p \leq 1$.
+\item<2-| alert@2-3>  If $p < 0$, then $\lim\limits_{ n\to\infty} \frac{1}{n^p} = $\fcAnswer{3}{$\infty$.}
+\item<4-| alert@4-5>  If $p = 0$, then $\lim\limits_{n \to \infty } \frac{ 1}{n^p} = $\fcAnswer{5}{$1$.}
+\item<6-| alert@6-7>  Therefore \alertNoH{14}{for $p\leq 0$ the series is \fcAnswer{7}{divergent.}}
+\item<8->  It remains to investigate the case $p > 0$. If $p>0$, then $f(x) = \frac{1}{x^p}$ is continuous, positive, and decreasing on $[1, \infty)$, so we can use the Integral Test.
+
+\uncover<9->{
+\hfil \hfil$
+\displaystyle \alertNoH{9,10,11,12,13,14}{ \int_1^\infty \frac{1}{x^p}\diff x} = \left\{\begin{array}{ll} \alertNoH{9,10,13}{ \text{convergent} }&  \alertNoH{9,10,13}{ \text{when~~ } }  \fcAnswer{10}{ \alertNoH{13}{p> 1}  } \\ \alertNoH{11,12,14}{\text{divergent}} & \alertNoH{11,12,14}{ \text{when~~ }} \fcAnswerUncover{9}{12}{ \alertNoH{14}{p\leq 1}}  \end{array}\right.
+$
+}
+\item<13->  $\Rightarrow$ $\displaystyle \alertNoH{13,14}{\sum_{n=1}^\infty \frac{1}{n^p}}$ \alertNoH{13}{is convergent when $p > 1$} and \alertNoH{14}{divergent when $p \leq 1$}.
 \end{itemize}
 \end{example}
 \end{frame}
