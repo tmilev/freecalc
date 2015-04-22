@@ -19,7 +19,7 @@
 \uncover<3->{
 \psline{<-}(-0.05, 0)(-0.05,0.4)
 \psline{->}(-0.05, 0.6)(-0.05,1)
-\rput(-0.05, 0.5){\alert<3>{$1$}}
+\rput(-0.05, 0.5){\alertNoH{3}{$1$}}
 }
 \uncover<2>{
 \psline[linecolor=red](0.5,1)(1,1)
@@ -32,14 +32,14 @@
 \rput[br](-0.05, 1.05){ $\phantom{Q_0=P_0}A$}
 \uncover<2->{
 \rput[lb](0.5, 1.05){$P_1\phantom{(x_1 ,1)}$}
-\rput[lb](1, 1.05){$P_2(\alert<2>{x_2}, 1)$}
+\rput[lb](1, 1.05){$P_2(\alertNoH{2}{x_2}, 1)$}
 }
 \uncover<2->{
-\rput[t](0.75,0.95){\alert<2>{$\Delta$}}
+\rput[t](0.75,0.95){\alertNoH{2}{$\Delta$}}
 }
 \uncover<5->{
-\rput[lt](0.520000, 0.4500000){$\alert<5>{Q_2}$}
-\rput[l](0.42000, 0.8){$\alert<5>{Q_1}$}
+\rput[lt](0.520000, 0.4500000){$\alertNoH{5}{Q_2}$}
+\rput[l](0.42000, 0.8){$\alertNoH{5}{Q_1}$}
 }
 \rput[tl](0.05, -0.05){$O$}
 %calculator commands:
@@ -164,14 +164,14 @@
 \psline[linecolor=red](0, 0)(0.5, 1)
 }
 \end{pspicture}
-\only<1-26>{
-Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ be the point $(\alert<2>{x_2},1)$, $P_1$ be the point $(x_2-\alert<2>{\Delta},1)$.} \uncover<3->{By the Pythagorean theorem, $\alert<25>{|OP_2|^2= 1 + x_2^2}$} \uncover<4->{and similarly $ |OP_1 |^2=1+(x_2-\Delta )^2$.} \uncover<5->{Let \alert<5>{$Q_1$}, \alert<5>{$Q_2$} be as indicated.} \uncover<6->{Then $\alert<6>{ \triangle OP_2A} $ is similar to $\alert<7>{\triangle OAQ_2} $.} \uncover<8->{By Euclidean geometry, $\alert<8>{ \frac{ \only<1-8>{{\color{green} |OA|}} \only<9->{|OA|} }{ |OP_2| }} =\alert<9>{ \frac{\only<9>{{\color{green}|OQ_2|}} \only<8,10->{|OQ_2|} }{|OA|}}$} \uncover<10->{ and so $\alert<12,24>{|OQ_2| |OP_2| }= |OA|^2 \alert<12,24>{ =1}$ \uncover<23->{ and therefore $\alert<23>{ \frac{|OQ_2|}{|OP_2|}} = \frac{ \alert<24>{|OQ_2| \alert<23>{| OP_2 |}} }{|OP_2|^{\alert<23>{2} }} \uncover<24->{= \frac{ \alert<24>{ 1} }{ \alert<25>{|OP_2|^2}} } \uncover<25->{ = \frac{1}{\alert<25>{ 1+x_2^2}}.}$}
+\only<handout:1|1-26>{
+Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ be the point $(\alertNoH{2}{x_2},1)$, $P_1$ be the point $(x_2-\alertNoH{2}{\Delta},1)$.} \uncover<3->{By the Pythagorean theorem, $\alertNoH{25}{|OP_2|^2= 1 + x_2^2}$} \uncover<4->{and similarly $ |OP_1 |^2=1+(x_2-\Delta )^2$.} \uncover<5->{Let \alertNoH{5}{$Q_1$}, \alertNoH{5}{$Q_2$} be as indicated.} \uncover<6->{Then $\alertNoH{6}{ \triangle OP_2A} $ is similar to $\alertNoH{7}{\triangle OAQ_2} $.} \uncover<8->{By Euclidean geometry, $\alertNoH{8}{ \frac{ \only<1-8>{{\color{green} |OA|}} \only<handout:0|9->{|OA|} }{ |OP_2| }} =\alertNoH{9}{ \frac{\only<9>{{\color{green}|OQ_2|}} \only<handout:0|8,10->{| OQ_2|} }{|OA|}}$} \uncover<10->{ and so $\alertNoH{12,24}{|OQ_2| |OP_2| }= |OA|^2 \alertNoH{12,24}{ =1}$ \uncover<23->{ and therefore $\alertNoH{23}{ \frac{|OQ_2|}{|OP_2|}} = \frac{ \alertNoH{24}{|OQ_2| \alertNoH{23}{| OP_2 |}} }{|OP_2|^{\alertNoH{23}{2} }} \uncover<24->{= \frac{ \alertNoH{24}{ 1} }{ \alertNoH{25}{|OP_2|^2}} } \uncover<25->{ = \frac{1}{\alertNoH{25}{ 1+x_2^2}}.}$}
 }
 %The points $Q_2$, $P_2$ are often called ``inverse points w.r.t. the unit circle''.
-\uncover<11->{Similarly conclude $\alert<13>{ |OQ_1|} \alert<14>{|OP_1|} =|OA|^2= \alert<12>{1} \uncover<12->{ \alert<12>{\alert<13,14>{=} \alert<14>{ |OQ_2|}\alert<13>{ |OP_2| }}.}$}
-\uncover<13->{Therefore $\alert<13>{ \frac{|OQ_1|}{  |OP_2|} } \alert<13,14>{=} \alert<14>{\frac{|OQ_2| }{ |OP_1|}} $} \uncover<15->{and so $ \alert<15>{\triangle OQ_2Q_1} $ is similar to $\alert<16>{\triangle OP_1P_2} $.} \uncover<17->{Therefore $\frac{ \only<17>{{\color{green}|Q_1Q_2|}} \only<18->{\alert<19>{ |Q_1Q_2|}} } { \alert<17,20>{|P_1P_2|} }= \alert<20>{ \frac{ \only<18>{\color{green}|OQ_2|} \only<1-17,19->{ |OQ_2|} }{ \alert<18>{|OP_1|} }}$} \uncover<19->{and so }
+\uncover<11->{Similarly conclude $\alertNoH{13}{ |OQ_1|} \alertNoH{14}{|OP_1|} =|OA|^2= \alertNoH{12}{1} \uncover<12->{ \alertNoH{12}{\alertNoH{13,14}{=} \alertNoH{14}{ |OQ_2|}\alertNoH{13}{ |OP_2| }}.}$}
+\uncover<13->{Therefore $\alertNoH{13}{ \frac{|OQ_1|}{  |OP_2|} } \alertNoH{13,14}{=} \alertNoH{14}{\frac{|OQ_2| }{ |OP_1|}} $} \uncover<15->{and so $ \alertNoH{15}{\triangle OQ_2Q_1} $ is similar to $\alertNoH{16}{\triangle OP_1P_2} $.} \uncover<17->{Therefore $\frac{ \only<17>{{ \color{green}|Q_1Q_2|}} \only<handout:0|18->{\alertNoH{19}{ |Q_1Q_2|}} } { \alertNoH{17,20}{|P_1P_2|} }= \alertNoH{20}{ \frac{ \only<18>{\color{green}|OQ_2|} \only<handout:0| 1-17,19->{ |OQ_2|} }{ \alertNoH{18}{|OP_1|} }}$} \uncover<19->{and so }
 }
-\uncover<19->{\alert<26,27>{\noindent $\alert<19>{|Q_1Q_2|} =\alert<20>{\frac{|P_1P_2| |OQ_2|} {|OP_1|}} \uncover<21->{=\left(\frac{\alert<21>{|OP_2|} }{|OP_1|}\right) \alert<23,24,25>{\frac{|OQ_2|} {\alert<21>{ |OP_2|}}} \alert<22>{ |P_1P_2|} } \uncover<22->{= \frac{|OP_2| } {|OP_1|} \frac{\alert<22>{ \Delta} }{\alert<23,24,25>{ 1+x_2^2}}.}$}}
+\uncover<19->{\alertNoH{26,27}{\noindent $\alertNoH{19}{|Q_1Q_2|} =\alertNoH{20}{\frac{|P_1P_2| |OQ_2|} {|OP_1|}} \uncover<21->{=\left(\frac{\alertNoH{21}{|OP_2|} }{|OP_1|}\right) \alertNoH{23,24,25}{\frac{|OQ_2|} {\alertNoH{21}{ |OP_2|}}} \alertNoH{22}{ |P_1P_2|} } \uncover<22->{= \frac{|OP_2| } {|OP_1|} \frac{\alertNoH{22}{ \Delta} }{\alertNoH{23,24,25}{ 1+x_2^2}}.}$}}
 \end{frame}
 %\end{comment}
 %\begin{comment}
@@ -181,16 +181,16 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \psframe*[linecolor=white](-3.1,-0.1)(3.1,1.2)
 \tiny
 \psline[linecolor=red!1](0,1.2)(0.001,1.2) %bounding boxes don't always work right
-\uncover<48->{
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%\uncover<48->{
+%\pscustom*[linecolor=\fcColorAreaUnderGraph]{
 %Function formula: \frac{1}{x^{2}+1}
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.000000}{3.000000}{1.0000000 1.0000000 x 2.0000000 exp add div }
-\psline(3.000000, 0)(-3.000000, 0)
-}
+%\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.000000}{3.000000}{1.0000000 1.0000000 x 2.0000000 exp add div }
+%\psline(3.000000, 0)(-3.000000, 0)
+%}
 
 %Function formula: \frac{1}{x^{2}+1}
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.000000} {3.000000} {1.0000000 1.0000000 x 2.0000000 exp add div }
-}
+%\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-3.000000} {3.000000} {1.0000000 1.0000000 x 2.0000000 exp add div }
+%}
 
 \psaxes[arrows=<->, ticks=none, labels=none](0,0)(-3.05,-0.1)(3.05,1.1)
 %Function formula: - (- x^{2}+1)^{1/2}
@@ -237,28 +237,28 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \psline(0.441176, 0.735294)(0.4, 0.8)
 \psline(0.398302, 0.761019)(0.372577, 0.718144)(0.415452, 0.692419)
 }
-\rput[lt](0.46, 0.71){\uncover<7-12>{$Q_2$}}
+\rput[lt](0.46, 0.71){\uncover<handout:0|7-12>{$Q_2$}}
 \uncover<6>{
 \psline(0.700000, 1)(0, 0)
 \psline(0.469799, 0.671141)(0, 1)
 \psline(0.469799, 0.671141)(0.4, 0.8)
 \psline(0.428837, 0.699814)(0.400164, 0.658852)(0.441126, 0.630179)
 }
-\rput[lt](0.48, 0.65){\uncover<6>{$Q_2$}}
+\rput[lt](0.48, 0.65){\uncover<handout:0|6>{$Q_2$}}
 \uncover<5>{
 \psline(0.8, 1)(0, 0)
 \psline(0.487805, 0.609756)(0, 1)
 \psline(0.487805, 0.609756)(0.4, 0.8)
 \psline(0.448761, 0.640991)(0.417527, 0.601947)(0.456570, 0.570713)
 }
-\rput[lt](0.5, 0.58){\uncover<5>{$Q_2$}}
+\rput[lt](0.5, 0.58){\uncover<handout:0|5>{$Q_2$}}
 \uncover<4>{
 \psline(0.900000, 1) (0, 0)
 \psline(0.497238, 0.552486)(0, 1)
 \psline(0.497238, 0.552486)(0.4, 0.8)
 \psline(0.460073, 0.585934)(0.426625, 0.548770)(0.463789, 0.515321)
 }
-\rput[lt](0.5, 0.54){\uncover<4>{$Q_2$}}
+\rput[lt](0.5, 0.54){\uncover<handout:0|4>{$Q_2$}}
 
 \uncover<1-3>{ %
 \psline(1, 1)(0, 0)
@@ -268,7 +268,7 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \uncover<13->{ %
 \psline(0.4, 0.8)(0.5, 0.5)
 } %
-\rput[lt](0.520000, 0.4500000){\uncover<13->{$Q_2$}}
+\rput[lt](0.520000, 0.4500000){\uncover<handout:0|13->{$Q_2$}}
 \uncover<13-33>{ %
 \psline(1, 1)(0, 0)
 }
@@ -436,74 +436,76 @@ Draw a unit circle as above, let $O, A$ be as indicated. \uncover<2->{Let $P_2$ 
 \psline[linecolor=red](0,0)(0.6,1)
 \psline[linecolor=green](0,0)(0.5,1)
 }
-\uncover<4>{
+\uncover<handout:0|4>{
 \rput[lb](0.9, 1.05){$P_2$}
 \rput[t](0.7,0.95){$\Delta$}
 }
-\uncover<5>{
+\uncover<handout:0|5>{
 \rput[lb](0.8, 1.05){$P_2$}
 \rput[t](0.65,0.95){$\Delta$}
 }
-\uncover<6>{
+\uncover<handout:0|6>{
 \rput[lb](0.7, 1.05){$P_2$}
 \rput[t](0.6,0.95){$\Delta$}
 }
-\uncover<7-12>{
+\uncover<handout:0|7-12>{
 \rput[lb](0.6, 1.05){$P_2$}
 \rput[t](0.55,0.95){$\Delta$}
 }
 \uncover<1-3,13->{
-\rput[lb](1, 1.05){\uncover<1-33>{$P_2\alert<16>{(x_2, 1)}$}}
+\rput[lb](1, 1.05){\uncover<1-33>{$P_2\alertNoH{16}{(x_2, 1)}$}}
 \rput[t](0.75,0.95){$\Delta$}
 }
-\rput[rb](3, 1.05){$\uncover<20-33>{\alert<20>{P_n}}$}
+\rput[rb](3, 1.05){$\uncover<20-33>{\alertNoH{20}{P_n}}$}
 \rput[lb](2, 1.05){
-$\uncover<17-33>{\alert<17>{\dots}}$
+$\uncover<17-33>{\alertNoH{17}{\dots}}$
 }
 
-\rput[lb](0.5, 1.05){\uncover<1-33>{$P_1\uncover<15->{\alert<15>{(x_1 ,1)}}$}}
+\rput[lb](0.5, 1.05){\uncover<1-33>{$P_1\uncover<15->{\alertNoH{15}{(x_1 ,1)}}$}}
 \rput[t](3, -0.1){$x$}
-\rput[br](-0.05, 1.05){$\uncover<21->{\alert<21>{Q_0= }}\uncover<14->{ \alert<14>{ P_0=}}A$}
+\rput[br](-0.05, 1.05){$\uncover<21->{\alertNoH{21}{Q_0= }}\uncover<14->{ \alertNoH{14}{ P_0=}}A$}
 \rput[l](0.42000, 0.8){$Q_1$}
 \rput[tl](0.05, -0.05){$O$}
 \end{pspicture}
-\alert<1>{ \noindent $\alert<28>{|Q_1Q_2| =} \alert<29>{\frac{|OP_2| } {|OP_1|}} \alert<28>{\frac{ \Delta} {1+x_2^2}}. \vphantom{={\frac{|P_1P_2| |OQ_2|} {|OP_1|}} {=\left(\frac{|OP_2|}{|OP_1|}\right) \frac{|OQ_2|} { |OP_2|} |P_1P_2| } }$} \uncover<13->{For any $\varepsilon >0$, can choose $\Delta$: $\alert<29>{1< \frac{|OP_2| } {|OP_1|} < 1 + \varepsilon}$.}
+\alertNoH{1}{ \noindent $\alertNoH{28}{|Q_1Q_2| =} \alertNoH{29}{\frac{|OP_2| } {|OP_1|}} \alertNoH{28}{\frac{ \Delta} {1+x_2^2}}. \vphantom{={\frac{|P_1P_2| |OQ_2|} {|OP_1|}} {=\left(\frac{|OP_2|}{|OP_1|}\right) \frac{|OQ_2|} { |OP_2|} |P_1P_2| } }$} \uncover<13->{For any $\varepsilon >0$, can choose $\Delta$: $\alertNoH{29}{1< \frac{|OP_2| } {|OP_1|} < 1 + \varepsilon}$.}
 
-\only<1-12>{ \uncover<2->{If we let $P_2\to P_1$}\uncover<3->{, i.e., $\Delta \to 0$,} \uncover<8->{we get $\alert<8>{ \frac{|OP_2| }{ |OP_1|}\to 1}$.} \uncover<9->{In strict mathematical language: for every $\varepsilon>0$ there exists $\delta >0$ such that when $\Delta  < \delta$ we have that $1>\frac{ |OP_2| }{|OP_1|}>1-\varepsilon $.} \uncover<10->{Furthermore, the choice of $\delta$ can be made independent of the value of $x_2$: } \uncover<11->{to prove that one analyzes the expression $\frac{|OP_2|}{|OP_1|} = \sqrt{ \frac{ 1+x_2^2} { 1 + (x_2-\Delta )^2}}$.} \uncover<12->{We leave the tedious but otherwise easy details to the interested student. }
+\only<handout:1|1-12>{ \uncover<2->{If we let $P_2\to P_1$}\uncover<3->{, i.e., $\Delta \to 0$,} \uncover<8->{we get $\alertNoH{8}{ \frac{|OP_2| }{ |OP_1|}\to 1}$.} \uncover<9->{In strict mathematical language: for every $\varepsilon>0$ there exists $\delta >0$ such that when $\Delta  < \delta$ we have that $1>\frac{ |OP_2| }{|OP_1|}>1-\varepsilon $.} \uncover<10->{Furthermore, the choice of $\delta$ can be made independent of the value of $x_2$: } \uncover<11->{to prove that one analyzes the expression $\frac{|OP_2|}{|OP_1|} = \sqrt{ \frac{ 1+x_2^2} { 1 + (x_2-\Delta )^2}}$.} \uncover<12->{We leave the tedious but otherwise easy details to the interested student. }
 }
 
-\only<13-27>{
-\uncover<13->{Fix a large number $N$ and let $\Delta$ be such that $n= \frac{N}{\Delta} $ is integer.} \uncover<14->{ Let  $\alert<14>{P_0=(0,1)} $, $\alert<15>{P_1=(\Delta, 1 )}$, $\alert<16>{P_2=(2\Delta,1)}, \dots, \alert<20>{P_n= (n \Delta,1)}$}\uncover<21->{, and let $\alert<21>{Q_0}, \alert<22>{ Q_1},\alert<23>{Q_2}, \dots, \alert<27>{Q_n}$ be as indicated.}
+\only<handout:2|13-27>{
+\uncover<13->{Fix a large number $N$ and let $\Delta$ be such that $n= \frac{N}{\Delta} $ is integer.} \uncover<14->{ Let  $\alertNoH{14}{P_0=(0,1)} $, $\alertNoH{15}{P_1=(\Delta, 1 )}$, $\alertNoH{16}{P_2=(2\Delta,1)}, \dots, \alertNoH{20}{P_n= (n \Delta,1)}$}\uncover<21->{, and let $\alertNoH{21}{Q_0}, \alertNoH{22}{ Q_1},\alertNoH{23}{Q_2}, \dots, \alertNoH{27}{Q_n}$ be as indicated.}
 }
 
-\uncover<28->{
+\only<handout:3|28->{
 $
 \begin{array}{rcrcl}
 \only<1-39>{
-\alert<28>{ \frac{\Delta}{1+x_1^2 } }&<\phantom{=}&\alert<28>{ |Q_0Q_1|} &< \phantom{=} & \alert<29>{ (1+ \varepsilon )} \alert<28>{\frac{ \Delta}{1+x_1^2}}  \\
-\uncover<30->{\alert<30>{ \frac{\Delta}{1+x_2^2 }} &<\phantom{=} &\alert<30>{|Q_1Q_2|} &<\phantom{=} & \alert<31>{ (1 + \varepsilon)} \alert<30>{\frac{ \Delta }{1+ x_2^2}}}  \\
-\uncover<32->{ &\alert<32>{\vdots}} \\
-\uncover<33->{\frac{\Delta}{1+x_n^2 } &<\phantom{=} &\alert<33>{ |Q_{n-1}Q_n|} &< \phantom{=} &(1+\varepsilon) \frac{\Delta}{1+x_n^2}} \uncover<34->{\\ \hline}
-\uncover<34->{ \sum_{i=1}^n\frac{\Delta}{1+x_i^2 } &< \phantom{=}&\alert<34>{ \sum_{i=1}^n |Q_{i-1} Q_i|} & <\phantom{=}& (1 +\varepsilon)\sum_{i=1}^n \frac{\Delta}{1+x_i^2} }\\
+\alertNoH{28}{ \frac{\Delta}{1+x_1^2 } }&<\phantom{=}&\alertNoH{28}{ |Q_0Q_1|} &< \phantom{=} & \alertNoH{29}{ (1+ \varepsilon )} \alertNoH{28}{\frac{ \Delta}{1+x_1^2}}  \\
+\uncover<30->{\alertNoH{30}{ \frac{\Delta}{1+x_2^2 }} &<\phantom{=} &\alertNoH{30}{|Q_1Q_2|} &<\phantom{=} & \alertNoH{31}{ (1 + \varepsilon)} \alertNoH{30}{\frac{ \Delta }{1+ x_2^2}}}  \\
+\uncover<32->{ &\alertNoH{32}{\vdots}} \\
+\uncover<33->{\frac{\Delta}{1+x_n^2 } &<\phantom{=} &\alertNoH{33}{ |Q_{n-1}Q_n|} &< \phantom{=} &(1+\varepsilon) \frac{\Delta}{1+x_n^2}} \uncover<34->{\\ \hline}
+\uncover<34->{ \sum_{i=1}^n\frac{\Delta}{1+x_i^2 } &< \phantom{=}&\alertNoH{34}{ \sum_{i=1}^n |Q_{i-1} Q_i|} & <\phantom{=}& (1 +\varepsilon)\sum_{i=1}^n \frac{\Delta}{1+x_i^2} }\\
 \uncover<35->{ \downarrow  &&\downarrow&&\downarrow}\\
 }
-\uncover<35->{ \alert<39,40>{\int_{0}^{\uncover<37->{\alert<37>{\infty}} \uncover<35,36>{N}} \frac{\diff x}{1+x^2}} & \uncover<1-38>{<} \uncover<39->{\alert<39,40>{=}}& \alert<39,40>{  \lim\limits_{\Delta\uncover<37->{, \alert<37>{N} }\uncover<39->{, \alert<39>{\varepsilon}}} \sum| Q_{i-1} Q_i|} \uncover<1-39>{ &\uncover<1-38>{<} \uncover<39->{\alert<39>{=}}& \uncover<1-38>{(1 + \varepsilon )} \int_0^{\uncover<37->{\alert<37>{\infty}} \uncover<35,36>{ N}} \frac{ \diff x}{1+x^2}}}
+\uncover<35->{ \alertNoH{39,40}{\int_{0}^{\uncover<37->{\alertNoH{37}{\infty}} \uncover<35,36>{N}} \frac{\diff x}{1+x^2}} & \uncover<handout:0|1-38>{<} \uncover<39->{\alertNoH{39,40}{=}}& \alertNoH{39,40}{  \lim\limits_{\Delta\uncover<37->{, \alertNoH{37}{N} }\uncover<39->{, \alertNoH{39}{\varepsilon}}} \sum| Q_{i-1} Q_i|} \uncover<1-39>{ &\uncover<handout:0|1-38>{<} \uncover<39->{\alertNoH{39}{=}}& \uncover<1-38>{(1 + \varepsilon )} \int_0^{\uncover<37->{\alertNoH{37}{\infty}} \uncover<35,36>{ N}} \frac{ \diff x}{1+x^2}}}
 \end{array}
 $
 }
 
-\only<1-39>{
-\uncover<35->{Let $\Delta\to 0$.} \uncover<36->{Next take $\alert<36,37>{N\to \infty}$.} \uncover<38->{Finally take \alert<38,39>{$\varepsilon\to 0$}\uncover<39->{, use squeeze thm.}}
+\only<handout:3|1-39>{
+\uncover<35->{Let $\Delta\to 0$.} \uncover<36->{Next take $\alertNoH{36,37}{N\to \infty}$.} \uncover<38->{Finally take \alertNoH{38,39}{$\varepsilon\to 0$}\uncover<39->{, use squeeze thm.}}
 }
 
+\only<handout:4|1->{
 \uncover<41->{
 The points $Q_1, Q_2, \dots$ see the segment $OA$ from an angle of $\frac{\pi}{2}$. }\uncover<42->{Therefore, by Euclidean geometry, the points $Q_1, Q_2,\dots $ lie on the circle $C$ with radius $\frac{1}{2}$ and center $(0,\frac{1}{2}) $. } \uncover<43->{Therefore $ \sum |Q_{i-1}Q_{i}| $ approximates half of the circumference of the circle $C$.}
-\uncover<44->{\alert<44,45>{By symmetry,}
+\uncover<44->{\alertNoH{44,45}{By symmetry,}
 \uncover<46->{
 \[
-\alert<47>{\int_{-\infty}^{\infty} \frac{\diff x}{1+x^2} }= \text{ circumference of }C  \uncover<47->{=2\pi \left(\frac{1}{2}\right) \alert<47>{=\pi},}
+\alertNoH{47}{\int_{-\infty}^{\infty} \frac{\diff x}{1+x^2} }= \text{ circumference of }C  \uncover<47->{=2\pi \left(\frac{1}{2}\right) \alertNoH{47}{=\pi},}
 \]
 \uncover<47,48->{as desired.}
+}
 }
 }
 \end{frame}
