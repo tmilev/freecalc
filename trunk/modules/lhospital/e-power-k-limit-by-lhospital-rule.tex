@@ -1,0 +1,17 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{example}
+$
+\begin{array}{@{}r@{}cl@{}l|l}
+\displaystyle \lim\limits_{x\to \infty} \left(1+\frac{k}{x} \right)^{ x} &\uncover<2->{=} &\displaystyle  \uncover<2->{\alertNoH{3}{ \lim\limits_{x\to \infty}} {\alertNoH{2,3}{e}}^{ \alertNoH{2}{\ln} \left( 1+\frac{k}{x}\right)^{x}}} \uncover<3->{&&\alertNoH{3}{ \text{exponent= continuous f-n}}}\\
+\uncover<3->{&=&\displaystyle \alertNoH{17,18}{ {\alertNoH{3}{e}}^{ \alertNoH{4, 19 }{ \alertNoH{3}{ \lim \limits_{ x\to\infty}} \ln \left( 1 +\frac{k }{x} \right)^{x}}}}} \uncover<17->{\alertNoH{17,18}{=}} \fcAnswer{18}{e^{\alertNoH{19}{k}}} \uncover<19->{&&\alertNoH{19}{\text{limit computed below}}} \\
+\displaystyle \uncover<4->{ \alertNoH{4,19}{ \lim\limits_{ x \to \infty } \alertNoH{5}{\ln}\left(1+ \frac{k}{ x}\right)^{ \alertNoH{5 }{x}} }}&\uncover<5->{=}& \uncover<5->{\lim\limits_{x\to\infty} \alertNoH{5,6}{x}\alertNoH{5}{\ln}\left(1+\frac{k}{x}\right)} \\
+\uncover<6->{&=&\displaystyle \lim\limits_{x\to\infty} \frac{ \alertNoH{11,12}{ \uncover<8->{\alertNoH{8}{\frac{\diff}{\diff x}}} \left(\ln \left(1 + \frac{ k}{x}\right)\right) }}{ \alertNoH{9,10}{ \uncover<8->{\alertNoH{8}{\frac{\diff}{ \diff x}}} \alertNoH{6}{\left(\frac{1 }{ x}\right)}}}&& \uncover<7->{ \alertNoH{7}{\text{form ``}\frac{0}{0}\text{'', }} } \uncover<8->{\alertNoH{8}{\text{use L'Hospital}} }}\\
+\uncover<9->{&=&\displaystyle \lim\limits_{x\to \infty} \frac{ \fcAnswerUncover{9}{12}{\frac{1}{ 1+ \frac{ k}{x}} \alertNoH{13}{\left(1+\frac{k}{x}\right)'} }}{ \fcAnswer{10}{-\frac{ 1}{x^2}}}} \\
+\uncover<13->{&=&\displaystyle \lim\limits_{x\to \infty} \frac{\frac{ 1}{1 +\frac{k}{x}}\left(\alertNoH{13}{ \alertNoH{14}{-}\frac{k}{\alertNoH{14}{x^2}}} \right) }{\alertNoH{14}{ -\frac{1}{x^2}}}} \\
+\uncover<14->{&=&\displaystyle \alertNoH{15,16}{ \lim\limits_{x\to \infty}\frac{k}{ 1+\frac{ k }{x}}}} \uncover<15->{\alertNoH{15,16,19}=}\fcAnswer{16}{\alertNoH{19}{k}}
+\end{array}
+$
+\end{example}
+
+\end{frame}
