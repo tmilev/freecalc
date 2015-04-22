@@ -4,37 +4,37 @@
 \frametitle{Euler substitution to handle $\sqrt{x^2-1} $}
 
 \begin{itemize}
-\item<1-> Suppose we want to integrate 
+\item<1-> Suppose we want to integrate
 \[
 \int R(x, \sqrt{x^2-1})\diff x\quad .
 \]
 \only<1-14>{
-\item<2-> Substitute $\alert<14>{\sqrt{x^2-1}=}(\alert<10>{x}-1)t\uncover<10->{= \left(\alert<10>{ 1+\frac{2}{t^2-1}} -1\right)t =\alert<14>{\frac{2t}{t^2-1}} .}$ 
-\item<3-> How is this a substitution of $x$ via $t$? 
+\item<2-> Substitute $\alertNoH{14}{\sqrt{x^2-1}=}(\alertNoH{10}{x}-1)t\uncover<10->{= \left(\alertNoH{10}{ 1+\frac{2}{t^2-1}} -1\right)t =\alertNoH{14}{\frac{2t}{t^2-1}} .}$
+\item<3-> How is this a substitution of $x$ via $t$?
 \[
 \begin{array}{rcll|l}
 \uncover<4->{\sqrt{x^2-1}&=&(x-1)t&&\text{square}}\\
 \uncover<5->{(x-1)(x+1)  &=&(x-1)^2t^2&&  \text{divide by } x-1} \\
 \uncover<6->{x+1 &=&(x-1)t^2}\\
 \uncover<7->{x(t^2-1) &=&1+t^2}\\
-\uncover<8->{\alert<10,11,14>{x}&\alert<10,11,14>{=}&\displaystyle \frac{t^2\uncover<9->{-1+1}+1}{t^2-1} \uncover<9->{=\alert<10,11, 14>{1+\frac{2}{t^2-1}}}}
+\uncover<8->{\alertNoH{10,11,14}{x}&\alertNoH{10,11,14}{=}&\displaystyle \frac{t^2\uncover<9->{-1+1}+1}{t^2-1} \uncover<9->{=\alertNoH{10,11, 14}{1+\frac{2}{t^2-1}}}}
 \end{array}
 \]
 \item<11->
 \[
-\alert<11>{ \alert<14>{\diff x=} \alert<12,13>{\diff \left(1+\frac{2}{t^2-1} \right)}} \uncover<12->{\alert<12,13>{=}} \only<12>{\alert<12>{\textbf{?}}} \uncover<13->{\alert<13,14>{\frac{-4t}{(t^2-1)^2}\diff t} .} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
-\] 
+\alertNoH{11}{ \alertNoH{14}{\diff x=} \alertNoH{12,13}{\diff \left(1+\frac{2}{t^2-1} \right)}} \uncover<12->{\alertNoH{12,13}{=}} \only<12>{\alertNoH{12}{\textbf{?}}} \uncover<13->{\alertNoH{13,14}{\frac{-4t}{(t^2-1)^2}\diff t} .} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
+\]
 }
 \end{itemize}
 \uncover<15->{
 \begin{definition}
 \[
 \begin{array}{rcl}
-\displaystyle \alert<15>{\sqrt{-x^2+1}}&\alert<15>{=}&\displaystyle \alert<15>{\frac{2t}{t^2-1} }\\
-\displaystyle \alert<15>{x}&\alert<15>{=}&\displaystyle \alert<15>{ 1+\frac{2} {t^2-1} }\\
-\displaystyle \alert<15>{\diff x}&\alert<15>{=}&\displaystyle \alert<15>{ \frac{-4t }{(t^2-1 )^2}dt }\quad .
+\displaystyle \alertNoH{15}{\sqrt{-x^2+1}}&\alertNoH{15}{=}&\displaystyle \alertNoH{15}{\frac{2t}{t^2-1} }\\
+\displaystyle \alertNoH{15}{x}&\alertNoH{15}{=}&\displaystyle \alertNoH{15}{ 1+\frac{2} {t^2-1} }\\
+\displaystyle \alertNoH{15}{\diff x}&\alertNoH{15}{=}&\displaystyle \alertNoH{15}{ \frac{-4t }{(t^2-1 )^2}dt }\quad .
 \end{array}
-\] 
+\]
 \end{definition}
 }
 \vspace{5cm}

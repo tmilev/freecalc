@@ -2,12 +2,12 @@
 \begin{frame}
 \frametitle{Euler substitution to handle $\sqrt{-x^2+1} $}
 \begin{itemize}
-\item<1-> Suppose we want to integrate 
+\item<1-> Suppose we want to integrate
 \[
 \int R(x, \sqrt{-x^2+1})\diff x\quad .
 \]
 \only<2-15>{
-\item<2-> Substitute $\alert<9,15>{\sqrt{-x^2+1}}=(1-\alert<11>{x})t  \uncover<11->{ =\left( 1 -\alert<11>{ \left(1-\frac{2}{ t^2+1} \right)} \right)t =\alert<15>{\frac{2t}{t^2+1}}}$. 
+\item<2-> Substitute $\alertNoH{9,15}{\sqrt{-x^2+1}}=(1-\alertNoH{11}{x})t  \uncover<11->{ =\left( 1 -\alertNoH{11}{ \left(1-\frac{2}{ t^2+1} \right)} \right)t =\alertNoH{15}{\frac{2t}{t^2+1}}}$.
 \item<3-> How is this a substitution of $x$ via t?
 \uncover<4->{
 \[
@@ -17,14 +17,14 @@
 \uncover<6->{1+x&=&(1-x)t^2}\\
 \uncover<7->{xt^2+x &=&t^2-1}\\
 \uncover<8->{x(t^2+1) &=&t^2-1 &&\text{divide by }t^2+1}\\
-\uncover<9->{\alert<11,12,15>{x}&\alert<11,15>{=}& \frac{  t^2\uncover<10->{+1-1}-1}{t^2+1} \uncover<10->{ = \alert<11,12,15>{1 -\frac{2}{ t^2+1} }\quad .}}
+\uncover<9->{\alertNoH{11,12,15}{x}&\alertNoH{11,15}{=}& \frac{  t^2\uncover<10->{+1-1}-1}{t^2+1} \uncover<10->{ = \alertNoH{11,12,15}{1 -\frac{2}{ t^2+1} }\quad .}}
 \end{array}
-\] 
-\item<12-> 
+\]
+\item<12->
 \[
-\alert<12,15>{\diff x =} \alert<12,13,14>{ \diff \left(1-\frac{2}{t^2+1}\right)} \uncover<13->{\alert<13,14,15>{=}}\only<13>{\alert<13>{\textbf{?}}} \uncover<14->{\alert<14,15>{ \frac{4t}{(1+t^2)^2}dt} \quad .}
+\alertNoH{12,15}{\diff x =} \alertNoH{12,13,14}{ \diff \left(1-\frac{2}{t^2+1}\right)} \uncover<13->{\alertNoH{13,14,15}{=}}\only<13>{\alertNoH{13}{\textbf{?}}} \uncover<14->{\alertNoH{14,15}{ \frac{4t}{(1+t^2)^2}dt} \quad .}
  {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
-\] 
+\]
 }
 }
 \end{itemize}
@@ -33,11 +33,11 @@
 The Euler substitution for $\sqrt{-x^2+1}$ is the substitution given by:
 \[
 \begin{array}{rcl}
-\displaystyle \alert<16>{\sqrt{-x^2+1}}&\alert<16>{=}& \displaystyle  \alert<16>{\frac{2t}{t^2+1}}\\
-\displaystyle  \alert<16>{x}&\alert<16>{=}&\displaystyle  \alert<16>{1-\frac{2}{t^2+1}}\\
-\displaystyle \alert<16>{\diff x }&\alert<16>{=} & \displaystyle  \alert<16>{\frac{4t}{(t^2+1)^2}dt }\quad .
+\displaystyle \alertNoH{16}{\sqrt{-x^2+1}}&\alertNoH{16}{=}& \displaystyle  \alertNoH{16}{\frac{2t}{t^2+1}}\\
+\displaystyle  \alertNoH{16}{x}&\alertNoH{16}{=}&\displaystyle  \alertNoH{16}{1-\frac{2}{t^2+1}}\\
+\displaystyle \alertNoH{16}{\diff x }&\alertNoH{16}{=} & \displaystyle  \alertNoH{16}{\frac{4t}{(t^2+1)^2}dt }\quad .
 \end{array}
-\] 
+\]
 \end{definition}
 }
 \vspace{5cm}

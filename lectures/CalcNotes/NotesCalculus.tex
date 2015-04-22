@@ -151,7 +151,7 @@ This text is in preparation and does contain typos and errors. Please read criti
 \item to Remix - to adapt, change, etc., the work,
 \item to make commercial use of the work,
 \end{itemize}
-as long as you reasonably acknowledge the original project (a notice of use of the freecalc project in a visible place is sufficient). For more details see the full text of the license \url{http://creativecommons.org/licenses/by/3.0/}.
+as long as you reasonably acknowledge the original project (a notice of use of the freecalc project is sufficient). For more details see the full text of the license \url{http://creativecommons.org/licenses/by/3.0/}.
 
 \noindent \textbf{Compiling the .tex file: a note to the student.} If you would like to modify this file, you need to learn how to use \LaTeX. Note that all graphics in the notes are drawn using commands in the .tex source (the text uses no external images). The .tex file should compile ``out of the box'' on a Linux distribution with \LaTeX~ installed.
 
@@ -1034,14 +1034,52 @@ and
 
 In the present chapter we construct via Euclidean geometry the trigonometric functions. We furthermore construct the exponent function. Finally, we relate the two using Euler's formula. 
 
-An alternative approach to the construction of the trigonometric and exponent function exists through power series. We present that alternative approach in Chapter \ref{chapterExponentsTrigFromPowerSeries}. The two approaches to the construction of trigonometric and exponent functions are equivalent as we shall prove in the end of Chapter \ref{chapterExponentsTrigFromPowerSeries}. 
+An alternative approach to the construction of the trigonometric and exponent function exists through power series. We present that alternative approach in Chapter \ref{chapterExponentsTrigFromPowerSeries}. The two approaches  are equivalent as we shall prove in the end of Chapter \ref{chapterExponentsTrigFromPowerSeries}. 
 
-We present the Euclidean geometry approach to trigonometry first as historically, it appeared first. We note that the alternative exposition of the material in Chapter \ref{chapterExponentsTrigFromPowerSeries} is algebraically more elegant and more useful for practical computational purposes. On the other hand, the present chapter has the advantage of making the geometric interpretation of the trigonometric functions immediately obvious - in Chapter \ref{chapterExponentsTrigFromPowerSeries} that becomes apparent only after a reasonable amount of algebraic preparation.
+Historically, the Euclidean geometry approach to trigonometry appeared first. We note that the power series approach to the material in Chapter \ref{chapterExponentsTrigFromPowerSeries} is algebraically more elegant and more useful for computational purposes. On the other hand, the present chapter has the advantage of making the geometric interpretation of the trigonometric functions immediately obvious - in Chapter \ref{chapterExponentsTrigFromPowerSeries} that becomes apparent only after a reasonable amount of algebraic preparation.
 
 
 The two alternative chapters \ref{chapterExponentsTrigFromEuclideanGeometry} and \ref{chapterExponentsTrigFromPowerSeries} are independent of one another and can be read in both orders. A shorter Calculus course may choose one of the two chapters and present the other as an optional reading.
 
 A good understanding of trigonometry requires that the reader be familiar with the material in both chapters. 
+
+\section{Definition of Angles}
+Angles measure lengths of arcs of circles. 
+\subsection{An Equation for the Unit Circle}
+Consider the unit circle - the set of points at distance $1$ from the origin. We aim to introduce an equation that is satisfied by all points lying on the circle.
+
+We recall that one of the formulations of the Pythagorian Theorem is that the distance $d$ between a point with coordinates $(x,y)$ and the point $(0,0)$ is given by
+\[
+\begin{array}{rcl}
+d= \sqrt{x^2+y^2}\quad .
+\end{array}
+\]
+Therefore a point lies on the unit circle if and only if $d=1$, and therefore all points lying on the unit circle satisfy
+
+\[
+\begin{array}{rcll|l}
+\sqrt{x^2+y^2}&=&1&&\text{square both sides}\\
+x^2+y^2&=&1\quad ,
+\end{array}
+\]
+and conversely, all points that satisfy the equation above lie on the unit circle. If we transfer $x^2$ to the other side of the equality, we get that
+
+\[
+\begin{array}{rcll|l}
+y^2&=&1-x^2\\
+y&=&\pm \sqrt{1-x^2}\quad .
+\end{array}
+\]
+
+Provided that we know how to compute values of the square root function $\sqrt{}$, we know how to compute (approximately) the value of $\sqrt{1-x^2}$. In this way we can plot a circle by plotting the two functions $\sqrt{1-x^2}$ and $-\sqrt{1-x^2}$ as shown below. 
+
+\begin{pspicture}(-1.3, -1.3)(1.3, 1.3)
+\psplot[linecolor=\fcColorGraph]{-1}{1}{1 x x mul sub sqrt}
+\psplot[linecolor=orange]{-1}{1}{1 x x mul sub sqrt -1 mul}
+\fcAxesStandardNoFrame{-1.2}{-1.2}{1.2}{1.2}
+\end{pspicture}
+
+
 
  
 \subsection{Exponent function: integer vs non-integer exponent}
@@ -1054,6 +1092,8 @@ In Chapter \ref{chapterExponentsTrigFromEuclideanGeometry} we presented a constr
 The power series approach to trigonometry postpones the geometric insight provided by the Euclidean geometry definition for the benefit of providing a much cleaner algebraic and numerical apparatus. In addition the power series approach makes the relation between trigonometry and exponents obvious. For example, Euler's formula holds essentially by definition.
 
 The present chapter also gives answers to important questions such as how to compute (approximations of) the trigonometric and exponent functions using a computer, and is thus closer to applications in our modern computer-equipped world. 
+
+
 
 
 

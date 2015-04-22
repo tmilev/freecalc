@@ -5,19 +5,19 @@
 \item Let $R$ be a rational function in two variables.
 \item<2-> So far, with linear transformations we converted all integrals of the form $\displaystyle\int R(x, \sqrt{ax^2+bx+c})\diff x$ to one of the three forms:
 
-\alert<4,9>{$\int R(x, \sqrt{x^2+1})\diff x$}, \alert<5,10>{$\int R(x, \sqrt{-x^2+1})\diff x$} , \alert<6,11>{$\int R(x, \sqrt{x^2-1}) \diff x$}.
+\alertNoH{4,9}{$\int R(x, \sqrt{x^2+1})\diff x$}, \alertNoH{5,10}{$\int R(x, \sqrt{-x^2+1})\diff x$} , \alertNoH{6,11}{$\int R(x, \sqrt{x^2-1}) \diff x$}.
 \item<3-> Each of the above integrals can be transformed to a rational trigonometric integral using 3 pairs of substitutions:
 
-\alert<4,9>{$x=\tan\theta $, $x=\cot \theta$;}  
-\alert<5,10>{$x=\sin\theta $, $x=\cos \theta$;}
-\alert<6,11>{$x=\csc\theta $, $x=\sec \theta$.}
+\alertNoH{4,9}{$x=\tan\theta $, $x=\cot \theta$;}
+\alertNoH{5,10}{$x=\sin\theta $, $x=\cos \theta$;}
+\alertNoH{6,11}{$x=\csc\theta $, $x=\sec \theta$.}
 \item<7-> We studied that trigonometric integrals are converted to rational function integrals via $\theta=2\arctan t$.
 \item<8-> The resulting 3 pairs of substitutions are called Euler substitutions:
-\alert<9,13>{$x=\tan (2\arctan t) $, $x=\cot (2\arctan t)$;}  
-\alert<10,13>{$x=\sin(2\arctan t) $, $x=\cos (2\arctan t)$;}
-\alert<11,13>{$x=\csc(2\arctan t) $, $x=\sec (2\arctan t)$.}
+\alertNoH{9,13}{$x=\tan (2\arctan t) $, $x=\cot (2\arctan t)$;}
+\alertNoH{10,13}{$x=\sin(2\arctan t) $, $x=\cos (2\arctan t)$;}
+\alertNoH{11,13}{$x=\csc(2\arctan t) $, $x=\sec (2\arctan t)$.}
 \item<12-> The Euler substitutions directly transform the integral to a rational function integral.
-\item<13-> We will demonstrate that the Euler substitutions are \alert<13>{rational}.
+\item<13-> We will demonstrate that the Euler substitutions are \alertNoH{13}{rational}.
 \end{itemize}
 
 \end{frame}
@@ -29,11 +29,11 @@
 \hline
 Expression & Substitution& Variable range & Relevant identity\\\hline
 \multirow{2}{*}{$\sqrt{x^2+1}$} & $x = \tan \theta$ &  $ \theta\in \left(-\frac{\pi}{2} , \frac{\pi}{2}\right)$ & $1 + \tan^2 \theta = \sec^2 \theta$\\
-&$x=\cot \theta$ &$ \theta\in (0, \pi) $ & $1+\cot^2\theta =\csc^2\theta $ \\ \hline 
+&$x=\cot \theta$ &$ \theta\in (0, \pi) $ & $1+\cot^2\theta =\csc^2\theta $ \\ \hline
 \multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x = \sin \theta$ &  $ \theta\in \left[ -\frac{\pi}{2} ,\frac{\pi}{2}\right]$ & $1 - \sin^2 \theta = \cos^2 \theta$\\
-& $x = \cos \theta$ & $\theta\in (0,\pi)$& $1-\cos^2\theta=\cos^2\theta$ \\\hline 
+& $x = \cos \theta$ & $\theta\in (0,\pi)$& $1-\cos^2\theta=\cos^2\theta$ \\\hline
 \multirow{2}{*}{$\sqrt{x^2-1}$} &$x=\csc \theta$ &$\theta\in \left[0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2}\right)$ &  $\csc^2\theta-1=\cot^2\theta $ \\
-&$x = \sec \theta$ & 
+&$x = \sec \theta$ &
 $\theta\in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{ 3 \pi}{2}\right)$
 & $\sec^2\theta - 1 = \tan^2\theta$
 \\
@@ -41,9 +41,9 @@ $\theta\in \left[0, \frac{\pi}{2}\right)\cup \left[\pi, \frac{ 3 \pi}{2}\right)$
 \multicolumn{4}{c}{Euler substitution by applying in addition $\theta=2\arctan t$}\\
 \hline
 \multirow{2}{*}{$\sqrt{x^2+1}$} & $ x =\frac{2t}{1-t^2}$ & $-1< t< 1$ & (?) \\
-&$ x=\frac{1}{2} \left(\frac{1}{t}-t\right)$ & $0<t $ &  (?)\\ \hline 
+&$ x=\frac{1}{2} \left(\frac{1}{t}-t\right)$ & $0<t $ &  (?)\\ \hline
 \multirow{2}{*}{ $\sqrt{-x^2+1 }$} & $x=\frac{2t}{1+t^2} $ & $-1\leq t\leq 1 $ & (?)\\
-& $x =\frac{1-t^2}{1+t^2} $ & $0<t$&  (?)\\\hline 
+& $x =\frac{1-t^2}{1+t^2} $ & $0<t$&  (?)\\\hline
 \multirow{2}{*}{ $\sqrt{x^2-1}$} & $x=\frac{1}{2}\left(\frac{ 1}{t}+t\right)$ & $t\in (-\infty, -1)\cup [0,1)$&(?)\\
 & $x =\frac{1+t^2}{1-t^2} $ & $t \in (-\infty,-1)\cup [0,1)$ & (?)\\\hline
 \end{tabular}

@@ -2,26 +2,26 @@
 \begin{frame}
 \frametitle{Euler substitution to handle $\sqrt{x^2+1} $}
 \begin{itemize}
-\item<1-> Suppose we want to integrate 
+\item<1-> Suppose we want to integrate
 \[
 \int R(x, \sqrt{x^2+1})\diff x\quad .
 \]
 \only<2-11>{
-\item<2-> Substitute $\alert<11>{\sqrt{x^2+1}}= \alert<7>{x} +t \uncover<7->{=\alert<7>{ \frac12\left(\frac{1}{t}- t\right)}+t =\alert<11>{\frac12\left(\frac{1}{t}+ t\right)}} $\uncover<7->{.} 
+\item<2-> Substitute $\alertNoH{11}{\sqrt{x^2+1}}= \alertNoH{7}{x} +t \uncover<7->{=\alertNoH{7}{ \frac12\left(\frac{1}{t}- t\right)}+t =\alertNoH{11}{\frac12\left(\frac{1}{t}+ t\right)}} $\uncover<7->{.}
 \item<3-> How is this a substitution of $x$ via t?
-\uncover<4->{ Square both sides: 
+\uncover<4->{ Square both sides:
 \[
 \begin{array}{rcl}
 x^2+1&=&x^2+2xt+t^2\\
 \uncover<5->{2xt&=&1-t^2}\\
-\uncover<6->{\alert<7,8,11>{x}&\alert<7,8,11>{=}& \alert<7,8,11>{ \frac12\left(\frac{1}{t}- t\right)}}
+\uncover<6->{\alertNoH{7,8,11}{x}&\alertNoH{7,8,11}{=}& \alertNoH{7,8,11}{ \frac12\left(\frac{1}{t}- t\right)}}
 \end{array}
 \]
 }
 \item<8-> Take differentials on both sides:
 \[
-\alert<8>{\alert<11>{ \diff x}=  \alert<9,10>{\frac12 \diff \left(\frac{1}{t}- t\right)}}  \uncover<9->{\alert<9,10,11>{=}} \only<9>{\alert<9>{\textbf{?}}} \uncover<10->{\alert<10,11>{ -\frac12\left(\frac{1}{t^2} +1\right) dt} } {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
-\] 
+\alertNoH{8}{\alertNoH{11}{ \diff x}=  \alertNoH{9,10}{\frac12 \diff \left(\frac{1}{t}- t\right)}}  \uncover<9->{\alertNoH{9,10,11}{=}} \only<9>{\alertNoH{9}{\textbf{?}}} \uncover<10->{\alertNoH{10,11}{ -\frac12\left(\frac{1}{t^2} +1\right) dt} } {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
+\]
 }
 \end{itemize}
 \uncover<12->{
@@ -29,9 +29,9 @@ x^2+1&=&x^2+2xt+t^2\\
 The Euler substitution for $\sqrt{x^2+1} $ is the substitution given by
 \[
 \begin{array}{rcl}
-\displaystyle\alert<12>{\sqrt{x^2+1}}&\alert<12>{=}&\displaystyle \alert<12>{\frac12 \left(\frac1t +t\right)} \\
-\displaystyle\alert<12>{x}&\alert<12>{=}&\displaystyle \alert<12>{ \frac12 \left(\frac{1}{t}- t\right)} \\
-\displaystyle \alert<12>{\diff x}&\alert<12>{=}&\displaystyle \alert<12>{ -\frac12\left(\frac{1}{t^2}+1\right) dt}
+\displaystyle\alertNoH{12}{\sqrt{x^2+1}}&\alertNoH{12}{=}&\displaystyle \alertNoH{12}{\frac12 \left(\frac1t +t\right)} \\
+\displaystyle\alertNoH{12}{x}&\alertNoH{12}{=}&\displaystyle \alertNoH{12}{ \frac12 \left(\frac{1}{t}- t\right)} \\
+\displaystyle \alertNoH{12}{\diff x}&\alertNoH{12}{=}&\displaystyle \alertNoH{12}{ -\frac12\left(\frac{1}{t^2}+1\right) dt}
 \quad .
 \end{array}
 \]

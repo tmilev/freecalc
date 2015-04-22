@@ -1,40 +1,40 @@
 \begin{frame}[t]
 The integral $\int \sec \theta \diff \theta$ appears often in practice. A quicker solution will be shown later, but first we show the standard method.
 \begin{example}
-Set $\displaystyle \alert<9>{\theta=2\Arctan t}$, $\displaystyle \alert<3>{ \cos \theta =} \frac{1-\tan^2(\frac{\theta}{2}) }{1+\tan^2\left(\frac{\theta}{2}\right)}= \alert<3>{\frac{1-t^2}{1+t^2}}$, $\displaystyle  \alert<4>{\diff \theta = 2 \frac{1 }{ 1+t^2}\diff t}$.
+Set $\displaystyle \alertNoH{9}{\theta=2\Arctan t}$, $\displaystyle \alertNoH{3}{ \cos \theta =} \frac{1- \tan^2 (\frac{\theta}{2}) }{ 1 + \tan^2\left(\frac{ \theta}{ 2}\right)}= \alertNoH{3}{\frac{1-t^2}{1+t^2}}$, $\displaystyle  \alertNoH{4}{\diff \theta = 2 \frac{1 }{ 1+t^2}\diff t}$.
 $
 \begin{array}{rclll}
 \displaystyle \int \sec \theta\diff\theta &=& \displaystyle
 \vphantom{ %phantom to align formulas
 \ln \left|\frac{1+\tan \left(\frac{\theta}{2}\right)}{1-\tan \left(\frac{\theta}{2}\right)}\right|
-} 
-\displaystyle 
-\only<1-10>{
-\uncover<2->{ \int \frac{1}{\alert<3>{ \cos \theta}} \alert<4>{\diff \theta}}\uncover<3->{ = \int \frac{1}{ \left( \alert<3>{ \frac{1- t^2 }{ \alert<5>{1+t^2}}} \right)} \alert<4>{\frac{2}{(\alert<5>{ 1+t^2})} \diff t} } \\
-\uncover<5->{ &=&\displaystyle \int \alert<6>{\frac{2}{1-t^2}}\diff t}\uncover<6->{ =\int \left(\alert<6>{ \frac{1}{1 -t}+ \frac{1}{ 1 +t}} \right)\diff t} \uncover<6->{&&\alert<6>{ \text{part. fractions}}}\\
+}
+\displaystyle
+\only<handout:1|1-10>{
+\uncover<2->{ \int \frac{1}{\alertNoH{3}{ \cos \theta}} \alertNoH{4}{\diff \theta}}\uncover<3->{ = \int \frac{1}{ \left( \alertNoH{3}{ \frac{1- t^2 }{ \alertNoH{5}{1+t^2}}} \right)} \alertNoH{4}{\frac{2}{(\alertNoH{5}{ 1+t^2})} \diff t} } \\
+\uncover<5->{ &=&\displaystyle \int \alertNoH{6}{\frac{2}{1-t^2}}\diff t}\uncover<6->{ =\int \left(\alertNoH{6}{ \frac{1}{1 -t}+ \frac{1}{ 1 +t}} \right)\diff t} \uncover<6->{&&\alertNoH{6}{ \text{part. fractions}}}\\
 \uncover<7->{&=&\displaystyle - \ln |1-t|+\ln |1+t| +C}\\
-\uncover<8->{&=&\displaystyle \ln \left|\frac{1+\alert<9>{t}}{1-\alert<9>{t}}\right|+C}\\
+\uncover<8->{&=&\displaystyle \ln \left|\frac{1+\alertNoH{9}{t}}{1-\alertNoH{9}{t}}\right|+C}\\
 
 \uncover<9->{&=&}
 }
-\only<1-21>{
-\displaystyle \uncover<9->{ \alert<10,11>{\alert<21>{ \ln \left|\frac{1+\tan \left(\alert<9>{ \frac{\theta}{2}} \right)}{1-\tan \left(\alert<9>{\frac{\theta}{2}}\right)}\right|}+C} }
+\only<handout:1,2|1-21>{
+\displaystyle \uncover<9->{ \alertNoH{10,11}{\alertNoH{21}{ \ln \left|\frac{1+\tan \left(\alertNoH{9}{ \frac{\theta}{2}} \right)}{1-\tan \left(\alertNoH{9}{\frac{\theta}{2}}\right)}\right|}+C} }
 }
-\only<22->{
-\uncover<22->{\displaystyle  \alert<22>{\ln \left|\tan \theta +\sec \theta\right|} +C}
+\only<handout:3|22->{
+\uncover<22->{\displaystyle  \alertNoH{22}{\ln \left|\tan \theta +\sec \theta\right|} +C}
 }
 \end{array}
 $
 
-\only<11->{
+\only<handout:2,3|11->{
 \uncover<12->{
 \noindent This is a perfectly good answer, however there's a simplification:}
 
-$ 
-\begin{array}{rcl} 
-\uncover<12->{\alert<21,22>{\tan \theta+\sec \theta}&=&}\displaystyle\uncover<13->{ \frac{\alert<14>{ \sin \theta} +\alert<15>{1} }{\alert<16>{\cos \theta}}}\uncover<14->{ =\frac{\alert<17>{ \alert<14>{2\sin \frac{\theta}{2}\cos \frac{\theta}{2}} +\alert<15>{ \sin^2\frac{\theta}{2} + \cos^2\frac{\theta}{2}} }}{ \alert<16,18>{ \cos^2\frac{\theta}{2} -\sin^2\frac{\theta}{2}}} } \\
-\uncover<17->{ &=&\displaystyle \frac{\alert<17>{ \left(\alert<19>{ \sin \frac{\theta}{2}+ \cos\frac{\theta}{2}} \right)^2 } }{ \alert<18>{ \left(\cos\frac{\theta}{2}-\sin \frac{\theta}{2}\right) \alert<19>{\left(\cos \frac{\theta}{2}+\sin \frac{\theta}{2}\right)} }}} \uncover<19->{ = \displaystyle \frac{\sin \frac{\theta}{2} +\cos\frac{\theta}{2}}{\cos\frac{\theta}{2} - \sin \frac{\theta}{2}}}\\
-\uncover<20->{&\alert<21,22>{=}& \displaystyle\alert<21,22>{ \frac{1+\tan\frac{\theta}{2}}{1-\tan\frac{\theta}{2}}}\quad .}
+$
+\begin{array}{rcl}
+\uncover<12->{\alertNoH{21,22}{\tan \theta+\sec \theta}&=&}\displaystyle\uncover<13->{ \frac{\alertNoH{14}{ \sin \theta} +\alertNoH{15}{1} }{\alertNoH{16}{\cos \theta}}}\uncover<14->{ =\frac{\alertNoH{17}{ \alertNoH{14}{2\sin \frac{\theta}{2}\cos \frac{\theta}{2}} +\alertNoH{15}{ \sin^2\frac{\theta}{2} + \cos^2\frac{\theta}{2}} }}{ \alertNoH{16,18}{ \cos^2\frac{\theta}{2} -\sin^2\frac{\theta}{2}}} } \\
+\uncover<17->{ &=&\displaystyle \frac{\alertNoH{17}{ \left(\alertNoH{19}{ \sin \frac{\theta}{2}+ \cos\frac{\theta}{2}} \right)^2 } }{ \alertNoH{18}{ \left(\cos\frac{\theta}{2}-\sin \frac{\theta}{2}\right) \alertNoH{19}{\left(\cos \frac{\theta}{2}+\sin \frac{\theta}{2}\right)} }}} \uncover<19->{ = \displaystyle \frac{\sin \frac{\theta}{2} +\cos\frac{\theta}{2}}{\cos\frac{\theta}{2} - \sin \frac{\theta}{2}}}\\
+\uncover<20->{&\alertNoH{21,22}{=}& \displaystyle\alertNoH{21,22}{ \frac{1+\tan\frac{\theta}{2}}{1-\tan\frac{\theta}{2}}}\quad .}
 \end{array}
 $
 }
