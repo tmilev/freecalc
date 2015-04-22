@@ -1,47 +1,47 @@
 % begin module partial-fractions-rationalize-ex9
 \begin{frame}
-\begin{example}[Example 9, p. 517]
-Find $\int \frac{\sqrt{x+4}}{x}\diff x$.
-
+\begin{example}
 \uncover<2->{%
-Let $\alert<handout:0| 3,13>{u = \sqrt{x+4}}$.  Then $u^2 = x + 4$, so \alert<handout:0| 4-5>{$x = \uncover<5->{u^2-4}$} and \alert<handout:0| 6-7>{$\diff x = \uncover<7->{2u\diff u}$}.
+Let $\alert<handout:0| 3,13>{u = \sqrt{x+4}}$.  Then $\alertNoH{5}{u^2 = x + 4}$, so \alertNoH{4-5,7}{$x = \fcAnswerUncover{2}{5}{u^2-4}$} and \alertNoH{6-7}{$\diff x = \fcAnswerUncover{2}{7}{2u\diff u}$}.
 }%
-\begin{eqnarray*}
+\[
+\begin{array}{@{}r@{}c@{}l@{}l@{~}|l}
+\uncover<1->{%
+\displaystyle \int \frac{\alertNoH{2,3}{\sqrt{ x+4}} }{\alertNoH{4-5}{x}}\alertNoH{6-7}{\diff x} %
+}%
+ & \uncover<2->{ = } &\displaystyle  %
 \uncover<2->{%
-\int \frac{\alert<handout:0| 3>{\sqrt{x+4}}}{\alert<handout:0| 4-5>{x}}\alert<handout:0| 6-7>{\diff x} %
+\int \frac{\fcAnswer{3}{u}}{ \fcAnswerUncover{2}{5}{u^2-4}} \fcAnswerUncover{2}{7}{2u\diff u} %
 }%
- & \uncover<2->{ = } & %
-\uncover<2->{%
-\int \frac{\uncover<3->{\alert<handout:0| 3>{u}}}{\uncover<5->{\alert<handout:0| 5>{u^2-4}}}\uncover<7->{\alert<handout:0| 7>{2u\diff u}} %
-}%
+\\
 \uncover<8->{%
-\ = \ 2 \int \frac{u^2}{u^2-4}\diff u %
+&=&\displaystyle 2 \int \frac{u^2}{u^2-4}\diff u %
 }\\%
- & \uncover<9->{ = } & %
+ & \uncover<9->{ = } &\displaystyle  %
 \uncover<9->{%
  2 \int \left( 1 + \frac{4}{u^2-4}\right) \diff u %
-} \ \uncover<10->{ = } \ \uncover<10->{%
+}  \uncover<9->{& &%
+\text{long division}%
+}\\ 
+&\uncover<10->{ = } &\displaystyle \uncover<10->{%
  2 \int \diff u + 8 \int \frac{\diff u}{u^2-4} %
 }\\%
-& & \uncover<9->{%
-\textrm{(long division)}%
-}\\%
- & \uncover<11->{ = } & %
+ & \uncover<11->{ = } &\displaystyle  %
 \uncover<11->{%
- 2 \int \diff u + 8 \int \left( \frac{1}{4}\cdot \frac{1}{u-2} - \frac{1}{4}\cdot \frac{1}{u+2}\right) \diff u %
+ 2 \int \diff u + 8 \int \left(  \frac{\frac{1}{4}}{u-2} - \frac{\frac{1}{4}}{u+2}\right) \diff u %
+} \uncover<11->{& &%
+\text{partial fractions}%
 }\\%
-& & \uncover<11->{%
-\textrm{(partial fractions)}%
-}\\%
- & \uncover<12->{ = } & %
+ & \uncover<12->{ = } &\displaystyle  %
 \uncover<12->{%
  2u + 2(\ln |u - 2| - \ln |u+2|) + C %
 }\\%
- & \uncover<13->{ = } & %
+ & \uncover<13->{ = } &\displaystyle  %
 \uncover<13->{%
  2\sqrt{x+4} + 2\ln \left|\frac{\sqrt{x+4} - 2}{\sqrt{x+4}+2}\right| + C %
 }\\%
-\end{eqnarray*}
+\end{array}
+\]
 \end{example}
 \end{frame}
 % end module partial-fractions-rationalize-ex9
