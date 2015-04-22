@@ -2,75 +2,75 @@
 \begin{frame}
 \frametitle{Euler subst. for $\sqrt{x^2+1}$ corresponding to $x=\cot \theta$ }
 \begin{itemize}
-\item $\alert<4>{ x =\cot \theta}$ transforms $\diff x, x,\sqrt{x^2+1}$ to trig form.
-\item $\alert<5>{\theta=2\Arctan t}$, \uncover<3->{ $t>0$} transforms $\diff \theta, \cos\theta,\sin \theta$ to rational form.
+\item $\alertNoH{4}{ x =\cot \theta}$ transforms $\diff x, x,\sqrt{x^2+1}$ to trig form.
+\item $\alertNoH{5}{\theta=2\Arctan t}$, \uncover<3->{ $t>0$} transforms $\diff \theta, \cos\theta,\sin \theta$ to rational form.
 \end{itemize}
-\uncover<2->{\alert<2>{What if we compose the above?}} \uncover<3->{\alert<3>{We get the Euler substitution:}}
-\only<1-34>{ %
+\uncover<2->{\alertNoH{2}{What if we compose the above?}} \uncover<3->{\alertNoH{3}{We get the Euler substitution:}}
+\only<handout:1-4|1-34>{ %
 \[
 \begin{array}{rclll}
-\uncover<3->{\alert<4,16,26,33,34>{x}} 
+\uncover<3->{\alertNoH{4,16,26,33,34}{x}}
 \vphantom{\frac{1}{2}\left(\frac{1}t - t\right)}
-&\uncover<3->{\alert<4,16,26,33,34>{=}} &\displaystyle 
+&\uncover<3->{\alertNoH{4,16,26,33,34}{=}} &\displaystyle
 \vphantom{\frac{1}{2}\left(\frac{1}t -t\right)} %phantom
-\only<3-13>{
-\displaystyle \uncover<4->{\alert<4>{ \cot\alert<5>{\theta}}} \\
-\uncover<5->{&=& \displaystyle \alert<8>{\cot \left(\alert<5>{2\arctan t}\right)}} \uncover<6->{&&| \displaystyle  \text{Recall: } \alert<8>{\cot (2z)} =\frac{ \cos (2z)}{\sin (2z)} \uncover<7->{\alert<8>{=\frac{1-\tan^2z}{2\tan z }}}} \\
-\uncover<8->{ &=&\displaystyle \alert<8>{ \frac{1-{\alert<9>{\tan}}^2 \alert<9>{(\arctan t)}}{2 \alert<9>{\tan (\arctan t)}}}} \\
-\uncover<9->{&=&\displaystyle \alert<16>{\frac{\alert<11>{1}-\alert<12>{{\alert<9>{t}}^2}}{\alert<10>{2} \alert<9,11,12>{t}}}}\\
+\only<handout:1|3-13>{
+\displaystyle \uncover<4->{ \alertNoH{4}{ \cot \alertNoH{5}{\theta}}} \\
+\uncover<5->{ & =& \displaystyle \alertNoH{8}{\cot \left( \alertNoH{ 5}{2\arctan t}\right)}} \uncover<6->{&&| \displaystyle  \text{Recall: } \alertNoH{8}{\cot (2z)} =\frac{ \cos (2z)}{\sin (2z)} \uncover<7->{\alertNoH{8}{=\frac{1-\tan^2z}{2\tan z }}}} \\
+\uncover<8->{ &=&\displaystyle \alertNoH{8}{ \frac{1-{\alertNoH{9}{\tan}}^2 \alertNoH{9}{(\arctan t)}}{2 \alertNoH{9}{\tan (\arctan t)}}}} \\
+\uncover<9->{&=&\displaystyle \alertNoH{16}{\frac{\alertNoH{11}{1}-\alertNoH{12}{{\alertNoH{9}{t}}^2}}{\alertNoH{10}{2} \alertNoH{9,11,12}{t}}}}\\
 \uncover<10->{&=&}
 } %only <3-13>
-\uncover<10->{\displaystyle \alert<13,14,16,26,33,34>{ \alert<10>{ \frac{1}{2}}\left(\alert<11>{\frac{1}t} - \alert<12>{t} \right)}\quad . &&
+\uncover<10->{\displaystyle \alertNoH{13,14,16,26,33,34}{ \alertNoH{10}{ \frac{1}{2}}\left(\alertNoH{11}{\frac{1}t} - \alertNoH{12}{t} \right)}\quad . &&
 {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} %whitespace flushes formulas left
 }
 \end{array}
 \]
-\uncover<15->{
-We can furthermore compute 
+\uncover<handout:2-|15->{
+We can furthermore compute
 \[
 \begin{array}{rclll}
-\displaystyle 
-\alert<32,34>{\sqrt{x^2+1}}& \alert<32,34>{=}& 
-\only<1-23>{
-\displaystyle  \uncover<16->{ \sqrt{ \alert<16>{\alert<17>{\frac{1}{4}} \left(\frac{1}t -t \right)^2} +\alert<17>{1}}}\\
-\uncover<17->{ &=&\displaystyle \alert<17>{\frac{1}{2}} \alert<22>{ \sqrt{\alert<19>{\left( \frac{1}{t} \only<1-19>{-}\only<20->{\alert<20>{+}} t \right)^2\uncover<1-19>{+\alert<17>{4}}}}}} & &
-\only<18,19>{
-\begin{array}{|l} 
-\alert<19>{\left(\frac{1}{t}- t\right)^2+4=\left(\frac{1}{t}\alert<18>{+}t\right)^2 }
-\end{array}
-} 
-\uncover<21->{ 
+\displaystyle
+\alertNoH{32,34}{\sqrt{x^2+1}}& \alertNoH{32,34}{=}&
+\only<handout:2,3|1-23>{
+\displaystyle  \uncover<16->{ \sqrt{ \alertNoH{16}{ \alertNoH{17}{\frac{1}{4}} \left(\frac{1}t -t \right)^2} +\alertNoH{17}{1} }}\\
+\uncover<17->{ &=&\displaystyle \alertNoH{17}{\frac{1}{2}} \alertNoH{22}{ \sqrt{\alertNoH{19}{\left( \frac{1}{t} \only<handout:2|1-19>{-}\only<handout:3|20->{\alertNoH{20}{+}} t \right)^2 \uncover<handout:2|1-19>{+\alertNoH{17}{4}}}}}} & &
+\only<handout:2|18,19>{
 \begin{array}{|l}
-\alert<22>{\sqrt{\left(\frac{1}{t}+t\right)^2} = \frac{1}{t} +t}\\ \text{ because }t>0
+\alertNoH{19}{\left(\frac{1}{t}- t\right)^2+4 = \left( \frac{1}{t} \alertNoH{18}{+}t\right)^2 }
+\end{array}
+}
+\uncover<handout:3|21->{
+\begin{array}{|l}
+\alertNoH{22}{\sqrt{\left(\frac{1}{t}+t\right)^2} = \frac{1}{t} +t}\\ \text{ because }t>0
 \end{array}
 } %uncover<21->
 \\
-&\uncover<22->{=}&
+&\uncover<handout:3-|22->{=}&
 } %only<1-23>
-\uncover<22->{ \displaystyle \alert<23,24,32,34>{ \frac{1}{2}\left(\alert<22>{\frac{1}{t}+t}\right)} 
+\uncover<handout:3-|22->{ \displaystyle \alertNoH{23,24,32,34}{ \frac{1}{2}\left(\alertNoH{22}{\frac{1}{t}+t}\right)}
 \vphantom{\sqrt{ \frac{1}{4} \left(\frac{1}t -t \right)^2 }}
 \quad . &&} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} %whitespace flushes formulas left
 \end{array}
 \]
 }
-\uncover<25->{
-Finally compute 
+\uncover<handout:4|25->{
+Finally compute
 \[
 \begin{array}{rcl}
-\alert<34>{\diff \alert<26>{x}}&=&\displaystyle  \uncover<26->{\alert<27,28>{\diff \left( \alert<26>{\frac{1}{2} \left(\frac{1}t -t\right)} \right)}}\uncover<27->{\alert<27,28,34>{=}} \uncover<28->{\alert<28,34>{-\frac12 \left( \frac{1}{t^2} +1\right) \diff t}}\\
-\displaystyle \uncover<29->{  \alert<30,34>{t}}&\uncover<29->{=} &\displaystyle  \uncover<29->{\alert<32>{ \alert<30,31>{\frac{1}{2}} \left(\alert<31>{\frac{1 }{ t}} +\alert<30>{t}\right)} \alert<30,31>{-} \alert<33>{\alert<30,31>{ \frac{1}{2}} \left(\alert<31>{ \frac{1}{t}} \alert<30>{- t}\right)}\uncover<32->{\alert<34>{ = \alert<32>{\sqrt{ x^2 +1}} -\alert<33>{x}}}\quad .} 
+\alertNoH{34}{\diff \alertNoH{26}{x}}&=&\displaystyle  \uncover<26->{\alertNoH{27,28}{\diff \left( \alertNoH{26}{\frac{1}{2} \left(\frac{1}t -t\right)} \right)}}\uncover<27->{\alertNoH{27,28,34}{=}} \uncover<28->{\alertNoH{28,34}{-\frac12 \left( \frac{1}{t^2} +1\right) \diff t}}\\
+\displaystyle \uncover<29->{  \alertNoH{30,34}{t}}&\uncover<29->{=} &\displaystyle  \uncover<29->{\alertNoH{32}{ \alertNoH{30,31}{\frac{1}{2}} \left(\alertNoH{31}{\frac{1 }{ t}} +\alertNoH{30}{t}\right)} \alertNoH{30,31}{-} \alertNoH{33}{\alertNoH{30,31}{ \frac{1}{2}} \left(\alertNoH{31}{ \frac{1}{t}} \alertNoH{30}{- t}\right)}\uncover<32->{\alertNoH{34}{ = \alertNoH{32}{\sqrt{ x^2 +1}} -\alertNoH{33}{x}}}\quad .}
 \end{array}
 \]
 }
 } %only <1-34>
-\uncover<35->{
+\uncover<handout:5|35->{
 \begin{definition}The Euler substitution for $\sqrt{x^2+1}$ corresponding to $x=\cot \theta$ is given by:
 \[
 \begin{array}{rcl}
-\alert<35>{x} &\alert<35>{=}&\displaystyle \alert<35>{\frac12\left(\frac{1}{t}- t\right) }, \quad \quad t>0\\
-\displaystyle \alert<35>{ \sqrt{x^2+1}} & \alert<35>{=}& \displaystyle \alert<35>{\frac12 \left(\frac1t +t\right)} \\ 
-\displaystyle \alert<35>{ \diff x}& \alert<35>{=}&\displaystyle \alert<35>{-\frac12\left(\frac{1}{t^2}+1\right) \diff t}\\
-\alert<35>{t} &\alert<35>{=}&\alert<35>{\sqrt{x^2+1}-x}\quad .
+\alertNoH{35}{x} &\alertNoH{35}{=}&\displaystyle \alertNoH{35}{\frac12\left(\frac{1}{t}- t\right) }, \quad \quad t>0\\
+\displaystyle \alertNoH{35}{ \sqrt{x^2+1}} & \alertNoH{35}{=}& \displaystyle \alertNoH{35}{\frac12 \left(\frac1t +t\right)} \\
+\displaystyle \alertNoH{35}{ \diff x}& \alertNoH{35}{=}&\displaystyle \alertNoH{35}{-\frac12\left(\frac{1}{t^2}+1\right) \diff t}\\
+\alertNoH{35}{t} &\alertNoH{35}{=}&\alertNoH{35}{\sqrt{x^2+1}-x}\quad .
 \end{array}
 \]
 \end{definition}

@@ -1,65 +1,74 @@
 \begin{frame}
 \frametitle{Euler subst. for $\sqrt{-x^2+1}$ corresponding to $x=\cos \theta$ }
 \begin{itemize}
-\item $\alert<4>{ x =\cos \theta}$ transforms $\diff x, x,\sqrt{-x^2+1}$ to trig form.
-\item $\alert<5>{\theta=2\Arctan t}$, \uncover<3->{ $t>0$} transforms $\diff \theta, \cos\theta,\sin \theta$ to rational form.
+\item $\alertNoH{4}{ x =\cos \theta}$ transforms $\diff x, x,\sqrt{-x^2+1}$ to trig form.
+\item $\alertNoH{5}{\theta=2\Arctan t}$, \uncover<3->{ $t>0$} transforms $\diff \theta, \cos\theta,\sin \theta$ to rational form.
 \end{itemize}
-\uncover<2->{\alert<2>{What if we compose the above?}} \uncover<3->{\alert<3>{We get the Euler substitution:}}
-\only<1-37>{ %
+\uncover<2->{\alertNoH{2}{What if we compose the above?}} \uncover<3->{\alertNoH{3}{We get the Euler substitution:}}
+\only<handout:1,2,3|1-37>{ %
 \[
 \begin{array}{rclll}
-\uncover<3->{\alert<4,13,22,33,37>{x}}&\uncover<3->{\alert<4,13,22,33,37>{=}}&\displaystyle \vphantom{\frac{1- t^2}{ 1+ t^2} } 
-\only<1-10>{
-\displaystyle \uncover<4->{\alert<4>{ \cos \alert<5>{\theta}} } \\
-\uncover<5->{ &=&\displaystyle \alert<8>{ \cos (\alert<5>{2\arctan t})}} \uncover<6->{&&\begin{array}{|l}
-\displaystyle \displaystyle \alert<6,7,8>{\cos (2z) =}\uncover<7->{\alert<7,8>{ \frac{ 1-\tan^2 z }{1+ \tan^2 z}}}
+\uncover<3->{\alertNoH{4,13,22,33,37}{x}}&\uncover<3->{\alertNoH{4,13,22,33,37}{=}}&\displaystyle \vphantom{\frac{1- t^2}{ 1+ t^2} }
+\only<handout:1|1-10>{
+\displaystyle \uncover<4->{\alertNoH{4}{ \cos \alertNoH{5}{\theta}} } \\
+\uncover<5->{ &=&\displaystyle \alertNoH{8}{ \cos (\alertNoH{5}{2\arctan t})}} \uncover<6->{&&\begin{array}{|l}
+\displaystyle \displaystyle \alertNoH{6,7,8}{\cos (2z) =}\uncover<7->{\alertNoH{7,8}{ \frac{ 1-\tan^2 z }{1+ \tan^2 z}}}
 \end{array}}
 \\
-\uncover<8->{ &=&\displaystyle \alert<8>{ \frac{1- {\alert<9>{\tan}}^2 ( \alert<9>{\Arctan t})}{1+{\alert<9>{\tan}}^2(\alert<9>{\Arctan t})} } } \\
+\uncover<8->{ &=&\displaystyle \alertNoH{8}{ \frac{1- {\alertNoH{9}{\tan}}^2 ( \alertNoH{9}{\Arctan t})}{1+{\alertNoH{9}{\tan}}^2(\alertNoH{9}{\Arctan t})} } } \\
 \uncover<9->{&=&}
 } %only<1-10>
-\uncover<9->{\displaystyle \alert<10,11,13,22,33,37>{ \frac{\alert<22>{ 1- { \alert<9>{t}}^2}}{\alert<23>{ 1+ { \alert<9>{t}}^2}} }  &&{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} %whitespace flushes formulas left
-} 
+\uncover<9->{\displaystyle \alertNoH{10,11,13,22,33,37}{ \frac{\alertNoH{22}{ 1- { \alertNoH{9}{t}}^2}}{\alertNoH{23}{ 1+ { \alertNoH{9}{t}}^2}} }  &&{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} %whitespace flushes formulas left
+}
+\only<handout:2,3|1->{
 \uncover<12->{ \\\hline}
-\uncover<12->{\alert<37>{ \sqrt{- {\alert<13>{x}}^2+1 }}}&\uncover<12->{\alert<37>{=}} &\displaystyle 
-\only<1-20>{
-\uncover<13->{ \sqrt{\alert<14>{1} - \left(\alert<13>{ \frac{1-t^2}{ 1+ t^2 }} \right)^2}}\\
-\uncover<14->{&=&\displaystyle \sqrt{\frac{ \alert<15>{ \alert<14,17>{ (1+ t^2)^2} -(1-t^2)^2} }{ \alert<14>{(1+t^2)^2}} }}&&
+\uncover<12->{ \alertNoH{37}{ \sqrt{- {\alertNoH{13}{x}}^2+1 }}}&\uncover<12->{\alertNoH{37}{=}} &\displaystyle
+\only<handout:2|1-20>{
+\uncover<13->{ \sqrt{\alertNoH{14}{1} - \left(\alertNoH{13}{ \frac{1-t^2}{ 1+ t^2 }} \right)^2}}\\
+\uncover<14->{&=&\displaystyle \sqrt{\frac{ \alertNoH{15}{ \alertNoH{14,17}{ (1+ t^2)^2} -(1-t^2)^2} }{ \alertNoH{14}{(1+t^2)^2}} }}&&
 \uncover<15->{\begin{array}{|l}
-\alert<15,16>{(1+t^2)^2-(1-t^2)^2=}\only<15>{\alert<15>{\textbf{?}}} \uncover<16->{\alert<16>{4t^2}}}
-\end{array} 
+\alertNoH{15,16}{(1+t^2)^2-(1-t^2)^2=}  \fcAnswer{16}{4t^2}}
+\end{array}
 \\
-\uncover<17->{&=&\displaystyle  \sqrt{\frac{ \alert<17>{4t^2} }{ (1+t^2)^2}}} \uncover<18->{&& 
+\uncover<17->{&=&\displaystyle  \sqrt{\frac{ \alertNoH{17}{ 4t^2} }{ (1+t^2)^2}}} \uncover<18->{&&
 \begin{array}{|l}
-\displaystyle \alert<18>{ \alert<19>{\sqrt{4t^2}=2t} \text{ because } t>0} }
+\displaystyle \alertNoH{18}{ \alertNoH{19}{\sqrt{4t^2}=2t} \text{ because } t>0} }
 \end{array}
 \\
 \uncover<19->{&=&}
 } %only<1-20>
-\uncover<19->{ \displaystyle \alert<20,21,37>{ \frac{{2t} }{1+t^2}} \vphantom{ \sqrt{1 - \left( \frac{1-t^2}{ 1+ t^2 } \right)^2}} }\uncover<22->{\\\hline }
-\only<1-30>{
-\uncover<22->{ \displaystyle \alert<23>{ (\alert<25>{1}+ \alert<24>{t^2})} \alert<22,24,25>{ x} &=&\displaystyle  \alert<22>{\alert<25>{1} -\alert<24>{t^2}}}\\
-\uncover<24->{ \displaystyle \alert<24>{ t^2(\alert<26>{x+1})}&=&\displaystyle \alert<25>{ 1-x}}\\
-\uncover<26->{ \displaystyle t^2&=&\displaystyle \frac{1-x}{\alert<26>{1+x}}}\\
+\uncover<19->{ \displaystyle \alertNoH{20,21,37}{ \frac{{2t} }{1+t^2}} \vphantom{ \sqrt{1 - \left( \frac{1-t^2}{ 1+ t^2 } \right)^2}} }
+} %only<handout:2|1->
+\only<handout:3|1->{
+\uncover<22->{\\\hline }
+\only<handout:2|1-30>{
+\uncover<22->{ \displaystyle \alertNoH{23}{ (\alertNoH{25}{1}+ \alertNoH{24}{t^2})} \alertNoH{22,24,25}{ x} &=&\displaystyle  \alertNoH{22}{\alertNoH{25}{1} -\alertNoH{24}{t^2}}}\\
+\uncover<24->{ \displaystyle \alertNoH{24}{ t^2(\alertNoH{26}{x+1})}&=&\displaystyle \alertNoH{25}{ 1-x}}\\
+\uncover<26->{ \displaystyle t^2&=&\displaystyle \frac{1-x}{\alertNoH{26}{1+x}}}\\
 }
-\uncover<27->{ \displaystyle \alert<30,31,37>{t}} &\alert<30,31,37>{\uncover<27->{=}}&\displaystyle \only<27-30>{\uncover<27->{ \frac{ \alert<29>{ \sqrt{1 -x }}}{\sqrt{ 1+x}}} \uncover<28->{ \frac{ \alert<29>{  \sqrt{1+x}} }{\sqrt{1+x}} }}\only<29-30>{=} \uncover<29->{ \alert<30,31,37>{ \frac{ \alert<29>{ \sqrt{-x^2+1} }}{x+1}}} && 
+} %only<handout:3|1->
+\only<handout:3|1->{
+\uncover<27->{ \displaystyle \alertNoH{30,31,37}{t}} &\alertNoH{30,31,37}{\uncover<27->{=}}&\displaystyle \only<27-30>{\uncover<27->{ \frac{ \alertNoH{29}{ \sqrt{1 -x }}}{\sqrt{ 1+x}}} \uncover<28->{ \frac{ \alertNoH{29}{  \sqrt{1+x}} }{\sqrt{1+x}} }}\only<29-30>{=} \uncover<29->{ \alertNoH{30,31,37}{ \frac{ \alertNoH{29}{ \sqrt{-x^2+1} }}{x+1}}} &&
 \uncover<27-30>{
-\begin{array}{l}\text{here we use } t>0
+\begin{array}{l}\text{we use } t>0
 \end{array}
-} 
-\uncover<31->{ \\\hline}
-\uncover<32->{\alert<37>{ \diff \alert<33>{x}}} &\uncover<33->{=} & \displaystyle \vphantom{\diff \left( \frac{ 1- t^2}{ 1+ t^2}\right)} \only<33->{\diff \left( \alert<33>{\frac{ 1- t^2}{ 1+ t^2}}\right)} 
-\only<34->{=\diff\left(\frac{2-\alert<35>{ (1+t^2)} }{ \alert<35>{ 1 + t^2}} \right)}\\
-&\uncover<35->{=}&\only<35->{\displaystyle \diff\left(\frac{2}{1+ t^2} \alert<35>{-1} \right)}
-\only<36->{\alert<37>{=-\frac{4t}{(1+t^2)^2}\diff t}}
+}
+} %only<handout:3|1->
+\only<handout:3|1->{
+\uncover<handout:3|31->{ \\\hline}
+\uncover<32->{\alertNoH{37}{ \diff \alertNoH{33}{x}}} &\uncover<33->{=} & \displaystyle \vphantom{\diff \left( \frac{ 1- t^2}{ 1+ t^2}\right)} \only<33->{\diff \left( \alertNoH{33}{\frac{ 1- t^2}{ 1+ t^2}}\right)}
+\only<34->{=\diff\left(\frac{2-\alertNoH{35}{ (1+t^2)} }{ \alertNoH{35}{ 1 + t^2}} \right)}\\
+&\uncover<35->{=}&\only<35->{\displaystyle \diff\left(\frac{2}{1+ t^2} \alertNoH{35}{-1} \right)}
+\only<36->{\alertNoH{37}{=-\frac{4t}{(1+t^2)^2}\diff t}}
+} %only<handout:3|1->
 \end{array}
 \]
 } %only<1-37>
-\uncover<38->{
+\uncover<handout:4|38->{
 \begin{definition}
 The Euler substitution for $\sqrt{-x^2+1}$ corresponding to $x=\cos \theta$ is given by:
 \[
-\alert<38>{
+\alertNoH{38}{
 \begin{array}{rcl}
 x&=&\displaystyle \frac{1-t^2}{1+t^2}, \quad \quad t>0\\
 \sqrt{-x^2+1}&=&\displaystyle \frac{2t}{1+t^2}  \\

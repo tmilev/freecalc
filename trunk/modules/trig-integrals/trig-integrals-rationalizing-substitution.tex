@@ -19,37 +19,37 @@ Can we integrate $\int R(\cos \theta, \sin \theta)\diff \theta$?
 \begin{frame}
 \frametitle{The rationalizing substitution $\theta= 2\Arctan t$}
 \uncover<13->{
-\noindent 
-Let $R$- rational function in two variables. 
-$\int R(\alert<14,21>{\cos \theta,\sin \theta} ) \alert<22>{\diff \theta} $
-can be integrated via the  substitution $\alert<14,15,18,23, 26>{ \theta=2\arctan t} $.
-\uncover<14->{ How does this transform \alert<14,21>{$\sin \theta$, $\cos\theta$}? }\uncover<22->{How does this transform $\alert<22>{\diff \theta} $?} \uncover<26->{\alert<26>{How is $t$ expressed via $\theta$?}}
+\noindent
+Let $R$- rational function in two variables.
+$\int R(\alertNoH{14,21}{\cos \theta,\sin \theta} ) \alertNoH{22}{\diff \theta} $
+can be integrated via the  substitution $\alertNoH{14,15,18,23, 26}{ \theta=2\arctan t} $.
+\uncover<14->{ How does this transform \alertNoH{14,21}{$\sin \theta$, $\cos\theta$}? }\uncover<22->{How does this transform $\alertNoH{22}{\diff \theta} $?} \uncover<26->{\alertNoH{26}{How is $t$ expressed via $\theta$?}}
 \[
 \begin{array}{rcl}
-\uncover<14->{ \alert<14,21>{\sin\alert<15>{\theta}}} &\uncover<14->{=} &\displaystyle \uncover<15->{ \alert<16>{\sin (\alert<15>{ 2\Arctan t} )}} \uncover<16->{ \alert<16>{= \frac{2 \alert<17>{\tan\left( \Arctan t\right)} }{1 + {\alert<17>{\tan}}^2 \alert<17>{ \left(\Arctan t \right)}} }} \uncover<17->{\alert<21>{ = \frac{2\alert<17>{ t}}{1+ {\alert<17>{t }}^2}}}\\
-\uncover<14->{\alert<14,21>{\cos \alert<18>{\theta}}  } &\uncover<14->{=} &\displaystyle \alert<19>{ \uncover<18-> {\alert<19>{ \cos (\alert<18>{2\Arctan t}) }} } \uncover<19->{ \alert<19>{= \frac{1-{\alert<20>{\tan} }^2 \alert<20>{ (\Arctan t)}}{1+ {\alert<20>{\tan}}^2 \alert<20>{ (\Arctan t) }}}} \uncover<20->{  \alert<21>{= \frac{1- {\alert<20>{ t}}^2 }{1 +{\alert<20>{t} }^2}}} \\
-\only<22->{
+\uncover<14->{ \alertNoH{14,21}{\sin\alertNoH{15}{\theta}}} &\uncover<14->{=} &\displaystyle \uncover<15->{ \alertNoH{16}{\sin (\alertNoH{15}{ 2\Arctan t} )}} \uncover<16->{ \alertNoH{16}{= \frac{2 \alertNoH{17}{\tan\left( \Arctan t\right)} }{1 + {\alertNoH{17}{\tan}}^2 \alertNoH{17}{ \left(\Arctan t \right)}} }} \uncover<17->{\alertNoH{21}{ = \frac{2\alertNoH{17}{ t}}{1+ {\alertNoH{17}{t }}^2}}}\\
+\uncover<14->{\alertNoH{14,21}{\cos \alertNoH{18}{\theta}}  } &\uncover<14->{=} &\displaystyle \alertNoH{19}{ \uncover<18-> {\alertNoH{19}{ \cos (\alertNoH{18}{2\Arctan t}) }} } \uncover<19->{ \alertNoH{19}{= \frac{1-{\alertNoH{20}{\tan} }^2 \alertNoH{20}{ (\Arctan t)}}{1+ {\alertNoH{20}{\tan}}^2 \alertNoH{20}{ (\Arctan t) }}}} \uncover<20->{  \alertNoH{21}{= \frac{1- {\alertNoH{20}{ t}}^2 }{1 +{\alertNoH{20}{t} }^2}}} \\
+\only<handout:2|22->{
 \uncover<22->{
-\alert<22,23>{\diff \theta}}&\uncover<23->{\alert<23>{=}}& \displaystyle \uncover<23->{ \alert<23,24,25>{2 \diff \left(\Arctan t\right)}}\uncover<24->{ \alert<24,25>{=  \uncover<25->{ \alert<25>{\frac{2}{ 1+t^2}}} \uncover<24->{ \uncover<24>{ \textbf{?}}} \diff t}}\\
-\uncover<26->{\alert<26,27>{t}&\alert<26,27>{=}&}\displaystyle \uncover<27->{\alert<27>{\tan \left(\frac{\theta}{2}\right)} }
+\alertNoH{22,23}{\diff \theta}}&\uncover<23->{\alertNoH{23}{=}}& \displaystyle \uncover<23->{ \alertNoH{23,24,25}{2 \diff \left(\Arctan t\right)}}\uncover<24->{ \alertNoH{24,25}{=   \fcAnswer{25}{\frac{2}{ 1+t^2}} \diff t}}\\
+\uncover<26->{\alertNoH{26,27}{t}&\alertNoH{26,27}{=}&}\displaystyle \uncover<27->{\alertNoH{27}{\tan \left(\frac{\theta}{2}\right)} }
 }
 \end{array}
 \]
 }
 
-\only<1-20>{
+\only<handout:1|1-20>{
 Recall the expression of $\sin (2z), \cos (2z)$ via $\tan z$:
 \[
 \begin{array}{rcl}
-\uncover<1->{\alert<1,2,16>{\sin \left(2z\right)}} &\uncover<1->{\alert<1>{=}}&\displaystyle  \uncover<2->{ \alert<2>{2\sin z\cos z}} \uncover<3->{=\frac{2 \alert<5>{\sin z\cos z} \uncover<4->{\alert<4>{ \frac{1}{\alert<5>{ \cos^2z}}}}}{\alert<3,6>{( \cos^2z +\sin^2z) }\uncover<4->{\alert<4,6>{\frac{1}{\cos^2z}}}}} \uncover<5->{\alert<16>{= \frac{2\alert<5>{\tan z} }{ \alert<6>{ 1+ \tan^2z}} } \quad .}\\
-\uncover<1->{\alert<7,8,19>{\cos (2z)} }& \uncover<7->{ \alert<7,8>{= }}&\displaystyle\uncover<8->{\alert<8>{ \cos^2z-\sin^2z}} \uncover<9->{= \frac{ \alert<11>{ \left(\cos^2 z-\sin^2 z\right) \uncover<10->{\alert<10>{ \frac{1}{ \cos^2z} }}}}{\alert<12>{ \alert<9>{\left(\cos^2z +\sin^2 z\right)} \uncover<10->{\alert<10>{ \frac{1}{ \cos^2z }}} }}} \uncover<11->{\alert<19>{ =\frac{\alert<11>{ 1-\tan^2 z} }{\alert<12>{1+\tan^2z}}} ~ .}
+\uncover<1->{\alertNoH{1,2,16}{\sin \left(2z\right)}} &\uncover<1->{\alertNoH{1}{=}}&\displaystyle  \uncover<2->{ \alertNoH{2}{2\sin z\cos z}} \uncover<3->{=\frac{2 \alertNoH{5}{\sin z\cos z} \uncover<4->{\alertNoH{4}{ \frac{1}{\alertNoH{5}{ \cos^2z}}}}}{\alertNoH{3,6}{( \cos^2z +\sin^2z) }\uncover<4->{\alertNoH{4,6}{\frac{1}{\cos^2z}}}}} \uncover<5->{\alertNoH{16}{= \frac{2\alertNoH{5}{\tan z} }{ \alertNoH{6}{ 1+ \tan^2z}} } \quad .}\\
+\uncover<1->{\alertNoH{7,8,19}{\cos (2z)} }& \uncover<7->{ \alertNoH{7,8}{= }}&\displaystyle\uncover<8->{\alertNoH{8}{ \cos^2z-\sin^2z}} \uncover<9->{= \frac{ \alertNoH{11}{ \left(\cos^2 z-\sin^2 z\right) \uncover<10->{\alertNoH{10}{ \frac{1}{ \cos^2z} }}}}{\alertNoH{12}{ \alertNoH{9}{\left(\cos^2z +\sin^2 z\right)} \uncover<10->{\alertNoH{10}{ \frac{1}{ \cos^2z }}} }}} \uncover<11->{\alertNoH{19}{ =\frac{\alertNoH{11}{ 1-\tan^2 z} }{\alertNoH{12}{1+\tan^2z}}} ~ .}
 \end{array}
 \]
 }
 
 
 
-\uncover<28->{ 
+\uncover<28->{
 \begin{theorem}
 The substitution given above  transforms $ \int R(\cos \theta, \sin\theta)\diff \theta$ to an integral of a rational function of $t$.
 \end{theorem}
