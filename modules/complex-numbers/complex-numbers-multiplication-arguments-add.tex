@@ -20,12 +20,12 @@
 \only<handout:0|21>{\pstVerb{/beta 20 def}}%
 \uncover<handout:0|14->{\parametricplot[linecolor=gray, linewidth=0.5pt, linestyle=dashed]{5}{85}{t cos erho mul t sin erho mul} }%
 \pstVerb{
-/zx erho alpha cos mul def 
-/zy erho alpha sin mul def 
-/wx esigma beta cos mul def 
-/wy esigma beta sin mul def 
-/zwx erho esigma mul alpha beta add cos mul def 
-/zwy erho esigma mul alpha beta add sin mul def 
+/zx erho alpha cos mul def
+/zy erho alpha sin mul def
+/wx esigma beta cos mul def
+/wy esigma beta sin mul def
+/zwx erho esigma mul alpha beta add cos mul def
+/zwy erho esigma mul alpha beta add sin mul def
 }%
 \fcFullDot{wx}{wy}
 \fcFullDot{zx}{zy}
@@ -49,37 +49,37 @@
 \fcAngleDegrees{0}{alpha beta add}{0.8}{$~~~\alpha+\beta$}%
 }%
 \uncover<handout:0|10,11>{%
-\fcAngleDegrees[linewidth=2pt, linecolor=red ]{0}{alpha beta add}{0.8}{$~~~\alert<10,11>{\alpha+\beta}$}%
+\fcAngleDegrees[linewidth=2pt, linecolor=red ]{0}{alpha beta add}{0.8}{$~~~\alertNoH{10,11}{\alpha+\beta}$}%
 }%
 \pstVerb{end}
 \end{pspicture}
 
 \column{0.65\textwidth}
 \begin{itemize}
-\item Let $z,w\neq 0 $ \uncover<2->{and let 
+\item Let $z,w\neq 0 $ \uncover<2->{and let
 
-\hfil $\alert<12>{ \alert<3>{ |z| =e^\rho},\quad \alert<4>{ |w|=e^\sigma}}.$
+\hfil $\alertNoH{12}{ \alertNoH{3}{ |z| =e^\rho},\quad \alertNoH{4}{ |w|=e^\sigma}}.$
 }
-\item<5-> Let $\alpha,\beta$ be arguments of $z,w$. 
+\item<5-> Let $\alpha,\beta$ be arguments of $z,w$.
 $
 \begin{array}{rcl}
 z&=& e^{\rho}(\cos \alert<handout:0|6>{\alpha} + i \sin \alert<handout:0|6>{\alpha} )=e^{\rho +i\alpha} \\
-w&=& e^{\sigma}(\cos \alert<handout:0|7>{\beta} +i\sin \alert<handout:0|7>{\beta} )=e^{\sigma +i\beta} .\end{array} 
+w&=& e^{\sigma}(\cos \alert<handout:0|7>{\beta} +i\sin \alert<handout:0|7>{\beta} )=e^{\sigma +i\beta} .\end{array}
 $
 \end{itemize}
 \end{columns}
 \uncover<8->{%
 \begin{theorem}[Summary]
 $\begin{array}{rcl}
-\alert<9>{z w} &=& \alert<12>{|z|}( \cos\alpha+ i\sin\alpha) \alert<12>{ |w|} ( \cos \beta +i\sin \beta )\\
+\alertNoH{9}{z w} &=& \alertNoH{12}{|z|}( \cos\alpha+ i\sin\alpha) \alertNoH{12}{ |w|} ( \cos \beta +i\sin \beta )\\
 &=&e^\rho ( \cos\alpha+ i\sin\alpha) e^\sigma ( \cos \beta +i\sin \beta )= e^{ \rho + i \alpha} e^{\sigma+i\beta} \\
-&=&e^{\rho+\sigma +i(\alpha+\beta)} = \alert<12>{|z||w|} ( \cos (\alert<10>{\alpha+\beta})+i\sin (\alert<10>{\alpha+\beta}) ) .\end{array}$
+&=&e^{\rho+\sigma +i(\alpha+\beta)} = \alertNoH{12}{|z||w|} ( \cos (\alertNoH{10}{\alpha+\beta})+i\sin (\alertNoH{10}{\alpha+\beta}) ) .\end{array}$
 \end{theorem}
 }%
 \begin{itemize}
-\item<10-> An argument (polar angle) of $zw$ is $\alert<10>{\alpha+\beta} $.
+\item<10-> An argument (polar angle) of $zw$ is $\alertNoH{10}{\alpha+\beta} $.
 \item<11-> $\Rightarrow$ Multiplying complex numbers adds arguments (polar angles).
 \item<12-> Multiplying complex numbers multiplies absolute values.
-\item<13-> \alert<13-17>{What happens to $zw$ when we change $|w|$?} \uncover<18->{ \alert<18-21>{When we change $\beta$?} }
+\item<13-> \alertNoH{13-17}{What happens to $zw$ when we change $|w|$?} \uncover<18->{ \alertNoH{18-21}{When we change $\beta$?} }
 \end{itemize}
 \end{frame}

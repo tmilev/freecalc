@@ -20,12 +20,12 @@
 %Calculator input: plotCurve{}(1/5 \cos{}t, 1/5 \sin{}t, 0, 1/6 \pi)
 \parametricplot[arrows=->, linecolor=red, plotpoints=1000] {0}{0.523599}{t 57.29578 mul cos 0.2 mul t 57.29578 mul sin 0.2 mul }
 \psline[linecolor=blue](0,0)(0.866025404, 0.5)
-\rput(0.22, 0.06){$\alert<5>{\theta}$}
+\rput(0.22, 0.06){$\alertNoH{5}{\theta}$}
 }
 
 \uncover<4->{
 \fcFullDotBlue{0.866025404}{0.5}
-\rput[l](0.88, 0.5){$P\uncover<7->{\alert<7>{(r,\theta)}}$}
+\rput[l](0.88, 0.5){$P\uncover<7->{\alertNoH{7}{(r,\theta)}}$}
 }
 
 \uncover<2->{
@@ -33,7 +33,7 @@
 \rput(-0.1, 0){$O$}
 }
 \uncover<6->{
-\rput(0.4, 0.3){$\alert<6>{r}$}
+\rput(0.4, 0.3){$\alertNoH{6}{r}$}
 }
 \uncover<3->{
 \psline{->}(0,0)(1,0)
@@ -46,12 +46,12 @@
 %\includegraphics[height=4cm]{polar-curves/pictures/11-03-polar.pdf}%
 \column{.5\textwidth}
 \begin{itemize}
-\only<1-7>{\item<4->  Let $P$ be a point in the plane.
+\only<handout:1|1-7>{\item<4->  Let $P$ be a point in the plane.
 \item<5-> Let $\theta$ denote the angle between the polar axis and the line $OP$.
 \item<6-> Let $r$ denote the length of the segment $OP$.
 \item<7-> Then $P$ is represented by the ordered pair $(r, \theta )$.
 }
-\only<8->{
+\only<handout:2|8->{
 \item<8-> The letters $(x,y)$ imply Cartesian coordinates and the letters $(r, \theta)$- polar. \uncover<9->{When we use other letters, it should be clear from context whether we mean Cartesian or polar coordinates.} \uncover<10->{If not, one must request clarification.}
 }
 \end{itemize}
