@@ -1,0 +1,15 @@
+\solution{\ref{problemConvergencesum_2^infty1/(xlnx)dx}.
+\[
+\begin{array}{rcl}
+\displaystyle \int_{2}^{\infty}\frac{1}{x\ln x}\diff x&=&\displaystyle \lim_{t\to\infty} \int_{2}^{t}\frac{1}{x\ln x}\diff x\\
+&=&\displaystyle \lim_{t\to\infty} \int_{2}^{t}\frac{1}{\ln x}\diff(\ln x)\\
+&=&\displaystyle \lim_{t\to\infty} \int_{2}^{t}\diff(\ln(\ln x))\\
+&=&\displaystyle \lim_{t\to \infty}\left[ \ln(\ln x)\right]_{x=2}^{x=t}\\
+&=&\displaystyle \lim_{t\to \infty}\left(\ln(\ln t)-\ln (\ln 2)\right)\\
+&=&\displaystyle \infty,
+\end{array}
+\]
+therefore the integral is divergent (and diverges to $+\infty$).
+
+The function $\frac{1}{x\ln x}$ is decreasing, as for $x>2$, it is the quotient of $1$ by increasing positive functions. $\frac{ 1}{ x\ln x}$ tends to $0$ as $x\to \infty$, and therefore the integral criterion implies that $\sum\limits_{2}^{ \infty} \frac{1 }{n \ln n}$ is divergent.
+}
