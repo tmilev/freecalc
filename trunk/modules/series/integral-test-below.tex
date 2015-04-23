@@ -37,19 +37,15 @@
 \uncover<handout:1|7-11>{\oneBlockLabel{2}{$\alertNoH{7}{a_2=\frac{1}{\sqrt{2}}}$}}%
 \uncover<handout:1,3|8-11,15->{\oneBlock{3}{orange}}%
 \uncover<handout:1|8-11> {\oneBlockLabel{3}{$\alertNoH{8}{a_3=\frac{1}{\sqrt{3}}}$}}%
-\uncover<handout:1,3,4|9-11,15-> {\oneBlock{4}{orange}}%
+\uncover<handout:1,3|9-11,15-> {\oneBlock{4}{orange}}%
 \uncover<handout:1|9-11> {\oneBlockLabel{4}{$\alertNoH{9}{a_4=\frac{1}{2}}$}}%
-\uncover<handout:1,3,4|10-11,15->{\oneBlock{5}{orange}}%
+\uncover<handout:1,3|10-11,15->{\oneBlock{5}{orange}}%
 \uncover<handout:1|10-11>{\oneBlockLabel{5}{$\alertNoH{10}{a_5=\frac{1}{\sqrt{5}}}$}}%
 \uncover<handout:2|12,13,14>{%
 \pscustom*[linecolor=orange]{
 \psplot{1}{6.2}{1 x sqrt div}
 \psline(6.2, 0)(1,0)(1,1)
 }%
-}%
-\uncover<handout:2,3,4|14->{%
-\rput[t](2.6, -0.3){\alertNoH{13,14,15}{infinite area}}%
-\psline[arrows=->, linewidth=0.5pt](2.6, -0.2)(2.6, 0.4)%
 }%
 \psplot[linecolor=\fcColorGraph]{1}{6.3}{1 x sqrt div}%
 \rput(2, 1.2){$\alertNoH{5}{y=\frac{1}{\sqrt{x}}}$}%
@@ -59,6 +55,10 @@
 \fcXTickWithLabel{4}{$4$}%
 \fcXTickWithLabel{5}{$5$}%
 \fcXTickWithLabel{6}{$6$}%
+\uncover<handout:2,3|14->{%
+\rput[t](2.6, -0.3){\alertNoH{13,14,15}{infinite area}}%
+\psline[arrows=->, linewidth=0.5pt](2.6, -0.2)(2.6, 0.4)%
+}%
 \fcAxesStandardNoFrame{-0.3}{-0.3}{6.3}{1.5}%
 \end{pspicture}
 }
@@ -85,7 +85,7 @@ $
 \item<6->  $\frac{1}{\sqrt{1}}$ is the area of a rectangle.
 \item<7->  So is $\frac{1}{\sqrt{2}}$.
 \item<handout:2-| 11->  \alertNoH{13,14}{\alertNoH{12}{$ \int_1^\infty \alertNoH{11}{\frac{1}{ \sqrt{x}}} \diff x$} is} \fcAnswerUncover{11}{14}{divergent.}
-\item<handout:3-| 15->  Therefore $\sum_{n=1}^\infty \frac{1}{\sqrt{n}}$ is divergent.
+\item<handout:3| 15->  Therefore $\sum\limits_{n=1}^\infty \frac{1}{\sqrt{n}}$ is divergent.
 \end{itemize}
 \end{columns}
 \end{frame}

@@ -5,61 +5,62 @@
 \tiny
 \fcAxesStandard{-0.7}{-0.6}{2.5}{2.5}
 \fcLabels[$\Re$][$\Im$]{2.5}{2.5}
-\uncover<8-10>{%
+\uncover<handout:1|8-10>{%
 \fcPerpendicular{[0.5 1]}{[1 0] [0 0]}{0.1}%
 \fcPerpendicular{[0.5 1]}{[0 1] [0 0]}{0.1}%
 }%
-\uncover<8->{% 
+\uncover<8->{%
 \fcFullDot{0.5}{1}%
 }%
-\uncover<14>{%
+\uncover<handout:3|14>{%
 \rput[tl](1,1.9 ){$c(x+yi)$}%
 \fcFullDot{1}{2}%
 \psline[arrows=->](0,0)(1,2)%
 }%
-\uncover<15>{%
+\uncover<handout:3|15>{%
 \rput[tl](0.25,0.4){$c(x+yi), 0<c<1$}%
 \fcFullDot{0.25}{0.5}%
 \psline[arrows=->](0,0)(0.25,0.5)%
 }%
-\uncover<16>{%
+\uncover<handout:3|16>{%
 \rput[bl](-0.25,-0.4 ){$~~~~~c(x+yi), c<0$}%
 \fcFullDot{-0.25}{-0.5}%
 \psline[arrows=->](0,0)(-0.25,-0.5)%
 }%
-\uncover<10->{\psline[arrows=->](0,0)(0.5,1)}%
-\uncover<11-13>{%
+\uncover<handout:2|10->{\psline[arrows=->](0,0)(0.5,1)}%
+\uncover<handout:2|11-13>{%
 \fcFullDot{1}{0.5}%
 \psline[arrows=->](0,0)(1,0.5)%
 }%
-\uncover<12-13>{%
+\uncover<handout:2|12-13>{%
 \fcFullDot{1.5}{1.5}%
 \psline[arrows=->](0.5,1)(1.5,1.5)%
 \psline[arrows=->](1,0.5)(1.5,1.5)%
 }%
-\uncover<12>{\rput[b](1.5,1.6){$\alert<12>{x+u+(y+w)i}$}}
-\uncover<13>{\rput[b](1.5,1.6){$\alert<13>{(x+u,y+w)}$}}
-\uncover<8,13>{\rput[lb](0,1.1){$\alert<8,13>{(x,y)}$}}
-\uncover<11,12>{\rput[tl](1,0.5){$\alert<11,12>{~u+wi}$}}
-\uncover<13>{\rput[tl](1,0.5){$\alert<13>{~(u,w)}$}}
-\uncover<9-12,14->{\rput[lb](0,1.1){$\alert<9,11,12>{x+yi}$}}
+\uncover<handout:2|12>{\rput[b](1.5,1.6){$\alertNoH{12}{x+u+(y+w)i}$}}
+\uncover<handout:0|13>{\rput[b](1.5,1.6){$\alertNoH{13}{(x+u,y+w)}$}}
+\uncover<handout:0|8,13>{\rput[lb](0,1.1){$\alertNoH{8,13}{(x,y)}$}}
+\uncover<handout:2|11,12>{\rput[tl](1,0.5){$\alertNoH{11,12}{~u+wi}$}}
+\uncover<handout:0|13>{\rput[tl](1,0.5){$\alertNoH{13}{~(u,w)}$}}
+\uncover<9-12,14->{\rput[lb](0,1.1){$\alertNoH{9,11,12}{x+yi}$}}
 \end{pspicture}
 \column{0.75\textwidth}
 \begin{definition}[Complex numbers]
-The complex numbers are the set $\{x+yi|x,y\in\alert<2>{\mathbb R}\}$. 
+The complex numbers are the set $\{x+yi|x,y\in\alertNoH{2}{\mathbb R}\}$.
 \end{definition}
 \begin{itemize}
 \item<2-> Real numbers are usually denoted by $\mathbb R$.
 \item<3-> Complex numbers are usually denoted by $\mathbb C$.
 \end{itemize}
 \end{columns}
-\uncover<4->{Consider $z= \alert<5>{x}+\alert<6>{y}i$.}
+\uncover<4->{Consider $z= \alertNoH{5}{x}+\alertNoH{6}{y}i$.}
 \begin{itemize}
-\item<5-> \alert<5,7>{$x$} is called the \alert<5,7>{real part} of $z$, \uncover<6->{ \alert<6,7>{$y$} is called the \alert<6,7>{imaginary part} of $z$.} \uncover<7->{We write $ \alert<7>{x=\Re z} =\Re(x+yi)$, $\alert<7>{y=\Im z} = \Im (x+yi)$.}
-\item<8-> Real \& imaginary part of $z$ can be used as $x,y$-coords. to depict $z$. 
-\item<10-> In this way we view complex number $x+iy$ as the point (position vector) $(x,y)$ in a two-dimensional space. 
-\item<11-> The addition of complex numbers corresponds to \alert<11-13>{vector addition}.
-\item<14-> \alert<14,15,16>{Multiplication by a real number $c$ } corresponds to \alert<14,15,16>{vector scalar multiplication by $c$ \alert<14,15,16>{(scaling)}}.
-\item<17-> The space the complex numbers is referred to as the \alert<17>{complex plane} (sometimes alternatively called the complex line).
+\item<5-> \alertNoH{5,7}{$x$} is called the \alertNoH{5,7}{real part} of $z$, \uncover<6->{ \alertNoH{6,7}{$y$} is called the \alertNoH{6,7}{imaginary part} of $z$.} \uncover<7->{We write $ \alertNoH{7}{x=\Re z} =\Re(x+yi)$, $\alertNoH{7}{y=\Im z} = \Im (x+yi)$.}
+\item<8-> Real \& imaginary part of $z$ can be used as $x,y$-coords. to depict $z$.
+\item<10-> In this way we view complex number $x+iy$ as the point (position vector) $(x,y)$ in a two-dimensional space.
+\item<11-> The addition of complex numbers corresponds to \alertNoH{11-13}{vector addition}.
+\item<14-> \alertNoH{14,15,16}{Multiplication by a real number $c$ } corresponds to \alertNoH{14,15,16}{vector scalar multiplication by $c$ \alertNoH{14,15,16}{(scaling)}}.
+\item<17-> The space the complex numbers is referred to as the \alertNoH{17}{complex plane} (sometimes alternatively called the complex line).
 \end{itemize}
+\uncover<handout:1,2,3|1->{}
 \end{frame}
