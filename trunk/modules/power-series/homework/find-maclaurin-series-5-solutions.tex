@@ -1,12 +1,23 @@
 \solution{\ref{problemMaclaurin(ln(3-2x^2))}. 
-We solve this problem by using algebraic manipulations and substitutions to reduce it to the already studied power series expansion of $\ln (1-y)=-\sum\limits_{n=1}^\infty \frac{y^n}{n}$.
+We solve this problem by using algebraic manipulations and substitutions to reduce it to the already studied power series expansion of $\ln (1-y)=-\sum\limits_{n=1}^\infty \frac{y^n}{n}$ for $|y|<1$.
 \[
 \begin{array}{rcll|l}
 \ln \left(3-2x^2\right)&=& \displaystyle \ln \left(3 \left(1 -\frac{2}{3} x^2\right)\right)\\
 &=&\displaystyle \ln 3+ \ln  \left(1 -\frac{2}{3} x^2\right)&&\text{Set } y=\frac{2}{3}x^2\\
 &=&\displaystyle \ln 3+\ln (1-y)\\
-&=&\displaystyle \ln 3-\sum\limits_{n=1}^\infty \frac{y^n}{n}&&\text{Substitute back } y=\frac{2}{3}x^2\\
-&=&\displaystyle \ln 3-\sum\limits_{n=1}^\infty \left(\frac{2}{3}\right)^n\frac{x^{2n}}{n}\quad .
+&=&\displaystyle \ln 3-\sum\limits_{n=1}^\infty \frac{y^n}{n}&& \ln (1-y)= -\sum\limits_{n=1}^\infty \frac{y^n}{n} \text{ holds for } |y|<1
+\\
+&=&\displaystyle \ln 3-\sum\limits_{n=1}^\infty \left(\frac{2}{3}\right)^n\frac{x^{2n}}{n}\quad . &&\text{Substituted back } y=\frac{2}{3}x^2\quad .
 \end{array}
 \]
+As indicated above, the equality $\ln (1-y)= -\sum\limits_{n=1}^\infty \frac{y^n}{n}$ holds for $|y|<1$ and fails for $|y|>1$ (for $|y|>1$ the series $\sum\limits_{ n=1}^\infty \frac{y^n}{n}$ diverges). Therefore interval of convergence is given by 
+
+\[\begin{array}{rcll|l}
+|y|&<&1 &&\text{use }y=\frac{2}{3}x^2\\
+\left|\frac{2}{3 }x^2\right|&<&1\\
+|x^2|&<&\frac{3}{2}\\
+|x|&<&\sqrt{\frac{3}{2}},
+\end{array}
+\]
+i.e., the radius of convergence is $R=\sqrt{\frac{3}{2}}$.
 }
