@@ -1,15 +1,18 @@
 % begin module power-series-as-function-intro
 \begin{frame}
 \frametitle{Representations of Functions as Power Series}
-\[
-\sum_{n=0}^\infty x^n = 1 + x + x^2 + x^3 + \cdots 
+\[ \alertNoH{12,13}{g(x)=} \sum_{n=0}^\infty x^n =\alertNoH{12,13}{ 1 + x + x^2 + x^3 + \cdots }\quad \quad  \uncover<13>{\alertNoH{13}{ \text{for } |x|<1}}
 \]
 \begin{itemize}
-\item<2->  This is a geometric series with \alert<handout:0| 2-3,9>{$a = $ \uncover<3->{$1$}} and \alert<handout:0| 4-5,10>{$r = $ \uncover<5->{$x$.}}
-\item<6->  It is convergent if \uncover<7->{\alert<handout:0| 7,12>{$|x| < 1$}} and divergent otherwise.
-\item<8->  If it converges, the sum is $\frac{\uncover<9->{\alert<handout:0| 9>{1}}}{1 - \uncover<10->{\alert<handout:0| 10>{x}}}$.
-\item<11->  The thing that is new in this section is the we now regard the series $\sum_{n=0}^\infty x^n$ as expressing the function $f(x) = \frac{1}{1-x}$.
-\item<12->  This only works if $-1 < x < 1$.
+\item<2->  This is a geometric series with \alertNoH{2-3,9}{$a = \fcAnswer{3}{1}$} and \alertNoH{4-5,11}{$r =  \fcAnswerUncover{2}{5}{x.}$}
+\item<6->  \alertNoH{13}{It is convergent if \fcAnswer{7}{ \alertNoH{11}{$|x| < 1$}}} and divergent otherwise.
+\item<8->  \alertNoH{13}{If convergent}, the sum is $\displaystyle  \frac{ \fcAnswer{9}{ 1} }{1 - \fcAnswerUncover{8}{11}{x}} $.
+\item<12-> \alertNoH{12,13}{The domain of $g(x)$ is} \fcAnswer{13}{$|x|<1$.} 
+\item<14-> \alertNoH{14,15}{ The domain of $\displaystyle f(x)=\frac{ 1}{ 1-x }$ is} \fcAnswer{15}{$x\neq 1$.}
+
+
+\item<16->  In this way $g(x)=\sum\limits_{n=0}^\infty x^n$ is a new way to compute/expresses the function $\displaystyle f(x) = \frac{1}{1-x}$ for $|x|<1$.
+\item<17-> Except for their domains, the functions $g(x)$ and $f(x)$ coincide.  
 \end{itemize}
 \end{frame}
 % end module power-series-as-function-intro
