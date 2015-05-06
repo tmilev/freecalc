@@ -6,7 +6,7 @@ Write $\frac{1}{1+x^2}$ as a power series and find the interval of convergence.
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
-\frac{1}{1+x^2} = \frac{1}{1-(-x^2)}%
+\alertNoH{4}{\frac{1}{1+x^2} = \frac{1}{1-(-x^2)}}%
 \]
 }%
 \uncover<3->{%
@@ -14,17 +14,17 @@ Write $\frac{1}{1+x^2}$ as a power series and find the interval of convergence.
 \belowdisplayskip=0pt
 \[
 \begin{array}{c@{\  }c@{\  }l@{\ }c@{\  }c@{\  }c@{  }c@{  }c@{  }c@{  }c@{  }c@{  }c@{  }}
-\displaystyle \frac{1}{1-\alert<handout:0| 4>{x}} &%
- = & %
-\displaystyle \sum_{n=0}^\infty \alert<handout:0| 4>{x}^n &%
+\displaystyle  \alertNoH{9}{\frac{1}{1-\alertNoH{5,10}{y}}} &%
+ \alertNoH{9}{=} & %
+\displaystyle \alertNoH{9}{\sum_{n=0}^\infty \alertNoH{5,10}{y}^n} &%
  = & %
 1 &%
 + &%
-x &%
+y &%
 + &%
-x^2 &%
+y^2 &%
 + &%
-x^3 &%
+y^3 &%
 %+ &%
 %x^4 &%
 + \ \cdots \\%
@@ -32,43 +32,49 @@ x^3 &%
 %\displaystyle \frac{1}{1+x^2}%
 %} &&&&&&&&&&&&&\\%
 \uncover<4->{%
-\displaystyle \frac{1}{1-(\alert<handout:0| 4>{-x^2})}%
-} &%
-\uncover<4->{ = } &%
-\uncover<4->{%
-\displaystyle \sum_{n=0}^\infty (\alert<handout:0| 4>{-x^2})^n%
+\displaystyle  \alertNoH{4}{\frac{1}{1-(\alertNoH{5,10}{-x^2})}}%
 } &%
 \uncover<5->{ = } &%
-\uncover<5->{1} &%
-\uncover<5->{+} &%
-\uncover<5->{(-x^2)} &%
-\uncover<5->{+} &%
-\uncover<5->{(-x^2)^2} &%
-\uncover<5->{+} &%
-\uncover<5->{(-x^2)^3} &%
-%\uncover<5->{+} &%
-%\uncover<5->{(-x^2)^4} &%
-\uncover<5->{+ \ \cdots} \\%
-&&&%
+\uncover<5->{%
+\displaystyle \sum_{n=0}^\infty (\alertNoH{5,10}{-x^2})^n%
+} &%
 \uncover<6->{ = } &%
 \uncover<6->{1} &%
-\uncover<6->{-} &%
-\uncover<6->{x^2} &%
 \uncover<6->{+} &%
-\uncover<6->{x^4} &%
-\uncover<6->{-} &%
-\uncover<6->{x^6} &%
+\uncover<6->{(\alertNoH{7}{-}x^2)} &%
+\uncover<6->{+} &%
+\uncover<6->{(\alertNoH{7}{-}x^2)^{\alertNoH{7}{2}}} &%
+\uncover<6->{+} &%
+\uncover<6->{(\alertNoH{7}{-}x^2)^{\alertNoH{7}{3}}} &%
 %\uncover<6->{+} &%
-%\uncover<6->{x^8} &%
-\uncover<6->{+ \ \cdots} %
+%\uncover<6->{(-x^2)^4} &%
+\uncover<6->{+ \ \cdots} \\%
+&&&%
+\uncover<7->{ = } &%
+\uncover<7->{1} &%
+\uncover<7->{\alertNoH{7}{-}} &%
+\uncover<7->{x^2} &%
+\uncover<7->{\alertNoH{7}{+}} &%
+\uncover<7->{x^4} &%
+\uncover<7->{\alertNoH{7}{-}} &%
+\uncover<7->{x^6} &%
+%\uncover<7->{+} &%
+%\uncover<7->{x^8} &%
+\uncover<7->{+ \ \cdots} %
 %
 \end{array}
 \]
 }%
 \begin{itemize}
-\item<7->  Another way to write the series is $\sum_{n=0}^\infty (-x^2)^n = \sum_{n=0}^\infty (-1)^nx^{2n}$.
-\item<8->  This converges if $|-x^2| < 1$, that is, if $x^2 < 1$, or $|x| < 1$.
-\item<9->  Therefore the interval of convergence is $(-1, 1)$.
+\item<8->  Another way to write the series is $\sum\limits_{n=0}^\infty (-x^2)^n = \sum\limits_{n=0}^\infty (-1)^nx^{2n}$.
+\item<9->  This converges if and only if 
+$\left|\begin{array}{rcl}
+\alertNoH{9}{|y|}&\alertNoH{9}{<}&\alertNoH{9}{1}\\
+\uncover<10->{\alertNoH{10}{|-x^2|} &\alertNoH{0}{<}& 1}\\
+\uncover<11->{\alertNoH{12}{|x|}&\alertNoH{12}{<}&\alertNoH{12}{1}\quad .}
+\end{array}\right.
+$
+\item<12->  Therefore the interval of convergence is $\alertNoH{12}{x\in (-1, 1)}$.
 \end{itemize}
 \end{example}
 \end{frame}
