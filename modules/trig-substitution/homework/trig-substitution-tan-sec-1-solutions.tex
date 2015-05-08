@@ -1,0 +1,60 @@
+\solution{\ref{problemintsqrt(1+x^2)/x^2dx}
+
+\textbf{Variant I.} In this variant, we use the trigonometric substitution $x=\tan \theta$ and then solve the integral using a few algebraic tricks. 
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{\sqrt{1+x^2}}{x^2}\diff x&=& \displaystyle \int \frac{\sqrt{1+\tan^2 \theta}}{\tan^2\theta}\diff (\tan \theta) &&\begin{array}{l}\text{Set}\\ x=\tan \theta\\ \theta\in \left(-\frac{\pi}{2},\frac{\pi}{2}\right)\end{array} \\
+&=&\displaystyle \int \frac{|\sec\theta|}{\tan^2 \theta}\sec^2\theta\diff \theta && \begin{array}{l}|\sec \theta|=\sec \theta\\ \text{for }\theta\in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)\end{array}\\
+&=&\displaystyle \int \frac{\cos^2 \theta}{\cos^3\theta \sin^2 \theta}\diff \theta\\
+&=&\displaystyle \int \frac{\cos\theta}{\cos^2\theta \sin^2\theta}\diff \theta\\
+&=&\displaystyle \int \frac{\diff (\sin \theta)}{(1-\sin^2\theta)\sin^2\theta } &&
+\begin{array}{l}
+\text{Set } \\
+u=\sin\theta\\
+\text{for }\theta \in \left( 0,\frac{\pi}{2}\right)\\
+u=\sqrt{1-\cos^2\theta} \\
+u=\sqrt{1-\frac{1}{\sec^2\theta}}\\
+u=\sqrt{1-\frac{1}{1+\tan^2\theta}}\\
+u=\sqrt{\frac{\tan^2\theta}{1+\tan^2\theta}}\\
+u=\frac{\tan\theta}{\sqrt{1+\tan^2\theta}}\\
+u=\frac{x}{\sqrt{1+x^2}}
+\end{array}
+\\
+&=&\displaystyle \int \frac{\diff u}{(1-u^2)u^2}\\
+&=&\displaystyle \int \frac{\diff u}{(1-u)u^2 (u+1)}&&\text{use part. frac.}\\
+&=&\displaystyle \int \left( \frac{\frac{1}{2}}{u +1}+\frac{-\frac{1}{2}}{u -1}+\frac{1}{u ^{2}}\right)\diff u \\
+&=&\displaystyle -\frac{1}{2} \ln{}\left|u-1\right|+ \frac{ 1}{2} \ln{}\left(u+1\right)- u^{-1}   +C\\
+&=&\displaystyle  -\frac{1}{2} \ln{}\left(1-u\right)+ \frac{ 1}{2} \ln{}\left(u+1\right)- u^{-1}   +C&& u=\frac{x}{\sqrt{1+x^2}}<1\\
+&=&\displaystyle \frac{1}{2} \ln\left(\frac{1+u}{1-u} \right) - u^{-1}+C  \\
+&=&\displaystyle \frac{1}{2} \ln\left(\frac{(1+u)}{(1-u)} \cdot \frac{(1+u)}{(1+u)} \right) - u^{-1}+C  \\
+&=&\displaystyle \frac{1}{2} \ln \left( \frac{(1+u)^2}{1-u^2 }\right) - u^{-1}+C&&\text{use }u=\frac{x}{\sqrt{1+x^2}}\\
+&=&\displaystyle \frac{1}{2}\ln \left( \frac{ (1+u)^2 }{ \frac{ 1}{1+x^2}} \right)-\frac{\sqrt{1+x^2}}{x}+C\\
+&=&\displaystyle \frac{1}{2} \ln \left( \left((1+ u) \sqrt{1 + x^2} \right)^2\right)-\frac{\sqrt{1+x^2}}{x}+C\\
+&=&\displaystyle \ln \left(\sqrt{1+x^2}+x \right)-\frac{\sqrt{1+x^2}}{x}+C\quad .
+\end{array}
+\]
+\textbf{Variant II. } In this variant, we use directly the Euler substitution 
+
+$\begin{array}{rcl}
+x&=&\cot (2\Arctan t)\\
+&=& \frac{1 }{2} \left( \frac{ 1}{t}-t\right)\\ 
+\diff x &=&-\frac{1}{2}\left(\frac{1}{t^2}+1\right) \diff t \\
+\sqrt{1+x^2}&=&\frac{1}{2}\left(\frac{1}{t}+t\right)\\
+t&=&\sqrt{x^2+1}-x\\
+\frac{1}{t}&=&\sqrt{x^2+1}+x\quad .
+\end{array}
+$
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{\sqrt{1+x^2}}{x^2}\diff x&=&\displaystyle \int \frac{ \frac{1}{2} \left( \frac{1}{t}+t\right) }{\frac{1}{4}\left(\frac{1}{t}-t\right)^2} \left(-\frac{1}{2} \right)\left( \frac{1}{t^2}+1\right) \diff t\\
+&=&\displaystyle  \int \frac{-t^{4}-2t^{2}-1}{(t-1)^2t(t+1)^2 }\diff t&&\text{Part. frac}\\
+&=&\displaystyle \int\left(-\frac{1}{t }+\frac{1}{(t +1)^{2}}-\frac{1}{(t -1)^{2}}\right)\diff t\\
+&=&\displaystyle - \ln{}t - \frac{1}{t+1}+\frac{1}{t-1}+C\\
+&=&\displaystyle \ln \left(\frac{1}{t} \right) +\frac{2}{t^2-1} +C\\
+&=&\displaystyle \ln \left(\sqrt{1+x^2}+x \right)+ \frac{1}{t\frac{1 }{2} \left( t-\frac{1}{t}\right)}+C\\
+&=&\displaystyle \ln \left(\sqrt{1+x^2}+x \right)+ \frac{1}{t}\cdot \frac{1}{\frac{1}{2}\left(t-\frac{1}{t}\right)}+C\\
+&=&\displaystyle \ln \left(\sqrt{1+x^2}+x \right)- \left(\sqrt{x^2+1}+x\right)\cdot \frac{1}{x}+C\\
+&=&\displaystyle \ln \left(\sqrt{1+x^2}+x \right)- \frac{\sqrt{x^2+1}}{x}-1+C\quad .
+\end{array}
+\]
+}
