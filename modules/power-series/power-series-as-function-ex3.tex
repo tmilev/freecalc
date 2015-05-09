@@ -1,33 +1,24 @@
 % begin module power-series-as-function-ex3
 \begin{frame}
-\begin{example} %[Example 3, p. 765]
+\begin{example} 
 Find a power series representation for $\frac{x^3}{x+2}$.
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<2->{%
-\frac{x^3}{x+2}%
-}%
- & \uncover<2->{ = } &%
-\uncover<2->{%
-x^3 \cdot \alert<handout:0| 3-4>{\frac{1}{x+2}}%
+
+\[\begin{array}{rcll|l}
+\displaystyle \uncover<2->{ \frac{x^3}{x+2} }%
+ & \uncover<2->{ = } & \displaystyle %
+\uncover<2->{ x^3 \cdot \alertNoH{3-4}{\frac{1}{x+2}} } \\%
+& \uncover<3->{ = } &\displaystyle %
+\uncover<3->{ \alertNoH{5-6}{x^3}  \fcAnswer{4}{ \sum_{n=0}^\infty \frac{(-1)^n }{2^{n+1}}\alertNoH{5-6}{ x^n}} } \uncover<4->{&& \alertNoH{9}{ \text{if \& only if } |x|<2}} \\%
+ & \uncover<5->{ = } &\displaystyle %
+\uncover<5->{ \sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}}  \fcAnswer{6}{ x^{n+3}}%
 }\\%
-& \uncover<3->{ = } &%
-\uncover<3->{%
-\alert<handout:0| 5-6>{x^3} \uncover<4->{\alert<handout:0| 4>{\sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}}\alert<handout:0| 5-6>{x^n}}}%
-}\\%
- & \uncover<5->{ = } &%
-\uncover<5->{%
-\sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}} \uncover<6->{\alert<handout:0| 6>{x^{n+3}}}%
-}\\%
- & \uncover<7->{ = } &%
-\uncover<7->{%
-\frac{x^3}{2} - \frac{x^4}{4} + \frac{x^5}{8} - \frac{x^6}{16} + \cdots%
-}%
-\end{eqnarray*}
+ & \uncover<7->{ = } &\displaystyle %
+\uncover<7->{ \frac{x^3}{2} - \frac{x^4}{4} + \frac{x^5}{8} - \frac{x^6}{16} + \cdots }%
+\end{array}
+\]
 \begin{itemize}
-\item<8->  Another way to write this is $\frac{x^3}{x+2} = \sum_{n=3}^\infty \frac{(-1)^{n-1}}{2^{n-2}}x^n$.
-\item<9->  The interval of convergence is again $(-2, 2)$.
+\item<8->  Another way to write this is $\displaystyle \frac{x^3}{x+2} = \sum_{n=3}^\infty \frac{ (-1)^{ n-1}}{ 2^{n-2}}x^n$.
+\item<9->  The interval of convergence is again $x \in (-2, 2)$.
 \end{itemize}
 \end{example}
 \end{frame}
