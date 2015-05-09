@@ -1,55 +1,24 @@
 % begin module power-series-calculus-ex7
 \begin{frame}
-\begin{example} %[Example 7, p. 767]
+\vskip -0.1cm
+\begin{example} 
 Find a power series for $\Arctan x$ and state its radius of convergence.
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
-\uncover<2->{%
-\alert<handout:0| 2-3>{\frac{\diff}{\diff x} \Arctan x}
-}%
-  \uncover<2->{ \alert<handout:0| 2-3>{=} } %
-\uncover<3->{%
-\alert<handout:0| 2-3>{\frac{1}{1+x^2}}%
-}%
-\]
-\uncover<4->{Therefore}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<4->{%
-\alert<handout:0| 13-14>{\Arctan x}%
-}%
- & \uncover<4->{ = } &%
-\uncover<4->{%
-\int \alert<handout:0| 5>{\frac{1}{1+x^2}} \diff x%
-}%
-  \uncover<5->{ \ = \ } %
-\uncover<5->{%
-\int \alert<handout:0| 5>{(1-x^2+x^4-x^6+\cdots) } \diff x%
-}\\%
- & \uncover<6->{ = } &%
-\uncover<6->{%
-\left( \alert<handout:0| 10-11>{x} \alert<handout:0| 8-9>{-} \frac{x^{\alert<handout:0| 10-11>{3}}}{\alert<handout:0| 10-11>{3}} + \frac{x^{\alert<handout:0| 10-11>{5}}}{\alert<handout:0| 10-11>{5}} \alert<handout:0| 8-9>{-} \frac{x^{\alert<handout:0| 10-11>{7}}}{\alert<handout:0| 10-11>{7}} + \cdots \right) \uncover<7->{\alert<handout:0| 7>{+C}}%
-}\\%
-&  \uncover<8->{  \alert<handout:0| 13-14>{=}  } &%
-\uncover<8->{%
-\alert<handout:0| 13-14>{C + \sum_{n=0}^\infty \uncover<9->{\alert<handout:0| 9>{(-1)^n}} \frac{\uncover<11->{x^{\alert<handout:0| 11>{2n+1}}}}{\uncover<11->{\alert<handout:0| 11>{2n+1}}}}%
-}%
-\end{eqnarray*}
+$
+\begin{array}{@{}r@{~~}cll|l}
+\displaystyle \Arctan (\alertNoH{17,18}{x}) & \uncover<2->{ = } &\displaystyle \uncover<2->{ \alertNoH{ 2 }{ \int \alertNoH{3}{\diff}} \alertNoH{3} {( \Arctan x)}} \uncover<3->{ =\int \alertNoH{3}{\alertNoH{4,5} {(\Arctan x)'} \diff x }} \uncover<2->{&&\alertNoH{2,13}{ \text{up to const.}}}\\  
+&\uncover<4->{ = }&\displaystyle \uncover<4->{ \int  \left( \fcAnswer{ 5 }{\frac{ 1}{ 1 + x^2}}\right) \diff x} \uncover<6->{ =\int \left(\alertNoH{7,8}{\frac{1}{1-\left(- x^2 \right)}} \right)\diff x} \\%
+&\uncover<7->{=}&\displaystyle \uncover<7->{ \alertNoH{9, 10, 11,12}{\int} \left(\fcAnswerUncover{7}{ 8}{ \alertNoH{ 9}{1} -\alertNoH{10}{x^2}+ \alertNoH{11}{x^4} - \alertNoH{12}{x^6} +\cdots }\right) \alertNoH{9, 10, 11, 12}{\diff x} } \uncover<7->{&& \alertNoH{7,8,19}{\text{for } |x|<1}} \\%
+& \uncover<9->{ = } &\displaystyle \uncover<9->{ \left(\alertNoH{16,17}{ \alertNoH{9}{ x} - \alertNoH{10}{\frac{x^3}{3}} + \alertNoH{11}{\frac{x^5}{5}} - \alertNoH{12}{\frac{x^7}{7}} + \cdots }\right) \uncover<13->{\alertNoH{ 13,14}{+C} } } \\
+\uncover<14->{&=&\displaystyle  \alertNoH{ 14}{C +}\alertNoH{15,16}{ \sum_{n=0}^\infty \fcAnswerUncover{14}{ 16}{ (-1)^{n+1}\frac{{\alertNoH{17,18}{x}}^{2n+1}}{2n+1}}}
+}
+\end{array}
+$
+\vskip -0.3cm
 \begin{itemize}
-\item<12->  The radius is the same as for the original series: $R = 1$.
-\item<13->  To find $C$, plug in $x = 0$: \uncover<14->{\alert<handout:0| 14>{$0 = C$}.}
+\item<17-> To find $C$, plug in $\alertNoH{17,18}{x = 0} $: $\alertNoH{17, 18}{C=}\fcAnswer{18}{0.} $
+\item<19-> Therefore the theorem on integrating power series implies that $\displaystyle  \arctan x = \sum_{n=1}^\infty(-1)^{n+1} \frac{x^{2n+1}}{2n+1}$, for $|x|<1$.
+\item<20-> By the same theorem, the radius of convergence remains $R = 1$.
 \end{itemize}
-%\uncover<15->{Therefore}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
-\uncover<15->{%
-\Arctan  x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}%
-}%
-\]
-\vspace{-.1in}
 \end{example}
 \end{frame}
 % end module power-series-calculus-ex7

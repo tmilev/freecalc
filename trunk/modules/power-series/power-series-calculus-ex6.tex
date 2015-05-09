@@ -1,72 +1,26 @@
 % begin module power-series-calculus-ex6
 \begin{frame}
-\begin{example} %[Example 6, p. 767]
+\vskip -0.1cm
+\begin{example} 
 Find a power series for $\ln (1-x)$ and state its radius of convergence.
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
-\uncover<2->{%
-\alert<handout:0| 2-3>{\frac{\diff}{\diff x} \ln (1-x)}
-}%
-  \uncover<2->{ \alert<handout:0| 2-3>{=} } %
-\uncover<3->{%
-\alert<handout:0| 2-3>{-\frac{1}{1-x}}%
-}%
-\]
-\uncover<4->{Therefore}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<4->{%
-\alert<handout:0| 10-11>{\ln (1-x)}%
-}%
- & \uncover<4->{ = } &%
-\uncover<4->{%
-- \int \alert<handout:0| 5>{\frac{1}{1-x}} \diff x%
-}%
-  \uncover<5->{ \ = \ } %
-\uncover<5->{%
-- \int \alert<handout:0| 5>{(1+x+x^2+x^3+\cdots) } \diff x%
-}\\%
- & \uncover<6->{ = } &%
-\uncover<6->{%
--\left( x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \cdots \right) \uncover<7->{\alert<handout:0| 7>{+C}}%
-}%
-  \uncover<8->{ \ \alert<handout:0| 10-11>{=} \ } %
-\uncover<8->{%
-\alert<handout:0| 10-11>{C - \sum_{n=1}^\infty \frac{1}{n} x^n}%
-}%
-\end{eqnarray*}
+$
+\begin{array}{rcll|l}
+\displaystyle \ln (1-\alertNoH{17,18}{x})%
+& \uncover<2->{ = } &\displaystyle \uncover<2->{ \alertNoH{2}{ \int \alertNoH{3}{\diff}} \alertNoH{3} {( \ln (1-x))}} \uncover<3->{ =\int \alertNoH{3}{ \alertNoH{4,5} {(\ln (1-x))'} \diff x }} \uncover<2->{&&\alertNoH{2,13}{ \text{up to const.}}}\\  
+&\uncover<4->{ = }&\displaystyle \uncover<4->{ \int \fcAnswer{5}{ \left(\alertNoH{6}{-}\alertNoH{7,8}{\frac{1}{1-x}}\right)} \diff x} \\%
+&\uncover<6->{=}&\displaystyle \uncover<6->{ \alertNoH{6}{-} \alertNoH{9,10,11,12}{\int} \left(\fcAnswerUncover{6}{ 8}{\alertNoH{9}{1} +\alertNoH{10}{x}+\alertNoH{11}{x^2}+\alertNoH{12}{x^3}+\cdots }\right) \alertNoH{9,10,11,12}{\diff x} } \uncover<7->{&& \alertNoH{7,8,19}{\text{for } |x|<1}} \\%
+ & \uncover<9->{ = } &\displaystyle %
+\uncover<9->{\alertNoH{14}{-}\left(\alertNoH{15,16}{ \alertNoH{9}{ x} + \alertNoH{10}{\frac{x^2}{2}} + \alertNoH{11}{\frac{x^3}{3}} + \alertNoH{12}{\frac{x^4}{4}} + \cdots} \right) \uncover<13->{\alertNoH{ 13,14}{+C} } } \\
+\uncover<14->{&=&\displaystyle  \alertNoH{ 14}{C -} \alertNoH{15,16}{\sum_{n=1}^\infty \fcAnswerUncover{14}{16}{ \frac{ {\alertNoH{17, 18}{x}}^n}{n}}} 
+}
+\end{array}
+$
+\vskip -0.3cm
 \begin{itemize}
-\item<9->  The radius is the same as for the original series: $R = 1$.
-\item<10->  To find $C$, plug in $x = 0$: \uncover<11->{\alert<handout:0| 11>{$0 = C$}.}
+\item<17-> To find $C$, plug in $\alertNoH{17,18}{x = 0} $: $\alertNoH{17, 18}{C=}\fcAnswer{18}{0.} $
+\item<19-> Therefore the theorem on integrating power series implies that $\displaystyle  \ln (1-x) = - \sum_{n=1}^\infty \frac{x^n}{n}$, for $|x|<1$.
+\item<20-> By the same theorem, the radius of convergence remains $R = 1$.
 \end{itemize}
-%\abovedisplayskip=0pt
-%\belowdisplayskip=0pt
-%\begin{eqnarray*}
-%\uncover<10->{%
-%\ln (1-0)%
-%}%
-%& \uncover<10->{ = } &%
-%\uncover<10->{%
-%C - \sum_{n=1}^\infty \frac{1}{n} 0^n%
-%}\\%
-%\uncover<11->{%
-%0%
-%}%
-%& \uncover<11->{ = } &%
-%\uncover<11->{%
-%C %
-%}%
-%\end{eqnarray*}
-\uncover<12->{Therefore}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\[
-\uncover<12->{%
-\ln (1-x) = - \sum_{n=1}^\infty \frac{1}{n}x^n%
-}%
-\]
 \end{example}
 \end{frame}
 % end module power-series-calculus-ex6
