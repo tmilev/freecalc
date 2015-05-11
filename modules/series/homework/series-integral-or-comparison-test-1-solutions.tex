@@ -11,12 +11,13 @@
 \]
 therefore the integral is divergent (and diverges to $+\infty$).
 
-The function $\frac{1}{x\ln x}$ is decreasing, as for $x>2$, it is the quotient of $1$ by increasing positive functions. $\frac{ 1}{ x\ln x}$ tends to $0$ as $x\to \infty$, and therefore the integral criterion implies that $\sum\limits_{2}^{ \infty} \frac{1 }{n \ln n}$ is divergent.
+The function $\frac{1}{x\ln x}$ is decreasing, as for $x>2$, it is the quotient of $1$ by increasing positive functions. $\frac{ 1}{ x\ln x}$ tends to $0$ as $x\to \infty$, and therefore the integral criterion implies that $\sum\limits_{n=2}^{ \infty} \frac{1 }{n \ln n}$ is divergent.
 }
 
 \solution{\ref{problemConvergencesum_2^infty1/((2n+1)ln(n)}
-
 The integral criterion appears to be of little help: the improper integral $\int \frac{1 }{(2x+1)\ln x}\diff x $ cannot be integrated algebraically with any of the techniques we have studied so far. Therefore it makes sense to try to solve this problem using a comparison test. 
+
+\textbf{Variant I.} This variant uses the limit comparison test. It requires less intuition than Variant II below which uses the usual comparison test, but against a more carefully selected series. 
 
 The ``dominant term''\footnote{since we do not speak of rational functions, here the expression ``dominant term'' is used informally} of the denominator of $\frac{1}{(2n+1)\ln n}=\frac{1}{2n\ln n +\ln n}$ is $ 2n\ln n$. Therefore it makes sense to compare - or limit-compare - with $\frac{1}{n\ln n } $. 
 
@@ -25,5 +26,16 @@ We will use the Limit Comparison Test for the series $\sum\limits_{n=2}^\infty a
 \[
 \lim\limits_{n\to \infty}\frac{a_n}{b_n} = \lim\limits_{n\to\infty} \frac{ \frac{1}{(2n+1)\ln n}}{\frac{1}{n\ln n}} = \lim\limits_{n\to\infty}\frac{ n}{2n+1}=\lim\limits_{n\to\infty}\frac{ 1}{2+\frac{1}{n}} = \frac{1}{2}.
 \]
-Since $\lim\limits_{n\to \infty}\frac{a_n}{b_n}=\frac{1}{2}\neq 0$, the Limit Comparison Test implies that the series $\sum_{n=2}^{\infty} a_n$ has same convergence/divergence properties as the series $\sum_{n=2}^{\infty} b_n$. In Problem \ref{problemConvergencesum_2^infty1/(xlnx)dx} we demonstrated that the series $\sum\limits_{n=2}^{\infty} b_n$ is divergent; therefore the series $\sum\limits_{n=2}^\infty a_n=  \sum \limits_{n=2 }^\infty \frac{1}{(2n+1)\ln n}$ is divergent as well.
+Since $\lim\limits_{n\to \infty}\frac{a_n}{b_n}=\frac{1}{2}\neq 0$, the Limit Comparison Test implies that the series $\sum\limits_{n=2}^{\infty} a_n$ has same convergence/divergence properties as the series $\sum_{n=2}^{\infty} b_n$. In Problem \ref{problemConvergencesum_2^infty1/(xlnx)dx} we demonstrated that the series $\sum\limits_{n=2}^{\infty} b_n$ is divergent; therefore the series $\sum\limits_{n=2}^\infty a_n=  \sum \limits_{n=2 }^\infty \frac{1}{(2n+1)\ln n}$ is divergent as well.
+
+\textbf{Variant II. } This solution variant is shorter as it uses the directly the comparison test. However, unlike the preceding solution Variant the present one requires good algebraic intuition for selecting the series $b_n$ to compare to.  
+
+Let $a_n= \frac{1}{(2n+1)\ln n}$. Consider the series $\sum_{n=2}^{\infty}b_n$ for  $b_n=\frac{1}{3n \ln n}$. We have that 
+\[
+\begin{array}{rcll|l}
+3n &\geq & 2n+1 &&\text{for } n\geq 1\\
+\displaystyle \frac{1}{3n} &\leq&\displaystyle  \frac{1}{2n+1} \quad .&& \begin{array}{@{}l}\text{Inverting positive}\\\text{quantities reverses} \\\text{inequalities} \end{array}
+\end{array}
+\]
+Therefore $b_n\geq a_n$. In Problem \ref{problemConvergencesum_2^infty1/(xlnx)dx} we illustrated (using the integral test) that $ \sum\limits_{n=2}^\infty (3b_n) $ is divergent and therefore so is its constant multiple $\sum\limits_{n=2}^\infty b_n$. Therefore $ \sum \limits_{n=2 }^\infty \frac{1}{(2n+1)\ln n}$ is divergent by the comparison test. 
 }
