@@ -1,6 +1,6 @@
 % begin module parametric-ex4
 \begin{frame}[t]
-\begin{example} %[Example 4, p. 659]
+\begin{example}
 Find parametric equations for the circle with center $(h, k)$ and radius $r$.
 \begin{columns}
 \column{0.37\textwidth}
@@ -50,15 +50,15 @@ Find parametric equations for the circle with center $(h, k)$ and radius $r$.
 \vspace{1.4cm}
 \column{0.63\textwidth}
 \begin{itemize}
-\only<1-10>{ \item<2->  Let $O$ be the center of the circle with coordinates $(h,k)$.
+\only<handout:1|1-10>{ \item<2->  Let $O$ be the center of the circle with coordinates $(h,k)$.
 \item<3->  Let $P$ be a point on the circle with coordinates $(x,y)$.
 \item<4->  Let $t$, $Q$ be as indicated on the figure.
-\item<5->  Then $\alert<5,6>{|OQ|=}\uncover<5>{\alert<5>{\textbf{?}}} \uncover<6->{ \alert<6>{r \cos t}}$.
-\item<7->  $\alert<7,8>{|PQ|=} \uncover<7>{ \alert<7>{ \textbf{?}}} \uncover<8->{\alert<8>{r \sin t}}$.
+\item<5->  Then $\alertNoH{5,6}{|OQ|=} \fcAnswer{6}{r \cos t}$.
+\item<7->  $\alertNoH{7,8}{|PQ|=} \fcAnswer{8}{r \sin t}$.
 \item<9-> Then the coordinates of $P$ are $ (h+r\cos t, k+r\sin t)$.
 \item<10-> In this way we get the parametric equations $\left|\begin{array}{l}x=h+r\cos t\\ y=k+r\sin t\end{array}\right., t\in [0,2\pi]$
 }
-\only<11->{
+\only<handout:2|11->{
 \item<11-> Alternative solution: $x=\cos t$, $y=\sin t$ are parametric equations of the unit circle.
 \item<12-> Multiply by $r$ to scale the circle to have radius $r$: $x = r\cos t,\ \  y = r\sin t$.
 \item<13-> Add $h$ to $x$ and $k$ to $y$ to translate the circle $h$ units to the left and $k$ units up: $x =h+ r\cos t,\ \  y =k+  r\sin t$
