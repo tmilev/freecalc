@@ -1,6 +1,6 @@
 % begin module arc-length-ex1
 \begin{frame}
-\begin{example} %[Example 1, p. 562]
+\begin{example} 
 Find the length of the arc of $y^2 = x^3$ between $(1,1)$ and $(4,8)$.
 \begin{columns}[c]
 \column{.3\textwidth}
@@ -24,8 +24,8 @@ Find the length of the arc of $y^2 = x^3$ between $(1,1)$ and $(4,8)$.
 \column{.7\textwidth}
 \begin{itemize}
 \item<2->  For the top half of the curve we have:
-\item<2->  \alert<handout:0| 3-4>{$y = \uncover<4->{x^{3/2}}$} and  \alert<handout:0| 5-6,8>{$y' = \uncover<6->{\frac{3}{2}x^{1/2}}$}.
-\item<9->  \alert<handout:0| 10-11>{$u = \uncover<11->{1 + \frac{9}{4}x}$} and  \alert<handout:0| 12-13>{$\diff u = \uncover<13->{\frac{9}{4}\diff x}$}.
+\item<2->  \alertNoH{ 3-4}{$y = \uncover<4->{x^{3/2}}$} and  \alertNoH{ 5-6,8}{$y' = \uncover<6->{\frac{3}{2}x^{1/2}}$}.
+\item<9->  \alertNoH{ 10-11}{$u = \uncover<11->{1 + \frac{9}{4}x}$} and  \alertNoH{ 12-13}{$\diff u = \uncover<13->{\frac{9}{4}\diff x}$}.
 \item<9-| alert@14-15>  When $x = 1$, $u = \uncover<15->{\frac{13}{4}}$.
 \item<9-| alert@16-17>  When $x = 4$, $u = \uncover<17->{10}$.
 \end{itemize}
@@ -35,13 +35,13 @@ L %
 }%
 & \uncover<7->{ = } &%
 \uncover<7->{%
-\int_1^4 \sqrt{1+\left( \alert<handout:0| 8>{y'} \right)^2}\diff x%
+\int_1^4 \sqrt{1+\left( \alertNoH{ 8}{y'} \right)^2}\diff x%
 }\\%
 & \uncover<8->{ = } &%
 \uncover<8->{%
-\int_{\alert<handout:0| 14-15>{1}}^{\alert<handout:0| 16-17>{4}} \sqrt{\alert<handout:0| 11>{1+} \alert<handout:0| 8,11>{\frac{9}{4}x} }\ \alert<handout:0| 12-13>{\diff x}%
+\int_{\alertNoH{ 14-15}{1}}^{\alertNoH{ 16-17}{4}} \sqrt{\alertNoH{ 11}{1+} \alertNoH{ 8,11}{\frac{9}{4}x} }\ \alertNoH{ 12-13}{\diff x}%
 } \uncover<9->{ = } \uncover<9->{%
-\int_{\alert<handout:0| 14-15>{\uncover<15->{13/4}}}^{\alert<handout:0| 16-17>{\uncover<17->{10}}} \alert<handout:0| 12-13>{\uncover<13->{\frac{4}{9}}}\uncover<11->{\sqrt{\alert<handout:0| 10-11>{u}}}\ \alert<handout:0| 12-13>{\uncover<13->{\diff u}}%
+\int_{\alertNoH{ 14-15}{\uncover<15->{13/4}}}^{\alertNoH{ 16-17}{\uncover<17->{10}}} \alertNoH{ 12-13}{\uncover<13->{\frac{4}{9}}}\uncover<11->{\sqrt{\alertNoH{ 10-11}{u}}}\ \alertNoH{ 12-13}{\uncover<13->{\diff u}}%
 }\\%
 & \uncover<18->{ = } &%
 \uncover<18->{%

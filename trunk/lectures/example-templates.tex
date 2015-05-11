@@ -96,9 +96,9 @@
 {#3}%
 }%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
 \newcommand{\alertNoH}[2]{\alert<handout:0|#1>{#2}}
-%code blocks regular expression that replaces all strings of the form \alert<a> where a does not contain the | character by \alertNoH{a}:
+%code blocks regular expression that replaces all strings of the form \alert<handout:0| a> by \alertNoH{a}:
 %Find:
-%\\alert<\([^>^|]*\)>
+%\\alert<[^|^0]*0|\([^>]*\)>
 %Replace:
 %\\alertNoH{\1}
 
