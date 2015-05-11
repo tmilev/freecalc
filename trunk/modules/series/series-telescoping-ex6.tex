@@ -1,7 +1,7 @@
 % begin module series-telescoping-ex6
 \begin{frame}
 \vskip -0.12cm
-\begin{example} 
+\begin{example}
 Show the series $\displaystyle \sum_{n=1}^\infty \frac{1}{n(n+1)}$ is convergent and find its sum.
 
 \uncover<2->{ \alertNoH{2-6}{ Is this a geometric series?}  \fcAnswerUncover{2}{6}{No, because} $ \displaystyle \uncover<3->{\alertNoH{6}{ \frac{\alertNoH{4}{a_{n+1}}} { \alertNoH{3}{ a_n}}}} \uncover<3->{= \frac{ \alertNoH{4}{\frac{1}{\alertNoH{5}{(n+1)} (n+2) }}}{\alertNoH{3}{ \frac{1}{n\alertNoH{5}{(n+1)}}}}} \uncover<5->{= \frac{ n}{n+2}}$ \uncover<5->{ \alertNoH{5,6}{is not constant.}} } \uncover<7->{\alertNoH{7,8}{Decompose  $a_n$ into partial fractions:}}
@@ -19,9 +19,9 @@ a_n &=&\displaystyle \alertNoH{7,8,10}{\frac{1}{n(n+1)} =}\fcAnswer{8}{\alertNoH
 }%
 & \uncover<9->{ = } &\displaystyle %
 \uncover<9->{%
-\sum_{n=1}^k \alert<handout:0| 10>{\frac{1}{n(n+1)}}%
+\sum_{n=1}^k \alertNoH{ 10}{\frac{1}{n(n+1)}}%
 }  \uncover<10->{ = } \uncover<10->{%
-\sum_{n=1}^k \alert<handout:0| 10>{\left( \frac{1}{n} - \frac{1}{n+1}\right)}%
+\sum_{n=1}^k \alertNoH{ 10}{\left( \frac{1}{n} - \frac{1}{n+1}\right)}%
 }\\%
 & \uncover<11->{ = } &\displaystyle%
 \uncover<11->{%
@@ -41,7 +41,7 @@ $
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
-\text{Therefore }\quad \sum_{n=1}^\infty \frac{1}{n(n+1)} = \lim_{k\to\infty} \alert<handout:0| 18>{s_k} \uncover<18->{= \lim_{k\to\infty} \alertNoH{18}{\left( 1 - \frac{1}{k+1}\right)}} \uncover<19>{= 1}%
+\text{Therefore }\quad \sum_{n=1}^\infty \frac{1}{n(n+1)} = \lim_{k\to\infty} \alertNoH{ 18}{s_k} \uncover<18->{= \lim_{k\to\infty} \alertNoH{18}{\left( 1 - \frac{1}{k+1}\right)}} \uncover<19>{= 1}%
 \]
 }%
 \end{example}
