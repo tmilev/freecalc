@@ -1,27 +1,29 @@
 % begin module maclaurin-series-ex6
 \begin{frame}
-\begin{example}[Example 6, p. 776]
+\begin{example}
 Find the Maclaurin series for $x\cos x$.
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<2->{%
+\[
+\begin{array}{rcl}
+\displaystyle \uncover<2->{%
 x\alertNoH{ 2-3}{\cos x}%
 }%
 & \uncover<2->{=} &%
-\uncover<2->{\alertNoH{ 4-5}{x}}%
+\displaystyle \uncover<2->{\alertNoH{ 4-5}{x}}%
 \uncover<3->{%
 \alertNoH{ 3}{\sum_{n=0}^\infty (-1)^n\frac{\alertNoH{ 4-5}{x^{2n}}}{(2n)!}}%
 }\\%
 & \uncover<4->{=} &%
-\uncover<4->{%
-\sum_{n=0}^\infty (-1)^n\frac{\alertNoH{ 4-5}{\uncover<5->{x^{2n+1}}}}{(2n)!}%
+\displaystyle \uncover<4->{%
+\sum\limits_{n=0}^\infty (-1)^n\frac{\alertNoH{ 4-5}{\uncover<5->{x^{2n+1}}}}{(2n)!}%
 }\\%
 & \uncover<6->{=} &%
-\uncover<6->{%
+\displaystyle \uncover<6->{%
 x - \frac{x^3}{2!} + \frac{x^5}{4!} - \frac{x^7}{6!} + \cdots%
 }%
-\end{eqnarray*}
+\end{array}
+\]
 \end{example}
 \end{frame}
 % end module maclaurin-series-ex6
