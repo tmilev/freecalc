@@ -1,41 +1,43 @@
 % begin module maclaurin-series-ex11
 \begin{frame}
-\begin{example}[Example 11, p. 780]
+\begin{example}
 Use a power series to find $\displaystyle \lim_{x\to 0}\frac{e^x - 1 - x}{x^2}$.
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<2->{%
+\[
+\begin{array}{rcl}
+\displaystyle \uncover<2->{%
 e^x%
 }%
 & \uncover<2->{=} &%
-\uncover<2->{%
+\displaystyle \uncover<2->{%
 \alertNoH{ 3}{1 + x } + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots %
 }\\%
-\uncover<3->{%
+\displaystyle \uncover<3->{%
 e^x \alertNoH{ 3}{ - 1 - x}%
 }%
 & \uncover<3->{=} &%
-\uncover<3->{%
+\displaystyle \uncover<3->{%
 \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots %
 }\\%
-\uncover<4->{%
+\displaystyle \uncover<4->{%
 \frac{e^x  - 1 - x}{x^2}%
 }%
 & \uncover<4->{=} &%
-\uncover<4->{%
+\displaystyle \uncover<4->{%
 \frac{1}{2!} + \frac{x}{3!} + \frac{x^2}{4!} + \cdots %
 }\\%
-\uncover<5->{%
+\displaystyle \uncover<5->{%
 \lim_{x\to 0}\frac{e^x  - 1 - x}{x^2}%
 }%
 & \uncover<5->{=} &%
-\uncover<5->{%
+\displaystyle \uncover<5->{%
 \alertNoH{ 6-7}{%
-\lim_{x\to 0}\left( \frac{1}{2} + \frac{x}{3!} + \frac{x^2}{4!} + \cdots \right) \uncover<6->{= \uncover<7->{\frac{1}{2}}} %
+\lim_{x\to 0}\left( \frac{1}{2} + \frac{x}{3!} + \frac{x^2}{4!} + \cdots \right) \uncover<6->{= \uncover<7->{\frac{1}{2}}} \quad .%
 }%
 }%
-\end{eqnarray*}
+\end{array}
+\]
 \end{example}
 \end{frame}
 % end module maclaurin-series-ex11
