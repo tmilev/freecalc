@@ -1,0 +1,42 @@
+\begin{frame}
+\begin{example}
+\vskip -0.1cm
+\begin{columns}
+\column{0.3\textwidth}
+
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-10,-1)(2,10)
+\tiny
+\fcAxesStandard{-10}{-1}{2}{10}
+\parametricplot[linecolor=gray]{0}{5}{t sqrt -2 t mul add 8 3 div t 0.75 exp mul}
+\parametricplot[linecolor=\fcColorGraph]{1}{4}{t sqrt -2 t mul add 8 3 div t 0.75 exp mul}
+\fcFullDot{-1}{8 3 div}
+\fcFullDot{-6}{8 3  div 4 0.75 exp mul}
+\fcLabels{2}{10}
+\fcXTickWithLabel{-2}{$-2$}
+\psline(-2, -0.4)(-2,0.4)
+\end{pspicture}
+\column{0.7\textwidth}
+Find the length of the curve $\gamma$. 
+$\gamma:\left| 
+\begin{array}{rcl}
+x(t)&=&\displaystyle \sqrt{t} - 2t\\
+y(t)&=&\displaystyle  \frac{8}{3}t^{\frac{3}{4}}\\
+\end{array}\right., t\in [1,4]\quad . $
+
+\end{columns}
+\uncover<3->{ We have that $\alertNoH{3,4}{x'(t)=}\displaystyle \fcAnswer{4}{ \frac{1}{2\sqrt{t}}-2}$ and $\alertNoH{5,6,8}{ y'(t)=} \displaystyle \fcAnswerUncover{3}{6}{ \alertNoH{7}{\frac{8}{3}\cdot \frac{3}{4}} t^{- \frac{ 1}{4}}} \uncover<7->{ =\alertNoH{8}{ \alertNoH{7}{2} t^{- \frac{1}{4}}}.}$} 
+
+$
+\begin{array}{@{\!\!}r@{}c@{}l}
+\uncover<2->{ L(\gamma)&=&\displaystyle \int_{a}^{b}\sqrt{{ \left( \alertNoH{3, 4}{ x'( t)} \right)}^2+{\left(\alertNoH{5-8}{ y'( t)} \right)}^2}\diff t\uncover<3->{ = \displaystyle \int_{1}^{4} \sqrt{\alertNoH{9,10}{ {\left( \fcAnswer{4}{ \frac{ 1}{ 2 \sqrt{t}}-2} \right)}^2} +\alertNoH{11,12}{ {\left( \fcAnswerUncover{3 }{8}{ 2t^{- \frac{1}{4}}} \right)} ^2}}\diff t }} \\
+\uncover<9->{&=&\displaystyle \int_{1}^4\sqrt{ \fcAnswer{10}{ \frac{1}{4t} \alertNoH{13}{ - \frac{2}{\sqrt{t}}}+4 }+ \fcAnswerUncover{9}{12}{ \alertNoH{13}{\frac{4}{\sqrt{t}}}} }~~\diff t }\\
+\uncover<13->{&=&\displaystyle \int_{1}^4\sqrt{\alertNoH{14}{\frac{1}{4t} + \alertNoH{13}{ \frac{2}{\sqrt{t}}} +4 } }~~\diff t} \uncover<14->{ =\displaystyle \int_{1}^4 \only<handout:0|15> {\color{red}}\sqrt{ \color{black} \alertNoH{14}{\left( \frac{ 1}{ 2 \sqrt{t}}+2 \right)^{\alertNoH{15}{2}}  } }\color{black} \diff t}\\
+\uncover<15->{&=&\displaystyle {\alertNoH{17,18,19,20}{\int}}_{\!\!\!1}^4 \only<handout:0|15>{ \color{red}\left|\color{black}\frac{1}{2\sqrt{t} }+2\color{red}\right|\color{black}} \only<handout:1|16->{ \only<handout:0|16>{\color{red}} \left(\color{black} \alertNoH{17,18}{ \frac{1}{2\sqrt{t} }} +\alertNoH{19,20}{2} \only<handout:0|16>{ \color{red} }\right)}\color{black}  \alertNoH{17,18,19,20}{ \diff t} \uncover<17->{ = {\left[ \fcAnswer{18}{\sqrt{\alertNoH{21,22}{t} }}+ \fcAnswer{20}{2\alertNoH{21,22}{t}}\right]}_{{\alertNoH{22}{1}}}^{{ \alertNoH{21}{4} }}} \uncover<21->{= \sqrt{\alertNoH{21}{4} }+2\cdot \alertNoH{21} {4} - \left(\sqrt{\alertNoH{22}{1}}+ 2\cdot \alertNoH{22}{1}\right)} \uncover<23->{\!= 7.}
+}
+\end{array}
+$
+
+\end{example}
+
+\end{frame}
