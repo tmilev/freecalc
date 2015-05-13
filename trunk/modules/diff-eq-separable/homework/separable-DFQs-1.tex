@@ -1,7 +1,105 @@
+\begin{multicols}{2}
+\begin{enumerate}[ref={\fcProblemRef}]
+\item 
 \begin{equation}\label{eqDFQseparable-yprime=ysquared-1}
 \frac{\diff y}{\diff x}= y^2-1\quad .
 \end{equation}
-\begin{enumerate}[ref={\fcProblemRef}]
+\begin{enumerate}[ref={\fcSubProblemRef}]
 \item \label{problemDFQseparable-yprime=ysquared-1-part1} Find all solutions of the differential equation above.
 \item \label{problemDFQseparable-yprime=ysquared-1-part2} Find a solution for which $y(0)=-\frac{3}{5}$.
 \end{enumerate}
+\item \begin{enumerate}
+\item Find the general solution to the differential equation
+\[
+\frac{\diff y}{\diff x}= y^2-4\quad .
+\]
+Below is a computer-generated plot of the direction field  $\displaystyle \frac{\diff y}{\diff x}=y^2-4$, you may use it to get a feeling for what your answer should look like.
+
+\optionalDisplay{
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-6,-6)(6,6)
+\tiny
+\newcommand{\Dconst}{4}
+\psplot[linecolor=green]{-4}{4}{1 \Dconst\space 2.718281828 4 x mul exp mul sub 1 \Dconst\space 2.718281828 4 x mul exp mul add div 2 mul}
+\psaxes{<->}(0,0)(-5,-5)(5,5)
+\rput[l](0.4,5){The direction field  $\frac{\diff y}{\diff  x}=y^2-4$}
+\fcDirectionFieldDefault{y y mul 4 sub}{-4}{-4}{0.5}{17}
+\end{pspicture}
+}
+\item {Find a solution of the above equation for which $ y(0)= -\frac{6}{5}$.}
+\end{enumerate}
+
+\item 
+\label{problemy'=y^2(1+x),y(0)=3}
+Solve the initial-value differential equation $\displaystyle y' = y^2(1+x)$, $y(0) = 3$.
+
+\item Solve the initial-value differential equation problem
+\[
+y'=xe^{-y}
+\quad,\quad  \quad \quad y(4)=0.
+\]
+Below is a computer-generated plot of the corresponding direction field, you may use it to get a feeling for what your answer should look like.
+
+\optionalDisplay{
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-6,-6)(9.5,9.5)
+\tiny
+\psaxes{<->}(0,0)(-5,-5)(9,9)
+\fcFullDot{4}{0}
+\rput[lt](0.4,9){The direction field  $\frac{\diff y}{\diff  x}=y'=xe^{-y} $}
+\fcDirectionFieldDefault{2.718281828 y -1 mul exp x mul}{-4}{-4}{0.5}{25}
+\psplot[linecolor=\fcColorGraph]{3.745}{8.2}{-7 x 2 exp 0.5 mul add ln}
+\end{pspicture}
+}
+
+\answer{$y(x)=\ln \left(\frac{x^2}{2}-7\right)$}
+\item Solve the initial-value differential equation problem
+\[
+y'=\frac{\ln x}{x y}
+\quad,\quad  \quad \quad y(1)=2.
+\]
+Below is a computer-generated plot of the corresponding direction field, you may use it to get a feeling for what your answer should look like.
+
+\optionalDisplay{
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-6)(11,6)
+\tiny
+\psaxes{<->}(0,0)(-0.5,-5)(10,6)
+\fcFullDot{1}{2}
+\rput[l](0.4,5){The direction field  $\frac{\diff y}{\diff  x}=y'=\frac{\ln x}{x y} $}
+\fcDirectionFieldDefault{x ln y x mul div}{0.01}{-4.01}{0.5}{17}
+\psplot[linecolor=\fcColorGraph, plotpoints=600 ]{0.2}{8}{4 x ln 2 exp add 0.5 exp}
+\end{pspicture}
+}
+\answer{$y(x)= \sqrt{(\ln x)^2+4}$}
+\item 
+\begin{enumerate}[ref={\fcSubProblemRef}]
+\item \label{problemDFQseparabley'=xtany_initial_condition1} Solve the initial-value differential equation problem
+\[
+y'=x\tan y
+\quad,\quad  \quad \quad y(0)=\Arcsin\left(\frac{1}{e}\right)\approx 0.376728.
+\]
+
+\answer{$y(x)=\Arcsin\left(e^{\frac{x^2}{2}-1}\right)$}
+\item \label{problemDFQseparabley'=xtany_initial_condition2} Solve the same differential equation with initial condition $y(0)= \pi+\Arcsin \left(-\frac{1}{e}\right)\approx 2.764865$.
+
+\answer{$y(x)= \pi+ \Arcsin\left(- e^{ \frac{x^2}{2}- 1}\right)$}
+
+
+Below is a computer-generated plot of corresponding direction field, you may use it to get a feeling for what your answer should look like.
+
+\optionalDisplay{
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-6,-6)(9.5,9.5)
+\tiny
+\psaxes{<->}(0,0)(-5,-5)(9,9)
+\rput[lt](0.4,9){The direction field  $\frac{y}{\diff  x}=y'=x\tan y $}
+\fcDirectionFieldDefault{y 57.29578 mul sin x mul y 57.29578 mul cos div}{-4}{-4}{0.5}{25}
+\psplot[linecolor=\fcColorGraph, plotpoints=500]{-1.41421356}{1.41421356}{2.718281828 -1 x 2 exp 0.5 mul add exp ASIN}
+\psplot[linecolor=green, plotpoints=500]{-1.41421356}{1.41421356}{3.141592654 2.718281828 -1 x 2 exp 0.5 mul add exp -1 mul ASIN add}
+\end{pspicture}
+}
+
+\end{enumerate}
+\end{enumerate}
+\end{multicols}

@@ -12,7 +12,7 @@ There are two variants for solving this problem. The first variant uses indefini
 \displaystyle\int \frac{\diff y}{ y^2-1}& =& \displaystyle x +C \\
 \displaystyle\int \left(\frac{\frac{1}{2} }{y-1}- \frac{\frac{1 }{2}}{ y+1}\right)\diff y&=& x +C \\
 \displaystyle \frac{1}2 \ln \left|\frac{y-1}{y+1}\right| &=& x+C\\
-\displaystyle \ln \left|\frac{y-1}{y+1}\right|&=& 2t + 2C\\
+\displaystyle \ln \left|\frac{y-1}{y+1}\right|&=& 2 x + 2C\\
 \displaystyle\left|\frac{y-1}{y+1}\right|&=& e^{ 2x +2C} \\
 \displaystyle\frac{y-1}{y+1}&=& \pm e^{ 2x +2C} \\
 \displaystyle y-1&=&\displaystyle \pm e^{2x+2C} (y+1)\\
@@ -150,6 +150,66 @@ Alternatively, let us give an algebraic solution. As we are given that $y(0)=-\f
 \displaystyle \frac{2}{5} D&=&\displaystyle \frac{8}{5}\\
 D&=&4\quad ,
 \end{array}
+\]
+which is our final answer.
+}
+
+\solution{\ref{problemy'=y^2(1+x),y(0)=3}. 
+
+This is a concise solution written up in a form suitable for exam taking.
+\[\begin{array}{rcl}
+\displaystyle \frac{\diff y}{\diff x}&=&\displaystyle y^2(1+x)\\
+\displaystyle \frac{\diff y}{y^2} &=&\displaystyle  (1+x) \diff x\\
+\displaystyle \int \frac{\diff y}{y^2} &=&\displaystyle \int (1+x) \diff x\\
+\displaystyle -\frac{1}{y} &=&\displaystyle  x + \frac{x^2}{2} + C\\
+\displaystyle -\frac{1}{3}& =&\displaystyle  0 + 0 + C\\
+\displaystyle y &=&\displaystyle  -\frac{1}{\frac{x^2}{2}+x  - \frac{1}{3}} = -\frac{3}{3x^2+6x-2}\quad .
+\end{array}
+\]
+}
+
+\solution{\ref{problemDFQseparabley'=xtany_initial_condition1} and 
+\ref{problemDFQseparabley'=xtany_initial_condition2}
+\[\begin{array}{rcll|l}
+\displaystyle y'&=&\displaystyle x\tan y\\
+\displaystyle\frac{y'}{\tan y}&=&\displaystyle x\\
+\displaystyle\frac{(\cos y) y'}{\sin y}&=&\displaystyle x &&\text{Integrate from }0\\
+\displaystyle \int\limits_{t=0}^{t=x} \frac{\cos(y(t))}{\sin (y(t))} (y' \diff t)&=&\displaystyle  \int\limits_{t=0}^xt \diff t \\
+\displaystyle \int\limits_{t=0}^{t=x} \frac{\cos(y(t))}{\sin (y(t))}\diff (y(t))&=&\displaystyle  \frac{x^2}{2} &&\text{Set }z=y(t)\\
+\displaystyle \int \limits_{z=y(0)}^{z=y(x)} \frac{\cos z}{\sin z} \diff z&=&\displaystyle  \frac{x^2}{2}\\
+\displaystyle \int \limits_{z=y(0)}^{z=y(x)} \frac{\diff (\sin z)}{\sin z} &=&\displaystyle  \frac{x^2}{2}\\
+\displaystyle \left[\ln | \sin z|\right]_{y(0)}^{y} & = & \displaystyle  \frac{x^2}{2}\\
+\displaystyle \ln |\sin y|- \ln |\sin (y(0))|&=& \displaystyle  \frac{x^2}{2} \\
+\displaystyle \ln |\sin y|&=& \displaystyle  \frac{x^2}{2}+\ln |\sin (y(0))| \\
+|\sin y|&=&\displaystyle  e^{\frac{x^2}{2}+\ln |\sin (y(0))|}\\ |\sin y|&=&\displaystyle \doublebrace{e^{\frac{x^2}{2}+\ln \left|\sin \left(\Arcsin \left(\frac{1}{e}\right) \right)\right|}}{\text{for problem \ref{problemDFQseparabley'=xtany_initial_condition1}}}{e^{\frac{x^2}{2}+\ln \left|\sin \left(\pi+ \Arcsin \left(\frac{1}{e}\right) \right)\right|} }{\text{for problem \ref{problemDFQseparabley'=xtany_initial_condition2}}} \\
+|\sin y|&=&\displaystyle  e^{\frac{x^2}{2}+ \ln \left(\frac{1}{ e}\right)}\\
+\displaystyle |\sin y|&=&\displaystyle e^{\frac{x^2}{2}-1} &&\begin{array}{l} y(0)>0 \text{ for both problems}\\
+\text{therefore }  \sin y(0) > 0\end{array}\\
+\displaystyle \sin y&=&e^{\frac{x^2}{2}-1} \quad.
+\end{array}
+\]
+From the elementary properties of the trigonometric functions, we know that  $\sin y=\sin \alpha$ implies that either
+\begin{itemize}
+\item $y=\alpha +2k\pi$, where $k$ is an arbitrary integer or
+\item $y=(2k+1)\pi-\alpha$, where $k$ is an arbitrary integer.
+\end{itemize}
+In other words, if we are given $\sin y$, we know $y$ up to a choice of sign and a choice of an integer $k$. For our problem, this means that 
+
+\[
+y=\triplebrace{ 2 k \pi+\Arcsin\left( e^{\frac{x^2}{2}-1} \right)}{k -\text{integer}}{\text{or}}{}{(2k+1)\pi- \Arcsin\left( e^{\frac{x^2}{2}-1} \right)}{k-\text{integer}}
+\]
+
+For problem \ref{problemDFQseparabley'=xtany_initial_condition1}, 
+the only choice for $k$ and sign which fits the initial condition $y(0)= \Arcsin\left(\frac{1}{e}\right)$ is
+\[
+y=\Arcsin\left(e^{\frac{x^2}{2}-1} \right)\quad ,
+\]
+which is our final answer. 
+
+For problem \ref{problemDFQseparabley'=xtany_initial_condition2}, 
+the only choice for $k$ and sign which fits the initial condition $y(0)=\pi+ \Arcsin\left(-\frac{1}{e}\right)=\pi- \Arcsin \left( \frac{1}{e}\right) $ is
+\[
+y=\pi- \Arcsin\left(e^{\frac{x^2}{2}-1} \right)\quad, 
 \]
 which is our final answer.
 }
