@@ -101,6 +101,11 @@
 %\\alert<[^|^0]*0|\([^>]*\)>
 %Replace:
 %\\alertNoH{\1}
+%code blocks regular expression that replaces all strings of the form \alert<a> but not containing | by \alertNoH{a}:
+%Find:
+%\\alert<\([^|^>]*\)>
+%Replace:
+%\\alertNoH{\1}
 
 \newcommand{\fcLicense}{
 \begin{frame}

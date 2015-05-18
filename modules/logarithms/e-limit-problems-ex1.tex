@@ -1,15 +1,15 @@
 %begin module e-limit-problems-ex1
 \begin{frame}
 \begin{example}
-Compute 
+Compute
 \[
 \begin{array}{rcll|l}
-\displaystyle\lim\limits_{x\to \infty}\left(\alert<2>{ \frac{x+3}{x}} \right)^x 
+\displaystyle\lim\limits_{x\to \infty}\left(\alertNoH{2}{ \frac{x+3}{x}} \right)^x
 \uncover<2->{
-&=&\displaystyle  \lim\limits_{x\to \infty} \left(\alert<2>{1 +\alert<3>{\frac{3}{x}} } \right)^{\alert<4>{x}} } \\
-\uncover<3->{&=& \displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\alert<3,6>{ \frac{x}{3}} }\right)^{\alert<4>{3\alert<6>{\frac{x}{3}}} } } \uncover<5->{ && \text{Set } \alert<6>{\frac{x}{3}=y}}\\
-\uncover<6->{&=&\displaystyle \lim\limits_{\substack{\alert<7>{x\to \infty} \\ \uncover<7->{\alert<7>{\frac{x}{3}=y\to \infty} } }}\left(1+\frac{1}{\alert<6>{y}}\right)^{\alert<8>{3\alert<6>{y}}} } \\
-\uncover<8->{ &=&\displaystyle \alert<9,10>{ \alert<11>{\lim\limits_{y\to \infty}}\left(\alert<11>{\left(1+\frac{1}{y}\right)^{\alert<8>{y}}}\right)^{\alert<8>{3}}}} \uncover<9->{\alert<9,10>{=}}\uncover<10->{\alert<10>{\alert<11>{ e}^3} \quad .} 
+&=&\displaystyle  \lim\limits_{x\to \infty} \left(\alertNoH{2}{1 +\alertNoH{3}{\frac{3}{x}} } \right)^{\alertNoH{4}{x}} } \\
+\uncover<3->{&=& \displaystyle \lim\limits_{x\to \infty}\left(1+\frac{1}{\alertNoH{3,6}{ \frac{x}{3}} }\right)^{\alertNoH{4}{3\alertNoH{6}{\frac{x}{3}}} } } \uncover<5->{ && \text{Set } \alertNoH{6}{\frac{x}{3}=y}}\\
+\uncover<6->{&=&\displaystyle \lim\limits_{\substack{\alertNoH{7}{x\to \infty} \\ \uncover<7->{\alertNoH{7}{\frac{x}{3}=y\to \infty} } }}\left(1+\frac{1}{\alertNoH{6}{y}}\right)^{\alertNoH{8}{3\alertNoH{6}{y}}} } \\
+\uncover<8->{ &=&\displaystyle \alertNoH{9,10}{ \alertNoH{11}{\lim\limits_{y\to \infty}}\left(\alertNoH{11}{\left(1+\frac{1}{y}\right)^{\alertNoH{8}{y}}}\right)^{\alertNoH{8}{3}}}} \uncover<9->{\alertNoH{9,10}{=}}\uncover<10->{\alertNoH{10}{\alertNoH{11}{ e}^3} \quad .}
 \end{array}
 \]
 
@@ -17,18 +17,18 @@ Compute
 \end{frame}
 \begin{frame}
 \begin{example}
-Compute 
+Compute
 \[
 \begin{array}{rll|l}
-&\displaystyle \lim_{x\to \infty} \left(\frac{\alert<2>{x}}{x-2} \right)^{2x+2}\\
+&\displaystyle \lim_{x\to \infty} \left(\frac{\alertNoH{2}{x}}{x-2} \right)^{2x+2}\\
 \uncover<2->{ =&\displaystyle
-\lim\limits_{x\to \infty}\left(\alert<3>{ \frac{\alert<2>{x-2 +2}} {x-2} } \right)^{2x+2}}
-\uncover<3->{= \lim\limits_{x\to \infty}\left(\alert<3>{1+\alert<4>{\frac{2}{x-2}} } \right)^{2\alert<5>{x}+2}} \\
-\uncover<4->{=&\displaystyle \lim\limits_{x\to \infty} \left( 1+ \alert<4>{\frac{1}{ \frac{x-2}{2}}} \right)^{\alert<6>{ 2( \alert<5>{ x-2+2} )+2}} }\\
-\uncover<6->{ =&\displaystyle \lim\limits_{x\to \infty} \left( 1+ \frac{1}{ \alert<8>{ \frac{x-2}{2}} } \right)^{ \alert<6>{ 4\alert<8>{\frac{x-2}{2}} +6}}} \uncover<8->{= \lim \limits_{\substack{ \alert<8>{\frac{ x-2 }{2}
-= y} \\ y\to\infty}} {\alert<9,10>{\left(1+\frac{1}{\alert<8>{ y} }\right)}}^{\alert<9>{4\alert<8>{y}} +\alert<10>{6}} } \uncover<7->{&& \alert<7>{\text{Set } \alert<8>{y=\frac{x-2}{2}} }}\\
-\uncover<9->{=& \displaystyle \alert<12>{ \lim\limits_{y\to \infty} }  \alert<9>{ \left( \alert<12>{\left(1+\frac{1}{y} \right)^{y}}\right)^4} \alert<13>{\lim\limits_{ y\to\infty}} \alert<10>{\left(1+\alert<13>{\frac{1}{y}} \right)^6} } \\ \uncover<11->{ =&\alert<14>{ \alert<12>{e}^4\cdot (1+\alert<13>{0})^6}}\uncover<14->{
-= \alert<14>{e^4} \quad . }
+\lim\limits_{x\to \infty}\left(\alertNoH{3}{ \frac{\alertNoH{2}{x-2 +2}} {x-2} } \right)^{2x+2}}
+\uncover<3->{= \lim\limits_{x\to \infty}\left(\alertNoH{3}{1+\alertNoH{4}{\frac{2}{x-2}} } \right)^{2\alertNoH{5}{x}+2}} \\
+\uncover<4->{=&\displaystyle \lim\limits_{x\to \infty} \left( 1+ \alertNoH{4}{\frac{1}{ \frac{x-2}{2}}} \right)^{\alertNoH{6}{ 2( \alertNoH{5}{ x-2+2} )+2}} }\\
+\uncover<6->{ =&\displaystyle \lim\limits_{x\to \infty} \left( 1+ \frac{1}{ \alertNoH{8}{ \frac{x-2}{2}} } \right)^{ \alertNoH{6}{ 4\alertNoH{8}{\frac{x-2}{2}} +6}}} \uncover<8->{= \lim \limits_{\substack{ \alertNoH{8}{\frac{ x-2 }{2}
+= y} \\ y\to\infty}} {\alertNoH{9,10}{\left(1+\frac{1}{\alertNoH{8}{ y} }\right)}}^{\alertNoH{9}{4\alertNoH{8}{y}} +\alertNoH{10}{6}} } \uncover<7->{&& \alertNoH{7}{\text{Set } \alertNoH{8}{y=\frac{x-2}{2}} }}\\
+\uncover<9->{=& \displaystyle \alertNoH{12}{ \lim\limits_{y\to \infty} }  \alertNoH{9}{ \left( \alertNoH{12}{\left(1+\frac{1}{y} \right)^{y}}\right)^4} \alertNoH{13}{\lim\limits_{ y\to\infty}} \alertNoH{10}{\left(1+\alertNoH{13}{\frac{1}{y}} \right)^6} } \\ \uncover<11->{ =&\alertNoH{14}{ \alertNoH{12}{e}^4\cdot (1+\alertNoH{13}{0})^6}}\uncover<14->{
+= \alertNoH{14}{e^4} \quad . }
 \end{array}
 \]
 
