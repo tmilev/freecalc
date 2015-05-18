@@ -1,22 +1,22 @@
 % begin module chain-rule-statement
 \begin{frame}
 \begin{theorem}[Chain rule]
-\alert<17>{$g$-diff. near $a$}, \alert<4>{$f$-diff. near $g(a)$} $\Rightarrow$ $\alert<18>{ \left(f(g(a))\right)'= f'(g(a)) g'(a)}$ .
+\alertNoH{17}{$g$-diff. near $a$}, \alertNoH{4}{$f$-diff. near $g(a)$} $\Rightarrow$ $\alertNoH{18}{ \left(f(g(a))\right)'= f'(g(a)) g'(a)}$ .
 \end{theorem}
 \begin{proof}
-\uncover<2->{Define $Q(\alert<8>{y})=\left\{\begin{array}{ll}\alert<4>{\frac{f(\alert<8>{y})-f(g(a))}{\alert<3>{\alert<8>{y}-g(a)}}, }&\alert<4>{\alert<3>{\alert<8>{y}\neq g(a)}} \\\alert<5>{f'(g(a)), } &\alert<5>{\alert<8>{y}=g(a)} \end{array} \right.$.} \uncover<3->{\alert<3,6>{$Q(g(x))$ - defined for all $x$ near $a$.}}
-\uncover<4->{Therefore $\alert<4,5,16>{f'(g(a))}\alert<4,5>{=\lim_{y\to a} Q(y)}\alert<6>{= \alert<16>{\lim_{x\to a} Q(g(x))}}$. }
+\uncover<2->{Define $Q(\alertNoH{8}{y})=\left\{\begin{array}{ll}\alertNoH{4}{\frac{f(\alertNoH{8}{y})-f(g(a))}{\alertNoH{3}{\alertNoH{8}{y}-g(a)}}, }&\alertNoH{4}{\alertNoH{3}{\alertNoH{8}{y}\neq g(a)}} \\\alertNoH{5}{f'(g(a)), } &\alertNoH{5}{\alertNoH{8}{y}=g(a)} \end{array} \right.$.} \uncover<3->{\alertNoH{3,6}{$Q(g(x))$ - defined for all $x$ near $a$.}}
+\uncover<4->{Therefore $\alertNoH{4,5,16}{f'(g(a))}\alertNoH{4,5}{=\lim_{y\to a} Q(y)}\alertNoH{6}{= \alertNoH{16}{\lim_{x\to a} Q(g(x))}}$. }
 ~\\~\\
 
 $\begin{array}{rcl}
-\uncover<7->{\alert<14>{ Q(\alert<8>{g(x)})\frac{g(x)-g(a)}{x-a}} &=&}\uncover<8->{ \left\{\begin{array}{ll} \frac{\alert<11>{(f(\alert<8>{g(x)})-f(g(a))) }} {\alert<10>{(\alert<8>{g(x)}-g(a))}} \frac{\alert<10>{(g(x)-g(a))}}{\alert<11>{x-a}} , &\alert<8>{g(x)}\neq g(a) \\ f'(\alert<8>{g(a)})\frac{\alert<9>{\alert<8>{g(a)}-g(a)}}{x-a}\uncover<9->{\alert<9>{=0}}, & \alert<8>{g(x)}=g(a) \end{array} \right. }\\\uncover<10->{ &=&\alert<11,14>{\frac{f(g(x))-f(a)}{x-a}.}}
+\uncover<7->{\alertNoH{14}{ Q(\alertNoH{8}{g(x)})\frac{g(x)-g(a)}{x-a}} &=&}\uncover<8->{ \left\{\begin{array}{ll} \frac{\alertNoH{11}{(f(\alertNoH{8}{g(x)})-f(g(a))) }} {\alertNoH{10}{(\alertNoH{8}{g(x)}-g(a))}} \frac{\alertNoH{10}{(g(x)-g(a))}}{\alertNoH{11}{x-a}} , &\alertNoH{8}{g(x)}\neq g(a) \\ f'(\alertNoH{8}{g(a)})\frac{\alertNoH{9}{\alertNoH{8}{g(a)}-g(a)}}{x-a}\uncover<9->{\alertNoH{9}{=0}}, & \alertNoH{8}{g(x)}=g(a) \end{array} \right. }\\\uncover<10->{ &=&\alertNoH{11,14}{\frac{f(g(x))-f(a)}{x-a}.}}
 \end{array}
 $
 ~\\~\\~\\
 
 $\begin{array}{rcl}
-\uncover<12->{\alert<18>{ (f \circ g)'(a)} &=&} \uncover<13->{\displaystyle\lim_{x\to a} \alert<14>{\frac{f(g(x)) - f(g(a)) }{x-a}}=} \uncover<14->{\lim_{x\to a} \alert<14>{Q(g(x)) \frac{g(x)-g(a)}{x-a}}}\\
-\uncover<15->{&=&\alert<16>{\displaystyle \lim_{x\to a} Q(g(x))}\alert<17>{\lim_{x\to a} \frac{g(x)-g(a)}{x-a}}} \uncover<16->{=\alert<18>{ \alert<16>{f'(g(a))} \alert<17>{g'(a)}}\quad .}  
+\uncover<12->{\alertNoH{18}{ (f \circ g)'(a)} &=&} \uncover<13->{\displaystyle\lim_{x\to a} \alertNoH{14}{\frac{f(g(x)) - f(g(a)) }{x-a}}=} \uncover<14->{\lim_{x\to a} \alertNoH{14}{Q(g(x)) \frac{g(x)-g(a)}{x-a}}}\\
+\uncover<15->{&=&\alertNoH{16}{\displaystyle \lim_{x\to a} Q(g(x))}\alertNoH{17}{\lim_{x\to a} \frac{g(x)-g(a)}{x-a}}} \uncover<16->{=\alertNoH{18}{ \alertNoH{16}{f'(g(a))} \alertNoH{17}{g'(a)}}\quad .}
 \end{array}
 $
 \end{proof}
