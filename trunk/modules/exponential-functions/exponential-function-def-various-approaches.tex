@@ -22,7 +22,7 @@ a^x = \lim\limits_{\substack{y \to x \\ y\text{-rational}}} a^y
 \]
 \item<5-> Not computationally effective. It is not how computers compute.
 \item<6-> However is the easiest approach. $a^{x+y}=a^xa^y$ is easiest to prove (follows directly from the $\varepsilon, \delta$-definition of $\lim$).
-\item<7->\alert<7->{This is the definition assumed in Calculus I.}
+\item<7->\alertNoH{7-}{This is the definition assumed in Calculus I.}
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -30,16 +30,16 @@ a^x = \lim\limits_{\substack{y \to x \\ y\text{-rational}}} a^y
 \begin{itemize}
 \item<1-> The following formula (studied at end of Calc II) can be used as alternative definition.
 \[
-e^{x}=\alert<4>{\sum_{n=0}^{\infty}} \frac{x^n}{\alert<2>{n!}}= 1+ x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots + \frac{x^{n}}{\alert<2>{n!}}+\dots
+e^{x}=\alertNoH{4}{\sum_{n=0}^{\infty}} \frac{x^n}{\alertNoH{2}{n!}}= 1+ x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots + \frac{x^{n}}{\alertNoH{2}{n!}}+\dots
 \]
-\uncover<2->{\alert<2>{Here $n!=1\cdot 2\cdot 3\cdot\dots \cdot(n-1)\cdot n$ and is read ``$n$ factorial''. }}
+\uncover<2->{\alertNoH{2}{Here $n!=1\cdot 2\cdot 3\cdot\dots \cdot(n-1)\cdot n$ and is read ``$n$ factorial''. }}
 \item<3-> For $|x|<1$ define 
 \[
-\ln (1+x)=\alert<4>{\sum_{n=1}^{\infty}} (-1)^{n+1}\frac{x^n}{n}=  x-\frac{x^2}{2}+\frac{x^3}{3}-\dots + \frac{(-1)^{n+1}x^{n}}{n}+\dots
+\ln (1+x)=\alertNoH{4}{\sum_{n=1}^{\infty}} (-1)^{n+1}\frac{x^n}{n}=  x-\frac{x^2}{2}+\frac{x^3}{3}-\dots + \frac{(-1)^{n+1}x^{n}}{n}+\dots
 \]
-\uncover<4->{\alert<4>{Infinite sum studied in Calc II.}} 
+\uncover<4->{\alertNoH{4}{Infinite sum studied in Calc II.}} 
 \item<5-> For arbitrary $a>0$ define $a^x$ as $a^x=e^{x\ln a}$. 
-\item<6-> Disadvantage: more difficult to prove $e^{x+y}=e^{x}e^y$ and $e^{\ln(1+x)}=1+x$, proof done in Calculus II.
+\item<6-> Disadvantage: more difficult to prove $e^{x+y}= e^{x} e^y$ and $e^{\ln(1+x)}=1+x$, proof done in Calculus II.
 \item<7-> This is how computers compute $e^x$ and $a^x$.
 \end{itemize}
 \end{frame}

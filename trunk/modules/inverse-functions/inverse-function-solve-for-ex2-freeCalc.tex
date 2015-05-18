@@ -23,28 +23,28 @@ Given: $f(x) = \frac{e^x-e^{-x}}{e^x+e^{-x}}  $.  Find $f^{-1}(x)$.
 %Function formula: 1/2 (\ln{}((1+x)/(1- (x))))
 \uncover<15->{
 \rput[tl](1.1,2.5){$y=f^{-1}(x)$}
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-0.994}{0.994}{x 1 add x -1 mul 1 add div ln 0.5 mul }
+\psplot[linecolor=\fcColorGraph, plotpoints= 1000]{ -0.994}{ 0.994 }{x 1 add x -1 mul 1 add div ln 0.5 mul }
 }
 \end{pspicture}
-\uncover<15->{Final }\uncover<14->{answer}\uncover<15->{, \alert<15>{relabelled}:}
+\uncover<15->{Final }\uncover<14->{answer}\uncover<15->{, \alertNoH{15}{relabelled}:}
 \[
 \uncover<14->{
-f^{-1}( \only<14>{y}\only<15->{\alert<15>{x}} )=\frac12\ln\frac{1+\only<14>{y}\only<15->{\alert<15>{x}} }{1-\only<14>{y}\only<15->{\alert<15>{x}}}
+f^{-1}( \only<handout:0|14>{y}\only<15->{\alertNoH{15}{x}} )=\frac12\ln\frac{1+\only<handout:0|14>{y}\only<15->{\alertNoH{15}{x}} }{1-\only<handout:0|14>{y}\only<15->{\alertNoH{15}{x}}}
 }
 \]
 \column{0.6\textwidth}
-\uncover<2->{Set $u=e^x$.} \uncover<3->{Then $\alert<3>{e^{-x}=} \uncover<4->{\alert<4>{\frac1u}}$.}
+\uncover<2->{Set $u=e^x$.} \uncover<3->{Then $\alertNoH{3}{e^{-x}=} \uncover<4->{\alertNoH{4}{\frac1u}}$.}
 \[\begin{array}{rcl}
 \uncover<5->{ \frac{u-\frac1u}{u+\frac1u}&=&y}\\
 \uncover<6->{\frac{u^2-1}{u^2+1}&=&y}\\
 \uncover<7->{u^2-1&=&y(u^2+1)}\\
 \uncover<8->{u^2(1-y)&=&1+y}\\
 \uncover<9->{u^2&=&\frac{1+y}{1-y}}\\
-\uncover<10->{u&=& \only<10>{\pm}\only<11>{\alert<11>{+}} \sqrt{\frac{1+y}{1-y}}}\\
-\uncover<12->{\uncover<13->{x=\ln e^x =}\alert<12>{\ln} u &=& \alert<12>{\ln}\sqrt{\frac{1+y}{1-y}}}\uncover<14->{=\frac12\ln\frac{1+y}{1-y}} \\
+\uncover<10->{u&=& \only<10>{\pm}\only<handout:0|11>{\alertNoH{11}{+}} \sqrt{\frac{1+y}{1-y}}}\\
+\uncover<12->{\uncover<13->{x=\ln e^x =}\alertNoH{12}{\ln} u &=& \alertNoH{12}{\ln}\sqrt{\frac{1+y}{1-y}}}\uncover<14->{=\frac12\ln\frac{1+y}{1-y}} \\
 \end{array}
 \]
-\uncover<11->{where the sign follows from $e^x=u>0$.} \uncover<12->{Take $\alert<12>{\ln} $ on both sides.}
+\uncover<11->{where the sign follows from $e^x=u>0$.} \uncover<12->{Take $\alertNoH{12}{\ln} $ on both sides.}
 \end{columns}
 \end{example}
 \end{frame}
