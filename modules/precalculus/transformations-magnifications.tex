@@ -8,7 +8,7 @@
 \tiny
 \fcAxesStandard{-4}{-3.5}{4.5}{5}
 %Function formula: 10/3+1/3 ((-3+3 (x))^{3})-1/3 ((-3+3 (x))^{2})-1/3 (x)
-\only<handout:0| 1->{
+\only<handout:1| 1->{
 \psplot[linecolor=red, plotpoints=1000]{1.65}{2.55}{x -0.333333 mul x 3 mul -6 add 2 exp -0.333333 mul x 3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add }
 \rput[b] (2.55, 2.40654){$y=f(x)$}
 }
@@ -21,7 +21,7 @@
 \psplot[linecolor=red, plotpoints=1000]{1.65}{2.55}{x -0.333333 mul x 3 mul -6 add 2 exp -0.333333 mul x 3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add 2 mul}
 \rput[b] (2.55, 4.80654){{$y=cf(x)$}}
 }
-\only<handout:0| 4->{
+\only<handout:1| 4->{
 \psplot[linecolor=blue, plotpoints=1000]{1.65}{2.55}{x -0.333333 mul x 3 mul -6 add 2 exp -0.333333 mul x 3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add 2 mul}
 \rput[b] (2.55, 4.80654){$y=cf(x)$}
 }
@@ -30,7 +30,7 @@
 \psplot[linecolor=red, plotpoints=1000]{1.65}{2.55}{x -0.333333 mul x 3 mul -6 add 2 exp -0.333333 mul x 3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add 2 div}
 \rput[b] (2.55, 0.40654){{$y=\frac{1}{c}f(x)$}}
 }
-\only<handout:0| 5->{
+\only<handout:1| 5->{
 \psplot[linecolor=blue, plotpoints=1000]{1.65}{2.55}{x -0.333333 mul x 3 mul -6 add 2 exp -0.333333 mul x 3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add 2 div}
 \rput[b] (2.55, 0.40654){$y=\frac{1}{c}f(x)$}
 }
@@ -39,7 +39,7 @@
 \psplot[linecolor=red, plotpoints=1000]{1.65}{2.55}{x -0.333333 mul x 3 mul -6 add 2 exp -0.333333 mul x 3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add -1 mul}
 \rput[t] (2.55, -2.40654){{$y=-f(x)$}}
 }
-\only<handout:0| 6->{
+\only<handout:1| 6->{
 \psplot[linecolor=blue, plotpoints=1000]{1.65}{2.55}{x -0.333333 mul x 3 mul -6 add 2 exp -0.333333 mul x 3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add -1 mul}
 \rput[t] (2.55, -2.40654){$y=-f(x)$}
 }
@@ -49,7 +49,7 @@
 \psplot[linecolor=red, plotpoints=1000]{-2.55}{-1.65}{x -3 mul -6 add 2 exp -0.333333 mul x 0.333333 mul x -3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add }
 \rput[b] (-2.55, 2.40654){{$y=f(-x)$}}
 }
-\only<handout:0| 7->{
+\only<handout:1| 7->{
 %Function formula: 8/3+1/3 ((-6-3 (x))^{3})+1/3 (x)-1/3 ((-6-3 (x))^{2})
 \psplot[linecolor=blue, plotpoints=1000]{-2.55}{-1.65}{x -3 mul -6 add 2 exp -0.333333 mul x 0.333333 mul x -3 mul -6 add 3 exp 0.333333 mul 2.66667 add add add }
 \rput[b] (-2.55, 2.40654){$y=f(-x)$}
@@ -72,7 +72,7 @@
 %}%
 
 \column{.5\textwidth}
-\alert<3-4>{What happens if we multiply or divide by a constant $c > 1$ in the equation of a function $f$?}  \alert<5>{What happens if we multiply $f$ by $-1$?}  \alert<6>{What happens if we multiply $x$ by $-1$ before applying $f$?}
+\alertNoH{3-4}{What happens if we multiply or divide by a constant $c > 1$ in the equation of a function $f$?}  \alertNoH{5}{What happens if we multiply $f$ by $-1$?}  \alertNoH{6}{What happens if we multiply $x$ by $-1$ before applying $f$?}
 \end{columns}
 
 \begin{tabular}{|l|l|}
