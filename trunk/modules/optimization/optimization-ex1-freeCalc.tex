@@ -22,13 +22,13 @@ A cone is folded from a wedge-shaped profile of radius $r$. Find the maximal pos
 
 \uncover<7->{
 \psparametricplot[algebraic,linecolor=purple]{2.35619}{7.06858}{0.07*cos(t)| 0.07*sin(t)}
-\rput[t](0, -0.1){$\alert<7>{\theta}$}
+\rput[t](0, -0.1){$\alertNoH{7}{\theta}$}
 }
 \uncover<8->{
 \psparametricplot[linewidth=1pt, algebraic,arrows=<->, linecolor =blue] {4.41238898} {5.01238898}{cos(t)| sin(t)}
 }
 \uncover<9->{
-\rput[b](0, -0.9){\alert<9>{$r\theta$}}
+\rput[b](0, -0.9){\alertNoH{9}{$r\theta$}}
 }
 \psline[linecolor=red!1](-1.03,-1.03)(-1.03,-1.02)
 \end{pspicture}
@@ -72,9 +72,9 @@ A cone is folded from a wedge-shaped profile of radius $r$. Find the maximal pos
 \uncover<13->{
 \rput[b](0,0.7){$O$}
 \rput[l](0.8, 0){$A$}
-\rput[r](-0.05,0.32){\alert<13,14>{$h$}}
-\rput[t](0.38,-0.05){$\alert<14>{t}$}
-\rput[bl](0.38,0.34 ){$\alert<14>{r}$}
+\rput[r](-0.05,0.32){\alertNoH{13,14}{$h$}}
+\rput[t](0.38,-0.05){$\alertNoH{14}{t}$}
+\rput[bl](0.38,0.34 ){$\alertNoH{14}{r}$}
 \psline(0,0)(0.75,0)
 \psline[linecolor=\fcColorGraph](0.75,0)(0, 0.648593)
 \psline(0, 0.648593)(0,0)
@@ -86,81 +86,81 @@ A cone is folded from a wedge-shaped profile of radius $r$. Find the maximal pos
 
 \vspace{1cm}
 \column{.73\textwidth}
-\only<1-20>{
+\only<handout:1|1-20>{
 \uncover<2->{
-Set $h$ - cone height,} \uncover<3->{$t$ - cone radius.} \uncover<4->{Then $\alert<4,17>{V=} \uncover<5->{\alert<5>{\frac{1}3 (\alert<6>{\text{area cone base}})h} }\uncover<6->{=\alert<17>{ \frac13 \alert<6>{\pi   t^2} h }}$.} \uncover<7->{ Let $\alert<7>{\theta}$ - angle of the wedge.} \uncover<8->{Then $ \alert<8,9>{\text{arc}{AB}=} \uncover<9->{\alert<9,12>{r\theta}}$ \uncover<10->{\alert<10,11>{= perimeter cone base =}} $\uncover<11->{\alert<11,12>{2\pi t}.}$} \uncover<12->{Therefore $\alert<12,15,18>{t=\frac{r\theta}{2\pi}}$.} \uncover<13->{Then
+Set $h$ - cone height,} \uncover<3->{$t$ - cone radius.} \uncover<4->{Then $\alertNoH{4,17}{V=} \uncover<5->{\alertNoH{5}{\frac{1}3 (\alertNoH{6}{\text{area cone base}})h} }\uncover<6->{=\alertNoH{17}{ \frac13 \alertNoH{6}{\pi   t^2} h }}$.} \uncover<7->{ Let $\alertNoH{7}{\theta}$ - angle of the wedge.} \uncover<8->{Then $ \alertNoH{8,9}{\text{arc}{AB}=} \uncover<9->{\alertNoH{9,12}{r\theta}}$ \uncover<10->{\alertNoH{10,11}{= perimeter cone base =}} $\uncover<11->{\alertNoH{11,12}{2\pi t}.}$} \uncover<12->{Therefore $\alertNoH{12,15,18}{t=\frac{r\theta}{2\pi}}$.} \uncover<13->{Then
 
 $\displaystyle
-\alert<13,14,19>{h=}  \uncover<14->{ \alert<14>{ \sqrt{ r^2- \alert<15>{t}^2 }}} \uncover<15->{= \sqrt{r^2- \left(\alert<15>{ \frac{r\theta}{ 2\pi}}\right)^2}}\uncover<16->{=\alert<19>{\frac{r}{2\pi }\sqrt{ 4\pi^2-\theta^2 }},}
+\alertNoH{13,14,19}{h=}  \uncover<14->{ \alertNoH{14}{ \sqrt{ r^2- \alertNoH{15}{t}^2 }}} \uncover<15->{= \sqrt{r^2- \left(\alertNoH{15}{ \frac{r\theta}{ 2\pi}}\right)^2}}\uncover<16->{=\alertNoH{19}{\frac{r}{2\pi }\sqrt{ 4\pi^2-\theta^2 }},}
 $
 }%13
 
-\uncover<17->{
+\uncover<handout:2|17->{
 and therefore
 
 $
 \begin{array}{rcl}
-\alert<17>{V}&\alert<17>{=}&\displaystyle\alert<17>{ \frac13\pi \alert<18>{t}^2 \alert<19>{h}}= \uncover<18->{\frac13\pi \left(\alert<18>{\frac{r\theta}{2\pi}}\right)^2\alert<19>{\frac{r}{2\pi}\sqrt{4\pi^2-\theta^2}}}\\
+\alertNoH{17}{V}&\alertNoH{17}{=}&\displaystyle\alertNoH{17}{ \frac13\pi \alertNoH{18}{t}^2 \alertNoH{19}{h}}= \uncover<18->{\frac13\pi \left(\alertNoH{18}{\frac{r\theta}{2\pi}}\right)^2\alertNoH{19}{\frac{r}{2\pi}\sqrt{4\pi^2-\theta^2}}}\\
 \uncover<20->{&=& \displaystyle \frac{r^3}{24\pi^2} \theta^2\sqrt{4\pi^2-\theta^2}\quad . }
 \end{array}
 $
 }
 }
-\only<21-24>{
+\only<handout:3|21-24>{
 \noindent We reduced the problem to: find the maximum of
 
 $
-V=\displaystyle \frac{r^3}{24\pi^2} \theta^2\sqrt{4\pi^2-\theta^2},\quad \quad  \uncover<22->{\alert<22,23>{\uncover<23->{0} \leq \theta \leq \uncover<23->{2\pi}}}
+V=\displaystyle \frac{r^3}{24\pi^2} \theta^2\sqrt{4\pi^2-\theta^2},\quad \quad  \uncover<22->{\alertNoH{22,23}{\uncover<23->{0} \leq \theta \leq \uncover<23->{2\pi}}}
 $
 
-as function of $\theta$ (using the \alert<22, 23>{closed interval} method).
+as function of $\theta$ (using the \alertNoH{22, 23}{closed interval} method).
 
-\uncover<24->{We need to find the critical points of $V$, i.e., the values of $\theta$ for which $\frac{dV}{d\theta}=0$ and the values of $\theta$ for which  $\frac{dV}{d\theta}$ is not defined.}
+\uncover<24->{We need to find the critical points of $V$, i.e., the values of $\theta$ for which $\frac{\diff V}{\diff\theta}=0$ and the values of $\theta$ for which  $\frac{\diff V}{\diff \theta}$ is not defined.}
 }
-\only<25-35>{
+\only<handout:4|25-35>{
 \noindent $
 \begin{array}{rcl}
 V&=&\displaystyle \frac{r^3}{24\pi^2} \theta^2\sqrt{4\pi^2-\theta^2}, \quad \quad \quad 0\leq \theta \leq2\pi \\
-\displaystyle \uncover<26->{\displaystyle\frac{dV}{d\theta} &=&} \displaystyle \uncover<27->{\phantom{+}\left(\frac{r^3}{24\pi^2}\right)   \alert<28,29>{\frac{d}{d\theta}\left(\theta^2\right)} \sqrt{4\pi^2-\theta^2}}\\
-&&\uncover<27->{\displaystyle+\left(\frac{r^3}{24\pi^2}\right)\theta^2\alert<30,31>{\frac{d}{ d\theta}\left(\sqrt{4\pi^2-\theta^2} \right)}} \\
-\uncover<28->{&=& \displaystyle \phantom{+}\left(\frac{r^3}{24\pi^2}\right) \alert<28,29>{( \uncover<29->{\alert<29,33>{2\theta}})} \alert<33>{\sqrt{4\pi^2-\theta^2}}}\\
-&&\displaystyle\uncover<28->{ +\left(\frac{r^3}{24\pi^2}\right) \alert<34>{\theta^2} \alert<30,31,34>{\left(\uncover<31->{ \frac{1}{2} \frac{ \frac{d}{d\theta} (-\theta^2)}{\sqrt{4\pi^2-\theta^2}}}\right)}  } \\
-\uncover<32->{&=&\displaystyle\left(\frac{r^3}{24\pi^2}\right)\frac{ \alert<33>{2\theta(4\pi^2-\theta^2)}\alert<34>{-\theta^3} }{\alert<33,34>{ \sqrt{4\pi^2-\theta^2}}}}\\
+\displaystyle \uncover<26->{\displaystyle\frac{\diff V}{\diff \theta} &=&} \displaystyle \uncover<27->{\phantom{+}\left(\frac{r^3}{24\pi^2}\right)   \alertNoH{28,29}{\frac{\diff}{\diff \theta}\left(\theta^2\right)} \sqrt{4\pi^2-\theta^2}}\\
+&&\uncover<27->{\displaystyle+\left(\frac{r^3}{24\pi^2}\right)\theta^2\alertNoH{30,31}{\frac{\diff}{ \diff \theta}\left(\sqrt{4\pi^2-\theta^2} \right)}} \\
+\uncover<28->{&=& \displaystyle \phantom{+}\left(\frac{r^3}{24\pi^2}\right) \alertNoH{28,29}{( \uncover<29->{\alertNoH{29,33}{2\theta}})} \alertNoH{33}{\sqrt{4\pi^2-\theta^2}}}\\
+&&\displaystyle\uncover<28->{ +\left(\frac{r^3}{24\pi^2}\right) \alertNoH{34}{\theta^2} \alertNoH{30,31,34}{\left(\uncover<31->{ \frac{1}{2} \frac{ \frac{\diff }{\diff \theta} (-\theta^2)}{\sqrt{4\pi^2-\theta^2}}}\right)}  } \\
+\uncover<32->{&=&\displaystyle\left(\frac{r^3}{24\pi^2}\right)\frac{ \alertNoH{33}{ 2\theta (4 \pi^2-\theta^2)}\alertNoH{34}{-\theta^3} }{\alertNoH{33,34}{ \sqrt{ 4 \pi^2-\theta^2}}}}\\
 \uncover<35->{&=&\displaystyle\left(\frac{r^3}{24\pi^2}\right)\frac{8 \theta \pi^2-3\theta^3 }{\sqrt{4\pi^2-\theta^2}}}
 \end{array}
 $
 }
-\only<36-44>{
+\only<handout:5|36-44>{
 $
 \begin{array}{rcl}
-V&=&\displaystyle \frac{r^3}{24\pi^2} \theta^2\sqrt{4\pi^2-\theta^2}, \quad \quad \quad \alert<44>{0\leq \theta \leq2\pi} \\
-\displaystyle \frac{dV}{d\theta}&=& \displaystyle\left(\frac{r^3 } {24\pi^2} \right)\frac{\alert<38>{8\theta\pi^2-3\theta^3} }{\sqrt{\alert<43>{4\pi^2-\theta^2}}}
+V&=&\displaystyle \frac{r^3}{24\pi^2} \theta^2\sqrt{4\pi^2-\theta^2}, \quad \quad \quad \alertNoH{44}{0\leq \theta \leq2\pi} \\
+\displaystyle \frac{\diff V}{\diff \theta}&=& \displaystyle\left(\frac{r^3 } {24\pi^2} \right)\frac{\alertNoH{38}{8\theta\pi^2-3\theta^3} }{\sqrt{\alertNoH{43}{4\pi^2-\theta^2}}}
 \end{array}
 $
 
-\uncover<37->{We have that $\frac{dV}{d\theta}=0$ when }
+\uncover<37->{We have that $\frac{\diff V}{\diff \theta}=0$ when }
 $
 \begin{array}{rcl}
-\uncover<38->{ \alert<38>{8\theta\pi^2-3\theta^3}&=&0}\\
+\uncover<38->{ \alertNoH{38}{8\theta\pi^2-3\theta^3}&=&0}\\
 \uncover<39->{\theta(8\pi^2-3\theta^2)&=&0}\\
-\uncover<40->{-3\alert<41>{\theta}\alert<42>{\left(\theta-\sqrt{\frac{8}{3}}\pi \right)} \alert<44>{\left(\theta+\sqrt{\frac{8}{3}}\pi \right)}&=&0.}
+\uncover<40->{-3\alertNoH{41}{\theta}\alertNoH{42}{\left(\theta-\sqrt{\frac{8}{3}}\pi \right)} \alertNoH{44}{\left(\theta+\sqrt{\frac{8}{3}}\pi \right)}&=&0.}
 \end{array}
 $
 
-\uncover<41->{Therefore $\theta$ is critical point for $V$ if $\alert<41>{\theta= 0}$, $\alert<42>{\theta=\sqrt{\frac83}\pi }$, or \alert<43>{$\theta=2\pi$}} \uncover<44->{(note $\alert<44>{\theta=-\sqrt{\frac83}\pi}$ is outside of the domain of $V$).} \uncover<45->{For $\theta=0,2\pi$ the volume $V$ is $0$, so the maximum
+\uncover<41->{Therefore $\theta$ is critical point for $V$ if $\alertNoH{41}{\theta= 0}$, $\alertNoH{42}{\theta=\sqrt{\frac83}\pi }$, or \alertNoH{43}{$\theta=2\pi$}} \uncover<44->{(note $\alertNoH{44}{\theta=-\sqrt{\frac83}\pi}$ is outside of the domain of $V$).} \uncover<45->{For $\theta=0,2\pi$ the volume $V$ is $0$, so the maximum
 volume is attained at $\theta=\sqrt{\frac83}\pi$.}
 } %frame36
-\only<46->{
+\only<handout:6|46->{
 \[
-V(\alert<47>{\theta} )=\displaystyle \frac{r^3}{24\pi^2} \alert<47>{\theta}^2 \sqrt{4 \pi^2 - \alert<47>{\theta}^2}
+V(\alertNoH{47}{\theta} )=\displaystyle \frac{r^3}{24\pi^2} \alertNoH{47}{\theta}^2 \sqrt{4 \pi^2 - \alertNoH{47}{\theta}^2}
 \]
 Finally, the answer to the problem is
 $
 \begin{array}{rcl}
-V_{max}&=&\displaystyle V\left(\alert<47>{ \sqrt{\frac83} \pi} \right)\\
-\uncover<47->{ &=&\displaystyle \frac{r^3}{\alert<48>{24}\alert<49>{\pi^2}} \left( \alert<47>{ \alert<48>{\sqrt{\frac83}} \alert<49>{\pi}} \right)^{\alert<48,49>{2}} \sqrt{4 \alert<49>{\pi^2} -\left( \alert<47>{ \sqrt{\frac83} \alert<49>{\pi}} \right)^{\alert<49>{2}}}}\\
-\uncover<48->{ &=&\displaystyle \frac{r^3}{\alert<48>{9}} \alert<49>{\pi} \sqrt{\alert<50>{4-\frac{8}3}}}\\
-\uncover<50->{&=& \displaystyle \pi\frac{r^3}9 \sqrt{ \alert<50>{\frac43}}} \uncover<51>{=\frac{2\pi r^3}{9\sqrt3}}
+V_{max}&=&\displaystyle V\left(\alertNoH{47}{ \sqrt{\frac83} \pi} \right)\\
+\uncover<47->{ &=&\displaystyle \frac{r^3}{\alertNoH{48}{24}\alertNoH{49}{\pi^2}} \left( \alertNoH{47}{ \alertNoH{48}{\sqrt{\frac83}} \alertNoH{49}{\pi}} \right)^{\alertNoH{48,49}{2}} \sqrt{4 \alertNoH{49}{\pi^2} -\left( \alertNoH{47}{ \sqrt{\frac83} \alertNoH{49}{\pi}} \right)^{\alertNoH{49}{2}}}}\\
+\uncover<48->{ &=&\displaystyle \frac{r^3}{\alertNoH{48}{9}} \alertNoH{49}{\pi} \sqrt{\alertNoH{50}{4-\frac{8}3}}}\\
+\uncover<50->{&=& \displaystyle \pi\frac{r^3}9 \sqrt{ \alertNoH{50}{\frac43}}} \uncover<51>{=\frac{2\pi r^3}{9\sqrt3}}
 \end{array}
 $
 }

@@ -17,7 +17,7 @@ Let \alertNoH{2}{$f$ be a function continuous on $[a, b]$} and let $G(x) = \disp
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2,0)(0.5,0)
 }
-\uncover<20,21>{
+\uncover<handout:0|20,21>{
 \pscustom*[linecolor=red]{
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2,0)(0.5,0)
@@ -31,59 +31,58 @@ Let \alertNoH{2}{$f$ be a function continuous on $[a, b]$} and let $G(x) = \disp
 }
 }
 
-\uncover<10,20,22>{
+\uncover<handout:0|10,20,22>{
 \pscustom*[linecolor=red]{
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2.15,1.136125)(2.15,0)(2,0)
 }
 }
 
-\uncover<12>{
+\uncover<handout:0|12>{
 \pscustom*[linecolor=red]{
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \psline(2.15,1.136125)(2.15,1)(2,1)
 }
 }
 
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3.2,3.083333)
 
 %Function formula: -1/2 (x-1/2)^{2}+1/3 (x-1/2)^{3}+1
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{3}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
 \rput[b](2.3, 2.4){$y=f(x)$}
-\uncover<11,14>{
+\uncover<handout:1|11,14>{
 \psline*[linecolor=red](2,0)(2.15,0)(2.15,1)(2,1)(2,0)
 }
-\uncover<13->{
+\uncover<handout:0|13->{
 \psline(2,0)(2.15,0)(2.15,1.136125)(2,1.136125)(2,0)
 }
 
 \fcXTick{2}
 
-\uncover<3>{ %
+\uncover<handout:0|3>{ %
 \psline[linecolor=red, linewidth=2pt](1.5,0)( 2.5,0 )
 }
-\uncover<4-7>{ %
+\uncover<handout:0|4-7>{ %
 \psline[linewidth=2pt](1.5,0)( 2.5,0 )
 }
 
-\uncover<4>{ %
+\uncover<handout:0|4>{ %
 \psline[linecolor=red, linewidth=2pt](2,0)(2,1)
 }
 
-\uncover<6>{ %
+\uncover<handout:0|6>{ %
 \psline(2.4,1.481333)(2.4,0)
 }
-\uncover<5>{ %
+\uncover<handout:0|5>{ %
 \psline[linecolor=red, linewidth=2pt](2.4,0)(2.4,1.481333)
 }
 
 \uncover<5-7>{ %
 \psline(2,0)(2,1)
 }
-\uncover<5>{ %
+\uncover<handout:0|5>{ %
 \psline[linecolor=red](2.4,0)(2.4,1.481333)
 }
-\uncover<6>{ %
+\uncover<handout:0|6>{ %
 \psline[linecolor=red, linewidth=2pt](2,1)(2, 1.481333)
 }
 \fcXTickWithLabel{0.5}{$a$}
@@ -94,36 +93,43 @@ Let \alertNoH{2}{$f$ be a function continuous on $[a, b]$} and let $G(x) = \disp
 \fcXTick{2.15}
 \rput[tl](2.15, -0.2){$x+h$}
 }
-\uncover<7,13>{
+\uncover<handout:0|7,13>{
 \psline[linecolor=red, linewidth=2pt](2,0)(2.15,0)
 }
 \rput[tr](2, -0.235){$x$}
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3.2,3.083333)
 \end{pspicture}
 
 \vspace{1.68cm}
 \column{0.73\textwidth}
 
-\only<1-15>{
+\only<handout:1|1-15>{
 \uncover<2->{\alertNoH{2}{Let $\varepsilon >0$. There \alertNoH{3}{exists $\delta$} such that $\alertNoH{8}{\alertNoH{6}{|\alertNoH{5}{f(t)}-\alertNoH{4}{f(x)}|} < \varepsilon}$ for all $t$ for which $|x-t|<\delta$}.} \uncover<3->{\alertNoH{7}{Then for all $0<h<\delta$:} }
 \[
-\begin{array}{rlll|l}
-\uncover<8->{\alertNoH{8}{\varepsilon} &\alertNoH{8}{ > \hphantom{ \int_{ x}^{ x+h}(} f(t)-f(x) } & \alertNoH{8}{ > - \varepsilon }  &\uncover<9->{&\text{integrate}} }\\
-\uncover<9->{h\varepsilon  & >\alertNoH{12}{ \alertNoH{10,11}{\int_{x }^{x+h}} ( \alertNoH{10}{ f(t)}-\alertNoH{11}{f(x)})\alertNoH{10,11}{ dt} }&>-h\varepsilon &\uncover<13->{& \text{divide~by~}\alertNoH{13}{h }} } \\
-\uncover<13->{\varepsilon& >\frac{\alertNoH{14}{\int_{x }^{x+h}}(f(t) -\alertNoH{14}{f(x)}) \alertNoH{14}{dt}}{ \alertNoH{13,14}{ h} }& >-\varepsilon}\\
-\uncover<14->{\alertNoH{15}{\varepsilon}&\alertNoH{15}{>} \frac{\int_{x }^{x+h}f(t)dt }{h}- \alertNoH{14}{\frac{h f(x)}{h}} &\alertNoH{15}{ > - \varepsilon}}\\
-\uncover<15->{\varepsilon&\color{red} >  \left| \color{black} \frac{\int_{x }^{x+h}f(t)dt }{h} - f(x)\color{red} \right|}\\
+\begin{array}{r@{}c@{}l@{}c@{}ll|l}
+\uncover<8->{%
+\alertNoH{8}{\varepsilon} &\alertNoH{8}{ >}& \hphantom{ \int_{ x}^{ x+h}(} \alertNoH{8}{f(t)-f(x) }  &\alertNoH{8}{ >}& \alertNoH{8}{ - \varepsilon }  &\uncover<9->{&\text{integrate}} 
+}\\%
+\uncover<9->{%
+h\varepsilon  & \alertNoH{0}{>}& \alertNoH{12}{ \alertNoH{10,11}{\int_{x }^{x+h}} ( \alertNoH{10}{ f(t)}-\alertNoH{11}{f(x)})\alertNoH{10,11}{ \diff t} }&\alertNoH{0}{>}&-h\varepsilon &\uncover<13->{& \text{divide~by~}\alertNoH{13}{h }} 
+} \\%
+\uncover<13->{\varepsilon& \alertNoH{0}{>}&\frac{\alertNoH{14}{\int_{x }^{x+h}}(f(t) -\alertNoH{14}{f(x)}) \alertNoH{14}{\diff t}}{ \alertNoH{13,14}{ h} }& \alertNoH{0}{>}&-\varepsilon}\\
+\uncover<14->{%
+\alertNoH{15}{\varepsilon}&\alertNoH{15}{>}& \frac{\int_{x }^{x+h}f(t)\diff t }{h}- \alertNoH{14}{\frac{h f(x)}{h}} &\alertNoH{15}{ >}&\alertNoH{15}{{ - \varepsilon}}\\
+\uncover<15->{\varepsilon&\alertNoH{15}{>} & \only<handout:0|1->{\color{red}}\left| \color{black} \frac{\int_{x }^{x+h}f(t)\diff t }{h} - f(x)\only<handout:0|1->{\color{red}} \right|}
+}\\
 \end{array}
 \]
 }
 
-\only<16->{
-\uncover<17->{In analogous fashion  \alertNoH{17}{we can handle the case $h<0$}, to prove:} \alertNoH{23}{ for any $\varepsilon >0$ there exists $\delta>0$ so that for \\ all $\only<16>{0<h\phantom{|}} \alertNoH{17}{\only<17->{\phantom{0<}|h|}} \alertNoH{17}{<\delta}$ we have $\left| \frac{\int_{x }^{x+h}f(t)dt }{h}-f(x)\right|<\varepsilon$.}
+\only<handout:2|16->{
+\uncover<17->{In analogous fashion  \alertNoH{17}{we can handle the case $h<0$}, to prove:} \alertNoH{23}{ for any $\varepsilon >0$ there exists $\delta>0$ so that for \\ all $\only<16>{0<h\phantom{|}} \alertNoH{17}{\only<17->{\phantom{0<}|h|}} \alertNoH{17}{<\delta}$ we have $\left| \frac{\int_{x }^{x+h}f(t)\diff t }{h}-f(x)\right|<\varepsilon$.}
 
 \[
 \begin{array}{l}
 \uncover<18->{\displaystyle G'(x)=\lim\limits_{h\to 0}\frac{ \alertNoH{20}{ G(x+h)} -\alertNoH{21}{G(x)}}{h} }\\
-\uncover<19->{\displaystyle \phantom{ G'(x) }= \lim\limits_{h\to 0}  \frac{ \alertNoH{20}{ \alertNoH{22}{\int_{a}^{x+h}} f(t)dt} - \alertNoH{21}{ \alertNoH{22}{\int_{a}^{x}} f(t)dt}}{h} }\\
-\uncover<22->{\displaystyle \phantom{ G'(x) }= \alertNoH{23}{\lim\limits_{h\to 0}\frac{\alertNoH{22}{\int_{x}^{x+h}}f(t)dt }{h} \uncover<23->{=f(x)}}}
+\uncover<19->{\displaystyle \phantom{ G'(x) }= \lim\limits_{h\to 0}  \frac{ \alertNoH{20}{ \alertNoH{22}{\int_{a}^{x+h}} f(t)\diff t} - \alertNoH{21}{ \alertNoH{22}{\int_{a}^{x}} f(t)\diff t}}{h} }\\
+\uncover<22->{\displaystyle \phantom{ G'(x) }= \alertNoH{23}{\lim\limits_{h\to 0}\frac{\alertNoH{22}{\int_{x}^{x+h}}f(t)\diff t }{h} \uncover<23->{=f(x)}}}
 \end{array}
 \]
 

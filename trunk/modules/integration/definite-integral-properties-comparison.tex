@@ -17,7 +17,7 @@ Comparison Properties of the Integral
 \psset{xunit=0.9cm, yunit=0.9cm}
 \begin{pspicture}(-5, -5)(5,5)
 \psframe*[linecolor=white](-5,-5)(5,5)
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(6,4.5)\tiny
+\tiny
 \rput[l](5.1, 2.6){$y=g(x)$}
 \rput[l](5.1, 1.3){$y=f(x)$}
 \uncover<2>{
@@ -35,6 +35,7 @@ Comparison Properties of the Integral
 %Function formula: 101/125+46/125 (x)+1/40 ((x)^{3})-9/50 ((x)^{2})
 \psplot[linecolor=red, plotpoints=1000]{0.2}{5}{x 2 exp -0.18 mul x 3 exp 0.025 mul x 0.368 mul 0.808 add add add }
 %Function formula: 7117/1250+2997/400 ((x)^{2})+3/16 ((x)^{4})-33/16 ((x)^{3})-19899/2000 (x)
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(6,4.5)
 \psplot[linecolor=red, plotpoints=1000]{0.2}{5}{x -9.9495 mul x 3 exp -2.0625 mul x 4 exp 0.1875 mul x 2 exp 7.4925 mul 5.6936 add add add add }
 \psline(0.2, -0.1)(0.2, 0.1)
 \rput[t](0.2, -0.15){$a$}
@@ -75,8 +76,7 @@ Comparison Properties of the Integral
 \psset{xunit=0.9cm, yunit=0.9cm}
 \begin{pspicture}(-5, -5)(5,5)
 \psframe*[linecolor=white](-5,-5)(5,5)
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(6,4.5)\tiny
-
+\tiny
 \uncover<2>{
 \pscustom*[linecolor=orange]{
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.2}{5}{0.7}
@@ -97,6 +97,7 @@ Comparison Properties of the Integral
 }
 }
 %Function formula: 7117/1250+2997/400 ((x)^{2})+3/16 ((x)^{4})-33/16 ((x)^{3})-19899/2000 (x)
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(6,4.5)
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.2}{5}{x -9.9495 mul x 3 exp -2.0625 mul x 4 exp 0.1875 mul x 2 exp 7.4925 mul 5.6936 add add add add }
 \psline[linecolor=\fcColorGraph](0.2, 0.7)(5,0.7)
 \psline[linecolor=\fcColorGraph](0.2, 4.3)(5, 4.3)

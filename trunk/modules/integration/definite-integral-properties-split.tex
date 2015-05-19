@@ -15,7 +15,6 @@ $%
 \psset{xunit=1.5cm, yunit=1.5cm}
 \begin{pspicture}(-5, -5)(5,5)
 \psframe*[linecolor=white](-5,-5)(5,5)
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4.5,2.7)\tiny
 %Function formula: 1727/6250+4911/100 ((x)^{3})+110043/5000 (x)+3 ((x)^{5})-201/10 ((x)^{4})-52431/1000 ((x)^{2})
 \uncover<1>{
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{
@@ -43,7 +42,7 @@ $%
 \psline(2.5, 0.05)(2.5, -0.05)
 \rput[t](2.5, -0.07){$b$}
 \rput(1.5, 2.4 ){$y=f(x)$}
-
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(4.5,2.7)\tiny
 \psplot[linecolor=red, plotpoints=1000]{0.1}{2.5}{x 2 exp -52.431 mul x 4 exp -20.1 mul x 5 exp 3 mul x 22.0086 mul x 3 exp 49.11 mul 0.27632 add add add add add }
 \end{pspicture}
 %\only<handout:0| -1>{%

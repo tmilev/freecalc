@@ -1,14 +1,14 @@
 % begin module power-rule-rationa-from-chain-rule
 \begin{frame}
 \begin{example}
-Derive the power rule $\alertNoH{13}{\left(x^{\frac{1}{q}}\right)'=\frac{1}{q} x^{\frac{1}q-1}}$ \uncover<4->{using \alertNoH{4}{the rule $(x)'=1$},} \uncover<6->{\alertNoH{6}{the chain rule}} \uncover<7->{and the \alertNoH{7}{integer power rule $\frac{d}{du}(u^q)=qu^{q-1} $}.}
+Derive the power rule $\alertNoH{13}{\left(x^{\frac{1}{q}}\right)'=\frac{1}{q} x^{\frac{1}q-1}}$ \uncover<4->{using \alertNoH{4}{the rule $(x)'=1$},} \uncover<6->{\alertNoH{6}{the chain rule}} \uncover<7->{and the \alertNoH{7}{integer power rule $\frac{\diff}{\diff u}(u^q)=qu^{q-1} $}.}
 
 \[
 \begin{array}{rclp{0.3cm}|l}
-\uncover<2->{ \left(x^{\frac{1}{q}}\right)^q &=&x&& \uncover<3->{\alertNoH{3}{\frac{d}{dx}}}}\\
+\uncover<2->{ \left(x^{\frac{1}{q}}\right)^q &=&x&& \uncover<3->{\alertNoH{3}{\frac{\diff }{\diff x}}}}\\
 \uncover<3->{ \alertNoH{3}{\left(\left(\alertNoH{5}{x^{\frac{1}q}} \right)^q\right)'} &=& \uncover<4->{\alertNoH{4}{1}} \uncover<3>{\alertNoH{3}{(x)'}} &&\uncover<5->{\alertNoH{5,8}{\text{Set~}u=x^{\frac1q} }}}\\
 \uncover<5->{ \alertNoH{6}{\left(\alertNoH{5}{u}^{q}\right)'}&=&1  }  \\
-\uncover<6->{\alertNoH{6}{ \alertNoH{7}{\frac{d}{du} \left(u^q\right)} u'}&=&1}\\
+\uncover<6->{\alertNoH{6}{ \alertNoH{7}{\frac{\diff}{\diff u} \left(u^q\right)} u'}&=&1}\\
 \uncover<7->{\alertNoH{7}{q (\alertNoH{8}{u})^{q-1}} (\alertNoH{8}{u})'&=&1 }\\
 \uncover<8->{ q (\alertNoH{8}{x^{\alertNoH{9}{\frac{1}q}}})^{\alertNoH{9}{q-1}} \left( \alertNoH{8}{x^{\frac1q}}\right)'&=&1 }\\
 \uncover<9->{\alertNoH{10}{q x^{\alertNoH{9}{\frac{q-1}q}}}\left( x^{\frac1q}\right)'&=&1&&\uncover<10->{\alertNoH{10}{\text{divide~by~}q x^{\frac{q-1}q}}}}\\

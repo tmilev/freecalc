@@ -2,9 +2,9 @@
 \begin{frame}
 \begin{itemize}
 \item  Recall that if $f$ has a local maximum at $c$ and $f'(c)$ exists, then  $f'(c)=0$. However if $f'(c)=0$, it is not necessary that $c$ be a local maximum.
-\item<2->  In the first picture, \alert<2>{$f'(x) > 0$ to the left of $c$} and \alert<2>{$f'(x) < 0$ to the right} of $c$.
+\item<2->  In the first picture, \alertNoH{2}{$f'(x) > 0$ to the left of $c$} and \alertNoH{2}{$f'(x) < 0$ to the right} of $c$.
 \item<3->  In other words, $f'(x)$ changes sign at $c$.
-\item<4->  In the second picture, \alert<4>{$f'(x) > 0$ to the left} of $c$ and \alert<4>{$f'(x) > 0$ to the right} of $c$.  $f'(x)$ doesn't change sign at $c$.
+\item<4->  In the second picture, \alertNoH{4}{$f'(x) > 0$ to the left} of $c$ and \alertNoH{4}{$f'(x) > 0$ to the right} of $c$.  $f'(x)$ doesn't change sign at $c$.
 \item<5->  In the first picture there's a local maximum, but not in the second.
 \item<6->  This suggests a way of testing for local maxima/minima.
 \end{itemize}
@@ -25,8 +25,8 @@
 \psline[linestyle=dashed](1.5, 2)(1.5, 0)
 \tiny
 \rput[t](1.5, -0.1){$c$}
-\rput[l](0.1, 1.6) {\alert<2>{$f'(x)>0$}}
-\rput[r](2.9, 1.6) {\alert<2>{$f'(x)<0$}}
+\rput[l](0.1, 1.6) {\alertNoH{2}{$f'(x)>0$}}
+\rput[r](2.9, 1.6) {\alertNoH{2}{$f'(x)<0$}}
 \end{pspicture}
 
 %\ %\includegraphics[height=3cm]{curve-sketching/pictures/04-03-firstderiva.pdf}%
@@ -48,8 +48,8 @@
 \psline[linecolor=\fcColorTangent](1.35,0.492)(2.05,0.492)
 \psline[linestyle=dashed](1.7, 0)(1.7, 0.492)
 \rput[t](1.7, -0.1){$c$}
-\rput(0.5,0.6){\alert<4>{$f'(x)>0$}}
-\rput(2.8,0.6){\alert<4>{$f'(x)>0$}}
+\rput(0.5,0.6){\alertNoH{4}{$f'(x)>0$}}
+\rput(2.8,0.6){\alertNoH{4}{$f'(x)>0$}}
 \end{pspicture}
 
 %\ %\includegraphics[height=3cm]{curve-sketching/pictures/04-03-firstderivc.pdf}%
@@ -76,7 +76,7 @@ Suppose $f'(c)=0$ (i.e., $f$ is differentiable at $c$ and $c$ is critical number
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3.3,2.6)
 \fcLabels{3.3}{2.6}
 %Function formula: -5/2-2 ((x) (x))+6 (x)
-\uncover<2>{
+\uncover<handout:1|2>{
 \psplot[linecolor=red, plotpoints=1000]{0.39}{2.61}{x 6 mul x x mul -2 mul add -2.5 add }
 %Function formula: -2 (x)+11/2
 \psplot[linecolor=\fcColorTangent, plotpoints=1000]{1.7}{2.3}{5.5 x -2 mul add } %Function formula: 2 (x)-1/2
@@ -84,10 +84,10 @@ Suppose $f'(c)=0$ (i.e., $f$ is differentiable at $c$ and $c$ is critical number
 \psline[linestyle=dashed](1.5, 2)(1.5, 0)
 \tiny
 \rput[t](1.5, -0.1){$c$}
-\rput[l](0.1, 1.6) {\alert<2>{$f'(x)>0$}}
-\rput[r](2.9, 1.6) {\alert<2>{$f'(x)<0$}}
+\rput[l](0.1, 1.6) {\alertNoH{2}{$f'(x)>0$}}
+\rput[r](2.9, 1.6) {\alertNoH{2}{$f'(x)<0$}}
 }
-\uncover<3>{
+\uncover<handout:2|3>{
 %Function formula: 1/2+2 ((-3/2+x)^{2})
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2.5}{x -1.5 add 2 exp 2 mul 0.5 add }
 %Function formula: -3+2 (x)
@@ -97,10 +97,10 @@ Suppose $f'(c)=0$ (i.e., $f$ is differentiable at $c$ and $c$ is critical number
 \psline[linestyle=dashed](1.5, 0.5)(1.5, 0)
 \tiny
 \rput[t](1.5, -0.1){$c$}
-\rput[l](0.1, 0.8) {\alert<3>{$f'(x)<0$}}
-\rput[r](2.9, 0.8) {\alert<3>{$f'(x)>0$}}
+\rput[l](0.1, 0.8) {\alertNoH{3}{$f'(x)<0$}}
+\rput[r](2.9, 0.8) {\alertNoH{3}{$f'(x)>0$}}
 }
-\uncover<4->{
+\uncover<handout:3|4->{
 %Function formula: (-17/10+x)^{3}+1/2
 \psplot[linecolor=\fcColorGraph, plotpoints=1000] {0.73} {2.9} {0.5 x -1.7 add 3 exp add }
 %\fcFullDot{1}{0.157}
@@ -112,8 +112,8 @@ Suppose $f'(c)=0$ (i.e., $f$ is differentiable at $c$ and $c$ is critical number
 \psline[linecolor=\fcColorTangent](1.35,0.492)(2.05,0.492)
 \psline[linestyle=dashed](1.7, 0)(1.7, 0.492)
 \rput[t](1.7, -0.1){$c$}
-\rput(0.5,0.6){\alert<4>{$f'(x)>0$}}
-\rput(2.8,0.6){\alert<4>{$f'(x)>0$}}
+\rput(0.5,0.6){\alertNoH{4}{$f'(x)>0$}}
+\rput(2.8,0.6){\alertNoH{4}{$f'(x)>0$}}
 }
 \end{pspicture}
 
@@ -147,8 +147,8 @@ Suppose $f'(c)=0$ (i.e., $f$ is differentiable at $c$ and $c$ is critical number
 \psline[linecolor=\fcColorTangent](1.35,0.492)(2.05,0.492)
 \psline[linestyle=dashed](1.7, 0)(1.7, 0.5)
 \rput[t](1.7, -0.1){$c$}
-\rput(0.5,0.6){\alert<4>{$f'(x)<0$}}
-\rput(2.8,0.6){\alert<4>{$f'(x)<0$}}
+\rput(0.5,0.6){\alertNoH{4}{$f'(x)<0$}}
+\rput(2.8,0.6){\alertNoH{4}{$f'(x)<0$}}
 }
 \end{pspicture}
 %\uncover<handout:3| 4->{%
