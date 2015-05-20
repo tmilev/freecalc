@@ -1,6 +1,6 @@
 % begin module piecewise-formula
 \begin{frame}
-\begin{example} %[Example 9, p. 18]
+\begin{example}
 Find a formula for the function $f$ in the graph.
 
 \psset{xunit=1.2cm, yunit=1.2cm}
@@ -13,13 +13,13 @@ Find a formula for the function $f$ in the graph.
 \fcHollowDot{5}{0}
 \fcFullDot{0}{0}
 \only<handout:0|4-5>{
-\psline[linecolor=blue](-0.5, -0.5)(2,2)
+\psline[linewidth=1.5pt, linecolor=blue](-0.5, -0.5)(2,2)
 }
 \only<handout:0|6-7>{
-\psline[linecolor=blue](-0.2, 2.2)(2.5,-0.5)
+\psline[linewidth=1.5pt, linecolor=blue](-0.2, 2.2)(2.5,-0.5)
 }
 \only<handout:0|8-9>{
-\psline[linecolor=blue](2, 0)(5,0)
+\psline[linewidth=1.5pt, linecolor=blue](-0.45, 0)(5,0)
 }
 \end{pspicture}
 %\ \only<1-3,10>{%
@@ -41,10 +41,10 @@ Different formulas on $[0, 1)$, $[1, 2)$, and $[2, 5)$.
 
 \uncover<3->{
 \[
-f(x) = \left\{ \begin{array}{ccccccl}
-\uncover<5->{\alert<handout:0| 5>{x}} & \alert<handout:0| 4-5>{\textrm{if}} & \alert<handout:0| 4-5>{0} & \alert<handout:0| 4-5>{\leq} & \alert<handout:0| 4-5>{x} & \alert<handout:0| 4-5>{<} & \alert<handout:0| 4-5>{1} \\
-\uncover<7->{\alert<handout:0| 7>{2 - x}} & \alert<handout:0| 6-7>{\textrm{if}} & \alert<handout:0| 6-7>{1} & \alert<handout:0| 6-7>{\leq} & \alert<handout:0| 6-7>{x} & \alert<handout:0| 6-7>{<} & \alert<handout:0| 6-7>{2} \\
-\uncover<9->{\alert<handout:0| 9>{0}} & \alert<handout:0| 8-9>{\textrm{if}} & \alert<handout:0| 8-9>{2} & \alert<handout:0| 8-9>{\leq} & \alert<handout:0| 8-9>{x} & \alert<handout:0| 8-9>{<} & \alert<handout:0| 8-9>{5} \end{array}\right.
+\alertNoH{4-9}{f(x) =} \left\{ \begin{array}{ccccccl}
+\fcAnswer{5}{x} & \alert<handout:0| 4-5>{\text{if}} & \alert<handout:0| 4-5>{0} & \alert<handout:0| 4-5>{\leq} & \alert<handout:0| 4-5>{x} & \alert<handout:0| 4-5>{<} & \alert<handout:0| 4-5>{1} \\
+\fcAnswer{7}{2 - x} & \alert<handout:0| 6-7>{\text{if}} & \alert<handout:0| 6-7>{1} & \alert<handout:0| 6-7>{\leq} & \alert<handout:0| 6-7>{x} & \alert<handout:0| 6-7>{<} & \alert<handout:0| 6-7>{2} \\
+\fcAnswer{9}{0} & \alert<handout:0| 8-9>{\text{if}} & \alert<handout:0| 8-9>{2} & \alert<handout:0| 8-9>{\leq} & \alert<handout:0| 8-9>{x} & \alert<handout:0| 8-9>{<} & \alert<handout:0| 8-9>{5} \end{array}\right.
 \]
 }
 \end{example}
