@@ -76,6 +76,7 @@
 \newcommand{\cD}{{\mathcal{D}}}
 \newcommand{\cP}{{\mathcal{P}}}
 \newcommand{\fcUncoverAlert}[2]{\uncover<#1->{\alert<#1>{#2}}}
+\newcommand{\alertNoH}[2]{\alert<handout:0|#1>{#2}}
 \newcommand{\fcAnswer}[2]{
 \FPeval{\fcResult}{clip(#1-1)}
 \uncover<handout:0|\fcResult>{\alert<handout:0|\fcResult>{\textbf{?} }} \uncover<#1->{\alert<handout:0|#1>{\!\!\!#2}}
@@ -95,7 +96,12 @@
 {#2}%
 {#3}%
 }%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
-\newcommand{\alertNoH}[2]{\alert<handout:0|#1>{#2}}
+\newcommand{\fcCancel}[2]{
+\FPeval{\fcResult}{clip(#1-1)}
+\only<handout:0|-\fcResult>{#2} \only<#1->{\alertNoH{#1}{\cancel{#2}}}
+\vphantom{\cancel{#2}}
+}
+
 %code blocks regular expression that replaces all strings of the form \alert<handout:0| a> by \alertNoH{a}:
 %Find:
 %\\alert<[^|^0]*0|\([^>]*\)>
@@ -106,6 +112,7 @@
 %\\alert<\([^|^>]*\)>
 %Replace:
 %\\alertNoH{\1}
+
 
 \newcommand{\fcLicense}{
 \begin{frame}
@@ -1170,12 +1177,12 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 {%
 \uncover<handout:0| 9->{\alert<handout:0| 9>{%
 (\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg)%
-\alert<handout:0| 12>{#6}%
+\fcCancel{12}{#6}%
 }}%
 }{%
 \uncover<handout:0| 11->{\alert<handout:0| 11>{%
 (\noexpandarg\StrSubstitute{#5}{UU}{x}\expandarg)%
-\alert<handout:0| 12>{#6}%
+\fcCancel{12}{#6}%
 }}%
 }%
 }\\%
