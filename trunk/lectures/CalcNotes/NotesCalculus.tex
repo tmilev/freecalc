@@ -27,6 +27,7 @@
 % This might need to be updated over time.
 \input{../pstricks-commands}
 \input{../example-templates}
+\renewcommand{\optionalDisplay}[1]{}
 
 \crefformat{footnote}{#2\footnotemark[#1]#3}
 
@@ -73,7 +74,6 @@
 \renewcommand{\Arccsc}{\arccsc}
 
 
-\renewcommand{\optionalDisplay}[1]{#1}
 \newcommand{\doublebrace}[4]{\left\{\begin{array}{ll} #1 & #2 \\#3 & #4  \end{array} \right.}
 
 \newcommand{\optionalMaterial}{\textbf{(Optional)}}
@@ -524,7 +524,7 @@ Suppose $k,n\in \mathbb Z_{\geq 0}$ (non-negative integers). Then
 }
 \end{equation}
 
-\chapter{Exponents, complex numbers and trigonometric functions: Euclidean geometry approach} \label{chapterExponentsTrigFromEuclideanGeometry}
+\chapter[Exponents \& trig - Euclidean approach]{Exponents, complex numbers and trigonometric functions: Euclidean geometry approach} \label{chapterExponentsTrigFromEuclideanGeometry}
 
 In the present chapter we construct via Euclidean geometry the trigonometric functions. We furthermore construct the exponent function. Finally, we relate the two using Euler's formula. 
 
@@ -537,19 +537,11 @@ The two alternative chapters \ref{chapterExponentsTrigFromEuclideanGeometry} and
 
 A good understanding of trigonometry requires that the reader be familiar with the material in both chapters. 
 
-\section{Definition of Angle}
-In planar geometry, an angle is the figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.
+\section{Equations of circles}\label{secCircleEquation}
+A circle with center $O$ and radius $r$ is the set of points in the plane at distance $ r$ from the point $O$. 
 
-The term angle is also used as a shorthand for the measure of an angle. This measure is the length of a circular arc cut off by the angle from a circle of radius $1$ centered at the vertex of the angle. 
-
-\begin{pspicture}
-
-
-\end{pspicture}
-
-
-\subsection{An Equation for the Unit Circle}
-Consider the unit circle - the set of points at distance $1$ from the origin. We aim to introduce an equation that is satisfied by all points lying on the circle.
+\subsection{The unit circle}
+Fix a coordinate system in the plane. The \emph{unit circle} is defined as the circle with radius $1$ and center at the origin of the coordinate system. We aim to introduce an equation that is satisfied by all points lying on the unit circle circle.
 
 We recall that one of the formulations of the Pythagorian Theorem is that the distance $d$ between a point with coordinates $(x,y)$ and the point $(0,0)$ is given by
 \[
@@ -580,7 +572,148 @@ Provided that we know how to compute values of the square root function $\sqrt{}
 \psplot[linecolor=\fcColorGraph]{-1}{1}{1 x x mul sub sqrt}
 \psplot[linecolor=orange]{-1}{1}{1 x x mul sub sqrt -1 mul}
 \fcAxesStandardNoFrame{-1.2}{-1.2}{1.2}{1.2}
+\end{pspicture}\\
+
+\subsection{Equations of an arbitrary circle}
+In this section we introduce an equation of an arbitrary circle. Suppose a circle has center with coordinates $(h,k) $ and radius $r$. The distance between an arbitrary point $(x,y)$ and $(h, k)$ is then 
+
+\[
+d=\sqrt{(x-h)^2+(y-k)^2}.
+\]
+Just as in the case of a unit circle, we set $d=r$ and compute
+\[
+\begin{array}{rcll|l}
+\sqrt{(x-h)^2+(y-k)^2}&=&r &&\text{square both sides}\\
+(x-h)^2+(y-k)^2&=&r^2\quad .
+\end{array}
+\]
+The above is called the \emph{(implicit) equation of a circle}.
+\subsection{Intersections of a circle and a line}
+In this section we consider the problem of finding the intersection of a circle and a line. This problem plays a role in understanding the definition of an angle in Section \ref{secAngleDef}.
+
+Since we have already studied the equations of lines and equations of a circle, the intersection is purely a matter of algebra: if the circle is given by equation $(x-h)^2+(y-k)^2=r^2$ and the line  - by equation $ax+by=c$, then all we need to do is solve the system of equations
+$ 
+\left| \begin{array}{rcl}
+(x-h)^2+(y-k)^2&=&r^2\\
+ax+by&=&r^2
+\end{array}\right.\quad .
+$ 
+This a system of polynomial equations. There are three distinct cases that happen when solving the system: we either get $2$ solutions (the line intersects the circle in two points), $1$ solution (the line is tangent to the circle) or $0$ solutions (the line does not meet the circle). 
+
+
+The rest of this section is dedicated to showing the algebra in a few examples. 
+\begin{problem}
+Find the intersection of the circle and the line.
+\begin{enumerate}[ref={\fcProblemRef}]
+\item The circle with center $(0,0)$ and radius $1$ and the line with equation $y=2x+\frac{1}{2} $.
+\item The circle with center $(1,2)$ and radius $2$ and the line $ x=3$.
+\item The circle with center $(-1,-1)$ and radius $1$ the line  $x+y=0$.
+\end{enumerate}
+\end{problem}
+
+
+\section{Definition of Angle}\label{secAngleDef}
+The term angle is used to denote two distinct mathematical objects: first, the angle formed by two rays, and second, the angle-measure of such a figure. By convention, both objects are referred to as ``angle''; one is expected to use context to decide whether ``angle'' means ``angle formed by two rays'' or ``angle measure''. Except for the present section, we shall fully take advantage of this convention and use the term ``angle'' without further clarification.
+
+\subsection{Angle given by two rays}
+In planar  geometry, an \emph{angle} is the figure formed by two rays, called \emph{arms} or \emph{sides} of the angle, sharing a common endpoint, called the \emph{vertex} of the angle. The rays are ordered: the ray that comes first is called the first arm (side) of the angle, and the other ray - the \emph{terminal arm} (side) of the angle. 
+
+In Figure \ref{figAngleDef}, the vertex of the angle is denoted by $O$. Since a ray can be identified by its starting point and any other point on the ray, an angle can be identified by specifying its vertex and one point on each of its arms. In Figure \ref{figAngleDef}, we have chosen the point $A$ on the first ray and the point $B$ on the second. We denote the angle by $\angle AOB $. The choice of points $A$ and $B$ is not unique - for example if we choose another point, say $A'$, on the ray $OA$, then $\angle AOB$ and $\angle A'OB$ coincide. 
+
+By definition, we distinguish between two angles that have the same pair of rays but in the opposite order. For example $\angle AOB $ and angle $\angle BOA $ are by definition not equal. To indicate on a picture which ray comes first, we draw a small arc with an arrow from the first ray to the second as shown in Figure \ref{figAngleDef}.
+
+\begin{figureFixed}
+\begin{center}
+\begin{pspicture}(-1,-1)(6, 4)
+\tiny
+\psline[arrows=->](0,0)(4,0)
+\rput[lt](3,-0.2){first arm}
+\psline[arrows=->](0,0)(! 2 3 sqrt 2 mul )
+\fcAngleBetweenVectors[arrows=->, linecolor=blue]{[2 0]}{[1 3 sqrt]}{0.3}{}
+\rput[b]{60}(! 1.5 3 sqrt 1.5 mul 0.2 add){terminal arm}
+\fcFullDot[linecolor=blue]{0}{0}
+\rput[t] (-0.2, -0.2){$O$}
+\fcFullDot{0.5}{0}
+\rput[t] (0.5, -0.2){$A$}
+\fcFullDot{1.5}{0}
+\rput[t] (1.5, -0.2){$A'$}
+\fcFullDot{1 0.8 mul }{3 sqrt 0.8 mul}
+\rput[rt] (0.6, 1.5){$B$}
 \end{pspicture}
+\caption{ Angle definition. \\ $\angle AOB$ and $\angle A'OB$\\ represent the same angle.} \label{figAngleDef}
+\end{center}
+\end{figureFixed}
+
+
+\begin{figureFixed}
+\begin{center}
+\begin{pspicture}(-1,-1)(6, 4)
+\tiny
+\psline[arrows=->](0,0)(2,0)
+\psline[arrows=->](0,0)(! 1 3 sqrt )
+\fcAngleBetweenVectors[arrows=->, linecolor=blue]{[1 0]}{[0.5 3 sqrt 2 div]}{0.3}{}
+\fcFullDot[linecolor=blue]{0}{0}
+\rput[t] (-0.2, -0.2){$O$}
+\fcFullDot{1.5}{0}
+\rput[t] (1.5, -0.2){$A$}
+\fcFullDot{1 0.8 mul }{3 sqrt 0.8 mul}
+\rput[rt] (0.6, 1.5){$B$}
+
+\rput(5,1){
+\psline[arrows=->](0,0)(0, 2)
+\psline[arrows=->](0,0)(! 3 sqrt -1 mul 1)
+\fcAngleBetweenVectors[arrows=->, linecolor=blue]{[0 2]}{[ 3 sqrt -1 mul 1]}{0.3}{}
+\fcFullDot[linecolor=blue]{0}{0}
+\rput[t] (-0.2, -0.2){$O_1$}
+\fcFullDot{0}{1.5}
+\rput[l] (0.2, 1.5){$A_1$}
+\fcFullDot{3 sqrt -0.8 mul}{1 0.8 mul }
+\rput[t] (-1.5, 0.6){$B_1$}
+}
+\end{pspicture}
+\caption{Equal angles. \\ $\angle AOB=\angle A_1OB_1$}\label{figEqualAngles}
+\end{center}
+\end{figureFixed}
+
+Two angles are considered equal when the two figures can be transformed to one another with a sequence of rotations and translations in the plane. In other words, two angles are considered equal when one can be mapped onto the other by a rigid motion in the plane - the matching should respect the order of the rays of the angle (first ray goes to first, second to second). In Figure  \ref{figEqualAngles}, if we first translate vertex $O_1$ onto vertex $O$, and then rotate about vertex $O$, we can match the two rays of the angles in the correct order. 
+
+We note that we have not given precise definitions of rotation and translation -  that lies outside of the scope of the present section. At present, we expect the reader to rely on one's intuition for the meaning of ``translation'' and ``rotation''.
+
+\subsection{Angle measure}~
+
+
+\begin{figureFixed}
+\begin{center}
+\begin{pspicture}(-1,-1)(6, 4)
+\tiny
+\psline[arrows=->](0,0)(2,0)
+\psline[arrows=->](0,0)(! 1 3 sqrt )
+\fcAngleBetweenVectors[arrows=->, linecolor=blue]{[2 0]}{[1 3 sqrt]}{0.3}{}%
+\fcAngleBetweenVectors[linecolor=red]{[2 0]}{[1 3 sqrt]}{1}{}%
+\parametricplot[linestyle=dashed, linecolor=red!60]{60}{360}{t cos t sin}
+\fcFullDot[linecolor=blue]{0}{0}%
+\rput[t] (-0.2, -0.2){$O$}%
+\fcFullDot{1}{0}%
+\rput[t] (1, -0.2){$A$}%
+\fcFullDot{0.5 }{3 sqrt 0.5 mul}%
+\rput[rt] (0.6, 1.2){$B$}%
+\end{pspicture}
+\caption{ \label{figAngleMeasureDef} Angle measure definition.\\ $\angle AOB$ is measured by the \\
+length of the arc \\ that it cuts off the unit circle.} 
+\end{center}
+\end{figureFixed}
+
+To the angle given in Figure \ref{figAngleMeasureDef}, we can assign a measure in the following fashion. Draw a circle of radius $1$ (unit circle) with center at $O$. Let the first ray intersect the unit circle in point $A$ and the second ray - at point $B$. Define the \emph{measure of the angle} $\angle AOB$, or \emph{angle} for short, as the length of the shorter of the two arcs of the unit circle that start at $A$ and end at $B$, taken with positive sign if the ray $OA $ lies clockwise from the ray $OB$, and taken with negative sign else. 
+
+We note that we have not yet given a mathematical definition of the word ``clockwise''. Much later, we shall use the mathematical term ``orientation'' to give a precise mathematical meaning to the word ``clockwise''. Until then, we expect the reader to rely on one's intuition. 
+
+We also note that we have not given a definition of the lengths of an arc of a circle. This omission will again be fixed much later (Section \ref{secCurveLength}), when we have developed the full power of integral Calculus. Until then, we ask the reader to think of the length of an arc of a circle informally. One way to do so is to think of a rope curved around an arc of a circle; measuring the arc length would then correspond to straightening the rope and measuring its length. We advise the reader not satisfied with this interpretation to take a quick look at Figure \ref{figCurveLengthDef}.
+
+
+
+%$\stackrel{\frown}{AB}$
+
+
 
 
 
@@ -3821,10 +3954,12 @@ A motivation for the definition may be given as follows. Let $[a,b]$ be subdivid
 \]
 As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by the definition of derivative, the radical term tends uniformly to $\sqrt{f_1'(t)^2+f_2'(t)^2}$. Therefore the entire sum approximates the integral \eqref{eqDefLengthCurve}.
 
+\begin{figureFixed}
+\begin{center}
 \optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture}(-1,-1)(4,4.3)
-\psaxes[ ticks=none, arrows={->}](0,0)(4,4)
+\fcAxesStandard{-0.5}{-0.5}{4}{4}
 \rput[b](0,4.1){\tiny$y$}
 \rput[b](4.1,0){\tiny$x$}
 
@@ -3844,6 +3979,10 @@ As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by 
 
 \end{pspicture}
 }
+\caption{The length of a curve is the limit of \\
+lengths of approximating polygon lines.}\label{figCurveLengthDef}
+\end{center}
+\end{figureFixed}
 
 %\chapter{Polar coordinates}
 \section{Polar coordinates}
