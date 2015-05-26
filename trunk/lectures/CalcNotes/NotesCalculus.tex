@@ -592,12 +592,12 @@ The above is called the \emph{(implicit) equation of a circle}.
 In this section we consider the problem of finding the intersection of a circle and a line. This problem plays a role in understanding the definition of an angle in Section \ref{secAngleDef}.
 
 Since we have already studied the equations of lines and equations of a circle, the intersection is purely a matter of algebra: if the circle is given by equation $(x-h)^2+(y-k)^2=r^2$ and the line  - by equation $ax+by=c$, then all we need to do is solve the system of equations
-$ 
+\[
 \left| \begin{array}{rcl}
 (x-h)^2+(y-k)^2&=&r^2\\
-ax+by&=&r^2
+ax+by&=&c
 \end{array}\right.\quad .
-$ 
+\]
 This a system of polynomial equations. There are three distinct cases that happen when solving the system: we either get $2$ solutions (the line intersects the circle in two points), $1$ solution (the line is tangent to the circle) or $0$ solutions (the line does not meet the circle). 
 
 
@@ -616,7 +616,7 @@ Find the intersection of the circle and the line.
 The term angle is used to denote two distinct mathematical objects: first, the angle formed by two rays, and second, the angle-measure of such a figure. By convention, both objects are referred to as ``angle''; one is expected to use context to decide whether ``angle'' means ``angle formed by two rays'' or ``angle measure''. Except for the present section, we shall fully take advantage of this convention and use the term ``angle'' without further clarification.
 
 \subsection{Angle given by two rays}
-In planar  geometry, an \emph{angle} is the figure formed by two rays, called \emph{arms} or \emph{sides} of the angle, sharing a common endpoint, called the \emph{vertex} of the angle. The rays are ordered: the ray that comes first is called the first arm (side) of the angle, and the other ray - the \emph{terminal arm} (side) of the angle. 
+In planar  geometry, a \emph{geometric angle} (\emph{angle} for short) is the figure formed by two rays, called \emph{arms} or \emph{sides} of the angle, sharing a common endpoint, called the \emph{vertex} of the angle. The rays are ordered: the ray that comes first is called the first arm (side) of the angle, and the other ray - the \emph{terminal arm} (side) of the angle. By convention, the rays are allowed to coincide; the resulting angle is then called the \emph{zero angle}.
 
 In Figure \ref{figAngleDef}, the vertex of the angle is denoted by $O$. Since a ray can be identified by its starting point and any other point on the ray, an angle can be identified by specifying its vertex and one point on each of its arms. In Figure \ref{figAngleDef}, we have chosen the point $A$ on the first ray and the point $B$ on the second. We denote the angle by $\angle AOB $. The choice of points $A$ and $B$ is not unique - for example if we choose another point, say $A'$, on the ray $OA$, then $\angle AOB$ and $\angle A'OB$ coincide. 
 
@@ -709,7 +709,29 @@ We note that we have not yet given a mathematical definition of the word ``clock
 
 We also note that we have not given a definition of the lengths of an arc of a circle. This omission will again be fixed much later (Section \ref{secCurveLength}), when we have developed the full power of integral Calculus. Until then, we ask the reader to think of the length of an arc of a circle informally. One way to do so is to think of a rope curved around an arc of a circle; measuring the arc length would then correspond to straightening the rope and measuring its length. We advise the reader not satisfied with this interpretation to take a quick look at Figure \ref{figCurveLengthDef}.
 
+\subsubsection{Degrees and radians}
+We now proceed to assign a measurement unit to angles. Since a geometric angle is measured by a shorter of two arcs that make up a circle, a geometric angle cannot be measured than more half a circle. As the reader probably knows (and we shall prove later), the circumference of half a circle with radius 1 is $\pi$, where
+\[
+\pi= 3.14159265\dots. 
+\]
 
+
+In this way, we have assigned to each geometric angle a number in the interval $\left[-\pi, \pi \right]$. This number is called the measure of the angle in \emph{radians}. 
+
+
+In practice, it is often desired to work with exact fractions of the length of a circle. The most frequently encountered fractions of angles have angle measures $\frac{\pi}{2}$, $\frac{\pi }{3}$, $\frac{\pi }{4}$, $\frac{\pi }{5}$, $\frac{\pi }{6}$, $\frac{\pi }{9}$. To avoid computation with fractions it makes sense to introduce a new measurement unit of angle - the degrees unit. We say that $\pi$ radians are equal to $180^\circ$ degrees. Here the number $180$ is chosen for historical reasons, but this historical choice is well justified: under it, the frequently encountered angles listed above have integer measures. In Table \ref{tableFrequentlyEncounteredAcuteAngles} below we indicate the degree measures of frequently encountered angles. 
+
+\begin{tableFixed}
+\begin{tabular}{ccccccccccc}
+Radians & $\frac{5\pi}{6}$& $\frac{3\pi}{4}$ & $\frac{2\pi}{3}$&  $\frac{\pi}{2}$& $\frac{\pi }{3}$ & $\frac{\pi }{4}$ &$\frac{\pi }{5}$& $\frac{\pi }{6}$&  $\frac{\pi }{9}$ \\
+Degrees& $150^\circ$ &$135^\circ$ &$120^\circ$& $90^\circ $& $60^\circ $& $45^\circ $& $36^\circ $& $30^\circ $& $20^\circ $& 
+\end{tabular}
+\caption{Some frequently encountered angles in radians and degrees.}\label{tableFrequentlyEncounteredAcuteAngles}
+\end{tableFixed}
+
+
+
+\subsubsection{Angles greater than $180^\circ$}
 
 %$\stackrel{\frown}{AB}$
 
