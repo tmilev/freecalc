@@ -1,19 +1,25 @@
 % begin module combinations-functions
 \begin{frame}
 \frametitle{Combinations of Functions}
-Two functions $f$ and $g$ can be combined to form new functions $f+g$, $f-g$, $fg$, and $f/g$.  The sum and difference functions are defined by the formulas
+Two functions $f$ and $g$ can be combined to form new functions $f+g$, $f-g$, $f\cdot g$, and $\frac{f}{g}$:
 \[
-(f+g)(x) = f(x) + g(x), \qquad (f-g)(x) = f(x)-g(x).
+\begin{array}{rcll|l}
+\uncover<2->{\alertNoH{3} {(f+g)(x)}} &\uncover<2->{\alertNoH{3}{=} }&\uncover<3->{ \alertNoH{3}{f(x) + g(x)}}\\
+\uncover<2->{\alertNoH{4,5}{(f-g)(x)}}&\uncover<2->{\alertNoH{4,5}{=}}&\fcAnswer{5}{ f(x)-g(x)} \\
+\uncover<2->{\alertNoH{6,7} {(f\cdot g)(x) }}&\uncover<2->{\alertNoH{6,7}{=}}& \fcAnswer{7}{f(x) \cdot g(x)}\\
+\uncover<2->{\alertNoH{8,9}{\left(\frac{f}{g}\right) (x)}}& \uncover<2->{\alertNoH{8,9}{=}}& \fcAnswer{9}{ \frac{f(x)}{\alertNoH{10}{g(x)}}}\uncover<9->{ && \alertNoH{10,21}{\text{for } g(x)\neq 0}\quad .}
+\end{array}
 \]
-If $A$ is the domain of $f$ and $B$ is the domain of $g$, then the domain of $f+g$ and $f-g$ is $A\cap B$, the intersection of $A$ and $B$.
+\uncover<11->{Let $\text{Dom}(f)$ denote the domain of $f$.} \uncover<13->{\alertNoH{14,15}{The function $f+g$ is defined only if both $f$ and $g$ are defined, and similarly for the others. }} \uncover<14->{\alertNoH{14}{Therefore}} 
+\[
+\begin{array}{@{}rcll|l}
+\uncover<12->{\alertNoH{14,15}{\text{Dom}(f+g)}}&\uncover<12->{\alertNoH{13,14,15}=}&\fcAnswerUncover{12}{15}{ \text{Dom}(f)\alertNoH{16}{ \cap} \text{Dom}(g) } \uncover<15->{&&\alertNoH{16}{ \cap\text{ stands for} } } \\
+\uncover<12->{\alertNoH{17,18}{\text{Dom}(f-g)}}&\uncover<12->{\alertNoH{17,18}{=}}&\fcAnswerUncover{12}{18}{ \text{Dom}(f)\cap \text{Dom}(g) } \uncover<15->{&&\alertNoH{16}{\text{set intersection}} }\\
+\uncover<12->{\alertNoH{17,18}{ \text{Dom}(f\cdot g)}} &\uncover<12->{ \alertNoH{17,18}{=}} &\fcAnswerUncover{12}{18} { \text{Dom}(f)\cap \text{Dom}(g)}\\
+\uncover<12->{\alertNoH{19,20}{ \text{Dom}\left(\frac{f}{g}\right)}} &\uncover<12->{\alertNoH{19,20}{=}}& \fcAnswerUncover{12}{20}{ \text{Dom}(f)\cap \text{Dom}(g) \cap\alertNoH{21}{ \alertNoH{22}{\{} x\alertNoH{23}{ \textbf{|} }\alertNoH{24}{ g(x)\neq 0} \alertNoH{22}{ \}}} } \uncover<21->{ &&\alertNoH{21}{ \begin{array}{@{}l}\text{right expr.} \\ \text{stands for \alertNoH{22}{set} } \\ \alertNoH{23}{\text{where }} \alertNoH{24}{g(x)\neq 0}\end{array}}} \\
+\end{array}
+\]
 
-The product and quotient functions are defined by the formulas
-\[
-(fg)(x) = f(x)g(x), \qquad \left( \frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}.
-\]
-These functions also have the domain $A\cap B$, with one exception: in the quotient function, we aren't allowed to divide by 0, so we must exclude those values of $x$ that make $g(x) = 0$.  We write this domain as
-\[
-\{ x\in A\cap B | \ g(x) \neq 0\} .
-\]
 \end{frame}
+
 % end module combinations-functions

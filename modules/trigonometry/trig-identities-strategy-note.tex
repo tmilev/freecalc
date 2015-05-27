@@ -1,0 +1,47 @@
+\begin{frame}
+\frametitle{Strategy for proving trigonometric identities}
+\begin{question}
+\alertNoH{1,6}{Is there a general method for proving all trigonometric identities in one variable?}
+\end{question}
+\only<handout:1|2-5>{
+\begin{itemize}
+\item<2-> Given a number of variables and relations between then, there is an algorithm to check whether (rational) expressions in those variables are equal under the given relations. 
+\item<3-> If we pick two variables $s$ and $c$, and a single relation 
+\[
+s^2+c^2=1
+\]
+\uncover<4->{there is a standard method to verify whether two (rational) expressions in $s$ and $c$ are equal.}
+\item<5-> The method is rather cumbersome for a human and is best suited for computers.  
+\end{itemize}
+}
+\only<handout:2|6-10>{
+\begin{itemize}
+\item<6-> \alertNoH{6}{Yes.}
+\item<7-> For expressions that depend only on $\sin \theta$ and $\cos \theta$,  algebra  tells us when two expressions in those are equal.
+\item<8-> Problems depending on $\cos\theta$, $\sin \theta$ alone will always be doable via easy ad-hoc tricks using
+\[
+\sin^2\theta+\cos^2\theta=1.
+\]
+\item<9-> \alertNoH{10}{The full method will not be needed in this course.}
+
+\begin{itemize}
+\item<9->\only<10->{\color{gray}} The full method: set $s=\sin\theta,c=\cos \theta $.
+\item<9->\only<10->{\color{gray}} Check whether the two expressions in $s,c$ are equal under the relation $s^2+c^2=1$. (The method lies outside of present scope).
+\end{itemize}
+%\only<10->{\color{black}}
+\end{itemize}
+}
+\only<handout:3|11->{
+\begin{itemize}
+\item<11-> To prove a general trigonometric identity:
+\begin{itemize}
+\item<11-> Use angle sum/double angle sum formulas to convert all formulas to trig expression depending only on $\sin \theta$, $\cos \theta$.
+\item<12-> Use $\sin^2 \theta + \cos^2\theta=1$ to show the two formulas are equal (usage: ad-hoc).
+\item<13-> You may need to use trig functions of angles smaller than $\theta$, for example $\sin \left(\frac{\theta}{2}\right), \cos \left(\frac{\theta}{2}\right)$.
+\item<14-> A fraction of $\theta$ such that all appearing angles are integer multiples of it will always work.
+\end{itemize}
+\end{itemize}
+}
+
+\vskip 10cm
+\end{frame}
