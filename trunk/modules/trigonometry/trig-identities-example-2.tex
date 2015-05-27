@@ -1,0 +1,21 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{example}
+Prove the identity
+$\displaystyle \alertNoH{27}{ \alertNoH{5}{\tan \alertNoH{6}{\theta} +\sec \alertNoH{6}{\theta} } = \frac{1+\tan \left(\alertNoH{26}{ \frac{\theta}{ 2}}\right) }{1-\tan \left(\alertNoH{26}{\frac{\theta}{2}}\right)}  }
+$
+
+\uncover<2->{All angles here are multiples of $\frac{\theta}{2}$, so set $\alertNoH{3,4,26,27}{\varphi = \frac{\theta}{2}}$\uncover<3->{, $\alertNoH{6,27}{ \alertNoH{3,4}{\theta=} \fcAnswer{4}{ 2\varphi}}$.}}
+
+$
+\begin{array}{@{\!}r@{}c@{}l@{}l|l}
+\uncover<5->{ \displaystyle  \alertNoH{5,27}{ \alertNoH{7,8}{ \tan (\alertNoH{6}{ 2\varphi})}+\alertNoH{9,10}{ \sec(\alertNoH{6}{ 2\varphi})} } & \alertNoH{0}{=}&\displaystyle\fcAnswer{8} {\frac{  \sin (2\varphi )}{ \alertNoH{11}{ \cos( 2 \varphi)}} } \uncover<7->{+} \fcAnswerUncover{7}{10}{ \frac{ 1}{ \alertNoH{11}{\cos (2\varphi)}} }}\\
+\uncover<11->{&\alertNoH{0}{=}&\displaystyle\frac{\alertNoH{13,14} {\sin (2\varphi)} +\alertNoH{12}{ 1} }{\alertNoH{11,15,16}{\cos (2\varphi)}}} \\
+\uncover<12->{&\alertNoH{0}{=}& \displaystyle \frac{\alertNoH{17,18}{ \fcAnswerUncover{12}{14}{ 2\sin\varphi\cos\varphi} + \alertNoH{12}{\sin^2 \varphi + \cos^2\varphi }}}{\fcAnswerUncover{12}{16}{ \alertNoH{19,20}{ \cos^2\varphi - \sin^2 \varphi}}} \uncover<18->{&&\alertNoH{18}{ \begin{array}{l}A^2+2AB+B^2\\ =(A+B)^2\end{array}}}}  \\
+\uncover<17->{&\alertNoH{0}{=}& \displaystyle \frac{\fcAnswer{18}{ (\cos\varphi + \sin \varphi )^{\fcCancel{21}{ 2}}} }{\fcAnswerUncover{17}{20}{(\cos\varphi- \sin\varphi)\fcCancel{21}{(\cos \varphi+\sin\varphi)}}}\uncover<20->{ && \alertNoH{20}{\begin{array}{l}A^2-B^2=\\ (A-B)(A+B)\end{array} }}} \\
+\uncover<21->{&\alertNoH{0}{=} &\displaystyle\frac{(\alertNoH{23}{\cos \varphi} + \alertNoH{24}{\sin\varphi})\uncover<22->{ \alertNoH{22,23,24}{ \frac{1}{\cos \varphi}} }}{(\alertNoH{23}{\cos\varphi}- \alertNoH{24}{\sin\varphi}) \uncover<22->{\alertNoH{22,23,24}{\frac{1}{ \cos\varphi}}}}\uncover<23->{=\frac{ \alertNoH{23}{ 1}+ \alertNoH{24,25}{\frac{\sin \varphi}{\cos \varphi}} }{ \alertNoH{23}{1} - \alertNoH{24,25}{\frac{\sin\varphi}{ \cos\varphi }}}}}\\
+\uncover<25->{&\alertNoH{27}{=}&\displaystyle \alertNoH{27}{ \frac{1+ \alertNoH{25}{ \tan \alertNoH{26}{ \varphi} }}{1-\alertNoH{25}{\tan \alertNoH{26}{\varphi}}}}} \uncover<27->{&& \text{as desired.}}
+\end{array}
+$
+\end{example}
+\end{frame}

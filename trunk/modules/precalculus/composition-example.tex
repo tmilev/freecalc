@@ -1,35 +1,44 @@
 % begin module composition-example
 \begin{frame}
 \begin{example}
-If \alert<handout:0| 5,10>{$f(x) = \sqrt{x}$} and \alert<handout:0| 4,11,15-16>{$g(x) = \sqrt{2 - x}$}, find each function and its domain.
-\begin{columns}[t]
-\column{.33\textwidth}
-\begin{eqnarray*}
-& & f\circ g \\
-& & \uncover<2->{(f\circ g)(x)}\\
-& \uncover<3->{ = } & \uncover<3->{f(\alert<handout:0| 4>{g(x)})}\\
-& \uncover<4->{ = } & \uncover<4->{\alert<handout:0| 5>{f(}\alert<handout:0| 4-5>{\sqrt{2 - x}}\alert<handout:0| 5>{)}}\\
-& \uncover<5->{ = } & \uncover<5->{\alert<handout:0| 5>{\sqrt{\sqrt{2-x}}}}\\
-& \uncover<6->{ = } & \uncover<6->{\alert<handout:0| 5>{\sqrt[4]{2-x}}}\\
-&& \uncover<7->{
-\textrm{Domain}:}\\
-&& \uncover<7->{
-(-\infty , 2].
-}
-\end{eqnarray*}
-\column{.33\textwidth}
-\begin{eqnarray*}
-& &  g \circ f  \\
-& & \uncover<8->{(g\circ f)(x)}\\
-& \uncover<9->{ = } & \uncover<9->{g(\alert<handout:0| 10>{f(x)})}\\
-& \uncover<10->{ = } & \uncover<10->{\alert<handout:0| 11>{g(}\alert<handout:0| 10-11>{\sqrt{x}}\alert<handout:0| 11>{)}}\\
-& \uncover<11->{ = } & \uncover<11->{\alert<handout:0| 11>{\sqrt{2 - \sqrt{x}}}}\\
-&& \uncover<12->{
-\textrm{Domain}:}\\
-&& \uncover<12->{
-[0 , 4].
-}
-\end{eqnarray*}
+Find $\alertNoH{2}{f\circ g},\alertNoH{14}{g\circ f}, \alertNoH{27}{g\circ g}$ and their domains, where \alertNoH{10,16}{$\alertNoH{5}{ f(} \alertNoH{6}{ x} \alertNoH{5}{) =}\only<handout:0|5> {\color{red}} \sqrt{\only<handout:0|5>{\color{black}} \alertNoH{6}{x}}$} and \alertNoH{4,29}{$\alertNoH{17,30}{ g(}\alertNoH{18,31}{ x} \alertNoH{17,30}{) = }\only<handout:0|17,30>{\color{red}} \sqrt{3 - \only<handout:0|17,30>{ \color{black}} \alertNoH{18,31}{x} }$}.
+
+$
+\begin{array}{rclll}
+\only<handout:1|1-26>{%
+\uncover<2->{\alertNoH{3}{ (\alertNoH{2}{f\circ g})(x)}} &\uncover<3->{ \alertNoH{3}{ =}} & \uncover<3->{\alertNoH{3}{ f(\alertNoH{4}{g(x)})}} \uncover<4->{ =\only<handout:0|5>{\color{red}} f\left( \only<handout:0|5>{ \color{black}}   \alertNoH{4,6}{\sqrt{3 - x}} \only<handout:0|5>{\color{red}} \right)} \uncover<5->{ = \only<handout:0|5>{ \color{red}}  \alertNoH{7}{\sqrt{ \only<handout:0|5>{ \color{black}} \alertNoH{6}{\sqrt{3-x}}}}} \uncover<7->{  \alertNoH{7}{= \sqrt[4]{\alertNoH{7,9}{ 3-x} }}}\\
+\uncover<8->{\text{Domain: }}\\
+\uncover<9->{\alertNoH{9}{\alertNoH{10}{3}-x}&\alertNoH{9}{\geq} & \alertNoH{9}{0}} \\ 
+\uncover<10->{\alertNoH{11}{-}x&\alertNoH{11}{\geq} & \alertNoH{10}{ \alertNoH{11}{-} 3}}\\
+\uncover<11->{\alertNoH{13}{x}&\alertNoH{11,13}{\leq}&\alertNoH{13}{ 3} }\\
+\uncover<12->{\alertNoH{12,13}{x} &\alertNoH{12,13}{\in}& \fcAnswer{13}{(-\infty , 3].}}\\
+\uncover<14->{\alertNoH{15}{ (\alertNoH{14}{g\circ f})(x)}}& \uncover<15->{ \alertNoH{15}{=} } & \uncover<15->{ \alertNoH{15}{ g(\alertNoH{16}{ f(x)})}}
+\uncover<16->{ = \alertNoH{17}{g(}\alertNoH{16,18}{\sqrt{x}}\alertNoH{17}{)}} \uncover<17->{ = \only<handout:0|17>{\color{red}}  \sqrt{\alertNoH{21}{ 3 - \only<handout:0|17>{ \color{black}} \alertNoH{18}{\sqrt{\alertNoH{20}{x}} }} }}\\
+\uncover<19->{\text{Domain}:}\\
+\uncover<20->{\alertNoH{20,26}{x}&\alertNoH{20,26}{\geq} & \alertNoH{20,26}{0} }\\
+\uncover<21->{\alertNoH{21}{\alertNoH{22}{ 3} - \sqrt{x}}& \alertNoH{21}{ \geq } & \alertNoH{21}{ 0} }\\
+\uncover<22->{ \alertNoH{23}{-} \sqrt{x} &\alertNoH{23}{\geq }& \alertNoH{22}{ \alertNoH{23}{-}3 }}\\
+\uncover<23->{\sqrt{x}&\alertNoH{23}{ \leq} & 3} \\
+\uncover<24->{\alertNoH{26}{ x}& \alertNoH{26}{ \alertNoH{0}{\leq}} &\alertNoH{26}{ 9}}\\
+\uncover<25->{ \alertNoH{25,26}{x}&\alertNoH{25,26}{\in}& \fcAnswer{26}{[0,9]}} \\
+}%only<handout:1|1->  
+\only<handout:2|27->{%
+\uncover<27->{\alertNoH{28}{ (\alertNoH{27}{g\circ g})(x)}} & \uncover<28->{ \alertNoH{28} {=} } & \uncover<28->{\alertNoH{28}{ g( \alertNoH{29 }{ g(x)})}} \uncover<29->{ = \only<handout:0|30>{\color{red}}  g \left( \only<handout:0|30>{ \color{black}} \alertNoH{29}{\sqrt{3 - x}}  \only<handout:0|30>{\color{red}} \right)}  \uncover<30->{ \only<handout:0|30>{\color{red}} = \sqrt{\alertNoH{36}{ 3 - \only<handout:0|30>{\color{black}}\alertNoH{31}{\sqrt{\alertNoH{33}{3-x} } }}}}\\
+\uncover<32->{\text{Domain}:}\\
+\uncover<33->{\alertNoH{33}{\alertNoH{34} {3}-x} & \alertNoH{33}{\geq} &\alertNoH{33}{ 0}}\\
+\uncover<34->{\alertNoH{35}{-}x&\alertNoH{35}{\geq} & \alertNoH{34}{ \alertNoH{35}{ - } 3}}\\ 
+\uncover<35->{\alertNoH{43}{x}&\alertNoH{35,43}{\leq} &\alertNoH{43}{ 3}}\\ 
+\uncover<36->{\alertNoH{36}{\alertNoH{37}{3}-\sqrt{3-x}}&\alertNoH{36}{\geq }&\alertNoH{36}{ 0}} \\
+\uncover<37->{\alertNoH{38}{-}\sqrt{3-x}&\alertNoH{38}{\geq}& \alertNoH{37}{\alertNoH{38}{-} 3}}\\
+\uncover<38->{\sqrt{3-x}&\alertNoH{38}{\leq}& 3} \\
+\uncover<39->{\alertNoH{40}{3}-x&\alertNoH{0}{\leq} &\alertNoH{40}{ 9}}\\
+\uncover<40->{\alertNoH{41}{-}x&\alertNoH{41}{\leq}& \alertNoH{40}{6}}\\
+\uncover<41->{\alertNoH{43}{x}&\alertNoH{41,43}{\geq}& \alertNoH{43}{ \alertNoH{41}{-}6} }\\  
+\uncover<42->{\alertNoH{42,43}{x}&\alertNoH{42,43}{\in}& \fcAnswer{43}{[-6 , 3].}}
+}%only<handout:2|>
+\end{array}
+$
+
 %\column{.2\textwidth}
 %\begin{eqnarray*}
 %& & f\circ f  \\
@@ -39,20 +48,8 @@ If \alert<handout:0| 5,10>{$f(x) = \sqrt{x}$} and \alert<handout:0| 4,11,15-16>{
 %& \uncover<5->{ = } & \uncover<5->{\alert<handout:0| 5>{\sqrt{\sqrt{x}}}}\\
 %& \uncover<6->{ = } & \uncover<6->{\alert<handout:0| 5>{\sqrt[4]{x}}}\\
 %\end{eqnarray*}
-\column{.33\textwidth}
-\begin{eqnarray*}
-& &  g\circ g \\
-& & \uncover<13->{(g\circ g)(x)}\\
-& \uncover<14->{ = } & \uncover<14->{g(\alert<handout:0| 15>{g(x)})}\\
-& \uncover<15->{ = } & \uncover<15->{\alert<handout:0| 16>{g(}\alert<handout:0| 15-16>{\sqrt{2 - x}}\alert<handout:0| 5>{)}}\\
-& \uncover<16->{ = } & \uncover<16->{\alert<handout:0| 16>{\sqrt{2 - \sqrt{2-x}}}}\\
-&&\uncover<17->{
-\textrm{Domain}:}\\
-&&\uncover<17->{
-[-2 , 2].
-}
-\end{eqnarray*}
-\end{columns}
 \end{example}
+
+\vskip 10cm
 \end{frame}
 % end module composition-example
