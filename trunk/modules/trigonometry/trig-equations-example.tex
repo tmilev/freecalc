@@ -1,29 +1,86 @@
 % begin module trig-equations-example
 \begin{frame}
 \begin{example}
-Find all values of $x$ in the interval $[0, 2\pi ]$ such that $\sin x = \sin (2x) $.
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\abovedisplayshortskip=0pt
-\belowdisplayshortskip=0pt
-\begin{align*}
-\uncover<2->{\sin x} & \uncover<2->{=}  \uncover<2->{\sin (2x)}\\
-\uncover<3->{\sin x} & \uncover<3->{=}  \uncover<3->{2\sin x \cos x}\\
-\uncover<4->{0} & \uncover<4->{=}  \uncover<4->{2\sin x \cos x - \sin x}\\
-\uncover<5->{0} & \uncover<5->{=}  \uncover<5->{\sin x (2 \cos x - 1)}
-\end{align*}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\abovedisplayshortskip=0pt
-\belowdisplayshortskip=0pt
-\begin{align*}
-\uncover<6->{\sin x} & \uncover<6->{=}  \uncover<6->{0} & \uncover<6->{ 2\cos x - 1} & \uncover<6->{=}  \uncover<6->{0}\\
-\uncover<7->{ x} & \uncover<7->{=}  \uncover<7->{0, \pi , 2\pi} & \uncover<8->{\cos x} & \uncover<8->{=}  \uncover<8->{\frac{1}{2}}\\
-& & \uncover<9->{ x} & \uncover<9->{=}  \uncover<9->{\frac{\pi}{3}, \frac{5\pi}{3}}
-\end{align*}
-\uncover<10->{
-Therefore the equation has five solutions: $0, \frac{\pi}{3} , \pi , \frac{5\pi}{3},$ and $2\pi$.
+Find all values of \alertNoH{14,15,22,23}{ $\theta$ in the interval $[0, 2\pi ]$} such that $\sin\theta = \sin (2\theta) $.
+\[
+\begin{array}{rcl}
+\uncover<2->{\sin\theta} & \uncover<2->{=} & \uncover<2->{\alertNoH{3,4}{\sin (2\theta)}}\\
+\uncover<3->{\alertNoH{5}{\sin\theta}} & \uncover<3->{=} & \fcAnswer{4}{2\sin\theta \cos\theta}\\
+\uncover<5->{0} & \uncover<5->{=} & \uncover<5->{2\alertNoH{6}{\sin\theta} \cos\theta \alertNoH{5}{- \alertNoH{6}{\sin\theta}}}\\
+\uncover<6->{0} & \uncover<6->{=} & \uncover<6->{\alertNoH{6,7}{ \sin\theta} (\alertNoH{8}{2 \cos\theta - 1})}
+\end{array}
+\]
+\begin{columns}[t]
+\column{0.37\textwidth}\centering
+$
+\begin{array}{rcl}
+\uncover<7->{\alertNoH{7}{ \only<handout:0|9>{\color{blue}} \sin\theta} &\alertNoH{9}{ =} & \alertNoH{9} {0}} \\
+\uncover<10->{ \alertNoH{10,11}{\theta } &\alertNoH{10,11}{ =} &\fcAnswerUncover{10}{11}{ \alertNoH{14}{ \alertNoH{12}{0} +2k\pi} }} \\
+&&\uncover<11->{\alertNoH{11}{ \text{ or }  \alertNoH{15}{ \alertNoH{13}{\pi} + 2k\pi}}} \\
+\uncover<14->{ \alertNoH{14,15}{\theta}  &\alertNoH{14,15}{ =} & \alertNoH{14}{0 \text{ or } 2\pi} \text{ or } \alertNoH{15}{  \pi} }\\
+
+\end{array}
+$
+
+\uncover<9->{
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.2,-1.2)(1.5,1.2)
+\tiny
+\fcAxesStandard{-1.8}{-1.2}{1.8}{1.2}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}
+\uncover<9->{
+\fcFullDot[linecolor=\fcColorGraph]{1}{0}
+\fcFullDot[linecolor=\fcColorGraph]{-1}{0}
+\rput[lt](1.05, -0.2){$(1,\alertNoH{9} {0})$}
+\rput[rt](-1.05, -0.2){$(-1,\alertNoH{9}{0})$}
 }
+\uncover<10->{
+\fcAngleDegrees{0}{180}{0.2}{}
+}
+\uncover<10->{
+\rput[b](0, 0.25){$\fcAnswer{11}{\alertNoH{13}{\pi= 180^\circ}}$} 
+\rput[t](0.6,-0.6){$\fcAnswer{11}{\alertNoH{12}{ 0^\circ} }$}
+\pscurve[arrows=->, linestyle=dotted](0.6, -0.6)(0.9, -0.1)(1, 0)
+}
+\end{pspicture}
+}
+\column{0.06\textwidth}
+\uncover<7->{or}
+\column{0.57\textwidth}
+$
+\begin{array}{rcl}
+\uncover<7->{ \alertNoH{8}{\alertNoH{17}{2}\cos\theta \alertNoH{16}{- 1}} &\alertNoH{0}{=}& 0 }\\
+\uncover<16->{\only<handout:0|18>{\color{green}} \cos\theta &\alertNoH{18}{=} & \alertNoH{18}{ \frac{\alertNoH{16}{1}}{ \alertNoH{17}{ 2} }}}\\
+\uncover<19->{\alertNoH{19-21}{ \theta}&\alertNoH{19-21} =&   \fcAnswerUncover{19}{21}{ \alertNoH{22}{\frac{\pi}{3}+2k\pi} \text{ or } \alertNoH{23}{\frac{5 \pi }{ 3} +2k\pi }}}\\
+\uncover<22->{ \alertNoH{22,23}{\theta} &\alertNoH{22,23}=& \alertNoH{22}{\frac{\pi}{3}} \text{ or } \alertNoH{23}{\frac{5\pi}{3}} }
+\end{array}
+$
+
+\uncover<16->{
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.7,-1.2)(1.4,1.2)%
+\tiny%
+\fcAxesStandard{-1.7}{-1.2}{1.4}{1.2}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\uncover<18->{%
+\psline[linecolor=green, linewidth=1.5pt](0,0)(0.5,0)%
+\rput[t](0.25, -0.05){$ \alertNoH{18}{\frac{1}{2}}$}%
+}%
+\uncover<19->{\fcPerpendicular[linecolor=blue]{[0.5 3 sqrt 2 div]}{[-1 0]}{0.1}}%
+\uncover<20->{\fcAngleDegrees[linecolor=brown]{0}{60}{0.3}{}}%
+\uncover<20->{\psline(0,0)(! 0.5 3 sqrt -2 div)%
+\fcFullDot{0.5}{3 sqrt -2 div}%
+}%
+\uncover<21->{\rput[r](-0.15, 0.2){$\alertNoH{21}{ 300^\circ=\frac{5 \pi }{3}} $}}%
+\uncover<19->{\fcPerpendicular[linecolor=blue]{[0.5 3 sqrt -2 div]}{[-1 0]}{0.1}}%
+\uncover<20->{\fcAngleDegrees[linecolor=purple]{0}{300}{0.2}{}%
+\fcFullDot{0.5}{3 sqrt 2 div}%
+}%
+\uncover<20->{\psline(0,0)(! 0.5 3 sqrt 2 div)}%
+\uncover<21->{\rput[l](0.23, 0.2){$\alertNoH{21}{ \frac{\pi}{3}= 60^\circ} $}}%
+\end{pspicture}
+}
+\end{columns}
 \end{example}
 \end{frame}
 % end module trig-equations-example
