@@ -1,16 +1,16 @@
 % begin module continuity-ex8
 \begin{frame}
-\begin{example}%[Example 8, p. 103]
+\begin{example}
 Where is the function $F(x) = \alertNoH{11}{\frac{1}{\alertNoH{9-11}{\alertNoH{7-11}{\sqrt{\alertNoH{5-11}{x^2+7}}} - 4}}}$ continuous?
 \begin{itemize}
 \item<2->  We can write $F$ as the composition of 4 functions:
-\item<2->  $F = f\circ g\circ h\circ k$, or $F(x) = f(g(h(k(x))))$.
-\item<3-| alert@4-5>  $k(x) = $ \uncover<5->{$x^2 + 7$.}
-\item<3-| alert@6-7>  $h(u) = $ \uncover<7->{$\sqrt{u}$.}
-\item<3-| alert@8-9>  $g(v) = $ \uncover<9->{$v - 4$.}
-\item<3-| alert@10-11>  $f(w) = $ \uncover<11->{$\frac{1}{w}$.}
+\item<2->  $F = f\circ g\circ h\circ k$, or $F(x) = \alertNoH{10,11}{f (} \alertNoH{8,9}{g (} \alertNoH{6,7}{h(} \alertNoH{4,5}{k(} x\alertNoH{4,5}{)} \alertNoH{6,7}{)} \alertNoH{8,9}{)} \alertNoH{10,11}{)}$.
+\item<3-| alert@4-5>  $k(x) = $ \fcAnswer{5}{$x^2 + 7$.}
+\item<3-| alert@6-7>  $h(u) = $ \fcAnswer{7}{$\sqrt{u}$.}
+\item<3-| alert@8-9>  $g(v) = $ \fcAnswer{9}{$v - 4$.}
+\item<3-| alert@10-11>  $f(w) = $ \fcAnswer{11}{$\frac{1}{w}$.}
 \item<12->  These functions are continuous on their domains, so $F$ is continuous on its domain.
-\item<13->  Its domain is \uncover<14->{everything but $3$ and $-3$.}
+\item<13->  Its domain is \fcAnswer{14}{given by $x\neq 3$ and $x\neq -3$.}
 \item<15->  Therefore $F$ is continuous on $(-\infty , -3 ) \cup (-3, 3) \cup (3, \infty )$.
 \end{itemize}
 \end{example}
