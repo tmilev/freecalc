@@ -1,6 +1,6 @@
 % begin module limit-at-infinity-ex5
 \begin{frame}
-\begin{example} %[Example 6, p. 131]
+\begin{example}
 \begin{columns}[c]
 \column{.45\textwidth}
 Evaluate $\lim\limits_{x\to \infty} \sqrt{x^2+1}-x$. %
@@ -12,48 +12,46 @@ Evaluate $\lim\limits_{x\to \infty} \sqrt{x^2+1}-x$. %
 \fcLabelXOne
 \fcLabelYOne
 %Function formula: - (x)+sqrt{}((x)^{2}+1)
-\uncover<9->{
-\psplot[linecolor=red, plotpoints=1000]{-1.95}{5.95}{1 x 2 exp add sqrt x -1 mul add }
-\rput[lb](1,1){\footnotesize $y=\sqrt{x^2+1}-x$}
+\uncover<12->{
 \psline[linecolor=blue](-1.95, 0)(5.95, 0)
 }
+\uncover<13->{\psplot[linecolor=red, plotpoints=1000]{-1.95}{5.95}{1 x 2 exp add sqrt x -1 mul add }
+\rput[lb](1,1){\footnotesize $y=\sqrt{x^2+1}-x$}}
 \end{pspicture}
 \begin{itemize}
 \item<2->  $\sqrt{x^2+1}\to \infty$ and $x\to \infty$ as $x\to \infty$.
 \item<2->  It isn't clear what happens to the difference.
-\item<7-| alert@7>  Divide top \& bottom by $x$.
+\item<7-12,13-| alert@7>  Divide top \& bottom by $x$.
 \end{itemize}
 \column{.55\textwidth}
 \begin{itemize}
-\item<3-| alert@3-4>  Standard approach: multiply top and bottom by conjugate radical.
+\item<3-| alert@3-4>  Standard approach: multiply top and bottom by $\pm$conjugate radical.
 \end{itemize}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \begin{eqnarray*}
 &&%
 \uncover<2->{%
-\lim_{x\to \infty} \left( \sqrt{x^2+1}-x\right) \uncover<4->{\alert<handout:0| 4>{\frac{\sqrt{x^2+1}+x}{\sqrt{x^2+1}+x}}}%
+\lim_{x\to \infty} \left( \alertNoH{5}{ \sqrt{x^2+1}-x}\right) \uncover<4->{\alertNoH{ 4,5}{\frac{\sqrt{x^2+1}+x}{\sqrt{x^2+1}+x}}}%
 }%
 \\%
 &&%
 \uncover<5->{%
- = \lim_{x\to \infty} \frac{(x^2+1)-x^2}{\sqrt{x^2+1}+x}%
+ = \lim_{x\to \infty} \frac{(\fcCancel{6}{x^2}+1)-\fcCancel{6}{x^2} }{\sqrt{x^2+1}+x}%
 }%
 \\%
 &&%
 \uncover<6->{%
- = \lim_{x\to \infty} \frac{1}{\sqrt{x^2+1}+x}\uncover<7->{\alert<handout:0| 7>{\cdot \frac{\frac{1}{x}}{\frac{1}{x}}}}%
+= \lim_{x\to \infty} \frac{1}{\left(\sqrt{ \alertNoH{10}{x^2} +\alertNoH{9}{1}}+ \alertNoH{8}{x}\right)}\uncover<7->{\alertNoH{ 7}{\cdot \frac{\frac{1}{x}}{ \alertNoH{8,9,10}{\frac{1}{x}}}}}%
 }%
 \\%
 &&%
 \uncover<8->{%
- = \lim_{x\to \infty} \frac{\frac{1}{x}}{\sqrt{1+\frac{1}{x^2}}+1}%
+= \lim_{x\to \infty} \frac{\frac{1}{x}}{\sqrt{\alertNoH{10}{1}+\alertNoH{9}{\frac{1}{x^2}}}+\alertNoH{8}{1}}%
 }%
 \\%
 &&%
-\uncover<9->{%
- = \frac{0}{\sqrt{1+0}+1} = 0%
-}%
+\uncover<11->{ = \frac{0}{\sqrt{1+0}+1}}\uncover<12->{=0}%
 \end{eqnarray*}
 \end{columns}
 \end{example}

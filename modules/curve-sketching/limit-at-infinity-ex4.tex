@@ -1,6 +1,6 @@
 % begin module limit-at-infinity-ex4
 \begin{frame}
-\begin{example} 
+\begin{example}
 Find the horizontal and vertical asymptotes of $f(x) = \frac{\sqrt{3x^2+1}}{2x-3}$.
 \begin{columns}[c]
 \column{.35\textwidth}
@@ -48,11 +48,11 @@ Find the horizontal and vertical asymptotes of $f(x) = \frac{\sqrt{3x^2+1}}{2x-3
 %}%
 %\begin{itemize}
 
-\uncover<4->{\alert<handout:0| 4>{If $x > 0$ then $x = \sqrt{x^2}$.}}
+\uncover<4->{\alertNoH{ 4}{If $x > 0$ then $x = \sqrt{x^2}$.}}
 
-\uncover<20->{\alert<handout:0| 20>{If $x < 0$ then $x = -\sqrt{x^2}$.}}
+\uncover<20->{\alertNoH{ 20}{If $x < 0$ then $x = -\sqrt{x^2}$.}}
 
-\uncover<23->{\alert<handout:0| 23-24>{Vertical Asymptote: \uncover<24-25>{$x = \frac{3}{2}$.}}}
+\uncover<23->{\alertNoH{ 23-24}{Vertical Asymptote: \uncover<24-25>{$x = \frac{3}{2}$.}}}
 %\end{itemize}
 \column{.65\textwidth}
 
@@ -61,25 +61,25 @@ Find the horizontal and vertical asymptotes of $f(x) = \frac{\sqrt{3x^2+1}}{2x-3
 \[
 \begin{array}{l}
 \uncover<2->{%
-\displaystyle \lim_{x\to \infty} \frac{\sqrt{3x^2+1}}{2\alert<handout:0| 3>{x}-3}\uncover<3->{\alert<handout:0| 3>{\cdot \frac{\alert<handout:0| 4>{\frac{1}{x}}}{\frac{1}{x}}}}%
+\displaystyle \lim_{x\to \infty} \frac{\sqrt{3x^2+1}}{2\alertNoH{ 3}{x}-3}\uncover<3->{\alertNoH{ 3}{\cdot \frac{\alertNoH{ 4}{\frac{1}{x}}}{\frac{1}{x}}}}%
 }%
 %\\%
 %& \uncover<4->{ = } &%
 \uncover<4->{%
-\displaystyle = \lim_{x\to \infty} \frac{\sqrt{\alert<handout:0| 5-6>{3x^2+1}}}{\alert<handout:0| 7-8>{2x-3}}\cdot \frac{\alert<handout:0| 4-6>{ \frac{1}{ \sqrt{x^2}} }}{\alert<handout:0| 7-8>{\frac{1}{x}}}%
+\displaystyle = \lim_{x\to \infty} \frac{\alertNoH{ 5-6}{\sqrt{3x^2+1}}}{\alertNoH{ 7-8}{2x-3}}\cdot \frac{\alertNoH{ 4-6}{ \frac{1}{ \sqrt{x^2}} }}{\alertNoH{ 7-8}{\frac{1}{x}}}%
 }%
 \\%
 %& \uncover<8->{ = } &%
 \uncover<5->{%
-\displaystyle = \lim_{x\to \infty} \frac{\sqrt{\alert<handout:0| 5-6>{\uncover<6->{3+\frac{1}{x^2}}}}}{\alert<handout:0| 7-8>{\uncover<8->{2- \frac{3}{x}}}}%
+\displaystyle = \lim_{x\to \infty} \frac{\alertNoH{ 5-6}{\sqrt{ \fcAnswer{6}{3+\frac{1}{x^2}}}}}{\fcAnswerUncover{5}{8}{2- \frac{3}{x}} }%
 }%
 \uncover<9->{%
-\displaystyle = \frac{\sqrt{\displaystyle \alert<handout:0| 10-11>{ \lim_{x\to\infty}3} + \alert<handout:0| 12-13>{ \lim_{x\to\infty}\frac{1}{x^2}}}}{\displaystyle \alert<handout:0| 14-15>{\lim_{x\to\infty}2} - \alert<handout:0| 16-17>{3 \lim_{x\to\infty}\frac{1}{x}}}%
+\displaystyle = \frac{\sqrt{\displaystyle \alertNoH{ 10-11}{ \lim_{x\to\infty}3} + \alertNoH{ 12-13}{ \lim_{x\to\infty}\frac{1}{x^2}}}}{\displaystyle \alertNoH{ 14-15}{\lim_{x\to\infty}2} - \alertNoH{ 16-17}{3 \lim_{x\to\infty}\frac{1}{x}}}%
 }%
 \\%
 %& \uncover<9->{ = } &%
 \uncover<10->{%
-\displaystyle = \frac{\sqrt{\uncover<11->{\alert<handout:0| 11>{3}} + \uncover<13->{\alert<handout:0| 13>{0} } } }{ \uncover<15->{\alert<handout:0| 15>{2}} - \uncover<17->{ \alert<handout:0| 17>{0}}}%
+\displaystyle = \frac{\sqrt{\fcAnswerUncover{10}{ 11}{3} + \fcAnswerUncover{10}{ 13}{0} }  }{ \fcAnswerUncover{10}{ 15}{2} - \fcAnswerUncover{10}{ 17}{0}}%
 }%
 \uncover<18->{%
  = \frac{\sqrt{3}}{2}%
@@ -92,10 +92,10 @@ Find the horizontal and vertical asymptotes of $f(x) = \frac{\sqrt{3x^2+1}}{2x-3
 \[
 \begin{array}{l}
 \uncover<2->{%
-\displaystyle \lim_{x\to -\infty} \frac{\sqrt{3x^2+1}}{2 \alert<handout:0| 19>{x}-3 }\uncover<19->{\alert<handout:0| 19>{\cdot \frac{\alert<handout:0| 20>{ \frac{1}{ x}} }{\frac{1}{x}}}}%
+\displaystyle \lim_{x\to -\infty} \frac{\sqrt{3x^2+1}}{2 \alertNoH{ 19}{x}-3 }\uncover<19->{\alertNoH{ 19}{\cdot \frac{\alertNoH{ 20}{ \frac{1}{ x}} }{\frac{1}{x}}}}%
 }%
 \uncover<20->{%
-\displaystyle = \lim_{x\to -\infty} \frac{\sqrt{3x^2 +1}}{ 2x- 3}\cdot \frac{\alert<handout:0| 20>{\frac{-1}{\sqrt{x^2}}}}{\frac{1}{x}}%
+\displaystyle = \lim_{x\to -\infty} \frac{\sqrt{3x^2 +1}}{ 2x- 3}\cdot \frac{\alertNoH{ 20}{\frac{-1}{\sqrt{x^2}}}}{\frac{1}{x}}%
 }%
 \\%
 \uncover<21->{%
