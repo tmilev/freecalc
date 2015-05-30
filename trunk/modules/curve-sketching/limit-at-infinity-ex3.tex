@@ -1,6 +1,6 @@
 % begin module limit-at-infinity-ex3
 \begin{frame}
-\begin{example} %[Example 5, p. 130]
+\begin{example}
 \begin{columns}[c]
 \column{.45\textwidth}
 Evaluate $\lim\limits_{x\to \infty} \frac{3x^2-x-2}{5x^2+4x+1}$. %
@@ -30,7 +30,7 @@ Evaluate $\lim\limits_{x\to \infty} \frac{3x^2-x-2}{5x^2+4x+1}$. %
 %\only<23->{%
 %\includegraphics[width=5cm]{curve-sketching/pictures/04-04-ex3c.pdf}%
 %}%
-\uncover<22->{
+\uncover<22,23->{
 A similar calculation shows that the limit as $x\to -\infty$ is also $\frac{3}{5}$.
 }
 \column{.55\textwidth}
@@ -39,27 +39,23 @@ A similar calculation shows that the limit as $x\to -\infty$ is also $\frac{3}{5
 $
 \renewcommand{\arraystretch}{1.9}
 \begin{array}{cl}
-&\displaystyle 
-\lim\limits_{x\to \infty} \frac{\alert<handout:0| 4-5>{\left(3x^2-x-2\right)}}{\left( \alert<handout:0| 6-7>{ 5 \alert<handout:0| 3>{x^2}+4x+1}\right) }\uncover<3->{\alert<handout:0| 3>{\cdot \frac{\alert<handout:0| 4-5>{\frac{1}{x^2}}}{\alert<handout:0| 6-7>{\frac{1}{x^2}}}}}%
+&\displaystyle
+\lim\limits_{x\to \infty} \frac{\alertNoH{ 4-5}{\left(3x^2-x-2\right)}}{\left( \alertNoH{ 6-7}{ 5 \alertNoH{ 3}{x^2}+4x+1}\right) }\uncover<3->{\alertNoH{ 3}{\cdot \frac{\alertNoH{ 4-5}{\frac{1}{x^2}}}{\alertNoH{ 6-7}{\frac{1}{x^2}}}}}%
 \\%
 \uncover<4->{ = } &\displaystyle%
 \uncover<4->{%
-\lim\limits_{x\to \infty} \frac{\uncover<5->{\alert<handout:0| 5>{3 - \frac{1}{x} - \frac{2}{x^2}}}}{\uncover<7->{\alert<handout:0| 7>{5+\frac{4}{x} + \frac{1}{x^2}}}}%
+\lim\limits_{x\to \infty} \frac{\fcAnswer{ 5}{3 - \frac{1}{x} - \frac{2}{x^2}}}{\fcAnswer{ 7}{5+\frac{4}{x} + \frac{1}{x^2}}}%
 }%
 \\%
  \uncover<8->{ = } &\displaystyle %
 \uncover<8->{%
-\frac{\displaystyle \alert<handout:0| 9-10>{\lim_{x\to\infty}3} - \alert<handout:0| 11-12>{\lim_{x\to\infty}\frac{1}{x}} - \alert<handout:0| 13-14>{2\lim_{x\to\infty}\frac{1}{x^2}}}{\displaystyle \alert<handout:0| 15-16>{\lim_{x\to\infty}5} + \alert<handout:0| 17-18>{4\lim_{x\to\infty}\frac{1}{x}} + \alert<handout:0| 19-20>{\lim_{x\to\infty}\frac{1}{x^2}}}%
+\frac{\displaystyle \alertNoH{ 9-10}{\lim_{x\to\infty}3} - \alertNoH{ 11-12}{\lim_{x\to\infty}\frac{1}{x}} - \alertNoH{ 13-14}{2 \lim_{x\to\infty}\frac{1}{x^2}}}{\displaystyle \alertNoH{ 15-16}{ \lim_{x\to\infty}5} + \alertNoH{ 17-18}{4 \lim_{ x\to \infty } \frac{1}{x}} + \alertNoH{ 19-20}{ \lim_{x \to \infty } \frac{1}{x^2}}}%
 }%
 \\%
  \uncover<9->{ = } &\displaystyle%
-\uncover<9->{%
-\frac{\uncover<10->{\alert<handout:0| 10>{3}} - \uncover<12->{\alert<handout:0| 12>{0}} - \uncover<14->{\alert<handout:0| 14>{0}}}{\uncover<16->{\alert<handout:0| 16>{5}} + \uncover<18->{\alert<handout:0| 18>{0}} + \uncover<20->{\alert<handout:0| 20>{0}}}%
-}%
-\uncover<21->{ = } %
-\uncover<21->{%
-\frac{3}{5}%
-}%
+\uncover<9->{\frac{\fcAnswerUncover{9}{10}{3} - \fcAnswerUncover{9}{ 12}{0} - \fcAnswerUncover{9}{ 14}{0}}{\fcAnswerUncover{9}{ 16}{5} + \fcAnswerUncover{9}{ 18}{0} + \fcAnswerUncover{9}{ 20}{0}}}%
+\uncover<21->{ = }%
+\uncover<21->{\frac{3}{5}}%
 \end{array}
 $
 \end{columns}
