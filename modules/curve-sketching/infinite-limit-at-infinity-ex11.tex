@@ -24,6 +24,8 @@ Find the limits as $x\to \infty$ and $x\to -\infty$ of
 \psplot[linecolor=red, plotpoints=1000]{-1.43}{2.73}{x x 1 add 3 exp mul x -2 add 4 exp mul 0.0416667 mul x 1 add 3 exp x -2 add 4 exp mul -0.0416667 mul add }
 }
 \end{pspicture}
+\uncover<17->{}%to make sure the entire pstricks is displayed
+
 %\ \only<handout:0| -8>{%
 %\includegraphics[width=7cm]{curve-sketching/pictures/04-04-ex11a.pdf}%
 %}%
@@ -48,9 +50,9 @@ Find the limits as $x\to \infty$ and $x\to -\infty$ of
 \uncover<9->{\alertNoH{ 9}{\infty}}%
 \\%
 &%
-\uncover<4->{\alertNoH{ 4,9}{+}}&%
-\uncover<6->{\alertNoH{ 6,9}{+}}&%
-\uncover<8->{\alertNoH{ 8,9}{+}}&%
+(\fcAnswerUncover{3}{4}{\alertNoH{ 4,9}{+}})&%
+(\fcAnswerUncover{3}{6}{\alertNoH{ 6,9}{+}})&%
+(\fcAnswerUncover{3}{8}{\alertNoH{ 8,9}{+}})&%
 &\\%
 &&&&&\\%
 \displaystyle \lim_{x\to -\infty}&%
@@ -61,9 +63,9 @@ Find the limits as $x\to \infty$ and $x\to -\infty$ of
 \uncover<16->{\alertNoH{ 16}{\infty}}%
 \\%
 &%
-\uncover<11->{\alertNoH{ 11,16}{+}}&%
-\uncover<13->{\alertNoH{ 13,16}{-}}&%
-\uncover<15, 16, 17->{\alertNoH{ 15,16}{-}}&%
+(\fcAnswerUncover{3}{11}{\alertNoH{ 11,16}{+}} )&%
+(\fcAnswerUncover{3}{13}{\alertNoH{ 13,16}{-}} )&%
+(\fcAnswerUncover{3}{15}{\alertNoH{ 15,16}{-}})&%
 &%
 \end{array}
 $
