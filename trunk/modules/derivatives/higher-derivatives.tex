@@ -1,23 +1,30 @@
 % begin module higher-derivatives
 \begin{frame}
 \frametitle{Higher Derivatives}
-If $f$ is a differentiable function, then $f'$ is also a function, so $f'$ might have a derivative of its own, denoted by $(f')' = f''$.  This new function $f''$ is called the second derivative of $f$.
+\begin{itemize}
+\item Let $f$ be a differentiable function.
+\item Suppose $f'$ is also differentiable. 
+\item Call the derivative of $f'$ by $f''$. Call the derivative of $f''$ by $f'''$ (if it exists) and so on.
+\item $f''$ is called second derivative, $f'''$ -third derivative, and so on.
+\begin{itemize}
+\item $f'$ measures the rate of change of $f$.
+\item Therefore $f''$ measures the rate of change of the rate of change of $f$, and so on for the other derivatives.
+\item When $f$ measures distance traveled per time, the rate of change of the rate of change is called acceleration (instantaneous change of velocity with respect to time).
+\end{itemize}
+\end{itemize}
+\end{frame}
 
-In Leibniz notation, the second derivative of $y = f(x)$ is written
-\[
-\frac{\diff}{\diff x}\left( \frac{\diff y}{\diff x}\right) = \frac{\diff^2 y}{\diff x^2}.
-\]
+\begin{frame}
+\frametitle{Notation for Higher Derivatives}
 
-\uncover<2->{%
-We can interpret $f''(x)$ as a rate of change of a rate of change.  The most familiar example is acceleration, which is the instantaneous rate of change of velocity with respect to time.
-}%
-
-\uncover<3->{%
-The third derivative of $f$ is the derivative of the second derivative, and is written $f'''$.
-}%
-
-\uncover<4->{%
-The fourth derivative is denoted by $f^{(4)}$, and for $n > 3$ the $n$th derivative is denoted by $f^{(n)}$.
-}%
+\begin{tabular}{ccccc}
+Name& &  $y=f(x)$& Leibniz notation& $y=f(x)$\\\hline
+first derivative  & $f'(x)$& $y'$ & $\displaystyle \frac{\diff f}{\diff x} = \frac{\diff f}{\diff x}(x)$& $\displaystyle \frac{\diff y}{\diff x}$ \\ ~\\
+\uncover<2->{ second derivative & $f''(x)$& $y''$ & $\displaystyle \frac{\diff^2 f}{\diff x^2} = \frac{\diff^2 f}{\diff x^2}(x)$& $\displaystyle \frac{\diff^2 y}{\diff x^2}$\\~\\}
+\uncover<3->{third derivative & $f'''(x)$& $y'''$ & $\displaystyle \frac{\diff^3 f}{\diff x^3} = \frac{\diff^3 f}{\diff x^3}(x)$& $\displaystyle \frac{\diff^3 y}{\diff x^3}$\\~\\}
+\uncover<4->{\vdots\\ 
+$n^{th}$ derivative & $f^{\alertNoH{5}{(}n\alertNoH{5}{)}}(x)$& $y^{\alertNoH{5}{(}n\alertNoH{5}{)}}$ & $\displaystyle \frac{\diff^n f}{\diff x^n} = \frac{\diff^n f}{\diff x^n}(x)$& $\displaystyle \frac{\diff^n y}{\diff x^n}$}
+\end{tabular}
+\uncover<5->{\textbf{Note: } Do not confuse the superscript in the notation for $n^{th}$ derivative with exponent. The parenthesis indicate we mean derivatives rather than exponents. }
 \end{frame}
 % end module higher-derivatives
