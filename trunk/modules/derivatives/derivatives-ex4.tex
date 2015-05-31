@@ -1,24 +1,24 @@
 % begin module derivatives-ex4
 \begin{frame}
-\begin{example} %[Example 4, p. 138]
-Find the derivative of the function $f(x) = x^2 -8x + 9$ at the number $a$.
+\begin{example}
+Find the derivative of the function $f(\alertNoH{4,5}{x}) = {\alertNoH{4,5}{x}}^2 -8\alertNoH{4,5}{x} + 9$ at the number $a$.
 \abovedisplayskip=0pt
 \belowdisplayskip=-15pt
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
 \begin{align*}
 \uncover<2->{f'(a)} & \uncover<2->{=}  %
-\uncover<3->{\lim_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h}}\\
+\uncover<2->{\lim_{h\rightarrow 0} \frac{f(\fcAnswer{3}{ \alertNoH{4}{a +h} })- f(\fcAnswer{3}{\alertNoH{5}{a} }) }{ \fcAnswer{3}{h}}}\\
  & \uncover<4->{=}  %
-\uncover<4->{\lim_{h\rightarrow 0}\frac{[(a+h)^2-8(a+h)+9]-[a^2-8a+9]}{h}}\\
- & \uncover<5->{=}  %
-\uncover<5->{\lim_{h\rightarrow 0}\frac{[a^2 + 2ah + h^2-8a-8h+9]-[a^2-8a+9]}{h}}\\
+\uncover<4->{\lim_{h\rightarrow 0} \frac{ \alertNoH{6}{ (\alertNoH{4}{a+h})^2 } \alertNoH{7}{- 8(\alertNoH{4}{a+h})}+9 -\left( {\alertNoH{5}{a}}^2-8\alertNoH{5}{a}+9\right)}{h}}\\
  & \uncover<6->{=}  %
-\uncover<6->{\lim_{h\rightarrow 0}\frac{2ah + h^2-8h}{h}}\\
- & \uncover<7->{=}  %
-\uncover<7->{\lim_{h\rightarrow 0}\frac{h(2a + h-8)}{h}}\\
+\uncover<6->{\lim_{h\rightarrow 0}\frac{ \alertNoH{6}{ \fcCancel{8}{a^2} + 2ah + h^2} \alertNoH{7}{ -\fcCancel{8}{8a}- 8h}+ \fcCancel{8}{9} -\left( \fcCancel{8}{a^2}- \fcCancel{8}{8a}+\fcCancel{8}{9}\right)}{h}}\\
  & \uncover<8->{=}  %
-\uncover<8->{\lim_{h\rightarrow 0}(2a + h-8)} \uncover<9->{ = 2a-8.}
+\uncover<8->{\lim_{h\rightarrow 0}\frac{2ah + h^2-8h}{h}}\\
+ & \uncover<9->{=}  %
+\uncover<9->{\lim_{h\rightarrow 0}\frac{\fcCancel{10}{h}(2a + h-8)}{\fcCancel{10}{h}}}\\
+ & \uncover<10->{=}  %
+\uncover<10->{\alertNoH{11}{\lim_{h\rightarrow 0}}(2a + \alertNoH{11}{h}-8)} \uncover<11->{ = 2a-8.}
 \end{align*}
 \end{example}
 \end{frame}
