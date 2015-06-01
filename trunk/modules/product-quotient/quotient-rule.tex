@@ -1,11 +1,22 @@
 % begin module quotient-rule
 \begin{frame}
-The proof of the Quotient Rule uses a trick similar to the one in the proof of the Product Rule.  
 \begin{theorem}[The Quotient Rule]
-If $f$ and $g$ are differentiable, then
+If $f$ and $g$ are differentiable and $g(x)\neq 0$, then
 \[
-\frac{\diff}{\diff x} \left[ \frac{f(x)}{g(x)}\right] = \frac{\frac{\diff}{\diff x} [f(x)] g(x)- f(x) \frac{\diff}{\diff x}[g(x)]}{[g(x)]^2}
+\renewcommand{\arraystretch}{2}
+\begin{array}{rcl l|l}
+\displaystyle \alertNoH{2}{ \frac{\diff}{\diff x} \left( \frac{f(x)}{g(x)}\right)} &=&\displaystyle  \frac{\alertNoH{3}{\frac{\diff}{\diff x} \left( f(x)\right)} g(x)- f(x) \alertNoH{4}{\frac{\diff}{\diff x}\left(g(x)\right)}}{\left(g(x)\right)^2} &&\text{(\alertNoH{2,3,4}{Leibniz notation})}\\
+\uncover<2->{ \displaystyle \alertNoH{2}{\left( \frac{f(x)}{g(x)} \right)'} &=&\displaystyle  \frac{ \alertNoH{3}{f'(x)} g(x)- f(x)\alertNoH{4}{ g'(x)}}{\left(g(x)\right)^2}&& \alertNoH{2,3,4}{'\text{ notation}}}\\
+\uncover<5->{ \displaystyle \left( \frac{f}{g} \right)' &=&\displaystyle  \frac{ f' g- f g'}{g^2}&& \alertNoH{5}{\text{abbreviated}}} \\
+\end{array}
 \]
 \end{theorem}
+\begin{itemize}
+\item<6-> The proof of the Quotient Rule is similar to the proof of the Product Rule. 
+\item<7-> There is an alternative algebraic proof via the Product Rule, the Power Rule and the (not yet studied) Chain Rule.
+\end{itemize}
+
+
+
 \end{frame}
 % end module quotient-rule

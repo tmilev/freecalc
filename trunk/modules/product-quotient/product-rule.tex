@@ -5,25 +5,25 @@ If $f$ and $g$ are both differentiable, then
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
-\frac{\diff}{\diff x} [f(x)g(x)] =\frac{\diff}{\diff x} [f(x)] g(x)+ f(x)\frac{\diff}{\diff x} [g(x)]  .
+\alertNoH{20}{ \left(f(x)g(x)\right)' =f'(x) g(x)+ f(x) g'(x)}  .
 \]
 \end{theorem}
 \begin{proof}
-\uncover<2->{Let $\alert<handout:0| 4>{F(x) = f(x)g(x)}$.  Then}
+\uncover<2->{Let $\alertNoH{ 4,20}{F(x) = f(x)g(x)}$.  Then}
 \abovedisplayskip=0pt
 \belowdisplayskip=-15pt
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
 \begin{align*}
- \uncover<2->{F'(x)}  & \uncover<2->{ = } \uncover<3->{\lim_{h\rightarrow 0}\frac{F(x+h)-F(x)}{h}}  \uncover<4->{ = } \uncover<4->{\lim_{h\rightarrow 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h}}\\
+ \uncover<2->{\alertNoH{20}{F'(x)}}  & \uncover<2->{ = } \uncover<3->{\lim_{h\rightarrow 0}\frac{F(x+h)-F(x)}{h}}  \uncover<4->{ = } \uncover<4->{\lim_{h\rightarrow 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h}}\\
 & \uncover<5->{ = }  %
-\uncover<5->{\lim_{h\rightarrow 0}\frac{f(x+h)g(x+h) \alert<handout:0| 5>{- f(x+h)g(x) + f(x+h)g(x)} - f(x)g(x)}{h}}\\
+\uncover<5->{\lim_{h\rightarrow 0}\frac{\alertNoH{6}{f(x+h)}\alertNoH{7}{g(x+h)} \alertNoH{ 5}{\alertNoH{7}{-} \alertNoH{6}{f(x+h)}\alertNoH{7}{g(x)} + \alertNoH{9}{f(x+h)}\alertNoH{8}{ g(x)}} \alertNoH{9}{- f(x)}\alertNoH{8}{g(x)}}{\alertNoH{10}{h}}}\\
 & \uncover<6->{ = }  %
-\uncover<6->{\lim_{h\rightarrow 0}\left[f(x+h) \frac{g(x+h)- g(x)}{h} + g(x)\frac{f(x+h)- f(x)}{h}\right]}\\
-& \uncover<7->{ = }  %
-\uncover<7->{\alert<handout:0| 8-9>{\lim_{h\rightarrow 0}f(x+h)}\alert<handout:0| 10-11>{\cdot \lim_{h\rightarrow 0}\frac{g(x+h) - g(x)}{h}}}\\
-& \qquad \uncover<7->{ + \alert<handout:0| 12-13>{\lim_{h\rightarrow 0}g(x)}\alert<handout:0| 14-15>{\cdot\lim_{h\rightarrow 0}\frac{f(x+h)- f(x)}{h}} } %
-\uncover<8->{ = } \uncover<9->{ \alert<handout:0| 9>{f(x)}}\uncover<11->{\alert<handout:0| 11>{g'(x)}} \uncover<13->{ + \alert<handout:0| 13>{g(x)}}\uncover<15->{\alert<handout:0| 15>{f'(x)}\mbox{\qedhere}}
+\uncover<6->{\lim_{h\rightarrow 0}\left( \alertNoH{6}{ f(x+h)} \frac{\alertNoH{7}{g(x+h)- g(x)}}{\alertNoH{10}{h}} + \alertNoH{8}{g(x)}\frac{\alertNoH{9}{f(x+h)- f(x)}}{\alertNoH{10}{h}}\right)}\\
+& \uncover<11->{ = }  %
+\uncover<11->{\alertNoH{ 12-13}{\lim_{h\rightarrow 0}f(x+h)} \alertNoH{ 14-15}{\cdot \lim_{h\rightarrow 0}\frac{g(x+h) - g(x)}{h}}}\\
+& \qquad \uncover<11->{ + \alertNoH{ 16-17}{\lim_{h\rightarrow 0}g(x)}\alertNoH{ 18-19}{\cdot\lim_{h\rightarrow 0}\frac{f(x+h)- f(x)}{h}} } %
+\alertNoH{20}{ \uncover<12->{ = }  \fcAnswerUncover{12}{13}{f(x)}\fcAnswerUncover{12}{ 15}{g'(x)}  + \fcAnswerUncover{12}{ 17}{g(x)} \fcAnswerUncover{12}{ 19}{f'(x) } }  \uncover<20->{\mbox{\qedhere}}
 \end{align*}
 \end{proof}
 \end{frame}
