@@ -15,10 +15,10 @@ If $f$ and $g$ are both differentiable, then
 \belowdisplayshortskip=0pt
 \begin{align*}
 \uncover<2->{%
-\text{Let}\quad \alert<handout:0| 4>{F(x)}
+\text{Let}\quad \alertNoH{ 4}{F(x)}
 }%
  &  \uncover<2->{%
-\alert<handout:0| 4>{= f(x) + g(x)}.%
+\alertNoH{ 4}{= f(x) + g(x)}.%
 }\\%
 \uncover<3->{%
 \text{Then}\quad F'(x)%
@@ -27,19 +27,19 @@ If $f$ and $g$ are both differentiable, then
  = \lim_{h\rightarrow 0}\frac{F(x+h)-F(x)}{h}%
 }\\%
 & \uncover<4->{%
- = \lim_{h\rightarrow 0}\frac{[\alert<handout:0| 6>{f(x+h)}+\alert<handout:0| 7>{g(x+h)}]-[\alert<handout:0| 6>{f(x)}+\alert<handout:0| 7>{g(x)}]}{h}%
+ = \lim_{h\rightarrow 0}\frac{[\alertNoH{ 6}{f(x+h)}+\alertNoH{ 7}{g(x+h)}]-[\alertNoH{ 6}{f(x)}+\alertNoH{ 7}{g(x)}]}{h}%
 }\\%
 & \uncover<5->{%
- = \lim_{h\rightarrow 0}\left[ \frac{\alert<handout:0| 6>{f(x+h) - f(x)}}{h} + \frac{\alert<handout:0| 7>{g(x+h)-\alert<handout:0| 7>{g(x)}}}{h}\right]%
+ = \lim_{h\rightarrow 0}\left[ \frac{\alertNoH{ 6}{f(x+h) - f(x)}}{h} + \frac{\alertNoH{ 7}{g(x+h)-\alertNoH{ 7}{g(x)}}}{h}\right]%
 }\\%
 \uncover<8->{%
 \text{Limit Law 1:}\quad %
 }%
 & \uncover<8->{%
- = \lim_{h\rightarrow 0} \frac{f(x+h) - f(x)}{h} + \lim_{h\rightarrow 0}\frac{g(x+h)-g(x)}{h}%
+ = \alertNoH{9}{ \lim_{h\rightarrow 0} \frac{f(x+h) - f(x)}{h}} + \alertNoH{10}{\lim_{h\rightarrow 0}\frac{g(x+h)-g(x)}{h}}%
 }\\%
 & \uncover<9->{%
- = f'(x)+g'(x).%
+ =\alertNoH{9}{ f'(x)} +\alertNoH{10}{g'(x)}.%
 }\uncover<9->{\qedhere}
 \end{align*}
 \end{proof}

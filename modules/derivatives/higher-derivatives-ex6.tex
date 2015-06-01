@@ -1,14 +1,13 @@
 % begin module higher-derivatives-ex6
 \begin{frame}
-\begin{example} %[Example 7, p. 153]
+\begin{example}
 If $f(x) = x^3-x$, find $f''(x)$.
 \begin{columns}[c]
-\column{.4\textwidth}
+\column{.37\textwidth}
 \psset{xunit=1.2cm, yunit=1.2cm}
 \begin{pspicture}(-2,-2)(2,2)
 \tiny
-\psframe*[linecolor=white](-2,-2)(2,2)
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-2,-2)(2,2)
+\fcAxesStandard{-2}{-2}{1.85}{2}
 \fcLabelXOne
 \fcLabelYOne
 \uncover<8->{
@@ -35,25 +34,22 @@ If $f(x) = x^3-x$, find $f''(x)$.
 %\includegraphics[height=4.5cm]{derivatives/pictures/03-02-ex6c.pdf}%
 %}%
 
-\column{.6\textwidth}
+\column{.63\textwidth}
 \uncover<2->{%
-In a previous exercise we found that the first derivative is $f'(x) = 3x^2 - 1$.
+In a previous exercise we found that the first derivative is $f'(\alertNoH{4,5}{x}) = 3{\alertNoH{4,5}{x}}^2 - 1$.
 }%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
-\begin{align*}
-&  \uncover<3->{f''(x)}\\%
- & \uncover<3->{ = }  %
-\uncover<3->{\lim_{h\rightarrow 0}\frac{f'(x+h)-f'(x)}{h}}\\%
- & \uncover<4->{ = }  %
-\uncover<4->{\lim_{h\rightarrow 0}\frac{[3(x+h)^2-1]-[3x^2-1]}{h}}\\%
- & \uncover<5->{ = }  %
-\uncover<5->{\lim_{h\rightarrow 0}\frac{3x^2 + 6xh + 3h^2 -1 - 3x^2 +1}{h}}\\%
- & \uncover<6->{ = }  %
-\uncover<6->{\lim_{h\rightarrow 0}\frac{6xh + 3h^2}{h}}\\%
- & \uncover<7->{ = }  %
-\uncover<7->{\lim_{h\rightarrow 0}(6x + 3h)}\uncover<8->{ = 6x}%
-\end{align*}
+$
+\begin{array}{@{}r@{}c@{}l}
+\uncover<3->{f''(x)} & \uncover<3->{ = }  & \displaystyle \uncover<3->{\lim_{h\rightarrow 0}\frac{f'(\alertNoH{4}{x+h})-f'(\alertNoH{5}{x})}{h}}\\%
+& \uncover<4->{ = }  & \displaystyle \uncover<4->{ \lim_{h \rightarrow 0} \frac{ \alertNoH{6}{3(\alertNoH{4}{ x+h})^2} -1 \alertNoH{7}{-\left(3 {\alertNoH{5}{x}}^2 -1\right)}}{h}}\\%
+& \uncover<6->{ = }  & \displaystyle \uncover<6->{\lim_{h \rightarrow 0} \frac{ \alertNoH{6}{ \fcCancel{8}{3 x^2} + 6xh + 3h^2} -\fcCancel{8}{1} \alertNoH{7}{- \fcCancel{8}{3x^2} +\fcCancel{8}{1}}}{h}}\\%
+& \uncover<8->{ = }  & \displaystyle \uncover<8->{\lim_{h \rightarrow 0}\frac{6x\alertNoH{9}{h} + 3{\alertNoH{9}{h}}^2}{h}}\\%
+& \uncover<9->{ = }  & \displaystyle \uncover<9->{\lim_{h \rightarrow 0}\frac{\fcCancel{10}{\alertNoH{9}{h}}(6x + 3h)}{\fcCancel{10}{h}}}\\%
+& \uncover<10->{ = }  & \displaystyle \uncover<10->{\alertNoH{11}{ \lim_{h \rightarrow 0}} ( 6x +\alertNoH{11}{ 3h} )}\uncover<11->{ = 6x}%
+\end{array}
+$
 \end{columns}
 \end{example}
 \end{frame}
