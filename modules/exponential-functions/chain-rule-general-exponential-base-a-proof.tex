@@ -1,0 +1,44 @@
+% begin module chain-rule-general-exponential-base-a.tex
+\begin{frame}
+\begin{example}[Chain Rule, general exponential function]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad y & = \alertNoH{16}{ \alertNoH{2-3,17}{ 2}^x} .\\
+\uncover<2->{y} & \uncover<2->{= \alertNoH{15,16}{ {\alertNoH{2-3}{\left( e^{\fcAnswer{3}{\alertNoH{4}{\ln {\alertNoH{17}{2}} }}} \right) }}^{ \alertNoH{4}{x}}}} \\
+\uncover<4->{y} & \uncover<4->{= \alertNoH{15}{e^{\alertNoH{4,7}{x\ln {\alertNoH{17}{2}}}}}.}\\
+\uncover<5->{\text{Let} \quad \alertNoH{5-7, 13-14, 11-12}{u} &\alertNoH{5-7}{\alertNoH{11-14}{=}} \fcAnswerNoH{6}{ \alertNoH{7, 11-12, 13-14}{ x\ln {\alertNoH{17}{2}}.}} } \\
+\uncover<7->{\text{Then} \quad \alertNoH{9-10}{y} &\alertNoH{9-10}{= \uncover<7-| handout:0>{ e^{\alertNoH{7}{u}}.}}} \\
+\uncover<8->{\text{Chain Rule:}\quad \frac{\diff y}{\diff x} &= \alertNoH{9-10}{ \frac{\diff y}{\diff u}}\alertNoH{11-12}{ \frac{\diff u}{\diff x}}}\\
+\uncover<9->{&= \alertNoH{9-10}{(\fcAnswerNoH{10}{ e^{\alertNoH{13-14}{u}}})}\alertNoH{11-12}{(\fcAnswerUncoverNoH{9}{12}{\ln {\alertNoH{17}{2}}})} }\\
+\uncover<13->{ &=} \uncover<13-| handout:0>{\left( \alertNoH{15}{ e^{\alertNoH{13-14}{(\fcAnswer{14}{x\ln {\alertNoH{17}{2}}} )}}}\right) (\ln {\alertNoH{17}{2}})}\\
+\uncover<15->{& =} \uncover<15-| handout:0>{\alertNoH{15,16}{\left( e^{\ln {\alertNoH{17}{2}}}\right)^x}(\ln {\alertNoH{17}{2}})}\\
+\uncover<16->{& =} \uncover<16-| handout:0>{\alertNoH{16}{{\alertNoH{17}{2}}^x} \ln 2.}
+\end{align*}
+\end{example}
+\end{frame}
+
+
+\begin{frame}
+\begin{example}[Chain Rule, general exponential function]
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\text{Differentiate}\quad y & = {\alertNoH{1}{a}}^x .\\
+y & =  {\alertNoH{0}{ \left( e^{\alertNoH{0}{\ln {\alertNoH{1}{a}}}} \right)}} ^{x} \\
+y & = e^{x\ln {\alertNoH{1}{a}}}.\\
+\text{Let} \quad u &=  x\ln {\alertNoH{1}{a}}.\\
+\text{Then} \quad y &=  e^{u}. \\
+\text{Chain Rule:}\quad \frac{\diff y}{\diff x} &= \frac{\diff y}{\diff u}\frac{\diff u}{\diff x}\\
+&= ( e^{u})(\ln {\alertNoH{1}{a}})\\
+&=\alertNoH{0}{ \left(  e^{\alertNoH{0}{(x\ln \alertNoH{1}{a} )}}\right)} (\ln {\alertNoH{1}{a}})\\
+&= \left( e^{\ln {\alertNoH{1}{a}}}\right)^x(\ln {\alertNoH{1}{a}})\\
+&= a^x \ln {\alertNoH{1}{a}}.
+\end{align*}
+\end{example}
+\end{frame}
+% begin module chain-rule-general-exponential.tex

@@ -2,15 +2,15 @@
 \begin{frame}
 \frametitle{The Chain Rule}
 \begin{itemize}
-\item  What is the derivative of $F(x) = \sqrt{x^2 + 1}$?
+\item  What is the derivative of $F(x) = \only<handout:0|6>{\color{red}} \sqrt{\only<handout:0|6>{ \color{black}}\alertNoH{8}{ x^2 + 1} }$?
 \item<2->  The Power Rule doesn't tell us how to find the derivative.
 \item<3->  $F$ is a composite function $f\circ g$:
-\item<3-| alert@4-5,9,11-12>  $y = f(u) = \uncover<5->{\sqrt{u}}$.
-\item<3-| alert@6-8,13-14>  $u = g(x) = \uncover<7->{x^2+1}$.
-\item<3->  Then $y = F(x) = f(\alert<handout:0| 8>{g(x)}) = \uncover<8->{\alert<handout:0| 9>{f(\alert<handout:0| 8>{x^2+1}) =}}  \uncover<9->{\alert<handout:0| 9>{\sqrt{x^2+1}}.}$
+\item<3-| alert@4-5,9,11-12>  $y = \alertNoH{6}{f(}u \alertNoH{6}{)} = \only<handout:0|6>{\color{red}} \fcAnswerUncover{3}{5}{ \sqrt{\only<handout:0|6>{\color{black}} u}}$.
+\item<3-| alert@7-9,13-14>  $u = g(x) = \fcAnswerUncover{3}{8}{ x^2+1}$.
+\item<3->  Then $y = F(x) = \alertNoH{9}{ \alertNoH{6}{f(} \alertNoH{ 8}{g(x)}\alertNoH{6}{ ) } =} \uncover<9->{\alertNoH{9}{ f(\alertNoH{ 8}{x^2+1}) }}  \uncover<9->{\alertNoH{ 9}{=\sqrt{x^2+1}}.}$
 \item<10->  We know the derivatives of $f$ and $g$:
-\item<10-| alert@11-12>  $f'(u) = \uncover<12->{\frac{1}{2}u^{-1/2}}$.
-\item<10-| alert@13-14>  $g'(x) = \uncover<14->{2x}$.
+\item<10-| alert@11-12>  $f'(u) = \fcAnswerUncover{10}{12}{ \frac{1 }{2}u^{-\frac{1}{2}}}$.
+\item<10-| alert@13-14>  $g'(x) = \fcAnswerUncover{10}{14}{ 2x}$.
 \item<15->  It would be nice if we could find the derivative of $F$ in terms of the derivatives of $y$ and $u$.
 \item<16->  It turns out that the derivative of the composition $f\circ g$ is the product of the derivative of $f$ and the derivative of $g$.
 \item<17->  This important fact is called the Chain Rule.
