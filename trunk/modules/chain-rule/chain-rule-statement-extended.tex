@@ -2,14 +2,14 @@
 \begin{frame}
 \frametitle{The Chain Rule}
 
-Let $g$ and $h$ be functions. Recall that the composite function $f=g\circ h$ is defined via $f(x) = g(h(x))$.
-\begin{theorem} Let $h$ be differentiable at $x$ and let $g$ be a differentiable at $h(x)$. Then the composite function $f = g\circ h$  is differentiable at $x$ and $f'$ is given by the product
+Let $f$ and $g$ be functions. Recall that the composite function $F=f\circ g$ is defined via $F(x) = f(g(x))$.
+\begin{theorem} Let $g$ be differentiable at $x$ and let $f$ be a differentiable at $g(x)$. Then the composite function $F = f\circ g$  is differentiable at $x$ and $F'$ is given by the product
 \[
 \begin{array}{rclll}
-\alertNoH{4}{f'(x)} &=&\alertNoH{5}{ g'(\alertNoH{3}{ h(x)}) } \cdot \alertNoH{6}{ {\alertNoH{3}{ h}}'\alertNoH{3}{(x)}}&& \text{(notation 1)}  \\
+\alertNoH{4}{F'(x)} &=&\alertNoH{5}{ f'(\alertNoH{3}{ g(x)}) } \cdot \alertNoH{6}{ {\alertNoH{3}{ g}}'\alertNoH{3}{(x)}}&& \text{(notation 1)}  \\
 \uncover<2->{&&&& \text{equivalently:}}\\
-\uncover<3->{f'(x)=(g(\alertNoH{3}{u}))'&=&g'(\alertNoH{3}{u}) {\alertNoH{3}{u}}'&\text{where } \alertNoH{3,6}{u=h(x)}& \text{(notation 2)}}\\
-\uncover<4->{\displaystyle \alertNoH{4}{\frac{\diff y}{\diff x}} &=& \displaystyle \alertNoH{5}{ \frac{\diff y}{\diff u} } \alertNoH{6}{ \frac{\diff u}{\diff x}} &\text{where } \alertNoH{4}{ y=g(u)}& \text{(notation 3)}\quad.}\\
+\uncover<3->{F'(x)=(f(\alertNoH{3}{u}))'&=&f'(\alertNoH{3}{u}) {\alertNoH{3}{u}}'&\text{where } \alertNoH{3,6}{u=g(x)}& \text{(notation 2)}}\\
+\uncover<4->{\displaystyle \alertNoH{4}{\frac{\diff y}{\diff x}} &=& \displaystyle \alertNoH{5}{ \frac{\diff y}{\diff u} } \alertNoH{6}{ \frac{\diff u}{\diff x}} &\text{where } \alertNoH{4}{ y=f(u)}& \text{(notation 3)}\quad.}\\
 \end{array}
 \]
 \end{theorem}
