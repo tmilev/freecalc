@@ -1163,13 +1163,13 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 \uncover<2->{%
 \text{Plug in $#1$:}\quad%
 \frac%
-{\alert<handout:0| 2-3>{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
-{\alert<handout:0| 4-5>{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
+{\alertNoH{2-3}{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
+{\alertNoH{4-5}{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
 }%
 & \uncover<2->{%
 = \frac%
-{\uncover<3->{\alert<handout:0| 3>{0}}}%
-{\uncover<5->{\alert<handout:0| 5>{0}}}%
+{\fcAnswerUncoverNoH{2}{3}{0}}%
+{\fcAnswerUncoverNoH{2}{5}{0}}%
 }%
 \uncover<6->{%
 \intertext{Zero over zero is undefined, so we can't use direct substitution.}
@@ -1177,21 +1177,21 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 \uncover<7->{%
 \text{Factor:}\quad%
 \lim_{x\to #1} \frac%
-{\alert<handout:0| 8-9>{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}}%
-{\alert<handout:0| 10-11>{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
+{\alertNoH{8-9}{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}}%
+{\alertNoH{10-11}{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
 }%
 & \uncover<8->{%
  = \lim_{x\to #1} \frac%
 {%
-\uncover<handout:0| 9->{\alert<handout:0| 9>{%
+\fcAnswerUncoverNoH{8}{9}{%
 (\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg)%
 \fcCancel{12}{#6}%
-}}%
+}%
 }{%
-\uncover<handout:0| 11->{\alert<handout:0| 11>{%
+\fcAnswerUncoverNoH{8}{11}{%
 (\noexpandarg\StrSubstitute{#5}{UU}{x}\expandarg)%
 \fcCancel{12}{#6}%
-}}%
+}%
 }%
 }\\%
 & \uncover<12->{%
@@ -1487,9 +1487,9 @@ x_3 %
 \begin{align*}
 \text{Differentiate:}\quad y & = #1.\\%
 \uncover<2->{\frac{\diff y}{\diff x} & = \alert<handout:0|3-5>{\frac{\diff}{\diff x}\left( #1\right)}}\\%
-\uncover<4->{\text{Chain Rule:} \ \ \quad &= \alert<handout:0|4-5>{\left(\uncover<5-| handout:0>{#2} \right)\alert<handout:0|6-8>{\frac{\diff}{\diff x} \left(\uncover<4-| handout:0>{#3}\right)}}} \\%
-\uncover<7->{\text{Chain Rule:} \ \ \quad &= \left(\uncover<7-| handout:0>{#2}\right) \alert<handout:0|7-8>{\left(\uncover<8-| handout:0>{#4}\right) \alert<handout:0|9-10>{\frac{\diff}{\diff x}\left( \uncover<7-| handout:0>{#5} \right)}}}\\%
-\uncover<9->{\uncover<10->{\ifthenelse{\equal{#7}{}}{}{\text{#7 :} \ \ \quad}}& = \left(\uncover<9-| handout:0>{#2} \right) \left(\uncover<9-| handout:0>{#4}\right)\alert<handout:0|9-10>{\left( \uncover<10-| handout:0>{#6} \right) }} \\%
+\uncover<4->{\text{Chain Rule:} \ \ \quad &= \alert<handout:0|4-5>{\left(\fcAnswerNoH{5}{#2} \right)\alert<handout:0|6-8>{\frac{\diff}{\diff x} \left(\uncover<4-| handout:0>{#3}\right)}}} \\%
+\uncover<7->{\text{Chain Rule:} \ \ \quad &= \left(\uncover<7-| handout:0>{#2}\right) \alert<handout:0|7-8>{\left(\fcAnswerNoH{8}{#4}\right) \alert<handout:0|9-10>{\frac{\diff}{\diff x}\left( \uncover<7-| handout:0>{#5} \right)}}}\\%
+\uncover<9->{\uncover<10->{\ifthenelse{\equal{#7}{}}{}{\text{#7 :} \ \ \quad}}& = \left(\uncover<9-| handout:0>{#2} \right) \left(\uncover<9-| handout:0>{#4}\right)\alert<handout:0|9-10>{\left( \fcAnswerNoH{10}{#6} \right) }} \\%
 \uncover<11->{& = \uncover<11-| handout:0>{#8 \ifthenelse{\equal{#9}{}}{.}{\\}}}%
 \ifthenelse{\equal{#9}{}}{}{\uncover<12->{& = \uncover<12-| handout:0>{#9.}}}
 \end{align*}
