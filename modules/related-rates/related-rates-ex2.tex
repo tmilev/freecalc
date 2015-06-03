@@ -1,62 +1,93 @@
 % begin module related-rates-ex2
 \begin{frame}
+\vskip -0.2cm
 \begin{example}
-A ladder 10 ft long rests against a vertical wall.  If \alertNoH{ 5}{the bottom of the ladder slides away from the wall at a rate of 1 ft/s}, \alertNoH{ 7}{how fast is the top of the ladder sliding down the wall when the bottom is 6 ft from the wall?}
-\begin{columns}[c]
-\column{.5\textwidth}
-\begin{itemize}
-\item<2->  Let $y$ be the distance from the top to the ground.
-\item<2->  Let $x$ be the distance from the bottom to the wall.
-\item<3-| alert@4-5,15>  Given: $\uncover<5->{\frac{\diff x}{\diff t} = 1}$ \uncover<5->{ft/s.}
-\item<3-| alert@6-7> Unknown: \uncover<7->{$\frac{\diff y}{\diff t}$ \alertNoH{ 17}{when $x = 6$ ft}.}
-\item<19-| alert@19>  Pythagorean Theorem: $y = 8$.
-\end{itemize}
-\begin{enumerate}
-\item<8-| alert@9-10>  Find an equation relating the two quantities.
-\item<8-| alert@11>  Use the Chain Rule to differentiate both sides.
-\end{enumerate}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-1, -1)(7,9)
+\tiny
+\fcBoundingBox{-2}{-2}{12}{12}
+\fcAxesStandardNoFrame{-1}{-1}{12}{12}
+\psline[linecolor=\fcColorGraph](0, 8)(6,0)
+\uncover<4->{
+\rput[lb](3.1, 4.2){$\alertNoH{4}{10}$}
+}
+\uncover<6->{%
+\psline[linewidth=2pt, arrows=->, linecolor=brown](6,0)(10,0)
+\rput[b](8,0.5){$\frac{\diff x}{\diff t} $}
+}
+\uncover<8->{%
+\psline[linewidth=2pt, arrows=->, linecolor=brown](0,8)(0,4)
+\rput[l](0.5,6){$\frac{\diff y}{\diff t} $}
+}
+\fcFullDot{0}{8}
+\fcFullDot{6}{0}
+\uncover<3->{\fcLengthIndicator[linecolor=blue]{0}{-1}{6}{-1}{$ x$}}
+\uncover<2->{\fcLengthIndicator[linecolor=blue]{-1}{0}{-1}{8}{$ y$}}
+\uncover<handout:0|11>{\psline[linecolor=red, linewidth=2pt](0,0)(6,0)(0,8)(0,0)}
+\rput[b](3, 0.2){$\fcAnswerUncover{14}{18}{6}$}
+\rput[l](0.2, 4){$\fcAnswerUncover{14}{20}{8}$}
+\uncover<20->{\psline(0.4,0)(0.4,0.4)(0, 0.4)}
+\end{pspicture}
+\column{0.7\textwidth}
 
-\column{.5\textwidth}
+\alertNoH{4}{10 ft ladder} rests against a vertical wall.  \alertNoH{ 6}{The bottom of the ladder slides away from the wall at a rate of 1 ft/s}. \alertNoH{ 8}{How fast is the ladder top sliding down when the bottom is 6 ft from the wall?}
+\end{columns}
+
+\begin{columns}[c]
+\column{.55\textwidth}
+\begin{itemize}
+\item<2->  Let \alertNoH{2}{$y$= dist. from top to ground}.
+\item<2->  Let \alertNoH{3}{$x$= dist. from bottom to wall}.
+\item<5-| alert@5-6,16>  Given: $\fcAnswerUncover{4}{6}{ \frac{\diff x}{\diff t} = 1}$ \uncover<6->{ft/s.}
+\item<5-| alert@6-7> Unknown: \fcAnswerUncover{4}{8}{$\frac{\diff y}{\diff t}$ \alertNoH{ 18}{when $x = 6$ ft}.}
+\item<20-| alert@20>  Pythagorean Therem: $y =\sqrt{10^2-6^2}= 8$.
+\item<9-| alert@10-11>  Relationship b/n quantities.
+\item<9-| alert@12>  Differentiate (use Chain Rule).
+\end{itemize}
+
+\column{.45\textwidth}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
 \begin{align*}
-\uncover<10->{%
-\alertNoH{ 10}{x^2+y^2}%
-}%
-& \uncover<10->{\alertNoH{ 10}{ = }} %
-\uncover<10->{%
-\alertNoH{ 10}{100}%
-}\\%
 \uncover<11->{%
-2x\frac{\diff x}{\diff t} + 2y\frac{\diff y}{\diff t}%
+\alertNoH{11}{x^2+y^2}%
 }%
-& \uncover<11->{ = } %
+& \uncover<11->{\alertNoH{ 11}{ = }} %
 \uncover<11->{%
-0%
+\alertNoH{11}{10^2=100}%
 }\\%
 \uncover<12->{%
-\frac{\diff y}{\diff t}%
+2x\frac{\diff x}{\diff t} + 2y\frac{\diff y}{\diff t}%
 }%
 & \uncover<12->{ = } %
 \uncover<12->{%
--\frac{\alertNoH{ 16-17}{x}}{\alertNoH{ 18-19}{y}}\alertNoH{ 14-15}{\frac{\diff x}{\diff t}}%
+0%
 }\\%
 \uncover<13->{%
 \frac{\diff y}{\diff t}%
 }%
 & \uncover<13->{ = } %
 \uncover<13->{%
--\frac{\alertNoH{ 17}{\uncover<17->{ 6\textrm{ ft} }}}{\alertNoH{ 19}{\uncover<19->{8\textrm{ ft}}}}\cdot\alertNoH{ 14-15}{\uncover<15->{ 1\textrm{ ft/s}}}%
+-\frac{\alertNoH{ 17-18}{x}}{\alertNoH{19-20}{y}}\alertNoH{ 15-16}{\frac{\diff x}{\diff t}}%
 }\\%
-& \uncover<20->{ = } %
-\uncover<20->{%
--3/4 \textrm{ ft/s.}%
+\uncover<14->{%
+\frac{\diff y}{\diff t}%
+}%
+& \uncover<14->{ = } %
+\uncover<14->{%
+-\frac{\fcAnswerUncover{14}{18}{ 6\text{ ft} }}{\fcAnswerUncover{14}{20}{8\text{ ft}}}\cdot\alertNoH{ 15-16}{\fcAnswerUncover{14}{16}{ 1\text{ ft/s}}}%
+}\\%
+& \uncover<21->{ = } %
+\uncover<21->{%
+\alertNoH{22}{-}3/4 \text{ ft/s.}%
 }%
 \end{align*}
-\uncover<21->{%
-Therefore the top of the ladder is falling at a rate of $3/4$ ft/s.
+\uncover<22->{%
+Therefore the top of the ladder is \alertNoH{22}{falling} at a rate of $3/4$ ft/s.
 }%
 \end{columns}
 \end{example}
