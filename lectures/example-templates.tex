@@ -83,20 +83,20 @@
 }
 \newcommand{\fcAnswer}[2]{
 \FPeval{\fcResult}{clip(#1-1)}
-\uncover<handout:0|\fcResult>{\alert<handout:0|\fcResult>{\textbf{?} }} \uncover<#1->{\alert<handout:0|#1>{\!\!\!#2}}
+\uncover<handout:0|\fcResult>{\alertNoH{\fcResult}{\textbf{?} }} \uncover<#1->{\alertNoH{#1}{\!\!\!#2}}
 }
 \newcommand{\fcAnswerUncover}[3]{
 \FPeval{\fcResult}{clip(#2-1)}
-\uncover<handout:0|#1-\fcResult>{\alert<handout:0|\fcResult>{\textbf{?}}} \uncover<#2->{\alert<handout:0|#2>{\!\!\!#3}}
+\uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \uncover<#2->{\alertNoH{#2}{\!\!\!#3}}
 }
 \newcommand{\fcAnswerUncoverNoH}[3]{
 \FPeval{\fcResult}{clip(#2-1)}
-\uncover<handout:0|#1-\fcResult>{\alert<handout:0|\fcResult>{\textbf{?}}} \uncover<handout:0|#2->{\alert<handout:0|#2>{\!\!\!#3}}
+\uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \uncover<handout:0|#2->{\alertNoH{#2}{\!\!\!#3}}
 }
 
 \newcommand{\fcQuestion}[2]{%
 \FPeval{\fcResult}{clip(#1+1)}%
-\uncover<#1->{\alert<handout:0| #1,\fcResult>{#2}}%
+\uncover<#1->{\alertNoH{ #1,\fcResult}{#2}}%
 }
 \newcommand{\fcEvalToInt}[1]{\FPeval{\fcResult}{clip(#1)}\fcResult}
 \newcommand{\refBad}[3]{%
@@ -106,9 +106,11 @@
 }%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
 \newcommand{\fcCancel}[2]{
 \FPeval{\fcResult}{clip(#1-1)}
-\only<handout:0|-\fcResult>{#2} \only<#1->{\alertNoH{#1}{\cancel{#2}}}
+\only<handout:0|-\fcResult>{#2} \only<#1->{\alertNoH{#1}{\cancel{\alertNoH{0}{#2}}}}
 \vphantom{\cancel{#2}}
 }
+%<-WARNING: the superflous-looking \alertNoH{0} is needed:
+% for some unknown to me reason it causes LaTeX to add the correct amount of spacing.
 
 %code blocks regular expression that replaces all strings of the form \alert<handout:0| a> by \alertNoH{a}:
 %Find:
@@ -131,7 +133,7 @@ These lecture slides and their $\LaTeX${} source code are licensed to you under 
 \item to Remix - to adapt, change, etc., the work,
 \item to make commercial use of the work,
 \end{itemize}
-as long as you reasonably acknowledge the original project (a notice of use freecalc is sufficient). 
+as long as you reasonably acknowledge the original project (a notice of use freecalc is sufficient).
 \begin{itemize}
 \item Latest version of the .tex sources of the slides: \url{https://sourceforge.net/p/freecalculus/code/HEAD/tree/}
 \item Should the link be outdated/moved, search for  ``freecalc project''.
@@ -160,9 +162,9 @@ and the links therein.
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
 \begin{align*}
-\text{Differentiate}\quad \alert<handout:0| 13>{y} %
- & \alert<handout:0| 13>{=} %
-\alert<handout:0| 13>{%
+\text{Differentiate}\quad \alertNoH{ 13}{y} %
+ & \alertNoH{ 13}{=} %
+\alertNoH{ 13}{%
 #1^{#2}%
 }.%
 \uncover<2->{%
@@ -175,47 +177,43 @@ Take logarithms of both sides:%
 }%
  & \uncover<2->{ = } %
 \uncover<2->{%
-\ln #1^{\alert<handout:0| 3>{#2}}%
+\ln #1^{\alertNoH{ 3}{#2}}%
 }\\%
 \uncover<3->{%
-\alert<handout:0| 4-5>{\ln y}%
+\alertNoH{ 4-5}{\ln y}%
 }%
  & \uncover<3->{ = } %
 \uncover<3->{%
-\alert<handout:0| 6-7>{%
-\alert<handout:0| 3>{#2} \ln #1%
+\alertNoH{ 6-7}{%
+\alertNoH{ 3}{#2} \ln #1%
 }.}%
 \uncover<4->{%
 \intertext{
 Differentiate implicitly with respect to $x$:%
 }%
 }%
-\uncover<5->{%
-\alert<handout:0| 5>{\frac{1}{y} y'}%
-}%
+\fcAnswer{5}{\frac{1}{y} y'}%
  & \uncover<4->{ = } %
-\uncover<7->{%
-\alert<handout:0| 7>{%
-\left( #2 \right) \alert<handout:0| 8-9>{\frac{\diff}{\diff x} \left( \ln #1 \right)} + \left( \ln #1 \right)\alert<handout:0| 10-11>{\frac{\diff}{\diff x}\left( #2 \right)} %
-}%
+\fcAnswerUncover{4}{7}{%
+\left( #2 \right) \alertNoH{ 8-9}{\frac{\diff}{\diff x} \left( \ln #1 \right)} + \left( \ln #1 \right)\alertNoH{ 10-11}{\frac{\diff}{\diff x}\left( #2 \right)} %
 }\\%
 \uncover<8->{%
-\frac{1}{\alert<handout:0| 12>{y}} y'%
+\frac{1}{\alertNoH{12}{y}} y'%
 }%
  & \uncover<8->{ = } %
 \uncover<8->{%
-( #2 ) \alert<handout:0| 8-9>{\left( \uncover<9->{ #3 }\right)} + \left( \ln #1 \right) \alert<handout:0| 10-11>{ \left( \uncover<11->{ #4 } \right) }
+( #2 ) \alertNoH{8-9}{\left( \uncover<9->{ #3 }\right)} + \left( \ln #1 \right) \alertNoH{ 10-11}{ \left( \uncover<11->{ #4 } \right) }
 }\\%
 \uncover<12->{%
 y'%
 }%
  & \uncover<12->{ = } %
 \uncover<12->{%
-\alert<handout:0| 12-13>{y} \left( #5 \right)%
+\alertNoH{ 12-13}{y} \left( #5 \right)%
 }\\%
  & \uncover<13->{ = } %
 \uncover<13->{%
-\alert<handout:0| 13>{#1^{#2}} \left( #5 \right).%
+\alertNoH{ 13}{#1^{#2}} \left( #5 \right).%
 }%
 \end{align*}
 \end{example}
@@ -244,9 +242,9 @@ y'%
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
 \begin{align*}
-\text{Differentiate}\quad \alert<handout:0| 18>{y} %
- & \alert<handout:0| 18>{=} %
-\alert<handout:0| 18>{%
+\text{Differentiate}\quad \alertNoH{ 18}{y} %
+ & \alertNoH{ 18}{=} %
+\alertNoH{ 18}{%
 \frac{#1 #2}{#3}%
 }.%
 \uncover<2->{%
@@ -259,28 +257,28 @@ Take logarithms of both sides:%
 }%
  & \uncover<2->{ = } %
 \uncover<2->{%
-\ln \frac{\alert<handout:0| 3-4>{#1}\alert<handout:0| 5-6>{#2}}{\alert<handout:0| 7-8>{#3}}%
+\ln \frac{\alertNoH{ 3-4}{#1}\alertNoH{ 5-6}{#2}}{\alertNoH{ 7-8}{#3}}%
 }\\%
 \uncover<2->{%
 \ln y
 }%
  & \uncover<2->{ = } %
 \uncover<2->{%
-\ln \alert<handout:0| 3-4>{#1} + \ln \alert<handout:0| 5-6>{#2} -  \ln \alert<handout:0| 7-8>{#3}%
+\ln \alertNoH{ 3-4}{#1} + \ln \alertNoH{ 5-6}{#2} -  \ln \alertNoH{ 7-8}{#3}%
 }\\%
 \uncover<3->{%
-\alert<handout:0| 9-10>{\ln y}%
+\alertNoH{ 9-10}{\ln y}%
 }%
  & \uncover<3->{ = } %
 \uncover<3->{%
-\alert<handout:0| 3-4,11-12>{%
+\alertNoH{ 3-4,11-12}{%
 \left( \uncover<4->{#4}\right) %
 }%
-\alert<handout:0| 5-6>{%
-\uncover<6->{+} \alert<handout:0| 13-14>{\left( \uncover<6->{#5}\right)} %
+\alertNoH{ 5-6}{%
+\uncover<6->{+} \alertNoH{ 13-14}{\left( \uncover<6->{#5}\right)} %
 }%
-\alert<handout:0| 7-8>{%
-\uncover<8->{-} \alert<handout:0| 15-16>{\left( \uncover<8->{#6}\right)} %
+\alertNoH{ 7-8}{%
+\uncover<8->{-} \alertNoH{ 15-16}{\left( \uncover<8->{#6}\right)} %
 }%
 }%
 \uncover<9->{%
@@ -289,24 +287,24 @@ Differentiate implicitly with respect to $x$:%
 }%
 }%
 \uncover<10->{%
-\alert<handout:0| 10>{\frac{1}{\alert<handout:0| 17>{y}} y'}%
+\alertNoH{ 10}{\frac{1}{\alertNoH{ 17}{y}} y'}%
 }%
  & \uncover<9->{ = } %
 \uncover<9->{%
-\alert<handout:0| 11-12>{\left( \uncover<12->{#7} \right)} + %
-\alert<handout:0| 13-14>{\left( \uncover<14->{#8} \right)} - %
-\alert<handout:0| 15-16>{\left( \uncover<16->{#9} \right)} %
+\alertNoH{ 11-12}{\left( \uncover<12->{#7} \right)} + %
+\alertNoH{ 13-14}{\left( \uncover<14->{#8} \right)} - %
+\alertNoH{ 15-16}{\left( \uncover<16->{#9} \right)} %
 }\\%
 \uncover<17->{%
 y'%
 }%
  & \uncover<17->{ = } %
 \uncover<17->{%
-\alert<handout:0| 17-18>{y} \left( #7 + #8 - #9 \right)%
+\alertNoH{ 17-18}{y} \left( #7 + #8 - #9 \right)%
 }\\%
  & \uncover<18->{ = } %
 \uncover<18->{%
-\alert<handout:0| 18>{\frac{#1 #2}{#3}} \left( #7 + #8 - #9 \right)%
+\alertNoH{ 18}{\frac{#1 #2}{#3}} \left( #7 + #8 - #9 \right)%
 }%
 \end{align*}
 \end{example}
@@ -340,10 +338,10 @@ y'%
 \text{Product Rule:}\quad f'(x)%
 }%
 & \uncover<2->{%
- = \left( #1 \right) \alert<handout:0| 3-4>{\frac{\diff}{\diff x}\left( #2 \right)} + \left( #2 \right) \alert<handout:0| 5-6>{\frac{\diff}{\diff x}\left( #1 \right)}%
+ = \left( #1 \right) \alertNoH{ 3-4}{\frac{\diff}{\diff x}\left( #2 \right)} + \left( #2 \right) \alertNoH{ 5-6}{\frac{\diff}{\diff x}\left( #1 \right)}%
 }\\%
 & \uncover<3->{%
- = \left( #1 \right) \alert<handout:0| 3-4>{\left(\fcAnswer{4}{ #4 }\right)} + \left( #2 \right) \alert<handout:0| 5-6>{\left( \fcAnswerUncover{3}{6}{#3} \right)}%
+ = \left( #1 \right) \alertNoH{ 3-4}{\left(\fcAnswer{4}{ #4 }\right)} + \left( #2 \right) \alertNoH{ 5-6}{\left( \fcAnswerUncover{3}{6}{#3} \right)}%
 }\\%
 & \uncover<7->{%
  = #5.%
@@ -388,16 +386,16 @@ y'%
 \frac{\diff #1}{\diff x} %
 }%
 & \uncover<3->{%
- = \frac{\diff}{\diff x}\left[ \alert<handout:0| 4>{\left( #3\right)}\left( #4\right)\right]
+ = \frac{\diff}{\diff x}\left[ \alertNoH{ 4}{\left( #3\right)}\left( #4\right)\right]
 }\\%
 \uncover<4->{%
 \text{Constant Multiple Rule:}\quad %
 }%
 & \uncover<4->{%
- =  \alert<handout:0| 4>{\left( #3\right)}\alert<handout:0| 5-6>{\frac{\diff}{\diff x}\left( #4\right)}
+ =  \alertNoH{ 4}{\left( #3\right)}\alertNoH{ 5-6}{\frac{\diff}{\diff x}\left( #4\right)}
 }\\%
 & \uncover<5->{%
- =  \left( #3\right)\alert<handout:0| 5-6>{\left( \fcAnswer{6}{#5}\right)}
+ =  \left( #3\right)\alertNoH{ 5-6}{\left( \fcAnswer{6}{#5}\right)}
 }\\%
 & \uncover<7->{%
  =  #6.
@@ -440,12 +438,12 @@ y'%
 }%
 & \uncover<2->{%
  = \frac%
-{\left( #2 \right) \alert<handout:0| 3-4>{\frac{\diff}{\diff x}\left( #1 \right)} - \left( #1 \right) \alert<handout:0| 5-6>{\frac{\diff}{\diff x}\left( #2 \right)}}%
+{\left( #2 \right) \alertNoH{ 3-4}{\frac{\diff}{\diff x}\left( #1 \right)} - \left( #1 \right) \alertNoH{ 5-6}{\frac{\diff}{\diff x}\left( #2 \right)}}%
 {\left( #2\right)^2}%
 }\\%
 & \uncover<3->{%
  = \frac%
-{\left( #2 \right) \alert<handout:0| 3-4>{\left(\fcAnswer{4}{ #3 }\right)} - \left( #1 \right) \alert<handout:0| 5-6>{\left( \fcAnswerUncover{3}{6}{#4} \right)}}%
+{\left( #2 \right) \alertNoH{ 3-4}{\left(\fcAnswer{4}{ #3 }\right)} - \left( #1 \right) \alertNoH{ 5-6}{\left( \fcAnswerUncover{3}{6}{#4} \right)}}%
 {\left( #2\right)^2}%
 }\\%
 & \uncover<7->{%
@@ -488,33 +486,33 @@ y'%
 \text{Find}\quad \int %
  \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{3}}{VV}{6-7}\noexploregroups\expandarg. & \\%
 \uncover<2->{%
-\text{Let}\quad\alert<handout:0| 2-3,8,13>{u}%
+\text{Let}\quad\alertNoH{ 2-3,8,13}{u}%
 }%
 & \uncover<2->{%
-\alert<handout:0| 2-3,8,13>{ = \uncover<3->{#2.}}%
+\alertNoH{ 2-3,8,13}{ = \uncover<3->{#2.}}%
 }\\%
 \uncover<4->{%
-\text{Then}\quad \alert<handout:0| 4-5>{\diff u}%
+\text{Then}\quad \alertNoH{ 4-5}{\diff u}%
 }%
 & \uncover<4->{%
-\alert<handout:0| 4-5>{ = \uncover<5->{#3}}%
+\alertNoH{ 4-5}{ = \uncover<5->{#3}}%
 }\\%
 \uncover<6->{%
-\alert<handout:0| 6-7,9>{#4}%
+\alertNoH{ 6-7,9}{#4}%
 }%
 & \uncover<6->{%
-\alert<handout:0| 6-7,9>{ = \uncover<7->{#5.}}%
+\alertNoH{ 6-7,9}{ = \uncover<7->{#5.}}%
 }\\%
 \uncover<8->{%
 \text{Substitute:}\quad \int%
  \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{8}}{VV}{9}\noexploregroups\expandarg}%
-& \uncover<8->{= \alert<handout:0| 10-11>{\int\noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#6}{UU}{8}}{VV}{9}\noexploregroups\expandarg %
+& \uncover<8->{= \alertNoH{ 10-11}{\int\noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#6}{UU}{8}}{VV}{9}\noexploregroups\expandarg %
 }}\\%
-& \uncover<10->{\alert<handout:0| 10-11>{%
- = \uncover<11->{\noexpandarg\exploregroups \StrSubstitute{#7}{UU}{\alert<handout:0| 13>{u}}\noexploregroups\expandarg} \uncover<12->{\alert<handout:0| 12>{+C}}%
+& \uncover<10->{\alertNoH{ 10-11}{%
+ = \uncover<11->{\noexpandarg\exploregroups \StrSubstitute{#7}{UU}{\alertNoH{ 13}{u}}\noexploregroups\expandarg} \uncover<12->{\alertNoH{ 12}{+C}}%
 }}\\%
 & \uncover<13->{%
- = \noexpandarg\exploregroups \StrSubstitute{#8}{UU}{\alert<handout:0| 13>{#2}}\noexploregroups\expandarg +C.%
+ = \noexpandarg\exploregroups \StrSubstitute{#8}{UU}{\alertNoH{ 13}{#2}}\noexploregroups\expandarg +C.%
 }%
 \end{align*}
 \end{example}
@@ -555,49 +553,49 @@ _{\StrMid{#9}{1}{1}}%
 ^{\StrMid{#9}{2}{2}} %
  \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{3}}{VV}{6-7}\noexploregroups\expandarg. & \\%
 \uncover<2->{%
-\text{Let}\quad\alert<handout:0| 2-3,8-12>{u}%
+\text{Let}\quad\alertNoH{ 2-3,8-12}{u}%
 }%
 & \uncover<2->{%
-\alert<handout:0| 2-3,8-12>{ = \uncover<3->{#2.}}%
+\alertNoH{ 2-3,8-12}{ = \uncover<3->{#2.}}%
 }\\%
 \uncover<4->{%
-\text{Then}\quad \alert<handout:0| 4-5>{\diff u}%
+\text{Then}\quad \alertNoH{ 4-5}{\diff u}%
 }%
 & \uncover<4->{%
-\alert<handout:0| 4-5>{ = \uncover<5->{#3}}%
+\alertNoH{ 4-5}{ = \uncover<5->{#3}}%
 }\\%
 \uncover<6->{%
-\alert<handout:0| 6-7,13>{#4}%
+\alertNoH{ 6-7,13}{#4}%
 }%
 & \uncover<6->{%
-\alert<handout:0| 6-7,13>{ = \uncover<7->{#5.}}%
+\alertNoH{ 6-7,13}{ = \uncover<7->{#5.}}%
 }\\%
 \uncover<8->{%
-\alert<handout:0| 8-9,14>{\text{When } x = \StrMid{#9}{1}{1}, \quad u }%
+\alertNoH{ 8-9,14}{\text{When } x = \StrMid{#9}{1}{1}, \quad u }%
 }%
 & \uncover<8->{%
-\alert<handout:0| 8-9,14>{ = \uncover<9->{\StrMid{#9}{3}{3}.}}%
+\alertNoH{ 8-9,14}{ = \uncover<9->{\StrMid{#9}{3}{3}.}}%
 }\\%
 \uncover<10->{%
-\alert<handout:0| 10-11,15>{\text{When } x = \StrMid{#9}{2}{2}, \quad u }%
+\alertNoH{ 10-11,15}{\text{When } x = \StrMid{#9}{2}{2}, \quad u }%
 }%
 & \uncover<10->{%
-\alert<handout:0| 10-11,15>{ = \uncover<11->{\StrMid{#9}{4}{4}.}}%
+\alertNoH{ 10-11,15}{ = \uncover<11->{\StrMid{#9}{4}{4}.}}%
 }\\%
 \uncover<12->{%
 \text{Substitute:}\quad \int%
-_{\alert<handout:0| 14>{\StrMid{#9}{1}{1}}}%
-^{\alert<handout:0| 15>{\StrMid{#9}{2}{2}}} %
+_{\alertNoH{ 14}{\StrMid{#9}{1}{1}}}%
+^{\alertNoH{ 15}{\StrMid{#9}{2}{2}}} %
  \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{12}}{VV}{13}\noexploregroups\expandarg}%
-& \uncover<12->{= \alert<handout:0| 16-17>{{\int}%
-_{\uncover<14->{\alert<handout:0| 14>{
+& \uncover<12->{= \alertNoH{ 16-17}{{\int}%
+_{\uncover<14->{\alertNoH{ 14}{
 \StrMid{#9}{3}{3}}}}%
 ^{\uncover<15->{
-\alert<handout:0| 15>{
+\alertNoH{ 15}{
 \StrMid{#9}{4}{4}}}} %
 \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#6}{UU}{12}}{VV}{13}\noexploregroups\expandarg %
 }}\\%
-& \uncover<16->{\alert<handout:0| 16-17>{%
+& \uncover<16->{\alertNoH{ 16-17}{%
  = {\left[ \uncover<17->{%
 \noexpandarg\exploregroups\StrSubstitute{#7}{UU}{u}\noexploregroups\expandarg %
 }\right]}_{\StrMid{#9}{3}{3}}^{\StrMid{#9}{4}{4}}%
@@ -644,35 +642,35 @@ _{\StrMid{#9}{1}{1}}%
 ^{\StrMid{#9}{2}{2}} %
  \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{3}}{VV}{6-7}\noexploregroups\expandarg. & \\%
 \uncover<2->{%
-\text{Let}\quad\alert<handout:0| 2-3,8,12>{u}%
+\text{Let}\quad\alertNoH{ 2-3,8,12}{u}%
 }%
 & \uncover<2->{%
-\alert<handout:0| 2-3,8,12>{ = \uncover<3->{#2.}}%
+\alertNoH{ 2-3,8,12}{ = \uncover<3->{#2.}}%
 }\\%
 \uncover<4->{%
-\text{Then}\quad \alert<handout:0| 4-5>{\diff u}%
+\text{Then}\quad \alertNoH{ 4-5}{\diff u}%
 }%
 & \uncover<4->{%
-\alert<handout:0| 4-5>{ = \uncover<5->{#3}}%
+\alertNoH{ 4-5}{ = \uncover<5->{#3}}%
 }\\%
 \uncover<6->{%
-\alert<handout:0| 6-7,9>{#4}%
+\alertNoH{ 6-7,9}{#4}%
 }%
 & \uncover<6->{%
-\alert<handout:0| 6-7,9>{ = \uncover<7->{#5.}}%
+\alertNoH{ 6-7,9}{ = \uncover<7->{#5.}}%
 }\\%
 \uncover<8->{%
 \text{Substitute:}\quad \int%
  \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#1}{UU}{8}}{VV}{9}\noexploregroups\expandarg}%
-& \uncover<8->{= \alert<handout:0| 10-11>{{\int}%
+& \uncover<8->{= \alertNoH{ 10-11}{{\int}%
 \noexpandarg\exploregroups\StrSubstitute{\StrSubstitute{#6}{UU}{8}}{VV}{9}\noexploregroups\expandarg %
 }}\\%
 & \uncover<10->{%
- \alert<handout:0| 10-11>{ = \uncover<11->{%
-\noexpandarg\exploregroups{\StrSubstitute{#7}{UU}{\alert<handout:0| 12>{u}}}\noexploregroups\expandarg%
+ \alertNoH{ 10-11}{ = \uncover<11->{%
+\noexpandarg\exploregroups{\StrSubstitute{#7}{UU}{\alertNoH{ 12}{u}}}\noexploregroups\expandarg%
 }}%
   \uncover<12->{%
- = \noexpandarg\exploregroups{\StrSubstitute{#7}{UU}{\alert<handout:0| 12>{#2}}}\noexploregroups\expandarg.%
+ = \noexpandarg\exploregroups{\StrSubstitute{#7}{UU}{\alertNoH{ 12}{#2}}}\noexploregroups\expandarg.%
 }%
 }\\%
 \uncover<13->{%
@@ -720,31 +718,31 @@ _{\StrMid{#9}{1}{1}}%
 \begin{align*}
 \text{Differentiate}\quad y & = #1.\\%
 \uncover<2->{%
-\text{Let}\quad\alert<handout:0| 2-3,8-10>{u}%
+\text{Let}\quad\alertNoH{ 2-3,8-10}{u}%
 }%
 & \uncover<2->{%
-\alert<handout:0| 2-3,8-10>{ = \uncover<3-| handout:0>{#2.}}%
+\alertNoH{ 2-3,8-10}{ = \uncover<3-| handout:0>{#2.}}%
 }\\%
 \uncover<4->{%
-\text{Then}\quad \alert<handout:0| 6-7>{y}%
+\text{Then}\quad \alertNoH{ 6-7}{y}%
 }%
 & \uncover<4->{%
-\alert<handout:0| 6-7>{ = \uncover<4-| handout:0>{#3.}}%
+\alertNoH{ 6-7}{ = \uncover<4-| handout:0>{#3.}}%
 }\\%
 \uncover<5->{%
 \text{Chain Rule:}\quad%
 \frac{\diff y}{\diff x}%
 }%
 & \uncover<5->{%
- = \alert<handout:0| 6-7>{\frac{\diff y}{\diff u}}%
-\alert<handout:0| 8-9>{\frac{\diff u}{\diff x}}%
+ = \alertNoH{ 6-7}{\frac{\diff y}{\diff u}}%
+\alertNoH{ 8-9}{\frac{\diff u}{\diff x}}%
 }\\%
 & \uncover<6->{%
- = \alert<handout:0| 6-7>{\left( \uncover<7-| handout:0>{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alert<handout:0| 10>{u}}\noexploregroups\expandarg}\right)}%
-\alert<handout:0| 8-9>{\left( \uncover<9-| handout:0>{#5}\right)}%
+ = \alertNoH{ 6-7}{\left( \uncover<7-| handout:0>{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alertNoH{ 10}{u}}\noexploregroups\expandarg}\right)}%
+\alertNoH{ 8-9}{\left( \uncover<9-| handout:0>{#5}\right)}%
 }\\%
 & \uncover<10->{ = } \uncover<10-| handout:0>{%
- \noexpandarg\exploregroups \StrSubstitute{#6}{UU}{\alert<handout:0| 10>{#2}}.\noexploregroups\expandarg%
+ \noexpandarg\exploregroups \StrSubstitute{#6}{UU}{\alertNoH{ 10}{#2}}.\noexploregroups\expandarg%
 }%
 \end{align*}
 \end{example}
@@ -781,16 +779,16 @@ _{\StrMid{#9}{1}{1}}%
 \begin{align*}
 \text{Differentiate}\quad f(x) & = #1.\\%
 \uncover<2->{%
-\text{Let}\quad\alert<handout:0| 2-3,9-11>{h(x)}%
+\text{Let}\quad\alertNoH{ 2-3,9-11}{h(x)}%
 }%
 & \uncover<2->{%
-\alert<handout:0| 2-3,9-11>{ = \uncover<3-| handout:0>{#2.}}%
+\alertNoH{ 2-3,9-11}{ = \fcAnswerNoH{3}{#2.}}%
 }\\%
 \uncover<2->{%
-\text{Let}\quad\alert<handout:0| 4-5,7-8>{g(x)}%
+\text{Let}\quad\alertNoH{ 4-5,7-8}{g(x)}%
 }%
 & \uncover<2->{%
-\alert<handout:0| 4-5,7-8>{ = \uncover<5-| handout:0>{#3.}}%
+\alertNoH{ 4-5,7-8}{ = \fcAnswerUncover{2}{5}{#3.}}%
 }\\%
 \uncover<2-| handout:0>{%
 \text{Then}\quad f(x)%
@@ -803,15 +801,15 @@ _{\StrMid{#9}{1}{1}}%
 f'(x)%
 }%
 & \uncover<6-| handout:0>{%
- = \alert<handout:0| 7-8>{g'(h(x))}%
-\alert<handout:0| 9-10>{h'(x)}%
+ = \alertNoH{ 7-8}{g'(h(x))}%
+\alertNoH{ 9-10}{h'(x)}%
 }\\%
 & \uncover<7-| handout:0>{%
-=}\uncover<7-| handout:0>{\alert<handout:0| 7-8>{\left( \uncover<8-| handout:0>{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alert<handout:0| 11>{h(x)}}\noexploregroups\expandarg}\right)}%
-\alert<handout:0| 9-10>{\left( \uncover<10-| handout:0>{#5}\right)}%
+=}\uncover<7-| handout:0>{\alertNoH{ 7-8}{\left( \fcAnswerNoH{8}{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alertNoH{ 11}{h(x)}}\noexploregroups\expandarg}\right)}%
+\alertNoH{ 9-10}{\left( \fcAnswerUncoverNoH{7}{10}{#5}\right)}%
 }\\%
 & \uncover<11-| handout:0>{=} \uncover<11-| handout:0>{%
- \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alert<handout:0| 11>{#2}}.\noexploregroups \expandarg%
+ \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alertNoH{ 11}{#2}}.\noexploregroups \expandarg%
 }%
 \end{align*}
 \end{example}
@@ -875,15 +873,15 @@ $
 f'(x)%
 }%
 &\uncover<6->{=}& \uncover<6->{%
- \alert<handout:0| 7-8>{g'(h(x))}%
-\alert<handout:0| 9-10>{h'(x)}%
+ \alertNoH{ 7-8}{g'(h(x))}%
+\alertNoH{ 9-10}{h'(x)}%
 }\\%
 &&\uncover<7-| handout:0>{=}& \displaystyle
-\uncover<7-| handout:0>{\alert<handout:0| 7-8>{ \left( \uncover<8-| handout:0>{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 11>{h(x)}} \noexploregroups\expandarg}\right)}%
-\alert<handout:0| 9-10>{\left( \uncover<10-| handout:0>{#5}\right)}%
+\uncover<7-| handout:0>{\alertNoH{ 7-8}{ \left( \uncover<8-| handout:0>{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 11}{h(x)}} \noexploregroups\expandarg}\right)}%
+\alertNoH{ 9-10}{\left( \uncover<10-| handout:0>{#5}\right)}%
 }\\%
 &&\uncover<11-| handout:0>{=}&\displaystyle \uncover<11-| handout:0>{%
- \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alert<handout:0| 11>{#2}}.\noexploregroups \expandarg%
+ \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alertNoH{ 11}{#2}}.\noexploregroups \expandarg%
 }%
 \end{array}
 \]
@@ -948,8 +946,8 @@ $
 f'(x)%
 }%
 &\uncover<6->{=}& \uncover<6->{%
- \alert<handout:0| 7-8>{g'(u)}%
-\alert<handout:0| 9-10>{u'}%
+ \alertNoH{ 7-8}{g'(u)}%
+\alertNoH{ 9-10}{u'}%
 }\\%
 && \uncover<7-|handout:0>{=}&\displaystyle \uncover<7-|handout:0>{\alertNoH{7-8}{\left( \uncover<8-| handout:0>{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alertNoH{11}{u}}\noexploregroups\expandarg}\right)}%
 \alertNoH{9-10}{\left( \uncover<10-| handout:0>{#5}\right)}%
@@ -1017,11 +1015,11 @@ $
  \alertNoH{7-8}{\frac{\diff y}{\diff u}}%
 \alertNoH{9-10}{\frac{\diff u}{\diff x}}%
 }\\%
-&& \uncover<handout:0|7->{ =}&\displaystyle \uncover<handout:0|7->{ \alertNoH{7-8}{ \left( \uncover<8-| handout:0>{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 11>{u}} \noexploregroups\expandarg}\right)}%
+&& \uncover<handout:0|7->{ =}&\displaystyle \uncover<handout:0|7->{ \alertNoH{7-8}{ \left( \uncover<8-| handout:0>{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 11}{u}} \noexploregroups\expandarg}\right)}%
 \alertNoH{9-10}{\left( \uncover<10-| handout:0>{#5}\right)}%
 }\\%
 &&\uncover<11->{=}&\displaystyle \uncover<11-| handout:0>{%
-\noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alert<handout:0| 11>{#2}}.\noexploregroups \expandarg%
+\noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alertNoH{ 11}{#2}}.\noexploregroups \expandarg%
 }%
 \end{array}
 \]
@@ -1059,8 +1057,8 @@ $
 \uncover<2->{%
 \text{Plug in $#1$:}\quad%
 \frac%
-{\alert<handout:0| 2-3>{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
-{\alert<handout:0| 4-5>{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
+{\alertNoH{ 2-3}{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
+{\alertNoH{ 4-5}{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
 }%
 & \uncover<2->{= \frac{\fcAnswer{3}{#4}}{ \fcAnswerUncover{2}{5}{ 0}}}%
 \uncover<6->{%
@@ -1073,59 +1071,59 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 \uncover<7->{%
 \lim_{x\to #1^{\StrMid{#9}{1}{1}}}%
 \frac%
-{\alert<handout:0| 8-9>{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}}%
-{\alert<handout:0| 10-11>{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
+{\alertNoH{ 8-9}{\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}}%
+{\alertNoH{ 10-11}{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
 }%
 & \uncover<8->{%
  = \lim_{x\to #1^{\StrMid{#9}{1}{1}}}%
 \frac%
 {%
 \fcAnswer{9}{%
-\alert<handout:0| 12-13>{%
+\alertNoH{ 12-13}{%
 #5%
 }%
-\alert<handout:0| 14-15>{%
+\alertNoH{ 14-15}{%
 #6%
 }%
 }%
 }{%
 \fcAnswerUncover{8}{11}{%
-\alert<handout:0| 16-17>{%
+\alertNoH{ 16-17}{%
 #7%
 }%
-\alert<handout:0| 18-19>{%
+\alertNoH{ 18-19}{%
 #8%
 }%
 }%
 }%
 }\\%
 & \uncover<12->{%
- \to \alert<handout:0| 20-21>{\frac%
+ \to \alertNoH{ 20-21}{\frac%
 {%
-\alert<handout:0| 12-13>{( \fcAnswerUncover{12}{13}{%
+\alertNoH{ 12-13}{( \fcAnswerUncover{12}{13}{%
 \StrMid{#9}{2}{2}%
 })}%
-\alert<handout:0| 14-15>{(\fcAnswerUncover{12}{15}{%
+\alertNoH{ 14-15}{(\fcAnswerUncover{12}{15}{%
 \StrMid{#9}{3}{3}%
 })}%
 }{%
-\alert<handout:0| 16-17>{(\fcAnswerUncover{12}{17}{%
+\alertNoH{ 16-17}{(\fcAnswerUncover{12}{17}{%
 \StrMid{#9}{4}{4}%
 })}%
-\alert<handout:0| 18-19>{(\fcAnswerUncover{12}{19}{%
+\alertNoH{ 18-19}{(\fcAnswerUncover{12}{19}{%
 \StrMid{#9}{5}{5}%
 })}%
 }%
 }%
 }\\%
-& \uncover<20->{\alert<handout:0| 20-21>{ = \fcAnswer{21}{(\alertNoH{22}{ \StrMid{#9}{6}{6}})}}}\\%
+& \uncover<20->{\alertNoH{ 20-21}{ = \fcAnswer{21}{(\alertNoH{22}{ \StrMid{#9}{6}{6}})}}}\\%
 \uncover<22->{%
 \text{Therefore}\quad\lim_{x\to #1^{\StrMid{#9}{1}{1}}}%
 \frac%
 {\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
 {\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}%
 }%
-& \uncover<22->{ = } \uncover<handout:0| 22->{ \alert<handout:0| 22>{\StrMid{#9}{6}{6}}\infty.}
+& \uncover<22->{ = } \uncover<handout:0| 22->{ \alertNoH{ 22}{\StrMid{#9}{6}{6}}\infty.}
 \end{align*}
 \end{example}
 }
@@ -1196,8 +1194,8 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 }\\%
 & \uncover<12->{%
  = \lim_{x\to #1} \frac%
-{\uncover<handout:0| 12->{\noexpandarg\StrSubstitute{#4}{UU}{\alert<handout:0| 13>{x}}\expandarg}}%
-{\uncover<handout:0| 12->{\noexpandarg\StrSubstitute{#5}{UU}{\alert<handout:0| 13>{x}}\expandarg}}%
+{\uncover<handout:0| 12->{\noexpandarg\StrSubstitute{#4}{UU}{\alertNoH{ 13}{x}}\expandarg}}%
+{\uncover<handout:0| 12->{\noexpandarg\StrSubstitute{#5}{UU}{\alertNoH{ 13}{x}}\expandarg}}%
 }\\%
 \uncover<13->{%
 \text{Plug in $#1$:}\quad%
@@ -1207,8 +1205,8 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 }%
 & \uncover<13->{%
  = \frac%
-{\uncover<handout:0| 13->{\noexpandarg\StrSubstitute{#4}{UU}{(\alert<handout:0| 13>{#1})}\expandarg}}%
-{\uncover<handout:0| 13->{\noexpandarg\StrSubstitute{#5}{UU}{(\alert<handout:0| 13>{#1})}\expandarg}}%
+{\uncover<handout:0| 13->{\noexpandarg\StrSubstitute{#4}{UU}{(\alertNoH{ 13}{#1})}\expandarg}}%
+{\uncover<handout:0| 13->{\noexpandarg\StrSubstitute{#5}{UU}{(\alertNoH{ 13}{#1})}\expandarg}}%
 }\\%
 & \uncover<14->{%
 = \uncover<handout:0| 14->{#7}%
@@ -1253,13 +1251,13 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 \uncover<2->{%
 & \text{Plug in $#1$:}\quad%
 \frac%
-{\alert<handout:0| 2-3>{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
-{\alert<handout:0| 4-5>{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
+{\alertNoH{ 2-3}{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
+{\alertNoH{ 4-5}{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
 }%
  \uncover<2->{%
 = \frac%
-{\uncover<3->{\alert<handout:0| 3>{0}}}%
-{\uncover<5->{\alert<handout:0| 5>{0}}}%
+{\uncover<3->{\alertNoH{ 3}{0}}}%
+{\uncover<5->{\alertNoH{ 5}{0}}}%
 }%
 \uncover<6->{%
 \intertext{Zero over zero gives no information.  Use a conjugate radical.}
@@ -1267,7 +1265,7 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 & \uncover<7->{%
 \lim_{x\to #1} \frac%
 {\noexpandarg\StrSubstitute{#2}{UU}{x}\expandarg}%
-{\alert<handout:0| 7-8>{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
+{\alertNoH{ 7-8}{\noexpandarg\StrSubstitute{#3}{UU}{x}\expandarg}}%
 \cdot %
 \frac%
 {\uncover<8->{\alert<8>{\noexpandarg\StrSubstitute{#4}{UU}{x}\expandarg}}}%
@@ -1351,13 +1349,13 @@ Therefore the answer is DNE, $\infty$, or $-\infty$.}
 \uncover<2->{%
 \text{Plug in $#1$:}\quad%
 \frac%
-{\alert<handout:0| 2-3>{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
-{\alert<handout:0| 4-5>{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
+{\alertNoH{ 2-3}{\noexpandarg\StrSubstitute{#2}{UU}{(#1)}\expandarg}}%
+{\alertNoH{ 4-5}{\noexpandarg\StrSubstitute{#3}{UU}{(#1)}\expandarg}}%
 }%
 & \uncover<2->{%
 = \frac%
-{\uncover<3->{\alert<handout:0| 3>{#4}}}%
-{\uncover<5->{\alert<handout:0| 5>{#5}}}%
+{\uncover<3->{\alertNoH{ 3}{#4}}}%
+{\uncover<5->{\alertNoH{ 5}{#5}}}%
 }\\%
 \ifthenelse{\equal{#6}{0}}%
 { }%
@@ -1408,21 +1406,21 @@ Starting with $x_1 = #1$, find the third approximation $x_3$ to the root of the 
 \belowdisplayshortskip=0pt
 \begin{align*}
 \uncover<2->{%
-\alert<handout:0| 2-3,7>{f(x)}%
-& \alert<handout:0| 2-3,7>{ = \uncover<3->{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{x}.\noexploregroups \expandarg}}%
+\alertNoH{ 2-3,7}{f(x)}%
+& \alertNoH{ 2-3,7}{ = \uncover<3->{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{x}.\noexploregroups \expandarg}}%
 }\\%
 \uncover<4->{%
-\alert<handout:0| 4-5,8>{f'(x)}%
-& \alert<handout:0| 4-5,8>{ = \uncover<5->{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{x}.\noexploregroups \expandarg}}%
+\alertNoH{ 4-5,8}{f'(x)}%
+& \alertNoH{ 4-5,8}{ = \uncover<5->{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{x}.\noexploregroups \expandarg}}%
 }\\%
 \uncover<6->{%
 \text{Newton's Method:}\quad %
-x_{n+1} & = x_n - \frac{\alert<handout:0| 7>{f(x_n)}}{\alert<handout:0| 8>{f'(x_n)}}%
+x_{n+1} & = x_n - \frac{\alertNoH{ 7}{f(x_n)}}{\alertNoH{ 8}{f'(x_n)}}%
 }
 \uncover<7->{%
  = x_n - \frac%
-{\alert<handout:0| 7>{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{x_n}\noexploregroups \expandarg}}%
-{\alert<handout:0| 8>{\uncover<8->{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{x_n}\noexploregroups \expandarg}}}%
+{\alertNoH{ 7}{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{x_n}\noexploregroups \expandarg}}%
+{\alertNoH{ 8}{\uncover<8->{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{x_n}\noexploregroups \expandarg}}}%
 }
 \end{align*}
 \begin{align*}
@@ -1430,28 +1428,28 @@ x_{n+1} & = x_n - \frac{\alert<handout:0| 7>{f(x_n)}}{\alert<handout:0| 8>{f'(x_
 x_2 %
 }%
 & \uncover<9->{%
- = \alert<handout:0| 10>{x_1} - \frac%
-{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 10>{x_1}}\noexploregroups \expandarg}%
-{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 10>{x_1}}\noexploregroups \expandarg}%
+ = \alertNoH{ 10}{x_1} - \frac%
+{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alertNoH{ 10}{x_1}}\noexploregroups \expandarg}%
+{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 10}{x_1}}\noexploregroups \expandarg}%
 }%
 & \uncover<12->{%
 x_3 %
 }%
 & \uncover<12->{%
- = \alert<handout:0| 13>{x_2} - \frac%
-{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 13>{x_2}}\noexploregroups \expandarg}%
-{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 13>{x_2}}\noexploregroups \expandarg}%
+ = \alertNoH{ 13}{x_2} - \frac%
+{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alertNoH{ 13}{x_2}}\noexploregroups \expandarg}%
+{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 13}{x_2}}\noexploregroups \expandarg}%
 }\\%
 & \uncover<10->{%
- = \alert<handout:0| 10>{(#1)} - \frac%
-{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 10>{(#1)}}\noexploregroups \expandarg}%
-{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 10>{(#1)}}\noexploregroups \expandarg}%
+ = \alertNoH{ 10}{(#1)} - \frac%
+{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alertNoH{ 10}{(#1)}}\noexploregroups \expandarg}%
+{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 10}{(#1)}}\noexploregroups \expandarg}%
 }%
 & %
 & \uncover<13->{%
- = \alert<handout:0| 13>{(#5)} - \frac%
-{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alert<handout:0| 13>{(#5)}}\noexploregroups \expandarg}%
-{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alert<handout:0| 13>{(#5)}}\noexploregroups \expandarg}%
+ = \alertNoH{ 13}{(#5)} - \frac%
+{\noexpandarg \exploregroups \StrSubstitute{#3}{UU}{\alertNoH{ 13}{(#5)}}\noexploregroups \expandarg}%
+{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 13}{(#5)}}\noexploregroups \expandarg}%
 }\\%
 & \uncover<11->{%
  = #5.%
@@ -1486,10 +1484,10 @@ x_3 %
 \belowdisplayshortskip=0pt
 \begin{align*}
 \text{Differentiate:}\quad y & = #1.\\%
-\uncover<2->{\frac{\diff y}{\diff x} & = \alert<handout:0|3-5>{\frac{\diff}{\diff x}\left( #1\right)}}\\%
-\uncover<4->{\text{Chain Rule:} \ \ \quad &= \alert<handout:0|4-5>{\left(\fcAnswerNoH{5}{#2} \right)\alert<handout:0|6-8>{\frac{\diff}{\diff x} \left(\uncover<4-| handout:0>{#3}\right)}}} \\%
-\uncover<7->{\text{Chain Rule:} \ \ \quad &= \left(\uncover<7-| handout:0>{#2}\right) \alert<handout:0|7-8>{\left(\fcAnswerNoH{8}{#4}\right) \alert<handout:0|9-10>{\frac{\diff}{\diff x}\left( \uncover<7-| handout:0>{#5} \right)}}}\\%
-\uncover<9->{\uncover<10->{\ifthenelse{\equal{#7}{}}{}{\text{#7 :} \ \ \quad}}& = \left(\uncover<9-| handout:0>{#2} \right) \left(\uncover<9-| handout:0>{#4}\right)\alert<handout:0|9-10>{\left( \fcAnswerNoH{10}{#6} \right) }} \\%
+\uncover<2->{\frac{\diff y}{\diff x} & = \alertNoH{3-5}{\frac{\diff}{\diff x}\left( #1\right)}}\\%
+\uncover<4->{\text{Chain Rule:} \ \ \quad &= \alertNoH{4-5}{\left(\fcAnswerNoH{5}{#2} \right)\alertNoH{6-8}{\frac{\diff}{\diff x} \left(\uncover<4-| handout:0>{#3}\right)}}} \\%
+\uncover<7->{\text{Chain Rule:} \ \ \quad &= \left(\uncover<7-| handout:0>{#2}\right) \alertNoH{7-8}{\left(\fcAnswerNoH{8}{#4}\right) \alertNoH{9-10}{\frac{\diff}{\diff x}\left( \uncover<7-| handout:0>{#5} \right)}}}\\%
+\uncover<9->{\uncover<10->{\ifthenelse{\equal{#7}{}}{}{\text{#7 :} \ \ \quad}}& = \left(\uncover<9-| handout:0>{#2} \right) \left(\uncover<9-| handout:0>{#4}\right)\alertNoH{9-10}{\left( \fcAnswerNoH{10}{#6} \right) }} \\%
 \uncover<11->{& = \uncover<11-| handout:0>{#8 \ifthenelse{\equal{#9}{}}{.}{\\}}}%
 \ifthenelse{\equal{#9}{}}{}{\uncover<12->{& = \uncover<12-| handout:0>{#9.}}}
 \end{align*}
