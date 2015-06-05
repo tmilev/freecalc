@@ -1,17 +1,17 @@
 % begin module MVT-proof
 \begin{frame}[t]
 \begin{theorem}[The Mean Value Theorem]
-Let $f$ be a function that is \alert<handout:0| 8>{continuous on $[a,b]$} and \alert<handout:0| 9>{differentiable on $(a,b)$}. 
+Let $f$ be a function that is \alertNoH{ 8}{continuous on $[a,b]$} and \alertNoH{ 9}{differentiable on $(a,b)$}.
 Then there is a number $c$ in $(a,b)$ such that $f'(c) = \frac{f(b)-f(a)}{b-a}$.
 \end{theorem}
 
 \begin{proof}
 \begin{itemize}
-\item<2->  Let $L$ be the secant line from $\alert<handout:0| 5>{(a,f(a))}$ to $(b,f(b))$.
-\item<2-| alert@3-4>  $L(x) = $ \uncover<5->{\alert<handout:0| 5>{$f(a)$}} \uncover<3->{$+$} \uncover<4->{\alert<handout:0| 19>{$\frac{f(b)-f(a)}{b-a}$}}\uncover<3->{$(x-\uncover<5->{\alert<handout:0| 5>{a}})$.}
+\item<2->  Let $L$ be the secant line from $\alertNoH{ 5}{(a,f(a))}$ to $(b,f(b))$.
+\item<2-| alert@3-4>  $L(x) = $ \uncover<5->{\alertNoH{ 5}{$f(a)$}} \uncover<3->{$+$} \uncover<4->{\alertNoH{ 19}{$\frac{f(b)-f(a)}{b-a}$}}\uncover<3->{$(x-\uncover<5->{\alertNoH{ 5}{a}})$.}
 \item<6->  Consider the function $(f - L)(x) = f(x) - f(a) - \frac{f(b)-f(a)}{b-a}(x-a)$.
 \item<7-| alert@8-9>  $L$ is linear, so it's continuous and differentiable everywhere.
-\item<8->  \alert<handout:0| 8>{$f-L$ is continuous on $[a,b]$} \uncover<9->{\alert<handout:0| 9>{and differentiable on $(a,b)$.}}
+\item<8->  \alertNoH{ 8}{$f-L$ is continuous on $[a,b]$} \uncover<9->{\alertNoH{ 9}{and differentiable on $(a,b)$.}}
 \item<10-| alert@11-12>  $(f-L)(a) =$ \uncover<12->{$f(a) - f(a) - \frac{f(b)-f(a)}{b-a}(a-a) = 0$.}
 \item<10-| alert@13-14>  $(f-L)(b) =$ \uncover<14->{$f(b) - f(a) - \frac{f(b)-f(a)}{b-a}(b-a) = 0$.}
 \item<15->  Rolle's Theorem: There exists $c$ in $(a,b)$ such that
@@ -19,17 +19,17 @@ Then there is a number $c$ in $(a,b)$ such that $f'(c) = \frac{f(b)-f(a)}{b-a}$.
 \belowdisplayskip=0pt
 $
 \uncover<15->{%
-0 = (f-L)'(c) = \alert<handout:0| 16-17>{f'(c)} - \alert<handout:0| 18-19>{L'(c)} = %
+0 = (f-L)'(c) = \alertNoH{ 16-17}{f'(c)} - \alertNoH{ 18-19}{L'(c)} = %
 }%
 \uncover<17->{%
-\alert<handout:0| 17>{f'(c)}%
+\alertNoH{ 17}{f'(c)}%
 }%
 \uncover<16->{%
  - %
 }%
 \uncover<19->{%
-\alert<handout:0| 19>{\frac{f(b)-f(a)}{b-a}}%
-} \qedhere % 
+\alertNoH{ 19}{\frac{f(b)-f(a)}{b-a}}%
+} \qedhere %
 $
 \end{itemize}
 \end{proof}
