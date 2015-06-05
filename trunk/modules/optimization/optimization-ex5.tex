@@ -1,28 +1,33 @@
 % begin module optimization-ex5
 \begin{frame}
-\begin{example} %[Example 5, p. 303]
+\vskip -0.1cm
+\begin{example}
 Find the largest possible area of a rectangle inscribed in a semicircle of radius $r$.
 \begin{columns}[c]
-\column{.5\textwidth}
-\psset{xunit=1.8cm, yunit=1.8cm}
+\column{0.4\textwidth}
+\psset{xunit=1.5cm, yunit=1.5cm}
 \begin{pspicture}(-1.5,-0.5)(1.6,1.4)
 \psframe*[linecolor=white](-1.5,-0.5)(1.6,1.4)
 \tiny
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-1.5,-0.5)(1.5,1.3)
+\fcBoundingBox{-1.5}{-0.35}{1.5}{1.4}
+\uncover<10->{\fcAxesStandardNoFrame{-1.5}{-0.35}{1.5}{1.3}}
+\uncover<1-9>{\psline(-1,0)(1,0)}
 %Function formula: sqrt{}(1- ((x)^{2}))
 \psplot[linecolor=black, plotpoints=1000]{-1}{1}{x 2 exp -1 mul 1 add sqrt }
 \rput[t](1,-0.1){$r$}
-\rput[t](-1,-0.1){$-r$}
-
-\uncover<10->{
+\uncover<10->{\rput[t](-1,-0.1){$-r$}}
+\uncover<10->{\psline[linecolor=red](-0.866025404, 0)(-0.866025404, 0.5)(0.866025404, 0.5)(0.866025404, 0)}
+\uncover<16->{
 \psline[linecolor=red](-0.866025404, 0.5,)(0.866025404, 0.5)
-\psline[linecolor=red](-0.866025404, 0)(-0.866025404, 0.5)(0.866025404, 0.5)(0.866025404, 0)
 \psline{<-}(-0.866025404, 0.4)(0.1, 0.4)
-\rput(0.25, 0.4){$2x$}
+\rput(0.25, 0.4){$\alertNoH{16}{2x}$}
 \psline{->}(0.4,0.4) (0.866025404, 0.4)
-\fcFullDot{0.866025404}{0.5}
-\rput[bl](0.866025404,0.6){$(x,y)$}
 }
+\uncover<handout:0|15,16>{\psline[linewidth=2pt, linecolor=purple](0.866025404, 0.5)(-0.866025404, 0.5)}
+\uncover<11->{\fcFullDot{0.866025404}{0.5}
+\rput[bl](0.866025404,0.6){$(x,\alertNoH{14}{y})$}
+}
+\uncover<handout:0|13,14>{\psline[linewidth=2pt, linecolor=purple](0.866025404, 0.5)(0.866025404, 0)}
 \uncover<handout:0|2>{
 \psline[linecolor=red](-0.9, 0) (-0.9, 0.43589) (0.9, 0.43589) (0.9, 0)
 }
@@ -48,43 +53,19 @@ Find the largest possible area of a rectangle inscribed in a semicircle of radiu
 \psline[linecolor=red](-0.2, 0) (-0.2, 0.979796) (0.2, 0.979796) (0.2, 0)
 }
 \end{pspicture}
-%\ \only<handout:0| -2>{%
-%\uncover<2>{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5a.pdf}%
-%}}%
-%\only<handout:0| 3>{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5b.pdf}%
-%}%
-%\only<handout:0| 4>{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5c.pdf}%
-%}%
-%\only<handout:0| 5>{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5d.pdf}%
-%}%
-%\only<handout:0| 6>{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5e.pdf}%
-%}%
-%\only<handout:0| 7>{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5f.pdf}%
-%}%
-%\only<handout:0| 8>{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5g.pdf}%
-%}%
-%\only<handout:0| 9>{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5h.pdf}%
-%}%
-%\only<10->{%
-%\includegraphics[width=5cm]{optimization/pictures/04-07-ex5i.pdf}%
-%}%
-\uncover<12->{To eliminate $y$, use the fact that $(x,y)$ lies on the semicircle.}%
+
+\uncover<17->{To eliminate $y$, use that \alertNoH{18}{$(x,y)$ lies on the semicircle.}}%
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
-\begin{align*}
-\uncover<12->{y^2} & \uncover<12->{=}  \uncover<12->{r^2-x^2}\\
-\uncover<13->{\alert<handout:0| 15>{y}} & \uncover<13->{\alert<handout:0| 15>{=}}  \uncover<13->{\alert<handout:0| 15>{\sqrt{r^2-x^2}}}%
-\end{align*}
+\vskip -0.1cm
+\[
+\begin{array}{@{}r@{}c@{}l@{}l|l}
+\uncover<18->{\displaystyle  \alertNoH{18}{ \uncover<handout:0|18,19>{\alertNoH{19}{x^2+} } y^{\alertNoH{21}{2}}} & \displaystyle \alertNoH{18}{=}  & \alertNoH{18}{ r^2\uncover<20->{ \alertNoH{20}{ -x^2}}}}\\
+\displaystyle \uncover<21->{\alertNoH{ 24}{y} & \alertNoH{ 24}{=}&\displaystyle  \onlyNoH{21}{\color{red}}  \uncover<handout:0|21,22>{\alertNoH{22}{\pm}} \alertNoH{24}{\sqrt{ \onlyNoH{21}{\color{black}} r^2-x^2}} \uncover<handout:0| 22-23>{ & &\alertNoH{22,23}{ y>0}}}
+\end{array}
+\]
 %\uncover<20->{%
 %\abovedisplayskip=0pt
 %\belowdisplayskip=0pt
@@ -92,34 +73,31 @@ Find the largest possible area of a rectangle inscribed in a semicircle of radiu
 %\begin{array}{r|r}
 %x & A(x)\\
 %\hline
-%\alert<handout:0| 21-22>{0} & \alert<handout:0| 22>{\uncover<22->{0}}\\
-%\alert<handout:0| 23-24,27>{600} & \alert<handout:0| 24,27>{\uncover<24->{720,000}}\\
-%\alert<handout:0| 25-26>{2400} & \uncover<26->{\alert<handout:0| 26>{0}}
+%\alertNoH{ 21-22}{0} & \alertNoH{ 22}{\uncover<22->{0}}\\
+%\alertNoH{ 23-24,27}{600} & \alertNoH{ 24,27}{\uncover<24->{720,000}}\\
+%\alertNoH{ 25-26}{2400} & \uncover<26->{\alertNoH{ 26}{0}}
 %\end{array}
 %\]
 %}%
-\column{.5\textwidth}
-\uncover<10->{%
-Let the semicircle have center at the origin.  Let $(x,y)$ be the coordinates of the top right corner of the rectangle.  Let $A$ be its area.
-}%
+\column{.6\textwidth}
+\uncover<10->{Let the semicircle have center at the origin.}  \uncover<11->{Let $(x,y)$ -coord. of top right corner of rectangle.} \uncover<12->{Let $A$ be its area.}%
 
-\uncover<14->{Notice that $0\leq x \leq r$.}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\abovedisplayshortskip=0pt
-\belowdisplayshortskip=0pt
-\begin{align*}
-\uncover<11->{A} & \uncover<11->{=}  \uncover<11->{2x\alert<handout:0| 15>{y}}  \uncover<15->{=}  \uncover<15->{2x\alert<handout:0| 15>{\sqrt{r^2-x^2}}}\\
-\uncover<16->{\alert<handout:0| 16-17>{A'}} & \uncover<16->{\alert<handout:0| 16-17>{=}}  \uncover<17->{\alert<handout:0| 17>{2\sqrt{r^2-x^2} - \frac{2x^2}{\sqrt{r^2-x^2}}}}\\
-& \uncover<18->{=}  \uncover<18->{\frac{2(r^2-2x^2)}{\sqrt{r^2-x^2}}}
-\end{align*}
+\vskip 0.1cm
 
-\uncover<19->{%
-Critical number: \alert<handout:0| 19-20>{$x = $ \uncover<20->{$\frac{r}{\sqrt{2}}$.}}
+$
+\begin{array}{@{}r@{}c@{}l}
+\displaystyle \uncover<12->{\alertNoH{25,26} {A} & \alertNoH{25,26}{=} & \alertNoH{15, 16}{\text{base}} \cdot \alertNoH{13, 14}{\text{height}} }\\
+\uncover<13->{ &\alertNoH{0}{=} &\displaystyle \fcAnswerUncover{13}{16}{2x} \cdot  \fcAnswerUncover{13}{14}{\alertNoH{ 17-24}{y}}  \uncover<17->{= \alertNoH{25,26}{ 2x\cdot \fcAnswerUncover{17}{ 24}{ \sqrt{r^2 -x^2 } }}}} \\
+\uncover<25->{\alertNoH{ 25-26}{A'} &  \alertNoH{ 25-26}{=} &\displaystyle  \fcAnswer{26}{2 \alertNoH{27}{\sqrt{r^2-x^2}} - \frac{2x^2}{\sqrt{r^2-x^2}}}} \\
+\uncover<27->{& \alertNoH{0}{=}&\displaystyle \onlyNoH{27}{\color{red}} \frac{\onlyNoH{27}{\color{black}} \alertNoH{29}{2} \onlyNoH{27}{\color{red}} (\alertNoH{27}{r^2 \alertNoH{29}{- x^2} })}{ \alertNoH{27, 28}{\sqrt{ r^2-x^2}} } \onlyNoH{27}{\color{black}} \alertNoH{29}{-} \frac{ \alertNoH{29}{2 x^2}}{\alertNoH{28}{ \sqrt{r^2-x^2}}}\uncover<28-> {=  \frac{\alertNoH{29} {2}( \alertNoH{32}{ r^2 \alertNoH{29}{- 2x^2}} )}{ \alertNoH{28}{\sqrt{\alertNoH{33}{r^2-x^2}}}}}}
+\end{array}
+$
+\uncover<30->{%
+Critical numbers: \alertNoH{ 30-31}{$x =  \fcAnswer{31}{ \alertNoH{32}{ \frac{ r}{\sqrt{2}}} \text{ and } \alertNoH{33}{r} }$.}
 }%
 \end{columns}
-\uncover<21->{%
-There is a local max. here because $A(0) = 0 = A(r)$.  Therefore the maximum area is $A(\frac{r}{\sqrt{2}}) = $ $ 2\frac{r}{\sqrt{2}}\sqrt{r^2 - \frac{r^2}{2}} = r^2$, achieved for $x=y=\frac{r}{\sqrt{2}}$
+\uncover<34->{%
+We have $0\leq x\leq r$ and so the critical numbers together with the endpoints are $x=0, \frac{r}{\sqrt{2}}, r $.} \uncover<35->{Since   $A(0) = 0 = A(r)$, the max is achieved at $x=y=\frac{r}{ \sqrt{2}}$.} \uncover<36->{ The max area is $A(\frac{r}{\sqrt{2}}) =  2\frac{r}{ \sqrt{2}}\sqrt{r^2 - \frac{r^2}{2}} = r^2$.
 }%
 \end{example}
 \end{frame}
