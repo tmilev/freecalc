@@ -904,7 +904,7 @@ def%
 }%
 }
 
-\newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth \fcGetColorCode{\fcColorLine} setrgbcolor}
+\newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth \fcGetColorCode{\fcColorLine} setrgbcolor }
 
 \newcommand{\fcCurveCode}{%
 %(calling fcCurveCode) == %
@@ -1134,7 +1134,7 @@ thePoint \fcZBufferRowColumn
 /lowerLeftX getZBufferXmin DeltaX column mul add def
 /lowerLeftY getZBufferYmin DeltaY row mul add def
 gsave
-0.6 0.6 1 setrgbcolor
+0.6 0.6 1 setrgbcolor %
 newpath
 [lowerLeftX lowerLeftY] \fcCoordsPStricksToPS moveto
 [lowerLeftX DeltaX add lowerLeftY] \fcCoordsPStricksToPS lineto
@@ -1282,7 +1282,7 @@ graphicsFile ( fill ) writestring
 } def
 /setrgbcolorVirtual {
 3 copy
-setrgbcolor
+setrgbcolor %
 graphicsFile 4 -1 roll \fcToString writestring graphicsFile ( ) writestring
 graphicsFile 3 -1 roll \fcToString writestring graphicsFile ( ) writestring
 graphicsFile exch \fcToString writestring
@@ -1987,6 +1987,12 @@ end%
 }
 
 %Format of curve: we store the curve in the format [tmin tmax [x y z] arrows red green blue (curve)]
+%Example use: 
+%\begin{pspicture}(-1,-1)(1,1)
+%\fcStartIIIdScene
+%\fcCurveIIIdInScene[linecolor=orange]{0}{1}{[t t sqrt 0 ]}
+%\fcFinishIIIdScene[true]
+%\end{pspicture}
 \newcommand{\fcCurveIIIdInScene}[4][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
@@ -2075,6 +2081,12 @@ end %
 %[red green blue] %color of contours
 % foregroundstatus %true or false
 %(surface)].
+%Example:
+%\begin{pspicture}
+%\fcStartIIIdScene
+%\fcSurfaceInScene[arrows=(none), linecolor=red]{0}{0}{1}{360}{[u u sqrt v cos mul u sqrt v sin mul]}{}
+%\fcFinishIIIdScene[true]
+%\end{pspicture}
 \newcommand{\fcSurfaceInScene}[7][]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
