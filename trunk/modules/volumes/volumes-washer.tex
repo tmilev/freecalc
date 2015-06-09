@@ -3,29 +3,46 @@
 \begin{example}[Typical Cross-Section is a Washer]
 \begin{columns}[c]
 \column{.35\textwidth}
-\begin{center}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny%
+\renewcommand{\fcScreenStyle}{x}%
+\renewcommand{\fcScreen}{[0 0 -1] 0}%
+\renewcommand{\fcIterationsU}{4}%
+\fcBoundingBox{-1.8}{-1.8}{1.8}{1.8}
+\only<3->{\renewcommand{\fcScreen}{[-0.05 -0.05 -1] 0}}%
+\only<4->{\renewcommand{\fcScreen}{[-0.1 -0.1 -1] 0}}%
+\only<5->{\renewcommand{\fcScreen}{[-0.15 -0.15 -1] 0}}%
+\only<6->{\renewcommand{\fcScreen}{[-0.2 -0.2 -1] 0}}%
+\only<7->{\renewcommand{\fcScreen}{[-0.25 -0.25 -1] 0}}%
+\fcStartIIIdScene%
+\only<3->{\fcPutIIId{[-0.1 -0.1 1.6]}{$z$}}%
+\fcAxesIIIdInScene[arrows=->, xLabel={$x$}, yLabel={$y$},zLabel={} ]{1.5}{1.5}{1.5}%
+\fcFinishIIIdScene
+\end{pspicture}
+
 \only<handout:0| 1>{%
-\includegraphics[height=7.3cm]{volumes/pictures/06-02-washera.pdf} %
+\includegraphics[height=3.3cm]{volumes/pictures/06-02-washera.pdf} %
 }%
 \only<handout:0| 2>{%
-\includegraphics[height=7.3cm]{volumes/pictures/06-02-washerb.pdf} %
+\includegraphics[height=3.3cm]{volumes/pictures/06-02-washerb.pdf} %
 }%
 \only<handout:0| 3>{%
-\includegraphics[height=7.3cm]{volumes/pictures/06-02-washerc.pdf} %
+\includegraphics[height=3.3cm]{volumes/pictures/06-02-washerc.pdf} %
 }%
 \only<handout:0| 4>{%
-\includegraphics[height=7.3cm]{volumes/pictures/06-02-washerd.pdf} %
+\includegraphics[height=3.3cm]{volumes/pictures/06-02-washerd.pdf} %
 }%
 \only<handout:0| 5>{%
-\includegraphics[height=7.3cm]{volumes/pictures/06-02-washere.pdf} %
+\includegraphics[height=3.3cm]{volumes/pictures/06-02-washere.pdf} %
 }%
 \only<handout:0| 6>{%
-\includegraphics[height=7.3cm]{volumes/pictures/06-02-washerf.pdf} %
+\includegraphics[height=3.3cm]{volumes/pictures/06-02-washerf.pdf} %
 }%
 \only<7->{%
-\includegraphics[height=7.3cm]{volumes/pictures/06-02-washerg.pdf} %
+\includegraphics[height=3.3cm]{volumes/pictures/06-02-washerg.pdf} %
 }%
-\end{center}
+
 \column{.65\textwidth}
 Find the volume of the solid obtained by rotating about the $x$-axis \alert<handout:0| 6>{the region bounded by \alert<handout:0| 2>{$y = x^2+1$}, \alert<handout:0| 3>{$y = x$}, \alert<handout:0| 4>{$x = 0$}, and \alert<handout:0| 5>{$x = 1$}}.
 
