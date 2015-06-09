@@ -2087,7 +2087,7 @@ end %
 %\fcSurfaceInScene[arrows=(none), linecolor=red]{0}{0}{1}{360}{[u u sqrt v cos mul u sqrt v sin mul]}{}
 %\fcFinishIIIdScene[true]
 %\end{pspicture}
-\newcommand{\fcSurfaceInScene}[7][]{%
+\newcommand{\fcSurfaceInScene}[7][arrows=none]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{%
 [theIIIdObjects \fcArrayToStack [#2\space #3\space #4\space #5\space {#6} {#7} length 0 ne {{#7}}{{true}}ifelse \fcIterationsU\space \fcIterationsV%
