@@ -1,7 +1,226 @@
 \solution{\ref{problemSketchCurve(2x^2-5x+9/2)/(x^2-3 x+3)}
-We have that $f$ is not defined only when we have division by zero, i.e.,  if $x^2-3x+3$ equals zero. However, the roots of $x^{2}-3x+3$ are not real numbers: they are $\frac{3\pm \sqrt{3^2-4\cdot 3 }}{2}= \frac{3\pm \sqrt{-3}}{2}$, and therefore $x^2-3x+3$ can never equal zero. Alternatively, completing the square shows that the denominator is always positive:
+
+\textbf{Domain.} We have that $f$ is not defined only when we have division by zero, i.e.,  if $x^2-3x+3$ equals zero. However, the roots of $x^{2}-3x+3$ are not real numbers: they are $\frac{3\pm \sqrt{3^2-4\cdot 3 }}{2}= \frac{3\pm \sqrt{-3}}{2}$, and therefore $x^2-3x+3$ can never equal zero. Alternatively, completing the square shows that the denominator is always positive:
 \[
 x^2-3x+3=x^2-2\cdot \frac{3}{2} x+\frac{9}{4}-\frac{9}{4}+3=\left(x-\frac{3}{2}\right)^2+\frac{3}{4} >0 
 \]
-Therefore the domain of $f$ is all real numbers.\textbf{To be continued.}
+Therefore the domain of $f$ is all real numbers.
+
+\textbf{$x$, $y$-intercepts.}  The $y$-intercept of $f$ equals by definition $\displaystyle f(0)= \frac{ 2\cdot 0^2-5\cdot 0+ 3}{0^2-3\cdot 0 + 3}=\frac{2}{3}$. The $x$ intercept of $f$ is those values of $x$ for which $f(x)=0$. The graph of $f$ shows no such $x$, and that is confirmed by solving the equation $f(x)=0$:
+
+\[
+\begin{array}{rcll|l}
+f(x)&=&0\\
+\displaystyle \frac{2x^2-5x+\frac{9}{2}}{x^2-3 x+3}&=&0&&\text{Mult. by }x^2-3 x+3\\
+\displaystyle 2x^2-5x+\frac{9}{2}&=&0\\
+\displaystyle x_1, x_2&=&\displaystyle \frac{5 \pm \sqrt{25- 4\cdot 2\cdot \frac{9}{2}}}{4}=\frac{5\pm \sqrt{-9}}{4}\quad ,
+\end{array}
+\]
+so there are no real solutions (the number $\sqrt{-9}$ is not real).
+
+\textbf{Asymptotes.} Since $f$ is defined for all real numbers, its graph has no vertical asymptotes. To find the horizontal asymptote(s), we need to compute the limits $\lim\limits_{x\to \infty } f(x)$ and $\lim\limits_{x\to -\infty} f (x)$. The two limits are equal, as the direct computation below shows:
+\[
+\begin{array}{rcll|l}
+\displaystyle \lim_{x\to \pm\infty} \frac{2x^2-5x+\frac{9}{2}}{x^2-3 x+3}&=& \displaystyle  \lim_{x\to \pm\infty}\frac{\left(2x^2-5x+ \frac{9}{2}\right)\frac{1}{x^2}}{\left(x^2-3 x+3\right)\frac{1}{x^2}} &&\begin{array}{l}\text{Divide by leading}\\ \textbf{monomial in denominator}\end{array}\\
+&=&\displaystyle\lim_{x\to \pm \infty}\frac{2-\frac{5}{x} +\frac{9}{2x^2}}{1-\frac{3}{x}+\frac{3}{x^2}}\\
+&=&\displaystyle \frac{2-0+0}{1-0+0}\\
+&=& 2
+\end{array}
+\]
+Therefore the graph of $f(x)$ has a single horizontal asymptote at $y=2$.
+
+\textbf{Intervals of increase and decrease.}
+The intervals of increase and decrease of $f$ are governed by the sign of $f'$. We compute:
+
+\[
+\begin{array}{rcl}
+f'(x)&=&\displaystyle \left(\frac{2x^2-5x+\frac{9}{2} }{x^2- 3 x+3} \right)' \\
+&=&\displaystyle \frac{\left(2x^2-5x+\frac{9}{2}\right)'\left(x^2- 3 x+3\right)-\left(2x^2-5x+\frac{9}{2}\right)\left(x^2- 3 x+3\right)' }{ \left(x^2- 3 x+3\right)^2}\\
+&=&\displaystyle \frac{- x^{2}+3 x-\frac{3}{2} }{ \left(x^2- 3 x+3\right)^2}
+\end{array}
+\]
+As the denominator is a square, the sign of $f'$ is governed by the sign of $- x^{2}+3 x-\frac{3}{2}$. To find where $- x^{2}+3 x-\frac{3}{2}$ changes sign, we compute the zeroes of this expression:
+
+\[
+\begin{array}{rcll|l}
+\displaystyle - x^{2}+3 x-\frac{3}{2}&=&0&& \text{Mult. by }-2\\
+\displaystyle  2x^{2}-6 x+3&=&0\\
+x_1, x_2&=&\displaystyle \frac{ 6\pm \sqrt{36-24 }}{4}=\frac{6\pm \sqrt{12}}{4}\\
+x_1, x_2&=&\displaystyle \frac{3\pm \sqrt{3}}{2} 
+\end{array}
+\]
+Therefore the quadratic $- x^{2}+3 x-\frac{3}{2}$ factors as 
+\begin{equation}
+\label{eq1problemSketch(2x^2-5x+9/2)/(x^2-3 x+3)}
+-(x-x_1)(x-x_2)=-\left(x-\left(\frac{3- \sqrt{3}}{2} \right)\right)\left(x-\left(\frac{3+ \sqrt{3}}{2}\right)\right)
+\end{equation} 
+
+The points $x_1, x_2$ split the real line into three intervals: $(-\infty, \frac{3- \sqrt{3}}{2})$, $(\frac{3- \sqrt{3}}{2}, \frac{3+ \sqrt{3}}{2} )$ and $(\frac{3+ \sqrt{3}}{2}, \infty )$, and each of the factors of \eqref{eq1problemSketch(2x^2-5x+9/2)/(x^2-3 x+3)} has constant sign inside each of the intervals. If we choose $x$ to be a very negative number, it follows that $-(x-x_1)(x-x_2)$ is a negative, and therefore $ f'(x)$ is negative for $x\in(-\infty, \frac{3- \sqrt{3}}{2})$. For $x\in (\frac{3- \sqrt{3}}{2}, \frac{3+ \sqrt{3}}{2})$, exactly one factor of $f'$ changes sign and therefore $f'(x)$ is positive in that interval; finally only one factor of $f'(x)$ changes sign in the last interval so $f'(x)$ is negative on $(\frac{3+ \sqrt{3}}{2}, \infty )$.
+
+Our computations can be summarized in the following table. 
+
+\begin{tabular}{|lll|}\hline
+Interval & $f'(x)$ & $f(x)$   \\\hline
+$\left(-\infty, \frac{3- \sqrt{3}}{2}\right)$ & $-$& $\searrow $ \\\hline
+$\left(\frac{3- \sqrt{3}}{2}, \frac{3+ \sqrt{3}}{2} \right)$ &$+$&$\nearrow$\\\hline
+$\left( \frac{3+ \sqrt{3}}{2}, \infty\right)$&$-$&$\searrow$ \\\hline
+\end{tabular}
+
+\textbf{Local and global minima and maxima. } The table above shows that $f(x)$ changes from decreasing to increasing at $x=x_1=\frac{3- \sqrt{3}}{2}$ and therefore $f$ has a local minimum at that point. The table also shows that $f(x)$ changes from increasing to decreasing at $ x=x_2=\frac{3+ \sqrt{3}}{2}$ and therefore $f$ has a local maximum at that point. The so found local maximum and local minimum turn out to be global: there are two things to consider here. First, no other finite point is critical and thus cannot be maximum or minimum - however this leaves out the possibility of a maximum/minimum ``at infinity''. This possibility can be quickly ruled out by looking at the graph of $f$. To do so via algebra, compute first $f(x_1)$ and $f(x_2)$:
+
+\[
+\begin{array}{rcl}
+\displaystyle f(x_1)= f\left(\frac{3- \sqrt{3}}{2} \right)&=& \displaystyle \frac{2\left(\frac{3- \sqrt{3}}{2} \right)^2-5\left(\frac{3- \sqrt{3}}{2} \right)+\frac{9}{2} }{\left(\frac{3- \sqrt{3}}{2} \right)^2- 3 \left(\frac{3- \sqrt{3}}{2} \right)+3}=2-\frac{\sqrt{3}}{3} \\
+
+\displaystyle f(x_2)= f\left(\frac{3+ \sqrt{3}}{2} \right)&=& \displaystyle \frac{2\left(\frac{3+ \sqrt{3}}{2} \right)^2-5\left(\frac{3+ \sqrt{3}}{2} \right)+\frac{9}{2} }{\left(\frac{3+ \sqrt{3}}{2} \right)^2- 3 \left(\frac{3+ \sqrt{3}}{2} \right)+3}=2+\frac{\sqrt{3}}{3}\quad . 
+\end{array}
+\]
+On the other hand, while computing the horizontal asymptotes, we established that $\lim\limits_{x\to\pm \infty}f(x)=2$. This implies that all $x$ sufficiently far away from $x=0$, we have that $f(x)$ is close to $2 $. Therefore $f(x)$ is larger than $f(x_1)$ and smaller than $f(x_2)$ for all sufficiently far away from $x=0$. This rules out the possibility for a maximum or a minimum ``at infinity'', as claimed above.
+
+\textbf{Intervals of concavity. } 
+The intervals of concavity of $f$ are governed by the sign of $f''$. The second derivative of $f$ is:
+\[
+\begin{array}{rcll|@{}l}
+f''(x)&=&\displaystyle (f'(x))'= \left( \frac{- x^{2}+3 x-\frac{3}{2} }{ \left(x^2- 3 x+3\right)^2 } \right)'\\
+&=&\displaystyle \left(- x^{2}+3 x-\frac{3}{2} \right)' \left(\frac{1 }{\left(x^2- 3 x+3\right)^2}\right)+ \left(- x^{2}+3 x-\frac{3}{2} \right)\left(\frac{1}{\left(x^2- 3 x+3\right)^2}\right)' &&\begin{array}{@{}l}\text{second differentiation:}\\\text{chain rule }\end{array}\\
+&=&\displaystyle (-2x+3)\left(\frac{1}{\left(x^2- 3 x+3\right)^2} \right)+\left(- x^{2}+3 x-\frac{3}{2} \right)(-2)\frac{\left(x^2- 3 x+3\right)'}{\left(x^2- 3 x+3\right)^{3}}\\
+&=&\displaystyle (-2x+3)\left(\frac{1}{\left(x^2- 3 x+3\right)^2}\right) +\left(2x^{2}-6 x+3 \right) \frac{(2x-3)}{\left(x^2- 3 x+3\right)^{3}}&&\text{factor out }\frac{(2x-3)}{\left(x^2- 3 x+3\right)^2}\\
+&=&\displaystyle \frac{(2x-3)}{\left(x^2- 3 x+3\right)^2}\left(-1+\frac{(2x^{2}-6 x+3)}{\left(x^2- 3 x+3\right)}\right)\\
+&=&\displaystyle \frac{(2x-3)}{\left(x^2- 3 x+3\right)^2}\left(\frac{-\left(x^2- 3 x+3\right)+(2x^{2}-6 x+3)}{\left(x^2- 3 x+3\right)} \right)\\
+&=&\displaystyle \frac{(2x-3)(x^{2}-3 x )}{\left(x^2- 3 x+3\right)^3}\\
+&=&\displaystyle \frac{(2x-3)x(x-3)}{\left(x^2- 3 x+3\right)^3}
+\end{array}
+\]
+When computing the domain of $f$, we established that the denominator of the above expression is always positive. Therefore $f''(x)$ changes sign when the terms in the numerator change sign, namely, at $x=0$, $x=\frac{3}{2}$ and $x=3$. 
+
+Our computations can be summarized in the following table. In the table, we use the $\cup$ symbol to denote that the function is concave up in the indicated interval, and $\cap$ to denote that the function is concave down.
+
+\begin{tabular}{|lll|}\hline
+Interval & $f''(x)$ & $f(x)$   \\\hline
+$(-\infty, 0)$ & $-$& $\cap$ \\\hline
+$(0, \frac{3}{2})$ &$+$&$\cup$\\\hline
+$(\frac{3}{2}, 3)$&$-$&$\cap$ \\\hline
+$(3, \infty)$&$+$&$\cup$ \\\hline
+\end{tabular}
+
+\textbf{Points of inflection.} The preceding table shows that $f''(x)$ changes sign at $0, \frac{3}{2}, 3$ and therefore the points of inflection are located at $x=0, x=\frac{3}{2}$ and $x=3$, i.e., the points of inflection are $\left(0, f(0)\right)= \left(0, \frac{3}{2} \right) $, $\left(\frac {3}{2}, f\left(\frac{3}{2}\right)\right) =\left(\frac{3}{2}, 2\right)$, $\left(3, f(3)\right)=\left(3, \frac{5}{2}\right)$.
+
+We can ask our graphing device to use the so computed information to label the graph of the function. Finally, we can confirm visually that our function does indeed behave in accordance with our computations.
+
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-5, -5)(5,5)
+\psframe*[linecolor=white](-5,-5)(5,5)
+\tiny
+\psaxes[ticks=none, labels=none]{<->}(0,0) (-5,-0.5) (5, 3.5)
+\fcLabels{5}{3.5}
+%Function formula: \frac{2 x^{2}-5 x+9/2}{x^{2}-3 x+3}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-5}{5 } {4.5 x -5 mul add x 2 exp 2 mul add 3 x -3 mul add x 2 exp add div }
+\fcFullDot[linecolor=green]{0}{3 2 div}
+\rput[r](-2, 0.2){infl.: $\left(0, \frac{3}{2}\right)$}
+\psline[linestyle=dotted, arrows=->](-2, 0.2)(-0.05, 1.45)
+\fcFullDot[linecolor=green]{3 2 div }{2}
+\rput[r](1.2, 0.2){infl.: $\left(\frac{3}{2},2 \right)$}
+\psline[linestyle=dotted, arrows=->](1.2, 0.2)(1.45, 1.95)
+\fcFullDot[linecolor=green]{3 }{5 2 div}
+\rput[l](2, 0.2){infl.: $\left(3, \frac{5}{2}\right)$}
+\psline[linestyle=dotted, arrows=->](2, 0.2)(2.95, 2.45)
+\fcFullDot[linecolor=blue]{3 3 sqrt add 2 div}{2 3 sqrt 3 div add}
+\rput(2, 3){$\left(\frac{3+\sqrt{3}}{2}, 2+\frac{\sqrt{3}}{3} \right)$}
+\fcFullDot[linecolor=blue]{3 3 sqrt sub 2 div}{2 3 sqrt 3 div sub}
+\rput[r](-2, 3){$\left(\frac{3-\sqrt{3}}{2}, 2-\frac{\sqrt{3}}{3} \right)$}
+\psline[linestyle=dotted, arrows=->](-2, 3)(! 3 3 sqrt sub 2 div 0.05 add 2 3 sqrt 3 div sub 0.05 add)
+\end{pspicture}
+
+}
+
+\solution{\ref{problemSketch(x+1)/(x^2+2x+4)} 
+
+\textbf{This problem is very similar to Problem \ref{problemSketchCurve(2x^2-5x+9/2)/(x^2-3 x+3)}. We recommend to the student to solve the problem first ``with closed textbook'' and only then to compare with the present solution.}
+
+\textbf{Domain.} As $f$ is a quotient of two polynomials (rational function), its implied domain is all $x$ except those for which we get division by zero for $f$. Consequently the domain of $f$ is all $x$ for which $x ^2+2x+4=0$. However, the polynomial $x^2+2x+4$ has no real roots - its roots are $\displaystyle \frac{-2\pm \sqrt{4-16} }{2}=-1\pm \sqrt{-3}$, and therefore the domain of $f$ is all real numbers. Alternatively, we can complete the square: $x^2+2x+4=(x+1)^2+3$ and so $x^2+2x+4$ is positive for all values of $x$. 
+
+\textbf{$x$, $y$-intercepts.} The $y$-intercept of $f$ equals by definition $\displaystyle f(0)= \frac{ 0+ 1}{0^2+2\cdot 0 + 4}=\frac{1}{4}$. The $x$ intercept of $f$ is those values of $x$ for which $f(x)=0$. We compute
+
+\[
+\begin{array}{rcl}
+\displaystyle f(x)&=&0\\
+\displaystyle \frac{x+1}{x^2+2x+4}&=&0\\
+x+1&=&0\\
+x&=&-1\quad ,
+\end{array}
+\]
+and the $x$-intercept of $f$ is $x=-1$. 
+
+\textbf{Asymptotes.} The line $x=a$ is a vertical asymptote when $\lim\limits_{x\to a^{\pm}}f(x)=\pm \infty$; as $f$ is defined for all real numbers, this implies that there are no vertical asymptotes. 
+ 
+The line $y=L$ is a horizontal asymptote if $\lim\limits_{x\to\pm \infty}f(x)$ exists and equals $L$. We compute:
+\[
+\lim\limits_{x\to \infty} f(x)=\lim\limits_{x\to \infty} \frac{(x+1)\frac{1}{x^2}}{ (x^2+ 2x +4)\frac{1}{x^2}} = \lim\limits_{x\to \infty}\frac{\frac{1}{x}+\frac{1}{x^2}}{ 1+ \frac{2}{x} +\frac{4}{x^2}}=\frac{0+0}{1+0+0}=0
+\]
+Therefore $y=0$ is a horizontal asymptote for $f$. An analogous computation shows that $\lim\limits_{x\to\pm \infty}f(x)=0$ and so $y=0$ is the only horizontal asymptote of $f$.
+
+\textbf{Intervals of increase and decrease.} 
+The intervals of increase and decrease of $f$ are governed by the sign of $f'$. We compute:
+\[
+\begin{array}{rcll|l}
+f'(x)&=&\displaystyle \left(\frac{x+1}{x^2+2x+4}\right)' &&\text{qutotient rule}\\
+&=&\displaystyle \frac{(x+1)'\left(x^2+ 2x+4\right)- (x+1)\left( x^2 +2 x+4\right)'}{\left(x^2+2x+4 \right)^2}\\
+&=&\displaystyle\frac{ x^2+2x+4-(x+1)(2x+2)}{\left(x^2+2x+4 \right)^2}\\
+&=&\displaystyle \frac{x^2+2x+4-\left( 2x^2+ 4x+ 2 \right)}{ \left( x^2 +2x+4 \right)^2}\\
+&=&\displaystyle \frac{-x^2-2x+2}{\left(x^2+2x+4 \right)^2}
+\end{array}
+\] 
+As $x^2+2x+4$ is positive, the sign of $f'$ is governed by the sign of $-x^2+2x+2$. To find out where $-x^2+2x+2$ changes sign, we compute the zeroes of this expression:
+\[\begin{array}{rcll|l}
+-x^2-2x+2&=&0\\
+x^2+2x-2&=&0 &&\text{use the quadratic formula}\\
+x_1, x_2&=& -1\pm \sqrt{3}\quad .
+\end{array}
+\]
+Therefore the quadratic $-x^2+2x+2$ factors as 
+\begin{equation}
+\label{eq1problemSketch(x+1)/(x^2+2x+4)}
+-(x-x_1)(x-x_2)=-\left(x-\left(-1-\sqrt{3}\right)\right)\left(x-\left(-1+\sqrt{3}\right)\right)
+\end{equation} 
+The points $x_1, x_2$ split the real line into three intervals: $(-\infty, -1-\sqrt{3})$, $(-1-\sqrt{3}, -1+\sqrt{3})$ and $(-1+ \sqrt{3}, \infty )$, and each of the factors of \eqref{eq1problemSketch(x+1)/(x^2+2x+4)} has constant sign inside each of the intervals. If we choose $x$ to be a very negative number, it follows that $-(x-x_1)(x-x_2)$ is a negative, and therefore $ f'(x)$ is negative for $x\in(-\infty, -1-\sqrt{3})$. For $x\in (-1-\sqrt{3}, -1+\sqrt{3})$, exactly one factor of $f'$ changes sign and therefore $f'(x)$ is positive in that interval; finally only one factor of $f'(x)$ changes sign in the last interval so $f'(x)$ is negative on $(-1+ \sqrt{3}, \infty )$.
+
+Our computations can be summarized in the following table. 
+
+\begin{tabular}{|lll|}\hline
+Interval & $f'(x)$ & $f(x)$   \\\hline
+$(-\infty, -1-\sqrt{3})$ & $-$& $\searrow $ \\\hline
+$(-1-\sqrt{3}, -1+\sqrt{3})$ &$+$&$\nearrow$\\\hline
+$( -1+\sqrt{3}, \infty)$&$-$&$\searrow$ \\\hline
+\end{tabular}
+
+\textbf{Local and global minima and maxima. } The table above shows that $f(x)$ changes from decreasing to increasing at $x=x_1=-1-\sqrt{3}$ and therefore $f$ has a local minimum at that point. The table also shows that $f(x)$ changes from increasing to decreasing at $ x=x_2=-1+\sqrt{3}$ and therefore $f$ has a local maximum at that point. The so found local maximum and local minimum turn out to be global: indeed, no other finite point is critical and thus cannot be maximum or minimum; on the other hand $\lim\limits_{x\to\pm \infty}f(x)=1$ and this implies that all $x$ sufficiently far away from $x=0$ have that $f(x)$ is close to $0$, and therefore $f(x)$ is larger than $f(x_1)$ and smaller than $f(x_2)$ for all $x$.
+
+\textbf{Intervals of concavity. } 
+The intervals of concavity of $f$ are governed by the sign of $f''$. The second derivative of $f$ is:
+\[
+\begin{array}{rcll|l}
+f''(x)&=&\displaystyle (f'(x))'= \left(\frac{-x^2-2x+2}{\left(x^2+2x+4 \right)^2}\right)'\\
+&=&\displaystyle (-x^2-2x+2)'\left(\frac{1}{(x^2+2x+4)^2}\right)+(-x^2-2x+2)\left(\frac{1}{(x^2+2x+4)^2}\right)' &&\begin{array}{l}\text{use chain rule }\\\text{for second differentiation}\end{array}\\
+&=&\displaystyle (-2x-2)\left(\frac{1}{(x^2+2x+4)^2}\right)+(-x^2-2x+2)(-2)\frac{(x^2+2x+4)'}{(x^2+2x+4)^{3}}\\
+&=&\displaystyle -(2x+2)\left(\frac{1}{(x^2+2x+4)^2}\right) +(2x^2+4x-4)\frac{(2x+2)}{(x^2+2x+4)^{3}}&&\text{factor out }\frac{(2x+2)}{(x^2+2x+4)^2}\\
+&=&\displaystyle \frac{(2x+2)}{(x^2+2x+4)^2}\left(-1+\frac{(2x^2+4x-4)}{(x^2+2x+4)}\right)\\
+&=&\displaystyle \frac{(2x+2)}{(x^2+2x+4)^2}\left(\frac{-(x^2+2x+4)+(2x^2+4x-4)}{(x^2+2x+4)} \right)\\
+&=&\displaystyle \frac{(2x+2)(x^{2}+2 x-8)}{(x^2+2x+4)^3}&& \text{factor } (x^2+2x-8)\\
+&=&\displaystyle \frac{(2x+2)(x+4)(x-2)}{(x^2+2x+4)^3}
+\end{array}
+\]
+As we previously established, the denominator of the above expression is always positive. Therefore the expression above changes sign when the terms in the numerator change sign, namely, at $x=-1$, $x=-4$ and $x=2$. 
+
+Our computations can be summarized in the following table. 
+
+\begin{tabular}{|lll|}\hline
+Interval & $f''(x)$ & $f(x)$   \\\hline
+$(-\infty, -4)$ & $-$& $\cap$ \\\hline
+$(-4, -1)$ &$+$&$\cup$\\\hline
+$(-1, 2)$&$-$&$\cap$ \\\hline
+$(2, \infty)$&$+$&$\cup$ \\\hline
+\end{tabular}
+
+\textbf{Points of inflection.} The preceding table shows that $f''(x)$ changes sign at $-4, -1, 2$ and therefore the points of inflection are located at $x=-4, x=-1$ and $x=2$, i.e., the points of inflection are $\left(-4, -\frac{1}{4}\right)$, $\left(-1, 0\right)$, $\left(2, \frac{1}{4}\right)$.
+
 }
