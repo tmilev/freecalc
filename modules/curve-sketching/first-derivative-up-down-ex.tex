@@ -6,22 +6,17 @@ Find where the function $f(x) = 3x^4 + 8x^3 - 18 x^2 + 6$ is increasing and wher
 %\belowdisplayskip=0pt
 \[
 \uncover<2->{%
-\alertNoH{ 2-3}{f'(x) =}
+\alertNoH{ 2-3}{f'(x) =}%
 }%
-\uncover<3->{%
-\alertNoH{ 2-3}{12x^3 + 24x^2 - 36x} =%
-}%
+\fcAnswer{3}{12x^3 + 24x^2 - 36x} %
 \uncover<4->{%
-12x\alertNoH{ 5-6}{(x^2+2x-3)} =%
+=12x\alertNoH{ 5-6}{(x^2+2x-3)} %
 }%
-\uncover<5->{%
-\alertNoH{ 9-10}{12x}%\alertNoH{ 5-6}{(x^2+2x-3)} =%
-}%
-\uncover<5->{%
-\alertNoH{ 5-6}{\alertNoH{ 8-9}{(\uncover<6->{x+3})}\alertNoH{ 10-11}{(\uncover<6->{x-1})}}%
+\uncover<5->{=%
+\alertNoH{ 9-10}{12x} \alertNoH{ 5-6}{(\alertNoH{ 8-9}{\fcAnswer{6}{ x+3}})(\alertNoH{ 10-11}{\fcAnswer{6}{x-1}})}%
 }%
 \]
-\uncover<7->{$f'(x)$ equals zero for $x=-3, 0, 1$. Therefore the important intervals are
+\uncover<7->{$f'(x)$ equals zero for $x=\alertNoH{7}{-3},\alertNoH{7}{ 0}, \alertNoH{7}{1}$. Therefore $f'$ doesn't change sign in the  intervals
 
 \begin{pspicture}(-6, -0.5)(6,1)
 %\psframe*[linecolor=white](-6, -0.5)(6,1)
@@ -47,9 +42,9 @@ Find where the function $f(x) = 3x^4 + 8x^3 - 18 x^2 + 6$ is increasing and wher
 }%
 }
 \psline[arrows=<->](-6, 0)(6,0)
-\fcXTickWithLabel{-3}{$-3$}
-\fcXTickWithLabel{0}{$0$}
-\fcXTickWithLabel{1}{$1$}
+\fcXTickWithLabel{-3}{$\alertNoH{7}{-3}$}
+\fcXTickWithLabel{0}{$\alertNoH{7}{0}$}
+\fcXTickWithLabel{1}{$\alertNoH{7}{1}$}
 \uncover<8->{%
 \pscurve[arrows=->, linecolor=red](-3, 0)(-3.1, 0.4)(-3.2, 0.4)(-6,0.4)
 }
@@ -76,9 +71,11 @@ Find where the function $f(x) = 3x^4 + 8x^3 - 18 x^2 + 6$ is increasing and wher
 }
 \end{pspicture}
 }
+
+
 \uncover<12->{%
-\begin{center}
-\begin{tabular}{|c|c|c|c||c|c|}
+
+\hfil \hfil \begin{tabular}{|c|c|c|c||c|c|}
 \hline
 \textrm{Interval} &%
 \alertNoH{ 13-14,21-22,29-30,37-38}{$12x$} &%
@@ -88,72 +85,32 @@ Find where the function $f(x) = 3x^4 + 8x^3 - 18 x^2 + 6$ is increasing and wher
 \alertNoH{ 45}{$f$}\\%
 \hline
 \alertNoH{ 13-20}{$(-\infty , -3)$} &%
-\alertNoH{ 13-14}{\uncover<14->{%
-$-$%
-}}&%
-\alertNoH{ 15-16}{\uncover<16->{%
-$-$%
-}}&%
-\alertNoH{ 17-18}{\uncover<18->{%
-$-$%
-}}&%
-\alertNoH{ 19-20}{\uncover<20->{%
-$-$%
-}}&%
-\alertNoH{ 19-45}{\uncover<45->{%
-decreasing%
-}}\\%
+$\fcAnswer{14}{-}$&%
+$\fcAnswer{16}{-}$&%
+$\fcAnswer{18}{-}$&%
+$\fcAnswer{20}{-}$&%
+\alertNoH{45}{\uncover<45->{decreasing}}\\%
 \alertNoH{ 21-28}{$(-3, 0)$} &%
-\alertNoH{ 21-22}{\uncover<22->{%
-$-$%
-}}&%
-\alertNoH{ 23-24}{\uncover<24->{%
-$+$%
-}}&%
-\alertNoH{ 25-26}{\uncover<26->{%
-$-$%
-}}&%
-\alertNoH{ 27-28}{\uncover<28->{%
-$+$%
-}}&%
-\alertNoH{ 19-45}{\uncover<45->{%
-increasing%
-}}\\%
+$\fcAnswer{22}{-}$&%
+$\fcAnswer{24}{+}$&%
+$\fcAnswer{26}{-}$&%
+$\fcAnswer{28}{+}$&%
+\alertNoH{ 19-45}{\uncover<45->{increasing}}\\%
 \alertNoH{ 29-36}{$(0, 1)$} &%
-\alertNoH{ 29-30}{\uncover<30->{%
-$+$%
-}}&%
-\alertNoH{ 31-32}{\uncover<32->{%
-$+$%
-}}&%
-\alertNoH{ 33-34}{\uncover<34->{%
-$-$%
-}}&%
-\alertNoH{ 35-36}{\uncover<36->{%
-$-$%
-}}&%
-\alertNoH{ 19-45}{\uncover<45->{%
-decreasing%
-}}\\%
+$\fcAnswer{30}{+}$&%
+$\fcAnswer{32}{+}$&%
+$\fcAnswer{34}{-}$&%
+$\fcAnswer{36}{-}$&%
+\alertNoH{ 19-45}{\uncover<45->{decreasing}}\\%
 \alertNoH{ 37-44}{$(1, \infty )$} &%
-\alertNoH{ 37-38}{\uncover<38->{%
-$+$%
-}}&%
-\alertNoH{ 39-40}{\uncover<40->{%
-$+$%
-}}&%
-\alertNoH{ 41-42}{\uncover<42->{%
-$+$%
-}}&%
-\alertNoH{ 43-44}{\uncover<44->{%
-$+$%
-}}&%
-\alertNoH{ 19-45}{\uncover<45->{%
-increasing%
-}}\\%
+$\fcAnswer{38}{+}$&%
+$\fcAnswer{40}{+}$&%
+$\fcAnswer{42}{+}$&%
+$\fcAnswer{44}{+}$&%
+\alertNoH{45}{\uncover<45->{increasing}}\\%
 \hline
 \end{tabular}
-\end{center}
+
 }%
 \end{example}
 \end{frame}
