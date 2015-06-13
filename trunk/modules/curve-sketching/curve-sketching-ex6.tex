@@ -3,7 +3,7 @@
 \begin{example}
 Discuss the curve $y = \alertNoH{ 19-20,39-42}{f(x)}$ \alertNoH{ 19-20,39-42}{$= x^4 - 4x^3$} with respect to \alertNoH{ 28-35}{concavity}, \alertNoH{ 36-42}{points of inflection}, and \alertNoH{ 10-27}{local maxima and minima}.  \alertNoH{ 43-}{Sketch the curve.}
 \begin{columns}[c]
-\column{.42\textwidth}
+\column{0.4\textwidth}
 \psset{xunit=0.8cm, yunit=0.1cm}
 \begin{pspicture}(-1.2,-32)(4.4,10)
 \psframe*[linecolor=white](-1.2,-32)(4.4,10)
@@ -31,9 +31,9 @@ Discuss the curve $y = \alertNoH{ 19-20,39-42}{f(x)}$ \alertNoH{ 19-20,39-42}{$=
 \uncover<48->{
 \psplot[linecolor=\fcColorGraph, plotpoints=1000] {2} {4.1} {x 3 exp -4 mul x 4 exp add }
 }
-\uncover<20->{
+\uncover<19->{
 \fcFullDot{3}{-27}
-\rput[tr](2.8, -27.5){$(3, -27)$}
+\rput[tr](2.8, -27.5){$(3, \fcAnswer{20}{-27})$}
 }
 \uncover<40->{\fcFullDot{0}{0}
 \fcFullDot{0}{0}
@@ -75,30 +75,30 @@ Discuss the curve $y = \alertNoH{ 19-20,39-42}{f(x)}$ \alertNoH{ 19-20,39-42}{$=
 Interval & $f''(x)$ & \alertNoH{ 35,43-48}{Concave}\\
 \hline
 \alertNoH{ 29-30,37,43-44}{$(-\infty , 0)$} &%
-\uncover<30->{\alertNoH{ 30,37}{$+$}} &%
+$\fcAnswer{30}{\alertNoH{ 30,37}{+}}$ &%
 \uncover<35->{\alertNoH{ 35,43-44}{up}}\\
 \alertNoH{ 31-32,37-38,45-46}{$(0, 2)$} &%
-\uncover<32->{\alertNoH{ 32,37-38}{$-$}} &%
+$\fcAnswer{32}{\alertNoH{ 32,37-38}{-}}$ &%
 \uncover<35->{\alertNoH{ 35,45-46}{down}}\\
 \alertNoH{ 33-34,38,47-48}{$(2, \infty )$} &%
-\uncover<34->{\alertNoH{ 34,38}{$+$}} &%
+$\fcAnswer{34}{\alertNoH{ 34,38}{+}}$ &%
 \uncover<35->{\alertNoH{ 35,47-48}{up}}\\
 \hline
 \end{tabular}
 }%
-\column{.58\textwidth}
+\column{.60\textwidth}
 \begin{itemize}
-\item<2-| alert@2-3,23-26>  $f'(x) = $ \alertNoH{ 4-5}{\uncover<3->{$4x^3 - 12x^2$} \uncover<4->{$ = $}\uncover<5->{$4\alertNoH{ 11}{x^2}\alertNoH{ 12}{(x-3)}$.}}
-\item<2-| alert@6-7,29-34>  \alertNoH{ 13-16}{$f''(x) = $} \alertNoH{ 8-9}{\uncover<7->{\alertNoH{ 13-16}{$12x^2 - 24x$}} \uncover<8->{$ = $} \uncover<9->{$12x(x-2)$.}}
-\item<10->  Critical numbers: \uncover<11->{\alertNoH{ 11,21-22}{$0$}} and \uncover<12->{\alertNoH{ 12,17-18}{$3$}.}
-\item<13->  \alertNoH{ 13-14,21-22}{$f''(0) = \uncover<14->{0}$} and \alertNoH{ 15-18}{$f''(3) =$ \uncover<16->{$36 > 0$.}}
+\item<2-| alert@2-3,23-26>  $f'(x) =  \alertNoH{ 4-5}{\fcAnswer{3}{4x^3 - 12x^2} \uncover<4->{ = }\fcAnswer{5}{4\alertNoH{ 11}{x^2}\alertNoH{ 12}{(x-3)}.}}$
+\item<2-| alert@6-7,29-34>  $\alertNoH{ 13-16}{f''(x) = } \alertNoH{ 8-9}{\fcAnswerUncover{2}{7}{\alertNoH{ 13-16}{12x^2 - 24x}} \uncover<8->{ = } \fcAnswer{9}{12x(x-2).}}$
+\item<10->  Critical numbers: \fcAnswerUncover{10}{11}{\alertNoH{21-22}{$0$}} and \fcAnswerUncover{10}{12}{\alertNoH{17-18}{$3$}.}
+\item<13->  \alertNoH{ 13-14,21-22}{$f''(0) = \fcAnswer{14}{0}$} and \alertNoH{ 15-18}{$f''(3) = \fcAnswer{16}{36 > 0.}$ }
 \item<17->  Second Derivative Test:
-\item<17-| alert@17-18>  \alertNoH{ 47-48}{Local \uncover<18->{minimum} at $3$.}  \alertNoH{ 19-20}{\uncover<19->{$f(3) =$ \uncover<20->{$-27$.}}}
+\item<17-| alert@17-18>  \alertNoH{ 47-48}{Local \fcAnswer{18}{\!\!minimum} at $3$.}  $\alertNoH{ 19-20}{ \uncover<19->{f(3)=\fcAnswer{20}{-27.}}}$
 \item<22-| alert@22>  No information about $0$.
-\item<23->  First Derivative Test:
-\item<23->  \alertNoH{ 23-24}{$f'$ is \uncover<24->{$-$} on $(-\infty , 0)$} \alertNoH{ 25-26}{and \uncover<26->{$-$} on $(0, 3)$}.
-\item<27->  No local max or min at $0$.
-\item<36->  Inflection points: \alertNoH{ 39-40}{$\uncover<39->{(}\uncover<37->{\alertNoH{ 37}{0}}\uncover<39->{,\uncover<40->{0})}$} and \alertNoH{ 41-42}{$\uncover<39->{(}\uncover<38->{\alertNoH{ 38}{2}}\uncover<39->{,\uncover<42->{-16})}$}
+\item<23-> First Derivative Test:
+\item<23-> \alertNoH{ 23-24}{$f'$ is $\fcAnswer{24}{-}$ on $(-\infty , 0)$} \alertNoH{ 25-26}{and $\fcAnswer{26}{-}$ on $(0, 3)$}.
+\item<27-> No local max or min at $0$.
+\item<36-> Inflection points: $\alertNoH{ 39-40}{\uncover<39->{(}\fcAnswer{37}{0} \uncover<39->{, \fcAnswer{40}{0})}}$ and $\alertNoH{ 41-42}{ \uncover<39->{(} \fcAnswer{ 38}{2} \uncover<39->{, \fcAnswerUncover{39}{42 }{-16}).}}$
 \end{itemize}
 \end{columns}
 \end{example}
