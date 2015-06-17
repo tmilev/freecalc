@@ -333,17 +333,17 @@ y'%
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
 \begin{align*}
-\text{Differentiate}\quad f(x) & = #1 #2.\\%
+\text{Differentiate}\quad f(x) & = \alertNoH{2}{ #1}\alertNoH{3}{ #2.}\\%
 \uncover<2->{%
 \text{Product Rule:}\quad f'(x)%
 }%
 & \uncover<2->{%
- = \left( #1 \right) \alertNoH{ 3-4}{\frac{\diff}{\diff x}\left( #2 \right)} + \left( #2 \right) \alertNoH{ 5-6}{\frac{\diff}{\diff x}\left( #1 \right)}%
+ =  \alertNoH{ 6-7}{\frac{\diff}{\diff x}\left( \alertNoH{2}{#1} \right)}\left( \alertNoH{3}{#2} \right)+\left( \alertNoH{2}{#1} \right) \alertNoH{ 4-5}{\frac{\diff}{\diff x}\left( \alertNoH{3}{#2} \right)} %
 }\\%
-& \uncover<3->{%
- = \left( #1 \right) \alertNoH{ 3-4}{\left(\fcAnswer{4}{ #4 }\right)} + \left( #2 \right) \alertNoH{ 5-6}{\left( \fcAnswerUncover{3}{6}{#3} \right)}%
+& \uncover<4->{%
+ = \alertNoH{ 6-7}{\left( \fcAnswerUncover{4}{7}{#3} \right)}\left( #2 \right)+ \left( #1 \right) \alertNoH{ 4-5}{\left(\fcAnswer{5}{ #4 }\right)}  %
 }\\%
-& \uncover<7->{%
+& \uncover<8->{%
  = #5.%
 }%
 \end{align*}
@@ -428,7 +428,7 @@ y'%
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
 \begin{align*}
-\text{Differentiate}\quad y & = \frac{#1}{#2}.%
+\text{Differentiate}\quad y & = \frac{\alertNoH{2}{ #1}}{\alertNoH{3}{#2}}.%
 \uncover<2->{%
 \intertext{Quotient Rule:}%
 }%
@@ -438,18 +438,18 @@ y'%
 }%
 & \uncover<2->{%
  = \frac%
-{\left( #2 \right) \alertNoH{ 3-4}{\frac{\diff}{\diff x}\left( #1 \right)} - \left( #1 \right) \alertNoH{ 5-6}{\frac{\diff}{\diff x}\left( #2 \right)}}%
-{\left( #2\right)^2}%
+{ \alertNoH{ 4-5}{\frac{\diff}{\diff x}\left( \alertNoH{2}{ #1} \right)}\left( \alertNoH{3}{#2} \right) - \left( \alertNoH{2}{#1} \right) \alertNoH{ 6-7}{\frac{\diff}{\diff x}\left( \alertNoH{3}{#2} \right)}}%
+{\left( \alertNoH{3}{#2}\right)^2}%
 }\\%
-& \uncover<3->{%
+& \uncover<4->{%
  = \frac%
-{\left( #2 \right) \alertNoH{ 3-4}{\left(\fcAnswer{4}{ #3 }\right)} - \left( #1 \right) \alertNoH{ 5-6}{\left( \fcAnswerUncover{3}{6}{#4} \right)}}%
+{\alertNoH{ 4-5}{\left(\fcAnswer{5}{ #3 }\right)}\left( #2 \right)  - \left( #1 \right) \alertNoH{ 6-7}{\left( \fcAnswerUncover{4}{7}{#4} \right)}}%
 {\left( #2\right)^2}%
-}\\%
-& \uncover<7->{%
- = #5%
 }\\%
 & \uncover<8->{%
+ = #5%
+}\\%
+& \uncover<9->{%
  = #6.%
 }%
 \end{align*}

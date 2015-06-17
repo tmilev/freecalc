@@ -1,7 +1,7 @@
 % begin module product-rule
 \begin{frame}
 \begin{theorem}[The Product Rule]
-If $f$ and $g$ are both differentiable, then
+If \alertNoH{13,19}{$f$} and \alertNoH{15}{$g$} are both \alertNoH{13,15,19}{differentiable}, then
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
@@ -14,17 +14,16 @@ If $f$ and $g$ are both differentiable, then
 \belowdisplayskip=-15pt
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
-\begin{align*}
- \uncover<2->{\alertNoH{20}{F'(x)}}  & \uncover<2->{ = } \uncover<3->{\lim_{h\rightarrow 0}\frac{F(x+h)-F(x)}{h}}  \uncover<4->{ = } \uncover<4->{\lim_{h\rightarrow 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h}}\\
-& \uncover<5->{ = }  %
-\uncover<5->{\lim_{h\rightarrow 0}\frac{\alertNoH{6}{f(x+h)}\alertNoH{7}{g(x+h)} \alertNoH{ 5}{\alertNoH{7}{-} \alertNoH{6}{f(x+h)}\alertNoH{7}{g(x)} + \alertNoH{9}{f(x+h)}\alertNoH{8}{ g(x)}} \alertNoH{9}{- f(x)}\alertNoH{8}{g(x)}}{\alertNoH{10}{h}}}\\
-& \uncover<6->{ = }  %
-\uncover<6->{\lim_{h\rightarrow 0}\left( \alertNoH{6}{ f(x+h)} \frac{\alertNoH{7}{g(x+h)- g(x)}}{\alertNoH{10}{h}} + \alertNoH{8}{g(x)}\frac{\alertNoH{9}{f(x+h)- f(x)}}{\alertNoH{10}{h}}\right)}\\
-& \uncover<11->{ = }  %
-\uncover<11->{\alertNoH{ 12-13}{\lim_{h\rightarrow 0}f(x+h)} \alertNoH{ 14-15}{\cdot \lim_{h\rightarrow 0}\frac{g(x+h) - g(x)}{h}}}\\
-& \qquad \uncover<11->{ + \alertNoH{ 16-17}{\lim_{h\rightarrow 0}g(x)}\alertNoH{ 18-19}{\cdot\lim_{h\rightarrow 0}\frac{f(x+h)- f(x)}{h}} } %
-\alertNoH{20}{ \uncover<12->{ = }  \fcAnswerUncover{12}{13}{f(x)}\fcAnswerUncover{12}{ 15}{g'(x)}  + \fcAnswerUncover{12}{ 17}{g(x)} \fcAnswerUncover{12}{ 19}{f'(x) } }  \uncover<20->{\mbox{\qedhere}}
-\end{align*}
+$
+\begin{array}{@{}r@{}c@{}l@{}}
+\displaystyle \uncover<2->{\alertNoH{20}{F'(x)}  &  = &\displaystyle \uncover<3->{ \lim_{h \rightarrow 0}\frac{F(x+h)-F(x)}{h}}  \uncover<4->{ = \lim_{ h \rightarrow 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h}}} \\
+\uncover<5->{&  = & \displaystyle \lim_{h\rightarrow 0}\frac{\alertNoH{6}{ f(x + h) }\alertNoH{7}{ g(x+h)} \alertNoH{ 5}{\alertNoH{7}{-} \alertNoH{6}{f ( x+ h )}\alertNoH{7}{g(x)} + \alertNoH{9}{f(x+h)}\alertNoH{8}{ g(x)}} \alertNoH{9}{- f(x)}\alertNoH{8}{g(x)}}{\alertNoH{10}{h}}} \\
+\uncover<6->{&  = &\displaystyle \lim_{h\rightarrow 0}\left( \alertNoH{6}{ f(x+h)} \frac{\alertNoH{7}{g (x+h)- g(x)}}{\alertNoH{10}{h}} + \alertNoH{8}{g(x)}\frac{\alertNoH{9}{f(x+h)- f(x)}}{\alertNoH{10}{h}}\right)}\\
+\uncover<11->{&  = &\displaystyle \alertNoH{ 12-13}{\lim_{h\rightarrow 0}f(x+h)} \alertNoH{ 14-15}{\cdot \lim_{h\rightarrow 0}\frac{g(x+h) - g(x)}{h}}}\\
+&&\displaystyle \uncover<11->{ + \alertNoH{ 16-17}{\lim_{h\rightarrow 0}g(x)}\alertNoH{ 18-19}{\cdot\lim_{h\rightarrow 0}\frac{f(x+h)- f(x)}{h}} } %
+\alertNoH{20}{ \uncover<12->{ =   \fcAnswerUncover{12}{13}{f (x) }\fcAnswerUncover{12}{ 15}{g'(x)}  + \fcAnswerUncover{12}{ 17}{g(x)} \fcAnswerUncover{12}{ 19}{f'(x) .} }}  \uncover<20->{\!\!\!\mbox{\qedhere}}
+\end{array}
+$
 \end{proof}
 \end{frame}
 % end module product-rule
