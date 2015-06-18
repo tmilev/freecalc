@@ -55,8 +55,9 @@
 \fcPutIIId[t]{[2 -0.1 0]}{$2$}%
 \fcPutIIId[r]{[-0.1 1 0]}{$1$}%
 \only<2->{\fcPutIIId[b]{[4 3 div 1.5 0]}{$\alertNoH{15}{y=2x^2-x^3}$}}%
-\only<handout:0|15>{\fcLineIIId[linecolor=red, linewidth=2pt]{[0.9 0 0]}{[0.9 dup 1 dict begin /u exch def \theFun end 0]}}%
-\only<handout:0|17>{\fcCurveIIId[linecolor=red, linewidth=2pt]{0}{360}{[t cos 0.9 mul 0 t sin 0.9 mul]}}%
+\only<handout:0|15,20>{\fcLineIIId[linecolor=red, linewidth=2pt]{[0.9 0 0]}{[0.9 dup 1 dict begin /u exch def \theFun end 0]}}%
+\only<handout:0|22>{\fcLineIIId[linecolor=red, linewidth=2pt]{[0.9 0 0]}{[0.8 0 0]}}%
+\only<handout:0|17,21>{\fcCurveIIId[linecolor=red, linewidth=2pt]{0}{360}{[t cos 0.9 mul 0 t sin 0.9 mul]}}%
 \only<handout:0|22>{\fcLineIIId[linecolor=orange, linewidth=2pt]{[0.8 0 0]}{[0.9 0 0]}}%
 \only<handout:0|25->{%
 \fcLineIIId[linecolor=blue, linewidth=2pt]{[0 0 0]}{[2 0 0]}%
@@ -87,7 +88,7 @@ Find the volume of the solid obtained by rotating about the $y$-axis \alertNoH{4
 \uncover<handout:3|1->{
 $\begin{array}{@{}r@{}c@{}l}
 \uncover<23->{V & =&\displaystyle \int_{{\fcAnswer{25}{0}} }^{{ \fcAnswer{25 }{2}}} \alertNoH{23}{(\alertNoH{26}{2\pi} x)(2x^2 - x^3)\diff x}}  \uncover<26->{ = \alertNoH{26}{2\pi}  {\alertNoH{27-30 }{\int}}_{\!\!\!0}^{2} (\alertNoH{27,28}{2x^3} - \alertNoH{29,30}{ x^4})\alertNoH{27-30}{\diff x}} \\
-\uncover<27->{&  = &\displaystyle 2\pi {\left[ \fcAnswer{28}{ \frac{{ \alertNoH{31}{ x}}^4}{2}} - \fcAnswerUncover{ 27}{30}{ \frac{{ \alertNoH{31}{ x}}^5}{5}} \right]}_{ \alertNoH{32}{0}}^{\alertNoH{31}{2} } } \uncover<31->{ = 2\pi \left( \frac{{\alertNoH{31}{2}}^4}{2} - \frac{{\alertNoH{31}{2} }^5}{ 5} \right) } \uncover<33->{=2\pi \left( 8- \frac{32}{5} \right) } \uncover<34->{ = \frac{16}{5}\pi } 
+\uncover<27->{&  = &\displaystyle 2\pi {\left[ \fcAnswer{28}{ \frac{{ \alertNoH{31}{ x}}^4}{2}} - \fcAnswerUncover{ 27}{30}{ \frac{{ \alertNoH{31}{ x}}^5}{5}} \right]}_{ \alertNoH{32}{0}}^{\alertNoH{31}{2} } } \uncover<31->{ = 2\pi \left( \frac{{\alertNoH{31}{2}}^4}{2} - \frac{{\alertNoH{31}{2} }^5}{ 5} \right) } \uncover<33->{=2\pi \left( 8- \frac{32}{5} \right) } \uncover<34->{ = \frac{16}{5}\pi .} 
 \end{array}
 $
 }

@@ -49,9 +49,9 @@ Suppose $\alertNoH{18}{ \alertNoH{9}{0 < \theta} < \frac{\pi}{2}}$.  \uncover<2-
 \tiny%
 \psline[linecolor=gray!1](3.2, 2)(3.25, 2.05)%
 \only<1-4, 8-10,12->{\psplot[linewidth=1pt]{2.598076211}{3}{9 x x mul sub sqrt}}%
-\only<5-7,11>{\psplot[linecolor=red, linewidth=1.5pt] {2.598076211}{3}{9 x x mul sub sqrt}}%
+\only<5-7,8,11,16>{\psplot[linecolor=red, linewidth=1.5pt] {2.598076211}{3}{9 x x mul sub sqrt}}%
 \psline[linewidth=1pt](0,0)(3,0)%
-\uncover<handout:0|14>{\psline[linecolor=red, linewidth=1.5pt](0,0)(3,0)}%
+\uncover<handout:0|14,15>{\psline[linecolor=red, linewidth=1.5pt](0,0)(3,0)}%
 \psline[linewidth=1pt](0,0)(2.598076211,1.5)%
 \only<3>{\psline[linecolor=red, linewidth=1.5pt](0,0)(2.598076211,1.5)}%
 \psline[linewidth=1pt](-0.05,0.08660254)(2.548076211,1.58660254)%
@@ -61,10 +61,10 @@ Suppose $\alertNoH{18}{ \alertNoH{9}{0 < \theta} < \frac{\pi}{2}}$.  \uncover<2-
 \only<1-2, 5-7>{ %line BC
 \psline[linewidth=1pt](2.598076211,0)(2.598076211,1.5)
 \psline[linewidth=1pt](2.498076211,0)(2.498076211,0.1)(2.598076211,0.1)}%
-\only<3-4>{ % line BC
+\only<3-4,8>{ % line BC
 \psline[linecolor=red, linewidth=1.5pt](2.598076211,0)(2.598076211,1.5)
 \psline[linecolor=red, linewidth=1pt] (2.498076211,0)(2.498076211,0.1)(2.598076211,0.1)}%
-\only<8->{ % line BC
+\only<9->{ % line BC
 \psline[linecolor=gray, linewidth=1pt](2.598076211, 0)(2.598076211, 1.5)%
 \psline[linecolor=gray, linewidth=1pt] (2.498076211, 0)(2.498076211, 0.1)(2.598076211,0.1)}%
 \only<4-5>{ %line AB
@@ -77,24 +77,24 @@ Suppose $\alertNoH{18}{ \alertNoH{9}{0 < \theta} < \frac{\pi}{2}}$.  \uncover<2-
 \psline[linewidth=1.5pt, linecolor=red] (2.598076211,1.5)(3, 0.866025404)}%
 \only<13->{ % line BD
 \psline[linewidth=1pt](2.598076211,1.5)(3,0.866025404)}%
-\only<11, 13-15>{ %line DA
+\only<11, 13-14,16>{ %line DA
 \psline[linewidth=1.5pt, linecolor=red](3, 0.866025404)(3,0)%
 \psline[linewidth=1pt, linecolor=red](2.9,0)(2.9,0.1)(3,0.1)%
 \rput[l](3.1,0.866025404){$D$}}%
-\only<12, 16->{ %line DA
+\only<12, 15,17->{ %line DA
 \psline[linewidth=1pt](3, 0.866025404)(3,0)%
 \psline[linewidth=1pt, linecolor=gray](2.9,0)(2.9,0.1)(3,0.1)%
 \rput[l](3.1,0.866025404){$D$}}%
-\only<12>{ %line BE
-\psline[linewidth=1.5pt, linecolor=red](2.598076211, 1.5)(3,1.732050808)%
-\psline[linewidth=1pt, linecolor=red](2.684678752, 1.55) (2.734678752,1.46339746) (2.648076211,1.41339746)}%
-\only<13->{ %line BE
+%\only<12>{ %line BE
+%\psline[linewidth=1.5pt, linecolor=red](2.598076211, 1.5)(3,1.732050808)%
+%\psline[linewidth=1pt, linecolor=red](2.684678752, 1.55) (2.734678752,1.46339746) (2.648076211,1.41339746)}%
+\only<12->{ %line BE
 \psline[linewidth=1pt](2.598076211,1.5)(3,1.732050808)%
 \psline[linewidth=1pt](2.684678752, 1.55) (2.734678752, 1.46339746) (2.648076211, 1.41339746)}%
-\only<12-15>{ %line DE
+\only<12-14,16>{ %line DE
 \psline[linewidth=1.5pt, linecolor=red](3, 1.732050808)(3, 0.866025404)%
 \rput[l](3.1,1.732050808){$E$}}%
-\only<16->{ %line DE
+\only<15,17->{ %line DE
 \psline[linewidth=1pt](3, 1.732050808)(3,0.866025404)%
 \rput[l](3.1, 1.732050808){$E$}}%
 \uncover<7-10>{\rput[l](2.95,0.8){$\alertNoH{7}{\theta}$}}%
@@ -139,7 +139,7 @@ Therefore $\alertNoH{8}{\sin\theta <\alertNoH{9}{\theta}}$ \uncover<9->{and ther
 \belowdisplayskip=0pt
 \begin{align*}
 \uncover<10->{%
-\alertNoH{16}{\theta} = \text{arc} AB %
+\alertNoH{16}{\theta} =\alertNoH{11}{ \text{arc} AB} %
 }%
 & \uncover<11->{ < }  %
 \uncover<11->{%

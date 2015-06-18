@@ -1,45 +1,90 @@
 % begin module cylindrical-shells-otherline
 \begin{frame}
 \begin{example}[Rotated About a Line Other Than the $y$-axis]
-Find the volume of the solid obtained by rotating about \alert<handout:0| handout:0| 5>{the line $x = 1$} \alert<handout:0| handout:0| 4>{the region to the right of $x = 1$ bounded by \alert<handout:0| handout:0| 2>{$y = x^3 - 4x^2 + 3x$} and \alert<handout:0| handout:0| 3>{the $x$-axis}}.
+Find the volume obtained by rotating about \alertNoH{5}{the line $x = 1$} \alertNoH{ 4}{the region to the right of $x = 1$ bounded by \alertNoH{2}{$y = x^3 - 3x^2 + 2x$} and \alertNoH{3}{the $x$-axis}}.
 
-\uncover<6->{%
-The radius of the typical cylindrical shell is $x - 1$.%
-}%
+\uncover<handout:3|13->{Cylindrical shell: \alertNoH{13,14}{outer radius $\fcAnswer{14}{x-1}$}; \alertNoH{15,16}{ \alertNoH{22}{height:} $\fcAnswerUncover{13}{16}{ \alertNoH{17}{|} x^3-3x^2+2x\alertNoH{17}{|} } \uncover<17->{= \alertNoH{22}{\alertNoH{17}{-}(x^3-3x^2+2x) }} $}; \alertNoH{18,19,23}{circumference: $ \fcAnswerUncover{13}{19}{2\pi(x -1)}$}; \alertNoH{20,21,25}{ \alertNoH{24}{infinitesimal} volume: $\fcAnswerUncover{13}{21}{\alertNoH{23}{2\pi(x-1)} \alertNoH{22}{(-x^3+3x^2-2x)} \alertNoH{24}{\diff x}} $}.}
+
 \begin{columns}
-\column{0.4\textwidth}
-\only<handout:0| -1>{%
-\includegraphics[width=5cm]{volumes/pictures/06-03-otherlinea.pdf} %
+\column{0.37\textwidth}
+\begin{pspicture}(-1,-1)(2,2)
+\tiny%
+\renewcommand{\fcScreenStyle}{x}%
+\fcBoundingBox{-1.3}{-1.2}{2.5}{2.5}%
+\renewcommand{\fcScreen}{[0 0 -1] 0}%
+\renewcommand{\fcIterationsU}{4}%
+\only<handout:2|5->{\renewcommand{\fcScreen}{[-0.07 dup -1] 0}}%
+\only<handout:2|6->{\renewcommand{\fcScreen}{[-0.14 dup -1] 0}}%
+\only<handout:2|7->{\renewcommand{\fcScreen}{[-0.21 dup -1] 0}}%
+\only<handout:2,3|8->{\renewcommand{\fcScreen}{[-0.28 dup -1] 0}}%
+\newcommand{\theFun}{u u mul u mul u u mul -3 mul add u 2 mul add\space}%
+\newcommand{\theYAxis}{0\space}%
+\newcommand{\theSurfaceFla}{v cos u 1 sub mul 1 add \theFun v sin u 1 sub mul\space}%
+\newcommand{\theSurface}{%
+\fcSurfaceInScene[colorVU= {1 0.5 0.5}, iterationsU=6, arrows=none, linewidth=0.3, linecolor=black ]{1.01}{0}{2}{30 \fcIterationsV \space mul}{[\theSurfaceFla]}{}%
+\fcSurfaceInScene[colorVU= {1 0.5 0.5}, iterationsU=2, arrows=none, linewidth=0.3, linecolor=black ]{1.01}{0}{1.99}{30 \fcIterationsV \space mul}{[v cos u 1 sub mul 1 add 0 v sin u 1 sub mul ]}{}%
 }%
-\only<handout:0| 2>{%
-\includegraphics[width=5cm]{volumes/pictures/06-03-otherlineb.pdf} %
+\uncover<handout:1|4-8>{\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\fcLineIIId{ [1 0 0]}{[2 0  0]}%
+\fcCurveIIId{2}{1}{[1 dict begin /u t def t \theFun 0 end]}%
+}}%
+\fcStartIIIdScene%
+\fcAxesIIIdInScene[zLabel={}, arrows=->]{2.2}{2.2}{3}%
+\uncover<handout:2,3|8->{\fcPutIIId[t]{[0 0 3.1]}{$z$}}%
+\only<handout:0|9>{%
+\renewcommand{\fcIterationsV}{4}%
+\theSurface%
 }%
-\only<handout:0| 3>{%
-\includegraphics[width=5cm]{volumes/pictures/06-03-otherlinec.pdf} %
+\only<handout:0|10>{%
+\renewcommand{\fcIterationsV}{8}%
+\theSurface%
 }%
-\only<handout:0| 4>{%
-\includegraphics[width=5cm]{volumes/pictures/06-03-otherlined.pdf} %
+\only<handout:2|11,12, 26->{%
+\renewcommand{\fcIterationsV}{12}%
+\theSurface%
 }%
-\only<handout:0| 5>{%
-\includegraphics[width=5cm]{volumes/pictures/06-03-otherlinee.pdf} %
+\only<handout:2,3|12-25>{%
+\fcSurfaceInScene[linewidth=1, arrows=(none), colorUV=cyan, colorVU=cyan, linecolor=blue, iterationsU=10, iterationsV=1]{0}{0}{360}{1 dict begin /u 1.5 def \theFun  end}{[u cos 0.5 mul 1 add v u sin 0.5 mul ]}{}%
+\fcSurfaceInScene[linewidth=1, arrows=(none), colorUV=cyan, colorVU=cyan, linecolor=blue, iterationsU=10, iterationsV=1]{0}{0}{360}{1 dict begin /u 1.5 def \theFun  end}{[u cos 0.4 mul 1 add v u sin 0.4 mul ]}{}%
+\fcSurfaceInScene[linewidth=1, arrows=(none), colorUV=cyan, colorVU=cyan, linecolor=blue, iterationsU=10, iterationsV=1]{0}{0.4}{360}{0.5}{[u cos v mul 1 add 0  u sin v mul ]}{}%
 }%
-\only<6->{%
-\includegraphics[width=5cm]{volumes/pictures/06-03-otherlinef.pdf} %
+\only<4->{\fcLineIIIdInScene[arrows=(none), linecolor=black, linewidth=1]{[1 -1 0]}{[1 1 0]}}%
+\only<4->{\fcCurveIIIdInScene[linewidth=1, arrows=(none), linecolor= \fcColorGraph]{1}{2}{1 dict begin /u {t} def  [t \theFun 0] end}}%
+\only<4->{\fcLineIIIdInScene[linewidth=1, arrows=(none), linecolor= \fcColorGraph]{[1 0 0]}{[2 0 0]}}%
+\fcFinishIIIdScene%
+\only<handout:1|2-3>{\fcCurveIIId{-0.2}{2.2}{1 dict begin /u {t} def  [t \theFun 0] end}}%
+\only<handout:1|3>{\fcLineIIId[linecolor=\fcColorGraph]{[-0.8 0 0]}{[2.1 0 0]}}%
+\uncover<handout:3|13->{ \fcLineIIId[linecolor=black, linewidth=0.4pt]{[1.5 -0.05 0]}{[1.5 0.05 0]}}%
+\fcLineIIId[linecolor=black, linewidth=0.4pt]{[2 -0.05 0]}{[2 0.05 0]}%
+\fcLineIIId[linecolor=black, linewidth=0.4pt]{[-0.05 1 0]}{[0.05 1 0]}%
+\uncover<handout:3|13->{ \fcPutIIId[t]{[1 -0.1 0]}{$x$}}%
+\fcPutIIId[t]{[2 -0.1 0]}{$2$}%
+\fcPutIIId[r]{[-0.1 1 0]}{$1$}%
+\uncover<handout:3|14>{\fcLineIIId[linecolor=red!50, linewidth=2pt]{[1 0 0]}{[1.5 0 0]}}%
+\only<2->{\fcPutIIId[b]{[4 3 div 1 0]}{$\alertNoH{15}{y=x^3-3x^2+2x}$}}%
+\only<handout:0|16,17,22>{\fcLineIIId[linecolor=red, linewidth=2pt]{[1.5 0 0]}{[1.5 dup 1 dict begin /u exch def \theFun end 0]}}%
+\only<handout:0|23>{\fcLineIIId[linecolor=red, linewidth=2pt]{[1.5 0 0]}{[1.4 0 0]}}%
+\only<handout:0|19,23>{\fcCurveIIId[linecolor=red, linewidth=2pt]{0}{360}{[t cos 0.5 mul 1 add 0 t sin 0.5 mul]}}%
+\only<handout:0|24>{\fcLineIIId[linecolor=orange, linewidth=2pt]{[1.4 0 0]}{[1.5 0 0]}}%
+\only<handout:0|27->{%
+\fcLineIIId[linecolor=blue, linewidth=2pt]{[1 0 0]}{[2 0 0]}%
+\fcDotIIId[linecolor=blue]{[1 0 0]}
+\fcDotIIId[linecolor=blue]{[2 0 0]}
 }%
-\column{0.6\textwidth}
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\abovedisplayshortskip=0pt
-\belowdisplayshortskip=0pt
-\begin{align*}
-%\uncover<7->{V}%
-& \uncover<7->{  }  \uncover<7->{\int_1^3 2\pi (x-1)(-x^3 + 4x^2- 3x)\diff x} \\
-& \uncover<8->{ = }   \uncover<8->{2\pi \int_1^3 (-\alert<handout:0| 9-10>{x^4} + \alert<handout:0| 11-12>{5x^3} - \alert<handout:0| 13-14>{7x^2} + \alert<handout:0| 15-16>{3x})\diff x} \\
- & \uncover<9->{ = }  \uncover<9->{2\pi \left[ -\alert<handout:0| 10>{\uncover<10->{\frac{x^5}{5}}} + \alert<handout:0| 12>{\uncover<12->{\frac{5x^4}{4}}} - \alert<handout:0| 14>{\uncover<14->{\frac{7x^3}{3}}} + \alert<handout:0| 16>{\uncover<16->{\frac{3x^2}{2}}} \right]_1^3 } \\
-& \uncover<17->{ = }  \uncover<17->{2\pi \left( \left( -\frac{243}{5} + \frac{405}{4} - 63 + \frac{27}{2} \right) \right.} \\
-&  \uncover<17->{\left. - \left( -\frac{1}{5} + \frac{5}{4} - \frac{7}{3} + \frac{3}{2} \right) \right)} %\\
- \uncover<18->{ = }  \uncover<18->{\frac{88}{15}\pi }
-\end{align*}
+\end{pspicture}
+
+\column{0.63\textwidth}
+$
+\begin{array}{@{}r@{~}c@{~}l}
+\uncover<25->{V&=&\displaystyle  \int_{{\fcAnswerUncover{25}{27}{1}}}^{{\fcAnswerUncover{25}{27}{2}}} \alertNoH{25}{ \alertNoH{28}{2\pi} \alertNoH{29,30}{(x-1)(-x^3 + 3x^2- 2x)} \diff x}} \\
+\uncover<28->{&=&\displaystyle  \alertNoH{28}{2\pi} {\alertNoH{31-38}{ \int}}_{\!\!\!1}^{2} (\fcAnswerUncover{28}{30}{ - \alertNoH{ 31-32}{x^4} + \alertNoH{ 33-34}{ 4 x^3 } - \alertNoH{ 35-36}{5x^2} + \alertNoH{ 37-38}{2 x}}) \alertNoH{31-38}{ \diff x}} \\
+\uncover<31->{&=&\displaystyle  2\pi {\left[ -\fcAnswerUncover{31}{32}{ \frac{{\alertNoH{39,40}{x}}^5}{5}} + \fcAnswerUncover{31}{34}{ {\alertNoH{39,40}{ x}}^4} - \fcAnswerUncover{31}{36}{ \frac{5 {\alertNoH{39,40}{ x}}^3}{3}} +  \fcAnswerUncover{31}{38}{ {\alertNoH{39,40}{x}}^2} \right]}_{\alertNoH{40}{1}}^{\alertNoH{39}{2}} } \\
+\uncover<39->{&=&\displaystyle  2\pi \left( \left( -\frac{{\alertNoH{39}{2}}^5}{5} + {\alertNoH{39}{2}}^4 - 
+\frac{5}{3}\cdot {\alertNoH{39}{2}}^{3} + {\alertNoH{39}{2}}^2 \right) \right.} \\
+\uncover<39->{&&\displaystyle  \left. - \left( -\frac{{\alertNoH{40}{1}}^5}{5} + {\alertNoH{40}{1}}^{4} - \frac{5}{3}\cdot {\alertNoH{40}{1}}^3 + {\alertNoH{40}{1}}^2 \right) \right)} %\\
+ \uncover<41->{ = \frac{4}{15}\pi .}
+\end{array}
+$
 \end{columns}
 \end{example}
 \end{frame}
