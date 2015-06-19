@@ -1,41 +1,29 @@
 % begin module chain-rule-ex6
 \begin{frame}
 \begin{example}
-Find the derivative of $y = (2x+1)^5(x^3-x+1)^4$.
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\abovedisplayshortskip=0pt
-\belowdisplayshortskip=0pt
-\begin{align*}
-&  \uncover<2->{\text{Product Rule:}}\\%
-\uncover<2->{%
-y'%
-}%
-& \uncover<2->{ = } %
-\uncover<2->{%
-(2x+1)^5\alertNoH{ 3-4}{\frac{\diff}{\diff x} \left((x^3-x+1)^4\right)}+(x^3-x+1)^4\alertNoH{ 5-6}{\frac{\diff}{\diff x}\left((2x+1)^5\right)}%
+Find the derivative of $y =\alertNoH{2}{(2x+1)^5}\alertNoH{3}{(x^3- x+1)^4}$.
+$
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{@{}r@{}cl}
+&&  \uncover<2->{\text{Product Rule:}}\\%
+\uncover<2->{y'& =&\displaystyle  \alertNoH{ 4-5}{\frac{\diff}{\diff x}\left(\alertNoH{2}{(2x+1)^5}\right)}\alertNoH{3}{(x^3-x+1)^4} +\alertNoH{2}{(2x+1)^5} \alertNoH{ 6-7}{\frac{\diff}{\diff x} \left(\alertNoH{3}{(x^3-x+1)^4} \right)}%
 }\\%
-&  \uncover<3->{\text{Chain Rule:}}\\%
-& \uncover<3->{ = } %
-\uncover<3->{%
-(2x+1)^5\alertNoH{ 3-4}{\fcAnswerUncover{3}{4}{4 (x^3-x+1)^3\alertNoH{ 7-8}{\frac{\diff}{\diff x}(x^3-x+1)}}}%
+&&  \uncover<4->{\text{Chain Rule:}}\\%
+\uncover<4->{ &  = &\displaystyle 
+\alertNoH{ 4-5}{\left(\fcAnswerUncover{4}{5}{5(2x+1)^4\alertNoH{ 10-11}{\frac{\diff}{\diff x}(2x+1)}}\right)} (x^3-x+1)^4%
 }\\%
-&  \qquad \uncover<3->{+(x^3-x+1)^4\alertNoH{ 5-6}{\fcAnswerUncover{3}{6}{5(2x+1)^4\alertNoH{ 9-10}{\frac{\diff}{\diff x}(2x+1)}}}%
+& &\displaystyle 
+\uncover<4->{
++(2x+1)^5\alertNoH{ 6-7}{\left(\fcAnswerUncover{4}{7}{4 (x^3-x+1)^3 \alertNoH{ 8-9}{ \frac{\diff}{\diff x}(x^3-x+1)}}\right)}%
 }\\%
-& \uncover<7->{ = } %
-\uncover<7->{%
-4(\alertNoH{11}{2x+1})^5(\alertNoH{11}{x^3-x+1})^3\alertNoH{ 7-8}{(\fcAnswerUncover{7}{8}{3x^2-1})} +5(\alertNoH{11}{x^3-x+1})^4(\alertNoH{11}{2x+1})^4\alertNoH{ 9-10}{\fcAnswerUncover{7}{10}{2}}%
+\uncover<8->{ &=&\displaystyle 5(\alertNoH{12}{2x+1})^4\alertNoH{ 10-11}{\left(\fcAnswerUncover{8}{11}{2}\right)}( \alertNoH{12}{x^3-x+1})^4 +4(\alertNoH{12}{2x +1})^5( \alertNoH{12}{ x^3 -x+1})^3\alertNoH{ 8-9}{(\fcAnswerUncover{8}{9}{3x^2-1})}%
 }\\%
-& \uncover<11->{\text{Common factor $2(\alertNoH{11}{2x+1})^4(\alertNoH{11}{x^3-x+1})^3$:}}\\%
-& \uncover<11->{ = } %
-\uncover<11->{%
-2(2x+1)^4(x^3-x+1)^3( 2(2x+1)(3x^2-1)+5(x^3-x+1) ) )%
+&& \uncover<12->{\text{Common factor } 2(\alertNoH{12}{2x+1})^4(\alertNoH{12}{x^3-x+1})^3:}\\%
+\uncover<12->{ & = &\displaystyle 2(2x+1)^4(x^3-x+1)^3(\alertNoH{14}{ 2(2x+1)(3x^2-1)+5(x^3-x+1) }) )%
 }\\
-& \uncover<12->{ = } %
-\uncover<12->{%
-2(2x+1)^4(x^3-x+1)^3(17x^3+6x^2-9x+3)%
-}%
-\end{align*}
+\uncover<14->{&  = &\displaystyle 2(2x+1)^4(x^3-x+1)^3(\alertNoH{14}{17x^3+6x^2-9x+3})}%
+\end{array}
+$
 \end{example}
 \end{frame}
 % end module chain-rule-ex6
