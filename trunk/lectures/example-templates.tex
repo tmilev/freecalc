@@ -876,9 +876,9 @@ f'(x)%
  \alertNoH{ 7-8}{g'(h(x))}%
 \alertNoH{ 9-10}{h'(x)}%
 }\\%
-&&\uncover<7-| handout:0>{=}& \displaystyle
-\uncover<7-| handout:0>{\alertNoH{ 7-8}{ \left( \uncover<8-| handout:0>{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 11}{h(x)}} \noexploregroups\expandarg}\right)}%
-\alertNoH{ 9-10}{\left( \uncover<10-| handout:0>{#5}\right)}%
+&&\uncover<7->{=}& \displaystyle
+\uncover<7->{\alertNoH{ 7-8}{ \left( \fcAnswerUncoverNoH{7}{8}{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 11}{h(x)}} \noexploregroups\expandarg}\right)}%
+\alertNoH{ 9-10}{\left( \fcAnswerUncoverNoH{7}{10}{#5}\right)}%
 }\\%
 &&\uncover<11-| handout:0>{=}&\displaystyle \uncover<11-| handout:0>{%
  \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alertNoH{ 11}{#2}}.\noexploregroups \expandarg%
@@ -933,7 +933,7 @@ $
 \text{Let}&\alertNoH{4-5,7-8}{g(u)}%
 }
 &\uncover<2->{\alertNoH{4-5,7-8}{=}}&\displaystyle
-\uncover<2->{\alertNoH{4-5,7-8}{\fcAnswerUncover{2}{5}{ \uncover<5-| handout:0>{#3.}}}%
+\uncover<2->{\alertNoH{4-5,7-8}{\fcAnswerUncoverNoH{2}{5}{ #3.}}%
 }\\%
 \uncover<2->{%
 \text{Then}& f(x)
@@ -949,8 +949,8 @@ f'(x)%
  \alertNoH{ 7-8}{g'(u)}%
 \alertNoH{ 9-10}{u'}%
 }\\%
-&& \uncover<7-|handout:0>{=}&\displaystyle \uncover<7-|handout:0>{\alertNoH{7-8}{\left( \uncover<8-| handout:0>{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alertNoH{11}{u}}\noexploregroups\expandarg}\right)}%
-\alertNoH{9-10}{\left( \uncover<10-| handout:0>{#5}\right)}%
+&& \uncover<7-|handout:0>{=}&\displaystyle \uncover<7-|handout:0>{\alertNoH{7-8}{\left( \fcAnswerUncoverNoH{7}{8}{\noexpandarg\exploregroups\StrSubstitute{#4}{UU}{\alertNoH{11}{u}}\noexploregroups\expandarg}\right)}%
+\alertNoH{9-10}{\left( \fcAnswerUncoverNoH{7}{10}{#5}\right)}%
 }\\%
 && \uncover<11-|handout:0>{ = }&\displaystyle \uncover<11-| handout:0>{%
  \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alertNoH{11}{#2}}.\noexploregroups \expandarg%
@@ -1005,7 +1005,7 @@ $
 \text{Then}&\alertNoH{4-5,7-8}{y}%
 }
 &\uncover<2->{\alertNoH{4-5,7-8}{=}}&\displaystyle
-\uncover<2->{\alertNoH{4-5,7-8}{\fcAnswerUncover{2}{5}{ \uncover<5-| handout:0>{#3.}}}%
+\uncover<2->{\alertNoH{4-5,7-8}{\fcAnswerUncoverNoH{2}{5}{ #3.}}%
 }\\%
 \uncover<6->{%
 \text{Chain Rule:} &
@@ -1015,9 +1015,9 @@ $
  \alertNoH{7-8}{\frac{\diff y}{\diff u}}%
 \alertNoH{9-10}{\frac{\diff u}{\diff x}}%
 }\\%
-&& \uncover<handout:0|7->{ =}&\displaystyle \uncover<handout:0|7->{ \alertNoH{7-8}{ \left( \uncover<8-| handout:0>{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 11}{u}} \noexploregroups\expandarg}\right)}%
-\alertNoH{9-10}{\left( \uncover<10-| handout:0>{#5}\right)}%
-}\\%
+&& \uncover<7->{ =&\displaystyle  \alertNoH{7-8}{ \left( \fcAnswerUncoverNoH{7}{8}{\noexpandarg \exploregroups \StrSubstitute{#4}{UU}{\alertNoH{ 11}{u}} \noexploregroups\expandarg}\right)}%
+\alertNoH{9-10}{\left( \fcAnswerUncoverNoH{7}{10}{#5}\right)}}%
+\\%
 &&\uncover<11->{=}&\displaystyle \uncover<11-| handout:0>{%
 \noexpandarg \exploregroups \StrSubstitute{#6}{UU}{\alertNoH{ 11}{#2}}.\noexploregroups \expandarg%
 }%

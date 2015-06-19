@@ -2,17 +2,17 @@
 \begin{frame}
 \frametitle{The Chain Rule}
 \begin{itemize}
-\item  What is the derivative of $F(x) = \only<handout:0|6>{\color{red}} \sqrt{\only<handout:0|6>{ \color{black}}\alertNoH{8}{ x^2 + 1} }$?
+\item  What is the derivative of $f(x) = \only<handout:0|6>{\color{red}} \sqrt{\only<handout:0|6>{ \color{black}}\alertNoH{8}{ x^2 + 1} }$?
 \item<2->  The Power Rule doesn't tell us how to find the derivative.
-\item<3->  $F$ is a composite function $f\circ g$:
-\item<3-| alert@4-5,9,11-12>  $y = \alertNoH{6}{f(}u \alertNoH{6}{)} = \only<handout:0|6>{\color{red}} \fcAnswerUncover{3}{5}{ \sqrt{\only<handout:0|6>{\color{black}} u}}$.
-\item<3-| alert@7-9,13-14>  $u = g(x) = \fcAnswerUncover{3}{8}{ x^2+1}$.
-\item<3->  Then $y = F(x) = \alertNoH{9}{ \alertNoH{6}{f(} \alertNoH{ 8}{g(x)}\alertNoH{6}{ ) } =} \uncover<9->{\alertNoH{9}{ f(\alertNoH{ 8}{x^2+1}) }}  \uncover<9->{\alertNoH{ 9}{=\sqrt{x^2+1}}.}$
-\item<10->  We know the derivatives of $f$ and $g$:
-\item<10-| alert@11-12>  $f'(u) = \fcAnswerUncover{10}{12}{ \frac{1 }{2}u^{-\frac{1}{2}}}$.
-\item<10-| alert@13-14>  $g'(x) = \fcAnswerUncover{10}{14}{ 2x}$.
-\item<15->  It would be nice if we could find the derivative of $F$ in terms of the derivatives of $y$ and $u$.
-\item<16->  It turns out that the derivative of the composition $f\circ g$ is the product of the derivative of $f$ and the derivative of $g$.
+\item<3->  $f$ is a composite function $g\circ h$:
+\item<3-| alert@4-5,9,11-12>  $y = \alertNoH{6}{g(}u \alertNoH{6}{)} = \only<handout:0|6>{\color{red}} \fcAnswerUncover{3}{5}{ \sqrt{\only<handout:0|6>{\color{black}} u}}$.
+\item<3-| alert@7-9,13-14>  $u = h(x) = \fcAnswerUncover{3}{8}{ x^2+1}$.
+\item<3->  Then $y = f(x) = \alertNoH{9}{ \alertNoH{6}{g(} \alertNoH{ 8}{h(x)}\alertNoH{6}{ ) } =} \uncover<9->{\alertNoH{9}{ g(\alertNoH{ 8}{x^2+1}) }}  \uncover<9->{\alertNoH{ 9}{=\sqrt{x^2+1}}.}$
+\item<10->  We know the derivatives of $g$ and $h$:
+\item<10-| alert@11-12>  $g'(u) = \fcAnswerUncover{10}{12}{ \frac{1 }{2}u^{-\frac{1}{2}}}$.
+\item<10-| alert@13-14>  $h'(x) = \fcAnswerUncover{10}{14}{ 2x}$.
+\item<15->  It would be nice if we could find the derivative of $f$ in terms of the derivatives of $y$ and $u$.
+\item<16->  It turns out that the derivative of the composition $g\circ h$ is the product of the derivative of $g$ and the derivative of $h$.
 \item<17->  This important fact is called the Chain Rule.
 \end{itemize}
 \end{frame}
