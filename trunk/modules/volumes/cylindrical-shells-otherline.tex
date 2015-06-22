@@ -3,7 +3,7 @@
 \begin{example}[Rotated About a Line Other Than the $y$-axis]
 Find the volume obtained by rotating about \alertNoH{5}{the line $x = 1$} \alertNoH{ 4}{the region to the right of $x = 1$ bounded by \alertNoH{2}{$y = x^3 - 3x^2 + 2x$} and \alertNoH{3}{the $x$-axis}}.
 
-\uncover<handout:3|13->{Cylindrical shell: \alertNoH{13,14}{outer radius $\fcAnswer{14}{x-1}$}; \alertNoH{15,16}{ \alertNoH{22}{height:} $\fcAnswerUncover{13}{16}{ \alertNoH{17}{|} x^3-3x^2+2x\alertNoH{17}{|} } \uncover<17->{= \alertNoH{22}{\alertNoH{17}{-}(x^3-3x^2+2x) }} $}; \alertNoH{18,19,23}{circumference: $ \fcAnswerUncover{13}{19}{2\pi(x -1)}$}; \alertNoH{20,21,25}{ \alertNoH{24}{infinitesimal} volume: $\fcAnswerUncover{13}{21}{\alertNoH{23}{2\pi(x-1)} \alertNoH{22}{(-x^3+3x^2-2x)} \alertNoH{24}{\diff x}} $}.}
+\uncover<handout:3-|13->{Cylindrical shell: \alertNoH{13,14}{outer radius $\fcAnswer{14}{x-1}$}; \alertNoH{15,16}{ \alertNoH{22}{height:} $\fcAnswerUncover{13}{16}{ \alertNoH{17}{|} x^3-3x^2+2x\alertNoH{17}{|} } \uncover<17->{= \alertNoH{22}{\alertNoH{17}{-}(x^3-3x^2+2x) }} $}; \alertNoH{18,19,23}{circumference: $ \fcAnswerUncover{13}{19}{2\pi(x -1)}$}; \alertNoH{20,21,25}{ \alertNoH{24}{infinitesimal} volume: $\fcAnswerUncover{13}{21}{\alertNoH{23}{2\pi(x-1)} \alertNoH{22}{(-x^3+3x^2-2x)} \alertNoH{24}{\diff x}} $}.}
 
 \begin{columns}
 \column{0.37\textwidth}
@@ -74,6 +74,7 @@ Find the volume obtained by rotating about \alertNoH{5}{the line $x = 1$} \alert
 \end{pspicture}
 
 \column{0.63\textwidth}
+\uncover<handout:3-|25->{
 $
 \begin{array}{@{}r@{~}c@{~}l}
 \uncover<25->{V&=&\displaystyle  \int_{{\fcAnswerUncover{25}{27}{1}}}^{{\fcAnswerUncover{25}{27}{2}}} \alertNoH{25}{ \alertNoH{28}{2\pi} \alertNoH{29,30}{(x-1)(-x^3 + 3x^2- 2x)} \diff x}} \\
@@ -85,6 +86,7 @@ $
  \uncover<41->{ = \frac{4}{15}\pi .}
 \end{array}
 $
+}%uncover
 \end{columns}
 \end{example}
 \end{frame}

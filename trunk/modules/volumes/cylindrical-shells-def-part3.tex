@@ -74,22 +74,22 @@
 \end{pspicture}
 \column{0.65\textwidth}
 
-Consider a solid obtained by rotating the region under $f(x)$ around the $y$ axis. \uncover<2->{ Approximate the volume by cylindrical shells.  \uncover<5->{Select the height of an individual shell to be $h = f(r)$ ($r$=average outer \& inner radius).}
+Consider a solid obtained by rotating the region under $f(x)$ around the $y$ axis. \uncover<handout:2|2->{ Approximate the volume by cylindrical shells.  \uncover<5->{Select the height of an individual shell to be $h = f(r)$ ($r$=average outer \& inner radius).}
 
 \hfil \hfil $
 \uncover<4->{ V_{\text{shell}} = 2\pi r \alertNoH{5}{h}\Delta r} \uncover<5->{ = 2\pi \alertNoH{7}{r} \alertNoH{5}{f(\alertNoH{7}{r})} \alertNoH{8}{\Delta r} .}
 $
 }
 \end{columns}
-\uncover<6->{
+\uncover<handout:2|6->{
 Suppose there are $n$ cyclindrical shells and let $x_1, \ldots , x_n$ be the averages of outer and inner radii. The shell volume sum is:
 
 \hfil \hfil $\displaystyle
-\sum_{i=1}^n 2\pi \alertNoH{7}{x_i} f(\alertNoH{7}{x_i})\alertNoH{8}{ \Delta x}.
+V_{\text{approx}}=\sum_{i=1}^n 2\pi \alertNoH{7}{x_i} f(\alertNoH{7}{x_i})\alertNoH{8}{ \Delta x}.
 $
 }
 
-\uncover<9->{
+\uncover<handout:2|9->{
 Take the limit as the number of shells goes to $\infty$ to get
 \[
 V = \lim_{n\to \infty} V_{\text{approx}}= \lim_{n\rightarrow\infty} \sum_{i=1}^n 2\pi x_i f(x_i)\Delta x \uncover<13->{= \int_{\alertNoH{ 14}{a}}^{\alertNoH{ 14}{b}}2\pi xf(x) \diff x .}
