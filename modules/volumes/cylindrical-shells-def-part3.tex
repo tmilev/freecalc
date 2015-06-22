@@ -1,29 +1,101 @@
 
 \begin{frame}
-\[
-V = 2\pi rh\Delta r.
-\]
-\uncover<2->{
-If we are approximating the solid obtained by rotating the region under $f(x)$, let the height $h = f(r)$.  Then
-\[
-V = 2\pi rf(r)\Delta r .
-\]
+\begin{columns}
+\column{0.35\textwidth}
+\begin{pspicture}(-1,-2)(3,3)%
+\tiny%
+\renewcommand{\fcScreenStyle}{x}%
+\fcBoundingBox{-2.2}{-1.1}{2.5}{2.4}%
+\renewcommand{\fcScreen}{[0 0 -1] 0}%
+\renewcommand{\fcScreen}{[-0.28 dup -1] 0}%
+\newcommand{\theFun}{x x mul 2 mul x x x mul mul sub\space}%
+\newcommand{\theYAxis}{0\space}%
+\newcommand{\theSurfaceFla}{1 dict begin /x u def v cos u mul \theFun v sin u mul end\space}%
+\fcStartIIIdScene%
+\fcAxesIIIdInScene[zLabel={}, arrows=->]{2.2}{2.2}{3}%
+\fcPutIIId[t]{[0 0 3.1]}{$z$}%
+\only<handout:1|1,2>{%
+\fcSurfaceInScene[colorVU= {1 0.5 0.5}, iterationsU=6, iterationsV=12, arrows=none, linewidth=0.3, linecolor=black, forceForeground=true ]{0.03}{0}{2}{360}{[\theSurfaceFla]}{}%
+}%
+\fcCurveIIIdInScene[linewidth=1, arrows=(none), linecolor= \fcColorGraph]{0}{2}{1 dict begin /x {t} def  [t \theFun 0] end\space}%
+\fcFinishIIIdScene%
+%\fcCurveIIId{-0.8}{2.2}{1 dict begin /u {t} def  [t \theFun 0] end}%
+%\fcLineIIId[linecolor=black, linewidth=0.4pt]{[-0.05 1 0]}{[0.05 1 0]}%
+%\fcLineIIId[linecolor=black, linewidth=0.4pt]{[1 -0.05 0]}{[1 0.05 0]}%
+\newcommand{\numIterations}{5}%
+\only<handout:0|10->{\renewcommand{\numIterations}{10}}%
+\only<handout:0|11->{\renewcommand{\numIterations}{15}}%
+\only<handout:0|12->{\renewcommand{\numIterations}{20}}%
+\only<handout:2|2->{%
+\multido{\na=1+1}{\numIterations}{%
+\pstVerb{%
+/numIterations \numIterations\space def
+/theCounter \na\space 1 sub def%
+/theRad theCounter numIterations div 2 mul def
+/theRadNext theCounter 1 add numIterations div 2 mul def
+/theRadNextNext theCounter 2 add numIterations div 2 mul def
+1 dict begin /x theRad theRadNext add 2 div def \theFun end 
+/theHeight exch def
+1 dict begin /x theRadNext theRadNextNext add 2 div def \theFun end 
+/theHeightNext exch def
+/theHeightNext theHeightNext 0 lt {0}{theHeightNext}ifelse def
+/goodAngleMax 160 def
+/goodAngleMin -10 def
+}%
+\fcCurveIIId[linecolor=cyan, linewidth=0.3pt]{0}{360}{  [t cos theRad mul theHeight t sin theRad mul ] }%
+%\fcCurveIIId[linecolor=red, linewidth=0.3pt]{0}{360}{  [t cos theRad mul 0 t sin theRad mul ] }%
+\fcLineIIId[linecolor=cyan]{[goodAngleMax cos theRadNext mul theHeight goodAngleMax sin theRadNext mul]}{[goodAngleMax cos theRadNext mul theHeightNext goodAngleMax sin theRadNext mul ]}%
+\fcCurveIIId[linecolor=cyan, linewidth=0.3pt]{0 }{360}{  [t cos theRadNext mul theHeight t sin theRadNext mul ] }%
+\fcLineIIId[linecolor=cyan]{[goodAngleMin cos theRadNext mul theHeight goodAngleMin sin theRadNext mul]}{[goodAngleMin cos theRadNext mul theHeightNext goodAngleMin sin theRadNext mul ]}%
+\only<-10>{%
+\fcLineIIId[linecolor=black, linewidth=0.4pt]{[theRad -0.05 0]}{[ theRad  0.05 0]}%
+\fcLineIIId[linecolor=black, linewidth=0.4pt]{[theRad theRadNext add 2 div -0.03 0  ]}{[theRad theRadNext add 2 div 0.03 0 ]}%
+}%
+%\fcCurveIIId[linecolor=red, linewidth=0.3pt]{0 }{360}{  [t cos theRadNext mul 0 t sin theRadNext mul ] }%
+%\fcLineIIId[linecolor=\fcColorGraph]{[goodAngleMin cos theRad mul goodAngleMin sin theRad mul theHeightNext]}{[goodAngleMin cos theRad mul goodAngleMin sin theRad mul theHeight]}%
+\only<5>{%
+\fcLineIIId[linewidth=0.3pt]{[theRadNext theRad add 2 div 0 0]}{[theRadNext theRad add 2 div theHeight 0]}%
+\fcLineIIId[linewidth=0.3pt]{[theRad theHeight 0]}{[theRadNext theHeight 0]}%
+}%
+\only<6-10>{\fcPutIIId[t]{[theRadNext theRad add 2 div -0.1 0]}{$x_{\na}$}}%
+}%
+\only<handout:0|5>{\fcLineIIId[linecolor=purple, linewidth=1.5pt]{[theRad theRadNext add 2 div 0 0]}{[theRad theRadNext add 2 div theHeight 0]}%
+\fcPutIIId[t]{[theRad theRadNext add 2 div -0.1 0]}{$r$}%
+}%
+\fcCurveIIId[linecolor=cyan, linewidth=0.3pt]{0}{360}{[t cos 2 mul 0 t sin 2 mul]}%
+\only<handout:0|14->{%
+\fcLineIIId[linecolor=blue, linewidth=1.5pt]{[0 0 0]}{[2 0 0]}%
+\fcDotIIId[linecolor=blue]{[0 0 0]}%
+\fcDotIIId[linecolor=blue]{[2 0 0]}%
+\fcPutIIId{[2 -0.1 0]}{$b$}
+\fcPutIIId{[0 -0.1 0]}{$a$}
+}%
+}%only
+\end{pspicture}
+\column{0.65\textwidth}
+
+Consider a solid obtained by rotating the region under $f(x)$ around the $y$ axis. \uncover<2->{ Approximate the volume by cylindrical shells.  \uncover<5->{Select the height of an individual shell to be $h = f(r)$ ($r$=average outer \& inner radius).}
+
+\hfil \hfil $
+\uncover<4->{ V_{\text{shell}} = 2\pi r \alertNoH{5}{h}\Delta r} \uncover<5->{ = 2\pi \alertNoH{7}{r} \alertNoH{5}{f(\alertNoH{7}{r})} \alertNoH{8}{\Delta r} .}
+$
 }
-\uncover<3->{
-If there are $n$ cyclindrical shells $C_1, \ldots , C_n$, let $x_1, \ldots , x_n$ be their radii.  Then
-\[
-\sum_{i=1}^n 2\pi x_i f(x_i)\Delta x
-\]
-is the volume of the approximating cylinders.
+\end{columns}
+\uncover<6->{
+Suppose there are $n$ cyclindrical shells and let $x_1, \ldots , x_n$ be the averages of outer and inner radii. The shell volume sum is:
+
+\hfil \hfil $\displaystyle
+\sum_{i=1}^n 2\pi \alertNoH{7}{x_i} f(\alertNoH{7}{x_i})\alertNoH{8}{ \Delta x}.
+$
 }
 
-\uncover<4->{
-Taking the limit as the number of shells goes to $\infty$, we get
+\uncover<9->{
+Take the limit as the number of shells goes to $\infty$ to get
 \[
-V = \lim_{n\rightarrow\infty} \sum_{i=1}^n 2\pi x_i f(x_i)\Delta x = \int_{\uncover<5->{\alertNoH{ 5}{a}}}^{\uncover<5->{\alertNoH{ 5}{b}}}2\pi xf(x) \diff x .
+V = \lim_{n\to \infty} V_{\text{approx}}= \lim_{n\rightarrow\infty} \sum_{i=1}^n 2\pi x_i f(x_i)\Delta x \uncover<13->{= \int_{\alertNoH{ 14}{a}}^{\alertNoH{ 14}{b}}2\pi xf(x) \diff x .}
 \]
-\uncover<5->{
-If we are considering the region bounded by $f(x)$ between $a$ and $b$, this gives us the endpoints.
+\uncover<14->{
+The endpoints of integration are the endpoints of the rotated region.
 }
 }
 \end{frame}
