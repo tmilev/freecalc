@@ -21,7 +21,7 @@
 \only<handout:2|8->{\renewcommand{\fcScreen}{[-0.1 -0.1 -1] 0}}%
 \only<handout:2|9->{\renewcommand{\fcScreen}{[-0.15 -0.15 -1] 0}}%
 \only<handout:2|10->{\renewcommand{\fcScreen}{[-0.2 -0.2 -1] 0}}%
-\only<handout:2|11->{\renewcommand{\fcScreen}{[-0.25 -0.25 -1] 0}}%
+\only<handout:2-|11->{\renewcommand{\fcScreen}{[-0.25 -0.25 -1] 0}}%
 \only<handout:1|6-11>{%
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{%
 \fcCurveIIId{0}{1}{[t t t mul 1 add 0 ]}%
@@ -34,11 +34,11 @@
 \only<handout:3|16-26>{%
 \fcSurfaceInScene[iterationsU=1, arrows=none, colorUV=cyan, colorVU=cyan, linecolor=cyan]{1 dict begin /u 2 3 div def \theFunInner end}{0 }{1 dict begin /u 2 3 div def \theFunOuter end}{360}{[2 3 div v cos u mul v sin u mul]}{}%
 }%
-\only<handout:0|15-26>{%
+\only<handout:3|15-26>{%
 \fcCurveIIIdInScene[linewidth=1.5, linecolor=blue]{0}{360 }{[1 dict begin /u 2 3 div def u t cos \theFunInner 0.04 sub mul t sin \theFunInner 0.04 sub mul end]}%
 \fcCurveIIIdInScene[linewidth=1.5, linecolor=blue]{0}{360 }{[1 dict begin /u 2 3 div def u t cos \theFunOuter mul t sin \theFunOuter mul end]}%
 }%
-\only<handout:2|7->{\fcPutIIId{[-0.1 -0.1 1.6]}{$z$}}%
+\only<handout:2-|7->{\fcPutIIId{[-0.1 -0.1 1.6]}{$z$}}%
 \only<7->{\fcPutIIId[lb]{[0.5 2.2 0]}{$y=x^2+1$}}%
 \fcAxesIIIdInScene[linewidth=1, linecolor=black, arrows=->, xLabel={$x$}, yLabel={$y$},zLabel={} ]{1.5}{1.5}{1.5}%
 \only<handout:0|12>{%
@@ -64,7 +64,7 @@
 \only<handout:0|3-5>{\fcLineIIId[linecolor=\fcColorGraph]{[-1 -1 0]}{[1 1 0]}}%
 \only<handout:0|4-5>{\fcLineIIId[linecolor=\fcColorGraph]{[0 -1.6 0]}{[0 1.6 0]}}%
 \only<handout:0|5>{\fcLineIIId[linecolor=\fcColorGraph]{[1 -1.6 0]}{[1 2.2 0]}}%
-\only<28->{%
+\only<handout:3-|28->{%
 \fcLineIIId[linecolor=blue, linewidth=2pt]{[0 0 0]}{[1 0 0]}%
 \fcDotIIId[linecolor=blue]{[0 0 0]}%
 \fcDotIIId[linecolor=blue]{[1 0 0]}%
@@ -96,6 +96,7 @@
 \column{.65\textwidth}
 Find the volume of the solid obtained by rotating about the $x$-axis \alertNoH{ 6}{the region bounded by \alertNoH{ 2}{$y = x^2+1$}, \alertNoH{ 3}{$y = x$}, \alertNoH{ 4}{$x = 0$}, and \alertNoH{ 5}{$x = 1$}}.
 
+\uncover<handout:2-|15->{%
 \uncover<15->{Cross-section: }\uncover<16->{washer, center: $(x, 0)$.} \uncover<17->{Area: $ \alertNoH{29}{A(x){ = \alertNoH{30 }{\text{Area outer disk}} - \alertNoH{31 }{\text{Area inner disk}}}}$}
 
 \noindent\uncover<18->{%
@@ -103,6 +104,7 @@ Find the volume of the solid obtained by rotating about the $x$-axis \alertNoH{ 
 
 \alertNoH{22,23}{\alertNoH{30}{Outer disk} radius:} $\fcAnswer{23}{x^2+1}$, \alertNoH{24,25,30}{area: $\fcAnswer{25}{\pi (x^2+1)^2}$}.
 }%
+}%uncover
 
 \uncover<handout:3|1->{
 $
