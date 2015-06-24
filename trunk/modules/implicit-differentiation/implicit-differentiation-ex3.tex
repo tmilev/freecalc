@@ -10,8 +10,7 @@
 \uncover<2->{%
 \alertNoH{ 3-4}{\frac{\diff}{\diff x} (\sin (x+y))}%
 }%
-& \uncover<2->{ = } %
-\uncover<2->{%
+& \uncover<2->{ = 
 \alertNoH{ 5-6}{\frac{\diff}{\diff x} (y^2\cos x)}%
 }\\%
 \fcAnswerUncover{3}{4}{%
@@ -19,40 +18,39 @@
 }%
 & \uncover<3->{ = } %
 \fcAnswerUncover{3}{6}{%
-\alertNoH{ 5-6}{(y^2)\alertNoH{ 9-10}{\frac{\diff}{\diff x}(\cos x)} + (\cos x) \alertNoH{ 11-12}{\frac{\diff}{\diff x}(y^2)}}%
+\alertNoH{ 5-6}{ \alertNoH{ 9-10}{\frac{\diff}{\diff x}(y^2)}\cos x +(y^2)\alertNoH{ 11-12}{\frac{\diff}{\diff x}(\cos x) }  }%
 }\\%
 \uncover<7->{%
 (\cos(x+y))\alertNoH{ 7-8}{\left(\fcAnswerUncover{7}{8}{1+y'}\right)}%
 }%
-& \uncover<7->{ = } %
-\uncover<7->{%
-(y^2)\alertNoH{ 9-10}{(\fcAnswerUncover{7}{10}{-\sin x})} + (\cos x) \alertNoH{ 11-12}{(\fcAnswerUncover{7}{12}{2yy'})}%
+& \uncover<7->{ = 
+\alertNoH{ 9-10}{(\fcAnswerUncover{7}{10}{2yy'})}\cos x +(y^2)\alertNoH{ 11-12}{(\fcAnswerUncover{7}{12}{-\sin x})}%
 }\\%
 \uncover<13->{%
 \alertNoH{15}{\cos(x+y)} +\alertNoH{14}{ y'\cos(x+y)}%
 }%
 & \uncover<13->{ = %
-\alertNoH{15}{-y^2\sin x} +\alertNoH{14}{2yy'\cos x}%
+\alertNoH{14}{2yy'\cos x}\alertNoH{15}{-y^2\sin x} %
 }\\%
 \uncover<14->{%
 \alertNoH{14}{\alertNoH{ 16}{y'}\cos(x+y) - 2y\alertNoH{ 16}{y'}\cos x}%
 }%
 & \uncover<14->{ = %
-\alertNoH{15}{-y^2\sin x -\cos(x+y)}%
+\alertNoH{15}{ -\cos(x+y)-y^2\sin x}%
 }\\%
 \uncover<16->{%
 \text{Factor:}\quad%
 \alertNoH{ 16}{y'}(\alertNoH{17}{\cos(x+y) - 2y\cos x})%
 }%
 & \uncover<16->{ = %
--y^2\sin x -\cos(x+y)%
+ -\cos(x+y)-y^2\sin x%
 }\\%
 \uncover<17->{%
 y'%
 }%
 & \uncover<17->{ = } %
 \uncover<17->{%
-\frac{-y^2\sin x - \cos(x+y)}{\alertNoH{17}{\cos (x+y) - 2y\cos x}}.%
+\frac{ - \cos(x+y)-y^2\sin x}{\alertNoH{17}{\cos (x+y) - 2y\cos x}}.%
 }%
 \end{align*}
 \end{example}
