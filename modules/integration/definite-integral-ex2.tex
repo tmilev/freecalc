@@ -1,7 +1,24 @@
 % begin module definite-integral-ex2
 \begin{frame}
-\begin{example} %[Example 2, p. 346]
+\begin{example}
+\begin{columns}
+\column{0.15\textwidth}
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-0.5,-0.5)(3.1,9.1)
+\fcBoundingBox{-1}{-7}{4}{9}
+\pscustom*[linecolor=\fcColorNegativeAreaUnderGraph]{
+%Function formula: x^{3}-6 x 
+\psplot{0}{6 sqrt}{x -6 mul x 3 exp add }\psline(! 6 sqrt 2 1.5 exp 6 sqrt 6 mul sub)(! 6 sqrt  0)}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+%Function formula: x^{3}-6 x 
+\psplot{6 sqrt}{3}{x -6 mul x 3 exp add }\psline(3, 9)(3,  0)}
+\fcAxesStandardNoFrame{-1}{-7}{4}{9}
+%Function formula: x^{3}-6 x 
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{3}{x -6 mul x 3 exp add }
+\end{pspicture}
+\column{0.85\textwidth}
 Evaluate $\int_0^3 (x^3 - 6x)\diff x$. \uncover<2->{\alert<handout:0| 2-3,6>{ $\Delta x = \frac{b-a}{n} = \uncover<3->{\frac{3}{n}.}$}}
+
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \abovedisplayshortskip=0pt
@@ -35,6 +52,8 @@ Evaluate $\int_0^3 (x^3 - 6x)\diff x$. \uncover<2->{\alert<handout:0| 2-3,6>{ $\
  = \frac{81}{4} - 27 = -\frac{27}{4}
 }%
 \end{align*}
+\end{columns}
+
 \end{example}
 \end{frame}
 % end module definite-integral-ex2
