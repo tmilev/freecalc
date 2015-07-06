@@ -79,7 +79,7 @@
 \newcommand{\alertNoH}[2]{\alert<handout:0|#1>{#2}}
 \newcommand{\fcAnswerNoH}[2]{
 \FPeval{\fcResult}{clip(#1-1)}
-\uncover<handout:0|\fcResult>{\alert<handout:0|\fcResult>{\textbf{?} }} \uncover<handout:0| #1->{\alert<handout:0|#1>{\!\!\!#2}}
+\uncover<handout:0|\fcResult>{\alertNoH{\fcResult}{\textbf{?} }} \uncover<handout:0| #1->{\alertNoH{#1}{\!\!\!#2}}
 }
 \newcommand{\fcAnswer}[2]{
 \FPeval{\fcResult}{clip(#1-1)}
