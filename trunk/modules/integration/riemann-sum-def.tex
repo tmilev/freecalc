@@ -1,0 +1,81 @@
+\begin{frame}
+Estimate the area under the curve $y = f(x)$ between $a$ and $b$.
+\begin{columns}
+\column{.55\textwidth}
+\psset{xunit=3cm, yunit=3cm}
+\begin{pspicture}(-5, -5)(5,5)
+\psframe*[linecolor=white](-5,-5)(5,5)
+\tiny
+
+\uncover<handout:1|1>{
+\psline*[linecolor=\fcColorAreaUnderGraph, linewidth=0.1pt](0.425, 0)(0.425, 0.339931)(0.3, 0.339931)(0.3, 0)(0.55, 0)(0.55, 0.316508)(0.425, 0.316508)(0.425, 0)(0.675, 0)(0.675, 0.348456)(0.55, 0.348456)(0.55, 0)(0.8, 0)(0.8, 0.416)(0.675, 0.416)(0.675, 0)(0.925, 0)(0.925, 0.499364)(0.8, 0.499364)(0.8, 0)(1.05, 0)(1.05, 0.578773)(0.925, 0.578773)(0.925, 0)(1.175, 0)(1.175, 0.634452)(1.05, 0.634452)(1.05, 0)(1.3, 0)(1.3, 0.646625)(1.175, 0.646625)(1.175, 0)(1.425, 0)(1.425, 0.595517)(1.3, 0.595517)(1.3, 0)(1.55, 0)(1.55, 0.461352)(1.425, 0.461352)(1.425, 0)
+\psline[linecolor=blue, linewidth=0.1pt](0.425, 0)(0.425, 0.339931)(0.3, 0.339931)(0.3, 0)(0.55, 0)(0.55, 0.316508)(0.425, 0.316508)(0.425, 0)(0.675, 0)(0.675, 0.348456)(0.55, 0.348456)(0.55, 0)(0.8, 0)(0.8, 0.416)(0.675, 0.416)(0.675, 0)(0.925, 0)(0.925, 0.499364)(0.8, 0.499364)(0.8, 0)(1.05, 0)(1.05, 0.578773)(0.925, 0.578773)(0.925, 0)(1.175, 0)(1.175, 0.634452)(1.05, 0.634452)(1.05, 0)(1.3, 0)(1.3, 0.646625)(1.175, 0.646625)(1.175, 0)(1.425, 0)(1.425, 0.595517)(1.3, 0.595517)(1.3, 0)(1.55, 0)(1.55, 0.461352)(1.425, 0.461352)(1.425, 0)
+}
+\uncover<handout:2|2->{
+\psline*[linecolor=\fcColorAreaUnderGraph, linewidth=0.1pt](0.3, 0)(0.3, 0.4385)(0.425, 0.4385)(0.425, 0)(0.425, 0)(0.425, 0.339931)(0.55, 0.339931)(0.55, 0)(0.55, 0)(0.55, 0.316508)(0.675, 0.316508)(0.675, 0)(0.675, 0)(0.675, 0.348456)(0.8, 0.348456)(0.8, 0)(0.8, 0)(0.8, 0.416)(0.925, 0.416)(0.925, 0)(0.925, 0)(0.925, 0.499364)(1.05, 0.499364)(1.05, 0)(1.05, 0)(1.05, 0.578773)(1.175, 0.578773)(1.175, 0)(1.175, 0)(1.175, 0.634452)(1.3, 0.634452)(1.3, 0)(1.3, 0)(1.3, 0.646625)(1.425, 0.646625)(1.425, 0)(1.425, 0)(1.425, 0.595517)(1.55, 0.595517)(1.55, 0)
+\psline[linecolor=blue, linewidth=0.1pt](0.3, 0)(0.3, 0.4385)(0.425, 0.4385)(0.425, 0)(0.425, 0)(0.425, 0.339931)(0.55, 0.339931)(0.55, 0)(0.55, 0)(0.55, 0.316508)(0.675, 0.316508)(0.675, 0)(0.675, 0)(0.675, 0.348456)(0.8, 0.348456)(0.8, 0)(0.8, 0)(0.8, 0.416)(0.925, 0.416)(0.925, 0)(0.925, 0)(0.925, 0.499364)(1.05, 0.499364)(1.05, 0)(1.05, 0)(1.05, 0.578773)(1.175, 0.578773)(1.175, 0)(1.175, 0)(1.175, 0.634452)(1.3, 0.634452)(1.3, 0)(1.3, 0)(1.3, 0.646625)(1.425, 0.646625)(1.425, 0)(1.425, 0)(1.425, 0.595517)(1.55, 0.595517)(1.55, 0)
+}
+\rput[t](0.3,-0.03){$a$}
+\rput[t](0.425,-0.03){$x_1$}
+\rput[t](0.55,-0.03){$x_2$}
+%\rput[t](0.675,-0.03){}
+%\rput[t](0.8,-0.03){$\frac{4}{5}$}
+\rput[t](0.7375,-0.06){$\dots$}
+\rput[t](0.925,-0.03){$x_{i-1}$}
+\rput[t](1.05,-0.03){$x_{i}$}
+%\rput[t](1.175,-0.03){$x_i$}
+%\rput[t](1.3,-0.03){$\frac{13}{10}$}
+\rput[t](1.3,-0.06){$\dots$}
+%\rput[t](1.425,-0.03){$\frac{57}{40}$}
+\rput[t](1.55,-0.03){$b$}
+%Function formula: -171/50 (x)-27/16 ((x)^{3})+11/10+729/160 ((x)^{2})
+\psplot[linecolor=red, plotpoints=1000]{0.3}{1.55}{x 2 exp 4.55625 mul 1.1 add x 3 exp -1.6875 mul add x -3.42 mul add }
+\psline{<->}(1.6,0)(1.6, 0.578773)
+\psline[linestyle=dotted](1.6, 0.578773)(1.05, 0.578773)
+\rput[l](1.6, 0.3343865){$f(x_i)$}
+\rput[b](0.9875,0.70773){$\Delta x$}
+\psline(0.925,0.668773)(1.05, 0.668773)
+\psline(0.925,0.648773)(0.925,0.688773)
+\psline(1.05, 0.648773)(1.05, 0.688773)
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.1,-0.1)(1.7,0.9)
+
+%\psbrace[linecolor=red,ref=lC](2)(3){Text I}
+%\uput{:U}{$\overbrace{}^\text{\normalsize A line}$}
+\end{pspicture}
+%\only<handout:1| -1>{%
+%\includegraphics[height=3.5cm]{integration/pictures/05-01-rectangles-right.pdf}%
+%}%
+%\only<handout:2| 2->{%
+%\includegraphics[height=3.5cm]{integration/pictures/05-01-rectangles-left.pdf}%
+%}%
+
+
+
+\begin{itemize}
+\item<1->  The width of the interval is $b-a$.
+\item<1->  The width of each of the $n$ strips is $\Delta x = \frac{b-a}{n}$.
+\item<1->  The strips divide $[a,b]$ into $n$ subintervals:\\ $[x_0, x_1]$, $[x_1,x_2]$, $\ldots ,$ $[x_{n-1},x_n]$,\\ where $x_0 = a$ and $x_n = b$.
+\end{itemize}
+\column{.45\textwidth}
+\begin{itemize}
+\item<1->  The \only<handout:1| -1>{right}\only<handout:2| 2->{\alert<handout:2| 2>{left}} endpoints of the subintervals are
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+x_{\only<handout:1| -1>{1}\only<handout:2| 2->{\alert<handout:2| 2>{0}}} & = & a \only<handout:1| -1>{+ \Delta x}\\
+x_{\only<handout:1| -1>{2}\only<handout:2| 2->{\alert<handout:2| 2>{1}}} & = & a + \only<handout:1| -1>{2}\Delta x\\
+x_{\only<handout:1| -1>{3}\only<handout:2| 2->{\alert<handout:2| 2>{2}}} & = & a + \only<handout:1| -1>{3}\only<handout:2| 2->{2}\Delta x\\
+& \vdots &
+\end{eqnarray*}
+\begin{itemize}
+\item<1->  The height of the $i$th rectangle is $f(x_{i\only<handout:2| 2->{\alert<handout:2| 2>{-1}}})$.
+\item<1->  The area of the $i$th rectangle is $f(x_{i\only<handout:2| 2->{\alert<handout:2| 2>{-1}}})\Delta x$.
+\end{itemize}
+\end{columns}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\only<handout:1| -1>{R_n}\only<handout:2| 2->{\alert<handout:2| 2>{L_n}} = f(x_{\only<handout:1| -1>{1}\only<handout:2| 2->{\alert<handout:2| 2>{0}}})\Delta x + f(x_{\only<handout:1| -1>{2}\only<handout:2| 2->{\alert<handout:2| 2>{1}}})\Delta x + f(x_{\only<handout:1| -1>{3}\only<handout:2| 2->{\alert<handout:2| 2>{2}}})\Delta x + \cdots + f(x_{n\only<handout:2| 2->{\alert<handout:2| 2>{-1}}})\Delta x
+\]
+\end{frame}
