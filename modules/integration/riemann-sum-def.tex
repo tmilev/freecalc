@@ -1,12 +1,18 @@
 \begin{frame}
-Estimate the area under the curve $y = f(x)$ between $a$ and $b$.
+Estimate the area under $y = f(x)$ between $a$ and $b$ using $n$ strips.
 \begin{columns}
 \column{.55\textwidth}
 \psset{xunit=3cm, yunit=3cm}
 \begin{pspicture}(-5, -5)(5,5)
 \psframe*[linecolor=white](-5,-5)(5,5)
 \tiny
-
+\newcommand{\functionPlotted}{
+-27 16 div x 3 exp mul
+729 160 div x 2 exp mul
+-171 50 div x mul  
+11 10 div
+add add add
+}
 \uncover<handout:1|1>{
 \psline*[linecolor=\fcColorAreaUnderGraph, linewidth=0.1pt](0.425, 0)(0.425, 0.339931)(0.3, 0.339931)(0.3, 0)(0.55, 0)(0.55, 0.316508)(0.425, 0.316508)(0.425, 0)(0.675, 0)(0.675, 0.348456)(0.55, 0.348456)(0.55, 0)(0.8, 0)(0.8, 0.416)(0.675, 0.416)(0.675, 0)(0.925, 0)(0.925, 0.499364)(0.8, 0.499364)(0.8, 0)(1.05, 0)(1.05, 0.578773)(0.925, 0.578773)(0.925, 0)(1.175, 0)(1.175, 0.634452)(1.05, 0.634452)(1.05, 0)(1.3, 0)(1.3, 0.646625)(1.175, 0.646625)(1.175, 0)(1.425, 0)(1.425, 0.595517)(1.3, 0.595517)(1.3, 0)(1.55, 0)(1.55, 0.461352)(1.425, 0.461352)(1.425, 0)
 \psline[linecolor=blue, linewidth=0.1pt](0.425, 0)(0.425, 0.339931)(0.3, 0.339931)(0.3, 0)(0.55, 0)(0.55, 0.316508)(0.425, 0.316508)(0.425, 0)(0.675, 0)(0.675, 0.348456)(0.55, 0.348456)(0.55, 0)(0.8, 0)(0.8, 0.416)(0.675, 0.416)(0.675, 0)(0.925, 0)(0.925, 0.499364)(0.8, 0.499364)(0.8, 0)(1.05, 0)(1.05, 0.578773)(0.925, 0.578773)(0.925, 0)(1.175, 0)(1.175, 0.634452)(1.05, 0.634452)(1.05, 0)(1.3, 0)(1.3, 0.646625)(1.175, 0.646625)(1.175, 0)(1.425, 0)(1.425, 0.595517)(1.3, 0.595517)(1.3, 0)(1.55, 0)(1.55, 0.461352)(1.425, 0.461352)(1.425, 0)
@@ -53,8 +59,8 @@ Estimate the area under the curve $y = f(x)$ between $a$ and $b$.
 
 \begin{itemize}
 \item<1->  The width of the interval is $b-a$.
-\item<1->  The width of each of the $n$ strips is $\Delta x = \frac{b-a}{n}$.
-\item<1->  The strips divide $[a,b]$ into $n$ subintervals:\\ $[x_0, x_1]$, $[x_1,x_2]$, $\ldots ,$ $[x_{n-1},x_n]$,\\ where $x_0 = a$ and $x_n = b$.
+\item<1->  The width one strip is $\Delta x = \frac{b-a}{n}$.
+\item<1->  $[a,b]$ is divided into $n$ subintervals:\\ $[x_0, x_1]$, $[x_1,x_2]$, $\ldots ,$ $[x_{n-1},x_n]$,\\ where $x_0 = a$ and $x_n = b$.
 \end{itemize}
 \column{.45\textwidth}
 \begin{itemize}
@@ -78,4 +84,7 @@ x_{\only<handout:1| -1>{3}\only<handout:2| 2->{\alert<handout:2| 2>{2}}} & = & a
 \[
 \only<handout:1| -1>{R_n}\only<handout:2| 2->{\alert<handout:2| 2>{L_n}} = f(x_{\only<handout:1| -1>{1}\only<handout:2| 2->{\alert<handout:2| 2>{0}}})\Delta x + f(x_{\only<handout:1| -1>{2}\only<handout:2| 2->{\alert<handout:2| 2>{1}}})\Delta x + f(x_{\only<handout:1| -1>{3}\only<handout:2| 2->{\alert<handout:2| 2>{2}}})\Delta x + \cdots + f(x_{n\only<handout:2| 2->{\alert<handout:2| 2>{-1}}})\Delta x
 \]
+%\begin{definition}[Riemann sum]
+%A Riemann sum is an expression of the form $\Delta x\left(f(x_1^*)+\dots +f(x_n^*) \right) $, where $x_i^*$ lies in  $[x_{i-1}, x_{i}]$ and is chosen arbitrarily within that interval.
+%\end{definition}
 \end{frame}
