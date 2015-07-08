@@ -1,0 +1,15 @@
+\solution{\ref{problemintsin(2x)/(2+cos^2x)dx}
+\[
+\begin{array}{rcll|l}
+\displaystyle\int \frac{\sin (2x)}{2+\cos^2x}\diff x&=&\displaystyle\int \frac{2\cos x \sin x  \diff x }{2+\cos^2x}&&\text{use } \sin (2x)=2\sin x \cos x\\
+&=& \displaystyle\int \frac{2\cos x   \diff(-\cos x) }{2+\cos^2x}&&\text{use }\diff (\cos x)=-\sin x \diff x\\
+&=&\displaystyle-\int \frac{2 u   \diff(u) }{2+u^2} &&\text{set }u=\cos x\\
+&=&\displaystyle-\int \frac{   \diff\left(2+u^2\right) }{2+u^2}&&\text{use }\diff (u^2+2)=2u\diff u\\
+&=&\displaystyle -\int \frac{   \diff z }{z}&&\text{set }z= 2+u^2\\
+&=&\displaystyle -\ln |z| +C &&\text{Substitute back }z=u^2+2\\
+&=&\displaystyle -\ln (u^2+2) +C &&\begin{array}{l} u^2+2\text{ is positive}\\\Rightarrow \text{omit the abs. value}\\ \text{Substitute back }u=\cos x \end{array}\\
+&=&\displaystyle -\ln (\cos^2x+2) +C .
+\end{array}
+\]
+
+}
