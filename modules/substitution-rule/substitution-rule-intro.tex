@@ -2,40 +2,39 @@
 \begin{frame}
 \frametitle{The Substitution Rule}
 \begin{itemize}
-\item  How do we integrate $\int 2x \sqrt{1+x^2} \ \diff x$?
-\item<2->  Introduce a new variable \alert<handout:0| 5,8>{$u = 1 + x^2$}.
-\item<3->  Then \alert<handout:0| 6>{$\diff u = 2x \ \diff x$}.  (See Linear Approximations and Differentials).
-\item<4->  Then substitute these into the integral:
+\item  How do we integrate $\displaystyle \int 2x \sqrt{\alertNoH{2}{1+x^2}} \ \diff x$?
+\item<2->  Introduce a new variable \alertNoH{2, 3, 8, 14, 17}{$u = 1 + x^2$}.
+\item<3->  Then $ \alertNoH{10,24}{\diff \alertNoH{3}{ u}} = \alertNoH{4}{\diff \left(\alertNoH{3}{ 1+x^2} \right)} \uncover<4->{\alertNoH{4}{=\alertNoH{5,6}{ \left(1+x^2 \right)'} \diff x}} \uncover<5->{ \alertNoH{10,24}{=\fcAnswer{6}{ 2x}  \diff x}. }$
+\item<7->  Substitute into the integral:
 \end{itemize}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
-\uncover<4->{%
-\int \alert<handout:0| 6>{2x} \alert<handout:0| 5>{\sqrt{1+x^2}} \ \alert<handout:0| 6>{\diff x}%
- = \int \alert<handout:0| 5>{\uncover<5->{\sqrt{u}} \ \alert<handout:0| 6>{\uncover<6->{\diff u}}}%
-}%
 \uncover<7->{%
- = \frac{2}{3}\alert<handout:0| 8>{u}^{3/2}%
-}%
-\uncover<8->{%
- = \frac{2}{3}\alert<handout:0| 8>{(1+x^2)}^{3/2}%
-}%
+\int \alertNoH{9,10,24}{2x} \alertNoH{7,8,23}{\sqrt{1 +x^2}} \ \alertNoH{9,10,24}{\diff x}%
+ = \int \fcAnswerUncover{7}{8}{ \alertNoH{22,23}{ \sqrt{u}}} \ \fcAnswerUncover{7}{10}{\alertNoH{24}{ \diff u}}}%
+\uncover<11->{=\alertNoH{12,13}{\int \alertNoH{22,23}{ u^{\frac{1 }{2}}} \alertNoH{24}{\diff u}}}
+\uncover<12->{\alertNoH{12,13}{ =} \fcAnswer{13}{ \alertNoH{21}{\frac{2 }{3 }{\alertNoH{14, 18}{u}}^{\frac{3}{2}}}+C} }%
+\uncover<14->{= \alertNoH{16}{ \frac{2}{3 }{\alertNoH{14, 18}{\left(1+ x^2 \right)}}^{{ \frac{3}{2}}}+C} }%
 \]
 \begin{itemize}
-\item<9->  Is this correct?
-\item<10->  Take the derivative using the Chain Rule:
+\item<15->  Is this procedure justified?
+\item<16->  Take the derivative \uncover<19->{\alertNoH{19}{using the Chain Rule:}}
 \end{itemize}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \[
-\uncover<11->{%
-\frac{\diff}{\diff x} \left( \frac{2}{3} (1+x^2)^{3/2}\right)%
+\uncover<16->{%
+\alertNoH{17}{\frac{\diff}{\diff x}} \left(\alertNoH{16}{ \frac{2}{3} \left(\alertNoH{18}{ 1+x^2} \right)^{ \frac{3}{2}}+\alertNoH{17}{C}} \right)
 }%
-\uncover<12->{%
- = \frac{3}{2}\cdot \frac{2}{3} (1+x^2)^{1/2} \frac{\diff}{\diff x} \left( 1+x^2\right)%
+\uncover<17->{%
+=\frac{\diff}{\diff x} \left(\alertNoH{21}{ \frac{2}{3}{\alertNoH{18} {u}}^{ \frac{3}{2}}} \right)
 }%
-\uncover<13->{%
- = \sqrt{1+x^2} (2x)%
+\uncover<19->{%
+=  \frac{\fcCancel{20}{2}}{ \fcCancel{20}{3}}\cdot \frac{\fcCancel{20}{3} }{\fcCancel{20}{2}} \alertNoH{22,23}{ u^{\frac{1}{2}}} \alertNoH{24}{\frac{\diff u}{\diff x}}%
+}%
+\uncover<23->{%
+ = \alertNoH{23}{\sqrt{1+x^2}} (\alertNoH{24}{2x})%
 }%
 \]
 \end{frame}
