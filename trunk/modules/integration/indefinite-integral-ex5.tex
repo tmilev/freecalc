@@ -1,20 +1,20 @@
 % begin module indefinite-integral-ex5
 \begin{frame}
-\begin{example} %[Example 6, p. 360]
+\begin{example}
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
 \abovedisplayshortskip=0pt
 \belowdisplayshortskip=0pt
 \begin{align*}
-\text{Evaluate: }& \invisible{ = } \int_1^9 \frac{2t^2 + t^2 \sqrt{t} - 1}{t^2} \diff t \\%
-& \uncover<2->{=}  \uncover<2->{ \int_1^9 (2 + t^{1/2} - t^{-2})\diff t  }%
- \uncover<3->{=}  \uncover<3->{ \left[ \int (2 + t^{1/2} - t^{-2})\diff t \right]_1^9 }\\%
-& \uncover<4->{=}  \uncover<4->{ \left[ \alert<handout:0| 5-6>{\int 2 \diff t} + \alert<handout:0| 7-8>{\int t^{1/2} \diff t} - \alert<handout:0| 9-10>{\int t^{-2} \diff t} \right]_1^9 }\\%
-& \uncover<5->{=}  \uncover<5->{ \left[ \alert<handout:0| 5-6>{\uncover<6->{2t}} + \alert<handout:0| 7-8>{\uncover<8->{\frac{t^{3/2}}{3/2}}} - \alert<handout:0| 9-10>{\uncover<10->{\frac{t^{-1}}{-1}}} \right]_1^9 }%
- \uncover<11->{=}  \uncover<11->{ \left[ 2t + \frac{2}{3}t^{3/2} + \frac{1}{t}\right]_1^9}\\%
-& \uncover<12->{=}  \uncover<12->{ \left( 2\cdot 9 + \frac{2}{3}\cdot 9^{3/2} + \frac{1}{9}  \right) - \left( 2\cdot 1 + \frac{2}{3}\cdot 1^{3/2} + \frac{1}{1}   \right)}\\%
-& \uncover<13->{=}  \uncover<13->{ 18 + 18 + \frac{1}{9} - 2 - \frac{2}{3} - 1 }%
- \uncover<14->{=}  \uncover<14->{ \frac{292}{9}.}
+\text{Evaluate: }& \phantom{ = } \int_1^9 \alertNoH{2}{\frac{2t^3 + t^2 \sqrt{t} - 1}{t^2}} \diff t \\%
+& \uncover<2->{=\int_{\alertNoH{3}{1}}^{\alertNoH{3}{9}} \left(\alertNoH{2}{2t + t^{\frac{1}{2}} - t^{-2}}\right) \diff t  }%
+\uncover<3->{= \left[ \int (2 t + t^{\frac{1}{2}} - t^{-2})\diff t \right]_{\alertNoH{3}{1}}^{\alertNoH{3}{9}} }\\%
+& \uncover<4->{=\left[ \alertNoH{ 5-6}{\int 2t \diff t} + \alertNoH{ 7-8}{\int t^{\frac{1}{2}} \diff t} - \alertNoH{ 9-10}{\int t^{-2} \diff t} \right]_1^9 }\\%
+& \uncover<5->{= {\left[ \fcAnswerUncover{5}{6}{t^2} + \fcAnswerUncover{5}{8}{\frac{t^{\frac{3}{2}}}{\frac{3}{\alertNoH{11}{2}}}} \alertNoH{12}{-} \fcAnswerUncover{5}{10}{\frac{t^{-1}}{\alertNoH{12}{-} 1}} \right]}_1^9 }%
+ \uncover<11->{= \left[ \alertNoH{13,14}{t}^2 + \frac{ \alertNoH{11}{2} }{3} \alertNoH{13, 14}{t}^{\frac{3}{2}}\alertNoH{12}{ +} \frac{1}{\alertNoH{13,14}{t}}\right]_{\alertNoH{14}{1}}^{\alertNoH{13}{9}}}\\%
+& \uncover<13->{= \left( \alertNoH{13 }{9}^2 + \frac{2}{3}\cdot \alertNoH{13 }{9}^{ \frac{3}{2} } + \frac{1}{ \alertNoH{13}{9}}  \right) - \left( \alertNoH{14}{1}^2 + \frac{2}{3}\cdot \alertNoH{14}{1}^{\frac{3}{2}} + \frac{1}{\alertNoH{14}{1}}   \right)}\\%
+& \uncover<15->{= 81 + 18 + \frac{1}{9} - 1 - \frac{2}{3} - 1 }%
+ \uncover<16->{= \frac{868}{9}.}
 \end{align*}
 \end{example}
 \end{frame}
