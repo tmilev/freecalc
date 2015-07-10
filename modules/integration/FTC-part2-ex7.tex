@@ -1,6 +1,6 @@
 % begin module FTC-part2-ex7
 \begin{frame}
-\begin{example} %[Example 2, p. 357]
+\begin{example}
 \begin{columns}
 \column{0.4\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
@@ -20,15 +20,15 @@ Find the area under the cosine curve from $0$ to $b$, where $0 \leq b \leq \frac
 \end{columns}
 \begin{itemize}
 \item<2->  $\cos x$ is continuous on $[0, \frac{\pi}{2}]$ (in fact, it's continuous everywhere).
-\item<3-| alert@3-4>  An antiderivative is \uncover<4->{$\sin x$.}
+\item<3->  \alertNoH{3,4,6}{An antiderivative of $\cos x$ is $\fcAnswer{4}{\sin x.}$}
 \[
 \uncover<5->{%
-\int_{\alert<handout:0| 5>{0}}^{\alert<handout:0| 5>{b}} \cos x \ \diff x = \left[ \sin x \right]_{\alert<handout:0| 5>{0}}^{\alert<handout:0| 5>{b}} %
-}%
-\uncover<6->{%
- = \sin (b) - \sin (0)%
+{\alertNoH{6}{\int}}_{{\!\!\!\alertNoH{ 5}{0}}}^{{\alertNoH{ 5}{b}}} \alertNoH{6}{\cos x \ \diff x} = \left[ \alertNoH{6}{\sin \alertNoH{7,8}{x}} \right]_{\alertNoH{5,8}{0}}^{\alertNoH{5,7}{b}} %
 }%
 \uncover<7->{%
+= \sin (\alertNoH{7}{b}) - \sin(\alertNoH{8}{0})%
+}%
+\uncover<9->{%
  = \sin b%
 }%
 \]

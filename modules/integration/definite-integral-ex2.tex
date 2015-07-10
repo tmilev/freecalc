@@ -7,17 +7,17 @@
 \begin{pspicture}(-0.5,-0.5)(3.1,9.1)
 \fcBoundingBox{-1}{-7}{4}{9}
 \pscustom*[linecolor=\fcColorNegativeAreaUnderGraph]{
-%Function formula: x^{3}-6 x 
+%Function formula: x^{3}-6 x
 \psplot{0}{6 sqrt}{x -6 mul x 3 exp add }\psline(! 6 sqrt 2 1.5 exp 6 sqrt 6 mul sub)(! 6 sqrt  0)}
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{
-%Function formula: x^{3}-6 x 
+%Function formula: x^{3}-6 x
 \psplot{6 sqrt}{3}{x -6 mul x 3 exp add }\psline(3, 9)(3,  0)}
 \fcAxesStandardNoFrame{-1}{-7}{4}{9}
-%Function formula: x^{3}-6 x 
+%Function formula: x^{3}-6 x
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{3}{x -6 mul x 3 exp add }
 \end{pspicture}
 \column{0.85\textwidth}
-Evaluate $\int_0^3 (x^3 - 6x)\diff x$. \uncover<2->{\alert<handout:0| 2-3,6>{ $\Delta x = \frac{b-a}{n} = \uncover<3->{\frac{3}{n}.}$}}
+Evaluate $\int_0^3 (x^3 - 6x)\diff x$. \uncover<2->{\alertNoH{ 2-3,6}{ $\Delta x = \frac{b-a}{n} = \uncover<3->{\frac{3}{n}.}$}}
 
 \abovedisplayskip=0pt
 \belowdisplayskip=0pt
@@ -28,10 +28,10 @@ Evaluate $\int_0^3 (x^3 - 6x)\diff x$. \uncover<2->{\alert<handout:0| 2-3,6>{ $\
 \int_0^3 (x^3-6x)\diff x%
 }%
 \uncover<4->{%
- =  \lim_{n\to\infty} \sum_{i=1}^n f(\alert<handout:0| 7-8>{x_i})\alert<handout:0| 5-6>{\Delta x}%
+ =  \lim_{n\to\infty} \sum_{i=1}^n f(\alertNoH{ 7-8}{x_i})\alertNoH{ 5-6}{\Delta x}%
 }%
 \uncover<5->{%
- = \lim_{n\to\infty} \sum_{i=1}^n f\left(\uncover<8->{\alert<handout:0| 8>{\frac{3i}{n}}}\right)\uncover<6->{\alert<handout:0| 6>{\frac{3}{n}}}%
+ = \lim_{n\to\infty} \sum_{i=1}^n f\left(\uncover<8->{\alertNoH{ 8}{\frac{3i}{n}}}\right)\uncover<6->{\alertNoH{ 6}{\frac{3}{n}}}%
 }\\%
  & \uncover<9->{ = }  \uncover<9->{%
 \lim_{n\to\infty} \frac{3}{n}\sum_{i=1}^n \left[ \left(\frac{3i}{n}\right)^3 - 6\left(\frac{3i}{n}\right)\right]%
@@ -40,10 +40,10 @@ Evaluate $\int_0^3 (x^3 - 6x)\diff x$. \uncover<2->{\alert<handout:0| 2-3,6>{ $\
   =  \lim_{n\to\infty} \frac{3}{n}\sum_{i=1}^n \left[ \frac{27}{n^3}i^3 - \frac{18}{n}i\right]%
 }\\%
  & \uncover<11->{ = }  \uncover<11->{%
-\lim_{n\to\infty} \left[ \frac{81}{n^4}\alert<handout:0| 12-13>{\sum_{i=1}^n i^3} - \frac{54}{n^2} \alert<handout:0| 14-15>{\sum_{i=1}^n i}\right]%
+\lim_{n\to\infty} \left[ \frac{81}{n^4}\alertNoH{ 12-13}{\sum_{i=1}^n i^3} - \frac{54}{n^2} \alertNoH{ 14-15}{\sum_{i=1}^n i}\right]%
 }\\%
  & \uncover<12->{ = }  \uncover<12->{%
-\lim_{n\to\infty} \left( \frac{81}{n^4}\uncover<13->{\alert<handout:0| 13>{\left[ \frac{n(n+1)}{2}\right]^2}} - \frac{54}{n^2} \uncover<15->{\alert<handout:0| 15>{\frac{n(n+1)}{2}}}\right)%
+\lim_{n\to\infty} \left( \frac{81}{n^4}\uncover<13->{\alertNoH{ 13}{\left[ \frac{n(n+1)}{2}\right]^2}} - \frac{54}{n^2} \uncover<15->{\alertNoH{ 15}{\frac{n(n+1)}{2}}}\right)%
 }\\%
  & \uncover<16->{ = }  \uncover<16->{%
 \lim_{n\to\infty} \left[ \frac{81}{4}\left( 1 + \frac{1}{n}\right)^2 - 27 \left( 1 + \frac{1}{n}\right) \right]%
