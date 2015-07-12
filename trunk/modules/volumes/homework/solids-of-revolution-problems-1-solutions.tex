@@ -1,5 +1,76 @@
 \solution{\ref{problemVolumeRegionBoundedByy=2x^2-x+1,y=x^2+1rotatedAroundx=0}
+First, plot $y=2x^2-x+1$ and $y=x^2+1$. 
 
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.5,-0.5)(1.3,3)
+\tiny
+\fcAxesStandard{-1}{-0.4}{1.3}{3}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot[linecolor=\fcColorGraph]{0}{1}{x x 2 mul mul x sub 1 add}
+\psplot[linecolor=\fcColorGraph]{1}{0}{x x mul 1 add}
+}
+\psplot[linecolor=\fcColorGraph]{-0.5}{1.2}{x x 2 mul mul x sub 1 add}
+\psplot[linecolor=\fcColorGraph]{-0.5}{1.2}{x x mul 1 add}
+\psline[](! 0.7 11 8 div)(! 0.8 11 8 div)
+\psline[](! 0.7 25 16 div)(! 0.8 25 16 div)
+\psline[](0.75, 0)(! 0.75 25 16 div)
+\rput[br](! 0.75 25 16 div){$r_{outer}~$}
+\rput[tl](! 0.8 11 8 div 0.05 sub){$~r_{inner}$}
+\psline[linewidth=2pt, linecolor=blue](0, 0)(1,0)
+\psline[linestyle=dashed](1,2)(1,0)
+\fcFullDot[linecolor=blue]{0}{0}
+\fcFullDot[linecolor=blue]{1}{0}
+\end{pspicture}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-1,-1)(2,2)
+\renewcommand{\fcScreenStyle}{x}
+\renewcommand{\fcScreen}{[-0.2 -0.2 -1] 0}
+\fcStartIIIdScene
+\fcAxesIIIdInScene{2.2}{2.2}{2.2}
+\fcSurfaceInScene[iterationsV=7, iterationsU=4, linewidth=0.3, arrows=(none)]{0}{0}{1}{360}{[u 2 u u mul mul u sub 1 add v cos mul 2 u u mul mul u sub 1 add v sin mul]}{}
+\fcSurfaceInScene[iterationsV=7, iterationsU=4, arrows=(none), linewidth=0.3]{0}{0}{1}{360}{[u u u mul 1 add v cos mul u u mul 1 add v sin mul]}{}
+\fcSurfaceInScene[iterationsV=1, iterationsU=3, colorUV=cyan, colorVU=cyan, forceForeground=true]{ 0 }{0}{1}{1}{[u u u 2 mul mul u sub 1 add v mul u u mul 1 add 1 v sub mul add 0]}{}
+\fcLineIIIdInScene[linewidth=2, linecolor=blue]{[0 0 0]}{[1 0 0]}
+\fcFinishIIIdScene[true]
+\fcDotIIId[linecolor=blue]{[0 0 0]}
+\fcDotIIId[linecolor=blue]{[1 0 0]}
+\end{pspicture}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-1,-1)(2,2)
+\renewcommand{\fcScreenStyle}{x}
+\renewcommand{\fcScreen}{[-0.2 -0.2 -1] 0}
+\fcStartIIIdScene
+\fcAxesIIIdInScene{2.2}{2.2}{2.2}
+\fcSurfaceInScene[arrows=(none), iterationsV=1, iterationsU=4, colorUV=cyan, colorVU=cyan, linewidth=0.3, forceForeground=true]{ 0 }{0}{1}{1}{[u u u 2 mul mul u sub 1 add v mul u u mul 1 add 1 v sub mul add 0]}{}
+\fcSurfaceInScene[arrows=(none), iterationsV=20, iterationsU=1, colorUV=blue, colorVU=blue, linewidth=0.3]{0.75 0.75 mul 2 mul 0.75 sub 1 add}{0}{0.75 0.75 mul 1 add}{360}{[0.75 v cos u mul v sin u mul]}{}
+\fcFinishIIIdScene[true]
+\fcLineIIId[]{[0.75  0 0]}{[0.75 11 8 div 0]}
+\fcPutIIId[br]{[0.75 25 16 div 0]}{$r_{outer}~$}
+\fcPutIIId[tl]{[0.75 11 8 div 0.1 sub 0]}{$~r_{inner}$}
+\fcLineIIId{[0 0 0]}{[1 0 0]}
+\fcDotIIId[linecolor=blue]{[0 0 0]}
+\fcDotIIId[linecolor=blue]{[1 0 0]}
+
+\end{pspicture}
+
+\noindent The two curves intersect when 
+\[ 
+\begin{array}{rcl}
+2x^2-x+1&=&x^2+1\\
+x^2-x&=&0\\
+x(x-1)&=&0\\
+x=0 &\text{or}& x= 1.
+\end{array}
+\]
+Therefore the two points of intersection have $x$-coordinates between $x=0$ and $x=1$. Therefore we need we need to integrate the volumes of washers with inner radii $r_{inner}=2x^2-x+1 $, outer radii $r_{outer}=x^2+1$ and infinitesimal heights $\diff x$. The volume of an individual infinitesimal washer is then $ \pi(r^2_{outer}- r^2_{inner})\diff x$
+\[
+\begin{array}{rcl}
+V&=&\displaystyle \int_{0}^1\pi\left(\left(x^2+1\right)^2- \left(2x^2-x+1\right)^2\right)\diff x\\
+&=&\displaystyle \pi\int_{0}^1\left(-3 x^{4}+4 x^{3}-3 x^{2}+2 x \right)\diff x\\
+&=&\displaystyle \pi\left[-\frac{3}{5} x^{5}+x^{4}- x^{3}+x^{2} \right]_0^1 \\
+&=& \displaystyle \frac{2}{5} \pi.
+\end{array}
+\]
 
 
 }
