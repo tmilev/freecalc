@@ -1,0 +1,74 @@
+\begin{frame}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.9cm, yunit=0.9cm}
+\begin{pspicture}(-0.5,-0.5)(3,3)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{3}{3}
+\fcLabels{3}{3}
+\uncover<9->{%
+\fcFullDot{1}{0.5}
+\rput[b](1, 0.55){$P$}
+}%
+\uncover<9-13>{%
+\rput[t](1, 0.45){$(x_1, y_1)$}
+}
+\uncover<10->{%
+\fcFullDot{0.5}{1.5}
+\rput[t](0.5, 1.45){$Q$}
+}%
+\uncover<10-13>{%
+\rput[b](0.5, 1.55){$(x_2, y_2)$}
+}
+\uncover<10->{%
+\fcFullDot{0}{0}
+\rput[tr](0, 0){$O~~$}
+}%
+\uncover<12->{\fcFullDot{1.5}{2}}
+\uncover<12,13>{\rput[b](1.5, 2.05){$(x_1+x_2, y_1+y_2)$}}
+\uncover<13->{
+\rput[t](1.5, 1.95){$P+Q$}
+}
+\uncover<14,15>{
+\psline[linecolor=blue](3,1.5)(-0.5, -0.25) 
+\psline[linecolor=blue](3,2.75)(-0.5, 1) 
+}
+\uncover<15>{
+\psline[linecolor=blue](!-0.5 3 div -0.5)(1, 3) 
+\psline[linecolor=blue](! 2 3 div -0.5)(! 11 6 div 3) 
+}
+\uncover<16->{
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](1, 0.5)(1.5, 2)
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0.5, 1.5)(1.5, 2)
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(0.5, 1.5)
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(1, 0.5)
+}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{definition}[$+, \cdot$ in $\mathbb R^2$]
+Let $\alertNoH{2,6}{\fcv{u}=(x_1, y_1)}$ and $\alertNoH{3}{\fcv{v}=(x_2, y_2)}$ be pairs of numbers and let $c$ be a number. \alertNoH{4,5,7,8}{Define}
+
+\hfil \hfil $
+\begin{array}{rcl}
+\alertNoH{2}{\fcv{u}} +\alertNoH{3}{\fcv{v}} \uncover<2->{&=& \alertNoH{2}{(\alertNoH{4}{x_1}, \alertNoH{5}{ y_1})} \alertNoH{4,5}{+} \alertNoH{3}{( \alertNoH{4}{x_2}, \alertNoH{5}{y_2} )}} \uncover<4->{= (\alertNoH{4}{ x_1+x_2},\alertNoH{5}{ y_1+ y_2})} \\
+c\cdot \alertNoH{6}{\fcv{u}}\uncover<6->{ &=&\alertNoH{7,8}{c \cdot} \alertNoH{6}{( \alertNoH{7}{ x_1}, \alertNoH{8}{y_1} )}} \uncover<7->{ =(\alertNoH{7}{cx_1},\alertNoH{8}{ cy_1} ).}
+\end{array}
+$
+\end{definition}
+\end{columns}
+\begin{itemize}
+\item<8-> Fix a Cartesian coordinate system in the plane.
+\item<9-> Let $P,Q$ be points with respective coordinates $\alertNoH{9}{(x_1, y_1)}$ and $\alertNoH{10}{(x_2, y_2)}$; \alertNoH{11}{let $O$ be the origin}.
+\item<12-> $(x_1, y_1)+(x_2, y_2)= \!(x_1+x_2, y_1+y_2)$ \uncover<13->{corresponds to a new point which we denote by \alertNoH{12}{$P+Q$}.}
+\item<14-> One can show: the line through $O$ and $P$ is parallel to the line through $Q$ and $P+Q$.
+\item<15-> One can show: the line through $O$ and $Q$ is parallel to the line through $P$ and $P+Q$.
+\item<16-> The points $O$, $P$, $P+Q$ and $Q$ form a parallelogram. 
+\end{itemize}
+
+
+\vskip 10cm
+\end{frame}
+
+
+%\item<13-> $c(x_1, y_1)=(cx_1, cy_1)$ corresponds to a new point which we denote by $cP$.
+%\item $\cdot, +$ are defined only relative to the fixed Cartesian coordinate system. If we change the coordinate system we change $+, \cdot$.

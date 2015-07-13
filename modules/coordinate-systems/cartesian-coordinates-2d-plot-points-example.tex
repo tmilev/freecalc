@@ -1,0 +1,41 @@
+\begin{frame}
+\begin{example}
+
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-4, -4)(5,5)
+\tiny
+\fcBoundingBox{-4.2}{-4.2}{4.2}{4.2}
+\psgrid[subgriddiv=0,griddots=10,gridlabels=0pt](-4,-4)(4,4)
+\psaxes[labels=none, arrows=->](0,0)(-4,-4)(4,4)
+\fcLabels{4}{4}
+\uncover<3->{%
+\fcFullDot{1}{2}
+\rput[l](1,2){~$(1,2)$}
+}
+\uncover<7->{%
+\fcFullDot{2}{-3}
+\rput[r](2,-3){$(2,-3)~$}
+}
+\uncover<11->{
+\fcFullDot{-3}{2}
+\rput[b](-3,2.05){$(-3,2)$}
+}
+\uncover<15->{
+\fcFullDot{-1}{-1}
+\rput[tr](-1,-1){$(-1,-1)~$}
+}
+\end{pspicture}
+\column{0.6\textwidth}
+Plot the points and name the Quadrant that contains them
+\begin{itemize}
+\item \alertNoH{2-5}{$(1,2)$. } \uncover<4->{\alertNoH{4,5}{Quadrant} \fcAnswer{5}{I}} 
+\item \alertNoH{6-9}{$(2,-3)$. } \uncover<8->{\alertNoH{8,9}{Quadrant} \fcAnswer{9}{IV}}
+\item \alertNoH{10-13}{$(-3,2)$. } \uncover<12->{\alertNoH{12,13}{Quadrant} \fcAnswer{13}{II}}
+\item \alertNoH{14-17}{$(-1,-1)$. } \uncover<16->{\alertNoH{16,17}{Quadrant} \fcAnswer{17}{III}}
+\end{itemize}
+\end{columns}
+
+\end{example}
+\end{frame}

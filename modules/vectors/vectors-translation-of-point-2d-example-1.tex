@@ -1,0 +1,50 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-3,-3)(4,3)
+\tiny
+\fcBoundingBox{-3.2}{-3.2}{4.2}{3.2}
+\psgrid[subgriddiv=0,griddots=10,gridlabels=0pt](-3,-3)(3,3)
+\fcAxesStandardNoFrame{-3}{-3}{3}{3}
+\fcLabels{3}{3}
+\uncover<2->{
+\fcFullDot{-3}{2}
+}
+\uncover<7->{
+\fcFullDot{1}{0}
+}
+\uncover<8->{
+\psline[arrows=->, linecolor=red](-3, 2)(1,0)
+}
+\uncover<9->{
+\psline[arrows=->, linecolor=red](0,0 )(-3, 2)
+\psline[arrows=->, linecolor=red](0,0 )(4, -2)
+\psline[arrows=->, linecolor=red](4,-2)(1,0)
+}
+\end{pspicture} 
+\column{0.7\textwidth}
+Translate  $\alertNoH{2}{(-3,2)}$  $4$ units left and $2$ units down.
+\uncover<3->{
+\[
+(-3,2) +(\fcAnswer{4}{4}, \fcAnswer{4}{-2}) \uncover<5->{=(-3+4, 2+(-2))}\uncover<6->{= (\fcAnswerUncover{3}{7}{ 1}, \fcAnswerUncover{3}{7}{0})}.
+\]
+}
+\end{columns}
+\end{example}
+\uncover<10->{
+\begin{example}
+Translate the point in the indicated way.
+
+\begin{tabular}{ccc}
+Point & Translation & result\\
+$(2,3)$& $2$ units left $3$ units up& \textbf{?}\\
+$(2,1)$& $2$ units left $-2$ units down& \textbf{?}\\
+$(-2,1)$& $-1$ units right $2$ units down& \textbf{?}\\
+$(-2,3)$& $-1$ units left $2$ units up& \textbf{?}\\
+\end{tabular}
+\end{example}
+}
+
+\end{frame}

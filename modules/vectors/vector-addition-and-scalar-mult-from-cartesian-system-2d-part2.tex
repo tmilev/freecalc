@@ -1,0 +1,50 @@
+\begin{frame}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.9cm, yunit=0.9cm}
+\begin{pspicture}(-0.5,-0.5)(3,3)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{3}{3}
+\fcLabels{3}{3}
+\fcFullDot{1}{0.5}
+\rput[b](1, 0.55){$P$}
+\rput[t](1, 0.45){$(x_1, y_1)$}
+\uncover<2->{
+\fcFullDot{2}{1}
+\rput[t](2, 0.95){$(cx_1, cy_1)$}
+}
+\uncover<3->{\rput[b](2, 1.05){$cP$}}
+\fcFullDot{0}{0}
+\rput[tr](0, 0){$O~~$}
+\uncover<4->{
+\psline[linecolor=blue](-0.5, -0.25) (3,1.5)
+}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{definition}[$+, \cdot$ in $\mathbb R^2$]
+Let $\fcv{u}=(x_1, y_1)$ and $\fcv{v}=(x_2, y_2)$ be pairs of numbers and let $c$ be a number. Define
+
+\hfil \hfil $
+\begin{array}{rcl}
+\fcv{u} +\fcv{v} &=& (x_1,  y_1) + (x_2, y_2 ) = ( x_1+x_2, y_1+ y_2) \\
+c\cdot \fcv{u}&=& c \cdot (  x_1, y_1 ) =(cx_1, cy_1 ).
+\end{array}
+$
+\end{definition}
+\end{columns}
+\begin{itemize}
+\item Fix a Cartesian coordinate system in the plane.
+\item Let $P,Q$ be points with respective coordinates $(x_1, y_1)$ and $(x_2, y_2)$; let $O$ be the origin.
+\item<2-> $c(x_1, y_1)=(cx_1, cy_1)$ \uncover<3->{corresponds to a new point which we denote by $cP$.}
+\item<4-> One can show $O$, $P$ and $cP$ lie on the same line.
+\end{itemize}
+
+
+
+\vskip 10cm
+\end{frame}
+
+
+
+
+
