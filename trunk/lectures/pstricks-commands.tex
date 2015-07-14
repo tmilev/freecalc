@@ -45,18 +45,25 @@
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
-\newcommand{\fcDashLength}{2}
+\newcommand{\fcDashLength}{1}
 \newcommand{\fcContourOptions}{
 [(\fcArrows) (->) eq (\fcArrows) (<-) eq (\fcArrows) (<->) eq or or [\fcGetColorCode{\fcColorLine}] \fcLineWidth [\fcDashes] (\fcLineStyle)]
 }
-\newcommand{\fcDashes}{[1 1] 0}
+\newcommand{\fcShowGridImplicitIId}{false}
+\newcommand{\fcDashes}{[\fcDashLength\space \fcDashLength] 0}
 \newcommand{\fcColorPatchUV}{1 0.5 0.5}
 \newcommand{\fcColorPatchVU}{0.7 0.2 0.2}
 \newcommand{\fcFastPatchSort}{false}
 \newcommand{\fcDashesCode}{%
-(\fcLineStyle) (dashed) eq %
-{[\fcDashLength\space \fcDashLength] 0 setdash}%
+(\fcLineStyle) (dashed) eq (\fcLineStyle) (dashed ) eq or %
+{\fcDashes\space setdash}%
 {[] 0 setdash}%
+ifelse\space %
+}
+\newcommand{\fcDashesCodeVirtual}{%
+(\fcLineStyle) (dashed) eq (\fcLineStyle) (dashed ) eq or %
+{\fcDashes\space setdashVirtual}%
+{[] 0 setdashVirtual}%
 ifelse\space %
 }
 \newcommand{\fcScreen}{[-1 1 -0.75] -1} %default projection plane. Renew this command to change projection plane.
@@ -77,6 +84,7 @@ ifelse\space %
 \define@key{fcGraphics}{iterationsU}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsU}{#1\space}}
 \define@key{fcGraphics}{iterationsV}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsV}{#1\space}}
 \define@key{fcGraphics}{forceForeground}[\renewcommand{\fcForceForeground}{false\space}]{\renewcommand{\fcForceForeground}{#1\space}}
+\define@key{fcGraphics}{showGridImplicitIId}[\renewcommand{\fcShowGridImplicitIId}{false\space}]{\renewcommand{\fcShowGridImplicitIId}{#1\space}}
 \define@key{fcGraphics}{iterationsX}[\renewcommand{\fcIterationsX}{9\space}]{\renewcommand{\fcIterationsX}{#1\space}}
 \define@key{fcGraphics}{scale}[\renewcommand{\fcScale}{1}]{\renewcommand{\fcScale}{#1\space}}
 %\define@key{fcGraphics}{debugContour}[\renewcommand{\fcContourDebugged}{-1\space}]{\renewcommand{\fcContourDebugged}{#1\space}}
@@ -87,10 +95,9 @@ ifelse\space %
 \define@key{fcGraphics}{zLabel}[\renewcommand{\fcZLabel}{$z$}]{\renewcommand{\fcZLabel}{#1}}
 \define@key{fcGraphics}{linecolor}[\renewcommand{\fcColorLine}{black}]{\renewcommand{\fcColorLine}{#1}}
 \define@key{fcGraphics}{linewidth}[\renewcommand{\fcLineWidth}{1}]{\renewcommand{\fcLineWidth}{#1}}
-\define@key{fcGraphics}{linestyle}[\renewcommand{\fcLineStyle}{0}]{\renewcommand{\fcLineStyle}{#1}}
-\define@key{fcGraphics}{linestyle}[\renewcommand{\fcLineStyle}{0}]{\renewcommand{\fcLineStyle}{#1}}
+\define@key{fcGraphics}{linestyle}[\renewcommand{\fcLineStyle}{0}]{\renewcommand{\fcLineStyle}{#1\space}}
 \define@key{fcGraphics}{fastsort}[\renewcommand{\fcFastPatchSort}{false}]{\renewcommand{\fcFastPatchSort}{#1}}
-\define@key{fcGraphics}{dashes}[\renewcommand{\fcDashes}{[1 1] 0}]{\renewcommand{\fcDashes}{#1}}
+\define@key{fcGraphics}{dashes}[\renewcommand{\fcDashes}{[\fcDashLength\space \fcDashLength] 0}]{\renewcommand{\fcDashes}{#1}}
 \define@key{fcGraphics}{arrows}[\renewcommand{\fcArrows}{}]{\renewcommand{\fcArrows}{#1}}
 \makeatother %undoes \makeatletter.
 
@@ -243,8 +250,8 @@ end
 }if
 }
 
-\newcommand{\fcRectangularRiemannSum}[8][]{
-\setkeys{fcGraphics}{#1}
+\newcommand{\fcRectangularRiemannSum}[8][]{%
+\setkeys{fcGraphics}{#1}%
 \pscustom{%
 \code{%
 [[\fcGetColorCode{\fcColorLine}] [\fcGetColorCode{\fcColorPatchUV}]  #2\space #3\space #4\space #5 \space #6\space #7\space {#8}\space]
@@ -904,7 +911,10 @@ def%
 }%
 }
 
-\newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth \fcGetColorCode{\fcColorLine} setrgbcolor }
+\newcommand{\fcLineFormatCode}{\fcDashesCode \fcLineWidth\space setlinewidth \fcGetColorCode{\fcColorLine} setrgbcolor %(fcDashesCode: \fcDashesCode ) == %
+}
+\newcommand{\fcLineFormatCodeVirtual}{\fcDashesCodeVirtual \fcLineWidth\space setlinewidthVirtual \fcGetColorCode{\fcColorLine} setrgbcolorVirtual %(fcDashesCodeVirtual: \fcDashesCodeVirtual ) == %
+}
 
 \newcommand{\fcCurveCode}{%
 %(calling fcCurveCode) == %
@@ -1230,6 +1240,7 @@ graphicsFile run
 }
 
 \newcommand{\fcSetUpGraphicsToScreen}{
+%(SETTING UP graphcis SCREEN ONLY!!!) ==
 /movetoVirtual {moveto} def
 /linetoVirtual {lineto} def
 /strokeVirtual {stroke} def
@@ -1250,6 +1261,7 @@ graphicsFile ( /plotArrowHeadVirtual {\fcArrowHeadPlotCode} def ) writestring
 20 string cvs exch 20 string cvs graphicsFile exch writestring graphicsFile ( ) writestring graphicsFile exch writestring graphicsFile ( ) writestring
 \fcMarkCleanCheck
 } def
+%(About to define movetoVirtual !!!!) ==
 /movetoVirtual {
 2 copy moveto
 storeNumberPairToGraphicsFile
@@ -1298,11 +1310,15 @@ graphicsFile ( setrgbcolor ) writestring
 }def
 }
 
-\newcommand{\fcSetupFiles}{
+\newcommand{\fcSetupFilesGraphicsIIId}{
 \fcSetUpGraphicsToScreen
+/graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
+}
+
+%defines graphicsFileAvailable to be true if cached, false else.
+\newcommand{\fcSetupFilesGraphicsNameAlreadyDefined}{
 /graphicsCached false def
 /graphicsFileAvailable true def
-/graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
 /graphicsFile (file not open) def
 errordict begin
 /invalidfileaccess
@@ -1330,9 +1346,15 @@ graphicsFile closefile
   /graphicsFileAvailable false def
   }
   { \fcSetUpGraphicsToFileAndScreen
+    (SET UP graphics TO FILE AND SCREEN) ==
   }
   ifelse
 }ifelse
+}
+
+\newcommand{\fcSetupFiles}{
+\fcSetupFilesGraphicsIIId
+\fcSetupFilesGraphicsNameAlreadyDefined
 }
 
 \newcommand{\fcComputePatchesAndContours}{
@@ -2761,6 +2783,115 @@ vX 0 ne vY 0 ne or{
 }%end multido
 }%
 
+%example 
+\newcommand{\fcImplicitIId}[8][]{%
+%\fcGrid[#1, linestyle=dashed]{#2}{#3}{#4}{#5}{#6}{#7}{0}%
+\setkeys{fcGraphics}{#1}%
+\pscustom{%
+\code{%
+40 dict begin
+\fcSetUpGraphicsToScreen
+/graphicsFileName (graphicsCacheSafeToDelete) (#1 #2 #3 #4 #5 #6 #7 #8) \fcHashString (.txt) 3 \fcConcatenateMultiple def
+\fcSetupFilesGraphicsNameAlreadyDefined
+graphicsCached not {
+/theEquation {#8} \space def
+/startX #2\space def
+/startY #3\space def
+/iterationsX #4\space def
+/iterationsY #5\space def
+/DeltaX #6\space def
+/DeltaY #7\space def
+/interpolate {20 dict begin 
+/rightPt exch def
+/leftPt exch def
+/rightVal rightPt \fcArrayToStack /y exch def /x exch def theEquation def
+/leftVal leftPt \fcArrayToStack /y exch def /x exch def theEquation def
+leftVal 0 eq rightVal 0 eq and{leftVal}{
+leftVal rightVal mul 0 le{
+leftVal 0 lt {/leftVal leftVal -1 mul def}if
+rightVal 0 lt {/rightVal rightVal -1 mul def}if
+%leftPt  leftVal  rightVal leftVal add div \fcVectorTimesScalar
+%rightPt rightVal rightVal leftVal add div \fcVectorTimesScalar
+%\fcVectorPlusVector
+leftPt 0.5 \fcVectorTimesScalar
+rightPt 0.5 \fcVectorTimesScalar
+\fcVectorPlusVector
+}if
+}ifelse
+end}
+def
+/processOneTriangle {
+20 dict begin
+/firstV exch def
+/secondV exch def
+/thirdV exch def
+firstV secondV interpolate
+secondV thirdV interpolate
+thirdV firstV interpolate
+end
+} def
+%%%%%%%%%%%%%%%%%%%just the grid
+\fcShowGridImplicitIId {
+[1 1] 0 setdashVirtual
+0.5 setlinewidthVirtual
+0 0 0 setrgbcolorVirtual
+/counterX -1 def
+iterationsX {
+/counterX counterX 1 add def
+/counterY -1 def
+iterationsY {
+/counterY counterY 1 add def
+%
+/BottomLeft [startX DeltaX counterX mul add startY DeltaY counterY mul add] def
+/BottomRight [startX DeltaX counterX 1 add mul add startY DeltaY counterY mul add] def
+/TopLeft [startX DeltaX counterX mul add startY DeltaY counterY 1 add mul add] def
+/TopRight [startX DeltaX counterX 1 add mul add startY DeltaY counterY 1 add mul add] def
+newpathVirtual 
+BottomLeft \fcCoordsPStricksToPS  movetoVirtual
+BottomRight \fcCoordsPStricksToPS linetoVirtual
+TopRight \fcCoordsPStricksToPS linetoVirtual
+BottomLeft \fcCoordsPStricksToPS linetoVirtual
+TopLeft \fcCoordsPStricksToPS linetoVirtual
+TopRight \fcCoordsPStricksToPS linetoVirtual
+strokeVirtual
+}repeat
+}repeat
+}if
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fcLineFormatCodeVirtual
+/counterX -1 def
+iterationsX {
+/counterX counterX 1 add def
+/counterY -1 def
+iterationsY {
+/counterY counterY 1 add def
+%
+/BottomLeft [startX DeltaX counterX mul add startY DeltaY counterY mul add] def
+/BottomRight [startX DeltaX counterX 1 add mul add startY DeltaY counterY mul add] def
+/TopLeft [startX DeltaX counterX mul add startY DeltaY counterY 1 add mul add] def
+/TopRight [startX DeltaX counterX 1 add mul add startY DeltaY counterY 1 add mul add] def
+/firstPair  [BottomLeft BottomRight TopRight processOneTriangle ] def
+/secondPair [BottomLeft TopRight    TopLeft  processOneTriangle ] def
+firstPair length 2 eq 
+{newpathVirtual 
+firstPair 0 get \fcCoordsPStricksToPS movetoVirtual
+firstPair 1 get \fcCoordsPStricksToPS linetoVirtual
+strokeVirtual
+}if
+secondPair length 2 eq 
+{newpathVirtual 
+secondPair 0 get \fcCoordsPStricksToPS movetoVirtual
+secondPair 1 get \fcCoordsPStricksToPS linetoVirtual
+strokeVirtual
+}if
+}repeat
+}repeat
+}if
+end
+}}%
+}%
+
+%example \fcGrid{-2}{-2}{4}{4}{1}{1}{} 
 \newcommand{\fcGrid}[8][]{%
 \setkeys{fcGraphics}{#1}%
 \pscustom{%
@@ -2773,7 +2904,7 @@ vX 0 ne vY 0 ne or{
 /DeltaX #6\space def
 /DeltaY #7\space def
 /stickyPiece (#8) () eq (#8) ( ) eq or {0}{#8}ifelse def
-\fcLineFormatCode
+\fcLineFormatCode 
 /counterX -1 def
 iterationsX 1 add{
 /counterX counterX 1 add def
