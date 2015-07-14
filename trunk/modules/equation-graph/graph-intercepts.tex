@@ -1,0 +1,28 @@
+\begin{frame}
+\begin{definition}
+Points on the graph of $ F(x,y)=G(x,y)$ for which 
+\begin{itemize}
+\item $x=0$ are called $y$-intercepts (those lie on the $y$ axis)
+\item<2-> $y=0$ are called $x$-intercept (those lie on the $x$ axis). 
+\end{itemize}
+\end{definition}
+\begin{columns}
+\column{0.2\textwidth}
+
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcAxesStandard{-1.2}{-1}{1.4}{1.4}
+\fcLabels{1.4}{1.4}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t sin t 30 add cos mul t cos t 30 sub cos mul 1.5 mul 0.5 sub}
+\fcFullDot{0}{30 cos 1.5 mul 0.5 sub}
+\fcFullDot{0}{60 cos 30 cos mul 1.5 mul 0.5 sub}
+\uncover<2->{\fcFullDot{2 -0.99702 180 3.141592654 div mul  mul  dup sin exch 30 add cos mul}{0}
+\fcFullDot{2 -0.31198 180 3.141592654 div mul  mul  dup sin exch 30 add cos mul}{0}}
+\end{pspicture}
+\column{0.8\textwidth}
+\begin{itemize}
+\item<3-> To find the $x$ intercepts set $y=0$ and solve for $x$.
+\item<4-> To find the $y$ intercepts set $x=0$ and solve for $y$.
+\end{itemize}
+\end{columns}
+\end{frame}
