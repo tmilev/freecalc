@@ -1,0 +1,23 @@
+\begin{frame}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1, -1)(2.5,2.5)%
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{2.5}{2.5}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos 1.2 add  t sin 1.4 add}%
+\fcFullDot{1.2}{1.4}%
+\rput[l](1.2, 1.4){$~(h,k)$}%
+\psline[linecolor=blue](1.2, 1.4)(! 1.2 2 sqrt 2 div sub 2 sqrt -2 div  1.4 add)
+\fcFullDot{1.2 2 sqrt 2 div sub}{2 sqrt -2 div  1.4 add}
+\rput[t](0.8, 0.8){$r$}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{observation}
+The graph of the equation 
+\[
+(x-h)^2+(y-k)^2=r^2
+\]
+is a circle with radius $r$ and center $(h,k)$.
+\end{observation}
+\end{columns}
+\end{frame}

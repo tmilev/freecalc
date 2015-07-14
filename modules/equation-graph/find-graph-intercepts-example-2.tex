@@ -1,0 +1,48 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-2,-2)
+\fcAxesStandard{-4}{-2.5}{1}{2.5}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos 2 mul -1.5 add t sin 2 mul }
+\uncover<2->{
+\fcFullDot{0}{7 4 div sqrt}
+\fcFullDot{0}{7 4 div sqrt -1  mul}
+\fcFullDot{0.5}{0}
+\fcFullDot{-7 2 div}{0}
+}
+\end{pspicture}
+\uncover<2->{Answer: the $y$-intercepts are: $\left(0,\sqrt{\frac{7}{4}} \right)$, $\left(0,-\sqrt{\frac{7}{4}} \right)$; the $x$ intercepts are:  $\left(\frac{1}{2},0)\right)$ and $(-\frac{7}{2},0)$}
+
+\column{0.7\textwidth}
+Find the $x$ and $y$ intercepts of the graph of the equation 
+$
+x^{2}+3x+ y^{2}= \frac{7}{4}.
+$
+
+\uncover<2->{To find the $y$ intercept, set $x=0$ and solve:
+
+$
+\displaystyle y^{2}=\displaystyle \frac{7}{4}\Rightarrow
+\displaystyle y = \displaystyle \pm \sqrt{\frac{7}{4}}
+$
+
+
+
+To find the $x$ intercepts, set $y=0$ and solve:
+
+$\begin{array}{rcl}
+\displaystyle x^{2}+3x&=&\displaystyle \frac{7}{4}\\
+\displaystyle x^2+3x-\frac{7}{4}&=&0\\
+\displaystyle 4x^2+12x-7&=&0\\
+\displaystyle (2x-1)(2x+7)&=&0\\
+2x-1=0 &\text{or}& 2x+7=0\\
+\displaystyle x=\frac{1}{2}&\text{or}&\displaystyle x=-\frac{7}{2}
+\end{array}
+$
+}
+\end{columns}
+
+\end{example}
+\end{frame}
