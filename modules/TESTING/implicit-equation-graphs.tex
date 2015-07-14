@@ -1,0 +1,44 @@
+\begin{frame}
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-1.8}{-1.8}{2}{2.5}
+\newcommand{\theFun}{ y y mul y y mul 3 sub mul x x mul x x mul 5 sub mul sub}
+\fcAxesStandard{-6}{-6}{6}{6}
+\uncover<1>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{4}{4}{3}{3}{\theFun} 
+}
+\uncover<2>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{6}{6}{2}{2}{\theFun} 
+}
+\uncover<3>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{8}{8}{1.5}{1.5}{\theFun} 
+}
+\uncover<4>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{12}{12}{1}{1}{\theFun} 
+}
+\uncover<5>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{24}{24}{0.5}{0.5}{\theFun} 
+}
+\uncover<6>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{48}{48}{0.25}{0.25}{\theFun} 
+}
+\uncover<7>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{100}{100}{0.12}{0.12}{\theFun} 
+}
+\uncover<8>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{200}{200}{0.06}{0.06}{\theFun} 
+}
+\uncover<9>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{400}{400}{0.03}{0.03}{\theFun} 
+}
+\uncover<10>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{800}{800}{0.015}{0.015}{\theFun} 
+}
+
+%\uncover<handout:0|29>{\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-10}{-10}{20}{20}{1}{1}{\theFun} }
+%\uncover<handout:0|30>{\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-10}{-10}{20}{20}{1}{1}{\theFun} }
+%\uncover<handout:0|31>{\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-10}{-10}{20}{20}{1}{1}{\theFun} }
+\end{pspicture}
+\uncover<1-10>{}
+\end{frame}

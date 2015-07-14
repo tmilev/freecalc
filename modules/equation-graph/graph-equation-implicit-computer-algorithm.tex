@@ -4,10 +4,11 @@
 \end{emptyTheorem}
 \begin{columns}
 \column{0.3\textwidth}
+\only<handout:1-6|-27>{%
 \psset{xunit=0.8cm, yunit=0.8cm}
 \begin{pspicture}(-1,-1)(1,1)
 \tiny
-\fcBoundingBox{-1.8}{-1.8}{2}{2.5}
+\fcBoundingBox{-1.8}{-1.8}{3}{3}
 \newcommand{\theFun}{x x mul 2 y y mul mul add 1 sub}
 \fcAxesStandard{-1.6}{-1.6}{1.6}{1.6}
 \uncover<7-18>{\fcImplicitIId[linestyle=dashed, dashes={[1 1] 0}, showGridImplicitIId=true]{-1.6}{-1.6}{2}{2}{1.6}{1.6}{-1} }
@@ -19,6 +20,7 @@
 \uncover<handout:0|24>{\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-1.6}{-1.6}{64}{64}{0.05}{0.05}{\theFun} }
 \uncover<handout:0|25>{\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-1.6}{-1.6}{128}{128}{0.025}{0.025}{\theFun} }
 \uncover<handout:5|26>{\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-1.6}{-1.6}{400}{400}{3.2 400 div }{3.2 400 div}{\theFun} }
+\uncover<handout:6|27>{\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-1.6}{-1.6}{1000}{1000}{3.2 1000 div }{3.2 1000 div}{\theFun} }
 \uncover<handout:0|6>{
 \psline[linestyle=dotted](-1.6,-1.6)(1.6,-1.6)(1.6,1.6)(-1.6,1.6)(-1.6,-1.6)
 }
@@ -42,15 +44,63 @@
 \fcFullDot{0}{0.8}
 }
 \end{pspicture}
-
-
-\uncover<3->{
+\uncover<3-27>{
 We illustrate the algorithm for:
 $
 \begin{array}{@{}r@{}c@{}l@{}l@{}|l}
 \uncover<3->{x^{2}+2y^2&\alertNoH{0}{=}&\alertNoH{4}{1}}\\
 \uncover<4->{\alertNoH{5}{x^{2}+2y^2\alertNoH{4}{-1}}&\alertNoH{0}{=}&0}\\
 \uncover<5->{\text{Set }\alertNoH{5,11,12}{H(x,y)}&\alertNoH{5,11,12}{=}&\alertNoH{5,11,12}{x^{2}+2y^{2}-1}}
+\end{array}
+$
+}}%only
+
+\only<handout:7|28-39>{
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-7.2}{-7.2}{12}{12}
+\newcommand{\theFun}{ y y mul y y mul 3 sub mul x x mul x x mul 5 sub mul sub}
+\fcAxesStandard{-6}{-6}{6}{6}
+\uncover<handout:0|28,29>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{4}{4}{3}{3}{-1} 
+}
+\uncover<handout:0|30>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{4}{4}{3}{3}{\theFun} 
+}
+\uncover<handout:0|31>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{6}{6}{2}{2}{\theFun} 
+}
+\uncover<handout:0|32>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{8}{8}{1.5}{1.5}{\theFun} 
+}
+\uncover<handout:0|33>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{12}{12}{1}{1}{\theFun} 
+}
+\uncover<handout:0|34>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=true]{-6}{-6}{24}{24}{0.5}{0.5}{\theFun} 
+}
+\uncover<handout:0|35>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{48}{48}{0.25}{0.25}{\theFun} 
+}
+\uncover<handout:0|36>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{100}{100}{0.12}{0.12}{\theFun} 
+}
+\uncover<handout:0|37>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{200}{200}{0.06}{0.06}{\theFun} 
+}
+\uncover<handout:0|38>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{400}{400}{0.03}{0.03}{\theFun} 
+}
+\uncover<handout:7|39>{
+\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{800}{800}{0.015}{0.015}{\theFun} 
+}
+\end{pspicture}
+Illustrate the algorithm for:
+$\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\alertNoH{28}{y^{2}(y^{2}-3)}&\alertNoH{28}{=}&\alertNoH{28}{x^2(x^2-5)}\\
+\alertNoH{29}{H(x,y)}&\alertNoH{29}{=}&\alertNoH{29}{y^{2}(y^{2}-3)}\\
+&&\alertNoH{29}{-x^2(x^2-5)}
 \end{array}
 $
 }
@@ -64,10 +114,10 @@ $
 \item<11-> If $\alertNoH{11}{H(x_P, y_P)}$ and $\alertNoH{12}{H(x_Q, y_Q)}$ \alertNoH{13}{have different sign} \alertNoH{14}{then $H$ must become zero somewhere on the segment between $P$ and $Q$}. 
 \item<15-> Select a point between $P$ and $Q$ and ``guess'' that $H$ is zero there. 
 \begin{itemize}
-\item<16-> In our implementation, in each triangle we select the midpoint (i.e., $\frac{1}{2}P+\frac{1}{2}Q$).
+\item<16-> In our implementation, we select the midpoint (i.e., $\frac{1}{2}P+\frac{1}{2}Q$).
 \item<17-> Connect the selected pts. for each triangle.
 \end{itemize}
-\item<20-26> Repeat for ever finer grid.
+\item<20-> Repeat for ever finer grid.
 \end{itemize}
 
 \end{itemize}
