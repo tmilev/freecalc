@@ -6,19 +6,18 @@
 \tiny
 \fcAxesStandard{-0.5}{-0.5}{3}{3}
 \fcLabels{3}{3}
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](1, 0.5)(1.5, 2)
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0.5, 1.5)(1.5, 2)
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(0.5, 1.5)
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(1, 0.5)
 \fcFullDot{1}{0.5}
 \rput[b](1, 0.55){$P$}
 \rput[t](1, 0.45){$(x_1, y_1)$}
-\uncover<2->{
-\fcFullDot{2}{1}
-\rput[t](2, 0.95){$(cx_1, cy_1)$}
-}
-\uncover<3->{\rput[b](2, 1.05){$cP$}}
-\fcFullDot{0}{0}
-\rput[tr](0, 0){$O~~$}
-\uncover<4->{
-\psline[linecolor=blue](-0.5, -0.25) (3,1.5)
-}
+\fcFullDot{0.5}{1.5}
+\rput[t](0.5, 1.45){$Q$}
+\rput[b](0.5, 1.55){$(x_2, y_2)$}
+\rput[b](1.5, 2.05){$(x_1+x_2, y_1+y_2)$}
+\rput[t](1.5, 1.95){$P+Q$}
 \end{pspicture}
 \column{0.7\textwidth}
 \begin{definition}[$+, \cdot$ in $\mathbb R^2$]
@@ -39,7 +38,7 @@ $
 \item<4-> The points in the plane, equipped with the operations $+,\cdot$ form a mathematical object which we call a vector space. 
 \end{itemize}
 \begin{definition}
-Let $P$ with coordinates $(x,y)$ be a point and let $(a,b)$ be a pair of numbers. The point $P=(x,y)+(a,b)=(x+a,y+b)$ is called the translation (shift) of $P$ $a$ units left and $b$ units up.
+Let $P$ with coordinates $(x,y)$ be a point and let $(a,b)$ be a pair of numbers. The point $P=(x,y)+(a,b)=(x+a,y+b)$ is called the translation (shift) of $P$ $a$ units right and $b$ units up.
 \end{definition}
 
 
