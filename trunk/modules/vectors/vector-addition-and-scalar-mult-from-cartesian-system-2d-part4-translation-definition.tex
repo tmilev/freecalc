@@ -1,0 +1,57 @@
+\begin{frame}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.9cm, yunit=0.9cm}
+\begin{pspicture}(-0.5,-0.5)(3,3)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{3}{3}
+\fcLabels{3}{3}
+\psline[arrows=->, linecolor=blue, linewidth=1.5pt](1, 0.5)(1.5, 2)
+%\psline[arrows=->, linecolor=blue, linewidth=1.5pt](0.5, 1.5)(1.5, 2)
+%\psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(0.5, 1.5)
+\psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(1, 0.5)
+\fcFullDot{1}{0.5}
+\fcFullDot{1.5}{2}
+\rput[lb](1, 0.55){$~~P$}
+\rput[lt](1, 0.45){$~~(x_1, y_1)$}
+%\fcFullDot{0.5}{1.5}
+%\rput[lb](0.5, 1.55){$(a, b)$}
+\rput[lb](1.5, 2.05){$(x_1+a, y_1+b)$}
+%\rput[lt](1.5, 1.95){$~~P+(a,b)$}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{definition}[$+, \cdot$ in $\mathbb R^2$]
+Let $\fcv{u}=(x_1, y_1)$ and $\fcv{v}=(x_2, y_2)$ be pairs of numbers and let $c$ be a number. Define
+
+\hfil \hfil $
+\begin{array}{rcl}
+\fcv{u} +\fcv{v} &=& (x_1,  y_1) + (x_2, y_2 ) = ( x_1+x_2, y_1+ y_2) \\
+c\cdot \fcv{u}&=& c \cdot (  x_1, y_1 ) =(cx_1, cy_1 ).
+\end{array}
+$
+\end{definition}
+\end{columns}
+
+\begin{definition}[Translation]
+Let $P$ with coordinates $(x,y)$ be a point and let $(a,b)$ be a pair of numbers. The point $P=(x,y)+(a,b)=(x+a,y+b)$ is called the translation (shift) of $P$ $a$ units right and $b$ units up.
+\end{definition}
+
+
+\begin{itemize}
+\item<2-> We allow shifts by negative units.
+\item<3-> Translation down by $b$ units we define to be translation up by $-b$ units.
+\item<4-> Translation left by $a$ units we define to be translation right by $-a $ units.
+\end{itemize}
+
+
+\vskip 10cm
+\end{frame}
+
+
+
+
+
+
+
+
+
