@@ -1,0 +1,68 @@
+\begin{frame}
+\frametitle{Plotting Lines from line equation}
+To plot a line from its equation $ax+by=c$ do the following.
+\begin{itemize}
+\item<2-> If $b=0 $, the line is vertical through $x=\frac{c}{a}$. \uncover<3->{Suppose $b\neq 0$.}
+\begin{itemize}
+\item<4-> Plug in arbitrary number for $x$ and find $y$ from $y=\frac{c-ax}{b}$.
+\item<5-> Use same procedure to find a second point on the line.
+\item<6-> If $a\neq 0$: can also plug in values for $y$ to find $x$.
+\item<7-> Draw a line between the two dots. 
+\end{itemize}
+\end{itemize}
+\uncover<7->{
+\vskip -0.2cm
+\begin{example}
+\vskip -0.1cm
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-4, -4)(5,5)
+\tiny
+\fcBoundingBox{-4.2}{-4.2}{4.2}{4.2}
+\psgrid[subgriddiv=0,griddots=10,gridlabels=0pt](-4,-4)(4,4)
+\psaxes[labels=none, arrows=->](0,0)(-4,-4)(4,4)
+\fcLabels{4}{4}
+\uncover<9-10>{
+\fcFullDot{1}{0}
+\fcFullDot{0}{1}
+}
+\uncover<10>{\psline[linecolor=\fcColorGraph](-3,4)(4,-3)}
+\uncover<11->{\psline[linecolor=gray](-3,4)(4,-3)}
+%
+\uncover<12-13>{
+\fcFullDot{0}{-3}
+\fcFullDot{1.5}{0}
+}
+\uncover<13>{\psline[linecolor=\fcColorGraph](3.5,4)(-0.5,-4)}
+\uncover<14->{\psline[linecolor=gray](3.5,4)(-0.5,-4)}
+%
+\uncover<15-16>{
+\fcFullDot{0}{2}
+\fcFullDot{1}{2}
+}
+\uncover<16>{\psline[linecolor=\fcColorGraph](-4,2)(4,2)}
+\uncover<17->{\psline[linecolor=gray](-4,2)(4,2)}
+%
+\uncover<18-19>{
+\fcFullDot{-1}{0}
+\fcFullDot{-1}{1}
+}
+\uncover<19>{\psline[linecolor=\fcColorGraph](-1,-4)(-1,4)}
+%\uncover<19>{\psline[linecolor=gray](-3,4)(4,-3)}
+\end{pspicture}
+\column{0.6\textwidth}
+Plot the line with the given equation.
+\begin{tabular}{ccc}
+equation& pt.  & another pt.\\
+$\alertNoH{8-10}{x+y=1}$ & $\fcAnswer{9}{(1,0)}$ &$\fcAnswer{9}{(0,1)}$ \\
+$\alertNoH{11-13}{2x-y=3}$& $\fcAnswer{12}{(0,-3)}$ &$\fcAnswer{12}{\left(\frac{3}{2},0\right)}$\\
+$\alertNoH{14-16}{y=2}$   & $\fcAnswer{15}{(0,2)}$ &$\fcAnswer{15}{(1,2)}$\\
+$\alertNoH{17-19}{x=-1}$  & $\fcAnswer{18}{(-1,0)}$ &$\fcAnswer{18}{(-1,1)}$
+\end{tabular}
+Other points can be used as well.
+\end{columns}
+}
+\vskip -0.2cm
+\end{example}
+\end{frame}
