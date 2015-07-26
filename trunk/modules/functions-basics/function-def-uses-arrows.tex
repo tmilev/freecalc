@@ -1,0 +1,118 @@
+% begin module function-def
+\begin{frame}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.6cm,yunit=0.6cm}
+\begin{pspicture}(0,0)(5,5)
+\fcBoundingBox{-0.5}{-3.65}{1.1}{3.1}
+\rput[r](-1.2,0){$D$}
+\uncover<handout:3|6->{
+\fcFullDot[scale=2, linecolor=red]{5}{2.5}
+\fcFullDot[scale=2, linecolor=red]{0}{2.5}
+
+}
+\psellipse*[linecolor=cyan](0,0)(1, 3)
+\fcFullDot[scale=1, linecolor=red]{0}{2.5}
+\fcFullDot{0}{1.5}
+\fcFullDot{0}{0.5}
+\fcFullDot{0}{-0.5}
+\fcFullDot{0}{-1.5}
+\fcFullDot{0}{-2.5}
+\uncover<handout:0|4,6>{
+\fcFullDot[scale=2, linecolor=red]{0}{-0.5}
+}
+\uncover<handout:0|4>{
+\fcFullDot[scale=2, linecolor=red]{0}{2.5}
+\fcFullDot[scale=2, linecolor=red]{0}{1.5}
+\fcFullDot[scale=2, linecolor=red]{0}{0.5}
+\fcFullDot[scale=2, linecolor=red]{0}{-1.5}
+\fcFullDot[scale=2, linecolor=red]{0}{-2.5}
+}
+\uncover<4->{\rput[t](0, -3.2){\alertNoH{4}
+{Domain}}}
+
+\rput[l](6.2,0){$E$}
+\psellipse*[linecolor=cyan](5,0)(1, 3)
+\fcFullDot[scale=1, linecolor=red]{5}{2.5}
+\fcFullDot{5}{1.25}
+\fcFullDot{5}{0}
+\fcFullDot{5}{-1.25}
+\fcFullDot{5}{-2.5}
+\fcFullDot{5}{-2.5}
+\uncover<handout:0|5,12>{
+\fcFullDot[scale=2, linecolor=red]{5}{0}
+}
+\uncover<handout:0|5,6,9,11>{
+\fcFullDot[scale=2, linecolor=red]{5}{2.5}
+}
+\uncover<handout:0|5,9>{
+\fcFullDot[scale=2, linecolor=red]{5}{1.25}
+\fcFullDot[scale=2, linecolor=red]{5}{-1.25}
+\fcFullDot[scale=2, linecolor=red]{5}{-2.5}
+}
+\uncover<5->{\rput[t](5, -3.2){\alertNoH{5}{Co-domain}}}
+\rput(2.5, 2.5){$f$}
+\psline[linestyle=dashed]{->}(0,2.5)(5,1.25)
+\psline[linestyle=dashed]{->}(0,1.5)(5,-1.25)
+\psline[linestyle=dashed]{->}(0,0.5)(5,-2.5)
+\psline[linestyle=dashed]{->}(0,-0.5)(5,2.5)
+\psline[linestyle=dashed]{->}(0,-1.5)(5,-1.25)
+\psline[linestyle=dashed]{->}(0,-2.5)(5,2.5)
+\uncover<handout:3|6->{%
+\rput(5.4, 2.5){~~~$f(x)$}
+\rput[r](-0.3, -0.5){$x$}
+}
+\end{pspicture}
+\column{0.6\textwidth}
+\begin{itemize}
+\item<10-> A function has domain $D$ $\Rightarrow$ there is exactly one arrow starting at each element of $D$.
+\item<11-> An element of the co-domain can be at the tip of more than one arrow.
+\item<12-> It is allowed to have an element in the co-domain without arrows pointing to it.
+\end{itemize}
+\end{columns}
+
+\begin{definition}[Function]
+A function $f$ is a rule that assigns to each element $x$ in a set $D$ exactly one element, called $f(x)$, in a set $E$.
+\end{definition}
+
+\only<handout:1| 2-4>{
+\begin{itemize}
+\item<2-> Functions are also synonymously called ``maps''.
+\item<3-> In the picture above, $f$ is represented via the arrows.
+\end{itemize}
+
+\uncover<4->{
+\begin{definition}[Domain]
+The set $D$ in the definition of $f$ is called the domain of $f$. 
+\end{definition}
+}
+}
+
+\only<handout:2| 5>{
+\begin{definition}[Co-domain]
+The set $E$ in the definition of $f$  is called the co-domain of $f$. 
+\end{definition}
+}
+
+\only<handout:3| 6-8>{
+\begin{definition}[Value of $f$ at $x$]
+The number $f(x)$ is called \emph{the value of $f$ at $x$} and is read ``$f$ of $x$''.
+\end{definition}
+
+\begin{itemize}
+\item<7-> The value of $f$ at $x$ is also called the image of $x$ under the map $f$.
+\item<8-> In the expression $f(x)$, $x$ is referred to as the \emph{argument} of $f$. 
+\end{itemize}
+}
+\only<handout:4| 9->{
+\begin{definition}[Range]
+The set of all possible values taken by $f(x)$ as the element $x$ runs over elements of $D$ is called the range of $f$. 
+\end{definition}
+}
+
+\vskip 10cm 
+
+
+
+\end{frame}
+% end module function-def

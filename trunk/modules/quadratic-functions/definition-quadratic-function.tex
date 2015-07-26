@@ -1,0 +1,23 @@
+\begin{frame}
+\begin{definition}
+Let $a,b,c$ be real numbers with $a\neq 0$. The function 
+\[
+f(x)=ax^2+bx+c
+\]
+is called a \emph{quadratic function}.
+\end{definition}
+\begin{center}
+\begin{pspicture}(-1,-1)(2.5,2.3)
+\tiny
+\fcAxesStandard{-1}{-1}{2.5}{2.3}
+\psplot[linecolor=\fcColorGraph]{-1}{7 3 div}{0.75 x x mul mul x sub 0.2 add}
+\rput[l](0.3,1.5){$y=ax^2+bx+c$}
+\end{pspicture}
+\begin{pspicture}(-1,-1)(2.5,2.3)
+\tiny
+\fcAxesStandard{-1}{-1}{2.5}{2.3}
+\psplot[linecolor=\fcColorGraph]{-1}{7 3 div}{-0.75 x x mul mul x add 1.2 add}
+\rput[l](0.5,1.7){$y=ax^2+bx+c$}
+\end{pspicture}
+\end{center}
+\end{frame}

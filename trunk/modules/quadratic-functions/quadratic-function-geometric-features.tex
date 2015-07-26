@@ -1,0 +1,93 @@
+\begin{frame}[t]
+\begin{definition}
+The expression $f(x)=a(x-h)^2+k$, where $\displaystyle h=-\frac{b}{2a}$ and $\displaystyle k=-\frac{D}{4a}=-\frac{b^2-4ac}{4a}$ is called the standard form of $ax^2+bx+c$.
+\end{definition}
+
+\begin{columns}
+\column{0.27\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-1,-1)(2.5,2.5)%
+\tiny%
+\pstVerb{40 dict begin %
+/xMin -2.5  def %
+/yMin -2.5  def %
+/xMax 2.5 def %
+/yMax 2.5 def %
+}%
+\fcAxesStandardNoFrame{xMin -0.1 add}{yMin -0.1 add}{xMax 0.1 add}{yMax 0.1 add}%
+\newcommand{\doThePlot}[4]{%
+\pstVerb{40 dict begin %
+/theA ####1\space def %
+/theH ####2\space def %
+/theK ####3\space def %
+/leftExit theA 0 gt {yMax}{yMin} ifelse theK sub theA div sqrt -1 mul theH add def %
+/rightExit theA 0 gt {yMax}{yMin} ifelse theK sub theA div sqrt  1 mul theH add def %
+leftExit xMin lt {/leftExit xMin def}if
+rightExit xMax gt {/rightExit xMax def}if
+}%
+\rput[t](! theH theK ){$\uncover<handout:0|16->{(h,k)}$}%
+%
+\fcFullDot[linecolor=####4]{theH}{theK}%
+%
+\psplot[linecolor=####4]{leftExit}{rightExit}{x theH sub dup mul theA mul theK add}%
+\pstVerb{end}%
+}%
+\uncover<handout:0|2,3>{\doThePlot{1}{0}{0}{\fcColorGraph}}%
+\uncover<handout:1|4-6>{\doThePlot{1}{0}{0}{gray!10}}%
+\uncover<handout:0|4>{\doThePlot{1.6}{0}{0}{\fcColorGraph}}%
+\uncover<handout:0|5-6>{\doThePlot{1.6}{0}{0}{gray!20}}%
+\uncover<handout:0|5>{\doThePlot{1.6}{0.4}{0}{\fcColorGraph}}%
+\uncover<handout:0|6-6>{\doThePlot{1.6}{0.4}{0}{gray!30}}%
+\uncover<handout:1|6,7,8>{\doThePlot{1.6}{0.4}{-0.3}{\fcColorGraph}}%
+\uncover<handout:2|9>{\doThePlot{-0.8}{0.4}{0.4}{\fcColorGraph}}%
+\uncover<handout:0|10>{\doThePlot{-1.1}{0.4}{0.4}{\fcColorGraph}}%
+\uncover<handout:0|11>{\doThePlot{-1.3}{0.4}{0.4}{\fcColorGraph}}%
+\uncover<handout:0|12>{\doThePlot{-1.5}{0.4}{0.4}{\fcColorGraph}}%
+\uncover<handout:0|13>{\doThePlot{1}{0.4}{-0.3}{\fcColorGraph}}%
+\uncover<handout:0|14>{\doThePlot{1.3}{0.4}{-0.3}{\fcColorGraph}}%
+\uncover<handout:3|15-19>{\doThePlot{1.6}{0.4}{-0.3}{\fcColorGraph}}%
+
+\uncover<handout:1,3|17-19>{\psline[linestyle=dashed, linecolor=blue](! 0.4 yMin)(! 0.4 yMax)}
+\uncover<handout:1,3|18>{
+\psline[arrows=<->](1, 0.304)(-0.2, 0.304)
+\psline[arrows=<->](1.4, 1.2)(-0.6, 1.2)
+}
+\uncover<handout:0|20>{\doThePlot{1.6}{0.5}{-0.1}{\fcColorGraph}}%
+\uncover<handout:0|21->{\doThePlot{1.6}{0.6}{0.1}{\fcColorGraph}}%
+%\doThePlot{1.2}{0.3}{-0.2}
+\pstVerb{end}
+\end{pspicture}
+
+%\hfil\hfil $f(x)=a(x-h)^2+k$
+
+~\\~\\~\\~\\~\\
+
+\column{0.73\textwidth}
+\begin{itemize}
+\only<handout:1|1-6>{
+\item<2-> The graph of $y=x^2$ is a parabola; its shape is assumed known.
+\item<3-> The standard form shows how the graph of an arbitrary quadratic is obtained from the graph of $y=x^2$:
+\begin{itemize}
+\item<4-> $ax^2$ stretches $y=x^2$ by factor of $a$ and possibly reflects across the $x$ axis.
+\item<5-> $a(x-h)^2$ shifts $y=a x^2$ by $h$ units left.
+\item<6-> $a(x-h)^2+k$ shifts $y=a(x-h)^2+k$ by $k$ units up. 
+\end{itemize}
+}
+\only<handout:2|7-18>{
+\item<7-> The graph of a quadratic function is a parabola.
+\item<8-> When $a>0$ the parabola opens upwards.
+\item<9-> When $a<0$ the parabola opens downwards.
+\item<10-> When $|a|$ increases, the parabola becomes steeper.
+\item<16-> The point $\left(h,k\right)=\left(-\frac{b}{2a},-\frac{D}{4a}\right)$ is called the vertex of the parabola.
+\item<17-> The parabola is \alertNoH{18}{symmetric} with respect to \alertNoH{17}{the line $x=h=-\frac{b}{2a}$}, i.e., the vertical line through its vertex.
+}
+\only<handout:3|19->{
+\item<19-> When we change $h$ and $k$ we move the vertex of the parabola without change in steepness.
+\item<22-> Therefore when we change $b$ and $c$ we move the vertex of the parabola  without change in steepness.
+}
+\end{itemize}
+\vfill 
+\end{columns}
+
+\vskip 10cm
+\end{frame}

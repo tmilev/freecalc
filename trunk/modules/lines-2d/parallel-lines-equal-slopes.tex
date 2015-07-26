@@ -1,0 +1,46 @@
+\begin{frame}
+\vskip -0.15cm
+\begin{definition}
+Two lines are parallel if they have no common point.
+\end{definition}
+\vskip -0.15cm
+\begin{proposition}
+Two non-vertical lines are parallel if and only if they have equal slopes and different $y$ intercepts.
+\end{proposition}
+\vskip -0.15cm
+\begin{proof}[\only<handout:1|1>{Proof $\Leftarrow$}\only<handout:2|2>{Proof $\Rightarrow$} ]
+\only<handout:1|1>{
+\begin{itemize}
+\item Suppose the two lines have different $y$ intercepts and have the same slope $m$.
+\item Then the lines have equations as shown below.
+\[
+\left|\begin{array}{rcl}
+y&=& mx+b_1\\
+y&=& mx+b_2
+\end{array}\right.
+\]
+\item System has no solutions as $b_1\neq b_2$ $\Rightarrow$ the lines don't intersect.
+\end{itemize}
+}
+\only<handout:2|2->{
+\begin{itemize}
+\item Suppose the two lines have different slopes. 
+\item Suppose the lines have equations as shown below.
+$
+\begin{array}{c@{}r@{}c@{}l@{}l|l}
+&y&=&m_1x+b_1\\
+\cline{1-1}&y&=&m_2x+b_2\\\cline{1-4}
+&0&=&(m_1-m_2)x+b_1-b_2\\
+&(m_1-m_2)x&=&b_2-b_1 &&\text{Div. by }{m_1-m_2\neq 0}\\
+&x&=&\displaystyle \frac{b_2-b_1}{m_1-m_2}
+\end{array}
+$
+\item The system has solution $x=  \frac{b_2-b_1}{m_1-m_2}$, $y= m_1\frac{b_2-b_1}{m_1-m_2}+b_1$ $\Rightarrow$ the lines intersect.
+\end{itemize}
+}
+\vskip -0.7cm
+\end{proof}
+
+\vskip 10cm
+
+\end{frame}

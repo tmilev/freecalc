@@ -1,24 +1,20 @@
-% begin module transformations-horizontal-stretches
+% begin module transformations-horizontal-stretches-use-sin-as-example
 \begin{frame}\ %
 \uncover<1->{}
 \psset{xunit=1.4cm, yunit=1.4cm}
 \begin{pspicture}(-0.6, -1.4)(6.2,1.4)
 \tiny
 \fcAxesStandard{-0.6}{-1.4}{6.2}{1.4}
-
 %Function formula: sin{}(x)
-\rput[t](4.71238898, -1.1){\alertNoH{1-2}{$y=sin{}(x)$}}
-
+\rput[t](4.71238898, -1.1){\alertNoH{1-2}{$y=\sin{}(x)$}}
 \uncover<1-2>{
 \psplot[linecolor=red, plotpoints=1000]{-0.5}{6}{x 57.29578 mul sin }
 }
 \uncover<3->{
 \psplot[linecolor=blue, plotpoints=1000]{-0.5}{6}{x 57.29578 mul sin }
 }
-
 \psline(1.570796327, -0.05)(1.570796327, 0.05)
 \rput[t](1.570796327, -0.1) {$\frac{\pi}{2}$}
-
 \psline(3.141592654, -0.05)(3.141592654, 0.05)
 \rput[t](3.141592654, -0.1) {$\pi$}
 
@@ -65,12 +61,12 @@ What happens if we multiply or divide $x$ by a constant $c > 1$ before applying 
 \uncover<2->{
 \begin{tabular}{|l|l|}
 \hline
-\alert<handout:0| 3>{$f(cx)$} &%
-\uncover<3->{\alert<handout:0| 3>{Compress the graph of $f(x)$ horizontally by a factor of $c$.}} \\%
-\alert<handout:0| 4>{$f((1/c)x)$} &%
-\uncover<4->{\alert<handout:0| 4>{Stretch the graph of $f(x)$ horizontally by a factor of $c$.}} \\%
+\alertNoH{ 3}{$f(cx)$} &%
+\uncover<3->{\alertNoH{ 3}{Compress the graph of $f(x)$ horizontally by a factor of $c$.}} \\%
+\alertNoH{ 4}{$f\left(\frac{1}{c}x\right)$} &%
+\uncover<4->{\alertNoH{ 4}{Stretch the graph of $f(x)$ horizontally by a factor of $c$.}} \\%
 \hline
 \end{tabular}
 }
 \end{frame}
-% end module transformations-horizontal-stretches
+% end module transformations-horizontal-stretches-use-sin-as-example

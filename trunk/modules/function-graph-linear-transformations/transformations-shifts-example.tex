@@ -1,0 +1,61 @@
+% begin module transformations-shifts-example
+\begin{frame}
+\begin{example}
+Relative to the graph of $f(x)=x^2$, draw a graph of $f(x) = x^2 + 6x + 10$. \alertNoH{8}{Assume the graph of $f(x)=x^2$ given.}
+\begin{columns}[c]
+\column{0.45\textwidth}
+
+\psset{xunit=0.65cm, yunit=0.65cm}
+\begin{pspicture}(-5.5, -0.6)(3.1,5.1)
+\tiny
+\fcAxesStandard{-5.5}{-0.6}{3.1}{5.1}
+\rput[rt](-0.1,-0.1){$(0,0)$}
+%Function formula: (-3+x)^{2}-9+6 (x)
+\only<handout:0| 8>{
+\rput[l](1.9,2.4){$\alertNoH{8}{y=x^2}$}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.23607}{2.23607}{x 6 mul -9 x -3 add 2 exp add add } %Function formula: (x)^{2}+10+6 (x)
+\fcFullDot{0}{0}
+}
+\only<handout:1| 9->{
+\rput[l](1.9,2.4){\color{gray}$y=x^2$}
+\psplot[linecolor=gray, plotpoints=1000]{-2.23607}{2.23607}{x 6 mul -9 x -3 add 2 exp add add } %Function formula: (x)^{2}+10+6 (x)
+\fcFullDot[linecolor=gray]{0}{0}
+}
+\only<handout:1| 9>{
+\rput[l](-1.1,2.4){$\alertNoH{9}{y=(x-(-3))^2}$}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-5.23607}{2.23607 3 sub}{x -3 sub dup mul}
+\fcFullDot{-3}{0}
+\rput[rt](-3.1, -0.1){$(-3,0)$}
+}
+\only<handout:1| 10->{
+\rput[l](-1.1,2.4){\color{gray}$y=(x-(-3))^2$}
+\psplot[linecolor=gray, plotpoints=1000]{-5.23607}{2.23607 3 sub}{x -3 sub dup mul}
+\rput[rt](-3.1, -0.1){$(-3,0)$}
+\fcFullDot[linecolor=gray]{-3}{0}
+}
+\only<handout:1| 10->{
+\rput[rt](-3.1,0.9){$(-3,1)$}
+\fcFullDot{-3}{1}
+\rput[lb](-4.4,4.2){$\alertNoH{10}{y=x^{2}+6x+10}$}
+\psplot[linecolor=red, plotpoints=1000]{-5}{-1}{x 6 mul 10 x 2 exp add add }
+}
+\only<handout:1| 9->{\psline[linecolor=blue, arrows=->](0,0)(-3,0)}
+\only<handout:1| 10->{\psline[linecolor=blue, arrows=->](-3,0)(-3,1)}
+\only<handout:1| 10->{\psline[linecolor=blue, arrows=->](0,0)(-3,1)}
+\end{pspicture}
+
+\column{.55\textwidth}
+\uncover<2->{
+Complete the square:
+}
+\[
+\begin{array}{@{}rcl}
+\uncover<3->{f(x)} & \uncover<3->{ = } & \uncover<3->{x^2 + 6x + 10} \\
+& \uncover<4->{ = } & \uncover<4->{\left(\alertNoH{6}{ x^2 + 6x+ \fcAnswer{5}{ 9}} \right) + 10 - \fcAnswer{5}{ 9}} \\
+& \uncover<6->{ = } & \uncover<6->{\alertNoH{6}{(x \alertNoH{7}{+} 3)^2} + 1} \\
+& \uncover<7->{ = } & \uncover<7->{ \alertNoH{10}{ \alertNoH{9}{(x \alertNoH{7}{-} (\alertNoH{7}{-}3))^2} + 1}} \end{array}
+\]
+\end{columns}
+\end{example}
+\end{frame}
+% end module transformations-shifts-example

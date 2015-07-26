@@ -1,0 +1,21 @@
+\begin{frame}
+
+\begin{example}
+\begin{columns}
+\column{0.45\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\fcAxesStandard{-3.2}{-2}{2.2}{2}
+\psplot[linecolor=\fcColorGraph]{-3.2}{2.2}{1 6 div x x x mul mul mul 1 6 div x x mul mul -1 x mul add add }
+\uncover<2->{
+\fcFullDot{-3}{0}
+\fcFullDot{2}{0}
+\fcFullDot{0}{0}
+}
+\end{pspicture}
+\column{0.55\textwidth}
+Find the zeroes of $\displaystyle  f(x)=\frac{1}{6}x^3+\frac{1}{6}x^2-x$.
+
+\end{columns}
+\uncover<2->{}
+\end{example}
+\end{frame}

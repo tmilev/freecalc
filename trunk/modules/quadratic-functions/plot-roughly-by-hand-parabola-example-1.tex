@@ -1,0 +1,89 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.14cm, yunit=0.14cm}
+\begin{pspicture}(-1,-1)(2.5,2.5)%
+\tiny%
+\fcBoundingBox{-6.5}{-10}{15}{23}
+\only<handout:3-|55->{ \fcAxesStandard{-6}{-9.5}{14}{23}
+\psline(-1,22)(1,22)
+\rput[r](-1.5,22){$22$}
+}%
+\only<handout:1,2|1-54>{ \fcAxesStandard{-4 }{-4}{10}{10}}%
+\only<handout:3-|60,61>{\psplot[linecolor=\fcColorGraph]{-1.5}{12}{2 -3 div x x mul mul 7 x mul add 3 add}}
+\uncover<handout:3-|54->{\fcFullDot{21 4 div}{171 8 div}}
+\uncover<handout:3|56-60>{\fcGrid[linecolor=black, linewidth=0.4, linestyle=dashed]{-6}{-9}{6}{10}{3}{3}{}}
+\uncover<handout:3-|57->{\fcFullDot{0}{3}}
+\uncover<handout:3-|58->{\fcFullDot{21 3 57 sqrt mul sub 4 div}{0}}
+\uncover<handout:3-|59->{\fcFullDot{21 3 57 sqrt mul add 4 div}{0}}
+\end{pspicture}
+\uncover<23->{ \alertNoH{23}{Vertex at: $\left(\alertNoH{42,43}{ \frac{21}{4}}, \alertNoH{44,45,54}{\frac{171}{8}} \right)$}}
+\uncover<25->{\alertNoH{25,57}{ $y$-intercept at $y=3$}}
+\uncover<41->{
+\alertNoH{58,59}{$x$-intercepts at} \alertNoH{50-53,58}{$x=\frac{21-3\sqrt{57}}{4}$}, \alertNoH{46-49,59}{$x=\frac{21+3\sqrt{57}}{4}$}.
+}
+
+\column{0.7\textwidth}
+Plot roughly by hand the graph of $f(x)=\alertNoH{5,12}{-\frac{2}{3}} x^2+\alertNoH{4,11}{7}x+\alertNoH{13}{3} $.
+
+\only<handout:1|1-25>{
+\parbox[t][6.3cm]{\textwidth}{
+\begin{itemize}
+\item<2-> The vertex of the parabola is given by:
+$\begin{array}{rcl}
+\alertNoH{23}{x}&\alertNoH{23}{=}&\displaystyle \fcAnswer{3}{-\frac{\alertNoH{4}{b} }{2\alertNoH{5}{ a} } = \alertNoH{6}{-} \frac{\alertNoH{4, 8}{7}}{ \alertNoH{7}{2} \left( \alertNoH{5}{ \alertNoH{6}{-} \frac{\alertNoH{7}{2}}{\alertNoH{8}{3}}} \right) }} \uncover<6->{= \alertNoH{23}{ \frac{ \alertNoH{8}{21}}{\alertNoH{7}{ 4}}}}\\
+\alertNoH{9,10,23}{y}& \alertNoH{9,10,23}{=}&\displaystyle \fcAnswerUncover{2}{10}{ f \left( -\frac{b}{2a}\right)= -\frac{D}{4a}= -\frac{\left(\alertNoH{11}{b}^2 -4 \alertNoH{12}{ a}\alertNoH{13}{ c}\right)}{4\alertNoH{12}{ a}} } \\
+\uncover<11->{ &=&\displaystyle  \alertNoH{18}{-} \frac{\alertNoH{17}{ \alertNoH{11}{7}^2} \alertNoH{15}{-} \alertNoH{16}{4} \alertNoH{12}{ \left( \alertNoH{15}{-} \frac{\alertNoH{16}{2} }{ \fcCancel{14}{3} }\right) }\alertNoH{13}{ \fcCancel{14}{3} }} { \alertNoH{19}{4} \alertNoH{12}{ \left(\alertNoH{18}{ -} \frac{\alertNoH{19}{2}}{3}\right)}}} \uncover<14->{= \frac{\alertNoH{20}{ \alertNoH{17}{ 49} \alertNoH{15}{+} \alertNoH{16}{8}} }{ \frac{\alertNoH{19}{ 8}}{\alertNoH{21}{3}}}}\\
+\uncover<20->{&=&\displaystyle \frac{\alertNoH{22}{ \alertNoH{21}{3}\cdot \alertNoH{20}{57}}}{8}\uncover<22->{= \alertNoH{23}{\frac{\alertNoH{22}{ 171}}{8}}.} }
+\end{array}
+$
+\item<24-> The $y$-intercept is $\alertNoH{24,25}{f(0)=}\fcAnswer{25}{3}$.
+\end{itemize}
+}
+}
+
+\only<handout:2|26-41>{
+\parbox[t][6.3cm]{\textwidth}{
+\begin{itemize}
+\item<26-> The $x$ intercepts are given by the solutions of 
+$
+\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\displaystyle -\frac{2}{\alertNoH{27}{3}}x^2+\alertNoH{27}{7}x+\alertNoH{27}{3}&=&0\uncover<27->{&& \alertNoH{27}{\cdot 3}}\\
+\displaystyle \uncover<27->{\alertNoH{31}{-2}x^2+\alertNoH{27,30}{21}x+\alertNoH{27,32}{9}&=&0}\\
+\uncover<28->{x&=&\fcAnswer{29}{ \frac{-\alertNoH{30}{b}\pm \sqrt{\alertNoH{30}{b}^2-4\alertNoH{31}{a}\alertNoH{32}{c}}}{2\alertNoH{31}{a}}}}\\
+\uncover<30->{&=&\frac{-\alertNoH{30}{21}\pm \sqrt{ \alertNoH{33}{ \alertNoH{30}{21}^2}\alertNoH{34}{ -} \alertNoH{35}{4}\cdot (\alertNoH{31}{ \alertNoH{34}{-}\alertNoH{35}{ 2} })\cdot \alertNoH{32, 35}{9} }}{2\cdot (\alertNoH{31}{-2})}}\\
+\uncover<33->{ &=&\frac{\alertNoH{36}{-}21\alertNoH{36}{\pm} \sqrt{\alertNoH{33,37}{441}\alertNoH{34,37}{+}\alertNoH{35,37}{72} }}{\alertNoH{36}{ -} 4}}\\
+\uncover<36->{ &=& \frac{21\alertNoH{36}{\mp} \sqrt{\alertNoH{37,38}{513}}}{4}} \\
+\uncover<38->{&=&\frac{21\mp \alertNoH{39}{\sqrt{\alertNoH{38}{9\cdot 57}}}}{4}}\\
+\uncover<39->{&=&\frac{21\mp \alertNoH{39}{\alertNoH{40}{\sqrt{9}}\sqrt{57}}}{4}}\\
+\uncover<40->{&=&\frac{21\mp \alertNoH{40}{3}\sqrt{57}}{4}}
+\end{array}
+$
+\end{itemize}
+}
+}
+
+\only<handout:3,4|42->{
+\parbox[t][6.3cm]{\textwidth}{
+\begin{itemize}
+\item Select scale to fit the picture: 
+\begin{itemize}
+\item<42-> $\frac{21}{4}$ is close to $\frac{20}{4} \uncover<43->{ =5.}$
+\item<44-> \alertNoH{54}{\alertNoH{44,45}{$\frac{171}{8}$ is between the integers} \fcAnswer{45}{ $21 $ and $22$.}}
+\item<46-> \alertNoH{59}{ $ \frac{21+3\sqrt{\alertNoH{46}{57}}}{4}$ is close to} $\frac{21+\alertNoH{47}{3 \sqrt{\alertNoH{46}{64}}} }{4}\uncover<47->{= \frac{21+\alertNoH{47}{24}}{ 4}}\uncover<48->{=\frac{45}{4}} $ \uncover<49->{which is close to $\frac{44}{4}=\alertNoH{59}{11}$.}
+\item<50-> \alertNoH{58}{$\frac{21-3\sqrt{\alertNoH{50}{57}}}{4}$ is close to} $\frac{21- \alertNoH{51}{3 \sqrt{\alertNoH{50}{64}}}}{4} \uncover<51->{= \frac{21 - \alertNoH{41}{24}}{4}} \uncover<52->{ =\alertNoH{58}{-\frac{3}{4}}} $ \uncover<53->{which is close to $-1$.}
+\item<54-> The \alertNoH{54}{parabola vertex is less than $22$ units high} and the parabola opens downwards. 
+\item<55-> Axes height of $22$ units appears reasonable.
+\item<56-> A grid of width $3$ units appears reasonable.
+\item<57-> Plot all relevant points.
+\item<60,61-> Finally ``connect the dots with a freehand drawing''.
+\end{itemize}
+\end{itemize}
+}
+}
+\end{columns}
+\end{example}
+\vskip 10cm
+
+\end{frame}
