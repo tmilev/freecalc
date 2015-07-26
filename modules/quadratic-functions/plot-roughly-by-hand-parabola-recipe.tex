@@ -1,0 +1,31 @@
+\begin{frame}
+To plot a parabola by hand roughly, we need to do the following.
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-2.2,-2.2)(2.2,2.2)%
+\tiny%
+\fcBoundingBox{-2.2}{-2.2}{2.2}{2.2}
+\uncover<handout:0|1-4>{\fcAxesStandard{-0.9 }{-0.9}{1}{1}}%
+\uncover<handout:1|5->{\fcAxesStandard{-2 }{-2}{2}{2}}%
+\uncover<6->{
+\psplot[linecolor=\fcColorGraph]{-1.05}{2}{x x mul x sub 1 sub}
+}
+\uncover<4->{
+\fcFullDot{1 5 sqrt add 2 div}{0}
+\fcFullDot{1 5 sqrt sub 2 div}{0}
+}
+\uncover<2->{\fcFullDot{0.5}{-5 4 div}}
+\uncover<3->{\fcFullDot{0}{-1}}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{itemize}
+\item<2-> Find the vertex of the parabola.
+\item<3-> Find the $y$ intercept.
+\item<4-> Find the $x$ intercept(s) if any.
+\item<5-> Select (or re-select) axes scale so all important points found in the preceding items fit in the plot.
+\item<6-> Plot the parabola freehand, making sure that the parabola passes through all special points you found in the preceding items. 
+\item<7-> If $a>0$ your parabola should open upwards, if $a<0$ your parabola should open downwards.
+\item<8-> For $|a|>1$ we should aim to draw the graph steeper than $a=x^2$, for $|a|<1$ we should aim to draw the graph flatter than $a=x^2$.
+\end{itemize}
+\end{columns}
+\end{frame}

@@ -1,0 +1,60 @@
+\begin{frame}
+Let $g$ of $x$ and $f$ of $x$ be functions.
+\begin{columns}
+
+\column{0.45\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-4,-4)(2.2,3)
+\tiny
+\fcAxesStandard{-4}{-4}{2.2}{3}
+\uncover<2->{
+\psplot[linecolor=\fcColorGraph]{-3.2}{2.2}{1 6 div x x x mul mul mul 1 6 div x x mul mul add }
+\rput[l](-2,1){$f(x)=\frac{1}{6}x^3+\frac{1}{6}x^2$}
+}
+\uncover<3->{
+\psline[linecolor=\fcColorGraph](-3.2,-3.2)(2.2,2.2)
+\rput[t](-1,-2){$g(x)=x$}
+}
+\uncover<4->{
+\fcFullDot{-3}{-3}
+\fcFullDot{0}{0}
+\fcFullDot{2}{2}
+}
+\uncover<5->{
+\rput[l](-3,-3){$~~(\alertNoH{5,10}{-3}, -3)$}
+\rput[tl](0,-0.1){$~~(\alertNoH{5,10}{0}, 0)$}
+\rput[r](2,2){$(\alertNoH{5,10}{2}, 2)~~$}
+}
+\end{pspicture}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-4,-4)(2.2,3)
+\tiny
+\fcAxesStandard{-4}{-4}{2.2}{3}
+\uncover<8->{
+\psplot[linecolor=\fcColorGraph]{-3.2}{2.2}{1 6 div x x x mul mul mul 1 6 div x x mul mul add -1 x mul add}
+}
+\uncover<7->{%
+\rput(-1,2){$f(x)-g(x)=\frac{1}{6}x^3+\frac{1}{6}x^2-x$}
+}%
+\uncover<9->{
+\fcFullDot{-3}{0}
+\fcFullDot{2}{0}
+\fcFullDot{0}{0}
+}
+\uncover<10->{
+\rput[tl](-3, -0.1){$(\alertNoH{10}{-3},0)$}
+\rput[tl](0, -0.1){$~~(\alertNoH{10}{0},0)$}
+\rput[br](2, 0.1){$(\alertNoH{10}{2},0)~~$}
+}
+\end{pspicture}
+\column{0.55\textwidth}
+\begin{observation}
+\begin{itemize}
+\item To solve $\alertNoH{2}{f(x)}=\alertNoH{3}{g(x)}$ means to find the \alertNoH{5}{$x$ coordinates} of the \alertNoH{4}{intersections of the graphs of $f$ and $g$}. 
+\item<6-> To solve $f(x)=g(x)$ is equivalent to solving the equation $f(x)-g(x)=0$.
+\item<7-> To solve $f(x)=g(x) $ means to find \alertNoH{9}{the zeroes} of $\alertNoH{7,8}{f(x)-g(x)}$.
+\item<10-> The \alertNoH{10}{$x$ coordinates of the intersections of $f(x)$ and $g(x)$} coincide with the \alertNoH{10}{$x$ coordinates of the $x$ intercepts of $f(x)-g(x)$}.
+\end{itemize}
+\end{observation}
+\end{columns}
+\end{frame}
