@@ -86,9 +86,10 @@
 \FPeval{\fcResult}{clip(#1-1)}
 \uncover<handout:0|\fcResult>{\alertNoH{\fcResult}{\textbf{?} }} \uncover<#1->{\alertNoH{#1}{\!\!\!#2}}
 }
-\newcommand{\fcAnswerUncover}[3]{
-\FPeval{\fcResult}{clip(#2-1)}
+\newcommand{\fcAnswerUncover}[3]{%
+\FPeval{\fcResult}{clip(#2-1)}%
 \uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \uncover<#2->{\alertNoH{#2}{\!\!\!#3}}
+%\makebox[\widthof{#3}][c]{\only<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \only<#2->{\alertNoH{#2}{\!\!\!#3}}}%
 }
 \newcommand{\fcAnswerUncoverNoH}[3]{
 \FPeval{\fcResult}{clip(#2-1)}
@@ -123,7 +124,6 @@
 %\\alert<\([^|^>]*\)>
 %Replace:
 %\\alertNoH{\1}
-
 
 \newcommand{\fcLicense}{
 \begin{frame}

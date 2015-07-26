@@ -317,7 +317,8 @@ stroke
 \psline[linecolor=black!1](! #3 #4 )(! #3 #4 0.01 add)%
 }
 \newcommand{\fcAxesStandardNoFrame}[5][]{%
-\psaxes[ticks=none, labels=none,#1]{<->}(0,0)(#2,#3)(#4,#5)% \fcLabels[\fcDefaultXLabel][\fcDefaultYLabel]{#3}{#4}%
+\psline[arrows=<->, linecolor=black, linewidth=1pt, #1](! #2\space 0)(! #4\space 0)% 
+\psline[arrows=<->, linecolor=black, linewidth=1pt, #1](! 0\space #3)(! 0\space #5)% \fcLabels[\fcDefaultXLabel][\fcDefaultYLabel]{#3}{#4}%
 }%
 
 \newcommand{\fcAxesStandard}[5][]{%
@@ -487,6 +488,9 @@ end
 
 \newcommand{\fcDistance}{ \fcVectorMinusVector \fcVectorNorm\space}
 
+%Indicates length with options #1 
+%from point (argument2, argument3) to point (argument4, argument5)
+%with label argument6
 \newcommand{\fcLengthIndicator}[6][]{
 \psline[arrows=-|, linecolor=red, #1](! #2 0.58 mul #4 0.42 mul add #3 0.58 mul #5 0.42 mul add)(! #2 #3)
 \psline[arrows=-|, linecolor=red, #1](! #2 0.42 mul #4 0.58 mul add #3 0.42 mul #5 0.58 mul add)(! #4 #5)
@@ -2892,6 +2896,11 @@ end
 }%
 
 %example \fcGrid{-2}{-2}{4}{4}{1}{1}{} 
+%Arguments in order of appearance: 
+% [options] 
+%xStart yStart numIntervalsX numIntervalsY DeltaX DeltaY Stickypiece
+%Stickypiece is optional, leave at 0 or empty if you don't care about it.
+%Stickypiece adds a shift within the grid.
 \newcommand{\fcGrid}[8][]{%
 \setkeys{fcGraphics}{#1}%
 \pscustom{%

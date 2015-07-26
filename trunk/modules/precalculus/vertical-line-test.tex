@@ -1,13 +1,15 @@
 % begin module vertical-line-test
 \begin{frame}
 \frametitle{The Vertical Line Test}
-Question: How can we tell if a curve is the graph of a function or not? 
+\begin{question}
+Given a curve in the plane, is it the graph of a function or not?
+\end{question}
 
-Answer: Use the vertical line test.
-
-\begin{proof}[The Vertical Line Test]
-A curve is the graph of a function if and only if no vertical line intersects it more than once.
-\end{proof}
+\uncover<2->{The answer is as follows.
+\begin{proposition}[The Vertical Line Test]
+A curve in the plane is the graph of a function if and only if no vertical line intersects it more than once.
+\end{proposition}
+}
 
 \begin{tabular}{ccc}
 \psset{xunit=0.35cm, yunit=0.35cm}
@@ -22,8 +24,8 @@ A curve is the graph of a function if and only if no vertical line intersects it
 \psset{xunit=0.35cm, yunit=0.35cm}
 \begin{pspicture}(-5, -5)(5,5) \psframe*[linecolor=white](-5,-5)(5,5) 
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)\parametricplot[linecolor=red, plotpoints=1000]{0.05}{3}{t t 2.2 mul 57.29578 mul sin 1 add add t 57.29578 mul cos mul t t 2.2 mul 57.29578 mul sin 1 add add t 57.29578 mul sin mul}
-\only<handout| 3->{%
-\psline[linestyle=dashed](1.7, -4.5)(1.7, 4.5)
+\only<handout| 6->{%
+\psline(1.7, -4.5)(1.7, 4.5)
 }
 \end{pspicture}
 %\only<handout:0| -2>{%
@@ -43,9 +45,9 @@ A curve is the graph of a function if and only if no vertical line intersects it
 \end{pspicture} 
 %\includegraphics[height=3.8cm]{precalculus/pictures/01-02-vlt2.pdf} 
 \\%
-\uncover<2->{\alert<handout:0| 2>{Function}} &
-\uncover<3->{\alert<handout:0| 3>{Not a function}} &
-\uncover<4->{\alert<handout:0| 4>{Function}}
+\fcAnswerUncoverNoH{1}{4}{Function} &
+\fcAnswerUncoverNoH{1}{6}{Not a function}&
+\fcAnswerUncoverNoH{1}{8}{Function}
 \end{tabular}
 \end{frame}
 % end module vertical-line-test

@@ -3,11 +3,18 @@
 \frametitle{Exponents overview}
 \begin{itemize}
 \item<1-> For integer $x$, we know how to compute $a^{x}$ as a function of $a$. 
-\item<2-> However, how do we compute $f(x)=a^x$ when $x$ is not an integer?
-\item<3-> We need to go back to the definition of $a^x$ (when $x$ is not an integer).
-\item<4-> In what follows we give/recall the Calc I definition of exponent.
-\item<5-> Then we give an alternative (but of course equivalent) second definition of exponent. The second definition is studied in detail by the end of Calculus II. 
-\item<6-> We discuss pros and cons of the two definitions. In a nutshell: the Calc I definition is easier to motivate, the Calc II definition is easier to compute with.
+\item<2-> How do we compute $f(x)=a^x$ when $x$ is not an integer?
+\item<3-> We need to go back to the definition of $a^x$ (for $x$ non-integer).
+\item<4-> In what follows we give/recall an elementary way to define exponent.
+\item<5-> Then we give an alternative second definition. 
+\item<6-> The second definition will be studied in sufficient depth by the end of Calculus II. 
+\item<7-> The two definitions are equivalent: if we choose one definition the other becomes a theorem and the other way round.
+\item<8-> Choosing one definition makes some statements easier to prove and others more difficult.
+\item<9-> We shall discuss pros and cons of the two. In a nutshell: 
+\begin{itemize}
+\item<10-> the first elementary definition is easier to motivate;
+\item<11-> the second alternative definition is easier to compute with.
+\end{itemize}
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -20,9 +27,10 @@
 \[
 a^x = \lim\limits_{\substack{y \to x \\ y\text{-rational}}} a^y 
 \]
-\item<5-> Not computationally effective. It is not how computers compute.
-\item<6-> However is the easiest approach. $a^{x+y}=a^xa^y$ is easiest to prove (follows directly from the $\varepsilon, \delta$-definition of $\lim$).
-\item<7->\alertNoH{7-}{This is the definition assumed in Calculus I.}
+For example, $a^\pi$ would be defined as the limit of the sequence $a^{3.14}, a^{3.141}, a^{3.1415}, \dots$.
+\item<5-> Cons: not computationally effective; not how computers compute.
+\item<6-> Pros: for non-integer $x$ and $y$, it is very easy to prove that $a^{x+y}=a^xa^y$ - this follows from the definition of limit above.
+\item<7->\alertNoH{7}{This is the definition assumed in many elementary courses.}
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -39,8 +47,8 @@ e^{x}=\alertNoH{4}{\sum_{n=0}^{\infty}} \frac{x^n}{\alertNoH{2}{n!}}= 1+ x+\frac
 \]
 \uncover<4->{\alertNoH{4}{Infinite sum studied in Calc II.}} 
 \item<5-> For arbitrary $a>0$ define $a^x$ as $a^x=e^{x\ln a}$. 
-\item<6-> Disadvantage: more difficult to prove $e^{x+y}= e^{x} e^y$ and $e^{\ln(1+x)}=1+x$, proof done in Calculus II.
-\item<7-> This is how computers compute $e^x$ and $a^x$.
+\item<6-> Cons: more difficult to prove $e^{x+y}= e^{x} e^y$ and $e^{\ln(1+x)}=1+x$, proof done in Calculus II.
+\item<7-> Pros: this is how $e^x$ and $a^x$ are actually computed (by modern computers and by humans in the past).
 \end{itemize}
 \end{frame}
 
