@@ -1,25 +1,32 @@
 \begin{frame}
 \begin{example}
-Find an equation of the line passing through $(\alertNoH{13}{1},\alertNoH{13}{2})$ and $(\alertNoH{13}{2},\alertNoH{13}{3})$.
+\newcommand{\xone}{\makebox[\widthof{$x_1$}]{1}}
+\newcommand{\xtwo}{\makebox[\widthof{$x_2$}]{2}}
+\newcommand{\yone}{\makebox[\widthof{$y_1$}]{3}}
+\newcommand{\ytwo}{\makebox[\widthof{$y_2$}]{6}}
+Find an equation of the line passing through $(\alertNoH{13}{\xone},\alertNoH{13}{\yone})$ and $(\alertNoH{13}{\xtwo},\alertNoH{13}{\ytwo})$.
 \[
-\fcAnswerUncover{3}{10}{(\alertNoH{13}{4}-\alertNoH{13}{2})} \uncover<3->{(\alertNoH{12,4}{x-\alertNoH{13}{1}})=} \fcAnswerUncover{3}{9}{(\alertNoH{13}{2}-\alertNoH{13}{1})} \uncover<3->{(\alertNoH{12,5}{y-\alertNoH{13}{2}})}
-\]
+\fcAnswerUncover{3}{9}{(\alertNoH{13}{\xtwo}-\alertNoH{13}{\xone})} \uncover<3->{(\alertNoH{12,5}{y-\alertNoH{13}{\yone}})=}
+\fcAnswerUncover{3}{10}{(\alertNoH{13}{\ytwo}-\alertNoH{13}{\yone})} \uncover<3->{(\alertNoH{12,4}{x-\alertNoH{13}{\xone}})} \]
 \begin{itemize}
 
-\item<2-> It suffices to manufacture a linear equation such that when we plug in $(\alertNoH{13}{1},\alertNoH{13}{2})$ and $(\alertNoH{13}{2},\alertNoH{13}{4})$ we get an identity.
-\item<3-> A (very simple) equation satisfied by $\alertNoH{4}{x=\alertNoH{13}{1}}$, $\alertNoH{5}{y=\alertNoH{13}{2}}$ is:
+\item<2-> It suffices to manufacture a linear equation such that when we \alertNoH{3}{plug in} \alertNoH{3}{$ (\alertNoH{13}{\xone}, \alertNoH{13}{\yone} )$} and \alertNoH{6,7}{$ (\alertNoH{13}{\xtwo}, \alertNoH{13}{\ytwo} )$} we get an identity.
+\item<3-> A (very simple) equation satisfied by $\alertNoH{3, 4}{x =\alertNoH{13}{\xone}}$, $\alertNoH{3, 5}{y=\alertNoH{13}{\yone}}$ is:
 
 \hfil \hfil$
-\alertNoH{4}{\alertNoH{6}{x}-\alertNoH{13}{1}}=\alertNoH{5}{\alertNoH{7}{y}-\alertNoH{13}{2}}.
+\alertNoH{5}{\alertNoH{7}{y}-\alertNoH{13}{\yone}}=\alertNoH{4}{\alertNoH{6}{x}-\alertNoH{13}{\xone}}.
 $
 
-\uncover<4->{This is so because both sides \alertNoH{4,5}{become zero} when $\alertNoH{4}{x=\alertNoH{13}{1}}$, $\alertNoH{5}{y=\alertNoH{13}{2}}$.}
-\item<6-> If we plug in $\alertNoH{6}{x=\alertNoH{13}{2}}$ and $\alertNoH{7}{y=\alertNoH{13}{4}}$ in the above \alertNoH{8}{we don't get an identity}\uncover<9->{, but that can be easily fixed:}
+\uncover<4->{This is so because both sides \alertNoH{4,5}{become zero} when $\alertNoH{4}{x=\alertNoH{13}{\xone}}$, $\alertNoH{5}{y=\alertNoH{13}{\yone}}$.}
+\item<6-> If we plug in $\alertNoH{6}{x=\alertNoH{13}{\xtwo}}$ and $\alertNoH{7}{y=\alertNoH{13}{\ytwo}}$ in the above \alertNoH{8}{we don't get an identity}\uncover<9->{, but that can be easily fixed:}
 
 \hfil \hfil $
-\uncover<10->{\alertNoH{10}{(\alertNoH{13}{4}-\alertNoH{13}{2})}} \alertNoH{9}{(\alertNoH{6,13}{2}-\alertNoH{13}{1})} \only<10->{=}\only<handout:0|6-9>{\alertNoH{8}{\neq}}  \uncover<9->{\alertNoH{9}{(\alertNoH{13}{2}-\alertNoH{13}{1})}} \alertNoH{10}{(\alertNoH{7,13}{4}-\alertNoH{13}{2})} 
+\uncover<9->{\alertNoH{9}{(\alertNoH{13}{\xtwo}-\alertNoH{13}{\xone})}} \alertNoH{10}{(\alertNoH{7,13}{\ytwo}-\alertNoH{13}{\yone})}
+\only<handout:0|6-9>{\alertNoH{8}{\neq}}  
+\only<10->{=} 
+\uncover<10->{\alertNoH{10}{(\alertNoH{13}{\ytwo}-\alertNoH{13}{\yone})}} \alertNoH{9}{(\alertNoH{6,13}{\xtwo}-\alertNoH{13}{\xone})} 
 $
-\item<11-> Perhaps the last modification caused $x=\alertNoH{13}{1}$, $y=\alertNoH{13}{2}$ to no longer be solutions? \uncover<12->{No - both sides are still zero when $\alertNoH{12}{x=\alertNoH{13}{1}}$, $\alertNoH{12}{y=\alertNoH{13}{2}}$.}
+\item<11-> Perhaps the last modification caused $x=\alertNoH{13}{\xone}$, $y=\alertNoH{13}{\yone}$ to no longer be solutions? \uncover<12->{No - both sides are still zero when $\alertNoH{12}{x=\alertNoH{13}{\xone}}$, $\alertNoH{12}{y=\alertNoH{13}{\yone}}$.}
 \end{itemize}
 \end{example}
 \end{frame}
@@ -28,7 +35,7 @@ $
 \begin{example}
 Find an equation of the line passing through $(\alertNoH{1}{x_1},\alertNoH{1}{y_1})$ and $(\alertNoH{1}{x_2}, \alertNoH{1}{y_2})$.
 \[
-(\alertNoH{1}{y_2}-\alertNoH{1}{y_1})(x-\alertNoH{1}{x_1})=(\alertNoH{1}{x_2}-\alertNoH{1}{x_1})(y-\alertNoH{1}{y_1})
+\alertNoH{2}{(\alertNoH{1}{x_2}-\alertNoH{1}{x_1})(y-\alertNoH{1}{y_1})=(\alertNoH{1}{y_2}-\alertNoH{1}{y_1})(x-\alertNoH{1}{x_1})}
 \]
 \begin{itemize}
 
@@ -36,16 +43,17 @@ Find an equation of the line passing through $(\alertNoH{1}{x_1},\alertNoH{1}{y_
 \item A (very simple) equation satisfied by $x=\alertNoH{1}{x_1}$, $ y=\alertNoH{1}{y_2}$ is:
 
 \hfil \hfil$
-x-\alertNoH{1}{x_1}=y-\alertNoH{1}{y_2}.
+y-\alertNoH{1}{y_2}=x-\alertNoH{1}{x_1}.
 $
 
 This is so because both sides become zero when $x=\alertNoH{1}{x_1}$, $y=\alertNoH{1}{y_1}$.
 \item If we plug in $x=\alertNoH{1}{x_2}$ and $y=\alertNoH{1}{y_2}$ in the above we don't get an identity (necessarily), but that can be easily fixed:
 
 \hfil \hfil $
-(\alertNoH{1}{y_2}-\alertNoH{1}{y_1}) (\alertNoH{1}{x_2}-\alertNoH{1}{x_1}) =(\alertNoH{1}{x_2}-\alertNoH{1}{x_1})(\alertNoH{1}{y_2}-\alertNoH{1}{y_1}) 
+(\alertNoH{1}{x_2}-\alertNoH{1}{x_1} )(\alertNoH{1}{y_2}- \alertNoH{1}{ y_1 } )= ( \alertNoH{1}{y_2}-\alertNoH{1}{y_1}) (\alertNoH{1}{x_2} - \alertNoH{1}{ x_1}) 
 $
 \item Perhaps the last modification caused $x=\alertNoH{1}{x_1}$, $y=\alertNoH{1}{y_1}$ to no longer be solutions? No - both sides are still zero when $x=\alertNoH{1}{x_1}$, $y=\alertNoH{1}{y_1}$.
 \end{itemize}
+\uncover<2>{}
 \end{example}
 \end{frame}

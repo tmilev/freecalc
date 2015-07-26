@@ -1,48 +1,64 @@
 % begin module exponential-properties
 \begin{frame}[t]
-Properties of exponential expressions.
+\frametitle{Properties of exponential expressions.}
 
-\uncover<8->{Suppose $a$ is positive.  Then}
+For integer $x,y$ and bases $a,b$, we demonstrate the exponent rules by example. 
 \begin{enumerate}
-\item<8->  $a^xa^y = a^{x+y}$
-\item<15->  $\frac{a^x}{a^y} = a^{x-y}$
-\item<20->  $(a^x)^y = a^{xy}$
-\item<28->  $(ab)^x = a^xb^x$
+\item<8-> \alert<handout:1|0>{ $\displaystyle \alertNoH{8}{a}^{\alertNoH{9}{x}} \alertNoH{8}{a}^{\alertNoH{10}{y}} = \alertNoH{8}{a}^{\alertNoH{9}{x} +\alertNoH{10}{y}} $}
+\item<18-> \alert<handout:2|0>{$\displaystyle \frac{\alertNoH{18}{a}^{ \alertNoH{19}{x}}}{\alertNoH{18}{a}^{\alertNoH{20}{y}}} = \alertNoH{18}{a}^{\alertNoH{19}{x}-\alertNoH{20}{y}}$}
+\item<26-> \alert<handout:3|0>{$\displaystyle \left(\alertNoH{26}{a}^{\alertNoH{27}{x}}\right)^{\alertNoH{28}{y}} = \alertNoH{26}{a}^{\alertNoH{27}{x}\alertNoH{28}{y}}$}
+\item<36-> \alert<handout:4|0>{$\displaystyle \left(\alertNoH{36}{a}\alertNoH{37}{b}\right)^{\alertNoH{38}{x}} = \alertNoH{36}{a}^{\alertNoH{38}{x}} \alertNoH{37}{b}^{\alertNoH{38}{x}}$}
 \end{enumerate}
+\uncover<39->{\alertNoH{39}{ These rules do continue to hold for all $a>0$, $b>0$ and arbitrary $x$ and $y$.} } \uncover<40->{\alertNoH{40}{The rules do fail when $a<0$, $b<0$ and $x,y$ are not integers. }}
 
-\only<-8| handout:0>{%
-\begin{align*}
-\uncover<2->{\alertNoH{2-3}{2^3}\cdot \alertNoH{4-5}{2^2} & = \alertNoH{2-3}{(\uncover<3->{2\cdot 2\cdot 2})}\alertNoH{4-5}{(\uncover<5->{2\cdot 2})} } \\
-\uncover<6->{ & = 2\cdot 2\cdot 2\cdot 2\cdot 2 } \\
-\uncover<7->{ & = 2^5.}
-\end{align*}
+
+\only<-10| handout:1>{%
+\[
+\begin{array}{rcl}
+\displaystyle \uncover<2->{\alertNoH{2-3}{\alertNoH{8}{7}^{\alertNoH{9}{3}}}\cdot \alertNoH{4-5}{\alertNoH{8}{7}^{\alertNoH{10}{2}}} & =&\displaystyle  \alertNoH{2-3}{ (\fcAnswer{3}{7\cdot 7\cdot 7})}\alertNoH{4-5}{(\fcAnswer{5}{7\cdot 7} )} } \\
+\uncover<6->{ & =&\displaystyle  7\cdot 7\cdot 7\cdot 7\cdot 7 } \\
+\uncover<7->{ & =&\displaystyle  7^5 } \\
+\uncover<7->{ & =&\displaystyle  \alertNoH{8}{7}^{\alertNoH{9}{3}+ \alertNoH{10}{2}}.}
+\end{array}
+\]
 }%
 
-\only<9-15| handout:0>{%
-\begin{align*}
-\uncover<9->{\frac{\alertNoH{9-10}{2^3}}{\alertNoH{11-12}{2^2}} & = \frac{\alertNoH{9-10}{\uncover<10->{\alertNoH{13}{2\cdot 2}\cdot 2}}}{\alertNoH{11-13}{\uncover<12->{2\cdot 2}}} } \\
-\uncover<13->{ & = 2 } \\
-\uncover<14->{ & = 2^1.}
-\end{align*}
+\only<11-20| handout:2>{%
+\[
+\begin{array}{rcl}
+\displaystyle \uncover<11->{\frac{\alertNoH{11-12}{\alertNoH{18}{7}^{\alertNoH{19}{3}}}}{\alertNoH{13-14}{\alertNoH{18}{7}^{\alertNoH{20}{2}}}} & =& \displaystyle  \frac{ \alertNoH{11-12}{\fcAnswer{12}{\fcCancel{15}{7\cdot 7}\cdot 7}}}{ \alertNoH{13-14}{\fcCancel{15}{\fcAnswerUncover{11}{14}{7\cdot 7}}}} } \\
+\uncover<15->{ & =&\displaystyle 7 } \\
+\uncover<16->{ & =&\displaystyle 7^1 } \\
+\uncover<17->{ & =&\displaystyle \alertNoH{18}{7}^{\alertNoH{19}{3}- \alertNoH{20}{2}} .}
+\end{array}
+\]
 }%
 
-\only<16-20| handout:0>{%
-\begin{align*}
-\uncover<16->{(2^2)^4 & = 2^2\cdot 2^2\cdot2^2\cdot 2^2 } \\
-\uncover<17->{ & = (2\cdot 2)(2\cdot 2)(2\cdot 2)(2\cdot 2) } \\
-\uncover<18->{ & = 2\cdot2\cdot2\cdot2\cdot2\cdot2\cdot2\cdot2 } \\
-\uncover<19->{ & = 2^8 }
-\end{align*}
+\only<21-28| handout:3>{%
+\[
+\begin{array}{rcl}
+\uncover<21->{\displaystyle \left(\alertNoH{26}{7}^{\alertNoH{27}{2}}\right)^{\alertNoH{28}{4}} & =& \displaystyle  7^2\cdot 7^2\cdot7^2\cdot 7^2 } \\
+\uncover<22->{ & =&\displaystyle (7\cdot 7)(7\cdot 7)(7\cdot 7)(7\cdot 7) } \\
+\uncover<23->{ & =&\displaystyle 7\cdot7\cdot 7\cdot7\cdot 7\cdot 7\cdot 7\cdot 7 } \\
+\uncover<24->{ & =&\displaystyle 7^8 }
+\\
+\uncover<25->{ & =&\displaystyle \alertNoH{26}{7}^{\alertNoH{27}{2}\cdot \alertNoH{28}{4}} }
+\end{array}
+\]
 }%
 
-\only<21-28| handout:0>{%
-\begin{align*}
-\uncover<21->{(2\cdot 3)^3 & = (2\cdot 3)(2\cdot 3)(2\cdot 3) } \\
-\uncover<22->{ & = 2\cdot 3 \cdot 2\cdot 3 \cdot 2\cdot 3 } \\
-\uncover<23->{ & = \alertNoH{24-25}{2\cdot 2 \cdot 2}\cdot \alertNoH{26-27}{3 \cdot 3\cdot 3} } \\
-\uncover<24->{ & = \alertNoH{24-25}{\uncover<25->{2^3}} \cdot \alertNoH{26-27}{\uncover<27->{3^3}} }
-\end{align*}
+\only<29-38| handout:4>{%
+\[
+\begin{array}{rcl}
+\uncover<29->{\displaystyle (\alertNoH{36}{5}\cdot \alertNoH{37}{7})^{\alertNoH{38}{3}} & =&\displaystyle (5\cdot 7)(5\cdot 7)(5\cdot 7) } \\
+\uncover<30->{ & =&\displaystyle  5\cdot 7 \cdot 5\cdot 7 \cdot 5\cdot 7 } \\
+\uncover<31->{ & =&\displaystyle  \alertNoH{32-33}{5\cdot 5 \cdot 5}\cdot \alertNoH{34-35}{7 \cdot 7\cdot 7} } \\
+\uncover<32->{ & =&\displaystyle  \alertNoH{32-33}{ \fcAnswer{33}{ \alertNoH{36}{5}^{ \alertNoH{38}{3}}}} \cdot \alertNoH{34-35}{ \fcAnswerUncover{32}{35}{ \alertNoH{37}{7}^{\alertNoH{38}{3}}}} }
+\end{array}
+\]
 }%
+
+\vskip 10cm
 
 \end{frame}
 % end module exponential-properties
