@@ -1,0 +1,21 @@
+\begin{frame}
+The logarithmic property $\log_{a}(xy)=\log_a x +\log_a y$ holds only for positive $x,y$. Failure to check the positivity of $x,y$ can result in extraneous (fake) solutions to logarithmic equations.
+\begin{example}
+Solve the equation.
+\[
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{rcll|l}
+\log_{2} (x+2)+\log_{2} (x-1)&=&2 \uncover<2->{&&\text{Domain: } x> 1 }\\
+\uncover<2->{
+\log_{2}\left((x+2)(x-1)\right) &=&2 &&\text{Exponentiate base }2\\
+(x+2)(x-1)&=&2^2\\
+x^2+x-2&=&4\\
+x^2+x-6&=&0\\
+(x-2)(x+3)&=&0}\\
+\multicolumn{5}{c}{\uncover<2->{ x=2 \qquad \text{or}\qquad \fcCancel{2}{x=-3}}}\\
+\multicolumn{5}{c}{\uncover<2->{x=-3\text{ not a solution (outside of domain)} }\\
+\end{array}
+\]
+\end{example}
+
+\end{frame}
