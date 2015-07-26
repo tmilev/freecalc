@@ -1,0 +1,65 @@
+\solution{\ref{problemFindCenterAndRadius2x^2+2y^2-x+2y=3}
+
+The standard equation of a circle with center $(h,k)$ and radius $r$ is 
+\[
+(x-h)^2+(y-k)^2=r^2.
+\] 
+Our strategy consists in transforming the equation $2x^2+2y^2-x+2y=3$ into that form. This is done by completing the square, as we show below. We have included all computations with extreme detail. Such detail is not needed when solving test problems; students are encouraged to carry out some of the steps ``in the head''.
+
+\[
+\renewcommand{\arraystretch}{1.7}
+\begin{array}{rcll|l}
+\displaystyle 2x^2+2y^2-x+2y&=&\displaystyle 3\\
+\displaystyle x^2+y^2-\frac{1}{2}x+y&=&\displaystyle \frac{3}{2} &&\renewcommand{\arraystretch}{1}
+\begin{array}{l}\text{Divide by }2 \\ \text{ to ensure }x^2\\ \text{ has coeff. }1\end{array}\\
+\displaystyle x^2-\frac{1}{2}x + y^2+y&=&\displaystyle \frac{3}{2} &&\text{group the }x\text{'s} \text{ and the }y\text{'s}\\
+\displaystyle x^2-2\cdot \frac{1}{4} x+ y^2+2\cdot\frac{1}{2}y &=&\displaystyle \frac{3}{2} && \renewcommand{\arraystretch}{1}
+\begin{array}{l}
+\text{multiply and divide}\\
+\text{the linear terms by }2
+\end{array} \\
+\displaystyle \underbrace{x^2-2\cdot {\color{blue}\frac{1}{4}} x +\left({\color{blue}\frac{1}{4}} \right)^2}_{\text{square}}-\left({\color{blue}\frac{1}{4}}\right)^2 +\underbrace{y^2+2\cdot {\color{red}\frac{1}{2}} y+\left({\color{red} \frac{1}{2}}\right)^2}_{\text{square}} -\left({\color{red} \frac{1}{2}}\right)^2 &=&\displaystyle  \frac{3}{2} && \renewcommand{\arraystretch}{1}
+\begin{array}{l} \text{Add and subtract } \\\text{appropriate constants }\\ \text{to facilitate completing the square} \end{array}\\
+\displaystyle \left(x-\frac{1}{4}\right)^2 -\left(\frac{1}{4}\right)^2 +\left(y+\frac{1}{2}\right)^2 -\left(\frac{1}{2} \right)^2&=&\displaystyle \frac{3}{2} && 
+\renewcommand{\arraystretch}{1}
+\begin{array}{l}
+\text{Complete square using: } \\
+(p\pm  q)^2=p^2\pm 2pq+q^2
+\end{array}\\
+\displaystyle \left(x-\frac{1}{4}\right)^2 +\left(y+\frac{1}{2}\right)^2&=&\displaystyle \frac{3}{2}+\left(\frac{1}{4}\right)^2+\left(\frac{1}{2}\right)^2 && \renewcommand{\arraystretch}{1} \begin{array}{l}\text{transfer constants}\\ \text{to the other side}\end{array}\\
+\displaystyle \left(x-\frac{1}{4}\right)^2 +\left(y-\left( -\frac{1}{2}\right)\right)^2&=&\displaystyle  \frac{3}{2}+\left(\frac{1}{4}\right)^2+\left(\frac{1}{2}\right)^2&& \renewcommand{\arraystretch}{1} 
+\begin{array}{l}
+\text{Ensure squares} \\ 
+\text{are of form}\\
+(x-h)^2+(y-k)^2
+\end{array}\\
+\displaystyle \left(x-\frac{1}{4}\right)^2 +\left(y-\left(-\frac{1}{2}\right)\right)^2 &=&\displaystyle \frac{3}{2}+\frac{1}{4}+\frac{1}{16}\\
+&=&\displaystyle  \frac{24+4+1}{16}\\
+&=&\displaystyle  \frac{29}{16}\\
+\displaystyle \left(x-\frac{1}{4}\right)^2 +\left(y-\left(-\frac{1}{2} \right)\right)^2 &=&\displaystyle \left(\sqrt{\frac{29}{16}}\right)^2 && \renewcommand{\arraystretch}{1}\begin{array}{l} 
+\text{final step: rewrite constant }\\
+\text{using } a=\left(\sqrt{a}\right)^2.
+\end{array}
+\end{array}
+\]
+The equation above is in the standard equation form for a circle $(x-h)^2+(y-k)^2=r^2$. It follows that the equation is of a circle with center $\left(\frac{1}{4},-\frac{1}{2} \right)$ and radius $\frac{\sqrt{29}}{4}$.
+
+%Suppose we are given a quadratic equation in the letters $x$ and $y$ which does not involve the term $xy$. Under this assumption, here is how to check whether the equation is an equation of a circle.
+%\begin{itemize}
+%\item Transfer all terms to one side.
+%\item If the coefficient in front of $x^2$ is different from the coefficient in front of $y^2$, stop here: the figure is not a circle. 
+%\item If the coefficient in front of $x^2$ equals the coefficient in front of $y^2$, divide the equation by that coefficient to ensure the two quadratic terms are $x^2+y^2$.
+%\item Group together the terms involving the letter $x$ and group together the terms involving the letter $y$. 
+%\item Complete the square with respect to the letter $x$ (completing the square  ``absorbs'' the linear term into a square).
+%\item Likewise complete the square with respect to the letter $y$. 
+%\item Transfer all constants to the other side of the equation to get the equation into the form 
+%\[
+%(x\pm H)^2+(y\pm K)^2=A.
+%\]
+%\item If $A$ 
+%\end{itemize}
+
+
+
+
+}
