@@ -1,6 +1,23 @@
 \begin{frame}
 \begin{example}
-Write an equation of a parabola with vertex at $(1,2)$ that passes through the point $(2,2)$.
+\begin{columns}
+\column{0.4\textwidth}
+\begin{pspicture}(-1,-1)(2.5,2)
+\tiny
+\fcAxesStandard{-2}{-2}{2.5}{2}
+\fcLabels{2.5}{2}
+\fcFullDot{1}{2}
+\fcFullDot{2}{1.5}
+\uncover<2->{
+\psplot[linecolor=\fcColorGraph]{-1.8}{2.5}{-0.5 x x mul mul x add 1.5 add }
+\rput[l](0.1,1){$\displaystyle y=-\frac{1}{2}x^2+x+\frac{3}{2}$}
+
+}
+\end{pspicture}
+\column{0.6\textwidth}
+Write an equation of a parabola with vertex at $(1,2)$ that passes through the point $(2,\frac{3}{2})$.
+\end{columns}
+\uncover<2->{Answer: $\displaystyle f(x)=-\frac{1}{2}(x-1)^2+2=-\frac{1}{2} x^{2}+x+\frac{3}{2}$}
 \end{example}
 
 \end{frame}

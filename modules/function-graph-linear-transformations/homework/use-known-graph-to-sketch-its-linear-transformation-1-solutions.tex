@@ -1,0 +1,144 @@
+\solution{\ref{problemSketch1/(2x-1)+1fromgraphof1/x}.
+
+We are asked to plot $\displaystyle f(x)=\frac{1}{2x-1}+1$ by establishing a connection with the graph of $g(x)=\frac{1}{x}$. To do that we have to compose $g$ with a sequence of linear transformations to obtain $f(x)$. There are two natural ways to do that; we show both by presenting two different solutions.
+
+
+\noindent\textbf{Solution I.} 
+We show how to get from $g(x)=\frac{1}{x}$ by composing $g$ with a sequence of linear transformations.
+\[
+\begin{array}{r|rcll|l}
+g(x)&=&\frac{1}{x} \\
+\text{Define } h(x) \text{ via:}& h(x)&=&\displaystyle g(x+1)= \frac{1}{x-1} \\
+\text{Define } k(x) \text{ via:}& k(x)&=&\displaystyle h(2x)= \frac{1}{2x-1} \\
+\text{Therefore }& f(x)&=&\displaystyle k(x)+1= \frac{1}{2x-1}+1 \\
+\end{array}
+\]
+
+
+We plot consecutively the functions $g(x)$, $h(x)$, $k(x)$ and $f(x)$. We start from the given graph of $g(x)$.
+
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\fcAxesStandard{-3.5}{-3.5}{3.5}{3.5}
+\fcGrid[linestyle=dashed]{-3}{-3}{6}{6}{1}{1}{}
+\newcommand{\theFun}{1 x div}
+\newcommand{\theFunTwo}{1 x 2 mul -1 add div 1 add}
+\psplot[linecolor=\fcColorGraph]{-3}{-0.32}{\theFun}
+\psplot[linecolor=\fcColorGraph]{0.32}{3}{\theFun}
+\rput[bt](1.2,0.5){$~y=g(x)=\frac{1}{x}$}
+%\psplot[linecolor=\fcColorGraph]{-3}{0.37}{\theFunTwo}
+%\psplot[linecolor=\fcColorGraph]{0.7}{3}{\theFunTwo}
+%\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
+\end{pspicture}
+\raisebox{2cm}{ $\stackrel{\begin{array}{l} \text{shift graph of }g(x)\\ 1 \text{ unit right} \end{array} }{\longrightarrow}$}
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\fcAxesStandard{-3.5}{-3.5}{3.5}{3.5}
+\fcGrid[linestyle=dashed]{-3}{-3}{6}{6}{1}{1}{}
+\newcommand{\theFun}{1 x div}
+\newcommand{\theFunTwo}{1 x  -1 add div}
+\psplot[linecolor=gray]{-3}{-0.32}{\theFun}
+\psplot[linecolor=gray]{0.32}{3}{\theFun}
+\rput[bl](-3,-2.95){$~y=h(x)=g(x-1)=\frac{1}{x-1}$}
+\psplot[linecolor=\fcColorGraph]{-3}{0.68}{\theFunTwo}
+\psplot[linecolor=\fcColorGraph]{1.32}{3}{\theFunTwo}
+%\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
+\end{pspicture}
+\raisebox{2cm}{ $\stackrel{\begin{array}{l} \text{compress graph of }h(x)\\ \text{by factor of }2 \\\text{horizontally} \end{array} }{\longrightarrow}$}
+
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\fcAxesStandard{-3.5}{-3.5}{3.5}{3.5}
+\fcGrid[linestyle=dashed]{-3}{-3}{6}{6}{1}{1}{}
+\newcommand{\theFun}{1 x  -1 add div}
+\newcommand{\theFunTwo}{1 x 2 mul -1 add div}
+\psplot[linecolor=gray]{-3}{-0.68}{\theFun}
+\psplot[linecolor=gray]{1.32}{3}{\theFun}
+\rput[bl](-3,-2.95){$~y=k(x)=h(2x)=\frac{1}{2x-1}$}
+\psplot[linecolor=\fcColorGraph]{-3}{0.34}{\theFunTwo}
+\psplot[linecolor=\fcColorGraph]{0.66}{3}{\theFunTwo}
+%\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
+\end{pspicture}
+\raisebox{2cm}{ $\stackrel{\begin{array}{l} \text{shift graph of }k(x)\\ 1 \text{ unit vertically }\end{array} }{\longrightarrow}$}
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\fcAxesStandard{-3.5}{-3.5}{3.5}{3.5}
+\fcGrid[linestyle=dashed]{-3}{-3}{6}{6}{1}{1}{}
+\newcommand{\theFun}{1 x 2 mul -1 add div}
+\newcommand{\theFunTwo}{1 x 2 mul -1 add div 1 add}
+\psplot[linecolor=gray]{-3}{0.34}{\theFun}
+\psplot[linecolor=gray]{0.66}{3}{\theFun}
+\rput[bl](-3,-2.95){$~y=f(x)=h(x)+1=\frac{1}{2x-1}+1$}
+\psplot[linecolor=\fcColorGraph]{-3}{0.38}{\theFunTwo}
+\psplot[linecolor=\fcColorGraph]{0.74}{3}{\theFunTwo}
+%\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
+\end{pspicture}
+\noindent\textbf{Solution II.} 
+In the previous solution we used horizontal stretch to transform the graph of $h(x)$ to the graph of $k(x)=h(2x)$. However algebra suggests a another to transform the graph of $g(x)$ to the graph of $f(x)$, this time using a vertical stretch. Indeed, the equality 
+\[
+\displaystyle f(x)=\frac{1}{2x-1}+1=\frac{1}{2}\cdot \frac{1}{x-\frac{1}{2}}+1
+\]
+suggests a different way to obtain the graph of $f(x)$ from the graph of $g(x)$.
+\[
+\begin{array}{r|rcll|l}
+g(x)&=&\frac{1}{x} \\
+\text{Define } l(x) \text{ via:}& l(x)&=&\displaystyle g\left(x-\frac{1}{2}\right)= \frac{1}{x-\frac{1}{2}} \\
+\text{Define } k(x) \text{ via:}& k(x)&=&\displaystyle \frac{1}{2}h(x)= \frac{1}{2} \cdot\frac{1}{\left(x-\frac{1}{2}\right)}= \frac{1}{\left(2x-1\right)} \\
+\text{Therefore }& f(x)&=&\displaystyle k(x)+1= \frac{1}{2x-1}+1 \\
+\end{array}
+\]
+
+
+We plot consecutively the functions $g(x)$, $h(x)$, $k(x)$ and $f(x)$. We start from the given graph of $g(x)$.
+
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\fcAxesStandard{-3.5}{-3.5}{3.5}{3.5}
+\fcGrid[linestyle=dashed]{-3}{-3}{6}{6}{1}{1}{}
+\newcommand{\theFun}{1 x div}
+\newcommand{\theFunTwo}{1 x 2 mul -1 add div 1 add}
+\psplot[linecolor=\fcColorGraph]{-3}{-0.32}{\theFun}
+\psplot[linecolor=\fcColorGraph]{0.32}{3}{\theFun}
+\rput[bt](1.2,0.5){$~y=g(x)=\frac{1}{x}$}
+%\psplot[linecolor=\fcColorGraph]{-3}{0.37}{\theFunTwo}
+%\psplot[linecolor=\fcColorGraph]{0.7}{3}{\theFunTwo}
+%\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
+\end{pspicture}
+\raisebox{2cm}{ $\stackrel{\begin{array}{l} \text{shift graph of }g(x)\\\frac{1}{2} \text{ units right} \end{array} }{\longrightarrow}$}
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\fcAxesStandard{-3.5}{-3.5}{3.5}{3.5}
+\fcGrid[linestyle=dashed]{-3}{-3}{6}{6}{1}{1}{}
+\newcommand{\theFun}{1 x div}
+\newcommand{\theFunTwo}{1 x  -0.5 add div}
+\psplot[linecolor=gray]{-3}{-0.32}{\theFun}
+\psplot[linecolor=gray]{0.32}{3}{\theFun}
+\rput[bl](-3,-2.95){$y=l(x)=g\left(x-\frac{1}{2}\right)=\frac{1}{x-\frac{1}{2}}$}
+\psplot[linecolor=\fcColorGraph]{-3}{0.18}{\theFunTwo}
+\psplot[linecolor=\fcColorGraph]{0.82}{3}{\theFunTwo}
+%\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
+\end{pspicture}
+\raisebox{2cm}{ $\stackrel{\begin{array}{l} \text{compress graph of }h(x)\\ \text{by factor of }2 \\\text{vertically} \end{array} }{\longrightarrow}$}
+
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\fcAxesStandard{-3.5}{-3.5}{3.5}{3.5}
+\fcGrid[linestyle=dashed]{-3}{-3}{6}{6}{1}{1}{}
+\newcommand{\theFun}{1 x  -0.5 add div}
+\newcommand{\theFunTwo}{1 x 2 mul -1 add div}
+\psplot[linecolor=gray]{-3}{0.18}{\theFun}
+\psplot[linecolor=gray]{0.82}{3}{\theFun}
+\rput[bl](-3,-2.95){$~y=k(x)=\frac{1}{2}l(x)=\frac{1}{2x-1}$}
+\psplot[linecolor=\fcColorGraph]{-3}{0.34}{\theFunTwo}
+\psplot[linecolor=\fcColorGraph]{0.66}{3}{\theFunTwo}
+%\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
+\end{pspicture}
+\raisebox{2cm}{ $\stackrel{\begin{array}{l} \text{shift graph of }k(x)\\ 1 \text{ unit vertically }\end{array} }{\longrightarrow}$}
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+\fcAxesStandard{-3.5}{-3.5}{3.5}{3.5}
+\fcGrid[linestyle=dashed]{-3}{-3}{6}{6}{1}{1}{}
+\newcommand{\theFun}{1 x 2 mul -1 add div}
+\newcommand{\theFunTwo}{1 x 2 mul -1 add div 1 add}
+\psplot[linecolor=gray]{-3}{0.34}{\theFun}
+\psplot[linecolor=gray]{0.66}{3}{\theFun}
+\rput[bl](-3,-2.95){$~y=f(x)=h(x)+1=\frac{1}{2x-1}+1$}
+\psplot[linecolor=\fcColorGraph]{-3}{0.38}{\theFunTwo}
+\psplot[linecolor=\fcColorGraph]{0.74}{3}{\theFunTwo}
+%\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
+\end{pspicture}
+}
