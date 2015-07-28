@@ -1,16 +1,39 @@
 \begin{frame}
 \frametitle{Logistic growth model}
 \begin{itemize}
-\item Logistic growth model is one in which we assume near exponential growth in for small populations but we also assume negative growth when the population exceeds a threshold number called the environment carrying capacity.
+\item The Logistic growth model is the simplest mathematical model which satisfies the following assumptions.
+\begin{itemize}
+\item<2-> We assume near exponential growth for small populations (relative to the environment's resources).
+\item<3-> We assume negative growth when the population exceeds a threshold number called the environment carrying capacity.
+\end{itemize}
+\item<6-> Although it's one of the simplest mathematical models, the logistic growth model is  used in practice. 
 \end{itemize}
 
+\begin{center}
 \psset{xunit=0.6cm, yunit=0.6cm}
-\begin{pspicture}(-1,-1)(1,1)
-\tiny 
-\fcAxesStandard{-1.2}{-1}{3.2}{3}
-\psplot[linecolor=\fcColorGraph]{-1}{3}{2.8 2.718281828 x -3 mul exp 20 mul 1 add div}
-\rput[tl](0.2,1.8){$\begin{array}{l}f(x)=\frac{a}{1+be^{-ax}} \end{array}$}
-\rput[bl](0.05,-0.9){\text{Logistic curve}}
+\begin{pspicture}(-1,-1)(1,1)%
+\tiny %
+\pstVerb{
+20 dict begin
+/theConstA 3 def
+/theConstB 20 def
+/theConstC 2.8 def
+}%
+\fcAxesStandard{-1.2}{-1.2}{4}{4}%
+\psline[linecolor=blue, linestyle=dashed](! -1.2 theConstC)(! 4 theConstC)%
+\uncover<3->{\rput[bl](! -1.2 theConstC 0.1 add){$c$=Carrying capacity}}%
+\psplot[linecolor=\fcColorGraph]{-1}{4}{theConstC 2.718281828 x theConstA -1 mul mul exp theConstB mul 1 add  div}%
+\rput[tl](0.05,-0.1){\begin{tabular}{l}\text{Logistic curve}\\ $ \begin{array}{l} f(x)=\frac{c}{1+be^{-ax}} \end{array}$ \end{tabular}}
+\uncover<4->{%
+\fcFullDot{1 theConstB div ln theConstA -1 mul div}{theConstC 2 div}%
+\fcLengthIndicatorTwo[l]{1 theConstB div ln theConstA -1 mul div}{0}{1 theConstB div ln theConstA -1 mul div}{theConstC 2 div}{ \begin{tabular}{l}Increasing \\ rate of \\ growth\end{tabular}}%
+}%
+\uncover<5->{%
+\fcLengthIndicatorTwo[r]{1 theConstB div ln theConstA -1 mul div}{theConstC}{1 theConstB div ln theConstA -1 mul div}{theConstC 2 div}{ \begin{tabular}{l}Decreasing \\{rate} of \\ growth\end{tabular}}%
+} %
+\pstVerb{end}%
 \end{pspicture}
+\end{center}
+
 
 \end{frame}
