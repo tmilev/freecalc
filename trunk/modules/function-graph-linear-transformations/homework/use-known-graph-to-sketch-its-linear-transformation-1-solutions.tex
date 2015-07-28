@@ -1,10 +1,10 @@
 \solution{\ref{problemSketch1/(2x-1)+1fromgraphof1/x}.
 
-We are asked to plot $\displaystyle f(x)=\frac{1}{2x-1}+1$ by establishing a connection with the graph of $g(x)=\frac{1}{x}$. To do that we have to compose $g$ with a sequence of linear transformations to obtain $f(x)$. There are two natural ways to do that; we show both by presenting two different solutions.
+We are asked to plot $\displaystyle f(x)=\frac{1}{2x-1}+1$ by linearly transforming  the graph of $g(x)=\frac{1}{x}$ to the graph of $f(x)$. To do that we have to compose $g$ with a sequence of linear transformations to obtain $f(x)$. There are two natural ways to do that; we show both by presenting two different solutions.
 
 
 \noindent\textbf{Solution I.} 
-We show how to get from $g(x)=\frac{1}{x}$ by composing $g$ with a sequence of linear transformations.
+We show how to get from $g(x)=\frac{1}{x}$ to $f(x)$ by composing $g$ with a sequence of linear transformations.
 \[
 \begin{array}{r|rcll|l}
 g(x)&=&\frac{1}{x} \\
@@ -65,17 +65,18 @@ We plot consecutively the functions $g(x)$, $h(x)$, $k(x)$ and $f(x)$. We start 
 \newcommand{\theFunTwo}{1 x 2 mul -1 add div 1 add}
 \psplot[linecolor=gray]{-3}{0.34}{\theFun}
 \psplot[linecolor=gray]{0.66}{3}{\theFun}
-\rput[bl](-3,-2.95){$~y=f(x)=h(x)+1=\frac{1}{2x-1}+1$}
+\rput[bl](-3,-2.95){$~y=f(x)=k(x)+1=\frac{1}{2x-1}+1$}
 \psplot[linecolor=\fcColorGraph]{-3}{0.38}{\theFunTwo}
 \psplot[linecolor=\fcColorGraph]{0.74}{3}{\theFunTwo}
 %\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
 \end{pspicture}
+
 \noindent\textbf{Solution II.} 
-In the previous solution we used horizontal stretch to transform the graph of $h(x)$ to the graph of $k(x)=h(2x)$. However algebra suggests a another to transform the graph of $g(x)$ to the graph of $f(x)$, this time using a vertical stretch. Indeed, the equality 
+In the previous solution we used horizontal stretch to transform the graph of $h(x)$ to the graph of $k(x)=h(2x)$. Algebra suggests a second way to transform the graph of $g(x)$ to the graph of $f(x)$, this time using a vertical stretch. Indeed, we have the equality 
 \[
-\displaystyle f(x)=\frac{1}{2x-1}+1=\frac{1}{2}\cdot \frac{1}{x-\frac{1}{2}}+1
+\displaystyle f(x)=\frac{1}{2x-1}+1=\frac{1}{2}\cdot \frac{1}{x-\frac{1}{2}}+1.
 \]
-suggests a different way to obtain the graph of $f(x)$ from the graph of $g(x)$.
+Therefore we can carry out the sequence of transformations shown below.
 \[
 \begin{array}{r|rcll|l}
 g(x)&=&\frac{1}{x} \\
@@ -86,7 +87,7 @@ g(x)&=&\frac{1}{x} \\
 \]
 
 
-We plot consecutively the functions $g(x)$, $h(x)$, $k(x)$ and $f(x)$. We start from the given graph of $g(x)$.
+We plot consecutively the functions $g(x)$, $l(x)$, $k(x)$ and $f(x)$. We start from the given graph of $g(x)$.
 
 \psset{xunit=0.7cm, yunit=0.7cm}
 \begin{pspicture}(-3.5,-3.5)(3.5,3.5)
@@ -136,7 +137,7 @@ We plot consecutively the functions $g(x)$, $h(x)$, $k(x)$ and $f(x)$. We start 
 \newcommand{\theFunTwo}{1 x 2 mul -1 add div 1 add}
 \psplot[linecolor=gray]{-3}{0.34}{\theFun}
 \psplot[linecolor=gray]{0.66}{3}{\theFun}
-\rput[bl](-3,-2.95){$~y=f(x)=h(x)+1=\frac{1}{2x-1}+1$}
+\rput[bl](-3,-2.95){$~y=f(x)=k(x)+1=\frac{1}{2x-1}+1$}
 \psplot[linecolor=\fcColorGraph]{-3}{0.38}{\theFunTwo}
 \psplot[linecolor=\fcColorGraph]{0.74}{3}{\theFunTwo}
 %\rput[tl](-2,1.5){$y=\frac{1}{2x-1}+1$}
