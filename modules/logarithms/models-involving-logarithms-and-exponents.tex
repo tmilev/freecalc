@@ -5,26 +5,38 @@ The following functions are commonly used as mathematical models to approximate 
 \psset{xunit=0.6cm, yunit=0.6cm}
 \begin{pspicture}(-1,-1)(1,1)
 \tiny 
-\fcAxesStandard{-3}{-1}{2.5}{3}
-\psplot[linecolor=\fcColorGraph]{-3}{1}{2.718281828 x exp}
+\fcAxesStandard{-3}{-1.2}{2.5}{4}
+\psplot[linecolor=\fcColorGraph]{-3}{3.95 ln}{2.718281828 x exp}
 \rput[tl](0.2,1){$\begin{array}{l}f(x)=be^{ax}\\ a>0 \end{array}$}
 \rput[bl](-1.85,-0.9){\text{Exponential growth}}
 \end{pspicture}
 \psset{xunit=0.6cm, yunit=0.6cm}
 \begin{pspicture}(-1,-1)(1,1)
 \tiny 
-\fcAxesStandard{-1.2}{-1}{3.2}{3}
-\psplot[linecolor=\fcColorGraph]{-1}{3}{2.718281828 x -1 mul exp}
+\fcAxesStandard{-1.2}{-1.2}{3.2}{4}
+\psplot[linecolor=\fcColorGraph]{3.95 ln -1 mul}{3}{2.718281828 x -1 mul exp}
 \rput[tl](0.2,1.8){$\begin{array}{l}f(x)=be^{-ax}\\ a>0 \end{array}$}
 \rput[bl](0.05,-0.9){\text{Exponential decay}}
 \end{pspicture}
 \psset{xunit=0.6cm, yunit=0.6cm}
-\begin{pspicture}(-1,-1)(1,1)
-\tiny 
-\fcAxesStandard{-1.2}{-1}{3.2}{3}
-\psplot[linecolor=\fcColorGraph]{-1}{3}{2.8 2.718281828 x -3 mul exp 20 mul 1 add div}
-\rput[tl](0.2,1.8){$\begin{array}{l}f(x)=\frac{a}{1+be^{-ax}} \end{array}$}
-\rput[bl](0.05,-0.9){\text{Logistic curve}}
+\begin{pspicture}(-1,-1)(1,1)%
+\tiny %
+\pstVerb{
+20 dict begin
+/theA 3 def
+/theB 20 def
+/theC 2.8 def
+}%
+\fcAxesStandard{-1.2}{-1.2}{4}{4}%
+\psline[linecolor=blue, linestyle=dashed](! -1.2 theC)(! 4 theC)%
+%\rput[bl](! -1.2 theC 0.1 add){$c$=Carrying capacity}%
+\psplot[linecolor=\fcColorGraph]{-1}{4}{theC 2.718281828 x theA -1 mul mul exp theB mul 1 add  div}%
+\fcFullDot{1 theB div ln theA -1 mul div}{theC 2 div}%
+%\rput[tl](0.5,0.6){}
+\rput[tl](0.05,-0.1){\begin{tabular}{l}\text{Logistic curve}\\ $ \begin{array}{l} f(x)=\frac{c}{1+be^{-ax}} \end{array}$ \end{tabular}}
+%\fcLengthIndicatorTwo[l]{1 theB div ln theA -1 mul div}{0}{1 theB div ln theA -1 mul div}{theC 2 div}{ \begin{tabular}{l}Increasing \\ rate of \\ growth\end{tabular}}%
+%\fcLengthIndicatorTwo[r]{1 theB div ln theA -1 mul div}{theC}{1 theB div ln theA -1 mul div}{theC 2 div}{ \begin{tabular}{l}Decreasing \\ rate of \\ growth\end{tabular}}%
+\pstVerb{end}%
 \end{pspicture}
 
 
