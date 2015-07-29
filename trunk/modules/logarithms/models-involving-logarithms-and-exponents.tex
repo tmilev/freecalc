@@ -38,6 +38,25 @@ The following functions are commonly used as mathematical models to approximate 
 %\fcLengthIndicatorTwo[r]{1 theB div ln theA -1 mul div}{theC}{1 theB div ln theA -1 mul div}{theC 2 div}{ \begin{tabular}{l}Decreasing \\ rate of \\ growth\end{tabular}}%
 \pstVerb{end}%
 \end{pspicture}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny 
+\fcBoundingBox{-3.6}{-1.6}{3.6}{2.4}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{\psplot{-3.5}{3.5}{ 2.718281828 x x mul -2 div exp 1.8 mul}}
+\fcAxesStandardNoFrame{-3.5}{-1.5}{3.5}{2.4}
+\psplot[linecolor=\fcColorGraph]{-3.5}{3.5}{ 2.718281828 x x mul -2 div exp 1.8 mul}
+\rput[bl](0,-0.9){$\begin{array}{l}f(x)=ce^{-\frac{(x-a)^2}{b}} \end{array}$}
+\rput[bl](-2.7,-0.9){\text{Gaussian curve}}
+\end{pspicture}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny 
+\fcBoundingBox{-1}{-1.6}{3.6}{2.4}
+\fcAxesStandardNoFrame{-1}{-1.5}{4}{2.4}
+\psplot[linecolor=\fcColorGraph]{0.1}{4}{ x ln 1 add}
+\rput[bl](0.6,0.4){$\begin{array}{l}f(x)=1+ a\ln x \end{array}$}
+\rput[bl](0.3,-0.9){\text{Logarithmic model}}
+\end{pspicture}
 
 
 \end{frame}

@@ -1,12 +1,29 @@
 \begin{frame}
+\vskip -0.15cm
 \begin{example}
-In a hypothetical experiment, the number of E. Coli bacteria cells $E(t)$ is modeled with a logistic curve $\displaystyle E(t)= \frac{2.6\times 10^{11}}{1+ (3.94\times 10^9) e^{-1.387t }} $, where $t$ measures time in hours since the start of the experiment. Provided that the model is accurate, answer the following.
+In a hypothetical experiment, the number of E. Coli bacteria cells is modeled with a logistic curve $\displaystyle E(t)= \frac{2.6\times 10^{11}}{1+ (3.94\times 10^9) e^{-1.387t }} $, where $t$ measures time in hours since the start of the experiment. 
 \begin{itemize}
-\item Approximately how many cells were there at the start of the experiment?
-\item How many hours are needed for the number of cells to be approximately $3.3\times 10^{9}$?
+\only<handout:1|1,2>{\item According to the model, approximately how many cells were there at the start of the experiment?}
+\only<handout:2|3->{\item According to the model, how many hours are needed for the number of cells to be approximately $10^{11}$?}
 \end{itemize}
-\uncover<2->{
-According to the model, the number of cells in the beginning of the experiment must have been $\displaystyle E(0)=\frac{4\times 10^{9}}{1+ (6.06\times 10^7) e^{-1.387\cdot 0 }}=  \frac{4\times 10^{9}}{1+ (6.06\times 10^7) e^{0}}=  \frac{4\times 10^{9}}{1+ (6.06\times 10^7)} \approx  \frac{4\times 10^{9}}{6.06\times 10^7}= \frac{4\times 10^2}{6.06}\approx \frac{400}{6}\approx  66.7 \approx 67 $ cells.
+\only<handout:1|2>{
+According to the model, the number of cells in the beginning was
+$\begin{array}{@{}r@{}c@{}l@{}l|l}
+\displaystyle E(0)&=&\displaystyle \frac{2.6\times 10^{11}}{1+ (3.94\times 10^9) e^{-1.387\cdot 0 }}=  \frac{2.6\times 10^{11}}{1+ (3.94\times 10^9) e^{0}}\\ &=&\displaystyle  \frac{2.6\times 10^{11}}{1+ (3.94\times 10^9)} \approx  \frac{2.6\times 10^{11}}{3.94\times 10^9}\\
+&=& \displaystyle \frac{2.6\times 10^2}{3.94}\approx \frac{260}{3.94}\approx  65.99 \approx 66 \text{ cells.} &&\text{calculator}\end{array} $ 
+}
+\uncover<handout:2|4->{
+To find the hours $t$ needed to get $10^{11}$ cells, we solve $E(t)=10^{11} $.
+$\begin{array}{@{}r@{}c@{}l@{}l|l}
+\displaystyle 10^{11} &=&\displaystyle \frac{2.6\times 10^{11}}{1+ (3.94\times 10^9) e^{-1.387 t }} \\ \displaystyle  1+3.94\times 10^9e^{-1.387t}&=&2.6\\
+\displaystyle e^{-1.387 x }&=& \displaystyle \frac{1.6}{3.94} \times 10^{-9} &&\text{take }\ln \\
+-1.387t &=&\displaystyle \ln \left(\frac{1.6}{3.94} \times 10^{-9}\right)\\
+t &=&\displaystyle \frac{\ln (1.6)-\ln (3.94)-9\ln \left(10\right)}{-1.387}\\
+&\approx& 15.6 \text{ hours}&&\text{calculator}\\
+
+\end{array} $ 
+
+
 }
 \end{example}
 
