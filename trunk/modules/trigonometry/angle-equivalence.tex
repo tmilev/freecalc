@@ -1,0 +1,36 @@
+\begin{frame}
+\frametitle{Equivalence of angles}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(6, 4)
+\tiny
+\fcAxesStandard{-0.5}{-0.5}{3}{3}
+\psline[arrows=->](0,0)(2,0)
+\psline[arrows=->](0,0)(! 1 3 sqrt )
+\fcAngleBetweenVectors[arrows=->, linecolor=blue]{[1 0]}{[0.5 3 sqrt 2 div]}{0.3}{}
+\fcFullDot[linecolor=blue]{0}{0}
+\rput[t] (-0.2, -0.2){$O$}
+\fcFullDot{1.5}{0}
+\rput[t] (1.5, -0.2){$A$}
+\fcFullDot{1 0.8 mul }{3 sqrt 0.8 mul}
+\rput[rt] (0.6, 1.5){$B$}
+\rput(0.3,-3){
+\psline[arrows=->](0,0)(! 45 cos 2 mul 45 sin 2 mul)
+\psline[arrows=->](0,0)(! 105 cos 2 mul 105 sin 2 mul)
+\fcAngleBetweenVectors[arrows=->, linecolor=blue]{[45 cos 2 mul 45 sin 2 mul] }{[105 cos 2 mul 105 sin 2 mul]}{0.3}{}
+\fcFullDot[linecolor=blue]{0}{0}
+\rput[t] (-0.2, -0.2){$O_1$}
+\fcFullDot{45 cos 1.5 mul}{45 sin 1.5 mul}
+\rput[l] (1, 0.8){$A_1$}
+\fcFullDot{105 cos 1.5 mul}{105 sin 1.5 mul}
+\rput[t] (-0.5, 1.3){$B_1$}
+}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{definition}
+Two geometric angles are congruent 
+\end{definition}
+\begin{itemize}
+\end{itemize}
+\end{columns}
+\end{frame}

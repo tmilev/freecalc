@@ -1,5 +1,5 @@
 \begin{frame}
-\frametitle{Angle definition}
+\frametitle{Geomtric angle definition}
 \vskip -0.2cm
 \begin{columns}
 \column{0.22\textwidth}
@@ -11,20 +11,19 @@
 \fcBoundingBox{-0.25}{-1}{1.4}{1}%
 \pstVerb{20 dict begin /startAngle -30 def /endAngle 30 def /angleLength 1.2 def}%
 \only<handout:0|13>{\pstVerb{/startAngle 0 def /endAngle 0 def}}%
-\only<1-12,14-23,27->{\fcAngleBetweenVectors[arrows=->, linecolor=red]{[startAngle cos startAngle sin]}{[endAngle cos endAngle sin]}{0.4}{}}%
-\only<handout:0|24-26>{\fcAngleBetweenVectors[arrows=<-, linecolor=red]{[startAngle cos angleLength mul startAngle sin angleLength mul]}{[endAngle cos angleLength mul endAngle sin angleLength mul]}{0.4}{}}%
-\only<handout:0|26>{\fcAngleBetweenVectors[arrows=<-, linecolor=red, linewidth=2pt]{[startAngle cos angleLength mul startAngle sin angleLength mul]}{[endAngle cos endAngle sin]}{0.4}{}}%
+\only<1-12,14-23,27->{\fcAngleBetweenVectors[arrows=->, linecolor=blue]{[startAngle cos startAngle sin]}{[endAngle cos endAngle sin]}{0.4}{}}%
+\only<handout:0|24-26>{\fcAngleBetweenVectors[arrows=<-, linecolor=blue]{[startAngle cos angleLength mul startAngle sin angleLength mul]}{[endAngle cos angleLength mul endAngle sin angleLength mul]}{0.4}{}}%
+\only<handout:0|26>{\fcAngleBetweenVectors[arrows=<-, linecolor=blue, linewidth=2pt]{[startAngle cos angleLength mul startAngle sin angleLength mul]}{[endAngle cos endAngle sin]}{0.4}{}}%
 \psline[arrows=->](0,0)(! startAngle cos angleLength mul startAngle sin  angleLength mul)%
 \psline[arrows=->](0,0)(! endAngle cos angleLength mul endAngle sin angleLength mul)%
 \only<handout:0|2,8,10,22,25>{\psline[arrows=->, linewidth=2pt, linecolor=red](0,0)(! startAngle cos angleLength mul startAngle sin angleLength mul)}%
 \only<handout:0|2,8,11,23,24>{\psline[arrows=->, linewidth=2pt, linecolor=red](0,0)(! endAngle cos angleLength mul endAngle sin angleLength mul)}%
 \only<handout:0|3,12>{%
-\fcAngleBetweenVectors[arrows=->, linecolor=red, linewidth=1.5pt]{[startAngle cos startAngle sin]}{[endAngle cos endAngle sin]}{0.4}{}%
+\fcAngleBetweenVectors[arrows=->, linecolor=blue, linewidth=1.5pt]{[startAngle cos startAngle sin]}{[endAngle cos endAngle sin]}{0.4}{}%
 }%
-\only<handout:2|9->{\fcFullDot{0}{0}}%
+\only<handout:2|9->{\fcFullDot[linecolor=blue]{0}{0}}%
 \uncover<handout:2-|10-13,22,23>{\rput[t]{! startAngle}(! startAngle cos 2 div startAngle sin 2 div 0.1 sub){initial arm}}%
 \uncover<handout:2-|11-13,23>{\rput[b]{! endAngle}(! endAngle cos 2 div endAngle sin 2 div 0.1 add){terminal arm}}%
-\only<handout:2|9->{\fcFullDot{0}{0}}%
 \uncover<handout:0|24-26>{\rput[t]{! startAngle}(! startAngle cos 2 div startAngle sin 2 div 0.1 sub){terminal arm}}%
 \uncover<handout:0|24-26>{\rput[b]{! endAngle}(! endAngle cos 2 div endAngle sin 2 div 0.1 add){initial arm}}%
 \uncover<15->{%
@@ -63,7 +62,7 @@
 \item<3-> \alertNoH{3}{the angle-measure of such a figure.}
 \end{itemize}
 \item<4-> \alertNoH{4}{Both are referred to as ``angle''}: one is expected to use \alertNoH{5}{context} to decide whether ``angle'' means \alertNoH{5}{``angle formed by two rays''} or \alertNoH{5}{``angle measure''}.
-\item<6-> We take full advantage of this convention. We use the term ``angle'' without further clarification.
+\item<6-> We take full advantage of this convention. 
 }
 \only<handout:2|7-13>{
 \begin{definition}
