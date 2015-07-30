@@ -1,0 +1,83 @@
+\begin{frame}
+\frametitle{Geomtric angle definition}
+\vskip -0.2cm
+\begin{columns}
+\column{0.22\textwidth}
+~\\~\\
+~\\~\\
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.25,-1)(1.4,1.6)%
+\tiny%
+\fcBoundingBox{-0.25}{-1}{1.4}{1}%
+\pstVerb{20 dict begin /startAngle -30 def /endAngle 30 def /angleLength 1.2 def /arcRadLength 0.4 def}%
+\only<handout:0|7>{\pstVerb{/startAngle 0 def /endAngle 0 def}}%
+\only<1-6,8-17,21->{\parametricplot[arrows=->, linecolor=blue]{startAngle }{ endAngle}{t cos arcRadLength mul t sin arcRadLength mul }}%
+\only<handout:0|18-20>{\parametricplot[arrows=<-, linecolor=blue]{startAngle }{endAngle}{t cos arcRadLength mul t sin arcRadLength mul}}%
+\only<handout:0|20>{\parametricplot[arrows=<-, linecolor=blue, linewidth=2pt]{startAngle }{ endAngle }{t cos arcRadLength mul t sin arcRadLength mul}}%
+\psline[arrows=->](0,0)(! startAngle cos angleLength mul startAngle sin  angleLength mul)%
+\psline[arrows=->](0,0)(! endAngle cos angleLength mul endAngle sin angleLength mul)%
+\only<handout:0|2,4,16,19>{\psline[arrows=->, linewidth=2pt, linecolor=red](0,0)(! startAngle cos angleLength mul startAngle sin angleLength mul)}%
+\only<handout:0|2,5,17,18>{\psline[arrows=->, linewidth=2pt, linecolor=red](0,0)(! endAngle cos angleLength mul endAngle sin angleLength mul)}%
+\only<handout:0|6>{%
+\parametricplot[arrows=->, linecolor=blue, linewidth=1.5pt]{startAngle }{endAngle }{t cos 0.4 mul t sin 0.4 mul}
+}%
+\uncover<handout:2-|5-7,17>{\rput[b]{! endAngle}(! endAngle cos 2 div endAngle sin 2 div 0.1 add){terminal arm}}%
+\uncover<handout:0|18-20>{\rput[t]{! startAngle}(! startAngle cos 2 div startAngle sin 2 div 0.1 sub){terminal arm}}%
+\uncover<handout:0|18-20>{\rput[b]{! endAngle}(! endAngle cos 2 div endAngle sin 2 div 0.1 add){initial arm}}%
+\uncover<4-7,16,17>{\rput[t]{! startAngle}(! startAngle cos 2 div startAngle sin 2 div 0.1 sub){initial arm}}%
+\uncover<3->{\fcFullDot[linecolor=blue]{0}{0}}%
+\uncover<13->{\rput[t](0,-0.1){$O$}}%
+\uncover<9->{%
+\fcFullDot{startAngle cos 0.9 mul}{startAngle sin 0.9 mul}%
+}%
+\uncover<10->{%
+\fcFullDot{endAngle cos 1 mul}{endAngle sin 1 mul}%
+}%
+\uncover<11->{
+\rput[t](! startAngle cos 0.9 mul startAngle sin 0.9 mul 0.1 sub){$A$}%
+}
+\uncover<15>{
+\fcFullDot{startAngle cos 0.5 mul}{startAngle sin 0.5 mul}
+\rput[t](! startAngle cos 0.5 mul startAngle sin 0.5 mul 0.1 sub){$A'$}%
+}
+\uncover<12->{
+\rput[b](! endAngle cos 1 mul 0 add endAngle sin 1 mul 0.1 add){$B$}%
+}
+\pstVerb{end}%
+\end{pspicture}
+
+~\\
+~\\
+~\\
+~\\
+
+\column{0.78\textwidth}
+\begin{itemize}
+\only<handout:1|1-7>{
+\begin{definition}
+A \alertNoH{1}{\emph{geometric angle}} (\alertNoH{1}{\emph{angle}} for short) is the figure formed by \alertNoH{2}{two rays, called arms}, sharing a common endpoint called the \alertNoH{3}{vertex} of the angle. \uncover<4->{The rays are ordered.}
+\end{definition}
+\item<4-> The ray that comes first is called the \alertNoH{10}{initial arm (side)} of the angle.
+\item<5-> The ray that comes second is called the \alertNoH{10}{terminal arm (side)} of the angle.
+\item<6-> Angle measures are depicted as arcs pointing from the initial arm towards the terminal arm.
+\item<7-> By convention, the rays are allowed to coincide; the resulting angle is then called the \alertNoH{7}{\emph{zero angle}}.
+}
+\only<8->{
+\item<8-> A ray can be identified by its starting point and any other point on the ray.
+\item<9-> Therefore an angle can be identified by its vertex and one point on each of its arms. 
+\item<11-> \alertNoH{11}{If $A$ is pt. on the first ray} and \alertNoH{12}{$B$ on the second} and \alertNoH{13}{$O$ is the vertex}, we denote the angle by \alertNoH{14}{$\angle AOB $}. 
+\item<15-> The choice $A$ and $B$ is not unique - for example $\angle AOB$ and $\angle A'OB$ coincide. 
+
+\item<16-> In $\angle \alertNoH{16}{A}\alertNoH{16,17}{O}\alertNoH{17}{B}$ the ray $\alertNoH{16}{OA}$ is the initial arm and the ray  $\alertNoH{17}{OB}$ is the terminal arm.
+\item<18-> In $\angle BOA$ the ray $\alertNoH{18}{OB}$ is the initial arm, the ray $\alertNoH{19}{OA}$ is the terminal arm, and the angle measure \alertNoH{20}{points in the opposite direction}. 
+\item<21->{In this way $\angle AOB\neq \angle BOA$.}
+}
+\end{itemize}
+
+
+\end{columns}
+
+
+\vskip 20cm
+
+\end{frame}
