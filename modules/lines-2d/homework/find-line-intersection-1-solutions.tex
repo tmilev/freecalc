@@ -1,0 +1,69 @@
+\solution{\ref{problemFindIntersectionLinesThrough((1,2),(2,-1))and((3,5),(7,-11))}
+
+\psset{xunit=0.1cm, yunit=0.1cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcAxesStandard{-32}{-32}{32}{32}
+\fcGrid[linestyle=dashed, linewidth=0.2]{-32}{-32}{16}{16}{4}{4}{}
+\psline[linecolor=blue](-9, 32)(! 37 3 div -32)
+\psline[linecolor=green](! -15 4 div 32)(! 12.25 -32)
+\fcFullDot{12}{-31}
+\fcFullDot{1}{2}
+\fcFullDot{2}{-1}
+\fcFullDot{3}{5}
+\fcFullDot{7}{-11}
+\rput[l](12, -31){$~~~(12, -31)$}
+\rput[l](7, -11){$~~~(7, -11)$}
+\rput[l](3, 5){$~~~(3, 5)$}
+\rput[r](1, 2){$(1, 2)~$}
+\rput[r](2, -1.3){$(2, -1)~$}
+\end{pspicture}
+
+An equation of a line passing through the points $(x_1, y_1)$ and $(x_2, y_2)$ is given by:
+\[
+\renewcommand{\arraystretch}{1.4}
+\begin{array}{rcl}
+\displaystyle(x_2-x_1)(y-y_1)&=&\displaystyle(y_2-y_1)(x-x_1)\\
+\multicolumn{3}{c}{\text{ or alternatively if } x_1\neq x_2:}\\
+\displaystyle y-y_1&=&\displaystyle \frac{y_2-y_1}{x_2-x_1}(x-x_1)\\
+\multicolumn{3}{c}{\text{ or also }}\\
+\displaystyle y-y_2&=&\displaystyle \frac{y_2-y_1}{x_2-x_1}(x-x_2).\\
+\end{array}
+\]
+We recall that if $x_1\neq x_2$, the number $m=\frac{y_2-y_1}{x_2-x_1}$ is called the slope of the line. Therefore an equation of $L_1$ is given by:
+
+\[
+\begin{array}{rcl}
+\displaystyle m_1&=&\displaystyle \frac{ -1-2}{2-1}=-3\\
+y-2&=&m_1(x-1)=-3(x-1)\\
+y+3x-5&=&0.
+\end{array}
+\]
+Similarly, an equation of $L_4$ is given by:
+\[
+\begin{array}{rcl}
+\displaystyle m_4&=&\displaystyle \frac{ -11-5}{7-3}=-4\\
+y-5&=&m_4(x-3)=-4(x-3)\\
+y+4 x-17 &=&0 
+\end{array}
+\]
+
+To find the intersection of the two lines, we need to solve the system 
+\[
+\left| \begin{array}{rcl}
+y+4 x-17 &=&0 \\
+y+3x-5&=&0.\\
+\end{array}\right.
+\]
+A standard method for solving such a system of equation is studied in the subject of Linear algebra. Alternatively, we can solve this system as follows. Observe that the second equation gives $y=-3x+5$. Substitute that into the first equation to get:
+\[
+\begin{array}{rcll|l}
+y+4 x-17 &=&0&&\text{Substitute } y=-3x+5 \\
+-3x+5 +4x-17&=&0\\
+x&=&12.\\
+\end{array}
+\]
+Therefore $y=-3x+5=-3(12)+5=-36+5=31$. Therefore two lines intersect at the point with coordinates $(12, 31)$. 
+
+To check our work, we can substitute $x=12, y=-31$ in the equation for $y+4x-17=0$ $L_1$ to get that $ -31+4\cdot 12-17=-31+48-17=0$, as expected. Similarly, we can use the equation $y+3x-5=0$ of $L_4$ to check our work: $-31+3\cdot 12-5=-31+36-5=0$, as expected. Finally, a computer-generated plot gives a visual confirmation of our computations.
+}
