@@ -1,0 +1,33 @@
+\solution{\ref{problemEvenOrOdd:(1-x)/(1+x)+(1+x)/(1-x)}.
+
+To check whether a function $f$ is even, odd or neither, we need to compare $ f(x)$ to $f(-x)$. We have that
+
+\[
+\begin{array}{rcl}
+\displaystyle f (x)&=&\displaystyle \frac{1-x}{1+x}+\frac{1+x}{1-x}\\
+&=&\displaystyle \frac{(1-x)(1-x)}{(1+x)(1-x)}+\frac{(1+x)(1+x)}{(1-x)(1+x)}\\
+&=&\displaystyle \frac{(1-x)^2+(1+x)^2}{(1+x)(1-x)}\\
+&=&\displaystyle \frac{(1-\cancel{2x}+x^2)+(1+\cancel{2x}+x^2)}{1-x^2}\\
+&=&\displaystyle \frac{2+2x^2}{1-x^2}\\
+\multicolumn{3}{c}{\text{Therefore}}\\
+f(-x)&=& \displaystyle \frac{2+2(-x)^2}{1-(-x)^2}\\
+&=& \displaystyle \frac{2+2x^2}{1-x^2}.\\
+\end{array}
+\]
+Thus we computed that $f(-x)=f(x)$, which shows that the function is even. Even functions have graphs that are symmetric across the $y$ axis; a computer-generated plot of $f$ confirms this symmetry.
+
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\newcommand{\theFun}{x x mul 1 add 2 mul 1 x x mul sub div}
+\fcAxesStandard{-10}{-10}{10}{10}
+\fcLabels{10}{10}
+\fcXTickWithLabel{1}{$1$}
+\fcYTickWithLabel{1}{$1$}
+\psline[linestyle=dashed, linewidth=0.2pt](-1,-10)(-1,10)
+\psline[linestyle=dashed, linewidth=0.2pt](1,-10)(1,10)
+\psplot[linecolor=\fcColorGraph]{-10}{-1.23}{\theFun}
+\psplot[linecolor=\fcColorGraph]{-0.81}{0.81}{\theFun}
+\psplot[linecolor=\fcColorGraph]{1.23}{10}{\theFun}
+\end{pspicture}
+}
