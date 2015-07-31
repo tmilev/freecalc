@@ -1,0 +1,44 @@
+\begin{frame}
+\begin{columns}
+\column{0.25\textwidth}
+\begin{pspicture}(-1,-1)(6, 4)%
+\tiny%
+\fcBoundingBox{-1.4}{-0.5}{1.4}{1.4}%
+\pstVerb{20 dict begin 
+/endAngle 60 def
+/startAngle 0 def
+}%
+\only<2>{\pstVerb{/endAngle 20 def}}%
+\only<3>{\pstVerb{/endAngle 40 def}}%
+\only<4>{\pstVerb{/endAngle 60 def}}%
+\only<5>{\pstVerb{/endAngle 80 def}}%
+\only<6>{\pstVerb{/endAngle 100 def}}%
+\only<7->{\pstVerb{/endAngle 120 def}}%
+\fcFullDot[linecolor=blue]{0}{0}%
+\rput[t] (-0.2, -0.2){$O$}%
+\fcFullDot{startAngle cos}{startAngle sin}%
+\rput[t] (1, -0.2){$A$}%
+\uncover<2-7,9->{%
+\parametricplot[arrows=->, linecolor=red]{startAngle}{endAngle}{t cos t sin}%
+\fcFullDot{endAngle cos}{ endAngle sin}%
+\rput[b] (! endAngle cos endAngle sin 0.1 add){$B$}%
+}%
+\pstVerb{end}%
+\end{pspicture}
+
+\column{0.75\textwidth}
+\begin{itemize}
+\item The term rotation refers to two distinct objects:
+\begin{itemize}
+\item<2-> \emph{continuous rotation} (\emph{rotation} for short) - a gradual with respect to time transformation of space and
+\item<8-> rotation - an instantaneous transformation of space. \uncover<9->{ All points transition from their initial to their final positions instantaneously.}
+\end{itemize}
+\item<10-> In mathematics, the term rotation usually refers to ``instantaneous'' rotation.
+\item<11-> In physics, the term rotation usually refers to continuous rotation (time is explicitly parametrized). 
+\item<12-> Whether the term rotation refers to continuous rotation or to ``instantaneous'' rotation should be inferred from context.
+\end{itemize}
+
+\end{columns}
+\vskip 10cm
+
+\end{frame}

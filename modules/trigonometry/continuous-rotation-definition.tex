@@ -1,0 +1,46 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{columns}
+\column{0.25\textwidth}
+\begin{pspicture}(-1,-1)(6, 4)%
+\tiny%
+\fcBoundingBox{-1.2}{-1.2}{1.2}{1.2}%
+\pstVerb{20 dict begin /endAngle 60 def}%
+\only<8->{\pstVerb{/endAngle 120 def}}%
+\only<9->{\pstVerb{/endAngle 180 def}}%
+\only<10->{\pstVerb{/endAngle 240 def}}%
+\only<11->{\pstVerb{/endAngle 300 def}}%
+\only<12->{\pstVerb{/endAngle 360 def}}%
+\only<13->{\pstVerb{/endAngle 420 def}}%
+%\psline[arrows=->](0,0)(2,0)
+%\psline[arrows=->](0,0)(! endAngle cos 2 mul endAngle sin 2 mul )
+%\parametricplot[arrows=->, linecolor=blue]{0}{endAngle}{t cos 0.2 mul t sin 0.2 mul}
+%\parametricplot[linestyle=dashed, linecolor=red!60]{endAngle}{360}{t cos t sin}
+\parametricplot[arrows=->, linecolor=red]{0}{endAngle}{t cos t sin}%
+\fcFullDot[linecolor=blue]{0}{0}%
+\rput[t] (-0.2, -0.2){$O$}%
+\fcFullDot{1}{0}%
+\rput[t](1, -0.2){$A$}%
+\fcFullDot{endAngle cos}{endAngle sin}%
+\rput[tr](! endAngle cos endAngle sin ){$B~$}%
+\pstVerb{end}%
+\end{pspicture}
+
+\column{0.75\textwidth}
+\begin{definition}[Continuous rotation]
+A continuous rotation about a point, which we call the center of rotation, is a motion of points in space with the following properties.
+\begin{itemize}
+\item<2-> All points move in a circular fashion around the center of rotation. 
+\item<3-> The distance between each rotated point and the center of rotation does not change.
+\item<4-> The distance between each pair of rotated points is preserved.
+\end{itemize}
+\end{definition}
+\vskip -0.2cm
+\begin{itemize}
+\item<5-> The position of a point under a continuous rotation is assumed to be a function of time.
+\item<6-> The trajectory of a point is an arc of a circle. 
+\item<7-12,13-> A point can traverse a full circle - more than once. In this case the moving point passes through the same positions more than once.
+\end{itemize}
+\end{columns}
+\vskip 10cm
+\end{frame}
