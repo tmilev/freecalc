@@ -1,0 +1,61 @@
+\begin{frame}
+
+
+\begin{columns}
+\column{0.2\textwidth}
+\begin{pspicture}(-1.2,-1.2)(1.2, 1.2)%
+\tiny%
+\fcBoundingBox{-1.3}{-1.2}{1.2}{1.1}%
+\pstVerb{20 dict begin /endAngle 60 def /angleShift -10 def}%
+%\parametricplot[arrows=->, linecolor=blue]{0}{endAngle}{t cos t sin }
+\only<handout:0|1,7>{\pstVerb{/endAngle -60 def /angleShift 10 def}}%
+\only<handout:0|11>{\pstVerb{/endAngle 360 def /angleShift -10 def}}%
+\psline(0,0)(1,0)%
+\psline(0,0)(! endAngle cos 1 mul endAngle sin 1 mul )%
+\only<handout:0|6>{\psline[linewidth=2pt, linecolor=red](0,0)(1, 0)}%
+\parametricplot[linecolor=red]{0}{endAngle}{t cos 1 mul t sin 1 mul}%
+\only<handout:0|5>{\parametricplot[linewidth=2pt,linecolor=red]{0}{endAngle}{t cos 1 mul t sin 1 mul}}%
+\parametricplot[arrows=->, linewidth=0.4pt, linecolor=blue]{endAngle 2 div angleShift add}{endAngle 2 div angleShift sub}{t cos 1.1 mul t sin 1.1 mul}%
+\only<2-6,8->{\rput(! endAngle 2 div cos  1.2 mul endAngle 2 div sin 1.2 mul){$\alertNoH{8}{+}$}}%
+\only<handout:0|1,5>{\rput(! endAngle 2 div cos  1.2 mul endAngle 2 div sin 1.2 mul){$\alertNoH{7}{-}$}}%
+\fcFullDot[linecolor=blue]{0}{0}%
+\rput[t] (-0.2, -0.2){$O$}%
+\fcFullDot{1}{0}%
+%\fcFullDot{2}{0}%
+\rput[bl] (1, 0.1){$A$}%
+\only<handout:0|1-9>{\rput[t](0.5, -0.1){$r$}}%
+\only<10->{\rput[t](0.5, -0.1){$\alertNoH{10}{1}$}}%
+\only<11->{\rput[l](-1,0){$~~2\pi$}}%
+%\rput[bl] (2, 0.1){$A$}%
+\fcFullDot{endAngle cos}{endAngle sin}%
+%\fcFullDot{endAngle cos 2 mul}{endAngle sin 2 mul}%
+\rput[t] (! endAngle cos endAngle sin -0.2 add){$B$}%
+%\rput[t] (! endAngle cos 2 mul endAngle sin 2 mul -0.2 add){$B$}%
+\pstVerb{end}
+\end{pspicture}
+
+\vskip -0.2cm
+
+\column{0.8\textwidth}
+\begin{itemize}
+\item<1-> We say that a continuous rotation is \alertNoH{3}{proper} if points either move \alertNoH{1}{clockwise} or \alertNoH{2}{counter-clockwise} relative to the center, \alertNoH{3}{without ``changing direction''}. %from clockwise to counter-clockwise or vice versus. 
+\end{itemize}
+\end{columns}
+\vskip -0.1cm
+\uncover<4->{
+\begin{definition}[Radian measure of proper continuous rotation]
+%The radian measure of a proper continuous rotation is defined as follows.
+\begin{itemize}
+\item<4-> The \alertNoH{4}{radian measure of rotation is a number} whose magnitude equals the \alertNoH{5}{length of the arc traversed by a point} divided by the \alertNoH{6}{distance} of that point \alertNoH{6}{from the center} of rotation.
+\item<7-> The sign of the radian measure is taken to be \alertNoH{7}{negative} if the rotation is \alertNoH{7}{clockwise}, else it is taken to be \alertNoH{8}{positive}.
+\end{itemize}
+\end{definition}
+}
+\begin{itemize}
+\item<9-> The radian measure (radians for short) does not change when we change the point whose path length we are measuring.
+%\item For the definition above, it does not matter which point we choose.
+\item<10-> The radian measure of rotation equals the signed arc-length traveled by point at \alertNoH{10}{distance $1$ form the center}.
+\item<11-> A circle of radius $1$ has circumference $2\pi$, therefore a full counter-clockwise turn is measured by $2\pi$ radians.
+\end{itemize}
+\vskip 10cm
+\end{frame}

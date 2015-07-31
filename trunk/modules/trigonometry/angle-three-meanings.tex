@@ -1,0 +1,53 @@
+\begin{frame}
+\frametitle{Three Meanings of the Term Angle}
+\vskip -0.2cm
+\begin{columns}
+\column{0.22\textwidth}
+~\\~\\
+~\\~\\
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.25,-1)(1.4,1.6)%
+\tiny%
+\fcBoundingBox{-0.25}{-1}{1.4}{1}%
+\pstVerb{20 dict begin /startAngle -30 def /endAngle 30 def /angleLength 1.2 def}%
+\parametricplot[arrows=->, linecolor=blue]{startAngle}{endAngle}{t cos 0.4 mul t sin 0.4 mul}%
+\only<handout:0|3,4>{%
+\parametricplot[arrows=->, linecolor=blue, linewidth=1.5pt]{startAngle}{endAngle}{t cos 0.4 mul t sin 0.4 mul}%
+}%
+\only<handout:0|4>{%
+\parametricplot[arrows=->, linecolor=blue, linewidth=1.5pt]{startAngle}{endAngle 360 add}{t cos 0.2 0.0002 t mul add mul t sin 0.2 0.0002 t mul add mul}%
+}%
+\only<handout:0|5->{%
+\parametricplot[arrows=->, linecolor=blue]{startAngle}{endAngle 360 add}{t cos 0.2 0.0002 t mul add mul t sin 0.2 0.0002 t mul add mul}%
+}%
+\psline[arrows=->](0,0)(! startAngle cos angleLength mul startAngle sin  angleLength mul)%
+\psline[arrows=->](0,0)(! endAngle cos angleLength mul endAngle sin angleLength mul)%
+\only<handout:0|2>{\psline[arrows=->, linewidth=2pt, linecolor=red](0,0)(! startAngle cos angleLength mul startAngle sin angleLength mul)}%
+\only<handout:0|2>{\psline[arrows=->, linewidth=2pt, linecolor=red](0,0)(! endAngle cos angleLength mul endAngle sin angleLength mul)}%
+\pstVerb{end}%
+\end{pspicture}
+
+~\\
+~\\
+~\\
+~\\
+
+\column{0.78\textwidth}
+\begin{itemize}
+\item<1-> The term angle is used to denote three distinct mathematical objects: 
+\begin{itemize}
+\item<2-> \alertNoH{2}{the (geometric) angle formed by two rays,}
+\item<3-> \alertNoH{3}{the angle-measure of such a geometric angle}
+\item<4-> \alertNoH{4}{the angle-measure of a rotation.}
+\end{itemize}
+\item<5-> \alertNoH{5}{All three objects are referred to as ``angle''}: one is expected to use \alertNoH{6}{context} to decide whether ``angle'' means \alertNoH{6}{``angle formed by two rays''}, \alertNoH{6}{``angle measure''} or \alertNoH{6}{``angle of rotation''}.
+\item<7-> We take full advantage of this convention. 
+\end{itemize}
+
+
+\end{columns}
+
+
+\vskip 20cm
+
+\end{frame}
