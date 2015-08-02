@@ -1,0 +1,29 @@
+\begin{frame}
+\frametitle{Coterminal Angles}
+
+\begin{definition}
+Two angles (angle measures) are called coterminal if the corresponding geometric angles have the same initial and terminal sides. 
+\end{definition}
+\begin{center}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.9, -1.1)(2,0.5)
+\tiny
+%force a boudning box:
+%\psline[linecolor=red!1](-0.1, -0.1)(-0.21,0.2)
+%\psline[linecolor=red!1](1.1, 0.6)(1.1,0.61)
+\fcFullDotBlue{0}{0}
+%Calculator input: plotCurve{}(1/10 \cos{}t, 1/10 \sin{}t, 0, -3/4 \pi)
+\parametricplot[arrows=->, linecolor=\fcColorGraph, plotpoints=100]{0}{225} {t cos 0.3 mul t sin 0.3 mul}
+\parametricplot[arrows=->, linecolor=\fcColorGraph, plotpoints=100]{0}{-135} {t cos 0.2 mul t sin 0.2 mul}
+\parametricplot[arrows=->, linecolor=\fcColorGraph, plotpoints=400] {0} {585} {t cos 0.4 t 2000 div add mul t sin 0.4 t 2000 div add mul}
+\rput[r](0, 0.7){$\theta=\frac{13\pi}{4}$}
+\rput[t] (0,-0.1){$O$}
+\rput[l](-0.2, 0.15){$\theta=\frac{5\pi}{4}$}
+\rput[lt](0, -0.2){$\theta=-\frac{3\pi}{4}$}
+\psline{->}(0,0)(1,0)
+\psline[arrows=->, linecolor=blue](0,0)(-0.707106781, -0.707106781)
+\end{pspicture}
+\end{center}
+
+
+\end{frame}
