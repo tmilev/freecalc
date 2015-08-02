@@ -31,3 +31,60 @@ Thus we computed that $f(-x)=f(x)$, which shows that the function is even. Even 
 \psplot[linecolor=\fcColorGraph]{1.23}{10}{\theFun}
 \end{pspicture}
 }
+
+\solution{\ref{problemEvenOrOdd5x+4ifx>0and5x-4ifx<0}.
+
+We will show that this piecewise defined function is odd, although each of the individual pieces ($5x+4$ and $5x-4$), viewed over the entire real line, is neither even nor odd.
+
+This problem can be solved both via algebra and graphically.
+
+\textbf{Solution via algebra. }
+Recall that a function is even when $f(x)=f(-x)$ and odd when $f(-x)=-f(x)$. We have 
+\[
+f(x)=\begin{cases}
+5x+4 & \text{ if } x>0 \\ 
+5x-4 & \text{ if } x<0 \end{cases}
+\]
+and therefore 
+\[
+\begin{array}{rcll|l}
+f(-x)&=&\begin{cases}
+-5x+4 & \text{ if } -x>0 \\ 
+-5x-4 & \text{ if } -x<0\end{cases} && \begin{array}{l}\text{Multiplying}\\
+\text{inequalities by }-1\\ \text{reverses their direction} \end{array}\\
+&=&\begin{cases}
+-5x+4 & \text{ if } x<0 \\ 
+-5x-4 & \text{ if } x>0\end{cases} &&\begin{array}{l}\text{swap the order} \\ \text{of writing the cases}\end{array}\\
+&=&\begin{cases}
+-5x-4 & \text{ if } x>0 \\
+-5x+4 & \text{ if } x<0  
+\end{cases} \\
+&=&\begin{cases}
+-(5x+4) & \text{ if } x>0 \\
+-(5x-4) & \text{ if } x<0  
+\end{cases} \\
+&=&-f(x).
+\end{array}
+\]
+This shows that the function is odd. 
+
+
+\textbf{Solution via plotting the function.} This graphical solution is slightly informal, but shows a good understanding of the subject and is acceptable (and well perceived by graders) when taking exams. 
+
+We recall that a function is even if its graph is symmetric across the $y$ axis and odd if its graph has a half-turn symmetry about the origin of the coordinate system.  Plotting  $f(x)=\begin{cases}
+5x+4 & \text{ if } x>0 \\ 
+5x-4 & \text{ if } x<0 \end{cases}$ results in the following graph:
+\begin{center}
+\psset{xunit=0.1cm, yunit=0.1cm}
+\begin{pspicture}(-1, -1)
+\fcAxesStandard{-20}{-20}{20}{20}
+\psplot[linecolor=\fcColorGraph, plotpoints=5]{0}{3.2}{5 x mul 4 add}
+\psplot[linecolor=\fcColorGraph, plotpoints=5]{-3.2}{0}{5 x mul -4 add}
+\fcFullDot{0}{4}
+\fcFullDot{0}{-4}
+\end{pspicture}
+￼\end{center}
+The graph is symmetric relative to rotation at $180^{\circ}$ around the origin so $f(x)$ is an odd function.
+
+
+}
