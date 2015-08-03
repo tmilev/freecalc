@@ -1,0 +1,28 @@
+\begin{frame}
+A sector of a circle is the region cut off from a circle by an angle whose vertex is at the center of the circle. 
+\begin{columns}
+\column{0.25\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\parametricplot{0}{120}{t cos t sin}
+\psline(! 120 cos 120 sin)(0,0)(1 ,0)
+}
+\psline(0,0)(! 120 cos 120 sin)
+\psline(0,0)(1,0)
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}
+\parametricplot[linecolor=red, arrows=->]{0}{120}{t cos 0.2 mul t sin 0.2 mul}
+\rput(0.2, 0.3){$\alpha$}
+\rput[t](0.5, -0.1){$r$}
+\end{pspicture}
+\column{0.75\textwidth}
+\begin{proposition}[Area of a circle sector]
+The area of a circle sector equals
+\[
+\frac{1}{2}\alpha r^2,
+\]
+where $\alpha$ is the angle of the sector.
+\end{proposition}
+\end{columns}
+
+\end{frame}
