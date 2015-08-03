@@ -1,0 +1,50 @@
+\begin{frame}
+\begin{columns}[c]
+\column{.45\textwidth}
+\psset{xunit=1cm,yunit=1cm}
+\begin{pspicture}(-4,-2.5)(1,4)
+\tiny
+\psaxes[labels=none, ticks=none]{<->}(0,0)(-4.2,-2.5)(1,4)
+\fcFullDot{-3}{2}
+\psline[linecolor=blue](0,0)(-3,2)
+\psline[linecolor=blue](0,0)(1,0)
+\rput[br](-3, 2){$(x,y)$}
+\rput[lb](-1.55, 1.1){$r$}
+
+\psarc[linecolor=red]{->}(0,0){0.5}{0}{146.3099}
+\rput[l](0.1, 0.7){$\theta$}
+
+\uncover<2>{
+\parametricplot[linecolor=red, plotpoints=1000, arrows=->]{0}{360}{0.25 0.000198413 t mul add t cos mul 0.25 0.000198413 t mul add t sin mul}
+}
+
+\uncover<3->{
+\parametricplot[linecolor=red, plotpoints=1000, arrows=->]{0}{506.3099}{0.25 0.000198413 t mul add t cos mul 0.25 0.000198413 t mul add t sin mul}
+}
+
+\psline[linestyle=dotted](-3, 2)(-3, 0)
+\psline[linestyle=dotted](-3, 2)(0, 2)
+\psline(-2.7, 0)(-2.7, 0.3)(-3, 0.3)
+\psline(0, 1.7)(-0.3, 1.7)(-0.3, 2)
+\end{pspicture}
+\[
+\begin{array}{cc}
+\sin \theta = \frac{ y}{ r} &
+\csc \theta = \frac{ r}{ y} \\
+\cos \theta = \frac{ x}{ r} &
+\sec \theta = \frac{ r}{ x} \\
+\tan \theta = \frac{ y}{ x} &
+\cot \theta = \frac{ x}{ y} \\
+\end{array}
+\]
+\column{.5\textwidth}
+\begin{itemize}
+\item<2->  $2\pi$ represents a full rotation.
+\item<3->  $\theta + 2\pi$ has the same terminal arm as $\theta$.
+\item<4->  $\theta + 2\pi$ uses the same point $(x,y)$ and the same length $r$.
+\item<5->  $\sin (\theta + 2\pi ) = \sin \theta$.
+\item<5->  $\cos (\theta + 2\pi ) = \cos \theta$.
+\item<6->  We say $\sin$ and $\cos$ are $2\pi$-periodic.
+\end{itemize}
+\end{columns}
+\end{frame}
