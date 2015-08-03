@@ -1,0 +1,39 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-1,-1)(4,3)
+\tiny
+\fcBoundingBox{-0.5}{-0.5}{4.5}{3.5}
+\fcPerpendicular{[4 3]}{[1 0]}{0.4}
+\psline(0,0)(4,0)(4,3)(0,0)
+\fcAngleBetweenVectors{[1 0]}{[4 3]}{0.5}{}
+\rput[t](2, -0.2){$4$}
+\rput[l](4.2, 1.5){$3$}
+\rput[bl](1.9, 1.7){$\fcAnswerUncover{2}{6}{5} $}
+\end{pspicture}
+
+\column{0.7\textwidth}
+Let the angle $\theta$ as indicated in the figure. Find the values of the six trigonometric functions of $\theta$.
+\end{columns}
+\uncover<2->{To find the trigonometric functions, we need to know the length of the hypotenuse. } \uncover<3->{
+\[
+\text{hypotenuse}=\fcAnswer{4}{\sqrt{\alertNoH{5}{4^2+3^2}}}\uncover<5->{=\alertNoH{6}{\sqrt{\alertNoH{5}{25}}}}\uncover<6->{=\alertNoH{6}{5}.}
+\]
+}
+\uncover<7->{Using the right angle triangle ratio interpretations of the trig functions, we can compute:}
+\[
+\begin{array}{@{}r@{}c@{}lr@{}c@{}lr@{}c@{}l}
+\displaystyle \alert<handout:0| 7-8>{\sin\left( \theta \right)} & \alertNoH{7-8}{=}& \displaystyle  \fcAnswer{8}{ \frac{3}{5}}  &
+\displaystyle  \alert<handout:0| 9-10>{\cos\left( \theta\right)} &\alertNoH{9-10}{=}& \displaystyle   \fcAnswer{10}{\frac{ 4}{5}} &
+\displaystyle  \alert<handout:0| 11-12>{\tan \left(\theta\right)} &\alertNoH{11-12}{=}&\displaystyle   \fcAnswer{12}{\frac{\sqrt{3}}{-1}= -\sqrt{3}} \\
+\displaystyle  \alert<handout:0| 13-14>{\csc \left(\theta\right)} &\alertNoH{13-14}{=}&\displaystyle   \fcAnswer{14}{\frac{2}{\sqrt{3}}} &\displaystyle  
+\alert<handout:0| 15-16>{\sec \left(\theta\right)} &\alertNoH{15-16}{=}&\displaystyle   \fcAnswer{16}{-\frac{2}{1}=-2} &\displaystyle  
+\alert<handout:0| 17-18>{\cot \left(\theta\right)} & \alertNoH{17-18}{ =}&\displaystyle   \fcAnswer{18}{-\frac{1}{\sqrt{3}}}
+\end{array}
+\]
+
+\end{example}
+
+\end{frame}
