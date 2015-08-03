@@ -1,0 +1,62 @@
+\begin{frame}
+\frametitle{Arc-length of a circle arc}
+\vskip -0.35cm
+\begin{columns}
+\column{0.2\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\parametricplot[linecolor=\fcColorGraph]{0}{60}{t cos t sin}
+\parametricplot[linecolor=\fcColorGraph, linestyle=dotted]{60}{360}{t cos t sin}
+\parametricplot[linecolor=\fcColorGraph]{0}{60}{t cos 1.5 mul t sin 1.5 mul}
+\parametricplot[linecolor=\fcColorGraph, linestyle=dotted]{60}{360}{t cos 1.5 mul t sin 1.5 mul}
+\psline[arrows=->](0, 0 )(! 60 cos 1.9 mul 60 sin 1.9 mul)
+\psline[arrows=->](0, 0 )(1.9,0)
+\rput[tr](0.9, 0.5 ){$M$}
+\rput[bl](1.4, 0.8 ){$L$}
+\fcLengthIndicator[linecolor=blue]{0}{-0.3}{1.5}{-0.3}{$r$}
+\fcLengthIndicator[linecolor=blue]{150 cos 0.3 mul}{150 sin 0.3 mul}{150 cos 0.3 mul 60 cos add}{150 sin 0.3 mul 60 sin add}{$s$}
+\fcFullDot[linecolor=blue]{0}{0}
+\end{pspicture}
+\column{0.8\textwidth}
+\begin{proposition}
+Let two circles have common center and radii $s$ and $r$. Suppose an arbitrary geometric angle with vertex at the common center of the circles cuts off short arcs of length $M$ and $L$. Then $\displaystyle \frac{s}{r}=\frac{M}{L}.
+$
+\end{proposition}
+\end{columns}
+\uncover<2->{ 
+\hfill \hfill $
+\begin{array}{rcll|l}
+\displaystyle \frac{\alertNoH{3}{s}}{r}&=&\displaystyle\frac{\alertNoH{4}{M}}{L} \uncover<3->{&& \text{Choose }\alertNoH{3}{s=1}, \text{ relabel }\alertNoH{4}{M=\alpha}}\\
+\displaystyle \uncover<3->{\frac{\alertNoH{3}{1}}{\alertNoH{6}{r}}&=&\displaystyle \frac{\alertNoH{4}{\alpha}}{\alertNoH{5}{L}}}\\
+\uncover<5->{\alertNoH{5}{L}&=&\alpha \alertNoH{6}{r}}
+\end{array}
+$
+}
+
+\uncover<7->{ The angle-measure of a geometric angle is the arc-length cut off from a radius $1$ circle, therefore we get the following.
+}
+
+\vskip -0.15cm
+\begin{columns}
+\column{0.2\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\parametricplot[linecolor=\fcColorGraph]{0}{60}{t cos 1.5 mul t sin 1.5 mul}
+\parametricplot[linecolor=\fcColorGraph, linestyle=dotted]{60}{360}{t cos 1.5 mul t sin 1.5 mul}
+\psline[arrows=->](0, 0 )(! 60 cos 1.9 mul 60 sin 1.9 mul)
+\psline[arrows=->](0, 0 )(1.9,0)
+\rput[bl](0.5, 0.3 ){$\alpha$}
+\parametricplot[arrows=->, linecolor=blue]{0}{60}{t cos 0.3 mul t sin 0.3 mul}
+\rput[bl](1.4, 0.8 ){$L$}
+\fcLengthIndicator[linecolor=blue]{0}{-0.3}{1.5}{-0.3}{$r$}
+\fcFullDot[linecolor=blue]{0}{0}
+\end{pspicture}
+\column{0.8\textwidth}
+\begin{corollary}
+The arc-length cut off by an angle with measure $\alpha$ from a circle of radius $r$ equals $\alpha r$. 
+\end{corollary}
+\end{columns}
+\end{frame}
+

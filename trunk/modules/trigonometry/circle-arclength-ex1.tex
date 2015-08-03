@@ -1,0 +1,28 @@
+\begin{frame}
+\begin{example}
+
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-2.2}{-2.2}{2.2}{2.2}
+\parametricplot[linecolor=\fcColorGraph]{0}{210}{t cos 2 mul t sin 2 mul}
+\parametricplot[linecolor=blue, arrows=->]{0}{210}{t cos 0.4 mul t sin 0.4 mul}
+\rput[rb](-0.1,0.3){$\frac{7\pi}{6}$}
+\psline[arrows=->](0,0)(2.2, 0)
+\psline[arrows=->](0,0)(! 210 cos 2.2 mul 210 sin 2.2 mul)
+\rput[t](1, -0.1){$2$}
+\end{pspicture}
+\column{0.7\textwidth}
+Find the length of an arc of a circle of \alertNoH{4}{radius $2$} cut off by an \alertNoH{3}{angle of measure $\frac{7\pi}{6}$} ($=210^{\circ}$). 
+\end{columns}
+
+
+\uncover<2->{
+\[
+\text{arc-length}=\alertNoH{3}{\alpha} \alertNoH{4}{r}\uncover<3->{ = \alertNoH{3}{\frac{7\pi}{6}} \cdot \alertNoH{4}{2} }\uncover<5->{=\frac{7\pi}{3}\approx  7.330382858}
+\]
+}
+\end{example}
+\end{frame}

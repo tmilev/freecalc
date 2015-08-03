@@ -1,0 +1,32 @@
+\begin{frame}
+\begin{example}
+
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-3.2}{-3.2}{3.2}{3.2}
+\parametricplot[linecolor=\fcColorGraph]{0}{230}{t cos 3 mul t sin 3 mul}
+\parametricplot[linecolor=blue, arrows=->]{0}{230}{t cos 0.6 mul t sin 0.6 mul}
+\rput[rb](-0.05,0.4){$230^\circ $}
+\psline[arrows=->](0,0)(3.4, 0)
+\psline[arrows=->](0,0)(! 230 cos 3.4 mul 230 sin 3.4 mul)
+\rput[t](1, -0.1){$2$}
+\end{pspicture}
+\column{0.7\textwidth}
+Find the length of an arc of a circle of \alertNoH{3}{radius $3$} cut off by an \alertNoH{4}{angle of measure $230^\circ$}. 
+\end{columns}
+
+
+\uncover<2->{
+\[
+\begin{array}{rcll|l}
+\uncover<4->{\alertNoH{4,8}{\alpha} &\alertNoH{4}{=}& \alertNoH{4,5,6}{230^{\circ}} }\\
+\uncover<5->{&\alertNoH{5,6}{=}& \displaystyle \fcAnswer{6}{230^{\circ} \frac{\pi \text{ rad}}{180^{\circ}}}\uncover<7->{= \alertNoH{8}{\frac{23}{18}\pi} \text{ rad}} && \alertNoH{5,6}{\text{Convert to radians}}}\\
+\text{arc-length}&\alertNoH{0}{=}&\displaystyle \alertNoH{4-8}{\alpha} \alertNoH{3}{r}\uncover<3->{ = \fcAnswerUncover{3}{8}{\frac{23\pi}{\alertNoH{9}{ 18} }} \cdot \alertNoH{3,9}{3} }\uncover<9->{=\frac{23\pi}{\alertNoH{9}{6}} \uncover<10->{\approx  12.043}}
+\end{array}
+\]
+}
+\end{example}
+\end{frame}
