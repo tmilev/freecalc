@@ -1,4 +1,75 @@
 \begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(0,0)(1.4,1.4)
+\tiny
+\fcBoundingBox{-0.1}{-0.2}{2.1}{1.8}
+\fcPerpendicular{[1 3 sqrt ]}{[1 0]}{0.1}
+\parametricplot[linecolor=red]{0}{60}{t cos 0.3 mul t sin 0.3 mul}
+\parametricplot[linecolor=red]{120}{180}{t cos 0.3 mul 2 add t sin 0.3 mul}
+\parametricplot[linecolor=red]{-90}{-120}{t cos 0.3 mul 1 add t sin 0.3 mul 3 sqrt add}
+\parametricplot[linecolor=red]{-90}{-60}{t cos 0.3 mul 1 add t sin 0.3 mul 3 sqrt add}
+\psline(0,0)(1, 0)(! 1 3 sqrt )(0,0)
+\psline[linestyle=dashed](1, 0)(2,0)(! 1 3 sqrt )
+\rput[t](0.5, -0.1){$1$}
+\rput[t](1.5, -0.1){$1$}
+\rput[br](0.4, 0.8){$2$}
+\rput[bl](1.6, 0.8){$2$}
+\rput[l](0.3, 0.2){$60^\circ$}
+\rput[r](1.7, 0.2){$60^\circ$}
+\rput[tr](1, 1.2){$30^\circ=\gamma$}
+\rput[tl](1, 1.2){$~30^\circ$}
+\rput[l](! 1 3 sqrt 2 div){$\sqrt{3}$}
 
+\end{pspicture}
+\column{0.7\textwidth}
+Find the values of $\sin 60^{\circ}, \cos 60^{\circ}, \tan 60^{\circ}$, $\sin 30^{\circ}, \cos30^{\circ}, \tan30^{\circ}$.
 
+\uncover<2->{
+Realize the $60^\circ$ angle in right triangle with adjacent side of length $1$. Let $\gamma$ be the indicated angle. The angles in triangle sum to $180^\circ$:
+
+\hfil \hfil$
+\begin{array}{rcl}
+60^\circ+90^\circ +\gamma &=& 180^\circ\\
+\gamma&=&30^\circ.
+\end{array}
+$
+}
+\end{columns}
+\uncover<2->{Construct a triangle congruent to the original right angle triangle as shown. The larger triangle has three equal angles ($=60^\circ$) and so is equilateral (sides are of equal length). Thus the side of the large triangle equals $1+1=2$. Therefore the large leg in the right angle triangle has length $\sqrt{2^2-1^2}=\sqrt{3}$. Finally we can compute:
+
+\hfil \hfil $ \displaystyle \sin 30^\circ = \frac{1}{2}\qquad \cos 30^\circ = \frac{\sqrt{3}}{2}\qquad \tan 30^\circ = \frac{\sqrt{3}}{1}=\sqrt{3}.
+$
+
+\hfil \hfil $ \displaystyle \sin 60^\circ = \frac{1}{2}\qquad \cos 60^\circ = \frac{\sqrt{3}}{2}\qquad \tan 60^\circ = \frac{1}{\sqrt{3}}=\frac{\sqrt{3}}{3}.
+$
+
+}
+\end{example}
+
+\end{frame}
+
+\begin{frame}
+\begin{observation}
+\begin{itemize}
+\item If the hypotenuse of a right angle triangle is twice larger than one of the sides, then the angle opposite to that side is $30^\circ$. 
+\item Conversely, in a right angle triangle with angle $30^\circ$, the hypotenuse is twice longer than the shorter of the two legs.
+\end{itemize}
+\end{observation}
+\begin{center}
+\psset{xunit=4cm, yunit=4cm}
+\begin{pspicture}(0,0)(1.4,1.4)
+\tiny
+\fcPerpendicular{[0.5 3 sqrt 2 div]}{[0.5 0]}{0.1}
+\parametricplot[linecolor=red]{0}{60}{t cos 0.1 mul t sin 0.1 mul}
+\parametricplot[linecolor=red]{-90}{-120}{t cos 0.1 mul 0.5 add t sin 0.1 mul 3 sqrt 2 div add}
+\psline(0,0)(0.5, 0)(! 0.5 3 sqrt 2 div)(0,0)
+\rput[t](0.25, -0.05){$x$}
+\rput[br](0.2, 0.4){$2x$}
+\rput(0.14, 0.07){$60^\circ$}
+\rput[tr](0.5, 0.68){$30^\circ$}
+\end{pspicture}
+\end{center}
 \end{frame}
