@@ -1,0 +1,56 @@
+\begin{frame}
+To compute trigonometric functions from obtuse ($>90^\circ$) or negative angles, we can use the following visual aid. 
+\begin{definition}[Reference Angle]
+Let $\theta$ be an angle in standard position. Its reference angle is the acute positive angle formed by the terminal arm and the $x$ axis. 
+\end{definition}
+
+\uncover<2->{
+The computation of the reference angle $\alpha$ depends on the quadrant.
+
+\begin{tabular}{|c|c|c|}\hline
+
+\begin{pspicture}(-1.4,-1.4)(1.4,1.4)
+\tiny
+\rput[lt](-1.35,1.35){Quadrant II}
+\fcAxesStandardNoFrame{-1.37}{-1.37}{1.37}{1.37}
+\parametricplot[arrows=->, linecolor=red]{0}{120}{t cos 0.3 mul t sin 0.3 mul}
+\parametricplot[arrows=->, linecolor=red]{120}{180}{t cos 0.35 mul t sin 0.35 mul}
+\psline[arrows=->](0,0)(! 120 cos 1.3 mul 120 sin 1.3 mul)
+\rput[lb](0.3,0.2){$\theta$}
+\rput[rb](-0.3,0.2){$\alpha$}
+\end{pspicture}
+&
+\begin{pspicture}(-1.4,-1.4)(1.4,1.4)
+\tiny
+\rput[lt](-1.35,1.35){Quadrant III}
+\fcAxesStandardNoFrame{-1.37}{-1.37}{1.37}{1.37}
+\parametricplot[arrows=->, linecolor=red]{0}{230}{t cos 0.3 mul t sin 0.3 mul}
+\parametricplot[arrows=->, linecolor=red]{180}{230}{t cos 0.4 mul t sin 0.4 mul}
+\psline[arrows=->](0,0)(! 230 cos 1.3 mul 230 sin 1.3 mul)
+\rput[lb](0.3,0.2){$\theta$}
+\rput[rt](-0.4,-0.2){$\alpha$}
+\end{pspicture}
+&
+\begin{pspicture}(-1.4,-1.4)(1.4,1.4)
+\tiny
+\rput[lt](-1.35,1.35){Quadrant III}
+\fcAxesStandardNoFrame{-1.37}{-1.37}{1.37}{1.37}
+\parametricplot[arrows=->, linecolor=red]{0}{300}{t cos 0.3 mul t sin 0.3 mul}
+\parametricplot[arrows=->, linecolor=red]{300}{360}{t cos 0.4 mul t sin 0.4 mul}
+\psline[arrows=->](0,0)(! 300 cos 1.3 mul 300 sin 1.3 mul)
+\rput[rb](-0.3,0.2){$\theta$}
+\rput[lt](0.4,-0.2){$\alpha$}
+\end{pspicture}
+ \\
+$\begin{array}{rcl}
+\alertNoH{2,3}{\alpha}&\alertNoH{2,3}{=}&\fcAnswer{3}{\pi-\theta} \\ \alertNoH{2,3}{\alpha}&\alertNoH{2,3}{=}&\fcAnswer{3}{180^\circ-\theta}\end{array}$&
+$\begin{array}{rcl}
+\alertNoH{4,5}{\alpha}&\alertNoH{4,5}{=}&\fcAnswer{5}{\theta-\pi}\\ 
+\alertNoH{4,5}{\alpha}&\alertNoH{4,5}{=}&\fcAnswer{5}{\theta-180^\circ} \end{array}$&
+$\begin{array}{rcl}
+\alertNoH{6,7}{\alpha}&\alertNoH{6,7}{=}&\fcAnswer{7}{2\pi-\theta}\\ 
+\alertNoH{6,7}{\alpha}&\alertNoH{6,7}{=}&\fcAnswer{7}{360^\circ-\theta}\end{array}$\\\hline
+
+\end{tabular}
+}
+\end{frame}
