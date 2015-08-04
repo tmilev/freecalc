@@ -9,9 +9,12 @@
 \fcPerpendicular{[4 3]}{[1 0]}{0.4}
 \psline(0,0)(4,0)(4,3)(0,0)
 \fcAngleBetweenVectors{[1 0]}{[4 3]}{0.5}{}
-\rput[t](2, -0.2){$4$}
-\rput[l](4.2, 1.5){$3$}
-\rput[bl](1.9, 1.7){$\fcAnswerUncover{2}{6}{5} $}
+\only<handout:0|10, 12,16>{\psline[linewidth=2pt, linecolor=green](0,0)(4,0)}
+\only<handout:0|8, 12, 14,18>{\psline[linewidth=2pt, linecolor=blue](4,0)(4,3)}
+\only<handout:0|8, 10, 14,16>{\psline[linewidth=2pt, linecolor=orange](4, 3)(0, 0)}
+\rput[t](2, -0.2){$\only<handout:0|10,12,16,18>{\color{green}}4$}
+\rput[l](4.2, 1.5){$\only<handout:0|8,12,14,18>{\color{blue}} 3$}
+\rput[bl](1.9, 1.7){$\fcAnswerUncover{2}{6}{ \only<handout:0|8, 10,14, 16>{\color{orange}} 5} $}
 \end{pspicture}
 
 \column{0.7\textwidth}
@@ -25,12 +28,12 @@ Let the angle $\theta$ as indicated in the figure. Find the values of the six tr
 \uncover<7->{Using the right angle triangle ratio interpretations of the trig functions, we can compute:}
 \[
 \begin{array}{@{}r@{}c@{}lr@{}c@{}lr@{}c@{}l}
-\displaystyle \alert<handout:0| 7-8>{\sin\left( \theta \right)} & \alertNoH{7-8}{=}& \displaystyle  \fcAnswer{8}{ \frac{3}{5}}  &
-\displaystyle  \alert<handout:0| 9-10>{\cos\left( \theta\right)} &\alertNoH{9-10}{=}& \displaystyle   \fcAnswer{10}{\frac{ 4}{5}} &
-\displaystyle  \alert<handout:0| 11-12>{\tan \left(\theta\right)} &\alertNoH{11-12}{=}&\displaystyle   \fcAnswer{12}{\frac{\sqrt{3}}{-1}= -\sqrt{3}} \\
-\displaystyle  \alert<handout:0| 13-14>{\csc \left(\theta\right)} &\alertNoH{13-14}{=}&\displaystyle   \fcAnswer{14}{\frac{2}{\sqrt{3}}} &\displaystyle  
-\alert<handout:0| 15-16>{\sec \left(\theta\right)} &\alertNoH{15-16}{=}&\displaystyle   \fcAnswer{16}{-\frac{2}{1}=-2} &\displaystyle  
-\alert<handout:0| 17-18>{\cot \left(\theta\right)} & \alertNoH{17-18}{ =}&\displaystyle   \fcAnswer{18}{-\frac{1}{\sqrt{3}}}
+\displaystyle \alert<handout:0| 7-8>{\sin\theta} & \alertNoH{7-8}{=}& \displaystyle \fcAnswer{8}{ \frac{3}{5}}  &
+\displaystyle \alert<handout:0| 9-10>{\cos\theta} &\alertNoH{9-10}{=}& \displaystyle \fcAnswer{10}{\frac{ 4}{5}} &
+\displaystyle \alert<handout:0| 11-12>{\tan \theta} &\alertNoH{11-12}{=}&\displaystyle   \fcAnswer{12}{\frac{3}{4}} \\
+\displaystyle  \alert<handout:0| 13-14>{\csc \theta} &\alertNoH{13-14}{=}&\displaystyle   \fcAnswer{14}{\frac{5}{3}} &\displaystyle  
+\alert<handout:0| 15-16>{\sec \theta} &\alertNoH{15-16}{=}&\displaystyle   \fcAnswer{16}{\frac{5}{4}} &\displaystyle  
+\alert<handout:0| 17-18>{\cot \theta} & \alertNoH{17-18}{ =}&\displaystyle   \fcAnswer{18}{\frac{4}{3}}
 \end{array}
 \]
 
