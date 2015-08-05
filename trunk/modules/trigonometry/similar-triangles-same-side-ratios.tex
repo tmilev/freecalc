@@ -1,0 +1,62 @@
+\begin{frame}
+The following statement is proved in the subject of Euclidean (planar) geometry.
+\begin{theorem}[Similar triangles have equal side ratios]
+Let $\triangle ABC$ and $\triangle A'B'C'$ be two similar triangles. Then the ratios of the lengths of the sides of the two triangles are equal, that is
+\[
+\alertNoH{2}{\frac{|AB|}{|BC|}=\frac{|A'B'|}{|B'C'|}}\qquad
+\alertNoH{3}{\frac{|BC|}{|CA|}=\frac{|B'C'|}{|C'A'|}}\qquad
+\alertNoH{4}{\frac{|CA|}{|AB|}=\frac{|C'A'|}{|A'B'|}}
+\]
+\end{theorem}
+
+\begin{center}
+\begin{pspicture}(-1, -1)(1,1)%
+\tiny%
+\pstVerb{30 dict begin
+/xA 0 def
+/yA 0 def
+/xB 2 def
+/yB 1 def
+/xC 1.6 def
+/yC 3 def
+/theShiftX 3 def
+/theShiftY 2 def
+/theRotation 60 def
+/theScale 0.6 def
+/transformThem {5 dict begin /theY exch def /theX exch def 
+theRotation cos theX mul theRotation sin theY mul add theScale mul theShiftX add
+theRotation sin -1 mul theX mul theRotation cos theY mul add theScale mul theShiftY add
+end} def
+}%
+\fcAngleFromThreePoints[anglecolor=blue, linestyle=none]{[xA yA]}{[xB yB]}{[xC yC]}{0.2}%
+\fcAngleFromThreePoints[anglecolor=blue, linestyle=none]{[xA yA]}{[xB yB]}{[xC yC]}{0.25}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.2}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.25}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.3}%
+\fcAngleFromThreePoints[anglecolor=red, linestyle=none]{[xC yC]}{[xA yA]}{[xB yB]}{0.2}%
+\fcAngleFromThreePoints[anglecolor=blue, linestyle=none]{[xA yA transformThem]}{[xB yB transformThem]}{[xC yC transformThem]}{0.2}%
+\fcAngleFromThreePoints[anglecolor=blue, linestyle=none]{[xA yA transformThem]}{[xB yB transformThem]}{[xC yC transformThem]}{0.25}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB transformThem]}{[xC yC transformThem]}{[xA yA transformThem]}{0.2}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB transformThem]}{[xC yC transformThem]}{[xA yA transformThem]}{0.25}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB transformThem]}{[xC yC transformThem]}{[xA yA transformThem]}{0.3}%
+\fcAngleFromThreePoints[anglecolor=red, linestyle=none]{[xC yC transformThem]}{[xA yA transformThem]}{[xB yB transformThem]}{0.2}%
+\psline(! xA yA)(! xB yB)(! xC yC)(! xA yA)%
+\psline(! xA yA transformThem)(! xB yB transformThem)(! xC yC transformThem)(! xA yA transformThem)%
+\only<handout:0|2>{\psline[linecolor=blue, linewidth=2pt](! xA yA)(! xB yB)(! xC yC)}%
+\only<handout:0|3>{\psline[linecolor=green, linewidth=2pt](! xB yB)(! xC yC)(! xA yA)}%
+\only<handout:0|4>{\psline[linecolor=red, linewidth=2pt](! xC yC)(! xA yA)(! xB yB)}%
+\only<handout:0|2>{\psline[linecolor=blue, linewidth=2pt](! xA yA transformThem)(! xB yB transformThem)(! xC yC transformThem)}%
+\only<handout:0|3>{\psline[linecolor=green, linewidth=2pt](! xB yB transformThem)(! xC yC transformThem)(! xA yA transformThem)}%
+\only<handout:0|4>{\psline[linecolor=red, linewidth=2pt](! xC yC transformThem)(! xA yA transformThem)(! xB yB transformThem)}%
+\rput[t](! xA yA){$A$}%
+\rput[l](! xB yB){$B$}%
+\rput[b](! xC yC){$C$}%
+\rput[r](! xA yA transformThem){$A'$}%
+\rput[t](! xB yB transformThem){$B'$}%
+\rput[bl](! xC yC transformThem){$C'$}%
+\pstVerb{end}%
+\end{pspicture}
+\end{center}
+
+
+\end{frame}
