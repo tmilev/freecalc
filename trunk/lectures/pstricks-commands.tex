@@ -42,6 +42,7 @@
 \newcommand{\fcColorAngle}{red}
 \newcommand{\fcForceForeground}{false}
 \newcommand{\fcLineWidth}{1}
+\newcommand{\fcAngleLineWidth}{1pt}
 \newcommand{\fcScale}{1\space}
 \newcommand{\fcArrows}{}
 \newcommand{\fcPlotPoints}{200}
@@ -97,6 +98,7 @@ ifelse\space %
 \define@key{fcGraphics}{linecolor}[\renewcommand{\fcColorLine}{black}]{\renewcommand{\fcColorLine}{#1}}
 \define@key{fcGraphics}{anglecolor}[\renewcommand{\fcColorAngle}{red}]{\renewcommand{\fcColorAngle}{#1}}
 \define@key{fcGraphics}{linewidth}[\renewcommand{\fcLineWidth}{1}]{\renewcommand{\fcLineWidth}{#1}}
+\define@key{fcGraphics}{anglelinewidth}[\renewcommand{\fcAngleLineWidth}{1pt}]{\renewcommand{\fcAngleLineWidth}{#1}}
 \define@key{fcGraphics}{linestyle}[\renewcommand{\fcLineStyle}{0}]{\renewcommand{\fcLineStyle}{#1\space}}
 \define@key{fcGraphics}{fastsort}[\renewcommand{\fcFastPatchSort}{false}]{\renewcommand{\fcFastPatchSort}{#1}}
 \define@key{fcGraphics}{dashes}[\renewcommand{\fcDashes}{[\fcDashLength\space \fcDashLength] 0}]{\renewcommand{\fcDashes}{#1}}
@@ -489,7 +491,7 @@ terminalArmPoint ==
 /theAngle firstV secondV \fcVectorNormalize \fcVectorScalarVector arccos def%
 }ifelse
 }%
-\parametricplot[linecolor=\fcColorAngle]{0}{theAngle}{firstV t cos arcRadius mul \fcVectorTimesScalar orthonormalV t sin arcRadius mul \fcVectorTimesScalar \fcVectorPlusVector angleVertex \fcVectorPlusVector \fcArrayToStack}%
+\parametricplot[linewidth=\fcAngleLineWidth, linecolor=\fcColorAngle]{0}{theAngle}{firstV t cos arcRadius mul \fcVectorTimesScalar orthonormalV t sin arcRadius mul \fcVectorTimesScalar \fcVectorPlusVector angleVertex \fcVectorPlusVector \fcArrayToStack}%
 \psline[#1](! initialArmPoint  \fcArrayToStack)(! angleVertex \fcArrayToStack)(! terminalArmPoint \fcArrayToStack)%
 \pstVerb{end}%
 }%
@@ -2690,9 +2692,10 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 }
 
 \newcommand{\fcPerpendicular}[4][ ]{%
+\setkeys{fcGraphics}{#1}%
 \fcPerpendicularComputeHeel{#2}{#3}{#4}%
 \psline[#1](! thePoint \fcArrayToStack)(! heel \fcArrayToStack)%
-\listplot[linecolor=red]{ [polyLineInput] {\fcArrayToStack} \fcSpliceArrayOperation \fcArrayToStack}%
+\listplot[linecolor=\fcColorAngle, linewidth=\fcAngleLineWidth]{ [polyLineInput] {\fcArrayToStack} \fcSpliceArrayOperation \fcArrayToStack}%
 \pstVerb{end}%
 }
 
