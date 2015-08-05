@@ -78,6 +78,9 @@
 \newcommand{\cP}{{\mathcal{P}}}
 \newcommand{\fcUncoverAlert}[2]{\uncover<#1->{\alert<#1>{#2}}}
 \newcommand{\alertNoH}[2]{\alert<handout:0|#1>{#2}}
+\newcommand{\rectangle}{{%
+  \ooalign{$\sqsubset\mkern2mu$\cr$\mkern1mu\sqsupset$\cr}%
+}}
 \newcommand{\fcAnswerNoH}[2]{
 \FPeval{\fcResult}{clip(#1-1)}
 \uncover<handout:0|\fcResult>{\alertNoH{\fcResult}{\textbf{?} }} \uncover<handout:0| #1->{\alertNoH{#1}{\!\!\!#2}}
