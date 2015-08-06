@@ -30,6 +30,7 @@
 \uncover<3->{\fcPerpendicular[anglelinewidth=1pt]{[pointC]}{[pointB]}{0.03}}%
 \only<handout:0|19>{\fcPerpendicular[anglelinewidth=2pt]{[pointC]}{[pointB]}{0.03}}%
 \only<handout:0|20>{\psline[linewidth=2pt, linecolor=orange](! pointC)(! pointB)}%
+\only<handout:0|21>{\psline[linewidth=2pt, linecolor=blue](! pointC)(! pointB)}%
 \uncover<5->{\fcPerpendicular[anglelinewidth=1pt]{[pointC]}{[pointA]}{0.03}}%
 \only<handout:0|17>{\fcPerpendicular[anglelinewidth=2pt]{[pointC]}{[pointA]}{0.03}}%
 \only<handout:0|7>{\fcPerpendicular[linewidth=2pt,linecolor=blue, anglelinewidth=1pt]{[pointC]}{[pointA]}{0.03}}%
@@ -39,7 +40,7 @@
 \uncover<9->{\fcPerpendicular[]{[pointB]}{  [pointH] [pointC]}{0.03}}%
 \only<handout:0|2,12,17>{\parametricplot[linewidth=2pt, linecolor=red]{0}{alpha}{t cos 0.2 mul t sin 0.2 mul}}%
 \uncover<3->{\fcAngleBetweenVectors{[pointB]}{[pointC]}{0.2}{$~~~~\beta$}}%
-\only<handout:0|3,13>{\parametricplot[linewidth=2pt, linecolor=red]{alpha}{alpha beta add}{t cos 0.2 mul t sin 0.2 mul}}%
+\only<handout:0|3,13,21>{\parametricplot[linewidth=2pt, linecolor=red]{alpha}{alpha beta add}{t cos 0.2 mul t sin 0.2 mul}}%
 \uncover<2->{%
 \psline(0,0)(! pointB)%
 \psline(0,0)(! pointA)%
@@ -48,19 +49,20 @@
 \only<handout:0|13>{\psline[linecolor=green, linewidth=2pt](! pointB)(0,0)}%
 %\only<handout:0|7>{\psline[linecolor=green, linewidth=2pt](! pointD)(0,0)}%
 \uncover<3->{\psline(0,0)(! pointC)}%
-\only<handout:0|4,7,8,13,14>{\psline[linecolor=orange, linewidth=2pt](0,0)(! pointC)}%
+\only<handout:0|4,7,8,13,14,21,22>{\psline[linecolor=orange, linewidth=2pt](0,0)(! pointC)}%
 \uncover<2->{\rput[t](0,-0.02){ $O$}}
 \uncover<2->{\rput[lt](! pointA){ $A$}}
 \uncover<2->{\rput[l](! pointB){ $B$}}
 \uncover<3->{\rput[lb](! pointC){ $C$}}%
-\uncover<3->{\rput[br](! [pointC] 0.5 \fcVectorTimesScalar \fcArrayToStack ){$\alertNoH{4,8,14}{1}~$}}
+\uncover<3->{\rput[br](! [pointC] 0.5 \fcVectorTimesScalar \fcArrayToStack ){$\alertNoH{4,8,14,22}{1}~$}}
 %\rput[br](! [pointB] 0.5 \fcVectorTimesScalar \fcArrayToStack ){$\cos \beta$}
-\rput[l](! [pointC] [pointB] \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack ){$~\sin \beta$}
+\uncover<21->{\rput[l](! [pointC] [pointB] \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack ){$~\alertNoH{22}{\sin \beta} \uncover<handout:0|21>{|OC|}$}}
 \uncover<15->{\rput[l](! [pointB] [pointA] \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack ){$~\alertNoH{15}{\cos \beta\sin \alpha}$}}%
+\uncover<23->{\rput[r](! [pointC] [pointQ] \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack){$ \alertNoH{23}{ \cos\alpha \sin \beta}~~$}}%
 \uncover<5->{\rput[t](! pointD -0.02 add){$D$}}%
 \rput[tl](! pointH){$~~H$}
 \uncover<9->{\rput[br](! pointQ){$Q~$}}%
-\only<handout:0|10,16>{\psline[linecolor=cyan, linewidth=2pt](! pointC)(! pointQ)}%
+\only<handout:0|10,16,23>{\psline[linecolor=cyan, linewidth=2pt](! pointC)(! pointQ)}%
 \only<handout:0|20>{\psline[linecolor=green, linewidth=2pt](! pointC)(! pointQ)}%
 \only<handout:0|10,11>{\psline[linecolor=blue, linewidth=2pt](! pointQ)(! pointD)}%
 \uncover<17>{\rput(! pointH){\fcAngleDegrees[linecolor=blue, linewidth=2pt]{180 alpha add}{270}{0.03}{}}}%
@@ -77,12 +79,12 @@
 
 \noindent $\!\!\!\!
 \begin{array}{r@{~}c@{~}l}
-\alertNoH{1}{\sin (\alertNoH{2}{\alpha}+ \alertNoH{3}{\beta})}& \alertNoH{1}{=} &\displaystyle \fcAnswerUncover{1}{7}{ \frac{|CD|}{\alertNoH{8}{|OC|}}} \uncover<8->{=\alertNoH{10}{|CD|}}\\
-\uncover<10->{&\alertNoH{0}{=}& \alertNoH{10}{\alertNoH{11,15}{|QD|}+\alertNoH{16}{|CQ|}}}\\
-\uncover<15->{&\alertNoH{0}{=}& \alertNoH{15}{\sin \alpha \cos \beta} +\fcAnswerUncover{15}{16}{\cos\alpha \sin \beta}}\\
-\alertNoH{1}{\cos (\alertNoH{2}{\alpha}+\alertNoH{3}{\beta})} &\alertNoH{1}{=}&\displaystyle \fcAnswerUncover{1}{2}{\frac{ |OD|}{|OC|}=|OD|}\\
-&=& |OA|-|DA|\\
-&=& \sin \alpha \cos \beta +\cos\alpha \sin \beta\\
+\alertNoH{1,26}{\sin (\alertNoH{2}{\alpha}+ \alertNoH{3}{\beta})}& \alertNoH{1}{=} &\displaystyle \fcAnswerUncover{1}{7}{ \frac{|CD|}{\alertNoH{8}{|OC|}}} \uncover<8->{=\alertNoH{10}{|CD|}}\\
+\uncover<10->{&\alertNoH{0}{=}& \alertNoH{10}{\alertNoH{11, 15}{|QD |}+ \alertNoH{16,23}{|CQ|}}}\\
+\uncover<15->{& \alertNoH{26}{=}& \alertNoH{26}{\alertNoH{15}{\sin \alpha \cos \beta} +\fcAnswerUncover{15}{23}{\cos\alpha \sin \beta}}}\\
+\alertNoH{24,25,26}{\cos (\alertNoH{2}{\alpha} +\alertNoH{3}{ \beta })} &\alertNoH{24,25}{=}&\displaystyle \fcAnswerUncover{1 }{25}{ \frac{ |OD|}{|OC|}=|OD|}\\
+\uncover<25->{&\alertNoH{25}{=}&\alertNoH{25}{ |OA|-|DA|}}\\
+\uncover<25->{&\alertNoH{25,26}{=}& \alertNoH{25,26}{\cos \alpha \cos \beta +\sin\alpha \sin \beta}} \\
 \end{array}
 $
 
@@ -93,20 +95,20 @@ $
 \uncover<12->{&\alertNoH{12}{=}& \alertNoH{12}{\sin \alpha \alertNoH{13}{|OB|}} &&\!\triangle OAB}\\
 \uncover<13->{&\alertNoH{0}{=}&\sin\alpha \alertNoH{13}{\cos\beta \alertNoH{14}{|OC|}} &&\!\triangle OBC}\\
 \uncover<14->{&\alertNoH{15}{=}& \alertNoH{15}{\sin\alpha \cos \beta}}\\
-\uncover<16->{\alertNoH{16,20}{|CQ|}&\alertNoH{20}{=}& \uncover<20->{\alertNoH{20}{\cos \alpha |CB|}  &&\! \triangle CQB}} \\
-&=&\cos \alpha \sin \beta |OC|  &&\! \triangle OBC\\
-&=&\cos \alpha \sin \beta  \\
-|OA|&=&\cos \alpha |OB| &&\!\triangle OAB\\
-&=&\cos \alpha \cos \beta |OC|&&\!\triangle OBC\\
-&=&\cos \alpha \cos \beta\\
-|DA|&=&|QB|&&\!\rectangle DABQ\\
-&=&\sin \alpha |CB| &&\!\triangle CQB\\
-&=&\sin\alpha \sin\beta|OC|&&\!\triangle OBC\\
-&=&\sin \alpha \sin \beta\\
+\uncover<16->{\alertNoH{16,20,23}{|CQ|}&\alertNoH{20}{=}& \uncover<20->{\alertNoH{20}{\cos \alpha\alertNoH{21}{ |CB|}}  &&\! \triangle CQB}} \\
+\uncover<21->{&\alertNoH{0}{=}&\cos \alpha\alertNoH{21,22}{ \sin \beta  |OC|}  &&\! \triangle OBC}\\
+\uncover<22->{&\alertNoH{23}{=}& \alertNoH{23}{\cos \alpha \alertNoH{22}{\sin \beta } }} \\
+\uncover<25->{|OA|&\alertNoH{0}{=}&\cos \alpha |OB| &&\!\triangle OAB\\
+&\alertNoH{0}{=}&\cos \alpha \cos \beta |OC|&&\!\triangle OBC\\
+&\alertNoH{0}{=}&\cos \alpha \cos \beta\\
+|DA|&\alertNoH{0}{=}&|QB|&&\!\rectangle DABQ\\
+&\alertNoH{0}{=}&\sin \alpha |CB| &&\!\triangle CQB\\
+&\alertNoH{0}{=}&\sin\alpha \sin\beta|OC|&&\!\triangle OBC\\
+&\alertNoH{0}{=}&\sin \alpha \sin \beta\\}
 \end{array}
 $
-\uncover<20>{}
 \end{columns}
 
 \end{frame}
+
 

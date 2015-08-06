@@ -1,0 +1,27 @@
+\begin{frame}
+\begin{example}
+Use the angle sum/difference formulas to simplify.
+\begin{columns}
+\column{0.2\textwidth}
+\uncover<2->{
+\begin{pspicture}(-1.2,-1.2)(1.2,1.2)
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}
+\parametricplot[linecolor=blue, arrows=->]{0}{90}{t cos t sin}
+%\psline[linecolor=blue, linewidth=2pt](0,0)(0,1)
+\end{pspicture}
+}
+\column{0.8\textwidth}
+$
+\begin{array}{rcl}
+\displaystyle \cos \left(\frac{\pi}{2}-x\right)\uncover<2->{&=&\displaystyle  \cos \left(\frac{ \pi }{ 2} \right)\cos x +\sin \left(\frac{ \pi }{ 2} \right)\sin x \\
+&=&\displaystyle  0\cdot\cos\left(x\right)+1\cdot \sin x\\
+&=&\sin x
+}
+\end{array}
+$
+\end{columns}
+
+
+\end{example}
+\end{frame}

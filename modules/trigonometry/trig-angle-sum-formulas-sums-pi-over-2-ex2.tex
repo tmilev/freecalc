@@ -1,0 +1,30 @@
+\begin{frame}
+\begin{example}
+Use the angle sum/difference formulas to simplify.
+\begin{columns}
+\column{0.2\textwidth}
+\uncover<2->{
+\begin{pspicture}(-1.2,-1.2)(1.2,1.2)
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}
+\parametricplot[linecolor=blue, arrows=->]{0}{270}{t cos t sin}
+\parametricplot[linecolor=blue, arrows=->]{0}{270}{t cos 0.2 mul t sin 0.2 mul}
+%\psline[linecolor=blue, linewidth=2pt](0,0)(0,-1)
+\end{pspicture}
+}
+\column{0.8\textwidth}
+$
+\begin{array}{rcl}
+\displaystyle \cot \left(\frac{3\pi}{2} + x \right)\uncover<2->{&=&\displaystyle  \frac{\cos\left(\frac{3\pi}{2} + x \right) }{\sin \left(\frac{3\pi}{2} + x \right)} \\
+&=&\displaystyle \frac{ \cos\left(\frac{3\pi}{2} \right)\cos x -\sin\left(\frac{3\pi}{2} \right)\sin x  }{\sin\left(\frac{3\pi}{2} \right)\cos x +\cos\left(\frac{3\pi}{2} \right)\sin x}\\
+&=&\displaystyle \frac{ 0\cdot \cos x - (-1)\sin x  }{(-1)\cos x +0\cdot\sin x}\\
+&=&\displaystyle \frac{\sin x}{-\cos x}=-\frac{\sin x}{\cos x}\\
+&=&\displaystyle -\tan x
+}
+\end{array}
+$
+\end{columns}
+
+
+\end{example}
+\end{frame}
