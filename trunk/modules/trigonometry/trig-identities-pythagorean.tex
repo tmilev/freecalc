@@ -1,4 +1,3 @@
-% begin module trig-identities
 \begin{frame}
 \frametitle{Trigonometric Identities}
 \begin{definition}[Trigonometric Identity]
@@ -84,7 +83,6 @@ Therefore $\sin^2 \theta + \cos^2 \theta = 1$.%
 \end{columns}
 \end{frame}
 
-
 \begin{frame}
 \begin{columns}[c]
 \column{.45\textwidth}
@@ -112,85 +110,3 @@ Prove the identity $\tan^2 \theta + 1 = \sec^2 \theta$.
 \end{example}
 \end{columns}
 \end{frame}
-
-\begin{frame}[t]
-The remaining identities are consequences of the addition formulas:
-\[
-\begin{array}{ccccc}
-\sin (x + y) & = & \sin x\cos y & + & \cos x \sin y \\
-\cos (x + y) & = & \cos x\cos y & - & \sin x \sin y 
-\end{array}
-\]
-\uncover<2->{
-Substitute $-y$ for $y$, and use the fact that $\sin(-y) = -\sin y$ and $\cos (-y) = \cos y$:
-\[
-\begin{array}{ccccc}
-\sin (x - y) & = & \sin x\cos y & - & \cos x \sin y \\
-\cos (x - y) & = & \cos x\cos y & + & \sin x \sin y 
-\end{array}
-\]
-}
-\end{frame}
-
-
-\begin{frame}[t]
-The remaining identities are consequences of the addition formulas:
-\[
-\begin{array}{ccccc}
-\sin (x + y) & = & \sin x\cos y & + & \cos x \sin y \\
-\cos (x + y) & = & \cos x\cos y & - & \sin x \sin y 
-\end{array}
-\]
-\uncover<2->{
-To get the double angle formulas, substitute $x$ for $y$:
-\[
-\begin{array}{rcl}
-\sin (2x) & = & 2\sin x\cos x \\
-\cos (2x) & = & \cos^2 x - \sin^2 x
-\end{array}
-\]
-}
-\uncover<3->{
-Rewrite the second double angle formula in two ways, using $\cos^2 x = 1 - \sin^2 x$ and $\sin^2 x = 1 - \cos^2 x$:
-\[
-\begin{array}{rcl}
-\cos (2x) & = & 2\cos^2 x  -1\\
-\cos (2x) & = & 1 - 2\sin^2 x
-\end{array}
-\]
-}
-\uncover<4->{
-To get the half-angle formulas, solve these equations for $\cos^2 x$ and $\sin^2 x$ respectively.
-\[
-\cos^2 x = \frac{1 + \cos(2x)}{2}, \qquad \sin^2 x = \frac{1 - \cos(2x)}{2} 
-\]
-}
-\end{frame}
-
-
-\begin{frame}[t]
-The remaining identities are consequences of the addition formulas:
-\[
-\begin{array}{ccccc}
-\sin (x + y) & = & \sin x\cos y & + & \cos x \sin y \\
-\cos (x + y) & = & \cos x\cos y & - & \sin x \sin y 
-\end{array}
-\]
-\uncover<2->{
-Divide the first equation by the second, and then cancel $\cos x \cos y$ from the top and bottom:
-\[
-\begin{array}{rcl}
-\tan (x + y)  & = & \frac{\tan x + \tan y}{1 - \tan x \tan y}
-\end{array}
-\]
-}
-\uncover<3->{
-Do the same for the subtraction formulas:
-\[
-\begin{array}{rcl}
-\tan (x - y)  & = & \frac{\tan x - \tan y}{1 + \tan x \tan y}
-\end{array}
-\]
-}
-\end{frame}
-% end module trig-identities
