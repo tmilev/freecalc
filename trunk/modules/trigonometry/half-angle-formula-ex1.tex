@@ -1,17 +1,45 @@
 \begin{frame}
 \uncover<2->{
 Recall the half angle formula $\begin{array}{rcl}
-\displaystyle \cos \left(\alertNoH{2}{\frac{\beta}{2}} \right) &=&\displaystyle \pm\sqrt{\frac{1+\cos\alertNoH{16}{ \beta}}{2}}.
+\displaystyle \cos \alertNoH{3}{\alpha}  &=&\displaystyle \pm\sqrt{\frac{1+\cos (2 \alertNoH{3}{ \alpha}) }{2}}.
 \end{array}
 $
 }
 
 \begin{example}
 Using radicals, find the exact value of the trigonometric expression.
+\begin{columns}
+\column{0.2\textwidth}
+\begin{pspicture}(-1.2,-1.2)(1.2,1.2)%
+\tiny%
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}%
+\pstVerb{20 dict begin /theAngle 105 def /baseReferenceAngle 180 def}%
+\uncover<5->{%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\parametricplot[linecolor=blue]{0}{theAngle}{t cos 0.2 mul t sin 0.2 mul}%
+\psline[arrows=->](0,0)(! theAngle cos 1.2 mul theAngle sin 1.2 mul)%
+}
+\uncover<handout:0|5,6>{\psline[linecolor=green, linewidth=2pt](0,0)(! theAngle cos 0)%
+\fcPerpendicular{[theAngle cos theAngle sin]}{[1 0]}{0.15}%
+}%
+\uncover<7->{\parametricplot[linecolor=green]{0}{theAngle 2 mul}{t cos 0.3 mul t sin 0.3 mul}%
+\psline[arrows=->](0,0)(! theAngle 2 mul cos 1.2 mul theAngle 2 mul sin 1.2 mul)%
+}%
+\uncover<8->{\parametricplot[linecolor=brown]{baseReferenceAngle}{theAngle 2 mul}{t cos 0.4 mul t sin 0.4 mul}%
+\rput(! baseReferenceAngle theAngle 2 mul add 2 div dup cos 0.5 mul exch sin 0.4 mul){$30^\circ$}%
+}
+\pstVerb{end}
+\end{pspicture}
+\column{0.8\textwidth}
 \[
-\begin{array}{rcl}
-\cos \alertNoH{3}{ 105^{\circ}} \uncover<3->{&=&\pm \sqrt{\frac{ 1+\cos 210^\circ}{2} }}
+\begin{array}{@{}r@{~}c@{~}l@{}l|l}
+\cos \alertNoH{3}{ 105^{\circ}} \uncover<3->{&=&\displaystyle \alertNoH{4,5,6}{\pm} \sqrt{\frac{ 1+\cos \left( \alertNoH{7}{2\cdot \alertNoH{3}{105^\circ}} \right)}{2} }} \uncover<4->{&&\alertNoH{6}{ \cos 105^\circ \fcAnswer{5}{<} 0}}\\
+\uncover<6->{&=&\displaystyle \alertNoH{6}{-} \sqrt{\frac{ 1+\alertNoH{9}{\cos \left( \alertNoH{7}{210^\circ} \right)} }{2} }}\\
+\uncover<9->{&=&\displaystyle - \sqrt{\frac{ 1\alertNoH{9}{-\alertNoH{10,11}{\cos \left( 30^\circ \right)}} }{2} }}\\
+\uncover<10->{&=&\displaystyle - \sqrt{\frac{ \alertNoH{12}{1}-\fcAnswer{11}{\frac{\sqrt{3}}{\alertNoH{12}{2}}} }{2} }} \uncover<12->{ =\displaystyle - \onlyNoH{13}{\color{red}} \sqrt{\onlyNoH{13}{\color{black}} \frac{\alertNoH{12}{ 2}-\sqrt{3} }{ \alertNoH{13}{\alertNoH{12 }{2}\cdot 2} }}}\\
+\uncover<13->{ &=&\displaystyle - \frac{\sqrt{ 2-\sqrt{3} }}{\alertNoH{13}{2}} }
 \end{array}
 \]
+\end{columns}
 \end{example}
 \end{frame}
