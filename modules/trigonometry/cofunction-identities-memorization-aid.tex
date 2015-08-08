@@ -1,0 +1,90 @@
+\begin{frame}
+\frametitle{Cofunction identities}
+\vskip -0.1cm
+\begin{proposition}[Cofunction identities]
+\hfil \hfil$
+\renewcommand{\arraystretch}{1.4}
+\begin{array}{rclrcl}
+\displaystyle \sin \left(\frac{\pi}{2}-\alpha\right)&=&\cos \alpha &\displaystyle \sin \left(\frac{\pi}{2}+\alpha\right)&=&\cos \alpha \\
+\displaystyle \cos \left(\frac{\pi}{2}- \alpha\right)&=&\sin \alpha &\displaystyle \cos \left(\frac{\pi}{2}+\alpha\right)&=&-\sin \alpha
+\end{array}
+$
+\end{proposition}
+To memorize the cofunction identities it suffices to memorize the Quadrant I case via the two diagrams below.
+\begin{center}
+\begin{tabular}{cc}
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.3,-0.4)(1.3,1.3)%
+\tiny
+\fcAxesStandard{-1.3}{-0.4}{1.3}{1.3}%
+\pstVerb{25 dict begin }%
+\pstVerb{
+/theAngle 30 def /theR 1.2 def 
+/pX {theAngle cos theR mul} def
+/pY {theAngle sin theR mul} def
+/pXother {90 theAngle sub cos theR mul} def
+/pYother {90 theAngle sub sin theR mul} def
+}%
+\parametricplot[linecolor=red]{0}{theAngle}{t cos 0.3 mul t sin 0.3 mul}%
+\parametricplot[linecolor=blue]{theAngle}{90}{t cos 0.25 mul t sin 0.25 mul}%
+\psline[arrows=->](0,0)(! theAngle cos 1.4 mul theAngle sin 1.4 mul)%
+\fcPerpendicular[linecolor=green]{[ pX pY]}{[1 0]}{0.1}%
+\fcPerpendicular[linecolor=green]{[ pX pY]}{[0 1]}{0.1}%
+\rput[lt](0,0){$~O$}%
+\rput(! theAngle 2 div cos 0.37 mul theAngle 2 div sin 0.37 mul){$ \alpha$}%
+\rput[lb](0.05, 0.25){$\frac{\pi}{2}-\alpha$}%
+\rput[br](! pX pY 0.05 add){$P~$}%
+\fcFullDot{pX}{pY}%
+\rput[t](! pX -0.05){$R$}%
+\rput[r](! -0.05 pY ){$Q$}%
+\pstVerb{end}%
+\end{pspicture}
+&
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.3,-1.3)(1.3,1.3)%
+\tiny
+\fcAxesStandard{-1.3}{-0.4}{1.3}{1.3}%
+\pstVerb{25 dict begin }%
+\pstVerb{
+/theAngle 30 def /theR 1.2 def 
+/pX {theAngle cos theR mul} def
+/pY {theAngle sin theR mul} def
+/pXother {90 theAngle sub cos theR mul} def
+/pYother {90 theAngle sub sin theR mul} def
+}%
+\pstVerb{
+/pXother theAngle 90 add cos theR mul def
+/pYother theAngle 90 add sin theR mul def
+}%
+\parametricplot[linecolor=red]{0}{theAngle}{t cos 0.3 mul t sin 0.3 mul}%
+\psline[arrows=->](0,0)(! theAngle cos 1.4 mul theAngle sin 1.4 mul)%
+\fcPerpendicular[linecolor=green]{[ pX pY]}{[1 0]}{0.1}%
+\rput[lt](0,0){$~O$}%
+\rput(! theAngle 2 div cos 0.37 mul theAngle 2 div sin 0.37 mul){$ \alpha$}%
+\parametricplot[linecolor=red]{90}{theAngle 90 add}{t cos 0.3 mul t sin 0.3 mul}
+\parametricplot[linecolor=blue]{0}{theAngle 90 add}{t cos 0.43 mul t sin 0.43 mul}%
+\rput[lb](0.05, 0.4){$\frac{\pi}{2}+\alpha$}%
+\rput(! theAngle 2 div 90 add cos 0.37 mul theAngle 2 div 90 add sin 0.37 mul){$ \alpha$}%
+\fcPerpendicular[linecolor=green]{[pXother pYother]}{[1 0]}{0.1}%
+\fcPerpendicular[linecolor=green]{[pXother pYother]}{[0 1]}{0.1}%
+\rput[br](! pXother pYother 0.05 add){$P'$}%
+\psline[arrows=->](0,0)(! pXother 1.2 mul pYother 1.2 mul)%
+\rput[br](! pX pY 0.05 add){$P~$}%
+\fcFullDot{pX}{pY}%
+\rput[t](! pX -0.05){$R$}%
+\rput[l](! 0.05 pYother ){$Q'$}%
+\rput[b](! pXother 0.05){$R'$}%
+\pstVerb{end}%
+\end{pspicture}\\
+$\begin{array}{rcl}\sin \left(\frac{\pi}{2}-\alpha\right)&=&\frac{|PQ|}{|OP|}\\
+\cos \left(\frac{\pi}{2}-\alpha\right)&=&\frac{|OQ|}{|OP|}
+\end{array}
+$& $\begin{array}{rcl}
+\sin \left(\frac{\pi}{2}+\alpha\right)&=&\frac{|OQ'|}{|OP|}\\
+\cos \left(\frac{\pi}{2}+\alpha\right)&=&- \frac{|PQ'|}{|OP'|}=\frac{|PR|}{|OP|}
+\end{array}
+$
+\end{tabular}
+\end{center}
+\vskip 10cm
+\end{frame}

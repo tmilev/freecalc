@@ -1,0 +1,149 @@
+\begin{frame}
+\frametitle{Cofunction identities}
+\vskip -0.1cm
+\begin{proposition}[Cofunction identities]
+\hfil \hfil$
+\renewcommand{\arraystretch}{1.4}
+\begin{array}{rclrcl}
+\displaystyle \sin \left(\frac{\pi}{2}- \alpha \right) & =& \cos \alpha  &\displaystyle \sin \left(\frac{\pi}{2}+ \alpha\right)& = &\cos \alpha \\
+\displaystyle \cos \left(\frac{\pi}{2}- \alpha\right)& =  &\sin \alpha &\displaystyle \cos \left( \frac{\pi }{ 2}+\alpha\right)&=&-\sin \alpha
+\end{array}
+$
+\end{proposition}
+\vskip -0.1cm
+\begin{proof}[Part of Proof]
+\begin{columns}
+\column{0.32\textwidth} 
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.3,-1.3)(1.3,1.3)%
+\tiny%
+\fcAxesStandard{-1.3}{-1.3}{1.3}{1.3}%
+\pstVerb{25 dict begin }%
+\pstVerb{%
+/theAngle 30 def /theR 1.2 def 
+/pX {theAngle cos theR mul} def
+/pY {theAngle sin theR mul} def
+/pXother {90 theAngle sub cos theR mul} def
+/pYother {90 theAngle sub sin theR mul} def
+}%
+\only<handout:2|8-21>{\pstVerb{/theAngle 210 def}}%
+\only<handout:3|22->{\pstVerb{
+/pXother theAngle 90 add cos theR mul def
+/pYother theAngle 90 add sin theR mul def
+}}%
+\parametricplot[linecolor=red]{0}{theAngle}{t cos 0.3 mul t sin 0.3 mul}% angle alpha
+\uncover<handout:1|2-7>{\parametricplot[linecolor=blue]{theAngle}{90}{t cos 0.25 mul t sin 0.25 mul}}%
+\onlyNoH{4}{\parametricplot[linewidth=2pt, linecolor=blue]{ theAngle }{90}{t cos 0.25 mul t sin 0.25 mul}}%
+\psline[arrows=->](0,0)(! theAngle cos 1.4 mul theAngle sin 1.4 mul)%
+\fcPerpendicular{[ pX pY]}{[1 0]}{0.1}%segment PR
+\only<handout:1|3-7>{\fcPerpendicular[linecolor=green]{[ pX pY]}{[0 1]}{0.1}}%segment PQ
+\onlyNoH{12,15}{\psline[linecolor=blue, linewidth=2pt](! pXother 0)(! pXother pYother)}%segment P'R'
+\onlyNoH{25,28}{\psline[linecolor=green, linewidth=2pt](! pXother 0)(0,0)}%segment OR'
+\onlyNoH{15,18}{\psline[linecolor=green, linewidth=2pt](! 0 0)(! 0 pYother)}%
+\onlyNoH{4,6,18,19,31,32}{\psline[linecolor=orange, linewidth=2pt](0,0)(! pX pY)}% segment OP
+\onlyNoH{4,5}{\psline[linecolor=blue, linewidth=2pt](! pX pY)(! 0 pY)}%
+\onlyNoH{5,6,18,19}{\psline[linewidth=2pt, linecolor=green](0, 0)(! pX 0)}%segment OR
+\onlyNoH{32}{\psline[linewidth=2pt, linecolor=blue](! pX pY)(! pX 0)}%segment PR
+\onlyNoH{31}{\psline[linewidth=2pt, linecolor=green](! pX pY)(! pX 0)}%segment PR
+\onlyNoH{6,19,20,30}{\parametricplot[linewidth=2pt, linecolor=red]{0 }{theAngle }{t cos 0.3 mul t sin 0.3 mul}}%angle alpha
+\rput[lt](0,-0.02){$~O$}%
+\rput(! theAngle 2 div cos 0.37 mul theAngle 2 div sin 0.37 mul){$ \alpha$}%
+\only<handout:1|2-7>{\rput[lb](0.05, 0.25){$\alertNoH{2}{\frac{\pi }{2} -\alpha}$}}%
+\only<handout:2|9-21>{\parametricplot[linecolor=blue]{0}{theAngle -1 mul}{t cos 0.43 mul t sin 0.43 mul}}%
+\only<handout:2|10-21>{\parametricplot[linecolor=brown]{0}{theAngle -1 mul 90 add}{t cos 0.26 mul t sin 0.26 mul}}%
+\onlyNoH{10,11,12}{\parametricplot[linewidth=2pt, linecolor=brown]{0 }{ theAngle -1 mul 90 add}{t cos 0.26 mul t sin 0.26 mul}}%
+\only<handout:3|29->{\parametricplot[linecolor=red]{90}{theAngle 90 add}{t cos 0.3 mul t sin 0.3 mul}%
+\rput(! theAngle 2 div 90 add cos 0.37 mul theAngle 2 div 90 add sin 0.37 mul){$ \alpha$}%
+}%arc from y axis to OP'
+\onlyNoH{29,30}{\parametricplot[linewidth=2pt, linecolor=red]{90}{ theAngle 90 add}{t cos 0.3 mul t sin 0.3 mul}}%arc from y axis to OP'
+\only<handout:3|23->{%
+\parametricplot[linecolor=blue]{0}{theAngle 90 add}{t cos 0.43 mul t sin 0.43 mul}%
+\rput[lb](0.05, 0.4){$\frac{\pi}{2}+\alpha$}%
+}%
+\only<handout:2|9-21>{\rput(! theAngle -0.5 mul cos 0.53 mul theAngle -0.5 mul sin 0.53 mul){$\alertNoH{9}{-\alpha}~$}}%
+\only<handout:2|9-21>{%
+\psline[arrows=->](0,0)(! theAngle -1 mul cos 1.4 mul theAngle -1 mul sin 1.4 mul)%
+}%
+\only<handout:2|9-21>{%
+\rput[br](! pX pY -1 mul 0.08 add){$T$}%
+\fcFullDot{pX}{pY -1 mul}%
+}%
+\only<handout:2|10-21>{\rput(! 90 theAngle sub 2 div dup cos 0.4 mul exch sin 0.4 mul){$~~\frac{\pi}{2}-\alpha $} }%
+%\only<handout:2|9->{%
+%\fcPerpendicular[linecolor=green]{[pX pY -1 mul]}{[1 0]}{0.1}%
+%}%
+\only<handout:2|11-21>{%
+\fcPerpendicular[linecolor=blue]{[pXother pYother]}{[1 0]}{0.1}%
+}%
+\only<handout:2|24->{\fcPerpendicular{[pXother pYother]}{[1 0]}{0.1}}%
+\only<handout:2,3|14-21,27->{\fcPerpendicular[linecolor=green]{[pXother pYother]}{[0 1]}{0.1}}%segment P'Q'
+\onlyNoH{28,31}{\psline[linecolor=green, linewidth=2pt](! pXother pYother)(! 0 pYother)}%segment P'Q'
+\only<handout:2,3|10-21,23->{%
+\psline[arrows=->](0,0)(! pXother 1.2 mul pYother 1.2 mul)%
+\rput[br](! pXother pYother 0.05 add){$P'$}%
+\fcFullDot{pXother}{pYother}%
+}%
+\only<handout:2|10-21>{\fcPerpendicular{[pXother pYother]}{[pX -1 mul pY]}{0.1}}%
+\only<handout:3|23->{\fcPerpendicular{[pXother pYother]}{[pX -1 mul pY -1 mul]}{0.07}}%
+\onlyNoH{12,18,25,31}{\psline[linecolor=orange, linewidth=2pt](0,0)(! pXother pYother)}%segment OP'
+\onlyNoH{16,17}{\parametricplot[linewidth=2pt, linecolor= green]{450 theAngle sub}{270}{t cos 0.33 mul t sin 0.33 mul}}%
+\onlyNoH{16,17}{\parametricplot[linewidth=2pt, linecolor=green]{  180}{ theAngle}{t cos 0.33 mul t sin 0.33 mul}}%
+\onlyNoH{17,30}{%
+\psline[linewidth=2pt, linecolor=red](0,0)(! pXother pYother)(! 0 pYother)(0,0)%triangle OP'Q'
+\psline[linewidth=2pt, linecolor=red](0,0)(! pX pY)(! pX 0)(0,0)%
+}%triangle OPR
+\only<handout:2|18-21>{\parametricplot[linecolor=green]{450 theAngle sub}{270}{t cos 0.33 mul t sin 0.33 mul}}%
+\only<handout:2|18-21>{\parametricplot[linecolor=green]{  180}{ theAngle}{t cos 0.33 mul t sin 0.33 mul}}%
+\rput[br](! pX pY 0.05 add){$P~$}%
+\fcFullDot{pX}{pY}%
+\only<handout:1,3|1-7, 22->{\rput[t](! pX -0.05){$R$}}%
+\only<handout:2|8-21>{\rput[b](! pX 0.05){$R$}}%
+\only<handout:2,3|14-21, 27->{\rput[l](! 0.05 pYother ){$Q'$}}%
+\only<handout:2|11-21>{\rput[b](! pXother 0.05){$R'$}}%
+\only<handout:3|24->{\rput[t](! pXother -0.05){$R'$}}%
+\only<handout:1|3-7>{\rput[r](! -0.05 pY ){$Q$}}%
+\pstVerb{end}%
+\end{pspicture} 
+
+\vspace{0.25cm}
+
+\column{0.68\textwidth} 
+\only<handout:1 |1-7>{
+\noindent We are showing $\sin \left(\frac{\pi}{2}-\alpha\right)=\cos \alpha$ when $\alpha$ is in quadrant I. 
+
+\hfil $
+\begin{array}{rcll|l}
+\displaystyle \uncover<2->{\alertNoH{4,7}{\sin \left( \alertNoH{2}{ \frac{\pi}{2}- \alpha} \right)} & \alertNoH{4}{ =}&\displaystyle \uncover<4->{\alertNoH{4}{ \frac{ \alertNoH{5}{|PQ|} }{|OP|}}} \uncover<5->{&&\rectangle ORPQ}}\\
+\uncover<5->{&\alertNoH{0}{=} &\displaystyle \alertNoH{6}{ \frac{\alertNoH{5}{|OR|} }{|OP|}}}\\
+\uncover<6->{ &\alertNoH{6,7}{=} &\displaystyle \alertNoH{6,7}{\cos\alpha} \uncover<7->{&&\text{as desired}}}
+\end{array}
+$
+}
+\only<handout:2|8-21>{
+\noindent We are showing $\sin \left(\frac{\pi}{2}-\alpha\right)=\cos \alpha$ when \alertNoH{13}{$\alpha$ is in Quadrant III}. \uncover<13->{It follows \alertNoH{13,20}{$\frac{\pi}{2}-\alpha$ is in Quadrant III}.} 
+
+\hfil $
+\begin{array}{@{}r@{}c@{}l@{}l|l}
+\displaystyle \uncover<9->{\alertNoH{12,21}{\sin \left( \alertNoH{10}{ \frac{\pi}{2} \alertNoH{9}{-\alpha}} \right)} & \alertNoH{12}{=}& \displaystyle \uncover<12->{ \alertNoH{12}{ \alertNoH{13}{-}  \frac{ \alertNoH{15}{| P'R'|} }{|OP'|}}} \uncover<15->{=- \alertNoH{18}{ \frac{ \alertNoH{15}{|OQ'|} }{|OP'|}} && \rectangle OR'P'Q'}}\\
+\uncover<18->{&\alertNoH{0}{=}&\displaystyle \alertNoH{19}{ \alertNoH{20}{-} \alertNoH{18}{ \frac{|OR|}{|OP| }}}}\\
+\uncover<19->{&\alertNoH{21}{=}&\displaystyle\alertNoH{19,21}{ \cos\alpha } \uncover<21->{&&\text{as desired}}}
+\end{array}
+$
+}
+\only<handout:3|22->{
+\noindent We show $\cos \left(\frac{\pi}{2}+\alpha\right)=-\sin \alpha$ when \alertNoH{26}{$\alpha$ is in Quadrant I}. \uncover<26->{It follows \alertNoH{26}{$\frac{\pi}{2}+\alpha$ is in Quadrant II}.}
+
+\hfil $
+\begin{array}{rcll|l}
+\displaystyle\uncover<23->{ \alertNoH{25,33}{\cos \left(\alertNoH{23}{ \frac{\pi}{ 2} +\alpha} \right)}&\alertNoH{25}{=} & \displaystyle \uncover<25->{ \alertNoH{25}{ \alertNoH{26}{-} \frac{\alertNoH{28}{ |OR'|}}{ |OP'| }}} \uncover<28->{&&\rectangle ORPQ}}\\
+\uncover<28->{&\alertNoH{0}{=}&\displaystyle - \frac{\alertNoH{28,31}{|P'Q'|} }{\alertNoH{31}{|OP'|}}}\\
+\uncover<31->{&\alertNoH{0}{=}&\displaystyle - \alertNoH{32}{ \frac{ \alertNoH{31}{ |PR|}}{ \alertNoH{31}{| OP|}}}}\\
+\uncover<32->{&\alertNoH{33}{=}&\displaystyle \alertNoH{33}{- \alertNoH{32}{\sin\alpha}}. \uncover<33->{&&\text{as desired}}}
+\end{array}
+$
+}
+\end{columns}
+\vskip -0.2cm
+\end{proof}
+\vskip 10cm
+\end{frame}
