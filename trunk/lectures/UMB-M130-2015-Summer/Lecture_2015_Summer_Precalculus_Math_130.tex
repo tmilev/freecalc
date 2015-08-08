@@ -1,18 +1,16 @@
 \documentclass%
 %[handout]
 {beamer}
-\newcommand{\currentLecture}{15}
-\newcommand{\semester}{Summer 2015}
-% % % % % % % %
-% % % % % % % %
 % % % % % % % %
 %IMPORTANT
 %compiles with
 %pdflatex -shell-escape
 %IMPORTANT
 % % % % % % % %
-% % % % % % % %
-% % % % % % % %
+\input{../example-templates}
+%\turnOnWorksheetMode
+\newcommand{\currentLecture}{15}
+\newcommand{\semester}{Summer 2015}
 
 
 
@@ -28,7 +26,6 @@
 \usepackage[latin1]{inputenc}
 \usepackage[all,cmtip]{xy}
 \usepackage{times}
-\input{../example-templates}
 \input{../pstricks-commands}
 \usepackage{pst-3dplot}
 
@@ -429,9 +426,10 @@
 
 \lect{\semester}{Lecture 15}{15}{% begin lecture
 \section{Cofunction identities}
-\input{../../modules/trigonometry/cofunction-identities}
+%\input{../../modules/trigonometry/cofunction-identities-part1}
+%\input{../../modules/trigonometry/cofunction-identities-part2}
+%\input{../../modules/trigonometry/cofunction-identities-memorization-aid}
 \section{Trigonometric Functions of Sums of Angles}
-
 %\input{../../modules/trigonometry/similar-triangles-def}
 %\input{../../modules/trigonometry/similar-triangles-same-side-ratios}
 %\input{../../modules/trigonometry/trig-angle-sum-formulas-geometric-proof}
@@ -441,17 +439,27 @@
 %\input{../../modules/trigonometry/trig-angle-sum-formulas-sums-pi-over-2-ex1}
 %\input{../../modules/trigonometry/trig-angle-sum-formulas-sums-pi-over-2-ex2}
 %\input{../../modules/trigonometry/tan-angle-sum-formula}
+\section{Double Angle Formulas}
+%\input{../../modules/trigonometry/double-angle-formulas}
+%\input{../../modules/trigonometry/double-angle-formulas-proof}
+%\input{../../modules/trigonometry/power-reducing-formulas}
+%\input{../../modules/trigonometry/power-reducing-formulas-ex1}
+\input{../../modules/trigonometry/half-angle-formula-ex1}
 
-%\subsection{Trigonometric Identities}
+
+}
+
+
+\lect{\semester}{Lecture 16}{16}{% begin lecture
+\section{Trigonometric Identities}
 %\input{../../modules/trigonometry/trig-identities-example-1}
 %\input{../../modules/trigonometry/trig-identities-strategy-note}
 %\input{../../modules/trigonometry/trig-identities-example-2}
-%\section{Trigonometric equations}
+\section{Trigonometric equations}
 
 %\input{../../modules/trigonometry/trig-equations-intro}
 %\input{../../modules/trigonometry/trig-equations-example}
 %\input{../../modules/trigonometry/trig-equations-strategy}
 %\input{../../modules/trigonometry/trig-equations-example-2}
 }
-
 \end{document}

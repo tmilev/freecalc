@@ -117,6 +117,17 @@
 %<-WARNING: the superflous-looking \alertNoH{0} is needed:
 % for some unknown to me reason it causes LaTeX to add the correct amount of spacing.
 
+
+%Code from user cfr from stackexchange, from discussion:
+%http://tex.stackexchange.com/questions/259138/beamer-class-creating-3-modes-presentation-handout-and-custom
+ \makeatletter
+\newcommand{\turnOnWorksheetMode}{
+     \gdef\beamer@currentmode{exhandout}%
+     \def\animate<##1>{\transduration<##1| handout:0| exhandout:0| trans:0>{0}}%
+}
+ \makeatother
+
+
 %code blocks regular expression that replaces all strings of the form \alert<handout:0| a> by \alertNoH{a}:
 %Find:
 %\\alert<[^|^0]*0|\([^>]*\)>
