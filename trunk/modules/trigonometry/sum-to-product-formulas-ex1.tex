@@ -1,6 +1,89 @@
 \begin{frame}
+\uncover<2->{Recall the formula $\alertNoH{2,3}{\sin \alertNoH{4}{\alpha}+\sin \alertNoH{5}{\beta} = }\fcAnswer{3}{ 2\sin\left(\frac{\alertNoH{4}{\alpha} +\alertNoH{5}{\beta }}{2} \right) \cos \left( \frac{\alertNoH{4}{\alpha} -\alertNoH{5}{ \beta}}{2}\right)}
+$}
 \begin{example}
-Solve the equation $\sin (2x)+\sin(5x)=0$.
+Find all solutions \alertNoH{19,28}{in the interval $[0, 2\pi)$}.
+\begin{columns}[T]
+\column{0.25\textwidth}
+\begin{pspicture}[t](-1.2,-1.2)(1.2,1.2)%
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\uncover<13->{\parametricplot[arrows=->, linecolor=cyan]{0}{180}{t cos 0.3 mul t sin 0.3 mul}}%
+\uncover<14->{\parametricplot[arrows=->, linecolor=blue]{0}{360}{t cos 0.5 t 4000 div add mul t sin 0.5 t 5000 div add mul}}%
+\uncover<15->{\parametricplot[arrows=->, linecolor=purple]{0}{540}{t cos 0.7 t 4000 div add mul t sin 0.7 t 5000 div add mul}}%
+\end{pspicture}
+
+\begin{pspicture}[t](-1.2,-1.2)(1.2,1.2)
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}
+\uncover<21->{\parametricplot[arrows=->, linecolor=cyan]{0}{90}{t cos 0.2 mul t sin 0.2 mul}}
+\uncover<22->{\parametricplot[arrows=->, linecolor=blue]{0}{270}{t cos 0.4 mul t sin 0.4 mul}}
+\uncover<23->{\parametricplot[arrows=->, linecolor=blue]{0}{450}{t cos 0.6 t 4000 div add mul t sin 0.6 t 5000 div add mul}}
+\uncover<24->{\parametricplot[arrows=->, linecolor=purple]{0}{630}{t cos 0.8 t 4000 div add mul t sin 0.8 t 5000 div add mul}}
+\end{pspicture}
+
+
+
+
+
+\vspace{1.5cm}
+\column{0.75\textwidth}
+$
+\begin{array}{@{}r@{}c@{}l@{}l|l}
+{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~} \sin (\alertNoH{4}{2x})+ \sin(\alertNoH{5}{5x}) &\alertNoH{0}{=}&0 \uncover<2->{&&\text{use f-la~~~}} \\
+\only<handout:1|1-8>{%
+\displaystyle \uncover<4->{ 2\sin \left(\frac{\alertNoH{4}{\alertNoH{6}{2}x} +\alertNoH{5}{\alertNoH{6}{5}x}}{\alertNoH{6}{2}} \right) \cos \left( \frac{ \alertNoH{4}{\alertNoH{6}{2}x} \alertNoH{6}{-} \alertNoH{5}{ \alertNoH{6}{5} x}}{ \alertNoH{6}{2}} \right) &\alertNoH{0}{=}& 0}\\
+\displaystyle \uncover<6->{ 2 \sin \left(\alertNoH{6}{ \frac{7}{2}}x \right) \cos \left(\alertNoH{6}{\alertNoH{7}{-}\frac{3}{2}} x \right) &\alertNoH{0}{=}& 0 \uncover<7->{&&\begin{array}{@{}l}\cos \\
+\text{is even}\end{array}} }\\
+}%only
+\displaystyle \uncover<7->{\alertNoH{8,9}{ 2\alertNoH{10}{\sin \left(\frac{7}{2}x \right)} \alertNoH{11}{\cos \left(\frac{3}{2}x \right)}} &\alertNoH{8,9,10,11}{=}& \alertNoH{8,9,10,11}{0} }
+\end{array}
+$
+
+\only<handout:2,3|10->{
+$
+\begin{array}{@{}r@{}c@{}l}
+\only<handout:2|1-28>{%
+\alertNoH{10,12-15}{\sin \left(\frac{7}{2}x \right)}&\alertNoH{10,12-15}{=}&\alertNoH{10,12-15}{0} \\
+\uncover<12->{\alertNoH{12,13,14,15,16}{\frac{\alertNoH{17}{7}}{\alertNoH{17}{2}}x}&\alertNoH{12,13,14,15,16}{=}&\alertNoH{12,13,14,15}{ \fcAnswerUncover{12}{16}{k\pi}}} \qquad\qquad \uncover<16->{ k-\text{integer} }\\
+\uncover<17->{x&\alertNoH{0}{=}& \frac{ \alertNoH{18}{ \alertNoH{17}{2}k} \pi}{\alertNoH{17}{7}}}\\
+}%only
+\uncover<18->{x&\alertNoH{0}{=}&\fcCancel{19}{{\dots}}, \fcCancel{19}{ \frac{ \alertNoH{18}{-2} \pi}{7}} , \alertNoH{18}{0}, \frac{ \alertNoH{18}{2} \pi}{7},\frac{\alertNoH{18}{4}\pi}{7}, \frac{ \alertNoH{18}{6}\pi}{7}, \frac{\alertNoH{18}{8} \pi}{7}, \frac{ \alertNoH{18}{10}\pi}{7}, \frac{\alertNoH{18}{12} \pi}{7}, \fcCancel{19}{\frac{\alertNoH{18}{14}\pi}{7}}, \fcCancel{19}{{\dots}} }  \\
+\multicolumn{3}{c}{\uncover<10->{\text{ or }}}\\
+\only<handout:2|1-28>{%
+\alertNoH{11,20-24}{\cos \left(\frac{3}{2}x \right)}&\alertNoH{11,20-24}{=}& \alertNoH{11,20-24}{0}\\
+\uncover<20->{\alertNoH{20-24}{ \alertNoH{26}{\frac{3}{2}} x}&\alertNoH{20-24}{=}& \alertNoH{20-24 }{ \fcAnswerUncover{20}{24}{ \alertNoH{25}{\frac{\pi}{2}+k\pi}}} \uncover<25->{\alertNoH{25}{=\frac{(2k+1) \pi}{\alertNoH{26}{2}}}} \uncover<24->{ \qquad\qquad k-\text{integer}}} \\
+\uncover<26->{x&\alertNoH{0}{=}& \frac{(\alertNoH{27}{2 k+1}) \pi}{ \alertNoH{26}{3}}}\\
+}%only
+\uncover<27->{x&\alertNoH{0}{=}&\fcCancel{28}{{\dots}}, \fcCancel{28}{-\frac{\pi}{ 3}}, \frac{\pi}{3}, \frac{\alertNoH{27}{3}\pi}{3}, \frac{\alertNoH{27}{5}\pi}{3}, \fcCancel{28}{\frac{\alertNoH{27}{7}\pi}{3}},\fcCancel{28}{{\dots}}}
+\end{array}
+$
+}
+
+\only<handout:3|29->{
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-1.2,-1.2)(1.2,1.2)%
+\tiny
+\fcAxesStandard{-0.5}{-2}{6.5}{2}%
+\rput[lb](0.7,1){$y=\sin(2x)+\sin(5x)$}%
+\pstVerb{20 dict begin /pi 3.141592654 def}%
+\psplot[plotpoints=1000, linecolor=\fcColorGraph]{-0.5}{6.5}{x 57.295779513 mul dup 2 mul sin exch 5 mul sin add}%
+\fcXTickWithLabel{2 pi mul 7 div}{$\frac{2\pi}{7}$}%
+\fcXTickWithLabel{4 pi mul 7 div}{$\frac{4\pi}{7}$}%
+\fcXTickWithLabel{6 pi mul 7 div}{$\frac{6\pi}{7}$}%
+\fcXTickWithLabel{8 pi mul 7 div}{$\frac{8\pi}{7}$}%
+\fcXTickWithLabel{10 pi mul 7 div}{$\frac{10\pi}{7}$}%
+\fcXTickWithLabel{12 pi mul 7 div}{}%
+\rput[b](! 12 pi mul 7 div 0.1){$\frac{12\pi}{7}$}%
+\fcXTickWithLabel{1 pi mul 3 div}{}%
+\rput[b](! 1 pi mul 3 div 0.1){$\frac{\pi}{3}$}%
+\fcXTickWithLabel{3 pi mul 3 div}{$\pi$}%
+\fcXTickWithLabel{5 pi mul 3 div}{$\frac{5\pi}{3}$}%
+\pstVerb{end}
+\end{pspicture}
+}
+\end{columns}
 
 \end{example}
+\vskip 10cm 
 \end{frame}
