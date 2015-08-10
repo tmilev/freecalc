@@ -1,0 +1,89 @@
+Find the $6$ trigonometric functions of the indicated angle in the indicated right triangle.
+\begin{enumerate}[ref={\fcProblemRef}]
+\item 
+\begin{pspicture}(-1,-1)(1,1)
+\pstVerb{20 dict begin
+/theX 2 def
+/theY 3 def
+/adjacentAngle theY theX atan def
+/oppositeAngle 90 adjacentAngle sub def
+/arcRad 0.3 def
+}%
+\psline(0,0)(! theX 0)(! theX theY)(0,0)%
+\fcPerpendicular{[theX theY]}{[1 0]}{0.2}%
+\rput[t](! theX  2 div -0.1){$2$}%
+\rput[l](! theX 0.1 add theY 2 div ){$3$}%
+%\rput[br](! theX 2 div theY 2 div 0.1 add){$\sqrt{13}$}%
+\parametricplot[linecolor=red]{0}{adjacentAngle}{t cos arcRad mul t sin arcRad mul}%
+\rput(! adjacentAngle 2 div cos arcRad 0.2 add mul adjacentAngle 2 div sin arcRad 0.2 add mul){$\theta$}%
+%\parametricplot[linecolor=red]{-90}{-90 oppositeAngle sub}{t cos arcRad mul theX add t sin arcRad mul theY add}%
+%\rput(! -90 oppositeAngle  2 div sub cos arcRad 0.2 add mul theX add -90 oppositeAngle  2 div sub sin arcRad 0.2 add mul theY add){$\theta$}%
+\pstVerb{end}%
+\end{pspicture}
+
+\answer{$\sin \theta = $, $\cos \theta=$, $\tan \theta= $, $\cot \theta=$, $\sec \theta=$, $\csc \theta=$  }
+\item \begin{pspicture}(-1,-1)(1,1)
+\pstVerb{20 dict begin
+/theX 2 def
+/theY 1 def
+/adjacentAngle theY theX atan def
+/oppositeAngle 90 adjacentAngle sub def
+/arcRad 0.6 def
+}%
+\psline(0,0)(! theX 0)(! theX theY)(0,0)%
+\fcPerpendicular{[theX theY]}{[1 0]}{0.2}%
+%\rput[t](! theX  2 div -0.1){$1$}%
+\rput[l](! theX 0.1 add theY 2 div ){$1$}%
+\rput[br](! theX 2 div theY 2 div 0.1 add){$\sqrt{5}$}%
+\parametricplot[linecolor=red]{0}{adjacentAngle}{t cos arcRad mul t sin arcRad mul}%
+\rput(! adjacentAngle 2 div cos arcRad 0.2 add mul adjacentAngle 2 div sin arcRad 0.2 add mul){$\theta$}%
+%\parametricplot[linecolor=red]{-90}{-90 oppositeAngle sub}{t cos arcRad mul theX add t sin arcRad mul theY add}%
+%\rput(! -90 oppositeAngle  2 div sub cos arcRad 0.2 add mul theX add -90 oppositeAngle  2 div sub sin arcRad 0.2 add mul theY add){$\theta$}%
+\pstVerb{end}%
+\end{pspicture}
+
+\answer{$\sin \theta = $, $\cos \theta=$, $\tan \theta= $, $\cot \theta=$, $\sec \theta=$, $\csc \theta=$  }
+\item \psset{xunit=0.5cm, yunit=0.5cm} \begin{pspicture}(-1,-1)(1,1)
+\pstVerb{20 dict begin
+/theX 5 def
+/theY 2 def
+/adjacentAngle theY theX atan def
+/oppositeAngle 90 adjacentAngle sub def
+/arcRad 0.6 def
+}%
+\psline(0,0)(! theX 0)(! theX theY)(0,0)%
+\fcPerpendicular{[theX theY]}{[1 0]}{0.2}%
+\rput[t](! theX  2 div -0.1){$5$}%
+\rput[l](! theX 0.1 add theY 2 div ){$2$}%
+%\rput[br](! theX 2 div theY 2 div 0.1 add){$6$}%
+%\parametricplot[linecolor=red]{0}{adjacentAngle}{t cos arcRad mul t sin arcRad mul}%
+%\rput(! adjacentAngle 2 div cos arcRad 0.2 add mul adjacentAngle 2 div sin arcRad 0.2 add mul){$\theta$}%
+\parametricplot[linecolor=red]{-90}{-90 oppositeAngle sub}{t cos arcRad mul theX add t sin arcRad mul theY add}%
+\rput(! -90 oppositeAngle  2 div sub cos arcRad 0.2 add mul theX add -90 oppositeAngle  2 div sub sin arcRad 0.2 add mul theY add){$\theta$}%
+\pstVerb{end}%
+\end{pspicture}
+
+\answer{$\sin \theta = $, $\cos \theta=$, $\tan \theta= $, $\cot \theta=$, $\sec \theta=$, $\csc \theta=$  }
+\item \psset{xunit=0.5cm, yunit=0.5cm} \begin{pspicture}(-1,-1)(1,1)
+\pstVerb{20 dict begin
+/theX 11 sqrt def
+/theY 5 def
+/adjacentAngle theY theX atan def
+/oppositeAngle 90 adjacentAngle sub def
+/arcRad 0.6 def
+}%
+\psline(0,0)(! theX 0)(! theX theY)(0,0)%
+\fcPerpendicular{[theX theY]}{[1 0]}{0.2}%
+%\rput[t](! theX  2 div -0.1){$1$}%
+\rput[l](! theX 0.1 add theY 2 div ){$5$}%
+\rput[br](! theX 2 div theY 2 div 0.1 add){$6$}%
+%\parametricplot[linecolor=red]{0}{adjacentAngle}{t cos arcRad mul t sin arcRad mul}%
+%\rput(! adjacentAngle 2 div cos arcRad 0.2 add mul adjacentAngle 2 div sin arcRad 0.2 add mul){$\theta$}%
+\parametricplot[linecolor=red]{-90}{-90 oppositeAngle sub}{t cos arcRad mul theX add t sin arcRad mul theY add}%
+\rput(! -90 oppositeAngle  2 div sub cos arcRad 0.2 add mul theX add -90 oppositeAngle  2 div sub sin arcRad 0.2 add mul theY add){$\theta$}%
+\pstVerb{end}%
+\end{pspicture}
+
+\answer{$\sin \theta = $, $\cos \theta=$, $\tan \theta= $, $\cot \theta=$, $\sec \theta=$, $\csc \theta=$  }
+
+\end{enumerate}

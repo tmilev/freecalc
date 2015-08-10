@@ -170,7 +170,7 @@ and the links therein.
 %argument4: the label of the angle a
 %argument5: the label of the other angle that solves the problem
 %Example:
-%\uncover<-5>{}% to ensure uncovering of the whole picture
+%\uncover<10>{}% to ensure uncovering of the whole picture
 %\fcPictureSolvingSinXequalsSinA{2}{240}{$-\frac{\sqrt{3}}{2}$}{$240^\circ$}{$300^\circ$}
 \newcommand{\fcPictureSolvingSinXequalsSinA}[5]{
 \begin{pspicture}(-1.2, -1.2)(1.2, 1.2)
@@ -202,7 +202,7 @@ and the links therein.
 \rput(! theBaseAngle 2 div dup cos 0.4 mul exch sin 0.4 mul){\fcAnswer{\the\numexpr#1+3\relax}{#4}}%
 }%
 \uncover<handout:0|\the\numexpr#1+7\relax>{%
-\parametricplot[linecolor=brown, linewidth=2pt, plotpoints=500, arrows=->]{0}{theOtherAngle 360 add}{t cos 0.5 t 3000 div add mul t sin 0.55 t 3000 div add mul}%
+\parametricplot[linecolor=brown, linewidth=2pt, plotpoints=500, arrows=->]{0}{theOtherAngle 360 add}{t cos 0.55 t 3000 div add mul t sin 0.55 t 3000 div add mul}%
 }%
 \uncover<\the\numexpr#1+5\relax,\the\numexpr#1+6\relax>{\parametricplot[arrows=->, linewidth=2pt, linecolor=orange]{0}{theOtherAngle}{t cos 0.5 mul t sin 0.5 mul}}%
 \uncover<\the\numexpr#1+5\relax->{%
@@ -218,6 +218,67 @@ and the links therein.
 \psline[linecolor=green, linewidth=2pt](! theXother theYcoord)(! theXbase theYcoord)%
 \fcFullDot{theXother}{theYcoord}%
 \fcFullDot{theXbase}{theYcoord}%
+}%
+\pstVerb{end}%
+\end{pspicture}
+}
+
+%Produces a picture which illustrates graphically the solution of
+%sin x = sin a (a=known angle).
+%argument1: the number of the first frame
+%argument2: the angle a
+%argument3: the label of the segment representing sin a
+%argument4: the label of the angle a
+%argument5: the label of the other angle that solves the problem
+\newcommand{\fcPictureSolvingCosXequalsCosA}[5]{
+\begin{pspicture}(-1.2, -1.2)(1.2, 1.2)
+\tiny
+\pstVerb{25 dict begin}
+\pstVerb{%
+/theBaseAngle #2\space def
+/theOtherAngle theBaseAngle -1 mul def
+/theXcoord theBaseAngle cos def
+/theYbase theBaseAngle sin def
+/theYother theOtherAngle sin def
+}%
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\uncover<#1->{%
+\psline[linecolor=green, linewidth=2pt](0,0)(! theXcoord 0)%
+\rput[t](! theXcoord 2 div -0.02){#3}%
+}%
+%\uncover<#3, \the\numexpr#3+1\relax>{\psline[linecolor=blue, linewidth=2pt](0,0)(! 0 theYcoord)}%
+\uncover<handout:0|\the\numexpr#1+4\relax>{%
+\parametricplot[linecolor=blue, linewidth=2pt, plotpoints=500, arrows=->]{0}{theBaseAngle 360 add}{t cos 0.35 t 3000 div add mul t sin 0.35 t 3000 div add mul}%
+}%
+\uncover<\the\numexpr#1+2\relax,\the\numexpr#1+3\relax>{\parametricplot[arrows=->, linecolor=purple, linewidth=2pt]{0}{theBaseAngle }{t cos 0.3 mul t sin 0.3 mul}}%
+\uncover<\the\numexpr#1+2\relax->{%
+%\fcPerpendicular{[theXbase theYcoord]}{[0 1]}{0.1}%
+%\fcPerpendicular{[theXother theYcoord]}{[0 1]}{0.1}%
+\psline[arrows=->](0,0)(! theXcoord 1.2 mul theYbase 1.2 mul)%
+\parametricplot[arrows=->, linecolor=purple]{0}{theBaseAngle }{t cos 0.3 mul t sin 0.3 mul}%
+\rput(! theBaseAngle 2 div dup cos 0.4 mul exch sin 0.4 mul){\fcAnswer{\the\numexpr#1+3\relax}{#4}}%
+}%
+\uncover<handout:0|\the\numexpr#1+7\relax>{%
+\parametricplot[linecolor=brown, linewidth=2pt, plotpoints=500, arrows=->]{0}{theOtherAngle 360 sub}{t cos 0.55 t 3000 div add mul t sin 0.55 t 3000 div add mul}%
+}%
+\uncover<handout:0|\the\numexpr#1+8\relax>{%
+\parametricplot[linecolor=brown, linewidth=2pt, plotpoints=500, arrows=->]{0}{theOtherAngle 360 add}{t cos 0.55 t 3000 div add mul t sin 0.55 t 3000 div add mul}%
+}%
+\uncover<\the\numexpr#1+5\relax,\the\numexpr#1+6\relax>{\parametricplot[arrows=->, linewidth=2pt, linecolor=orange]{0}{theOtherAngle}{t cos 0.5 mul t sin 0.5 mul}}%
+\uncover<\the\numexpr#1+5\relax->{%
+%\fcPerpendicular{[theXbase theYcoord]}{[0 1]}{0.1}%
+%\fcPerpendicular{[theXother theYcoord]}{[0 1]}{0.1}%
+\psline[arrows=->](0,0)(! theXcoord 1.2 mul theYother 1.2 mul)%
+\parametricplot[arrows=->, linecolor=orange]{0}{theOtherAngle}{t cos 0.5 mul t sin 0.5 mul}%
+\rput(! theOtherAngle 2 div dup cos 0.63 mul exch sin 0.63 mul){\fcAnswer{\the\numexpr#1+6\relax}{#5}}%
+}%
+\uncover<\the\numexpr#1+1\relax->{%
+%\fcPerpendicular{[theXbase theYcoord]}{[0 1]}{0.1}%
+%\fcPerpendicular{[theXother theYcoord]}{[0 1]}{0.1}%
+\psline[linecolor=blue, linewidth=2pt](! theXcoord theYother)(! theXcoord theYbase)%
+\fcFullDot{theXcoord}{theYother}%
+\fcFullDot{theXcoord}{theYbase}%
 }%
 \pstVerb{end}%
 \end{pspicture}
