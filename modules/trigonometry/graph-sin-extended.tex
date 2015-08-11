@@ -1,0 +1,18 @@
+\begin{frame}
+\frametitle{Graph of $\sin x$}
+\begin{pspicture}(-1,-1)(1,1)
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\parametricplot{0}{360}{t cos t sin}
+\end{pspicture}
+
+\begin{pspicture}(-4, -1.5)(8, 1.3)
+\fcAxesStandard{-4}{-1.5}{8}{1.5}
+\pstVerb{30 dict begin
+/pi 3.141592654 def
+/toRad {180 pi div mul} def
+}
+\fcLabels{8}{1.5}
+\psplot{-4}{8}{x toRad sin}
+\pstVerb{end}
+\end{pspicture}
+\end{frame}
