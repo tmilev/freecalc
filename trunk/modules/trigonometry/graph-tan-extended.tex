@@ -1,0 +1,111 @@
+\begin{frame}
+\frametitle{Graph of $\tan x$}
+
+\psset{xunit=1cm, yunit=1cm}
+\only<7->{\psset{xunit=0.75cm, yunit=0.75cm}}
+\only<8->{\psset{xunit=0.5cm, yunit=0.5cm}}
+\only<13->{\psset{xunit=0.375cm, yunit=0.375cm}}
+\only<14->{\psset{xunit=0.25cm, yunit=0.25cm}}
+\vskip -0.1cm
+\begin{columns}
+\column{0.4\textwidth}
+\begin{center}
+\begin{pspicture}(-1.3,-1.3)(1.3,1.3)%
+\tiny%
+\pstVerb{20 dict begin}%
+\pstVerb{/originalYAxisSize 3 def /originalXaxisSize 1.5 def}%
+\pstVerb{/theScale 1 def}%
+\only<7->{\pstVerb{/theScale 0.75 def}}%
+\only<8->{\pstVerb{/theScale 0.5 def}}%
+\only<13->{\pstVerb{/theScale 0.375 def}}%
+\only<14->{\pstVerb{/theScale 0.25 def}}%
+\pstVerb{/xAxisSize originalXaxisSize theScale div def /yAxisSize originalYAxisSize theScale div def}%
+\fcPerpendicular{[1 yAxisSize]}{[1 0]}{0.2}%
+\psline(! 1 yAxisSize -1 mul)(1,0)%
+\fcAxesStandardNoFrame{xAxisSize -1 mul}{-1.5}{xAxisSize}{1.5}%
+\newcommand{\drawingFromAngle}[1]{%
+\pstVerb{/theAngle ####1 def}%
+\parametricplot[linecolor=brown, linewidth=1.5pt]{0}{theAngle}{t cos t sin}%
+\psline[linecolor=orange, linewidth=1pt](0,0)(! 1 theAngle tan)%
+\psline[linecolor=purple, linewidth=2pt](! 1 theAngle tan)(1,0)%
+}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\only<2>{\drawingFromAngle{0}}%
+\only<3,4>{\drawingFromAngle{20}}%
+\only<4>{\drawingFromAngle{-20}}%
+\only<5-8>{\drawingFromAngle{40}}%
+\only<6-8>{\drawingFromAngle{-40}}%
+\only<9,10>{\drawingFromAngle{60}}%
+\only<10>{\drawingFromAngle{-60}}%
+\only<11-14>{\drawingFromAngle{70}}%
+\only<12-14>{\drawingFromAngle{-70}}%
+\only<15,16>{\drawingFromAngle{80}}%
+\only<16>{\drawingFromAngle{-80}}%
+\only<17->{\drawingFromAngle{85}}%
+\only<18->{\drawingFromAngle{-85}}%
+\pstVerb{end}%
+\end{pspicture}%
+\end{center}
+\column{0.6\textwidth}
+\begin{center}
+\begin{pspicture}(-4, -1.5)(8, 1.3)%
+\tiny%
+\pstVerb{30 dict begin
+/pi 3.141592654 def
+/toDeg {180 pi div mul} def
+/toRad {180 div pi mul} def
+}%
+\pstVerb{/originalYAxisSize 3 def /originalXaxisSize 2 def}%
+\pstVerb{/theScale 1 def}%
+\only<7->{\pstVerb{/theScale 0.75 def}}%
+\only<8->{\pstVerb{/theScale 0.5 def}}%
+\only<13->{\pstVerb{/theScale 0.375 def}}%
+\only<14->{\pstVerb{/theScale 0.25 def}}%
+\pstVerb{/xAxisSize originalXaxisSize theScale div def /yAxisSize originalYAxisSize theScale div def}%
+\fcAxesStandard{xAxisSize -1 mul}{yAxisSize -1 mul}{xAxisSize}{yAxisSize}%
+\newcommand{\drawingFromAngle}[1]{%
+\pstVerb{/theDegs ####1\space def}%
+\psline[linewidth=1.5pt, linecolor=brown](0,0)(! theDegs toRad 0)%
+\psline[linewidth=0.3pt, linecolor=purple](! theDegs toRad 0)(! theDegs toRad theDegs tan)%
+}%
+\fcXTickWithLabel{pi 2 div}{$\frac{\pi}{2}$}
+\fcXTickWithLabel{pi -2 div}{$-\frac{\pi}{2}$}
+\rput[tr](! xAxisSize  -0.1){$x$}
+\rput[tr](! -0.1 yAxisSize -0.03 add){$y$}
+\only<2-19>{\drawingFromAngle{0}}%
+\only<3-19>{\drawingFromAngle{20}}%
+\only<4-19>{\drawingFromAngle{-20}}%
+\only<5-19>{\drawingFromAngle{40}}%
+\only<6-19>{\drawingFromAngle{-40}}%
+\only<9-19>{\drawingFromAngle{60}}%
+\only<10-19>{\drawingFromAngle{-60}}%
+\only<11-19>{\drawingFromAngle{70}}%
+\only<12-19>{\drawingFromAngle{-70}}%
+\only<15-19>{\drawingFromAngle{80}}%
+\only<16-19>{\drawingFromAngle{-80}}%
+\only<17-19>{\drawingFromAngle{85}}%
+\only<18-19>{\drawingFromAngle{-85}}%
+\uncover<19->{\psplot[linecolor=\fcColorGraph, plotpoints=500]{-11.5 ATAN}{11.5 ATAN}{x toDeg tan}}%
+\uncover<21->{%
+\psline[linestyle=dotted](! pi -2 div yAxisSize -0.2 add -1 mul)(! pi -2 div yAxisSize -0.2 add)%
+\psline[linestyle=dotted](! pi  2 div yAxisSize -0.2 add -1 mul)(! pi   2 div yAxisSize -0.2 add)%
+}%
+\uncover<22->{%
+\psline[linestyle=dotted](! pi -2 div  2 mul yAxisSize -0.2 add -1 mul)(! pi -2 div  2 mul yAxisSize -0.2 add)%
+\psline[linestyle=dotted](! pi -2 div -2 mul yAxisSize -0.2 add -1 mul)(! pi -2 div -2 mul yAxisSize -0.2 add)%
+\psline[linestyle=dotted](! pi -2 div  3 mul yAxisSize -0.2 add -1 mul)(! pi -2 div  3 mul yAxisSize -0.2 add)%
+\psline[linestyle=dotted](! pi -2 div -3 mul yAxisSize -0.2 add -1 mul)(! pi -2 div -3 mul yAxisSize -0.2 add)%
+}%
+\uncover<22->{%
+\psplot[linecolor=\fcColorGraph, plotpoints=500]{-11.5 ATAN pi 2 mul sub}{11.5 ATAN pi 2 mul sub}{x toDeg tan}%
+\psplot[linecolor=\fcColorGraph, plotpoints=500]{-11.5 ATAN pi 1 mul sub}{11.5 ATAN pi 1 mul sub}{x toDeg tan}%
+\psplot[linecolor=\fcColorGraph, plotpoints=500]{-11.5 ATAN pi -2 mul sub}{11.5 ATAN pi -2 mul sub}{x toDeg tan}%
+\psplot[linecolor=\fcColorGraph, plotpoints=500]{-11.5 ATAN pi -1 mul sub}{11.5 ATAN pi -1 mul sub}{x toDeg tan}%
+}%
+\pstVerb{end}%
+\end{pspicture}
+\end{center}
+
+\end{columns}
+
+\uncover<21->{Near $\pm \frac{\pi}{2}$ the graph of $\tan x$ approaches $\pm\infty$.} \uncover<22->{The graph of $\tan x$ is $\pi $-periodic so the rest of the graph can be inferred from the interval $\left(-\frac{\pi}{2} ,\frac{\pi}{2}\right)$.} \end{frame}
