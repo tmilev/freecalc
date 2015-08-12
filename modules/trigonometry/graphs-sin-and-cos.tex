@@ -8,7 +8,6 @@
 \tiny
 \psaxes[labels=none, Dx=1.570796327, Dy=1] {<->}(0,0)(-4,-1.4)(10,1.4)
 \psplot[linecolor=red, plotpoints=1000]{-4}{10}{x 57.295779513 mul sin}
-
 \rput[t](-3.14, -0.3){$-\pi$}
 \rput[t](-1.57, -0.3){$-\frac{\pi}{2}$}
 \rput[t](1.57, -0.3){$\frac{\pi}{2}$}
@@ -27,9 +26,17 @@
 \psset{xunit=0.6cm,yunit=0.6cm}
 \begin{pspicture}(-5,-1.4)(10,1.4)
 \tiny
+\pstVerb{30 dict begin
+/pi 3.141592654 def
+/toDeg {180 pi div mul} def
+/toRad {180 div pi mul} def
+}%
 \psaxes[labels=none, Dx=1.570796327, Dy=1] {<->}(0,0)(-4,-1.4)(10,1.4)
-\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x 57.295779513 mul cos}
-
+\uncover<1-6>{\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x toDeg cos}}
+\uncover<handout:0|7->{\psplot[linecolor=gray!50, plotpoints=1000]{-4}{10}{x toDeg cos}}
+\uncover<handout:0|7>{\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x pi 6 div 1 mul sub toDeg cos}}
+\uncover<handout:0|8>{\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x pi 6 div 2 mul sub toDeg cos}}
+\uncover<handout:0|9->{\psplot[linecolor=red, plotpoints=1000]{-4}{10}{x pi 6 div 3 mul sub toDeg cos}}
 \rput[t](-3.14, -0.3){$-\pi$}
 \rput[t](-1.57, -0.3){$-\frac{\pi}{2}$}
 \rput[t](1.57, -0.3){$\frac{\pi}{2}$}
@@ -39,6 +46,7 @@
 \rput[t](7.85, -0.3){$\frac{5\pi}{2}$}
 \rput[t](9.42, -0.3){$3\pi$}
 \rput[bl](0.2,1){\tiny $1$}
+\pstVerb{end}
 \end{pspicture}
 %\includegraphics[width=8cm]{trigonometry/pictures/app-d-cos.pdf}%
 \end{tabular}
@@ -46,9 +54,10 @@
 \end{tabular}
 \begin{itemize}
 \item<2->  $\sin x$ has zeroes at $n\pi$ for all integers $n$.
-\item<3->  $\cos x$ has zeroes at $\pi /2 + n\pi$ for all integers $n$.
+\item<3->  $\cos x$ has zeroes at $\frac{\pi}{2} + n\pi$ for all integers $n$.
 \item<4->  $-1 \leq \sin x \leq 1$. 
 \item<5->  $-1 \leq \cos x \leq 1$. 
+\item<6->  \alertNoH{6,7,8}{If we translate the graph of $\cos x$ by $\frac{\pi}{2}$ units to the right} \uncover<9->{\alertNoH{9}{we get the graph of $\sin x$}.} \uncover<10->{This is a consequence of $\cos\left(x-\frac{\pi}{2}\right)=\sin x$.}
 \end{itemize}
 \end{frame}
 

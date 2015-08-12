@@ -1,0 +1,79 @@
+\begin{frame}
+\frametitle{Graph of $\cos x$}
+\begin{columns}
+\column{0.28\textwidth}
+\psset{xunit=1.4cm, yunit=1.4cm}
+\begin{pspicture}(-1.3,-1.3)(1.3,1.3)%
+\tiny
+\psline(-1.25,0)(1.25,0)%
+\psline(0,-1.25)(0,1.25)%
+\fcAxesStandard{-1.25}{-1.25}{1.25}{1.25}%
+\newcommand{\trigTriangle}[1]{%
+\pstVerb{20 dict begin /theAngle ####1 def}%
+\fcPerpendicular[linecolor=blue]{[theAngle cos theAngle sin]}{[1 0]}{0.1}%
+\parametricplot[linecolor=brown, linewidth=1.5pt]{0}{theAngle}{t cos t sin}%
+\psline[linecolor=orange, linewidth=1.5pt](0,0)(! theAngle cos theAngle sin)%
+\psline[linecolor=blue, linewidth=1pt](! theAngle cos 0)(! theAngle cos theAngle sin)%
+\psline[linecolor=green, linewidth=1.5pt](0,0)(! theAngle cos 0)%
+\pstVerb{end}%
+}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\only<handout:0|1,2>{\psline[linewidth=1.5pt, linecolor=green](0,0)(1,0)}%
+\only<handout:0|3,4>{\trigTriangle{60}}%
+\only<handout:0|5,6>{\trigTriangle{90}}%
+\only<handout:1|7,8>{\trigTriangle{120}}%
+\only<handout:0|9,10>{%
+\parametricplot[linecolor=brown, linewidth=1.5pt]{0}{180}{t cos t sin}%
+\psline[linewidth=1.5pt, linecolor=green](0,0)(-1,0)
+}%
+\only<handout:0|11,12>{\trigTriangle{240}}%
+\only<handout:0|13,14>{\trigTriangle{270}}%
+\only<handout:0|15,16>{\trigTriangle{300}}%
+\only<handout:0|17,18>{%
+\parametricplot[linecolor=brown, linewidth=1.5pt]{0}{360}{t cos t sin}%
+\psline[linewidth=1.5pt, linecolor=green](0,0)(1,0)
+}%
+\end{pspicture}%
+\column{0.72\textwidth}
+$\begin{array}{|@{}c|c|c|c|c@{}|c@{}|c|c|c|c@{}|}\hline 
+x &0 & \displaystyle \frac{\pi}{3} &\displaystyle \frac{\pi}{2}& \displaystyle \frac{2\pi }{3}& \displaystyle \pi &\displaystyle \frac{4\pi}{3}& \displaystyle \frac{3\pi}{2} &\displaystyle \frac{4\pi}{3}& 2\pi \\ \hline
+\cos x \phantom{\frac{1}{2}}& \displaystyle \fcAnswer{2}{1} & \displaystyle \fcAnswer{4}{\frac{1}{2}} &\displaystyle \fcAnswer{6}{0} & \displaystyle \fcAnswer{8}{-\frac{1}{2}} & \fcAnswer{10}{-1} & \displaystyle \fcAnswer{12}{-\frac{1}{2}} & \displaystyle \fcAnswer{14}{0} & \displaystyle \fcAnswer{16}{\frac{1}{2}}&\fcAnswer{18}{0} 
+\\\hline
+\end{array}
+$
+\end{columns}
+\psset{xunit=0.75cm, yunit=0.75cm}
+\begin{pspicture}(-4, -1.5)(8, 1.3)%
+\tiny%
+\fcAxesStandard{-4}{-1.5}{8}{1.5}%
+\pstVerb{30 dict begin
+/pi 3.141592654 def
+/toDeg {180 pi div mul} def
+/toRad {180 div pi mul} def
+}%
+\newcommand{\advanceGraph}[2]{%
+\pstVerb{25 dict begin}%
+\pstVerb{/theDegs ####1\space def}%
+\psline[linewidth=1.5pt, linecolor=brown](0,0)(! theDegs toRad 0)%
+\fcXTickWithLabel{theDegs toRad}{####2}%
+\psline[linewidth=1.5pt, linecolor=green](! theDegs toRad 0)(! theDegs toRad theDegs cos)%
+\pstVerb{end}%
+}%
+\fcLabels{8}{1.5}%
+\uncover<19>{\psplot[linecolor=\fcColorGraph, plotpoints=500]{0}{pi 2 mul}{x toDeg cos}}%
+\uncover<20->{\psplot[linecolor=\fcColorGraph, plotpoints=500]{-4}{8}{x toDeg cos}}%
+\only<2->{\advanceGraph{0}{0}}%
+\only<4->{\advanceGraph{60}{$\frac{\pi}{3}$}}%
+\only<6->{\advanceGraph{90}{$\frac{\pi}{2}$}}%
+\only<8->{\advanceGraph{120}{$\frac{2\pi}{3}$}}%
+\only<10->{\advanceGraph{180}{$\pi$}}%
+\only<12->{\advanceGraph{240}{$\frac{4\pi}{3}$}}%
+\only<14->{\advanceGraph{270}{$\frac{3\pi}{2}$}}%
+\only<16->{\advanceGraph{300}{$\frac{5\pi}{3}$}}%
+\only<18->{\advanceGraph{360}{$2\pi$}}%
+\uncover<20->{\rput[l](0.8, 0.7){$y=\cos x$}}%
+\pstVerb{end}%
+\end{pspicture}
+
+\uncover<20->{The graph of $\cos x$ is $2\pi $-periodic so the rest of the graph can be inferred from the interval $[0, 2\pi]$.}
+\end{frame}
