@@ -1,0 +1,51 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{itemize}
+\item The graph of $a\sin(bx+c)$ is referred to as a ``wave''.
+\begin{definition}[Phase, period, frequency, amplitude of a wave]
+\uncover<2->{In the function $\alertNoH{2}{a} \sin(\alertNoH{3}{b} x+c)$, the number \alertNoH{2}{$|a|$ is called the \alertNoH{2}{\emph{amplitude}}} of the wave, \uncover<3->{the number \alertNoH{3}{$\frac{b}{2\pi}$} is called the \alertNoH{3,19}{\emph{frequency}} of the wave,} \uncover<4->{the number $\frac{2\pi}{b}$ is called the \alertNoH{4}{\emph{period}} of the wave,} \uncover<5->{the number $ c$ is called the \alertNoH{5,18,19}{\emph{phase}} of the wave.}}
+\end{definition}
+\item<6-> What happens when we change the \alertNoH{6-9}{amplitude}? The \alertNoH{10-13}{frequency/period}? The \alertNoH{14-17}{phase}?
+\end{itemize}
+%\hfil\hfil
+\psset{xunit=0.8cm, yunit=0.8cm}
+\tiny
+\begin{pspicture}(-7.2,-2.55)(7.2,2.55)%
+\fcAxesStandard{-7.2}{-2.55}{7.2}{2.55}%
+\pstVerb{20 dict begin}%
+\pstVerb{/pi 3.141592654 def}%
+\pstVerb{/toDeg {pi div 180 mul} def}%
+\pstVerb{/theA 1 def /theB 1 def /theC 0 def}%
+\psplot[plotpoints=1000, linewidth=0.7pt, linecolor=gray!50]{-7}{7}{x theB mul theC add  toDeg sin theA mul}%
+\onlyNoH{7}{\pstVerb{/theA 1.5 def}}%
+\onlyNoH{8}{\pstVerb{/theA 2 def}}%
+\only<handout:1|9>{\pstVerb{/theA 2.5 def}}%
+\onlyNoH{11}{\pstVerb{/theB 2 def}}%
+\onlyNoH{12}{\pstVerb{/theB 3 def}}%
+\only<handout:2|13>{\pstVerb{/theB 4 def}}%
+\onlyNoH{15}{\pstVerb{/theC 0.8 def}}%
+\onlyNoH{16}{\pstVerb{/theC 1.6 def}}%
+\only<handout:3|17->{\pstVerb{/theC 2.4 def}}%
+\only<handout:3|19>{\pstVerb{/theB 1.5 def}}%
+\psplot[plotpoints=1000, linecolor=\fcColorGraph]{-7}{7}{x theB mul theC add  toDeg sin theA mul}%
+\uncover<2>{\psline[linecolor=blue, linewidth=2pt](! pi 2 div theB div 0)(! pi 2 div theB div 1)}%
+\uncover<2-5>{%
+\psline(! pi 2 div theB div 0)(! pi 2 div theB div 1)%
+\rput[l](!  pi 2 div theB div 0.5){~amplitude}%
+}%
+\uncover<4-5>{%
+\fcLengthIndicator[linecolor=green]{0}{-0.2}{pi 2 mul theB div}{-0.2}{period}%
+%(! pi 2 div theB div 0)(! pi 2 div theB div 1)%
+}%
+\rput[r](-0.5, 1){ $y=a\sin(bx+c)$}%
+\rput[lb](-6.9, -1){$\only<handout:1|7,8,9>{\color{gray!50}}a=1$}%
+\rput[lb](-6.9, -1.45){$\only<handout:2|11,12,13,19>{\color{gray!50}}b=1$}%
+\rput[lb](-6.9, -1.9){$\only<handout:3|15-19>{\color{gray!50}}c=0$}%
+\rput[lb](-5.9, -1){$\uncover<7,8,9>{\alertNoH{7-9}{a= \onlyNoH{7}{1.5}\onlyNoH{8}{2} \only<handout:1 |9>{ 2.5} }}$}%
+\rput[lb](-5.9, -1.45){$\alertNoH{11-13}{\uncover<11,12,13,19>{b=} \onlyNoH{11}{2} \onlyNoH{12}{3} \only<handout:2|13>{ 4}\only<handout:3|19>{ 1.5}} $}%
+\rput[lb](-5.9, -1.9){$\uncover<15->{\alertNoH{15-17}{ c= \onlyNoH{15}{0.8}\onlyNoH{16}{1.6} \only<handout:3 | 17->{2.4} }}$}%
+\only<handout:3|18->{\fcLengthIndicator[linecolor=green]{theC theB div -1 mul}{-0.2}{0}{-0.2}{$ \frac{c}{b}$}}%
+\pstVerb{end}%
+\end{pspicture}%
+
+\end{frame}

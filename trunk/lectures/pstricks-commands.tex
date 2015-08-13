@@ -526,11 +526,11 @@ terminalArmPoint ==
 %Indicates length with options #1 
 %from point (argument2, argument3) to point (argument4, argument5)
 %with label argument6
-\newcommand{\fcLengthIndicator}[6][]{
-\psline[arrows=-|, linecolor=red, #1](! #2 0.58 mul #4 0.42 mul add #3 0.58 mul #5 0.42 mul add)(! #2 #3)
-\psline[arrows=-|, linecolor=red, #1](! #2 0.42 mul #4 0.58 mul add #3 0.42 mul #5 0.58 mul add)(! #4 #5)
-\rput(! #2 #4 add 0.5 mul #3 #5 add 0.5 mul){ #6}
-}
+\newcommand{\fcLengthIndicator}[6][]{%
+\psline[arrows=-|, linecolor=red, #1](! #2 0.58 mul #4 0.42 mul add #3 0.58 mul #5 0.42 mul add)(! #2 #3)%
+\psline[arrows=-|, linecolor=red, #1](! #2 0.42 mul #4 0.58 mul add #3 0.42 mul #5 0.58 mul add)(! #4 #5)%
+\rput(! #2 #4 add 0.5 mul #3 #5 add 0.5 mul){#6}%
+}%
 
 \newcommand{\fcLengthIndicatorTwo}[6][t]{%
 \pstVerb{5 dict begin
