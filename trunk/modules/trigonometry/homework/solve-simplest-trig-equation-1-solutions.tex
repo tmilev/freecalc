@@ -1,0 +1,123 @@
+\solution{\ref{problemsinx=-sqrt(2)/2}
+
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-1,-1)(1,1)%
+\tiny
+\fcAxesStandard{-1.3}{-1.3}{1.3}{1.3}%
+\pstVerb{20 dict begin}%
+\pstVerb{/theAngleSmall 225 def /theAngleLarge 315 def}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\psline[linecolor=green, linewidth=1.5pt](! theAngleSmall cos theAngleSmall sin)(! theAngleLarge cos theAngleLarge sin)%
+\psline[linecolor=blue, linewidth=1.5pt](0,0)(! 0 theAngleSmall sin)
+\psline[arrows=->](0,0)(! theAngleSmall cos 1.3 mul theAngleSmall sin 1.3 mul)%
+\psline[arrows=->](0,0)(! theAngleLarge cos 1.3 mul theAngleLarge sin 1.3 mul)%
+\parametricplot[linecolor=purple, arrows=->]{0}{theAngleSmall}{t cos 0.3 mul t sin 0.3 mul}%
+\parametricplot[linecolor=brown, arrows=->]{0}{theAngleLarge}{t cos 0.4 mul t sin 0.4 mul}%
+\rput[l](! 0 theAngleSmall sin ){$\left(0,-\frac{\sqrt{2}}{2}\right)$}
+\pstVerb{end}%
+\end{pspicture}
+
+\[
+\begin{array}{rcl}
+\displaystyle \sin x&=&\displaystyle -\frac{\sqrt{2}}{2}\\
+\end{array}
+\]
+
+Since $\sin x$ is negative it must be either in Quadrant III or IV. Therefore the angle $x$ is coterminal either with  $225^{\circ}=\frac{5\pi }{4}$ (Quadrant III)  or $315^{\circ}=\frac{7\pi }{4}$ (Quadrant IV).
+
+\noindent Case 1. $x$ is coterminal with $225^\circ=\frac{5\pi}{4}$. We can compute
+\[\begin{array}{rcll|l }
+\displaystyle x&=&\displaystyle \frac{5\pi }{4}+2k\pi &&k\text{ is any integer} \\
+\displaystyle x&=&\displaystyle \frac{5\pi }{4}+\frac{8k\pi }{4}\\
+\displaystyle x&=&\displaystyle \frac{5\pi+8k\pi}{4}\\
+\displaystyle x&=&\displaystyle \frac{\pi(5+8k)}{4}
+\end{array}
+\]
+We are looking for solutions in the interval $[0, 2\pi)$ and so we must discard those values of the integer $k$ for which $\frac{\pi(7+8k)}{4}$ is negative or is greater than or equal to $2\pi$. Therefore the only solution in this case is $x=\frac{5\pi }{4}$.
+
+\noindent Case 2.
+
+\[
+\begin{array}{rcll|l }
+\displaystyle x&=&\displaystyle \frac{7\pi }{4}+2k\pi \\
+\displaystyle x&=&\displaystyle \frac{7\pi }{4}+\frac{8k\pi }{4}\\
+\displaystyle x&=&\displaystyle \frac{7\pi+8k\pi}{4}\\
+\displaystyle x&=&\displaystyle \frac{\pi(7+8k)}{4}
+\end{array}
+\]
+We are looking for solutions in the interval $[0, 2\pi)$ and so we must discard those values of the integer $k$ for which $\frac{\pi(7+8k)}{4}$ is negative or is greater than or equal to $2\pi$. Therefore the only solution in this case is $x=\frac{7\pi }{4}$.
+}
+
+\solution{\ref{problemsin(5x-pi/3)=0}
+
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-1,-1)(1,1)%
+\tiny
+\fcAxesStandard{-1.3}{-1.3}{1.3}{1.3}%
+\pstVerb{20 dict begin}%
+\pstVerb{/theAngleSmall 360 def /theAngleLarge 180 def}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\parametricplot[linecolor=purple, arrows=->]{0}{theAngleSmall}{t cos 0.3 mul t sin 0.3 mul}%
+\parametricplot[linecolor=brown, arrows=->]{0}{theAngleLarge}{t cos 0.4 mul t sin 0.4 mul}%
+\pstVerb{end}%
+\end{pspicture}
+
+
+\[
+\begin{array}{rcl}
+\sin \left(5x-\frac{\pi}{3}\right)&=&0\\
+\end{array}
+\]
+Since $\sin 0= 0 $ and $\sin 180^\circ=\sin \pi=0$, the angle $5x-\frac{\pi}{3}$ must be coterminal with $0$ or $\pi$. 
+
+\noindent Case 1. $5x-\frac{\pi}{3}$ is coterminal with $0$. We compute
+
+\[
+\begin{array}{rcll|l}
+\displaystyle 5x-\frac{\pi}{3}&=&\displaystyle 0+2k\pi\\
+\displaystyle 5x&=&\displaystyle \frac{\pi}{3}+2k\pi\\
+\displaystyle x&=&\displaystyle \frac{\frac{\pi}{3}+2k\pi}{5}\\
+\displaystyle x&=&\displaystyle \frac{\frac{\pi}{3}+\frac{6k\pi}{3}}{5}\\
+\displaystyle x&=&\displaystyle \frac{\frac{\pi+6k\pi }{3}}{5}\\
+\displaystyle x&=&\displaystyle \frac{{\pi+6k\pi}}{15}\\
+\displaystyle x&=&\displaystyle \frac{{\pi(1+6k)}}{15}\\
+\displaystyle x&=&\displaystyle \cancel{\dots},\frac{\pi[1+6(0)]}{15}, \frac{\pi[1+6(1)]}{15}, \frac{\pi[1+6(2)]}{15},\frac{\pi(1+12)}{15}, \frac{\pi[1+6(3)]}{15},\frac{\pi[1+6(4)]}{15},\cancel{\dots} &&
+\begin{array}{l}
+\text{Discard other}\\
+\text{values of }k \text{ as} \\
+\text{they yield angles}\\
+\text{outside of }[0,2\pi)
+\end{array}
+\\
+\displaystyle x&=&\displaystyle  \frac{\pi}{15}, \frac{7\pi}{15}, \frac{13\pi}{15},\frac{19\pi}{15}, \frac{25\pi}{15}.
+\end{array}
+\]
+
+
+\noindent Case 2.
+
+\[
+\begin{array}{rcll|l}
+\displaystyle 5x-\frac{\pi}{3}&=&\displaystyle \pi+2k\pi\\
+\displaystyle 5x&=&\displaystyle \pi+\frac{\pi}{3}+2k\pi\\
+\displaystyle 5x&=&\displaystyle \frac{4\pi}{3}+2k\pi\\
+\displaystyle x&=&\displaystyle \frac{\frac{4\pi}{3}+2k\pi}{5}\\
+\displaystyle x&=&\displaystyle \frac{\frac{4\pi}{3}+\frac{6k\pi}{3}}{5}\\
+\displaystyle x&=&\displaystyle \frac{\frac{4\pi+6k\pi}{3}}{5}\\
+\displaystyle x&=&\displaystyle \frac{{4\pi+6k\pi}}{15}\\
+\displaystyle x&=&\displaystyle \frac{{2\pi(2+3k)}}{15}\\
+\displaystyle x&=&\displaystyle \cancel{\dots},\frac{2\pi[2+3(0)]}{15}, \frac{2\pi[2+3(1)]}{15}, \frac{2\pi[2+3(2)]}{15},\frac{2\pi[2+3(3)]}{15},\frac{2\pi[2+3(4)]}{15},\cancel{\dots} &&
+\begin{array}{l}
+\text{Discard other}\\
+\text{values of }k \text{ as} \\
+\text{they yield angles}\\
+\text{outside of }[0,2\pi)
+\end{array}
+\\
+x&=& \frac{4\pi}{15}, \frac{10\pi}{15}, \frac{16\pi}{15},\frac{22\pi}{15}, \frac{28\pi}{15}.
+\end{array}
+\]
+Our final answer (combined from the two cases) is $\displaystyle x=\frac{\pi}{15}, \frac{4\pi}{15}, \frac{7\pi}{15}, \frac{2\pi}{3}, \frac{13\pi}{15}, \frac{16\pi}{15}, \frac{19\pi}{15}, \frac{22\pi}{15}, \frac{5\pi}{3}$ or $\frac{28\pi}{15}$.
+}
+
+
