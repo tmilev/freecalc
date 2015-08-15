@@ -1,0 +1,23 @@
+\begin{frame}
+\begin{example}
+Rewrite  $\cos (3\Arccos (x))$ as an algebraic expression of $x$ and $\sqrt{1-x^2}$.
+
+\uncover<2->{
+Our only means of simplifying $\Arccos x$ away is to exploit $\cos (\Arccos x) =x $. Therefore our aim is to rewrite the expression only using the $\cos $ function.
+\[
+\displaystyle \begin{array}{@{}r@{}c@{}l@{}l|l}
+\cos (3\Arccos (x))&=&\displaystyle  \cos (3y)=\cos(2y+y)&&y=\Arccos x\\
+&=&\displaystyle \cos(2y)\cos y - \sin (2y)\sin y\\
+&=&\displaystyle  (\cos^2y -\sin^2y)\cos y &&\text{Express via }\\
+&&- 2\sin y \cos y\sin y  &&\sin y, \cos y\\
+&=&\cos^3y -\sin^2y\cos y-2\sin^2y\cos y\\
+&=&\cos^3y - 3\sin^2y \cos y&& \begin{array}{l}\text{Express }\sin y \\\text{ via } \cos y\end{array}\\
+&=&\cos^3y -3(1-\cos^2y)\cos y\\
+&=& 4\cos^3y-3\cos y\\
+&=&4x^3-3x &&x=\cos y
+\end{array}
+\]
+}
+\end{example}
+
+\end{frame}

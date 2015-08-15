@@ -1,0 +1,20 @@
+\begin{frame}
+\begin{example}
+Rewrite  $\sin (2\Arccos (x))$ as an algebraic expression of $x$ and $\sqrt{1-x^2}$.
+
+\uncover<2->{
+Our only means of simplifying $\Arccos x$ away is to exploit $\cos (\Arccos x) =x $. Therefore our aim is to rewrite the expression only using the $\cos $ function.
+\[
+\displaystyle \begin{array}{@{}r@{}c@{}l@{}l|l}
+\sin (2\Arccos (x))&=&\displaystyle  \sin (2y)&&\text{Set }y=\Arccos x\\
+&=&\displaystyle 2 \cos y \sin y&&\text{Express via }\sin y, \cos y\\
+&=&\displaystyle  2\cos y\left(\pm \sqrt{1-\cos^2y}\right)&&\text{Express }\sin y \text{ via } \cos y\\
+&=&\displaystyle 2\cos y \sqrt{1-\cos^2y}&&\begin{array}{l} \sin y>0 \text{ because}\\
+ 0\leq y\leq \pi\end{array}\\
+&=&\displaystyle2x\sqrt{1-x^2}&&\text{use }x=\cos y
+\end{array}
+\]
+}
+\end{example}
+
+\end{frame}
