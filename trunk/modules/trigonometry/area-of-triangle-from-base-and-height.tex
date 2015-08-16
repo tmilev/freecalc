@@ -1,0 +1,48 @@
+\begin{frame}
+\frametitle{Triangle area = $\frac{1}{2}\text{base}\cdot \text{height}$}
+Let $\triangle ABC$ have sides lengths $a,b,c$ and height lengths  $h_a, h_b, h_c$, as indicated in the figure ($h_a$ corresponds to the perpendicular from $A$ to $BC$, and so on).
+
+\begin{proposition}[Area of triangle =$\frac{1}{2}\text{height}\cdot \text{base}$]
+\[\frac{1}{2}h_a a =\frac{1}{2} h_b b=\frac{1}{2}h_c c=\text{Area}(\triangle ABC).\]
+\end{proposition}
+
+\begin{center}
+\begin{pspicture}(-1, -1)(1,1)%
+\tiny%
+\pstVerb{30 dict begin
+/xA 0 def
+/yA 0 def
+/xB 2 def
+/yB 1 def
+/xC 1.6 def
+/yC 3 def
+}%
+\fcPerpendicular[linestyle=dashed]{[xA yA]}{[xB yB][xC yC]}{0.1}%
+\rput[t](! \fcPerpendicularComputeHeelCode{[xA yA]}{[xB yB] [xC yC]}{0.1} heel thePoint \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack  end ){$~~h_a$}%
+\rput[b](! \fcPerpendicularComputeHeelCode{[xB yB]}{[xA yA] [xC yC]}{0.1} heel thePoint \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack  end ){$~~h_b$}%
+\rput[l](! \fcPerpendicularComputeHeelCode{[xC yC]}{[xB yB] [xA yA]}{0.1} heel thePoint \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack  end ){$~~h_c$}%
+\fcPerpendicular[linestyle=dashed]{[xC yC]}{[xB yB][xA yA]}{0.1}%
+\fcPerpendicular[linestyle=dashed]{[xB yB]}{[xC yC][xA yA]}{0.1}%
+\psline[linestyle=dashed](! xB yB)(! xB xB xC sub 0.5 mul add  yB yB yC sub 0.5 mul add)%
+\psline[linestyle=dashed](! xB yB)(! xB xB xA sub 0.5 mul add  yB yB yA sub 0.5 mul add)%
+%\fcAngleFromThreePoints[anglecolor=blue, linestyle=none]{[xA yA]}{[xB yB]}{[xC yC]}{0.2}%
+%\fcAngleFromThreePoints[anglecolor=blue, linestyle=none]{[xA yA]}{[xB yB]}{[xC yC]}{0.25}%
+%\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.2}%
+%\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.25}%
+%\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.3}%
+%\fcAngleFromThreePoints[anglecolor=red, linestyle=none]{[xC yC]}{[xA yA]}{[xB yB]}{0.2}%
+\psline(! xA yA)(! xB yB)(! xC yC)(! xA yA)%
+\rput[b](! xA xB add 0.5 mul yA yB add 0.5 mul 0.1 add){$c~$}
+\rput[r](! xC xB add 0.5 mul yC yB add 0.5 mul){$a~~$}
+\rput[r](! xA xC add 0.5 mul yA yC add 0.5 mul){$b~~$}
+\rput[t](! xA yA){$A$}%
+%\rput[bl](! xA 0.2 add yA 0.2 add){$\alpha$}
+\rput[l](! xB yB){$~~B$}%
+%\rput[r](! xB 0.3 sub yB 0.1 add ){$\beta$}
+\rput[b](! xC yC){$C$}%
+%\rput[t](! xC 0.05 sub yC 0.4 sub){$\gamma$}
+\pstVerb{end}%
+\end{pspicture}
+\end{center}
+
+\end{frame}

@@ -2667,12 +2667,11 @@ end %
 
 \newcommand{\fcZeroVector}{[exch {0} repeat]}
 
-\newcommand{\fcPerpendicularComputeHeel}[3]{%
-\pstVerb{%
+\newcommand{\fcPerpendicularComputeHeelCode}[3]{%
 7 dict begin%
-/thePoint #1 def%
-/heelSize #3 def %
-mark #2 %
+/thePoint #1\space def%
+/heelSize #3\space def %
+mark #2 \space%
 counttomark 1 eq {%
 /directionUnitVector exch \fcVectorNormalize def%
 /basePoint thePoint length \fcZeroVector def%
@@ -2688,19 +2687,18 @@ heel directionUnitVector heelSize \fcVectorTimesScalar \fcVectorMinusVector %
 dup perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector %
 heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 } def%
-}%
 }
 
 \newcommand{\fcPerpendicular}[4][ ]{%
 \setkeys{fcGraphics}{#1}%
-\fcPerpendicularComputeHeel{#2}{#3}{#4}%
+\pstVerb{\fcPerpendicularComputeHeelCode{#2}{#3}{#4}}%
 \psline[#1](! thePoint \fcArrayToStack)(! heel \fcArrayToStack)%
 \listplot[linecolor=\fcColorAngle, linewidth=\fcAngleLineWidth]{ [polyLineInput] {\fcArrayToStack} \fcSpliceArrayOperation \fcArrayToStack}%
 \pstVerb{end}%
 }
 
 \newcommand{\fcPerpendicularIIId}[4][]{%
-\fcPerpendicularComputeHeel{#2}{#3}{#4}%
+\pstVerb{\fcPerpendicularComputeHeelCode{#2}{#3}{#4}}%
 \fcLineIIId[#1]{thePoint}{heel}%
 \fcPolyLineIIId[linecolor=red]{polyLineInput}%
 \pstVerb{end}%
