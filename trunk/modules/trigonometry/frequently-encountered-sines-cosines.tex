@@ -1,0 +1,110 @@
+\begin{frame}
+\begin{columns}
+\column{0.47\textwidth}
+\psset{xunit=1.7cm, yunit=1.7cm}
+\begin{pspicture}(-1.4,-1.4)(1.6,1.4)
+\tiny
+\fcBoundingBox{-1.2}{-1.4}{1.2}{1.4}
+\psline[linecolor=gray, arrows=<->](-1.2, 0)(1.2, 0)
+\psline[linecolor=gray, arrows=<->](0,-1.4)(0, 1.4)
+\fcLabels{1.2}{1.4}
+\parametricplot{0}{360}{t cos t sin}
+%\newcommand{\rayFormat}{}
+\newcommand{\theLine}[5]{%
+\psline[linecolor=blue](! ####1 cos 0.9 mul ####1 sin 0.9 mul)(! ####1 cos 1.1 mul ####1 sin 1.1 mul)%
+\psline[linestyle=dashed, linewidth=0.5pt, linecolor=blue](0,0)(! ####1 cos 1 mul ####1 sin 1 mul)%
+\rput[####2](! ####1\space cos 1.15 mul ####1 sin 1.15 mul ){####3}%
+\rput[####4](! ####1\space cos 0.9 mul ####1 sin 0.9 mul ){####5}%
+}%
+\uncover<1->{\theLine{0}{l}{$\fcAnswer{2}{ \left(1,0\right)}$}{r}{$0^{\circ}$}}%
+\uncover<3->{\theLine{30}{lb}{$\fcAnswer{4}{ \left(\frac{\sqrt{3}}{2}, \frac{1}{2} \right)} $}{rt}{$ 30^{ \circ }$}}%
+\uncover<5->{\theLine{45}{lb}{$\fcAnswer{6}{ \left(\frac{\sqrt{2}}{2}, \frac{ \sqrt{2 }}{2} \right)} $}{tr}{$ 45^{ \circ}$}}%
+\uncover<7->{\theLine{60}{lb}{$\fcAnswer{8}{ \left(\frac{1}{2}, \frac{\sqrt{3}}{ 2}\right)} $}{tr}{$60^{ \circ}$}}%
+\uncover<9->{\theLine{90}{b}{$\fcAnswer{10}{ \left(0,1\right)} $}{r}{$ 90^{ \circ}$}}%
+\uncover<11->{\theLine{120}{br}{$\left( -\frac{1}{2},\frac{\sqrt{3}}{2} \right)$}{tl}{$ 120^{ \circ}$}}%
+\onlyNoH{12,13}{%
+\parametricplot[linecolor=green, linewidth=1.5pt]{120}{180}{t cos 0.35 mul t sin 0.35 mul}%
+\parametricplot[linecolor=red, linewidth=1.5pt]{0}{120}{t cos 0.2 mul t sin 0.2 mul}%
+}%
+\theLine{135}{br}{$\left(-\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)$}{tl}{$ 135^{\circ}$}%
+\theLine{150}{br}{$\left(-\frac{\sqrt{3}}{2}, \frac{1}{2}\right)$}{tl}{$ 150^{\circ}$}%
+\theLine{180}{r}{$\left(-1, 0\right)$}{l}{$ 180^{\circ}$}%
+\theLine{210}{tr}{$\left( -\frac{\sqrt{3}}{2}, -\frac{1}{2}\right)$}{bl}{$ 210^{\circ}$}%
+\theLine{225}{tr}{$\left(-\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}\right)$}{bl}{$ 225^{\circ}$}%
+\theLine{240}{tr}{$\left(-\frac{1}{2}, -\frac{\sqrt{3}}{2}\right)$}{bl}{$ 240^{\circ}$}%
+\theLine{270}{t}{$\left(0,-1\right)$}{b}{$ 270^{\circ}$}%
+\theLine{300}{tl}{$\left(\frac{1}{2}, -\frac{\sqrt{3}}{2}\right)$}{br}{$ 300^{\circ}$}%
+\theLine{315}{tl}{$\left(\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}\right)$}{br}{$ 315^{\circ}$}%
+\theLine{330}{tl}{$\left(\frac{\sqrt{3}}{2}, -\frac{1}{2}\right)$}{br}{$ 330^{\circ}$}%
+\rput[lb](1.2, 1.2){Quadrant I}
+\rput[rb](-1.2,1.2){Quadrant II}
+\rput[rt](-1.2,-1.2){Quadrant III}
+\rput[lt](1.2,-1.2){Quadrant IV}
+\end{pspicture}
+\column{0.53\textwidth}
+\begin{itemize}
+\item One only needs to memorize sines and cosines in Quadrant I and on the axes.
+\item<11-> The remaining sines and cosines are extracted by 
+\begin{itemize}
+\item<11-> taking the sine/cosine of the reference angle
+\item and adjusting the sign according to the Quadrant.
+\end{itemize} 
+\end{itemize}
+\end{columns}
+\[
+\begin{array}{|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|c@{ \ }|}
+\hline
+\text{Deg.} &
+\alertNoH{1-2}{0^\circ } &
+\alertNoH{3-4}{30^\circ} &
+\alertNoH{5-6}{45^\circ} &
+\alertNoH{7-8}{60^\circ} &
+\alertNoH{9-10}{90^\circ} &
+\alertNoH{11-12}{120^\circ}&
+\alertNoH{13-14}{135^\circ}&
+\alertNoH{15-16}{150^\circ}&
+\alertNoH{17-18}{180^\circ}&
+\alertNoH{19-20}{270^\circ}&
+\alertNoH{21-22}{360^\circ}\\
+\hline
+\textrm{Rad.} &
+ \alertNoH{1-2}{0} &
+\displaystyle \alertNoH{3-4}{\frac{ \pi}{6}} &
+\displaystyle \alertNoH{5-6}{\frac{ \pi}{4}} &
+\displaystyle \alertNoH{7-8}{\frac{ \pi}{3}} &
+\displaystyle \alertNoH{9-10}{\frac{ \pi}{2}} &
+\displaystyle \alertNoH{11-12}{\frac{2\pi}{3}} &
+\displaystyle \frac{3\pi}{4} &
+\displaystyle \frac{5\pi}{6} &
+\displaystyle \pi &
+\displaystyle \frac{3\pi}{2} &
+\displaystyle 2\pi \\
+\hline
+\alertNoH{1-12}{\sin }& 
+\fcAnswer{2}{0} &
+\displaystyle \frac{1}{2}&
+\displaystyle \frac{\sqrt{2}}{2}&
+\displaystyle \frac{\sqrt{ 3}}{2}&
+\displaystyle 1& 
+\displaystyle \frac{\sqrt{ 3}}{2}&
+\displaystyle \frac{\sqrt{2}}{2}&
+\displaystyle \frac{1}{2} & 
+\displaystyle 0 & 
+\displaystyle -1&
+\displaystyle 0\\ \hline
+\alertNoH{1-12}{\cos} & 
+\fcAnswer{2}{1}&
+\displaystyle \fcAnswer{4}{\frac{\sqrt{ 3}}{2}}&
+\displaystyle \fcAnswer{6}{\frac{\sqrt{2}}{2}}&
+\displaystyle \fcAnswer{8}{\frac{1}{2}}& 
+\displaystyle \fcAnswer{10}{0}& 
+\displaystyle \fcAnswerUncover{11}{13}{-\frac{1}{2}}& 
+\displaystyle -\frac{\sqrt{2}}{2}&
+\displaystyle -\frac{\sqrt{ 3}}{2}&
+-1&
+0&
+1
+\\\hline
+\end{array}
+\]
+\end{frame}
