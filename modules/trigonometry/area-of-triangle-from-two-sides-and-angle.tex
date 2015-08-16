@@ -1,0 +1,68 @@
+\begin{frame}
+\frametitle{Triangle area from two sides and angle between them}
+Let $\triangle ABC$ have sides lengths $a,b,c$ angles $\alpha, \beta, \gamma$, as indicated: $\alpha$ is opposite to $a$, $\beta$ is opposite to $b$, $\gamma$ is opposite to $c$.
+
+\begin{proposition}[$\triangle$ area from two sides and angle between them]
+\alertNoH{2}{The area of a triangle} is \alertNoH{5}{half the product} of \alertNoH{3}{the lengths of two of its sides} times the sine of \alertNoH{4}{the angle between them}. In other words, 
+\[
+\alertNoH{2,10}{ \text{Area}(\triangle ABC)} \alertNoH{10}{ =\frac{\alertNoH{3}{ a b } \alertNoH{4}{ \sin\gamma}}{\alertNoH{5}{2}}} = \frac{b c \sin \alpha }{2} = \frac{ca\sin\beta}{2}
+\]
+\end{proposition}
+
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1, -1)(1,1)%
+\tiny%
+\pstVerb{30 dict begin
+/xA 0 def
+/yA 0 def
+/xB 2 def
+/yB 1 def
+/xC 1.6 def
+/yC 3 def
+}%
+\onlyNoH{2}{\pscustom*[linecolor=cyan]{\psline(! xA yA)(! xB yB)(! xC yC)(! xA yA)}}%
+\uncover<8->{%
+\rput[b](! \fcPerpendicularComputeHeelCode{[xB yB]}{[xA yA] [xC yC]}{0.1} heel thePoint \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack  end ){$~~\alertNoH{8}{h_b}$}%
+\fcPerpendicular[linestyle=dashed]{[xB yB]}{[xC yC][xA yA]}{0.1}%
+}%
+\onlyNoH{8,9}{\fcPerpendicular[linewidth=2pt, linecolor=blue]{[xB yB]}{[xC yC][xA yA]}{0.1}}%
+\fcAngleFromThreePoints[anglecolor=blue, linestyle=none]{[xA yA]}{[xB yB]}{[xC yC]}{0.2}%
+\fcAngleFromThreePoints[anglecolor=blue, linestyle=none]{[xA yA]}{[xB yB]}{[xC yC]}{0.25}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.2}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.25}%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.3}%
+\fcAngleFromThreePoints[anglecolor=red, linestyle=none]{[xC yC]}{[xA yA]}{[xB yB]}{0.2}%
+\onlyNoH{4,9}{\fcAngleFromThreePoints[anglecolor=green, anglelinewidth=2pt, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.25}}%
+\psline(! xA yA)(! xB yB)(! xC yC)(! xA yA)%
+\onlyNoH{3}{\psline[linewidth=2pt, linecolor=red](! xA yA)(! xC yC)(! xB yB)}%
+\onlyNoH{7}{\psline[linewidth=2pt, linecolor=red](! xA yA)(! xC yC)}%
+\onlyNoH{9}{\psline[linewidth=2pt, linecolor=orange](! xB yB)(! xC yC)}%
+\rput[t](! xA xB add 0.5 mul yA yB add 0.5 mul 0.1 sub){$~~~c$}
+\rput[l](! xC xB add 0.5 mul yC yB add 0.5 mul){$~~a$}
+\rput[r](! xA xC add 0.5 mul yA yC add 0.5 mul){$\alertNoH{7}{b}~~$}
+\rput[t](! xA yA){$A$}%
+\rput[bl](! xA 0.2 add yA 0.2 add){$\alpha$}
+\rput[l](! xB yB){$B$}%
+\rput[r](! xB 0.3 sub yB 0.1 add ){$\beta$}
+\rput[b](! xC yC){$C$}%
+\rput[t](! xC 0.05 sub yC 0.4 sub){$\alertNoH{9}{\gamma}$}
+\pstVerb{end}%
+\end{pspicture}
+\column{0.7\textwidth}
+\uncover<6->{
+\begin{proof}
+$
+\begin{array}{rcl}
+\displaystyle \alertNoH{6,10}{\text{Area}(\triangle ABC)}&\alertNoH{6}{=} &\displaystyle \alertNoH{6}{ \frac{\alertNoH{7}{ \text{base}}\cdot \alertNoH{8}{ \text{height}}}{2}} \uncover<7->{  =\frac{\alertNoH{7}{b}\alertNoH{8,9 }{h_b}}{2}}\\
+\uncover<9->{&\alertNoH{10}{=} &\displaystyle \alertNoH{10}{\frac{ b\alertNoH{9}{ a\sin\gamma} }{2}}.}
+\end{array}
+$
+
+\uncover<11->{The proof of the other two cases is similar.}
+\end{proof}
+}
+
+\end{columns}
+
+\end{frame}
