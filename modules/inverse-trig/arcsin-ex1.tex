@@ -1,48 +1,51 @@
 % begin module arcsin-ex1
 \begin{frame}
-\begin{example} %[Example 1, p. 217]
+\vskip -0.1cm
+\begin{example}
 \begin{columns}[t]
-\column{.4\textwidth}
-\[
-\text{Find } \ \Arcsin \left( \frac{1}{2}\right)
-\]
+\column{.3\textwidth}
+\hfil \hfil Find $\displaystyle \Arcsin \left( \frac{1}{2}\right)$.
 \begin{itemize}
-\item<2->  $\sin (\uncover<2-| handout:0>{\frac{\pi}{ 6}}) = \frac{1}{2}$.
-\item<3->  $-\frac{\pi}{2} \leq \uncover<3-| handout:0>{\frac{\pi}{6}} \leq \frac{\pi}{2}$.
-\item<4->  Therefore $\Arcsin \left( \frac{1}{2}\right) = \uncover<3-| handout:0>{\frac{\pi}{6}}$.
+\item<2->  $\displaystyle \sin \left(\uncover<2-| handout:0>{\frac{\pi}{ 6}}\right) = \frac{1}{2}$.
+\item<3->  $\displaystyle -\frac{\pi}{2} \leq \uncover<3-| handout:0>{\frac{\pi}{6}} \leq \frac{\pi}{2}$.
+\item<4->  Therefore $ \Arcsin \left( \frac{1}{2}\right) = \uncover<3-| handout:0>{\frac{\pi}{6}}$.
 \end{itemize}
-\column{.6\textwidth}
-\[
-\text{Find } \ \tan \left( \Arcsin \left( \frac{1}{3}\right) \right)
-\]
+\column{.7\textwidth}
+\hfil \hfil Find $\displaystyle
+\tan \left( \Arcsin \left( \frac{1}{3}\right) \right)
+$.
 \begin{itemize}
-\item<5->  Let $\theta = \Arcsin (1/3)$, so $\sin \theta = 1/3$.
-\item<6->  Draw a right triangle with opposite side $1$ and hypotenuse $3$.
-\item<7->  \alert<handout:0| 7-8>{Length of adjacent side $ = \uncover<8-| handout:0>{\sqrt{3^2-1^2} = \sqrt{8} = 2\sqrt{2}.}$}
-\item<9->  Then \alert<handout:0| 9-10>{$\tan (\Arcsin \frac13) = \uncover<10-| handout:0>{\frac{1}{2\sqrt{2}}.}$}
+\item<5->  Let $\theta = \Arcsin \left(\frac{1}{3}\right)$, so $\sin \theta = \frac{ \alertNoH{6}{1}}{\alertNoH{7}{3}}$.
+\item<6->  Draw a right triangle with  \alertNoH{6}{opposite side $1$} and \alertNoH{7}{hypotenuse $3$}.
+\item<8-> Let the angle $\theta$ be as labeled. \uncover<9->{ Then $ \alertNoH{9,10}{\sin\theta= \frac{1 }{3}}$ \uncover<10->{and so $\alertNoH{10}{ \theta= \arcsin\left(\frac{1}{3}\right)}$}.}
+\item<11->  \alert<handout:0| 11-12>{Length of adjacent side $ = \fcAnswer{12}{\sqrt{3^2-1^2}} \uncover<13->{ = \sqrt{8} = 2\sqrt{2}.}$}
+\item<14->  Then \alert<handout:0| 14-15>{$\tan \left(\Arcsin \frac13\right) = \fcAnswer{15}{\frac{1}{2\sqrt{2}}.}$}
 \end{itemize}
 
-\psset{xunit=1.8cm, yunit=1.8cm}
+\vskip -0.1cm
+\hfil\hfil \psset{xunit=1.5cm, yunit=1.5cm}
 \begin{pspicture}(-0.2, -0.35)(3.2,1.05)
-\psframe*[linecolor=white](-0.2, -0.35)(3.3,1.05)
+\small%
+\fcBoundingBox{-0.2}{-0.35}{ 10 sqrt 0.3 add}{1.15}
 \psline[linecolor=red!1](2.828427125, 1)(2.828427125, 1.01)
 \psline[linecolor=red!1](0, -0.35)(0.001, -0.35)
 \psdot[linecolor=white](3.1, 1.0)
 \psdot[linecolor=white](-0.1, -0.3)
-\uncover<6->{\psline(0,0)(2.828427125, 0)(2.828427125, 1)(0,0)
-\psline(2.828427125, 0.1)(2.728427125, 0.1)(2.728427125,0)
+\uncover<6->{%
+\psline(0,0)(! 10 sqrt 0)(! 10 sqrt  1)(0,0)
+\psline(! 10 sqrt 0.1)(! 10 sqrt 0.1)(! 10 sqrt 0)
 \rput[b](1.41, 0.55){$3$}
-\rput[l](2.87, 0.5){$1$}
-\rput(0.55, 0.1){$\theta$}
+\rput[l](! 10 sqrt 0.05 add 0.5){$1$}
+\rput(0.8, 0.13){$ \alertNoH{8}{\theta}$}
 \fcAngle{0}{0.339837}{0.4}{}
 }
-\uncover<7>{\rput[t](1.41, -0.1){\alert<7| handout:0>{?}} }
-\uncover<8-| handout:0>{\rput[t](1.41, -0.1){\alertNoH{8}{$2\sqrt{2}$}} }
-
+\uncover<handout:0|6,9,15>{\psline[linewidth=2pt, linecolor=blue](! 10 sqrt 0)(! 10 sqrt  1)}%
+\uncover<handout:0|15>{\psline[linewidth=2pt, linecolor=green](0,0)(! 10 sqrt 0)}%
+\uncover<handout:0|7,9>{\psline[linewidth=2pt, linecolor=orange](! 0 0)(! 10 sqrt  1)}%
+\uncover<11-| handout:0>{\rput[t](! 10 sqrt 2 div -0.1){$ \fcAnswerUncover{11}{13}{ 2 \sqrt{2}}$}} 
 \end{pspicture}
-
-
 \end{columns}
+
 \end{example}
 \end{frame}
 % end module arcsin-ex1

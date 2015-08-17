@@ -3,46 +3,79 @@
 \begin{example}
 Find $\Arcsin (\sin 2)$.
 \begin{itemize}
-\item<2->  $2$ is not between $-\pi/2$ and $\pi/2$.
-\item<3->  \alertNoH{5}{$\sin 2 = \sin a$} for some \alertNoH{6}{$a$ between $-\pi/2$ and $\pi/2$.}
+\item<2->  $2$ is not between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$.
+\item<3->  We need the angle \alertNoH{8,12}{$a$ between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$} for which $\alertNoH{11}{ \alertNoH{4}{ \sin 2} =\alertNoH{7}{ \sin a}}$.
 \end{itemize}
-\begin{align*}
-\uncover<4->{\alertNoH{7}{a - 0} & \alertNoH{7}{= \pi - 2.}} \\
-\uncover<5->{\text{Therefore }\quad \Arcsin(\alertNoH{5}{\sin 2}) & = \alertNoH{6}{\Arcsin(\alertNoH{5}{\sin a})}} \\
-& \uncover<6->{ \alertNoH{6}{= \alertNoH{7}{a}}} \uncover<7->{\alertNoH{7}{= \pi-2.}}
-\end{align*}
-
+\uncover<9->{
+\[
+\begin{array}{rcl}
+\alertNoH{9,10,13}{a} &\alertNoH{9,10,13}{=}& \fcAnswer{10}{ \alertNoH{13}{\pi - 2}.} \\
+\uncover<11->{\text{Therefore }\quad \Arcsin(\alertNoH{11}{\sin 2}) &\alertNoH{0}{ =} & \alertNoH{12}{\Arcsin(\alertNoH{11}{\sin a})}} \\
+\uncover<12->{&\alertNoH{0}{ =}&  \alertNoH{12,13}{ a} \uncover<13->{\alertNoH{13}{= \pi-2}.}}
+\end{array}
+\]
+}
 \end{example}
 
 \begin{center}
+\psset{xunit=1.5cm,yunit=1.5cm}
+\begin{pspicture}(-1.4, -1.4)(1.4, 1.4)
+\tiny
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\parametricplot[linecolor=gray]{0}{360}{t cos t sin}%
+\parametricplot[linecolor=brown]{-90}{90}{t cos t sin}%
+\fcXTickWithLabel{1}{$1$}
+\pstVerb{20 dict begin /pi 3.141592654 def /toDeg {180 mul pi div} def}%
+\uncover<2->{%
+\psline[arrows=->](0,0)(! 2 toDeg cos 1.3 mul 2 toDeg sin 1.3 mul)%
+\parametricplot[linecolor=orange]{0}{2 toDeg}{t cos 0.35 mul t sin 0.35 mul}%
+\rput[bl](0.24, 0.27){$2 $}
+}%
+\uncover<4->{\fcPerpendicular[linecolor=blue]{[2 toDeg cos 2 toDeg sin]}{[1 0]}{0.1}}%
+\uncover<handout:0|4>{\psline[linecolor=blue, linewidth=2pt](! 2 toDeg cos 2 toDeg sin)(! 2 toDeg cos 0)}%
+\uncover<5->{\parametricplot[linecolor=green]{2 toDeg}{180}{t cos 0.15 mul t sin 0.15 mul}%
+\rput[br](-0.15, 0.15){$\fcAnswer{10}{\pi-2}$}%
+}%
+\uncover<handout:0|10>{%
+\parametricplot[linewidth=2pt, linecolor=green]{2 toDeg}{180}{t cos 0.15 mul t sin 0.15 mul}%
+\parametricplot[linewidth=2pt, linecolor=green]{0}{pi 2 sub toDeg}{t cos 0.15 mul t sin 0.15 mul}%
+}%
+\uncover<6->{%
+\psline[linestyle=dotted](! 2 toDeg cos 2 toDeg sin)(! pi 2 sub toDeg cos pi 2 sub toDeg sin)%
+}%
+\uncover<7->{%
+\fcPerpendicular[linecolor=blue]{[pi 2 sub toDeg cos pi 2 sub toDeg sin]}{[-1 0]}{0.1}%
+\psline[arrows=->](0,0)(! pi 2 sub toDeg cos 1.3 mul pi 2 sub toDeg sin 1.3 mul)%
+}%
+\uncover<handout:0|7>{\psline[linecolor=blue, linewidth=2pt](! pi 2 sub toDeg cos pi 2 sub toDeg sin)(! pi 2 sub toDeg cos 0)}%
+\uncover<8->{%
+\parametricplot[linecolor=green]{0}{pi 2 sub toDeg}{t cos 0.15 mul t sin 0.15 mul}%
+\rput[lb](0.15, 0.07){$\alertNoH{9,10}{a}$}%
+}%
+\pstVerb{end}
+\end{pspicture} \quad 
 \psset{xunit=1.0cm,yunit=1.0cm}
 \begin{pspicture}(-2.2,-1.4)(4.2,1.4)
 \tiny
+\pstVerb{20 dict begin /pi 3.141592654 def /toDeg {180 mul pi div} def}%
 \psaxes[labels=none, Dx=1.570796327, Dy=1] {<->}(0,0)(-2,-1.8)(4,1.8)
-\psplot[linecolor=red, plotpoints=1000]{-1.570796327}{1.570796327}{x 57.295779513 mul sin}
+\psline[linecolor=brown, linewidth=1.05pt](! pi -2 div 0)(! pi 2 div 0)
+\psplot[linecolor=blue, plotpoints=1000]{-1.570796327}{1.570796327}{x 57.295779513 mul sin}
 \rput[bl](3, 1){$y=\sin x$ }
-\psplot[linecolor=gray, plotpoints=1000]{1.570796327}{4}{x 57.295779513 mul sin}
-\psplot[linecolor=gray, plotpoints=1000]{-2}{-1.570796327}{x 57.295779513 mul sin}
+\psplot[linecolor=gray, plotpoints=1000]{pi 2 div}{4}{x 57.295779513 mul sin}
+\psplot[linecolor=gray, plotpoints=1000]{-2}{pi -2 div}{x 57.295779513 mul sin}
 \rput[t](-1.57, -0.3){$-\frac{\pi}{2}$}
 \rput[t](1.57, -0.3){$\frac{\pi}{2}$}
 \rput[t](3.14, -0.3){$\pi$}
 \rput[bl](0.2,1){\tiny $1$}
-
-\uncover<2->{%
-\psline[linewidth=0.4pt](2,0.2)(2,-0.2)
-\rput[t](2, -0.3){$2$}
-}%
-
-\uncover<3->{%
-\psline[linewidth=0.4pt](1.141592654,0.2)(1.141592654,-0.2)
-\rput[t](1.141592654, -0.3){$a$}
-\psline(1.141592654,0.909297427)(2,0.909297427)
-}%
-
-\uncover<4->{%
-\psline[linecolor=red]{<->}(0,-0.2)(1.141592654,-0.2)
-\psline[linecolor=red]{<->}(2,-0.2)(3.141592654,-0.2)
-}%
+\uncover<4->{\psline[linecolor=blue](2,0)(! 2 2 toDeg sin)}%
+\uncover<7->{\psline[linecolor=blue](! pi 2 sub 0)(! pi 2 sub dup toDeg sin)}%
+\uncover<2->{\fcXTickWithLabel{2}{$2$}}%
+\uncover<7->{\fcXTickWithLabel{pi 2 sub}{$\uncover<8->{a}$}}%
+\uncover<6->{\psline[linestyle=dotted](! pi 2 sub 0.909297427)(2,0.909297427)}%
+\uncover<5->{\psline[linecolor=green]{<->}(2,-0.2)(! pi -0.2)}%
+\uncover<8->{\psline[linecolor=green]{<->}(0,-0.2)(! pi 2 sub -0.2)}%
+\pstVerb{end}
 \end{pspicture}
 \end{center}
 
