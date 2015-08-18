@@ -1,20 +1,19 @@
 \begin{frame}
 \begin{example}
-Rewrite  $\sin (2\Arccos (x))$ as an algebraic expression of $x$ and $\sqrt{1-x^2}$.
+\alertNoH{11}{Rewrite  $\sin (2\Arccos (x))$ as an algebraic expression of $x$ and $\sqrt{1-x^2}$}.
 
-\uncover<2->{
-Our only means of simplifying $\Arccos x$ away is to exploit $\cos (\Arccos x) =x $. Therefore our aim is to rewrite the expression only using the $\cos $ function.
+\uncover<2->{To simplify $\Arccos y$ we try to use $\cos (\Arccos x) =x $.} \uncover<3->{Therefore our aim is to \alertNoH{7}{rewrite the expression only using the $\cos $ function}.}
 \[
-\displaystyle \begin{array}{@{}r@{}c@{}l@{}l|l}
-\sin (2\Arccos (x))&=&\displaystyle  \sin (2y)&&\text{Set }y=\Arccos x\\
-&=&\displaystyle 2 \cos y \sin y&&\text{Express via }\sin y, \cos y\\
-&=&\displaystyle  2\cos y\left(\pm \sqrt{1-\cos^2y}\right)&&\text{Express }\sin y \text{ via } \cos y\\
-&=&\displaystyle 2\cos y \sqrt{1-\cos^2y}&&\begin{array}{l} \sin y>0 \text{ because}\\
- 0\leq y\leq \pi\end{array}\\
-&=&\displaystyle2x\sqrt{1-x^2}&&\text{use }x=\cos y
+\displaystyle \begin{array}{@{}r@{~}c@{~}l@{}l|l}
+\alertNoH{11}{\sin (2 \alertNoH{4}{\Arccos (x)})}\uncover<4->{&\alertNoH{0}{=}&\displaystyle \alertNoH{5,6}{  \sin (2\alertNoH{4}{y})}&&\text{Set }\alertNoH{4,9, 10}{y=\Arccos x}}\\
+\uncover<5->{&\alertNoH{0}{=}&\displaystyle \fcAnswer{6}{2 \cos y \alertNoH{7, 8}{ \sin y}}&&\alertNoH{5,6}{\text{Express via }\sin y, \cos y}} \\
+\uncover<7->{&\alertNoH{0}{=}&\displaystyle  2\cos y\left(\alertNoH{7,8}{ \pm \sqrt{1-\cos^2y}} \right)&&\text{Express }\sin y \text{ via } \cos y} \\
+\uncover<8->{&\alertNoH{0}{=}&\displaystyle 2 \alertNoH{10}{\cos y} \alertNoH{8}{ \sqrt{1-{\alertNoH{10}{\cos}}^2\alertNoH{10}{y}}}&& \begin{array}{@{}l} \alertNoH{8,9}{\sin y>0}\alertNoH{9}{ \text{ because}}\\
+ \alertNoH{9}{0\leq y\leq \pi} \end{array}}\\
+\uncover<10->{&\alertNoH{11}{=}&\displaystyle \alertNoH{11}{ 2\alertNoH{10}{x}\sqrt{1- {\alertNoH{10}{x}}^2}}&&\text{use } \alertNoH{10}{x=\cos y}}
 \end{array}
 \]
-}
+
 \end{example}
 
 \end{frame}
