@@ -56,7 +56,8 @@ $
 \newcommand{\advanceGraph}[2]{%
 \pstVerb{25 dict begin}%
 \pstVerb{/theDegs ####1\space def}%
-\psline[linewidth=1.5pt, linecolor=brown](0,0)(! theDegs toRad 0)%
+\onlyNoH{1-}{\psline[linewidth=1.5pt, linecolor=brown](0,0)(! theDegs toRad 0)}%
+\only<handout:1|0>{\psline[linewidth=1.5pt, linecolor=brown](0,0)(! pi 5 mul 6 div 0)}%
 \fcXTickWithLabel{theDegs toRad}{####2}%
 \psline[linewidth=1.5pt, linecolor=blue](! theDegs toRad 0)(! theDegs toRad theDegs sin)%
 \pstVerb{end}%
@@ -73,7 +74,7 @@ $
 \only<14->{\advanceGraph{270}{$\frac{3\pi}{2}$}}%
 \only<16->{\advanceGraph{330}{$\frac{11\pi}{6}$}}%
 \only<18->{\advanceGraph{360}{$2\pi$}}%
-\uncover<20->{\rput[l](2.1, 0.7){$y=\sin x$}}%
+\uncover<20->{\rput[l](2.7, 0.7){$y=\sin x$}}%
 \pstVerb{end}%
 \end{pspicture}
 

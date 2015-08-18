@@ -11,7 +11,7 @@ Find $\Arcsin (\sin 2)$.
 \begin{array}{rcl}
 \alertNoH{9,10,13}{a} &\alertNoH{9,10,13}{=}& \fcAnswer{10}{ \alertNoH{13}{\pi - 2}.} \\
 \uncover<11->{\text{Therefore }\quad \Arcsin(\alertNoH{11}{\sin 2}) &\alertNoH{0}{ =} & \alertNoH{12}{\Arcsin(\alertNoH{11}{\sin a})}} \\
-\uncover<12->{&\alertNoH{0}{ =}&  \alertNoH{12,13}{ a} \uncover<13->{\alertNoH{13}{= \pi-2}.}}
+\uncover<12->{&\alertNoH{0}{ =}& \worksheet{ \alertNoH{12,13}{ a} \uncover<13->{\alertNoH{13}{= \pi-2}.}}}
 \end{array}
 \]
 }
@@ -31,6 +31,7 @@ Find $\Arcsin (\sin 2)$.
 \parametricplot[linecolor=orange]{0}{2 toDeg}{t cos 0.35 mul t sin 0.35 mul}%
 \rput[bl](0.24, 0.27){$2 $}
 }%
+\worksheet{%
 \uncover<4->{\fcPerpendicular[linecolor=blue]{[2 toDeg cos 2 toDeg sin]}{[1 0]}{0.1}}%
 \uncover<handout:0|4>{\psline[linecolor=blue, linewidth=2pt](! 2 toDeg cos 2 toDeg sin)(! 2 toDeg cos 0)}%
 \uncover<5->{\parametricplot[linecolor=green]{2 toDeg}{180}{t cos 0.15 mul t sin 0.15 mul}%
@@ -52,6 +53,7 @@ Find $\Arcsin (\sin 2)$.
 \parametricplot[linecolor=green]{0}{pi 2 sub toDeg}{t cos 0.15 mul t sin 0.15 mul}%
 \rput[lb](0.15, 0.07){$\alertNoH{9,10}{a}$}%
 }%
+}%
 \pstVerb{end}
 \end{pspicture} \quad 
 \psset{xunit=1.0cm,yunit=1.0cm}
@@ -68,13 +70,17 @@ Find $\Arcsin (\sin 2)$.
 \rput[t](1.57, -0.3){$\frac{\pi}{2}$}
 \rput[t](3.14, -0.3){$\pi$}
 \rput[bl](0.2,1){\tiny $1$}
+\worksheet{%
 \uncover<4->{\psline[linecolor=blue](2,0)(! 2 2 toDeg sin)}%
 \uncover<7->{\psline[linecolor=blue](! pi 2 sub 0)(! pi 2 sub dup toDeg sin)}%
+}
 \uncover<2->{\fcXTickWithLabel{2}{$2$}}%
+\worksheet{%
 \uncover<7->{\fcXTickWithLabel{pi 2 sub}{$\uncover<8->{a}$}}%
 \uncover<6->{\psline[linestyle=dotted](! pi 2 sub 0.909297427)(2,0.909297427)}%
 \uncover<5->{\psline[linecolor=green]{<->}(2,-0.2)(! pi -0.2)}%
 \uncover<8->{\psline[linecolor=green]{<->}(0,-0.2)(! pi 2 sub -0.2)}%
+}%
 \pstVerb{end}
 \end{pspicture}
 \end{center}

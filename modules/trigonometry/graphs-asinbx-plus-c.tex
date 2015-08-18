@@ -28,13 +28,13 @@
 \only<handout:3|17->{\pstVerb{/theC 2.4 def}}%
 \only<handout:3|19>{\pstVerb{/theB 1.5 def}}%
 \psplot[plotpoints=1000, linecolor=\fcColorGraph]{-7}{7}{x theB mul theC add  toDeg sin theA mul}%
-\uncover<2>{\psline[linecolor=blue, linewidth=2pt](! pi 2 div theB div 0)(! pi 2 div theB div 1)}%
+\uncover<2>{\psline[linecolor=blue, linewidth=2pt](! pi 2 div theC sub theB div 0)(! pi 2 div theC sub theB div 1)}%
 \uncover<2-5>{%
-\psline(! pi 2 div theB div 0)(! pi 2 div theB div 1)%
-\rput[l](!  pi 2 div theB div 0.5){~amplitude}%
+\psline(! pi 2 div theC sub theB div 0)(! pi 2 div theC sub theB div 1)%
+\rput[l](!  pi 2 div theC sub theB div 0.5){~amplitude}%
 }%
 \uncover<4-5>{%
-\fcLengthIndicator[linecolor=green]{0}{-0.2}{pi 2 mul theB div}{-0.2}{period}%
+\fcLengthIndicator[linecolor=green]{theC theB div -1 mul}{-0.2}{pi 2 mul theB div theC theB div -1 mul add}{-0.2}{period}%
 %(! pi 2 div theB div 0)(! pi 2 div theB div 1)%
 }%
 \rput[r](-0.5, 1){ $y=a\sin(bx+c)$}%
@@ -47,5 +47,5 @@
 \only<handout:3|18->{\fcLengthIndicator[linecolor=green]{theC theB div -1 mul}{-0.2}{0}{-0.2}{$ \frac{c}{b}$}}%
 \pstVerb{end}%
 \end{pspicture}%
-
+\uncover<handout:3|0>{}
 \end{frame}

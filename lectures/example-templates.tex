@@ -81,22 +81,31 @@
 \newcommand{\rectangle}{{%
   \ooalign{$\sqsubset\mkern2mu$\cr$\mkern1mu\sqsupset$\cr}%
 }}
+\newcommand{\worksheet}[1]{\uncover<1->{#1}}
+%Code from user cfr from stackexchange, from discussion:
+%http://tex.stackexchange.com/questions/259138/beamer-class-creating-3-modes-presentation-handout-and-custom
+%\makeatletter
+%\newcommand{\turnOnWorksheetMode}{%
+%\gdef\beamer@currentmode{worksheet}%
+%\def\animate<##1>{\transduration<##1| handout:0| worksheet:0| trans:0>{0}}%
+%}
+%\makeatother
 \newcommand{\fcAnswerNoH}[2]{
 \FPeval{\fcResult}{clip(#1-1)}
-\uncover<handout:0|\fcResult>{\alertNoH{\fcResult}{\textbf{?} }} \uncover<handout:0| #1->{\alertNoH{#1}{\!\!\!#2}}
+\uncover<handout:0|\fcResult>{\alertNoH{\fcResult}{\textbf{?} }} \worksheet{\uncover<handout:0| #1->{\alertNoH{#1}{\!\!\!#2}}}
 }
 \newcommand{\fcAnswer}[2]{%
 %\FPeval{\fcResult}{clip(#1-1)}%
-\uncover<handout:0|\the\numexpr#1-1\relax>{\alertNoH{\the\numexpr#1-1\relax}{\textbf{?}}}\uncover<#1->{\alertNoH{#1}{\!\!\!#2}}%
+\uncover<handout:0|\the\numexpr#1-1\relax>{\alertNoH{\the\numexpr#1-1\relax}{\textbf{?}}}\worksheet{\uncover<#1->{\alertNoH{#1}{\!\!\!#2}}}%
 }%
 \newcommand{\fcAnswerUncover}[3]{%
 \FPeval{\fcResult}{clip(#2-1)}%
-\uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \uncover<#2->{\alertNoH{#2}{\!\!\!#3}}
+\uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}}\worksheet{\uncover<#2->{\alertNoH{#2}{\!\!\!#3}}}
 %\makebox[\widthof{#3}][c]{\only<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \only<#2->{\alertNoH{#2}{\!\!\!#3}}}%
 }
 \newcommand{\fcAnswerUncoverNoH}[3]{
 \FPeval{\fcResult}{clip(#2-1)}
-\uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \uncover<handout:0|#2->{\alertNoH{#2}{\!\!\!#3}}
+\uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}}\worksheet{\uncover<handout:0|#2->{\alertNoH{#2}{\!\!\!#3}}}
 }
 
 \newcommand{\fcQuestion}[2]{%
@@ -116,18 +125,6 @@
 }
 %<-WARNING: the superflous-looking \alertNoH{0} is needed:
 % for some unknown to me reason it causes LaTeX to add the correct amount of spacing.
-
-
-\newcommand{\worksheet}[1]{\uncover<1->{#1}}
-%Code from user cfr from stackexchange, from discussion:
-%http://tex.stackexchange.com/questions/259138/beamer-class-creating-3-modes-presentation-handout-and-custom
-%\makeatletter
-%\newcommand{\turnOnWorksheetMode}{%
-%\gdef\beamer@currentmode{worksheet}%
-%\def\animate<##1>{\transduration<##1| handout:0| worksheet:0| trans:0>{0}}%
-%}
-%\makeatother
-
 
 %code blocks regular expression that replaces all strings of the form \alert<handout:0| a> by \alertNoH{a}:
 %Find:
