@@ -1,23 +1,24 @@
 \begin{frame}
 \begin{example}
-Rewrite  $\cos (3\Arccos (x))$ as an algebraic expression of $x$ and $\sqrt{1-x^2}$.
+\alertNoH{20}{Rewrite  $\cos (3\Arccos (x))$ as an algebraic expression of $x$ and $\sqrt{1-x^2}$.}
 
-\uncover<2->{
-Our only means of simplifying $\Arccos x$ away is to exploit $\cos (\Arccos x) =x $. Therefore our aim is to rewrite the expression only using the $\cos $ function.
+\uncover<2->{To simplify $\Arccos x$ we try to use $\cos (\Arccos x) =x $.} \uncover<3->{Therefore our aim is to rewrite the expression only using the $\cos $ function.}
 \[
-\displaystyle \begin{array}{@{}r@{}c@{}l@{}l|l}
-\cos (3\Arccos (x))&=&\displaystyle  \cos (3y)=\cos(2y+y)&&y=\Arccos x\\
-&=&\displaystyle \cos(2y)\cos y - \sin (2y)\sin y\\
-&=&\displaystyle  (\cos^2y -\sin^2y)\cos y &&\text{Express via }\\
-&&- 2\sin y \cos y\sin y  &&\sin y, \cos y\\
-&=&\cos^3y -\sin^2y\cos y-2\sin^2y\cos y\\
-&=&\cos^3y - 3\sin^2y \cos y&& \begin{array}{l}\text{Express }\sin y \\\text{ via } \cos y\end{array}\\
-&=&\cos^3y -3(1-\cos^2y)\cos y\\
-&=& 4\cos^3y-3\cos y\\
-&=&4x^3-3x &&x=\cos y
+\displaystyle \begin{array}{@{\!}r@{}c@{}l@{}l@{}|l}
+\alertNoH{20}{\cos (3\alertNoH{4}{\Arccos (x)})} \uncover<4->{&\alertNoH{0}{=}&} \worksheet{
+\uncover<4->{ \displaystyle  \cos (\alertNoH{5}{3 \alertNoH{4}{y }})\uncover<5->{=\alertNoH{6,7}{ \cos(\alertNoH{5}{2y + y})}}&&\alertNoH{4,19}{y=\Arccos x}}\\
+\uncover<6->{&\alertNoH{6,7}{=}&\displaystyle \fcAnswer{7}{\alertNoH{8,9}{\cos(2y)}\cos y - \sin (2y)\sin y}} &&\alertNoH{6,7}{\text{Angle sum f-la}} \\
+\uncover<8->{&\alertNoH{0}{=}&\displaystyle  (\fcAnswer{9}{\alertNoH{12}{\cos^2y} \alertNoH{13}{- \sin^2y}})\alertNoH{12, 13}{\cos y} && \text{Express via }\\
+&&- \fcAnswerUncover{8}{11}{2\alertNoH{14}{\sin y} \cos y}\alertNoH{14}{\sin y}  &&\sin y, \cos y}\\
+\uncover<12->{&\alertNoH{0}{=}&\alertNoH{12}{\cos^3y} \alertNoH{15}{\alertNoH{13}{-\sin^2y \cos y} -2\alertNoH{14}{\sin^2y} \cos y}} \\
+\uncover<15->{&\alertNoH{0}{=}&\cos^3y\alertNoH{15}{ - 3\alertNoH{16,17}{ \sin^2y} } \cos y} \uncover<16->{&&\alertNoH{16,17}{ \begin{array}{@{}l}\text{Express }\sin y \\\text{ via } \cos y\end{array}}}\\
+\uncover<16->{&\alertNoH{0}{=}& \alertNoH{18}{\cos^3y} \alertNoH{18}{-3}(\fcAnswer{17}{1\alertNoH{18}{-\cos^2y}})\cos y}\\
+\uncover<18->{&\alertNoH{0}{=}& \alertNoH{18}{4{\alertNoH{19}{\cos}}^3 \alertNoH{19}{y }}-3\alertNoH{19}{\cos y}} \\
+\uncover<19->{&\alertNoH{20}{=}&\alertNoH{20}{ 4{\alertNoH{19}{x}}^3-3 {\alertNoH{19}{x}} } &&\alertNoH{19}{x=\cos y}}
+}%worksheet
 \end{array}
 \]
-}
+
 \end{example}
 
 \end{frame}
