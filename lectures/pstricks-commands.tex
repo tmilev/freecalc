@@ -1,5 +1,7 @@
 \usepackage{etex, ifthen}
-\usepackage [dvips={-o -Ppdf}, pspdf={-dNOSAFER -dAutoRotatePages=/None}, pdfcrop={}]
+\usepackage [dvips={-o -Ppdf}
+, pspdf={-dNOSAFER -dAutoRotatePages=/None}
+, pdfcrop={}]
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
@@ -1278,6 +1280,35 @@ thePatchCollection length zBufferNumCols zBufferNumRows mul lt
 graphicsFile run
 }
 
+\newcommand{\fcShFillCode}{
+gsave % save graphics state
+clip % clip to constructed path
+%newpath % clear out current path
+% Define the shading and function dictionaries
+<< 
+/Domain [ [getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  [getZBufferXmax  getZBufferYmax] \fcCoordsPStricksToPS 3 -1 roll exch]
+/Matrix [1 0 0 1 0 0]
+ /ShadingType 1
+ /ColorSpace /DeviceRGB
+ /Function <<
+ /FunctionType 0
+ /Order 3
+ /Domain [ [getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  [getZBufferXmax  getZBufferYmax] \fcCoordsPStricksToPS 3 -1 roll exch]
+ /Range [0 2 0 1 0 1]
+ /BitsPerSample 8
+ /DataSource < 
+FF 00 00
+00 FF 00
+00 00 FF
+FF FF FF
+>
+ /Size [2 2]
+ >>
+>>
+shfill
+grestore
+}
+
 \newcommand{\fcSetUpGraphicsToScreen}{
 %(SETTING UP graphcis SCREEN ONLY!!!) ==
 /movetoVirtual {moveto} def
@@ -1286,6 +1317,7 @@ graphicsFile run
 /closepathVirtual {closepath} def
 /newpathVirtual {newpath} def
 /fillVirtual {fill} def
+/shfillVirtual {\fcShFillCode} def
 /arrowVirtual {} def
 /setrgbcolorVirtual {setrgbcolor} def
 /setlinewidthVirtual {setlinewidth} def
@@ -2606,6 +2638,8 @@ newpathVirtual
 thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
 thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
 closepathVirtual
+%(EXPERIMENTAL CAREFULL) ==
+%shfillVirtual
 fillVirtual
 strokeVirtual
 %thePatch \fcPatchPaintNormal
