@@ -4,60 +4,70 @@
 \renewcommand{\fcScreen}{[-0.9 -0.3 -1] 0}
 \pscustom{\code{
 newpath
- 100 100 moveto
-200 0 lineto
-200 100 lineto
+ 0 0 moveto
+100 0 lineto
 100 100 lineto
-/inch {72 mul} def
+0 100 lineto
+0 0 lineto
 gsave % save graphics state
 clip % clip to constructed path
-newpath % clear out current path
+%newpath % clear out current path
 % Define the shading and function dictionaries
 << 
-/Domain [0 300 0 300]
+/Domain [0 100 0 100]
+/Matrix [1 1 0 1 0 0]
  /ShadingType 1
  /ColorSpace /DeviceRGB
  /Function <<
  /FunctionType 0
  /Order 3
- /Domain [0 300 0 300 ]
+ /Domain [0 100 0 100 ]
  /Range [0 2 0 1 0 1]
- /BitsPerSample 16
- /DataSource <
- FFCC CC 80 80 CC 44 44 00 00 00 C0
- 80 C0 CC FF FF FF FF FF FF FF 00 00
- FF FF FF FF FF FF FF FF FF FF 00 FF
- 80 00 80 CC FF 00 FF FF 00 C0 C0 F0
- >
- /Size [2 3]
+ /BitsPerSample 8
+ /DataSource < 
+FF 00 00
+11 00 00
+11 00 00
+FF 00 00
+>
+ /Size [2 2]
  >>
 >>
 shfill
 grestore
-newpath
- 0 0 moveto
-0 100 lineto
-100 0 lineto
-0 0 lineto
-/inch {72 mul} def
-gsave % save graphics state
-clip % clip to constructed path
-newpath % clear out current path
+%newpath
+% 0 0 moveto
+%0 100 lineto
+%100 0 lineto
+%0 0 lineto
+%/inch {72 mul} def
+%gsave % save graphics state
+%clip % clip to constructed path
+%newpath % clear out current path
 % Define the shading and function dictionaries
-<< /ShadingType 2
-/ColorSpace /DeviceGray
-/Coords [0 0 200 300]
+%<< /ShadingType 2
+%/ColorSpace /DeviceGray
+%/Coords [0 0 200 300]
 %Define the Function
-/Function << /FunctionType 2
-% Value is C0 + t ** N * (C1 - C0)
-/Domain [0 1]
-/C0 0.7 % result for input 0 = black
-/C1 0.3 % result for input 1 = white
-/N 1.2 % Exponent = linear
->>
->>
-shfill
-grestore
+%/Function << /FunctionType 2
+%% Value is C0 + t ** N * (C1 - C0)
+%/Domain [0 1]
+%/C0 0.7 % result for input 0 = black
+%/C1 0.3 % result for input 1 = white
+%/N 1.2 % Exponent = linear
+%>>
+%>>
+%shfill
+%grestore
 }}
+\end{pspicture}
+
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\renewcommand{\fcScreen}{[-0.9 -0.3 -1] 0}
+\fcStartIIIdScene
+\fcAxesIIIdInScene{2}{2}{2}
+\fcPatchInScene[arrows=(none)]{[2 1 1]}{[2 1 3]}{[ -1 1 0.5]}
+\fcFinishIIIdScene[true]
 \end{pspicture}
 \end{frame}
