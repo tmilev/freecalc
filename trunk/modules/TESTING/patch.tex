@@ -11,26 +11,21 @@ newpath
 0 0 lineto
 gsave % save graphics state
 clip % clip to constructed path
-%newpath % clear out current path
+newpath % clear out current path
 % Define the shading and function dictionaries
 << 
 /Domain [0 100 0 100]
-/Matrix [1 1 0 1 0 0]
+/Matrix [1 0 0 1 0 0]
  /ShadingType 1
  /ColorSpace /DeviceRGB
  /Function <<
  /FunctionType 0
- /Order 3
+ /Order 1
  /Domain [0 100 0 100 ]
- /Range [0 2 0 1 0 1]
+ /Range [0 1 0 1 0 1]
  /BitsPerSample 8
- /DataSource < 
-FF 00 00
-11 00 00
-11 00 00
-FF 00 00
->
- /Size [2 2]
+ /DataSource <FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF>
+ /Size [3 2]
  >>
 >>
 shfill
@@ -67,7 +62,7 @@ grestore
 \renewcommand{\fcScreen}{[-0.9 -0.3 -1] 0}
 \fcStartIIIdScene
 \fcAxesIIIdInScene{2}{2}{2}
-\fcPatchInScene[arrows=(none)]{[2 1 1]}{[2 1 3]}{[ -1 1 0.5]}
+\fcPatchInScene[arrows=(none), linecolor=black]{[2 1 1]}{[2 1 3]}{[ -1 1 0.5]}
 \fcFinishIIIdScene[true]
 \end{pspicture}
 \end{frame}

@@ -71,6 +71,7 @@ ifelse\space %
 ifelse\space %
 }
 \newcommand{\fcScreen}{[-1 1 -0.75] -1} %default projection plane. Renew this command to change projection plane.
+\newcommand{\fcLightSource}{[2 -1 2] 1\space} %Lightsource location, constant = brightness.
 
 \newcommand{\fcSet}[1]{\setkeys{fcGraphics}{#1}}
 
@@ -213,7 +214,7 @@ pop  % str'
 
 \newcommand{\fcRectangularRiemannSumCode}{
 /theRiemannSumFigure exch def
-theRiemannSumFigure \fcSetupFiles
+theRiemannSumFigure \fcInitializeAndSetupFilesCode
 graphicsCached not{
 theRiemannSumFigure \fcArrayToStack
 20 dict begin
@@ -1280,33 +1281,143 @@ thePatchCollection length zBufferNumCols zBufferNumRows mul lt
 graphicsFile run
 }
 
-\newcommand{\fcShFillCode}{
+\newcommand{\fcGetPointOnPlaneThatProjectsToXYCode}{
+15 dict begin 
+/y exch def
+/x exch def
+/vZeroProj vZero \fcProjectOntoScreen def
+/dirVectProjOne vOne \fcProjectOntoScreen vZeroProj \fcVectorMinusVector def
+/dirVectProjTwo vTwo \fcProjectOntoScreen vZeroProj \fcVectorMinusVector def
+dirVectProjOne \fcArrayToStack
+/a21 exch def
+/a11 exch def
+dirVectProjTwo \fcArrayToStack
+/a22 exch def
+/a12 exch def
+/theDet a11 a22 mul a12 a21 mul sub def
+theDet 0 eq {vZero}{
+/theVproj [x y] vZeroProj \fcVectorMinusVector def
+/theLinCombi
+[ [a22 a12 -1 mul] 1 theDet div \fcVectorTimesScalar [a21 -1 mul a11] 1 theDet div \fcVectorTimesScalar ] theVproj \fcMatrixTimesVector  def
+vZero 
+vOne vZero \fcVectorMinusVector theLinCombi 0 get \fcVectorTimesScalar 
+vTwo vZero \fcVectorMinusVector theLinCombi 1 get \fcVectorTimesScalar 
+\fcVectorPlusVector
+\fcVectorPlusVector
+}ifelse
+end
+}
+
+\newcommand{\fcFourBitsToHexStringCode}{
+1 dict begin 
+/theNum exch def
+theNum 0 lt {/theNum 0 def}if
+theNum 15 gt {/theNum 15 def}if
+theNum 10 lt {theNum 1 string cvs}if
+theNum 10 eq {(A)}if
+theNum 11 eq {(B)}if
+theNum 12 eq {(C)}if
+theNum 13 eq {(D)}if
+theNum 14 eq {(E)}if
+theNum 15 eq {(F)}if
+end\space
+}
+
+\newcommand{\fcByteToHexStringCode}{
+1 dict begin 
+/theByte exch def
+theByte 255 gt {/theByte 255 def} if
+theByte 0 lt {/theByte 0 def} if
+theByte 16 mod dup theByte exch sub 16 div cvi \fcFourBitsToHexStringCode exch \fcFourBitsToHexStringCode \fcConcatenate
+end\space
+}
+
+\newcommand{\fcColorToColorStringCode}{
+5 dict begin 
+/theColor exch def
+/theColor [theColor {cvi} forall] def
+theColor 0 get
+theColor 0 get 255 gt {pop 255}if
+theColor 0 get 0 lt {pop 0}if
+\fcByteToHexStringCode
+theColor 1 get 
+theColor 1 get 255 gt {pop 255}if
+theColor 1 get 0 lt {pop 0}if
+\fcByteToHexStringCode
+theColor 2 get
+theColor 2 get 255 gt {pop 255}if
+theColor 2 get 0 lt {pop 0} if
+\fcByteToHexStringCode
+3 \fcConcatenateMultiple
+end
+}
+
+\newcommand{\fcShFillPlaneFromLightSourceGetColorFromXYCode}{
+\fcGetPointOnPlaneThatProjectsToXYCode \fcLightSource\space pop \fcDistance  1 exch div currentColor exch 256 mul \fcVectorTimesScalar \fcColorToColorStringCode
+}
+
+
+%calling format:
+% [ vZero vOne vTwo [r g b]] \fcShFillPlaneFromLightSourceCode
+% where vZero vOne vTwo are three points on the patch
+% and [r b g] is the red-blue-green color of the patch
+\newcommand{\fcShFillPlaneFromLightSourceCode}{
+20 dict begin
+\fcArrayToStack 
+/currentColor exch def
+/vTwo exch def
+/vOne exch def
+/vZero exch def
+/directionOne vOne vZero \fcVectorMinusVector def
+/directionTwo vTwo vZero \fcVectorMinusVector def
+/numXiterations 2 def
+/numYiterations 2 def
+/DeltaX getZBufferXmax getZBufferXmin sub numXiterations 1 sub div def
+/DeltaY getZBufferYmax getZBufferYmin sub numYiterations 1 sub div def
 gsave % save graphics state
 clip % clip to constructed path
 %newpath % clear out current path
 % Define the shading and function dictionaries
 << 
-/Domain [ [getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  [getZBufferXmax  getZBufferYmax] \fcCoordsPStricksToPS 3 -1 roll exch]
-/Matrix [1 0 0 1 0 0]
- /ShadingType 1
- /ColorSpace /DeviceRGB
- /Function <<
- /FunctionType 0
- /Order 3
- /Domain [ [getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  [getZBufferXmax  getZBufferYmax] \fcCoordsPStricksToPS 3 -1 roll exch]
- /Range [0 2 0 1 0 1]
- /BitsPerSample 8
- /DataSource < 
-FF 00 00
-00 FF 00
-00 00 FF
-FF FF FF
->
- /Size [2 2]
- >>
+/Domain [ [getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  [getZBufferXmax  getZBufferYmax] \fcCoordsPStricksToPS 3 -1 roll exch]% Domain box: a large rectangular box that bounds the shading. Nothing will be painted outside of that box.
+%Format of the box: [xMin xMax yMin yMax]
+/Matrix [1 0 0 1 0 0] % additional affine transformation of bounded box.
+/ShadingType 1 %sampling shading.
+/ColorSpace /DeviceRGB
+/Function <<
+/FunctionType 0
+/Order 3 %order=3 use cubic interpolation, whatever that means
+/Domain [ [getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  [getZBufferXmax  getZBufferYmax] \fcCoordsPStricksToPS 3 -1 roll exch]% must be at least as large as the previously defined domain.
+/Range [0 1 0 1 0 1]%has something to do with how each individual color channel is interpolated - exactly what  is that something can be found by trial and error or by decoding the adobe manual on the shfill operator. Having read the latter for many hours, I strongly recommend the trial and error method.
+/BitsPerSample 8 % means the RGB color is 24 bit (8 bits per channel)
+/Size [numXiterations numYiterations] % number of sampling points within the domain box
+%/Size [1 1] % number of sampling points within the domain box
+dup ==
+(about to enter data source) ==
+/DataSource 
+/counterX -1 def
+numXiterations {
+/counterX counterX 1 add def
+/counterY -1 def
+numYiterations
+{/counterY counterY 1 add def
+getZBufferXmin counterX DeltaX mul add getZBufferYmin counterY DeltaY mul add \fcShFillPlaneFromLightSourceGetColorFromXYCode
+}repeat
+}repeat 
+(got to here) ==
+pstack
+numXiterations numYiterations mul \fcConcatenateMultiple 
+%dup ==
+%filter
+%currentfile
+%def
+(nput;) ==
+dup ==
+>>
 >>
 shfill
 grestore
+end
 }
 
 \newcommand{\fcSetUpGraphicsToScreen}{
@@ -1317,7 +1428,8 @@ grestore
 /closepathVirtual {closepath} def
 /newpathVirtual {newpath} def
 /fillVirtual {fill} def
-/shfillVirtual {\fcShFillCode} def
+/shfillPlaneFromLightSourceVirtual {
+shfillPlaneFromLightSource} def
 /arrowVirtual {} def
 /setrgbcolorVirtual {setrgbcolor} def
 /setlinewidthVirtual {setlinewidth} def
@@ -1363,6 +1475,13 @@ graphicsFile ( closepath ) writestring
 fill
 graphicsFile ( fill ) writestring
 } def
+/shfillPlaneFromLightSourceVirtual
+{dup
+\fcToString
+graphicsFile exch writestring
+graphicsFile ( shfillPlaneFromLightSource ) writestring
+shfillPlaneFromLightSource
+}
 /setrgbcolorVirtual {
 3 copy
 setrgbcolor %
@@ -1381,13 +1500,13 @@ graphicsFile ( setrgbcolor ) writestring
 }def
 }
 
-\newcommand{\fcSetupFilesGraphicsIIId}{
+\newcommand{\fcSetupFilesGraphicsIIIdCode}{
 \fcSetUpGraphicsToScreen
 /graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
 }
 
 %defines graphicsFileAvailable to be true if cached, false else.
-\newcommand{\fcSetupFilesGraphicsNameAlreadyDefined}{
+\newcommand{\fcSetupFilesGraphicsNameAlreadyDefinedCode}{
 /graphicsCached false def
 /graphicsFileAvailable true def
 /graphicsFile (file not open) def
@@ -1423,9 +1542,14 @@ graphicsFile closefile
 }ifelse
 }
 
-\newcommand{\fcSetupFiles}{
-\fcSetupFilesGraphicsIIId
-\fcSetupFilesGraphicsNameAlreadyDefined
+\newcommand{\fcInitializeFunctionsCode}{%
+/shfillPlaneFromLightSource {\fcShFillPlaneFromLightSourceCode} def %
+}
+
+\newcommand{\fcInitializeAndSetupFilesCode}{
+\fcInitializeFunctionsCode
+\fcSetupFilesGraphicsIIIdCode
+\fcSetupFilesGraphicsNameAlreadyDefinedCode
 }
 
 \newcommand{\fcComputePatchesAndContours}{
@@ -1626,8 +1750,8 @@ theIIIdObjects length 0 gt { %
 %(about to process IIId scene given by: ) print %
 %theIIIdObjects == %
 } if %
-60 dict begin %
-theIIIdObjects \fcSetupFiles
+70 dict begin %
+theIIIdObjects \fcInitializeAndSetupFilesCode
 graphicsCached not{
 /fastPatchSort \fcFastPatchSort\space def
 % % % % % % % % % % % % % % % % % % %
@@ -2625,21 +2749,25 @@ end
 }
 
 \newcommand{\fcPatchPaintFilledDirectly}{
-1 dict begin
+2 dict begin
 /thePatch exch def %
 thePatch type (arraytype) eq{
 thePatch \fcPatchGetContour length 0 gt{
+/currentVisibleColor [
 thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
-{ thePatch \fcPatchGetColorVU setrgbcolorVirtual }
-{ thePatch \fcPatchGetColorUV setrgbcolorVirtual }
-ifelse
+{ thePatch \fcPatchGetColorVU }
+{ thePatch \fcPatchGetColorUV }
+ifelse]
+def
+currentVisibleColor \fcArrayToStack setrgbcolorVirtual
 0.5 setalpha
 newpathVirtual
 thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
 thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
 closepathVirtual
 %(EXPERIMENTAL CAREFULL) ==
-%shfillVirtual
+%[thePatch \fcPatchGetvZero thePatch \fcPatchGetvOne thePatch \fcPatchGetvTwo currentVisibleColor]
+%shfillPlaneFromLightSourceVirtual
 fillVirtual
 strokeVirtual
 %thePatch \fcPatchPaintNormal
@@ -2862,10 +2990,10 @@ vX 0 ne vY 0 ne or{
 \setkeys{fcGraphics}{#1}%
 \pscustom{%
 \code{%
-40 dict begin
+50 dict begin
 \fcSetUpGraphicsToScreen
 /graphicsFileName (graphicsCacheSafeToDelete) (#1 #2 #3 #4 #5 #6 #7 #8) \fcHashString (.txt) 3 \fcConcatenateMultiple def
-\fcSetupFilesGraphicsNameAlreadyDefined
+\fcSetupFilesGraphicsNameAlreadyDefinedCode
 graphicsCached not {
 /theEquation {#8} \space def
 /startX #2\space def
