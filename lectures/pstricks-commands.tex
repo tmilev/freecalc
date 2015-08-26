@@ -714,6 +714,8 @@ end %
 } %Projection of point onto a plane. First argument is point, second argument is plane normal, third argument is the scalar product you need to have with the normal to be in the plane. Format: [1 2 3] [4 5 6] 7, corresponds to projecting the point (1,2,3) onto the plane 4x+5y+6z=7
 
 \newcommand{\fcCoordsIIIdToPStricks}{%
+%(nput to fcCoordsIIId to pstricks: ) ==
+%dup ==
 5 dict begin %
 /theV exch def %
 /theVprojected theV \fcProjectOntoScreen [0 0 0] \fcProjectOntoScreen  \fcVectorMinusVector def%
@@ -739,7 +741,7 @@ ifelse %
 %(y unit v) == theYUnitV ==
 %(x unit v: ) == theXUnitV ==
 theVprojected theXUnitV \fcVectorScalarVector theVprojected theYUnitV \fcVectorScalarVector
-end %
+end\space%
 }
 
 \newcommand{\fcCoordsIIIdToPS}{%
@@ -1256,14 +1258,19 @@ setZBufferXmin %
 
 \newcommand{\fcZBufferInitialize}{ %
 /ZBufferRectangle [0 0 0 0] def %
+/ZMinMax [0 0] def%
 /setZBufferXmin {ZBufferRectangle exch 0 exch put} def %
 /setZBufferYmin {ZBufferRectangle exch 1 exch put} def %
+/setZmin        {ZMinMax          exch 0 exch put} def %
 /setZBufferXmax {ZBufferRectangle exch 2 exch put} def %
 /setZBufferYmax {ZBufferRectangle exch 3 exch put} def %
+/setZmax        {ZMinMax          exch 1 exch put} def %
 /getZBufferXmin {ZBufferRectangle 0 get} def %
 /getZBufferYmin {ZBufferRectangle 1 get} def %
+/getZmin        {ZMinMax          0 get} def %
 /getZBufferXmax {ZBufferRectangle 2 get} def %
 /getZBufferYmax {ZBufferRectangle 3 get} def %
+/getZmax        {ZMinMax          1 get} def %
 /zBufferNumCols \fcZBufferNumXIntervals\space def
 /zBufferNumRows \fcZBufferNumYIntervals\space def
 thePatchCollection length zBufferNumCols zBufferNumRows mul lt
@@ -1285,9 +1292,12 @@ graphicsFile run
 15 dict begin 
 /y exch def
 /x exch def
-/vZeroProj vZero \fcProjectOntoScreen def
-/dirVectProjOne vOne \fcProjectOntoScreen vZeroProj \fcVectorMinusVector def
-/dirVectProjTwo vTwo \fcProjectOntoScreen vZeroProj \fcVectorMinusVector def
+%(made it to here ) ==
+/vZeroProj [vZero \fcCoordsIIIdToPStricks] def
+/dirVectProjOne [vOne \fcCoordsIIIdToPStricks] vZeroProj \fcVectorMinusVector def
+/dirVectProjTwo [vTwo \fcCoordsIIIdToPStricks] vZeroProj \fcVectorMinusVector def
+%(dir vect proj one: ) ==
+%dirVectProjOne ==
 dirVectProjOne \fcArrayToStack
 /a21 exch def
 /a11 exch def
@@ -1299,28 +1309,21 @@ theDet 0 eq {vZero}{
 /theVproj [x y] vZeroProj \fcVectorMinusVector def
 /theLinCombi
 [ [a22 a12 -1 mul] 1 theDet div \fcVectorTimesScalar [a21 -1 mul a11] 1 theDet div \fcVectorTimesScalar ] theVproj \fcMatrixTimesVector  def
-vZero 
+%(the lin combi: ) ==
+%theLinCombi ==
+%(counttomark produces: ) ==
+%counttomark ==
 vOne vZero \fcVectorMinusVector theLinCombi 0 get \fcVectorTimesScalar 
 vTwo vZero \fcVectorMinusVector theLinCombi 1 get \fcVectorTimesScalar 
 \fcVectorPlusVector
+vZero 
 \fcVectorPlusVector
+%(and so the vector is... ) ==
+%dup ==
 }ifelse
+%(printing stack at end of get point that projects ...) ==
+%pstack
 end
-}
-
-\newcommand{\fcFourBitsToHexStringCode}{
-1 dict begin 
-/theNum exch def
-theNum 0 lt {/theNum 0 def}if
-theNum 15 gt {/theNum 15 def}if
-theNum 10 lt {theNum 1 string cvs}if
-theNum 10 eq {(A)}if
-theNum 11 eq {(B)}if
-theNum 12 eq {(C)}if
-theNum 13 eq {(D)}if
-theNum 14 eq {(E)}if
-theNum 15 eq {(F)}if
-end\space
 }
 
 \newcommand{\fcByteToHexStringCode}{
@@ -1328,7 +1331,267 @@ end\space
 /theByte exch def
 theByte 255 gt {/theByte 255 def} if
 theByte 0 lt {/theByte 0 def} if
-theByte 16 mod dup theByte exch sub 16 div cvi \fcFourBitsToHexStringCode exch \fcFourBitsToHexStringCode \fcConcatenate
+%Believe it or not, after about 10 hours of googling, 
+% I came to the conclusion that this is the simplest implementation
+%of a conversion of a byte to its binary representation.
+%Note that while there may be a language mechanism to do that
+%I wasn't able to find it after 10 hour of search, while the solution below takes about 15 minutes to type (10 minutes with a good text editor), which more or less shows that the solution below is the best.
+theByte 0  eq {<00>}if
+theByte 1  eq {<01>}if
+theByte 2  eq {<02>}if
+theByte 3  eq {<03>}if
+theByte 4  eq {<04>}if
+theByte 5  eq {<05>}if
+theByte 6  eq {<06>}if
+theByte 7  eq {<07>}if
+theByte 8  eq {<08>}if
+theByte 9  eq {<09>}if
+theByte 10 eq {<0A>}if
+theByte 11 eq {<0B>}if
+theByte 12 eq {<0C>}if
+theByte 13 eq {<0D>}if
+theByte 14 eq {<0E>}if
+theByte 15 eq {<0F>}if
+theByte 16 eq {<10>}if
+theByte 17 eq {<11>}if
+theByte 18 eq {<12>}if
+theByte 19 eq {<13>}if
+theByte 20 eq {<14>}if
+theByte 21 eq {<15>}if
+theByte 22 eq {<16>}if
+theByte 23 eq {<17>}if
+theByte 24 eq {<18>}if
+theByte 25 eq {<19>}if
+theByte 26 eq {<1A>}if
+theByte 27 eq {<1B>}if
+theByte 28 eq {<1C>}if
+theByte 29 eq {<1D>}if
+theByte 30 eq {<1E>}if
+theByte 31 eq {<1F>}if
+theByte 32 eq {<20>}if
+theByte 33 eq {<21>}if
+theByte 34 eq {<22>}if
+theByte 35 eq {<23>}if
+theByte 36 eq {<24>}if
+theByte 37 eq {<25>}if
+theByte 38 eq {<26>}if
+theByte 39 eq {<27>}if
+theByte 40 eq {<28>}if
+theByte 41 eq {<29>}if
+theByte 42 eq {<2A>}if
+theByte 43 eq {<2B>}if
+theByte 44 eq {<2C>}if
+theByte 45 eq {<2D>}if
+theByte 46 eq {<2E>}if
+theByte 47 eq {<2F>}if
+theByte 48 eq {<30>}if
+theByte 49 eq {<31>}if
+theByte 50 eq {<32>}if
+theByte 51 eq {<33>}if
+theByte 52 eq {<34>}if
+theByte 53 eq {<35>}if
+theByte 54 eq {<36>}if
+theByte 55 eq {<37>}if
+theByte 56 eq {<38>}if
+theByte 57 eq {<39>}if
+theByte 58 eq {<3A>}if
+theByte 59 eq {<3B>}if
+theByte 60 eq {<3C>}if
+theByte 61 eq {<3D>}if
+theByte 62 eq {<3E>}if
+theByte 63 eq {<3F>}if
+theByte 64 eq {<40>}if
+theByte 65 eq {<41>}if
+theByte 66 eq {<42>}if
+theByte 67 eq {<43>}if
+theByte 68 eq {<44>}if
+theByte 69 eq {<45>}if
+theByte 70 eq {<46>}if
+theByte 71 eq {<47>}if
+theByte 72 eq {<48>}if
+theByte 73 eq {<49>}if
+theByte 74 eq {<4A>}if
+theByte 75 eq {<4B>}if
+theByte 76 eq {<4C>}if
+theByte 77 eq {<4D>}if
+theByte 78 eq {<4E>}if
+theByte 79 eq {<4F>}if
+theByte 80 eq {<50>}if
+theByte 81 eq {<51>}if
+theByte 82 eq {<52>}if
+theByte 83 eq {<53>}if
+theByte 84 eq {<54>}if
+theByte 85 eq {<55>}if
+theByte 86 eq {<56>}if
+theByte 87 eq {<57>}if
+theByte 88 eq {<58>}if
+theByte 89 eq {<59>}if
+theByte 90 eq {<5A>}if
+theByte 91 eq {<5B>}if
+theByte 92 eq {<5C>}if
+theByte 93 eq {<5D>}if
+theByte 94 eq {<5E>}if
+theByte 95 eq {<5F>}if
+theByte 96 eq  {<60>}if
+theByte 97 eq  {<61>}if
+theByte 98 eq  {<62>}if
+theByte 99 eq  {<63>}if
+theByte 100 eq {<64>}if
+theByte 101 eq {<65>}if
+theByte 102 eq {<66>}if
+theByte 103 eq {<67>}if
+theByte 104 eq {<68>}if
+theByte 105 eq {<69>}if
+theByte 106 eq {<6A>}if
+theByte 107 eq {<6B>}if
+theByte 108 eq {<6C>}if
+theByte 109 eq {<6D>}if
+theByte 110 eq {<6E>}if
+theByte 111 eq {<6F>}if
+theByte 112 eq {<70>}if
+theByte 113 eq {<71>}if
+theByte 114 eq {<72>}if
+theByte 115 eq {<73>}if
+theByte 116 eq {<74>}if
+theByte 117 eq {<75>}if
+theByte 118 eq {<76>}if
+theByte 119 eq {<77>}if
+theByte 120 eq {<78>}if
+theByte 121 eq {<79>}if
+theByte 122 eq {<7A>}if
+theByte 123 eq {<7B>}if
+theByte 124 eq {<7C>}if
+theByte 125 eq {<7D>}if
+theByte 126 eq {<7E>}if
+theByte 127 eq {<7F>}if
+theByte 128 eq {<80>}if
+theByte 129 eq {<81>}if
+theByte 130 eq {<82>}if
+theByte 131 eq {<83>}if
+theByte 132 eq {<84>}if
+theByte 133 eq {<85>}if
+theByte 134 eq {<86>}if
+theByte 135 eq {<87>}if
+theByte 136 eq {<88>}if
+theByte 137 eq {<89>}if
+theByte 138 eq {<8A>}if
+theByte 139 eq {<8B>}if
+theByte 140 eq {<8C>}if
+theByte 141 eq {<8D>}if
+theByte 142 eq {<8E>}if
+theByte 143 eq {<8F>}if
+theByte 144 eq {<90>}if
+theByte 145 eq {<91>}if
+theByte 146 eq {<92>}if
+theByte 147 eq {<93>}if
+theByte 148 eq {<94>}if
+theByte 149 eq {<95>}if
+theByte 150 eq {<96>}if
+theByte 151 eq {<97>}if
+theByte 152 eq {<98>}if
+theByte 153 eq {<99>}if
+theByte 154 eq {<9A>}if
+theByte 155 eq {<9B>}if
+theByte 156 eq {<9C>}if
+theByte 157 eq {<9D>}if
+theByte 158 eq {<9E>}if
+theByte 159 eq {<9F>}if
+theByte 160 eq {<A0>}if
+theByte 161 eq {<A1>}if
+theByte 162 eq {<A2>}if
+theByte 163 eq {<A3>}if
+theByte 164 eq {<A4>}if
+theByte 165 eq {<A5>}if
+theByte 166 eq {<A6>}if
+theByte 167 eq {<A7>}if
+theByte 168 eq {<A8>}if
+theByte 169 eq {<A9>}if
+theByte 170 eq {<AA>}if
+theByte 171 eq {<AB>}if
+theByte 172 eq {<AC>}if
+theByte 173 eq {<AD>}if
+theByte 174 eq {<AE>}if
+theByte 175 eq {<AF>}if
+theByte 176 eq {<B0>}if
+theByte 177 eq {<B1>}if
+theByte 178 eq {<B2>}if
+theByte 179 eq {<B3>}if
+theByte 180 eq {<B4>}if
+theByte 181 eq {<B5>}if
+theByte 182 eq {<B6>}if
+theByte 183 eq {<B7>}if
+theByte 184 eq {<B8>}if
+theByte 185 eq {<B9>}if
+theByte 186 eq {<BA>}if
+theByte 187 eq {<BB>}if
+theByte 188 eq {<BC>}if
+theByte 189 eq {<BD>}if
+theByte 190 eq {<BE>}if
+theByte 191 eq {<BF>}if
+theByte 192 eq {<C0>}if
+theByte 193 eq {<C1>}if
+theByte 194 eq {<C2>}if
+theByte 195 eq {<C3>}if
+theByte 196 eq {<C4>}if
+theByte 197 eq {<C5>}if
+theByte 198 eq {<C6>}if
+theByte 199 eq {<C7>}if
+theByte 200 eq {<C8>}if
+theByte 201 eq {<C9>}if
+theByte 202 eq {<CA>}if
+theByte 203 eq {<CB>}if
+theByte 204 eq {<CC>}if
+theByte 205 eq {<CD>}if
+theByte 206 eq {<CE>}if
+theByte 207 eq {<CF>}if
+theByte 208 eq {<D0>}if
+theByte 209 eq {<D1>}if
+theByte 210 eq {<D2>}if
+theByte 211 eq {<D3>}if
+theByte 212 eq {<D4>}if
+theByte 213 eq {<D5>}if
+theByte 214 eq {<D6>}if
+theByte 215 eq {<D7>}if
+theByte 216 eq {<D8>}if
+theByte 217 eq {<D9>}if
+theByte 218 eq {<DA>}if
+theByte 219 eq {<DB>}if
+theByte 220 eq {<DC>}if
+theByte 221 eq {<DD>}if
+theByte 222 eq {<DE>}if
+theByte 223 eq {<DF>}if
+theByte 224 eq {<E0>}if
+theByte 225 eq {<E1>}if
+theByte 226 eq {<E2>}if
+theByte 227 eq {<E3>}if
+theByte 228 eq {<E4>}if
+theByte 229 eq {<E5>}if
+theByte 230 eq {<E6>}if
+theByte 231 eq {<E7>}if
+theByte 232 eq {<E8>}if
+theByte 233 eq {<E9>}if
+theByte 234 eq {<EA>}if
+theByte 235 eq {<EB>}if
+theByte 236 eq {<EC>}if
+theByte 237 eq {<ED>}if
+theByte 238 eq {<EE>}if
+theByte 239 eq {<EF>}if
+theByte 240 eq {<F0>}if
+theByte 241 eq {<F1>}if
+theByte 242 eq {<F2>}if
+theByte 243 eq {<F3>}if
+theByte 244 eq {<F4>}if
+theByte 245 eq {<F5>}if
+theByte 246 eq {<F6>}if
+theByte 247 eq {<F7>}if
+theByte 248 eq {<F8>}if
+theByte 249 eq {<F9>}if
+theByte 250 eq {<FA>}if
+theByte 251 eq {<FB>}if
+theByte 252 eq {<FC>}if
+theByte 253 eq {<FD>}if
+theByte 254 eq {<FE>}if
+theByte 255 eq {<FF>}if
 end\space
 }
 
@@ -1339,21 +1602,34 @@ end\space
 theColor 0 get
 theColor 0 get 255 gt {pop 255}if
 theColor 0 get 0 lt {pop 0}if
-\fcByteToHexStringCode
+\fcByteToHexStringCode %dup ==
 theColor 1 get 
 theColor 1 get 255 gt {pop 255}if
 theColor 1 get 0 lt {pop 0}if
-\fcByteToHexStringCode
+\fcByteToHexStringCode %dup ==
 theColor 2 get
 theColor 2 get 255 gt {pop 255}if
 theColor 2 get 0 lt {pop 0} if
-\fcByteToHexStringCode
+\fcByteToHexStringCode %dup ==
 3 \fcConcatenateMultiple
 end
 }
 
 \newcommand{\fcShFillPlaneFromLightSourceGetColorFromXYCode}{
-\fcGetPointOnPlaneThatProjectsToXYCode \fcLightSource\space pop \fcDistance  1 exch div currentColor exch 256 mul \fcVectorTimesScalar \fcColorToColorStringCode
+%(before fcGet point ...) == pstack
+\fcGetPointOnPlaneThatProjectsToXYCode 
+%(after fcGet point...: ) ==
+%pstack 
+%\fcLightSource\space pop \fcDistance  1 exch div 
+%(got to here, color is: ) ==
+%currentColor  ==
+[ exch dup \fcScreen\space pop \fcVectorScalarVector 
+\fcVectorTimesScalar {abs 10 mul}forall ] 
+%(theColor: ) ==
+%dup == 
+\fcColorToColorStringCode
+%(string representing color: ) ==
+%dup ==
 }
 
 
@@ -1392,8 +1668,8 @@ clip % clip to constructed path
 /BitsPerSample 8 % means the RGB color is 24 bit (8 bits per channel)
 /Size [numXiterations numYiterations] % number of sampling points within the domain box
 %/Size [1 1] % number of sampling points within the domain box
-dup ==
-(about to enter data source) ==
+%dup ==
+%(about to enter data source) ==
 /DataSource 
 /counterX -1 def
 numXiterations {
@@ -1402,19 +1678,25 @@ numXiterations {
 numYiterations
 {/counterY counterY 1 add def
 getZBufferXmin counterX DeltaX mul add getZBufferYmin counterY DeltaY mul add \fcShFillPlaneFromLightSourceGetColorFromXYCode
+%(after getting color: ) ==
+%pstack
 }repeat
 }repeat 
-(got to here) ==
-pstack
-numXiterations numYiterations mul \fcConcatenateMultiple 
-%dup ==
+%(got to here) ==
+%pstack
+numXiterations numYiterations mul 
+(got to before concatenation) == pstack
+\fcConcatenateMultiple 
+%(the stack so far: ) == pstack
 %filter
 %currentfile
 %def
-(nput;) ==
-dup ==
+(the shading dictionary is complete, printing stack: ) ==
+pstack
 >>
 >>
+(got to before shfill, stack: ) ==
+pstack
 shfill
 grestore
 end
