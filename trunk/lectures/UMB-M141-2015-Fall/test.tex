@@ -11,6 +11,11 @@
 % % % % % % % %
 % % % % % % % %
 % % % % % % % %
+\input{../example-templates}
+%uncomment to turn make handout formulas marked via the worksheet command disappear
+\turnOnWorksheetMode
+
+
 \mode<presentation>
 {
 \useinnertheme{rounded}
@@ -24,7 +29,6 @@
 \usepackage[all,cmtip]{xy}
 \usepackage{times}
 \usepackage[T1]{fontenc}
-\input{../example-templates}
 \input{../pstricks-commands}
 
 \usepackage{auto-pst-pdf}
@@ -93,23 +97,76 @@
 }%
 
 % begin lecture
-\lect{\today}{Sample}{1}
-\input{../../modules/arc-length/arc-length-parametric-curve-ex1}
 
-%\begin{frame}
-%\begin{pspicture}(-1,1)(1,1)
-%\fcStartIIIdScene
-%\fcSurfaceInScene{0}{0}{180}{360}{
-%[v cos u sin mul v sin u sin mul u cos]
-%}{}
-%\fcAxesIIIdInScene{5}{3}{2}
-%\fcSurfaceInScene{0}{0}{360}{1}{
-%[u cos 2 v sub mul 2 add u sin 2 v sub mul   v v v mul mul ]
-%}{}
-%\fcSurfaceInScene{0}{0}{360}{1}{
-%[u cos  2 add u sin    v v v mul mul ]
-%}{}
-%\fcFinishIIIdScene
-%\end{pspicture}
-%\end{frame}
+
+\lect{\today}{Sample}{1}
+\input{../../modules/TESTING/surfaces-test-moebius-band}
+%\input{../../modules/TESTING/hex-string-to-hex-postscript}
+%\input{../../modules/TESTING/patch}
+
+%\input{../../modules/trigonometry/graph-sin-extended}
+%\input{../../modules/trigonometry/graph-cos-extended}
+%\input{../../modules/trigonometry/graphs-sin-and-cos}
+%\input{../../modules/trigonometry/graphs-asinbx-plus-c}
+%\input{../../modules/trigonometry/graph-tan-extended}
+%\input{../../modules/trigonometry/graphs-tan-and-cot}
+%\input{../../modules/trigonometry/graphs-sec-and-csc}
+%\input{../../modules/inverse-trig/arcsin-def}
+%\input{../../modules/inverse-trig/arcsin-ex1}
+%\input{../../modules/inverse-trig/arcsin-sin-ex1}
+%\input{../../modules/inverse-trig/arcsin-sin-ex2}
+%\input{../../modules/inverse-trig/arcsin-properties}
+%\input{../../modules/inverse-trig/arccos-def}
+%\input{../../modules/inverse-trig/arccos-properties}
+%\input{../../modules/inverse-trig/trig-applied-to-inverse-trig-ex1}
+%\input{../../modules/inverse-trig/trig-applied-to-inverse-trig-ex2}
+%\input{../../modules/inverse-trig/arctan-def}
+
+%\input{../../modules/trigonometry/frequently-encountered-sines-cosines}
+%\input{../../modules/inverse-trig/trig-applied-to-inverse-trig-ex1}
+%\input{../../modules/inverse-trig/trig-applied-to-inverse-trig-ex2}
+%\input{../../modules/trigonometry/graph-sin-extended}
+%\input{../../modules/trigonometry/graph-cos-extended}
+
+%\input{../../modules/trigonometry/trig-angle-sum-formulas-geometric-proof}
+%\input{../../modules/trigonometry/trig-angle-sum-formulas-geometric-proof-part2}
+%\input{../../modules/trigonometry/trig-angle-sum-formulas-geometric-proof-part3}
+
+%\input{../../modules/logarithms/logarithm-properties-ex7}
+%\input{../../modules/exponential-functions/exponential-properties}
+%\input{../../modules/quadratic-functions/quadratic-equation-solution}
+
+%\input{../../modules/function-graph-linear-transformations/transformations-horizontal-stretches}
+
+%\input{../../modules/functions-basics/function-formula-understanding-example-1}
+
+%\input{../../modules/lines-2d/parallel-lines-equal-slopes}
+%\input{../../modules/functions-basics/zeroes-of-a-function}
+%\input{../../modules/functions-basics/zeroes-of-function-from-formula-1}
+%\input{../../modules/functions-basics/finding-when-f-of-x-equals-g-of-x}
+%\input{../../modules/functions-basics/f-of-x-equals-g-of-x-algebra-example-1}
+
+%\input{../../modules/precalculus/completing-the-square}
+
+%\input{../../modules/TESTING/surfaces-test-two-moebius-bands}
+
+%\input{../../modules/derivatives/differentiation-formulas-the-circle-area-perimeter-secret}
+%\input{../../modules/integration/area-def}
+%\input{../../modules/integration/sigma-notation}
+%\input{../../modules/series/notation-through-example-1}
+
+%\input{../../modules/integration/definite-integral-def}
+%\input{../../modules/integration/continuous-functions-integrable}
+%\input{../../modules/integration/definite-integral-negative}
+%\input{../../modules/integration/summation-formulas}
+%\input{../../modules/integration/definite-integral-ex2}
+% WARNING: This next module could use some pictures.
+%\input{../../modules/integration/definite-integral-properties}
+%\input{../../modules/integration/definite-integral-properties-ex6}
+% WARNING: This next module could use some pictures.
+%\input{../../modules/integration/definite-integral-properties-split}
+%\input{../../modules/integration/definite-integral-properties-ex7}
+% WARNING: This next module could use some pictures.
+%\input{../../modules/integration/definite-integral-properties-comparison}
+
 \end{document}
