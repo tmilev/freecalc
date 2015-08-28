@@ -71,7 +71,11 @@ ifelse\space %
 ifelse\space %
 }
 \newcommand{\fcScreen}{[-1 1 -0.75] -1} %default projection plane. Renew this command to change projection plane.
-\newcommand{\fcLightSource}{[2 -1 2] 1\space} %Lightsource location, constant = brightness.
+\newcommand{\fcLightSource}{[2 -1 2] 1\space} %This command is not used yet, reserved for the future! Lightsource location, constant = brightness.
+%Z-depth lighting description. Rescale the image linearly so that the z-depth of all points in the image vary between 0.5 and -0.5. Points that are more distant have higher z-depth (0.5 are most distant from the viewing screen). Then points at depth t are colored with [user-given rgb color triple between with colors between 0 and 1] - [t t t]*fcLightDifference. Should one of the rgb numbers become negative, it is set to 0. In particular points at depth 0 are colored with the user-given patch color, points in the distance are darker and points nearer are lighter. If fcLightDifference is set to 1, then the most distant points are 0.5 units darker than the middle depth points and the points closest to the viewer are 0.5 units ligher.
+\newcommand{\fcLightDifference}{0.5\space}
+
+\newcommand{\fcMaxNumPatchesToUseShading}{10}
 
 \newcommand{\fcSet}[1]{\setkeys{fcGraphics}{#1}}
 
@@ -192,7 +196,7 @@ pop  % str'
 
 \newcommand{\fcRiemannSum}[6][linecolor=\fcColorGraph]{%
 \pstVerb{%
-15 dict begin 
+15 dict begin
 /numIntervals #5\space def
 /leftEnd #2\space def
 /rightEnd #3\space def
@@ -324,7 +328,7 @@ stroke
 \psline[linecolor=black!1](! #3 #4 )(! #3 #4 0.01 add)%
 }
 \newcommand{\fcAxesStandardNoFrame}[5][]{%
-\psline[arrows=<->, linecolor=black, linewidth=1pt, #1](! #2\space 0)(! #4\space 0)% 
+\psline[arrows=<->, linecolor=black, linewidth=1pt, #1](! #2\space 0)(! #4\space 0)%
 \psline[arrows=<->, linecolor=black, linewidth=1pt, #1](! 0\space #3)(! 0\space #5)% \fcLabels[\fcDefaultXLabel][\fcDefaultYLabel]{#3}{#4}%
 }%
 
@@ -526,7 +530,7 @@ terminalArmPoint ==
 
 \newcommand{\fcDistance}{ \fcVectorMinusVector \fcVectorNorm\space}
 
-%Indicates length with options #1 
+%Indicates length with options #1
 %from point (argument2, argument3) to point (argument4, argument5)
 %with label argument6
 \newcommand{\fcLengthIndicator}[6][]{%
@@ -537,8 +541,8 @@ terminalArmPoint ==
 
 \newcommand{\fcLengthIndicatorTwo}[6][t]{%
 \pstVerb{5 dict begin
-/pointA [#2\space #3] def 
-/pointB [#4\space #5] def 
+/pointA [#2\space #3] def
+/pointB [#4\space #5] def
 }%
 \psline[arrows=|-|](! pointA \fcArrayToStack)(! pointB \fcArrayToStack)%
 \rput[#1](! pointA pointB \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack){#6}%
@@ -1005,7 +1009,17 @@ end\space%
 \rput[r](! [0 0 #4] \fcCoordsIIIdToPStricks){\fcZLabel~}%
 }%
 
-\newcommand{\fcAxesIIIdFullInScene}[4][linecolor=black, arrows=->]{%
+\newcommand{\fcAxesIIIdFullInScene}[7][linecolor=black, arrows=<->]{%
+\setkeys{fcGraphics}{#1}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[#2 0 0]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[#5 0 0]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[0 #3 0]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[0 #6 0]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[0 0 #4]}%
+\fcLineIIIdInScene[#1]{[0 0 0]}{[0 0 #7]}%
+}
+
+\newcommand{\fcAxesIIIdSymmetricInScene}[4][linecolor=black, arrows=->]{%
 \setkeys{fcGraphics}{#1}%
 \fcLineIIIdInScene[#1]{[0 0 0]}{[#2 0 0]}%
 \fcLineIIIdInScene[#1]{[0 0 0]}{[0 #3 0]}%
@@ -1152,6 +1166,9 @@ end %
 
 \newcommand{\fcZBufferBoundingBoxPoint}{ %
 %Account bounding box:
+dup \fcScreen\space pop  \fcVectorNormalize \fcVectorScalarVector
+dup getZmin lt {dup setZmin}{}ifelse
+dup getZmax gt {setZmax}{pop} ifelse
 \fcCoordsIIIdToPStricks %
 dup dup getZBufferYmin lt {setZBufferYmin}{pop}ifelse %
 dup getZBufferYmax gt {setZBufferYmax}{pop}ifelse %
@@ -1256,7 +1273,7 @@ setZBufferXmax %
 setZBufferXmin %
 }
 
-\newcommand{\fcZBufferInitialize}{ %
+\newcommand{\fcBufferInitializePartOne}{
 /ZBufferRectangle [0 0 0 0] def %
 /ZMinMax [0 0] def%
 /setZBufferXmin {ZBufferRectangle exch 0 exch put} def %
@@ -1271,6 +1288,13 @@ setZBufferXmin %
 /getZBufferXmax {ZBufferRectangle 2 get} def %
 /getZBufferYmax {ZBufferRectangle 3 get} def %
 /getZmax        {ZMinMax          1 get} def %
+}
+
+\newcommand{\fcZBufferInitialize}{ %
+\fcBufferInitializePartOne
+graphicsFileAvailable graphicsCached not and {%
+graphicsFile (\fcBufferInitializePartOne) writestring
+}if%
 /zBufferNumCols \fcZBufferNumXIntervals\space def
 /zBufferNumRows \fcZBufferNumYIntervals\space def
 thePatchCollection length zBufferNumCols zBufferNumRows mul lt
@@ -1289,7 +1313,7 @@ graphicsFile run
 }
 
 \newcommand{\fcGetPointOnPlaneThatProjectsToXYCode}{
-15 dict begin 
+15 dict begin
 /y exch def
 /x exch def
 %(made it to here ) ==
@@ -1313,10 +1337,10 @@ theDet 0 eq {vZero}{
 %theLinCombi ==
 %(counttomark produces: ) ==
 %counttomark ==
-vOne vZero \fcVectorMinusVector theLinCombi 0 get \fcVectorTimesScalar 
-vTwo vZero \fcVectorMinusVector theLinCombi 1 get \fcVectorTimesScalar 
+vOne vZero \fcVectorMinusVector theLinCombi 0 get \fcVectorTimesScalar
+vTwo vZero \fcVectorMinusVector theLinCombi 1 get \fcVectorTimesScalar
 \fcVectorPlusVector
-vZero 
+vZero
 \fcVectorPlusVector
 %(and so the vector is... ) ==
 %dup ==
@@ -1327,11 +1351,11 @@ end
 }
 
 \newcommand{\fcByteToHexStringCode}{
-1 dict begin 
+1 dict begin
 /theByte exch def
 theByte 255 gt {/theByte 255 def} if
 theByte 0 lt {/theByte 0 def} if
-%Believe it or not, after about 10 hours of googling, 
+%Believe it or not, after about 10 hours of googling,
 % I came to the conclusion that this is the simplest implementation
 %of a conversion of a byte to its binary representation.
 %Note that while there may be a language mechanism to do that
@@ -1596,14 +1620,14 @@ end\space
 }
 
 \newcommand{\fcColorToColorStringCode}{
-5 dict begin 
+5 dict begin
 /theColor exch def
 /theColor [theColor {cvi} forall] def
 theColor 0 get
 theColor 0 get 255 gt {pop 255}if
 theColor 0 get 0 lt {pop 0}if
 \fcByteToHexStringCode %dup ==
-theColor 1 get 
+theColor 1 get
 theColor 1 get 255 gt {pop 255}if
 theColor 1 get 0 lt {pop 0}if
 \fcByteToHexStringCode %dup ==
@@ -1615,19 +1639,26 @@ theColor 2 get 0 lt {pop 0} if
 end
 }
 
+\newcommand{\fcColorFromColorBaseAndPoint}{
+5 dict begin
+\fcScreen\space pop \fcVectorNormalize \fcVectorScalarVector
+/theScalarProd exch def
+/currentColor exch def
+/theColorDifference
+getZmax getZmin sub dup 0 eq {(Zmax equal Zmin, something is wrong!) == pop 1}if
+theScalarProd getZmin sub exch div 0.5 sub \fcLightDifference\space mul
+def
+currentColor [theColorDifference theColorDifference theColorDifference] \fcVectorMinusVector
+end\space
+}
+
 \newcommand{\fcShFillPlaneFromLightSourceGetColorFromXYCode}{
-%(before fcGet point ...) == pstack
-\fcGetPointOnPlaneThatProjectsToXYCode 
-%(after fcGet point...: ) ==
-%pstack 
-%\fcLightSource\space pop \fcDistance  1 exch div 
-%(got to here, color is: ) ==
-%currentColor  ==
-[ exch dup \fcScreen\space pop \fcVectorScalarVector 
-\fcVectorTimesScalar {abs 10 mul}forall ] 
+\fcGetPointOnPlaneThatProjectsToXYCode\space
+currentColor exch
+\fcColorFromColorBaseAndPoint \space 255 \fcVectorTimesScalar
+\fcColorToColorStringCode\space
 %(theColor: ) ==
-%dup == 
-\fcColorToColorStringCode
+%dup ==
 %(string representing color: ) ==
 %dup ==
 }
@@ -1639,22 +1670,31 @@ end
 % and [r b g] is the red-blue-green color of the patch
 \newcommand{\fcShFillPlaneFromLightSourceCode}{
 20 dict begin
-\fcArrayToStack 
+\fcArrayToStack
 /currentColor exch def
 /vTwo exch def
 /vOne exch def
 /vZero exch def
 /directionOne vOne vZero \fcVectorMinusVector def
 /directionTwo vTwo vZero \fcVectorMinusVector def
-/numXiterations 2 def
-/numYiterations 2 def
+/numXiterations 4 def
+/numYiterations 4 def
 /DeltaX getZBufferXmax getZBufferXmin sub numXiterations 1 sub div def
 /DeltaY getZBufferYmax getZBufferYmin sub numYiterations 1 sub div def
 gsave % save graphics state
+%debug code start
+%fill
+%newpath
+%[getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  moveto
+%[getZBufferXmin getZBufferYmax] \fcCoordsPStricksToPS lineto
+%[getZBufferXmax getZBufferYmax] \fcCoordsPStricksToPS lineto
+%[getZBufferXmax getZBufferYmin] \fcCoordsPStricksToPS lineto
+%[getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS lineto
+%debug code end
 clip % clip to constructed path
 %newpath % clear out current path
 % Define the shading and function dictionaries
-<< 
+<<
 /Domain [ [getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  [getZBufferXmax  getZBufferYmax] \fcCoordsPStricksToPS 3 -1 roll exch]% Domain box: a large rectangular box that bounds the shading. Nothing will be painted outside of that box.
 %Format of the box: [xMin xMax yMin yMax]
 /Matrix [1 0 0 1 0 0] % additional affine transformation of bounded box.
@@ -1662,7 +1702,8 @@ clip % clip to constructed path
 /ColorSpace /DeviceRGB
 /Function <<
 /FunctionType 0
-/Order 3 %order=3 use cubic interpolation, whatever that means
+/Order 1 %order=3 use cubic spline interpolation.
+%order=1 use linear interpolation.
 /Domain [ [getZBufferXmin getZBufferYmin] \fcCoordsPStricksToPS  [getZBufferXmax  getZBufferYmax] \fcCoordsPStricksToPS 3 -1 roll exch]% must be at least as large as the previously defined domain.
 /Range [0 1 0 1 0 1]%has something to do with how each individual color channel is interpolated - exactly what  is that something can be found by trial and error or by decoding the adobe manual on the shfill operator. Having read the latter for many hours, I strongly recommend the trial and error method.
 /BitsPerSample 8 % means the RGB color is 24 bit (8 bits per channel)
@@ -1670,7 +1711,7 @@ clip % clip to constructed path
 %/Size [1 1] % number of sampling points within the domain box
 %dup ==
 %(about to enter data source) ==
-/DataSource 
+/DataSource
 /counterX -1 def
 numXiterations {
 /counterX counterX 1 add def
@@ -1681,22 +1722,22 @@ getZBufferXmin counterX DeltaX mul add getZBufferYmin counterY DeltaY mul add \f
 %(after getting color: ) ==
 %pstack
 }repeat
-}repeat 
+}repeat
 %(got to here) ==
 %pstack
-numXiterations numYiterations mul 
-(got to before concatenation) == pstack
-\fcConcatenateMultiple 
+numXiterations numYiterations mul
+%(got to before concatenation) == pstack
+\fcConcatenateMultiple
 %(the stack so far: ) == pstack
 %filter
 %currentfile
 %def
-(the shading dictionary is complete, printing stack: ) ==
-pstack
+%(the shading dictionary is complete, printing stack: ) ==
+%pstack
 >>
 >>
-(got to before shfill, stack: ) ==
-pstack
+%(got to before shfill, stack: ) ==
+%pstack
 shfill
 grestore
 end
@@ -1758,12 +1799,13 @@ fill
 graphicsFile ( fill ) writestring
 } def
 /shfillPlaneFromLightSourceVirtual
-{dup
+{ dup
+(shfill virtual input: ) == dup ==
 \fcToString
 graphicsFile exch writestring
 graphicsFile ( shfillPlaneFromLightSource ) writestring
 shfillPlaneFromLightSource
-}
+} def
 /setrgbcolorVirtual {
 3 copy
 setrgbcolor %
@@ -1787,7 +1829,7 @@ graphicsFile ( setrgbcolor ) writestring
 /graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
 }
 
-%defines graphicsFileAvailable to be true if cached, false else.
+%defines graphicsFileAvailable to be true if file can be created, false else.
 \newcommand{\fcSetupFilesGraphicsNameAlreadyDefinedCode}{
 /graphicsCached false def
 /graphicsFileAvailable true def
@@ -2023,6 +2065,17 @@ end
 }ifelse
 }
 
+\newcommand{\fcFileStoreBoundingBoxCode}{
+graphicsFileAvailable graphicsCached not and {%
+graphicsFile (/ZBufferRectangle ) writestring
+graphicsFile ZBufferRectangle \fcToString writestring
+graphicsFile ( def ) writestring
+graphicsFile (/ZMinMax ) writestring
+graphicsFile ZMinMax \fcToString writestring
+graphicsFile ( def ) writestring
+}if%
+}
+
 \newcommand{\fcFinishIIIdScene}[1][fastsort=false]{%
 \setkeys{fcGraphics}{#1}%
 \pscustom{%
@@ -2049,7 +2102,11 @@ getZBufferXmin 0.1 sub setZBufferXmin %
 getZBufferXmax 0.1 add setZBufferXmax %
 getZBufferYmin 0.1 sub setZBufferYmin %
 getZBufferYmax 0.1 add setZBufferYmax %
+getZmin 0.1 sub setZmin
+getZmax 0.1 add setZmax
+\fcFileStoreBoundingBoxCode
 (bounding box computed: ) == ZBufferRectangle == %
+(Depth interval: ) == ZMinMax == %
 % % % % % % % % % % % % % % % % % % % % % % % % % %
 (computing z-buffer IIId scene... ) print %
 /counter -1 def
@@ -2177,7 +2234,7 @@ end
 }
 
 \newcommand{\fcArrowHeadAndTailPlotCode}{
-2 copy 
+2 copy
 10 dict begin
 /pointRight exch def
 /pointLeft exch def
@@ -2488,7 +2545,7 @@ end%
 }
 
 %Format of curve: we store the curve in the format [tmin tmax [x y z] arrows red green blue (curve)]
-%Example use: 
+%Example use:
 %\begin{pspicture}(-1,-1)(1,1)
 %\fcStartIIIdScene
 %\fcCurveIIIdInScene[linecolor=orange]{0}{1}{[t t sqrt 0 ]}
@@ -3041,16 +3098,24 @@ thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
 { thePatch \fcPatchGetColorUV }
 ifelse]
 def
-currentVisibleColor \fcArrayToStack setrgbcolorVirtual
 0.5 setalpha
 newpathVirtual
 thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
 thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
 closepathVirtual
-%(EXPERIMENTAL CAREFULL) ==
-%[thePatch \fcPatchGetvZero thePatch \fcPatchGetvOne thePatch \fcPatchGetvTwo currentVisibleColor]
-%shfillPlaneFromLightSourceVirtual
-fillVirtual
+thePatchCollection length \fcMaxNumPatchesToUseShading\space le{
+[thePatch \fcPatchGetvZero thePatch \fcPatchGetvOne thePatch \fcPatchGetvTwo currentVisibleColor]
+shfillPlaneFromLightSourceVirtual
+}
+{currentVisibleColor
+%(current visible color: ) == dup ==
+thePatch \fcPatchGetPoint\space
+%(current point: ) == dup ==
+\fcColorFromColorBaseAndPoint\space
+%(final color: ) == dup ==
+\fcArrayToStack setrgbcolorVirtual
+fillVirtual}
+ifelse
 strokeVirtual
 %thePatch \fcPatchPaintNormal
 }if
@@ -3266,7 +3331,7 @@ vX 0 ne vY 0 ne or{
 }%end multido
 }%
 
-%example 
+%example
 \newcommand{\fcImplicitIId}[8][]{%
 %\fcGrid[#1, linestyle=dashed]{#2}{#3}{#4}{#5}{#6}{#7}{0}%
 \setkeys{fcGraphics}{#1}%
@@ -3284,7 +3349,7 @@ graphicsCached not {
 /iterationsY #5\space def
 /DeltaX #6\space def
 /DeltaY #7\space def
-/interpolate {20 dict begin 
+/interpolate {20 dict begin
 /rightPt exch def
 /leftPt exch def
 /rightVal rightPt \fcArrayToStack /y exch def /x exch def theEquation def
@@ -3329,7 +3394,7 @@ iterationsY {
 /BottomRight [startX DeltaX counterX 1 add mul add startY DeltaY counterY mul add] def
 /TopLeft [startX DeltaX counterX mul add startY DeltaY counterY 1 add mul add] def
 /TopRight [startX DeltaX counterX 1 add mul add startY DeltaY counterY 1 add mul add] def
-newpathVirtual 
+newpathVirtual
 BottomLeft \fcCoordsPStricksToPS  movetoVirtual
 BottomRight \fcCoordsPStricksToPS linetoVirtual
 TopRight \fcCoordsPStricksToPS linetoVirtual
@@ -3355,14 +3420,14 @@ iterationsY {
 /TopRight [startX DeltaX counterX 1 add mul add startY DeltaY counterY 1 add mul add] def
 /firstPair  [BottomLeft BottomRight TopRight processOneTriangle ] def
 /secondPair [BottomLeft TopRight    TopLeft  processOneTriangle ] def
-firstPair length 2 eq 
-{newpathVirtual 
+firstPair length 2 eq
+{newpathVirtual
 firstPair 0 get \fcCoordsPStricksToPS movetoVirtual
 firstPair 1 get \fcCoordsPStricksToPS linetoVirtual
 strokeVirtual
 }if
-secondPair length 2 eq 
-{newpathVirtual 
+secondPair length 2 eq
+{newpathVirtual
 secondPair 0 get \fcCoordsPStricksToPS movetoVirtual
 secondPair 1 get \fcCoordsPStricksToPS linetoVirtual
 strokeVirtual
@@ -3374,9 +3439,9 @@ end
 }}%
 }%
 
-%example \fcGrid{-2}{-2}{4}{4}{1}{1}{} 
-%Arguments in order of appearance: 
-% [options] 
+%example \fcGrid{-2}{-2}{4}{4}{1}{1}{}
+%Arguments in order of appearance:
+% [options]
 %xStart yStart numIntervalsX numIntervalsY DeltaX DeltaY Stickypiece
 %Stickypiece is optional, leave at 0 or empty if you don't care about it.
 %Stickypiece adds a shift within the grid.
@@ -3392,7 +3457,7 @@ end
 /DeltaX #6\space def
 /DeltaY #7\space def
 /stickyPiece (#8) () eq (#8) ( ) eq or {0}{#8}ifelse def
-\fcLineFormatCode 
+\fcLineFormatCode
 /counterX -1 def
 iterationsX 1 add{
 /counterX counterX 1 add def
@@ -3400,7 +3465,7 @@ iterationsX 1 add{
 /currentY1 0        stickyPiece sub DeltaY mul startY add def
 /currentY2 iterationsY stickyPiece add DeltaY mul startY add def
 /currentX2 currentX1 def
-newpath 
+newpath
 [currentX1 currentY1] \fcCoordsPStricksToPS moveto
 [currentX2 currentY2] \fcCoordsPStricksToPS lineto
 stroke
@@ -3412,7 +3477,7 @@ iterationsY 1 add{
 /currentY1 counterY DeltaY mul startY add def
 /currentY2 currentY1 def
 /currentX2 iterationsX stickyPiece add DeltaX mul startX add def
-newpath 
+newpath
 [currentX1 currentY1] \fcCoordsPStricksToPS moveto
 [currentX2 currentY2] \fcCoordsPStricksToPS lineto
 stroke
@@ -3426,7 +3491,7 @@ end
 \setkeys{fcGraphics}{#1}%
 \fcSurfaceInScene[#1]{#2}{#3}{#4}{#5}{#6}{#7}%
 \pstVerb{%
-/theIIIdObjects [theIIIdObjects \fcArrayToStack 
+/theIIIdObjects [theIIIdObjects \fcArrayToStack
 30 dict begin
 /theField {#8} def
 /theSurfaceObject exch def

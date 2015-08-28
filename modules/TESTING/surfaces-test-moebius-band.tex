@@ -2,7 +2,11 @@
 \begin{pspicture}(-1, -1)(2,2)
 \fcBoundingBox{-3}{-3}{4}{4} %
 \fcStartIIIdScene%
-\fcSurfaceInScene[iterationsU=33, iterationsV=5]{0}{-1}{360}{1}{%
+\fcSurfaceInScene[
+iterationsU=33
+, 
+iterationsV=5
+]{0}{-1}{360}{1}{%
 [10 dict begin
 /R 2 def
 /r {0.8 v mul} def
@@ -14,6 +18,6 @@ end %
 ]%
 }{}%
 %\fcLineIIIdInScene[linewidth=2, linecolor=cyan]{[-1 -1 -1]}{[1 1 1]}
-\fcFinishIIIdScene %
+\fcFinishIIIdScene[true] %
 \end{pspicture}
 \end{frame}

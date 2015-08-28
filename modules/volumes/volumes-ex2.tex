@@ -19,7 +19,7 @@ Find the volume of the solid obtained by rotating about the $x$-axis the region 
 \renewcommand{\fcScreenStyle}{x}%
 \renewcommand{\fcScreen}{[0 0 -1] 0}%
 \renewcommand{\fcIterationsU}{4}%
-\fcBoundingBox{-1.8}{-1.8}{1.8}{1.8}
+\fcBoundingBox{-1.8}{-1.8}{1.8}{1.8}%
 \only<3->{\renewcommand{\fcScreen}{[-0.05 -0.05 -1] 0}}%
 \only<4->{\renewcommand{\fcScreen}{[-0.1 -0.1 -1] 0}}%
 \only<5->{\renewcommand{\fcScreen}{[-0.15 -0.15 -1] 0}}%
@@ -30,7 +30,7 @@ Find the volume of the solid obtained by rotating about the $x$-axis the region 
 \fcPutIIId{[0 1.6 ]}{$y$}%
 \fcPutIIId{[1.6 0 0]}{$x$}%
 \only<handout:2|14-18>{\fcSurfaceInScene[arrows=(none), linecolor=cyan, colorUV=cyan, iterationsV=5, iterationsU=1] {0.04 }{0}{2 3 div sqrt}{40 9 mul}{[2 3 div v cos u mul v sin u mul]}{}}%
-\fcAxesIIIdFullInScene{1.5}{1.5}{1.5}%
+\fcAxesIIIdSymmetricInScene{1.5}{1.5}{1.5}%
 \only<handout:0|9>{\fcSurfaceInScene[iterationsV=3, iterationsU=3, arrows=(none), linecolor=black, linewidth=0.3]{0.01 }{0}{1}{40 3 mul}{[u u sqrt v cos mul u sqrt v sin mul]}{}%
 \fcSurfaceInScene[iterationsV=3, iterationsU=1]{0.04}{ 0}{ 1}{ 40 3 mul}{[1 v cos u mul v sin u mul]}{}%
 }%
@@ -43,7 +43,7 @@ Find the volume of the solid obtained by rotating about the $x$-axis the region 
 \only<handout:1|12,13,21->{\fcSurfaceInScene[iterationsV=9, iterationsU=3, arrows=(none), linecolor=black, linewidth=0.3]{0.01 }{0}{1}{40 9 mul}{[u u sqrt v cos mul u sqrt v sin mul]}{}%
 \fcSurfaceInScene[iterationsV=9, iterationsU=1]{0.04}{0}{1}{40 9 mul}{[1 v cos u mul v sin u mul]}{}%
 }%
-\only<handout:0|13>{\fcCurveIIIdInScene[arrows=(none), linewidth=2, linecolor=blue]{0 }{360 }{[2 3 div t cos 2 3 div sqrt 0.01 add mul t sin 0.6 sqrt 0.01 add mul]}}
+\only<handout:0|13>{\fcCurveIIIdInScene[arrows=(none), linewidth=2, linecolor=blue]{0 }{360 }{[2 3 div t cos 2 3 div sqrt 0.01 add mul t sin 0.6 sqrt 0.01 add mul]}}%
 \only<2->{\fcCurveIIIdInScene[linewidth=1.5, arrows=(none), linecolor=\fcColorGraph]{0}{1}{[t t sqrt 0]}}%
 \only<handout:3|19-20>{\fcSurfaceInScene[arrows=(none), linecolor=cyan, colorUV=cyan, linewidth=0.3, iterationsV=5, iterationsU=1] {0.04 }{0}{2 3 div sqrt}{40 9 mul}{[2 3 div 0.05 add v cos u mul v sin u mul]}{}%
 \fcSurfaceInScene[iterationsV=9, iterationsU=1, arrows=(none), linecolor=blue, linewidth=1, colorUV=cyan, colorVU=blue]{2 3 div 0.05 sub }{0}{2 3 div 0.05 add}{360}{[u v cos 2 3 div sqrt mul v sin 2 3 div sqrt mul]}{}%
