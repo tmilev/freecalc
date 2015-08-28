@@ -1,68 +1,11 @@
 \begin{frame}\frametitle{Riemann sum over rectangular regions}
-\begin{pspicture}(-1,-1)(1,1)
-\tiny
-\renewcommand{\fcScreen}{[-0.9 -0.3 -1] 0}
-\pscustom{\code{
-newpath
- 0 0 moveto
-100 0 lineto
-100 100 lineto
-0 100 lineto
-0 0 lineto
-gsave % save graphics state
-clip % clip to constructed path
-newpath % clear out current path
-% Define the shading and function dictionaries
-<< 
-/Domain [0 100 0 100]
-/Matrix [1 0 0 1 0 0]
- /ShadingType 1
- /ColorSpace /DeviceRGB
- /Function <<
- /FunctionType 0
- /Order 1
- /Domain [0 100 0 100 ]
- /Range [0 1 0 1 0 1]
- /BitsPerSample 8
- /DataSource <FFFFFFFFFFFFFFFFFFFFFFFF>
- /Size [2 2]
- >>
->>
-shfill
-grestore
-%newpath
-% 0 0 moveto
-%0 100 lineto
-%100 0 lineto
-%0 0 lineto
-%/inch {72 mul} def
-%gsave % save graphics state
-%clip % clip to constructed path
-%newpath % clear out current path
-% Define the shading and function dictionaries
-%<< /ShadingType 2
-%/ColorSpace /DeviceGray
-%/Coords [0 0 200 300]
-%Define the Function
-%/Function << /FunctionType 2
-%% Value is C0 + t ** N * (C1 - C0)
-%/Domain [0 1]
-%/C0 0.7 % result for input 0 = black
-%/C1 0.3 % result for input 1 = white
-%/N 1.2 % Exponent = linear
-%>>
-%>>
-%shfill
-%grestore
-}}
-\end{pspicture}
 
 \begin{pspicture}(-1,-1)(1,1)
 \tiny
 \renewcommand{\fcScreen}{[-0.9 -0.3 -1] 0}
 \fcStartIIIdScene
-\fcAxesIIIdInScene{2}{2}{2}
-\fcPatchInScene[arrows=(none), linecolor=black]{[2 1 1]}{[2 1 3]}{[ -1 1 0.5]}
+\fcAxesIIIdInScene{5}{5}{5}
+\fcPatchInScene[arrows=(none), linecolor=black]{[2 -1 1]}{[-2 -1 1]}{[ 2 2 -1]}
 \fcFinishIIIdScene[true]
 \end{pspicture}
 \end{frame}

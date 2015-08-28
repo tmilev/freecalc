@@ -6,7 +6,7 @@
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-1,-1)(1,1)
 \tiny%
-\fcBoundingBox{-1.8}{-2.5}{1.8}{2.5}
+\fcBoundingBox{-1.6}{-2.5}{2}{2.5}
 \newcommand{\theFunOuter}{u u mul 1 add\space}%
 \newcommand{\theFunInner}{u \space}%
 \newcommand{\theSurface}{%
@@ -40,7 +40,7 @@
 }%
 \only<handout:2-|7->{\fcPutIIId{[-0.1 -0.1 1.6]}{$z$}}%
 \only<7->{\fcPutIIId[lb]{[0.5 2.2 0]}{$y=x^2+1$}}%
-\fcAxesIIIdInScene[linewidth=1, linecolor=black, arrows=->, xLabel={$x$}, yLabel={$y$},zLabel={} ]{1.5}{1.5}{1.5}%
+\fcAxesIIIdFullInScene[linewidth=1, linecolor=black, arrows=->, xLabel={$x$}, yLabel={$y$},zLabel={} ]{-0.5}{-2.5}{-2.5}{1.8}{2.5}{2.5}%
 \only<handout:0|12>{%
 \renewcommand{\fcIterationsV}{4}%
 \theSurface%
@@ -100,9 +100,9 @@ Find the volume of the solid obtained by rotating about the $x$-axis \alertNoH{ 
 \uncover<15->{Cross-section: }\uncover<16->{washer, center: $(x, 0)$.} \uncover<17->{Area: $ \alertNoH{29}{A(x){ = \alertNoH{30 }{\text{Area outer disk}} - \alertNoH{31 }{\text{Area inner disk}}}}$}
 
 \noindent\uncover<18->{%
-\alertNoH{18}{\alertNoH{31}{Inner disk} radius:} $\fcAnswer{19}{x}$, \alertNoH{20,21,31}{ area: $\fcAnswer{21}{\pi x^2}$}.
+\alertNoH{18}{\alertNoH{31}{Inner disk} radius:} $\fcAnswer{19}{x,}$ \alertNoH{20,21,31}{ area: $\fcAnswer{21}{\pi x^2}.$}
 
-\alertNoH{22,23}{\alertNoH{30}{Outer disk} radius:} $\fcAnswer{23}{x^2+1}$, \alertNoH{24,25,30}{area: $\fcAnswer{25}{\pi (x^2+1)^2}$}.
+\alertNoH{22,23}{\alertNoH{30}{Outer disk} radius:} $\fcAnswer{23}{x^2+1},$ \alertNoH{24,25,30}{area: $\fcAnswer{25}{\pi (x^2+1)^2.}$}
 }%
 }%uncover
 
