@@ -1,30 +1,31 @@
 % begin module partial-fractions-long-division
 \begin{frame}
 \frametitle{Review of polynomial notation}
-Consider a rational function
+\begin{itemize}
+\item Recall that a rational function is a function of the form
 \[
 f(x) = \frac{P(x)}{Q(x)}
 \]
-where $P$ and $Q$ are polynomials.  Recall that the degree of $P$ is the highest power of $x$ in $P$ that has a non-zero coefficient.  That is, if
-\[
-P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
-\]
-where $a_n \neq 0$, then the degree of $P$ is $n$, and we write deg$(P) = n$.
+where $P$ and $Q\neq 0$ are polynomials. 
+\item<2->Recall that the degree of $P$ is the highest power of $x$ in $P$ that has a non-zero coefficient.
+\end{itemize}
 \end{frame}
+
 \begin{frame}\frametitle{Ensure denominator degree > numerator degree}
 \begin{itemize}
-\item To compute a partial fraction decomposition we need that the degree of the fraction numerator be less than the degree of the denominator.
-\item<2-> Therefore our first step is to transform $\frac{P(x)}{Q(x)}$ to
-
-$\displaystyle \frac{\alertNoH{6}{P(x)}}{\alertNoH{7}{Q(x)} }= \alertNoH{8}{S(x)}+\frac{\alertNoH{9}{R(x)}}{\alertNoH{7}{Q(x)}} $
-where $S(x), R(x), Q(x)$ are polynomials and $\deg R<\deg Q$.
-\item<3-> This is done using polynomial long division.
-\item<4-> We recall that to divide the \alertNoH{6}{dividend $P(x)$} by the \alertNoH{7}{divisor $Q(x)$} to get \alertNoH{8}{quotient $S(x)$} with \alertNoH{9}{remainder $R(x)$} means \uncover<5->{ to find polynomials  $S(x), R(x)$ such that \alertNoH{9}{$\deg R<\deg Q$} and
+\item To decompose $\frac{P(x)}{Q(x)}$ in partial fractions we ensure first the degree of the numerator is smaller than the degree of the denominator.
+\item<2-> We recall that to divide the \alertNoH{4}{dividend $P(x)$} by the \alertNoH{5}{divisor $Q(x)$} to get \alertNoH{6}{quotient $S(x)$} with \alertNoH{7}{remainder $R(x)$} means \uncover<3->{ to find polynomials  $S(x), R(x)$ such that \alertNoH{7}{$\deg R<\deg Q$} and
 \[
-\alertNoH{6} {P(x)} = \alertNoH{8}{S(x)} \alertNoH{7}{Q(x)} + \alertNoH{9}{ R(x)}
+\begin{array}{rcll|l}
+\displaystyle \alertNoH{4} {P(x)}& =&\displaystyle  \alertNoH{6}{S(x)} \alertNoH{5}{Q(x)} + \alertNoH{7}{ R(x)} \uncover<8->{&&\alertNoH{8}{ \text{divide by } Q(x)}}\\
+\displaystyle \uncover<8->{\frac{P(x)}{\alertNoH{8}{Q(x)} }&=&\displaystyle  \frac{S(x)\fcCancel{9}{Q(x)} }{\fcCancel{9}{\alertNoH{8}{Q(x)}}} +\frac{R(x)}{ \alertNoH{8}{ Q(x)}}} \\
+\uncover<9->{
+\displaystyle \frac{P(x)}{Q(x) }&=&\displaystyle  S(x) +\frac{R(x)}{ Q(x)}} \\
+\end{array}
 \]
 }
-\item<10-> We review polynomial long division on examples.
+\item<10-> The above transforms $\frac{P(x)}{Q(x)}$ to a polynomial plus a fraction in which the numerator has degree smaller than the denominator.
+\item<11-> The polynomials $Q(x)$ and $S(x)$ are computed via polynomial long division. We recall the procedure through examples.
 \end{itemize}
 \end{frame}
 % end module partial-fractions-long-division

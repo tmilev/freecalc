@@ -1,26 +1,22 @@
 % begin module partial-fractions-case4-ex7
 \begin{frame}
-\begin{example} %[Example 7, p. 516]
+\begin{example} 
 Write out the form of the partial fraction decomposition of
 \[
 \frac{x^3+x^2+1}{\alert<handout:0| 2-3>{x}\alert<handout:0| 4-5>{(x-1)}\alert<handout:0| 6-7>{(x^2+x+1)}\alert<handout:0| 8-9>{(x^2+1)^3}}
 \]
 \[
-\uncover<3->{\alert<handout:0| 3>{%
- = \frac{A}{x} + %
-}}%
-\uncover<5->{\alert<handout:0| 5>{%
- \frac{B}{x-1} + %
-}}%
-\uncover<7->{\alert<handout:0| 7>{%
- \frac{Cx+D}{x^2+x+1} + %
-}}%
-\uncover<9->{\alert<handout:0| 9>{%
- \frac{Ex+F}{x^2+1} + %
- \frac{Gx+H}{(x^2+1)^2} + %
- \frac{Ix+J}{(x^2+1)^3} %
-}}%
+\uncover<2->{= \fcAnswer{3}{ \frac{A}{x} } \uncover<3->{+} \fcAnswer{5}{\frac{B}{x-1}} \uncover<5->{+} 
+\fcAnswer{7}{\frac{Cx+D}{x^2+x+1}} \uncover<7->{+}
+\fcAnswer{9}{ \frac{Ex+F}{x^2+1} +  \frac{Gx+H}{(x^2+1)^2} + \frac{Ix+J}{(x^2+1)^3}.}
+}
 \]
+\uncover<10->{
+For example of this size it makes sense to use a computer algebra system; one such system easily produces the decomposition:
+\[
+=\frac{-1}{x }+\frac{\frac{1}{8}}{x -1}+\frac{-x -1}{(x^{2}+x +1)} +\frac{\frac{15}{8}x -\frac{1}{8}}{(x^{2}+1)}+\frac{\frac{3}{4}x +\frac{3}{4}}{(x^{2}+1)^{2}}+\frac{-\frac{x }{2}+\frac{1}{2}}{(x^{2}+1)^{3}}.
+\]
+}
 \end{example}
 \end{frame}
 % end module partial-fractions-case4-ex7
