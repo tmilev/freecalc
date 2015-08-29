@@ -1,30 +1,38 @@
 \begin{frame}
 \begin{itemize}
 \item The next step in producing a partial fraction decomposition is to factor the denominator $Q(x)$.
-\item Factoring of $Q(x)$ can always be done in quadratic and linear terms: 
+\item<2-> Factoring of $Q(x)$ can always be done in quadratic and linear terms as asserted in the following.
 \begin{corollary} [Corollary to the Fundamental Theorem of Algebra]
 Let $Q(x)$ be a polynomial (with real coefficients). Then $Q(x)$ can be factored as a product of terms of the form $(ax+b)^n$ (powers of linear terms) and product of terms of the form $(ax^2+bx+c)^n$ with $b^2-4ac<0$ (powers of quadratic terms).
 \end{corollary}  
-\item The above result is a corollary to the Fundamental Theorem of Algebra. We state the Fundamental Theorem of algebra without proving it.
+\item<3-> The above result is a corollary to the Fundamental Theorem of Algebra. \uncover<4->{We state the Fundamental Theorem of algebra without proving it.}
+\uncover<4->{
 \begin{theorem}[The Fundamental Theorem of Algebra]
 Every polynomial has at least one complex root.
 \end{theorem}
+}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-Suppose we have already factored the denominator $Q(x)$ into factors of the form 
+\begin{itemize}
+\item Let $\frac{R(x)}{Q(x)}$ be a rational function with $\deg Q>\deg R$. 
+\item<2-> Suppose $Q(x)$ factors into factors of the form 
 \[
-(ax+b)^N\qquad \text{ and }\qquad (ax^2+bx+c)^N
+(ax+b)^N\qquad \text{ and }\qquad (ax^2+bx+c)^M.
 \]
-\uncover<2->{Then we can split the fraction $R(x)/Q(x)$ into sum of partial fractions of the form 
+\item<3-> Then we can split $\frac{R(x)}{Q(x)}$ into sum of partial fractions of the form 
 \[
-\frac{A}{(ax+b)^i} \qquad \text{or}\qquad \frac{Ax+B}{(ax^2+bx+c)^i}\quad ,
+\frac{\alertNoH{4}{A_i}}{(ax+b)^{\alertNoH{5}{i}}},\text{ with } \alertNoH{5}{i\leq N} \qquad \text{or}\qquad \frac{\alertNoH{6}{B_j}x+\alertNoH{6}{C_j}}{(ax^2+bx+c)^{\alertNoH{7}{j}}}, \text{ with } \alertNoH{7}{j\leq M},
 \]
-where the exponent $i$ in the partial fraction does not exceed the exponent $N$ of the corresponding term in $Q(x)$.
-}
+\uncover<4->{where \alertNoH{4}{the $A_i$'s are constants} - \alertNoH{5}{one for each power $1\leq i\leq N$}} \uncover<6->{and \alertNoH{6}{the $B_j$ and $C_j$'s are constants} - \alertNoH{7}{one pair for each power $1\leq j\leq M$}.}
+\item<8-> We use $N$ different constants for each new linear factor of the form $(ax+b)^N $ and $2\times M$ different constants for each factor of the form $(ax^2+bx+c)^N$. 
+\item<9-> Thus the total number of constants used equals the degree of $Q$.
 
-\uncover<3->{
-The cases when the factorization of $Q(x)$ has terms appearing with power $N>1$ are treated differently from the the cases where all terms of the factorization of $Q(x)$ are distinct.
-}
+\item<10-> The difficulty of finding the constants $A_i, B_j, C_j$ increases as the number of distinct factors increases, as well as when the exponents of those factors increase.
+
+\end{itemize}
+
+
+
 \end{frame}
