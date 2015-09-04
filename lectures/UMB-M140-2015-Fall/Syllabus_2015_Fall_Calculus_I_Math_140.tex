@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{enumitem}
+\usepackage{pst-plot}
+\usepackage{pstricks}
+\usepackage{lscape}
+
+%\addtolength{\hoffset}{-3.5cm}
+%\addtolength{\textwidth}{6.8cm}
+%\addtolength{\voffset}{-3.3cm}
+%\addtolength{\textheight}{6.3cm}
+
+\newcounter{topicsCounter}
+\newcounter{topicsSubCounter}[topicsCounter]
+\newcounter{topicsSubSubCounter}[topicsSubCounter]
+
+\usepackage{xr}
+\externaldocument{../../}
+
+\newcommand{\counterTopic}{\refstepcounter{topicsCounter}\thetopicsCounter. }
+\newcommand{\counterSubTopic}{\refstepcounter{topicsSubCounter}\thetopicsCounter.\thetopicsSubCounter }
+\newcommand{\counterSubSubTopic}{\refstepcounter{topicsSubSubCounter}\thetopicsCounter.\thetopicsSubCounter.\thetopicsSubSubCounter}
+
+\newcommand{\apex}{A\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt X}
+
+
+\newcommand{\websitebase}{https://piazza.com/umb/fall2015/math140}
+
+\usepackage{pdfpages}
+
+\title{Math 140 Calculus I \\ Summer 2015}
+\date{}
+\begin{document}
+
+%\color{green}
+\maketitle
+%\noindent\textbf{Time and place.}
+%Monday, Wednesday, Friday 10-10:50, McCormack, Room 417, first floor. Monday 11:00-11:50,
+
+\noindent \textbf{Instructor.} Todor Milev, \href{mailto:todor.milev@umb.edu}{\nolinkurl{todor.milev@umb.edu}} \quad \quad \quad .
+
+\medskip
+\noindent \textbf{Office hours. } Office hours: Tuesday, Thursday, time to be announced. Room: S-03-65.
+
+\medskip
+\noindent \textbf{Course page. }  \url{\websitebase/home}
+
+
+
+
+\medskip \noindent \textbf{Lecture slides. }  \url{\websitebase/resources}
+
+\medskip\noindent Lecture slides will become available as the course progresses.
+
+
+\medskip \noindent \textbf{Master problem sheet (latest version). }  \url{\websitebase/resources} 
+
+\medskip\noindent The master problem sheet contains my entire collection of Calculus I problems (including contributions of colleagues and students). 
+
+\medskip
+\noindent \textbf{Homework.} You will be assigned homework, which will be posted on
+
+\url{\websitebase/resources} \quad \quad \quad .
+
+\noindent I will expect you to complete the homework in written form in a convenient for you format (notebook, folder, etc.). However, \textbf{I will not check/collect/proofread homework.} 
+ 
+\medskip
+\noindent \textbf{Quizzes.} You will be given quizzes in class. \textbf{The time of the quiz will be announced in class}. Quizzes may be announced from one lecture day to the next. Your quiz problem will be one of your homework problems, verbatim. 
+
+
+
+
+
+\medskip\noindent \textbf{Textbook. } There are two official textbooks for this course. Having access to \textbf{at least one of the textbooks is mandatory}. Having only one of the two textbooks is sufficient to complete the course. No mandatory homework will be assigned from either textbook. 
+
+\begin{itemize}
+\item Option I. The textbook \apex{} 3.0, Chapter 1-6. To download a free pdf file of the textbook, or to buy a physical copy of the textbook, visit the following site.
+
+\url{http://www.apexcalculus.com/downloads/} 
+\item Option II. James Stewart, Calculus, $7^{th}$ or $8^{th}$ edition (both editions are acceptable).
+\end{itemize}
+
+%\medskip
+%\noindent \textbf{Prerequisite. } A standard pre-calculus course or equivalent.
+
+
+\medskip
+\noindent \textbf{Grades.} Your grade will consist of two tests, a comprehensive final exam, and a number of quizzes. 
+\begin{itemize}
+\item The quizzes will account for 20\% of your total grade.
+\item The tests will account for 50\% (25\% each) of your total grade.
+\item The final will account for 30\% of your total grade.
+\end{itemize}
+Please note that missed tests can not be made up, unless there is a valid medical reason accompanied with an official signed document from a medical doctor. Letter grades will be assigned as follows. 
+
+\begin{center}
+\begin{tabular}{lc|lc}
+A & 85-100 & C & 65-69 \\
+A-& 82-84 & C- & 62-64 \\
+B+& 80-81 & D+ & 60-61 \\
+B & 75-79& D & 55-59\\
+B-& 72-74& D- & 50-54\\
+C+& 70-71& F & below 50\\
+\end{tabular}
+
+\end{center}
+
+No books, notes, calculators or any other electronic device (such as mobile phones) are allowed during any exam unless otherwise stated.
+
+\medskip
+\noindent \textbf{Student conduct.} Students  are required to adhere the University Policy on Academic Standards and Cheating, to the University Statement of Plagiarism and the Documentation of Written Work, and to the Code of Student Conduct as described in the catalog of Undergraduate programs, pages 44-45 and 48-52. The code is available at the following web-page.
+
+\noindent\url{http://www.umb.edu/life_on_campus/policies/code/}
+
+
+\begin{landscape}
+\noindent \textbf{List of topics.} The list of topics is a preliminary guideline, and will be subject to change.
+
+\begin{tabular}{@{}r@{}l@{}l@{~}l@{~}c cc}
+&&& Topic & \apex{} 3.0 textbook & Stewart, Calculus & Relevant HW problems, Master Problem sheet\\
+\counterTopic &&& Functions (Brief review).  & N/A (lectures only) & Chapter 1.1-1.3 \\ 
+%Ways to represent a function.
+%Some essential functions.
+%New functions from old.
+\counterTopic &&& Trigonometry. (Brief review). & N/A(lectures only) & N/A (lectures only) \\
+%Angles.
+%The trigonometric functions.
+%Trigonometric identities.
+%Trigonometric identities, complex numbers and Euler's formula.
+%Graphs of the trigonometric functions.
+\counterTopic&&& Limits and continuity. \\
+&\counterSubTopic && The tangent and velocity problems.&  Chapter 1.1& Chapter 1.4 \\
+&\counterSubTopic && Limits. One-sided limits.& Chapter 1.5, 1.7 & Chapter 1.1, 1.2 \\
+&\counterSubTopic && The limit laws.& Chapter 1.3 & Chapter\\
+
+&\counterSubTopic && Continuity. & &Chapter 1.8 \\
+&\counterSubTopic && Limits involving $\infty$.\\
+&\counterSubTopic && Limits involving $\infty$.\\
+
+&& \counterSubSubTopic& Infinite limits, vertical asymptotes.\\
+&& \counterSubSubTopic& Limits at infinity; horizontal asymptotes.
+
+\end{tabular}
+
+\begin{enumerate}[label*=\arabic*.]
+\end{enumerate}
+\end{enumerate}
+\item Exponents and Logarithms.
+\begin{enumerate}[label*=\arabic*.]
+\item Inverse functions.
+\item Exponents.
+\begin{enumerate}[label*=\arabic*.]
+\item Two ways to define exponents.
+\item Exponent basics.
+\item The natural exponent.
+\end{enumerate}
+\item Logarithms.
+\begin{enumerate}[label*=\arabic*.]
+\item Logarithm basics. 
+\item The natural logarithm.
+\end{enumerate}
+\end{enumerate}
+
+\item Derivatives
+\begin{enumerate}[label*=\arabic*.]
+\item Derivatives and rates of change.
+\item The derivative as a function.
+\item Basic differentiation formulas.
+\item Derivatives of trigonometric functions.
+\item The chain rule.
+\item Differentiation formula derivations from the chain and product rules.
+\item Implicit differentiation.
+\begin{enumerate}[label*=\arabic*.]
+\item Some applications of rates of change.
+\item Related rates.
+\end{enumerate}
+\end{enumerate}
+\item Maxima and minima.
+\begin{enumerate}[label*=\arabic*.]
+\item The Extreme Value Theorem.
+\item Rolle's and Fermat's Theorems.
+\item The closed interval method.
+\item One variable differentiable function optimization.
+\item Derivatives and shapes of curves.
+\item The first derivative test.
+\item Concavity.
+\item The second derivative test. 
+\end{enumerate}
+\item Curve sketching.
+\item Newton's method.
+\item Linear approximations and differentials.
+\begin{enumerate}[label*=\arabic*.]
+\item The Mean Value Theorem.
+\item Linear approximations.
+\item Differentials.
+\end{enumerate}
+\item Integrals
+\begin{enumerate}[label*=\arabic*.]
+\item Integrals as means of measuring areas.
+\item Definite integrals.
+\begin{enumerate}[label*=\arabic*.]
+\item Integrability. 
+\item Definite integral definition.
+\item Basic properties.
+\end{enumerate}
+\item Computing integrals: basics. 
+\begin{enumerate}[label*=\arabic*.]
+\item Antiderivatives. 
+\item The Evaluation Theorem (The Fundamental Theorem of Calculus, Part 2). 
+\item Indefinite integrals.
+\end{enumerate}
+\item The substitution rule.
+\begin{enumerate}[label*=\arabic*.]
+\item The substitution rule in indefinite integrals.
+\item The substitution rule in definite integrals.
+\end{enumerate}
+\item The Fundamental Theorem of Calculus, Part 1.
+\item Applications of integration.
+\begin{enumerate}[label*=\arabic*.]
+\item Area between curves.
+\item Volumes of solids of revolution.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{landscape}
+
+
+
+\end{document}
