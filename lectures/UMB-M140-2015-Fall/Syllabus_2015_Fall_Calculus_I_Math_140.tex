@@ -5,21 +5,30 @@
 \usepackage{pstricks}
 \usepackage{lscape}
 
-%\addtolength{\hoffset}{-3.5cm}
-%\addtolength{\textwidth}{6.8cm}
-%\addtolength{\voffset}{-3.3cm}
-%\addtolength{\textheight}{6.3cm}
+\addtolength{\hoffset}{-3.5cm}
+\addtolength{\textwidth}{6.8cm}
+\addtolength{\voffset}{-3.3cm}
+\addtolength{\textheight}{6.3cm}
 
 \newcounter{topicsCounter}
 \newcounter{topicsSubCounter}[topicsCounter]
 \newcounter{topicsSubSubCounter}[topicsSubCounter]
 
+\usepackage{longtable}
 \usepackage{xr}
-\externaldocument{../../}
+%\externaldocument{../../homework/UMB-All-Problems-By-Course/Calc-I-MasterProblemSheet}
+\externaldocument{./Calc-I-MasterProblemSheetOneFile}
+
+\newcommand{\refBad}[1]{%
+\ifthenelse{\equal{\ref{#1}}{??}}%
+{(n/a)}%
+{\ref{#1}}%
+}%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
+
 
 \newcommand{\counterTopic}{\refstepcounter{topicsCounter}\thetopicsCounter. }
-\newcommand{\counterSubTopic}{\refstepcounter{topicsSubCounter}\thetopicsCounter.\thetopicsSubCounter }
-\newcommand{\counterSubSubTopic}{\refstepcounter{topicsSubSubCounter}\thetopicsCounter.\thetopicsSubCounter.\thetopicsSubSubCounter}
+\newcommand{\counterSubTopic}{\refstepcounter{topicsSubCounter}\thetopicsCounter.\thetopicsSubCounter.  }
+\newcommand{\counterSubSubTopic}{\refstepcounter{topicsSubSubCounter}\thetopicsCounter.\thetopicsSubCounter.\thetopicsSubSubCounter. }
 
 \newcommand{\apex}{A\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt X}
 
@@ -28,7 +37,7 @@
 
 \usepackage{pdfpages}
 
-\title{Math 140 Calculus I \\ Summer 2015}
+\title{Math 140 Calculus I \\ Fall 2015}
 \date{}
 \begin{document}
 
@@ -40,7 +49,7 @@
 \noindent \textbf{Instructor.} Todor Milev, \href{mailto:todor.milev@umb.edu}{\nolinkurl{todor.milev@umb.edu}} \quad \quad \quad .
 
 \medskip
-\noindent \textbf{Office hours. } Office hours: Tuesday, Thursday, time to be announced. Room: S-03-65.
+\noindent \textbf{Office hours. } By appointment, or walk-in office hours: Tuesday 12:30-14:00, Thursday 15:30-17:00 (if I am not in the office I may be off to lunch).  Room: S-03-65.
 
 \medskip
 \noindent \textbf{Course page. }  \url{\websitebase/home}
@@ -53,9 +62,9 @@
 \medskip\noindent Lecture slides will become available as the course progresses.
 
 
-\medskip \noindent \textbf{Master problem sheet (latest version). }  \url{\websitebase/resources} 
+\medskip \noindent \textbf{Master Problem Sheet. }  \url{\websitebase/resources} 
 
-\medskip\noindent The master problem sheet contains my entire collection of Calculus I problems (including contributions of colleagues and students). 
+\medskip\noindent The master problem sheet contains a collection of Calculus I problems. 
 
 \medskip
 \noindent \textbf{Homework.} You will be assigned homework, which will be posted on
@@ -74,7 +83,7 @@
 \medskip\noindent \textbf{Textbook. } There are two official textbooks for this course. Having access to \textbf{at least one of the textbooks is mandatory}. Having only one of the two textbooks is sufficient to complete the course. No mandatory homework will be assigned from either textbook. 
 
 \begin{itemize}
-\item Option I. The textbook \apex{} 3.0, Chapter 1-6. To download a free pdf file of the textbook, or to buy a physical copy of the textbook, visit the following site.
+\item Option I. The textbook \apex{} 3.0, Chapters 1-7. To download a free pdf file of the textbook, or to buy a physical copy of the textbook, visit the following site.
 
 \url{http://www.apexcalculus.com/downloads/} 
 \item Option II. James Stewart, Calculus, $7^{th}$ or $8^{th}$ edition (both editions are acceptable).
@@ -114,114 +123,73 @@ No books, notes, calculators or any other electronic device (such as mobile phon
 
 
 \begin{landscape}
-\noindent \textbf{List of topics.} The list of topics is a preliminary guideline, and will be subject to change.
 
-\begin{tabular}{@{}r@{}l@{}l@{~}l@{~}c cc}
-&&& Topic & \apex{} 3.0 textbook & Stewart, Calculus & Relevant HW problems, Master Problem sheet\\
-\counterTopic &&& Functions (Brief review).  & N/A (lectures only) & Chapter 1.1-1.3 \\ 
+\noindent \begin{longtable}{|@{}r@{}l@{}l@{~}l@{~}c cc|}\hline
+\multicolumn{7}{|c|}{\textbf{List of topics.} The list of topics is a preliminary guideline, and will be subject to change.
+}\\\hline
+&&& Topic & \apex{} 3.0 textbook & Stewart, Calculus, $7^{th}$ ed. & Relevant problems, Master Problem Sheet\\\hline
+\counterTopic &&& Functions (Brief review).  & N/A (lectures only) & Chapter 1.1-1.3 & Section \refBad{secMPSfunctionBasics} \\\hline
 %Ways to represent a function.
 %Some essential functions.
 %New functions from old.
-\counterTopic &&& Trigonometry. (Brief review). & N/A(lectures only) & N/A (lectures only) \\
+\counterTopic &&& Trigonometry. (Brief review). & N/A(lectures only) & N/A (lectures only)& Section \refBad{secMPStrigonometry} \\\hline
 %Angles.
 %The trigonometric functions.
 %Trigonometric identities.
 %Trigonometric identities, complex numbers and Euler's formula.
 %Graphs of the trigonometric functions.
-\counterTopic&&& Limits and continuity. \\
-&\counterSubTopic && The tangent and velocity problems.&  Chapter 1.1& Chapter 1.4 \\
-&\counterSubTopic && Limits. One-sided limits.& Chapter 1.5, 1.7 & Chapter 1.1, 1.2 \\
-&\counterSubTopic && The limit laws.& Chapter 1.3 & Chapter\\
-
-&\counterSubTopic && Continuity. & &Chapter 1.8 \\
-&\counterSubTopic && Limits involving $\infty$.\\
-&\counterSubTopic && Limits involving $\infty$.\\
-
-&& \counterSubSubTopic& Infinite limits, vertical asymptotes.\\
-&& \counterSubSubTopic& Limits at infinity; horizontal asymptotes.
-
-\end{tabular}
-
-\begin{enumerate}[label*=\arabic*.]
-\end{enumerate}
-\end{enumerate}
-\item Exponents and Logarithms.
-\begin{enumerate}[label*=\arabic*.]
-\item Inverse functions.
-\item Exponents.
-\begin{enumerate}[label*=\arabic*.]
-\item Two ways to define exponents.
-\item Exponent basics.
-\item The natural exponent.
-\end{enumerate}
-\item Logarithms.
-\begin{enumerate}[label*=\arabic*.]
-\item Logarithm basics. 
-\item The natural logarithm.
-\end{enumerate}
-\end{enumerate}
-
-\item Derivatives
-\begin{enumerate}[label*=\arabic*.]
-\item Derivatives and rates of change.
-\item The derivative as a function.
-\item Basic differentiation formulas.
-\item Derivatives of trigonometric functions.
-\item The chain rule.
-\item Differentiation formula derivations from the chain and product rules.
-\item Implicit differentiation.
-\begin{enumerate}[label*=\arabic*.]
-\item Some applications of rates of change.
-\item Related rates.
-\end{enumerate}
-\end{enumerate}
-\item Maxima and minima.
-\begin{enumerate}[label*=\arabic*.]
-\item The Extreme Value Theorem.
-\item Rolle's and Fermat's Theorems.
-\item The closed interval method.
-\item One variable differentiable function optimization.
-\item Derivatives and shapes of curves.
-\item The first derivative test.
-\item Concavity.
-\item The second derivative test. 
-\end{enumerate}
-\item Curve sketching.
-\item Newton's method.
-\item Linear approximations and differentials.
-\begin{enumerate}[label*=\arabic*.]
-\item The Mean Value Theorem.
-\item Linear approximations.
-\item Differentials.
-\end{enumerate}
-\item Integrals
-\begin{enumerate}[label*=\arabic*.]
-\item Integrals as means of measuring areas.
-\item Definite integrals.
-\begin{enumerate}[label*=\arabic*.]
-\item Integrability. 
-\item Definite integral definition.
-\item Basic properties.
-\end{enumerate}
-\item Computing integrals: basics. 
-\begin{enumerate}[label*=\arabic*.]
-\item Antiderivatives. 
-\item The Evaluation Theorem (The Fundamental Theorem of Calculus, Part 2). 
-\item Indefinite integrals.
-\end{enumerate}
-\item The substitution rule.
-\begin{enumerate}[label*=\arabic*.]
-\item The substitution rule in indefinite integrals.
-\item The substitution rule in definite integrals.
-\end{enumerate}
-\item The Fundamental Theorem of Calculus, Part 1.
-\item Applications of integration.
-\begin{enumerate}[label*=\arabic*.]
-\item Area between curves.
-\item Volumes of solids of revolution.
-\end{enumerate}
-\end{enumerate}
-\end{enumerate}
+\counterTopic&&& Limits and continuity.&&& \\
+&\counterSubTopic && Limits. One-sided limits. & Chapter 1.1, 1.2,1.4& Chapter 1.5, 1.7&  \\
+&\counterSubTopic && The limit laws.& Chapter 1.3 & Chapter 1.6& Section \refBad{secMPSlimitsXtendsToNumer} \\
+&\counterSubTopic && Continuity. & Chapter 1.5  & Chapter 1.8 & Section \refBad{secMPScontinuityPiecewise} \\
+&\counterSubTopic && Intermediate Value Theorem. & Chapter 1.5  & Chapter 1.8 & Section \refBad{secMPSintermediateValueTheorem} \\
+&\counterSubTopic && Limits involving $\infty$. & & & \\
+&& \counterSubSubTopic& Infinite limits, vertical asymptotes. & Chapter 1.6 & Chapter 1.5 & Sections \refBad{secMPSlimitsVerticalAsymptote}, \refBad{secMPShorAndVertAsymptotes}\\
+&& \counterSubSubTopic& Limits at infinity; horizontal asymptotes. & Chapter 1.6 & Chapter 3.4&  Sections \refBad{secMPSlimitsXtoInfty}, \refBad{secMPShorAndVertAsymptotes} \\\hline 
+\counterTopic &&& Inverse functions (Brief Review). & N/A (lectures only)& Chapter 6.1& Section \refBad{secMPSInverseFunctions} \\\hline
+\counterTopic &&& Exponents and Logarithms (Brief review). & N/A (lectures only) & N/A (lectures only)& Section \refBad{secMPSLogarithmsExponentsBasics} \\\hline
+\counterTopic &&& Derivatives. & &&\\
+&\counterSubTopic && The tangent problems.&  Chapter 2.1& Chapter 1.4& \\
+&\counterSubTopic&& Derivatives and rates of change.& Chapter 2.2& Chapter 2.1&  \\
+&\counterSubTopic&& The derivative as a function. & Chapter 2.1, 2.2 & Chapter 2.2 & Section \refBad{secMPSderivativesFunGraphsBasics} \\
+&\counterSubTopic&& Basic differentiation formulas, Product rule. & Chapter 2.3, 2.4 & Chapter 2.3 & Section \refBad{secMPSproductQuotientRules} \\
+&\counterSubTopic&& Derivatives of trigonometric functions. & Chapter 2.3 & Chapter 2.4 & Section \refBad{secMPStrigDerivatives} \\
+&\counterSubTopic&& The chain rule. & Chapter 2.5 & Chapter 2.5& Section \refBad{secMPSchainRule}\\
+&\counterSubTopic&&\begin{tabular}{l} (Optional) Differentiation f-la proofs \\ from chain and product rules.\end{tabular} & N/A(lectures only)& N/A(lectures only)& \\
+&\counterSubTopic&& Implicit differentiation. & Chapter 2.6 & Chapter 2.6 & Section \refBad{secMPSImplicitDifferentiation}\\
+&\counterSubTopic&& (Optional) Logarithmic derivatives. & Chapter 2.6 & Chapter 6.3 & Section \refBad{secMPSDerivativeNonConstExponent} \\
+&\counterSubTopic&& Related rates.& Chapter 4.2 & Chapter  2.8& Section \refBad{secMPSrelatedRates}\\ \hline
+\counterTopic &&& Graphical behavior of functions.& && \\
+&\counterSubTopic && The Extreme Value Theorem. & Chapter 3.1 & Chapter 3.1 &  \\
+&\counterSubTopic && The Mean Value Theorem. & Chapter 3.2& Chapter 3.2& Section \refBad{secMPS-MVT} \\
+&\counterSubTopic && The first derivative test. & Chapter 3.3& Chapter 3.3& Section \refBad{secMPSoneVariableMinMax} \\
+&\counterSubTopic && The closed interval method.& Chapter 4.3& Chapter 3.1& Section \refBad{secMPSclosedInterval} \\
+&\counterSubTopic && Concavity.& Chapter 3.4 & Chapter 3.3& Section \refBad{secMPSfunctionGraphSketching} \\
+&\counterSubTopic && The second derivative test. & Chapter 3.4& Chapter 3.3& Section \refBad{secMPSoneVariableMinMax} \\
+&\counterSubTopic && One variable differentiable function optimization. & Chapter 4.3 & Chapter 3.7& Section \refBad{secMPSoptimization} \\
+&\counterSubTopic&& Curve sketching. & Chapter 3.5 & Chapter 3.5& Section \refBad{secMPSfunctionGraphSketching} \\\hline
+\counterTopic &&& (Optional) Newton's method. & Chapter 4.1 & Chapter 3.8  & N/A (theory only)\\\hline
+\counterTopic &&& Linear approximations and differentials.&&& \\
+&\counterSubTopic && Linear approximations. & Chapter 4.4 & Chapter 2.9 & Section \refBad{secMPSLinearizationAndDifferentials} \\
+&\counterSubTopic && Differentials. & Chapter 4.4 & Chapter 2.9& N/A (theory only) \\\hline
+\counterTopic &&& Integrals.& & &\\
+&\counterSubTopic && Riemann sums and measuring areas. & Chapter 5.3  & Chapters 4.1, 4.2 & Section \refBad{secMPSRiemannSums}\\
+&\counterSubTopic && Definite integrals.\\
+&&\counterSubSubTopic& Definite integral definition. & Chapters 5.2, 5.3 & Chapters 4.1, 4.2 & N/A (theory only)\\
+&&\counterSubSubTopic& Basic properties of integration. & Chapter 5.2 & Chapter 4.2 & N/A (theory only)\\
+&\counterSubTopic && Computing integrals: basics. &&& Sections \refBad{secMPSIntegrationCollectionIndefinite}, \refBad{secMPSIntegrationCollectionDefinite} \\
+&&\counterSubSubTopic& Antiderivatives and indefinite integrals & Chapter 5.1 & Chapters 3.9, 4.4 & Sections \refBad{secMPSantiderivatives}, \refBad{secMPSBasicDefiniteIntegrals} \\
+&&\counterSubSubTopic& The Evaluation Theorem (Fund. Th. Calc., Part 2) & Chapter 5.4 & Chapter 4.3& Section \refBad{secMPSBasicDefiniteIntegrals}\\
+&&\counterSubSubTopic & The Fundamental Theorem of Calculus, Part 1. & Chapter 5.4 & Chapter 4.3 & Section \refBad{secMPSFTCpart1}\\
+&\counterSubTopic && Integration: the substitution rule. &&&Section \refBad{secMPSintegrationSubstitutionRule} \\
+&&\counterSubSubTopic& The substitution rule in indefinite integrals. & Chapter 6.1& Chapter 4.5 & Section \refBad{secMPSintegrationSubstitutionRuleIndefinite}\\
+&&\counterSubSubTopic& The substitution rule in definite integrals. & Chapter 6.1 & Chapter 4.5 & Section \refBad{secMPSintegrationSubstitutionRuleDefinite} \\\hline
+\counterTopic&&& First applications of integration.&&&\\
+&\counterSubSubTopic& & Area between curves. & Chapter 7.1 & Chapter 5.1& Section \refBad{secMPSareaBetweenCurves}\\
+&\counterSubTopic&& Volumes of solids of revolution. &&&Section \refBad{secMPSvolumesSolidsRevolution} \\
+&&\counterSubSubTopic & Volumes of solids of revolution (washer method). & Chapter 7.2& Chapter 5.2 & Section \refBad{secMPSvolumesSolidsRevolutionWashers} \\
+&&\counterSubSubTopic & Volumes of solids of revolution (cylindrical shell method). & Chapter 7.3& Chapter 5.3 & Section \refBad{secMPSvolumesSolidsRevolutionShells} \\\hline
+\end{longtable}
 \end{landscape}
 
 

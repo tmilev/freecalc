@@ -1,8 +1,8 @@
 \documentclass%
-%[handout]
+[handout]
 {beamer}
-\newcommand{\currentLecture}{25}
-\newcommand{\semester}{Summer 2015}
+\newcommand{\currentLecture}{2}
+\newcommand{\semester}{Fall 2015}
 % % % % % % % %
 % % % % % % % %
 % % % % % % % %
@@ -78,9 +78,9 @@
 
 \AtBeginLecture{%
 
-\title[\insertlecture]{Math 140}
+\title[\insertlecture]{\hspace{-1.3cm} {\raisebox{-0.7cm}[0cm][0cm]{ \includegraphics[height =1.2cm]{../University-Logos/UMass-logo-blue.png}}} Math 140}
 \subtitle{\insertlecture}
-\author[FreeCalc \\ Math 140]{Greg Maloney \\~\\  Todor Milev}
+\author[\raisebox{-0.115cm}{\includegraphics[height=0.4cm]{../University-Logos/UMass-logo-blue.png}} FreeCalc \\ Math 140]{Greg Maloney \\~\\  Todor Milev}
 
 %when people substitute for me:
 %\author[FreeCalc \\ Math 140]{ Instructor: Shuang Cai }
@@ -96,7 +96,7 @@
 }%
 
 \lect{\semester}{Lecture  1}{1}{
-%DesiredLectureName: Representing_Functions
+%DesiredLectureName: Review_Representing_Functions
 \fcLicense
 \section{Ways to Represent a Function}
 \subsection{The Definition of a Function}
@@ -118,7 +118,7 @@
 }% end lecture
 
 \lect{\semester}{Lecture  2}{2}{
-%DesiredLectureName: Basic_Functions_New_Functions_From_Old
+%DesiredLectureName: Review_Basic_Functions_New_Functions_From_Old
 \fcLicense
 \section{A Catalog of Essential Functions}
 \subsection{Linear Functions}
@@ -141,16 +141,15 @@
 \input{../../modules/precalculus/composition-example}
 \input{../../modules/precalculus/composition-example-2}
 \section{Composing Functions with Linear Transformations}
-\input{../../modules/precalculus/transformations-shifts}
-\input{../../modules/precalculus/transformations-shifts-example}
-\input{../../modules/precalculus/transformations-magnifications}
-\input{../../modules/precalculus/transformations-horizontal-stretches}
-\input{../../modules/precalculus/transformations-absolute-value}
-
+\input{../../modules/function-graph-linear-transformations/transformations-shifts}
+\input{../../modules/function-graph-linear-transformations/transformations-shifts-example}
+\input{../../modules/function-graph-linear-transformations/transformations-magnifications}
+\input{../../modules/function-graph-linear-transformations/transformations-horizontal-stretches}
+\input{../../modules/function-graph-linear-transformations/transformations-absolute-value}
 }% end lecture
 
 \lect{\semester}{Lecture  3}{3}{%begin lecture
-%DesiredLectureName: Trigonometry
+%DesiredLectureName: Review_Trigonometry
 \fcLicense
 \section{Trigonometry}
 \subsection{Angles}
@@ -179,7 +178,7 @@
 \subsection{Trigonometric Identities and Complex Numbers}
 \input{../../modules/complex-numbers/complex-numbers-definition}
 \youWillNotBeTested
-\input{../../modules/trigonometry/trig-Euler-formula}
+\input{../../modules/trigonometry/trig-Euler-formula} 
 \youWillNotBeTested
 \input{../../modules/trigonometry/trig-using-euler-formula}
 
@@ -192,13 +191,8 @@
 }% end lecture
 
 \lect{\semester}{Lecture  4}{4}{% begin lecture
-%DesiredLectureName: Limits_Tangent_Problem
+%DesiredLectureName: Limits
 \fcLicense
-\section{The Tangent and Velocity Problems}
-\subsection{The Tangent Problem}
-\input{../../modules/limits/tangent-overview}
-\input{../../modules/limits/tangent-problem}
-\input{../../modules/limits/tangent-def}
 \section{The Limit of a Function}
 \input{../../modules/limits/limit-def}
 \input{../../modules/limits/limit-ex1}
@@ -244,6 +238,7 @@
 \input{../../modules/continuity/continuous-functions-classes}
 \input{../../modules/continuity/continuity-ex5}
 \input{../../modules/continuity/continuity-ex8}
+\section{Intermediate Value Theorem}
 \input{../../modules/continuity/IVT}
 \input{../../modules/continuity/IVT-ex9}
 } %end lecture
@@ -278,7 +273,7 @@
 }% end lecture
 
 \lect{\semester}{Lecture  7}{7}{% begin lecture
-%DesiredLectureName: Inverse_Functions
+%DesiredLectureName: Review_Inverse_Functions
 \fcLicense
 \section{Inverse Functions}
 \subsection{One-to-one Functions}
@@ -297,7 +292,7 @@
 }
 
 \lect{\semester}{Lecture  8}{8}{% begin lecture
-%DesiredLectureName: Exponents_Logarithms
+%DesiredLectureName: Review_Exponents_Logarithms
 \fcLicense
 \section{Exponential Functions}
 \input{../../modules/exponential-functions/exponential-properties}
@@ -336,7 +331,9 @@
 %DesiredLectureName: Derivatives_Basics
 \fcLicense
 \section{Tangents}
-\input{../../modules/derivatives/tangents-reminder}
+\input{../../modules/limits/tangent-overview}
+\input{../../modules/limits/tangent-problem}
+\input{../../modules/limits/tangent-def}
 \input{../../modules/derivatives/tangents-ex1}
 \input{../../modules/derivatives/tangents-alternative-form}
 \input{../../modules/derivatives/tangents-ex2}
@@ -509,7 +506,7 @@
 %Test April 9
 
 \lect{\semester}{Lecture 16}{16}{% begin lecture
-%DesiredLectureName: Maxima_Minima_Optimization
+%DesiredLectureName: Maxima_Minima_Extreme_Value_Theorem_Mean_Value_Theorem
 \fcLicense
 \section{Maximum and Minimum Values}
 \input{../../modules/maxima-minima/max-min-intro}
@@ -524,13 +521,25 @@
 \subsection{Fermat's Theorem}
 \input{../../modules/maxima-minima/fermats-theorem}
 \input{../../modules/maxima-minima/fermats-theorem-does-not-say}
+\section{Mean Value theorem}
+\input{../../modules/maxima-minima/MVT-intro}
+\input{../../modules/maxima-minima/rolles-theorem}
+\input{../../modules/maxima-minima/rolles-theorem-ex}
+\input{../../modules/maxima-minima/MVT-meaning}
+\input{../../modules/maxima-minima/MVT-proof}
+\input{../../modules/maxima-minima/MVT-corollary1}
+\input{../../modules/maxima-minima/MVT-corollary2}
+}
+
+\lect{\semester}{Lecture 17}{17}{% begin lecture
+%DesiredLectureName: Optimization_One_Variable
+\section{One Variable Optimization Problems}
+\subsection{The Closed Interval Method}
 \input{../../modules/maxima-minima/critical-numbers-def}
 \input{../../modules/maxima-minima/critical-numbers-ex}
-\section{One variable optimization Problems}
-\subsection{The Closed Interval Method}
 \input{../../modules/maxima-minima/closed-interval-method}
 \input{../../modules/maxima-minima/closed-interval-method-ex}
-\subsection{Solving one variable optimization problems}
+\subsection{Solving One Variable Optimization Problems}
 \input{../../modules/optimization/optimization-intro}
 \input{../../modules/optimization/optimization-ex1}
 \input{../../modules/optimization/optimization-ex5}
@@ -538,7 +547,7 @@
 } %end lecture
 
 
-\lect{\semester}{Lecture 17}{17}{% begin lecture
+\lect{\semester}{Lecture 18}{18}{% begin lecture
 %DesiredLectureName: Derivatives_And_Curve_Sketching
 \fcLicense
 \section{Derivatives and the Shapes of Curves}
@@ -559,7 +568,7 @@
 \input{../../modules/curve-sketching/curve-sketching-guidelines-ex1}
 }% end lecture
 
-\lect{\semester}{Lecture 18, skipped}{18}{% begin lecture
+\lect{\semester}{Lecture 19}{19}{% begin lecture
 %DesiredLectureName: Newtons_Method
 \fcLicense
 \section{Newton's Method}
@@ -570,17 +579,9 @@
 \input{../../modules/newtons-method/newtons-method-ex-findpoly2}
 } %end lecture
 
-\lect{\semester}{Lecture 19}{19}{% begin lecture
+\lect{\semester}{Lecture 20}{20}{% begin lecture
 %DesiredLectureName: Mean_Value_Theorem_Differentials
 \fcLicense
-\section{Mean Value theorem}
-\input{../../modules/maxima-minima/MVT-intro}
-\input{../../modules/maxima-minima/rolles-theorem}
-\input{../../modules/maxima-minima/rolles-theorem-ex}
-\input{../../modules/maxima-minima/MVT-meaning}
-\input{../../modules/maxima-minima/MVT-proof}
-\input{../../modules/maxima-minima/MVT-corollary1}
-\input{../../modules/maxima-minima/MVT-corollary2}
 \section{Linear Approximations} %there is no need to cover differentials earlier.
 \input{../../modules/differentials/differentials-intro}
 \input{../../modules/differentials/linearization-def-version2}
@@ -593,7 +594,7 @@
 \input{../../modules/differentials/differentials-example2}
 }% end lecture
 
-\lect{\semester}{Lecture 20}{20}{% begin lecture
+\lect{\semester}{Lecture 21}{21}{% begin lecture
 %DesiredLectureName: Areas_And_Integration
 \fcLicense
 \section{Areas and Distances}
@@ -625,7 +626,7 @@
 \input{../../modules/integration/definite-integral-properties-comparison}
 }% end lecture
 
-\lect{\semester}{Lecture 21}{21}{% begin lecture
+\lect{\semester}{Lecture 22}{22}{% begin lecture
 %DesiredLectureName: Antiderivatives_Fundamental_Theorem_Of_Calculus
 \fcLicense
 \section{Antiderivatives}
@@ -651,7 +652,7 @@
 \input{../../modules/integration/indefinite-integral-ex5}
 }% end lecture
 
-\lect{\semester}{Lecture 22}{22}{% begin lecture
+\lect{\semester}{Lecture 23}{23}{% begin lecture
 %DesiredLectureName: The_Substitution_Rule
 \fcLicense
 \section{The Substitution Rule}
@@ -668,7 +669,7 @@
 \input{../../modules/substitution-rule/substitution-rule-definite-integrals-ex7}
 }
 
-\lect{\semester}{Lecture 23}{23}{% begin lecture
+\lect{\semester}{Lecture 24}{24}{% begin lecture
 %DesiredLectureName: The_Fundamental_Theorem_Of_Calculus_Both_Parts
 \fcLicense
 \section{The Fundamental Theorem of Calculus}
@@ -696,7 +697,7 @@
 \input{../../modules/antiderivatives/rectilinear-motion-ex7}
 }% end lecture
 
-\lect{May 5-9 2014}{Lecture 24}{24}{% begin lecture
+\lect{May 5-9 2014}{Lecture 25}{25}{% begin lecture
 %DesiredLectureName: Integration_And_Symmetry_Areas_Between_Function_Graphs
 \fcLicense
 \section{Integration and symmetry}
@@ -715,7 +716,7 @@
 \input{../../modules/area-between-curves/area-between-curves-ex5}
 }% end lecture
 
-\lect{\semester}{Lecture 25}{25}{% begin lecture
+\lect{\semester}{Lecture 26}{26}{% begin lecture
 %DesiredLectureName: Volumes_Of_Solids_Of_Revolution
 \fcLicense
 \section{Volumes}
