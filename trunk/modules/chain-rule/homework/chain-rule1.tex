@@ -1,36 +1,62 @@
 % begin homework chain-rule1
-In each of the following cases find a simple function $u$ of $x$ such that the given function is a simple function of $u$.  
-Use the Chain Rule to differentiate the given function with respect to $x$.   
+Compute the derivative using the chain rule.
+\begin{enumerate}[ref={\fcProblemRef}]
+\item   $\displaystyle f(x)=\sqrt{1+x^2}$
 
-\begin{enumerate}
-\item   $y = \sqrt{1+x^2}$
+\answer{$x (x^{2}+1)^{-\frac{1}{2}}  $}
+\item\label{problemDifferentialtexDivsqrt(1+2divx^2)}  $\displaystyle  f(x)=\frac{x }{\sqrt{1+\frac{2}{x^2}}}$.
+
+\answer{$\frac{\pm x^2}{\sqrt{x^2+2}} $}
+\pointsii{3} \label{problemd/dx((cosx)^(1/2))} $y = (\cos x)^{\frac{1}{2}}$
+
+\answer{$\frac{1}{2} x^{-\frac{1}{2}} \cos{}\left(\sqrt{x}\right)  = \frac{\cos \left(\sqrt{x}\right)}{2\sqrt{x}}$}
+
+\item $\displaystyle f(x)=\sin^3 x$.
+
+\answer{$ 3 \cos{}x \sin^{2}{}x$}
+\pointsii{3} \label{problemd/dx((1+cosx)^2)}  $y = (1+\cos x)^2$.
 
 
-\pointsii{3}  $y = (\cos x)^{1/2}$
-\solution{%
-\begin{align*}
-\text{Let } \quad u & = \cos x. \\
-\text{Then } \quad y & = u^{1/2}. \\
-\text{Chain Rule: } \quad \frac{\diff y}{\diff x} & = \frac{\diff y}{\diff u}\frac{\diff u}{\diff x} \\
- & = \left(\frac{1}{2}u^{-1/2}\right) (-\sin x) \\
- & = -\frac{1}{2} \sin x (\cos x)^{-1/2}.
-\end{align*}
-}%
+\answer{$ -2 \cos{}x \sin{}x-2 \sin{}x =-\sin(2x)-2\sin x$}
+\item   $\displaystyle f(x)=\frac{1}{\sin^3x}$.
 
-\item   $y = \sin^3 x$
+\answer{$  -\frac{3 \cos{}x}{\sin^{4}{}x} $}
+\item  $\displaystyle f(x)= \sqrt[3]{4+3\tan x}$.
 
-\pointsii{3}  $y = (1+\cos x)^2$
-\solution{%
-\begin{align*}
-\text{Let } \quad u & = 1+\cos x. \\
-\text{Then } \quad y & = u^{2}. \\
-\text{Chain Rule: } \quad \frac{\diff y}{\diff x} & = \frac{\diff y}{\diff u}\frac{\diff u}{\diff x} \\
- & = (2u) (-\sin x) \\
- & = -2 \sin x (1+\cos x) \\
- & = -2\sin x -2 \sin x \cos x \\
- & = -2\sin x -\sin 2x. \quad \text{(This last step is optional.)}
-\end{align*}
-}%
+\answer{$  (4+3\tan x)^{-\frac{2}{3}}\sec^2x $}
+\item  $f(x)=(\cos x + 3\sin x)^4$.
+
+\answer{$4(\cos x + 3\sin x)^3 (3\cos x-\sin x) $}
+
+\pointsii{4} \label{problemd/dx(sin(sqrt(x)))}  $\displaystyle y = \sin \left( \sqrt{x}\right)$
+
+\answer{$\frac{\cos\sqrt{x}}{2\sqrt{x}}$}
+\item  $y = \cos\left( 4x\right)$
+
+\answer{$-4 \sin{}\left(4 x\right)  $}
+
+\item $\sec^2 (3x^2)$. 
+
+\answer{$12 \frac{x\sin{}(3 x^{2}) }{\left(\cos{}\left(3 x^{2}\right)\right)^{3}}$}
+
+\item $\csc^2 (3x^2)$. 
+
+\answer{$-12 \frac{ x  \cos{}\left(3 x^{2}\right) }{\left(\sin{}\left(3 x^{2}\right)\right)^{3}}$}
+\item $2^{3^x}$.
+
+\answer{$2^{3^{x}} 3^{x} (\ln{}2)  (\ln{}3) $}
+\item $3^{2^x}$.
+
+\answer{$ 3^{2^{x}} 2^{x}(\ln{}2)(\ln{}3)$}
+\pointsii{5} \label{problemd/dx(sqrt(sec(4x)))}  $y = \sqrt{\sec (4x)}$
+
+\answer{ $  2\sqrt{\sec (4x)}\tan (4x) =  2(\sec (4x))^{\frac{3}{2}}\sin (4x). $}
+\item \label{problemd/dx(x^2tan(5x))} $y = x^2\tan (5x)$
+
+\answer{$2x\tan (5x) - 5x^2\sec^2 (5x)$}
+\pointsii{5} \label{problemd/dx((1+sin(x^2))/(1+cos(x^2)))}  $\displaystyle y = \frac{1+\sin \left(x^2\right)}{1+\cos \left(x^2\right)}$.
+
+\answer{ $ \frac{2x(1 + \cos \left(x^2\right) + \sin \left(x^2\right))}{(1+\cos \left(x^2\right))^2}$}
 
 \end{enumerate}
 % end homework chain-rule1
