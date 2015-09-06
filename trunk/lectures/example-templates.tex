@@ -138,16 +138,14 @@
 %Replace:
 %\\alertNoH{\1}
 
-\newcommand{\fcLicense}{
-\begin{frame}
-\frametitle{License to use and redistribute}
-These lecture slides and their $\LaTeX${} source code are licensed to you under the Creative Commons license CC BY 3.0. You are free
+\newcommand{\fcLicenseContent}{
+These lecture slides and their \LaTeX{} source code are licensed to you under the Creative Commons license CC BY 3.0. You are free
 \begin{itemize}
 \item to Share - to copy, distribute and transmit the work,
 \item to Remix - to adapt, change, etc., the work,
 \item to make commercial use of the work,
 \end{itemize}
-as long as you reasonably acknowledge the original project (a notice of use freecalc is sufficient).
+as long as you reasonably acknowledge the original project.
 \begin{itemize}
 \item Latest version of the .tex sources of the slides: \url{https://sourceforge.net/p/freecalculus/code/HEAD/tree/}
 \item Should the link be outdated/moved, search for  ``freecalc project''.
@@ -155,6 +153,12 @@ as long as you reasonably acknowledge the original project (a notice of use free
 \url{https://creativecommons.org/licenses/by/3.0/us/}
 and the links therein.
 \end{itemize}
+}
+
+\newcommand{\fcLicense}{
+\begin{frame}
+\frametitle{License to use and redistribute}
+\fcLicenseContent
 \end{frame}
 }
 \newcommand{\onlyNoH}[2]{\only<handout:0|#1>{#2}}
