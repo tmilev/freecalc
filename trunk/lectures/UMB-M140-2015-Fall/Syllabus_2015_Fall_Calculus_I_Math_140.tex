@@ -14,6 +14,8 @@
 \newcounter{topicsSubCounter}[topicsCounter]
 \newcounter{topicsSubSubCounter}[topicsSubCounter]
 
+\newcommand{\skipped}{\begin{tabular}{@{}c}optional \\reading \\not on test \end{tabular}}
+
 \usepackage{longtable}
 \usepackage{xr}
 %\externaldocument{../../homework/UMB-All-Problems-By-Course/Calc-I-MasterProblemSheet}
@@ -46,20 +48,25 @@
 %\noindent\textbf{Time and place.}
 %Monday, Wednesday, Friday 10-10:50, McCormack, Room 417, first floor. Monday 11:00-11:50,
 
-\noindent \textbf{Instructor.} Todor Milev, \href{mailto:todor.milev@umb.edu}{\nolinkurl{todor.milev@umb.edu}} \quad \quad \quad .
+\noindent \textbf{Instructors.} 
+\begin{tabular}{ll}
+Todor Milev & \href{mailto:todor.milev@gmail.com}{\nolinkurl{todor.milev@gmail.com}} \\
+Ping Xu & \href{mailto:pingxu0126@gmail.com}{\nolinkurl{pingxu0126@gmail.com}} 
+\end{tabular}
 
 \medskip
-\noindent \textbf{Office hours. } By appointment, or walk-in office hours: Tuesday 12:30-14:00, Thursday 15:30-17:00 (if I am not in the office I may be off to lunch).  Room: S-03-65.
+\noindent \textbf{Office hours. } \begin{tabular}{lp{12cm}}
+Todor Milev & By appointment, or walk-in office hours: Tuesday 12:30-14:00, Thursday 15:30-17:00 (if I am not in the office I may be off to lunch).  Room: S-03-65.\\
+Ping Xu&  To be announced.
+\end{tabular}
 
-\medskip
-\noindent \textbf{Course page. }  \url{\websitebase/home}
 
 
 
 
 \medskip \noindent \textbf{Lecture slides. }  \url{\websitebase/resources}
 
-\medskip\noindent Lecture slides will become available as the course progresses.
+\medskip\noindent The lecture slides may be updated as the course progresses.
 
 
 \medskip \noindent \textbf{Master Problem Sheet. }  \url{\websitebase/resources} 
@@ -71,16 +78,16 @@
 
 \url{\websitebase/resources} \quad \quad \quad .
 
-\noindent I will expect you to complete the homework in written form in a convenient for you format (notebook, folder, etc.). However, \textbf{I will not check/collect/proofread homework.} 
+\noindent You will be expected to complete the homework in written form in a convenient for you format (notebook, folder, etc.). However, \textbf{the instructor(s) will not check/collect/proofread your homework.} 
  
 \medskip
-\noindent \textbf{Quizzes.} You will be given quizzes in class. \textbf{The time of the quiz will be announced in class}. Quizzes may be announced from one lecture day to the next. Your quiz problem will be one of your homework problems, verbatim. 
+\noindent \textbf{Quizzes.} You will be given quizzes in class. \textbf{The time of the quiz will be announced in class}. Quizzes may be announced from one lecture day to the next. Your quiz problem will be one of your homework problems, verbatim (no number changes).
 
 
 
 
 
-\medskip\noindent \textbf{Textbook. } There are two official textbooks for this course. Having access to \textbf{at least one of the textbooks is mandatory}. Having only one of the two textbooks is sufficient to complete the course. No mandatory homework will be assigned from either textbook. 
+\medskip\noindent \textbf{Textbook. } There are two official textbooks for this course. It is  \textbf{mandatory} to have access to \textbf{at least one of the textbooks}. Having only one of the two textbooks is sufficient to complete the course. No mandatory homework will be assigned from either textbook. 
 
 \begin{itemize}
 \item Option I. The textbook \apex{} 3.0, Chapters 1-7. To download a free pdf file of the textbook, or to buy a physical copy of the textbook, visit the following site.
@@ -124,74 +131,75 @@ No books, notes, calculators or any other electronic device (such as mobile phon
 
 \begin{landscape}
 
-\noindent \begin{longtable}{|@{}r@{}l@{}l@{~}l@{~}c cc|}\hline
-\multicolumn{7}{|c|}{\textbf{List of topics.} The list of topics is a preliminary guideline, and will be subject to change.
+\noindent \begin{longtable}{|@{}r@{}l@{}l@{~}l@{~}c cccc|}\hline
+\multicolumn{9}{|c|}{\textbf{List of topics.} The list of topics is a preliminary guideline, and will be subject to change.
 }\\\hline
-&&& Topic & \apex{} 3.0 textbook & Stewart, Calculus, $7^{th}$ ed. & Relevant problems, Master Problem Sheet\\\hline
-\counterTopic &&& Functions (Brief review).  & N/A (lectures only) & Chapter 1.1-1.3 & Section \refBad{secMPSfunctionBasics} \\\hline
+&&& Topic & \apex{} 3.0 textbook & \begin{tabular}{l}Stewart, \\ Calculus, $7^{th}$ ed. \end{tabular} & \begin{tabular}{l} Relevant problems \\ Master Problem\\ Sheet\end{tabular} & \begin{tabular}{l}Lecture  \end{tabular} & \begin{tabular}{l} Expected \\ Week \\ (total 14) \end{tabular}  \\\hline
+\counterTopic &&& Functions (Brief review).  & N/A (lectures only) & Chapter 1.1-1.3 & Section \refBad{secMPSfunctionBasics} &  \begin{tabular}{l}1,2\\ some \\ slides \\skipped\end{tabular} & 1 \\ \hline 
 %Ways to represent a function.
 %Some essential functions.
 %New functions from old.
-\counterTopic &&& Trigonometry. (Brief review). & N/A(lectures only) & N/A (lectures only)& Section \refBad{secMPStrigonometry} \\\hline
+\counterTopic &&& Trigonometry. (Brief review). & N/A(lectures only) & N/A (lectures only)& Section \refBad{secMPStrigonometry}& \begin{tabular}{l}3\\ some \\ slides \\skipped\end{tabular} & 1  \\\hline
 %Angles.
 %The trigonometric functions.
 %Trigonometric identities.
 %Trigonometric identities, complex numbers and Euler's formula.
 %Graphs of the trigonometric functions.
-\counterTopic&&& Limits and continuity.&&& \\
-&\counterSubTopic && Limits. One-sided limits. & Chapter 1.1, 1.2,1.4& Chapter 1.5, 1.7&  \\
-&\counterSubTopic && The limit laws.& Chapter 1.3 & Chapter 1.6& Section \refBad{secMPSlimitsXtendsToNumer} \\
-&\counterSubTopic && Continuity. & Chapter 1.5  & Chapter 1.8 & Section \refBad{secMPScontinuityPiecewise} \\
-&\counterSubTopic && Intermediate Value Theorem. & Chapter 1.5  & Chapter 1.8 & Section \refBad{secMPSintermediateValueTheorem} \\
-&\counterSubTopic && Limits involving $\infty$. & & & \\
-&& \counterSubSubTopic& Infinite limits, vertical asymptotes. & Chapter 1.6 & Chapter 1.5 & Sections \refBad{secMPSlimitsVerticalAsymptote}, \refBad{secMPShorAndVertAsymptotes}\\
-&& \counterSubSubTopic& Limits at infinity; horizontal asymptotes. & Chapter 1.6 & Chapter 3.4&  Sections \refBad{secMPSlimitsXtoInfty}, \refBad{secMPShorAndVertAsymptotes} \\\hline 
-\counterTopic &&& Inverse functions (Brief Review). & N/A (lectures only)& Chapter 6.1& Section \refBad{secMPSInverseFunctions} \\\hline
-\counterTopic &&& Exponents and Logarithms (Brief review). & N/A (lectures only) & N/A (lectures only)& Section \refBad{secMPSLogarithmsExponentsBasics} \\\hline
-\counterTopic &&& Derivatives. & &&\\
-&\counterSubTopic && The tangent problems.&  Chapter 2.1& Chapter 1.4& \\
-&\counterSubTopic&& Derivatives and rates of change.& Chapter 2.2& Chapter 2.1&  \\
-&\counterSubTopic&& The derivative as a function. & Chapter 2.1, 2.2 & Chapter 2.2 & Section \refBad{secMPSderivativesFunGraphsBasics} \\
-&\counterSubTopic&& Basic differentiation formulas, Product rule. & Chapter 2.3, 2.4 & Chapter 2.3 & Section \refBad{secMPSproductQuotientRules} \\
-&\counterSubTopic&& Derivatives of trigonometric functions. & Chapter 2.3 & Chapter 2.4 & Section \refBad{secMPStrigDerivatives} \\
-&\counterSubTopic&& The chain rule. & Chapter 2.5 & Chapter 2.5& Section \refBad{secMPSchainRule}\\
-&\counterSubTopic&&\begin{tabular}{l} (Optional) Differentiation f-la proofs \\ from chain and product rules.\end{tabular} & N/A(lectures only)& N/A(lectures only)& \\
-&\counterSubTopic&& Implicit differentiation. & Chapter 2.6 & Chapter 2.6 & Section \refBad{secMPSImplicitDifferentiation}\\
-&\counterSubTopic&& (Optional) Logarithmic derivatives. & Chapter 2.6 & Chapter 6.3 & Section \refBad{secMPSDerivativeNonConstExponent} \\
-&\counterSubTopic&& Related rates.& Chapter 4.2 & Chapter  2.8& Section \refBad{secMPSrelatedRates}\\ \hline
-\counterTopic &&& Graphical behavior of functions.& && \\
-&\counterSubTopic && The Extreme Value Theorem. & Chapter 3.1 & Chapter 3.1 &  \\
-&\counterSubTopic && The Mean Value Theorem. & Chapter 3.2& Chapter 3.2& Section \refBad{secMPS-MVT} \\
-&\counterSubTopic && The first derivative test. & Chapter 3.3& Chapter 3.3& Section \refBad{secMPSoneVariableMinMax} \\
-&\counterSubTopic && The closed interval method.& Chapter 4.3& Chapter 3.1& Section \refBad{secMPSclosedInterval} \\
-&\counterSubTopic && Concavity.& Chapter 3.4 & Chapter 3.3& Section \refBad{secMPSfunctionGraphSketching} \\
-&\counterSubTopic && The second derivative test. & Chapter 3.4& Chapter 3.3& Section \refBad{secMPSoneVariableMinMax} \\
-&\counterSubTopic && One variable differentiable function optimization. & Chapter 4.3 & Chapter 3.7& Section \refBad{secMPSoptimization} \\
-&\counterSubTopic&& Curve sketching. & Chapter 3.5 & Chapter 3.5& Section \refBad{secMPSfunctionGraphSketching} \\\hline
-\counterTopic &&& (Optional) Newton's method. & Chapter 4.1 & Chapter 3.8  & N/A (theory only)\\\hline
-\counterTopic &&& Linear approximations and differentials.&&& \\
-&\counterSubTopic && Linear approximations. & Chapter 4.4 & Chapter 2.9 & Section \refBad{secMPSLinearizationAndDifferentials} \\
-&\counterSubTopic && Differentials. & Chapter 4.4 & Chapter 2.9& N/A (theory only) \\\hline
-\counterTopic &&& Integrals.& & &\\
-&\counterSubTopic && Riemann sums and measuring areas. & Chapter 5.3  & Chapters 4.1, 4.2 & Section \refBad{secMPSRiemannSums}\\
-&\counterSubTopic && Definite integrals.\\
-&&\counterSubSubTopic& Definite integral definition. & Chapters 5.2, 5.3 & Chapters 4.1, 4.2 & N/A (theory only)\\
-&&\counterSubSubTopic& Basic properties of integration. & Chapter 5.2 & Chapter 4.2 & N/A (theory only)\\
-&\counterSubTopic && Computing integrals: basics. &&& Sections \refBad{secMPSIntegrationCollectionIndefinite}, \refBad{secMPSIntegrationCollectionDefinite} \\
-&&\counterSubSubTopic& Antiderivatives and indefinite integrals & Chapter 5.1 & Chapters 3.9, 4.4 & Sections \refBad{secMPSantiderivatives}, \refBad{secMPSBasicDefiniteIntegrals} \\
-&&\counterSubSubTopic& The Evaluation Theorem (Fund. Th. Calc., Part 2) & Chapter 5.4 & Chapter 4.3& Section \refBad{secMPSBasicDefiniteIntegrals}\\
-&&\counterSubSubTopic & The Fundamental Theorem of Calculus, Part 1. & Chapter 5.4 & Chapter 4.3 & Section \refBad{secMPSFTCpart1}\\
-&\counterSubTopic && Integration: the substitution rule. &&&Section \refBad{secMPSintegrationSubstitutionRule} \\
-&&\counterSubSubTopic& The substitution rule in indefinite integrals. & Chapter 6.1& Chapter 4.5 & Section \refBad{secMPSintegrationSubstitutionRuleIndefinite}\\
-&&\counterSubSubTopic& The substitution rule in definite integrals. & Chapter 6.1 & Chapter 4.5 & Section \refBad{secMPSintegrationSubstitutionRuleDefinite} \\\hline
-\counterTopic&&& First applications of integration.&&&\\
-&\counterSubSubTopic& & Area between curves. & Chapter 7.1 & Chapter 5.1& Section \refBad{secMPSareaBetweenCurves}\\
-&\counterSubTopic&& Volumes of solids of revolution. &&&Section \refBad{secMPSvolumesSolidsRevolution} \\
-&&\counterSubSubTopic & Volumes of solids of revolution (washer method). & Chapter 7.2& Chapter 5.2 & Section \refBad{secMPSvolumesSolidsRevolutionWashers} \\
-&&\counterSubSubTopic & Volumes of solids of revolution (cylindrical shell method). & Chapter 7.3& Chapter 5.3 & Section \refBad{secMPSvolumesSolidsRevolutionShells} \\\hline
+\counterTopic&&& Limits and continuity.&&&&& \\
+&\counterSubTopic && Limits. One-sided limits. & Chapter 1.1, 1.2,1.4& Chapter 1.5, 1.7& N/A(theory only) & 4& 2 \\
+&\counterSubTopic && The limit laws.& Chapter 1.3 & Chapter 1.6& Section \refBad{secMPSlimitsXtendsToNumer} & 4& 2 \\
+&\counterSubTopic && Continuity. & Chapter 1.5  & Chapter 1.8 & Section \refBad{secMPScontinuityPiecewise} & 5& 2\\
+&\counterSubTopic && Intermediate Value Theorem. & Chapter 1.5  & Chapter 1.8 & Section \refBad{secMPSintermediateValueTheorem} & 5 &2 \\
+&\counterSubTopic && Limits involving $\infty$. & & & & & \\
+&& \counterSubSubTopic& Infinite limits, vertical asymptotes. & Chapter 1.6 & Chapter 1.5 & Sections \refBad{secMPSlimitsVerticalAsymptote}, \refBad{secMPShorAndVertAsymptotes} & 6& 3 \\
+&& \counterSubSubTopic& Limits at infinity; horizontal asymptotes. & Chapter 1.6 & Chapter 3.4&  Sections \refBad{secMPSlimitsXtoInfty}, \refBad{secMPShorAndVertAsymptotes}& 6& 3 \\\hline 
+\counterTopic &&& Inverse functions (Brief Review). & N/A (lectures only)& Chapter 6.1& Section \refBad{secMPSInverseFunctions} & 7& 4 \\\hline
+\counterTopic &&& Exponents and Logarithms (Brief review). & N/A (lectures only) & N/A (lectures only)& Section \refBad{secMPSLogarithmsExponentsBasics}& 8& 4 \\\hline\hline
+\multicolumn{8}{|c}{Test I}& 5\\\hline\hline
+\counterTopic &&& Derivatives. & &&&& \\
+&\counterSubTopic && The tangent problems.&  Chapter 2.1& Chapter 1.4& N/A(theory only)&9&5 \\
+&\counterSubTopic&& Derivatives and rates of change.& Chapter 2.2& Chapter 2.1& N/A(theory only)& 9& 5 \\
+&\counterSubTopic&& The derivative as a function. & Chapter 2.1, 2.2 & Chapter 2.2 & Section \refBad{secMPSderivativesFunGraphsBasics} & 9 & 5\\
+&\counterSubTopic&& Basic differentiation formulas, Product rule. & Chapter 2.3, 2.4 & Chapter 2.3 & Section \refBad{secMPSproductQuotientRules} & 10 & 6 \\
+&\counterSubTopic&& Derivatives of trigonometric functions. & Chapter 2.3 & Chapter 2.4 & Section \refBad{secMPStrigDerivatives}& 11&6 \\
+&\counterSubTopic&& The chain rule. & Chapter 2.5 & Chapter 2.5& Section \refBad{secMPSchainRule} & 12& 7\\
+&\counterSubTopic&&\begin{tabular}{l} (Optional) Differentiation f-la proofs \\ from chain and product rules.\end{tabular} & N/A(lectures only)& N/A(lectures only)& N/A(theory only)&  13 & 7  \\
+&\counterSubTopic&& Implicit differentiation. & Chapter 2.6 & Chapter 2.6 & Section \refBad{secMPSImplicitDifferentiation}& 14 & 8  \\
+&\counterSubTopic&& (Optional) Logarithmic derivatives. & Chapter 2.6 & Chapter 6.3 & Section \refBad{secMPSDerivativeNonConstExponent} & 15 & \skipped \\
+&\counterSubTopic&& Related rates.& Chapter 4.2 & Chapter  2.8& Section \refBad{secMPSrelatedRates}& 15 & \skipped \\ \hline
+\counterTopic &&& Graphical behavior of functions.& & &&& \\
+&\counterSubTopic && The Extreme Value Theorem. & Chapter 3.1 & Chapter 3.1 &N/A(theory only) & 16 & 8\\
+&\counterSubTopic && The Mean Value Theorem. & Chapter 3.2& Chapter 3.2& Section \refBad{secMPS-MVT} & 16 & 8 \\
+&\counterSubTopic && The closed interval method.& Chapter 4.3& Chapter 3.1& Section \refBad{secMPSclosedInterval} & 17 & 8\\
+&\counterSubTopic && The first derivative test. & Chapter 3.3& Chapter 3.3& Section \refBad{secMPSoneVariableMinMax}& 18 & 9 \\
+&\counterSubTopic && One variable differentiable function optimization. & Chapter 4.3 & Chapter 3.7& Section \refBad{secMPSoptimization} & 18 & 9 \\
+&\counterSubTopic && Concavity.& Chapter 3.4 & Chapter 3.3& Section \refBad{secMPSfunctionGraphSketching}& 18 & 9 \\
+&\counterSubTopic && The second derivative test. & Chapter 3.4& Chapter 3.3& Section \refBad{secMPSoneVariableMinMax}& 18 & 9 \\
+&\counterSubTopic&& Curve sketching. & Chapter 3.5 & Chapter 3.5& Section \refBad{secMPSfunctionGraphSketching}& 18 & 9 \\\hline
+\counterTopic &&& (Optional) Newton's method. & Chapter 4.1 & Chapter 3.8  & N/A (theory only)& 19& \skipped \\\hline\hline
+\multicolumn{8}{|c}{Test II} & 10
+\\\hline\hline
+\counterTopic &&& Linear approximations and differentials.&&&&& \\
+&\counterSubTopic && Linear approximations. & Chapter 4.4 & Chapter 2.9 & Section \refBad{secMPSLinearizationAndDifferentials} &19 & 10 \\
+&\counterSubTopic && Differentials. & Chapter 4.4 & Chapter 2.9& N/A (theory only)& 19& 10  \\\hline
+\counterTopic &&& Integrals.& & & & &\\
+&\counterSubTopic && Riemann sums and measuring areas. & Chapter 5.3  & Chapters 4.1, 4.2 & Section \refBad{secMPSRiemannSums}& 21 & 11 \\
+&\counterSubTopic && Definite integrals. & && & &\\
+&&\counterSubSubTopic& Definite integral definition. & Chapters 5.2, 5.3 & Chapters 4.1, 4.2 & N/A (theory only)& 21 & 11  \\
+&&\counterSubSubTopic& Basic properties of integration. & Chapter 5.2 & Chapter 4.2 & N/A (theory only)& 21 & 11\\
+&\counterSubTopic && Computing integrals: basics. &&&&&  \\
+&&\counterSubSubTopic& Antiderivatives and indefinite integrals & Chapter 5.1 & Chapters 3.9, 4.4 & Sections \refBad{secMPSantiderivatives}, \refBad{secMPSBasicDefiniteIntegrals} & 22 & 11 \\
+&&\counterSubSubTopic& The Evaluation Theorem (Fund. Th. Calc., Part 2) & Chapter 5.4 & Chapter 4.3& Section \refBad{secMPSBasicDefiniteIntegrals} & 22& 11\\
+&&\counterSubSubTopic & The Fundamental Theorem of Calculus, Part 1. & Chapter 5.4 & Chapter 4.3 & Section \refBad{secMPSFTCpart1} & 23 & 12 \\
+&\counterSubTopic && Integration: the substitution rule. &&& Section \refBad{secMPSintegrationSubstitutionRule} & 23 & 12  \\
+&&\counterSubSubTopic& The substitution rule in indefinite integrals. & Chapter 6.1& Chapter 4.5 & Section \refBad{secMPSintegrationSubstitutionRuleIndefinite} & 23 &12 \\
+&&\counterSubSubTopic& The substitution rule in definite integrals. & Chapter 6.1 & Chapter 4.5 & Section \refBad{secMPSintegrationSubstitutionRuleDefinite} & 23 & 12 \\\hline
+\counterTopic&&& First applications of integration.&&&&&\\
+&\counterSubSubTopic& & Area between curves. & Chapter 7.1 & Chapter 5.1& Section \refBad{secMPSareaBetweenCurves}& 24& 13 \\
+&\counterSubTopic&& Volumes of solids of revolution. &&&Section \refBad{secMPSvolumesSolidsRevolution} && \\
+&&\counterSubSubTopic & Volumes of solids of revolution (washer method). & Chapter 7.2& Chapter 5.2 & Section \refBad{secMPSvolumesSolidsRevolutionWashers} & 24 & 13  \\
+&&\counterSubSubTopic & Volumes of solids of revolution (cylindrical shell method). & Chapter 7.3& Chapter 5.3 & Section \refBad{secMPSvolumesSolidsRevolutionShells} & 24 & \skipped \\\hline\hline
+\multicolumn{8}{|c}{Catch up if behind schedule. Review for the final.} & 14\\\hline
 \end{longtable}
 \end{landscape}
-
-
-
 \end{document}
