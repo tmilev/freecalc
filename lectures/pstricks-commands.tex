@@ -5,8 +5,6 @@
 {auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
-%WARNING THE FOLLOWING PACKAGE IS BROKEN use only with EXTREME CAUTION
-%\usepackage{pst-3dplot}
 
 \makeatletter
 \begingroup
@@ -1826,7 +1824,7 @@ graphicsFile ( setrgbcolor ) writestring
 
 \newcommand{\fcSetupFilesGraphicsIIIdCode}{
 \fcSetUpGraphicsToScreen
-/graphicsFileName (graphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
+/graphicsFileName (xgraphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
 }
 
 %defines graphicsFileAvailable to be true if file can be created, false else.
@@ -3340,7 +3338,7 @@ vX 0 ne vY 0 ne or{
 \code{%
 50 dict begin
 \fcSetUpGraphicsToScreen
-/graphicsFileName (graphicsCacheSafeToDelete) (#1 #2 #3 #4 #5 #6 #7 #8) \fcHashString (.txt) 3 \fcConcatenateMultiple def
+/graphicsFileName (xgraphicsCacheSafeToDelete) (#1 #2 #3 #4 #5 #6 #7 #8) \fcHashString (.txt) 3 \fcConcatenateMultiple def
 \fcSetupFilesGraphicsNameAlreadyDefinedCode
 graphicsCached not {
 /theEquation {#8} \space def
