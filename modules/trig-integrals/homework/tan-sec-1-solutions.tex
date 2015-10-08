@@ -44,15 +44,15 @@ $\begin{array}{rcll|l}
 \end{array}
 $
 
-The expression $\frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right|+C$ gives a perfectly good answer (which is even the preferred one in a number of textbooks). Let us show however that $\frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right|$ equals $\ln |\sec x+\tan x|$, the answer given in the other variants.
+The expression $\displaystyle \frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right|+C$ gives a perfectly good answer (which may be the preferred answer depending on the textbook). Let us show however that $\displaystyle \frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right|$ equals $\displaystyle \ln |\sec x+\tan x|$, the answer given in the other variants.
 
 $\begin{array}{rcll|l}
-\displaystyle \frac{1}{2}  \ln \left|\frac{1+\sin x}{1-\sin x}\right|&=& \frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right| &&\text{Mult. \& div by } 1+\sin x\\
-&=&\frac{1}{2}\ln \left|\frac{(1+\sin x)^2}{(1-\sin x)(1+\sin x)}\right|\\
-&=&\frac{1}{2}\ln \left|\frac{(1+\sin x)^2}{\cos^2x}\right|&& \text{use }\frac{1}{2}\ln |a|= \ln |a|^{\frac{1}{2}}\\
-&=&\ln \sqrt{\left|\frac{(1+\sin x)^2}{\cos^2x}\right|}\\
-&=&\ln \left|\frac{1+\sin x}{\cos x}\right|\\
-&=&\ln |\sec x +\tan x|\quad .
+\displaystyle \frac{1}{2}  \ln \left|\frac{1+\sin x}{1-\sin x}\right|&=&\displaystyle  \frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right| &&\text{Mult. \& div by } 1+\sin x\\
+&=&\displaystyle \frac{1}{2}\ln \left|\frac{(1+\sin x)^2}{(1-\sin x)(1+\sin x)}\right|\\
+&=&\displaystyle \frac{1}{2}\ln \left|\frac{(1+\sin x)^2}{\cos^2x}\right|&& \text{use }\frac{1}{2}\ln |a|= \ln |a|^{\frac{1}{2}}\\
+&=&\displaystyle \ln \sqrt{\left|\frac{(1+\sin x)^2}{\cos^2x}\right|}\\
+&=&\displaystyle \ln \left|\frac{1+\sin x}{\cos x}\right|\\
+&=&\displaystyle \ln |\sec x +\tan x|\quad .
 \end{array}
 $
 
@@ -74,7 +74,25 @@ $
 }
 
 
-\solution{\ref{problemintsec^3xdx} This problem can be solved with the general method by setting $x=2\Arctan t$. However, using the preceding problem we can arrive at a shorter solution as follows.
+\solution{\ref{problemintsec^3xdx} This problem can be solved with the general method by setting $x=2\Arctan t$. However, there are shorter ways to solve the integral, as we show below. 
+
+\textbf{Variant I. }
+
+\noindent $
+\begin{array}{rcll|l}
+\displaystyle \int \sec^3 x \diff x&=&\displaystyle \int  \frac{1}{\cos^3 x} \diff x \\
+&=&\displaystyle \int  \frac{\cos x}{\cos^4 x} \diff x  && \text{use }\diff (\sin x)=\cos x \diff x\\
+&=&\displaystyle \int  \frac{1}{\cos^4 x} \diff (\sin x)&& \text{use }\cos^2x=1-\sin^2x \\
+&=&\displaystyle \int  \frac{1}{\left(1-\sin^2x\right)^2} \diff (\sin x) &&\text{Set }\sin x=u\\
+&=&\displaystyle \int  \frac{1}{\left(1-u^2\right)^2} \diff u&&\text{split in part. frac.}\\
+&=&\displaystyle \int\left(\frac{\frac{1}{4}}{u +1}+\frac{\frac{1}{4}}{(u +1)^{2}}+\frac{-\frac{1}{4}}{u -1}+\frac{\frac{1}{4}}{(u -1)^{2}}  \right) \diff u\\
+&=&\displaystyle \frac{1}{4}\left(\ln |u+1|-\ln|u-1|-\frac{1}{u+1}-\frac{1}{u-1} \right)+C\\
+&=&\displaystyle\frac{1}{4}\left(\ln \left|\frac{u+1}{u-1}\right|-\frac{2u}{u^2-1} \right)+C\\
+&=&\displaystyle\frac{1}{4}\left(\ln \left|\frac{\sin x+1}{\sin x-1}\right|+\frac{2\sin x}{\cos^2x} \right)+C.\\
+\end{array}
+$
+
+\textbf{Variant II. } This variant uses the preceding problem to get to a solution as follows.
 
 \noindent $
 \begin{array}{rcll|l}
