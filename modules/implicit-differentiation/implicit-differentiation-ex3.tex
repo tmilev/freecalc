@@ -1,58 +1,66 @@
 % begin module implicit-differentiation-ex3
-\begin{frame}
+\begin{frame}[t]
 \begin{example}
-\abovedisplayskip=0pt
-\belowdisplayskip=-15pt
-\abovedisplayshortskip=0pt
-\belowdisplayshortskip=0pt
-\begin{align*}
-\text{Find $y'$ if }\sin (x+y) & = y^2\cos x.\\
-\uncover<2->{%
-\alertNoH{ 3-4}{\frac{\diff}{\diff x} (\sin (x+y))}%
-}%
-& \uncover<2->{ = 
+\vskip 0.2cm
+\begin{columns}[T]
+\column{0.25\textwidth}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1,-1)(1,1)
+\fcAxesStandard{-2}{-2}{2}{2}
+\fcImplicitIId[linewidth=0.1, linestyle=solid, linecolor=red, showGridImplicitIId=false]{-2}{-2}{1000}{1000}{0.004}{0.004}{ x y add 360 mul sin y y mul x 360 mul cos mul sub}
+\end{pspicture}
+
+\column{0.75\textwidth}
+
+
+Find $y'$ as an expression of $x$ and $y$. 
+\end{columns}
+
+\vskip -1.5cm
+$
+\renewcommand{\arraystretch}{1.7}
+\begin{array}{@{}r@{}c@{}l@{}}
+\displaystyle \sin (x+y) & =&\displaystyle  y^2\cos x.\\
+\uncover<2->{\displaystyle \alertNoH{ 3-4}{\frac{\diff}{\diff x} (\sin (x+y))} }%
+\uncover<2->{ &  = & \displaystyle 
 \alertNoH{ 5-6}{\frac{\diff}{\diff x} (y^2\cos x)}%
 }\\%
 \fcAnswerUncover{3}{4}{%
-\alertNoH{ 3-4}{(\cos(x+y))\alertNoH{ 7-8}{\frac{\diff}{\diff x}(x+y)}}%
+\displaystyle \alertNoH{ 3-4}{(\cos(x+y))\alertNoH{ 7-8}{\frac{\diff}{\diff x}(x+y)}}%
 }%
-& \uncover<3->{ = } %
+\uncover<3->{&  = & %
 \fcAnswerUncover{3}{6}{%
-\alertNoH{ 5-6}{ \alertNoH{ 9-10}{\frac{\diff}{\diff x}(y^2)}\cos x +(y^2)\alertNoH{ 11-12}{\frac{\diff}{\diff x}(\cos x) }  }%
-}\\%
+\displaystyle \alertNoH{ 5-6}{ \alertNoH{ 9-10}{\frac{\diff}{\diff x}(y^2)}\cos x +(y^2)\alertNoH{ 11-12}{\frac{\diff}{\diff x}(\cos x) }  }%
+}}\\%
 \uncover<7->{%
-(\cos(x+y))\alertNoH{ 7-8}{\left(\fcAnswerUncover{7}{8}{1+y'}\right)}%
-}%
-& \uncover<7->{ = 
-\alertNoH{ 9-10}{(\fcAnswerUncover{7}{10}{2yy'})}\cos x +(y^2)\alertNoH{ 11-12}{(\fcAnswerUncover{7}{12}{-\sin x})}%
+\displaystyle (\cos(x+y))\alertNoH{ 7-8}{\left(\fcAnswerUncover{7}{8}{1+y'}\right)}%
+& = &
+\displaystyle \alertNoH{ 9-10}{(\fcAnswerUncover{7}{10}{2yy'})}\cos x +(y^2)\alertNoH{ 11-12}{(\fcAnswerUncover{7}{12}{-\sin x})}%
 }\\%
 \uncover<13->{%
-\alertNoH{15}{\cos(x+y)} +\alertNoH{14}{ y'\cos(x+y)}%
-}%
-& \uncover<13->{ = %
-\alertNoH{14}{2yy'\cos x}\alertNoH{15}{-y^2\sin x} %
+\displaystyle \alertNoH{15}{\cos(x+y)} +\alertNoH{14}{ y'\cos(x+y)}%
+&  = &%
+\displaystyle \alertNoH{14}{2yy'\cos x}\alertNoH{15}{-y^2\sin x} %
 }\\%
 \uncover<14->{%
-\alertNoH{14}{\alertNoH{ 16}{y'}\cos(x+y) - 2y\alertNoH{ 16}{y'}\cos x}%
-}%
-& \uncover<14->{ = %
-\alertNoH{15}{ -\cos(x+y)-y^2\sin x}%
+\displaystyle \alertNoH{14}{\alertNoH{ 16}{y'}\cos(x+y) - 2y\alertNoH{ 16}{y'}\cos x}%
+&  = &%
+\displaystyle \alertNoH{15}{ -\cos(x+y)-y^2\sin x}%
 }\\%
 \uncover<16->{%
-\text{Factor:}\quad%
-\alertNoH{ 16}{y'}(\alertNoH{17}{\cos(x+y) - 2y\cos x})%
-}%
-& \uncover<16->{ = %
- -\cos(x+y)-y^2\sin x%
+\displaystyle \alertNoH{ 16}{y'}(\alertNoH{17}{\cos(x+y) - 2y\cos x})%
+&  = &%
+\displaystyle  -\cos(x+y)-y^2\sin x%
 }\\%
 \uncover<17->{%
 y'%
 }%
-& \uncover<17->{ = } %
+& \uncover<17->{ = }& %
 \uncover<17->{%
-\frac{ - \cos(x+y)-y^2\sin x}{\alertNoH{17}{\cos (x+y) - 2y\cos x}}.%
+\displaystyle \frac{ - \cos(x+y)-y^2\sin x}{\alertNoH{17}{\cos (x+y) - 2y\cos x}}.%
 }%
-\end{align*}
+\end{array}
+$
 \end{example}
 \end{frame}
 % end module implicit-differentiation-ex3

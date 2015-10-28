@@ -3330,7 +3330,11 @@ vX 0 ne vY 0 ne or{
 }%
 
 %example
-%
+%\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{48}{48}{0.25}{0.25}{y y mul y y mul 3 sub mul x x mul x x mul 5 sub mul sub} 
+%First two arguments: x and y coordinate of lower left corner of picture
+% next two arguments: number of grid rectangles in x direction and in y direction
+% next two arguments: width and height of grid rectangles
+% final argument: function given of x and y (written in postscript)
 \newcommand{\fcImplicitIId}[8][]{%
 %\fcGrid[#1, linestyle=dashed]{#2}{#3}{#4}{#5}{#6}{#7}{0}%
 \setkeys{fcGraphics}{#1}%
