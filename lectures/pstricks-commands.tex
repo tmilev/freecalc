@@ -73,7 +73,7 @@ ifelse\space %
 %Z-depth lighting description. Rescale the image linearly so that the z-depth of all points in the image vary between 0.5 and -0.5. Points that are more distant have higher z-depth (0.5 are most distant from the viewing screen). Then points at depth t are colored with [user-given rgb color triple between with colors between 0 and 1] - [t t t]*fcLightDifference. Should one of the rgb numbers become negative, it is set to 0. In particular points at depth 0 are colored with the user-given patch color, points in the distance are darker and points nearer are lighter. If fcLightDifference is set to 1, then the most distant points are 0.5 units darker than the middle depth points and the points closest to the viewer are 0.5 units ligher.
 \newcommand{\fcLightDifference}{0.5\space}
 
-\newcommand{\fcMaxNumPatchesToUseShading}{10}
+\newcommand{\fcMaxNumPatchesToUseShading}{1}
 
 \newcommand{\fcSet}[1]{\setkeys{fcGraphics}{#1}}
 
@@ -1250,7 +1250,8 @@ end %
 }
 
 \newcommand{\fcStartIIIdScene}{%
-\pstVerb{1 dict begin /theIIIdObjects [] def}%
+\pstVerb{20 dict begin /theIIIdObjects [] def \fcBufferInitializePartOne\space
+}%
 }%
 
 \newcommand{\fcZBufferPrint}{ %
@@ -1289,7 +1290,6 @@ setZBufferXmin %
 }
 
 \newcommand{\fcZBufferInitialize}{ %
-\fcBufferInitializePartOne
 graphicsFileAvailable graphicsCached not and {%
 graphicsFile (\fcBufferInitializePartOne) writestring
 }if%
