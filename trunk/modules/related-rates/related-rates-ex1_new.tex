@@ -1,6 +1,6 @@
 % begin module related-rates-ex1
 
-\begin{frame}
+\begin{frame} %[fragile]
 \begin{example}
 Air is being pumped into a spherical balloon such that \alertNoH{ 6}{its volume changes at a rate of 100 cm$^3$/s}.  \alertNoH{ 8}{How fast is the radius of the balloon increasing when the diameter is 50 cm?}
 \begin{columns}[c]
@@ -42,29 +42,29 @@ Given: \alertNoH{ 6}{ $\uncover<6->{V'(t) = 100}$ \uncover<6->{cm$^3$/s.}}
 
 
 
-
-
-\begin{frame}
+\begin{frame} %[fragile]
 \begin{example}
 Air is being pumped into a spherical balloon such that \alertNoH{ 5}{its volume changes at a rate of 100 cm$^3$/s}.  \alertNoH{6}{How fast is the radius of the balloon increasing} when the \alertNoH{ 4}{diameter is 50 cm}?
 \begin{align*}
-V=\frac{4}{3}\pi r^3\;\;\;\;\To\;\;\;\; 
+V=\frac{4}{3}\pi r^3\;\;\;\;\longrightarrow\;\;\;\; 
 V'(t)%
 & =  \frac{\diff}{\diff t}\left( \frac{4}{3}\pi r^3\right)%
 \\%
 \uncover<2->{
 &  { = } %
-\frac{4}{3}\pi \cdot 3r^2\cdot \frac{dr}{dt}%
+\frac{4}{3}\pi \cdot 3r^2\cdot \frac{\diff r}{\diff t}%
 }\\%
 \uncover<3->{
 &  { = } %
-4\pi r^2\cdot \frac{dr}{dt}%
+4\pi r^2\cdot \frac{\diff r}{\diff t}%
 }%
 \end{align*}
+
+
 \uncover<4->{
-Now \textbf{evaluate} the above expression when  \alertNoH{ 4}{$ r=25 $}  and \alertNoH{ 5}{$ dV/dt = 100 $} in order to \alertNoH{ 6}{solve for $ \ds \frac{dr}{dt} $}: \pause \pause 
+Now \textbf{evaluate} the above expression when  \alertNoH{ 4}{$ r=25 $}  and \alertNoH{ 5}{$ \diff V/\diff t = 100 $} in order to \alertNoH{ 6}{solve for $ \displaystyle \frac{\diff r}{\diff t} $}: \pause \pause 
 \[
-\frac{dr}{dt}=\frac{1}{4\pi r^2}\cdot\frac{dV}{dt} \uncover<7->{= \frac{1}{4\pi(25^2)}\cdot 100=\frac{1}{25\pi}\text{ cm/s}}
+\frac{\diff r}{\diff t}=\frac{1}{4\pi r^2}\cdot\frac{\diff V}{\diff t} \uncover<7->{= \frac{1}{4\pi(25^2)}\cdot 100=\frac{1}{25\pi}\text{ cm/s}}
 \]
 }
 \uncover<8->{%
