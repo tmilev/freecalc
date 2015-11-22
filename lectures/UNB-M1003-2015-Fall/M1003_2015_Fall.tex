@@ -1,0 +1,726 @@
+\documentclass%
+[10pt]
+%[handout, 10pt]
+{beamer} %
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
+
+
+\usepackage{etex}
+
+
+
+\newcommand{\currentLecture}{17}
+
+\usepackage [dvips={-o -Ppdf}, pdfcrop={},crop=off]{auto-pst-pdf}
+
+% for airplane symbol in section 3.9 (Related Rates) need this
+\usepackage{bbding}
+\let\Cross\relax
+\let\Square\relax
+
+\usepackage{cancel}
+\usepackage{wasysym, marvosym}
+% % % % % % % %
+% % % % % % % %
+% % % % % % % %
+%IMPORTANT
+%compiles with 
+%pdflatex -shell-escape 
+%IMPORTANT
+% % % % % % % %
+% % % % % % % %
+% % % % % % % %
+
+\setbeamersize{text margin left=0.4cm, text margin right=0.4cm }
+
+
+\mode<presentation>
+{
+\useinnertheme{rounded}
+%\useoutertheme{infolines}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[all,cmtip]{xy}
+\usepackage{times}
+
+
+\input{../example-templates}
+\input{../pstricks-commands}
+
+\usepackage{pst-3dplot}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+
+
+\usepackage{booktabs} % for tabular integration
+\usepackage{xparse}   % for tabular integration 
+\usepackage{multimedia}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+
+% % % % % % % % % % % %% for tabular integration
+\tikzset{Arrow Style/.style={text=black, font=\boldmath}}%
+
+\newcommand{\tikzmark}[1]{%
+    \tikz[overlay, remember picture, baseline] \node (#1) {};%
+}
+
+\newcommand*{\XShift}{0.5em}%
+\newcommand*{\YShift}{0.5ex}%
+
+\NewDocumentCommand{\DrawArrow}{s O{} m m m}{%
+    \begin{tikzpicture}[overlay,remember picture]
+        \draw[->, thick, Arrow Style, #2] 
+                ($(#3.west)+(\XShift,\YShift)$) -- 
+                ($(#4.east)+(-\XShift,\YShift)$)
+        node [midway,above] {#5};
+    \end{tikzpicture}
+}
+% % % % % % % % % % END % for tabular integration
+
+
+%\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\usefonttheme[onlymath]{serif}
+\usetheme{Singapore}
+\usepackage[T1]{fontenc} % Needed for Type1 Concrete
+
+
+\graphicspath{{../../modules/}}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\vs}{{\vspace*{3mm}}}
+\newcommand{\vsp}{{\vspace*{3mm} \pause}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\dx}{{ \text{ dx}}}
+\newcommand{\To}{{\Rightarrow}}
+\newcommand{\R}{{\mathbb{R}}}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+\newcommand{\lect}[4]{
+\ifnum#3=\currentLecture
+  \date{#1}
+  \lecture[#1]{#2}{#3}
+#4
+\else
+%include nothing
+\fi
+}
+
+%\setbeamertemplate{footline}
+%{
+%  \leavevmode%
+%  \hbox{%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortauthor
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertshorttitle
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+%    \usebeamerfont{date in head/foot}\insertshortdate{}
+%  \end{beamercolorbox}}%
+%  \vskip0pt%
+%}
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+%\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
+%\logo{\pgfuseimage{logo}}
+
+\begin{document}
+
+\AtBeginLecture{%
+
+\title[\insertlecture]{Math 1003}
+\subtitle{\insertlecture}
+\author[]{Dr. Tim Alderson}
+
+%when people substitute for me:
+%\author[FreeCalc \\ Math 140]{ Instructor: Shuang Cai }
+\institute[UNB Saint John]{University of New Brunswick Saint John}
+\date{\insertshortlecture}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+}%
+
+\lect{Chapter 1}{Functions and Models}{1}{ %begin lecture
+\section{1.1 Ways to Represent a Function}
+\subsection{The Definition of a Function}
+\input{../../modules/precalculus/function-def}
+\subsection{The Vertical Line Test}
+\input{../../modules/precalculus/vertical-line-test}
+\subsection{Piecewise Defined Functions}
+\input{../../modules/precalculus/function-piecewise}
+\input{../../modules/precalculus/absolute-value}
+\input{../../modules/precalculus/piecewise-formula}
+\input{../../modules/precalculus/piecewise-ex1}
+\input{../../modules/precalculus/piecewise-ex2}
+\subsection{Symmetry}
+\input{../../modules/precalculus/even-and-odd}
+\subsection{Increasing and Decreasing Functions}
+\input{../../modules/precalculus/increasing-decreasing}
+\subsection{A Note on Domains of Functions}
+\input{../../modules/precalculus/domains}
+}% end lecture
+
+\lect{Fall 2015}{Sections 1.2 and 1.3}{2}{% begin lecture
+\section{1.2 A Catalog of Essential Functions}
+\subsection{Linear Functions}
+\input{../../modules/precalculus/linear-functions}
+\subsection{Polynomials}
+\input{../../modules/precalculus/polynomials}
+\subsection{Power Functions}
+\input{../../modules/precalculus/power-functions-def}
+\input{../../modules/precalculus/root-functions}
+\input{../../modules/precalculus/reciprocal-function}
+\subsection{Rational Functions}
+\input{../../modules/precalculus/rational-functions}
+\subsection{Algebraic Functions}
+\input{../../modules/precalculus/algebraic-functions}
+\subsection{Transcendental Functions}
+\input{../../modules/precalculus/transcendental-functions-version2}
+\section{1.3 New Functions from Old Functions}
+\subsection{Transformations of Functions}
+\input{../../modules/precalculus/transformations-shifts}
+\input{../../modules/precalculus/transformations-shifts-example}
+\input{../../modules/precalculus/transformations-magnifications}
+\input{../../modules/precalculus/transformations-horizontal-stretches}
+\input{../../modules/precalculus/transformations-absolute-value}
+\subsection{Combinations of Functions}
+\input{../../modules/precalculus/combinations-functions}
+\input{../../modules/precalculus/composition-functions}
+\input{../../modules/precalculus/composition-example}
+}% end lecture
+
+\lect{Fall 2015}{Trigonometry}{3}{%begin lecture
+\section{Trigonometry}
+\subsection{Angles}
+\input{../../modules/trigonometry/angles}
+\subsection{The Trigonometric Functions}
+\input{../../modules/trigonometry/trig-functions}
+\input{../../modules/trigonometry/trig-functions-unit-circle}
+\input{../../modules/trigonometry/trig-example}
+\input{../../modules/trigonometry/trig-functions-example2}
+\subsection{Trigonometric Identities}
+\input{../../modules/trigonometry/trig-identities}
+\input{../../modules/trigonometry/trig-identities-example}
+\subsection{Trigonometric Identities and Complex Numbers}
+\input{../../modules/complex-numbers/complex-numbers-definition}
+\youWillNotBeTested
+\input{../../modules/trigonometry/trig-Euler-formula}
+\youWillNotBeTested
+\input{../../modules/trigonometry/trig-using-euler-formula}
+\subsection{Graphs of the Trigonometric Functions}
+% I would like to put in a section here on how to draw sine and cosine.
+% I could copy this from the textbook for the pre-calculus course.
+\input{../../modules/trigonometry/trig-functions-graphs}
+}% end lecture
+
+\lect{Fall 2015}{Section 1.4}{4}{% begin lecture
+\section{Exponential Functions}
+\input{../../modules/exponential-functions/exponential-function-def}
+\input{../../modules/exponential-functions/exponential-function-def-various-approaches}
+\input{../../modules/exponential-functions/exponential-properties}
+\input{../../modules/exponential-functions/exponential-function-graphs-plus}
+\input{../../modules/exponential-functions/exponential-versus-polynomial}
+\input{../../modules/exponential-functions/exponential-function-ex-sketch}
+\input{../../modules/exponential-functions/exponential-equation1}
+\input{../../modules/exponential-functions/exponential-equation2}
+\input{../../modules/exponential-functions/exponential-word-problem1}
+\subsection{The Natural Exponential Function}
+\input{../../modules/exponential-functions/natural-exponential-intro}
+}% end lecture
+
+\lect{Fall 2015}{Section 1.5}{5}{% begin lecture
+\section{Inverse Functions}
+\subsection{One-to-one Functions}
+\input{../../modules/inverse-functions/one-to-one-def}
+\input{../../modules/inverse-functions/horizontal-line-test}
+\subsection{The Definition of the Inverse of $f$}
+\input{../../modules/inverse-functions/inverse-function-def}
+\input{../../modules/inverse-functions/inverse-notation-warning}
+\input{../../modules/inverse-functions/inverse-function-equations}
+\input{../../modules/inverse-functions/inverse-function-solve-for-version2}
+\input{../../modules/inverse-functions/guess-and-check}
+\input{../../modules/inverse-functions/inverse-function-graph}
+\input{../../modules/inverse-functions/inverse-function-ex5}
+\input{../../modules/inverse-functions/inverse-function-solve-for-ex1-freeCalc}
+%Include with online notes
+%\input{../../modules/inverse-functions/inverse-function-solve-for-ex3-freeCalc}
+\section{Logarithmic Functions}
+\input{../../modules/logarithms/logarithm-def}
+\input{../../modules/logarithms/logarithm-def-ex1}
+\input{../../modules/logarithms/log-and-exp}
+\input{../../modules/logarithms/logarithm-graphs}
+\input{../../modules/logarithms/logarithm-properties}
+\input{../../modules/logarithms/logarithm-properties-ex2}
+\subsection{Natural Logarithms}
+\input{../../modules/logarithms/natural-logarithm-def}
+\input{../../modules/logarithms/natural-logarithm-def-ex5}
+\input{../../modules/logarithms/natural-logarithm-def-ex-exponent-quadratic1}
+% use this on board or online lectures
+%\input{../../modules/logarithms/natural-logarithm-def-ex-exponent-quadratic2}
+\input{../../modules/logarithms/natural-logarithm-def-ex8}
+%Include for online courses
+%\input{../../modules/inverse-functions/inverse-function-solve-for-ex2-freeCalc}
+\subsection{Inverse Trigonometric Functions}
+\input{../../modules/inverse-trig/arcsin-def}
+\input{../../modules/inverse-trig/arcsin-properties}
+\input{../../modules/inverse-trig/arcsin-sin-ex1}
+\input{../../modules/inverse-trig/arcsin-ex1}
+\input{../../modules/inverse-trig/arcsin-sin-ex2}
+\input{../../modules/inverse-trig/arccos-def}
+\input{../../modules/inverse-trig/arccos-properties}
+\input{../../modules/inverse-trig/arctan-def}
+\input{../../modules/inverse-trig/arctan-ex3}
+\input{../../modules/inverse-trig/arctan-ex4}
+\input{../../modules/inverse-trig/inverse-trig-summary}
+}
+
+
+\lect{Fall 2015}{Sections 2.1-2.2}{6}{% begin lecture
+\section{The Tangent and Velocity Problems}
+\subsection{The Tangent Problem}
+\input{../../modules/limits/tangent-overview}
+\input{../../modules/limits/tangent-problem}
+\input{../../modules/limits/tangent-def}
+\subsection{Velocities}
+\input{../../modules/limits/velocity}
+\section{The Limit of a Function}
+\input{../../modules/limits/limit-def}
+\input{../../modules/limits/limit-ex1}
+\input{../../modules/limits/limit-ex3}
+\input{../../modules/limits/limit-ex4}
+\subsection{One-sided Limits}
+\input{../../modules/limits/limits-one-sided-ex6}
+\input{../../modules/limits/limits-one-sided-def}
+\input{../../modules/limits/limits-ex7}
+\subsection{Infinite Limits}
+\input{../../modules/limits/limits-infinite-ex8}
+\input{../../modules/limits/limits-infinite-def}
+\input{../../modules/limits/vertical-asymptote-def}
+\input{../../modules/limits/limits-ex9}
+\input{../../modules/limits/infinite-limit-rules}
+\input{../../modules/limits/infinite-limit-ex1}
+\input{../../modules/limits/infinite-limit-ex2}
+\input{../../modules/limits/infinite-limit-ln-tan}
+}% end lecture
+
+
+\lect{Fall 2015}{Sections 2.3}{7}{% begin lecture
+\section{Calculating Limits Using Limit Laws}
+\input{../../modules/limits/limit-laws}
+\input{../../modules/limits/limit-laws-ex2}
+\input{../../modules/limits/limit-laws-using-ex}
+\input{../../modules/limits/direct-substitution-version2}
+\input{../../modules/limits/direct-substitution-yes-ex}
+\input{../../modules/limits/direct-substitution-no-ex}
+\input{../../modules/limits/limit-laws-fact}
+\input{../../modules/limits/limit-factoring-ex1}
+\input{../../modules/limits/limit-laws-ex6}
+\input{../../modules/limits/limit-laws-ex4}
+\input{../../modules/limits/limit-laws-ex5}
+\input{../../modules/limits/limits-piecewise}
+\input{../../modules/limits/limits-piecewise-ex9}
+\input{../../modules/limits/squeeze-theorem}
+\input{../../modules/limits/squeeze-theorem-ex11}
+}% end lecture
+
+\lect{Fall 2015}{Section 2.5}{8}{% begin lecture
+\section{Continuity}
+\input{../../modules/continuity/continuous-def}
+%\input{../../modules/continuity/discontinuous-def}
+\input{../../modules/continuity/discontinuous-def-version2}
+\input{../../modules/continuity/continuity-ex1}
+\input{../../modules/continuity/greatest-integer-function}
+\input{../../modules/continuity/continuity-ex2}
+\input{../../modules/continuity/continuous-one-sided}
+\input{../../modules/continuity/continuity-ex3}
+\input{../../modules/continuity/continuity-on-interval}
+\input{../../modules/continuity/continuity-laws}
+\input{../../modules/continuity/continuous-functions-classes}
+\input{../../modules/continuity/continuity-ex5}
+\input{../../modules/continuity/continuity-ex8}
+\input{../../modules/continuity/IVT}
+\input{../../modules/continuity/IVT-ex9}
+} %end lecture
+
+\lect{Fall 2015}{Section 2.6}{9}{% begin lecture
+\section{Limits at Infinity}
+\subsection{Limits at Infinity; Horizontal Asymptotes}
+\input{../../modules/curve-sketching/limit-at-infinity-intro}
+\input{../../modules/curve-sketching/limit-at-infinity-def}
+\input{../../modules/curve-sketching/horizontal-asymptote-def}
+\input{../../modules/curve-sketching/limit-at-infinity-ex2}
+\input{../../modules/curve-sketching/limit-at-infinity-power-function}
+\input{../../modules/curve-sketching/limit-at-infinity-ex3}
+\input{../../modules/curve-sketching/limit-at-infinity-ex4}
+\input{../../modules/curve-sketching/limit-at-infinity-ex5}
+\subsection{Infinite Limits at Infinity}
+\input{../../modules/curve-sketching/infinite-limit-at-infinity-def}
+\input{../../modules/curve-sketching/infinite-limit-at-infinity-ex8}
+\input{../../modules/curve-sketching/infinite-limit-at-infinity-ex9}
+\input{../../modules/curve-sketching/infinite-limit-at-infinity-ex11}
+}% end lecture
+
+%TEST
+
+
+
+
+\lect{Fall 2015}{Sections 2.7 and 2.8}{10}{% begin lecture
+\section{Tangents}
+\input{../../modules/derivatives/tangents-reminder}
+\input{../../modules/derivatives/tangents-ex1}
+\input{../../modules/derivatives/tangents-alternative-form}
+\input{../../modules/derivatives/tangents-ex2}
+\input{../../modules/derivatives/tangent-line-polynomial}
+\section{Derivatives}
+\input{../../modules/derivatives/derivative-def-version2}
+\input{../../modules/derivatives/derivatives-ex4}
+\input{../../modules/derivatives/derivatives-ex5}
+\subsection{The Derivative as a Function}
+\input{../../modules/derivatives/derivatives-as-function}
+\input{../../modules/derivatives/derivatives-as-function-ex1}
+\input{../../modules/derivatives/derivatives-as-function-ex2}
+\subsection{Other Notations}
+\input{../../modules/derivatives/derivative-notations}
+\subsection{Velocities}
+\input{../../modules/derivatives/velocity-ex3}
+\subsection{Differentiability}
+\input{../../modules/derivatives/differentiable-def}
+\input{../../modules/derivatives/differentiable-ex5}
+\input{../../modules/derivatives/differentiable-implies-continuous}
+\subsection{How Can a Function Fail to be Differentiable?}
+\input{../../modules/derivatives/differentiable-counterexamples}
+\subsection{Higher Derivatives}
+\input{../../modules/derivatives/higher-derivatives}
+\input{../../modules/derivatives/higher-derivatives-ex6}
+}% end lecture
+
+\lect{Fall 2015}{Sections 3.1 and 3.2}{11}{% begin lecture
+\section{Differentiation Formulas}
+\input{../../modules/derivatives/differentiation-formulas-constant}
+\subsection{Power Functions}
+\input{../../modules/derivatives/differentiation-formulas-square-cube}
+\input{../../modules/derivatives/differentiation-formulas-power}
+\input{../../modules/derivatives/differentiation-formulas-ex1}
+\subsection{General Power Functions}
+\input{../../modules/derivatives/arbitrary-exponents}
+\input{../../modules/derivatives/negative-exponents-ex1}
+\input{../../modules/derivatives/tangent-line-power-rule}
+\input{../../modules/derivatives/fractional-exponents-ex1}
+\subsection{The Constant Multiple Rule}
+\input{../../modules/derivatives/differentiation-laws-constant}
+\input{../../modules/derivatives/constant-multiple-rule-ex1}
+%\input{../../modules/derivatives/constant-multiple-rule-ex2}
+\input{../../modules/derivatives/negative-exponents-ex2}
+\subsection{The Sum and Difference Rules}
+\input{../../modules/derivatives/differentiation-laws-sum}
+\input{../../modules/derivatives/differentiation-laws-difference}
+\input{../../modules/derivatives/differentiation-laws-polynomial}
+\input{../../modules/derivatives/sum-rule-with-algebra}
+\subsection{Derivatives of Exponential Functions}
+\input{../../modules/exponential-functions/exponential-function-derivative}
+\input{../../modules/exponential-functions/e-def}
+\input{../../modules/exponential-functions/natural-exponential-def}
+\input{../../modules/derivatives/derivative-e-plus-polynomial}
+\section{The Product and Quotient Rules}
+\subsection{The Product Rule}
+\input{../../modules/product-quotient/not-product-rule}
+\input{../../modules/product-quotient/product-rule}
+\input{../../modules/product-quotient/product-rule-e-polynomial}
+\subsection{The Quotient Rule}
+\input{../../modules/product-quotient/quotient-rule}
+\input{../../modules/product-quotient/quotient-rule-rational}
+\section{Balls, spheres, circles, disks and differentiation}
+\input{../../modules/derivatives/differentiation-formulas-the-circle-area-perimeter-secret}
+}% end lecture
+
+\lect{Fall 2015}{Section 3.3}{12}{% begin lecture
+\section{Derivatives of Trigonometric Functions}
+\input{../../modules/derivatives-trig/derivative-sine-graph}
+\input{../../modules/derivatives-trig/derivative-sine}
+\input{../../modules/derivatives-trig/derivatives-trig-ex1}
+\input{../../modules/derivatives-trig/quotient-rule-e-sin}
+\input{../../modules/derivatives-trig/trig-limit-ex}
+\input{../../modules/derivatives-trig/derivative-cosine}
+\input{../../modules/derivatives-trig/product-rule-x-cos}
+\input{../../modules/derivatives-trig/derivative-tangent}
+\input{../../modules/derivatives-trig/derivatives-trig-list}
+\input{../../modules/derivatives-trig/derivatives-trig-ex2}
+\input{../../modules/derivatives-trig/product-rule-twice-poly-e-trig}
+\input{../../modules/derivatives-trig/derivatives-trig-ex4}
+}% end lecture
+
+\lect{Fall 2015}{Section 3.4}{13}{% begin lecture
+\section{The Chain Rule}
+\input{../../modules/chain-rule/chain-rule-intro}
+\input{../../modules/chain-rule/chain-rule-statement-extended}
+\input{../../modules/chain-rule/chain-rule-notation}
+\input{../../modules/chain-rule/chain-rule-ex1-Style1}
+\input{../../modules/chain-rule/chain-rule-ex1-Style2}
+\input{../../modules/chain-rule/chain-rule-ex1-Style3}
+%\input{../../modules/chain-rule/chain-rule-sqrt-sin}
+\input{../../modules/chain-rule/chain-rule-sqrt-sin-Style1}
+%\input{../../modules/chain-rule/chain-rule-cos-poly}
+\input{../../modules/chain-rule/chain-rule-cos-poly-Style2}
+%\input{../../modules/chain-rule/chain-rule-poly-cos}
+%\input{../../modules/chain-rule/chain-rule-poly-cos-Style2}
+\input{../../modules/chain-rule/chain-rule-power-rule}
+%\input{../../modules/chain-rule/chain-rule-ex3}
+\input{../../modules/chain-rule/chain-rule-ex3-Style3}
+%\input{../../modules/chain-rule/chain-rule-ex4}
+\input{../../modules/chain-rule/chain-rule-ex4-Style1}
+\input{../../modules/chain-rule/chain-rule-ex5}
+\input{../../modules/chain-rule/chain-rule-ex6}
+\input{../../modules/exponential-functions/chain-rule-general-exponential}
+\input{../../modules/exponential-functions/general-exponential-derivative}
+\input{../../modules/chain-rule/chain-rule-extra-links}
+\input{../../modules/chain-rule/chain-rule-twice-ex1}
+\input{../../modules/chain-rule/chain-rule-twice-ex2}
+\subsection{Chain rule proof}
+\input{../../modules/chain-rule/chain-rule-proof-intro}
+\input{../../modules/chain-rule/chain-rule-proof}
+}% end lecture
+
+\lect{Fall 2015}{Implicit Differentiation}{14}{% begin lecture
+%\section{Understanding computations with derivatives}
+%\input{../../modules/derivatives-computation-understanding/derivatives-rules-summary}
+%\input{../../modules/derivatives-computation-understanding/constant-multiple-rule-from-product}
+%\input{../../modules/derivatives-computation-understanding/power-rule-from-product-rule}
+%\input{../../modules/derivatives-computation-understanding/power-rule-negative-integer-from-product-rule}
+%\input{../../modules/derivatives-computation-understanding/power-rule-rational-from-chain-rule}
+%\input{../../modules/derivatives-computation-understanding/quotient-rule-from-power-and-chain}
+%\youWillNotBeTested
+%\input{../../modules/derivatives-computation-understanding/exponent-derivative-from-taylor-series}
+%\input{../../modules/derivatives-computation-understanding/logarithm-rule-from-exponent}
+%\input{../../modules/derivatives-computation-understanding/power-rule-from-exponent}
+%\input{../../modules/derivatives-computation-understanding/sin-cos-rules-from-exponent}
+%}% end lecture
+%\lect{Fall 2015}{Section 3.5}{14}{% begin lecture
+\section{Implicit Differentiation}
+\input{../../modules/implicit-differentiation/implicit-differentiation-intro}
+\input{../../modules/implicit-differentiation/implicit-tangent-line}
+%\input{../../modules/implicit-differentiation/implicit-differentiation-ex1}
+\input{../../modules/implicit-differentiation/implicit-differentiation-ex2}
+\input{../../modules/implicit-differentiation/implicit-differentiation-ex3}
+\input{../../modules/implicit-differentiation/implicit-differentiation-ex4}
+\input{../../modules/implicit-differentiation/implicit-differentiation-ex5}
+%\input{../../modules/implicit-differentiation/implicit-differentiation-ex6}
+\input{../../modules/implicit-differentiation/implicit-trig}
+\input{../../modules/inverse-trig/arcsin-derivative2}
+%\input{../../modules/implicit-differentiation/implicit-second-derivative}
+%} %end lecture
+%\section{Implicit Differentiation}
+%\input{../../modules/implicit-differentiation/implicit-differentiation-intro}
+%\input{../../modules/implicit-differentiation/implicit-tangent-line}
+%\input{../../modules/implicit-differentiation/implicit-differentiation-ex2}
+%\input{../../modules/implicit-differentiation/implicit-differentiation-ex3}
+%\input{../../modules/implicit-differentiation/implicit-differentiation-ex4}
+%\input{../../modules/implicit-differentiation/implicit-differentiation-ex5}
+%\input{../../modules/implicit-differentiation/implicit-differentiation-ex6}
+%\input{../../modules/inverse-trig/arcsin-derivative2}
+%\input{../../modules/implicit-differentiation/implicit-second-derivative}
+} %end lecture
+
+
+\lect{Fall 2015}{Section 3.6\\ Derivatives of Logarithmic Functions}{15}{% begin lecture
+\section{Derivatives of Logarithmic Functions}
+\input{../../modules/logarithms/general-log-derivative-implicit}
+\input{../../modules/logarithms/general-log-derivative-ex}
+\input{../../modules/logarithms/natural-log-derivative-from-general}
+\input{../../modules/logarithms/natural-log-derivative-ex-simplify}
+\input{../../modules/logarithms/natural-logarithm-derivative-ex7}
+\subsection{Logarithmic Differentiation}
+\input{../../modules/logarithms/logarithmic-differentiation-ex}
+\input{../../modules/logarithms/logarithmic-differentiation}
+\input{../../modules/logarithms/logarithmic-differentiation-ex-base-and-power1}
+\input{../../modules/logarithms/logarithmic-differentiation-ex-base-and-power2}
+\subsection{The Number $e$ as a Limit}
+\input{../../modules/logarithms/e-limit}
+}% end lecture
+
+
+
+\lect{Fall 2015}{Section 3.8}{16}{% begin lecture
+\section{Exponential Growth and Decay}
+\input{../../modules/diff-eq-models/diff-eq-natural-growth}
+\input{../../modules/diff-eq-models/diff-eq-natural-growth-solution}
+\input{../../modules/exponential-growth-and-decay/law-of-natural-growth}
+\input{../../modules/exponential-growth-and-decay/Population-Example}
+\input{../../modules/exponential-growth-and-decay/Decay-Example}
+\input{../../modules/exponential-growth-and-decay/Newton-Law-Cooling}
+} %end lecture
+
+
+\lect{Fall 2015}{Section 3.9}{17}{% begin lecture
+\section{Related Rates}
+\input{../../modules/related-rates/related-rates-intro_new}
+\input{../../modules/related-rates/related-rates-ex1_new}
+\input{../../modules/related-rates/related-rates-ex2_new}
+\input{../../modules/related-rates/related-rates-ex3_new}
+%\input{../../modules/related-rates/related-rates-ex4_new}
+} %end lecture
+
+% NEED MORE related rates
+
+
+% NEED 3.11 Hyperbolic Functions
+
+\lect{Fall 2015}{Section 3.11}{18}{% begin lecture
+\section{Hyperbolic Functions}
+\input{../../modules/hyperbolic/Hyperbolic}
+} %end lecture
+
+
+\lect{Fall 2015}{Section 4.1}{19}{% begin lecture
+\section{Maximum and Minimum Values}
+\input{../../modules/maxima-minima/max-min-intro}
+\input{../../modules/maxima-minima/max-min-def}
+\input{../../modules/maxima-minima/max-min-ex1}
+\input{../../modules/maxima-minima/max-min-ex2}
+\input{../../modules/maxima-minima/max-min-ex3}
+\subsection{The Extreme Value Theorem}
+\input{../../modules/maxima-minima/EVT-intro}
+\input{../../modules/maxima-minima/EVT-statement}
+\input{../../modules/maxima-minima/EVT-hypotheses}
+\subsection{Fermat's Theorem}
+\input{../../modules/maxima-minima/fermats-theorem}
+\input{../../modules/maxima-minima/fermats-theorem-does-not-say}
+\input{../../modules/maxima-minima/critical-numbers-def}
+\input{../../modules/maxima-minima/critical-numbers-ex}
+\section{One variable optimization Problems}
+\subsection{The Closed Interval Method}
+\input{../../modules/maxima-minima/closed-interval-method}
+\input{../../modules/maxima-minima/closed-interval-method-ex}
+} %end lecture
+
+\lect{Fall 2015}{4.2: The Mean Value Theorem}{38}{% begin lecture
+\section{Mean Value theorem}
+\input{../../modules/maxima-minima/MVT-intro}
+\input{../../modules/maxima-minima/rolles-theorem}
+\input{../../modules/maxima-minima/rolles-theorem-ex}
+\input{../../modules/maxima-minima/MVT-meaning}
+\input{../../modules/maxima-minima/MVT-proof}
+\input{../../modules/maxima-minima/MVT-ex}
+\input{../../modules/maxima-minima/MVT-corollary1}
+\input{../../modules/maxima-minima/MVT-corollary1caveat}
+\input{../../modules/maxima-minima/MVT-corollary2}
+%\section{Linear Approximations} %there is no need to cover differentials earlier.
+%\input{../../modules/differentials/differentials-intro}
+%\input{../../modules/differentials/linearization-def-version2}
+%\input{../../modules/differentials/linearization-ex1}
+%\input{../../modules/differentials/differentials-ex3}
+%\section{Differentials}
+%\input{../../modules/differentials/differential-def-version2}
+%\input{../../modules/differentials/differentials-example1}
+%\input{../../modules/differentials/differentials-rules}
+%\input{../../modules/differentials/differentials-example2}
+}% end lecture
+
+
+\lect{Fall 2015}{4.3: How Derivatives Affect the Shape of a Graph
+}{40}{% begin lecture
+\section{Derivatives and the Shapes of Curves}
+\subsection{What Does $f'$ Say About $f$?}
+\input{../../modules/curve-sketching/first-derivative-up-down}
+\input{../../modules/curve-sketching/first-derivative-up-down-ex}
+\input{../../modules/curve-sketching/first-derivative-test}
+\subsection{What Does $f''$ Say About $f$?}
+\input{../../modules/curve-sketching/concavity-def}
+\input{../../modules/curve-sketching/second-derivative-concavity}
+\input{../../modules/curve-sketching/inflection-point-def}
+\input{../../modules/curve-sketching/second-derivative-test}
+\input{../../modules/curve-sketching/second-derivative-test-ex1}
+\input{../../modules/curve-sketching/second-derivative-test-ex2}
+}% end lecture
+
+\lect{Fall 2015}{4.4: Indeterminate Forms and L'Hospital's Rule}{42}{% begin lecture
+\section{Indeterminate Forms and L'Hospital's Rule}
+\input{../../modules/lhospital/lhospital-intro}
+\input{../../modules/lhospital/lhospital-statement}
+\input{../../modules/lhospital/lhospital-ex1}
+\input{../../modules/lhospital/lhospital-ex2}
+\subsection{Indeterminate Products}
+\input{../../modules/lhospital/indeterminate-products-def}
+\input{../../modules/lhospital/indeterminate-products-ex6}
+%\input{../../modules/lhospital/e-power-k-limit-by-lhospital-rule}
+\subsection{Indeterminate Differences}
+\input{../../modules/lhospital/indeterminate-differences-def}
+\input{../../modules/lhospital/indeterminate-differences-ex8}
+\subsection{Indeterminate Powers}
+\input{../../modules/lhospital/indeterminate-powers-def}
+\input{../../modules/lhospital/indeterminate-powers-ex10}
+%\input{../../modules/lhospital/indeterminate-powers-ex10-version2}
+} %end lecture
+
+
+\lect{Fall 2015}{4.5: Curve sketching}{44}{% begin lecture
+\section{Curve sketching}
+\input{../../modules/curve-sketching/curve-sketching-ex6}
+\input{../../modules/exponential-functions/natural-exponential-ex7}
+\subsection{Curve sketching summary}
+\input{../../modules/curve-sketching/curve-sketching-guidelines}
+\input{../../modules/curve-sketching/curve-sketching-guidelines-ex1}
+} %end lecture
+
+
+\lect{Fall 2015}{4.7: Solving one variable optimization problems}{45}{% begin lecture
+\section{Solving one variable optimization problems}
+\input{../../modules/optimization/optimization-intro}
+\input{../../modules/optimization/optimization-ex1}
+%\input{../../modules/optimization/optimization-ex2}
+\input{../../modules/optimization/optimization-ex5}
+\input{../../modules/optimization/optimization-ex1-freeCalc}
+}% end lecture
+
+
+\lect{Fall 2015}{4.9: Antiderivatives}{46}{% begin lecture
+\section{Antiderivatives}
+\input{../../modules/antiderivatives/antiderivative-def}
+\input{../../modules/antiderivatives/antiderivatives-ex}
+\input{../../modules/antiderivatives/antiderivatives-constant}
+\input{../../modules/antiderivatives/antiderivatives-ex1}
+\input{../../modules/antiderivatives/antiderivatives-formulas}
+\input{../../modules/antiderivatives/antiderivatives-ex2}
+\input{../../modules/antiderivatives/antiderivatives-ex-initial-value}
+% \subsection{Indefinite Integrals}
+%\input{../../modules/integration/indefinite-integral-intro}
+%\input{../../modules/integration/indefinite-integral-ex1}
+%\input{../../modules/integration/indefinite-integral-ex2}
+%\input{../../modules/integration/indefinite-integral-ex3}
+%\input{../../modules/integration/indefinite-integral-ex5}
+}% end lecture
+
+\lect{}{Newton's Method}{50}{% begin lecture
+\section{Newton's Method}
+\input{../../modules/newtons-method/newtons-method-intro}
+\input{../../modules/newtons-method/newtons-method-def}
+\input{../../modules/newtons-method/newtons-method-convergence}
+\input{../../modules/newtons-method/newtons-method-ex1}
+\input{../../modules/newtons-method/newtons-method-ex-findpoly2}
+} %end lecture
+
+
+\end{document}

@@ -1,0 +1,469 @@
+\documentclass%
+%[handout, 10pt]
+[10pt]
+{beamer} %
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
+
+\usepackage{cancel}
+\usepackage{wasysym, marvosym}
+% % % % % % % %
+% % % % % % % %
+% % % % % % % %
+%IMPORTANT
+%compiles with 
+%pdflatex -shell-escape 
+%IMPORTANT
+% % % % % % % %
+% % % % % % % %
+% % % % % % % %
+
+\setbeamersize{text margin left=0.4cm, text margin right=0.4cm }
+
+
+\mode<presentation>
+{
+\useinnertheme{rounded}
+%\useoutertheme{infolines}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[all,cmtip]{xy}
+\usepackage{times}
+\usepackage{../example-templates}
+\usepackage{../pstricks-commands}
+\usepackage{pst-3dplot}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+%\usepackage[usenames]{color}
+\usepackage{pgfplots}
+\usepackage{booktabs} % for tabular integration
+\usepackage{xparse}   % for tabular integration 
+\usepackage{multimedia}
+
+% % % % % % % % % % % %% for tabular integration
+\tikzset{Arrow Style/.style={text=black, font=\boldmath}}%
+
+\newcommand{\tikzmark}[1]{%
+    \tikz[overlay, remember picture, baseline] \node (#1) {};%
+}
+
+\newcommand*{\XShift}{0.5em}%
+\newcommand*{\YShift}{0.5ex}%
+
+\NewDocumentCommand{\DrawArrow}{s O{} m m m}{%
+    \begin{tikzpicture}[overlay,remember picture]
+        \draw[->, thick, Arrow Style, #2] 
+                ($(#3.west)+(\XShift,\YShift)$) -- 
+                ($(#4.east)+(-\XShift,\YShift)$)
+        node [midway,above] {#5};
+    \end{tikzpicture}
+}
+% % % % % % % % % % END % for tabular integration
+
+
+%\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\usefonttheme[onlymath]{serif}
+\usetheme{Singapore}
+\usepackage[T1]{fontenc} % Needed for Type1 Concrete
+
+
+\graphicspath{{../../modules/}}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\vs}{{\vspace*{3mm}}}
+\newcommand{\vsp}{{\vspace*{3mm} \pause}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\dx}{{ \text{ dx}}}
+\newcommand{\To}{{ \Rightarrow }}
+
+\newcommand{\R}{{\mathbb{R}}}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\newcommand{\currentLecture}{9}
+\newcommand{\lect}[4]{
+\ifnum#3=\currentLecture
+  \date{#1}
+  \lecture[#1]{#2}{#3}
+#4
+\else
+%include nothing
+\fi
+}
+
+%\setbeamertemplate{footline}
+%{
+%  \leavevmode%
+%  \hbox{%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortauthor
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertshorttitle
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+%    \usebeamerfont{date in head/foot}\insertshortdate{}
+%  \end{beamercolorbox}}%
+%  \vskip0pt%
+%}
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+%\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
+%\logo{\pgfuseimage{logo}}
+
+\begin{document}
+
+\AtBeginLecture{%
+
+\title[\insertlecture]{Math 1013}
+\subtitle{\insertlecture}
+\author[]{Dr. Tim Alderson}
+
+%when people substitute for me:
+%\author[FreeCalc \\ Math 140]{ Instructor: Shuang Cai }
+\institute[UNB Saint John]{University of New Brunswick Saint John}
+\date{\insertshortlecture}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+}%
+
+\lect{Week 1, Sections 5.1 and 5.2}{Areas, Distances, The Definite Integral}{1}{% begin lecture
+\section{Areas and Distances}
+\input{../../modules/integration/summation-formulas}
+\subsection{The Area Problem}
+\input{../../modules/integration/areas-intro}
+\input{../../modules/integration/areas-ex1}
+\input{../../modules/integration/areas-ex2}
+\input{../../modules/integration/area-def}
+%\input{../../modules/integration/sigma-notation}
+\section{The Definite Integral}
+\input{../../modules/integration/definite-integral-def}
+%\input{../../modules/integration/midpoint-rule}
+\input{../../modules/integration/continuous-functions-integrable}
+\input{../../modules/integration/definite-integral-negative}
+\subsection{Evaluating Integrals}
+\input{../../modules/integration/definite-integral-ex2}
+\subsection{Properties of the Definite Integral}
+% WARNING: This next module could use some pictures.
+
+\input{../../modules/integration/definite-integral-properties}
+\input{../../modules/integration/definite-integral-properties-ex6}
+% WARNING: This next module could use some pictures.
+\input{../../modules/integration/definite-integral-properties-split}
+\input{../../modules/integration/definite-integral-properties-ex7}
+% WARNING: This next module could use some pictures.
+\input{../../modules/integration/definite-integral-properties-comparison}
+}% end lecture
+
+
+\lect{Week 2}{Definite Integrals and FTC2}{2}{% begin lecture
+\section{Evaluating Definite Integrals}
+\subsection{The Evaluation Theorem (FTC part 2)}
+\input{../../modules/integration/FTC-part2}
+\input{../../modules/integration/FTC-part2-ex5}
+\input{../../modules/integration/evaluation-bounds}
+\input{../../modules/integration/FTC-part2-ex6}
+\input{../../modules/integration/FTC-part2-ex7}
+\subsection{Indefinite Integrals}
+\input{../../modules/integration/indefinite-integral-intro}
+\input{../../modules/integration/integral-table}
+\input{../../modules/integration/indefinite-integral-ex1}
+\input{../../modules/integration/indefinite-integral-ex2}
+\input{../../modules/integration/indefinite-integral-ex3}
+\input{../../modules/integration/indefinite-integral-ex5}
+\section{The Fundamental Theorem of Calculus}
+\input{../../modules/integration/FTC-intro}
+% WARNING: This section could use more pictures.
+% It would be nice to have animated pictures of the area-so-far function. Todor: Greg, what do you mean?
+\input{../../modules/integration/functions-defined-as-integrals}
+\input{../../modules/integration/FTC-part1-demo}
+\input{../../modules/integration/FTC-part1}
+\input{../../modules/integration/FTC-part1-ex2}
+\input{../../modules/integration/FTC-part1-exs}
+\input{../../modules/integration/FTC-part1-ex4}
+\input{../../modules/integration/FTC-both}
+\input{../../modules/integration/FTC-part1-solving}
+\subsection{Proof of FTC, part 1}
+\input{../../modules/integration/FTC-part1-proof}
+\section{The Net Change Theorem}
+\input{../../modules/integration/net-change-intro}
+\input{../../modules/integration/net-change-physics}
+\input{../../modules/integration/net-change-ex6}
+\input{../../modules/antiderivatives/rectilinear-motion-intro}
+\input{../../modules/antiderivatives/rectilinear-motion-ex7}
+\input{../../modules/antiderivatives/marginal-cost-ex1}
+}% end lecture
+
+
+\lect{Week 3}{Substitution and Area Between Curves}{3}{% begin lecture
+\input{../../modules/substitution-rule/substitution-page1}
+\section{Substitution}
+\input{../../modules/substitution-rule/substitution-intro}
+\input{../../modules/substitution-rule/substitution-rule-statement}
+\input{../../modules/substitution-rule/substitution-outline}
+\input{../../modules/substitution-rule/substitution-ex1}
+\input{../../modules/substitution-rule/substitution-ex2}
+\input{../../modules/substitution-rule/substitution-rule-example3}
+\input{../../modules/substitution-rule/substitution-rule-ex4}
+\input{../../modules/substitution-rule/substitution-rule-difficult}
+\input{../../modules/substitution-rule/substitution-rule-trig-functions}
+\subsection{Substitution rule and definite Integrals}
+\input{../../modules/substitution-rule/substitution-rule-definite-integrals}
+\input{../../modules/substitution-rule/substitution-rule-definite-integrals-ex6}
+\input{../../modules/substitution-rule/substitution-rule-definite-integrals-ex7}
+\section{Integration and symmetry}
+% WARNING: This next module could use some pictures... pictures are being added...
+\input{../../modules/integration/integrals-of-symmetric-functions}
+\input{../../modules/integration/integrals-of-symmetric-functions-ex8}
+\input{../../modules/integration/integrals-of-symmetric-functions-ex9}
+\section{More About Areas}
+% WARNING: The slides for section 6.1 have ugly pictures.
+% They need to be brought up-to-date. In particular, 
+% the rectangles need black outlines and half-opaque orange shading.
+\input{../../modules/area-between-curves/area-between-curves-intro}
+\input{../../modules/area-between-curves/area-between-curves-def}
+\input{../../modules/area-between-curves/area-between-curves-ex1}
+\input{../../modules/area-between-curves/area-between-curves-ex2}
+\input{../../modules/area-between-curves/area-between-curves-ex5}
+\input{../../modules/area-between-curves/area-between-curves-Horizontal}
+}% end lecture
+
+\lect{Week 4}{Volumes and Average Value}{4}{% begin lecture
+\input{../../modules/volumes/volumes-page1}
+\section{Volumes}
+\input{../../modules/volumes/volumes-intro}
+\input{../../modules/volumes/volumes-def}
+\input{../../modules/volumes/volumes-more}
+\input{../../modules/volumes/volumes-ex2}
+\input{../../modules/volumes/volumes-otherline}
+\input{../../modules/volumes/volumes-more2}
+\input{../../modules/volumes/volumes-washer}
+\section{Average Value}
+\input{../../modules/average-value/avg_value}
+%\section{Volumes by Cylindrical Shells}
+%\input{../../modules/volumes/cylindrical-shells-intro}
+%\input{../../modules/volumes/cylindrical-shells-def}
+%\input{../../modules/volumes/cylindrical-shells-ex}
+%\input{../../modules/volumes/cylindrical-shells-otherline}
+%\input{../../modules/volumes/volumes-guidelines}
+}% end lecture
+
+\lect{Week 5}{Integration by Parts, and Trigonometric Integrals}{5}{% begin lecture
+\input{../../modules/covers/W5page1}
+\section{Integration by Parts}
+\input{../../modules/integration-by-parts/integration-by-parts-intro}
+\input{../../modules/integration-by-parts/integration-by-parts-ex1}
+\input{../../modules/integration-by-parts/integration-by-parts-ex2}
+\input{../../modules/integration-by-parts/integration-by-parts-ex3}
+\input{../../modules/integration-by-parts/integration-by-parts-ex4}
+\input{../../modules/integration-by-parts/integration-by-parts-ex5}
+\input{../../modules/integration-by-parts/tabular}
+\input{../../modules/integration-by-parts/tabular-ex}
+\input{../../modules/integration-by-parts/tabular-ex1}
+\section{Trigonometric Integrals}
+\input{../../modules/trig-integrals/trig-integrals-sin-cos}
+\input{../../modules/trig-integrals/trig-integrals-ex1}
+\input{../../modules/trig-integrals/trig-integrals-ex2}
+\input{../../modules/trig-integrals/trig-integrals-ex3}
+\input{../../modules/trig-integrals/sine-summary}
+\input{../../modules/trig-integrals/trig-integrals-tan-sec}
+\input{../../modules/trig-integrals/trig-integrals-ex5}
+\input{../../modules/trig-integrals/trig-integrals-ex6}
+\input{../../modules/trig-integrals/trig-integrals-ex7}
+\input{../../modules/trig-integrals/trig-integrals-ex8}
+\input{../../modules/trig-integrals/sine-summary}
+%\input{../../modules/trig-integrals/trig-integrals-rationalizing-substitution}
+%\input{../../modules/trig-integrals/trig-integrals-rationalizing-substitution-ex1}
+%\input{../../modules/trig-integrals/trig-integrals-rationalizing-substitution-integral-of-sec}
+%\input{../../modules/trig-integrals/trig-integrals-sin-cos}
+\input{../../modules/trig-integrals/trig-integrals-sinm-cosn}
+\input{../../modules/trig-integrals/trig-integrals-sinm-cosn-ex9}
+%\input{../../modules/trig-integrals/trig-integrals-without-rationalizing-substitution}
+}% end lecture
+
+\lect{Week 6}{Trigonometric Substitution}{6}{% begin lecture
+\input{../../modules/covers/W6_trigsub}
+\section{Trigonometric Substitution}
+\input{../../modules/trig-substitution/trig-substitutions-intro}
+\input{../../modules/trig-substitution/trig-substitution-case-1a-tan}
+\input{../../modules/trig-substitution/trig-substitution-case-1-cot}
+\input{../../modules/trig-substitution/trig-substitution-case-2a-sin}
+\input{../../modules/trig-substitution/trig-substitution-case-2-cos}
+\input{../../modules/trig-substitution/trig-substitution-case-3-sec}
+\input{../../modules/trig-substitution/trig-substitutions-table}
+\input{../../modules/trig-substitution/trig-substitutions-ex1a}
+\input{../../modules/trig-substitution/trig-substitutions-process}
+%\input{../../modules/trig-substitution/trig-substitutions-ex1}
+%\input{../../modules/trig-substitution/trig-substitutions-ex2}
+\input{../../modules/trig-substitution/trig-substitutions-ex3a}
+%\input{../../modules/trig-substitution/trig-substitutions-ex3}
+\input{../../modules/trig-substitution/trig-substitutions-ex4}
+\input{../../modules/trig-substitution/trig-substitutions-ex5a}
+\input{../../modules/trig-substitution/trig-substitutions-ex2a}
+\input{../../modules/trig-substitution/trig-substitutions-ex7}
+}% end lecture
+
+
+
+\lect{Week 7}{Partial Fractions}{7}{% begin lecture
+\input{../../modules/covers/W7_PartialFractions}
+\section{Partial Fractions}
+\input{../../modules/partial-fractions/partial-fractions-intro}
+\input{../../modules/partial-fractions/partial-fractions-definition}
+\input{../../modules/partial-fractions/partial-fractions-long-division}
+\input{../../modules/partial-fractions/partial-fractions-long-division-ex1}
+\input{../../modules/partial-fractions/partial-fractions-casesTA}
+%\input{../../modules/partial-fractions/rational-functions-to-partial-fractions}
+\input{../../modules/partial-fractions/partial-fractions-case1}
+\input{../../modules/partial-fractions/partial-fractions-case1-ex2}
+\input{../../modules/partial-fractions/partial-fractions-case1-quick-trick}
+\input{../../modules/partial-fractions/partial-fractions-case2}
+\input{../../modules/partial-fractions/partial-fractions-case2-ex4}
+\input{../../modules/partial-fractions/partial-fractions-case3}
+\input{../../modules/partial-fractions/partial-fractions-case3-ex5}
+\input{../../modules/partial-fractions/partial-fractions-case4}
+\input{../../modules/partial-fractions/partial-fractions-case4-ex7}
+\input{../../modules/partial-fractions/partial-fractions-rationalize-intro}
+\input{../../modules/partial-fractions/partial-fractions-rationalize-ex9}
+\input{../../modules/partial-fractions/partial-fractionsSummaryProcess}
+%\input{../../modules/partial-fractions/partial-fractions-building-blocks-intro}
+%\input{../../modules/partial-fractions/from-building-blocks-to-complete-algorithm-intro}
+%\input{../../modules/partial-fractions/partial-fractions-building-blocks-the-3-types}
+%\input{../../modules/partial-fractions/partial-fractions-building-block-1a}
+%\input{../../modules/partial-fractions/partial-fractions-building-block-1b}
+%\input{../../modules/partial-fractions/partial-fractions-building-blocks-linear-substitutions-summary}
+%\input{../../modules/partial-fractions/partial-fractions-building-block-2b}
+%\input{../../modules/partial-fractions/partial-fractions-building-block-3b}
+%\input{../../modules/partial-fractions/partial-fractions-building-blocks-2a-and-3a} 
+}% end lecture
+
+\lect{Week 8}{Approximate Integration and Integration Strategies}{8}{% begin lecture
+\input{../../modules/covers/W8_ApproximateIntegration}
+\section{Integration Strategies}
+\input{../../modules/integration-strategies/strategies}
+\section{Approximate Integration}
+\input{../../modules/approximate-integration/approximate-integration-intro}
+\input{../../modules/approximate-integration/approximate-integration-midpoint}
+\input{../../modules/approximate-integration/approximate-integration-trapezoid}
+\input{../../modules/approximate-integration/approximate-integration-trapezoid-ex1}
+\input{../../modules/approximate-integration/approximate-integration-trapezoid-ex2}
+\input{../../modules/approximate-integration/approximate-integration-simpson}
+\input{../../modules/approximate-integration/approximate-integration-simpson-ex1}
+\input{../../modules/approximate-integration/approximate-integration-simpson-ex2}
+}% end lecture
+
+\lect{Week 9}{Improper Integrals and Arc Length}{9}{% begin lecture
+\input{../../modules/covers/W9_ImproperAndArc}
+\section{Improper Integrals}
+\input{../../modules/improper-integrals/improper-integral-def}
+\input{../../modules/improper-integrals/improper-integral-geometry}
+\input{../../modules/improper-integrals/improper-integral-type1}
+%\input{../../modules/improper-integrals/improper-integral-type1-arctan-geometric-interpretation}
+\input{../../modules/improper-integrals/improper-integral-type1-ex1}
+\input{../../modules/improper-integrals/improper-integral-type1-ex3}
+\input{../../modules/improper-integrals/improper-integral-type1-ex4}
+\input{../../modules/improper-integrals/improper-integral-type2}
+\input{../../modules/improper-integrals/improper-integral-type2-ex5}
+\input{../../modules/improper-integrals/improper-integral-type2-ex7}
+\input{../../modules/improper-integrals/improper-integral-comparison}
+\input{../../modules/improper-integrals/improper-integral-comparison-ex9}
+\input{../../modules/improper-integrals/improper-integral-comparison-ex10}
+\section{Arc Length}
+\input{../../modules/arc-length/arc-length-intro}
+\input{../../modules/arc-length/arc-length-derivation}
+\input{../../modules/arc-length/arc-length-def}
+%\input{../../modules/arc-length/arc-length-def-parametric}
+%\input{../../modules/arc-length/arc-length-derivation-parametric}
+%\input{../../mo %dules/arc-length/arc-length-does-not-depend-on-parametrization-when-one-to-one}
+\input{../../modules/arc-length/arc-length-ex1}
+\input{../../modules/arc-length/arc-length-flip-xy}
+\input{../../modules/arc-length/arc-length-flip-xy-ex2}
+%\input{../../modules/arc-length/arc-length-function-graph-from-parametric-curve-length}
+\input{../../modules/arc-length/arc-length-halfb}
+\input{../../modules/arc-length/arc-length-half-ex}
+}% end lecture
+
+\lect{Week 10}{Differential Equations}{10}{% begin lecture
+%\input{../../modules/covers/W10_DEs}
+\section{Models}
+\input{../../modules/diff-eq-models/diff-eq-def}
+\input{../../modules/diff-eq-models/diff-eq-terminology}
+\input{../../modules/diff-eq-models/diff-eq-ex1}
+\input{../../modules/diff-eq-models/diff-eq-initial-condition}
+\input{../../modules/diff-eq-models/diff-eq-initial-condition-ex2}
+%\input{../../modules/diff-eq-models/diff-eq-terminology}
+%\input{../../modules/diff-eq-models/diff-eq-natural-growth}
+%\input{../../modules/diff-eq-models/diff-eq-natural-growth-solution}
+\input{../../modules/diff-eq-models/natural-growth-reminder}
+\input{../../modules/diff-eq-models/natural-growth-solution}
+\input{../../modules/diff-eq-models/diff-eq-logistic}
+\input{../../modules/diff-eq-models/diff-eq-logistic-graph}
+%\input{../../modules/diff-eq-models/logistic-ex2}
+%\input{../../modules/diff-eq-models/logistic-reminder}
+%\input{../../modules/diff-eq-models/logistic-solution}
+\input{../../modules/diff-eq-models/diff-eq-spring}
+\section{Separable Equations}
+\input{../../modules/diff-eq-separable/diff-eq-separable-def}
+\input{../../modules/diff-eq-separable/diff-eq-separable-solution}
+\input{../../modules/diff-eq-separable/diff-eq-separable-ex1}
+\input{../../modules/diff-eq-separable/diff-eq-separable-ex3}
+\input{../../modules/diff-eq-separable/mixing-problem-intro}
+\input{../../modules/diff-eq-separable/mixing-problem-ex6}
+\input{../../modules/diff-eq-separable/orthogonal-trajectory-def}
+\input{../../modules/diff-eq-separable/orthogonal-trajectory-ex5}
+}% end lecture
+
+
+\lect{Week 10.75-11}{Linear Differential Equations}{11}{% begin lecture
+\input{../../modules/covers/W11}
+\section{First Order Linear Differential Equations}
+\input{../../modules/diff-eq-linear/diff-eq-linear}
+\section{Second Order Linear Differential Equations}
+\input{../../modules/diff-eq-2nd/diff-eq-2nd}
+}% end lecture
+
+\lect{Week 11.75}{Taylor Polynomials and Series, a Nonrigorous Introduction}{12}{% begin lecture
+\input{../../modules/covers/W12}
+%\section{Taylor and Maclauren Polynomials}
+\input{../../modules/Taylor-Polynomials/Taylor-intro}
+\input{../../modules/Taylor-Polynomials/Taylor-why}
+\input{../../modules/Taylor-Polynomials/maclaurin-exp}
+\input{../../modules/Taylor-Polynomials/maclaurin-geo}
+\input{../../modules/Taylor-Polynomials/power-series-arctan}
+\input{../../modules/Taylor-Polynomials/taylor-ex1}
+\input{../../modules/Taylor-Polynomials/maclaurin-sin}
+\input{../../modules/Taylor-Polynomials/maclaurin-cos}
+\input{../../modules/Taylor-Polynomials/maclaurin-list}
+\input{../../modules/Taylor-Polynomials/EulerEquation}
+%\input{../../modules/power-series/power-series-def}
+%\input{../../modules/power-series/taylor-series-def}
+%\input{../../modules/power-series/maclaurin-series-def}
+%\input{../../modules/power-series/maclaurin-series-ex6}
+%\input{../../modules/power-series/maclaurin-series-ex11}
+%\input{../../modules/power-series/maclaurin-series-limit-ex}
+%\input{../../modules/power-series/maclaurin-series-sin-ex}
+%\input{../../modules/power-series/power-series-as-function-intro}
+%\input{../../modules/power-series/power-series-as-function-ex1}
+%\input{../../modules/power-series/power-series-as-function-ex2}
+%\input{../../modules/power-series/power-series-as-function-ex3}
+%\input{../../modules/power-series/power-series-calculus}
+%\input{../../modules/power-series/power-series-calculus-ex4}
+}% end lecture
+
+
+\end{document}
