@@ -3351,6 +3351,11 @@ graphicsCached not {
 /iterationsY #5\space def
 /DeltaX #6\space def
 /DeltaY #7\space def
+graphicsFileAvailable not
+{ (Implicit function plot: graphics file cache not available. I am DECREASING THE NUMBER OF ITERATIONS in the X and Y direction to 100x100 else this will take way too long. ) ==
+iterationsX 100 gt {/DeltaX DeltaX iterationsX mul 100 div def /iterationsX 100 def} if 
+iterationsY 100 gt {/DeltaY DeltaY iterationsY mul 100 div def /iterationsY 100 def} if 
+}if
 /interpolate {20 dict begin
 /rightPt exch def
 /leftPt exch def
