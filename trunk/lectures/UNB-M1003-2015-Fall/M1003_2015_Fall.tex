@@ -1,16 +1,26 @@
 \documentclass%
-%[10pt]
-[handout, 10pt]
+[10pt]
+%[handout, 10pt]
 {beamer} %
 %\usepackage{pgfpages}
 %\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
 
-%Tim, this does not compile, is it necessary?
-%\usepackage{pgfplots}
+
+\usepackage{etex}
 
 
-\newcommand{\currentLecture}{17}
 
+\newcommand{\currentLecture}{18}
+
+\usepackage [dvips={-o -Ppdf}, pdfcrop={},crop=off]{auto-pst-pdf}
+
+% for airplane symbol in section 3.9 (Related Rates) need this
+\usepackage{bbding}
+\let\Cross\relax
+\let\Square\relax
+
+\usepackage{cancel}
+\usepackage{wasysym, marvosym}
 % % % % % % % %
 % % % % % % % %
 % % % % % % % %
@@ -27,9 +37,6 @@
 
 \mode<presentation>
 {
-%added by Todor: without it the vertical space is bad. Tim, please remove if you think this is bad!
-\useoutertheme %[subsection=false]
-{smoothbars}
 \useinnertheme{rounded}
 %\useoutertheme{infolines}
 \usecolortheme{orchid}
@@ -42,12 +49,13 @@
 
 
 \input{../example-templates}
-\renewcommand{\autopstpdfConflictResolutionTemporary}[1]{}
-\usepackage [dvips={-o -Ppdf}, pdfcrop={},crop=off]{auto-pst-pdf}
 \input{../pstricks-commands}
-% for airplane symbol in section 3.9 (Related Rates) need this
 
-\usepackage{wasysym, marvosym}
+\usepackage{pst-3dplot}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
 
 
 \usepackage{booktabs} % for tabular integration
@@ -155,16 +163,10 @@
 \end{frame}
 }%
 
-
-%Tim, the %DesiredLectureName line is a helper label I use for my 
-%automated build system (I run a special program written by me to build)
-%all lectures at once. I hope you don't mind this line!
-
 \lect{Chapter 1}{Functions and Models}{1}{ %begin lecture
-%DesiredLectureName: Functions_and_Models
 \section{1.1 Ways to Represent a Function}
 \subsection{The Definition of a Function}
-\input{../../modules/functions-basics/function-def}
+\input{../../modules/precalculus/function-def}
 \subsection{The Vertical Line Test}
 \input{../../modules/precalculus/vertical-line-test}
 \subsection{Piecewise Defined Functions}
@@ -182,7 +184,6 @@
 }% end lecture
 
 \lect{Fall 2015}{Sections 1.2 and 1.3}{2}{% begin lecture
-%DesiredLectureName: Catalog_Essential_Functions_Constructing_Functions
 \section{1.2 A Catalog of Essential Functions}
 \subsection{Linear Functions}
 \input{../../modules/precalculus/linear-functions}
@@ -200,11 +201,11 @@
 \input{../../modules/precalculus/transcendental-functions-version2}
 \section{1.3 New Functions from Old Functions}
 \subsection{Transformations of Functions}
-\input{../../modules/function-graph-linear-transformations/transformations-shifts}
-\input{../../modules/function-graph-linear-transformations/transformations-shifts-example}
-\input{../../modules/function-graph-linear-transformations/transformations-magnifications}
-\input{../../modules/function-graph-linear-transformations/transformations-horizontal-stretches}
-\input{../../modules/function-graph-linear-transformations/transformations-absolute-value}
+\input{../../modules/precalculus/transformations-shifts}
+\input{../../modules/precalculus/transformations-shifts-example}
+\input{../../modules/precalculus/transformations-magnifications}
+\input{../../modules/precalculus/transformations-horizontal-stretches}
+\input{../../modules/precalculus/transformations-absolute-value}
 \subsection{Combinations of Functions}
 \input{../../modules/precalculus/combinations-functions}
 \input{../../modules/precalculus/composition-functions}
@@ -212,26 +213,17 @@
 }% end lecture
 
 \lect{Fall 2015}{Trigonometry}{3}{%begin lecture
-%DesiredLectureName: Trigonometry
 \section{Trigonometry}
 \subsection{Angles}
 \input{../../modules/trigonometry/angles}
 \subsection{The Trigonometric Functions}
-\input{../../modules/trigonometry/trig-functions-and-right-angle-triangles}
+\input{../../modules/trigonometry/trig-functions}
 \input{../../modules/trigonometry/trig-functions-unit-circle}
 \input{../../modules/trigonometry/trig-example}
 \input{../../modules/trigonometry/trig-functions-example2}
 \subsection{Trigonometric Identities}
-%From Todor: the trig slides got split into more fine-grained modules:
-\input{../../modules/trigonometry/trig-functions-even-odd}
-\input{../../modules/trigonometry/trig-functions-periodicity}
-\input{../../modules/trigonometry/trig-identity-definition}
-\input{../../modules/trigonometry/trig-identities-pythagorean}
-\input{../../modules/trigonometry/trig-identities-angle-sum-summary}
-\input{../../modules/trigonometry/trig-identities-example-1}
-%From Todor: these slides are new, for your consideration ...
-%\input{../../modules/trigonometry/trig-identities-strategy-note}
-%\input{../../modules/trigonometry/trig-identities-example-2}
+\input{../../modules/trigonometry/trig-identities}
+\input{../../modules/trigonometry/trig-identities-example}
 \subsection{Trigonometric Identities and Complex Numbers}
 \input{../../modules/complex-numbers/complex-numbers-definition}
 \youWillNotBeTested
@@ -241,13 +233,10 @@
 \subsection{Graphs of the Trigonometric Functions}
 % I would like to put in a section here on how to draw sine and cosine.
 % I could copy this from the textbook for the pre-calculus course.
-\input{../../modules/trigonometry/graphs-sin-and-cos}
-\input{../../modules/trigonometry/graphs-tan-and-cot}
-\input{../../modules/trigonometry/graphs-sec-and-csc}
+\input{../../modules/trigonometry/trig-functions-graphs}
 }% end lecture
 
 \lect{Fall 2015}{Section 1.4}{4}{% begin lecture
-%DesiredLectureName: Exponential_Functions
 \section{Exponential Functions}
 \input{../../modules/exponential-functions/exponential-function-def}
 \input{../../modules/exponential-functions/exponential-function-def-various-approaches}
@@ -263,7 +252,6 @@
 }% end lecture
 
 \lect{Fall 2015}{Section 1.5}{5}{% begin lecture
-%DesiredLectureName: Inverse_Functions
 \section{Inverse Functions}
 \subsection{One-to-one Functions}
 \input{../../modules/inverse-functions/one-to-one-def}
@@ -306,20 +294,17 @@
 \input{../../modules/inverse-trig/arctan-def}
 \input{../../modules/inverse-trig/arctan-ex3}
 \input{../../modules/inverse-trig/arctan-ex4}
-%Tim, this file is missing:
 \input{../../modules/inverse-trig/inverse-trig-summary}
 }
 
 
 \lect{Fall 2015}{Sections 2.1-2.2}{6}{% begin lecture
-%DesiredLectureName: Tangeng_Problem_Limits
 \section{The Tangent and Velocity Problems}
 \subsection{The Tangent Problem}
 \input{../../modules/limits/tangent-overview}
 \input{../../modules/limits/tangent-problem}
 \input{../../modules/limits/tangent-def}
 \subsection{Velocities}
-%Tim, this file is missing:
 \input{../../modules/limits/velocity}
 \section{The Limit of a Function}
 \input{../../modules/limits/limit-def}
@@ -343,7 +328,6 @@
 
 
 \lect{Fall 2015}{Sections 2.3}{7}{% begin lecture
-%DesiredLectureName: Limit_Computation
 \section{Calculating Limits Using Limit Laws}
 \input{../../modules/limits/limit-laws}
 \input{../../modules/limits/limit-laws-ex2}
@@ -363,15 +347,13 @@
 }% end lecture
 
 \lect{Fall 2015}{Section 2.5}{8}{% begin lecture
-%DesiredLectureName: Continuity
 \section{Continuity}
 \input{../../modules/continuity/continuous-def}
 %\input{../../modules/continuity/discontinuous-def}
 \input{../../modules/continuity/discontinuous-def-version2}
 \input{../../modules/continuity/continuity-ex1}
 \input{../../modules/continuity/greatest-integer-function}
-%Tim, this file is missing:
-\input{../../modules/continuity/continuity-ex2}
+\input{../../modules/continuity/discontinuity-types-defined}
 \input{../../modules/continuity/continuous-one-sided}
 \input{../../modules/continuity/continuity-ex3}
 \input{../../modules/continuity/continuity-on-interval}
@@ -384,7 +366,6 @@
 } %end lecture
 
 \lect{Fall 2015}{Section 2.6}{9}{% begin lecture
-%DesiredLectureName: Limits_at_Infinity
 \section{Limits at Infinity}
 \subsection{Limits at Infinity; Horizontal Asymptotes}
 \input{../../modules/curve-sketching/limit-at-infinity-intro}
@@ -404,8 +385,10 @@
 
 %TEST
 
+
+
+
 \lect{Fall 2015}{Sections 2.7 and 2.8}{10}{% begin lecture
-%DesiredLectureName: Tangents_Derivatives
 \section{Tangents}
 \input{../../modules/derivatives/tangents-reminder}
 \input{../../modules/derivatives/tangents-ex1}
@@ -436,7 +419,6 @@
 }% end lecture
 
 \lect{Fall 2015}{Sections 3.1 and 3.2}{11}{% begin lecture
-%DesiredLectureName: Differentiation_Formulas
 \section{Differentiation Formulas}
 \input{../../modules/derivatives/differentiation-formulas-constant}
 \subsection{Power Functions}
@@ -476,7 +458,6 @@
 }% end lecture
 
 \lect{Fall 2015}{Section 3.3}{12}{% begin lecture
-%DesiredLectureName: Derivatives_Trig_Functions
 \section{Derivatives of Trigonometric Functions}
 \input{../../modules/derivatives-trig/derivative-sine-graph}
 \input{../../modules/derivatives-trig/derivative-sine}
@@ -493,7 +474,6 @@
 }% end lecture
 
 \lect{Fall 2015}{Section 3.4}{13}{% begin lecture
-%DesiredLectureName: The_Chain_Rule
 \section{The Chain Rule}
 \input{../../modules/chain-rule/chain-rule-intro}
 \input{../../modules/chain-rule/chain-rule-statement-extended}
@@ -525,7 +505,6 @@
 }% end lecture
 
 \lect{Fall 2015}{Implicit Differentiation}{14}{% begin lecture
-%DesiredLectureName: Implicit_Differentiation
 %\section{Understanding computations with derivatives}
 %\input{../../modules/derivatives-computation-understanding/derivatives-rules-summary}
 %\input{../../modules/derivatives-computation-understanding/constant-multiple-rule-from-product}
@@ -540,20 +519,16 @@
 %\input{../../modules/derivatives-computation-understanding/sin-cos-rules-from-exponent}
 %}% end lecture
 %\lect{Fall 2015}{Section 3.5}{14}{% begin lecture
-
 \section{Implicit Differentiation}
 \input{../../modules/implicit-differentiation/implicit-differentiation-intro}
 \input{../../modules/implicit-differentiation/implicit-tangent-line}
 %\input{../../modules/implicit-differentiation/implicit-differentiation-ex1}
-%Tim, the following file is missing:
 \input{../../modules/implicit-differentiation/implicit-differentiation-ex2}
 \input{../../modules/implicit-differentiation/implicit-differentiation-ex3}
 \input{../../modules/implicit-differentiation/implicit-differentiation-ex4}
-%Tim, the following file is missing:
 \input{../../modules/implicit-differentiation/implicit-differentiation-ex5}
 %\input{../../modules/implicit-differentiation/implicit-differentiation-ex6}
 \input{../../modules/implicit-differentiation/implicit-trig}
-%Tim, the following file is missing:
 \input{../../modules/inverse-trig/arcsin-derivative2}
 %\input{../../modules/implicit-differentiation/implicit-second-derivative}
 %} %end lecture
@@ -571,7 +546,6 @@
 
 
 \lect{Fall 2015}{Section 3.6\\ Derivatives of Logarithmic Functions}{15}{% begin lecture
-%DesiredLectureName: Derivatives_Logarithmic_Functions
 \section{Derivatives of Logarithmic Functions}
 \input{../../modules/logarithms/general-log-derivative-implicit}
 \input{../../modules/logarithms/general-log-derivative-ex}
@@ -590,24 +564,17 @@
 
 
 \lect{Fall 2015}{Section 3.8}{16}{% begin lecture
-%DesiredLectureName: Expponential_Growth_Decay
 \section{Exponential Growth and Decay}
 \input{../../modules/diff-eq-models/diff-eq-natural-growth}
 \input{../../modules/diff-eq-models/diff-eq-natural-growth-solution}
-
-%Tim, the following file is missing:
-\input{../../modules/exponential-growth-and-decay/law-of-natural-growth}
-%Tim, the following file is missing:
-\input{../../modules/exponential-growth-and-decay/Population-Example}
-%Tim, the following file is missing:
-\input{../../modules/exponential-growth-and-decay/Decay-Example}
-%Tim, the following file is missing:
+\input{../../modules/exponential-growth-and-decay/exponential-law-of-natural-growth}
+\input{../../modules/exponential-growth-and-decay/natural-growth-population-Ex}
+\input{../../modules/exponential-growth-and-decay/exponential-decay-model-ex2}
 \input{../../modules/exponential-growth-and-decay/Newton-Law-Cooling}
 } %end lecture
 
 
 \lect{Fall 2015}{Section 3.9}{17}{% begin lecture
-%DesiredLectureName: Related_Rates
 \section{Related Rates}
 \input{../../modules/related-rates/related-rates-intro_new}
 \input{../../modules/related-rates/related-rates-ex1_new}
@@ -622,14 +589,15 @@
 % NEED 3.11 Hyperbolic Functions
 
 \lect{Fall 2015}{Section 3.11}{18}{% begin lecture
-%DesiredLectureName: Hyperbolic_Functions
 \section{Hyperbolic Functions}
-\input{../../modules/hyperbolic/Hyperbolic}
+\input{../../modules/hyperbolic-functions/hyperbolic-functions-def}
+\input{../../modules/hyperbolic-functions/hyperbolic-functions-why-hyperbolic-trig}
+\input{../../modules/hyperbolic-functions/hyperbolic-functions-derivatives}
+\input{../../modules/hyperbolic-functions/hyperbolic-functions-applications}
 } %end lecture
 
 
 \lect{Fall 2015}{Section 4.1}{19}{% begin lecture
-%DesiredLectureName: Maxima_Minima_Optimization
 \section{Maximum and Minimum Values}
 \input{../../modules/maxima-minima/max-min-intro}
 \input{../../modules/maxima-minima/max-min-def}
@@ -652,17 +620,14 @@
 } %end lecture
 
 \lect{Fall 2015}{4.2: The Mean Value Theorem}{38}{% begin lecture
-%DesiredLectureName: The_Mean_Value_Theorem
 \section{Mean Value theorem}
 \input{../../modules/maxima-minima/MVT-intro}
 \input{../../modules/maxima-minima/rolles-theorem}
 \input{../../modules/maxima-minima/rolles-theorem-ex}
 \input{../../modules/maxima-minima/MVT-meaning}
 \input{../../modules/maxima-minima/MVT-proof}
-%Tim, the following file is missing:
-\input{../../modules/maxima-minima/MVT-ex}
+\input{../../modules/maxima-minima/MVT-ex1}
 \input{../../modules/maxima-minima/MVT-corollary1}
-%Tim, the following file is missing:
 \input{../../modules/maxima-minima/MVT-corollary1caveat}
 \input{../../modules/maxima-minima/MVT-corollary2}
 %\section{Linear Approximations} %there is no need to cover differentials earlier.
@@ -680,7 +645,6 @@
 
 \lect{Fall 2015}{4.3: How Derivatives Affect the Shape of a Graph
 }{40}{% begin lecture
-%DesiredLectureName: Derivatives_Curve_Shapes
 \section{Derivatives and the Shapes of Curves}
 \subsection{What Does $f'$ Say About $f$?}
 \input{../../modules/curve-sketching/first-derivative-up-down}
@@ -691,14 +655,11 @@
 \input{../../modules/curve-sketching/second-derivative-concavity}
 \input{../../modules/curve-sketching/inflection-point-def}
 \input{../../modules/curve-sketching/second-derivative-test}
-%Tim, the following file is missing:
 \input{../../modules/curve-sketching/second-derivative-test-ex1}
-%Tim, the following file is missing:
 \input{../../modules/curve-sketching/second-derivative-test-ex2}
 }% end lecture
 
 \lect{Fall 2015}{4.4: Indeterminate Forms and L'Hospital's Rule}{42}{% begin lecture
-%DesiredLectureName: LHospitals_Rule
 \section{Indeterminate Forms and L'Hospital's Rule}
 \input{../../modules/lhospital/lhospital-intro}
 \input{../../modules/lhospital/lhospital-statement}
@@ -719,7 +680,6 @@
 
 
 \lect{Fall 2015}{4.5: Curve sketching}{44}{% begin lecture
-%DesiredLectureName: Curve_Sketching
 \section{Curve sketching}
 \input{../../modules/curve-sketching/curve-sketching-ex6}
 \input{../../modules/exponential-functions/natural-exponential-ex7}
@@ -730,7 +690,6 @@
 
 
 \lect{Fall 2015}{4.7: Solving one variable optimization problems}{45}{% begin lecture
-%DesiredLectureName: One_Variable_Optimization
 \section{Solving one variable optimization problems}
 \input{../../modules/optimization/optimization-intro}
 \input{../../modules/optimization/optimization-ex1}
@@ -741,7 +700,6 @@
 
 
 \lect{Fall 2015}{4.9: Antiderivatives}{46}{% begin lecture
-%DesiredLectureName: Antiderivatives
 \section{Antiderivatives}
 \input{../../modules/antiderivatives/antiderivative-def}
 \input{../../modules/antiderivatives/antiderivatives-ex}
@@ -759,7 +717,6 @@
 }% end lecture
 
 \lect{}{Newton's Method}{50}{% begin lecture
-%DesiredLectureName: Newtons_Method
 \section{Newton's Method}
 \input{../../modules/newtons-method/newtons-method-intro}
 \input{../../modules/newtons-method/newtons-method-def}
