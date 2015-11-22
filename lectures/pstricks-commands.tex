@@ -1833,7 +1833,7 @@ errordict begin
 /invalidfileaccess
 { userdict begin /graphicsFileAvailable false def end
 (ERROR: failed to open file for caching large IIId rendering operations. ) print
-(This is not fatal but will cause your graphics to compile incredibly slowly. ) print
+(This is not fatal but will cause your graphics to compile incredibly slowly. I am TURNING OFF Z-buffering since you will have to wait forever for the computation. Your 3d graphics will be drawn by contours only! ) print
 (To fix this, compile with pdflatex --shell-escape. ) print
 (Make sure the file is executed in a folder with write priviledges. \string\n) print
 pop pop
@@ -1955,6 +1955,7 @@ put
 
 \newcommand{\fcComputePatchOrder}{
 /thePatchIncidenceGraph [thePatchCollection length {[]}repeat] def
+graphicsFileAvailable {
 /rowCounter -1 def
 (computing patch order... ) print
 (processing z-buffer row, column:) print
@@ -1972,6 +1973,7 @@ theZBuffer rowCounter get length {
 }repeat
 }repeat
 (... computing patch order done ) print
+}if
 }
 
 \newcommand{\fcSortPatchIndices}{
