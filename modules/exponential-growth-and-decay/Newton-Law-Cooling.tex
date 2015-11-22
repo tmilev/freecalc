@@ -1,0 +1,35 @@
+% begin module natural-growth-solution
+\begin{frame}
+\frametitle{Newton's Law of Cooling}
+Newton's Law of Cooling states that the rate of cooling of an object is 
+proportional to the temperature difference between the object and its 
+surroundings, provided that this difference is not too large.\\
+ (This law also applies to warming.) \\
+  If we let $T (t)$ be the temperature of the object at time $t$ and $T_s$ 
+be the temperature of the surroundings, 
+then we can formulate Newton's Law of Cooling as a differential equation: 
+\[
+\frac{dT}{dt}=k(T-T_s)
+\]
+where $ k $ is a constant of proportionality.\\ 
+This equation is not quite the same as $ y'=ky$, 
+so we make the change of variable $y = T - T_s$.\\ \pause
+
+ Because $T_s$ is constant, we have $y'(t) = T '(t)=k(T=T_s)=ky$, so the equation  becomes \[ y'=ky\] 
+ which we can solve for $ y $ and then for $ T $.
+
+\end{frame}
+
+\begin{frame}
+$\frac{dT}{dt}=k(T-T_s)$ and $y = T - T_s$ give  $y'=ky$, which has solution \[ y=y_0e^{kt} \]
+\onslide<2->{
+so
+\[ T-T_s=y_0e^{kt} \]
+ where $ y_0=T_0-T_s$,}
+ \onslide<3->{ so
+\[
+T=y_0e^{kt}+T_s=(T_0-T_s)e^{kt}+T_s
+\]}
+\end{frame}
+
+% end module natural-growth-solution

@@ -1,0 +1,73 @@
+% begin module natural-growth-solution
+\begin{frame}
+ Radioactive substances decay by spontaneously emitting radiation.\\  
+These substances decay at a rate proportional to the remaining mass.\\
+This means that if $m (t)$ is the mass remaining 
+from an initial mass $m_0$ of the substance, 
+the mass decays exponentially:
+\[
+m(t) = m_0e^{kt}
+\]
+
+ Physicists express the rate of decay in terms of 
+{\bf{half-life}}, the time required for half of any given quantity to decay.
+
+
+\end{frame}
+
+\begin{frame}
+\begin{example}[Radioactive Decay]
+The half-life of radium-226 is 1590 years.
+\begin{enumerate}
+\item[(a)] A sample of radium-226 has a mass of 100 mg. Find a
+     formula for the mass of the sample that remains after $t$     
+     years. 
+\item[(b)] Find the mass after 1000 years correct to the nearest
+     milligram.
+\item[(c)] When will the mass be reduced to 30 mg?
+ \end{enumerate}                          
+\end{example}
+
+\textbf{Solution:} \pause \\
+ (a) Let $m(t)$ be the mass (in mg) that
+     remains after $t$ years. 
+Then $m_0 = 100$, so  we have
+\[
+m(t) = m_0e^{kt} = 100e^{kt} 
+\]         
+\pause 
+To determine the decay constant we use the fact that the half-life is 1590 years.\\
+So, after 1590 years there will be $ \frac12\cdot 100=50 $mg. remaining. \pause 
+\begin{align*}
+\onslide<4->{m(1590)& =50   \;\;\To\;\;   100 e^{1590k}=50  } \onslide<5->{ \;\;\To\;\;   e^{1590k}= \frac12}   \onslide<6->{\;\;\To\;\;    1590k=\ln \left(\frac12\right)}\\ 
+& \onslide<7->{\pause \;\;\To\;\;  k = \frac{1}{1590}\ln \left(\frac12\right)}
+\end{align*}
+ 
+\end{frame}
+
+\begin{frame}
+It follows that 
+\begin{equation*}
+m(t) = 100e^{kt} = 100e^{\frac{t}{1590}\ln \left(\frac12\right)}   =  100e^{\ln \left(\frac12\right)^{\frac{t}{1590}}}   = 100\left(\frac12\right)^{\frac{t}{1590}}
+\end{equation*} \pause 
+
+(b) The mass after 1000 years is
+\[
+m(1000)=100 \cdot \left(\frac{1}{2}\right)^{\frac{1000}{1590}} \approx 65 \textrm{ mg}
+\]    
+\pause 
+For part (c) we want to find the value of $t$ such that $m (t) = 30$:
+\begin{align*}
+\onslide<4->{
+100 \cdot \left(\frac{1}{2}\right)^{\frac{t}{1590}}=30  
+& \;\;\To \;\;\left(\frac{1}{2}\right)^{\frac{t}{1590}}=0.3\\}  
+\onslide<5->{& \;\;\To \;\;\ln \left(\frac{1}{2}\right)^{\frac{t}{1590}}= \ln 0.3
+\\ } 
+\onslide<6->{& \;\;\To \;\; \frac{t}{1590} \ln \left(\frac{1}{2}\right)= \ln 0.3
+\\  }
+\onslide<7->{& \;\;\To \;\;t = 1590\cdot \frac{\ln 0.3}{\ln\frac12}\approx 2762 \textrm{ years}}
+\end{align*}
+
+\end{frame}
+
+% end module natural-growth-solution
