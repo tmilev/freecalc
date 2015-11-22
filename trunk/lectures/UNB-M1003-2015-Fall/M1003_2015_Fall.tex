@@ -5,22 +5,12 @@
 %\usepackage{pgfpages}
 %\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
 
+%this does not compile, is it necessary?
+%\usepackage{pgfplots}
 
-\usepackage{etex}
 
+\newcommand{\currentLecture}{1}
 
-
-\newcommand{\currentLecture}{17}
-
-\usepackage [dvips={-o -Ppdf}, pdfcrop={},crop=off]{auto-pst-pdf}
-
-% for airplane symbol in section 3.9 (Related Rates) need this
-\usepackage{bbding}
-\let\Cross\relax
-\let\Square\relax
-
-\usepackage{cancel}
-\usepackage{wasysym, marvosym}
 % % % % % % % %
 % % % % % % % %
 % % % % % % % %
@@ -37,6 +27,9 @@
 
 \mode<presentation>
 {
+%added by Todor: without it the vertical space is false. Please remove if you think this is bad!
+\useoutertheme %[subsection=false]
+{smoothbars}
 \useinnertheme{rounded}
 %\useoutertheme{infolines}
 \usecolortheme{orchid}
@@ -49,13 +42,12 @@
 
 
 \input{../example-templates}
+\renewcommand{\autopstpdfConflictResolutionTemporary}[1]{}
+\usepackage [dvips={-o -Ppdf}, pdfcrop={},crop=off]{auto-pst-pdf}
 \input{../pstricks-commands}
+% for airplane symbol in section 3.9 (Related Rates) need this
 
-\usepackage{pst-3dplot}
-
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\usepackage{pgfplots}
+\usepackage{wasysym, marvosym}
 
 
 \usepackage{booktabs} % for tabular integration
@@ -166,7 +158,7 @@
 \lect{Chapter 1}{Functions and Models}{1}{ %begin lecture
 \section{1.1 Ways to Represent a Function}
 \subsection{The Definition of a Function}
-\input{../../modules/precalculus/function-def}
+\input{../../modules/functions-basics/function-def}
 \subsection{The Vertical Line Test}
 \input{../../modules/precalculus/vertical-line-test}
 \subsection{Piecewise Defined Functions}
