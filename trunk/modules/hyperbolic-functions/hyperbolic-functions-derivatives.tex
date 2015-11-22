@@ -1,0 +1,42 @@
+% begin module hyperbolic-functions-def
+% % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{frame} 
+The derivatives of the hyperbolic functions are easily computed.\\ For example,
+\onslide<2->
+\begin{align*}
+\frac{d}{dx}\sinh x & = \frac{d}{dx}\left(\frac{e^x-e^{-x}}{2}\right)\\
+\onslide<3->{& = \frac{e^x+e^{-x}}{2}\\}
+\onslide<4->{& = \cosh x}
+\end{align*}
+\onslide<5->
+The differentiation formulas for the hyperbolic functions are as follows:
+ 
+
+\begin{definition}[Derivatives of Hyperbolic Functions]
+\[
+\begin{array}{l@{\extracolsep{2cm}}l}
+\frac{d}{dx} (\sinh x)  = \cosh x & \frac{d}{dx}(\csch(x))=-\csch x \coth x\\ [3mm]
+
+\frac{d}{dx}(\cosh(x)) = \sinh x  & \frac{d}{dx}(\sech(x))=-\sech x \tanh x\\ [3mm]
+
+\frac{d}{dx}(\tanh(x)) = \sech^2 x & \frac{d}{dx}(\coth(x))=-\csch^2 x\\
+\end{array}
+\]
+\end{definition}
+
+
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{frame} 
+Of course, any of these differentiation rules can be combined with the Chain Rule. For instance
+\[
+\frac{d}{dx} \sinh(\sqrt{x}) = \cosh(\sqrt{x})\cdot \frac{d}{dx}\sqrt{x} 
+\]
+
+\[
+= \frac{\cosh(\sqrt{x})}{2\sqrt{x}}
+\]
+\end{frame}
+
+% end module

@@ -1,0 +1,128 @@
+% begin module arcsin-derivative
+\begin{frame}
+\begin{theorem}[The Derivative of $\Arcsin x$]
+\[
+\frac{\diff}{\diff x} \left( \Arcsin x\right) = \frac{1}{\sqrt{1-x^2}}, \qquad -1 < x < 1.
+\]
+\end{theorem}
+\begin{proof}
+\abovedisplayskip=0pt
+\belowdisplayskip=-15pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=0pt
+\begin{align*}
+\uncover<2->{%
+\text{Let}\quad y %
+}%
+& \uncover<2->{%
+ = \Arcsin x.
+}\\%
+\uncover<2->{%
+\text{Then}\quad \alert<handout:0| 3-4,10>{\sin y} %
+}%
+& \uncover<2->{%
+ \alert<handout:0| 10>{=}  \alert<handout:0| 5-6,10>{x}\quad \text{and} \quad \alert<handout:0| 9>{-\pi/2 \leq y \leq \pi/2}.
+}\\%
+\uncover<3->{%
+\text{Differentiate implicitly:}\quad \alert<handout:0| 3-4>{\uncover<4->{\cos y \cdot y'}} %
+}%
+& \uncover<3->{%
+ = \uncover<6->{\alert<handout:0| 6>{1}} 
+}\\%
+\uncover<7->{%
+y' %
+}%
+& \uncover<7->{%
+ = \frac{1}{\alert<handout:0| 8>{\cos y}} %
+}\\%
+& \uncover<8->{%
+ = \frac{1}{\alert<handout:0| 8>{\alert<handout:0| 9>{\pm}\sqrt{1-\sin^2y}}} %
+}\\%
+\uncover<9->{%
+\text{But \alert<handout:0| 9>{$\cos y > 0$}:}\quad %
+}%
+& \uncover<9->{%
+ = \frac{1}{\sqrt{1-\alert<handout:0| 10>{\sin^2y}}} %
+}%
+\uncover<10->{%
+ = \frac{1}{\sqrt{1-\alert<handout:0| 10>{x^2}}}. \qedhere%
+}%
+\end{align*}
+\end{proof}
+\end{frame}
+
+
+\begin{frame}\frametitle{Or...We can use triangles...}
+
+\begin{columns}[c]
+
+\column{.5\textwidth}
+\begin{align*}
+y=\Arcsin(x) \Rightarrow & \sin(y)=x
+\\
+&\\
+-\frac{\pi}{2}\le y \le \frac{\pi}{2}&\\
+&\\
+\textrm{Draw Triangle}&\\ %
+\end{align*}
+
+\begin{tikzpicture}[thick]
+\draw(0,0) -- (90:2cm) node[midway,left]{$x$} -- (0:4cm) node[midway,above right]{\alert<5>{$1$}} -- (0,0);
+
+\uncover<2->{
+\node at (2,-.5) {\alert<5>{$\sqrt{1-x^2}$}};
+}
+
+%\draw[fill=lightgray, thick] (0,0) -- (0:0.8cm) arc (0:90:0.8cm) node at (45:0.5cm) {$\gamma$} -- cycle;
+\draw[fill=lightgray, thick] (4,0) -- ++(180:0.8cm) arc (180:180-atan2(4,2):0.8cm) node at ($(167:0.6cm)+(4,0)$) {$y$} -- cycle;
+%\draw[fill=lightgray, thick] (0,2) -- ++(-90:0.8cm) arc (-90:-90+atan2(2,4):0.8cm) node at ($(-60:0.5cm)+(0,2)$) {$\beta$} -- cycle;
+\end{tikzpicture}
+
+\column{.5\textwidth}
+\uncover<3->{ Differentiating (implicitly) we get:}
+\begin{align*}
+&\\
+\uncover<3->{
+\sin(y)= x \Rightarrow & %
+\cos(y)\cdot y' = 1
+\\ } %
+&\\ %
+\uncover<4->{\Rightarrow & %
+y'=\frac{1}{\cos(y)}=\alert<5>{\sec(y)}
+\\ } %
+&\\ %
+\uncover<5->{ &\alert<5>{\textrm{(now read the triangle)}} %
+\\} %
+&\\ %
+\uncover<6->{\Rightarrow & %
+y' = \frac{1}{\sqrt{1-x^2}}
+\\} %
+\end{align*}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+We can use the same technique to find the derivative of the other inverse trigonometric functions:
+\end{center}
+\begin{align*}
+\frac{\diff}{\diff x} (\Arcsin x) & = %
+\frac{1}{\sqrt{1-x^2}} &%
+\frac{\diff}{\diff x} (\Arccos x) & = %
+-\frac{1}{\sqrt{1-x^2}}\\
+&&&\\
+\frac{\diff}{\diff x} (\Arcsec x) & = %
+\frac{1}{x\sqrt{x^2-1}}%
+ &%
+\frac{\diff}{\diff x} (\Arccsc x) & = %
+-\frac{1}{x\sqrt{x^2-1}}  \\%
+&&&\\
+\frac{\diff}{\diff x} (\Arctan x) & = %
+\frac{1}{1+x^2} &%
+\frac{\diff}{\diff x} (\Arccot x) & = %
+-\frac{1}{1+x^2} %
+\end{align*}
+\end{frame}
+% end module arcsin-derivative
