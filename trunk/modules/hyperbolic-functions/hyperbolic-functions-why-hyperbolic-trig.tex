@@ -53,7 +53,26 @@ Prove $\cosh^2x - \sinh^2x = 1$ and $1 - \tanh^2x = \sech^2x$.\\
 \begin{column}{.5\linewidth}
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{../../modules/hyperbolic-functions/pictures/trigCircle}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2.4, -2.4)(2.4,2.4)
+\fcAxesStandard{-2.2}{-2.2}{2.2}{2.2}
+\fcLabels{2.2}{2.2}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psline*(0,0)(1,0)
+\parametricplot{0}{60}{t cos t sin}
+\psline(! 60 cos 60 sin)(0,0)
+}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}
+\fcFullDot{60 cos }{60 sin}
+\rput[l](! 60 cos 0.1 add 60 sin ){$P(\cos t, \sin t)$}
+\fcFullDot{1}{0}
+\rput[lt](1, -0.1){$Q$}
+\parametricplot[linecolor=green]{0}{60}{t cos t sin}
+\psline[linecolor=blue](0,0)(1,0)
+\psline[linecolor=blue](! 60 cos 60 sin)(0,0)
+\rput[tl](0.3, -1.2){$x^2+y^2=1$}
+\end{pspicture}
+%\includegraphics[width=\linewidth]{../../modules/hyperbolic-functions/pictures/trigCircle}
 \caption{Trig functions are ``circular": $t$ is the measure of the angle, which (as we know) is equal to twice the area of the shaded circular sector.}
 \label{fig:trigCircle}
 \end{figure}
@@ -63,7 +82,32 @@ Prove $\cosh^2x - \sinh^2x = 1$ and $1 - \tanh^2x = \sech^2x$.\\
 \pause 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{../../modules/hyperbolic-functions/pictures/hyperbolicSector}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2.4, -2.4)(2.4,2.4)
+\fcAxesStandard{-2.2}{-2.2}{2.2}{2.2}
+\fcLabels{2.2}{2.2}
+\pstVerb{
+/sinh {dup 2.718281828 exch exp exch -1 mul 2.718281828 exch exp sub 2 div} def
+/cosh {dup 2.718281828 exch exp exch -1 mul 2.718281828 exch exp add 2 div} def
+/theAngle 1.3 def
+}
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psline*(0,0)(1,0)
+\parametricplot{0}{theAngle}{t cosh t sinh}
+\psline(! theAngle cosh theAngle sinh)(0,0)
+}
+\parametricplot[linecolor=\fcColorGraph]{-1.5}{1.5}{t cosh t sinh}
+\parametricplot[linecolor=\fcColorGraph]{-1.5}{1.5}{t cosh -1 mul t sinh}
+\fcFullDot{theAngle cosh }{theAngle sinh}
+\rput[r](! theAngle cosh 0.1 sub theAngle sinh ){$P(\cosh t, \sinh t)$}
+\fcFullDot{1}{0}
+\rput[lt](1, -0.1){$Q$}
+\parametricplot[linecolor=green]{0}{theAngle}{t cosh t sinh}
+\psline[linecolor=blue](0,0)(1,0)
+\psline[linecolor=blue](! theAngle cosh theAngle sinh)(0,0)
+\rput[tl](0.1, -1.4){$x^2-y^2=1$}
+\end{pspicture}
+%\includegraphics[width=\linewidth]{../../modules/hyperbolic-functions/pictures/hyperbolicSector}
 \caption{Here $ t $ represents twice the area of the shaded hyperbolic sector..}
 \label{fig:hypCircle}
 \end{figure}
