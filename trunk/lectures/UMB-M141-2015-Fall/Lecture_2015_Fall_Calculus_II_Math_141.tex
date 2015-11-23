@@ -7,11 +7,15 @@
 % % % % % % % %
 % % % % % % % %
 \documentclass%
-%[handout]%
+[handout]%
 {beamer}
 %IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
 \newcommand{\currentLecture}{1}
 \newcommand{\semester}{Fall 2015}
+\input{../example-templates}
+\input{../system-specific-config-Ubuntu-texlive}
+\input{../pstricks-commands}
+%\pgfpagesuselayout{1 on A4}[a4paper,landscape]% % % % % % % %
 
 
 \mode<presentation>
@@ -24,12 +28,6 @@
 %\setbeamertemplate{footline}{%
 %  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber}}}}
 
-\usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
-\usepackage{times}
-\input{../example-templates}
-\input{../pstricks-commands}
-\usepackage[T1]{fontenc}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 
