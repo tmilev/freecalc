@@ -1,0 +1,33 @@
+\renewcommand{\autopstpdfConflictResolutionTemporary}{
+\usepackage[
+dvips={-o -Ppdf}, 
+pspdf={
+-dNOSAFER
+-dAutoRotatePages=/None %<-breaks in windows:%
+}, 
+pdfcrop={}, 
+crop=off%without crop=off breaks in windows
+]{auto-pst-pdf}
+}
+\usepackage{pgfpages}
+\pgfpagesdeclarelayout{1 on A4}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=1,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=\pgfphysicalwidth,%
+    resized height=\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}%
+  }%
+}
