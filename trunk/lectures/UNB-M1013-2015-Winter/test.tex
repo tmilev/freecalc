@@ -17,15 +17,13 @@
 
 
 %Note remove  the crop=off from autopstpdfConflictResolutionTemporary in order to display pst images properly
+
+\usepackage{pgfplots}
 \input{../example-templates}
 \input{../pstricks-commands}
-%\usepackage{pgfplots}
 
 % replace the above with the following to compile successfully in older versions of freecalc
-%\usepackage{../example-templates}
-%\usepackage{../pstricks-commands}
 %\usepackage{tikz}
-%\usepackage{pgfplots}
 
 
 
@@ -68,7 +66,7 @@ Are there two pictures here?\\
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-0.1,-0.1)(1.4,1.4)
 \psplot[linecolor=red, plotpoints=1000]{0}{1.15}{x 2 exp }
 \end{pspicture}
-
+\uncover<2>{}
 \end{frame}
 
 
