@@ -1,9 +1,14 @@
 \documentclass%
-%[handout, 10pt]
 [10pt]
+%[handout, 10pt]
 {beamer} %
 %\usepackage{pgfpages}
 %\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
+
+\newcommand{\currentLecture}{8}
+
+\let\Cross\relax
+\let\Square\relax
 
 \usepackage{cancel}
 \usepackage{wasysym, marvosym}
@@ -32,16 +37,24 @@
 \usepackage[latin1]{inputenc}
 \usepackage[all,cmtip]{xy}
 \usepackage{times}
-\usepackage{../example-templates}
-\usepackage{../pstricks-commands}
+
+
+\input{../example-templates}
+\input{../pstricks-commands}
+
 \usepackage{pst-3dplot}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-%\usepackage[usenames]{color}
-\usepackage{pgfplots}
+
+%\usepackage{tikz}
+%\usetikzlibrary{calc}
+%\usepackage{pgfplots}
+
+
 \usepackage{booktabs} % for tabular integration
 \usepackage{xparse}   % for tabular integration 
 \usepackage{multimedia}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
 
 % % % % % % % % % % % %% for tabular integration
 \tikzset{Arrow Style/.style={text=black, font=\boldmath}}%
@@ -81,13 +94,14 @@
 \newcommand{\vsp}{{\vspace*{3mm} \pause}}
 \newcommand{\ds}{\displaystyle}
 \newcommand{\dx}{{ \text{ dx}}}
-\newcommand{\To}{{ \Rightarrow }}
-
+\newcommand{\To}{{\Rightarrow}}
 \newcommand{\R}{{\mathbb{R}}}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-\newcommand{\currentLecture}{9}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
 \newcommand{\lect}[4]{
 \ifnum#3=\currentLecture
   \date{#1}
@@ -264,7 +278,7 @@
 }% end lecture
 
 \lect{Week 5}{Integration by Parts, and Trigonometric Integrals}{5}{% begin lecture
-\input{../../modules/covers/W5page1}
+%\input{../../modules/covers/W5page1}
 \section{Integration by Parts}
 \input{../../modules/integration-by-parts/integration-by-parts-intro}
 \input{../../modules/integration-by-parts/integration-by-parts-ex1}
@@ -297,7 +311,7 @@
 }% end lecture
 
 \lect{Week 6}{Trigonometric Substitution}{6}{% begin lecture
-\input{../../modules/covers/W6_trigsub}
+%\input{../../modules/covers/W6_trigsub}
 \section{Trigonometric Substitution}
 \input{../../modules/trig-substitution/trig-substitutions-intro}
 \input{../../modules/trig-substitution/trig-substitution-case-1a-tan}
@@ -321,7 +335,7 @@
 
 
 \lect{Week 7}{Partial Fractions}{7}{% begin lecture
-\input{../../modules/covers/W7_PartialFractions}
+%\input{../../modules/covers/W7_PartialFractions}
 \section{Partial Fractions}
 \input{../../modules/partial-fractions/partial-fractions-intro}
 \input{../../modules/partial-fractions/partial-fractions-definition}
@@ -353,7 +367,7 @@
 }% end lecture
 
 \lect{Week 8}{Approximate Integration and Integration Strategies}{8}{% begin lecture
-\input{../../modules/covers/W8_ApproximateIntegration}
+%\input{../../modules/covers/W8_ApproximateIntegration}
 \section{Integration Strategies}
 \input{../../modules/integration-strategies/strategies}
 \section{Approximate Integration}
@@ -368,7 +382,7 @@
 }% end lecture
 
 \lect{Week 9}{Improper Integrals and Arc Length}{9}{% begin lecture
-\input{../../modules/covers/W9_ImproperAndArc}
+%\input{../../modules/covers/W9_ImproperAndArc}
 \section{Improper Integrals}
 \input{../../modules/improper-integrals/improper-integral-def}
 \input{../../modules/improper-integrals/improper-integral-geometry}
@@ -430,7 +444,7 @@
 
 
 \lect{Week 10.75-11}{Linear Differential Equations}{11}{% begin lecture
-\input{../../modules/covers/W11}
+%\input{../../modules/covers/W11}
 \section{First Order Linear Differential Equations}
 \input{../../modules/diff-eq-linear/diff-eq-linear}
 \section{Second Order Linear Differential Equations}
@@ -438,7 +452,7 @@
 }% end lecture
 
 \lect{Week 11.75}{Taylor Polynomials and Series, a Nonrigorous Introduction}{12}{% begin lecture
-\input{../../modules/covers/W12}
+%\input{../../modules/covers/W12}
 %\section{Taylor and Maclauren Polynomials}
 \input{../../modules/Taylor-Polynomials/Taylor-intro}
 \input{../../modules/Taylor-Polynomials/Taylor-why}
