@@ -1,0 +1,121 @@
+% begin module strategies
+
+
+\begin{frame}
+\frametitle{Table of Integral Formulas}
+\small
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{enumerate}
+\item[1.] $ \ds \int x^n \dx = \frac{1}{n+1}x^{n+1}, \hspace{1ex} n\neq-1 $
+
+\item[3.]$ \ds \int e^x \diff x = e^x  $
+
+\item[5.]$ \ds \int \sin x \diff x = -\cos x $
+
+\item[7.]$ \ds \int \sec^2 x \diff x = \tan x $
+
+\item[9.]$ \ds \int \sec x \tan x \diff x = \sec x $
+
+\item[11.]$ \ds \int \sec x \diff x = \ln |\sec x + \tan x| $
+
+\item[13.]$ \ds \int \tan x \diff x = \ln |\sec x|  $
+
+\item[15.]$ \ds \int \sinh x \diff x = \cosh x $
+
+\item[17.]$ \ds \int \frac{a}{a^2+x^2}\diff x = \tan^{-1}\frac{x}{a} $
+
+%\item[19.]$ \ds \int u \hspace{2pt} \diff{v} = uv - \int v \diff u $
+\end{enumerate}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{enumerate}
+\item[2.]$ \ds \int \frac{1}{x}\diff x = \ln |x| $
+\item[4.]$ \ds \int a^x \diff x = \frac{1}{\ln a} a^x $
+\item[6.]$ \ds \int \cos x \diff x = \sin x $
+\item[8.]$ \ds \int \csc^2 x \diff x = -\cot x $
+\item[10.]$ \ds \int \csc x \cot x \diff x = -\csc x $
+\item[12.]$ \ds \int \csc x \diff x = -\ln |\csc x + \cot x|  $
+
+\item[14.]$ \ds \int \cot x \diff x = -\ln |\csc x|  $
+
+\item[16.]$ \ds \int \cosh x \diff x = \sinh x $
+
+\item[18.]$ \ds \int \frac{1}{\sqrt{a^2-x^2}} \diff x = \sin^{-1} \frac{x}{a} $
+
+\end{enumerate}
+\end{column}
+
+\end{columns}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Integration}
+Once you are armed with the  basic integration formulas (``Friendly Forms") in the table, if you don't immediately see
+how to attack a given integral, you might try the following four-step strategy. \pause 
+\begin{enumerate}
+\item[1.] \textbf{Simplify the Integrand  if Possible}.\\
+ Algebraic manipulation or trig identities sometimes simplify the integrand, making method of
+integration more obvious. \\ \pause 
+\[
+\int \sqrt{x}(1-\sqrt{x})\; dx = \int \sqrt{x}-x\; dx
+\]
+\pause 
+
+\begin{align*}
+\int (\sin(x)+\cos(x))^2\; dx & = \int \sin^2(x)+2\sin(x)\cos(x)+\cos^2(x)\; dx\\
+& = \int 1+2\sin(x)\cos(x)\; dx
+\end{align*} 
+
+
+\end{enumerate}
+
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{frame}
+\frametitle{}
+
+\begin{enumerate}
+\item[2.] \textbf{Look for an Obvious Substitution}.\\
+ Try to find some function in the integrand whose differential also occurs, up to multiplication by a constant. \pause 
+For instance if for the integral, 
+\[
+\int \frac{x}{x^2-4} dx
+\]
+ we lat $ u=x^2-4, $ then $ du= 2x\; dx $. So we use substitution (instead of partial fractions).
+ \end{enumerate} 
+ \end{frame}
+ 
+ \begin{frame}
+ \begin{enumerate}
+\item[3.] \textbf{Classify the Integrand According to Its Form.}\\
+ If Steps 1 and 2 have not led to the
+solution, then we take a look at the form of the integrand.\\
+\begin{enumerate} \pause 
+\item[(a)]  \textit{Trigonometric functions}. If is a product of powers of trig functions, then use the methods described in the Trigonometric Integrals lecture(s). \pause 
+\item[(b)] \textit{Rational functions}. If is a rational function, try partial fractions.
+\pause 
+\item[(c)] \textit{Integration by parts}. If is a product of a power of $ x $ (or a polynomial) and a transcendental function (such as a trigonometric, exponential, or logarithmic function), then try IBP,using the LIPET rule.  
+\pause 
+\item[(d)] \textit{Radicals}. \\
+For $ \sqrt{\pm a^2 \pm x^2} $ use trig substitution.\\
+For $ \sqrt[n]{g(x)} $ try the rationalizing substitution $ u= \sqrt[n]{g(x)}. $
+\pause 
+\end{enumerate} 
+ \item[4.] lather, rinse, and repeat....Try Again...\\
+ 
+ If the first three steps have not produced the answer, remember that
+ there are basically only two methods of integration: substitution and parts.
+\end{enumerate}
+
+\end{frame}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
