@@ -43,5 +43,40 @@ Compute:
 \end{array}
 \]
 The measurement unit of $\diff y$ is $km$, the measurement unit of  $t$ is minutes, therefore the answer is $-\frac{9}{10}$km/min.
-
 }
+
+
+\solution{\ref{problemRelatedRatesGravelCone}. 
+\begin{minipage}[t][][b]{0.6\textwidth}
+At  time $ t $ (minutes) let $ h $ be the height of the pile (m), let $ r $ be the radius of the base (m), and let $ V $ be the volume of the pile (m$ ^3 $). \\
+We are given that $ \frac{dV}{dt}=500 $L/min $ =\frac12 $ m$ ^3 $/min.
+We are also given the diameter is equal to the height, so $ 2r=h$.\\ 
+We are asked to find $ \frac{dh}{dt} $ when $ h=2$.\\
+The formula for the volume of a cone is 
+\[  
+V=\frac13\pi r^2 h. 
+\] 
+Since $ r=\frac{h}{2} $ we obtain 
+\[
+V=\frac13 \pi \frac{h^2}{4}h = \frac{1}{12}\pi h^3
+\]
+Differentiating with respect to $ t $ then gives
+\[
+\frac{dV}{dt} = \frac14 \pi h^2 \frac{dh}{dt} \;\; \Rightarrow \;\;\frac{dh}{dt}=\frac{4}{h^2\pi}\frac{dV}{dt}
+\]
+Substituting $ \frac{dV}{dt}= \frac12 $m$ ^3$/min, and $ h=2 $ we obtain
+\[
+ \frac{dh}{dt}=\frac{4}{4\pi}\cdot\frac12=\frac{1}{2\pi}\textrm{ m/min}
+\]
+\end{minipage} 
+\begin{minipage}[t][][c]{0.4\textwidth}
+\begin{tikzpicture}[scale=1]
+    \draw[dashed] (0,0) arc (170:10:2cm and 0.4cm)coordinate[pos=0] (a);
+    \draw (0,0) arc (-170:-10:2cm and 0.4cm)coordinate (b);
+    \draw[densely dashed] ([yshift=4cm]$(a)!0.5!(b)$) -- node[right,font=\footnotesize] {$h$}coordinate[pos=0.95] (aa)($(a)!0.5!(b)$)
+                            -- node[above,font=\footnotesize] {$r$}coordinate[pos=0.1] (bb) (b);
+    \draw (aa) -| (bb);
+    \draw (a) -- ([yshift=4cm]$(a)!0.5!(b)$) -- (b);
+  \end{tikzpicture}
+  \end{minipage} 
+} %  
