@@ -1,4 +1,15 @@
 \usepackage{etex, ifthen}
+\providecommand{\autopstpdfConflictResolutionTemporary}{
+\usepackage[
+dvips={-o -Ppdf}, 
+pspdf={
+-dNOSAFER
+%-dAutoRotatePages=/None %<-breaks in windows:%
+}, 
+pdfcrop={}, 
+%crop=off%without crop=off breaks in windows
+]{auto-pst-pdf}
+}
 \autopstpdfConflictResolutionTemporary
 \usepackage{pst-plot}
 \usepackage{pst-math}
