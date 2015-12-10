@@ -1,10 +1,28 @@
 \solution{\ref{problemIntegrate(1+3x)^9}
+We present two solution variants. The variants are equivalent. The only difference between them is that they use two interchangeable notations for differentials. Both variants are acceptable both when taking tests and writing scientific texts. 
+
+\noindent \textbf{Variant I} 
+\[
+\begin{array}{rcll|l}
+\displaystyle\int (1+3x)^9\diff x&=&\displaystyle \int (1+3x)^9 \frac{\diff (3x)}{3} &&\begin{array}{rcl}\text{Set }\\
+u&=&1+3x\\
+\diff u &=&3\diff x\\
+\diff x&=& \frac{1}{3}\diff u\\
+\end{array}\\
+&=&\displaystyle \int u^9 \frac{\diff u}{3} \\
+&=&\displaystyle \frac{1}{3}\int u^9 \diff u \\
+&=&\frac{1}{30}u^{10}+C=\frac{(1+3x)^{10}}{30}+C.
+\end{array}
+\]
+
+
+\noindent \textbf{Variant II} This variant is equivalent to the previous but uses the differential notation.
 \[
 \begin{array}{rcll|l}
 \displaystyle\int (1+3x)^9\diff x&=&\displaystyle \int (1+3x)^9 \frac{\diff (3x)}{3} &&\text{differentials are linear: } \diff (3x)= (3x)' \diff x= 3\diff x\\
 &=&\displaystyle \int (1+3x)^9 \frac{\diff (1+3x)}{3} &&\text{differentials don't change when we add constants}\\
 &=&\displaystyle \frac{1}{3}\int u^9 \diff u &&\text{Set } u=1+3x\\
-&=&\frac{1}{30}u^{10}+C=\frac{(1+3x)^{10}}{30}+C
+&=&\frac{1}{30}u^{10}+C=\frac{(1+3x)^{10}}{30}+C.
 \end{array}
 \]
 }

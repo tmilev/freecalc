@@ -9,14 +9,14 @@ $
 &\uncover<4->{ = }&\displaystyle \uncover<4->{ \int  \left( \fcAnswer{ 5 }{\frac{ 1}{ 1 + x^2}}\right) \diff x} \uncover<6->{ =\int \left(\alertNoH{7,8}{\frac{1}{1-\left(- x^2 \right)}} \right)\diff x} \\%
 &\uncover<7->{=}&\displaystyle \uncover<7->{ \alertNoH{9, 10, 11,12}{\int} \left(\fcAnswerUncover{7}{ 8}{ \alertNoH{ 9}{1} -\alertNoH{10}{x^2}+ \alertNoH{11}{x^4} - \alertNoH{12}{x^6} +\cdots }\right) \alertNoH{9, 10, 11, 12}{\diff x} } \uncover<7->{&& \alertNoH{7,8,19}{\text{for } |x|<1}} \\%
 & \uncover<9->{ = } &\displaystyle \uncover<9->{ \left(\alertNoH{16,17}{ \alertNoH{9}{ x} - \alertNoH{10}{\frac{x^3}{3}} + \alertNoH{11}{\frac{x^5}{5}} - \alertNoH{12}{\frac{x^7}{7}} + \cdots }\right) \uncover<13->{\alertNoH{ 13,14}{+C} } } \\
-\uncover<14->{&=&\displaystyle  \alertNoH{ 14}{C +}\alertNoH{15,16}{ \sum_{n=0}^\infty \fcAnswerUncover{14}{ 16}{ (-1)^{n+1}\frac{{\alertNoH{17,18}{x}}^{2n+1}}{2n+1}}}
+\uncover<14->{&=&\displaystyle  \alertNoH{ 14}{C +}\alertNoH{15,16}{ \sum_{n=0}^\infty \fcAnswerUncover{14}{ 16}{ (-1)^{n}\frac{{\alertNoH{17,18}{x}}^{2n+1}}{2n+1}}}
 }
 \end{array}
 $
 \vskip -0.3cm
 \begin{itemize}
 \item<17-> To find $C$, plug in $\alertNoH{17,18}{x = 0} $: $\alertNoH{17, 18}{C=}\fcAnswer{18}{0.} $
-\item<19-> Therefore the theorem on integrating power series implies that $\displaystyle  \arctan x = \sum_{n=1}^\infty(-1)^{n+1} \frac{x^{2n+1}}{2n+1}$, for $|x|<1$.
+\item<19-> Therefore the theorem on integrating power series implies that $\displaystyle  \Arctan x = \sum_{n=0}^\infty(-1)^{n} \frac{x^{2n+1}}{2n+1}$, for $|x|<1$.
 \item<20-> By the same theorem, the radius of convergence remains $R = 1$.
 \end{itemize}
 \end{example}
