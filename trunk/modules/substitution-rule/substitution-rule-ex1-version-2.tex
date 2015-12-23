@@ -1,0 +1,27 @@
+% begin module substitution-rule-ex1
+\begin{frame}
+\begin{example}
+
+Find $\ds \int x^3 \cos (x^4+2)\;dx$\\
+
+Solution: \pause 
+
+Let  \alert<handout:0| 4>{ $u = x^4+2$}, \pause then $\ds  \frac{du}{dx}=4x^3 $, so \alert<handout:0| 4>{ $\ds  dx=\frac{du}{4x^3} $}. \pause \\ 
+ 
+Substituting gives 
+\begin{align*}
+\onslide<4->{  \int x^3 \cos (\alert<handout:0| 4>{x^4+2})\;\alert<handout:0| 4>{dx} & = \int x^3 \cos(u) \frac{du}{4x^3}} \onslide<5->{ = \int \cancel{x^3} \cos(u) \frac{du}{4\cancel{x^3}}\\}
+\onslide<6->{ 
+& = \int \frac14\cos(u)\; du\\
+}
+\onslide<7->{
+& = \frac14 \sin(u)+C\\
+}
+\onslide<8->{ 
+&= \frac14\sin(x^4+2)+C 
+} 
+\end{align*}
+\end{example}
+
+\end{frame}
+% end module substitution-rule-ex1

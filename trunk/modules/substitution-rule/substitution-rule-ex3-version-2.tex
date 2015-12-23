@@ -1,0 +1,23 @@
+% begin module substitution-rule-ex3
+\begin{frame}
+%{Example 3, p. 377}
+\begin{example}
+Find $ \ds \int \frac{x}{\sqrt{1-4x^2}}\; dx =\star $\\
+Solution:  
+Let $ u= $ \pause $ 1-4x^2 $. \pause Then  $ \ds \frac{du}{dx}=-8x $, so \pause
+$ \ds  dx=\frac{du}{-8x} $.  Now substitute\pause
+\[  \star = \int \frac {x}{\sqrt{u}}\cdot \frac{du}{-8x} \] \pause
+Cancelling the $ x $'s, gives 
+\[\star  = -\frac18\int\frac{1}{\sqrt{u}}\;du = -\frac18 \int u^{-1/2}\; du   
+ \uncover<7->{
+  = -\frac18\cdot \frac{ u^{1/2}}{1/2}+C}\uncover<8->{ = -\frac14\sqrt{u}+C} 
+\] \uncover<9->{
+(\textrm{Don't forget to reverse the substitution})}  
+\uncover<10->{
+\[
+=-\frac14\sqrt{1-4x^2}+C   
+\]
+}
+\end{example}
+\end{frame}
+% end module substitution-rule-ex3
