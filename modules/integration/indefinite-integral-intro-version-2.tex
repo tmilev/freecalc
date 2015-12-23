@@ -1,0 +1,52 @@
+% begin module indefinite-integral-intro
+\begin{frame}\frametitle{Indefinite Integrals}
+\begin{itemize}
+\item  The Evaluation Theorem establishes a connection between antiderivatives and definite integrals.
+\item  It says that $\int_a^b f(x)\diff x$ equals $F(b) - F(a)$, where $F$ is an antiderivative of $f$.
+\item  We need convenient notation for writing antiderivatives: The indefinite integral
+\end{itemize}
+\begin{definition}[Indefinite Integral]
+The indefinite integral of $f$ is another way of writing the general antiderivative of $f$, and is written $\int f(x) \diff x$.  In other words,
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int f(x) \diff x = F(x)+C, \quad \text{means} \quad F'(x) = f(x). 
+\]
+($ C $ an arbitrary constant)
+
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\begin{example}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int x^4 \diff x = \uncover<2->{\frac{x^5}{5}} \uncover<3->{\alert<handout:0| 3>{+ C}}
+\]
+\uncover<4->{because}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<4->{\frac{\diff}{\diff x}\left( \frac{x^5}{5} + C\right) = x^4.}
+\]
+\end{example}
+\begin{itemize}
+\item<5->  The indefinite integral represents a whole family of functions.
+\item<6->  Example: %1b, p. 318:  
+the general antiderivative of $\frac{1}{x}$ is
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<6->{%
+F(x) = \left\{ \begin{array}{ccc}
+\ln |x| + C_1 & \text{ if } & x > 0\\
+\ln |x| + C_2 & \text{ if } & x < 0
+\end{array}\right.
+}%
+\]
+\item<7->  We adopt the convention that the constant participating in an indefinite integral is only valid on one interval.
+\item<8->  $\int \frac{1}{x} \diff x = \ln |x| + C$, and this is valid either on $(-\infty , 0)$ or $(0, \infty)$.
+\end{itemize}
+\end{frame}
+% end module indefinite-integral-intro
