@@ -1,0 +1,52 @@
+% begin module substitution-rule-trig-functions
+\begin{frame}
+%
+\begin{example}
+The integrals of the six basic trigonometric functions are as follows:
+\[
+\begin{array}{ll}
+\int \sin(x) \; dx = -\cos(x)+C & \int \cos(x) \; dx = \sin(x)+C  \\ 
+&\\
+ \int \tan(x) \; dx = \ln|\sec(x)|+C & \int \cot(x) \; dx = -\ln|\csc(x)|+C = \ln|sin(x)+C   \\ 
+ &\\
+ \int \sec(x) \; dx = \ln|\sec(x)+\tan(x)|+C & \int \csc(x) \; dx = -\ln|\csc(x)+\cot(x)|+C  
+\end{array} 
+\]
+\end{example}
+\end{frame}
+% end module substitution-rule-ex3
+\begin{frame}
+Explanations:\\
+\begin{align*}
+\int \tan(x)\; dx = \int \frac{\sin(x)}{\cos(x)}\; dx \uncover<4->{ =\int\frac{-1}{u}\; du} \uncover<5->{= -\ln|u|+C}& \uncover<6->{= -\ln|\cos(x)|+C}\\  
+&\uncover<7->{= \ln|\sec(x)|+C}\\
+\end{align*}
+
+\vspace*{-9mm} {\color{blue}{
+\uncover<2->{$ u=\cos(x) $}, \uncover<3->{$ \frac{du}{dx}=-\sin(x) $, so $ dx=\frac{-du}{\sin(x)} $\\}
+}} %
+
+\vspace*{3mm}
+
+\rule{\textwidth}{2pt}
+\[
+\uncover<8->{\int \sec(x)\; dx} %
+\uncover<9->{= \int \sec{x}\cdot \frac{\sec(x)+\tan(x)}{\sec(x)+\tan(x)}\; dx} % 
+\uncover<10->{= \int \frac{\sec^2(x) +\sec(x)\tan(x)}{sec(x)+\tan(x)}\; dx =\star }%
+\]
+\vspace*{-3mm} 
+
+{\color{blue}{
+\uncover<11->{$ u=\sec(x)+\tan(x) $},\\
+ \uncover<12->{$\ds  \frac{du}{dx}=\sec(x)\tan(x)+\sec^2(x)$, so $ \ds  dx=\frac{du}{\sec^2(x) +\sec(x)\tan(x)} $}
+}}
+
+\vspace*{2mm} 
+\[
+\uncover<13->{\star =\int \frac{du}{u} =\int \frac{1}{u} \; du} %
+\uncover<14->{=\ln|u|+C }
+\uncover<15->{=\ln|sec(x)+\tan(x)|+C}    
+\]
+
+\end{frame}
+% end module substitution-rule-trig-functions
