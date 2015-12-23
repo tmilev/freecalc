@@ -1,0 +1,70 @@
+% begin module definite-integral-def
+\begin{frame}\frametitle{ %(5.2) 
+The Definite Integral}
+\begin{definition}[Definite Integral]
+\begin{itemize}
+\item  Let $f:[a,b]\to {\mathbb{R}}$.
+\item  Divide $[a,b]$ into $n$ subintervals of equal width $\Delta x = (b-a)/n$.
+\item  Let $a=x_0$, $x_1,\ldots ,$ $x_n=b $ be the endpoints of the subintervals, so $ x_i=a+i\Delta x $ .
+\item  Let $x_1^*, x_2^*, \ldots , x_n^*$ be any sample points, $x_i^*\in [x_{i-1},x_i]$.  
+\end{itemize}
+\pause 
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+If the limit \[\lim\limits_{n\to \infty} \sum\limits_{i=1}^n f(x_i^*)\Delta x\] 
+exists and is independent of the choice of sample points $x_i^*$, then we say $ f $ is \textbf{integrable} on [a,b], and we call this limit \textbf{the integral} of $f$ over $[a,b]$ and write
+\[
+\int_a^b f(x) \diff x = \lim_{n\to \infty} \sum_{i=1}^n f(x_i^*)\Delta x \quad .
+\]
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\begin{definition}[Definite Integral Cont'd: Sample points may be chosen in many ways]
+%\[
+%\int_a^b f(x) \diff x = \lim_{n\to \infty} \sum_{i=1}^n f(x_i^*)\Delta x \quad .
+%\] \pause
+Using the right hand approximation, $ x_i^*=x_i $, so we would have 
+\[
+\int_a^b{f(x)}  \diff x = \lim_{n\to \infty} R_n  = \lim_{n\to \infty} \sum_{i=1}^n f(x_i)\Delta x,
+\]\pause
+using the left hand approximation, $ x_i^*=x_{i-1} $, so we would have 
+\[
+\int_a^b{f(x)}  \diff x = \lim_{n\to \infty} L_n  = \lim_{n\to \infty} \sum_{i=1}^n f(x_{i-1})\Delta x,
+\]
+\pause
+choosing $ x_i^*$ to be the midpoint of the interval $ =\overline{x}_i=\frac{1}{2}(x_{i-1}+x_i)$  we have
+\[
+\int_a^b f(x)\diff x =\lim_{n\to \infty}M_n=\lim_{n\to \infty} \sum_{i=1}^n f(\overline{x}_i)\Delta x
+\]
+
+\end{definition}
+\end{frame}
+
+\begin{frame}{Notation/Terminology of the definite integral}
+\[
+\mathop{\alert<handout:0| 2>{\int}}_{\alert<handout:0| 4>{a}}^{\alert<handout:0| 4>{b}} \alert<handout:0| 3>{f(x)} \alert<handout:0| 0>{\diff x} = \lim_{n\to \infty} \sum_{i=1}^n f(x_i^*)\Delta x,
+\]
+\begin{itemize}
+\item<1-| alert@2>  $\int$ is called the integration sign.
+\item<1-| alert@3>  $f(x)$ is called the integrand.
+\item<1-| alert@4>  $a$ and $b$ are called the limits of integration.
+\item<5->  The definite integral is a number.  It does not depend on $x$.  We could use any variable instead of $x$.
+\end{itemize}
+\uncover<5->{%
+\[
+\int_a^b f(x) \diff x = \int_a^b f(t)\diff t = \int_a^b f(r)\diff r = \int_a^b f(\theta )\diff \theta
+\]
+}%
+
+\uncover<6->{\begin{definition}[Riemann Sum]
+A Riemann sum is any sum of the form
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{i=1}^nf(x_i^*) \Delta x = f(x_1^*)\Delta x + f(x_2^*) \Delta x + \cdots + f(x_{n}^*) \Delta x.
+\]
+\end{definition}
+}
+\end{frame}
+% end module definite-integral-def
