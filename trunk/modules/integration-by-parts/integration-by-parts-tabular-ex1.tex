@@ -1,0 +1,52 @@
+% begin module integration-by-parts-tabular-ex1
+\begin{frame}
+\frametitle{Tabular: Example}
+\begin{example} 	
+$ \ds \int 5x^4e^{2x}\;dx=\star . $\\
+\begin{columns}
+\begin{column}{.6\textwidth}
+This is an integration by parts problem (one we have to do 4 times 
+	to get it done!) Tabular integration shortens the process.\\
+	In 	the left column, we take derivative until we get 0. Then on the 
+	right side we take antiderivative to fill out the table as follows: 
+\end{column}
+\begin{column}{.4\textwidth}
+{\small{
+\[\renewcommand{\arraystretch}{1.5}
+\begin{array}{c @{\hspace*{1.0cm}} c}\toprule
+   D & I \\\cmidrule{1-2}
+  5x^4\tikzmark{Left 1} & \tikzmark{Right 1}e^{2x} \\
+  20x^3 \tikzmark{Left 2} & \tikzmark{Right 2} \frac12 e^{2x} \\
+  60x^2  \tikzmark{Left 3} & \tikzmark{Right 3}  \frac14 e^{2x} \\
+  120x  \tikzmark{Left 4} & \tikzmark{Right 4} \frac18 e^{2x} \\ 
+  120  \tikzmark{Left 5} & \tikzmark{Right 5}\frac{1}{16} e^{2x} \\ 
+    0  \tikzmark{Left 6} & \tikzmark{Right 6}\frac{1}{32} e^{2x} \\ \bottomrule
+\end{array}
+\]
+}}
+\end{column}
+\end{columns}
+\uncover<2->{
+\DrawArrow[draw=red  ]{Left 1}{Right 2}{$+$}
+} %
+\uncover<3->{  
+\DrawArrow[draw=red]{Left 2}{Right 3}{$-$}
+} %
+\uncover<4->{
+\DrawArrow[draw=red ]{Left 3}{Right 4}{$+$}
+} %
+\uncover<5->{ 
+\DrawArrow[draw=red ]{Left 4}{Right 5}{$-$}
+} %
+\uncover<6->{
+\DrawArrow[draw=red ]{Left 5}{Right 6}{$+$}
+} % 
+
+	We then put the whole thing together, remembering to alternate the 
+	signs:
+\small	\[\star = \uncover<2->{5x^{4}(\frac{1}{2}e^{2x})} \uncover<3->{- 20x^{3}(\frac{1}{4}e^{2x})} \uncover<4->{+ 
+	60x^{2}  (\frac{1}{8}e^{2x})} \uncover<5->{- 120x  (\frac{1}{16}e^{2x})} \uncover<6->{ +  	120   (\frac{1}{32}e^{2x})} \uncover<7->{ + C.}\]
+
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex5

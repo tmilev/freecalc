@@ -1,0 +1,53 @@
+% begin module integration-by-parts-ex1
+
+
+
+\begin{frame}
+Integration by parts:
+\belowdisplayskip=0pt
+\abovedisplayskip=0pt
+\[
+\int u\diff v = uv - \int v\diff u.
+\]
+
+\begin{center}
+Generally: Choose u in this order: {\Large \textbf{  LIPET}}
+\end{center}
+\pause
+
+\begin{center}
+{\Large \textbf{  Logs, Inverse trig, Polynomial, Exponential, Trig
+}}
+\end{center}
+\end{frame}
+
+\begin{frame}
+Integration by parts:
+\belowdisplayskip=0pt
+\abovedisplayskip=0pt
+\[
+\int u\diff v = uv - \int v\diff u.\;\;\;\;\;\;\;\;\;\textrm{LIPET}
+\]
+\begin{example} %[Example 1, p. 489]
+Evaluate: $\ds \int x\sin x\; \diff x$. \\
+
+
+\uncover<2->{%
+$ x $ is a \textbf{P}olynomial...So by the LIPET rule, we let $u = x$, so  $\diff v = \sin x\;\diff x$.\vspace*{3mm}  \\
+}%
+
+ \uncover<3->{Then $ \frac{du}{dx}=1 $, so $\alert<handout:0| 3-4>{\diff u = \uncover<4->{\diff x}}$ and $ \frac{dv}{dx}=\sin(x) $, so $\alert<handout:0| 5-6>{v = \uncover<6->{-\cos x}}$.  
+}%
+\begin{eqnarray*}
+\uncover<7->{\int x\sin x\diff x} & \uncover<7->{ = } & \uncover<7->{uv - \int v\diff u}\\
+ & \uncover<8->{ = } & %
+\uncover<8->{x(-\cos x) - \int (-\cos x)\diff x}\\
+ & \uncover<9->{ = } & %
+\uncover<9->{-x\cos x + \int \cos x\diff x}\\
+ & \uncover<10->{ = } & %
+\uncover<10->{-x\cos x + \sin x + C}\\
+\end{eqnarray*}
+
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex1

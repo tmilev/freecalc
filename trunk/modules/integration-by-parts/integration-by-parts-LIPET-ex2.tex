@@ -1,0 +1,42 @@
+% begin module integration-by-parts-ex2
+\begin{frame}
+\begin{example} %[Example 2, p. 490]
+Find $\int \ln x \; \; \diff x$. \qquad (LIPET)
+\begin{columns}
+
+\begin{column}{.5\textwidth}
+\uncover<2->{%
+$ \ln(x) $ is a \textbf{L}ogarithmic factor...
+\[
+\begin{array}[rl]{l@{\qquad}l}
+\alert<handout:0| 3-4>{u = \uncover<4->{\ln(x)}} & \alert<handout:0| 5-6>{\diff v = \uncover<6->{\diff x}}\\
+\alert<handout:0| 7-8>{\diff u = \uncover<8->{\frac{1}{x}\; \diff x}} & \alert<handout:0| 9-10>{v = \uncover<10->{x}}
+\end{array}\qquad
+\]
+}%
+\end{column}
+\begin{column}{.4\textwidth}
+\uncover<7->{%
+\[
+u =\ln x \Rightarrow \frac{\diff u}{\diff x}= \frac1x \Rightarrow \diff u = \frac1x \diff x
+\]
+} %
+\uncover<9->{%
+\[
+\diff v =\diff x \Rightarrow \frac{\diff v}{\diff x}= 1 \Rightarrow v = x
+\]
+}
+\end{column}
+\end{columns}
+\begin{eqnarray*}
+\uncover<2->{\int \ln x\; \diff x} & \uncover<2->{ = } & \uncover<2->{uv - \int v\; \diff u}\\
+ & \uncover<11->{ = } & %
+\uncover<11->{(\ln x)x - \int x\cdot \frac{1}{x}\; \diff x}\\
+ & \uncover<12->{ = } & %
+\uncover<12->{x\ln x - \int \; \diff x}\\
+ & \uncover<13->{ = } & %
+\uncover<13->{x\ln x - x + C}\\
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex2

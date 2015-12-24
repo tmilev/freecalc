@@ -1,0 +1,62 @@
+% begin module integration-by-parts-ex4
+\begin{frame}
+\begin{example}[Solving for the unknown integral] %[Example 4, p. 491]
+Find $\int e^x \sin x \diff x$. \qquad (LIP\alert<handout:0| 2,13>{E}T)
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\uncover<2->{%
+\[
+\begin{array}{l@{\ \ }l}
+\alert<handout:0| 3-4>{u = \uncover<4->{e^x}} & \alert<handout:0| 5-6>{\diff v = \uncover<6->{\sin x\diff x}}\\
+\alert<handout:0| 7-8>{\diff u = \uncover<8->{e^x\diff x}} & \alert<handout:0| 9-10>{v = \uncover<10->{-\cos x}}
+\end{array}\ \ 
+\alert<handout:0| 11-12,24>{%
+\uncover<2->{\int e^x\sin x \diff x}  \uncover<2->{ = }  \uncover<12->{-e^x\cos x + \int e^x\cos x\diff x}
+}%
+\]
+}%
+\uncover<13->{
+Do it again:
+\[
+\begin{array}{l@{\ \ }l}
+\alert<handout:0| 14-15>{u = \uncover<15->{e^x}} & \alert<handout:0| 16-17>{\diff v = \uncover<17->{\cos x\diff x}}\\
+\alert<handout:0| 18-19>{\diff u = \uncover<19->{e^x \diff x}} & \alert<handout:0| 20-21>{v = \uncover<21->{\sin x}}
+\end{array}\ \ 
+\alert<handout:0| 22-23,25>{%
+\uncover<13->{\int e^x\cos x \diff x}  \uncover<13->{ = }  \uncover<23->{e^x\sin x - \int e^x\sin x\diff x}
+}%
+\]
+}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\begin{eqnarray*}
+\uncover<24->{%
+\alert<handout:0| 24>{
+\int e^x\sin x\diff x
+}}%
+& \uncover<24->{\alert<handout:0| 24>{ = }} &%
+\uncover<24->{\alert<handout:0| 24>{-e^x\cos x + \alert<handout:0| 25>{\int e^x\cos x\diff x}}}\\
+& \uncover<25->{ = } &%
+\uncover<25->{-e^x\cos x + \alert<handout:0| 25>{e^x\sin x - \int e^x\sin x\diff x }}\\
+\uncover<26->{%
+2\int e^x\sin x\diff x
+}%
+& \uncover<26->{ = } &%
+\uncover<26->{%
+-e^x\cos x + e^x\sin x +C_1
+}\\%
+\uncover<27->{%
+\int e^x\sin x\diff x
+}%
+& \uncover<27->{ = } &%
+\uncover<27->{%
+\frac{1}{2}e^x(\sin x - \cos x) + \frac{C_1}{2}.\\
+}%
+& \uncover<28->{ = } &%
+\uncover<28->{%
+\frac{1}{2}e^x(\sin x - \cos x) + C.
+}%
+\end{eqnarray*}
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex4
