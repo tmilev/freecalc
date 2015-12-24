@@ -1,0 +1,27 @@
+% begin module trig-integrals-ex2
+\begin{frame}
+\frametitle{Summary-Integrating powers of Sine and Cosine}
+\small 
+\begin{enumerate}
+\item If the power of cosine is odd ($ n=2k+1 $), save one cosine factor and use $ \cos^2x=1-\sin^2x $ to express the remaining factors in terms of sine:
+\[
+\int \sin^m x \cos^{2k+1}x\;dx = \int \sin^mx(\cos^2 x)^k\cos x\; dx = \int \sin^m (1-\sin^2x)^k\cos(x)\; dx
+\] 
+then substitute $ u=\sin(x) $.
+
+\item If the power of sine is odd, save one  sine factor and use $ \sin^2x=1-\cos^2x $ to express the remaining factors in terms of cosine:
+\[
+\int \cos^m x \sin^{2k+1}x\;dx = \int \cos^mx(\sin^2 x)^k\sin x\; dx
+= \int \cos^m (1-\cos^2x)^k\sin(x)\; dx
+\]
+then substitute $ u=\cos(x) $.
+
+\item If both exponents are even then use half-angle identities:
+\[
+\sin^2x=\frac12(1-\cos(2x)) \;\;\;\cos^2(2x)=\frac12(1+\cos(2x))
+\]
+Sometimes it is helpful to use $ \sin(x)\cos(x)=\frac12\sin(2x) $
+\end{enumerate}
+
+\end{frame}
+% end module trig-integrals-ex2

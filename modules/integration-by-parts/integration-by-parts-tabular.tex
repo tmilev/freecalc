@@ -1,0 +1,30 @@
+% begin module integration-by-parts-tabular
+\begin{frame}
+\frametitle{A Shortcut (sometimes):  Tabular Integration
+}
+\begin{example} Tabular integration ONLY works for integrals of the form:
+$ \ds \int f(x)g(x)\;dx $, where $ f(x) $ differentiates to zero in several steps, and $ g(x) $ integrates repeatedly, easily. 
+
+
+
+\[\renewcommand{\arraystretch}{1.5}
+\begin{array}{c @{\hspace*{1.0cm}} c}\toprule
+   D & I \\\cmidrule{1-2}
+  f(x)\tikzmark{Left 1} & \tikzmark{Right 1}g(x) \\
+  f'(x) \tikzmark{Left 2} & \tikzmark{Right 2} \int g(x)\;dx \\
+  f''(x)  \tikzmark{Left 3} & \tikzmark{Right 3}  \int \int g(x)\;dx \\
+  0  \tikzmark{Left 4} & \tikzmark{Right 4}\int \int \int g(x)\;dx \\\bottomrule
+\end{array}
+\]
+
+\DrawArrow[draw=red  ]{Left 1}{Right 2}{$+$}
+\DrawArrow[draw=brown]{Left 2}{Right 3}{$-$}
+\DrawArrow[draw=blue ]{Left 3}{Right 4}{$+$}
+\small{
+\[
+\int f(x)g(x)\;dx = f(x)\cdot \int g(x)\;dx - f'(x)\cdot \int \int g(x)\; dx+f''(x)\cdot \int \int \int g(x)\; dx \cdots
+\]
+}
+\end{example}
+\end{frame}
+% end module integration-by-parts-ex5
