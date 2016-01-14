@@ -1,0 +1,132 @@
+% begin module trig-substitutions-ex2-version-2
+\begin{frame}
+\begin{example} %[Example 2, p. 504]
+%\begin{columns}[c]
+%\column{.4\textwidth}
+Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $a,b>0$.
+\begin{columns}
+\column{0.37\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2.35, -1.6)(2.35,1.7)
+\tiny
+\psframe*[linecolor=white](-2.35, -1.6)(2.35,1.7)
+\uncover<8>{ \pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+}
+}
+\uncover<9-11>{ \pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+\psline(2,0)(-2,0)
+}
+}
+\uncover<12->{ \pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+\psline(2,0)(0,0)
+}
+}
+
+\fcAxesStandardNoFrame{-2.2}{-1.6}{2.2}{1.6}
+\rput[b](1,1){\uncover<6->{\alert<6>{$y=\frac{b}{a}\sqrt{a^2-x^2}$}}}
+\rput[t](1,-1){\uncover<7->{\alert<7>{$y=-\frac{b}{a}\sqrt{a^2-x^2}$}}}
+
+\uncover<11->{
+\fcFullDot{2}{0}
+\rput[rb](1.9,0.1){$(a,0)$}
+\fcFullDot{-2}{0}
+\rput[lb](-1.9,0.1){$(-a,0)$}
+}
+
+%Function formula: - \sqrt{-1/4 x^{2}+1}
+\uncover<7->{ \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul } }
+%Function formula: \sqrt{-1/4 x^{2}+1}
+\uncover<6->{
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+}
+\end{pspicture}
+\vbox to 4cm {
+\uncover<8->{The area in question is }
+$\begin{array}{l}
+\displaystyle \uncover<9->{\phantom{=}\phantom{4} \int\limits^{ {\uncover<9,10>{\alert<10>{\textbf{?}}} \uncover<11->{\alert<11>{a}} } }_{{\uncover<9,10>{\alert<10>{\textbf{?}}} \uncover<11->{ \alert<11>{-a}}} } \alert<9>{2} \frac{b}{a}\sqrt{a^2-x^2}\diff x} \\
+\displaystyle\uncover<12->{=\alert<12>{4}\int \limits_{{ \alert<12>{0}}}^{a}  \frac{b}{a}\sqrt{a^2-x^2}\diff x} \uncover<12->{.}
+\end{array}
+$
+
+\vfil
+} %vbox
+\column{0.63\textwidth}
+\uncover<2->{Express $y$ via $x$:}
+$
+\begin{array}{rcl}
+\displaystyle \uncover<2->{\alert<3>{\frac{x^2}{a^2}} + \frac{y^2}{b^2} &=& \displaystyle 1} \\
+\displaystyle \uncover<3->{\frac{y^2}{\alert<4>{ b^2} }&=&\displaystyle 1 \alert<3>{-\frac{x^2}{a^2}}}\\
+\displaystyle \uncover<4->{y^2&=&\displaystyle \alert<4>{b^2}\left(1-\frac{x^2}{a^2}\right)\\
+&=&\displaystyle b^2\left(\frac{a^2-x^2}{a^2}\right)\\
+&=&\displaystyle \frac{b^2}{a^2}\left( a^2-x^2 \right)}\\
+\displaystyle \uncover<5->{y&=&\displaystyle \pm \frac{b}{a}\sqrt{a^2-x^2}}
+\end{array}
+$
+\end{columns}
+\end{example}
+
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\begin{example} %[Example 2, p. 504]
+%\begin{columns}[c]
+%\column{.4\textwidth}
+Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $a,b>0$.
+\begin{columns}
+\column{0.37\textwidth}
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-2.35, -1.6)(2.35,1.7)
+\tiny
+\psframe*[linecolor=white](-2.35, -1.6)(2.35,1.7)
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+}
+\fcAxesStandardNoFrame{-2.2}{-1.6}{2.2}{1.6}
+\rput[b](1,1){\uncover<1->{$y=\frac{b}{a}\sqrt{a^2-x^2}$}}
+\rput[t](1,-1){$y=-\frac{b}{a}\sqrt{a^2-x^2} $}
+
+%Function formula: - \sqrt{-1/4 x^{2}+1}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
+%Function formula: \sqrt{-1/4 x^{2}+1}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
+\end{pspicture}
+\vbox to 4cm {
+The area in question is
+$\begin{array}{l}
+\displaystyle \phantom{=}\phantom{4} \int\limits_{\phantom{\textbf{?}}-a}^{\phantom{\textbf{?}}a}2\frac{b}{a}\sqrt{a^2-x^2}\diff x\\
+\uncover<1->{=} \displaystyle 4\alert<15>{ \int\limits_{0}^{a}}  \frac{b}{a} \alert<15>{ \sqrt{a^2-x^2}\diff x} \\
+\uncover<15->{=4\frac{b}{a}\alert<15>{ \frac{a^2\pi}{4}}}\uncover<16->{=\pi a b\quad .}
+\end{array}
+$
+
+\vfil
+}
+\column{0.63\textwidth}
+\uncover<2->{Set \alert<6>{$x= a\sin \theta $}, $\alert<5>{ \theta\in \left[-\frac{\pi}{2},\frac{\pi}{2}\right]} $.} \uncover<3->{Then \alert<6>{$ dx=a\cos\theta \diff \theta $}, and  $\sqrt{a^2-x^2} =\sqrt{a^2 - a^2\sin^2\theta} = \sqrt{a^2(1- \sin^2\theta)}$} 
+\uncover<4->{$= \sqrt{a^2\cos^2\theta}=a|\cos\theta|$}\uncover<5->{$=a\cos\theta$. %since $-\frac{\pi}{2}\le \theta\le \frac{\pi}{2} $.
+}\\
+\uncover<7->{When $x=0$, $\theta=0$ and when $x=a$, $\theta=\frac{\pi}{2}$.}
+
+\noindent $
+\begin{array}{rcl}
+\displaystyle
+\alert<15>{ \int_{0}^{a}\sqrt{a^2-x^2}\diff x} &\uncover<6->{=}& \displaystyle \uncover<6->{ \int_{{\uncover<7->{\alert<7>{0}}}}^{\uncover<7->{{\alert<7>{ \frac{\pi}2}}}} \alert<6>{a\cos \theta} \cdot  \alert<6>{a\cos \theta} \diff \theta }\\
+&\uncover<8->{=}& \displaystyle \uncover<8->{ \alert<8>{a^2} \int_{0}^{\frac{\pi}2} \alert<10>{ {\alert<9>{\cos^2}} \alert<9>{\theta}} \alert<9>{ \diff \theta} } \\
+&\uncover<10->{=}&\displaystyle \uncover<10->{a^2\int_{0}^{\frac{\pi}2} \alert<10>{\frac{ \alert<11>{\cos(2\theta)} + \alert<12>{1}}{ \alert<11,12>{ 2} } } \diff \theta}\\
+&\uncover<11->{=}& \uncover<11->{ a^2 \left[  \alert<11>{\frac{\sin (2\theta)}{4}} +\alert<12>{ \frac{\theta}{2}} \right]_{\theta=0}^{\theta=\frac{\pi}{2}}} \\
+&\uncover<13->{=}&\uncover<13->{ a^2\left(0+\frac{\pi}{4}-(0+0)\right)}\\
+\uncover<14->{&\alert<15>{=}& \alert<15>{\frac{a^2\pi }{4}}}
+\end{array}
+$
+\end{columns}
+\end{example}
+
+\vspace{10cm}
+\end{frame}
+% end module trig-substitutions-ex2-version-2
