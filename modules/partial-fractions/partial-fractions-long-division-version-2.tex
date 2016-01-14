@@ -1,0 +1,36 @@
+% begin module partial-fractions-long-division
+\begin{frame}
+\frametitle{Review of polynomial notation}
+Consider a rational function
+\[
+f(x) = \frac{P(x)}{Q(x)}
+\]
+where $P$ and $Q$ are polynomials.  Recall that the degree of $P$ is the highest power of $x$ in $P$ that has a non-zero coefficient.  That is, if
+\[
+P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
+\]
+where $a_n \neq 0$, then the degree of $P$ is $n$, and we write deg$(P) = n$.
+
+\end{frame}
+\begin{frame}\frametitle{Step 1: Ensure proper fraction}
+\begin{itemize}
+\item To compute a partial fraction decomposition we need  the degree of the numerator to be less than the degree of the denominator (i.e. a \textit{proper fraction}).
+\item<2-> Therefore our first step is to transform $\ds \frac{P(x)}{Q(x)}$ to
+
+\[ \frac{\alert<6>{P(x)}}{\alert<7>{Q(x)} }= \alert<8>{S(x)}+\frac{\alert<9>{R(x)}}{\alert<7>{Q(x)}} 
+\]
+
+where $S(x), R(x), Q(x)$ are polynomials and $\deg R<\deg Q$.
+\item<3-> This is done using polynomial long division.
+\item<4-> We recall that to divide the \alert<6>{dividend $P(x)$} by the \alert<7>{divisor $Q(x)$} to get \alert<8>{quotient $S(x)$} with \alert<9>{remainder $R(x)$} means \uncover<5->{ to find polynomials  $S(x), R(x)$ such that \alert<9>{$\deg R<\deg Q$} and
+\[
+\alert<6> {P(x)}=\alert<8>{S(x)}\alert<7>{Q(x)}+\alert<9>{ R(x)}
+\]
+}
+\item<10-> We review polynomial long division with an example:
+\end{itemize}
+
+
+
+\end{frame}
+% end module partial-fractions-long-division
