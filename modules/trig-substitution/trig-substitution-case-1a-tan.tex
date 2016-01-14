@@ -1,0 +1,39 @@
+%begin module trig-substitution-case-1a-tan
+\begin{frame}
+\frametitle{Trigonometric substitution $x=\tan \theta$  for $\sqrt{ x^2+1}$ }
+The trigonometric substitution $ \alert<2,9>{x=\tan \theta}$, $\theta\in \left(-\frac{\pi}{2} , \frac{\pi}{2}\right) $ for $\sqrt{x^2+1}$:
+\[
+\begin{array}{rcll}
+\displaystyle   \sqrt{ x^2+1} &=& \sqrt{ \alert<2>{\tan^2  \theta} +1}&\\
+\uncover<3->{ %
+&=&\displaystyle \sqrt{\sec^2 \theta} & \\
+} %
+\uncover<4->{ %
+&=&\displaystyle   |\sec\theta|  &\\
+} %
+\uncover<5->{ %
+&=& \displaystyle  \sec \theta& 
+     \vspace*{-1cm} \begin{array}{|l}
+      \text{When }\theta\in \left(-\frac{\pi}{2} , \frac{\pi}{2}\right) \text{ we have } ~ \sec \theta \geq 0\\
+      \text{ so }  |\sec\theta|=\sec\theta 
+      \end{array} \\
+} 
+\end{array}
+\]
+
+
+\uncover<6->{
+To summarize:
+\begin{definition}The trigonometric substitution $\alert<9>{ x=\tan \theta }$, $\theta\in (-\frac{\pi}{2} , \frac{\pi}{2})$ for $\sqrt{x^2+1} $ is given by:
+\[
+\begin{array}{rcl}
+x &=&\displaystyle \tan \theta \\
+\alert<7>{\sqrt{x^2+1}}&\alert<7>{=}&\displaystyle \alert<7>{\sec \theta}\\
+\alert<9,10>{\diff x} &\alert<9,10>{=}&\displaystyle \uncover<10->{\alert<10>{  \sec^2 \theta} } \uncover<1-9>{\alert<9>{\textbf{?}}} \alert<9,10>{\diff \theta}\\
+\alert<8>{\theta}& \alert<8>{=}& \alert<8>{\Arctan x}\quad .
+\end{array}
+\]
+\end{definition}
+}
+\end{frame}
+%end module trig-substitution-case-1-cot
