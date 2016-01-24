@@ -4,11 +4,11 @@
 \begin{columns}
 \column{0.15\textwidth}
 \psset{xunit=0.2cm, yunit=0.2cm}
-\begin{pspicture}(-0.5,-0.5)(3.1,9.1)
+\begin{pspicture}(-1,-7)(4,9.1)
 \fcBoundingBox{-1}{-7}{4}{9}
 \pscustom*[linecolor=\fcColorNegativeAreaUnderGraph]{
 %Function formula: x^{3}-6 x
-\psplot{0}{6 sqrt}{x -6 mul x 3 exp add }\psline(! 6 sqrt 2 1.5 exp 6 sqrt 6 mul sub)(! 6 sqrt  0)}
+\psplot{0}{6 sqrt}{x -6 mul x 3 exp add }\psline(! 6 sqrt  0)(0,0)}
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{
 %Function formula: x^{3}-6 x
 \psplot{6 sqrt}{3}{x -6 mul x 3 exp add }\psline(3, 9)(3,  0)}
