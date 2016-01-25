@@ -1,0 +1,68 @@
+\begin{frame}
+
+\begin{example}
+~
+\begin{columns}[T]
+\column{0.3\textwidth}
+\begin{pspicture}(-2.4,-1.8)(1.8,1.8)
+\tiny
+\renewcommand{\fcScreenStyle}{x}%
+\renewcommand{\fcScreen}{[0 0 -1] 0}%
+\fcBoundingBox{-1.8}{-1.8}{1.8}{1.8}%
+\only<3->{\renewcommand{\fcScreen}{[-0.05 -0.05 -1] 0}}%
+\only<4->{\renewcommand{\fcScreen}{[-0.1 -0.1 -1] 0}}%
+\only<5->{\renewcommand{\fcScreen}{[-0.15 -0.15 -1] 0}}%
+\only<6->{\renewcommand{\fcScreen}{[-0.2 -0.2 -1] 0}}%
+\only<7->{\renewcommand{\fcScreen}{[-0.25 -0.25 -1] 0}}%
+\newcommand{\theFunOuter}{1 u u mul 2 div sub sqrt\space}%
+%\newcommand{\theFunInner}{u \space}%
+\newcommand{\theSurface}{%
+\fcSurfaceInScene[iterationsU=7, arrows=none]{2 sqrt -1 mul 0.01 add}{0}{2 sqrt 0.01 sub}{30 \fcIterationsV\space mul}{[u v cos \theFunOuter mul v sin \theFunOuter mul]}{}%
+%\fcSurfaceInScene[iterationsU=1, arrows=none, colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2} ]{1 }{0 }{2 }{30 \fcIterationsV\space mul}{[1 v cos u mul v sin u mul]}{}%
+}%
+\fcStartIIIdScene%
+\only<3->{\fcPutIIId{[-0.1 -0.1 1.6]}{$z$}}%
+\fcPutIIId{[0 1.6 ]}{$y$}%
+\fcPutIIId{[1.6 0 0]}{$x$}%
+\fcAxesIIIdSymmetricInScene{1.5}{1.5}{1.5}%
+\only<handout:0|12>{%
+\renewcommand{\fcIterationsV}{4}%
+\theSurface%
+}%
+\only<handout:0|13>{%
+\renewcommand{\fcIterationsV}{8}%
+\theSurface%
+}%
+\only<handout:2|14,15,27->{%
+\renewcommand{\fcIterationsV}{12}%
+\theSurface%
+}%
+\fcFinishIIIdScene[true]%
+\end{pspicture}
+\column{0.7\textwidth}
+Find the surface area of the ellipsoid obtained by rotating $y=\sqrt{1-\frac{x^{2}}{2}}$ about the $x$ axis.
+
+\uncover<14>{}
+\[
+\begin{array}{rcl}
+y'&=& \frac{1}{2}\frac{\left(-x\right)}{\sqrt{1-\frac{x^2}{2}}} = -\frac{x}{2y}\\
+(y')^2&=&\frac{x^2}{4y^2}\\
+
+\end{array}
+\]
+
+\end{columns}
+\[
+\begin{array}{rcl}
+Area&=& \int_{-2}^22\pi y \sqrt{1+\frac{x^2}{4 y^2}}\diff x\\
+&=&\int_{-2}^{2}2\pi y \sqrt{\frac{4y^2+x^2}{4y^2}}\diff x\\
+&=&\int_{-2}^{2}2\pi y \sqrt{\frac{4y^2+x^2}{4y^2}}\diff x\\
+&=&\int_{-2}^2\pi\sqrt{4\left(1-\frac{x^2}{2} \right)+x^2 }\diff x\\
+&=&\int_{-2}^{2}\pi\sqrt{4-x^2}\diff x \\
+\end{array}
+\]
+
+\end{example}
+
+
+\end{frame}
