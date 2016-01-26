@@ -10,7 +10,7 @@ $
 \begin{columns}
 \column{0.3\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-2, -1)(2,2)
+\begin{pspicture}(-0.2, -1)(6,4)
 \renewcommand{\fcScreen}{[-0.5 1 -0.2] -1}%
 \tiny%
 \psline[linecolor=black!1](2, 4)(2, 4.01)%
@@ -32,19 +32,19 @@ $
 \fcPutIIId[l]{[3 4 1]}{$~~C$}%
 \fcPutIIId[t]{[3 1 0.9]}{$D$}%
 }%
-\uncover<6->{\fcPutIIId[t]{[2 1 0.9]}{\alert<6>{$x_B- x_A$}}}%
-\uncover<7->{\fcPutIIId[tl]{[3 2.5 1]}{\alert<7>{$~~y_B- y_A$}}}%
-\uncover<8->{\fcPutIIId[l]{[3 4 2]}{\alert<8>{$~~z_B- z_A$}}}%
+\uncover<6->{\fcPutIIId[t]{[2 1 0.9]}{\alertNoH{6}{$x_B- x_A$}}}%
+\uncover<7->{\fcPutIIId[tl]{[3 2.5 1]}{\alertNoH{7}{$~~y_B- y_A$}}}%
+\uncover<8->{\fcPutIIId[l]{[3 4 2]}{\alertNoH{8}{$~~z_B- z_A$}}}%
 \end{pspicture}
 \column{0.6\textwidth}
 \uncover<2->{Why is this so? Geometric explanation:}
 \[
 \begin{array}{r@{}c@{}ll|l}
-\uncover<3->{\alert<5>{|AC|^2} &~\alert<5>{=}~& \alert<5>{|AD|^2+|DC|^2} &&  \alert<3>{\triangle ADC}\\}
-\uncover<4->{|AB|^2 &~=~&  |BC|^2+\alert<5>{|AC|^2}&& \alert<4>{ \triangle ACB}\\}
-\uncover<5->{&~=~&|\alert<8>{BC}|^2+\alert<5>{|\alert<6>{AD}|^2+|\alert<7>{DC}|^2} \\}
-\uncover<6->{&~=~&\phantom{+} (\alert<6>{x_B-x_A})^2+(\alert<7>{y_B-y_A})^2\\
-&&+(\alert<8>{z_B-z_A} )^2\quad ,}
+\uncover<3->{\alertNoH{5}{|AC|^2} &~\alertNoH{5}{=}~& \alertNoH{5}{|AD|^2+|DC|^2} &&  \alertNoH{3}{\triangle ADC}\\}
+\uncover<4->{|AB|^2 &~=~&  |BC|^2+\alertNoH{5}{|AC|^2}&& \alertNoH{4}{ \triangle ACB}\\}
+\uncover<5->{&~=~&|\alertNoH{8}{BC}|^2+\alertNoH{5}{|\alertNoH{6}{AD}|^2+|\alertNoH{7}{DC}|^2} \\}
+\uncover<6->{&~=~&\phantom{+} (\alertNoH{6}{x_B-x_A})^2+(\alertNoH{7}{y_B-y_A})^2\\
+&&+(\alertNoH{8}{z_B-z_A} )^2\quad ,}
 \end{array}
 \]
 \end{columns}
@@ -63,7 +63,7 @@ $
 %
 %
 \uncover<9->{
-Example: \[d(P(3,1,2), Q(1,2,3)) = \uncover<9>{\alert<9>{\textbf ?}} \uncover<10->{\alert<10>{{ \sqrt{(1-3)^2+(2-1)^2+(3-2)^2} = \sqrt{6} }}}\quad .\]
+Example: \[d(P(3,1,2), Q(1,2,3)) =  \fcAnswer{10}{ \sqrt{(1-3)^2+(2-1)^2+(3-2)^2} = \sqrt{6} }\quad .\]
 }
 
 \end{frame}
