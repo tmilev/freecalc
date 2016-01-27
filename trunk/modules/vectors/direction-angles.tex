@@ -3,10 +3,10 @@
 \begin{definition}
 The direction angles $\alpha, \beta, \gamma$ of the vector $\fcv u$ are defined as the angles between $\fcv u $ and the unit vectors $\fcv i, \fcv j, \fcv k$ (in the same order).
 \end{definition}
-\begin{columns}
+\begin{columns}[T]
 \column{0.5\textwidth}
 \psset{xunit=2cm, yunit=2cm}
-\begin{pspicture}(-2,-2)(2,2)
+\begin{pspicture}(-1,-2)(2,2)
 \renewcommand{\fcScreen}{[-2 -1 -0.6] 0}
 \fcAxesIIId{2}{2}{2}
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[1.5 1.5 1.5]}
@@ -23,16 +23,16 @@ The direction angles $\alpha, \beta, \gamma$ of the vector $\fcv u$ are defined 
 
 \column{0.5\textwidth}
 
-$\textbf{u} = ( u_1, u_2, u_3)$
+$\fcv{u} = ( u_1, u_2, u_3)$
 
-$\alpha = \angle (\textbf{u},\textbf{i})$
+$\alpha = \angle (\fcv{u},\fcv{i})$
 
 $\beta =
-\angle (\textbf{u},\textbf{j})$
+\angle (\fcv{u},\fcv{j})$
 
-$\gamma = \angle (\textbf{u},\textbf{k}) \; .$
+$\gamma = \angle (\fcv{u},\fcv{k}) \; .$
 
-$$\cos{\alpha} = \frac{\textbf{u} \cdot \textbf{i}}{|\textbf{u}|\, |\textbf{i}|} =
+$$\cos{\alpha} = \frac{\fcv{u} \cdot \fcv{i}}{|\fcv{u}|\, |\fcv{i}|} =
 \frac{u_1}{\sqrt{u_1^2+u_2^2+u_3^2}}$$
 
 Similar for $\cos{\beta}$ and $\cos{\gamma}$. Then:
