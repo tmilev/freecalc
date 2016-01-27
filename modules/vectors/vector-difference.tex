@@ -12,29 +12,28 @@
 
 \uncover<3-4,7->{\psline[arrows=->, linecolor=red](2,1)(0,0)}
 \uncover<5>{\psline[arrows=->](2,1)(0,0)}
-\uncover<3>{\rput[lt](1,0.5){$\alert<3>{-\fcv u=\fcv{BA}}$}}
-\uncover<4-5,7->{\rput[lt](1,0.5){$\alert<4,7>{-\fcv u}$}}
+\uncover<3-5,7->{\rput[lt](1,0.5){$\alertNoH{3}{ \alertNoH{4,7}{-\fcv u}\uncover<3>{ =\fcv{BA}}}$}}
 \uncover<3>{\fcFullDot{0}{0}}
 \uncover<6>{\psline[arrows=->](0,0)(1,-2)}
 \uncover<7>{\psline[arrows=->, linecolor=red](0,0)(1,-2)}
-\uncover<6->{\rput[tr](0.5, -1){$\alert<7>{\fcv v}~$}}
+\uncover<6->{\rput[tr](0.5, -1){$\alertNoH{7}{\fcv v}~$}}
 \uncover<1-5>{%
-\rput[tl](0,-0.1){$A$}
+\rput[tr](0,-0.1){$A$}
 \rput[tl](2,0.9){$B$}
 }%
 \uncover<7->{%
 \psline[arrows=->, linecolor=red](2,1)(1,-2)
-\rput[l](1.5,-0.5){$~~\alert<7>{\fcv v-\fcv u }$}
+\rput[l](1.5,-0.5){$~~\alertNoH{7}{\fcv v-\fcv u }$}
 }
 \end{pspicture}
 \column{0.6\textwidth}
 \begin{itemize}
 \item Let $\fcv u=\fcv{AB}$. 
-\item<2-> We define $-\fcv u$ to be \uncover<5->{\alert<5>{the}} \uncover<1-4>{a} vector for which $\fcv u +(-\fcv u)=\fcv 0 $. 
-\item<3-> Since $\fcv{AB} + \fcv{BA} = \fcv{0}$, it follows $\alert<3>{-\fcv u=\fcv {BA}}$.
+\item<2-> We define $-\fcv u$ to be \uncover<5->{\alertNoH{5}{the}} \uncover<handout:0|1-4>{a} vector for which $\fcv u +(-\fcv u)=\fcv 0 $. 
+\item<3-> Since $\fcv{AB} + \fcv{BA} = \fcv{0}$, it follows $\alertNoH{3}{-\fcv u=\fcv {BA}}$.
 \item<4-> In other words $-\fcv{u}$ is depicted using the arrow opposite to $\fcv u$.
-\item<5-> From picture, it's evident \alert<5>{$-\fcv u $ can be chosen in a only one way}.
-\item<6-> We define the difference of vectors $\fcv v, \fcv u$ via \uncover<7->{$\alert<7>{\fcv{v}-\fcv{u}= (-\fcv{u})+ \fcv{v} } $ (triangle rule).}
+\item<5-> From picture, it's evident \alertNoH{5}{$-\fcv u $ can be chosen one way only}.
+\item<6-> We define the difference of vectors $\fcv v, \fcv u$ via \uncover<7->{$\alertNoH{7}{\fcv{v}-\fcv{u}= (-\fcv{u})+ \fcv{v} } $ (triangle rule).}
 \end{itemize}
 \end{columns}
 \end{frame}

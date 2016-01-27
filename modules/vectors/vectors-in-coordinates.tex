@@ -4,7 +4,7 @@
 \begin{columns}
 \column{0.3\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-0.5 ,-2)(4.5, 4)
+\begin{pspicture}(-0.5 ,-2)(4.9, 4)
 \fcBoundingBox{-0.5}{-2}{4.5}{4}
 \tiny
 \renewcommand{\fcScreen}{[-1 1.1 -0.5] 0}
@@ -14,9 +14,9 @@
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[1 0 0]}
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[0 1 0]}
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[0 0 1]}
-\fcPutIIId[t]{[0.5 0 -0.1]}{$\alert<3>{\bm i}$}
-\fcPutIIId[br]{[0 0.5 0]}{$\alert<3>{\bm j}$}
-\fcPutIIId[r]{[0 0 0.5]}{$\alert<3>{\bm k}~~$}
+\fcPutIIId[t]{[0.5 0 -0.1]}{$\alertNoH{3}{\fcv i}$}
+\fcPutIIId[br]{[0 0.5 0]}{$\alertNoH{3}{\fcv j}$}
+\fcPutIIId[r]{[0 0 0.5]}{$\alertNoH{3}{\fcv k}~~$}
 }
 \uncover<5->{
 \fcPutIIId[lb]{[2.5 2.5 2.8]}{$U\uncover<6->{(a,b,c)}$}
@@ -29,9 +29,9 @@
 \fcDotIIId{[0 0 1]}
 }
 \uncover<2>{
-\fcPutIIId[t]{[1 0 -0.2]}{\alert<2>{$I$}}
-\fcPutIIId[br]{[0 1 0]}{\alert<2>{$J~~$}}
-\fcPutIIId[r]{[0 0 1]}{\alert<2>{$K~~$}}
+\fcPutIIId[t]{[1 0 -0.2]}{\alertNoH{2}{$I$}}
+\fcPutIIId[br]{[0 1 0]}{\alertNoH{2}{$J~~$}}
+\fcPutIIId[r]{[0 0 1]}{\alertNoH{2}{$K~~$}}
 }
 \uncover<6,11>{
 \fcLineIIId[linecolor=gray]{[2.5 2.5 2.5]}{[2.5 2.5 0]}
@@ -50,29 +50,29 @@
 \fcPutIIId[r]{[0 0 1.25]}{$c~~$}%
 }
 \uncover<8->{
-\fcPutIIId[t]{[1.25 0 -0.1]}{$a\bm{i}$}
+\fcPutIIId[t]{[1.25 0 -0.1]}{$a\fcv{i}$}
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[2.5 0 0]}
 }
 \uncover<9->{
 \fcLineIIId[arrows=->, linecolor=red]{[2.5 0 0]}{[2.5 2.5 0]}
-\fcPutIIId[lt]{[2.5 1.25 0]}{$~b\bm{j}$}%
+\fcPutIIId[lt]{[2.5 1.25 0]}{$~b\fcv{j}$}%
 }
 \uncover<10->{
 \fcLineIIId[arrows=->, linecolor=red]{[2.5 2.5 0]}{[2.5 2.5 2.5]}
-\fcPutIIId[l]{[2.5 2.5 1.25]}{$~c\bm{k}$}%
+\fcPutIIId[l]{[2.5 2.5 1.25]}{$~c\fcv{k}$}%
 }
 \end{pspicture}
 \column{0.7\textwidth}
 \begin{itemize}
 \item<1-> Fix coordinate system $Oxyz$.
 \item<2-> Let $I$, $J$, $K$ be the points giving the units on the $x,y,z$ axes as indicated.
-\item<3-> Define $\bm{i}$, $\bm{j}$, $\bm{k}$ to be the unit vectors $\bm{OI}$, $\bm{OJ}$, $\bm{OK}$.
+\item<3-> Define $\fcv{i}$, $\fcv{j}$, $\fcv{k}$ to be the unit vectors $\fcv{OI}$, $\fcv{OJ}$, $\fcv{OK}$.
 \end{itemize}
 \end{columns}
 \begin{itemize}
-\item<5-> Let $\bm u= \bm{OU}$ be a vector.
+\item<5-> Let $\fcv u= \fcv{OU}$ be a vector.
 \item<6-> Let $U$ have coordinates $(a,b,c)$.
-\item<7-> Then $\bm u =\alert<10>{ \alert<9>{\alert<8>{ a\bm{i}}+b\bm{j}}+c\bm{k} }$.
+\item<7-> Then $\fcv u =\alertNoH{10}{ \alertNoH{9}{\alertNoH{8}{ a\fcv{i}}+b\fcv{j}}+c\fcv{k} }$.
 \item<8-11> This follows from the point-vector identification.
 \end{itemize}
 \end{frame}
@@ -90,24 +90,24 @@
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[1 0 0]}
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[0 1 0]}
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[0 0 1]}
-\fcPutIIId[t]{[0.5 0 -0.1]}{$\alert<3>{\bm i}$}
-\fcPutIIId[br]{[0 0.5 0]}{$\alert<3>{\bm j}$}
-\fcPutIIId[r]{[0 0 0.5]}{$\alert<3>{\bm k}~~$}
+\fcPutIIId[t]{[0.5 0 -0.1]}{$\alertNoH{3}{\fcv i}$}
+\fcPutIIId[br]{[0 0.5 0]}{$\alertNoH{3}{\fcv j}$}
+\fcPutIIId[r]{[0 0 0.5]}{$\alertNoH{3}{\fcv k}~~$}
 \fcPutIIId[lb]{[2.5 2.5 2.8]}{$U(a,b,c)$}
-\uncover<2->{\fcPutIIId[rb]{[1.25 1.25 1.3]}{$\bm u( a,b,c)$}}
+\uncover<2->{\fcPutIIId[rb]{[1.25 1.25 1.3]}{$\fcv u( a,b,c)$}}
 \fcDotIIId[linecolor=blue]{[2.5 2.5 2.5]}%
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[2.5 2.5 2.5]}
-\fcPutIIId[t]{[1.25 0 -0.1]}{$a\bm{i}$}
+\fcPutIIId[t]{[1.25 0 -0.1]}{$a\fcv{i}$}
 \fcLineIIId[arrows=->, linecolor=red]{[0 0 0]}{[2.5 0 0]}
 \fcLineIIId[arrows=->, linecolor=red]{[2.5 0 0]}{[2.5 2.5 0]}
-\fcPutIIId[lt]{[2.5 1.25 0]}{$~b\bm{j}$}%
+\fcPutIIId[lt]{[2.5 1.25 0]}{$~b\fcv{j}$}%
 \fcLineIIId[arrows=->, linecolor=red]{[2.5 2.5 0]}{[2.5 2.5 2.5]}
-\fcPutIIId[l]{[2.5 2.5 1.25]}{$~c\bm{k}$}%
+\fcPutIIId[l]{[2.5 2.5 1.25]}{$~c\fcv{k}$}%
 \end{pspicture}
 \column{0.7\textwidth}
 \begin{itemize}
-\item<1-> From preceding: arbitrary vector $\bm u= \bm {OU}$ can be decomposed as $\bm u= a\bm i+b\bm j + c\bm k$, where $(a,b,c)$: Cartesian coordinates of $U$.
-\item<2-> Thus $\bm u$ is identified with the triple of numbers $( a, b, c)$.
+\item<1-> From preceding: arbitrary vector $\fcv u= \fcv {OU}$ can be decomposed as $\fcv u= a\fcv i+b\fcv j + c\fcv k$, where $(a,b,c)$: Cartesian coordinates of $U$.
+\item<2-> Thus $\fcv u$ is identified with the triple of numbers $( a, b, c)$.
 \end{itemize}
 \end{columns}
 

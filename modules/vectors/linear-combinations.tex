@@ -5,52 +5,51 @@
 \psset{xunit=0.6cm, yunit=0.6cm}
 \begin{pspicture}(-2,-2)(3,3)
 \fcBoundingBox{-2}{-2}{3}{3}
-\rput[br](1.9, 2.1){$\bm u$}
+\fcFullDot{0}{0}
+\rput[br](3, 3){$\fcv u$}
 \psline[arrows=->](0,0)(3,3)
-
-\uncover<3>{
+\uncover<handout:0|3>{
 \psline[arrows=->, linecolor=red](0,0)(1.5,1.5)
-\rput[tl](0.75, 0.75){$\alert<3>{\frac{1}{2}\bm u}$}
+\rput[tl](0.75, 0.75){$\alertNoH{3}{\frac{1}{2}\fcv u}$}
 }
-
 \uncover<4>{
 \psline[arrows=->, linecolor=red](0,0)(2,2)
-\rput[tl](1, 1){$\alert<4>{\frac{2}{3}\bm u}$}
+\rput[tl](1, 1){$\alertNoH{4}{\frac{2}{3}\fcv u}$}
 }
-\uncover<5>{
+\uncover<handout:0|5>{
 \psline[arrows=->, linecolor=red](0,0)(1,1)
-\rput[tl](0.5, 0.5){$\alert<5>{\frac{1}{3}\bm u}$}
+\rput[tl](0.5, 0.5){$\alertNoH{5}{\frac{1}{3}\fcv u}$}
 }
 \uncover<6>{
 \psline[arrows=->, linecolor=red](0,0)(-2,-2)
-\rput[tl](-1, -1){$\alert<6>{-\frac{1}{2}\bm u}$}
+\rput[tl](-1, -1){$\alertNoH{6}{-\frac{1}{2}\fcv u}$}
 }
 \end{pspicture}
 \column{0.7\textwidth}
 \begin{itemize}
-\item<1-> Let $\bm{u}$ be vector, $c$ be a real number (scalar).
-\item<2-> Define \alert<2>{the product of the vector $\bm u$ and the scalar $c$} as follows.
+\item<1-> Let $\fcv{u}$ be vector, $c$ be a real number (scalar).
+\item<2-> Define \alertNoH{2}{the product of the vector $\fcv u$ and the scalar $c$} as follows.
 \begin{itemize}
-\item<2-> If $c >0$ define $c\bm{u}$ as the vector:
+\item<2-> If $c >0$ define $c\fcv{u}$ as the vector:
 \begin{itemize}
 \item with the same direction
-\item with magnitude proportional with coefficient $c$ to the magnitude of $\bm u$, i.e., $|c\bm{u}| = c|\bm{u}|$.
+\item with magnitude proportional with coefficient $c$ to the magnitude of $\fcv u$, i.e., $|c\fcv{u}| = c|\fcv{u}|$.
 \end{itemize}
 
-\item<6-> If $c<0$ define $c\bm{u}$ as the vector $(-c)(-\bm{u})$, i.e, as the vector:
+\item<6-> If $c<0$ define $c\fcv{u}$ as the vector $(-c)(-\fcv{u})$, i.e, as the vector:
 \begin{itemize}
 \item with opposite direction
-\item with magnitude $|c\bm{u}| = |(-c)(-\bm{u})| = (-c)|-\bm{u}| = |c||\bm{u}|$
+\item with magnitude $|c\fcv{u}| = |(-c)(-\fcv{u})| = (-c)|-\fcv{u}| = |c||\fcv{u}|$
 \end{itemize}
-\item<7-> If $c=0$ then define $c\bm u=0\bm{u} = \bm{0}$.
+\item<7-> If $c=0$ then define $c\fcv u=0\fcv{u} = \fcv{0}$.
 \end{itemize}
 \end{itemize}
 \end{columns}
 \begin{itemize}
-\item If $c_1, \ldots , c_n$ are scalars and $\bm{u}_1,\ldots, \bm{u}_n$ are vectors, we say
+\item If $c_1, \ldots , c_n$ are scalars and $\fcv{u}_1,\ldots, \fcv{u}_n$ are vectors, we say
 \[
-\bm{v} = c_1\bm{u}_1+ \dotsb + c_n \bm{u}_n
+\fcv{v} = c_1\fcv{u}_1+ \dotsb + c_n \fcv{u}_n
 \]
-is a \emph{linear combination} of the vectors $\bm u_1,\dots, \bm u_n$.
+is a \emph{linear combination} of the vectors $\fcv u_1,\dots, \fcv u_n$.
 \end{itemize}
 \end{frame}
