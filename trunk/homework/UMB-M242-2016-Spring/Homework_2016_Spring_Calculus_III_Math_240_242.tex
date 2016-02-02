@@ -1,48 +1,59 @@
 \documentclass{article}
+\newcommand{\currentHW}{13}
 \input{../homework-problems-UMB}
+\newcommand{\standardHomeworkSubtitle}{Quiz time/date will be announced in class}
 
 \toggletrue{solutions}
+\toggletrue{solutionsExtra}
 \toggletrue{answers}
 %\togglefalse{solutions}
+\newcommand{\homeworkOnATopic}[4]{
+\ifnum#3=\currentHW
+\homeworkStart{#2}{#1}
+#4
+\homeworkEnd
+\else
+%
+\fi
+}
 
-\renewcommand{\course}{Math 242}
+
+\renewcommand{\course}{Calculus III Math 242, UMass Boston}
 \renewcommand{\Arccos}{\arccos}
 \renewcommand{\Arcsin}{\arcsin}
 \renewcommand{\Arctan}{\arctan}
 \renewcommand{\Arccot}{{\text{arccot }}}
 
 
-\begin{comment}
-\homeworkStart{on Lecture 1 \\Quiz date to be announced in class}{}
+\homeworkOnATopic{}{on Lecture 1 \\\standardHomeworkSubtitle}{1}{%
+%DesiredHomeworkName: Distances_Spheres
 \item \input{../../modules/coordinate-systems/homework/distance-between-points}
 \item \input{../../modules/coordinate-systems/homework/recognizing-spheres}
-\homeworkEnd
-\end{comment}
-\begin{comment}
-\homeworkStart{on Lecture 2 \\Quiz time to be announced in class}{}
+}
+
+\homeworkOnATopic{}{on Lecture 2 \\\standardHomeworkSubtitle}{2}{%
+%DesiredHomeworkName: Vectors_Dot_Product_Angles
+\item \input{../../modules/vectors/homework/basic-operations-in-coordinates-1}
 \item \input{../../modules/vectors/homework/dot-product}
 \item \input{../../modules/vectors/homework/vectors-orthogonal}
 \item \input{../../modules/vectors/homework/vectors-angles}
 \item \input{../../modules/vectors/homework/angle-between-vertices-and-origin-regular-tetrahedron}
 \item \input{../../modules/vectors/homework/vector-projection}
-\homeworkEnd
-\end{comment}
+}
 
 
-%\begin{comment}
-\homeworkStart{on Lecture 3 \\Quiz time to be announced in class}{}
+\homeworkOnATopic{}{on Lecture 3 \\\standardHomeworkSubtitle}{3}{%
+%DesiredHomeworkName: 
 \item \input{../../modules/vectors/homework/triangle-in-space-area}
 \item \input{../../modules/vectors/homework/find-orthogonal-vector}
 \item \input{../../modules/vectors/homework/find-tetrahedron-volume}
 \item \input{../../modules/vectors/homework/points-coplanar}
 \item \input{../../modules/vectors/homework/jacobi-identity}
 This problem will not appear on the quiz.
+}
 
-\homeworkEnd
-\end{comment}
-\begin{comment}
-\homeworkStart{on Lecture 4 \\Will be quizzed: date to be announced \\ answer key has not been proofread}{}
-
+\homeworkOnATopic{}{on Lecture 4 \\\standardHomeworkSubtitle}{4}{%
+%DesiredHomeworkName: 
 \item \input{../../modules/vectors/homework/line-from-point-and-direction}
 \item \input{../../modules/vectors/homework/line-from-two-points}
 \item \input{../../modules/vectors/homework/line-from-two-points-lines-from-cube-vertices}
@@ -64,11 +75,10 @@ This problem will not appear on the quiz.
 \item \input{../../modules/vectors/homework/angle-betwen-plane-and-line}
 \item \input{../../modules/vectors/homework/angle-betwen-tetrahedron-edge-and-base}
 \item \input{../../modules/vectors/homework/angle-between-faces-tetrahedron}
-\homeworkEnd
-\end{comment}
+}
 
-\begin{comment}
-\homeworkStart{on Lecture 5 \\Will be quizzed: date to be announced\\ the partial answer key has not been proofread, use with caution}{}
+\homeworkOnATopic{}{on Lecture 5 \\\standardHomeworkSubtitle}{5}{%
+%DesiredHomeworkName: 
 \item \input{../../modules/polar-coordinates/homework/equation-of-line-in-polar}
 \item \input{../../modules/polar-coordinates/homework/equation-of-line-in-polar-solutions}
 \item \input{../../modules/polar-coordinates/homework/equation-of-circle-in-polar}
@@ -76,136 +86,62 @@ This problem will not appear on the quiz.
 \item \input{../../modules/cylindrical-coordinates/homework/equation-of-sphere-in-cylindrical}
 \item \input{../../modules/spherical-coordinates/homework/equation-of-plane-in-spherical}
 \item \input{../../modules/spherical-coordinates/homework/equation-of-sphere-in-spherical}
+}
 
-\homeworkEnd
-\end{comment}
-
-\begin{comment}
-\homeworkStart{on Lecture 7}{quiz time to be announced in class}
+\homeworkOnATopic{}{on Lecture 6 \\\standardHomeworkSubtitle}{6}{%
+%DesiredHomeworkName: 
 %\item \input{../../modules/quadratic-surfaces/homework/name-quadratic-surfaces-and-give-examples}
 \item \input{../../modules/quadratic-surfaces/homework/find-surface-type-from-equation}
-
 \input{../../modules/quadratic-surfaces/homework/find-surface-type-from-equation-solutions}
+}
 
-\homeworkEnd
-
-\end{comment}
-
-
-\begin{comment}
-\homeworkStart{on Lecture 8 \\Will be quizzed: time to be announced in class}{}
+\homeworkOnATopic{}{on Lecture 8 \\\standardHomeworkSubtitle}{8}{%
+%DesiredHomeworkName: 
 \item
 \input{../../modules/parametric-curves/homework/curvature-computation-1}
 \item
 \input{../../modules/parametric-curves/homework/space-curve-length-1}
 \item
 \input{../../modules/parametric-curves/homework/space-curve-write-length-integral-1}
-\homeworkEnd
-\end{comment}
+}
 
-\begin{comment}
-\homeworkStart{on Lecture 9 \\Will not be quizzed}{}
+\homeworkOnATopic{}{on Lecture 9 \\\standardHomeworkSubtitle}{9}{%
+%DesiredHomeworkName: 
 \item
 \input{../../modules/continuity-multivariable/homework/limits-multivariable-1}
-
 \input{../../modules/continuity-multivariable/homework/limits-multivariable-1-solutions}
-\homeworkEnd
-\end{comment}
+}
 
-\begin{comment}
-\homeworkStart{on Lecture 10 \\Will be quizzed: date to be announced}{}
+\homeworkOnATopic{}{on Lecture 10 \\\standardHomeworkSubtitle}{10}{%
+%DesiredHomeworkName: 
 \item
 \input{../../modules/partial-derivatives/homework/compute-tangent-plane-graph-function-1}
 %\item  \input{../../modules/partial-derivatives/homework/compute-tangent-plane-parametric-surface-1}
 \item \input{../../modules/partial-derivatives/homework/compute-partial-derivative-1}
-
 \input{../../modules/partial-derivatives/homework/compute-partial-derivative-1-solutions}
-\homeworkEnd
-\end{comment}
+}
 
-\begin{comment}
-\homeworkStart{on Lecture 11 \\Quiz time to be announced in class}{}
+\homeworkOnATopic{}{on Lecture 11 \\\standardHomeworkSubtitle}{11}{%
+%DesiredHomeworkName: 
 \item \input{../../modules/partial-derivatives/homework/variable-change-differential-operators-1}
 \input{../../modules/partial-derivatives/homework/variable-change-differential-operators-1-solutions}
-\homeworkEnd
-\end{comment}
-%\begin{comment}
-\homeworkStart{on Lecture  12\\ will be quizzed: date to be announced in class}{}
+}
+
+\homeworkOnATopic{}{on Lecture 12 \\\standardHomeworkSubtitle}{12}{%
+%DesiredHomeworkName: 
 \item \input{../../modules/optimization-multivariable/homework/find-min-max-1}
 %\item \input{../../modules/optimization-multivariable/homework/find-min-max-2}
 %\input{../../modules/optimization-multivariable/homework/find-min-max-2-solutions}
 %\item \input{../../modules/optimization-multivariable/homework/min-max-with-lagrange-multipliers}
 %\item \input{../../modules/optimization-multivariable/homework/min-max-with-lagrange-multipliers-1}
 %\input{../../modules/optimization-multivariable/homework/min-max-with-lagrange-multipliers-1-solutions}
-\homeworkEnd
-%\end{comment}
+}
 
-\begin{comment}
-\homeworkStart{on Lecture 13 \\ Will be quizzed: date to be announced in class}{}
+\homeworkOnATopic{}{on Lecture 13 \\\standardHomeworkSubtitle}{13}{%
+%DesiredHomeworkName: 
 \item \input{../../modules/integration-multivariable/homework/double-integrals-1}
 \item \input{../../modules/integration-multivariable/homework/double-integrals-2}
 \input{../../modules/integration-multivariable/homework/double-integrals-2-solutions}
 \item \input{../../modules/integration-multivariable/homework/double-integrals-change-variable-order-1}
 \input{../../modules/integration-multivariable/homework/double-integrals-change-variable-order-1-solutions}
-
-\homeworkEnd
-\end{comment}
-\begin{comment}
-\homeworkStart{on Lecture 12 \\Will not be quizzed, problem types will be on test}{}
-\item \input{../../modules/series/homework/express-infinite-decimal-as-rational-1}
-\item \input{../../modules/series/homework/telescoping-series-1}
-\item (Problem (e) will NOT appear on the quiz) \input{../../modules/series/homework/series-integral-or-comparison-test-1}
-\homeworkEnd
-\end{comment}
-\begin{comment}
-\homeworkStart{on Lecture 13 \\Quiz date to be announced}{}
-
-\item \input{../../modules/series/homework/series-ratio-and-or-root-test-1}
-\item \input{../../modules/series/homework/convergence-x-to-the-nth-n-factorial-div-n-to-the-n-th}
-
-\item \input{../../modules/power-series/homework/find-maclaurin-series-4}
-\item \input{../../modules/power-series/homework/find-maclaurin-series-5}
-\item \input{../../modules/power-series/homework/find-maclaurin-series-6}
-\item \textbf{(This problem is of higher difficulty, it will not appear on the quiz.) }
-\input{../../modules/power-series/homework/example-non-zero-function-with-zero-maclaurin-series}
-\homeworkEnd
-\end{comment}
-
-\begin{comment}
-\homeworkStart{on Lectures 13,14, will not be quizzed}{}
-\item \input{../../modules/parametric-curves/homework/match-x-t-and-y-t-graph-to-x-y-graph-1}
-\item \input{../../modules/polar-curves/homework/match-polar-curve-graph-to-formula}
-\homeworkEnd
-\end{comment}
-\begin{comment}
-\homeworkStart{on Lecture 15, will be quizzed Monday April 7}{}
-\item \input{../../modules/parametric-curves/homework/find-horizontal-vertical-tangents}
-\item \input{../../modules/parametric-curves/homework/show-multiple-tangents}
-\homeworkEnd
-
-\end{comment}
-
-
-\begin{comment}
-\homeworkStart{on Lecture  \\}{}
-\item \input{../../modules/parametric-curves/homework/curve-length-1}
-\homeworkEnd
-\end{comment}
-\begin{comment}
-\homeworkStart{on Lecture  14\\will be quizzed: Wednesday April 23}{}
-\item
-\input{../../modules/diff-eq-separable/homework/mixing-problem-1}
-\item
-\input{../../modules/diff-eq-separable/homework/mixing-problem-2}
-\item
-\input{../../modules/diff-eq-separable/homework/separable-DFQs-1}
-\item \input{../../modules/diff-eq-separable/homework/separable-DFQs-2}
-%\item \input{../../modules/diff-eq-separable/homework/separable-DFQs-3}
-\item \input{../../modules/diff-eq-separable/homework/separable-DFQs-4}
-
-\input{../../modules/diff-eq-separable/homework/mixing-problem-1-solution}
-\input{../../modules/diff-eq-separable/homework/separable-DFQs-1-solution}
-
-\input{../../modules/diff-eq-separable/homework/separable-DFQs-4-solutions}
-\homeworkEnd
-\end{comment}
+}

@@ -21,15 +21,17 @@ Version \today
 
 \end{center}
 
-This master problem sheet contains all freecalc problems on the topics studied in Calculus III. The latest \LaTeX{} source of this file (complete with typo and error fixes) can be downloaded from the freecalc project page below. 
-
-\url{https://sourceforge.net/p/freecalculus/code/HEAD/tree/}
-
-For a list of contributors/authors of the freecalc project (and in particular, the present problem collection) see the following file.
+This master problem sheet contains all freecalc problems on the topics studied in Calculus III. For a list of contributors/authors of the freecalc project (and in particular, the present problem collection) see the following file.
 \url{https://sourceforge.net/p/freecalculus/code/HEAD/tree/trunk/contributors.tex}
 
 
-\section{Distance between points}
+\fcLicenseContent
+
+
+
+\tableofcontents
+
+\section{Distances and coordinates}
 \begin{problem}
 \input{../../modules/coordinate-systems/homework/distance-between-points}
 \end{problem}
@@ -38,8 +40,12 @@ For a list of contributors/authors of the freecalc project (and in particular, t
 \input{../../modules/coordinate-systems/homework/recognizing-spheres}
 \end{problem}
 
-\section{Dot product}
-
+\section{Vectors}
+\subsection{Vector basics}
+\begin{problem}
+\input{../../modules/vectors/homework/basic-operations-in-coordinates-1}
+\end{problem}
+\subsection{Dot product}
 \begin{problem}
 \input{../../modules/vectors/homework/dot-product}
 \end{problem}
@@ -60,7 +66,7 @@ For a list of contributors/authors of the freecalc project (and in particular, t
 \input{../../modules/vectors/homework/vector-projection}
 \end{problem}
 
-\section{Cross product}
+\subsection{Cross product}
 
 \begin{problem}
 \input{../../modules/vectors/homework/triangle-in-space-area}
@@ -84,12 +90,14 @@ For a list of contributors/authors of the freecalc project (and in particular, t
 \input{../../modules/vectors/homework/jacobi-identity}
 \end{problem}
 
-\section{Equations of lines and planes}
-
+\section{Lines, planes, points and relationships between them}
+\subsection{Lines}
+\subsubsection{Line from point and direction}
 \begin{problem}
 \input{../../modules/vectors/homework/line-from-point-and-direction}
 \end{problem}
 
+\subsubsection{Line from two points}
 \begin{problem}
 \input{../../modules/vectors/homework/line-from-two-points}
 \end{problem}
@@ -99,47 +107,50 @@ For a list of contributors/authors of the freecalc project (and in particular, t
 \end{problem}
 \input{../../modules/vectors/homework/line-from-two-points-lines-from-cube-vertices-solution}
 
+\subsection{Planes}
+\subsubsection{Plane from point and normal}
 \begin{problem}
 \input{../../modules/vectors/homework/plane-from-point-and-normal}
 \end{problem}
 \input{../../modules/vectors/homework/plane-from-point-and-normal-solution}
 
+\subsubsection{Plane from point and two directions}
 \begin{problem}
 \input{../../modules/vectors/homework/plane-from-point-and-two-directions}
 \end{problem}
 
+\subsubsection{Plane from three points}
 \begin{problem}
 \input{../../modules/vectors/homework/plane-from-three-points}
 \end{problem}
 
-\section{Distances between points, lines, planes}
-
+\subsection{Distances between points, lines, planes}
+\subsubsection{Distance between line and point}
 \begin{problem}
 \input{../../modules/vectors/homework/distance-line-point}
 \end{problem}
-
-
+\subsubsection{Distance between plane and point}
 \begin{problem}
 \input{../../modules/vectors/homework/distance-plane-point}
 \end{problem}
 
-
-\begin{problem}
-\input{../../modules/vectors/homework/angle-between-edges-regular-tetrahedron}
-\end{problem}
-
+\subsubsection{Distance between lines}
 \begin{problem}
 \input{../../modules/vectors/homework/distance-between-edges-regular-tetrahedron}
 \end{problem}
-
 \begin{problem}
 \input{../../modules/vectors/homework/distance-between-lines}
 \end{problem}
 \input{../../modules/vectors/homework/distance-between-lines-solutions}
 
 
-\section{Angles (in space)}
+\subsection{Angles (in space)}
+\subsubsection{Angles between lines}
+\begin{problem}
+\input{../../modules/vectors/homework/angle-between-edges-regular-tetrahedron}
+\end{problem}
 
+\subsubsection{Angle between plane and line}
 \begin{problem}
 \input{../../modules/vectors/homework/angle-betwen-plane-and-line}
 \end{problem}
@@ -148,12 +159,13 @@ For a list of contributors/authors of the freecalc project (and in particular, t
 \input{../../modules/vectors/homework/angle-betwen-tetrahedron-edge-and-base}
 \end{problem}
 
+\subsubsection{Angles between planes}
 \begin{problem}
 \input{../../modules/vectors/homework/angle-between-faces-tetrahedron}
 \end{problem}
 
-\section{Polar coordinates - basics}
-
+\section{Polar, Cylindrical and Spherical coordinates}
+\subsection{Polar coordinates}
 \begin{problem}
 \input{../../modules/polar-coordinates/homework/equation-of-line-in-polar}
 \end{problem}
@@ -163,7 +175,7 @@ For a list of contributors/authors of the freecalc project (and in particular, t
 \begin{problem}
 \input{../../modules/polar-coordinates/homework/equation-of-circle-in-polar}
 \end{problem}
-\section{Cylindrical coordinates - basics}
+\subsection{Cylindrical coordinates - basics}
 
 \begin{problem}
 \input{../../modules/cylindrical-coordinates/homework/equation-of-plane-in-cylindrical}
@@ -172,7 +184,7 @@ For a list of contributors/authors of the freecalc project (and in particular, t
 \begin{problem}
 \input{../../modules/cylindrical-coordinates/homework/equation-of-sphere-in-cylindrical}
 \end{problem}
-\section{Spherical coordinates - basics}
+\subsection{Spherical coordinates - basics}
 
 \begin{problem}
 \input{../../modules/spherical-coordinates/homework/equation-of-plane-in-spherical}
@@ -195,21 +207,16 @@ For a list of contributors/authors of the freecalc project (and in particular, t
 
 \section{Curves in space}
 \subsection{Curvature}
-
-
 \begin{problem}
 \input{../../modules/parametric-curves/homework/curvature-computation-1}
 \end{problem}
 \input{../../modules/parametric-curves/homework/curvature-computation-1-solutions}
 
 \subsection{Curve length}
-
 \begin{problem}
 \input{../../modules/parametric-curves/homework/space-curve-length-1}
 \end{problem}
 \input{../../modules/parametric-curves/homework/space-curve-length-1-solutions}
-
-
 \begin{problem}
 \input{../../modules/parametric-curves/homework/space-curve-write-length-integral-1}
 \end{problem}
