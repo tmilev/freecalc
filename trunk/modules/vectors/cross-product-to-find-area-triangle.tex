@@ -1,0 +1,33 @@
+\begin{frame}
+\frametitle{Use $\times$ to find area of triangle in space}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.4,-0.4)(1.4,1.4)%
+\psline[arrows=->](0,0)(1.2,0)%
+\psline[arrows=->](0,0)(0.2,1)%
+\psline[arrows=->](1.2,0)(0.2,1)%
+\psline(0.2,1)(1.4,1)(1.2,0)%
+\rput[t](0,-0.1){$A$}
+\rput[tl](1.2,-0.1){$B$}
+\rput[bl](1.4,1.1){$D$}
+\rput[br](0.2,1.1){$C$}
+\uncover<2->{%
+\rput[l](0.25,0.5){$\fcv w$}%
+\fcPerpendicular{[0.2 1]}{[1 0]}{0.1}%
+\psline[arrows=->](0.2,0 )(0.2,1)%
+}%
+\rput[t](0.5, -0.1){$\fcv u$}
+\rput[r](0,0.5){$\fcv v$}
+\end{pspicture}
+\column{0.7\textwidth}
+\begin{itemize}
+\item $A$, $B$, $C$ points in space, $\fcv{u} = \fcv{AB}$, $\fcv{v}=\fcv{AC}$.
+\item<2-> Then $|\fcv{w}| = |\fcv{orth}_{\fcv{u}} \fcv{v}| = \text{ distance from } C \text{ to } AB\; .$
+\item<3-> $|\fcv{u} \times \fcv{v}| = |\fcv{orth}_{\fcv{u}} \fcv{v}| \, |\fcv{u}| =
+2 \text{area}(ABC) = \text{area}(ABDC)$
+\item<4-> $|\fcv{u} \times \fcv{v}|$ = Area of parallelogram on sides $\fcv{u}$ and $\fcv{v}$.
+\end{itemize}
+%
+\end{columns}
+\end{frame}
