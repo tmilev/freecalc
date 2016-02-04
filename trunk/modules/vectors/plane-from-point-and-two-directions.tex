@@ -3,7 +3,7 @@
 
 \begin{columns}
 \column{0.45\textwidth}
-\begin{pspicture}(-1.9,-1.7)(2,2.2)%
+\begin{pspicture}(-1.9,-1.8)(3.7,2.2)%
 \tiny%
 \renewcommand{\fcScreen}{[-4 -1 -0.4] 0}%
 \fcBoundingBox{-1.9}{-1.7}{2}{2.2}%
@@ -64,28 +64,28 @@
 \item<3-> Goal: give equations of plane $\mathcal P$ through $P_0$ and parallel to both $\fcv{u}$ and $\fcv{v}$.
 \end{itemize}
 \end{columns}
-\only<4-6>{%
+\only<handout:1|4-6>{%
 \uncover<4->{Normal direction $\fcv{n} = \fcv{u} \times \fcv{v} \neq \fcv{0}$. }
 
 \uncover<5->{\alert<1->{Implicit equation}: $P(\fcv{r}) \text{ is on } \mathcal{P} \Longleftrightarrow (\fcv{r}-\fcv{r}_0) \cdot \fcv{n} = 0$}
 \uncover<6->{Interpretation:$$\text{Vol}(R(\fcv{r} - \fcv{r}_0,\fcv{u},\fcv{v})) = 0$$}
 } %uncover
 
-\only<7-10>{$P(\fcv{r})$ is on the plane $\mathcal{P}$ $\Leftrightarrow$
+\only<handout:1|7-10>{$P(\fcv{r})$ is on the plane $\mathcal{P}$ $\Leftrightarrow$
 
 \uncover<8->{ $\fcv{P}_0\fcv{P}$ is a combination of $\fcv{u}$, $\fcv{v}$ $\Leftrightarrow$
 }
 
 \uncover<9->{There are scalars $s$, $t$ such that $\fcv{r}-\fcv{r}_0= s\fcv{u} + t\fcv{v} \Leftrightarrow $}
 
-\uncover<10->{%
+\uncover<handout:2|10->{%
 \alert<1->{Parametric equation}:
 \[\alert<10>{ \fcv{r} = \fcv{r}_0 + s\fcv{u} + t\fcv{v}}
 \]
 for some parameters $s$ and $t$.
 }%uncover
 }%only<7-?>
-\only<11->{
+\only<handout:2|11->{
 \alert<1->{Parametric equation}:
 \[
 \alert<11>{ \alert<13>{\fcv{r}} = \alert<14>{\fcv{r}_0} + s \alert<15>{\fcv{u}} + t\alert<16>{\fcv{v}}}
