@@ -132,6 +132,11 @@ pdfcrop={},
 \uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}}\worksheet{\uncover<#2->{\alertNoH{#2}{\!\!\!#3}}}
 %\makebox[\widthof{#3}][c]{\only<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \only<#2->{\alertNoH{#2}{\!\!\!#3}}}%
 }
+\newcommand{\fcAnswerUncoverNew}[4]{%
+\uncover<handout:0|.(#1)-.(#2)>{\alertNoH{.(#2)}{\textbf{?}}}\worksheet{\uncover<.(#3)->{\alertNoH{.(#3)}{\!\!\!#4}}}
+%\makebox[\widthof{#3}][c]{\only<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}} \only<#2->{\alertNoH{#2}{\!\!\!#3}}}%
+}
+
 \newcommand{\fcAnswerUncoverNoH}[3]{
 \FPeval{\fcResult}{clip(#2-1)}
 \uncover<handout:0|#1-\fcResult>{\alertNoH{\fcResult}{\textbf{?}}}\worksheet{\uncover<handout:0|#2->{\alertNoH{#2}{\!\!\!#3}}}
@@ -182,6 +187,14 @@ as long as you reasonably acknowledge the original project.
 and the links therein.
 \end{itemize}
 }
+
+\newcommand{\fcDeterminantThreeByThree}[9]{%
+\left|\begin{array}{ccc}
+\alertNoH{.(1),.(4)}{#1} & \alertNoH{.(2),.(5)}{#2}  &  \alertNoH{.(3),.(6)}{#3}\\
+\alertNoH{.(3),.(5)}{#4}  & \alertNoH{.(1),.(6)}{#5} &  \alertNoH{.(2),.(4)}{#6}\\
+\alertNoH{.(2),.(6)}{#7}  & \alertNoH{.(3),.(4)}{#8}  & \alertNoH{.(1),.(5)}{#9}\\
+\end{array}\right|
+}%
 
 \newcommand{\fcLicense}{
 \begin{frame}
