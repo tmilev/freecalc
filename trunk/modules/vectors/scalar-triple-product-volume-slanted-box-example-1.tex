@@ -2,7 +2,8 @@
 \begin{example}
 \begin{columns}
 \column{0.35\textwidth}
-\begin{pspicture}(-2,-2)(2.4,2.2)%
+\begin{pspicture}(-2,-2)(2.4,2.4)%
+\tiny
 \renewcommand{\fcScreen}{[-1 1.2 -0.75] -1}%
 \renewcommand{\fcScreenStyle}{x}%
 \fcBoundingBox{-2}{-2}{2.4}{2.2}%
@@ -16,23 +17,30 @@
 \fcBoxIIIdInScene[linecolor=blue, arrows=(none)]{[0 0 0]}{[-1 1 1]}{[1 -1 1]}{[1 1 -1]}%
 }%
 \fcFinishIIIdScene[true]%
-\onlyNoH{.(-3)}{\fcBoxIIId[linecolor=red]{[0 0 1]}{[-1 0 1]}{[0 1 1]}{[0 0 0]}}%
-\onlyNoH{.(-2)}{\fcBoxIIId[linecolor=red]{[1 -1 1]}{[1 0 1]}{[0 -1 1]}{[1 -1 0]}}%
-\onlyNoH{.(-1)}{\fcBoxIIId[linecolor=red]{[1 0 0]}{[0 0 0]}{[1 0 -1]}{[1 1 0]}}%
+\onlyNoH{.(-2)}{\fcBoxIIId[linecolor=red]{[0 0 1]}{[-1 0 1]}{[0 1 1]}{[0 0 0]}}%
+\onlyNoH{.(-1)}{\fcBoxIIId[linecolor=red]{[1 -1 1]}{[1 0 1]}{[0 -1 1]}{[1 -1 0]}}%
+\onlyNoH{.}{\fcBoxIIId[linecolor=red]{[1 0 0]}{[0 0 0]}{[1 0 -1]}{[1 1 0]}}%
+\fcPutIIId[l]{[2.4 0 0]}{$x$}%
+\fcPutIIId[lb]{[0 2.4 0]}{$y$}%
+\fcPutIIId[b]{[0 0 2.4 ]}{$z$}%
 \end{pspicture}
 \column{0.65\textwidth}
 
 Find the volume of the \alertNoH{6}{parallelepiped (slanted box)} with vertex at the origin spanned by the vectors $\alertNoH{2}{(-1,1,1)}$, $\alertNoH{3}{(1,-1,1)}$, $\alertNoH{4}{(1,1,-1)}$.
 \end{columns}
+\onlyNoH{+}{}
+\onlyNoH{+}{}
+\onlyNoH{+}{}
+\onlyNoH{+}{}
+\onlyNoH{+}{}
+\onlyNoH{+}{}
+\uncover<+->{
 \[
 \begin{array}{rcl}
-\text{Vol}(Box) &=&
-\left|\begin{array}{ccc}
--1 & 1  &  1\\
-1  & -1 &  1\\
-1  & 1  & -1\\
-\end{array}\right|
+\fcDeterminantThreeByThree{-1}{1}{1}{1}{-1}{1}{1}{1}{-1}&=&\fcAnswerUncoverNew{0}{0}{1}{-1}+\fcAnswerUncoverNew{0}{1}{2}{1}+\fcAnswerUncoverNew{0}{2}{3}{1}-\fcAnswerUncoverNew{0}{3}{4}{(-1)}-\fcAnswerUncoverNew{0}{4}{5}{(-1)}-\fcAnswerUncoverNew{0}{5}{6}{(-1)}\\
+\uncover<.(7)->{&=&4}
 \end{array}
 \]
+}
 \end{example}
 \end{frame}
