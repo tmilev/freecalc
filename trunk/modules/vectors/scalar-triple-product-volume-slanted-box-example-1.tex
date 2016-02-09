@@ -1,3 +1,27 @@
 \begin{frame}
-Find the volume of the parallelepiped slanted box with vertex at the origin spanned by the vectors $(-1,1,1)$, $(1,-1,1)$, $(1,1,-1)$.
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1,-1)(1,1)
+\renewcommand{\fcScreen}{[-1 1.2 -0.75] -1}
+\renewcommand{\fcScreenStyle}{x}
+\fcStartIIIdScene
+\onlyNoH{2}{
+\fcPerpendicular{[-1 1 1]}{[1 0 0]}
+}
+\fcAxesIIIdFullInScene{-1}{-1}{-1}{1}{1}{1}
+\only<2->{\fcLineIIIdInScene{[0 0 0]}{[-1 1 1]}}
+\fcLineIIIdInScene{[0 0 0]}{[1 -1 1]}
+\fcLineIIIdInScene{[0 0 0]}{[1 1 -1]}
+\only<5->{
+\fcBoxIIIdInScene{[0 0 0]}{[-1 1 1]}{[1 -1 1]}{[1 1 -1]}
+}
+\fcFinishIIIdScene[true]
+\end{pspicture}
+\column{0.7\textwidth}
+
+Find the volume of the parallelepiped slanted box with vertex at the origin spanned by the vectors $\alertNoH{2}{(-1,1,1)}$, $(1,-1,1)$, $(1,1,-1)$.
+\uncover<5>{}
+\end{columns}
+\end{example}
 \end{frame}
