@@ -5,20 +5,21 @@
 \begin{columns}[t]
 \column[T]{0.4\textwidth}
 
-\begin{pspicture}(-1,-2)(2,2)
-\renewcommand{\fcScreen}{[-2 -1 -0.55] 0}
-\tiny
-\fcBoundingBox{-1}{-2}{2}{2}
-\fcParallelogramIIId{[2 2 0]}{[1 2 -1]}{[1 2 2]}
-\fcAxesIIId{2}{2}{2}
-\fcLineIIId[arrows=->]{[ 0 0 0]}{[1 1 1]}
-\fcDotIIId{[1 1 1]}
-\fcPutIIId[lb]{[1 1 1]}{$~~Q(x,y,z)$}
-\fcLineIIId{[0.6 0.95 0.35]}{[1.4 1.05 1.65]}
-
-\fcLineIIId[arrows=->]{[ 0 0 0]}{[1 2 0.5]}
-\fcDotIIId{[1 2 0.5]}
-\fcPutIIId[lb]{[1 2 0.5]}{$~~P(x,y,z)$}
+\begin{pspicture}(-1,-2)(3,2)%
+\renewcommand{\fcScreen}{[-2 -1 -0.55] 0}%
+\tiny%
+\fcBoundingBox{-1}{-2}{2}{2}%
+\fcStartIIIdScene%
+\fcPatchInScene{[2 2 0]}{[1 2 -1]}{[1 2 2]}%
+\fcAxesIIIdInScene{2}{2}{2}%
+\fcLineIIIdInScene[arrows=->]{[ 0 0 0]}{[1 1 1]}%
+\fcLineIIIdInScene{[0.6 0.95 0.35]}{[1.4 1.05 1.65]}%
+\fcLineIIIdInScene[arrows=->]{[ 0 0 0]}{[1 2 0.5]}%
+\fcFinishIIIdScene[true]%
+\fcDotIIId{[1 1 1]}%
+\fcDotIIId{[1 2 0.5]}%
+\fcPutIIId[lb]{[1 1 1]}{$~~Q(x,y,z)$}%
+\fcPutIIId[lb]{[1 2 0.5]}{$~~P(x,y,z)$}%
 \end{pspicture}
 
 \column{0.6\textwidth}
