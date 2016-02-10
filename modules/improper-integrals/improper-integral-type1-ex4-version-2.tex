@@ -1,0 +1,41 @@
+% begin module improper-integral-type1-ex4
+\begin{frame}
+\begin{example} %[Example 4, p. 547]
+For what values of $p$ is the integral $\ds \int_1^\infty \frac{1}{x^p}\diff x$ convergent?
+\begin{itemize}
+\item<2-> If $p = 1$, the integral is divergent (Example 1), so assume $p\neq 1$.
+\end{itemize}
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\uncover<4->{%
+\int_1^\infty \frac{1}{x^p} \diff x%
+}%
+ \uncover<4->{ = }  %
+\uncover<4->{%
+\lim_{t\rightarrow \infty}\int_1^t \frac{1}{x^p} \diff x%
+}%
+ \uncover<5->{ = }  %
+\uncover<5->{%
+\lim_{t\rightarrow \infty}\left[ \frac{x^{-p+1}}{-p+1}\right]_1^t%
+}%
+ \uncover<6->{ = }  %
+\uncover<6->{%
+\lim_{t\rightarrow \infty}\frac{ \frac{1}{t^{p-1}} - 1}{1-p}%
+}%
+\]
+\vspace*{-2mm}
+\begin{itemize}
+\item<7->  If $p > 1$, then $p - 1 > 0$, so as $\ds t\rightarrow \infty$, $\ds t^{p-1}\rightarrow \infty$ and $\ds \frac{1}{t^{p-1}}\rightarrow 0$.
+\item<8->  Therefore $\ds \int_1^\infty \frac{1}{x^p}\diff x = \frac{1}{p-1}$ if $p > 1$, so the integral is convergent.
+\item<9->  If $p < 1$, then $p - 1 < 0$, so $\ds \frac{1}{t^{p-1}} = t^{1-p} \rightarrow \infty$ as $t\rightarrow \infty$.
+\item<10->  Therefore $\ds \int_1^\infty \frac{1}{x^p}\diff x$ is divergent if $p < 1$.
+\end{itemize}
+\end{example}
+\uncover<11->{%
+\begin{theorem}
+$\ds \int_1^\infty \frac{1}{x^p}\diff x$ converges if $p > 1$ and diverges if $p \leq 1$.
+\end{theorem}
+}%
+\end{frame}
+% end module improper-integral-type1-ex4
