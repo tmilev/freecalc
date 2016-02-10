@@ -1,0 +1,32 @@
+% begin module improper-integral-type1
+\begin{frame}
+\begin{definition}[Improper Integral of Type I]
+\begin{enumerate}
+\item  If $\int_a^t f(x) \diff x$ exists for every $t \geq a$, then
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_a^\infty f(x) \diff x = \lim_{t\rightarrow \infty} \int_a^t f(x) \diff x
+\]
+if the limit exists. \pause
+\item  If $\int_t^b f(x) \diff x$ exists for every $t \leq b$, then
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_{-\infty}^b f(x) \diff x = \lim_{t\rightarrow -\infty} \int_t^b f(x) \diff x
+\]
+if the limit exists. \pause
+\end{enumerate}
+$\int_a^\infty f(x) \diff x$ and $\int_{-\infty}^b f(x) \diff x$ are called \textbf{convergent} if the corresponding limit exists and \textbf{divergent} if it doesn't exist. \pause
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item  If both $\int_a^\infty f(x) \diff x$ and $\int_{-\infty}^a f(x) \diff x$ are convergent, then we define
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\int_{-\infty}^\infty f(x) \diff x = \int_{-\infty}^a f(x) \diff x + \int_a^\infty f(x) \diff x .
+\]
+\end{enumerate}
+\end{definition}
+\end{frame}
+% end module improper-integral-type1

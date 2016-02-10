@@ -1,0 +1,59 @@
+\begin{frame}
+% begin module arc-length-half
+
+Sometimes an arc length problem can be simplified significantly if the function $y = f(x)$ has a certain form.\\
+In particular, if $y' = a - b$, where $2ab = \frac{1}{2}$, then  $ 1+(y')^2 $ is a perfect square, simplifying the arc length formula. 
+\begin{align*}
+1+(y')^2 
+&= 1 + (a-b)^2\\
+& =  1 + \left( a^2 - \frac{1}{2} + b^2\right)\\
+& =  a^2 + \frac{1}{2} + b^2 \\
+& =  a^2 + 2ab + b^2 \\
+& =  (a+b)^2.
+\end{align*}
+There are several exercises like this in the textbook (such as numbers 9 and 10) and on WebWork (question 2 from this section) of this type.\\
+Consider the following examples:
+\end{frame}
+
+\begin{frame}
+\frametitle{Example: Find the arc length of $\displaystyle y = \frac{x^7}{14} + \frac{1}{10x^5}$ between $x = 1$ and $x = 2$.}
+
+\textbf{Solution:}
+Arc length formula: $L = \int_1^2 \sqrt{1 + (y')^2}\diff x$, so first find $y'$.
+\begin{eqnarray*}
+y' & = & 7\frac{x^6}{14} + (-5)\frac{1}{10x^6}\\
+& = & \frac{1}{2} x^6 - \frac{1}{2}x^{-6}
+\end{eqnarray*} \pause
+
+Observe that if $a = \frac{1}{2}x^6$ and $b = \frac{1}{2}x^{-6}$, then $ y'=a-b $, and  $2ab = 2\left( \frac{1}{2}x^6\right) \left(\frac{1}{2}x^{-6}\right) = \frac{1}{2}$, so
+\[
+1+(y')^2 = \left( \frac{1}{2}x^6 + \frac{1}{2}x^{-6}\right)^2
+\]
+
+Now apply this to the arc length formula:
+\end{frame}
+
+\begin{frame}
+\begin{align*}
+L  =  \int_1^2 \sqrt{1 + (y')^2}\diff x
+& =  \int_1^2 \sqrt{\left(\frac{1}{2}x^6 + \frac{1}{2}x^{-6}\right)^2}\diff x\\
+\uncover<2->{%
+& =  \int_1^2 \left( \frac{1}{2}x^6 + \frac{1}{2}x^{-6}\right)\diff x\\
+} %
+\uncover<3->{%
+& =  \left[ \frac{1}{2}\cdot \frac{1}{7}x^7 + \frac{1}{2} \cdot \frac{1}{-5}x^{-5}\right]_1^2\\
+} %
+\uncover<4->{%
+& =  \left[ \frac{1}{14}x^7 - \frac{1}{10}x^{-5}\right]_1^2\\
+} %
+\uncover<5->{%
+& =  \left( \frac{128}{14} - \frac{1}{10}\cdot \frac{1}{32}\right) - \left( \frac{1}{14} - \frac{1}{10}\right) 
+\uncover<6->{%
+ =  \frac{20537}{2240}.}
+ } %
+\end{align*}
+
+\end{frame}
+
+
+% end module arc-length-half
