@@ -1,0 +1,31 @@
+% begin module diff-eq-separable-ex1
+\begin{frame}
+\begin{example} %[Example 1, p. 617]
+Solve the differential equation $\frac{\diff y}{\diff x} = \frac{x^2}{y^2}$, and find the solution that satisfies the intial condition $y(0) = 2$.
+\belowdisplayskip=0pt
+\begin{align*}
+\uncover<2->{%
+y^2 \diff y  = x^2 \diff x\;\; 
+ \uncover<3->{& \To  \int y^2 \diff y  =  \int x^2 \diff x }
+\\ }%
+\uncover<4->{%
+&\To   \frac{y^3}{3}  =  \frac{x^3}{3} + C \\ }%
+\uncover<5->{%
+&\To  y^3 = x^3 + 3C\\  }%
+\end{align*}
+
+\uncover<6->{%
+To find the solution satisfying the initial condition, set $ y=2 $, and $ x=0 $ to get\\
+  $2^3 = 0^3 + 3C$, so $3C=8$. 
+}
+\uncover<7->{%
+Giving  %
+
+\[
+y = \sqrt[3]{x^3 + 8}.
+\]
+}%
+\end{example}
+\end{frame}
+% end module diff-eq-separable-ex1
+

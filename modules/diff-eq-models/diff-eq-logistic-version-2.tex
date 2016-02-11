@@ -1,0 +1,23 @@
+% begin module diff-eq-logistic
+\begin{frame}
+\frametitle{Law of Natural Growth: $ \ds \frac{dP}{dt}=kP$}
+\begin{itemize}
+%\item  In other words, if a certain number of bacteria produce a certain number of offspring in a certain time, then ten times that many bacteria produce ten times that many offspring in the same time.
+\item  This model works well under ideal conditions. This is plausible when the population has unlimited food and environment and no restrictions on its size.
+\item  In real life, most populations are constrained by the environment, the amount of food, etc.
+\item  Many populations start by increasing exponentially, but then level off when they approach some upper bound, called the carrying capacity $K$.
+\item<2->  To take this into account, make two assumptions:
+\begin{itemize}
+\item<2->  $\frac{\diff P}{\diff t} \approx kP$ if $P$ is small (Initially, the growth rate is proportional to $P$).
+\item<2->  $\frac{\diff P}{\diff t} < 0$ if $P > K$ ($P$ decreases if it ever exceeds $K$).
+\end{itemize}
+\item<3->  Here is an expression that takes both assumptions into account:
+\[
+\uncover<3->{%
+\frac{\diff P}{\diff t} = kP\left( 1 - \frac{P}{K}\right)
+}%
+\]
+\item<3->  This is called the \textit{logistic differential equation}.
+\end{itemize}
+\end{frame}
+% end module diff-eq-logistic
