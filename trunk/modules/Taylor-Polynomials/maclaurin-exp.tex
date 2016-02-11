@@ -1,0 +1,19 @@
+% begin module maclaurin-series-ex1
+\begin{frame}
+\begin{example} %[Example 1, p. 772]
+Find the Maclaurin series of $f(x) = e^x$.
+\begin{itemize}
+\item<2-| alert@2-3>  $f^{(n)}(x) = $ \uncover<3->{$e^x$.}
+\item<4-| alert@4-6>  $f^{(n)}(0) = $ \uncover<5->{$e^0 = 1$.}
+\item<6->  Therefore the Maclaurin series is
+\end{itemize}
+\uncover<6->{%
+\abovedisplayskip=0pt
+\belowdisplayskip=0pt
+\[
+\sum_{n=0}^\infty \frac{\alert<handout:0| 6>{f^{(n)}(0)}}{n!}x^n = \sum_{n=0}^\infty \frac{\alert<handout:0| 6>{1}}{n!}x^n = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots%
+\]
+}%
+\end{example}
+\end{frame}
+% end module maclaurin-series-ex1
