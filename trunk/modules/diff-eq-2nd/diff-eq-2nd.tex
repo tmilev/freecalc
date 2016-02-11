@@ -1,0 +1,294 @@
+% begin module diff-eq-2nd
+\begin{frame}{Second Order Homogeneous Linear Equations with Constant Coefficients}
+ 
+ We shall now discuss the problem of solving the second order  homogeneous equation 
+\[ 
+ay^{\prime \prime }+by^{\prime }+cy=0\ 
+\] 
+ where $a,b$ and $c$ are constants and $a\neq 0$.\\
+ 
+ \vsp  
+ 
+ Try $x$, and powers of $x$: These are no  good. \\ \pause  
+ Try $\ln x$: also no good.\\ \pause 
+ Try $e^{\lambda x}$: \\ \pause 
+  If $y=e^{\lambda x}$ is a solution of   then
+\[
+ay^{\prime \prime }+by^{\prime }+cy=a\lambda ^{2}e^{\lambda x} + b\lambda e^{\lambda
+ x}+ce^{\lambda x}=e^{\lambda x} (a\lambda ^{2}+b\lambda +c)=0. \] 
+\pause  
+It follows that if this is a solution, then
+ $\ds   a\lambda ^{2}+b\lambda +c=0$.
+   
+ This equation for $\lambda $ is called the \textit{auxiliary} or \textit{%
+ characteristic} equation.
+ 
+ \end{frame}
+ 
+ 
+ 
+ \begin{frame}
+ The characteristic equation
+$\ds   a\lambda ^{2}+b\lambda +c=0$ has the solution 
+\[\lambda =\dfrac{-b\pm \sqrt{b^{2}-4ac}}{2a}=\dfrac{-b\pm \sqrt{\Delta }}{2a},\;\;\;\; \Delta =b^{2}-4ac 
+ \]
+ 
+ \pause 
+ 
+ There are three possibilities:
+\begin{itemize}
+\item[1.] $\Delta >0$  two real, distinct roots \pause  
+\item[2.] $\Delta =0$  one real root, repeated \pause 
+\item[3.] $\Delta <0$ \ two imaginary roots which are the complex conjugates of  each other, i.e. $\lambda _{1}=\alpha +i\beta $ and  $\lambda_{2}=\alpha -i\beta$.
+\end{itemize} 
+  
+ We shall now discuss the three cases in detail.
+ 
+ \end{frame}
+ 
+ 
+ 
+ \begin{frame} \frametitle{Case 1. \ $\Delta >0.$} 
+   Here there are two real distinct real roots $\lambda_{1},\lambda _{2},$ \ where $\lambda _{1}\neq \lambda_{2}$ 
+ \begin{equation*}
+ \lambda_{1}=\dfrac{-b+\sqrt{b^{2}-4ac}}{2a},\;\;\;\;\;\;\lambda_{2}=\dfrac{-b-%
+ \sqrt{b^{2}-4ac}}{2a}
+ \end{equation*}
+ 
+It follows that $e^{\lambda _{1}x}$ and $e^{\lambda _{2}x}$ are both  solutions of the differential equation. These functions are linearly independent (LI), and the general solution is
+ 
+ \begin{equation*}
+ y=c_{1}e^{\lambda _{1}x}+c_{2}e^{\lambda _{2}x}.
+ \end{equation*}
+ 
+ where $\lambda_{1}$ and $\lambda_{2}$ are both real and $\lambda_{1}\neq \lambda_{2}.$
+ 
+ \end{frame}
+ 
+ 
+ 
+ \begin{frame} 
+ \begin{example}
+ Solve: $2y^{\prime \prime }-y^{\prime }-3y=0$
+ \end{example}
+ \pause 
+ $\vspace{1pt}$
+ 
+Characteristic Equation:  \[2\lambda ^{2}-\lambda -3=0\] \pause 
+ 
+ \vspace{1pt} Equivalently: 
+ 
+ \[(2\lambda -3)(\lambda +1)=0\] 
+ 
+ \pause
+\[ \Rightarrow  \lambda _{1}=-1,\;\; \lambda
+ _{2}=\frac{3}{2}\]
+\pause
+\[
+\Rightarrow  y=c_{1}e^{-x}+c_{2}e^{+\frac{3}{2}x}.
+\] 
+ 
+ 
+ \vspace{1pt}
+  \end{frame}
+  
+  
+  
+  \begin{frame} \frametitle{Case 2. $\Delta =0$, $\lambda _{1}=-%
+   \dfrac{b}{2a}$ repeated root}
+In this case  $e^{\lambda _{1}x}$ is a solution.\\
+To find a  second LI solution (method of variation of
+ parameters) we seek a solution of the form  $\ds   y=v(x)e^{\lambda _{1}x}$ where $v(x)$ is a function to be determined. \pause Then \ 
+ 
+ \begin{equation*}
+ y^{\prime }=v^{\prime }e^{\lambda _{1}x}+v\lambda _{1}e^{\lambda _{1}x}
+ \end{equation*}
+  and 
+\[
+ y^{\prime \prime }=v^{\prime \prime }e^{\lambda _{1}x}+2v^{\prime }\lambda
+ _{1}e^{\lambda _{1}x}+v\lambda _{1}^{2}e^{\lambda _{1}x}
+ \]
+ \pause 
+Then $ay''+by'+cy=0 $  gives 
+ \begin{equation*}
+ av^{\prime \prime }(x)e^{\lambda _{1}x}+2av^{\prime }\lambda _{1}e^{\lambda
+ _{1}x}\ +av\lambda _{1}^{2}e^{\lambda _{1}x}+bv^{\prime }e^{\lambda
+ _{1}x}+bv\lambda _{1}e^{\lambda _{1}x}+cve^{\lambda _{1}x}=0
+ \end{equation*}
+ \pause 
+Which simplifies to 
+ \begin{equation*}
+ av^{\prime \prime }+\underbrace{(2a\lambda _{1}+b)}v^{\prime }\ \ +%
+ \underbrace{(a\lambda _{1}^{2}+b\lambda _{1}+c)}v=0
+ \end{equation*}%
+ 
+ \[\Rightarrow \;\;\; v^{\prime \prime }=0  \textrm{ why?} \]
+ \end{frame}
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+  
+\begin{frame}
+  $v^{\prime \prime }=0$, integration then gives  
+ $
+  v=c_{1}+c_{2}x$\\ \vspace*{3mm}
+  
+ \pause 
+ 
+ Putting this all together we get
+  \begin{equation*}
+  y=ve^{\lambda _{1}x}=c_{1}e^{\lambda _{1}x}+c_{2}xe^{\lambda _{1}x}
+  \end{equation*}
+  
+ is a solution of the differential equation in the case where there exists
+ one repeated root $\lambda _{1}$. \\
+ 
+ Since $e^{\lambda _{1}x}$ and $xc^{\lambda
+ _{1}x}$ are LI this is the general solution.
+ 
+ \end{frame}  
+  
+  \begin{frame}
+ \begin{example}
+ Solve:  $y^{\prime \prime }-4y^{\prime }+4y=0$
+ \end{example}
+ 
+ Characteristic Equation: $\lambda ^{2}-4\lambda +4=0$ \pause  or $(\lambda -2)^{2}=0$ \ \pause  $%
+ \Rightarrow $ \ one real, repeated root $\lambda =2$. \pause 
+ 
+Therefore the general solution is
+ \begin{equation*}
+ \ y=c_{1}e^{2x}+c_{2}\;xe^{2x}.
+ \end{equation*}
+ 
+ \end{frame}
+ 
+ 
+ 
+ \begin{frame} 
+\frametitle{Case 3. $\Delta <0$ \ 2 complex roots} 
+ 
+ \begin{equation*}
+ \lambda =\frac{-b\pm \sqrt{b^{2}-4ac}}{2a}\ =-\frac{b}{2a}\pm \;\frac{i\sqrt{%
+ 4ac-b^{2}}}{2a} = \alpha \pm i\beta 
+ \end{equation*}
+ 
+Say $ \lambda_1=\alpha + i \beta$, and  $ \lambda_2=\alpha - i \beta$.
+\\ \vsp 
+ 
+Hence, there are two complex solutions: \\
+ \[e^{\lambda_1x} =e^{(\alpha +i\beta )x} =e^{\alpha x}(\cos \beta x+i\sin \beta x)\] 
+ and 
+ \[
+e^{\lambda_2x} = e^{(\alpha -i\beta
+  )x}=e^{\alpha x}(\cos \beta x-i\sin \beta x)
+ \]
+\pause
+ 
+ Since the differential equation has $\underline{\text{real}}$ coefficients, both the real and imaginary parts of the above are solutions, i.e.,
+  $e^{\alpha x}\cos \beta x$ and\ \ \ $e^{\alpha x}\sin \beta x$ are both
+  solutions in this case.\ These are LI functions.
+   \end{frame}
+  
+  
+  
+  \begin{frame}
+ 
+ 
+ The solution of the differential equation is therefore
+ 
+ \begin{equation*}
+ y=C_1e^{\alpha x}\cos \beta x+C_2e^{\alpha x}\sin \beta x \;\text{\ where }C_1,C_2\text{ \ \
+ real constants.}
+ \end{equation*}
+ 
+ \vspace{1pt}
+  \end{frame}
+  
+  
+  
+  \begin{frame}
+ \begin{example}
+ \begin{equation*}
+Solve:  32y^{\prime \prime }-40y^{\prime }+17y=0
+ \end{equation*}
+ \end{example}
+ Solution: 
+ \pause 
+ \begin{equation*}
+ \text{ Characteristic Equation: } 32\lambda ^{2}-40\lambda +17=0
+ \end{equation*}
+ \pause
+ \begin{align*} 
+ \lambda & =\dfrac{40\pm \sqrt{1600-4(32)(17)}}{2(32)} = \dfrac{40\pm 
+ \sqrt{1600-2176}}{2(32)}=\dfrac{40\pm i\sqrt{576}}{2(32)}\\ & =\dfrac{5\pm 
+ i\sqrt{9}}{8} =\dfrac{5}{8}\pm \dfrac{3}{8}i=\alpha \pm i\beta  
+ \end{align*}  \pause 
+ 
+ Thus the solutions are
+ 
+ \begin{align*}
+ y & = C_1e^{\alpha x}\cos \beta x+C_2e^{\alpha x}\sin \beta x\\ 
+  & =C_1e^{\frac{5}{8}x}\cos\left( \frac{3}{8}x\right)+C_2 e^{\frac{5}{8}x}\sin\left( \frac{3}{8}x\right). 
+ \end{align*}
+ 
+ 
+  \end{frame}
+  
+  
+  
+  \begin{frame}
+  \frametitle{Summary: Solutions to $ ay''+by'+cy=0 $}
+  The solutions fall into one of the following three cases depending on the solutions to the \textit{characteristic equation} $ a\lambda^2+b\lambda +c = 0 $.
+  
+  \begin{enumerate}
+  \item \textit{Distinct Real Zeros}. If $ \lambda_1\ne \lambda_2 $ are distinct real zeros of the characteristic equation, then the general solution is \[
+  y=C_1 e^{\lambda_1 x}+ C_2 e^{\lambda_2 x}
+  \]
+    \item \textit{Single Real Zero}. If $ \lambda_1= \lambda_2 $ are equal real zeros of the characteristic equation, then the general solution is \[
+    y=C_1 e^{\lambda_1 x}+ C_2 xe^{\lambda_1 x}
+    \]
+    \item \textit{Distinct Complex Zeros}. If $ \lambda_1=\alpha+i\beta$ and  $ \lambda_2=\alpha-i\beta $ are complex zeros of the characteristic equation, then the general solution is \[
+    y=C_1 e^{\alpha x}\cos(\beta x)+ C_2 e^{\alpha x}\sin(\beta x)
+    \]  
+  \end{enumerate}
+  
+  
+  
+  \end{frame}
+  
+  
+  
+  
+  \begin{frame}
+ \begin{example}
+ Write down a second order homogeneous linear differential equation with real  constant coefficients whose solutions are $ \frac{1}{2}e^{-2x}\cos 3x\text{ \ and\ \ }\frac{3e^{-2x}}{4}\sin 3x $
+ \end{example}
+ Solution:\\ \pause 
+ 
+
+$\ds  \frac{1}{2}e^{-2x}\cos 3x$ and $ \ds \frac{3e^{-2x}}{4}\sin 3x$ are equal to $ C_1e^{\alpha x}\cos(\beta x) $, and $ C_2e^{\alpha x}\cos(\beta x) $.\\ \vsp 
+
+By observation we get $\alpha =-2$,and $\beta =3$ so that the roots of the characteristic equation must be  $\alpha + i\beta =-2+3i$ and 
+   $\alpha-i\beta =-2-3i.$ \pause 
+   
+ Therefore, the characteristic equation is (equivalent to) 
+ \begin{eqnarray*}
+ p(\lambda ) &=&[\lambda -(-2+3i)][\lambda -(-2-3i)] \\
+ &=&[\lambda +2-3i][\lambda +2+3i] \\
+ &=&\lambda ^{2}+(2+3i)\lambda +(2-3i)\lambda +4+9 \\
+ &=&\lambda ^{2}+4\lambda +13
+ \end{eqnarray*}
+ \pause 
+% (Check: $\lambda =\dfrac{-4\pm \sqrt{16-4(1)(13)}}{2}$ \ $=\dfrac{-4\pm bi}{2%}$ \ $=-2\pm 3i$ ) \pause 
+Therefore, an ODE satisfying our conditions is 
+  \begin{equation*}
+  y^{\prime \prime }+4y^{\prime }+13y=0
+  \end{equation*}
+ 
+  \end{frame}
+  
+  
+  
+
+
+
+% end module diff-eq-natural-growth-solution

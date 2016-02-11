@@ -1,0 +1,225 @@
+% begin module diff-eq-natural-growth-solution
+\begin{frame}{First Order Linear ODE}
+ The general first order linear ODE (Ordinary Diff'l Equation) has the form
+$$a_0(x)y'+a_1(x)y=b(x)$$
+where $a_0(x),\ a_(x),\ b(x)$ are continuous functions of $x$ on some interval.
+To bring it to normal form $y'=f(x,y)$  we have to divide both sides of the equation by $a_0(x)$. This is possible only for those $x$ where $a_0(x)\ne 0$.
+After possibly shrinking the interval we assume that $a_0(x)\ne 0$. So our equation
+has the form (\textbf{standard form} or \textbf{normal form})
+$$y'+p(x)y=q(x)$$
+with $p(x)=a_1(x)/a_0(x)$ and $q(x)=b(x)/a_0(x)$. 
+%Solving for
+%$y'$ we get the normal form for a linear first order ODE, namely
+%$$y'+p(x)y=q(x).$$
+\end{frame}
+
+
+\begin{frame}{Integrating Factor}
+We now introduce the function,
+$$I(x)=e^{\int p(x)dx}$$
+It has the property $I'(x)=p(x)I(x)$ and $I(x)\ne 0$ for all
+$x$. Hence our differential equation is equivalent (has the same
+solutions) to the equation
+$$I(x)y'+I(x)p(x)y=I(x)q(x).$$ \pause 
+Since the left hand side of this equation is the derivative of $I(x)y$, it
+can be written in the form
+$$\frac{d}{dx}(I(x)y)=I(x)q(x).$$ \pause 
+Integrating both sides, we get
+$$I(x)y=\int I(x)q(x)\; dx + C$$
+with $C$ an arbitrary constant.
+\end{frame}
+
+
+\begin{frame}
+Thus we have 
+$$I(x)y=\int I(x)q(x)\; dx + C=\int I(x)q(x)\; dx$$ \pause 
+ Solving for $y$, we get
+$$y=\frac{1}{I(x)}\int I(x)q(x)\;dx.$$
+The function $I$ is called an {\bf integrating factor} for the
+given linear ODE.
+\end{frame}
+
+
+
+\begin{frame}
+In summary:
+\begin{theorem}
+For the first order linear differential equation
+\[
+  \frac{dy}{dx}+P(x)y=Q(x)
+\]
+An integrating factor is $\ds I(x)=e^{\int P(x)\;dx}$, and the solution of the differential equation is  
+\[
+y=\frac{1}{I(x)}\int I(x)Q(x)\;dx
+\]  
+\end{theorem}
+
+Note: replacing $I(x)$ with $-I(x)$ gives the same result. So, if $e^{\int P(x)}=|g(x)|$ for some $g(x)$ then $g(x)$ will be a suitable integrating factor.  (i.e. the absolute value signs may be dropped).\\                                      
+
+
+%Note that for any pair of scalars $a,b$ with $a$
+%in $I$, there is a unique scalar $C$ such that $y(a)=b$.
+%Geometrically, this means that the solution curves $y=y(x)$ are a
+%family of non-intersecting curves which fill the region
+%$I\times\R$.
+\end{frame}
+
+
+
+\begin{frame}
+\begin{example}[Solve: $y'+y=x$.]
+\textbf{Solution:} \pause 
+
+This is a linear first order ODE in normal/standard
+ form $ y'+p(x)y-q(x) $ with $p(x)= \pause 1$, $q(x)= \pause x$. 
+ 
+The integrating factor is $$I(x)=e^{\int 1\,dx}=e^x.$$ \pause
+Hence, the solution to the ODE is
+$$y=\frac{1}{I(x)}\int I(x)q(x)\;dx = \frac{1}{e^x}\int xe^x\;dx $$
+\pause
+which yields (IBP or Tabular Integration)
+$$y=\frac{1}{e^x}(xe^x-e^x+C)\pause = x-1+Ce^{-x} $$
+\end{example}  
+\end{frame}
+
+\begin{frame}
+\begin{example}[Solve the Initial Value Problem: $y'+y=x$, and\\ (a) $y(0)=1$ (b) $y(0)=k$.]
+\textbf{Solution:} 
+\pause 
+
+In the previous example we saw that the solution to the ODE is:
+$$y= x-1+Ce^{-x} $$
+\pause 
+\begin{enumerate}
+\item[(a)] If $ y(0)=1 $, then substituting $ x=0 $ and $ y=1 $ into the ODE we get
+\[
+y(0)=1 \Rightarrow 0-1+Ce^0=1  \pause  \Rightarrow C=2
+\]
+\pause 
+Hence, the solution is $y=x-1+2e^x$. \pause 
+\item[(b)] If $ y(0)=k $, then substituting $ x=0 $ and $ y=k $ into the ODE we get
+\[
+y(0)=k \Rightarrow C-1=k \Rightarrow C=k+1
+\]
+\pause 
+Hence, the solution is $y=x-1+(k+1)e^{-x}$
+\end{enumerate}
+\end{example}  
+\end{frame}
+
+
+\begin{frame}
+
+
+\begin{example}[ Solve $xy'-2y=x^3\sin(x)$]
+\textbf{Solution:} \pause 
+We begin by putting the equation into normal form by
+dividing by $x$:
+$$y'-\frac{2}{x}y=x^2\sin(x)$$
+\pause 
+This now has the form $ y'+p(x)y-q(x) $ with $p(x)= \pause -\frac{2}{x}$, $q(x)= \pause x^2\sin(x)$. 
+ 
+The integrating factor is $$I(x)=\pause e^{\int -2/x\; dx}=\pause e^{-2\ln|x|}\pause = e^{\ln(1/x^2)} \pause =1/x^2.$$
+\pause 
+Hence, the solution to the ODE is
+$$y=\frac{1}{I(x)}\int I(x)q(x)\;dx = x^2\int \sin(x)\;dx \pause =-x^2\cos(x)+Cx^2. $$
+\pause 
+{\scriptsize{Note: This is the general solution of the given ODE for $x\ge0$ or for $x\le0$ by continuity.\\
+Observe also that if $a\ne0$, there is a unique
+solution satisfying $y(a)=b$ for any constant $b$ while all
+solutions satisfy the initial condition $y(0)=0$.\\
+(To see why, substitute $ x=0 $ into the original ODE.)
+
+%This non-uniqueness is due to the fact the DE in normal form is not well behaved at $x=0$. However, $y=-x^2\cos(x)+Cx^2$ is not the general solution of the given ODE since different $C's$ are
+%possible for $x\ge 0$ and $x\le 0$ due to the fact that the
+%one-sided derivatives at $x=0$ are zero for all $C$. 
+
+%It is thegeneral solution if $y$ if $y''$ is required to exist at $x=0$.
+}}
+
+\end{example}
+ 
+\end{frame}
+
+\begin{frame}
+
+
+\begin{example}[Mixing Problem--Again]
+{\small Note: \textit{If the rates of flow into and out of the system are
+different, then the volume is not constant and the resulting
+differential equation is linear but not separable.}\\} \vspace*{2mm}
+
+A tank contains $400$ litres of water.
+A solution with a chlorine concentration of $.05$ grams per litre is added at a rate of $10$ litres per second.\\ 
+The solution is constantly mixed and is drained from the tank at a rate of $5$  litres per second.\\  
+Find the amount (in grams) of chlorine in the tank after $20$ seconds. 
+
+\textbf{Solution:} \pause 
+Let $y(t)$ be the amount (grams) of chlorine in the tank after $ t $ seconds  \pause 
+\begin{align*}
+\frac{dy}{dt}& ={\color{green}{(\text{input rate})}}-{\color{red}{(\text{output rate})}}\\
+&\textrm{\color{blue}{\small Note: after $t$ seconds, there will be $400+ 5t$ liters of water in the tank.}}\\ \uncover<4->{                                  
+&={\color{green}{\left(10\; l/s \right) \cdot   \left(.05 \;g/l \right)}}- {\color{red}{\left( 5 \;l/s \right) \cdot  \left( \frac{y}{400+5t}\; g/l \right)}}\\
+} % 
+\uncover<5->{
+&=\frac12-\frac{1}{80+t}y
+} %
+\end{align*}
+
+\end{example}
+ 
+\end{frame}
+
+\begin{frame}
+
+\begin{example}[cont'd]
+ So we get:  $ \ds \frac{dy}{dt}+\frac{1}{80+t}\;y=\frac12.
+  $
+\uncover<2->{  \[
+ \text{Recall: }\;\frac{dy}{dt}+P(t)y=Q(t)\;\Rightarrow\; y=\frac{1}{I(t)}\int Q(t)I(t) dt
+ \]  
+ } %
+\uncover<3->{ Find an integrating factor:}
+ \begin{align*}
+ \uncover<4->{e^{\int P(t)dt}& =e^{\int \frac{1}{80+t}dt}=e^{ \ln|80+t|+C}\\}
+\uncover<5->{ &=|80+t|=80+t.\;\;\;\uncover<6->{\textrm{ So take } I(t)=80+t.}}
+ \end{align*}
+\uncover<7->{ 
+ Then} 
+ \begin{align*}
+\uncover<7->{ y& =\frac{1}{80+t}\int(80+t)\frac12 dt} \uncover<8->{=\frac{1}{80+t}\cdot\left(40t+\frac{t^2}{4}+C\right)}
+ \end{align*}
+\uncover<9->{  
+ To solve for $C$, we note that initially there was no chlorine in the tank.  So $y(0)=0$.} 
+\end{example}
+
+\end{frame}
+
+
+
+\begin{frame}
+
+$\ds 
+y=\frac{1}{80+t}\cdot\left(40t+\frac{t^2}{4}+C\right)
+$. \\ 
+$y(0)=0$, gives:                                     
+
+\[
+0=\frac{1}{80}\cdot C\;\Rightarrow\; C=0
+\]      
+\pause So
+\[
+ y=\frac{1}{80+t}\cdot\left(40t+\frac{t^2}{4}\right)
+\]                                     
+\pause 
+ and after 20 seconds 
+\begin{align*}
+y& =\frac{1}{80+20}\cdot\left(40(20)+\frac{(20)^2}{4}\right)\\
+&=\frac{900}{100}=9
+\end{align*} 
+\pause                                        
+So after 20 seconds, there will be $9$ grams of chlorine in the tank.    
+
+\end{frame}
+
+
