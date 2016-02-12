@@ -10,7 +10,7 @@ means the values of $f(x)$ can be made arbitrarily large by taking $x$ sufficien
 \begin{columns}[c]
 \column{.4\textwidth}
 \psset{xunit=0.15cm, yunit=0.15cm}
-\begin{pspicture}(-10,-7)(25.5,20)
+\begin{pspicture}(-10,-7)(26,20)
 %\psframe*[linecolor=white](-5,-1)(5,5) 
 \psaxes[labels=none, ticks=none]{<->}(0,0)(-10,-3)(25,15)
 \psplot[linecolor=red, plotpoints=1000]{1.39}{25}{x 1 x -1 add 2 exp div mul 0.8 mul x x mul 1 x -1 add 2 exp div mul 1.05 mul add 1 x -1 add 2 exp div 0.15 mul add -2 add }
@@ -43,7 +43,7 @@ means the values of $f(x)$ can be made arbitrarily negative by taking $x$ suffic
 \begin{columns}[c]
 \column{.4\textwidth}
 \psset{xunit=0.15cm, yunit=0.15cm}
-\begin{pspicture}(-10,-20)(15.5,7)
+\begin{pspicture}(-10,-20)(16,7)
 \psaxes[labels=none, ticks=none]{<->}(0,0)(-10,-20)(15,3)
 \psplot[linecolor=red, plotpoints=1000]{1.39}{25}{x 1 x -1 add 2 exp div mul 0.8 mul x x mul 1 x -1 add 2 exp div mul 1.05 mul add 1 x -1 add 2 exp div 0.15 mul add -2 add -1 mul}
 \psplot[linecolor=red, plotpoints=1000]{-10}{0.75}{x 1 x -1 add 2 exp div mul 0.8 mul x x mul 1 x -1 add 2 exp div mul 1.05 mul add 1 x -1 add 2 exp div 0.15 mul add -2 add -1 mul}
@@ -67,7 +67,7 @@ There are similar definitions for one-sided limits:
 \begin{tabular}{ccp{3cm}}
 \begin{tabular}[c]{c}
 \psset{xunit=0.13cm, yunit=0.13cm}
-\begin{pspicture}(-6,-3)(14.5,16.5)
+\begin{pspicture}(-6,-3)(15,16.5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-6,-3)(14,10)
 \psplot[linecolor=red, plotpoints=1000]{-6}{6.65}{x x mul -0.6 mul x -0.9 mul add x x mul x mul 0.1 mul add 5.4 add x -7 add 2 exp div -2 add}
 \psline[linestyle=dotted](7, -3)(7, 16.5)
