@@ -1,0 +1,34 @@
+\solution{\ref{problemintx^5/(x^3-1)dx}
+This problem can be solved directly with a substitution shortcut, or by the standard method. 
+
+\textbf{Variant I (standard method).}
+
+\noindent$\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\displaystyle \int \frac{x^5}{x^3-1}\diff x&=&\displaystyle \int\left( x^2+\frac{x^2}{x^3-1}\right)\diff x  &&\text{Polyn. long div. }\\
+&=&\displaystyle\frac{x^3}{3}+\int \frac{x^2}{(x-1)(x^2+x+1)}\diff x&&\text{part. frac.}\\
+&=&\displaystyle\frac{x^3}{3}+\int \left(\frac{\frac{1}{3}}{x -1}+\frac{\frac{2}{3}x +\frac{1}{3}}{x^{2}+x +1}\right)\diff x &&\text{complete square}\\
+&=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{2}{3}\int \frac{x+\frac{1}{2}}{\left(x+\frac{1}{2}\right)^2+ \frac{3}{4}}\diff x &&\text{Set } \begin{array}{rcl} u&=&\left(x+\frac{1}{2}\right)^2+ \frac{3}{4}\\\frac{1}{2}\diff u&= &\left(x+\frac{1}{2}\right) \diff x\end{array}\\
+&=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{1}{3} \int \frac{\diff u}{u}\\
+&=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{1}{3}\ln |u|+C\\
+&=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\ln |x-1|+\frac{1}{3}\ln |x^2+x+1|+C\\
+\end{array}
+$
+
+\textbf{Variant II (shortcut method).}
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \frac{x^5}{x^3-1}\diff x&=&\displaystyle \int \frac{x^5-x^2+x^2}{x^3-1}\diff x\\
+&=&\displaystyle \int \frac{x^2(x^3-1)+x^2}{x^3-1}\diff x\\
+&=&\displaystyle\int x^2\diff x+ \int \frac{x^2}{x^3-1}\diff x\\
+&=&\displaystyle \frac{x^3}{3}+\int \frac{\diff \left(\frac{x^3}{3}\right)}{x^3-1}\\
+&=& \displaystyle \frac{x^3}{3}+\frac{1}{3} \int \frac{\diff \left(x^3-1\right)}{x^3-1}&&\text{Set }u=x^3-1\\
+&=&\displaystyle \frac{x^3}{3}+\frac{1}{3}\int \frac{\diff u}{u}\\
+&=&\displaystyle\frac{x^3}{3}+\frac{1}{3}\ln |u|+C\\
+&=&\displaystyle \frac{x^3}{3}+\frac{1}{3} \ln \left|x^3-1\right|+C\quad .
+\end{array}
+\]
+The answers obtained in the two solution variants are of course equal since 
+\[
+\ln |x-1|+\ln |x^2+x+1|= \ln \left|\left(x-1\right)\left(x^2+x+1\right)\right|=\ln \left|x^3-1\right|\quad .
+\]
+}
