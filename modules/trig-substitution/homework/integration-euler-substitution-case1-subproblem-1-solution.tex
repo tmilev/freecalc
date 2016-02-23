@@ -1,0 +1,92 @@
+\solution{\ref{problemIntegratesqrt(x^2+1)dx}. 
+
+This problem can be solved both via the Euler substitution and by transforming to a trigonometric integral and solving the trigonometric integral on its own. We present both variants. 
+
+
+\noindent\textbf{Variant I.}
+We recall the Euler substitution for $ \sqrt{x^2+1 } $\refBad{\ref{eqEulerSub-case1-cot(2arctant)}}{}{  given in  \eqref{eqEulerSub-case1-cot(2arctant)}}:
+
+$\begin{array}{rcl}
+\displaystyle x&=&\displaystyle \frac{1}{2}\left(\frac{1}{t}-t\right)\\
+\displaystyle \sqrt{x^2+1}&=&\displaystyle \frac{1}2\left(\frac 1 t +t\right)\\
+\displaystyle \diff x&=&\displaystyle -\frac{1}{2} \left(\frac1{t^2} +1\right)\diff t\\
+\displaystyle t&=&\displaystyle \sqrt{x^2+1}-x\quad .
+\end{array}$
+
+Therefore
+
+\noindent$
+\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
+\displaystyle\int \sqrt{(x^2+1)}\diff x&=&\displaystyle-\int  \frac14 \left(\frac1t +t\right)\left(\frac 1 {t^2} +1\right)\diff t\\
+&=&\displaystyle -\frac 1 4\int \left( \frac{1}{t^3}+ 2\frac{1}t +t\right)\diff t\\
+&=&\displaystyle -\frac{1}4 \left(- \frac{t^{-2}}{2}+ 2\ln|t|+ \frac{t^2}2 \right)+C\\
+&=&\displaystyle\frac{1}{8}\left(t^{-2}-t^2\right) + \frac{1}{2}\ln |t|+C &&\begin{array}{l}a^2-b^2=\\(a-b)(a+b)\end{array}\\
+&=&\displaystyle \frac{1}{2} \left( \underbrace {\frac{1}{2}\left(t^{-1}  -t \right) }_{=x} \right) \left(\underbrace{\frac{1}{2}\left(t^{-1}+t\right)}_{=\sqrt{x^2+1} } \right)+\frac{1}{2}\ln |t|+C\\
+&=&\displaystyle \frac{1}{2} x\sqrt{x^2+1}-\frac{1}{2} \ln \left|\sqrt{x^2+1}-x\right|+C &&\text{See below}\\
+&=&\displaystyle \frac{1}{2} x\sqrt{x^2+1}+\frac{1}{2} \ln \left(\sqrt{x^2+1}+x\right) +C\quad .
+\end{array}
+$
+
+\noindent Our problem is solved.  
+
+A few comments are in order. In the above expression we would have obtained a perfectly good answer if we plugged in $t=\sqrt{x^2+1}-x$ into the fourth line, however our answer would look much more complicated. Indeed, had we not used the formula $a^2-b^2=(a-b)(a+b)$ in the fourth line, the term $t^{-2}-t^{2}$ would be equal to $\frac{1}{ (\sqrt{x^2+ 1}- x)^2 }- (\sqrt{x^2+1}-x)^2$. In turn, the term $\frac{1}{ (\sqrt{ x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2$ can be simplified to $4x\sqrt{x^2+1}$ as follows. We carry out the simplifications to illustrate some of the algebraic issues arising when dealing with integrals of radicals.
+
+\noindent$
+\begin{array}{@{}r@{}c@{}l@{}}
+\displaystyle t^{-2}-t^{2}&=&\displaystyle \frac{1}{(\sqrt{x^2+1}-x)^2}- (\sqrt{x^2+1}-x)^2\\
+&=&\displaystyle
+\frac{(\sqrt{x^2+1}+x)^2}{(\sqrt{x^2+1}-x)^2  (\sqrt{x^2+1}+x)^2 } \\
+&&\displaystyle - (\sqrt{x^2+1}-x)^2 \\
+&=&\displaystyle \frac{(\sqrt{x^2+1}+x)^2}{\underbrace{((\sqrt{x^2+1})^2-x^2)^2}_{=1} }- (\sqrt{x^2+1}-x)^2 \\
+&=&\displaystyle 4x\sqrt{x^2+1}\quad .
+\end{array}
+$
+
+Of course, the above computations are unnecessary if we use the formula $a^2-b^2=(a-b) (a+b)$ as done in the original solution. 
+
+\noindent We note that in the last transformation we transformed $\ln \left| \sqrt{x^2+1}-x\right|$ to $\ln \left( \sqrt{ x^2+1}-x\right)$ because the quantity $\sqrt{x^2+1}-x$ is always positive. The proof of that fact we leave for the reader's exercise.
+
+Finally, we note that as a last simplification to our solution, we used the transformation $\ln |t|= \ln \left( \sqrt{x^2+1} -x\right) = -\ln|\frac{1}{t}|= -\ln \left( \sqrt{x^2+1} +x \right)$. This is seen as follows.
+
+\noindent $\begin{array}{rcll|l}
+\displaystyle \ln |t|&=&\displaystyle  -\ln \left| \frac{1}{ t} \right| \\
+&=&\displaystyle -\ln \left(\frac{1}{ \sqrt{x^2+1} - x} \right) && \text{rationalize}\\
+&=&\displaystyle - \ln \left(\frac{ \left( \sqrt{x^2+1}+ x\right) }{\left( \sqrt{x^2+1} - x\right) \left(\sqrt{x^2+1 }+x\right) } \right)\\
+&=& \displaystyle -\ln \left(\frac{\sqrt{x^2+1}+x}{x^2 +1 -x^2 }\right)\\
+&=& \displaystyle  -\ln \left(\sqrt{x^2+1}+x\right)\quad .\\
+\end{array}
+$
+
+\noindent\textbf{Variant II.} In this variant we transform to a trigonometric integral and solve it using ad-hoc methods. We recall that if we decided to solve the trigonometric integral using the standard substitution $\theta=2\arctan t$, we would arrive at the Euler substitution given in Variant I.
+
+\noindent $
+\begin{array}{@{}r@{~}c@{~}l@{}l@{}|l}
+\displaystyle \int \sqrt{x^2+1}\diff x&=&\displaystyle \int \sqrt{\tan^2\theta+1}~\diff (\tan \theta) && \begin{array}{l} \text{Set }\\ x=\tan \theta \\ \theta\in \left(-\frac{\pi}{2}, \frac{\pi }{2}\right)\end{array}\\
+&=&\displaystyle \int \sqrt{sec^2\theta}\sec^2\theta\diff \theta && \sec\theta>0\\
+&=&\displaystyle \int \sec^3\theta\diff \theta&&\text{Problem } \refBad{\ref{problemintsec^3xdx}}{\text{solved already}}{\ref{problemintsec^3xdx}} \\
+&=&\displaystyle \frac{1}{2}\left(\tan \theta \sec \theta+\ln|\sec\theta +\tan \theta | \right)+C&&
+\begin{array}{@{}l}
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-0.8,-0.8)(4.6,3.2)
+\tiny
+\fcBoundingBox{-1}{-0.8}{4.6}{3.2}
+\psline(0,0)(4, 0)(4,3)(0,0)
+\psline(3.8,0)(3.8, 0.2)(4,0.2)
+\fcAngle{0}{3 4 div ATAN}{0.8}{}
+\rput[bl](1, 0.2){$\theta$}
+\rput[l](4.2, 1.5){$x$}
+\rput[t](2, -0.2){$1$}
+\rput[br](2, 1.5){$\sqrt{x^2+1}$}
+%bounding box for pdflatex compilation:
+\psline[linecolor=red!1](-0.11, -0.3 )(-0.105, -0.3)
+\psline[linecolor=red!1](2.3, 1.21)(2.3, 1.205)
+\end{pspicture}\\
+\sec\theta=\sqrt{x^2+1}\\
+\tan \theta=x
+\end{array}
+\\
+&=&\displaystyle \frac{1}{2}\left(x \sqrt{x^2+1} +\ln\left(\sqrt{x^2+1}+x \right) \right)+C
+\end{array}
+$
+
+}
