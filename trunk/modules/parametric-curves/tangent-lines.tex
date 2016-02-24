@@ -1,23 +1,56 @@
 \begin{frame}
 \frametitle{Tangent Lines}
-$$\fcv{f}\colon [a,b]\to \RR^3\quad , \quad \fcv{f}(t) = ( x(t), y(t), z(t)), \quad \fcv{f}=( x'(t), y'(t), z'(t)) $$
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-6,-3)(12,7)%
+\tiny%
+\renewcommand{\fcScreen}{[-3 0.2 -1] 0}%
+\pstVerb{5 dict begin /startT 2 def /endT 3 def /theScalar 2 def}%
+\fcAxesIIId{7}{7}{7}%
+\newcommand{\theCurve}{[t t 100 mul sin add t 100 mul cos t add t]\space}%
+\fcCurveIIId{0}{8}{\theCurve}%
+\onlyNoH{3}{\pstVerb{/endT 2.5 def  /theScalar 5 def}}%
+\onlyNoH{4}{\pstVerb{/endT 2.3 def  /theScalar 10 def}}%
+\onlyNoH{5}{\pstVerb{/endT 2.1 def  /theScalar 30 def}}%
+\onlyNoH{6-}{\pstVerb{/endT 2.05 def /theScalar 60 def}}%
+\fcLineIIId[arrows=->]{[0 0 0]}{1 dict begin /t startT def \theCurve end}%
+\fcLineIIId[arrows=->]{[0 0 0]}{1 dict begin /t endT def \theCurve end}%
+\fcLineIIId[arrows=->]{1 dict begin /t startT def \theCurve end}{1 dict begin /t endT def \theCurve end}%
+\fcLineIIId[linestyle=dashed, linewidth=0.5pt, linecolor=blue]{1 dict begin /t startT def \theCurve end theScalar -1 mul \fcVectorTimesScalar  1 dict begin /t endT def \theCurve end theScalar 1 add \fcVectorTimesScalar \fcVectorPlusVector}{1 dict begin /t startT def \theCurve end theScalar 1 add \fcVectorTimesScalar 1 dict begin /t endT def \theCurve end theScalar -1 mul \fcVectorTimesScalar \fcVectorPlusVector}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.6\textwidth}
+$\begin{array}{rcl}
+\displaystyle \fcv{f}\colon [a,b]&\to&\displaystyle  \RR^3\\ 
+\displaystyle \fcv{f}(t) &=& \displaystyle ( x(t), y(t), z(t))\\
+\displaystyle \fcv{f}'(t)&=&\displaystyle \alertNoH{2-6}{ \lim_{h\to 0}\frac{\fcv f(t+h)- \fcv f(t)}{h} } \\
+&=&\displaystyle ( x'(t), y'(t), z'(t)) \\
+\end{array}
+$
+\end{columns}
+\vskip -0.1cm
 \begin{itemize}
 \item $\fcv{f}\,'(t_0)$: direction of tangent line through $\fcv f(t_0)$.
-\item<2-> Equation of tangent line at $\fcv{f}(t_0)$:
-\[
-\fcv{r}(t) = \fcv{f}(t_0) + t \fcv{f}\,'(t_0) \quad .
-\]
-\item<3-> Linear approximation:
-\[
+\item<7-> Tangent equation at $\fcv{f}(t_0)$:
+
+\hfil\hfil$
+\fcv{r}(t) = \fcv{f}(t_0) + t \fcv{f}\,'(t_0) .
+$
+\item<8-> Linear approximation:
+
+\hfil\hfil $
 \fcv{f}(t) \approx L_{\fcv{f},t_0} (t) = \fcv{f}(t_0) + t \fcv{f}\,'(t_0).
-\]
-\item<4-> A linear approximation is good if:
-\[
+$
+\item<9-> A linear approximation is good if:
+
+\hfil\hfil $\displaystyle
 \lim_{t\to 0} \left|\frac{\fcv{f}(t) - L_{\fcv{f},t_0}(t)}{t} \right| =0.
-\]
-\item<5-> Differentials:
-\[
-\diff \fcv{f} = \fcv{f}' \diff t \Rightarrow \diff \fcv{f} = \diff  t ( x',y',z' ) .
-\]
+$
+\item<10-> Differentials:
+
+\hfil\hfil$
+\diff \fcv{f} = \fcv{f}' \diff t = ( x',y',z' )\diff  t  .
+$
 \end{itemize}
 \end{frame}
