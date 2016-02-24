@@ -1,15 +1,41 @@
 \begin{frame}
 \frametitle{Derivatives}
-$$\fcv{f}\colon [a,b]\to \RR^3\quad , \quad \fcv{f}(t) = ( x(t), y(t), z(t))$$
-\begin{itemize}
-\item  Average rate of change: $$\frac{\fcv{f}(t)-\fcv{f}(t_0)}{t-t_0} = \frac{\text{Displacement}}{\text{Time}} = \text{Average Velocity}\quad .$$
-\item<2-> Instantaneous rate of change:
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-1,-4)(11,7)
+\tiny
+\renewcommand{\fcScreen}{[-3 0.2 -1] 0}
+\fcAxesIIId{7}{7}{7}
+\newcommand{\theCurve}{[t t 100 mul sin add t 100 mul cos t add t]\space}
+\fcCurveIIId{0}{8}{\theCurve}
+\onlyNoH{2}{\fcLineIIId[linecolor=red, linewidth=2pt, arrows=->]{[0 0 0]}{1 dict begin /t 2 def \theCurve end}}
+\only<2->{\fcLineIIId[arrows=->]{[0 0 0]}{1 dict begin /t 2 def \theCurve end}}
+\onlyNoH{3}{\fcLineIIId[linecolor=red, linewidth=2pt, arrows=->]{[0 0 0]}{1 dict begin /t 3 def \theCurve end}}
+\only<3->{\fcLineIIId[arrows=->]{[0 0 0]}{1 dict begin /t 3 def \theCurve end}}
+\onlyNoH{4}{\fcLineIIId[linecolor=red, linewidth=2pt, arrows=->]{1 dict begin /t 2 def \theCurve end}{1 dict begin /t 3 def \theCurve end}}
+\only<4->{\fcLineIIId[arrows=->]{1 dict begin /t 2 def \theCurve end}{1 dict begin 
+/t 3 def \theCurve end}}
+\end{pspicture}
+\column{0.6\textwidth}
 \[
-\fcv{f}\,'(t_0) = \lim_{t\to t_0} \frac{\fcv{f}(t)-\fcv{f}(t_0)}{t-t_0} = \lim_{h\to 0}\frac{\fcv{f}(t_0+h)-\fcv{f}(t_0)}{h}\quad .
+\begin{array}{rcl}
+\fcv{f}\colon [a,b]&\alertNoH{0}{\to}& \RR^3\\ 
+\fcv{f}(t) &\alertNoH{0}{=}& ( x(t), y(t), z(t))\\~\\
+\uncover<10->{\alertNoH{10}{\fcv{f}'(t)} &\alertNoH{10}{=}& \alertNoH{10}{( x'(t), y'(t), z'(t))}}\\
+\uncover<11->{\alertNoH{11}{\fcv{f}''(t)} &\alertNoH{11}{=}& \alertNoH{11}{( x''(t), y''(t), z''(t))}}\\
+\uncover<11->{&\alertNoH{0}{\vdots} &}
+\end{array}
 \]
-\item<3-> $\fcv{f}(t)$ vector $\Longrightarrow$ $\fcv{f}\,'(t)$ vector.
-\item<4-> Higher order derivatives: $\fcv{f}'(t)$, $\fcv{f}\,''(t) = (\fcv{f}'(t))'$ (acceleration), ...
-\item<5-> Component-wise operation: $$\fcv{f}\,'(t) = ( x'(t), y'(t), z'(t))$$
+\end{columns}
+\begin{itemize}
+\item  $\displaystyle \textbf{Average Velocity}=\frac{\textbf{change in position}}{\alertNoH{5}{\text{change in time}}}= \alertNoH{6}{ \frac{\alertNoH{4}{ \alertNoH{3}{ \fcv{f}(t)}- \alertNoH{2}{\fcv{f}(t_0)}}}{ \alertNoH{5}{t-t_0}}}.$
+\item<6-> Instantaneous rate of change:
+\[
+\fcv{f}'(t_0) =  \lim_{\alertNoH{7,8}{t\to t_0}} \alertNoH{6}{\frac{\fcv{f}(\alertNoH{8}{t})- \fcv{f }(t_0 )}{\alertNoH{7}{t-t_0}}} \uncover<7->{= \lim_{\alertNoH{7,8}{h\to 0}} \frac{ \fcv{f}(\alertNoH{8}{t_0+h})-\fcv{f}(t_0)}{\alertNoH{7}{h}}.}
+\]
+\item<9-> $\fcv{f}(t)$ vector $\Longrightarrow$ $\fcv{f}'(t)$ vector.
+\item<11-> Higher order derivatives: $\fcv{f}'(t)$, $\fcv{f}''(t) = (\fcv{f}'(t))'$ (acceleration), ...
 \end{itemize}
 
 \end{frame}
