@@ -2,10 +2,8 @@
 \begin{example}
 \begin{columns}
 \column{0.4\textwidth}
-\begin{pspicture}(-2, -2)(2, 2)
-\fcBoundingBox{-2.4}{-1.1}{2.4}{2.4}
-\fcAxesIIId{3}{3}{2}
-
+\begin{pspicture}(-2.2, -2.2)(2.6, 2) %
+\tiny%
 \pstVerb{
 6 dict begin 
 /phi  {t 3 mul} def 
@@ -14,20 +12,32 @@
 /r 0.2 def 
 /xyRad {phi sin r mul R add} def 
 /trefoil {[theta cos xyRad mul theta sin xyRad mul phi cos r mul ]} def
-}
-\fcCurveIIId[linecolor=red, plotpoints=500]{0}{10 }{trefoil}
-\fcCurveIIId[linecolor=red, plotpoints=500]{49}{195 }{trefoil}
-\fcCurveIIId[linecolor=red, plotpoints=500]{205}{315 }{trefoil}
-\fcCurveIIId[linecolor=red, plotpoints=500]{325 }{400}{trefoil}
-\pstVerb{end}
+}%
+\fcBoundingBox{-2.4}{-2.1}{2.6}{2.4}%
+\fcAxesIIId{3}{3}{2}%
+\renewcommand{\fcIterationsU}{9}%
+\renewcommand{\fcIterationsV}{22}%
+\fcStartIIIdScene%
+\only<2->{%
+\fcSurfaceInScene[arrows=(none), linecolor=red, linewidth=0.4]{0}{0}{360}{360}{[u sin r mul R add v cos mul u sin r mul R add v sin mul u cos r mul]}{}%
+\fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{0}{360}{trefoil}%
+}%
+\fcFinishIIIdScene[true]%
+\onlyNoH{1}{%
+\fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{0}{10 }{trefoil}%
+\fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{49}{195 }{trefoil}%
+\fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{205}{315 }{trefoil}%
+\fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{325 }{400}{trefoil}%
+}%
+\pstVerb{end}%
 \end{pspicture}
 \column{0.6\textwidth}
-Compute the curvature of the torus (trefoil) curve 
+Compute the curvature of the \alertNoH{2}{(torus)} trefoil curve
 
 $
 \begin{array}{rcl}
 x&=& \left(R+r\sin \left(3t\right)\right) \cos (2t) \\
-y&=& (R+r\sin \left( 3t \right) \sin 2t \\
+y&=& \left(R+r\sin \left( 3t \right)\right) \sin (2t) \\
 z&=& r\cos (3t) 
 \end{array}
 $
