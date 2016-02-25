@@ -14,21 +14,21 @@
 /trefoil {[theta cos xyRad mul theta sin xyRad mul phi cos r mul ]} def
 }%
 \fcBoundingBox{-2.4}{-2.1}{2.6}{2.4}%
-\fcAxesIIId{3}{3}{2}%
 \renewcommand{\fcIterationsU}{9}%
 \renewcommand{\fcIterationsV}{22}%
 \fcStartIIIdScene%
+\fcAxesIIIdInScene{3}{3}{2}%
 \only<2->{%
 \fcSurfaceInScene[arrows=(none), linecolor=red, linewidth=0.4]{0}{0}{360}{360}{[u sin r mul R add v cos mul u sin r mul R add v sin mul u cos r mul]}{}%
 \fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{0}{360}{trefoil}%
 }%
-\fcFinishIIIdScene[true]%
 \onlyNoH{1}{%
 \fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{0}{10 }{trefoil}%
 \fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{49}{195 }{trefoil}%
 \fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{205}{315 }{trefoil}%
 \fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{325 }{400}{trefoil}%
 }%
+\fcFinishIIIdScene[true]%
 \pstVerb{end}%
 \end{pspicture}
 \column{0.6\textwidth}
