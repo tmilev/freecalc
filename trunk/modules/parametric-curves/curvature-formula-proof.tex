@@ -1,8 +1,20 @@
+%\begin{frame}
+%\frametitle{$|\fcv r'(t)\times \fcv r(t)| $}
+%\end{frame}
+
 \begin{frame}
-\frametitle {$\kappa  = \left| \frac{\diff\fcv{T}}{\diff s}\right|\Rightarrow \kappa=\frac{|\fcv{r}''(t) \times \fcv{r}'(t)|}{|\fcv{r}'(t)|^3}$}
-\[
-\begin{array}{rcl}
-\frac{\diff T}{\diff s} \frac{\diff s}{\diff t}&=&\frac{\diff T}{\diff t}\\
+\frametitle {$\kappa  = \left| \frac{\diff \fcv{T}}{\diff s}\right|\Rightarrow \kappa=\frac{|\fcv{r}''(t) \times \fcv{r}'(t)|}{|\fcv{r}'(t)|^3}$}
+$s(t)=\int_{t_0}^t |\fcv r'(x)|\diff x$-curve (arc)length function. $|\fcv v|'=\left(\sqrt{\fcv v\cdot \fcv v}\right)'=\frac{(\fcv v \cdot \fcv v)'}{2\sqrt{\fcv v\cdot \fcv v}}=\frac{2\fcv v'\cdot \fcv v}{2|\fcv v|}=\frac{\fcv v'\cdot \fcv v}{|\fcv v|}$. $ \displaystyle\frac{\diff s}{\diff t}=\displaystyle |\fcv r'(t)|$ $
+\displaystyle \frac{\diff \fcv T}{\diff s} \frac{\diff s}{\diff t}=\displaystyle \frac{\diff \fcv T}{\diff t}$
+
+$
+\!\!\!\!
+\begin{array}{@{}r@{}c@{}l}
+\displaystyle \kappa=\left|\frac{\diff \fcv T}{\diff s}\right|&=&\displaystyle \left| \frac{\frac{\diff \fcv T}{\diff t}}{\frac{\diff s}{\diff t}}\right| =\left|\frac{\fcv T'(t)}{\fcv r'(t)}\right|=\frac{\left| \left(\frac{\fcv r'(t)}{|\fcv r'(t)|} \right)' \right| }{ |\fcv r'(t)| }
+=\displaystyle \frac{ \frac{\left| \fcv r'' |\fcv r'|- \fcv r' \left(|\fcv r'|\right)' \right|}{|\fcv r'|^2}  }{|\fcv r'|}\\
+&=&\displaystyle \frac{\left| \fcv r '' |\fcv r'| - \fcv r' \frac{\fcv r''\cdot \fcv r'}{|\fcv r'|} \right|}{|\fcv r'|^3} =\displaystyle \frac{\sqrt{\left( \fcv r '' |\fcv r'| - \fcv r' \frac{\fcv r''\cdot \fcv r'}{|\fcv r'|}\right)\cdot \left( \fcv r '' |\fcv r'| - \fcv r' \frac{\fcv r''\cdot \fcv r'}{|\fcv r'|}\right)} }{|\fcv r'|^3}\\
+&=&\displaystyle \frac{\sqrt{|\fcv r''|^2|\fcv r'|^2-2\fcv r''\cdot \fcv r' \fcCancel{1}{|\fcv r'|} \frac{\fcv r''\cdot \fcv r'}{\fcCancel{1}{ |\fcv r' |}} + \frac{\fcCancel{1}{|\fcv r'|^2} (\fcv r''\cdot\fcv r')^2}{\fcCancel{1}{ |\fcv r|^2} } }}{|\fcv r'|^3}=\frac{\sqrt{|\fcv r''|^2|\fcv r'|^2-(\fcv r''\cdot \fcv r')^2  }}{|\fcv r'|^3}\\
+&=&\displaystyle \frac{\sqrt{|\fcv r''|^2|\fcv r'|^2- \fcv r''|^2|\fcv r'|^2\cos^2 \alpha }}{|\fcv r'|^3}=\frac{\sqrt{|\fcv r''|^2|\fcv r'|^2\sin^2 \alpha }}{|\fcv r'|^3}=\frac{|\fcv r''(t)\times \fcv r'(t)|}{|\fcv r'(t)|^3}
 \end{array}
-\]
+$
 \end{frame}

@@ -3,10 +3,15 @@ Find the length of the curve.
 
 \item The helix $\fcv r= (\cos t, \sin t, t) $, $t\in [0,2\pi]$.
 
-\item \label{problemLength(tcost,tsint,-t)} The cone curve $\fcv r= (t\cos t, t\sin t, -t) $, $t\in [0,2\pi]$.
+\item \label{problemLength(tcost,tsint,t)} The cone curve $\fcv r= (t\cos t, t\sin t, t) $, $t\in [0,2\pi]$.
 \psset{xunit=0.3cm, yunit=0.3cm}
 \begin{pspicture}(0,0)(1,1)
-\fcCurveIIId[linecolor=red, plotpoints =500]{0}{360}{ [t cos t sin 1] t 57.295779513 div \fcVectorTimesScalar }
+\pstVerb{5 dict begin /pi 3.141592654 def}
+\fcStartIIIdScene
+\fcSurfaceInScene[arrows=(none), linecolor=red, linewidth=0.4]{0}{0.01}{360}{2 pi mul}{[u cos v mul u sin v mul v]}{}
+\fcCurveIIIdInScene[linewidth=2, linecolor=blue]{0}{360}{[t cos t sin 1] t 57.295779513 div \fcVectorTimesScalar}
+\fcFinishIIIdScene[true]
+\pstVerb{end}
 \end{pspicture}
 
 \end{enumerate}
