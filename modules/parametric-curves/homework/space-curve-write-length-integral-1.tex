@@ -2,11 +2,45 @@ Write down the integral expressing the length of the curve. Please do not try to
 
 \begin{enumerate}
 \item The loxodromic curve $\fcv r(t)= ( \cos (10t) \sin (t), \sin (10t)\sin (t), \cos (t) )$ from $t=0$ to $t=t_0$.
+
+\begin{pspicture}(0,0)(1,1)
+\tiny
+\fcAxesIIId{1.3}{1.3}{1.3}
+\fcCurveIIId[plotpoints=500, linecolor=red]{0}{180}{[10 t mul cos t sin mul 10 t mul sin t sin mul t cos ]}
+\end{pspicture}
 \item The ellipse $\fcv r(t) = ( a\cos t, b\sin t ) $ from $t=0$ to $t=t_0$.
+
+\begin{pspicture}(-1,-1)(1,1)
+\fcAxesStandard{-1}{-1}{1}{1}
+\parametricplot[plotpoints=500, linecolor=red]{0}{360}{t cos 0.5 mul t sin 0.3 mul}
+\end{pspicture}
 \item The trefoil (torus) knot
 $\fcv r=( \left( 3+\sin \left(3t\right)\right) \cos (2t) ,(3+\sin \left( 3t \right) \sin (2t) ,\cos (3t))
 $
 from $t=0$ to $t=2\pi$.
+
+\begin{pspicture}(-2.2, -2.2)(2.6, 2) %
+\tiny%
+\pstVerb{
+6 dict begin 
+/phi  {t 3 mul} def 
+/theta {t 2 mul} def 
+/R 3 def 
+/r 1 def 
+/xyRad {phi sin r mul R add} def 
+/trefoil {[theta cos xyRad mul theta sin xyRad mul phi cos r mul ]} def
+}%
+\fcBoundingBox{-2.4}{-2.1}{2.6}{2.4}%
+\renewcommand{\fcIterationsU}{9}%
+\renewcommand{\fcIterationsV}{22}%
+\fcStartIIIdScene%
+\fcAxesIIIdInScene{3}{3}{2}%
+\fcSurfaceInScene[arrows=(none), linecolor=red, linewidth=0.4]{0}{0}{360}{360}{[u sin r mul R add v cos mul u sin r mul R add v sin mul u cos r mul]}{}%
+\fcCurveIIIdInScene[arrows=none, linecolor=blue, linewidth=1.5]{0}{360}{trefoil}%
+\fcFinishIIIdScene[true]%
+\pstVerb{end}%
+\end{pspicture}
+
 \item The torus curve
 $\fcv r=( \left( R+r\sin \left(20t\right)\right) \cos (t) ,(R+r\sin \left( 20t \right) \sin (2t) ,r\cos (20t))
 $
