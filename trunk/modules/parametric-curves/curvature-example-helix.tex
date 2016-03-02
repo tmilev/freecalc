@@ -48,9 +48,9 @@ $
 \fcStartIIIdScene
 \fcAxesIIIdFullInScene{-2}{-2}{-3}{2}{2}{12}%
 \fcCurveIIIdInScene[arrows=(none), linecolor=red]{0}{720}{helix}%
-\fcPatchInScene [colorUV=cyan, colorVU=cyan]{tangentPatchBaseCorner}{tangentPatchSecondCorner}{tangentPatchFirstCorner}
+\only<11->{\fcPatchInScene [colorUV=cyan, colorVU=cyan]{tangentPatchBaseCorner}{tangentPatchSecondCorner}{tangentPatchFirstCorner}}
 \fcFinishIIIdScene[true]
-\fcCurveIIId[linecolor=brown]{0}{360}{theCurvePoint normalUnitV 2 \fcVectorTimesScalar \fcVectorPlusVector tangentUnitV t sin 2 mul \fcVectorTimesScalar normalUnitV t cos -2 mul \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector}
+\only<13->{ \fcCurveIIId[linecolor=brown]{0}{360}{theCurvePoint normalUnitV 2 \fcVectorTimesScalar \fcVectorPlusVector tangentUnitV t sin 2 mul \fcVectorTimesScalar normalUnitV t cos -2 mul \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector}} %
 \only<3->{%
 \fcPutIIId[bl]{theCurvePoint tangentVector \fcVectorPlusVector}{$\fcv r'(t)$}%
 \fcLineIIId[arrows=->]{theCurvePoint}{theCurvePoint tangentVector \fcVectorPlusVector}%
@@ -59,11 +59,11 @@ $
 \fcLineIIId[arrows=->]{theCurvePoint}{theCurvePoint tangentVector 0.5 sqrt \fcVectorTimesScalar \fcVectorPlusVector}%
 \fcPutIIId[lt]{theCurvePoint tangentVector 0.5  \fcVectorTimesScalar \fcVectorPlusVector}{$~\fcv T(t)$}%
 }%
-\uncover<9->{%
+\only<9->{%
 \fcLineIIId[arrows=->]{theCurvePoint}{theCurvePoint normalUnitV 0.5 sqrt \fcVectorTimesScalar \fcVectorPlusVector}%
 \fcPutIIId[b]{theCurvePoint normalUnitV 0.5 sqrt \fcVectorTimesScalar \fcVectorPlusVector}{$\fcv T'(t)$}
 }%
-\uncover<13->{%
+\only<13->{%
 \fcLineIIId{theCurvePoint normalUnitV 2 \fcVectorTimesScalar \fcVectorPlusVector}{theCurvePoint normalUnitV 2 \fcVectorTimesScalar \fcVectorPlusVector tangentUnitV 245 sin 2 mul \fcVectorTimesScalar normalUnitV 245 cos -2 mul \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector}
 \fcDotIIId{theCurvePoint normalUnitV 2 \fcVectorTimesScalar \fcVectorPlusVector}
 \fcPutIIId[lt]{theCurvePoint normalUnitV 2 \fcVectorTimesScalar \fcVectorPlusVector tangentUnitV 245 sin 2 mul \fcVectorTimesScalar normalUnitV 245 cos -2 mul \fcVectorTimesScalar \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcVectorPlusVector}{$\frac{1}{\kappa(t)}$}
