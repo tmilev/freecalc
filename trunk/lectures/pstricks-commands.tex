@@ -167,7 +167,7 @@ theData{ToString ( )} forall
 (])
 theData length 2 mul 2 add \fcConcatenateMultiple
 }
-{theData 20 string cvs}
+{theData 200 string cvs}
 ifelse
 end
 } def %
@@ -1834,7 +1834,7 @@ graphicsFile ( setrgbcolor ) writestring
 
 \newcommand{\fcSetupFilesGraphicsIIIdCode}{
 \fcSetUpGraphicsToScreen
-/graphicsFileName (xgraphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString (.txt) 6 \fcConcatenateMultiple def
+/graphicsFileName (xgraphicsCacheSafeToDelete) (\fcScreen) [[1 0] \fcCoordsPStricksToPS] \fcToString [[0 1] \fcCoordsPStricksToPS] \fcToString 6 -1 roll \fcToString \fcHashString /fileNameId where  {pop /fileNameId load \fcHashString}{()} ifelse (.txt) 7 \fcConcatenateMultiple def
 }
 
 %defines graphicsFileAvailable to be true if file can be created, false else.

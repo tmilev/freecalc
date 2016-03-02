@@ -3,11 +3,14 @@
 \begin{columns}
 \column{0.35\textwidth}
 \uncover<2->{
-\begin{pspicture}(-1.7,-0.8)(1.8,3)%
+\begin{pspicture}(-1.7,-1.5)(1.8,3)%
 \tiny%
-\fcBoundingBox{-1.7}{-0.8}{1.7}{3}%
-\fcAxesIIId{2}{2}{2}%
-\fcCurveIIId[plotpoints=500, linecolor=red]{0}{1080}{[t cos t sin t 360 div]}%
+\pstVerb{5 dict begin /pi 3.141592654 def}%
+\renewcommand{\fcScreen}{[-1 1 -7] 0}
+\fcBoundingBox{-1.7}{-1.5}{1.7}{3}%
+\fcAxesIIId{2}{2}{10}%
+\fcCurveIIId[plotpoints=500, linecolor=red]{0}{720}{[t cos t sin t 180 div pi mul]}%
+\pstVerb{end}%
 \end{pspicture}
 }
 \column{0.65\textwidth}
@@ -23,17 +26,13 @@ Let $\fcv{r}(t) = ( \cos{t}, \sin{t}, t)$  \uncover<2->{(the curve is called a \
 \[
 \begin{array}{rcl}
 \uncover<3->{\fcv{r}'(t) &=& ( -\sin{t}, \cos{t}, 1 ) \\}
-\uncover<4->{\fcv{r}'(t)| &= &\sqrt{2}\quad .}
-\end{array}
-\]
+\uncover<4->{\fcv{r}'(t)| &= &\sqrt{2}\quad .}\\
 \uncover<5->{
-Therefore the arclength function is
-\[
-\begin{array}{rcl}
 L(t) &=&\displaystyle \int_0^t |\fcv{r}'(\tau)| \diff \tau \\
 \uncover<6->{& =& t\sqrt{2} \quad  .}
+}
 \end{array}
 \]
-}
+
 \end{example}
 \end{frame}
