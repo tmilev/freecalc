@@ -21,7 +21,8 @@
 \begin{columns}
 \column{0.4\textwidth}
 \uncover<2->{
-\begin{pspicture}(-2.2,-2)(2,2)%
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-2.2,-2)(4,2.9)%
 \tiny%
 \fcBoundingBox{-2.2}{-0.5}{2.1}{2.2}%
 \pstVerb{%
@@ -37,10 +38,10 @@
 basePoint tangent1 u \fcVectorTimesScalar tangent2 v \fcVectorTimesScalar \fcVectorPlusVector \fcVectorPlusVector end%
 }{}%
 \fcSurfaceInScene[forceForeground=false, linecolor=red, iterationsU=7, iterationsV=8, colorUV={1 0.5 0.5}, colorVU={0.7 0.2 0.2}]{-1.4}{-1}{1.4}{1}{theEllipsoidTop}{}%
+\fcAxesIIIdInScene{3}{3}{3}%
 \fcFinishIIIdScene%
 \fcCurveIIId[linecolor=blue, linewidth=2pt]{-1.4}{1.4}{2 dict begin /u {t} def /v 0 def theEllipsoidTop end} 
 \fcCurveIIId[linecolor=blue, linewidth=2pt]{-1}{1}{2 dict begin /u 1 def /v {t} def theEllipsoidTop end} 
-\fcAxesIIId{3}{3}{3}%
 \fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown]{basePoint}{basePoint tangent2 \fcVectorPlusVector}
 \fcLineIIId[arrows=->, linewidth =2pt, linecolor=brown]{basePoint}{basePoint tangent1 \fcVectorPlusVector}
 \uncover<3->{\fcCurveIIId[linecolor=orange, linewidth=2pt]{-0.7}{0.7}{2 dict begin /u {t 1 add} def /v {t } def theEllipsoidTop end} }

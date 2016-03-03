@@ -3,13 +3,13 @@
 \begin{columns}
 \column{0.3\textwidth}
 \psset{xunit=0.5cm, yunit=0.5cm}
-\begin{pspicture}(-1, -1)(1, 1)
+\begin{pspicture}(-3, -3)(3.5, 4.2)
 \tiny
-\fcBoundingBox{-3}{-2.4	}{4}{4.5}
+\fcBoundingBox{-3}{-2.4}{4}{4.5}
 \renewcommand{\fcScreen}{[-4 -0.5 -2] 0}%
 \fcStartIIIdScene%
-\only<23,24,26->{%
-\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=black, linewidth=0.6]{-2.1}{-2.1}{2.1}{2.1}{[%
+\only<handout:1|23,24,26->{%
+\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=gray, linewidth=0.3, colorUV={1 0.8 0.8}, colorVU={1 0.5 0.5}]{-2.1}{-2.1}{2.1}{2.1}{[%
 2 dict begin %
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
@@ -26,8 +26,8 @@ z 3 le %
 end %
 }%
 }%
-\only<25>{%
-\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=black, linewidth=0.6]{-2.1}{-2.1}{2.1}{2.1}{[%
+\only<handout:2|25>{%
+\fcSurfaceInScene[iterationsU=25, iterationsV=25, linecolor=gray, linewidth=0.3, colorUV={1 0.8 0.8}, colorVU={1 0.5 0.5}]{-2.1}{-2.1}{2.1}{2.1}{[%
 2 dict begin %
 /x u def %u v sub 2 sqrt div def
 /y v def %u v add 2 sqrt div def
@@ -83,7 +83,7 @@ $(x_0,y_0)$ & \alert<11>{$f_{xx}$} & \alert<11>{$f_{yy}$} & \alert<11>{$f_{xy}$}
 \end{tabular}
 }
 
-\uncover<26->{ In this case it turns out that the two local minimum points are actually global minimum points, because
+\uncover<handout:1,2|26->{ In this case it turns out that the two local minimum points are actually global minimum points, because
 $f(x,y) = x^4+y^4-4xy = (x^2-1)^2+(y^2-1)^2+2(x-y)^2 -2  \geq -2\; .$
 }
 
