@@ -13,5 +13,15 @@ Find the length of the curve.
 \fcFinishIIIdScene[true]
 \pstVerb{end}
 \end{pspicture}
+\item The paraboloid curve $\fcv r= (t\cos t, t\sin t, t^2) $, $t\in [0,2\pi]$.
+\psset{xunit=0.15cm, yunit=0.15cm}
+\begin{pspicture}(0,0)(1,1)
+\pstVerb{5 dict begin /pi 3.141592654 def}
+\fcStartIIIdScene
+\fcSurfaceInScene[arrows=(none), linecolor=red, linewidth=0.4, iterationsU=15]{0}{0.01}{360}{2 pi mul}{[u cos v mul u sin v mul v v mul]}{}
+\fcCurveIIIdInScene[linewidth=2, linecolor=blue]{0}{360}{[t cos t sin t 57.295779513 div] t 57.295779513 div \fcVectorTimesScalar}
+\fcFinishIIIdScene[true]
+\pstVerb{end}
+\end{pspicture}
 
 \end{enumerate}
