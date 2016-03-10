@@ -10,16 +10,16 @@
 \fcAxesIIIdSymmetricInScene{2}{2}{3}%
 \fcSurfaceInScene[arrows=(none), iterationsU=6, iterationsV=6]{-1.2}{-1.2}{1.2}{1.2}{[u v u u mul v v mul sub]}{}%
 \fcCurveIIIdInScene{-3}{3}{[0 0 t]}%
-\uncover<2->{%
+\only<2->{%
 \fcLineIIIdInScene{[-1.2 -0.4 -3]}{[-1.2 -0.4 3]}%
 \fcLineIIIdInScene{[-1.2 -0.4 3]}{[1.2 -0.4 3]}%
 \fcLineIIIdInScene{[1.2 -0.4 3]}{[1.2 -0.4 -3]}%
 \fcLineIIIdInScene{[1.2 -0.4 -3]}{[-1.2 -0.4 -3]}%
 }%
-\only<6->{\fcLineIIIdInScene[linewidth=3, linecolor=brown]{[-2 -0.4 0.8 1.6 mul]}{[2 -0.4 -0.8 2.4 mul]}
+\only<6->{\fcLineIIIdInScene[linewidth=3, linecolor=brown]{[-2 -0.4 0.8 1.6 mul]}{[2 -0.4 -0.8 2.4 mul]}}%
 \fcFinishIIIdScene%
+\only<6->{%
 \only<3->{\fcCurveIIId[linewidth=3pt, linecolor=blue]{-1.4}{1.4}{2 dict begin /u t def /v -0.4 def [u v u u mul v v mul sub] end}}%
-
 \fcLineIIId{[0 0 0]}{[0 -2 0]}%
 }%
 \fcDotIIId{[-0.4 -0.4 0]}%
