@@ -1,20 +1,39 @@
 \begin{frame}
 \begin{example}
-\[\lim_{(x,y) \to (0,0)} \frac{x^2y}{x^2+y^2}
-\]
+
+\begin{columns}
+\column{0.4\textwidth}
+\uncover<15->{
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-2.8,-2.4)(2.8,2.4)
+\tiny
+\fcBoundingBox{-2.8}{-2.3}{2.8}{2.3}
+\fcStartIIIdScene
+\fcSurfaceInScene[arrows=(none), linecolor=red]{-2}{-2}{2}{2}{[u v u u mul v mul u u mul v v mul add div]}{u u mul v v mul add 0.01 gt}%
+\fcFinishIIIdScene[true]
+\fcAxesIIId{2.5}{2.5}{2.5}%
+\end{pspicture}
+}
+\column{0.6\textwidth}
+\hfil \hfil $\displaystyle \lim_{(x,y) \to (0,0)} \frac{x^2y}{x^2+y^2}
+$
 \begin{itemize}
 \item<2-> $f$ is not defined at $P_0(0,0)$;
 \item<3-> Even if it were, the actual value might be different from the limit.
+
 \end{itemize}
-\uncover<4->{Recall polar coordinates: \alert<9,10>{ $x=r\cos\theta$, $y =r \sin\theta$}. \alert<8>{ We have that \alert<5,6>{$(x,y) \to (0,0)$ if an only if $\uncover<-5>{\textbf{?}} \uncover<6->{r\to 0}$  \alert<9,10>{ in polar coordinates}.}}}
+\uncover<4->{Polar coordinates: \alert<9,10>{ $x=r\cos\theta$, $y =r \sin\theta$}. \alert<8>{ We have: \alert<5,6>{$(x,y) \to (0,0)$ if an only if $\uncover<-5>{\textbf{?}} \uncover<6->{r\to 0}$  \alert<9,10>{in polar coordinates}.}}}
+\end{columns}
+
 \[
 \begin{array}{rcl}
 \uncover<7->{ \displaystyle \lim\limits_{\alert<8>{(x,y) \to (0,0)}} \alert<9,10>{ \frac{x^2y}{x^2+y^2} } &\alert<9,10>{=}& \displaystyle  \lim\limits_{\alert<8>{r\to 0}}  \uncover<-9>{\alert<9>{\textbf{?}}} \uncover<10->{\alert<10>{\frac{\alert<11>{ r^2}\cos^2\theta r\sin\theta}{\alert<11>{r^2}}}}} \\
 \uncover<11->{&\alert<0>{=}&\displaystyle \lim\limits_{r\to 0}\phantom{\textbf{?}} \alert<12>{r\cos^2{\theta}\sin\theta}}\\
 \uncover<15->{&\alert<0>{=}&0}
-\end{array}	
+\end{array}
 \]
 \uncover<15->{For the last equality, we use the squeeze theorem:} 
 \uncover<12->{$\uncover<14->{0=} \uncover<13->{\lim\limits_{r\to 0} } -r \leq \uncover<13->{ \lim \limits_{r \to 0}} \alert<12>{ r\cos^2{\theta}\sin\theta } \leq \uncover<13->{\lim\limits_{r\to 0}}  r \uncover<14->{=0.}$}
+\vskip -0.3cm
 \end{example}
 \end{frame}
