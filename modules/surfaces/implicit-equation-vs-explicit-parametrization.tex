@@ -1,19 +1,28 @@
 \begin{frame}
 \begin{itemize}
-\item A surface $S$ can be given in two different ways:
+\item A surface $S$ can be given in a number of ways.
 
 \begin{itemize}
 \item<2-> Implicit form, as a \emph{level surface}: $$F(x,y,z) = 0$$.
-\item<3-> Explicit form, as a \emph{graph surface}:
-\[z=f(x,y) \Longrightarrow 
-\left\{ \begin{array}{ll}
-x = & u \\
-y = & v \\
-z = & f(u,v)
+\item<3-> Explicit form, as a \emph{parametric surface}:
+\[
+\left| \begin{array}{rcl}
+x& = & g(u,v) \\
+y& = & h(u,v) \\
+z& = & f(u,v)
+\end{array} \right.
+\]
+
+\item<4-> A partial case of the parametric surface is the \emph{graph surface}:
+\[\alertNoH{6}{z=f(\alertNoH{5}{x,y})} \Longrightarrow 
+\left| \begin{array}{rcl}
+\alertNoH{5}{x} &\alertNoH{5}{=} &\alertNoH{5}{ u} \\
+\alertNoH{5}{y} &\alertNoH{5}{=} &\alertNoH{5}{ v} \\
+\alertNoH{6}{z} &\alertNoH{6}{=} & \uncover<6->{\alertNoH{5}{f( u,v)}}
 \end{array} \right.
 \]
 \end{itemize}
-\item<4-> A graph surface $z=f(x,y)$ can always be represented as a level surface:
+\item<7-> A graph surface $z=f(x,y)$ can be represented as a level surface:
 \[
 z=f(x,y) \Longleftrightarrow F(x,y,z) =0 \quad \text{ for } \quad F(x,y,z) = z-f(x,y)\; .
 \]

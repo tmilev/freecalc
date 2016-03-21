@@ -48,6 +48,7 @@ pdfcrop={},
 \newcommand{\fcScreenStyle}{z}
 \newcommand{\fcColorLine}{black}
 \newcommand{\fcColorAngle}{red}
+\newcommand{\fcUseMidpointImplicitPlots}{false\space}
 \newcommand{\fcForceForeground}{false}
 \newcommand{\fcLineWidth}{1}
 \newcommand{\fcAngleLineWidth}{1pt}
@@ -100,6 +101,7 @@ ifelse\space %
 \define@key{fcGraphics}{iterationsV}[\renewcommand{\fcIterationsU}{9\space}]{\renewcommand{\fcIterationsV}{#1\space}}
 \define@key{fcGraphics}{forceForeground}[\renewcommand{\fcForceForeground}{false\space}]{\renewcommand{\fcForceForeground}{#1\space}}
 \define@key{fcGraphics}{showGridImplicitIId}[\renewcommand{\fcShowGridImplicitIId}{false\space}]{\renewcommand{\fcShowGridImplicitIId}{#1\space}}
+\define@key{fcGraphics}{useMidpointImplicitPlots}[\renewcommand{\fcUseMidpointImplicitPlots}{false\space}]{\renewcommand{\fcUseMidpointImplicitPlots}{#1\space}}
 \define@key{fcGraphics}{iterationsX}[\renewcommand{\fcIterationsX}{9\space}]{\renewcommand{\fcIterationsX}{#1\space}}
 \define@key{fcGraphics}{scale}[\renewcommand{\fcScale}{1}]{\renewcommand{\fcScale}{#1\space}}
 %\define@key{fcGraphics}{debugContour}[\renewcommand{\fcContourDebugged}{-1\space}]{\renewcommand{\fcContourDebugged}{#1\space}}
@@ -3349,7 +3351,7 @@ vX 0 ne vY 0 ne or{
 }%
 
 %example
-%\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false]{-6}{-6}{48}{48}{0.25}{0.25}{y y mul y y mul 3 sub mul x x mul x x mul 5 sub mul sub} 
+%\fcImplicitIId[linestyle=solid, linecolor=red, showGridImplicitIId=false, useMidpointImplicitPlots=false]{-6}{-6}{48}{48}{0.25}{0.25}{y y mul y y mul 3 sub mul x x mul x x mul 5 sub mul sub} 
 %First two arguments: x and y coordinate of lower left corner of picture
 % next two arguments: number of grid rectangles in x direction and in y direction
 % next two arguments: width and height of grid rectangles
@@ -3385,12 +3387,20 @@ leftVal 0 eq rightVal 0 eq and{leftVal}{
 leftVal rightVal mul 0 le{
 leftVal 0 lt {/leftVal leftVal -1 mul def}if
 rightVal 0 lt {/rightVal rightVal -1 mul def}if
-%leftPt  leftVal  rightVal leftVal add div \fcVectorTimesScalar
-%rightPt rightVal rightVal leftVal add div \fcVectorTimesScalar
-%\fcVectorPlusVector
-leftPt 0.5 \fcVectorTimesScalar
+\fcUseMidpointImplicitPlots
+{leftPt 0.5 \fcVectorTimesScalar
 rightPt 0.5 \fcVectorTimesScalar
 \fcVectorPlusVector
+}
+{
+rightVal leftVal add 0 eq
+{ leftPt
+}
+{leftPt  rightVal  rightVal leftVal add div \fcVectorTimesScalar
+rightPt leftVal rightVal leftVal add div \fcVectorTimesScalar
+\fcVectorPlusVector
+}ifelse
+}ifelse
 }if
 }ifelse
 end}
