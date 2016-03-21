@@ -5,7 +5,7 @@
 
 \begin{columns} 
 \column{0.4\textwidth}
-\psset{xunit=0.4cm, yunit=0.4cm}
+\psset{xunit=0.3cm, yunit=0.3cm}
 \begin{pspicture}(-6,-4.5)(6, 5.5)
 \tiny %
 
@@ -22,28 +22,32 @@
 \fcPutIIId[b]{[0 0 5]}{$z$}
 \end{pspicture}
 
-\psset{xunit=0.4cm, yunit=0.4cm}
-\begin{pspicture}(-2,-2)(2, 2)
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-6.2,-4.5)(6.2, 4.6)
 \tiny
 \pstVerb{5 dict begin /theValueOfZ 1 def
 /theEllipse {t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul} def
 }
-\fcAxesStandard{-3}{-3}{3}{3}
-\fcLabels[$x$][$y$]{3}{3}%
-\only<3>{\fcFullDot{0}{0}}
-\only<5,6>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}
-\only<7,8>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}
-\only<9,10>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}
-\pstVerb{end}
+\fcAxesStandard{-6.1}{-4.5}{6.1}{4.5}%
+\fcLabels[$x$][$y$]{6.1}{4.5}%
+\only<3,4>{\fcFullDot{0}{0}}%
+\only<6>{\pstVerb{/theValueOfZ 1 def}}%
+\only<6>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}%
+\only<8>{\pstVerb{/theValueOfZ 2 def}}%
+\only<8>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}%
+\only<10>{\pstVerb{/theValueOfZ 3 def}}%
+\only<10>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}%
+\pstVerb{end}%
 \end{pspicture}
-
+\uncover<2->{
 $\begin{array}{rcl}
-z&=&0\\
-\left(\frac{x}{2}\right)^2+\left(\frac{y}{\sqrt{2}}\right)^2&=& \onlyNoH{3}{ 0} \onlyNoH{5}{1} \onlyNoH{7}{2^2=4}\onlyNoH{9}{3^2=9} \\
-\uncover<3,4|handout:0>{\Rightarrow (x,y,z)&=&(0,0,0)}\\
-\uncover<5-|handout:0>{\Rightarrow (x,y,z)&\in&\text{ellipse}}\\
+\alertNoH{3}{z}&\alertNoH{3}{=}&\onlyNoH{3,4}{\alertNoH{3}{0}}\onlyNoH{5,6}{\alertNoH{5}{1}}\onlyNoH{7,8}{\alertNoH{7}{2}}\onlyNoH{9,10}{\alertNoH{9}{3}}\\
+\left(\frac{x}{2}\right)^2+\left(\frac{y}{\sqrt{2}}\right)^2&=& \onlyNoH{3,4}{\alertNoH{3}{ 0}} \onlyNoH{5,6}{\alertNoH{5}{1}} \onlyNoH{7,8}{\alertNoH{7}{2^2=4}}\onlyNoH{9,10}{\alertNoH{9}{3^2=9}} \\
+\uncover<4|handout:0>{\Rightarrow (x,y,z)&=&(0,0,0)}\\
+\uncover<5-|handout:1>{\Rightarrow (x,y,z)&\in&\uncover<6,8,10->{ \fcAnswer{6}{ \text{ellipse}}}}\\
 \end{array}
 $ 
+}
 
 \column{0.6\textwidth}
 \begin{itemize}
@@ -51,8 +55,8 @@ $
 $\mathcal C =\left\{(x,y,z) |\frac{x^2}{4}+\frac{y^2}{2}=z^2 \right\}$ 
 \item<2-> The level curves $z=const$ are:
 \begin{itemize}
-\item<3-> A point for $z=0$.
-\item<4-> Ellipses for $z\neq 0$.
+\item<4-> A point for $z=0$.
+\item<6-> Ellipses for $z\neq 0$.
 \end{itemize}
 
 \item<9-> Figure is called a cone.
