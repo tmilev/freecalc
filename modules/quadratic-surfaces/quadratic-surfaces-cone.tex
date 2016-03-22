@@ -6,45 +6,85 @@
 \begin{columns} 
 \column{0.4\textwidth}
 \psset{xunit=0.3cm, yunit=0.3cm}
-\begin{pspicture}(-6,-4.5)(6, 5.5)
+\vskip -0.2cm
+\begin{pspicture}(-6,-4.5)(6, 5.5)%
 \tiny %
-
-\renewcommand{\fcScreen}{[-0.2 1 -0.2] 0}
+\pstVerb{5 dict begin /theValueOfZ 1 def
+/theEllipse {t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul} def
+}%
+\renewcommand{\fcScreen}{[-0.4 1 -0.2] 0}%
 \fcStartIIIdScene%
 \fcBoundingBox{-2}{-2}{2}{2}%
-
 \fcAxesIIIdFullInScene{-3}{-3}{-3}{6}{5}{5}%
-\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{0.1}{360}{3}{[u cos 2 mul v mul u sin 2 sqrt mul v mul v ]}{}
-\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{-3}{360}{-0.1}{[u cos 2 mul v mul u sin 2 sqrt mul v mul v ]}{}
+\only<21->{%
+\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{0.1}{360}{3}{[u cos 2 mul v mul u sin 2 sqrt mul v mul v ]}{}%
+\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{-3}{360}{-0.1}{[u cos 2 mul v mul u sin 2 sqrt mul v mul v ]}{}%
+}%
+\only<6->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{1 dict begin /theValueOfZ 1.01 def [t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul theValueOfZ] end}}%
+\only<7->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{1 dict begin /theValueOfZ 1.01 def [t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul theValueOfZ -1 mul] end}}%
+\only<9->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{1 dict begin /theValueOfZ 2.01 def [t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul theValueOfZ] end}}%
+\only<10->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{1 dict begin /theValueOfZ 2.01 def [t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul theValueOfZ -1 mul] end}}%
+\only<11->{\pstVerb{/theValueOfZ 3.01 def}}%
+\only<12->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{1 dict begin /theValueOfZ 3.01 def [t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul theValueOfZ] end}}%
+\only<13->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{1 dict begin /theValueOfZ 3.01 def [t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul theValueOfZ -1 mul] end}}%
 \fcFinishIIIdScene%
-\fcPutIIId[t]{[6 0 0]}{$x$}
-\fcPutIIId[l]{[0 3 0]}{$y$}
-\fcPutIIId[b]{[0 0 5]}{$z$}
+\only<4->{\fcDotIIId[linecolor=blue]{[0 0 0]}}%
+\fcPutIIId[t]{[6 0 0]}{$x$}%
+\fcPutIIId[l]{[0 3 0]}{$y$}%
+\fcPutIIId[b]{[0 0 5]}{$z$}%
+\onlyNoH{17}{\pstVerb{/theValueOfZ 1 def}}%
+\onlyNoH{18}{\pstVerb{/theValueOfZ 2 def}}%
+\onlyNoH{19,20}{\pstVerb{/theValueOfZ 3 def}}%
+\onlyNoH{17-20}{%
+\pstVerb{/angeRefPoint 0 def}%
+\fcLineIIId{[0 0 0]}{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul 0]}%
+\fcLineIIId{[0 0 0]}{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul theValueOfZ]}%
+\fcPerpendicularIIId{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul theValueOfZ]}{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul 0]}{0.3}%
+}%
+\only<17>{%
+\fcPutIIId[t]{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul 0] 0.5 \fcVectorTimesScalar}{$2$}%
+\fcPutIIId[l]{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul theValueOfZ 0.5 mul]}{$1$}%
+}%
+\only<18>{%
+\fcPutIIId[t]{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul 0] 0.5 \fcVectorTimesScalar}{$4$}
+\fcPutIIId[l]{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul theValueOfZ 0.5 mul]}{$2$}%
+}%
+\only<19,20>{%
+\fcPutIIId[t]{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul 0] 0.5 \fcVectorTimesScalar}{$6$}
+\fcPutIIId[l]{[ angeRefPoint cos 2 mul theValueOfZ mul angeRefPoint sin 2 sqrt mul theValueOfZ mul theValueOfZ 0.5 mul] }{$3$}%
+}%
+\pstVerb{end}
 \end{pspicture}
 
-\psset{xunit=0.3cm, yunit=0.3cm}
-\begin{pspicture}(-6.2,-4.5)(6.2, 4.6)
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-7.2,-4.5)(7.2, 4.6)
 \tiny
 \pstVerb{5 dict begin /theValueOfZ 1 def
 /theEllipse {t cos 2 mul theValueOfZ mul t sin 2 sqrt mul theValueOfZ mul} def
 }
-\fcAxesStandard{-6.1}{-4.5}{6.1}{4.5}%
+\fcAxesStandard{-6.1}{-4.5}{7}{4.5}%
 \fcLabels[$x$][$y$]{6.1}{4.5}%
-\only<3,4>{\fcFullDot{0}{0}}%
-\only<6>{\pstVerb{/theValueOfZ 1 def}}%
-\only<6>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}%
-\only<8>{\pstVerb{/theValueOfZ 2 def}}%
-\only<8>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}%
-\only<10>{\pstVerb{/theValueOfZ 3 def}}%
-\only<10>{ \parametricplot[linecolor=red]{0}{360}{theEllipse}}%
+\only<3,4>{\fcFullDot[linecolor=blue]{0}{0}}%
+\only<5->{\pstVerb{/theValueOfZ 1 def}}%
+\only<6,7>{ \parametricplot[linecolor=blue]{0}{360}{theEllipse}%
+\rput[lt](! theValueOfZ 2 mul 0.3 add -0.1){$2$}%
+}%
+\only<8->{\pstVerb{/theValueOfZ 2 def}}%
+\only<9,10>{ \parametricplot[linecolor=blue]{0}{360}{theEllipse}
+\rput[lt](! theValueOfZ 2 mul 0.3 add -0.1){$4$}
+}%
+\only<11->{\pstVerb{/theValueOfZ 3 def}
+\rput[lt](! theValueOfZ 2 mul 0.3 add -0.1){$6$}
+}%
+\only<12,13>{ \parametricplot[linecolor=blue]{0}{360}{theEllipse}}%
 \pstVerb{end}%
 \end{pspicture}
 \uncover<2->{
 $\begin{array}{rcl}
-\alertNoH{3}{z}&\alertNoH{3}{=}&\onlyNoH{3,4}{\alertNoH{3}{0}}\onlyNoH{5,6}{\alertNoH{5}{1}}\onlyNoH{7,8}{\alertNoH{7}{2}}\onlyNoH{9,10}{\alertNoH{9}{3}}\\
-\left(\frac{x}{2}\right)^2+\left(\frac{y}{\sqrt{2}}\right)^2&=& \onlyNoH{3,4}{\alertNoH{3}{ 0}} \onlyNoH{5,6}{\alertNoH{5}{1}} \onlyNoH{7,8}{\alertNoH{7}{2^2=4}}\onlyNoH{9,10}{\alertNoH{9}{3^2=9}} \\
+\alertNoH{3}{z}&\alertNoH{3}{=}&\onlyNoH{3,4}{\alertNoH{3}{0}}\onlyNoH{5,6,7}{\alertNoH{5}{\uncover<7->{\pm} 1}} \onlyNoH{8,9,10}{ \alertNoH{8}{2}}\only<11,12,13->{ \alertNoH{11}{\uncover<13->{\pm}3}}\\
+\left(\frac{x}{2}\right)^2+\left(\frac{y}{\sqrt{2}}\right)^2&=& \onlyNoH{3,4}{\alertNoH{3}{ 0}} \onlyNoH{5,6,7}{\alertNoH{5}{1} \uncover<7->{=(\pm 1)^2}} \onlyNoH{8,9,10}{\alertNoH{8}{(\uncover<10->{\pm} 2)^2=4}}\onlyNoH{11,12,13-}{\alertNoH{11}{(\uncover<13->{\pm}3)^2=9}} \\
 \uncover<4|handout:0>{\Rightarrow (x,y,z)&=&(0,0,0)}\\
-\uncover<5-|handout:1>{\Rightarrow (x,y,z)&\in&\uncover<6,8,10->{ \fcAnswer{6}{ \text{ellipse}}}}\\
+\uncover<5-|handout:1>{\Rightarrow (x,y,z)&\in&\uncover<6,7,9,10,12,13->{ \fcAnswer{6}{ \text{ellipse}}}}\\
 \end{array}
 $ 
 }
@@ -57,9 +97,17 @@ $\mathcal C =\left\{(x,y,z) |\frac{x^2}{4}+\frac{y^2}{2}=z^2 \right\}$
 \begin{itemize}
 \item<4-> A point for $z=0$.
 \item<6-> Ellipses for $z\neq 0$.
-\end{itemize}
 
-\item<9-> Figure is called a cone.
+\end{itemize}
+\item<15-> For $y=0$:
+\[\begin{array}{rcl}
+\left(\frac{x}{2}\right)^2&\alertNoH{0}{=}&z^2\\
+\uncover<16->{\frac{x}{2}&\alertNoH{0}{=}&\pm z}\\
+\uncover<17->{\alertNoH{17-20}{x}&\alertNoH{17-20}{=}&\pm \alertNoH{17}{2z}}
+\end{array}
+\]
+\item<14-> $\Rightarrow$ the ellipses are stacked along \fcAnswerUncover{14}{20}{lines}.
+\item<21-> $\Rightarrow$  The figure is a (``two-piece'') cone. 
 \end{itemize}
 
 \end{columns}
