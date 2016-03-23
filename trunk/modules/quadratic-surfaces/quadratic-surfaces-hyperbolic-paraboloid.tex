@@ -1,0 +1,160 @@
+
+\begin{frame}
+\newcommand{\yCoefficient}{1\space}
+\newcommand{\zCoefficient}{1\space}
+\frametitle{$Ax^2+By^2+Iz=0$, $A>0, B<0, C=0,I\neq  0 $}
+
+
+\begin{columns} 
+\column{0.3\textwidth}
+\psset{xunit=0.4cm, yunit=0.4cm}
+\vskip -0.2cm
+\begin{pspicture}(-4,-3.6)(4, 4)%
+\tiny %
+\pstVerb{10 dict begin /smallEpsilon 0.02 def}%
+\newcommand{\valueOfy}{0\space}
+\newcommand{\HyperbolicParaboloid}{[u v u u mul 3 div v v mul 4 div sub]}
+\renewcommand{\fcScreen}{[-0.4 1 -0.5] 0}%
+\fcStartIIIdScene%
+\fcBoundingBox{-2}{-2}{2}{2}%
+\fcAxesIIIdFullInScene{-4}{-4}{-4}{4}{4}{4}%
+\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=6]{-3}{-3}{3}{3}{\HyperbolicParaboloid}{}%
+\only<3->{%
+\fcCurveIIIdInScene[linecolor=blue, linewidth=1, arrows=(none)]{-3}{3}{2 dict begin /u t def /v \valueOfy def \HyperbolicParaboloid [0 0 0.03] \fcVectorPlusVector end}%
+}%
+\only<5->{%
+\renewcommand{\valueOfy}{1\space}
+\fcCurveIIIdInScene[linecolor=blue, linewidth=1, arrows=(none)]{-3}{3}{2 dict begin /u t def /v \valueOfy def \HyperbolicParaboloid [0 0 0.03] \fcVectorPlusVector end}%
+}%
+\only<6->{%
+\renewcommand{\valueOfy}{-1\space}
+\fcCurveIIIdInScene[linecolor=blue, linewidth=1, arrows=(none)]{-3}{3}{2 dict begin /u t def /v \valueOfy def \HyperbolicParaboloid [0 0 0.03] \fcVectorPlusVector end}%
+}%
+\only<8->{%
+\renewcommand{\valueOfy}{2\space}
+\fcCurveIIIdInScene[linecolor=blue, linewidth=1, arrows=(none)]{-3}{3}{2 dict begin /u t def /v \valueOfy def \HyperbolicParaboloid [0 0 0.03] \fcVectorPlusVector end}%
+}%
+\only<9->{%
+\renewcommand{\valueOfy}{-2\space}
+\fcCurveIIIdInScene[linecolor=blue, linewidth=1, arrows=(none)]{-3}{3}{2 dict begin /u t def /v \valueOfy def \HyperbolicParaboloid [0 0 0.03] \fcVectorPlusVector end}%
+}%
+\only<11->{%
+\renewcommand{\valueOfy}{3\space}
+\fcCurveIIIdInScene[linecolor=blue, linewidth=1, arrows=(none)]{-3}{3}{2 dict begin /u t def /v \valueOfy def \HyperbolicParaboloid [0 0 0.03] \fcVectorPlusVector end}%
+}%
+\only<12->{%
+\renewcommand{\valueOfy}{-3\space}
+\fcCurveIIIdInScene[linecolor=blue, linewidth=1, arrows=(none)]{-3}{3}{2 dict begin /u t def /v \valueOfy def \HyperbolicParaboloid [0 0 0.03] \fcVectorPlusVector end}%
+}%
+\fcFinishIIIdScene%
+\fcPutIIId[t]{[4 0 0]}{$x$}%
+\fcPutIIId[lb]{[0 4 0]}{$y$}%
+\fcPutIIId[b]{[0 0 4]}{$z$}%
+\pstVerb{end}
+\end{pspicture}
+
+
+\column{0.7\textwidth}
+
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.4cm, yunit=0.4cm}
+\begin{pspicture}(-3.1,-3.1)(3.1, 4)%
+\tiny
+\pstVerb{5 dict begin
+/valueOfy 0 def
+}%
+\fcAxesStandard{-3.1}{-3.1}{3}{3.1}%
+\only<3>{%
+\pstVerb{/valueOfy 0 def}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul 4 div sub}
+}%
+\only<5,6>{%
+\pstVerb{/valueOfy 1 def}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul 4 div sub}
+}%
+\only<8,9>{%
+\pstVerb{/valueOfy 2 def}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul 4 div sub}
+}%
+\only<11,12>{%
+\pstVerb{/valueOfy 3 def}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul 4 div sub}
+}%
+\fcLabels[$x$][$z$]{3}{3.1}%
+\pstVerb{end}%
+\end{pspicture}
+\begin{pspicture}(-3.1,-3.1)(3.1, 4)%
+\tiny
+\pstVerb{5 dict begin
+/valueOfy 0 def
+}%
+\fcAxesStandard{-3.1}{-3.1}{3}{3.1}%
+\only<14>{%
+\pstVerb{/valueOfx 0 def}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfx dup mul 4 div sub}
+}%
+\only<16,17>{%
+\pstVerb{/valueOfx 1 def}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfx dup mul 4 div sub}
+}%
+\only<19,20>{%
+\pstVerb{/valueOfx 2 def}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfx dup mul 4 div sub}
+}%
+\only<22,23>{%
+\pstVerb{/valueOfx 3 def}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfx dup mul 4 div sub}
+}%
+\fcLabels[$y$][$z$]{3}{3.1}%
+\pstVerb{end}%
+\end{pspicture}
+
+\column{0.7\textwidth}
+\uncover<2->{
+$\begin{array}{@{\!\!\!\!}r@{}c@{}l@{~}|l@{}}
+\text{Set: }y&=& 
+\onlyNoH{2,3}{\alertNoH{2}{ 0}} \onlyNoH{4,5,6}{\uncover<4->{\alertNoH{4}{\uncover<6->{\alertNoH{6}{\pm}} 1} }} 
+\onlyNoH{7,8,9}{\uncover<7->{\alertNoH{7}{\uncover<9->{\alertNoH{9}{\pm}} 2 }}} 
+\onlyNoH{10,11,12-}{\uncover<10->{\alertNoH{10}{\uncover<12->{\alertNoH{12}{\pm}} 3 }}} 
+\\
+\alertNoH{3,5,8,11}{\frac{x^2}{3}-
+\onlyNoH{2,3}{\alertNoH{2,3}{0}}
+\onlyNoH{4,5,6}{\alertNoH{4}{\frac{\left(\uncover<6->{\alertNoH{6}{\pm}} {\alertNoH{4}{1}}\right)^2}{4}}}
+\onlyNoH{7,8,9}{\alertNoH{7}{\frac{\left(\uncover<9->{\alertNoH{9}{\pm}} {\alertNoH{7}{2}}\right)^2}{4}}}
+\onlyNoH{10,11,12-}{\alertNoH{10}{\frac{\left(\uncover<12->{\alertNoH{12}{\pm}} {\alertNoH{10}{3}} \right)^2}{4}}}
+}%alert
+&\alertNoH{3,5,8,11}{=}&\alertNoH{3,5,8,11}{z}&\text{parabola}\\
+~\\
+\uncover<13->{%
+\text{Set: }x&=&\onlyNoH{13,14}{\alertNoH{13}{ 0}} \onlyNoH{15,16,17}{\uncover<15->{\alertNoH{15}{\uncover<17->{\alertNoH{17}{\pm}} 1} }} 
+\onlyNoH{18,19,20}{\uncover<18->{\alertNoH{18}{\uncover<20->{\alertNoH{20}{\pm}} 2 }}} 
+\onlyNoH{21,22,23}{\uncover<21->{\alertNoH{21}{\uncover<23->{\alertNoH{23}{\pm}} 3 }}} 
+\\
+\alertNoH{14,16,19,22}{\onlyNoH{13,14}{\alertNoH{13,14}{0}}
+\onlyNoH{15,16,17}{\alertNoH{15}{\frac{\left(\uncover<17->{\alertNoH{17}{\pm}} {\alertNoH{15}{1}}\right)^2}{4}}} -\frac{y^2}{4}
+\onlyNoH{18,19,20}{\alertNoH{18}{\frac{\left(\uncover<20->{\alertNoH{20}{\pm}} {\alertNoH{18}{2}}\right)^2}{4}}}
+\onlyNoH{21,22,23}{\alertNoH{21}{\frac{\left(\uncover<23->{\alertNoH{23}{\pm}} {\alertNoH{21}{3}} \right)^2}{4}}}
+}%alert
+&\alertNoH{14,16,19,22}{=}&\alertNoH{14,16,19,22}{z}&\text{parabola}
+}%
+\end{array}
+$ 
+}
+\end{columns}
+
+
+Consider the surface 
+$\mathcal C =\left\{(x,y,z) |\frac{x^2}{3}-\frac{y^2}{4}=
+z\right\}$ 
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-9,-3)(9,4.4)
+\tiny
+\fcAxesStandard{-6}{-3}{6}{4.4}%
+\end{pspicture}
+
+\end{columns}
+
+\vskip 10cm
+
+\end{frame}
