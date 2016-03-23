@@ -5,7 +5,7 @@
 \onlyNoH{26}{\renewcommand{\constTerm}{1 4 div\space}}
 \onlyNoH{27}{\renewcommand{\constTerm}{1 8 div\space}}
 \onlyNoH{28}{\renewcommand{\constTerm}{0\space}}
-\frametitle{$Ax^2+By^2+Cz^2+D=0$, $A>0, B>0, C<0,\alertNoH{24,25,26,27,28}{ D\only<1-27>{ <}\onlyNoH{28}{ =}  0} $}
+\frametitle{$Ax^2+By^2+Cz^2+D=0$, $A>0, B>0, C<0,\alertNoH{24,25,26,27,28}{ D\only<1-27>{ >}\onlyNoH{28}{ =}  0} $}
 
 
 \begin{columns} 
@@ -15,40 +15,43 @@
 \begin{pspicture}(-6.2,-4.5)(6.2, 5.5)%
 \tiny %
 \pstVerb{10 dict begin /smallEpsilon 0.02 def}%
-\newcommand{\Zvalue}{0\space}
-\newcommand{\HyperboloidOneSheet}{[u cos 2 mul v dup mul \constTerm add sqrt mul u sin 2 sqrt mul v dup mul \constTerm add sqrt mul v ]}
-\newcommand{\HyperboloidOneSheetSlightlyLarger}{[u cos 2 mul v  dup smallEpsilon add mul \constTerm add sqrt mul u sin 2 sqrt mul v dup smallEpsilon add mul \constTerm add sqrt mul v]}
+\newcommand{\Zvalue}{1\space}
+\newcommand{\HyperboloidTwoSheet}{[u cos 2 mul v dup mul \constTerm sub sqrt mul u sin 2 sqrt mul v dup mul \constTerm sub sqrt mul v ]}
+\newcommand{\HyperboloidOneSheetSlightlyLarger}{[u cos 2 0.01 add mul v dup mul \constTerm sub  sqrt mul u sin 2 sqrt 0.01 add mul v dup mul \constTerm sub sqrt mul v ]}
 \newcommand{\EllipseAroundHyperboloid}{2 dict begin /u t def /v \Zvalue\space def  \HyperboloidOneSheetSlightlyLarger\space end\space}%
 \renewcommand{\fcScreen}{[-0.4 1 -0.2] 0}%
 \fcStartIIIdScene%
 \fcBoundingBox{-2}{-2}{2}{2}%
 \fcAxesIIIdFullInScene{-3}{-3}{-3}{6}{5}{5}%
 \only<23-27>{%
-\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=6]{0}{-3}{360}{3}{\HyperboloidOneSheet}{}%
+\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{\constTerm sqrt 0.03 add}{360}{3}{\HyperboloidTwoSheet}{}%
+\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{-3}{360}{\constTerm sqrt 0.03 add -1 mul}{\HyperboloidTwoSheet}{}%
 }%
 \only<handout:0|28->{%
 \fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{0.1}{360}{3}{[u cos 2 mul v mul u sin 2 sqrt mul v mul v ]}{}%
 \fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{-3}{360}{-0.1}{[u cos 2 mul v mul u sin 2 sqrt mul v mul v ]}{}%
 }%
-\only<5->{\renewcommand{\Zvalue}{0\space}}%
-\only<5->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{\EllipseAroundHyperboloid}}%
-\only<7->{\renewcommand{\Zvalue}{1\space}}%
+\only<7->{\renewcommand{\Zvalue}{3 \constTerm sqrt sub 1 mul 3 div \constTerm sqrt add\space}}%
 \only<7->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{\EllipseAroundHyperboloid}}%
-\only<8->{\renewcommand{\Zvalue}{-1\space}}%
+\only<8->{\renewcommand{\Zvalue}{3 \constTerm sqrt sub 1 mul 3 div \constTerm sqrt add -1 mul\space}}%
 \only<8->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{\EllipseAroundHyperboloid}}%
-\only<10->{\renewcommand{\Zvalue}{2\space}}%
+\only<10->{\renewcommand{\Zvalue}{3 \constTerm sqrt sub 2 mul 3 div \constTerm sqrt add\space}}%
 \only<10->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{\EllipseAroundHyperboloid}}%
-\only<11->{\renewcommand{\Zvalue}{-2\space}}%
+\only<11->{\renewcommand{\Zvalue}{3 \constTerm sqrt sub 2 mul 3 div \constTerm sqrt add -1 mul\space}}%
 \only<11->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{\EllipseAroundHyperboloid}}%
 \only<13->{\renewcommand{\Zvalue}{3\space}}%
 \only<13->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{\EllipseAroundHyperboloid}}%
 \only<14->{\renewcommand{\Zvalue}{-3\space}}%
 \only<14->{\fcCurveIIIdInScene[arrows=(none), linecolor=blue, linewidth=1]{0}{360}{\EllipseAroundHyperboloid}}%
 \only<21->{%
-\fcCurveIIIdInScene[arrows=(none), linecolor=green, linewidth=1]{-3}{3}{ 2 dict begin /u 0 def /v t 0.01 add def \HyperboloidOneSheet end}%
-\fcCurveIIIdInScene[arrows=(none), linecolor=green, linewidth=1]{-3}{3}{ 2 dict begin /u 180 def /v t 0.01 add def \HyperboloidOneSheet  end}%
+\fcCurveIIIdInScene[arrows=(none), linecolor=green, linewidth=1]{\constTerm sqrt 0.001 add}{3}{ 2 dict begin /u 0 def /v t 0.001 add def \HyperboloidTwoSheet end}%
+\fcCurveIIIdInScene[arrows=(none), linecolor=green, linewidth=1]{-3}{\constTerm sqrt 0.001 add -1 mul}{ 2 dict begin /u 0 def /v t 0.001 sub def \HyperboloidTwoSheet end}%
+\fcCurveIIIdInScene[arrows=(none), linecolor=green, linewidth=1]{\constTerm sqrt 0.001 add}{3}{ 2 dict begin /u 180 def /v t 0.001 add def \HyperboloidTwoSheet  end}%
+\fcCurveIIIdInScene[arrows=(none), linecolor=green, linewidth=1]{-3}{\constTerm sqrt 0.001 add -1 mul}{ 2 dict begin /u 180 def /v t 0.001 sub def \HyperboloidTwoSheet end}%
 }%
-\fcFinishIIIdScene%
+\fcFinishIIIdScene[true]%
+\only<4->{\fcDotIIId[linecolor=blue]{[0 0 \constTerm sqrt]}}%
+\only<5->{\fcDotIIId[linecolor=blue]{[0 0 \constTerm sqrt -1 mul]}}%
 \fcPutIIId[t]{[6 0 0]}{$x$}%
 \fcPutIIId[l]{[0 3 0]}{$y$}%
 \fcPutIIId[b]{[0 0 5]}{$z$}%
@@ -59,38 +62,37 @@
 \begin{pspicture}(-7.4,-5)(10, 5)
 \tiny
 \pstVerb{5 dict begin /theValueOfZ 1 def
-/theEllipseConst {theValueOfZ dup mul \constTerm add sqrt} def
+/theEllipseConst {theValueOfZ dup mul \constTerm sub sqrt} def
 /theEllipse {t cos 2 mul theEllipseConst mul t sin 2 sqrt mul theEllipseConst mul} def
 }
 \fcAxesStandard{-6.1}{-4.5}{7}{4.5}%
 \fcLabels[$x$][$y$]{6.1}{4.5}%
-\only<3->{\pstVerb{/theValueOfZ 0 def}}%
-\only<5>{
-\parametricplot[linecolor=blue]{0}{360}{theEllipse}%
-\rput[lb](! theEllipseConst 2 mul 0.3 add 0.1){$2$}%
+\only<3->{\pstVerb{/theValueOfZ 1 def}}%
+\only<4,5>{%
+\fcFullDot[linecolor=blue]{0}{0}%
 }%
-\only<7->{\pstVerb{/theValueOfZ 1 def}}%
+\only<7->{\pstVerb{/theValueOfZ 5 3 div def}}%
 \only<7,8>{ \parametricplot[linecolor=blue]{0}{360}{theEllipse}%
-\rput[lb](! theEllipseConst 2 mul 0.3 add 0.1){$2\sqrt{2}$}%
+\rput[lb](! theEllipseConst 2 mul 0.3 add 0.1){$\frac{8}{3}$}%
 }%
-\only<10->{\pstVerb{/theValueOfZ 2 def}}%
+\only<10->{\pstVerb{/theValueOfZ 7 3 div def}}%
 \only<10,11>{ \parametricplot[linecolor=blue]{0}{360}{theEllipse}
-\rput[lb](! theEllipseConst 2 mul 0.3 add 0.1){$2\sqrt{5}$}
+\rput[lb](! theEllipseConst 2 mul 0.3 add 0.1){$\frac{4}{3}\sqrt{10}$}
 }%
 \only<13-24>{\pstVerb{/theValueOfZ 3 def}
-\rput[lb](! theEllipseConst 2 mul 0.3 add 0.1){$2\sqrt{10}$}
+\rput[lb](! theEllipseConst 2 mul 0.3 add 0.1){$4\sqrt{2}$}
 }%
 \only<13,14->{ \parametricplot[linecolor=blue]{0}{360}{theEllipse}}%
 \pstVerb{end}%
 \end{pspicture}
 \uncover<2->{
 $\begin{array}{@{\!\!\!\!}r@{}c@{}l@{}}
-\alertNoH{3}{z}&\alertNoH{3}{=}&\onlyNoH{3,4,5}{\alertNoH{3}{1}}\onlyNoH{6,7,8}{\alertNoH{5}{\uncover<8>{\alertNoH{8}{\pm}} 1}} \onlyNoH{9,10,11}{ \alertNoH{9}{ \uncover<11->{\alertNoH{11}{\pm}} 2}} \only<12,13,14->{ \alertNoH{12}{ \uncover<14->{\alertNoH{14}{\pm}}3}} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}\\
-\alertNoH{4,5}{\left(\frac{x}{2}\right)^2+\left(\frac{y}{\sqrt{2}}\right)^2} &\alertNoH{4,5}{=}& \onlyNoH{3,4,5}{\alertNoH{3}{\alertNoH{4,5}{1} =0^2+1}} \onlyNoH{6,7,8}{\alertNoH{5}{2 =1+(\uncover<8>{\alertNoH{8}{\pm}} 1)^2}} \onlyNoH{9,10,11}{\alertNoH{9}{5= 1+( \uncover<11->{\alertNoH{11}{\pm}} 2)^2}}\only<12,13,14->{\alertNoH{12}{ \uncover<-24>{ 10 =}
+\alertNoH{3}{z}&~\alertNoH{3}{=}~&\onlyNoH{3,4,5}{\alertNoH{3}{\uncover<5->{\alertNoH{5}{\pm} } 1}}\onlyNoH{6,7,8}{\alertNoH{5}{\uncover<8>{\alertNoH{8}{\pm}} \frac{5}{3}}} \onlyNoH{9,10,11}{ \alertNoH{9}{ \uncover<11->{\alertNoH{11}{\pm}} \frac{7}{3}}} \only<12,13,14->{ \alertNoH{12}{ \uncover<14->{\alertNoH{14}{\pm}}3}} {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}\\
+\alertNoH{4,5}{\left(\frac{x}{2}\right)^2+\left(\frac{y}{\sqrt{2}}\right)^2} &\alertNoH{4,5}{=}& \onlyNoH{3,4,5}{\alertNoH{3}{\alertNoH{4,5}{0} =1^2-1}} \onlyNoH{6,7,8}{\alertNoH{5}{\frac{16}{9} =\left(\uncover<8>{\alertNoH{8}{\pm}} \frac{5}{3}\right)^2-1 }} \onlyNoH{9,10,11}{\alertNoH{9}{\frac{40}{9} = \left( \uncover<11->{\alertNoH{11}{\pm}} \frac{7}{3} \right)^2-1}} \only<12, 13, 14->{\alertNoH{12}{ \uncover<-24>{ 8 =} (\uncover<14->{\alertNoH{14}{\pm}}3)^2-
 %copy+paste this block together 
 \vphantom{\frac{1}{2}\frac{1}{4}\frac{1}{8}}\only<1-24>{\alertNoH{24}{1}}\onlyNoH{25}{\alertNoH{25}{\frac{1}{2}}}\onlyNoH{26}{\alertNoH{26}{\frac{1}{4}}}\onlyNoH{27}{\alertNoH{27}{\frac{1}{8}}}\onlyNoH{28}{\alertNoH{28}{0}} %block end
-+(\uncover<14->{\alertNoH{14}{\pm}}3)^2}} \\
-\uncover<3-|handout:1>{\Rightarrow \alertNoH{4-14}{(x,y,z)} &\alertNoH{4-14}{\in} &\uncover<5,7,8,10,11,13,14->{ \fcAnswer{5}{ \alertNoH{7,8,10,11,13,14}{ \text{ellipse}}}}}\\
+}} \\
+\uncover<4-|handout:1>{\Rightarrow \alertNoH{4-14}{(x,y,z)} &\onlyNoH{4-5}{\alertNoH{4-5}{=}}\only<6->{\alertNoH{6-14}{\in}}&\onlyNoH{4-5}{\alertNoH{4,5}{ (0,0, \uncover<5->{\alertNoH{5}{\pm}} 1)}} \only<7,8,10,11,13,14->{ \fcAnswer{7}{ \alertNoH{7,8,10,11,13,14}{ \text{ellipse}}}}}\\
 \end{array}
 $ 
 }
@@ -98,49 +100,47 @@ $
 \column{0.6\textwidth}
 \begin{itemize}
 \item Consider the surface 
-$\mathcal C =\left\{(x,y,z) |\frac{x^2}{4}+\frac{y^2}{2}=z^2+
+$\mathcal C =\left\{(x,y,z) |\frac{x^2}{4}+\frac{y^2}{2}=z^2-
 %copy+paste this block together 
 \vphantom{\frac{1}{2}\frac{1}{4}\frac{1}{8}}\only<1-24>{\alertNoH{24}{1}}\onlyNoH{25}{\alertNoH{25}{\frac{1}{2}}}\onlyNoH{26}{\alertNoH{26}{\frac{1}{4}}}\onlyNoH{27}{\alertNoH{27}{\frac{1}{8}}}\onlyNoH{28}{\alertNoH{28}{0}} %block end
  \right\}$ 
-\item<2-> The level curves $z=const$ are:
-
-\uncover<5->{\alertNoH{5,14}{ Ellipses}} \uncover<14->{\alertNoH{14}{for all $z$}.}
-\uncover<15->{ For $y=0$:
+\item<2-> When $z=const$:
+\uncover<5->{Two pts. for $z=\pm 1$.}
+\uncover<5->{\alertNoH{5,14}{ Ellipses}} \uncover<14->{\alertNoH{14}{for $|z|>1$}.}
+\uncover<15->{ When $y=0$:
 $\begin{array}{rcl}
-\left(\frac{x}{2}\right)^2&\alertNoH{0}{=}&z^2+ 
+\left(\frac{x}{2}\right)^2&\alertNoH{0}{=}&\alertNoH{16}{z^2-} 
 %copy+paste this block together 
 \vphantom{\frac{1}{2}\frac{1}{4}\frac{1}{8}}\only<1-24>{\alertNoH{24}{1}}\onlyNoH{25}{\alertNoH{25}{\frac{1}{2}}}\onlyNoH{26}{\alertNoH{26}{\frac{1}{4}}}\onlyNoH{27}{\alertNoH{27}{\frac{1}{8}}}\onlyNoH{28}{\alertNoH{28}{0}} %block end
 \\
-\uncover<16->{ \left(\frac{x}{2}\right)^2 -z^2 &\alertNoH{0}{=}&
+\uncover<16->{ \alertNoH{16}{z^2-}\left(\frac{x}{2}\right)^2  &\alertNoH{0}{=}&
 %copy+paste this block together 
 \vphantom{\frac{1}{2}\frac{1}{4}\frac{1}{8}}\only<1-24>{\alertNoH{24}{1}}\onlyNoH{25}{\alertNoH{25}{\frac{1}{2}}}\onlyNoH{26}{\alertNoH{26}{\frac{1}{4}}}\onlyNoH{27}{\alertNoH{27}{\frac{1}{8}}}\onlyNoH{28}{\alertNoH{28}{0}} %block end
 }\\
-\uncover<17->{\left(\frac{x}{2}-z\right)\left(\frac{x}{2}+z\right)&\alertNoH{0}{=}&
+\uncover<17->{\left(z-\frac{x}{2}\right)\left(\alertNoH{18}{\frac{x}{2}+z} \right)&\alertNoH{0}{=}&
 %copy+paste this block together 
 \vphantom{\frac{1}{2}\frac{1}{4}\frac{1}{8}}\only<1-24>{\alertNoH{24}{1}}\onlyNoH{25}{\alertNoH{25}{\frac{1}{2}}}\onlyNoH{26}{\alertNoH{26}{\frac{1}{4}}}\onlyNoH{27}{\alertNoH{27}{\frac{1}{8}}}\onlyNoH{28}{\alertNoH{28}{0}} %block end
 } \\
-\uncover<18->{ \alertNoH{19,21}{\left(\frac{x}{2}-z\right)} &\alertNoH{21}{=}& \alertNoH{21}{\frac{\vphantom{\frac{1}{2}}
+\uncover<18->{ \alertNoH{19,21}{\left(z-\frac{x}{2}\right)} &\alertNoH{21}{=}& \alertNoH{21}{\frac{\vphantom{\frac{1}{2}}
 %copy+paste this block together 
 \vphantom{\frac{1}{2}\frac{1}{4}\frac{1}{8}}\only<1-24>{\alertNoH{24}{1}}\onlyNoH{25}{\alertNoH{25}{\frac{1}{2}}}\onlyNoH{26}{\alertNoH{26}{\frac{1}{4}}}\onlyNoH{27}{\alertNoH{27}{\frac{1}{8}}}\onlyNoH{28}{\alertNoH{28}{0}} %block end
-}{\alertNoH{20}{ \left(\frac{x}{2}+z\right)}} }} \\
+}{\alertNoH{20}{ \left(\alertNoH{18}{\frac{x}{2}+z} \right)}} }} \\
 \end{array}
 $
 \psset{xunit=0.2cm, yunit=0.2cm}
 \begin{pspicture}(-9,-3)(9,4.4)
 \tiny
 \fcAxesStandard{-6}{-3}{6}{4.4}%
-\only<19->{\psline(-6,-3)(6,3)\rput(6,3.8){$\frac{x}{2}-z=0$}}
+\only<19->{\psline(-6,-3)(6,3)\rput(6,3.8){$z-\frac{x}{2}=0$}}
 \only<20->{\psline(-6,3)(6,-3)\rput(-6,3.8){$\frac{x}{2}+z=0$}}
 \only<21->{%
-\psplot[linecolor=green]{\constTerm sqrt 2 mul 0.001 add}{6}{x 2 div dup mul \constTerm sub sqrt}
-\psplot[linecolor=green]{\constTerm sqrt 2 mul 0.001 add}{6}{x 2 div dup mul \constTerm sub sqrt -1 mul}
-\psplot[linecolor=green]{-6}{\constTerm sqrt -2 mul 0.001 sub}{x 2 div dup mul \constTerm sub sqrt}
-\psplot[linecolor=green]{-6}{\constTerm sqrt -2 mul 0.001 sub}{x 2 div dup mul \constTerm sub sqrt -1 mul}
+\psplot[linecolor=green]{-6}{6}{x 2 div dup mul \constTerm add sqrt}%
+\psplot[linecolor=green]{-6}{6}{x 2 div dup mul \constTerm add sqrt -1 mul}%
 }%
 \end{pspicture}
 }
 \item<15-> $\Rightarrow\!$ ellipses: stacked along \fcAnswerUncover{14}{22}{hyperbolas.}
-\item<23-> Figure called: \only<1-27>{\alertNoH{23}{one-sheet hyperboloid}}\onlyNoH{28}{\alertNoH{28}{cone}}. 
+\item<23-> Figure called: \only<1-27>{\alertNoH{23}{two-sheet hyperboloid}}\onlyNoH{28}{\alertNoH{28}{cone}}. 
 \end{itemize}
 
 \end{columns}
