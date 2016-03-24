@@ -1,10 +1,18 @@
 
 \begin{frame}
-\newcommand{\yInvCoeff}{4\space}
+\newcommand{\yInvCoeff}{4\space}\newcommand{\yInvCoeffDisplay}{\alertNoH{37}{~4~}} \newcommand{\yInvCoeffSqrtDisplay}{\alertNoH{37}{~2~}}
 \newcommand{\zCoefficient}{1\space}
-\only<38->{\renewcommand{\yInvCoeff}{8\space}}
-\only<39->{\renewcommand{\yInvCoeff}{16\space}}
-\only<40->{\renewcommand{\yInvCoeff}{1000\space}}
+\onlyNoH{38-40}{\renewcommand{\yInvCoeff}{8\space} \renewcommand{\yInvCoeffSqrtDisplay}{\alertNoH{38}{\sqrt{8}}} \renewcommand{\yInvCoeffDisplay}{\alertNoH{38}{~8~}}}
+\onlyNoH{39-40}{\renewcommand{\yInvCoeff}{16\space} \renewcommand{\yInvCoeffSqrtDisplay}{\alertNoH{39}{~4~}} \renewcommand{\yInvCoeffDisplay}{\alertNoH{39}{16}}}
+\onlyNoH{40}{\renewcommand{\yInvCoeff}{100000\space} \renewcommand{\yInvCoeffSqrtDisplay}{\infty} \renewcommand{\yInvCoeffDisplay}{\infty}}
+\newcommand{\yQuadraticTerm}{\frac{y^2}{\yInvCoeffDisplay}}
+\newcommand{\yLinearTerm}{\frac{y}{\yInvCoeffSqrtDisplay}}
+%\newcommand{\ySubTerm}{\frac{y}{\yInvCoeffSqrtDisplay}}
+\onlyNoH{40}{
+\renewcommand{\yQuadraticTerm}{\alertNoH{40}{0}\vphantom{\frac{y^2}{16}}}
+\renewcommand{\yLinearTerm}{\alertNoH{40}{0}}
+}
+
 \frametitle{$Ax^2+By^2+Iz=0$, $A>0, B<0, C=0,I\neq  0 $}
 
 
@@ -12,13 +20,13 @@
 \column{0.33\textwidth}
 \psset{xunit=0.4cm, yunit=0.4cm}
 \vskip -0.2cm
-\begin{pspicture}(-4,-3.6)(4, 4)%
+\begin{pspicture}(-4,-3.6)(4, 4.4)%
 \tiny %
 \pstVerb{10 dict begin /smallEpsilon 0.02 def}%
 \newcommand{\valueOfx}{0\space}%
 \newcommand{\valueOfy}{0\space}%
 \newcommand{\valueOfz}{0\space}%
-\newcommand{\HyperbolicParaboloid}{[u v u u mul 3 div v v mul \yInvCoeff div sub]}%
+\newcommand{\HyperbolicParaboloid}{[u v u u mul 3 div v v mul \yInvCoeff div sub \zCoefficient mul]}%
 \newcommand{\hyperbolaTopLayerLeft}{[t t mul \yInvCoeff div \valueOfz add 3 mul sqrt t \valueOfz]}%
 \newcommand{\hyperbolaTopLayerRight}{[t t mul \yInvCoeff div \valueOfz add 3 mul sqrt -1 mul t \valueOfz]}%
 \newcommand{\hyperbolaBottomLayerLeft}{[t t t mul 3 div \valueOfz sub \yInvCoeff mul sqrt \valueOfz]}%
@@ -26,7 +34,7 @@
 \renewcommand{\fcScreen}{[-0.4 1 -0.5] 0}%
 \fcStartIIIdScene%
 \fcBoundingBox{-2}{-2}{2}{2}%
-\fcAxesIIIdFullInScene{-4}{-4}{-4}{4}{4}{4}%
+\fcAxesIIIdFullInScene{-4}{-3.7}{-4}{4}{4}{4}%
 \only<35->{%
 \fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=6]{-3}{-3}{3}{3}{\HyperbolicParaboloid}{}%
 }%
@@ -118,15 +126,14 @@
 \end{pspicture}
 
 Surface: 
-$\mathcal C =\left\{(x,y,z) |\frac{x^2}{3}-\frac{y^2}{4}=
+$\mathcal C =\left\{\! (x,y,z) |\!\frac{x^2}{3}- \yQuadraticTerm=
 z\right\}$.
+\vskip -0.2cm
 \begin{itemize}
-\item<35->{Name: hyperbolic paraboloid.}
-\item<37->{\alertNoH{37}{What happens when $|B|$ decreases?}}
-\item<40->{\alertNoH{40}{What happens when $|I|$ decreases?}}
+\item<35->Name: hyperbolic paraboloid.
+\item<37->{\alertNoH{37}{What happens if $|B|$ decreases?}}\onlyNoH{41}{}
 \end{itemize}
 \column{0.67\textwidth}
-$A=\frac{1}{3}$, $B=\frac{1}{4} $, $I=-1$.
 \begin{columns}
 \column{0.2\textwidth}
 \psset{xunit=0.3cm, yunit=0.3cm}
@@ -135,26 +142,26 @@ $A=\frac{1}{3}$, $B=\frac{1}{4} $, $I=-1$.
 \pstVerb{5 dict begin
 /valueOfy 0 def
 }%
-\fcAxesStandard{-3.1}{-3.1}{3}{3.1}%
+\fcAxesStandardNoFrame{-3.1}{-3.1}{3}{3.1}%
 \only<3>{%
 \pstVerb{/valueOfy 0 def}
-\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul 4 div sub}
-\rput[tl](! 0.02 valueOfy dup mul -4 div){$0$}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul \yInvCoeff div sub}
+\rput[tl](! 0.02 valueOfy dup mul -\yInvCoeff div){$0$}
 }%
 \only<5,6>{%
 \pstVerb{/valueOfy 1 def}
-\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul 4 div sub}
-\rput[tl](! 0.02 valueOfy dup mul -4 div){$-\frac{1}{4}$}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul \yInvCoeff div sub}
+\rput[tl](! 0.02 valueOfy dup mul -\yInvCoeff div){$-\frac{1}{4}$}
 }%
 \only<8,9>{%
 \pstVerb{/valueOfy 2 def}
-\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul 4 div sub}
-\rput[tl](! 0.02 valueOfy dup mul -4 div){$-1=-\frac{2^2}{4}$}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul \yInvCoeff div sub}
+\rput[tl](! 0.02 valueOfy dup mul -\yInvCoeff div){$-1=-\frac{2^2}{4}$}
 }%
 \only<11,12->{%
 \pstVerb{/valueOfy 3 def}
-\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul 4 div sub}
-\rput[tl](! 0.02 valueOfy dup mul -4 div){$-\frac{9}{4}=-\frac{3^2}{4}$}
+\psplot[linecolor=blue]{-3}{3}{x x mul 3 div valueOfy dup mul \yInvCoeff div sub}
+\rput[tl](! 0.02 valueOfy dup mul -\yInvCoeff div){$ \uncover<40>{\alertNoH{40}{0}}\uncover<1-39,41->{\!\!\!\!\!\!\!\!\!-\frac{9}{\yInvCoeffDisplay}=-\frac{3^2}{\yInvCoeffDisplay} } $}
 }%
 \fcLabels[$x$][$z$]{3}{3.1}%
 \pstVerb{end}%
@@ -168,22 +175,22 @@ $A=\frac{1}{3}$, $B=\frac{1}{4} $, $I=-1$.
 \fcAxesStandard{-3.1}{-3.1}{3}{4}%
 \only<14>{%
 \pstVerb{/valueOfx 0 def}
-\psplot[linecolor=blue]{-3}{3}{x x mul -4 div valueOfx dup mul 3 div add}
+\psplot[linecolor=blue]{-3}{3}{x x mul -\yInvCoeff div valueOfx dup mul 3 div add}
 \rput[bl](! 0.02 valueOfx dup mul 3 div){$0$}
 }%
 \only<16,17>{%
 \pstVerb{/valueOfx 1 def}
-\psplot[linecolor=blue]{-3}{3}{x x mul -4 div valueOfx dup mul 3 div add}
+\psplot[linecolor=blue]{-3}{3}{x x mul -\yInvCoeff div valueOfx dup mul 3 div add}
 \rput[bl](! 0.02 valueOfx dup mul 3 div){$\frac{1}{3}$}
 }%
 \only<19,20>{%
 \pstVerb{/valueOfx 2 def}
-\psplot[linecolor=blue]{-3}{3}{x x mul -4 div valueOfx dup mul 3 div add}
+\psplot[linecolor=blue]{-3}{3}{x x mul -\yInvCoeff div valueOfx dup mul 3 div add}
 \rput[bl](! 0.02 valueOfx dup mul 3 div){$\frac{4}{3}=\frac{2^2}{3}$}
 }%
-\only<22,23>{%
+\only<22,23->{%
 \pstVerb{/valueOfx 3 def}
-\psplot[linecolor=blue]{-3}{3}{x x mul -4 div valueOfx dup mul 3 div add}
+\psplot[linecolor=blue]{-3}{3}{x x mul -\yInvCoeff div valueOfx dup mul 3 div add}
 \rput[bl](! 0.02 valueOfx dup mul 3 div){$3=\frac{3^2}{3}$}
 }%
 \fcLabels[$y$][$z$]{3}{4}%
@@ -197,46 +204,51 @@ $A=\frac{1}{3}$, $B=\frac{1}{4} $, $I=-1$.
 }%
 \fcAxesStandard{-3.1}{-3.1}{3}{3.1}%
 \uncover<27->{%
-\psline(! -3 dup 3 sqrt div 2 mul)(! 3 dup 3 sqrt div 2 mul)%
-\rput[lt](-3, -3.2){$\alertNoH{27}{\frac{x}{\sqrt{3}}- \frac{y}{2}=0}$}%
+\psline(! -3 dup 3 sqrt div \yInvCoeff sqrt mul)(! 3 dup 3 sqrt div \yInvCoeff sqrt mul)%
+\rput[lt](-3, -3.2){$\alertNoH{27}{\frac{x}{\sqrt{3}}- \yLinearTerm =0}$}%
 }%
 \uncover<28->{%
-\psline(! -3 dup -1 mul 3 sqrt div 2 mul)(! 3 dup -1 mul 3 sqrt div 2 mul)%
-\rput[lb](-3, 3.2){$\alertNoH{28}{\frac{x}{\sqrt{3}}+ \frac{y}{2}=0}$}%
+\psline(! -3 dup -1 mul 3 sqrt div \yInvCoeff sqrt mul)(! 3 dup -1 mul 3 sqrt div \yInvCoeff sqrt mul)%
+\rput[lb](-3, 3.2){$\alertNoH{28}{\frac{x}{\sqrt{3}}+ \yLinearTerm =0}$}%
 }%
 \only<29-32>{%
 \pstVerb{/valueOfz 2 def}%
 \only<31->{\pstVerb{/valueOfz 1 def}}%
 \only<32->{\pstVerb{/valueOfz 0 def}}%
-\psplot[linecolor=green]{valueOfz 3 mul sqrt 0.0001 add}{3}{x x mul 3 div valueOfz sub 4 mul sqrt}%
-\psplot[linecolor=green]{valueOfz 3 mul sqrt 0.0001 add}{3}{x x mul 3 div valueOfz sub 4 mul sqrt -1 mul}%
-\psplot[linecolor=green]{valueOfz 3 mul sqrt 0.0001 add -1 mul}{-3}{x x mul 3 div valueOfz sub 4 mul sqrt}%
-\psplot[linecolor=green]{valueOfz 3 mul sqrt 0.0001 add -1 mul}{-3}{x x mul 3 div valueOfz sub 4 mul sqrt -1 mul}%
+\psplot[linecolor=green]{valueOfz 3 mul sqrt 0.0001 add}{3}{x x mul 3 div valueOfz sub \yInvCoeff mul sqrt}%
+\psplot[linecolor=green]{valueOfz 3 mul sqrt 0.0001 add}{3}{x x mul 3 div valueOfz sub \yInvCoeff mul sqrt -1 mul}%
+\psplot[linecolor=green]{valueOfz 3 mul sqrt 0.0001 add -1 mul}{-3}{x x mul 3 div valueOfz sub \yInvCoeff mul sqrt}%
+\psplot[linecolor=green]{valueOfz 3 mul sqrt 0.0001 add -1 mul}{-3}{x x mul 3 div valueOfz sub \yInvCoeff mul sqrt -1 mul}%
 }%
 \only<33->{%
 \pstVerb{/valueOfz -1 def}%
 \only<34->{\pstVerb{/valueOfz -2 def}}%
-\psplot[linecolor=green]{-3}{3}{x x mul 3 div valueOfz sub 4 mul sqrt}%
-\psplot[linecolor=green]{-3}{3}{x x mul 3 div valueOfz sub 4 mul sqrt -1 mul}%
+\psplot[linecolor=green]{-3}{3}{x x mul 3 div valueOfz sub \yInvCoeff mul sqrt}%
+\psplot[linecolor=green]{-3}{3}{x x mul 3 div valueOfz sub \yInvCoeff mul sqrt -1 mul}%
 }%
 \fcLabels[$x$][$y$]{3}{3.1}%
 \pstVerb{end}%
 \end{pspicture}
 \column{0.8\textwidth}
+$A=\frac{1}{3}$, $|B|=\frac{1}{\yInvCoeffDisplay} \uncover<40>{\alertNoH{40}{=0}} $, $I=-1$.
+
 \uncover<2->{
 $\begin{array}{@{\!\!\!\!}r@{}c@{}l@{}l@{}|l@{}}
 \text{Set: }y&\alertNoH{0}{=}& 
-\onlyNoH{2,3}{\alertNoH{2}{ 0}} \onlyNoH{4,5,6}{\uncover<4->{\alertNoH{4}{\uncover<6->{\alertNoH{6}{\pm}} 1} }} 
-\onlyNoH{7,8,9}{\uncover<7->{\alertNoH{7}{\uncover<9->{\alertNoH{9}{\pm}} 2 }}} 
+\onlyNoH{2,3}{\alertNoH{2}{ 0}} \onlyNoH{4,5,6}{\uncover<4->{\alertNoH{4}{\uncover<6->{\alertNoH{6}{\pm}} 1}}}
+\onlyNoH{7,8,9}{\uncover<7->{\alertNoH{7}{\uncover<9->{\alertNoH{9}{\pm}} 2}}}
 \onlyNoH{10,11,12-}{\uncover<10->{\alertNoH{10}{\uncover<12->{\alertNoH{12}{\pm}} 3 }}} 
 \\
 \alertNoH{3,5,8,11}{\frac{x^2}{3}-
 \onlyNoH{2,3}{\alertNoH{2,3}{0}}
-\onlyNoH{4,5,6}{\alertNoH{4}{\frac{\left(\uncover<6->{\alertNoH{6}{\pm}} {\alertNoH{4}{1}}\right)^2}{4}}}
-\onlyNoH{7,8,9}{\alertNoH{7}{\frac{\left(\uncover<9->{\alertNoH{9}{\pm}} {\alertNoH{7}{2}}\right)^2}{4}}}
-\onlyNoH{10,11,12-}{\alertNoH{10}{\frac{\left(\uncover<12->{\alertNoH{12}{\pm}} {\alertNoH{10}{3}} \right)^2}{4}}}
+\onlyNoH{4,5,6}{\alertNoH{4}{\frac{\left(\uncover<6->{\alertNoH{6}{\pm}} {\alertNoH{4}{1}}\right)^2}{\yInvCoeffDisplay}}}
+\onlyNoH{7,8,9}{\alertNoH{7}{\frac{\left(\uncover<9->{\alertNoH{9}{\pm}} {\alertNoH{7}{2}}\right)^2}{\yInvCoeffDisplay}}}
+\uncover<-39,41->{%
+\onlyNoH{10,11,12-}{\alertNoH{10}{\frac{\left(\uncover<12->{\alertNoH{12}{\pm}} {\alertNoH{10}{3}} \right)^2}{\yInvCoeffDisplay}}}%
+}%uncover
+\uncover<40>{\alertNoH{40}{0}}
 }%alert
-&\alertNoH{3,5,8,11}{=}&\alertNoH{3,5,8,11}{z}&&\vphantom{\left(\frac{1}{4}\right)^2} \text{parabola}\\
+&\alertNoH{3,5,8,11}{=}&\alertNoH{3,5,8,11}{z}&&\vphantom{\left(\frac{1}{4}\right)^2} \text{parab.}\\
 {~~~~~~~~~~~~~~~~~~~~~}&&{~~~~~~~}\\
 \uncover<13->{%
 \text{Set: }x&\alertNoH{0}{=}&\onlyNoH{13,14}{\alertNoH{13}{ 0}} \onlyNoH{15,16,17}{\uncover<15->{\alertNoH{15}{\uncover<17->{\alertNoH{17}{\pm}} 1} }} 
@@ -247,10 +259,10 @@ $\begin{array}{@{\!\!\!\!}r@{}c@{}l@{}l@{}|l@{}}
 \onlyNoH{13,14}{\alertNoH{13,14}{0}}
 \onlyNoH{15,16,17}{\alertNoH{15}{\frac{\left(\uncover<17->{\alertNoH{17}{\pm}} {\alertNoH{15}{1}}\right)^2}{3}}} 
 \onlyNoH{18,19,20}{\alertNoH{18}{\frac{\left(\uncover<20->{\alertNoH{20}{\pm}} {\alertNoH{18}{2}}\right)^2}{3}}}
-\onlyNoH{21,22,23}{\alertNoH{21}{\frac{\left(\uncover<23->{\alertNoH{23}{\pm}} {\alertNoH{21}{3}} \right)^2}{3}}}
--\frac{y^2}{4}
+\onlyNoH{21,22,23-}{\alertNoH{21}{\frac{\left(\uncover<23->{\alertNoH{23}{\pm}} {\alertNoH{21}{3}} \right)^2}{3}}}
+-\yQuadraticTerm
 }%alert
-&\alertNoH{14,16,19,22}{=}&\alertNoH{14,16,19,22}{z}&&\vphantom{\left(\frac{1}{4}\right)^2} \text{parabola}
+&\alertNoH{14,16,19,22}{=}&\alertNoH{14,16,19,22}{z}&&\vphantom{\left(\frac{1}{4}\right)^2} \text{parab.}
 }%
 \\
 {~~~~~~~~~~~~~~~~~~~~~}&&{~~~~~~~}
@@ -267,7 +279,7 @@ z&\alertNoH{0}{=}&
 }%
 \\
 \uncover<24->{%
-\alertNoH{25}{ \frac{x^2}{3}-\frac{y^2}{4}} &\alertNoH{0}{=}&
+\alertNoH{25}{ \frac{x^2}{3}-\yQuadraticTerm} &\alertNoH{0}{=}&
 %block start
 \only<23-30>{\alertNoH{24,30}{2}}
 \only<31>{\alertNoH{31}{1}}
@@ -276,8 +288,8 @@ z&\alertNoH{0}{=}&
 \only<34->{\alertNoH{34}{-2}} %copy and paste as block
 }%
 \\
-\uncover<25->{%
-\alertNoH{25}{\left( \frac{x}{\sqrt{3}}-\frac{y}{2}\right) \left( \alertNoH{26}{\frac{x}{\sqrt{3}}+\frac{y}{2}} \right)} &\alertNoH{0}{=}&
+\uncover<25-39,41->{%
+\alertNoH{25}{\left( \frac{x}{\sqrt{3}}\!-\!\yLinearTerm\right)\!\!\! \left( \alertNoH{26}{\frac{x}{\sqrt{3}}\!+\!\yLinearTerm} \right)}\! &\alertNoH{0}{=}&
 %block start
 \only<23-30>{\alertNoH{24,30}{2}}
 \only<31>{\alertNoH{31}{1}}
@@ -286,8 +298,8 @@ z&\alertNoH{0}{=}&
 \only<34->{\alertNoH{34}{-2}} %copy and paste as block
 }\uncover<handout:0|32>{&&\alertNoH{32}{\text{two lines}}}
 \\
-\uncover<26-31,33->{%
-\alertNoH{29}{\left(\alertNoH{27}{ \frac{x}{\sqrt{3}}-\frac{y}{2}} \right)} &\alertNoH{29}{=}&\alertNoH{29}{
+\uncover<26-31,33-39,41>{%
+\alertNoH{29}{\left(\alertNoH{27}{ \frac{x}{\sqrt{3}}-\yLinearTerm} \right)} &\alertNoH{29}{=}&\alertNoH{29}{
 \frac{
 %block start
 \only<23-30>{\alertNoH{24,30}{2}}
@@ -295,7 +307,7 @@ z&\alertNoH{0}{=}&
 \only<32>{\alertNoH{32}{0}}
 \only<33>{\alertNoH{33}{-1}}
 \only<34->{\alertNoH{34}{-2}} %copy and paste as block
-}{\left(\alertNoH{26,28}{\frac{x}{\sqrt{3}}+\frac{y}{2}}\right) }}&&\uncover<29-31>{\!\!\!\alertNoH{29}{\text{hyperbola}}}
+}{\left(\alertNoH{26,28}{\frac{x}{\sqrt{3}}+\yLinearTerm}\right) }}&&\uncover<29-31>{\!\!\!\alertNoH{29}{\text{hyperb.}}}
 }%
 \\
 \end{array}

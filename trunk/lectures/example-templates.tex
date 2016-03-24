@@ -66,6 +66,22 @@ pdfcrop={},
 % \diff
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand*{\minwidthbox}[2]{%
+  \relax
+  \ifmmode
+    \mathpalette{\minwidthboxmath{#1}{#2}}{}%
+  \else
+    \makebox[{\ifdim#1<\width\width\else#1\fi}]{#2}%
+  \fi
+}
+\newcommand*{\minwidthboxmath}[4]{%
+  % #1: minimum width
+  % #2: box contents
+  % #3: math style
+  % #4: unused
+  \mbox{\minwidthbox{$#3#1$}{#2}}%
+}
+
 \newcommand{\diff}{{\normalfont \text{d}}}
 \newcommand{\ds}{\displaystyle}
 \newtheorem{question}{Question}
