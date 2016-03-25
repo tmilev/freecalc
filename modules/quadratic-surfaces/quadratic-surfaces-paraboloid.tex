@@ -1,0 +1,132 @@
+
+\begin{frame}
+\newcommand{\yInvCoeff}{2\space}
+\newcommand{\yInvCoeffDisplay}{\alertNoH{18}{2}}
+\newcommand{\yInvCoeffSqrtDisplay}{\alertNoH{18}{\sqrt{2}}}
+\onlyNoH{19}{
+\renewcommand{\yInvCoeff}{4\space}
+\renewcommand{\yInvCoeffDisplay}{\alertNoH{19}{4}}
+\renewcommand{\yInvCoeffSqrtDisplay}{\alertNoH{19}{2}}
+}
+\onlyNoH{20}{
+\renewcommand{\yInvCoeff}{8\space}
+\renewcommand{\yInvCoeffDisplay}{\alertNoH{20}{8}}
+\renewcommand{\yInvCoeffSqrtDisplay}{\alertNoH{20}{\sqrt{8}}}
+}
+\onlyNoH{21}{
+\renewcommand{\yInvCoeff}{16\space}
+\renewcommand{\yInvCoeffDisplay}{\alertNoH{21}{16}}
+\renewcommand{\yInvCoeffSqrtDisplay}{\alertNoH{21}{4}}
+}
+\onlyNoH{21}{
+\renewcommand{\yInvCoeff}{64\space}
+\renewcommand{\yInvCoeffDisplay}{\alertNoH{21}{64}}
+\renewcommand{\yInvCoeffSqrtDisplay}{\alertNoH{21}{8}}
+}
+\onlyNoH{22}{
+\renewcommand{\yInvCoeff}{10000\space}
+\renewcommand{\yInvCoeffDisplay}{\alertNoH{22}{"\infty"}}
+\renewcommand{\yInvCoeffSqrtDisplay}{\alertNoH{22}{"\infty"}}
+}
+
+\newcommand{\zConst}{0\space}
+\newcommand{\zSqrtTerm}{}
+\only<6->{\renewcommand{\zConst}{1\space}\renewcommand{\zSqrtTerm}{2}}
+\only<9->{\renewcommand{\zConst}{2\space}\renewcommand{\zSqrtTerm}{\sqrt{8}}}
+\only<12->{\renewcommand{\zConst}{3\space}\renewcommand{\zSqrtTerm}{\sqrt{12}}}
+\newcommand{\zConstDisplay}{\onlyNoH{3-5}{0}\onlyNoH{6-8}{\alertNoH{6}{1}}\onlyNoH{9-11}{\alertNoH{9}{2}}\only<12->{\alertNoH{12}{3}}}
+
+\frametitle{$Ax^2+\alertNoH{18-}{ B}y^2+Iz=0$, $A>0, \alertNoH{18-}{B>0}, I\neq 0$}
+
+
+\begin{columns} 
+\column{0.4\textwidth}
+\vskip -0.2cm
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-6.8,-3)(6.8, 5.5)%
+\tiny %
+\pstVerb{10 dict begin /smallEpsilon 0.02 def}%
+\newcommand{\Zvalue}{0\space}
+\newcommand{\Paraboloid}{[u cos 2 mul v sqrt mul u sin \yInvCoeff sqrt mul v sqrt mul v]}
+\newcommand{\EllipseAroundParaboloidLarger}{2 dict begin /u t def /v \Zvalue\space def \Paraboloid [0 0 0.01] \fcVectorMinusVector end\space}%
+\renewcommand{\fcScreen}{[-0.4 1 -0.2] 0}%
+\fcStartIIIdScene%
+\fcBoundingBox{-2}{-2}{2}{2}%
+\fcAxesIIIdFullInScene{-3}{-3}{-3}{6}{5}{5}%
+\only<17-21>{\fcSurfaceInScene[arrows=(none), linewidth=0.2, linecolor=red, iterationsU=12, iterationsV=3]{0}{0.01}{360}{3}{\Paraboloid}{}}%
+\onlyNoH{22}{\fcSurfaceInScene[arrows=(none), linewidth=1, linecolor=blue, iterationsU=12, iterationsV=3]{12 sqrt -1 mul}{-10}{12 sqrt}{10}{[u v u u mul 4 div]}{}}%
+\only<6->{\fcDotIIId[linecolor=blue]{[0 0 0]}}%
+\only<9-21>{%
+\renewcommand{\Zvalue}{1\space}%
+\fcCurveIIIdInScene[linecolor=blue, arrows=(none), linewidth=1]{0}{360}{\EllipseAroundParaboloidLarger}%
+}%
+\only<12-21>{%
+\renewcommand{\Zvalue}{2\space}%
+\fcCurveIIIdInScene[linecolor=blue, arrows=(none), linewidth=1]{0}{360}{\EllipseAroundParaboloidLarger}%
+}%
+\only<14-21>{%
+\renewcommand{\Zvalue}{3\space}%
+\fcCurveIIIdInScene[linecolor=blue, arrows=(none), linewidth=1]{0}{360}{\EllipseAroundParaboloidLarger}%
+}%
+\only<16-21>{\fcCurveIIIdInScene[linecolor=green, arrows=(none), linewidth=1]{12 sqrt -1 mul}{12 sqrt}{[t 0 t t mul 4 div 0.01 sub]}}%
+\fcFinishIIIdScene%
+\fcPutIIId[t]{[6 0 0]}{$x$}%
+\fcPutIIId[l]{[0 3 0]}{$y$}%
+\fcPutIIId[b]{[0 0 5]}{$z$}%
+\pstVerb{end}
+\end{pspicture}
+
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-4.5,-7.1)(6,7.2)
+\tiny
+\newcommand{\theEllipse}{t cos 2 mul \zConst sqrt mul t sin \yInvCoeff sqrt mul \zConst sqrt mul}
+\pstVerb{5 dict begin}
+\fcAxesStandard{-4}{-7}{4}{7}
+\fcLabels{4}{8}
+\parametricplot[linecolor=blue]{0}{360}{\theEllipse}
+\only<8,11,14->{%
+\rput[bl](! 12 sqrt 0.1){$\alertNoH{8,11,14}{\zSqrtTerm}$}%
+}%
+\onlyNoH{6}{\fcFullDot[linecolor=blue]{0}{0}}
+\pstVerb{end}%
+\end{pspicture}
+\uncover<2->{
+$\begin{array}{@{\!\!\!\!}r@{}c@{}l@{}}
+\alertNoH{3}{z}&\alertNoH{3}{=}& \alertNoH{3,4}{\zConstDisplay}\\
+\alertNoH{4,5,7,8,10,11,13,14}{\left(\frac{x}{2}\right)^2+\left(\frac{y}{\vphantom{\sqrt{8}} \makebox[2em]{\footnotesize$\yInvCoeffSqrtDisplay$}}\right)^2} &\alertNoH{4,5,7,8,10,11,13,14}{=}&  \alertNoH{3-14}{\zConstDisplay} \\
+\uncover<handout:0|5>{\alertNoH{5}{(x,y,z)} &\alertNoH{5}{=}& \alertNoH{5}{(0,0,0)} } \\
+\uncover<6-|handout:1>{\Rightarrow \alertNoH{7,8,10,11,13,14}{(x,y,z)} &\alertNoH{7,8,10, 11, 13, 14}{\in} &\uncover<8,11,14->{  \alertNoH{8-14}{ \text{ellipse}}}}\\
+\end{array}
+$ 
+}
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item Consider the surface 
+$\mathcal C =\left\{(x,y,z) |\frac{x^2}{4}+\frac{y^2}{\makebox[2em]{\footnotesize$\yInvCoeffDisplay$ } } = z
+\right\}$ 
+\item<2-> The level curves $z=const$ are: \uncover<5->{\alertNoH{5}{a point for $z=0$}; \uncover<14->{\alertNoH{14}{ellipses} for $z>0$.}}
+
+\uncover<15->{ For $y=0$:
+$\begin{array}{rcl}
+\alertNoH{15,16}{\left(\frac{x}{2}\right)^2 }&\alertNoH{15,16}{=} &\alertNoH{15,16}{z}
+\end{array}
+$
+\psset{xunit=0.4cm, yunit=0.4cm}
+\begin{pspicture}(-9,-1)(3.2,4.4)
+\tiny
+\fcAxesStandard{12 sqrt -1 mul}{-1}{12 sqrt}{3}%
+\fcLabels[$x$][$z$]{12 sqrt}{3}
+\only<16->{\psplot[linecolor=green]{12 sqrt -1 mul}{12 sqrt}{x x mul 4 div}}
+\end{pspicture}
+}
+\item<15-> $\Rightarrow\!$ ellipses: stacked along \fcAnswerUncover{15}{16}{parabola.}
+\item<17-> Surface name: paraboloid. If $A\neq B$: elliptic paraboloid.
+\item<18-> What happens if we \alertNoH{18-22}{decrease $B$}?
+\end{itemize}
+
+\end{columns}
+
+\vskip 10cm
+
+\end{frame}
