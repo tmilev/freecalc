@@ -1,0 +1,702 @@
+% % % % % % % %
+% % % % % % % %
+%IMPORTANT
+%compiles with
+%pdflatex -shell-escape
+%IMPORTANT
+% % % % % % % %
+% % % % % % % %
+\documentclass%
+%[handout]%
+{beamer}
+%IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
+\newcommand{\currentLecture}{11}
+
+
+\mode<presentation>
+{
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+}
+%\setbeamertemplate{footline}{%
+%  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber}}}}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\input{../example-templates}
+\input{../system-specific-config-Ubuntu-texlive}
+\input{../pstricks-commands}
+\mode<handout>{\pgfpagesuselayout{1 on A4}[a4paper,landscape]}
+
+\newcommand{\currentSemester}{Spring 2016}
+
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\graphicspath{{../../modules/}}
+
+
+\newcommand{\lect}[4]{
+\ifnum#3=\currentLecture
+  \date{#1}
+  \lecture[#1]{#2}{#3}
+#4
+\else
+%include nothing
+\fi
+}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+
+\renewcommand{\Arcsin}{\arcsin}
+\renewcommand{\Arccos}{\arccos}
+\renewcommand{\Arctan}{\arctan}
+\renewcommand{\Arccot}{\text{arccot\hspace{0.03cm}}}
+\renewcommand{\Arcsec}{\text{arcsec\hspace{0.03cm}}}
+\renewcommand{\Arccsc}{\text{arccsc\hspace{0.03cm}}}
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+%\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
+%\logo{\pgfuseimage{logo}}
+
+\begin{document}
+
+\AtBeginLecture{%
+
+\title[\insertlecture]{Math 242}
+\subtitle{\insertlecture}
+\author[Math 242]{Catalin Zara \\ Todor Milev}
+\institute[UMass Boston]{University of Massachusetts Boston}
+\date{\insertshortlecture}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+}%
+
+% begin lecture
+\lect{\currentSemester}{Lecture  1}{-1}{
+
+\input{../../modules/course-outline/course-outline-multivariable-calculus-UMB-242-Catalin-Zara}
+}
+
+% begin lecture
+\lect{\currentSemester}{Lecture  1}{1}{
+%DesiredLectureName: Space_Cartesian_Coordinates
+\fcLicense
+\section{Space}
+%\input{../../modules/coordinate-systems/space-intro}<-needs rewrite from ground up.
+\input{../../modules/coordinate-systems/space-configurations-pairs-lines-or-planes}
+\input{../../modules/coordinate-systems/distances-and-angles}
+\input{../../modules/coordinate-systems/line-plane-configurations-vs-distances-and-angles}
+\input{../../modules/coordinate-systems/cartesian-coordinates}
+\input{../../modules/coordinate-systems/distance-in-cartesian-coordinates}
+\input{../../modules/coordinate-systems/distance-in-cartesian-coordinates-example-1}
+\input{../../modules/coordinate-systems/distance-in-cartesian-coordinates-example-2}
+\input{../../modules/coordinate-systems/sets-in-space}
+\input{../../modules/coordinate-systems/sets-in-space-equations}
+\input{../../modules/coordinate-systems/sets-in-space-sphere-equations}
+}
+
+% begin lecture
+\lect{\currentSemester}{Lecture  2}{2}{
+%DesiredLectureName: Vector_Basics_Dot_Product
+\fcLicense
+\section{Vectors}
+%\input{../../modules/vectors/vectors-outline} %<-needs rewrite from ground up.
+\input{../../modules/vectors/vectors-definition}
+\input{../../modules/vectors/displacement-vectors}
+\input{../../modules/vectors/displacement-vector-equality}
+\input{../../modules/vectors/position-and-displacement-vectors}
+\input{../../modules/vectors/vector-addition-triangle-rule}
+\input{../../modules/vectors/vector-addition-commutativity-associativity}
+\input{../../modules/vectors/vector-difference}
+\input{../../modules/vectors/linear-combinations}
+%\input{../../modules/vectors/vector-decomposition-along-directions} %<-slide needs rewrite from ground up.
+\input{../../modules/vectors/vectors-in-coordinates}
+\input{../../modules/vectors/vectors-operations-in-coordinates}
+%\input{../../modules/vectors/work-constant-force} %<-needs a ground-up rewrite
+
+\section{Dot product of vectors}
+\input{../../modules/vectors/dot-product-def}
+\input{../../modules/vectors/dot-product-properties}
+\input{../../modules/vectors/dot-product-computation-in-coordinates}
+\input{../../modules/vectors/dot-product-computations-examples}
+\input{../../modules/vectors/projections-in-coordinates}
+\input{../../modules/vectors/projections-in-coordinates-examples}
+\input{../../modules/vectors/angles}
+\input{../../modules/vectors/direction-angles}
+%\input{../../modules/vectors/rotational-effect} %<-needs to be rewritten from ground up
+%\input{../../modules/vectors/torque} %<-needs to be rewritten from ground up
+}
+
+\lect{\currentSemester}{Lecture 3}{3}{
+%DesiredLectureName: Cross_Product_Determinants
+\fcLicense
+\section{Cross product of vectors}
+\input{../../modules/vectors/torque-wrench-example}
+\input{../../modules/vectors/cross-product}
+\input{../../modules/vectors/cross-product-properties}
+\input{../../modules/vectors/orth-is-linear}
+\input{../../modules/vectors/cross-product-linearity-proof}
+\subsection{Determinants}
+\input{../../modules/determinants/permutations-def}
+\input{../../modules/determinants/permutation-sign}
+\input{../../modules/determinants/permutation-rook-placements}
+
+\input{../../modules/determinants/determinants-def}
+\input{../../modules/determinants/two-by-two}
+\input{../../modules/determinants/three-by-three}
+\subsection{Cross product in coordinates}
+\input{../../modules/vectors/cross-product-in-coordinates}
+\input{../../modules/vectors/cross-product-example}
+\input{../../modules/vectors/cross-product-find-orthogonal-vector-to-two-vectors-1}
+\input{../../modules/vectors/cross-product-to-find-area-triangle}
+\input{../../modules/vectors/cross-product-to-find-area-triangle-example-1}
+\input{../../modules/vectors/scalar-triple-product}
+\input{../../modules/vectors/scalar-triple-product-volume-slanted-box-example-1}
+\input{../../modules/vectors/scalar-triple-product-volume-tetrahedron-example-1}
+\input{../../modules/vectors/scalar-triple-product-four-points-coplanar-example-1}
+\input{../../modules/vectors/space-orientation}
+} %end lecture
+
+% begin lecture
+\lect{\currentSemester}{Lecture 4}{4}{
+%DesiredLectureName: Distances_Angles_Between_Points_Lines_Planes
+\fcLicense
+\input{../../modules/vectors/incidence-questions-intro}
+\section{Equations of Lines}
+\subsection{Line from point and direction}
+\input{../../modules/vectors/line-from-point-and-direction}
+\input{../../modules/vectors/line-from-point-and-direction-example}
+
+\subsection{Line from two points}
+\input{../../modules/vectors/line-from-two-points}
+\input{../../modules/vectors/line-from-two-points-example}
+
+\section{Equations of planes}
+\subsection{Plane from point and normal}
+\input{../../modules/vectors/plane-from-point-and-normal}
+\input{../../modules/vectors/plane-from-point-and-normal-example}
+
+\subsection{Plane from two directions}
+\input{../../modules/vectors/plane-from-point-and-two-directions}
+\input{../../modules/vectors/plane-from-point-and-two-directions-example}
+
+\subsection{Plane from three points}
+\input{../../modules/vectors/plane-from-three-points}
+\input{../../modules/vectors/plane-from-three-points-example}
+
+\section{Distances, Angles, Parallelism, Incidence}
+\input{../../modules/vectors/angles-distances-questions-intro}
+\subsection{Distance Between Point and Line}
+\input{../../modules/vectors/distance-point-and-line}
+\input{../../modules/vectors/distance-point-and-plane}
+
+\subsection{Parallel Lines}
+\input{../../modules/vectors/parallel-lines}
+\subsection{Angle Between Lines}
+\input{../../modules/vectors/angle-between-lines}
+\subsection{Distance Between Skew Lines}
+\input{../../modules/vectors/distance-between-lines}
+\subsection{Distance Between Plane and Parallel Line}
+\input{../../modules/vectors/distance-parallel-plane-and-line}
+\subsection{Angle Between Plane and Line}
+\input{../../modules/vectors/angle-between-plane-and-line}
+\input{../../modules/vectors/intersection-plane-and-line}
+\subsection{Parallel Planes}
+\input{../../modules/vectors/parallel-planes}
+\subsection{Angle Between Planes}
+\input{../../modules/vectors/angle-between-planes}
+} %end lecture
+
+% begin lecture
+\lect{\currentSemester}{Lecture  5}{5}{
+%DesiredLectureName: Polar_Cylindrical_Spherical_Coordinates
+\section{Polar Coordinates}
+\input{../../modules/polar-coordinates/polar-intro}
+\input{../../modules/polar-coordinates/polar-questions}
+\input{../../modules/polar-coordinates/polar-many-representations}
+\input{../../modules/polar-coordinates/polar-two-points-coincide-iff}
+\input{../../modules/polar-coordinates/polar-to-cartesian}
+\input{../../modules/polar-coordinates/polar-to-cartesian-ex2}
+\input{../../modules/polar-coordinates/polar-to-cartesian-ex3}
+%\input{../../modules/polar-coordinates/polar-intersection-ex3}
+
+\section{Cylindrical Coordinates}
+\input{../../modules/cylindrical-coordinates/cylindrical-coordinates-def}
+\input{../../modules/cylindrical-coordinates/cylindrical-coordinates-to-rectangular}
+\input{../../modules/cylindrical-coordinates/cylindrical-coordinates-constant-coordinate-sets}
+\section{Spherical Coordinates}
+\input{../../modules/spherical-coordinates/spherical-coordinates}
+\input{../../modules/spherical-coordinates/spherical-coordinates-to-cartesian}
+\input{../../modules/spherical-coordinates/spherical-coordinates-constant-coordinate-sets}
+
+\section{Curvilinear boxes}
+\input{../../modules/coordinate-systems/curvilinear-boxes-polar}
+\input{../../modules/coordinate-systems/curvilinear-boxes-cylindrical}
+\input{../../modules/coordinate-systems/curvilinear-boxes-spherical}
+}% end lecture
+
+\lect{\currentSemester}{Lecture 6}{6}{
+%DesiredLectureName: Curves_in_Space
+\section{Curves in space}
+\input{../../modules/coordinate-systems/r-two-r-n}
+\input{../../modules/parametric-curves/parametric-equation-line-segment}
+\input{../../modules/parametric-curves/parametric-equation-line-segment-example}
+\input{../../modules/parametric-curves/parametrized-curves-def}
+\input{../../modules/parametric-curves/lines-as-parametric-curves-example}
+\input{../../modules/parametric-curves/parametric-curve-example-tornado}
+\input{../../modules/parametric-curves/limits}
+\input{../../modules/parametric-curves/continuity}
+\section{Tangent vectors, tangents}
+\input{../../modules/parametric-curves/derivatives}
+\input{../../modules/parametric-curves/tangent-lines}
+\input{../../modules/parametric-curves/tangent-examples}
+\input{../../modules/parametric-curves/differentiation-rules}
+\input{../../modules/parametric-curves/acceleration}
+\input{../../modules/parametric-curves/acceleration-example-loxodrome}
+\section{Line integrals}
+\input{../../modules/parametric-curves/line-integrals}
+\input{../../modules/parametric-curves/line-integral-properties}
+\input{../../modules/parametric-curves/line-integral-applications}
+\input{../../modules/parametric-curves/parametric-arc-length-formula-3d}
+\input{../../modules/parametric-curves/arc-length-function}
+\input{../../modules/parametric-curves/arc-length-example-helix}
+\input{../../modules/parametric-curves/parametrization-by-arc-length}
+\input{../../modules/parametric-curves/curve-reparametrizations}
+\input{../../modules/parametric-curves/curve-reparametrization-example}
+\section{Curvature}
+\input{../../modules/parametric-curves/curvature}
+\input{../../modules/parametric-curves/curvature-formula-proof}
+\input{../../modules/parametric-curves/curvature-example-helix}
+\input{../../modules/parametric-curves/curvature-example-torus-curve}
+\input{../../modules/parametric-curves/curvature-example-loxodrome}
+
+\input{../../modules/parametric-curves/components-of-acceleration}
+}
+
+% begin lecture
+\lect{\currentSemester}{Lecture 7}{7}{
+%DesiredLectureName: Multivariable_Functions
+\section{Functions of Several Variables}
+\input{../../modules/multivariable-functions/multivariable-functions-intro}
+\subsection{Verbal description}
+\input{../../modules/multivariable-functions/multivariable-functions-verbal-description}
+\subsection{Numerical description}
+\input{../../modules/multivariable-functions/multivariable-functions-numerical-description}
+\subsection{Analytical description}
+\input{../../modules/multivariable-functions/multivariable-functions-analytical-description}
+\section{Graphical descriptions}
+\subsection{Functions of two variables}
+\input{../../modules/multivariable-functions/multivariable-functions-graphical-description}
+\subsection{Slices and level curves}
+\input{../../modules/multivariable-functions/multivariable-functions-slices-and-level-curves}
+\subsection{Level sets}
+\input{../../modules/multivariable-functions/level-sets}
+\subsection{Vector Fields}
+\input{../../modules/multivariable-functions/vector-fields}
+%\input{../../modules/multivariable-functions/vector-fields-decomposition-wrt-other-vector-fields} %<- needs rewrite.
+}
+
+\lect{\currentSemester}{Lecture 8}{8}{
+%DesiredLectureName: Multivariable_Limits_and_Continuity
+\section{Limits of Functions of Several Variables}
+\input{../../modules/continuity-multivariable/limits-intro}
+\input{../../modules/continuity-multivariable/limit-example}
+\input{../../modules/continuity-multivariable/limit-definition}
+\input{../../modules/continuity-multivariable/infinite-limits-example}
+\input{../../modules/continuity-multivariable/directional-limits-def}
+\input{../../modules/continuity-multivariable/limit-non-existence-example}
+\input{../../modules/continuity-multivariable/directional-limits-and-one-variable-limits}
+\input{../../modules/continuity-multivariable/directional-limits-example}
+\input{../../modules/continuity-multivariable/limits-along-paths}
+\section{Continuity of Functions of Several Variables}
+\input{../../modules/continuity-multivariable/continuity}
+\input{../../modules/continuity-multivariable/continuity-vector-fields}
+\input{../../modules/continuity-multivariable/continuity-vector-fields-example}
+}
+
+\lect{\currentSemester}{Lecture 9}{9}{
+%DesiredLectureName: Partial_Derivatives_Differentiability_Differentials
+\section{Partial Derivatives}
+\input{../../modules/partial-derivatives/rate-of-change-example}
+\input{../../modules/partial-derivatives/rate-of-change-along-lines}
+\input{../../modules/partial-derivatives/directional-derivatives}
+\input{../../modules/partial-derivatives/partial-derivatives}
+\input{../../modules/partial-derivatives/partial-derivatives-notation}
+\input{../../modules/partial-derivatives/partial-derivatives-example}
+\input{../../modules/partial-derivatives/partial-derivatives-graphical-interpretation}
+\input{../../modules/partial-derivatives/partial-derivatives-higher-order}
+\input{../../modules/partial-derivatives/partial-derivatives-higher-order-example}
+\section{Linearizations}
+\input{../../modules/partial-derivatives/multivariable-function-linearizations}
+\section{Differentiability}
+\input{../../modules/partial-derivatives/differentiability}
+\input{../../modules/partial-derivatives/continuity-differentiability}
+\section{Differentials}
+\input{../../modules/partial-derivatives/total-differential}
+\input{../../modules/partial-derivatives/total-differential-and-linearization-example}
+}
+
+\lect{\currentSemester}{Lecture 10}{10}{
+%DesiredLectureName: Multivariable_Chain_Rule_Differential_Operators
+
+\section{Multivariable Chain Rule}
+\input{../../modules/chain-rule-multivariable/multivariable-chain-rule-motivation}
+\input{../../modules/chain-rule-multivariable/multivariable-chain-rule}
+\input{../../modules/chain-rule-multivariable/multivariable-chain-tree-diagrams}
+\input{../../modules/chain-rule-multivariable/multivariable-3-2-chain-rule}
+\input{../../modules/chain-rule-multivariable/multivariable-3-2-chain-rule-example-power-exponential}
+\section{Directional Derivatives via the Chain Rule }
+\input{../../modules/chain-rule-multivariable/directional-derivatives-via-chain-rule}
+\input{../../modules/chain-rule-multivariable/directional-derivatives-via-chain-rule-example}
+\section{Gradient}
+\input{../../modules/optimization-multivariable/gradient}
+\input{../../modules/optimization-multivariable/gradient-in-coordinates}
+\input{../../modules/chain-rule-multivariable/covariant-derivative}
+\input{../../modules/optimization-multivariable/gradient-in-polar}
+\input{../../modules/optimization-multivariable/gradient-in-polar-application}
+\input{../../modules/optimization-multivariable/gradient-and-gravity}
+\section{Differential Operators}
+\input{../../modules/chain-rule-multivariable/differential-operator-definition}
+\input{../../modules/chain-rule-multivariable/differential-operator-notation}
+\subsection{Differential Operators Variable Changes}
+\input{../../modules/chain-rule-multivariable/multivariable-3-2-chain-rule-example-derivatives-polar-coordinates}
+\input{../../modules/chain-rule-multivariable/partial-derivatives-in-polar-coordinates-part1}
+\input{../../modules/chain-rule-multivariable/partial-derivatives-in-polar-coordinates-part2}
+
+\input{../../modules/harmonic-functions/laplace-operator}
+\input{../../modules/harmonic-functions/harmonic-functions-definition}
+}
+
+\lect{\currentSemester}{Sample Lecture}{11}{
+%DesiredLectureName: Surfaces_Quadratic_Surfaces
+\begin{frame}
+\begin{center}
+\Large Please view this lecture in full screen mode. 
+
+Scroll down the slides (in full screen mode) to see a demo of the freecalc graphics and presentation.
+\end{center}
+\end{frame}
+\section{Surfaces}
+% % % % %\input{../../modules/surfaces/surfaces-intro} %<-needs a rewrite
+% % % % %\input{../../modules/surfaces/surfaces-parametrizations}<-needs a rewrite
+\input{../../modules/surfaces/implicit-equation-vs-explicit-parametrization}
+% % % % %\input{../../modules/surfaces/parametrized-surfaces}
+% % % % %\input{../../modules/surfaces/surfaces-example-plane-parametric-equation}
+% % % % %\input{../../modules/surfaces/surfaces-example-sphere-open-chart}
+% % % % %\input{../../modules/surfaces/level-surfaces-as-parametrized-surfaces}
+\subsection{Quadric Surfaces}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-intro}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-imaginary-spheres}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-ellipsoids-spheres}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-cone}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-hyperboloid-one-sheet}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-hyperboloid-two-sheets}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-paraboloid}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-hyperbolic-paraboloid}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-summary-form1}
+\input{../../modules/quadratic-surfaces/quadratic-surfaces-summary-form2}
+\section{Tangent Planes}
+\input{../../modules/surfaces/tangent-plane-intro}
+% % % % %\input{../../modules/surfaces/tangent-plane-definition}
+% % % % %\input{../../modules/surfaces/tangent-plane-example-1}
+\input{../../modules/surfaces/tangent-plane-to-graph-surface}
+%\input{../../modules/surfaces/tangent-plane-to-level-surface}
+% % % % % %WARNING
+% % % % % %the following slides need serious editing, are not ready for lecturing at the moment
+% % % % %\input{../../modules/surfaces/surfaces-of-revolution}
+% % % % %\input{../../modules/surfaces/surfaces-of-revolution-example-torus}
+% % % % %\input{../../modules/surfaces/tangent-plane-definition}
+\input{../../modules/chain-rule-multivariable/directional-derivatives-tangent-plane-def-justification}
+% % % % %\input{../../modules/surfaces/tangent-plane-example-1}
+% % % % %\input{../../modules/surfaces/regular-points-level-surface}
+% % % % %\input{../../modules/surfaces/tangent-plane-equation}
+% % % % %\input{../../modules/surfaces/tangent-plane-to-level-surface-example-1}
+% % % % %\input{../../modules/surfaces/tangent-planes-to-quadratic-surfaces}
+% % % % %\input{../../modules/surfaces/graph-and-level-surfaces}
+\input{../../modules/surfaces/is-level-surface-graph-of-function}
+% % %\input{../../modules/surfaces/is-level-surface-graph-of-function-example} % % % % %<-needs rewrite
+% % % % %\input{../../modules/surfaces/implicit-functions}
+% % % % %\input{../../modules/surfaces/implicit-functions-example-sphere}
+% % % % %\input{../../modules/surfaces/implicit-function-theorem}
+% % % % %\input{../../modules/surfaces/implicit-function-theorem-and-graph-surfaces}
+% % % % %\input{../../modules/surfaces/implicit-differentiation}
+% % % % %\input{../../modules/surfaces/implicit-differentiation-example-1}
+% % % % %\input{../../modules/surfaces/implicit-differentiation-and-tangent-plane-example-1}
+}
+
+\lect{\currentSemester}{Lecture 12}{12}{
+
+\section{Minima, Maxima}
+\input{../../modules/optimization-multivariable/maxima-minima-definitions}
+\input{../../modules/optimization-multivariable/critical-points}
+\input{../../modules/optimization-multivariable/critical-points-example}
+\input{../../modules/optimization-multivariable/second-derivative-test}
+\input{../../modules/optimization-multivariable/second-derivative-test-example}
+\input{../../modules/optimization-multivariable/second-derivative-test-example-distance-point-to-plane}
+\input{../../modules/optimization-multivariable/extreme-value-theorem}
+\input{../../modules/optimization-multivariable/second-derivative-test-example-box-no-lid-volume}
+\section{Lagrange Multipliers}
+% % % % %\input{../../modules/optimization-multivariable/lagrange-multipliers-intro-via-Cobb-Douglas-Function}<-needs rewrite
+% % % % %\input{../../modules/optimization-multivariable/lagrange-multipliers-intro-via-Cobb-Douglas-Function-part-2}
+% % % %<-needs rewrite %\input{../../modules/optimization-multivariable/lagrange-multipliers-intro-via-Cobb-Douglas-Function-part-3}<-needs rewrite
+\input{../../modules/optimization-multivariable/gradient-normal-to-level-curve}
+\input{../../modules/optimization-multivariable/lagrange-multipliers}
+% % % % %\input{../../modules/optimization-multivariable/lagrange-multipliers-remarks}<-needs rewrite
+\input{../../modules/optimization-multivariable/lagrange-multipliers-example-1}
+\input{../../modules/optimization-multivariable/lagrange-multipliers-example-box-no-lid-volume}
+%\input{../../modules/optimization-multivariable/lagrange-multipliers-least-squares-method} <-only a stub, needs to be written properly.
+\input{../../modules/optimization-multivariable/lagrange-multipliers-multiple-constraints}
+\input{../../modules/optimization-multivariable/lagrange-multipliers-multiple-constraints-example-1}
+}
+
+% begin lecture
+\lect{\currentSemester}{Lecture 13}{13}{
+\section{Double Integrals}
+\subsection{Riemann Sums, Double Integral Definition}
+\input{../../modules/integration-multivariable/integral-motivation-census-example}
+\input{../../modules/integration-multivariable/Riemann-sum-two-variables}
+\input{../../modules/integration-multivariable/double-integral-definitions}
+\input{../../modules/integration-multivariable/double-integral-midpoint-rule}
+\input{../../modules/integration-multivariable/double-integral-midpoint-rule-example}
+\subsection{Double integral properties}
+\input{../../modules/integration-multivariable/double-integral-theoretical-example-1}
+\input{../../modules/integration-multivariable/double-integral-properties}
+\input{../../modules/integration-multivariable/double-integral-applications-1}
+\input{../../modules/integration-multivariable/double-integral-mvt-area-limit}
+\input{../../modules/integration-multivariable/double-integral-vector-valued}
+\input{../../modules/integration-multivariable/double-integral-vector-valued-example-theoretical-1}
+\subsection{Iterated integrals}
+\input{../../modules/integration-multivariable/double-iterated-integrals}
+\input{../../modules/integration-multivariable/Fubini-theorem-double-integrals}
+\input{../../modules/integration-multivariable/double-iterated-integrals-example}
+\input{../../modules/integration-multivariable/double-integrals-regions-intro}
+\input{../../modules/integration-multivariable/double-integrals-curvilinear-trapezoids-base-vertical}
+\input{../../modules/integration-multivariable/double-integrals-curvilinear-trapezoids-base-horizontal}
+\input{../../modules/integration-multivariable/double-integrals-strategy}
+\input{../../modules/integration-multivariable/double-integrals-curvilinear-trapezoids-example-1}
+\input{../../modules/integration-multivariable/double-integrals-curvilinear-trapezoids-example-2}
+\input{../../modules/integration-multivariable/double-integrals-curvilinear-trapezoids-example-3}
+\input{../../modules/integration-multivariable/double-integrals-curvilinear-trapezoids-example-4}
+\input{../../modules/integration-multivariable/double-integrals-curvilinear-trapezoids-example-5}
+}
+
+\lect{\currentSemester}{Lecture 14}{14}{
+\section{Triple Integrals}
+\input{../../modules/integration-multivariable/triple-integrals-intro-density-mass}
+\input{../../modules/integration-multivariable/triple-integrals-def}
+\input{../../modules/integration-multivariable/triple-integrals-examples-theoretical-1}
+\input{../../modules/integration-multivariable/triple-iterated-integrals}
+\input{../../modules/integration-multivariable/triple-integrals-example-moment-rectangular-box}
+\input{../../modules/integration-multivariable/triple-integrals-example-volume-1-slices}
+\input{../../modules/integration-multivariable/triple-integrals-example-volume-1-rods}
+}
+
+\lect{\currentSemester}{Lecture 15, \alert<1->{Rough Draft}}{15}{
+\section{Parallelotopes}
+\input{../../modules/integration-multivariable-variable-change/parallelotope-definition}
+\input{../../modules/integration-multivariable-variable-change/k-volume-parallelotope-in-n-space-definition}
+\input{../../modules/integration-multivariable-variable-change/k-volume-naming-conventions}
+\input{../../modules/integration-multivariable-variable-change/volume-parallelotope-equals-integral-one}
+\input{../../modules/integration-multivariable-variable-change/volume-parallelotope}
+\input{../../modules/determinants/multiply-determinant-column-by-number}
+\input{../../modules/integration-multivariable-variable-change/segment-in-3-space-length-example-1}
+\input{../../modules/integration-multivariable-variable-change/segment-in-3-space-length-formula}
+\input{../../modules/integration-multivariable-variable-change/parallelogram-in-2-space-area-example-1}
+\input{../../modules/integration-multivariable-variable-change/parallelogram-in-2-space-area-formula}
+\input{../../modules/integration-multivariable-variable-change/parallelogram-in-3-space-area-example-1}
+\input{../../modules/integration-multivariable-variable-change/parallelogram-in-3-space-area-formula}
+\input{../../modules/integration-multivariable-variable-change/parallelepiped-volume-example-1}
+\input{../../modules/integration-multivariable-variable-change/parallelepiped-volume-formula}
+\section{Variable Changes in Multivariable Integrals}
+\input{../../modules/integration-multivariable-variable-change/variable-change-terminology}
+\input{../../modules/integration-multivariable-variable-change/variable-change-notation}
+\input{../../modules/integration-multivariable-variable-change/jacobian}
+\input{../../modules/integration-multivariable-variable-change/variable-change-motivation-part-1}
+\input{../../modules/integration-multivariable-variable-change/variable-change-motivation-part-2}
+\input{../../modules/integration-multivariable-variable-change/variable-change-motivation-part-3}
+\input{../../modules/integration-multivariable-variable-change/variable-change-motivation-part-4}
+\input{../../modules/integration-multivariable-variable-change/integral-variable-change} 
+\input{../../modules/integration-multivariable-variable-change/volume-of-ball}
+\input{../../modules/integration-multivariable-variable-change/volume-of-spherical-curvilinear-box}
+\input{../../modules/integration-multivariable-variable-change/volume-of-ellipsoid}
+\input{../../modules/integration-multivariable-variable-change/volume-of-toroid-part1}
+\input{../../modules/integration-multivariable-variable-change/volume-of-toroid-part2}
+\input{../../modules/integration-multivariable-variable-change/volume-of-toroid-part3}
+\input{../../modules/integration-multivariable-variable-change/volume-of-toroid-part4}
+\input{../../modules/integration-multivariable-variable-change/volume-of-raised-horn}
+
+\input{../../modules/integration-multivariable-variable-change/integral-variable-change-positivity-jacobian} 
+%\input{../../modules/integration-multivariable-variable-change/area-of-ellipse}
+}
+
+\lect{\currentSemester}{Lecture 16}{16}{%
+\section{Double Integrals in Polar Coordinates}
+\input{../../modules/integration-multivariable-variable-change/double-integrals-in-polar-coordinates} 
+\input{../../modules/integration-multivariable-variable-change/moment-inertia-2d-object-axis-in-same-plane} 
+\input{../../modules/integration-multivariable-variable-change/moment-inertia-annulus-axis-in-same-plane} 
+\input{../../modules/integration-multivariable-variable-change/use-of-polar-coordinates-in-double-integrals}
+\input{../../modules/integration-multivariable-variable-change/polar-coordinates-double-integral-example-1}
+\input{../../modules/integration-multivariable-variable-change/polar-coordinates-double-integral-improper-example-1}
+\section{Triple Integrals in Cylindrical Coordinates}
+\input{../../modules/integration-multivariable-variable-change/triple-integrals-in-cylindrical-coordinates} 
+\input{../../modules/integration-multivariable-variable-change/moment-inertia-cylindrical-coordinates} 
+\input{../../modules/integration-multivariable-variable-change/moment-inertia-cylindrical-shell} 
+\input{../../modules/integration-multivariable-variable-change/mass-center-regular-circular-cone} 
+\section{Triple Integrals in Spherical Coordinates}
+\input{../../modules/integration-multivariable-variable-change/triple-integrals-in-spherical-coordinates} 
+\input{../../modules/integration-multivariable-variable-change/triple-integrals-in-spherical-coordinates-example-centroid-half-ball}
+}
+
+\lect{\currentSemester}{Lecture 17 \alert<1->{Rough Draft}}{17}{%
+\section{Line integrals}
+\input{../../modules/integration-line-integrals/line-surface-integrals-intro}
+%%%%%\input{../../modules/integration-line-integrals/line-integral-intro} %<- needs a rewrite
+\input{../../modules/integration-line-integrals/line-integrals-Riemann-sums}
+\input{../../modules/integration-line-integrals/line-integral-definition}
+\input{../../modules/integration-line-integrals/line-integral-parametrization-and-computation}
+\input{../../modules/integration-line-integrals/line-integral-example-1}
+\subsection{Line Integral from Vector Field}
+\input{../../modules/integration-line-integrals/line-integral-from-vector-field}
+\input{../../modules/integration-line-integrals/line-integral-from-vector-field-parametrization-and-computation}
+\input{../../modules/integration-line-integrals/line-integral-from-vector-field-example-1}
+\subsection{Differential 1-forms}
+\input{../../modules/integration-line-integrals/differential-1-forms}
+\input{../../modules/integration-line-integrals/integrals-of-1-forms}
+\input{../../modules/integration-line-integrals/line-integrals-over-closed-path-notation}
+\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-darctanydivx}
+\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-dlnr}
+\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-darctanydivx-in-polar}
+\input{../../modules/integration-line-integrals/integral-of-1-form-example-1-dlnr-in-polar}
+
+\input{../../modules/integration-line-integrals/integral-of-1-form-inverse-square-distance-fields}
+\input{../../modules/integration-line-integrals/integral-of-1-form-independence-of-path-intro}
+\input{../../modules/integration-line-integrals/conservative-fields}
+\input{../../modules/integration-line-integrals/conservative-field-is-gradient-field}
+\input{../../modules/integration-line-integrals/conservative-field-criterion}
+\input{../../modules/integration-line-integrals/conservative-fields-simply-connected-regions}
+
+\input{../../modules/integration-line-integrals/conservative-field-find-potential-example-1}
+\input{../../modules/integration-line-integrals/exact-1-forms}
+}
+
+\lect{\currentSemester}{Lecture 18 \alert<1->{Rough Draft}}{18}{%
+% % % % % %\input{../../modules/integration-line-integrals/conservation-of-energy}<-needs a rewrite
+% % % % % %\input{../../modules/integration-line-integrals/vector-fields-2d-tangents-normals-intro}<-needs a rewrite
+
+% % % %\input{../../modules/integration-line-integrals/flux-and-divergence-2d}<-needs companion slides to be used
+
+% % % %\input{../../modules/integration-line-integrals/circulation-and-curl-2d}<-needs companion slides to be used
+
+% % % % % % % %\input{../../modules/integration-line-integrals/curl-and-divergence-2d-in-coordinates} %<-needs a rewrite
+\section{Orientation in 2D}
+\input{../../modules/integration-line-integrals/curve-orientation}
+\input{../../modules/integration-line-integrals/orientation-of-2d-space}
+\input{../../modules/integration-line-integrals/orientation-of-2d-space-and-clock-direction}
+\input{../../modules/integration-line-integrals/closed-curve-orientation-2d}
+\section{Green's Theorem}
+\input{../../modules/integration-line-integrals/greens-theorem}
+\input{../../modules/integration-line-integrals/greens-theorem-proof-part1}
+\input{../../modules/integration-line-integrals/greens-theorem-proof-part2}
+\input{../../modules/integration-line-integrals/greens-theorem-proof-part3}
+\input{../../modules/integration-line-integrals/areas-and-greens-theorem}
+\input{../../modules/integration-line-integrals/areas-and-greens-theorem-example-1}
+% % %\input{../../modules/integration-line-integrals/line-integrals-via-double-integrals-example1}<-needs a rewrite
+\input{../../modules/integration-line-integrals/line-integrals-via-double-integrals-example2}
+\input{../../modules/integration-line-integrals/greens-theorem-to-integrate-darctanydivx-part1}
+\input{../../modules/integration-line-integrals/greens-theorem-to-integrate-darctanydivx-part2}
+% % % % % %%\input{../../modules/integration-line-integrals/divergence-and-curl-2d}
+% % % % % %%%\input{../../modules/integration-line-integrals/divergence-2d-interpretation}
+% % % % % %%\input{../../modules/integration-line-integrals/curl-2d-interpretation}
+% % % % % %%\input{../../modules/integration-line-integrals/curl-divergence-2d-polar}
+% % % % % %%\input{../../modules/integration-line-integrals/curl-2d-example-rotational-field}
+% % % % % %%\input{../../modules/integration-line-integrals/curl-2d-example-inverse-distance-square-field}
+% % % % % %%\input{../../modules/integration-line-integrals/average-value-over-2d-region}
+% % % % % %%\input{../../modules/integration-line-integrals/centroids-mass-centers-2d-regions}
+}
+
+\lect{\currentSemester}{Lecture 19 \alert<1->{Rough Draft}}{19}{
+\section{Surface Integrals}
+\input{../../modules/integration-surface-integrals/surface-integrals-intro}
+\input{../../modules/vectors/magnitude-cross-product-and-gramm-determinants}
+\subsection{Surface area}
+\input{../../modules/integration-surface-integrals/surface-area}
+\input{../../modules/integration-surface-integrals/surface-area-graph-surface}
+\input{../../modules/integration-surface-integrals/surface-area-surface-of-revolution}
+\input{../../modules/integration-surface-integrals/pappus-first-centroid-theorem}
+\input{../../modules/integration-surface-integrals/surface-area-surface-of-revolution-example-torus}
+\input{../../modules/integration-surface-integrals/surface-area-surface-of-revolution-example-sphere}
+\input{../../modules/integration-surface-integrals/surface-integral-definition}
+\input{../../modules/integration-surface-integrals/surface-integral-example-hemisphere-centroid}
+
+%\input{../../modules/integration-surface-integrals/vector-valued-surface-integrals}<-needs rewrite
+%\input{../../modules/integration-surface-integrals/vector-fields-in-space-geometric-intro}<-needs rewrite
+\input{../../modules/integration-surface-integrals/surface-orientation}
+
+\subsection{Flux and Divergence}
+\input{../../modules/integration-surface-integrals/flux}
+\input{../../modules/integration-surface-integrals/divergence}
+\input{../../modules/integration-surface-integrals/flux-and-divergence}
+\input{../../modules/integration-surface-integrals/flux-computation}
+\input{../../modules/integration-surface-integrals/flux-example-1}
+\input{../../modules/integration-surface-integrals/flux-example-2}
+}
+
+\lect{\currentSemester}{Lecture 20 \alert<1->{Rough Draft}}{20}{
+\section{Divergence Theorem}
+\input{../../modules/integration-surface-integrals/divergence-theorem}
+\input{../../modules/integration-surface-integrals/divergence-theorem-example-1}
+\input{../../modules/integration-surface-integrals/divergence-theorem-application-balloon-pressure}
+\input{../../modules/integration-surface-integrals/divergence-theorem-archimedes-law}
+%\input{../../modules/integration-surface-integrals/rotational-effect}<-needs a rewrite
+%\input{../../modules/integration-surface-integrals/vector-field-components} %<-needs a rewrite
+%\input{../../modules/integration-surface-integrals/induced-orientation-and-curl}
+%<-needs a rewrite
+\input{../../modules/integration-surface-integrals/curl-definition-in-coordinate-form}
+
+\input{../../modules/integration-surface-integrals/induced-orientation-boundary-curve}
+\input{../../modules/integration-surface-integrals/induced-orientation-boundary-curve-example-hemisphere}
+%\input{../../modules/integration-surface-integrals/coordinate-computation-of-curl-from-coordinate-free-definition}
+%<-needs a rewrite
+\input{../../modules/integration-surface-integrals/stokes-theorem}
+%\input{../../modules/integration-surface-integrals/stokes-theorem-corollaries}<-needs a rewrite
+\input{../../modules/integration-surface-integrals/stokes-theorem-applications}
+\input{../../modules/integration-surface-integrals/stokes-theorem-example-line-via-surface-integral-1}
+\input{../../modules/integration-surface-integrals/vector-potential}
+\input{../../modules/integration-surface-integrals/stokes-theorem-example-surface-via-line-integral-1}
+\input{../../modules/integration-surface-integrals/div-curl-grad}
+%\input{../../modules/integration-surface-integrals/unifying-theme-rough-draft}<-needs a rewrite
+}
+
+
+\end{document}
