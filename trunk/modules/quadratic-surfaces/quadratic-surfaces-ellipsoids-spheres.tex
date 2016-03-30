@@ -8,20 +8,19 @@ $\mathcal C =\{(x,y,z) |Ax^2+By^2+Cz^2+D=0 \}$.
 \begin{columns} 
 \column{0.4\textwidth}
 \psset{xunit=0.5cm, yunit=0.5cm}
-\begin{pspicture}(-3,-2)(2.5, 2)%
+\begin{pspicture}(-3,-2)(2.5, 2.7)%
 \tiny%
 \fcBoundingBox{-3}{-2}{2.5}{2.3}%
-\only<18->{%
+
 \fcStartIIIdScene%
-\fcEllipsoidInScene[linecolor=red, iterationsU=7, iterationsV=14]{0 0 0 2 sqrt 3 sqrt 2}%
-\fcFinishIIIdScene%
-}%
-\fcAxesIIId{3}{3}{3}%
-\uncover<9->{\fcDotIIId{[0 0 -2]}}%
-\uncover<11->{\fcCurveIIId[linecolor=red]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul -1]}}%
-\uncover<13->{\fcCurveIIId[linecolor=red]{0}{360}{[2 sqrt t cos mul 3 sqrt t sin mul 0]}}%
-\uncover<15->{\fcCurveIIId[linecolor=red]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul 1]}}%
-\uncover<17->{\fcDotIIId{[0 0 2]}}%
+\only<18->{\fcEllipsoidInScene[linecolor=red, iterationsU=7, iterationsV=14, linewidth=0.4]{0 0 0 2 sqrt 3 sqrt 2}}%
+\only<11->{\fcCurveIIIdInScene[linecolor=blue, linewidth=1]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul -1]}}%
+\only<13->{\fcCurveIIIdInScene[linecolor=blue, linewidth=1]{0}{360}{[2 sqrt t cos mul 3 sqrt t sin mul 0]}}%
+\only<15->{\fcCurveIIIdInScene[linecolor=blue, linewidth=1]{0}{360}{[3 2 div sqrt t cos mul 1.5 t sin mul 1]}}%
+\fcAxesIIIdInScene{3}{3}{3}%
+\fcFinishIIIdScene[true]%
+\uncover<9->{\fcDotIIId[linecolor=blue]{[0 0 -2]}}%
+\uncover<17->{\fcDotIIId[linecolor=blue]{[0 0 2]}}%
 \end{pspicture}
 
 \psset{xunit=0.4cm, yunit=0.4cm}
@@ -29,15 +28,15 @@ $\mathcal C =\{(x,y,z) |Ax^2+By^2+Cz^2+D=0 \}$.
 \tiny
 \fcAxesStandard{-3}{-3}{3}{3}
 \fcLabels[$x$][$y$]{3}{3}%
-\uncover<9,17>{\fcFullDot{0}{0}}
-\uncover<11>{ \parametricplot[linecolor=red]{0}{360}{3 2 div sqrt t cos mul 1.5 t sin mul }}
-\uncover<13>{ \parametricplot[linecolor=red]{0}{360}{2 sqrt t cos mul 3 sqrt t sin mul }}
-\uncover<15>{ \parametricplot[linecolor=red]{0}{360}{3 2 div sqrt t cos mul 1.5 t sin mul }}
+\uncover<9,17>{\fcFullDot[linecolor=blue]{0}{0}}
+\uncover<11>{ \parametricplot[linecolor=blue]{0}{360}{3 2 div sqrt t cos mul 1.5 t sin mul }}
+\uncover<13>{ \parametricplot[linecolor=blue]{0}{360}{2 sqrt t cos mul 3 sqrt t sin mul }}
+\uncover<15>{ \parametricplot[linecolor=blue]{0}{360}{3 2 div sqrt t cos mul 1.5 t sin mul }}
 \end{pspicture}
 
 $
 \begin{array}{rl}
-z&\alert<0>{=}\vphantom{\frac{3}{4}} \parbox{1cm}{ \only<6,7>{\alert<6,7>{ -3}} \only<8,9>{\alert<8,9>{-2} }} \only<10,11>{\alert<10,11>{-1}} \only<12,13>{\alert<12,13>{0}} \only<14,15>{\alert<14,15>{1}} \only<16,17>{\alert<16,17>{2}}\\
+z&\alert<0>{=}\vphantom{\frac{3}{4}}  \only<6,7>{\alert<6,7>{ -3}} \only<8,9>{\alert<8,9>{-2} } \only<10,11>{\alert<10,11>{-1}} \only<12,13>{\alert<12,13>{0}} \only<14,15>{\alert<14,15>{1}} \only<16,17>{\alert<16,17>{2}}\\
 \frac{1}{2}x^2+\frac{1}{3}y^2&\alert<0>{ =} 1-\frac{z^2}{4}\\
 & \uncover<6-17>{\alert<6-17>{=}} \vphantom{\frac{3}{4}} \only<7>{\alert<7>{ -\frac{5}{4}} } \only<9>{\alert<9>{0}} \only<11>{\alert<11>{\frac{3}{4}}} \only<13>{\alert<13>{1}} \only<15>{\alert<15>{\frac{3}{4}}} \only<17>{\alert<17>{0}} \end{array}$ 
 
