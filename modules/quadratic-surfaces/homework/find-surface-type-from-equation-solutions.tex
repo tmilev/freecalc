@@ -8,5 +8,28 @@ We have that
 \displaystyle z^2+ 2\left(y+\frac{1}{4}\right)^2 &=&\displaystyle 3\left(x-\frac{1}{6} \right)^2-\frac{23}{24}
 \end{array}
 \]
-This figure is given by sum of two squares equal to a square minus a positive number. That makes is a hyperboloid one sheet, as explained in the theoretical discussions.
+This figure is given by sum of two squares equal to a square minus a positive number. That makes is a hyperboloid two sheet, as explained in the theoretical discussions.
+\begin{pspicture}(-3, -3)(3,3)
+\pstVerb{20 dict begin
+/coeffZ 1 def
+/coeffY 2 def
+/coeffX 3 def
+/xFun {v} def
+/rightSide {xFun 1 6 div sub dup mul 3 mul 23 24 div sub} def
+/xTipTop {23 24 div coeffX div sqrt 1 6 div add} def
+/xTipBottom {23 24 div coeffX div sqrt -1 mul 1 6 div add} def
+/yFun { u sin 1 4 div sub coeffY sqrt div  rightSide sqrt mul} def
+/zFun { u cos coeffZ sqrt div  rightSide sqrt mul} def
+}
+\renewcommand{\fcScreen}{[-0.3 2 -0.75] -1\space}
+\fcStartIIIdScene
+\fcAxesIIIdFullInScene{-3}{-3}{-3}{3}{3}{3}
+\fcSurfaceInScene[arrows=(none), iterationsV=4, iterationsU=18]{0}{3}{360}{xTipTop 0.004 add}{[xFun yFun zFun]}{}
+\fcSurfaceInScene[arrows=(none), iterationsV=4, iterationsU=18]{0}{xTipBottom 0.004 sub}{360}{-3 1 3 div add}{[xFun yFun zFun]}{}
+\fcFinishIIIdScene[true]
+\fcPutIIId{[3.2 0 0]}{$x$}
+\fcPutIIId{[0 3.2 0]}{$y$}
+\fcPutIIId{[0 0 3.2]}{$z$}
+\pstVerb{end}
+\end{pspicture}
 }
