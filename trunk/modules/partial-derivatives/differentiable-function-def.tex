@@ -1,0 +1,32 @@
+\begin{frame}
+\frametitle{Multivariable Differentiability Definition}
+
+\begin{itemize}
+\item Let $(x_0,y_0)$ be a fixed point and $a$ and $b$ be arbitrary numbers.
+\item Define $\varepsilon_{f, a, b}(x,y) = f(x,y)- f(x_0,y_0)-a (x-x_0) -b(y-y_0)$.
+\item $\varepsilon_{f, a, b}$ measures how well does $f(x_0,y_0)+a(x-x_0)+b(y-y_0)$ approximate $f$.
+\end{itemize}
+For the particular case:
+$
+\begin{array}{@{}r@{}c@{}l@{}}
+a&=&\frac{\partial f}{\partial x}(x_0,y_0) \\
+b&=&\frac{\partial f}{\partial y}(x_0,y_0)\\
+\multicolumn{3}{l}{\text{we have that}}\\
+\varepsilon_{f, a, b}(x,y) &=& f(x,y)- f(x_0,y_0)-\frac{\partial f}{\partial x}(x_0,y_0) (x-x_0) -\frac{\partial f}{\partial x}(x_0,y_0)(y-y_0).
+\end{array}
+$
+
+ 
+\begin{definition}
+$f$ is called \emph{differentiable at $(x_0,y_0)$} if there exist $a$ and $b$ such that \[\lim_{(x,y)\to (0,0)}  \frac{\varepsilon_{f, a, b} (x,y)}{|(x-x_0, y-y_0)|}=0 \]
+\end{definition}
+\begin{observation}
+If a function $f$ is differentiable, then the numbers $a$
+\end{observation}
+
+\pause Example: $f(x,y) = x^2+xy+2y^2$ is differentiable at $(4,1)$.
+
+\medskip
+
+\pause \underline{Fact}: If $f$ has a good linear approximation at $(x_0,y_0)$, then the good linear approximation is necessarily the linearization of $f$ at $(x_0,y_0)$.
+\end{frame}
