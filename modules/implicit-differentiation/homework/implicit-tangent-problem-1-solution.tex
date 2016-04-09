@@ -1,0 +1,44 @@
+\solution{\ref{problemImplicitTangentysin(2x)=xcos(2y)point(pi/2,pi/4)}
+
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-2,-2)(2,2)
+\fcAxesStandard{-5.5}{-5.5}{5.5}{5.5}
+\fcLabels{5.5}{5.5}
+\fcXTickWithLabel{1}{$1$}
+\fcImplicitIId[linestyle=solid, linecolor=red, linewidth-=0.05, showGridImplicitIId=false]{-5}{-5}{1000}{1000}{0.01}{0.01}{2 x mul 180 mul 3.141592654 div sin y mul 2 y mul 180 mul 3.141592654 div cos x mul sub} 
+
+\psline[linecolor=blue](-5,-2.5)(5,2.5)
+\fcFullDot[linecolor=blue]{3.141592654 2 div}{3.141592654 4 div}
+\end{pspicture}
+
+
+First we verify that the point $\displaystyle (x,y)=\left(\frac{\pi}{2}, \frac{\pi}{4}\right)$ indeed satisfies the given equation:
+
+\[
+\begin{array}{rcll|l}
+\displaystyle y \sin (2x)_{|x=\frac{\pi}{2}, y=\frac{\pi}{4}}= \frac{\pi}{4}\sin \pi &=& \displaystyle 0 && \text{left hand side}\\
+\displaystyle x \cos (2y)_{|x=\frac{\pi}{2}, y=\frac{\pi}{4}}= \frac{\pi}{2}\cos \left(\frac{\pi}{2} \right)&=&\displaystyle 0 && \text{right hand side}\\
+\end{array}
+\]
+so the two sides of the equation are equal (both to $0$) when $x=\frac{\pi}{2}$ and $y=\frac{\pi}{4}$.
+
+Since we are looking an equation of the tangent line, we need to find  $\frac{\diff y}{\diff x}_{|x=\frac{\pi}{2}, y= \frac{\pi}{4}}$ - that is, the derivative of $y$ at the point $x=\frac{\pi}{2}$, $y= \frac{\pi}{4}$. To do so we use implicit differentiation.
+\[
+\begin{array}{rcll|l}
+\displaystyle y \sin (2x)&=&\displaystyle x\cos (2y)&&\frac{\diff }{\diff x}\\
+\displaystyle \frac{\diff y}{\diff x} \sin (2x) +y \frac{\diff }{\diff x}\left(\sin (2x)\right)&=&\displaystyle  \cos (2y)+x\frac{\diff }{\diff x}(\cos (2y))\\
+\displaystyle \frac{\diff y}{\diff x}\sin (2x)+2y\cos (2x)&= & \displaystyle \cos (2y)-2x \sin (2y) \frac{\diff y}{\diff x}\\
+\displaystyle \frac{\diff y}{\diff x}(\sin (2x)+2x\sin (2y))&=&\displaystyle \cos (2y)-2y\cos (2x)&& \text{Set }x=\frac{ \pi}{2}, y=\frac{\pi}{4}\\
+\displaystyle \frac{\diff y}{\diff x}_{|x=\frac{\pi}{2}, y=\frac{\pi}{4}} \left(\sin \pi+\pi \sin \left(\frac{\pi}{2}\right)\right)&=& \displaystyle \cos \left(\frac{\pi}{2}\right)-\frac{\pi}{2}\cos \pi\\
+\displaystyle \pi \frac{\diff y}{\diff x}_{|x=\frac{\pi}{2}, y=\frac{\pi}{4}} &=& -\frac{\pi}{2}\cos \pi\\
+\displaystyle \frac{\diff y}{\diff x}_{|x=\frac{\pi}{2}, y=\frac{\pi}{4}}&=& \displaystyle \frac{1}{2}.
+\end{array}
+\]
+Therefore the equation of the line through $x=\frac{\pi}{2}, y=\frac{\pi}{4}$ is 
+\[
+\begin{array}{rcl}
+\displaystyle y-\frac{\pi}{4}&=&\displaystyle \frac{1}{2}\left( x-\frac{\pi}{2} \right)\\
+y&=&\displaystyle \frac{1}{2} x .
+\end{array}
+\]
+}
