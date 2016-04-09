@@ -1,0 +1,22 @@
+ \label{problemSketchCurve(2x^2-5x+9/2)/(x^2-3 x+3)} $\displaystyle f(x)=\frac{2 x^{2}-5 x+\frac{9}{2}}{x^{2}-3 x+3}$
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-5, -5)(5,5)
+\psframe*[linecolor=white](-5,-5)(5,5)
+\tiny
+\psaxes[ticks=none, labels=none]{<->}(0,0) (-5,-0.5) (5, 3.5)
+\fcLabels{5}{3.5}
+%Function formula: \frac{2 x^{2}-5 x+9/2}{x^{2}-3 x+3}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-5}{5 } {4.5 x -5 mul add x 2 exp 2 mul add 3 x -3 mul add x 2 exp add div }
+\end{pspicture}
+
+\answer{
+\begin{tabular}{l}
+$y$-intercept: $\frac32$\\
+horizontal asymptote: $y=2$, vertical: none\\
+increasing on
+$\left(\frac{3-\sqrt{3}}2, \frac{3+ \sqrt{3}}2 \right) $, decreasing on $\left(-\infty, \frac{3-\sqrt{3}}2\right)\cup \left(\frac{3+\sqrt{3}}2, \infty\right) $\\
+local and global min at $x=\frac{3-\sqrt{3}}2$, local and global max at $x=\frac{3+\sqrt{3}}2$\\
+concave up on $\left(0, \frac32\right)\cup \left(3, \infty \right)$, concave down $\left(-\infty, 0\right)\cup \left(\frac32, 3\right)$\\
+inflection points at $x=0,x=\frac32, x=3$
+\end{tabular}
+}
