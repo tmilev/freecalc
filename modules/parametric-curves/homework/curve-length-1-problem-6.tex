@@ -1,0 +1,17 @@
+One arch of the cycloid 
+\[
+\gamma: \left|\begin{array}{rcl}
+x(t)&=& t-\sin t  \\
+y(t)&=&1-\cos t \\
+\end{array} \right., t\in[0,2\pi]
+\]
+
+\begin{pspicture}(-0.5,-0.5)(8.1,2.1)
+\pstVerb{5 dict begin /pi 3.141592654 def}
+\fcAxesStandard{-0.5}{-0.5}{7}{2}
+\fcLabels{7}{2}
+\parametricplot[linecolor=red]{0}{360}{t 180 div pi mul t sin sub 1 t cos sub}
+\pstVerb{end}
+\end{pspicture}
+
+\answer{$L=8$}
