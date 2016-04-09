@@ -1,0 +1,18 @@
+The cardioid
+
+\[
+\gamma: \left|\begin{array}{rcl}
+x(t)&=&(1+\sin t)\cos t  \\
+y(t)&=&(1+\sin t)\sin t \\
+\end{array} \right., t\in[0,2\pi]
+\]
+
+\begin{pspicture}(-2,-1.1)(2,2.4)
+\pstVerb{5 dict begin /pi 3.141592654 def}
+\fcAxesStandard{-1.8}{-1}{1.8}{2.3}
+\fcLabels{1.8}{2.3}
+\parametricplot[linecolor=red]{0}{360}{t sin 1 add t cos mul t sin 1 add t sin mul}
+\pstVerb{end}
+\end{pspicture}
+
+\answer{$L=8$}
