@@ -11,9 +11,9 @@
 \fcStartIIIdScene%
 \fcAxesIIIdFullInScene{-0.5}{-0.5}{-0.5}{3}{3}{4.5}%
 \only<1>{%
-\fcSurfaceInScene[arrows=(none), linecolor=blue, colorUV=blue]{0}{0}{2}{2}{[2 dict begin /x u def /y v def x y  \theFun end]}{}%
-\fcSurfaceInScene[arrows=(none), linecolor=blue, colorUV=blue, iterationsU=1, iterationsV=1]{0}{0}{2}{1}{[2 dict begin /x 2 def /y u def x y  \theFun v mul end]}{}%
-\fcSurfaceInScene[arrows=(none), linecolor=blue, colorUV=blue, iterationsU=1, iterationsV=1]{0}{0}{1}{2}{[2 dict begin /x v def /y 2 def x y  \theFun u mul end]}{}%
+\fcSurfaceInScene[arrows=(none), linecolor=cyan, colorUV=cyan, iterationsU=4, iterationsV=4]{0}{0}{2}{2}{[2 dict begin /x u def /y v def x y  \theFun end]}{}%
+\fcSurfaceInScene[arrows=(none), linecolor=black, colorUV=cyan, iterationsU=1, iterationsV=1]{0}{0}{2}{1}{[2 dict begin /x 2 def /y u def x y  \theFun v mul end]}{}%
+\fcSurfaceInScene[arrows=(none), linecolor=black, colorUV=cyan, iterationsU=1, iterationsV=1]{0}{0}{1}{2}{[2 dict begin /x v def /y 2 def x y  \theFun u mul end]}{}%
 }%
 \fcFinishIIIdScene[true]%
 \only<2->{%
@@ -37,27 +37,27 @@
 \only<9>{%
 \fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{1.6}{2}{2}{5}{1}{\theFun}%
 }%
-}%
-\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x t def /y 0 def x y  \theFun end]}%
-\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x t def /y 2 def x y  \theFun end]}%
-\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x 0 def /y t def x y  \theFun end]}%
-\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x 2 def /y t def x y  \theFun end]}%
 \fcPolyLineIIId{[2 0 2] [2 0 0] [2 2 0] [0 2 0] [0 2 2] }%
+}%
+\fcCurveIIId[arrows=(none), linecolor=black, forceForeground=true]{0}{2}{ [2 dict begin /x t def /y 0 def x y  \theFun end]}%
+\fcCurveIIId[arrows=(none), linecolor=black, forceForeground=true]{0}{2}{ [2 dict begin /x t def /y 2 def x y  \theFun end]}%
+\fcCurveIIId[arrows=(none), linecolor=black, forceForeground=true]{0}{2}{ [2 dict begin /x 0 def /y t def x y  \theFun end]}%
+\fcCurveIIId[arrows=(none), linecolor=black, forceForeground=true]{0}{2}{ [2 dict begin /x 2 def /y t def x y  \theFun end]}%
 \end{pspicture}
 \column{0.75\textwidth}
 \[
 \begin{array}{rcl}
-\displaystyle \iint\limits_{[a,b] \times [c,d]} f(x,y)  \diff x  \diff y &\uncover<2->{\alert<2>{\approx}}&\displaystyle \uncover<2->{ \alert<2>{ \alert<3>{ \sum_{1 \leq i ,j \leq n}}  f ( x_i,y_j)   \Delta x  \Delta y }} \\
-&\uncover<3->{=}&\displaystyle  \uncover<3->{\alert<3,5-9>{ \sum \limits_{ j = 1 }^n } \left( \alert<4,10,11>{ \alert<3>{\sum_{i=1}^n} f(x_i,y_j) \Delta x  } \right) \Delta y}\; .
+\displaystyle \iint\limits_{[a,b] \times [c,d]} f(x,y)  \diff x  \diff y &\uncover<2->{\alertNoH{2}{\approx}}&\displaystyle \uncover<2->{ \alertNoH{2}{ \alertNoH{3}{ \sum_{1 \leq i ,j \leq n}}  f ( x_i,y_j)   \Delta x  \Delta y }} \\
+&\uncover<3->{=}&\displaystyle  \uncover<3->{\alertNoH{3,5-9}{ \sum \limits_{ j = 1 }^n } \left( \alertNoH{4,10,11}{ \alertNoH{3}{\sum_{i=1}^n} f(x_i,y_j) \Delta x  } \right) \Delta y}\; .
 \end{array}
 \]
 \end{columns}
-\uncover<10->{ The $j^{th}$ summand is a Riemann sum for $\displaystyle \alert<10,11>{ g(y_j) = \int_{x=a}^{x=b} f(x,y_j) \diff x }\quad.$}
+\uncover<10->{ The $j^{th}$ summand is a Riemann sum for $\displaystyle \alertNoH{10,11}{ g(y_j) = \int_{x=a}^{x=b} f(x,y_j) \diff x }\quad.$}
 \[
 \begin{array}{r@{~}c@{~}l}
-\uncover<11->{\displaystyle \alert<14>{\sum_{j=1}^n}\left( \alert<11>{\alert<14>{\sum_{i=1}^n} f(x_i,y_j) \alert<14>{\Delta x}} \right) \alert<14>{\Delta y}} &\uncover<11->{\approx}&\displaystyle  \uncover<11->{ \alert<15>{\sum_{j=1}^n} \alert<11>{ g(y_j)} \alert<15>{\Delta y}} \uncover<11->{\alert<11>{\approx \int_{y=c}^{y=d} \alert<16>{ g(y)}  \diff y}}
+\uncover<11->{\displaystyle \alertNoH{14}{\sum_{j=1}^n}\left( \alertNoH{11}{\alertNoH{14}{\sum_{i=1}^n} f(x_i,y_j) \alertNoH{14}{\Delta x}} \right) \alertNoH{14}{\Delta y}} &\uncover<11->{\approx}&\displaystyle  \uncover<11->{ \alertNoH{15}{\sum_{j=1}^n} \alertNoH{11}{ g(y_j)} \alertNoH{15}{\Delta y}} \uncover<11->{\alertNoH{11}{\approx \int_{y=c}^{y=d} \alertNoH{16}{ g(y)}  \diff y}}
 \\
-\uncover<13->{ \displaystyle \alert<14>{ \iint\limits_{[a,b] \times [c,d]}} f(x,y)  \alert<14>{\diff x \diff y }&=& \displaystyle  \alert<15>{\int\limits_{y=c}^{y=d}} g(y) \alert<15>{ \diff y }= \int\limits_{y=c}^{y=d} \left( \alert<16>{\int\limits_{x=a}^{x=b} f(x,y)  \diff x} \right)  \diff y}
+\uncover<13->{ \displaystyle \alertNoH{14}{ \iint\limits_{[a,b] \times [c,d]}} f(x,y)  \alertNoH{14}{\diff x \diff y }&=& \displaystyle  \alertNoH{15}{\int\limits_{y=c}^{y=d}} g(y) \alertNoH{15}{ \diff y }= \int\limits_{y=c}^{y=d} \left( \alertNoH{16}{\int\limits_{x=a}^{x=b} f(x,y)  \diff x} \right)  \diff y}
 \end{array}
 \]
 \end{frame}

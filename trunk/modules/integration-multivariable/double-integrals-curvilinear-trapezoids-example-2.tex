@@ -7,7 +7,7 @@
 \tiny
 \fcBoundingBox{-2.9}{-1.3}{6.7}{5.6}
 \renewcommand{\fcScreen}{[-1 2 -3] 0}
-\pstVerb{3 dict begin 
+\pstVerb{3 dict begin
 /xLow {y y mul 6 sub 2 div} def
 /xHigh {y 1 add} def
 /fun {x y mul 4 div 2 add} def
@@ -58,21 +58,21 @@
 }%
 \uncover<5->{%
 \parametricplot{-4.3}{4.3}{t t mul 6 sub 2 div t}%
-\rput[b](4,-3){$\alert<17>{y^2=2x+6}$}%
+\rput[b](4,-3){$\alertNoH{17}{y^2=2x+6}$}%
 }
 \uncover<3->{%
 \psline(-3, -4)(5.5,4.5 )%
-\rput[l](3,1.5){$\alert<17>{y=x-1}$}%
+\rput[l](3,1.5){$\alertNoH{17}{y=x-1}$}%
 }%
 \fcAxesStandardNoFrame{-3.7}{-4.5}{6.3}{4.5}
 \fcLabels{6.3}{4.5}
 \uncover<10->{%
 \fcFullDot{-1}{-2}%
-%\rput[tl](-1.4, -2.4){$\alert<10>{(-1,-2)}$}
+%\rput[tl](-1.4, -2.4){$\alertNoH{10}{(-1,-2)}$}
 }%
 \uncover<12->{%
 \fcFullDot{5}{4}%
-\rput[lt](4.5, 3.5){$\alert<12>{(5,4)}$}
+\rput[lt](4.5, 3.5){$\alertNoH{12}{(5,4)}$}
 }%
 \uncover<15->{%
 \psline[linewidth=1.5pt, linecolor=red, arrows=<->](0,-2)(0,4)%
@@ -87,13 +87,13 @@
 \end{pspicture}
 
 \column{0.4\textwidth}
-Let $\mathcal{R}$ be the region bounded by $\alert<8,17>{y=x-1}$ and $\alert<8,17>{y^2=2x+6}$. Compute 
-\[ 
+Let $\mathcal{R}$ be the region bounded by $\alertNoH{8,17}{y=x-1}$ and $\alertNoH{8,17}{y^2=2x+6}$. Compute
+\[
 \iint_{\mathcal{R}}\left(2+\frac{1}{4}xy \right) \diff x \diff y.
 \]
 \end{columns}
 \only<handout:1|1-18>{%
-\fcQuestion{2}{Plot $x-1$.} \fcQuestion{4}{Plot $y^2=2x+6$.} \uncover<6->{\alert<6>{Identify the region.}} \fcQuestion{7}{The two curves intersect when} \fcAnswer{8}{$
+\fcQuestion{2}{Plot $x-1$.} \fcQuestion{4}{Plot $y^2=2x+6$.} \uncover<6->{\alertNoH{6}{Identify the region.}} \fcQuestion{7}{The two curves intersect when} \fcAnswer{8}{$
 \begin{array}{rcl}
 (x-1)^2&=&2x+6 \\
 x^2-2x+1&=&2x+6\\
@@ -102,18 +102,18 @@ x&=& -1 \text{ or } 5 .
 \end{array}
 $}
 
-\uncover<9->{\alert<9,10,11,12>{The two intersection points are $(-1, \fcAnswer{10}{\alert<15>{-2}})$ and $(5, \fcAnswer{12}{\alert<15>{4}})$.}} \uncover<13->{The function can be plotted as above.} \uncover<14->{The integral becomes:}
+\uncover<9->{\alertNoH{9,10,11,12}{The two intersection points are $(-1, \fcAnswer{10}{\alertNoH{15}{-2}})$ and $(5, \fcAnswer{12}{\alertNoH{15}{4}})$.}} \uncover<13->{The function can be plotted as above.} \uncover<14->{The integral becomes:}
 }%only<1-18>
 
 \uncover<14->{%
 $
 \begin{array}{r@{~}c@{~}l}
 \displaystyle
-\alert<18,19>{\int_{{\fcQuestion{14}{y=} \fcAnswer{15}{-2}} }^{{ \fcQuestion{14}{y=} \fcAnswer{15}{4} }} {\alert<20,21>{\int}}_{{ \fcQuestion{16}{x=} \fcAnswer{17}{ \frac{y^2-6}{2}}} }^{{ \fcQuestion{16}{x=} \fcAnswer{17}{y+1} }} \alert<20,21>{ \left(2 + \frac{1}{4}xy \right)} \alert<20,21>{\diff x} \diff y} \uncover<handout:2| 20->{ &=&\displaystyle \int_{y=-2}^{y=4} {\left[ \fcAnswer{21}{\alert<22,23>{2x+ \frac{x^2y}{8}}} \right]}_{\alert<22,23>{x=\frac{y^2-6}{2}} }^{\alert<22,23>{x=y+1}} \diff y }\\
-\uncover<handout:2|22->{&=&\displaystyle {\alert<24,25>{\int}}_{y =- 2 }^{ y=4} \fcAnswer{23}{ \alert<24,25>{\left(-\frac{1}{32} y^{5}+\frac{1}{2} y^{3} \right. }} }\\
-\uncover<handout:2|22->{&& \displaystyle \phantom{ {\int}_{ y=-2}^{y=4}}~~ \uncover<23->{ \alert<23,24,25>{ \left.-\frac{3}{4} y^{2} + y+8  \right) }} \alert<24,25>{\diff y} }\\
+\alertNoH{18,19}{\int_{{\fcQuestion{14}{y=} \fcAnswer{15}{-2}} }^{{ \fcQuestion{14}{y=} \fcAnswer{15}{4} }} {\alertNoH{20,21}{\int}}_{{ \fcQuestion{16}{x=} \fcAnswer{17}{ \frac{y^2-6}{2}}} }^{{ \fcQuestion{16}{x=} \fcAnswer{17}{y+1} }} \alertNoH{20,21}{ \left(2 + \frac{1}{4}xy \right)} \alertNoH{20,21}{\diff x} \diff y} \uncover<handout:2| 20->{ &=&\displaystyle \int_{y=-2}^{y=4} {\left[ \fcAnswer{21}{\alertNoH{22,23}{2x+ \frac{x^2y}{8}}} \right]}_{\alertNoH{22,23}{x=\frac{y^2-6}{2}} }^{\alertNoH{22,23}{x=y+1}} \diff y }\\
+\uncover<handout:2|22->{&=&\displaystyle {\alertNoH{24,25}{\int}}_{y =- 2 }^{ y=4} \fcAnswer{23}{ \alertNoH{24,25}{\left(-\frac{1}{32} y^{5}+\frac{1}{2} y^{3} \right. }} }\\
+\uncover<handout:2|22->{&& \displaystyle \phantom{ {\int}_{ y=-2}^{y=4}}~~ \uncover<23->{ \alertNoH{23,24,25}{ \left.-\frac{3}{4} y^{2} + y+8  \right) }} \alertNoH{24,25}{\diff y} }\\
 \uncover<handout:2|24->{&=& \left[\fcAnswer{25}{ - \frac{1}{192} y^{6}+\frac{1}{8} y^{4}}\right.} \\
-\uncover<24->{&&  { ~\left.\uncover<25->{\alert<25>{ -\frac{1}{4} y^{3}+\frac{1}{2} y^{2}+8 y }} \right] }_{-2}^{4}\uncover<26->{=45}}
+\uncover<24->{&&  { ~\left.\uncover<25->{\alertNoH{25}{ -\frac{1}{4} y^{3}+\frac{1}{2} y^{2}+8 y }} \right] }_{-2}^{4}\uncover<26->{=45}}
 \end{array}
 $
 }%
