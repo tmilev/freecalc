@@ -3,42 +3,46 @@
 \begin{columns}
 \column{0.25\textwidth}
 \psset{xunit=0.6cm, yunit=0.6cm}
-\begin{pspicture}(-1,-1)(1,1)
-\tiny
-\renewcommand{\fcScreen}{[-1 -1.1 -1] 0}
-\fcAxesIIId{3}{3}{4.5}%
-\uncover<1>{\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0}{2}{2} {25}{25}{ x 2 sub dup mul y 2 sub dup mul add 2 div}
+\begin{pspicture}(-2.2,-2.3)(4,4)%
+\tiny%
+\newcommand{\theFun}{x 2 sub dup mul y 2 sub dup mul add 2 div\space}%
+\renewcommand{\fcScreen}{[-1 -1.1 -1] 0}%
+\only<1>{\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0}{2}{2} {25}{25}{ \theFun}}%
 \fcStartIIIdScene%
-\fcSurfaceInScene[linecolor=blue, colorUV=blue]{0}{0}{2}{2}{[2 dict begin /x u def /y v def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}{}%
-\fcFinishIIIdScene%
+\fcAxesIIIdFullInScene{-0.5}{-0.5}{-0.5}{3}{3}{4.5}%
+\only<1>{%
+\fcSurfaceInScene[arrows=(none), linecolor=blue, colorUV=blue]{0}{0}{2}{2}{[2 dict begin /x u def /y v def x y  \theFun end]}{}%
+\fcSurfaceInScene[arrows=(none), linecolor=blue, colorUV=blue, iterationsU=1, iterationsV=1]{0}{0}{2}{1}{[2 dict begin /x 2 def /y u def x y  \theFun v mul end]}{}%
+\fcSurfaceInScene[arrows=(none), linecolor=blue, colorUV=blue, iterationsU=1, iterationsV=1]{0}{0}{1}{2}{[2 dict begin /x v def /y 2 def x y  \theFun u mul end]}{}%
 }%
-\uncover<2->{%
-\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0}{2}{0.4}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-\uncover<4,5,10>{%
-\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0}{2}{0.4}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-}
-\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0.4}{2}{0.8}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-\uncover<6>{%
-\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0.4}{2}{0.8}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-}
-\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0.8}{2}{1.2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-\uncover<7>{%
-\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0.8}{2}{1.2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-}
-\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{1.2}{2}{1.6}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-\uncover<8>{%
-\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{1.2}{2}{1.6}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-}
-\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{1.6}{2}{2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-\uncover<9>{%
-\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{1.6}{2}{2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
-}
+\fcFinishIIIdScene[true]%
+\only<2->{%
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0}{2}{0.4}{5}{1}{\theFun}%
+\only<4,5,10>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0}{2}{0.4}{5}{1}{\theFun}%
 }%
-\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x t def /y 0 def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}
-\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x t def /y 2 def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}
-\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x 0 def /y t def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}
-\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x 2 def /y t def x y  x 2 sub dup mul y 2 sub dup mul add 2 div end]}
-\fcPolyLineIIId{[2 0 2] [2 0 0] [2 2 0] [0 2 0] [0 2 2] }
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0.4}{2}{0.8}{5}{1}{\theFun}%
+\only<6>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0.4}{2}{0.8}{5}{1}{\theFun}%
+}%
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0.8}{2}{1.2}{5}{1}{\theFun}%
+\only<7>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{0.8}{2}{1.2}{5}{1}{\theFun}%
+}%
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{1.2}{2}{1.6}{5}{1}{\theFun}%
+\only<8>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{1.2}{2}{1.6}{5}{1}{\theFun}%
+}
+\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{1.6}{2}{2}{5}{1}{\theFun}%
+\only<9>{%
+\fcRectangularRiemannSum[colorUV=pink, linecolor=red]{0}{1.6}{2}{2}{5}{1}{\theFun}%
+}%
+}%
+\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x t def /y 0 def x y  \theFun end]}%
+\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x t def /y 2 def x y  \theFun end]}%
+\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x 0 def /y t def x y  \theFun end]}%
+\fcCurveIIId[linecolor=black]{0}{2}{ [2 dict begin /x 2 def /y t def x y  \theFun end]}%
+\fcPolyLineIIId{[2 0 2] [2 0 0] [2 2 0] [0 2 0] [0 2 2] }%
 \end{pspicture}
 \column{0.75\textwidth}
 \[
