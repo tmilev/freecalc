@@ -229,7 +229,7 @@ pop  % str'
 theRiemannSumFigure \fcInitializeAndSetupFilesCode
 graphicsCached not{
 theRiemannSumFigure \fcArrayToStack
-20 dict begin
+30 dict begin
 /theFunction exch def
 /yIterations exch def
 /xIterations exch def
@@ -259,7 +259,9 @@ theSideColor
 true
 false
 [\fcDashes]
+%(GOT TO HERE) ==
 \fcBoxIIIdFilledCode
+%(GOT TO HERE2) ==
 /x xOld def
 /y yOld DeltaY add def
 }repeat
@@ -269,6 +271,15 @@ end
 }if
 }
 
+%Arguments:
+% argument2,argument3: xMin, yMin
+% argument4,argument5: xMax, yMax
+% argument6,argument7: xIterations, yIterations
+% argument8=function
+%example
+%\begin{pspicture}(-2.2,-2.3)(4,4)
+%\fcRectangularRiemannSum[colorUV=cyan, linecolor=blue]{0}{0.8}{2}{1.2}{5}{1}{x 2 sub dup mul y 2 sub dup mul add 2 div}%
+%\end{pspicture}
 \newcommand{\fcRectangularRiemannSum}[8][]{%
 \setkeys{fcGraphics}{#1}%
 \pscustom{%
@@ -1655,8 +1666,10 @@ end
 /theScalarProd exch def
 /currentColor exch def
 /theColorDifference
+/getZmax where {pop
 getZmax getZmin sub dup 0 eq {(Zmax equal Zmin, something is wrong!) == pop 1}if
 theScalarProd getZmin sub exch div 0.5 sub \fcLightDifference\space mul
+}{0}ifelse
 def
 currentColor [theColorDifference theColorDifference theColorDifference] \fcVectorMinusVector
 end\space
@@ -3115,7 +3128,7 @@ newpathVirtual
 thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
 thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall
 closepathVirtual
-thePatchCollection length \fcMaxNumPatchesToUseShading\space le{
+/thePatchCollection where{pop thePatchCollection length \fcMaxNumPatchesToUseShading\space le}{false}ifelse {
 [thePatch \fcPatchGetvZero thePatch \fcPatchGetvOne thePatch \fcPatchGetvTwo currentVisibleColor]
 shfillPlaneFromLightSourceVirtual
 }
