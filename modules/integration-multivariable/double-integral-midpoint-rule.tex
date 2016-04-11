@@ -5,14 +5,14 @@
 \small
 \begin{columns}
 \column{0.3\textwidth}
-\begin{pspicture}(-1,-1)(1,1)
+\begin{pspicture}(-2.2,-1.8)(2.18,3.3)
 \tiny
 \pstVerb{%
 /theRFf {x 2 sub dup mul y 2 sub dup mul add 2 div} def%
 }%
-\fcBoundingBox{-2}{-1.8}{2}{3.3}
+\fcBoundingBox{-2.2}{-1.8}{2.18}{3.3}
 \renewcommand{\fcScreen}{[-1 -1.1 -1] 0}
-\fcAxesIIId{3}{3}{4.3}
+\fcAxesIIId{3}{3}{3.3}
 \uncover<3-11>{%
 \fcLineIIId[linewidth =0.5pt]{[-0.1 0 0]}{[2.1 0 0]}%
 \fcLineIIId[linewidth =0.5pt]{[-0.1 1 0]}{[2.1 1 0]}%
@@ -36,10 +36,10 @@
 \fcBoxIIIdFilledNew[linecolor=blue, colorUV=cyan]{[2 0 0]}{[2 1 0]}{[1 0 0]}{[2 0 2 dict begin /x 1.5 def /y 0.5 def theRFf end]}%
 }%
 \uncover<3-9>{%
-\fcPutIIId[r]{[1.5 -0.1 0]}{\alert<3>{$\Delta x$}}%
+\fcPutIIId[r]{[1.5 -0.1 0]}{\alertNoH{3}{$\Delta x$}}%
 }%
 \uncover<3-10>{%
-\fcPutIIId[bl]{[-0.1 1.5 0]}{\alert<4>{$\Delta y$}}%
+\fcPutIIId[bl]{[-0.1 1.5 0]}{\alertNoH{4}{$\Delta y$}}%
 }%
 \uncover<6>{%
 \fcDotIIId{[0.5 0.5 0]}%
@@ -69,16 +69,16 @@
 \begin{itemize}
 \item Suppose region of integration $\mathcal R$ is rectangle, i.e., $\mathcal{R} = [a,b] \times [c,d]$, integration w.r.t. $\diff A = \diff x \diff y$.
 $\iint_{\mathcal{R}} f(P) \diff A = \iint_{[a,b] \times [c,d]} f(x,y) \; \diff x\, \diff y$.
-\item<2-> If the integral exists, it can be approximated by any fine enough Riemann sum.
-\item<3-> Simplest partition coming to mind: divide $\mathcal R$ into $n\times n$ equal pieces, sides $\alert<3>{\Delta x = \frac{b-a}{n}}$, $\alert<4>{\Delta y = \frac{d-c}{n}} $.
-\item<5-> For $(s,t)^{th}$ rectangle $D_{st}$, choose midpoint as sampling point, \uncover<6->{ i.e., sample at $P_{s,t}= \left( a+ \left( s - \frac{1}{2} \right) \Delta x, c+\left( t-\frac{1}{2}\right)\Delta y\right) $.}
+\item<2-> If integral exists: approximate by fine enough Riemann sum.
+\item<3-> Simplest way: divide $\mathcal R$ into $n\times n$ equal pieces, sides $\alertNoH{3}{\Delta x = \frac{b-a}{n}}$, $\alertNoH{4}{\Delta y = \frac{d-c}{n}} $.
+\item<5-> For $(s,t)^{th}$ rectangle $D_{st}$, sample at \alertNoH{5}{midpoint} $\alertNoH{5,6}{ P_{s,t}=} \fcAnswer{6}{\left( a+ \left( s - \frac{1}{2} \right) \Delta x, c+\left( t-\frac{1}{2}\right)\Delta y\right)} $.
 \end{itemize}
 \end{columns}
 \uncover<7->{
 \[
 \begin{array}{r@{~}c@{~}l}
-\displaystyle \alert<21>{ \iint\limits_{\mathcal R} f(x,y)  \diff x \diff y }  &=&\displaystyle \alert<12-20>{\lim\limits_{n \to \infty}  \alert<11>{\sum_{1\leq s,t \leq n} \alert<10>{ \alert<8>{ f \left(P_{s,t} \right)} \alert<9,22>{ \text{area}(D_{st})} }} }\\
-\uncover<22->{ &\approx&\displaystyle \sum_{1\leq i,j \leq n} f\left(P_{s,t} \right)  \alert<22>{ \Delta x  \Delta y } \quad .}
+\displaystyle \alertNoH{21}{ \iint\limits_{\mathcal R} f(x,y)  \diff x \diff y }  &=&\displaystyle \alertNoH{12-20}{\lim\limits_{n \to \infty}  \alertNoH{11}{\sum_{1\leq s,t \leq n} \alertNoH{10}{ \alertNoH{8}{ f \left(P_{s,t} \right)} \alertNoH{9,22}{ \text{area}(D_{st})} }} }\\
+\uncover<22->{ &\approx&\displaystyle \sum_{1\leq i,j \leq n} f\left(P_{s,t} \right)  \alertNoH{22}{ \Delta x  \Delta y } \quad .}
 \end{array}
 \]
 }

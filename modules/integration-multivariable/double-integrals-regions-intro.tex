@@ -9,7 +9,7 @@ What makes iterated integrals work over rectangular regions? \uncover<2->{Slices
 \tiny
 \fcAxesStandard{-0.5}{-0.5}{3}{2.7}
 \pstVerb{
-/f {x 170 mul sin 0.4 mul 0.6 add} def 
+/f {x 170 mul sin 0.4 mul 0.6 add} def
 /g {x 190 mul cos 0.4 mul 2 add x 4 div sub} def
 }
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{
@@ -21,7 +21,7 @@ What makes iterated integrals work over rectangular regions? \uncover<2->{Slices
 \only<\na->{\psline[linecolor=red, linewidth=2pt](! x f)(! x g)}%
 \only<\na->{%
 \psline[linestyle=dotted](! x f)(! x 0)%
-\rput[t](! x -0.1){$\alert<8>{x_{\fcEvalToInt{\na-3}}}$}%
+\rput[t](! x -0.1){$\alertNoH{8}{x_{\fcEvalToInt{\na-3}}}$}%
 }%
 \pstVerb{end}%
 }%
@@ -39,7 +39,7 @@ What makes iterated integrals work over rectangular regions? \uncover<2->{Slices
 \item<9-> then integrate the so obtained function in $x$.
 \end{itemize}
 \end{columns}
-\uncover<10->{So far used rectangular regions;} \uncover<11->{this also works if \alert<11>{slices are intervals whose endpoints depend continuously} on the location of the slice.} 
+\uncover<10->{So far used rectangular regions;} \uncover<11->{this also works if \alertNoH{11}{slices are intervals whose endpoints depend continuously} on the location of the slice.}
 \begin{itemize}
 \item<12-> Regions of type I: vertical slices are segments.
 \item<12-> Regions of type II: horizontal slices are segments.

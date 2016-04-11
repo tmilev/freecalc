@@ -4,7 +4,7 @@
 \column{0.3\textwidth}
 \psset{xunit=0.3cm, yunit=0.3cm}
 \begin{pspicture}(-1,-3)(4,5.9)
-\renewcommand{\fcScreen}{[-1 1 -10] -1} 
+\renewcommand{\fcScreen}{[-1 1 -10] -1}
 \newcommand{\theFun}{2 x mul y y mul 3 mul add\space}
 \fcBoundingBox{-1}{-3}{6}{5.9}
 \fcStartIIIdScene
@@ -19,14 +19,14 @@
 \column{0.7\textwidth}
 Compute $\displaystyle \iint \limits_{ [1,2]\times [2,3]}(2x+3y^2) \; \diff x\diff y$.
 
-\uncover<2->{For $(x,y)$ in $[1,2]\times [2,3]$, \alert<2,3>{$\alert<8>{y} $ takes values between}} \fcAnswer{3}{$ \alert<8>{ c=2}$ and $\alert<8>{d=3}$.}\uncover<4->{For a fixed value \alert<4,5>{$y=y_0$, $\alert<7>{x}$ takes values between}} \fcAnswer{5}{$\alert<7>{a=1}$ and $\alert<7>{b=2}$.}
+\uncover<2->{For $(x,y)$ in $[1,2]\times [2,3]$, \alertNoH{2,3}{$\alertNoH{8}{y} $ takes values between}} \fcAnswer{3}{$ \alertNoH{8}{ c=2}$ and $\alertNoH{8}{d=3}$.}\uncover<4->{For a fixed value \alertNoH{4,5}{$y=y_0$, $\alertNoH{7}{x}$ takes values between}} \fcAnswer{5}{$\alertNoH{7}{a=1}$ and $\alertNoH{7}{b=2}$.}
 \end{columns}
 \[
-\begin{array}{r@{~}c@{~}l} 
-\uncover<6->{ \iint\limits_{[1,2]\times [2,3]} (2x+3y^2) \diff x \diff y &=& \int \limits_{{\alert<8>{y=2}}}^{{\alert<8>{y=3}}} \left( \alert<9-14>{ \int \limits_{{ \alert<7>{x=1}}}^{{\alert<7>{x=2}}} (2x+3y^2) {{\diff x}}} \right) {{\diff y} } }\\
-\uncover<9->{ &=& \int \limits_{{{y=2}}}^{{{y=3}}} {\left[ \fcAnswer{10}{ \alert<15,16>{x^2+3y^2x} } \right]}_{ {\uncover<9-11>{\alert<11>{ \textbf{?}}} \uncover<12->{\alert<12,16>{x =1}}}}^{{ \uncover<9-13>{\alert<13>{\textbf{?}}} \uncover<14->{ \alert<14,15>{x = 2 } }}} ~~ { \diff y }} \\
-\uncover<15->{ &=& \int \limits_{{{y=2}}}^{{{y=3}}} \left(\alert<15>{ ( 4+ 6y^2 )} -\alert<16>{(1 + 3 y^2)} \right) {{\diff y}}} \\
-\uncover<17->{&=& \alert<18,19>{\int\limits_{{{y=2}}}^{{{y=3}}} (3+3y^2) {{\diff y}}} \uncover<18->{\alert<18>{=} {\left[\fcAnswer{19}{3y+y^3} \right]}_{y=2}^{y=3} }}\\
+\begin{array}{r@{~}c@{~}l}
+\uncover<6->{ \iint\limits_{[1,2]\times [2,3]} (2x+3y^2) \diff x \diff y &=& \int \limits_{{\alertNoH{8}{y=2}}}^{{\alertNoH{8}{y=3}}} \left( \alertNoH{9-14}{ \int \limits_{{ \alertNoH{7}{x=1}}}^{{\alertNoH{7}{x=2}}} (2x+3y^2) {{\diff x}}} \right) {{\diff y} } }\\
+\uncover<9->{ &=& \int \limits_{{{y=2}}}^{{{y=3}}} {\left[ \fcAnswer{10}{ \alertNoH{15,16}{x^2+3y^2x} } \right]}_{ {\uncover<9-11>{\alertNoH{11}{ \textbf{?}}} \uncover<12->{\alertNoH{12,16}{x =1}}}}^{{ \uncover<9-13>{\alertNoH{13}{\textbf{?}}} \uncover<14->{ \alertNoH{14,15}{x = 2 } }}} ~~ { \diff y }} \\
+\uncover<15->{ &=& \int \limits_{{{y=2}}}^{{{y=3}}} \left(\alertNoH{15}{ ( 4+ 6y^2 )} -\alertNoH{16}{(1 + 3 y^2)} \right) {{\diff y}}} \\
+\uncover<17->{&=& \alertNoH{18,19}{\int\limits_{{{y=2}}}^{{{y=3}}} (3+3y^2) {{\diff y}}} \uncover<18->{\alertNoH{18}{=} {\left[\fcAnswer{19}{3y+y^3} \right]}_{y=2}^{y=3} }}\\
 \uncover<20->{&=&36-14=22\; .}
 \end{array}
 \]
