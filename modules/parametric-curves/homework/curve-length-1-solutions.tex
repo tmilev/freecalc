@@ -1,3 +1,64 @@
+\solution{\ref{problemlengthy=sqrt(x)from1to2}
+The length of the parametric curve is given by
+\[
+\begin{array}{rcll|l}
+L&=&\displaystyle \int_{1}^{2}\sqrt{1+\left(\frac{\diff y}{\diff x}\right)^2 }\diff x\\
+&=&\displaystyle \int_{1}^{2}\sqrt{1+\left(\frac{1}{2\sqrt{x}}\right)^2 }\diff x\\
+&=&\displaystyle \int_{x=1}^{x=2} \sqrt{1 +\frac{1}{4x}}\diff x &&\begin{array}{rcl}\text{Substitute }4x&=&u\\\diff x&=&\frac{1}{4}\diff u\\ \end{array}\\
+&=&\displaystyle \int_{u=4}^{u=8} \sqrt{1 +\frac{1}{u}}\left(\frac{1}{4}\diff u\right)\\
+&=&\displaystyle \frac{1}{4}\int_{4}^{8}\sqrt{\frac{u+1}{u}}\diff u\\
+&=&\displaystyle \frac{1}{4}\int_{4}^{8}\sqrt{\frac{u(u+1)}{u^2}}\diff u\\
+&=&\displaystyle \frac{1}{4}\int_{4}^{8}\frac{\sqrt{u^2+u }}{u}\diff u\\
+&=&\displaystyle \frac{1}{4}\int_{4}^{8}\frac{\sqrt{u^2+u+\frac{1}{4}-\frac{1}{4} }}{u}\diff u\\
+&=&\displaystyle \frac{1}{4}\int_{4}^{8}\frac{\sqrt{\left(u+\frac{1}{2}\right)^2-\frac{1}{4} }}{u}\diff u\\
+&=&\displaystyle \frac{1}{4}\int_{4}^{8}\frac{ \sqrt{\frac{1}{4}\left( \left(2u+1\right)^2-1\right) }}{u}\diff u\\
+&=&\displaystyle \frac{1}{8}\int_{u=4}^{u=8}\frac{ \sqrt{ \left(2u+1\right)^2-1 }}{u}\diff u &&\begin{array}{rcl}\text{Substitute }2u+1&=&z\\ u&=&\frac{z-1}{2}\\\diff u&=&\frac{1}{2}\diff z \end{array}\\ 
+&=&\displaystyle \frac{1}{8}\int_{z=9}^{z=17}\frac{ \sqrt{ z^2-1 }}{\frac{z-1}{2}}\frac{1}{2}\diff z \\
+&=&\displaystyle \frac{1}{8}\int_{z=9}^{z=17}\frac{ \sqrt{ z^2-1 }}{z-1}\diff z&&  \begin{array}{rcl}
+\text{Trig. subst.: }z&=&\sec\theta \\ 
+\sqrt{z^2-1}&=&\tan \theta \\
+\diff z &= &\tan \theta\sec\theta \diff \theta
+\end{array}\\
+&=&\displaystyle \frac{1}{8}\int_{\theta=\Arcsec(9) }^{\theta=\Arcsec(17)}\frac{\tan \theta}{\sec \theta - 1} \sec \theta \tan \theta \diff \theta  && 
+\begin{array}{rcl}
+\text{Set }\alpha&=&\Arcsec(9)\\ 
+\text{Set }\beta&=&\Arcsec(17)\\ 
+\end{array}
+\\
+&=&\displaystyle \frac{1}{8}\int_{\alpha }^{\beta}\frac{\tan^2 \theta}{\sec \theta - 1} \sec \theta \diff \theta && \text{Use} \tan^2\theta=\sec^2\theta-1\\
+&=&\displaystyle \frac{1}{8}\int_{\alpha }^{\beta}\frac{\sec^2 \theta-1}{\sec \theta - 1} \sec \theta \diff \theta \\
+&=&\displaystyle \frac{1}{8}\int_{\alpha }^{\beta}\frac{(\cancel{ \sec\theta-1})(\sec \theta+1)}{\cancel{\sec \theta - 1}} \sec \theta \diff \theta \\
+&=&\displaystyle \frac{1}{8}\int_{\alpha }^{\beta}\left(\sec^2\theta+ \sec \theta \right)\diff \theta && \begin{array}{l}\displaystyle\int\sec \theta\diff \theta= \ln\left|\sec\theta+\tan\theta\right|+C\\ \text{previously studied}\end{array}\\
+&=&\displaystyle \frac{1}{8}\left[\tan \theta +\ln \left|\sec\theta+\tan\theta\right| \right]_{\alpha}^{\beta} && \begin{array}{rlc}\tan \theta &=& \sqrt{\sec^2\theta-1}, \theta\in\left[0,\frac{\pi}{2}\right) \\ \tan \alpha&=&\sqrt{9^2-1}=4\sqrt{5}\\ 
+\tan \beta&=& \sqrt{17^2-1}=12\sqrt{2} \end{array}  \\
+&=& \frac{1}{8}\left( 12\sqrt{2} +\ln (17+12\sqrt{2})-4\sqrt{5}-\ln (9+4\sqrt{5})\right) \approx 1.083
+\end{array}
+\]
+
+}
+
+\solution{\ref{problemlengthy=x^2from1to2}
+The length of the parametric curve is given by
+\[
+\begin{array}{rcll|l}
+L&=&\displaystyle \int_{1}^{2}\sqrt{1+\left(\frac{\diff y}{\diff x}\right)^2 }\diff x\\
+&=&\displaystyle \int_{x=1}^{x=2}\sqrt{1+4x^2 }\diff x &&\begin{array}{rcl}\text{Substitute }2x&=&u\\\diff x&=&\frac{1}{2}\diff u\\ \end{array}\\
+&=&\displaystyle \int_{u=2}^{u=4} \sqrt{u^2+1}\left(\frac{1}{2}\diff u\right)\\
+&=&\displaystyle \frac{1}{2}\int_{u=2}^{u=4} \sqrt{u^2+1}\diff u&& 
+\begin{array}{l}\displaystyle
+\int \sqrt{u^2+1}\diff u \\
+= \displaystyle \frac{1}{2}\left(u\sqrt{u^2+1}+\ln\left(u+\sqrt{u^2+1}\right) \right)+C\\
+\text{previously studied}
+\end{array}
+\\
+&=&\frac{1}{4} \left[ u\sqrt{u^2+1}+\ln\left(u+\sqrt{u^2+1}\right)\right]_{2}^4\\
+&=&\sqrt{17}+\frac{1}{4} \log{}\left(\sqrt{17}+4\right)-\frac{1}{4} \log{}\left(\sqrt{5}+2\right)-\frac{\sqrt{5}}{2} \\
+&\approx& 3.167841
+\end{array}
+\]
+
+}
+
 \solution{ \ref{problemlengthx=sqrt(t)-2t,y=8/3t^(3/4)}.
 The length of the parametric curve is given by
 \[
