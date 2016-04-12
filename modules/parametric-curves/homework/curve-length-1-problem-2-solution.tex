@@ -1,0 +1,21 @@
+\solution{\ref{problemlengthy=x^2from1to2}
+The length of the parametric curve is given by
+\[
+\begin{array}{rcll|l}
+L&=&\displaystyle \int_{1}^{2}\sqrt{1+\left(\frac{\diff y}{\diff x}\right)^2 }\diff x\\
+&=&\displaystyle \int_{x=1}^{x=2}\sqrt{1+4x^2 }\diff x &&\begin{array}{rcl}\text{Substitute }2x&=&u\\\diff x&=&\frac{1}{2}\diff u\\ \end{array}\\
+&=&\displaystyle \int_{u=2}^{u=4} \sqrt{u^2+1}\left(\frac{1}{2}\diff u\right)\\
+&=&\displaystyle \frac{1}{2}\int_{u=2}^{u=4} \sqrt{u^2+1}\diff u&& 
+\begin{array}{l}\displaystyle
+\int \sqrt{u^2+1}\diff u \\
+= \displaystyle \frac{1}{2}\left(u\sqrt{u^2+1}+\ln\left(u+\sqrt{u^2+1}\right) \right)+C\\
+\text{previously studied}
+\end{array}
+\\
+&=&\frac{1}{4} \left[ u\sqrt{u^2+1}+\ln\left(u+\sqrt{u^2+1}\right)\right]_{2}^4\\
+&=&\sqrt{17}+\frac{1}{4} \log{}\left(\sqrt{17}+4\right)-\frac{1}{4} \log{}\left(\sqrt{5}+2\right)-\frac{\sqrt{5}}{2} \\
+&\approx& 3.167841
+\end{array}
+\]
+
+}
