@@ -1,3 +1,34 @@
+\solution{\ref{problemFindExtremae^(x+y)UnderRestrictionx^3+y^3=2}
+The restriction is $g(x,y)= x^3+y^3-2=0$. We use the method of Lagrange multipliers. We have that $\nabla f= (e^{x+y},e^{x+y})$ and $\nabla g = \left(3x^2, 3y^2 \right)$. We have a local extremum when $\lambda\nabla f= \nabla g$, i.e., when
+\[
+\begin{array}{rcl}
+\lambda e^{x+y}&=& 3x^2\\
+\lambda e^{x+y}&=& 3y^2\\
+x^3+y^3&=&2
+\end{array}
+\]
+The first two equations imply $y^2=x^2$ which implies $y=\pm x$. 
+
+Case 1. Suppose $y=-x$. Then the last equation $x^3+y^3=2$ reduces to $0=2 $, which has no solutions; this case yields no candidates for maxima and minima.
+
+Case 2. Suppose $y=x$. We substitute into the third equation and solve:
+
+\[
+\begin{array}{rcll|l}
+2x^3&=&2\\
+x^3-1&=&0\\
+(x-1)(x^2+x+1)&=&0&&x^2+x+1\neq 0\text{ for all real }x \\
+x&=&1
+\end{array}
+\] 
+
+Therefore $x=1$, $y=1$ is the only critical point obtained by the method of Lagrange multipliers. To find out whether the critical point is a maximum or minimum, we can rewrite our restriction as $y(x)=\sqrt[3]{2-x^3}$ and so $f(x,y(x))= e^{x+\sqrt[3]{2-x^3}}$. Since the exponent is an increasing function, $e^{x+\sqrt[3]{2-x^3}}$ has extrema if and only if the function $x+\sqrt[3]{2-x^3}$ has the same type of extrema. $x+\sqrt[3]{2-x^3}$ has second derivative 
+$ -2 x^{4} (- x^{3}+2)^{-\frac{5}{3}}-2 x (- x^{3}+2)^{-\frac{2}{3}} $, which evaluates to $ -4$ when $x=1$. Therefore by the single-variable second derivative criterion $f(x,y(x))= e^{x+\sqrt[3]{2-x^3}}$ has a local maximum and so the critical point is a local maximum. 
+
+We point out that via the equality $f(x,y(x))= e^{x+\sqrt[3]{2-x^3}}$ this problem can be solved without using Lagrange multipliers, however the computations would be longer.
+
+}
+
 \solution{\ref{problemFindExtremay+xUnderRestrictiony^2+y+x^2+x=1}
 The restriction is $g(x,y)= y^2+y+x^2+x-1=0$. We use the method of Lagrange multipliers. We have that $\nabla f= (1,1)$ and $\nabla g = \left(2y+1,2x+1 \right)$. We have a local extremum when $\lambda\nabla f= \nabla g$, i.e., when
 \[
