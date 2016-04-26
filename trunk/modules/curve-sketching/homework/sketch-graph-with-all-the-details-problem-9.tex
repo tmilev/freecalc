@@ -1,0 +1,33 @@
+$\displaystyle f(x)= \frac{3 x^{3}-30 x^{2}+97 x-99}{x^{2}-6 x+8} $. \textbf{For this problem, do not find the $x$-intercepts of the function. Indicate only the $x$-coordinates of the local maxima/minima and inflection points; you do not need to compute the $y$-coordinates of those points.} 
+
+Computation shows that 
+$\displaystyle
+f'(x)=\frac{3 x^{4}-36 x^{3}+155 x^{2}-282 x+182}{\left(x^{2}-6 x+8\right)^{2}}=\frac{\left(x^{2}-6 x+7\right) \left(3 x^{2}-18 x+26\right)}{\left(x^{2}-6 x+8\right)^{2}}
+$
+and that 
+$\displaystyle f''(x)=\frac{2 x^{3}-18 x^{2}+60 x-72}{\left(x^{2}-6 x+8\right)^{3}}=\frac{\left(x-3\right) \left(2 x^{2}-12 x+24\right)}{\left(x^{2}-6 x+8\right)^{3}}$; you may use those computations without further justification. 
+
+\psset{xunit=0.15cm, yunit=0.15cm}
+\begin{pspicture}(-10,-10)(10,10)
+\fcAxesStandard{-10}{-20}{10}{10}
+\newcommand{\theFun}{3 x x x mul mul mul -30 x x mul mul 97 x mul -99 add add add x x mul -6 x mul 8 add add div}
+\psplot[plotpoints=500, linecolor=\fcColorGraph]{-7}{1.97}{\theFun}
+\psplot[plotpoints=500, linecolor=\fcColorGraph]{2.02}{3.98}{\theFun}
+\psplot[plotpoints=500, linecolor=\fcColorGraph]{4.03}{10}{\theFun}
+\end{pspicture}
+
+
+
+\answer{
+\begin{tabular}{l}
+$y$-intercept $\frac{-99}{8}$, $x$-intercept: not requested \\
+horizontal asymptote: none, vertical: $x=2$ and $x=4$\\
+increasing on $\left(- \infty, -\sqrt{2}+3\right)\cup \left(-\frac{\sqrt{3}}{3}+3, \frac{\sqrt{3}}{3}+3\right)\cup \left(\sqrt{2}+3, \infty\right)
+$, decreasing on the complement intervals\\
+local maxima at $x=-\sqrt{2}+3$, $ x=\frac{\sqrt{3}}{3}+3$\\
+local minima at $x=-\frac{\sqrt{3}}{3}+3$, $ x=\sqrt{2}+3$\\
+concave up on $\left(\left(2, 3\right)\cup \left(4, \infty\right)\right)$\\ 
+concave down on $\left(-\infty, 2\right)\cup \left(3, 4\right)$\\
+inflection point at $x=3$
+\end{tabular}
+}
