@@ -12,7 +12,7 @@ $
 
 $J_{\fcv f}=\left( \begin{array}{ccc}  \frac{\partial x_1 }{\partial y_1} & \cdots & \frac{\partial x_1 }{\partial y_n} \\ \vdots & \ddots & \vdots \\  \frac{\partial x_n}{\partial y_1}  & \cdots & \frac{\partial x_n}{\partial y_n} \end{array}\right) $
 \column{0.6\textwidth}
-\begin{pspicture}(-0.5, -0.5)(2,2)
+\begin{pspicture}(-1, -1)(2.1,2.1)
 \tiny%
 \fcAxesStandard{-1}{-1}{2}{2}%
 \fcLabels[$y_1$][$y_2$]{2}{2}%
@@ -56,10 +56,10 @@ $J_{\fcv f}=\left( \begin{array}{ccc}  \frac{\partial x_1 }{\partial y_1} & \cdo
 }%
 \end{pspicture} ~
  \raisebox{1.25cm}{$\stackrel{\fcv f}{\to} $}  ~
-\begin{pspicture}(-0.5, -0.5)(2,2)
+\begin{pspicture}(-0.5, -1)(2.25,2.1)
 \tiny
-\fcAxesStandard{-0.5}{-1}{2.5}{2}
-\fcLabels[$x_1$][$x_2$]{2.5}{2}
+\fcAxesStandard{-0.5}{-1}{2.2}{2}
+\fcLabels[$x_1$][$x_2$]{2.2}{2}
 \pstVerb{
 /theF { theta 57.295779513 mul cos r mul theta 57.295779513 mul sin r mul  } def
 /Delta 0.3 def
@@ -107,13 +107,13 @@ $J_{\fcv f}=\left( \begin{array}{ccc}  \frac{\partial x_1 }{\partial y_1} & \cdo
 
  
 \begin{itemize}
-\item Let $\fcv e_1,\dots, \fcv e_n$ be the basis vectors. \uncover<2->{Fix a point $\fcv y=(y_1,\dots, y_n)$.}
-\item<3-> Let $\Delta y_1,\dots, \Delta y_n$ be small numbers. \uncover<4->{Construct a small box $B$ with corner $\fcv y$ spanned by the vectors $\Delta y_1 \fcv e_1,\dots, \Delta y_n \fcv e_n$.} 
-\item<5-> Knowing the point $\fcv y$ and the corners $\fcv y +\Delta y_1 \fcv e_1,\dots, \fcv y+\Delta y_n\fcv e_n$ suffices to identify $B$. Mark those corners.
+\item Let $\fcv e_1,\dots, \fcv e_n$ be basis vectors. \uncover<2->{Fix point $\fcv y=(y_1,\dots, y_n)$.}
+\item<3-> Let $\Delta y_1,\dots, \Delta y_n$ be small numbers. \uncover<4->{Construct small box $B$ with corner $\fcv y$ spanned by the vectors $\Delta y_1 \fcv e_1,\dots, \Delta y_n \fcv e_n$.} 
+\item<5-> The point $\fcv y$ and the corners $\fcv y +\Delta y_1 \fcv e_1,\dots, \fcv y+\Delta y_n\fcv e_n$ suffice to identify $B$. %Mark those corners.
 \item<6-> $\Vol (B)=\Delta y_1 \dots \Delta y_n$. 
 
 \item<7-> Let the image of $B$ be $\fcv f(B)={\color{blue}C}$. ${\color{blue}C} $ is a ``curvilinear box''. 
-\item<8-> Let ${\color{green}E}$ be the parrallelotope at $\fcv f(\fcv y)$ spanned by images of the marked corners of $B$. \uncover<9,10->{\alert<10>{Then $\Vol ({\color{blue}C})\approx \Vol_n ({\color{green}E})$.}}
+\item<8-> Let ${\color{green}E}$ be the parrallelotope at $\fcv f(\fcv y)$ spanned by images of the corners of $B$. \uncover<9,10->{\alert<10>{Then $\Vol ({\color{blue}C})\approx \Vol_n ({\color{green}E})$.}}
 \end{itemize}
 
 \vskip 10cm

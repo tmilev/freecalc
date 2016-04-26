@@ -11,11 +11,19 @@
 
 \answer{
 $\begin{array}{rcl}
-\frac{\partial}{\partial x} &=& \sin \phi \cos \theta \frac{\partial }{\partial r} +\frac{\cos \phi \cos \theta }{r} \frac{ \partial}{\partial \phi}-\frac{\sin \theta}{r\sin \phi} \frac{ \partial }{\partial \theta} \\ 
-\frac{\partial}{\partial y}&=&\sin \phi \sin \theta \frac{\partial}{\partial r} + \frac{\cos \phi\sin\theta }{r} \frac{ \partial }{\partial \phi}+\frac{\cos\theta}{r\sin \phi} \frac{ \partial }{\partial \theta} \\ 
-\frac{\partial}{\partial z}&=&\cos \phi  \frac{\partial}{\partial r} - \frac{\sin \phi}{r} \frac{ \partial }{\partial \phi}  
+\frac{\partial}{\partial x} &=& \sin \phi \cos \theta \frac{\partial }{\partial \rho} +\frac{\cos \phi \cos \theta }{\rho} \frac{ \partial}{\partial \phi}-\frac{\sin \theta}{\rho\sin \phi} \frac{ \partial }{\partial \theta} \\ 
+\frac{\partial}{\partial y}&=&\sin \phi \sin \theta \frac{\partial}{\partial \rho} + \frac{\cos \phi\sin\theta }{\rho} \frac{ \partial }{\partial \phi}+\frac{\cos\theta}{\rho\sin \phi} \frac{ \partial }{\partial \theta} \\ 
+\frac{\partial}{\partial z}&=&\cos \phi  \frac{\partial}{\partial \rho} - \frac{\sin \phi}{\rho} \frac{ \partial }{\partial \phi}  
 \end{array}$}
 \item Express the differential operators $\frac{\partial }{\partial \rho}$, $\frac{\partial }{\partial \phi}$, $\frac{\partial }{\partial \theta}$ via $\frac{\partial }{\partial x}, \frac{\partial }{\partial y}, \frac{\partial}{\partial z}$.
+
+\answer{ 
+$\begin{array}{rcl}
+\frac{\partial}{\partial \rho} &=& \frac{x}{\rho} \frac{\partial }{\partial x} +\frac{y}{\rho} \frac{ \partial}{\partial y}+\frac{z}{\rho} \frac{ \partial }{\partial z} =\frac{x}{\sqrt{x^2+y^2+z^2}} \frac{\partial }{\partial x} +\frac{y}{\sqrt{x^2+y^2+z^2}} \frac{ \partial}{\partial y}+\frac{z}{\sqrt{x^2+y^2+z^2}} \frac{ \partial }{\partial z}\\ 
+\frac{\partial}{\partial \phi}&=&\frac{zx}{\sqrt{x^2+y^2}} \frac{\partial}{\partial x} + \frac{zy}{\sqrt{x^2+y^2}} \frac{ \partial }{\partial y}-\sqrt{x^2+y^2} \frac{ \partial }{\partial z} \\ 
+\frac{\partial}{\partial \theta}&=&-y  \frac{\partial}{\partial x} + y \frac{ \partial }{\partial y}  
+\end{array}$
+}
 \item \label{problemLaplaceInSpherical} Express the Laplace differential operator $\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}$ via  $\frac{\partial }{\partial \rho}$, $\frac{\partial }{\partial \phi}$, $\frac{\partial }{\partial \theta}$ (in other words, write the 3 dimensional Laplace operator in spherical coordinates).
 
 \answer{$\begin{array}{rcl}
