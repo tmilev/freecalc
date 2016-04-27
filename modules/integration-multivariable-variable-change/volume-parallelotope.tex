@@ -4,19 +4,35 @@
 \item Let $\mathcal R_k$ be the parallelotope spanned by $\fcv v_1, \dots, \fcv v_k$.
 \item \uncover<2->{ Recall that $\fcQuestion{2}{\fcv v_{i} \cdot \fcv v_{j}=} \fcAnswer{3}{v_{i1}v_{j1}+\dots + v_{in} v_{jn}} $.}
 \end{itemize}
-
+\vskip -0.5cm
 \begin{columns}
 \column{0.2\textwidth}
 \uncover<4->{
 \psset{xunit=0.5cm, yunit=0.5cm}
-\begin{pspicture}
+\begin{pspicture}(-1.2, -0.5)(2.4,2.6)
 \tiny
-\fcBoundingBox{-0.5}{-0.5}{2}{3.2}
+\fcBoundingBox{-1.2}{-0.5}{2}{3.2}
 \renewcommand{\fcScreenStyle}{x}%
 \fcAxesIIId{2}{4}{2}%
 \pstVerb{5 dict begin /ver1 [1 0 0.2] def /ver2 [0 1 0.2] def /ver3 [1 1 2] def}%
 \fcParallelogramIIId[linecolor=cyan]{[0 0 0]}{ver1}{ver2}%
 \fcParallelogramHollowIIId{[0 0 0]}{ver1}{ver2}%
+\fcAxesIIId[linestyle=dotted]{2}{4}{2}
+\pstVerb{end}
+\end{pspicture}
+}
+
+\vskip 2cm
+
+\uncover<8->{
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-1.2, -0.5)(2.4,3.2)
+\tiny
+\fcBoundingBox{-0.5}{-0.5}{2}{3.2}
+\renewcommand{\fcScreenStyle}{x}%
+\fcAxesIIId{2}{4}{2}%
+\pstVerb{5 dict begin /ver1 [1 0 0.2] def /ver2 [0 1 0.2] def /ver3 [1 1 2] def}%
+\fcBoxIIIdFilledNew[colorUV=cyan, dashes={[0.5 3] 0}]{[0 0 0]}{ver1}{ver2}{ver3}%
 \fcAxesIIId[linestyle=dotted]{2}{4}{2}
 \pstVerb{end}
 \end{pspicture}
@@ -32,23 +48,6 @@ $\Vol_k(\mathcal R_k)=\sqrt{\alert<5>{
 \end{array}  \right|}}$.
 \end{theorem}
 }\uncover<6->{Proof: studied in Linear algebra ($\Vol_k$ - defined by algebra only). }\uncover<7->{$\Vol_n(\mathcal R_n)$ is a perfect square for all $n$.}
-\end{columns}
-\begin{columns}
-\column{0.2\textwidth}
-\uncover<8->{
-\psset{xunit=0.5cm, yunit=0.5cm}
-\begin{pspicture}
-\tiny
-\fcBoundingBox{-0.5}{-0.5}{2}{3.2}
-\renewcommand{\fcScreenStyle}{x}%
-\fcAxesIIId{2}{4}{2}%
-\pstVerb{5 dict begin /ver1 [1 0 0.2] def /ver2 [0 1 0.2] def /ver3 [1 1 2] def}%
-\fcBoxIIIdFilledNew[colorUV=cyan, dashes={[0.5 3] 0}]{[0 0 0]}{ver1}{ver2}{ver3}%
-\fcAxesIIId[linestyle=dotted]{2}{4}{2}
-\pstVerb{end}
-\end{pspicture}
-}
-\column{0.8\textwidth}
 \uncover<8->{
 \begin{theorem}
 $\Vol_n(\mathcal R_n)=\pm \left| \begin{array}{ccc}
