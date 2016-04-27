@@ -1,0 +1,25 @@
+\begin{frame}
+\vskip -0.1cm
+\begin{theorem}
+Let $\fcv u, \fcv v$ be two 3-dimensional vectors. Then 
+$\displaystyle
+|\fcv u \times \fcv v | = \sqrt{\left|\begin{array}{cc}\fcv u \cdot \fcv u & \fcv u \cdot \fcv v \\ \fcv v \cdot \fcv u & \fcv v \cdot \fcv v \end{array} \right| }
+$.
+\end{theorem}
+
+\vskip -0.1cm
+
+\begin{proof}
+$\begin{array}{rcl}
+\displaystyle \left| u\times v \right|^2&=&\displaystyle  \left|\left(\left|  \begin{array}{cc} u_2 &u_3\\ v_2 &v_3 \end{array} \right|, -\left|  \begin{array}{cc} u_1 &u_3\\ v_1 &v_3 \end{array} \right|, \left|  \begin{array}{cc} u_1 &u_2\\ v_1 &v_2 \end{array} \right|\right)\right|^2\\
+&=&\displaystyle (u_2v_3-u_3v_2)^2+ (u_1v_3 - u_3v_1)^2+(u_1v_2-u_2v_1)^2\\
+&=&\displaystyle   -2 {u}_{2}{u}_{3}{v}_{2} {v}_{3}-2{u}_{1}{u}_{3}{v}_{1} {v}_{3}-2 {u}_{1} {u}_{2}    {v}_{1}  {v}_{2}   \\
+&&\displaystyle + {u}_{3} ^{2}  {v}_{2} ^{2}+ {u}_{3} ^{2}  {v}_{1} ^{2}+ {u}_{2} ^{2}  {v}_{3} ^{2}+ {u}_{2} ^{2}  {v}_{1} ^{2}+ {u}_{1} ^{2}  {v}_{3} ^{2}+ {u}_{1} ^{2}  {v}_{2} ^{2} \\~\\
+\displaystyle \left|\begin{array}{cc}\fcv u \cdot \fcv u & \fcv u \cdot \fcv v \\ \fcv u \cdot \fcv u & \fcv v \cdot \fcv v \end{array} \right|&=&\displaystyle \left|\begin{array}{cc}u_1^2+u_2^2+u_3^2 & u_1v_1+u_2v_2+u_3v_3 \\ u_1v_1+u_2v_2+u_3v_3 &v_1^2+v_2^2+v_3^2 \end{array} \right|\\
+&=&\displaystyle   -2 {u}_{2}{u}_{3}{v}_{2} {v}_{3}-2{u}_{1}{u}_{3}{v}_{1} {v}_{3}-2 {u}_{1} {u}_{2}    {v}_{1}  {v}_{2}   \\
+&&\displaystyle + {u}_{3} ^{2}  {v}_{2} ^{2}+ {u}_{3} ^{2}  {v}_{1} ^{2}+ {u}_{2} ^{2}  {v}_{3} ^{2}+ {u}_{2} ^{2}  {v}_{1} ^{2}+ {u}_{1} ^{2}  {v}_{3} ^{2}+ {u}_{1} ^{2}  {v}_{2} ^{2} \\
+\end{array}
+$
+\end{proof}
+
+\end{frame}

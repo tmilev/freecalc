@@ -10,28 +10,28 @@
 \begin{itemize}
 \item<4-> \fcQuestion{4}{$\mathcal R = [0,R] \times [0,2\pi]$. Here $\mathcal{R}$ is}\fcAnswer{5}{ a disk. 
 \psset{xunit=0.3cm, yunit=0.3cm}
-\begin{pspicture}
+\begin{pspicture}(-1.3, -1.3)(1.3, 1.3)
 \pscustom*[linecolor=\fcColorAreaUnderGraph ]{\parametricplot{0}{360}{t cos t sin}}
 \fcAxesStandardNoFrame[linewidth=0.2pt]{-1.3}{-1.3}{1.3}{1.3}
 \end{pspicture}
 }
 \item<6-> \fcQuestion{6}{$\mathcal R = [R_1,R_2] \times [0,2\pi]$ Here $\mathcal{R}$ is} \fcAnswer{7}{an annulus (ring). 
 \psset{xunit=0.25cm, yunit=0.25cm}
-\begin{pspicture}
+\begin{pspicture}(-1.3, -1.3)(1.3, 1.3)
 \pscustom*[linecolor=\fcColorAreaUnderGraph ]{\parametricplot{0}{360}{t cos t sin}\parametricplot{360}{0}{t cos 0.5 mul t sin 0.5 mul}}
 \fcAxesStandardNoFrame[linewidth=0.2pt]{-1.3}{-1.3}{1.3}{1.3}
 \end{pspicture}
 }
 \item<8->\fcQuestion{8}{ $\mathcal R= [0,R] \times [\theta_1,\theta_2]$. Here $\mathcal{R}$ is} \fcAnswer{9}{a sector of disk.
 \psset{xunit=0.25cm, yunit=0.25cm}
-\begin{pspicture}
+\begin{pspicture}(-1.3, -1.3)(1.3, 1.3)
 \pscustom*[linecolor=\fcColorAreaUnderGraph ]{\parametricplot{15}{75}{t cos t sin}\psline(! 75 cos 75 sin)(0,0)\psline(0,0)(! 15 cos 15 sin) }
 \fcAxesStandardNoFrame[linewidth=0.2pt]{-1.3}{-1.3}{1.3}{1.3}
 \end{pspicture}
 }
 \item<10->\fcQuestion{10}{ $\mathcal R = [R_1,R_2] \times [\theta_1,\theta_2]$. Here $\mathcal{R}$ is} \fcAnswer{11}{ a sector of an annulus.
 \psset{xunit=0.25cm, yunit=0.25cm}
-\begin{pspicture}
+\begin{pspicture}(-1.3, -1.3)(1.3, 1.3)
 \pscustom*[linecolor=\fcColorAreaUnderGraph ]{\parametricplot{15}{75}{t cos t sin} \psline(! 75 cos 75 sin)(! 75 cos 0.4 mul 75 sin 0.4 mul) \parametricplot{75}{15}{t cos 0.4 mul t sin 0.4 mul} \psline(! 15 cos 0.4 mul 15 sin 0.4 mul)(! 15 cos 15 sin) }
 \fcAxesStandardNoFrame[linewidth=0.2pt]{-1.3}{-1.3}{1.3}{1.3}
 \end{pspicture}
