@@ -134,7 +134,7 @@ $
 \left|\begin{array}{rcl}
 x&=& \left(2+ \rho\cos \theta\right) \cos\phi\\
 y&=& \left(2+ \rho\cos \theta\right) \sin\phi\\
-z&=& \rho \cos \theta + \frac{\phi}{3}  
+z&=& \rho \sin \theta + \frac{\phi}{3}  
 \end{array}\right., 
 $
 use to find the volume of the horn given by $\theta\in [0,2\pi], \phi \in [0,3\pi], \rho \in\left[0, \frac{\phi}{9}\right] $.
@@ -150,6 +150,36 @@ use to find the volume of the horn given by $\theta\in [0,2\pi], \phi \in [0,3\p
 /R 2 def
 /r  uRad 9 div def
 /A v cos r mul R add def
+/x u cos A mul def
+/y u sin A mul def
+/z v sin r mul uRad 3 div add def
+[x y z]
+end
+}{}
+\fcAxesIIIdInScene{4}{4}{6}
+\fcFinishIIIdScene[fastsort=true]
+\end{pspicture}
+\item \label{problemVolumeRaisedExpandingHorn} Variable change: 
+$
+\left|\begin{array}{rcl}
+x&=& \left(2+\phi/3+ \rho\cos \theta\right) \cos\phi\\
+y&=& \left(2+\phi/3+ \rho\cos \theta\right) \sin\phi\\
+z&=& \rho \sin \theta + \frac{\phi}{3}  
+\end{array}\right., 
+$
+use to find the volume of the horn given by $\theta\in [0,2\pi], \phi \in [0,3\pi], \rho \in\left[0, \frac{\phi}{9}\right] $.
+
+\begin{pspicture}(-1,-1)(1,1)
+\tiny
+\fcBoundingBox{-4}{-1.5}{4}{6}
+\fcStartIIIdScene
+\fcSurfaceInScene[iterationsU=16, iterationsV=8]{0}{0}{540}{360}{
+8 dict begin
+/uRad u 57.295779513 div def
+/vRad v 57.295779513 div def
+/R 2 def
+/r  uRad 9 div def
+/A v cos r mul R add uRad 3 div add def
 /x u cos A mul def
 /y u sin A mul def
 /z v sin r mul uRad 3 div add def

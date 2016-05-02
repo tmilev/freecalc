@@ -6,10 +6,56 @@ $
 \left|\begin{array}{rcl}
 x&=& \left(2+ \rho\cos \theta\right) \cos\phi\\
 y&=& \left(2+ \rho\cos \theta\right) \sin\phi\\
-z&=& \rho \cos \theta + \frac{\phi}{3}  
+z&=& \rho \sin \theta + \frac{\phi}{3}  
 \end{array}\right. 
 $
 
-Then $ $
+Then $\begin{array}{rcl}
 
+ J_{\fcv f}&=&\left( 
+\begin{array}{ccc} 
+\frac{\diff x}{\diff \rho} &\frac{\diff x}{\diff \phi}&\frac{\diff x}{\diff \theta}\\
+\frac{\diff y}{\diff \rho} &\frac{\diff y}{\diff \phi}&\frac{\diff y}{\diff \theta}\\
+\frac{\diff z}{\diff \rho} &\frac{\diff z}{\diff \phi}&\frac{\diff z}{\diff \theta}\\
+\end{array}
+\right)
+=\left(\begin{array}{ccc}\cos{}\phi \cos{}\theta & -\rho \cos{}\theta \sin{}\phi -2\sin{}\phi & -\rho \cos{}\phi \sin{}\theta \\ \cos{}\theta \sin{}\phi & \rho \cos{}\phi \cos{}\theta +2\cos{}\phi & -\rho \sin{}\phi \sin{}\theta \\ \sin{}\theta & 1/3 & \rho \cos{}\theta \\ \end{array}\right) \\
+\det J_{\fcv f}&=&  {\cos^{2}}{}\phi    \cos{}\theta  {\sin^{2}}{}\theta +\rho^{2}   \cos{}\theta    {\sin^{2}}{}\phi  {\sin^{2}}{}\theta  \\
+&&+\rho^{2}   {\cos^{3}}{}\theta  {\sin^{2}}{}\phi +\rho^{2}   {\cos^{2}}{}\phi  {\cos^{3}}{}\theta +2 \rho   {\sin^{2}}{}\phi  {\sin^{2}}{}\theta\\
+&&+2 \rho   {\cos^{2}}{}\theta {\sin^{2}}{}\phi+2 \rho   {\cos^{2}}{}\phi {\sin^{2}}{}\theta+2 \rho   {\cos^{2}}{}\phi {\cos^{2}}{}\theta \\
+&=&\rho^{2}\cos{}\theta +2\rho 
+\end{array}
+$
+}
+\solution{\ref{problemVolumeRaisedHorn} \textbf{To be written.}
+
+Let $\fcv f$ be the map given by the variable change:
+
+$
+\left|\begin{array}{rcl}
+x&=& \left(2+\phi/3 \rho\cos \theta\right) \cos\phi\\
+y&=& \left(2+\phi/3 \rho\cos \theta\right) \sin\phi\\
+z&=& \rho \sin \theta + \frac{\phi}{3}  
+\end{array}\right. 
+$
+
+Then $\begin{array}{rcl}
+
+ J_{\fcv f}&=&\left( 
+\begin{array}{ccc} 
+\frac{\diff x}{\diff \rho} &\frac{\diff x}{\diff \phi}&\frac{\diff x}{\diff \theta}\\
+\frac{\diff y}{\diff \rho} &\frac{\diff y}{\diff \phi}&\frac{\diff y}{\diff \theta}\\
+\frac{\diff z}{\diff \rho} &\frac{\diff z}{\diff \phi}&\frac{\diff z}{\diff \theta}\\
+\end{array}
+\right)
+= 
+\left(\begin{array}{ccc}\cos{}\phi \cos{}\theta & -\rho \cos{}\theta \sin{}\phi -1/3\phi \sin{}\phi -2\sin{}\phi +1/3\cos{}\phi & -\rho \cos{}\phi \sin{}\theta \\ \cos{}\theta \sin{}\phi & \rho \cos{}\phi \cos{}\theta +1/3\phi \cos{}\phi +1/3\sin{}\phi +2\cos{}\phi & -\rho \sin{}\phi \sin{}\theta \\ \sin{}\theta & 1/3 & \rho \cos{}\theta \\ \end{array}\right) 
+ \\
+\det J_{\fcv f}&=&  \rho^{2} {\cos^{2}}{}\phi \cos{}\theta {\sin^{2}}{}\theta+\rho^{2} \cos{}\theta {\sin^{2}}{}\phi {\sin^{2}}{}\theta+\rho^{2} {\cos^{3}}{}\theta {\sin^{2}}{}\phi+\rho^{2} {\cos^{2}}{}\phi {\cos^{3}}{}\theta\\
+&&+\frac{1}{3} \phi \rho {\sin^{2}}{}\phi {\sin^{2}}{}\theta+\frac{1}{3} \phi \rho {\cos^{2}}{}\theta {\sin^{2}}{}\phi+\frac{1}{3} \phi \rho {\cos^{2}}{}\phi {\sin^{2}}{}\theta+\frac{1}{3} \phi \rho {\cos^{2}}{}\phi {\cos^{2}}{}\theta\\
+&&+2 \rho {\sin^{2}}{}\phi {\sin^{2}}{}\theta+2 \rho {\cos^{2}}{}\theta {\sin^{2}}{}\phi+2 \rho {\cos^{2}}{}\phi {\sin^{2}}{}\theta+2 \rho {\cos^{2}}{}\phi {\cos^{2}}{}\theta 
+ \\
+&=&\rho^{2}\cos{}\theta +\frac{\phi \rho }{3}+2\rho
+\end{array}
+$
 }
