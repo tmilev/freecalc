@@ -18,14 +18,14 @@
 \fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[1 0 0]}{0.2}%
 \fcPerpendicularIIId[linestyle=dashed]{[1 1 0]}{[0 1 0]}{0.2}%
 \fcLineIIId{[0 0 0]}{[1 1 0]}
-\fcPutIIId[r]{[0.5 0 0]}{$\alert<2,3>{x}~~$}
-\fcPutIIId[b]{[0 0.5 0]}{$\alert<4,5>{y}$}
+\fcPutIIId[r]{[0.5 0 0]}{$\alertNoH{2,3}{x}~~$}
+\fcPutIIId[b]{[0 0.5 0]}{$\alertNoH{4,5}{y}$}
 \fcPutIIId[r]{[0 0 0.5]}{$z~~$}
 \fcDotIIId{[1 1 1]}
 \fcDotIIId{[1 1 0]}
-\fcPutIIId[tr]{[0.5 0.5 0]}{$\alert<3,5>{r}~~$}
+\fcPutIIId[tr]{[0.5 0.5 0]}{$\alertNoH{3,5}{r}~~$}
 \fcAngleIIId[arrows=->, linecolor=red]{[1 0 0]}{[1 1 0]}{0.3}
-\fcPutIIId[t]{[0.4 0.2 0]}{$\alert<3,5>{\theta}$}
+\fcPutIIId[t]{[0.4 0.2 0]}{$\alertNoH{3,5}{\theta}$}
 \uncover<3>{\fcAngleIIId[arrows=->, linecolor=red, linewidth=2pt]{[1 0 0]}{[1 1 0]}{0.3}}%
 \uncover<3>{
 \fcLineIIId[linewidth=2pt, linecolor=red]{[0 0 0]}{[1 0 0]}
@@ -42,9 +42,9 @@
 To transform cylindrical to rectangular coordinates:
 \uncover<2->{%
 $$\begin{array}{rcl}
-\alert<2,3>{x}  &\alert<2,3>{=}& \uncover<3->{\alert<3>{ r \cos\theta }} \\
-\alert<4,5>{y} & \alert<4,5>{=} &\uncover<5->{ \alert<5>{ r \sin \theta}} \\
-\alert<6,7>{z_{rectangular}} &\alert<6,7>{=}&\uncover<7->{ \alert<7>{ z_{cylindrical}}}
+\alertNoH{2,3}{x}  &\alertNoH{2,3}{=}& \uncover<3->{\alertNoH{3}{ r \cos\theta }} \\
+\alertNoH{4,5}{y} & \alertNoH{4,5}{=} &\uncover<5->{ \alertNoH{5}{ r \sin \theta}} \\
+\alertNoH{6,7}{z_{rectangular}} &\alertNoH{6,7}{=}&\uncover<7->{ \alertNoH{7}{ z_{cylindrical}}}
 \end{array}
 $$
 }
@@ -52,15 +52,15 @@ $$
 To transform rectangular to cylindrical:
 $\begin{array}{rcl}
 \renewcommand{\arraystretch}{1.7}
-\alert<8,9>{ r}&\alert<8,9>{=}&\uncover<9->{\alert<9>{ \sqrt{x^2+y^2}}} \\
-\alert<10,11>{\cos\theta} &\alert<10,11>{=} &\displaystyle \uncover<11->{\alert<11>{\frac{x}{r} }} \\
-\alert<10,11>{\sin \theta}&\alert<10,11>{=}&\displaystyle \uncover<11->{\alert<11>{\frac{y}{r}}}\\
-\alert<12,13>{\theta} &\alert<12,13>{=}&  
-\uncover<13->{\alert<13>{\arcsin \left(\frac{y}{r}\right)  \text{\quad if } x>0}}\\ 
+\alertNoH{8,9}{ r}&\alertNoH{8,9}{=}&\uncover<9->{\alertNoH{9}{ \sqrt{x^2+y^2}}} \\
+\alertNoH{10,11}{\cos\theta} &\alertNoH{10,11}{=} &\displaystyle \uncover<11->{\alertNoH{11}{\frac{x}{r} }} \\
+\alertNoH{10,11}{\sin \theta}&\alertNoH{10,11}{=}&\displaystyle \uncover<11->{\alertNoH{11}{\frac{y}{r}}}\\
+\alertNoH{12,13}{\theta} &\alertNoH{12,13}{=}&
+\uncover<13->{\alertNoH{13}{\arcsin \left(\frac{y}{r}\right)  \text{\quad if } x>0}}\\
 \uncover<13->{
-&\alert<13>{=}&\alert<13>{\arccos \left(\frac{x}{r}\right)  \text{\quad if } y>0}}\\
-\uncover<13->{&\alert<13>{=}&\alert<13>{\arctan \left(\frac{y}{x}\right)  \text{\quad if } x>0}}\\
-\alert<14>{z_{cylindirical}}&\alert<14>{=}&\uncover<14->{\alert<14>{ z_{rectangular}}}
+&\alertNoH{13}{=}&\alertNoH{13}{\arccos \left(\frac{x}{r}\right)  \text{\quad if } y>0}}\\
+\uncover<13->{&\alertNoH{13}{=}&\alertNoH{13}{\arctan \left(\frac{y}{x}\right)  \text{\quad if } x>0}}\\
+\alertNoH{14}{z_{cylindirical}}&\alertNoH{14}{=}&\uncover<14->{\alertNoH{14}{ z_{rectangular}}}
 \end{array}
 $
 

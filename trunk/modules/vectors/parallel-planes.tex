@@ -25,38 +25,38 @@
 \fcPerpendicularIIId[arrows=<-, linecolor=red]{[1 1 1.7]}{[1 1 1] [0 0 1]}{0.2}%
 \fcPutIIId[l]{[1 1 1.35]}{$~~\fcv n_2$}
 
-\fcLineIIId[linecolor=blue]{[-1 -1 -1]}{[0.53 0.53 0.53]}
-\fcLineIIId[arrows=->, linecolor=blue, linestyle=dotted]{[0.53 0.53 0.53]}{[1 1 1]}
+\fcLineIIId[linecolor=blue]{[-1 -1 -1]}{[-0.08 -0.08 -0.08]}
+\fcLineIIId[arrows=->, linecolor=blue, linestyle=dotted]{[-0.08 -0.08 -0.08]}{[1 1 1]}
 \fcPutIIId[l]{[0 0 0]}{$~~~\fcv r_2- \fcv r_1$}
 \end{pspicture}
 \column{0.6\textwidth}
 \begin{itemize}
 \item Given: planes $\begin{array}{rrcl}
-\mathcal{P}_1:& (\textbf{r} - \alert<7>{\textbf{r}_1})\alert<7>{ \cdot \alert<6>{\textbf{n}_1}} &=& 0 \\
-\mathcal{P}_2:& (\textbf{r} - \alert<7>{\textbf{r}_2}) \alert<7>{\cdot \alert<6>{\textbf{n}_2}} &=& 0
+\mathcal{P}_1:& (\textbf{r} - \alertNoH{7}{\textbf{r}_1})\alertNoH{7}{ \cdot \alertNoH{6}{\textbf{n}_1}} &=& 0 \\
+\mathcal{P}_2:& (\textbf{r} - \alertNoH{7}{\textbf{r}_2}) \alertNoH{7}{\cdot \alertNoH{6}{\textbf{n}_2}} &=& 0
 \end{array}.
 $
 \item Goal: Establish whether planes are parallel, find distance b-n planes.
 \end{itemize}
 \end{columns}
-Planes are \alert<1->{parallel} \uncover<2->{$\mathcal{P}_1 || \mathcal{P}_2$ $\Leftrightarrow$ $\textbf{n}_1$, $\textbf{n}_2$ collinear $\Leftrightarrow$
+Planes are \alertNoH{1-}{parallel} \uncover<2->{$\mathcal{P}_1 || \mathcal{P}_2$ $\Leftrightarrow$ $\textbf{n}_1$, $\textbf{n}_2$ collinear $\Leftrightarrow$
 $\boxed{\textbf{n}_1 \times \textbf{n}_2 = \textbf{0}}$. }
 
-\uncover<3->{\alert<1->{Distance}:\quad
+\uncover<3->{\alertNoH{1-}{Distance}:\quad
 $d(\mathcal{P}_1,\mathcal{P}_2) = |\textbf{\text{proj}}_{\textbf{n}_1} (\textbf{r}_2-\textbf{r}_1)| \uncover<4->{=\boxed{\frac{|(\textbf{r}_2-\textbf{r}_1)\cdot \textbf{n}_1|}{|\textbf{n}_1|}}}$
 } %uncover3
 
 \uncover<5->{%
-\noindent Assume $\alert<6>{ \fcv n_1=\fcv n_2=( a,b,c) }$
+\noindent Assume $\alertNoH{6}{ \fcv n_1=\fcv n_2=( a,b,c) }$
 \uncover<6->{$\Rightarrow$ plane eq-ns:
 $\begin{array}{r@{~}r@{~}c@{~}l}
-\mathcal{P}_1 :& \alert<6>{a}x+\alert<6>{b}y+\alert<6>{c}z &=& \alert<7>{d_1}\\
-\mathcal{P}_2 :& \alert<6>{a}x+\alert<6>{b}y+\alert<6>{c}z &=& \alert<7>{d_2}
+\mathcal{P}_1 :& \alertNoH{6}{a}x+\alertNoH{6}{b}y+\alertNoH{6}{c}z &=& \alertNoH{7}{d_1}\\
+\mathcal{P}_2 :& \alertNoH{6}{a}x+\alertNoH{6}{b}y+\alertNoH{6}{c}z &=& \alertNoH{7}{d_2}
 \end{array}.$
 }
 \uncover<7->{
 \[
-\Rightarrow \boxed{d(\mathcal{P}_1,\mathcal{P}_2) = \frac{|\alert<7>{d_2-d_1}|}{\sqrt{a^2+b^2+c^2}}}
+\Rightarrow \boxed{d(\mathcal{P}_1,\mathcal{P}_2) = \frac{|\alertNoH{7}{d_2-d_1}|}{\sqrt{a^2+b^2+c^2}}}
 \]
 }
 }%uncover5

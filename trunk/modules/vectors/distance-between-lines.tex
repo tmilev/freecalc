@@ -11,7 +11,7 @@
 \fcPutIIId[b]{[-1.2 -1.2 1]}{$\mathcal P$}
 }%
 \fcLineIIId{[-1 -1 -1]}{[1 1 -1]}
-\fcLineIIId{[1 -1 1]}{[-1 1 1]} 
+\fcLineIIId{[1 -1 1]}{[-1 1 1]}
 %\fcPerpendicularIIId[arrows=->, linecolor=green]{[0 0 -1]}{[1 -1 1] [-1 1 1]}{0.2}
 \fcPutIIId[l]{[-1 1 1]}{$~~L_1$}
 \fcPutIIId[r]{[-1 -1 -1.2]}{$L_2$}
@@ -81,9 +81,9 @@
 \item Goal: find distance between the lines = $d(L_1, L_2)$ = shortest distance b-n points on the two lines.
 \end{itemize}
 \end{columns}
-\begin{itemize} 
+\begin{itemize}
 \only<handout:1|1-8>{
-\item<2-> Construct plane $\mathcal P$ with directions $\fcv u_1$, $\fcv u_2$ and passing through $L_1$. 
+\item<2-> Construct plane $\mathcal P$ with directions $\fcv u_1$, $\fcv u_2$ and passing through $L_1$.
 \item<3-> Distance b-n $L_2$ and points on $\mathcal P$ is constant.
 \item<4-> Project $L_2$ orthogonally on $\mathcal P$; let the projection be $L_2'$.
 \item<5-> Let $L_2' $ and $L_1$ intersect in point $Q_1$.
@@ -91,21 +91,21 @@
 \item<7-> $\Rightarrow$ $Q_1Q_2=d(L_1, L_2)$.
 }
 \only<handout:1|8-16>{
-\item \alert<8,9>{$|Q_1Q_2|=d(L_1, L_2)$}.
+\item \alertNoH{8,9}{$|Q_1Q_2|=d(L_1, L_2)$}.
 }
 \only<handout:2|9-16>{
 \item<10-> $\fcv Q_1\fcv Q_2 \perp L_1, L_2$ \uncover<11->{$\Rightarrow$  $\fcv Q_1 \fcv Q_2$ is proportional to $\fcv n = \fcv u_1\times \fcv u_2$.}
 \item<12-> Pick arbitrary points on $L_1, L_2$ - say, the base points $P_1(\fcv r_1), P_2(\fcv r_2)$.
-\item<13-> Let $R$ be such that $\fcv Q_1\fcv R=\fcv P_1 \fcv P_2=\fcv r_2-\fcv r_1$. 
+\item<13-> Let $R$ be such that $\fcv Q_1\fcv R=\fcv P_1 \fcv P_2=\fcv r_2-\fcv r_1$.
 \item<14-> Then $\fcv{P}_2\fcv R$ is proportional to $\fcv u_1$.
 \item<15-> $\Rightarrow $ $\fcv Q_2\fcv R= \fcv Q_2  \fcv P_2+\fcv{P}_2\fcv{R}$ is perpendicular to $\fcv n$.
 }
 \only<handout:3|16->{
-\item<16->\alert<16,17>{ $\Rightarrow$ $\fcv Q_1 \fcv Q_2= \fcv {proj} _{\fcv n} (\fcv r_2-\fcv r_1)$.}
+\item<16->\alertNoH{16,17}{ $\Rightarrow$ $\fcv Q_1 \fcv Q_2= \fcv {proj} _{\fcv n} (\fcv r_2-\fcv r_1)$.}
 }
 \only<handout:3|17->{
-\item<18-> 
-$d(L_1,L_2)  = |\fcv{proj}_{\alert<19>{\fcv{n}}} (\fcv{r}_2-\fcv{r}_1)| \uncover<19->{= \boxed{\frac{|(\fcv{r}_2-\fcv{r}_1)\cdot \alert<19,20>{\fcv{n}} | }{ |\alert<19,20>{\fcv{n}}|}}} \uncover<20->{= \frac{ |(\fcv{r}_2 -\fcv{r}_1 )\cdot (\alert<20>{ \fcv{u}_1\times \fcv{u}_2})|}{ | \alert<20>{\fcv{u}_1\times \fcv{u}_2}|}}$
+\item<18->
+$d(L_1,L_2)  = |\fcv{proj}_{\alertNoH{19}{\fcv{n}}} (\fcv{r}_2-\fcv{r}_1)| \uncover<19->{= \boxed{\frac{|(\fcv{r}_2-\fcv{r}_1)\cdot \alertNoH{19,20}{\fcv{n}} | }{ |\alertNoH{19,20}{\fcv{n}}|}}} \uncover<20->{= \frac{ |(\fcv{r}_2 -\fcv{r}_1 )\cdot (\alertNoH{20}{ \fcv{u}_1\times \fcv{u}_2})|}{ | \alertNoH{20}{\fcv{u}_1\times \fcv{u}_2}|}}$
 \item<21-> If lines are intersecting we know $d(L_1,L_2)=0$. \uncover<22->{Since the lines intersect $L_2$ and $L_2'$ coincide.} \uncover<23->{$\Rightarrow$ $(\fcv{r}_2-\fcv{r}_1) \cdot (\fcv{u}_1\times \fcv{u}_2) = 0$} \uncover<24->{$\Rightarrow $ the formula $d(L_1, L_2)= \frac{|(\fcv{r}_2 - \fcv{r}_1 )\cdot (\fcv{u}_1\times \fcv{u}_2)|}{ | \fcv{u}_1\times \fcv{u}_2|}=0$ produces the expected result.}
 }
 \end{itemize}

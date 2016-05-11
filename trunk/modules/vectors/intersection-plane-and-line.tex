@@ -1,7 +1,7 @@
 \begin{frame}\frametitle{Intersection between line and plane}
 \begin{columns}
 \column{0.4\textwidth}
-\psset{xunit=2cm, yunit=2cm}
+\psset{xunit=1.5cm, yunit=1.5cm}
 \begin{pspicture}(-1.2, -0.7)(2,1.33)
 \renewcommand{\fcScreen}{[-4 -1 -1] 0}
 \tiny
@@ -14,7 +14,7 @@
 
 
 \fcLineIIId[arrows=->, linecolor=blue]{[0.5 -0.7 0]}{[0 0.5 1]}
-\fcPutIIId[tl]{[0.25 -0.1 0.5]}{$ \alert<5>{\fcv u}$}
+\fcPutIIId[tl]{[0.25 -0.1 0.5]}{$ \alertNoH{5}{\fcv u}$}
 \fcLineIIId[linestyle=dotted]{[0.56 -0.844 -0.12]}{[0.5 -0.7 0]}
 \fcLineIIId{[0.65 -1.06 -0.3]}{[0.56 -0.844 -0.12]}
 \fcLineIIId{[0 0.5 1]}{[-0.15 0.86 1.3]}
@@ -25,24 +25,24 @@
 \end{pspicture}
 \column{0.6\textwidth}
 \begin{itemize}
-\item Given: line $L: \quad\alert<6>{ \fcv{r}= \fcv{r}_1+t\fcv{u}}$,
+\item Given: line $L: \quad\alertNoH{6}{ \fcv{r}= \fcv{r}_1+t\fcv{u}}$,
 \item $\fcv r_1=( x_1, y_1, z_1)$, $u=( p,q,r)$,
-\item plane $\mathcal{P}: \alert<12>{\alert<4>{ax +by +cz} \alert<5>{ -d}=0}$.
+\item plane $\mathcal{P}: \alertNoH{12}{\alertNoH{4}{ax +by +cz} \alertNoH{5}{ -d}=0}$.
 \item Goal: find the intersection between line and plane.
 \end{itemize}
 \end{columns}
 \uncover<2->{Let $P_0(\fcv r_0)$ be a point on the plane.} \uncover<3->{Then a point $P(\fcv r)$, $\fcv r=( x,y,z)$ is on the plane if
 $
-\alert<12>{( \alert<4,7>{\fcv r}\alert<5,8>{-\fcv r_0})\alert<4,5,8>{\cdot \fcv n}=0}.
+\alertNoH{12}{( \alertNoH{4,7}{\fcv r}\alertNoH{5,8}{-\fcv r_0})\alertNoH{4,5,8}{\cdot \fcv n}=0}.
 $
 } %uncover3
-\uncover<6->{A point $P(\fcv r) $ \alert<6>{on the line} is of the form $\alert<6,7>{\fcv r=\fcv r_1+t\fcv u}$,} \uncover<7->{therefore $P$ lies on both the line and the plane if:
+\uncover<6->{A point $P(\fcv r) $ \alertNoH{6}{on the line} is of the form $\alertNoH{6,7}{\fcv r=\fcv r_1+t\fcv u}$,} \uncover<7->{therefore $P$ lies on both the line and the plane if:
 \[\begin{array}{rcl}
-(\alert<7>{ \fcv{r}_1+t\fcv{u}}-\alert<8>{\fcv{r}_0})\alert<8>{ \cdot \fcv{n} }&=& 0\\
+(\alertNoH{7}{ \fcv{r}_1+t\fcv{u}}-\alertNoH{8}{\fcv{r}_0})\alertNoH{8}{ \cdot \fcv{n} }&=& 0\\
 \uncover<9->{ (\fcv{r}_1-\fcv{r}_0)\cdot \fcv{n} + t \fcv{u} \cdot \fcv{n} &=& 0\\}
 \uncover<10->{t&=& -\frac{(\fcv{r}_1-\fcv r_0)\cdot\fcv  n}{\fcv u \cdot \fcv n}\\}
-\uncover<11->{\fcv r&= &\fcv r_1-\frac{\alert<12>{(\fcv{r}_1-\fcv r_0)\cdot\fcv  n}}{\fcv u \cdot \fcv n}\fcv u }\\
-\uncover<12->{&=& ( x_1, y_1, z_1 )-\frac{\alert<12>{ ax_1 +by_1+cz_1-d}}{ap + bq +cr }( p,q, r)}
+\uncover<11->{\fcv r&= &\fcv r_1-\frac{\alertNoH{12}{(\fcv{r}_1-\fcv r_0)\cdot\fcv  n}}{\fcv u \cdot \fcv n}\fcv u }\\
+\uncover<12->{&=& ( x_1, y_1, z_1 )-\frac{\alertNoH{12}{ ax_1 +by_1+cz_1-d}}{ap + bq +cr }( p,q, r)}
 \end{array}
 \]
 }
