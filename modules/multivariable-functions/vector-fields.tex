@@ -1,8 +1,8 @@
 \begin{frame}
 \frametitle{Vector fields}
 \begin{itemize}
-\item \emph{Vector fields} are functions with multidimensional input and output. 
-\item Input is point in space; output is a vector, which we plot as a vector with a tail at the input point. 
+\item \emph{Vector fields} are functions with multidimensional input and output.
+\item Input is point in space; output is a vector, which we plot as a vector with a tail at the input point.
 \item Examples
 \begin{itemize}
   \item Velocity of fluid/air at given point;
@@ -46,21 +46,22 @@ $\textbf{e}_\theta = -\sin\theta\, \textbf{i} +
 \frac{x}{r} \, \textbf{j} = -\frac{y}{\sqrt{x^2+y^2}} \,
 \textbf{i} + \frac{x}{\sqrt{x^2+y^2}} \, \textbf{j} \; .
 $
-\uncover<3->{
+
+\hfil \hfil\uncover<3->{
 \psset{xunit=0.3cm, yunit=0.3cm}
-\begin{pspicture}(-5.2,-5.2)(5.2,5.2)
+\begin{pspicture}(-5.9,-5.9)(5.9,5.9)
 \tiny
 \fcAxesStandard{-5.1}{-5.1}{5.1}{5.1}
 \fcVectorField[linecolor=blue, arrows=->]{-5}{-5}{11}{11}{1} {1 dict begin /r x x mul y y mul add sqrt def  r 0 eq {0 0} {x r div  y r div} ifelse end}
 \end{pspicture}
 \psset{xunit=0.3cm, yunit=0.3cm}
-~~~ \begin{pspicture}(-5.2,-5.2)(5.2,5.2)
+~~~ \begin{pspicture}(-5.9,-5.9)(5.9,5.9)
 \tiny
 \fcAxesStandard{-5.1}{-5.1}{5.1}{5.1}
 \fcVectorField[linecolor=blue, arrows=->]{-5}{-5}{11}{11 }{1}{1 dict begin /r x x mul y y mul add sqrt def  r 0 eq {0 0} {-1 y mul r div  x r div} ifelse end}
 \end{pspicture}
 }
-\item<4-> From the picture it is evident what trajectory would be followed by an object that ``\alert<5>{flows along the vector field}''.
-\item<5-> By ``\alert<5>{flowing}'' we mean an object whose \alert<5>{velocity} at each point is given by \alert<5>{the value of the field}.
+\item<4-> From the picture it is evident what trajectory would be followed by an object that ``\alertNoH{5}{flows along the vector field}''.
+\item<5-> By ``\alertNoH{5}{flowing}'' we mean an object whose \alertNoH{5}{velocity} at each point is given by \alertNoH{5}{the value of the field}.
 \end{itemize}
 \end{frame}

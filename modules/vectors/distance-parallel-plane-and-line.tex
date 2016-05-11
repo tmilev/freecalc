@@ -5,7 +5,7 @@
 \psset{xunit=2cm, yunit=2cm}
 \begin{pspicture}(-1.2, -1)(2,1.4)
 \renewcommand{\fcScreen}{[-4 -1 -1] 0}
-\tiny 
+\tiny
 \fcParallelogramIIId{[-1 -1 0]}{[1 -1 0]}{[-1 1 0]}
 \fcPutIIId{[-1 1 0]}{$\mathcal P$}
 \fcPerpendicularIIId[linestyle=dotted]{[0.5 -0.7 0 ]}{[0 0.5 0] [0 0.5 1]}{0.2}
@@ -39,14 +39,14 @@
 \begin{itemize}
 \item Given: line $L: \quad \fcv{r}= \fcv{r}_1+t\fcv{u}$,
 \item plane $\mathcal{P}: \quad (\fcv{r}-\fcv{r}_0) \cdot \fcv{n} = 0$.
-\item The plane and the line \alert<2>{are parallel,} \uncover<2->{i.e. $\fcv{u} \cdot \fcv{n} = 0$.}
+\item The plane and the line \alertNoH{2}{are parallel,} \uncover<2->{i.e. $\fcv{u} \cdot \fcv{n} = 0$.}
 \item Goal: find distance between the the two.
 \end{itemize}
 
 \end{columns}
 
 \uncover<3->{
-\alert<1->{Distance} from $L$ to $\mathcal{P}$:
+\alertNoH{1-}{Distance} from $L$ to $\mathcal{P}$:
 $d(L,\mathcal{P}) = d(P_1,\mathcal{P})$}
 \uncover<4->{
 \[
@@ -54,7 +54,7 @@ $d(L,\mathcal{P}) = d(P_1,\mathcal{P})$}
 d(L,\mathcal{P})&=&\displaystyle|\fcv{orth}_{\fcv{u}}(\fcv{r}_1-\fcv{r}_0)| =
 \fcv{proj}_{\fcv{n}} (\fcv{r}_1-\fcv{r}_0)| \\~\\
 d(L,\mathcal{P}) &=&\displaystyle \frac{|(\fcv{r}_1-\fcv{r}_0) \times \fcv{u}|}{|\fcv{u}|} =
-\alert<1->{ \frac{|( \fcv{r}_1-\fcv{r}_0)\cdot \fcv{n}|}{|\fcv{n}|}}
+\alertNoH{1-}{ \frac{|( \fcv{r}_1-\fcv{r}_0)\cdot \fcv{n}|}{|\fcv{n}|}}
 \end{array}
 \]
 }

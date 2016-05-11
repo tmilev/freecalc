@@ -1,7 +1,7 @@
 \begin{frame}
 \frametitle{$\fcv{orth}_{\fcv u}$ is a linear operator}
 \begin{theorem}
-$\alert<14>{ \alert<13>{ \fcv{orth}_{\fcv u}(\alert<12>{ \fcv v_1 +\fcv v_2}) }= \alert<10>{ \fcv{orth}_{\fcv u} \fcv v_1 } +\alert<11>{\fcv{orth}_{\fcv u} \fcv v_2}}$
+$\alertNoH{14}{ \alertNoH{13}{ \fcv{orth}_{\fcv u}(\alertNoH{12}{ \fcv v_1 +\fcv v_2}) }= \alertNoH{10}{ \fcv{orth}_{\fcv u} \fcv v_1 } +\alertNoH{11}{\fcv{orth}_{\fcv u} \fcv v_2}}$
 \end{theorem}
 \begin{proof}
 \begin{columns}
@@ -25,7 +25,7 @@ Geometric proof:
 \fcPutIIId[tl]{[0.5 0.5 1]}{$\fcv v_1$}%
 \uncover<10->{%
 \fcLineIIId[linecolor=blue, arrows=->]{[0 0 0]}{[0 1 2]}%
-\fcPutIIId[rb]{[0 0.5 1]}{$\color{blue}{\alert<14>{ \fcv{orth}_{\fcv u } \fcv v_1}}$}%
+\fcPutIIId[rb]{[0 0.5 1]}{$\color{blue}{\alertNoH{14}{ \fcv{orth}_{\fcv u } \fcv v_1}}$}%
 }%
 \uncover<11->{\fcPerpendicularIIId{[1 2 0]}{[0 2 0]}{0.2}}%
 \fcLineIIId[arrows=->]{[0 0 0]}{[1 2 0]}%
@@ -40,11 +40,11 @@ Geometric proof:
 }%
 \uncover<11->{%
 \fcLineIIId[arrows=->, linecolor=blue]{[0 1 2]}{[0 3 2]}%
-\fcPutIIId[b]{[0 2 2.2]}{$\color{blue}{\alert<14>{ \fcv{orth}_{\fcv u} \fcv v_2} }$}%
+\fcPutIIId[b]{[0 2 2.2]}{$\color{blue}{\alertNoH{14}{ \fcv{orth}_{\fcv u} \fcv v_2} }$}%
 }%
 \uncover<13->{%
 \fcLineIIId[arrows=->, linecolor=blue]{[0 0 0]}{[0 3 2]}%
-\fcPutIIId[l]{[0 2 1.3]}{$\color{blue}{\alert<14>{ \fcv{orth}_{\fcv u} (\fcv v_1 +\fcv v_2)}}$}%
+\fcPutIIId[l]{[0 2 1.3]}{$\color{blue}{\alertNoH{14}{ \fcv{orth}_{\fcv u} (\fcv v_1 +\fcv v_2)}}$}%
 }%
 \uncover<12->{%
 \fcLineIIId[arrows=->]{[0 0 0]}{[2 3 2]}%
@@ -56,7 +56,7 @@ Geometric proof:
 \fcLineIIId[linewidth=1.5pt, arrows=->, linecolor=red]{[0 0 0]}{[0 1 2]}%
 }%
 \end{pspicture}
-\uncover<9->{\alert<9>{Let $\mathcal P$: plane $\perp \fcv u$.}}
+\uncover<9->{\alertNoH{9}{Let $\mathcal P$: plane $\perp \fcv u$.}}
 } %uncover
 \column{0.7\textwidth}
 Algebraic proof:
@@ -65,10 +65,10 @@ Algebraic proof:
 \noindent \uncover<2->{
 $
 \begin{array}{r@{~}c@{~}l}
-\fcv{orth}_{\fcv u}(\fcv v_1+\fcv v_2)&=& (\fcv v_1+\fcv v_2)- \alert<3>{\fcv{proj}_{\fcv u}(\fcv v_1 +\fcv v_2)}\\
-\uncover<3->{&=&(\alert<4>{\fcv v_1}+\alert<5>{\fcv v_2})\alert<4,5>{-} \left(\alert<3>{ \alert<4>{\fcv{proj}_{\fcv u}(\fcv v_1)} +\alert<5>{\fcv{proj}_{\fcv u}(\fcv v_2)}}\right)} \\
-\uncover<4->{&=&\left(\alert<4,6>{\fcv v_1- \fcv{proj}_{\fcv u}(\fcv v_1)}\right)+\left(\alert<5,7>{\fcv v_2-\fcv{proj}_{\fcv u}(\fcv v_2)}\right)}\\
-\uncover<6->{&=& \alert<6>{\fcv{orth}_{\fcv u} \fcv v_1}+\alert<7>{\fcv{orth}_{\fcv u} \fcv v_2}}
+\fcv{orth}_{\fcv u}(\fcv v_1+\fcv v_2)&=& (\fcv v_1+\fcv v_2)- \alertNoH{3}{\fcv{proj}_{\fcv u}(\fcv v_1 +\fcv v_2)}\\
+\uncover<3->{&=&(\alertNoH{4}{\fcv v_1}+\alertNoH{5}{\fcv v_2})\alertNoH{4,5}{-} \left(\alertNoH{3}{ \alertNoH{4}{\fcv{proj}_{\fcv u}(\fcv v_1)} +\alertNoH{5}{\fcv{proj}_{\fcv u}(\fcv v_2)}}\right)} \\
+\uncover<4->{&=&\left(\alertNoH{4,6}{\fcv v_1- \fcv{proj}_{\fcv u}(\fcv v_1)}\right)+\left(\alertNoH{5,7}{\fcv v_2-\fcv{proj}_{\fcv u}(\fcv v_2)}\right)}\\
+\uncover<6->{&=& \alertNoH{6}{\fcv{orth}_{\fcv u} \fcv v_1}+\alertNoH{7}{\fcv{orth}_{\fcv u} \fcv v_2}}
 \end{array}
 $
 }
