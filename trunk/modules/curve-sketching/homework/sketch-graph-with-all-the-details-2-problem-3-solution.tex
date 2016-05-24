@@ -1,0 +1,35 @@
+\solution{\ref{problemSketch(4x^2+10x+5)/(2x+1)}
+
+\textbf{Intervals of increase and decrease.} The intervals of increase and decrease of $f(x)$ are determined by the intervals where $f'(x)$ does not change sign. The candidates for the endpoints of these intervals are the critical points of $f(x)$, i.e., the points for which $f'(x)=0$ and the points for which $f'(x)$ is not defined. Since $f'(x)=\frac{8x(x+1)}{(2x+1)^2}$, it follows that $f'(x)$ may change sign the critical points $x=0$, $x=-1$ and $x=-\frac{1}{2}$. However $f'(x)$ does not change sign near $x=-\frac{1}{2}$ as the term $(2x+1)$ is raised to an even power. Therefore the intervals of increase and decrease are given in the following table.
+\begin{tabular}{c|c|c|c}
+&$(-\infty, -1)$& $(-1,0)$& $(0,\infty)$\\\hline
+$f'(x)$& $+$&$-$&$+$\\\hline
+ $f(x)$& $\nearrow $&$\searrow$& $\nearrow$
+\end{tabular}
+
+\textbf{Local maxima and minima. } A local maximum occurs where $f$ changes from increasing to decreasing or the other way around. Therefore the preceding point implies that $f$ has local maximum at $x=-1$ equal to $f(-1)=1$ and local minimum at $x=0$ equal to 5.
+
+\textbf{Intervals of concavity.} The intervals of concavity are determined by the points where $f''(x)=\frac{8}{(2x+1)^3}$ changes sign. The denominator of $f''(x)$ changes sign near $x=-\frac{1}{2}$, so the intervals of concavity are $\left(-\infty, -\frac{1}{2}\right)$ and $\left(-\frac{1}{2}, \infty \right)$. The concavity of $f(x)$ is then determined by the following table.
+\begin{tabular}{c|c|c}
+&$\left(-\infty, -\frac{1}{2}\right)$& $\left(-\frac{1}{2},\infty\right)$ \\\hline
+$f'(x)$& $-$&$+$\\\hline
+ $f(x)$& $\cap $&$\cup$
+\end{tabular}
+
+\textbf{Curve sketching.}Please note that $x=-\frac{1}{2}$ is a vertical asymptote of $f(x)$. Together with the data computed above this makes it relatively easy to quickly produce a relatively accurate plot of $f(x)$ by hand.  A computer generated plot is included below.
+\psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-3.1,-3)(3.1,12.1)
+\fcAxesStandard{-3}{-3}{3}{12}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-3}{6}{15}{1}{1}{}
+\rput[t](0.9,-0.2){$1$}
+\fcLabels{3}{12}
+\fcFullDot{-3}{1 dict begin /x -3 def x x mul 4 mul 10 x mul 5 add add 2 x mul 1 add div end}
+\fcFullDot{-0.59}{1 dict begin /x -0.59 def x x mul 4 mul 10 x mul 5 add add 2 x mul 1 add div end}
+\fcFullDot{-0.44}{1 dict begin /x -0.44 def x x mul 4 mul 10 x mul 5 add add 2 x mul 1 add div end}
+\fcFullDot{3}{1 dict begin /x 3 def x x mul 4 mul 10 x mul 5 add add 2 x mul 1 add div end}
+
+\psplot[linecolor=red]{-3}{-0.59}{x x mul 4 mul 10 x mul 5 add add 2 x mul 1 add div}
+\psplot[linecolor=red]{-0.44}{3}{x x mul 4 mul 10 x mul 5 add add 2 x mul 1 add div}
+\psline[linestyle=dotted](-0.5,-3)(-0.5,12)
+\end{pspicture}
+}
