@@ -1,0 +1,21 @@
+\solution{\ref{problemImplicitTangenty^3+x^3+4xy=3/4}
+\[
+\begin{array}{rcll|l}
+\displaystyle y^{3}+x^3+4x y&=& \displaystyle \frac{3}{4} &&\text{apply }\frac{\diff }{\diff x}\\
+\displaystyle 3y^2 \frac{\diff y}{\diff x}+3x^2+4\left(y+x\frac{\diff y}{\diff x}\right)&=&
+\displaystyle \frac{\diff y}{\diff x}\left(3y^2+4x\right)&=&\displaystyle -3x^2-4y\\
+\displaystyle \frac{\diff y}{\diff x}&=&\displaystyle  \frac{-3x^2-4y}{ 3y^2+4x}&&\text{substitute }x=-\frac{1}{2}, y=-\frac{1}{2}\\
+\displaystyle \frac{\diff y}{\diff x}_{|x=-\frac{1}{2}, y=-\frac{1}{2}}&=& \frac{-3\left(-\frac{1}{2}\right)^2-4\left(-\frac{1}{2}\right)}{ 3\left(-\frac{1}{2}\right)^2+4\left(-\frac{1}{2}\right)}\\
+\displaystyle \frac{\diff y}{\diff x}_{|x=-\frac{1}{2}, y=-\frac{1}{2}}&=&-1
+\end{array}
+\]
+Therefore the equation of the tangent is $y-\left(-\frac{1}{2}\right)=-(x-\left(-\frac{1}{2}\right))$ which simplifies to $y=-x-1$. A computer-generated plot visually confirms our computations.
+
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-2.4,-2.4)(2.4,2.4)
+\fcAxesStandard{-2}{-2}{2}{2}
+\fcImplicitIId[linecolor=red, linestyle=dashed, dashes={[1 1] 0}, showGridImplicitIId=false, useMidpointImplicitPlots=false]{-3}{-3}{120}{120}{0.05}{0.05}{y y y mul mul x x x mul mul add 4 x y mul mul add 0.75 sub} 
+\psplot[linecolor=\fcColorTangent]{-3}{2}{x -1 mul -1 add}
+\fcFullDot{-0.5}{-0.5}
+\end{pspicture}
+}

@@ -1,0 +1,66 @@
+\solution{\ref{problemAsymptotesy=x/(sqrt(x^2+3) -2x)}
+
+\textbf{Vertical asymptotes.} A function $f(x)$ has a vertical asymptote at $x=a$ if $\lim\limits_{x\to a} f(x)=\pm \infty$. 
+
+The function is algebraic, and therefore has a finite limit at every point it is defined (i.e., no asymptote). Therefore the function can have vertical asymptotes only for those $x$ for which $f(x)$ is not defined. The function is not defined for 
+
+\[
+\begin{array}{rcll|l}
+\sqrt{x^2+3}-2x&=&0\\
+\sqrt{x^2+3}&=&2x&&\begin{array}{l} \text{square both sides}\\\text{may introduce extraneous solutions} \end{array}\\
+x^2+3&=&4x^2\\
+3x^2-3&=&0\\
+3(x-1)(x+1)&=&0\\
+x=1 \quad &\text{or}& \cancel{ x=-1}\\
+&&x=-1 \text{ is extraneous:}\\
+&& \sqrt{(-1)^2+3}-(-1)2=4\neq 0
+\end{array}
+\]
+
+$x=-1$ is indeed a vertical asymptote:
+\[
+\lim\limits_{x\to 1^+}  \frac{x}{\sqrt{x^2+3} -2x}=\infty \quad \quad \quad 
+\lim\limits_{x\to 1^-}  \frac{x}{\sqrt{x^2+3} -2x}=-\infty .
+\]
+\textbf{Horizontal asymptotes.} 
+\[
+\begin{array}{rcll|l}
+\displaystyle \lim\limits_{x\to -\infty}  \frac{x}{\sqrt{x^2+3} -2x}&=&\displaystyle \lim\limits_{x\to - \infty} \frac{1}{\frac{\sqrt{x^2+3}}{x} -2} \\
+&=& \displaystyle \lim\limits_{x\to - \infty} \frac{1}{-\sqrt{\frac{x^2+3}{x^2}} -2}   && \frac{1}{x} =- \sqrt{\frac{1}{x^2} } \text{ when } x<0\\
+&=&\displaystyle \lim\limits_{x\to - \infty} \frac{1}{-\sqrt{1+\frac{3}{x^2}} -2}  \\
+&=& \displaystyle \frac{1}{-\sqrt{1+0}-2}\\
+&=&\displaystyle -\frac{1}{3}.\\
+\displaystyle \lim\limits_{x\to -\infty}  \frac{x}{\sqrt{x^2+3} -2x}&=&\displaystyle \lim\limits_{x\to  \infty} \frac{1}{\frac{\sqrt{x^2+3}}{x} -2} \\
+&=& \displaystyle \lim\limits_{x\to  \infty} \frac{1}{\sqrt{\frac{x^2+3}{x^2}} -2}   && \frac{1}{x} = \sqrt{\frac{1}{x^2} } \text{ when } x>0\\
+&=&\displaystyle \lim\limits_{x\to  \infty} \frac{1}{\sqrt{1+\frac{3}{x^2}} -2}  \\
+&=& \displaystyle \frac{1}{\sqrt{1+0}-2}\\
+&=&\displaystyle -1.\\
+\end{array}
+\]
+Therefore $y=-\frac{1}{3}$ and $y=-1$ are the two horizontal asymptotes. 
+
+
+A computer generated graph confirms our computations.
+
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-16, -20)(16,17)
+\tiny
+\fcAxesStandard{-15}{-19.32133}{15}{16.190354}
+\fcXTick{10}
+\rput[t](10, -0.6){$10$}
+\newcommand{\theFun}{x x x mul 3 add sqrt -2 x mul add div}
+%Function formula: \frac{2 x}{\sqrt{x^{2}+x+3}-3}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1.036}{15}{\theFun }
+%Function formula: \frac{2 x}{\sqrt{x^{2}+x+3}-3}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-15}{0.961}{\theFun }
+\psline[linestyle=dotted](1,-19.3)(1,16.1)
+\psline[linestyle=dashed, linecolor=blue](! -15 -1  3 div)(!15 -1 3 div)
+\psline[linestyle=dashed, linecolor=blue](-15, -1)(15, -1)
+\rput[b](-8, 0.2){$y=-\frac{1}{3}$}
+\rput[t](8, -2){$y=-1$}
+\rput[bl](5,5){$y=\frac{x}{\sqrt{x^2+3} -2x}$}
+\rput[l](1.6,-8){$x=1$}
+\end{pspicture}
+
+
+}
