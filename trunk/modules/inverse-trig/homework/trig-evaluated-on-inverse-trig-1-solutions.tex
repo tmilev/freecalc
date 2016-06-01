@@ -1,9 +1,10 @@
 \solution{\ref{problemsin(2arcsin x)}.
 Let $y = \Arcsin x$.  Then $\sin y = x$, and we can draw a right triangle with opposite side length $x$ and hypotenuse length $1$ to find the other trigonometric ratios of $y$.  
 
-\begin{center}
+%\begin{center} %does not work well with pspicture
+\hfill
 \psset{xunit=1.0cm,yunit=1.0cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
-\begin{pspicture*}(-3.33,-6.11)(14.05,6.58)
+\begin{pspicture*}(-0.5,-0.5)(5,4)
 \psline(0,0)(4,0)
 \psline(0,0)(4,3)
 \psline(4,3)(4,0)
@@ -14,8 +15,8 @@ Let $y = \Arcsin x$.  Then $\sin y = x$, and we can draw a right triangle with o
 \rput[tl](4.1,1.4){$x$}
 \rput[tl](1.7,-0.05){$\sqrt{1-x^2}$}
 \parametricplot{0.0}{0.6435011087932844}{1*0.66*cos(t)+0*0.66*sin(t)+0|0*0.66*cos(t)+1*0.66*sin(t)+0}
-\end{pspicture*}
-\end{center}
+\end{pspicture*} \hfill\hfill
+%\end{center}
 
 Then $\cos y = \frac{\sqrt{1-x^2}}{1} = \sqrt{1-x^2}$.  
 Now we use the double angle formula to find $\sin(2\Arcsin x)$.  
