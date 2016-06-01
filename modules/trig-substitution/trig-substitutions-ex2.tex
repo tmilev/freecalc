@@ -8,41 +8,38 @@ Find the area enclosed by the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, $
 \column{0.37\textwidth}
 \psset{xunit=1cm, yunit=1cm}
 \begin{pspicture}(-2.35, -1.6)(2.35,1.7)
-\tiny
-\psframe*[linecolor=white](-2.35, -1.6)(2.35,1.7)
-\uncover<8>{ \pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
-}
-}
+\tiny%
+\psframe*[linecolor=white](-2.35, -1.6)(2.35,1.7)%
+\uncover<8>{ \pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul }%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }%
+}%
+}%
 \uncover<9-11>{ \pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
-\psline(2,0)(-2,0)
-}
-}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }%
+\psline(2,0)(-2,0)%
+}%
+}%
 \uncover<12->{ \pscustom*[linecolor=\fcColorAreaUnderGraph]{
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{0}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
-\psline(2,0)(0,0)
-}
-}
-
-\fcAxesStandardNoFrame{-2.2}{-1.6}{2.2}{1.6}
-\rput[b](1,1){\uncover<6->{\alertNoH{6}{$y=b\sqrt{1-\frac{x^2}{a^2}} $}}}
-\rput[t](1,-1){\uncover<7->{\alertNoH{7}{$y=-b\sqrt{1-\frac{x^2}{a^2}} $}}}
-
-\uncover<11->{
-\fcFullDot{2}{0}
-\rput[rb](1.9,0.1){$(a,0)$}
-\fcFullDot{-2}{0}
-\rput[lb](-1.9,0.1){$(-a,0)$}
-}
-
+\psline(2,0)(0,0)%
+}%
+}%
+\fcAxesStandardNoFrame{-2.2}{-1.6}{2.2}{1.6}%
+\rput[b](1,1){\uncover<6->{\alertNoH{6}{$y=b\sqrt{1-\frac{x^2}{a^2}} $}}}%
+\rput[t](1,-1){\uncover<7->{\alertNoH{7}{$y=-b\sqrt{1-\frac{x^2}{a^2}} $}}}%
+\uncover<11->{%
+\fcFullDot{2}{0}%
+\rput[rb](1.9,0.1){$(a,0)$}%
+\fcFullDot{-2}{0}%
+\rput[lb](-1.9,0.1){$(-a,0)$}%
+}%
 %Function formula: - \sqrt{-1/4 x^{2}+1}
-\uncover<7->{ \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul } }
+\uncover<7->{ \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt -1 mul } }%
 %Function formula: \sqrt{-1/4 x^{2}+1}
-\uncover<6->{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }
-}
+\uncover<6->{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-2.000000}{2.000000}{1 x 2 exp -0.25 mul add sqrt }%
+}%
 \end{pspicture}
 \vbox to 4cm {
 \uncover<8->{The area in question is }
