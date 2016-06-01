@@ -3,8 +3,8 @@
 \begin{example}
 Find $\Arcsin (\sin 2)$.
 \begin{itemize}
-\item<2->  $2$ is not between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$.
-\item<3->  We need the angle \alertNoH{8,12}{$a$ between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$} for which $\alertNoH{11}{ \alertNoH{4}{ \sin 2} =\alertNoH{7}{ \sin a}}$.
+\item<2-> $2$ is not between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$.
+\item<3-> We need the angle \alertNoH{8,12}{$a$ between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$} for which $\alertNoH{11}{ \alertNoH{4}{ \sin 2} =\alertNoH{7}{ \sin a}}$.
 \end{itemize}
 \uncover<9->{
 \[
@@ -17,9 +17,9 @@ Find $\Arcsin (\sin 2)$.
 }
 \end{example}
 
-\begin{center}
-\psset{xunit=1.5cm,yunit=1.5cm}
-\begin{pspicture}(-1.4, -1.4)(1.4, 1.4)
+\hfill
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.4,-1.4)(1.4,1.4)
 \tiny
 \fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
 \parametricplot[linecolor=gray]{0}{360}{t cos t sin}%
@@ -57,7 +57,7 @@ Find $\Arcsin (\sin 2)$.
 \pstVerb{end}
 \end{pspicture} \quad 
 \psset{xunit=1.0cm,yunit=1.0cm}
-\begin{pspicture}(-2.2,-1.4)(4.2,1.4)
+\begin{pspicture}(-2.2,-1.9)(4.2,1.9)
 \tiny
 \pstVerb{20 dict begin /pi 3.141592654 def /toDeg {180 mul pi div} def}%
 \psaxes[labels=none, Dx=1.570796327, Dy=1] {<->}(0,0)(-2,-1.8)(4,1.8)
@@ -83,7 +83,6 @@ Find $\Arcsin (\sin 2)$.
 }%
 \pstVerb{end}
 \end{pspicture}
-\end{center}
-
+\hfill
 \end{frame}
 % end module arcsin-sin-ex2
