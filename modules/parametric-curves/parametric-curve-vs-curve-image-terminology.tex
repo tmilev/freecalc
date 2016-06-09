@@ -2,9 +2,9 @@
 \begin{frame}[t]
 \begin{columns}
 \column{0.5\textwidth}
-\begin{center}
+%\begin{center}centering pspicture breaks in Ubuntu
 \psset{xunit=1.3cm, yunit=1.3cm}
-\begin{pspicture}(-0.2, -0.2)(3,1.2)
+\hfil \hfil \begin{pspicture}(-0.2, -0.2)(3,1.2)
 \tiny
 \fcAxesStandard{-0.2}{-0.2}{1.2}{1.2}
 \psline[linecolor=\fcColorGraph](0,0)(1,1)
@@ -15,12 +15,12 @@ x&=&t^2\\
 y&=&t^2\\
 \end{array} \right., t\in [0,1]
 $}
-\end{pspicture}
-\end{center}
+\end{pspicture}%centering pspicture breaks in Ubuntu
+%\end{center}
 
 \column{0.5\textwidth}
-\begin{center}
-\psset{xunit=1.3cm, yunit=1.4cm}
+%\begin{center}centering pspicture breaks in Ubuntu
+\hfil \hfil \psset{xunit=1.3cm, yunit=1.4cm}
 \begin{pspicture}(-0.4, -0.4)(3,1.4)
 \tiny
 \fcAxesStandard{-0.200000}{-0.2}{1.2}{1.2}
@@ -33,7 +33,7 @@ y&=&t\\
 \end{array} \right., t\in [0,1]$
 }
 \end{pspicture}
-\end{center}
+%\end{center}
 \end{columns}
 \begin{question}
 $\begin{array}{l|l}

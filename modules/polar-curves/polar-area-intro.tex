@@ -4,11 +4,11 @@
 Suppose we have a polar curve $r = f(\theta )$, $a\leq \theta \leq b$.
 \begin{definition} We say that the figure obtained as the union of the segments connecting the origin with the points of the curve is the figure \emph{swept} by the curve as  $\theta$ varies from $a$ to $b$.
 \end{definition}
-\begin{center}
-\psset{xunit=0.6cm, yunit=0.6cm}
-\begin{pspicture}(-0.5,-0.5)(3.1,2.4)
-\tiny
-\pstVerb{/theFunction {3 t sub} def}
+%\begin{center}breaks in Ubuntu
+\hfil\hfil \psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-0.5,-0.5)(3.1,2.4)%
+\tiny%
+\pstVerb{/theFunction {3 t sub} def}%
 \uncover<2->{%
 \fcPolarWedge{0}{0.05}{theFunction}%
 }%
@@ -45,10 +45,10 @@ Suppose we have a polar curve $r = f(\theta )$, $a\leq \theta \leq b$.
 \uncover<13->{%
 \fcPolarWedgeSequence{0.55}{0.05}{20}{theFunction}%
 }%
-\fcAxesStandardNoFrame{-0.5}{-0.5}{3.2}{2.2}
-\rput[bl](1.5, 1.7){$r=f(\theta)$}
-\end{pspicture}
-\end{center}
+\fcAxesStandardNoFrame{-0.5}{-0.5}{3.2}{2.2}%
+\rput[bl](1.5, 1.7){$r=f(\theta)$}%
+\end{pspicture}%
+%\end{center}
 \uncover<14->{
 \begin{theorem}
 Suppose no two points on the curve lie on the same ray from the origin. Then the area swept by the curve equals $\displaystyle A = \int_a^b \frac{1}{2}\left(f(\theta )\right)^2\diff \theta$.
