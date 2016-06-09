@@ -3,23 +3,22 @@
 \begin{definition}[Bounded Sequence]
 A sequence $\{ a_n\}$ is called bounded above if there exists a number $M$ such that 
 \[
-a_n < M \qquad \textrm{for all}\qquad  n\geq 1.
+a_n < M \qquad \text{for all}\qquad  n\geq 1.
 \]
 It is called bounded below if there exists a number $M$ such that 
 \[
-a_n > M \qquad \textrm{for all}\qquad  n\geq 1.
+a_n > M \qquad \text{for all}\qquad  n\geq 1.
 \]
 A bounded sequence is a sequence that is bounded below and above.
 \end{definition}
-\begin{center}
-
+%\begin{center}breaks in ubuntu
+\hfil \hfil
 \psset{xunit=0.4cm,yunit=0.4cm}
 \begin{pspicture}(-1,-6)(28.5,8)
 \tiny
 \fcAxesStandard{-1}{-1}{27}{7}
 \rput[b](0,7.2){$a$}
 \rput[l](27.2, 0){$n$}
-
 \fcYTickWithLabel{6.5}{$M$}
 \fcYTickWithLabel{5}{$L$}
 \psline[linecolor=blue, linewidth=0.7pt](0, 6.5)(27, 6.5)
@@ -33,7 +32,6 @@ A bounded sequence is a sequence that is bounded below and above.
 \pstVerb{end}%
 }%
 \end{pspicture}
-
-\end{center}
+%\end{center}
 \end{frame}
 % end module sequence-bounded-def
