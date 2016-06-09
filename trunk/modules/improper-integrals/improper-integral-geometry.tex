@@ -22,80 +22,71 @@ A(t) = \int_1^t \frac{\diff x}{x^2} = %
 \column{.5\textwidth}
 
 \psset{xunit=1cm, yunit=1cm}
-\begin{pspicture}(-0.5, -0.5)(5.6,2.1)
-\psframe*[linecolor=white](-0.5,-0.5)(5.6,2.1)
-\tiny
-\uncover<1,14->{
-\psline[linewidth=0.5pt](1,0)(1,1)
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{5.5}{1 x 2 exp div }
-\psline(5.5,0.033057851)(5.5, 0)(1,0)
-}
-}
-
-\uncover<2-9>{
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{3}{1 x 2 exp div }
-\psline(3,  0.111111)(3, 0)(1,0)
-}
-\psline[linewidth=0.5pt](3,  0.111111)(3, 0)
-\fcXTickWithLabel{3}{$t$}
-}
-
-\uncover<handout:0|10>{
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{2}{1 x 2 exp div }
-\psline(2,  0.25)(2, 0)(1,0)
-}
-\psline(2,0)(2, 0.25)
-\fcXTickWithLabel{2}{$2$}
-}
-
-\uncover<handout:0|11>{
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{3}{1 x 2 exp div }
-\psline(3,  0)(1,0)
-}
-\psline(3,0)(3, 0.111111)
-\fcXTickWithLabel{3}{$3$}
-}
-\uncover<handout:0|12>{
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{4}{1 x 2 exp div }
-\psline(4,  0)(1,0)
-}
-\psline(4,0)(4, 0.0625)
-\fcXTickWithLabel{4}{$4$}
-}
-\uncover<handout:0|13>{
-\pscustom*[linecolor=\fcColorAreaUnderGraph]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{5}{1 x 2 exp div }
-\psline(5,  0)(1,0)
-}
-\psline(5,0)(5, 0.04)
-\fcXTickWithLabel{5}{$5$}
-}
-
-
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(5.5,2)
-\fcLabels{5.5}{2}
+\begin{pspicture}(-0.5, -0.5)(5.6,2.1)%
+\psframe*[linecolor=white](-0.5,-0.5)(5.6,2.1)%
+\tiny%
+\uncover<1,14->{%
+\psline[linewidth=0.5pt](1,0)(1,1)%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{5.5}{1 x 2 exp div }%
+\psline(5.5,0.033057851)(5.5, 0)(1,0)%
+}%
+}%
+\uncover<2-9>{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{3}{1 x 2 exp div }%
+\psline(3,  0.111111)(3, 0)(1,0)%
+}%
+\psline[linewidth=0.5pt](3,  0.111111)(3, 0)%
+\fcXTickWithLabel{3}{$t$}%
+}%
+\uncover<handout:0|10>{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{2}{1 x 2 exp div }%
+\psline(2,  0.25)(2, 0)(1,0)%
+}%
+\psline(2,0)(2, 0.25)%
+\fcXTickWithLabel{2}{$2$}%
+}%
+\uncover<handout:0|11>{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{3}{1 x 2 exp div }%
+\psline(3,  0)(1,0)%
+}%
+\psline(3,0)(3, 0.111111)%
+\fcXTickWithLabel{3}{$3$}%
+}%
+\uncover<handout:0|12>{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{4}{1 x 2 exp div }%
+\psline(4,  0)(1,0)%
+}%
+\psline(4,0)(4, 0.0625)%
+\fcXTickWithLabel{4}{$4$}%
+}%
+\uncover<handout:0|13>{%
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{1}{5}{1 x 2 exp div }%
+\psline(5,  0)(1,0)%
+}%
+\psline(5,0)(5, 0.04)%
+\fcXTickWithLabel{5}{$5$}%
+}%
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(5.5,2)%
+\fcLabels{5.5}{2}%
 %Function formula: (1)/((x)^{2})
-\rput[b](5,0.3){$y=\frac{1}{x^2}$}
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.75}{5.5}{1 x 2 exp div }
-
+\rput[b](5,0.3){$y=\frac{1}{x^2}$}%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.75}{5.5}{1 x 2 exp div }%
 %\uncover<1,14->{\rput(1.7, 1.2){$A$}}
-
-\rput[l](1.7, 1.2){$\displaystyle\uncover<1,2-9,14>{ A} \uncover<2-9>{(t)} \uncover<4-9>{=1-\frac{1}t}$}
-\uncover<handout:0|10>{\rput[l](1.7, 1.2){$\displaystyle A(2)=\frac{1}2$}}
-\uncover<handout:0|11>{\rput[l](1.7, 1.2){$\displaystyle A(3)=\frac{2}3$}}
-\uncover<handout:0|12>{\rput[l](1.7, 1.2){$\displaystyle A(4)=\frac{3}4$}}
-\uncover<handout:0|13>{\rput[l](1.7, 1.2){$\displaystyle A(5)=\frac{4}5$}}
-
+\rput[l](1.7, 1.2){$\displaystyle\uncover<1,2-9,14>{ A} \uncover<2-9>{(t)} \uncover<4-9>{=1-\frac{1}t}$}%
+\uncover<handout:0|10>{\rput[l](1.7, 1.2){$\displaystyle A(2)=\frac{1}2$}}%
+\uncover<handout:0|11>{\rput[l](1.7, 1.2){$\displaystyle A(3)=\frac{2}3$}}%
+\uncover<handout:0|12>{\rput[l](1.7, 1.2){$\displaystyle A(4)=\frac{3}4$}}%
+\uncover<handout:0|13>{\rput[l](1.7, 1.2){$\displaystyle A(5)=\frac{4}5$}}%
 %\uncover<2-9>
 {\psline[linewidth=2pt]{->}(1.6, 0.9 )(1.2, 0.3)}
-\fcXTickWithLabel{1}{$1$}
-\psline[linewidth=0.5pt](1,  0)(1, 1)
-
+\fcXTickWithLabel{1}{$1$}%
+\psline[linewidth=0.5pt](1,  0)(1, 1)%
 \end{pspicture}
 %\ \only<-1>{%
 %\includegraphics[height=3cm]{improper-integrals/pictures/08-08-xsquaredy.pdf}%
