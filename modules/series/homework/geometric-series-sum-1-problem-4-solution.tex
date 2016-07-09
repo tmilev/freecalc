@@ -1,0 +1,11 @@
+\solution{\ref{sum_n=1^infty(3^(n+1)+7^(n-1))/21^n}.
+\[
+\begin{array}{rcll|l}
+\displaystyle \sum\limits_{n=1}^{\infty} \frac{3^{n+1}+ 7^{ n-1}}{21^n} &=& \displaystyle \sum \limits_{n=1}^{ \infty}\left(3 \cdot \frac{3^{n}}{21^n}+ \frac{ 1 }{7}\cdot \frac{ 7^n }{21^n}\right)\\
+&=&\displaystyle 3\sum_{n =1}^{\infty} \left(\frac{1}{7} \right)^n + \frac{1 }{7} \sum_{n=1}^{\infty}  \left(\frac{1}{3} \right)^n\\
+&=&\displaystyle \frac{3}{7} \sum_{n=0}^{\infty} \left( \frac{1}{7 } \right)^n +\frac{1 }{21} \sum_{ n=0}^{ \infty}\left(\frac{1}{3 } \right) ^n &&\text{use }\sum_{n= 0 }^\infty r^n=\frac{1}{1-r}, |r|<1\\
+&=&\displaystyle \frac{3}{7}\cdot  \frac{1}{ \left(1 -\frac{ 1}{7} \right)}+ \frac{ 1}{21}\cdot  \frac{1 }{ \left(1-\frac{1 }{ 3} \right)}\\
+&=&\displaystyle \frac{4}{7}\quad .
+\end{array}
+\]
+}
