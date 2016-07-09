@@ -1,0 +1,38 @@
+
+\solution{\ref{problemConvergencesqrt(x)e^-sqrt(x)zerotoinfty}
+It is possible to show that this integral is convergent by using the comparison theorem. However, we shall use direct integration instead. First, we solve the indefinite integral:
+
+\[
+\begin{array}{rcll|l}
+\displaystyle \int \sqrt{x} e^{-\sqrt{x}} \diff x&=& \displaystyle \int \sqrt{x} e^{-\sqrt{x}} \frac{2\sqrt{x} \diff x}{2\sqrt{x}} &&\text{use }  \diff \sqrt{x} = \frac{\diff x}{2\sqrt{x}} \\
+&=& \displaystyle \int \sqrt{x} e^{-\sqrt{x}} \left(2 \sqrt{x} \diff \sqrt{x}\right) &&\text{Set } \sqrt{x}=u\\
+&=& \displaystyle 2\int u^2 e^{-u}\diff u\\
+&=& \displaystyle 2\left( -\int u^2 \diff \left( e^{-u} \right) \right) &&\text{integrate by parts} \\
+&=& \displaystyle 2\left(- u^2e^{-u}+\int e^{-u}\diff \left(u^2\right) \right) \\
+&=&\displaystyle 2\left(- u^2e^{-u}+\int 2 u e^{-u}\diff u \right)\\
+&=&\displaystyle 2\left(- u^2e^{-u}-\int 2 u \diff e^{ -u} \right) &&\text{integrate by parts again}\\
+&=&\displaystyle 2\left(- u^2e^{-u}- 2 u  e^{-u}+ \int 2e^{-u}\diff u \right) \\
+&=&\displaystyle 2\left( - u^2e^{-u} -2ue^{-u} -2e^{ -u} \right)+C\\
+&=&\displaystyle 2\left( - xe^{-\sqrt{x}} -2\sqrt{x } e^{ -\sqrt{x}} -2e^{-\sqrt{x}}\right)+C
+\end{array}
+\]
+Therefore 
+\[
+\begin{array}{rcll|l}
+\displaystyle \int\limits_{0}^\infty \sqrt{x} e^{-\sqrt{x}} \diff x&=& \displaystyle \lim\limits_{t\to \infty} 2\left[ - xe^{- \sqrt{ x} } -2\sqrt{x}e^{-\sqrt{x}} -2e^{- \sqrt{x}} \right]_{ 0}^{\infty}\\
+&=&\displaystyle 4+ \lim\limits_{t\to \infty} 4\left( -te^{ -\sqrt{t}} -\sqrt{t}e^{-\sqrt{t}}- e^{-\sqrt{t}} \right) && \text{Set }u=\sqrt{t}\\
+&=&\displaystyle 4- 4\lim\limits_{u\to \infty} \left( u^2 e^{-u} + ue^{-u}+e^{-u}\right)\\
+&=& \displaystyle 4- 4\lim\limits_{u\to \infty} \frac{ u^2 + u+1}{e^u} &&\text{use L'Hospital's rule for limit, see below}\\
+&=& 4\quad ,
+\end{array}
+\]
+and the integral converges to $4$. In the above computation we used the following limit computation
+\[
+\begin{array}{rcll|l}
+\displaystyle \lim\limits_{u\to \infty}\frac{u^2+u+1}{e^u}&=&\displaystyle  \lim\limits_{u\to \infty} \frac{2u+1}{e^u}&&\text{Apply L'Hospital's rule}\\
+&=&\displaystyle \lim\limits_{u\to \infty} \frac{2}{e^u}\\
+&=&\displaystyle 0\quad .
+\end{array}
+\]
+
+}
