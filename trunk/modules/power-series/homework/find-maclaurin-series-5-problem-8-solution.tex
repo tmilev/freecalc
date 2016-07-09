@@ -1,0 +1,23 @@
+\solution{\ref{problemMaclaurin(1/(1-x)^2)}
+\[
+\begin{array}{rcll|l}
+\displaystyle \frac{1}{1-x}&=&\displaystyle \frac{\diff }{\diff x}\left(1+x+x^2+x^3+\dots  \right)&&
+\begin{array}{l}
+\text{geometric series,}\\
+\text{converges if and only if}\\
+|x|<1
+\end{array}
+\\
+\displaystyle \frac{\diff }{\diff x}\left(\frac{1}{1-x} \right)&=& \displaystyle \frac{\diff }{\diff x}\left(1+x+x^2+x^3+\dots  \right)&&\text{apply }\frac{\diff }{\diff x}\\
+\displaystyle  -\frac{(1-x)'}{(1-x)^2}= \frac{1}{(1-x)^2}&=& \displaystyle 1+2x+3x^2+\dots \\
+\displaystyle \frac{1}{(1-x)^2} &=&\displaystyle \sum\limits_{n=0}^\infty (n+1)x^n&& \text{rewrite in } \sum 
+\text{ notation.}
+\end{array}
+\]
+The radius of convergence of the geometric series is $1$. Differentiating does not change the radius of convergence. We have that the radius of convergence of $1+x+x^2+\dots$ is $1$ and therefore we have that $\frac{1}{ (1-x)^2}= \sum \limits_{ n=0}^ \infty (n+1)x^n$ converges for $|x|<1$ and the radius of convergence is $R=1$.
+
+The problem does not ask us to determine the interval of convergence, however let us do it for exercise. The endpoints of the interval of convergence are $-1$ and $1$. The series is divergent for both of them: indeed at $x=-1$ the series becomes $\sum\limits_{n=0}^\infty (-1)^n(n+1)x^n $ and at $x=1$ the series becomes $\sum\limits_{n=0}^\infty (n+1)x^n $. Both of these series are divergent as their terms do not tend to zero as $n$ tends to infinity. Thus the interval of convergence is $(-1,1)$.
+
+\refBad{\ref{problemMaclaurin 1/(1-x)^k}}{}{We generalize this problem in Problem \ref{problemMaclaurin 1/(1-x)^k}.}
+
+}

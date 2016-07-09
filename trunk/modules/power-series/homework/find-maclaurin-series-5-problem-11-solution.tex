@@ -1,0 +1,24 @@
+\solution{\ref{problemMaclaurinSeriesln(1-x)}
+\[
+\begin{array}{rcll|l}
+\displaystyle \frac{\diff }{\diff x} \left( \ln(1 -x) \right) &=&\displaystyle  \frac{-1}{1-x}&&\begin{array}{@{}l} \text{expand as geometric series}\\\text{for }|x|< 1\end{array}\\
+&=&\displaystyle  -\left(1+x+x^2+x^3+\dots\right) &&\text{Integrate indefinitely, } |x|< 1 \\
+\displaystyle 
+\int 
+\frac{\diff }{\diff x}(\ln(1-x))\diff x  &=& \displaystyle -\int\left(1+x+x^2+x^3+\dots \right)\diff x  && \begin{array}{@{}l} \text{For power series, }\\
+\text{integral of infinite}\\
+\text{sum equals}\\
+\text{infinite sum of integrals} \\
+\text{inside the convergence radius}
+\end{array}
+\\
+\ln(1-x)&=&\displaystyle -\left(x+\frac{x^2}{2}+\frac{x^3}{3} +\dots \right)+C&&\text{To find }C \text{ set }x=0\\~\\
+0=\ln 1&=&-0+C=C\\~\\
+\ln (1-x)&=&-\left(x+\frac{x^2}{2}+\frac{x^3}{3}+\dots \right)\\
+&=&\displaystyle - \sum_{n=1}^{\infty}\frac{x^n}{n} \quad .
+\end{array}
+\]
+The radius of convergence of the geometric series $1+x+x^2+\dots$ is $1$. Since the series for $\ln (1-x)$ is obtained from the geometric series via integration, its radius of convergence is again $1$. 
+
+We note that the interval of convergence for the series  $-\sum\limits_{n=1}^\infty \frac{x^n}{n}$ is $\left[-1, 1 \right)$ - the series is convergent at $x=-1$ by the alternating series test and divergent at $x=1$ (at $x=1$ the series is minus the harmonic series). This shows that integration of power series can change convergence at the endpoints of the interval of convergence.  
+}
