@@ -1,8 +1,8 @@
 % begin module reciprocal-function
 \begin{frame}
 $f(x) = x^{-1} = \frac{1}{x}$ is called the reciprocal function.  Its graph has equation $y = \frac{1}{x}$, or $xy = 1$, and is an hyperbola with the coordinate axes as its asymptotes.
-\begin{center}
-\psset{xunit=0.6cm, yunit=0.6cm}
+%\begin{center}%center does not work with well with pstricks and pgflayout.
+\hfil\hfil\psset{xunit=0.6cm, yunit=0.6cm}
 \begin{pspicture}(-5, -5)(5,5)
 \psframe*[linecolor=white](-5,-5)(5,5)
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-5,-5)(5,5)\tiny
@@ -14,6 +14,6 @@ $f(x) = x^{-1} = \frac{1}{x}$ is called the reciprocal function.  Its graph has 
 \fcLabels{4.5}{4.5}
 \end{pspicture}
 %\includegraphics[height=5cm]{precalculus/pictures/reciprocal-function.pdf}%
-\end{center}
+%\end{center}
 \end{frame}
 % end module reciprocal-function
