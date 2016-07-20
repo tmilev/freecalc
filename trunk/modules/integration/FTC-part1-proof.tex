@@ -8,96 +8,84 @@ Let \alertNoH{2}{$f$ be a function continuous on $[a, b]$} and let $G(x) = \disp
 \column{0.27\textwidth}
 \psset{xunit=0.9cm, yunit=0.9cm}
 
-\begin{pspicture}(-0.6,-0.6)(3.3,3.3)
-\psframe*[linecolor=white](-0.6,-0.6)(3.3,3.3)
-\tiny
-%\fcLabels{3}{2.5}
-
-\pscustom*[linecolor=cyan]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
-\psline(2,0)(0.5,0)
-}
-\uncover<handout:0|20,21>{
-\pscustom*[linecolor=red]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
-\psline(2,0)(0.5,0)
-}
-}
-
-\uncover<11->{
-\pscustom*[linecolor=blue]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
-\psline(2.15,1.136125)(2.15,0)(2,0)
-}
-}
-
-\uncover<handout:0|10,20,22>{
-\pscustom*[linecolor=red]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
-\psline(2.15,1.136125)(2.15,0)(2,0)
-}
-}
-
-\uncover<handout:0|12>{
-\pscustom*[linecolor=red]{
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
-\psline(2.15,1.136125)(2.15,1)(2,1)
-}
-}
-
-
+\begin{pspicture}(-0.6,-0.6)(3.3,3.3)%
+\psframe*[linecolor=white](-0.6,-0.6)(3.3,3.3)%
+\tiny%
+%\fcLabels{3}{2.5}%
+\pscustom*[linecolor=cyan]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }%
+\psline(2,0)(0.5,0)%
+}%
+\uncover<handout:0|20,21>{%
+\pscustom*[linecolor=red]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{2}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }%
+\psline(2,0)(0.5,0)%
+}%
+}%
+\uncover<11->{%
+\pscustom*[linecolor=blue]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }%
+\psline(2.15,1.136125)(2.15,0)(2,0)%
+}%
+}%
+\uncover<handout:0|10,20,22>{%
+\pscustom*[linecolor=red]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }%
+\psline(2.15,1.136125)(2.15,0)(2,0)%
+}%
+}%
+\uncover<handout:0|12>{%
+\pscustom*[linecolor=red]{%
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2}{2.15}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }%
+\psline(2.15,1.136125)(2.15,1)(2,1)%
+}%
+}%
 %Function formula: -1/2 (x-1/2)^{2}+1/3 (x-1/2)^{3}+1
-\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{3}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }
-\rput[b](2.3, 2.4){$y=f(x)$}
-\uncover<handout:1|11,14>{
-\psline*[linecolor=red](2,0)(2.15,0)(2.15,1)(2,1)(2,0)
-}
-\uncover<handout:0|13->{
-\psline(2,0)(2.15,0)(2.15,1.136125)(2,1.136125)(2,0)
-}
-
-\fcXTick{2}
-
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{0.5}{3}{1 -0.5 x add 3 exp 0.333333 mul add -0.5 x add 2 exp -0.5 mul add }%
+\rput[b](2.3, 2.4){$y=f(x)$}%
+\uncover<handout:1|11,14>{%
+\psline*[linecolor=red](2,0)(2.15,0)(2.15,1)(2,1)(2,0)%
+}%
+\uncover<handout:0|13->{%
+\psline(2,0)(2.15,0)(2.15,1.136125)(2,1.136125)(2,0)%
+}%
+\fcXTick{2}%
 \uncover<handout:0|3>{ %
-\psline[linecolor=red, linewidth=2pt](1.5,0)( 2.5,0 )
-}
+\psline[linecolor=red, linewidth=2pt](1.5,0)( 2.5,0 )%
+}%
 \uncover<handout:0|4-7>{ %
-\psline[linewidth=2pt](1.5,0)( 2.5,0 )
-}
-
+\psline[linewidth=2pt](1.5,0)( 2.5,0 )%
+}%
 \uncover<handout:0|4>{ %
-\psline[linecolor=red, linewidth=2pt](2,0)(2,1)
-}
-
-\uncover<handout:0|6>{ %
-\psline(2.4,1.481333)(2.4,0)
-}
+\psline[linecolor=red, linewidth=2pt](2,0)(2,1)%
+}%
+\uncover<handout:0|6>{%
+\psline(2.4,1.481333)(2.4,0)%
+}%
 \uncover<handout:0|5>{ %
-\psline[linecolor=red, linewidth=2pt](2.4,0)(2.4,1.481333)
-}
-
+\psline[linecolor=red, linewidth=2pt](2.4,0)(2.4,1.481333)%
+}%
 \uncover<5-7>{ %
-\psline(2,0)(2,1)
-}
+\psline(2,0)(2,1)%
+}%
 \uncover<handout:0|5>{ %
-\psline[linecolor=red](2.4,0)(2.4,1.481333)
-}
+\psline[linecolor=red](2.4,0)(2.4,1.481333)%
+}%
 \uncover<handout:0|6>{ %
-\psline[linecolor=red, linewidth=2pt](2,1)(2, 1.481333)
-}
-\fcXTickWithLabel{0.5}{$a$}
-
-\fcXTick{3}
-\rput[tl](3,-0.2){$b$}
-\uncover<7->{
-\fcXTick{2.15}
-\rput[tl](2.15, -0.2){$x+h$}
-}
-\uncover<handout:0|7,13>{
-\psline[linecolor=red, linewidth=2pt](2,0)(2.15,0)
-}
-\rput[tr](2, -0.235){$x$}
-\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3.2,3.083333)
+\psline[linecolor=red, linewidth=2pt](2,1)(2, 1.481333)%
+}%
+\fcXTickWithLabel{0.5}{$a$}%
+\fcXTick{3}%
+\rput[tl](3,-0.2){$b$}%
+\uncover<7->{%
+\fcXTick{2.15}%
+\rput[tl](2.15, -0.2){$x+h$}%
+}%
+\uncover<handout:0|7,13>{%
+\psline[linecolor=red, linewidth=2pt](2,0)(2.15,0)%
+}%
+\rput[tr](2, -0.235){$x$}%
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-0.5,-0.5)(3.2,3.083333)%
 \end{pspicture}
 
 \vspace{1.68cm}
