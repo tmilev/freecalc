@@ -9,11 +9,12 @@ f(x) = \left\{ \begin{array}{lcl}
 \alertNoH{4}{1} & \alertNoH{4}{\text{ if }} & \alertNoH{4}{x = 0} \\
 \end{array}\right.
 \]
-\psset{xunit=0.8cm, yunit=0.8cm}
-\begin{pspicture}(-3.1, -0.5)(5.1,3.1) \psframe*[linecolor=white](-3.1,-0.5)(3,5)
-\psaxes[ticks=x, labels=none]{<->}(0,0)(-3,-0.5) (3,5)
-\psplot[linecolor=red, plotpoints=1000]{0.447213595}{3}{1 x 2 exp div }
-\psplot[linecolor=red, plotpoints=1000]{-3}{-0.447213595}{1 x 2 exp div}
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-3.2, -0.5)(3.2,7.1) 
+\psframe*[linecolor=white](-3.1,-0.5)(3.1,7.1)
+\psaxes[ticks=x, labels=none]{<->}(0,0)(-3,-0.5) (3,7)
+\psplot[linecolor=red, plotpoints=1000]{1 7.09 div sqrt}{3}{1 x 2 exp div }
+\psplot[linecolor=red, plotpoints=1000]{-3}{1 7.09 div sqrt -1 mul}{1 x 2 exp div}
 \rput(2,2){$y=\frac{1}{x^2}$}
 \fcFullDot{0}{1}
 \end{pspicture} %

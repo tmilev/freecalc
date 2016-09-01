@@ -13,8 +13,32 @@ The line $x = a$ is called a vertical asymptote of the curve $y = f(x)$ if at le
 \end{array}
 \]
 \end{definition}
-\uncover<2->{%
-For instance, the $y$-axis is a vertical asymptote for $f(x) = 1/x^2$ because $\lim_{x\rightarrow 0}f(x) = \infty$.
-}%
+\hfil\hfil
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-4, -4)(4,4)
+\tiny
+\fcAxesStandard{-4}{-3.5}{4}{3.5}
+\rput[l](-3.5,1){$y=\frac{x}{2(x-1)}$}
+\pstVerb{5 dict begin}
+\pstVerb{/theFun {x x 1 sub div 2 div} def}
+\psplot[linecolor=red]{-4}{8 9 div}{theFun}
+\psplot[linecolor=red]{8 7 div}{4}{theFun}
+\psline[linestyle=dotted](1, -4)(1, 4)
+\pstVerb{end}
+\end{pspicture}
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-4, -4)(4,4)
+\tiny
+\fcAxesStandard{-4}{-3.5}{4}{3.5}
+\rput[tl](-3.8,-1.5){$y=\frac{1}{(x-1)^2}-1$}
+\pstVerb{5 dict begin}
+\pstVerb{/theFun {1 x 1 sub dup mul div 1 sub} def}
+\psplot[linecolor=red]{-4}{1 1 5 div 5 sqrt mul sub}{theFun}
+\psplot[linecolor=red]{1 1 5 div 5 sqrt mul add}{4}{theFun}
+\psline[linestyle=dotted](1, -4)(1, 4)
+\pstVerb{end}
+\end{pspicture}
+
+
 \end{frame}
 % end module vertical-asymptote-def
