@@ -2,15 +2,22 @@
 \frametitle{Graph of $\tan x$}
 
 \psset{xunit=1cm, yunit=1cm}
-\only<7->{\psset{xunit=0.75cm, yunit=0.75cm}}
-\only<8->{\psset{xunit=0.5cm, yunit=0.5cm}}
-\only<13->{\psset{xunit=0.375cm, yunit=0.375cm}}
-\only<14->{\psset{xunit=0.25cm, yunit=0.25cm}}
+\newcommand{\XZeroFrame}{-2.5} \newcommand{\XOneFrame}{1.5} \newcommand{\YZeroFrame}{-3} \newcommand{\YOneFrame}{3} \newcommand{\XZeroSecondPic}{-2} \newcommand{\XOneSecondPic}{2} \only<7->{\psset{xunit=0.75cm, yunit=0.75cm}
+\renewcommand{\XZeroFrame}{-3.666666667} \renewcommand{\XOneFrame}{1.666666667} \renewcommand{\YZeroFrame}{-4} \renewcommand{\YOneFrame}{4} \renewcommand{\XZeroSecondPic}{-2.666666667} \renewcommand{\XOneSecondPic}{2.666666667}
+}
+\only<8->{\psset{xunit=0.5cm, yunit=0.5cm}
+\renewcommand{\XZeroFrame}{-6} \renewcommand{\XOneFrame}{2} \renewcommand{\YZeroFrame}{-6} \renewcommand{\YOneFrame}{6} \renewcommand{\XZeroSecondPic}{-4} \renewcommand{\XOneSecondPic}{4}
+}
+\only<13->{\psset{xunit=0.375cm, yunit=0.375cm}
+\renewcommand{\XZeroFrame}{-8.333333333} \renewcommand{\XOneFrame}{2.333333333} \renewcommand{\YZeroFrame}{-8} \renewcommand{\YOneFrame}{8} \renewcommand{\XZeroSecondPic}{-5.333333333} \renewcommand{\XOneSecondPic}{5.333333333}
+}
+\only<14->{\psset{xunit=0.25cm, yunit=0.25cm}
+\renewcommand{\XZeroFrame}{-13} \renewcommand{\XOneFrame}{3} \renewcommand{\YZeroFrame}{-12} \renewcommand{\YOneFrame}{12} \renewcommand{\XZeroSecondPic}{-8} \renewcommand{\XOneSecondPic}{8}
+}
 \vskip -0.1cm
 \begin{columns}
 \column{0.4\textwidth}
-\begin{center}
-\begin{pspicture}(-1.3,-1.3)(1.3,1.3)%
+\begin{pspicture} (\XZeroFrame, \YZeroFrame)( \XOneFrame, \YOneFrame)%
 \tiny%
 \pstVerb{20 dict begin}%
 \pstVerb{/originalYAxisSize 3 def /originalXaxisSize 1.5 def}%
@@ -19,10 +26,10 @@
 \only<8->{\pstVerb{/theScale 0.5 def}}%
 \only<13->{\pstVerb{/theScale 0.375 def}}%
 \only<14->{\pstVerb{/theScale 0.25 def}}%
-\pstVerb{/xAxisSize originalXaxisSize theScale div def /yAxisSize originalYAxisSize theScale div def}%
+\pstVerb{/xAxisSize originalXaxisSize 1 sub theScale div 1 add def /xAxisNegative originalXaxisSize theScale div -2 mul xAxisSize add def  /yAxisSize originalYAxisSize theScale div def}%
 \fcPerpendicular{[1 yAxisSize]}{[1 0]}{0.2}%
 \psline(! 1 yAxisSize -1 mul)(1,0)%
-\fcAxesStandardNoFrame{xAxisSize -1 mul}{-1.5}{xAxisSize}{1.5}%
+\fcAxesStandardNoFrame{xAxisNegative}{-1.5}{xAxisSize}{1.5}%
 \newcommand{\drawingFromAngle}[1]{%
 \pstVerb{/theAngle ####1 def}%
 \parametricplot[linecolor=brown, linewidth=1.5pt]{0}{theAngle}{t cos t sin}%
@@ -45,10 +52,8 @@
 \only<18->{\drawingFromAngle{-85}}%
 \pstVerb{end}%
 \end{pspicture}%
-\end{center}
 \column{0.6\textwidth}
-\begin{center}
-\begin{pspicture}(-4, -1.5)(8, 1.3)%
+\begin{pspicture} ( \XZeroSecondPic, \YZeroFrame)( \XOneSecondPic, \YOneFrame)%
 \tiny%
 \pstVerb{30 dict begin
 /pi 3.141592654 def
@@ -104,7 +109,6 @@
 }%
 \pstVerb{end}%
 \end{pspicture}
-\end{center}
 
 \end{columns}
 
