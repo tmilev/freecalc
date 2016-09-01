@@ -1,0 +1,77 @@
+\solution{\ref{problemVolumeAreay=-x^2+2andy=0rotatedAroundy=0andy=-3}
+First, we plot the 2d region. The two curves intersect when $-x^2+2=0$, i.e., when $x=\pm \sqrt{2}$
+
+
+\hfil \hfil \begin{pspicture}(-6.2,-3.2)(6.2,3.2)\tiny
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot[linecolor=\fcColorGraph]{2 sqrt -1 mul}{2 sqrt}{x x mul -1 mul 2 add}
+}
+\newcommand{\theFuN}{x x mul -1 mul 2 add\space}%
+\psplot[linecolor=\fcColorGraph]{-2}{2}{x x mul -1 mul 2 add}
+\psline[linecolor=\fcColorGraph](-2,0)(2,0)
+\fcAxesStandardNoFrame{-2}{-3.1}{2}{3}
+\rput[t](! 2 sqrt -0.1){$\sqrt{2}$}
+\rput[t](! 2 sqrt -1 mul -0.1){$-\sqrt{2}$}
+\psline[arrows=<->](1, 0)(! 1 1 dict begin /x 1 def \theFuN end)
+\rput[l](1.1,0.3){cross-section rad., $y=0$}
+\psline[arrows=<->](-1, -3)(! -1 1 dict begin /x -1 def \theFuN end)
+\rput[r](-1.1,-1){cross-section rad., $y=-3$}
+\psline[linecolor=green](-2,-3)(2,-3)
+\end{pspicture}
+
+\textbf{Rotation about $y=0$. }
+
+We generate a 3d plot of the solid roughly by hand by drawing the circular cross-sections of the solid of revolution. By hand, this can be done roughly by drawing ovals (circles look like ovals when observed at an angle) centered at the axis about we revolve the 2d-region. We include a computer-generated plot below; the plot's precision is above what is expected when solving this problem in an exam setting.
+
+\hfil \hfil \begin{pspicture}(-3,-3)(4.2,3.2)%
+\newcommand{\theFun}{u u mul -1 mul 2 add\space}%
+\renewcommand{\fcScreenStyle}{x}
+\renewcommand{\fcScreen}{[-1 -0.2 -0.75] -1}
+\fcStartIIIdScene%
+\fcAxesIIIdFullInScene{-3}{-3}{-3}{3}{3}{3}%
+\fcSurfaceInScene[arrows=(none), iterationsV=15, iterationsU=8, colorVU={1 0.5 0.5}]{2 sqrt -1 mul 0.001 add}{0}{2 sqrt -0.001 add}{360}{[u v cos \theFun mul v sin \theFun mul]}{}%
+\fcSurfaceInScene[arrows=(none), iterationsV=4, iterationsU=3, colorUV={0.3 0.7 1}, forceForeground=true]{2 sqrt -1 mul }{0}{2 sqrt}{1}{[u \theFun v mul  0]}{}%
+\fcFinishIIIdScene[true]%
+\fcPutIIId{[3 0 0]}{$x$}
+\fcPutIIId{[0 3 0]}{$y$}
+\fcPutIIId{[0 0 3]}{$z$}
+\end{pspicture}
+
+The volume of a solid (and in particular, of a solid of revolution) is computed by integrating the area $A(x)=\pi(\text{radius cross-section})= \pi (-x^2+2)^2 $ of the cross-section of the solid. Therefore the volume $V$ equals
+\[
+\begin{array}{rcll|l}
+V&=&\displaystyle \int_{a}^bA(x)\diff x\\
+&=&\displaystyle\int_{-\sqrt{2}}^{\sqrt{2}}\pi (-x^2+2)^2  \diff x\\
+&=&\displaystyle\pi\left[\frac{1}{5} x^{5}-\frac{4}{3} x^{3}+4 x\right]_{-\sqrt{2}}^{\sqrt 2}&&\text{step not required by problem}\\
+&=&\displaystyle \pi \frac{64}{15}\sqrt{2}&&\text{step not required by problem.}
+\end{array}
+\]
+
+
+\textbf{Rotation about $y=-3$. } The cross-section of this solid of revolution is a washer with inner radius $ 3$ and outer radius $-x^2+2-(-3)=5-x^2$. Therefore the area of the cross-section is $\pi (5-x^2)^2-\pi 3^2$ and the volume is computed via
+
+\[
+\begin{array}{rcll|l}
+V&=&\displaystyle \int_{a}^bA(x)\diff x\\
+&=&\displaystyle\int_{-\sqrt{2}}^{\sqrt{2}} \pi \left( (5-x^2)^2- 3^2\right)  \diff x\\
+&=&\displaystyle\pi\left[\frac{1}{5} x^{5}-\frac{10}{3} x^{3}+16 x  \right]_{-\sqrt{2}}^{\sqrt 2}&&\text{step not required by problem}\\
+&=&\displaystyle \pi  \frac{304}{15}\sqrt{2}&&\text{step not required by problem.}
+\end{array}
+\]
+\hfil \hfil \begin{pspicture}(-4,-9)(5,4.2)%
+\newcommand{\theFuN}{u u mul -1 mul 2 add\space}%
+\renewcommand{\fcScreenStyle}{x}
+\fcStartIIIdScene%
+\fcAxesIIIdFullInScene{-3}{-9}{-4}{3}{3}{4}%
+\renewcommand{\fcScreen}{[-1 -0.2 -0.75] -1}
+\fcSurfaceInScene[arrows=(none), iterationsV=15, iterationsU=8, colorVU={0.7 0.2 0.2}, colorUV={0.7 0.2 0.2}]{2 sqrt -1 mul }{0}{2 sqrt -0.001 add}{360}{[u v cos 3 mul -3 add v sin 3 mul]}{}%
+\fcSurfaceInScene[arrows=(none), iterationsV=15, iterationsU=8, linecolor=black,colorUV={1 0.5 0.5}, colorVU={1 0.5 0.5}]{2 sqrt -1 mul 0.01 add}{0}{2 sqrt -0.01 add}{360}{[u v cos \theFuN 3 add mul -3 add v sin \theFuN 3 add mul]}{}%
+\fcSurfaceInScene[arrows=(none), iterationsV=1, iterationsU=8, colorUV={0.3 0.7 1}, forceForeground=true]{2 sqrt -1 mul }{0}{2 sqrt}{1}{[u \theFuN v mul  0]}{}%
+\fcLineIIIdInScene[linecolor=green, linewidth=2]{[-6 -3 0]}{[6 -3 0]}
+\fcCurveIIIdInScene[linecolor=red, arrows=(none), linewidth=2]{2 sqrt -1 mul}{2 sqrt}{[1 dict begin /u t def u \theFuN 0 end]}
+\fcFinishIIIdScene[true]%
+\fcPutIIId{[3 0 0]}{$x$}
+\fcPutIIId{[0 3 0]}{$y$}
+\fcPutIIId{[0 0 3]}{$z$}
+\end{pspicture}
+}
