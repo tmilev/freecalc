@@ -28,17 +28,41 @@ The graph of a function $g$ is shown to the right.  Use it to state the values (
 \tiny
 \psaxes{<->}(0,0)(-0.5,-0.5)(5.2,5)
 \fcLabels{5.2}{5}
+\pstVerb{5 dict begin}%
+\pstVerb{/funOne {x 2 exp -1.5 mul x 3 exp 0.35 mul x 0.45 mul 3.7 add add add} def}%
+\pstVerb{/funTwo {x -4 add 2 exp 0.5 mul 1.5 add} def}%
 %Function formula: 37/10+9/20 (x)+7/20 ((x)^{3})-3/2 ((x)^{2})
-\psplot[linecolor=red, plotpoints=1000]{-0.5}{3}{x 2 exp -1.5 mul x 3 exp 0.35 mul x 0.45 mul 3.7 add add add }
+\psplot[linecolor=red, plotpoints=1000]{-0.5}{3}{funOne}
 %Function formula: 3/2+1/2 ((-4+x)^{2})
-\psplot[linecolor=red, plotpoints=1000]{3}{5}{x -4 add 2 exp 0.5 mul 1.5 add }
+\psplot[linecolor=red, plotpoints=1000]{3}{5}{funTwo}
 \rput[lb](1.6,2.3){$y=g(x)$}
 \fcFullDot{1}{4}
 \fcHollowDot{1}{3}
 \fcHollowDot{3}{1}
 \fcHollowDot{3}{2}
+\only<handout:0|2,3,6,7>{%
+\psline[arrows=->, linecolor=blue, linewidth=2pt](0.5, 0)(1,0)%
+%\rput[b](0.5, 0.1){$x$}%
+}%
+\only<handout:0|3,7>{\psplot[linecolor=purple, plotpoints=5, arrows=->, linewidth=2pt]{0.5}{1}{funOne}}%
+\only<handout:0|4,5,6,7>{%
+\psline[arrows=->, linecolor=blue, linewidth=2pt](1.5, 0)(1,0)%
+%\rput[b](1.5, 0.1){$x$}%
+}%
+\only<handout:0|5,7>{\psplot[linecolor=purple, plotpoints=5, arrows=->, linewidth=2pt]{1.5}{1}{funOne}}%
+%
+\only<handout:0|8,9,12,13>{%
+\psline[arrows=->, linecolor=blue, linewidth=2pt](2.5, 0)(3,0)%
+%\rput[b](0.5, 0.1){$x$}%
+}%
+\only<handout:0|9,13>{\psplot[linecolor=purple, plotpoints=7, arrows=->, linewidth=2pt]{2.5}{3}{funOne}}%
+\only<handout:0|10,11,12,13>{%
+\psline[arrows=->, linecolor=blue, linewidth=2pt](3.5, 0)(3,0)%
+%\rput[b](1.5, 0.1){$x$}%
+}%
+\only<handout:0|11,13>{\psplot[linecolor=purple, plotpoints=5, arrows=->, linewidth=2pt]{3.5}{3}{funTwo}}%
+\pstVerb{end}%
 \end{pspicture}
-% \includegraphics[height=5cm]{limits/pictures/02-02-ex7.pdf}%
 \end{columns}
 \end{example}
 \end{frame}
