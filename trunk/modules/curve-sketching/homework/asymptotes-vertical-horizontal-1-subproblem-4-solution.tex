@@ -1,0 +1,68 @@
+\solution{\ref{problemAsymptotesy=(x^2-1)/(2x^2-3x-2)}
+
+
+
+\textbf{Vertical asymptotes.} A function $f(x)$ has a vertical asymptote at $x=a$ if $\lim\limits_{x\to a} f(x)=\pm \infty$. 
+
+The function is algebraic, and therefore has a finite limit at every point it is defined (i.e., no asymptote). Therefore the function can have vertical asymptotes only for those $x$ for which $f(x)$ is not defined. The function is not defined for $2x^2-3x-2=0$, which has two solutions, $x=2$ and $x=-\frac{1}{2}$. These are precisely the vertical asymptotes: indeed, 
+\[
+\begin{array}{rcll|l}
+\displaystyle 
+\lim\limits_{x\to 2^+} \frac{x^2-1}{2x^2-3x-2}&=&\displaystyle  \lim\limits_{x\to 2^+} \frac{x^2-1}{2(x-2) \left(x+\frac{1}{2}\right)} = \infty &&\text{Limit of form }\frac{(+)}{(+)(+)}\\
+\displaystyle 
+\lim\limits_{x\to 2^-} \frac{x^2-1}{2x^2-3x-2}&=&\displaystyle  \lim\limits_{x\to 2^-} \frac{x^2-1}{2(x-2) \left(x+\frac{1}{2}\right)} = -\infty &&\text{Limit of form }\frac{(+)}{(-)(+)}\\
+\end{array}
+\]
+and
+\[
+\begin{array}{rcll|l}
+\displaystyle 
+\lim\limits_{x\to -\frac{1}{2}^+} \frac{x^2-1}{2x^2-3x-2}&=&\displaystyle  \lim\limits_{x\to -\frac{1}{2}^+} \frac{x^2-1}{2(x-2) \left(x+\frac{1}{2}\right)} = \infty &&\text{Limit of form }\frac{(-)}{(+)(-)}\\
+\displaystyle 
+\lim\limits_{x\to -\frac{1}{2}^-} \frac{x^2-1}{2x^2-3x-2}&=&\displaystyle  \lim\limits_{x\to -\frac{1}{2}^-} \frac{x^2-1}{2(x-2) \left(x+\frac{1}{2}\right)} = -\infty &&\text{Limit of form }\frac{(-)}{(-)(-)}\\
+\end{array}
+\]
+
+\textbf{Horizontal asymptotes.} A function $f(x)$ has a horizontal asymptote if $\lim\limits_{x\to \pm\infty} f(x)$ exists. If that limit exists, and is some number, say, $N$, then $y=N$ is the equation of the corresponding asymptote.
+
+We have that 
+\[
+\begin{array}{rcll|l}\renewcommand{\arraystretch}{1.6}
+\displaystyle \lim\limits_{x\to \infty} \frac{x^2-1}{2x^2-3x-2} &=&\displaystyle \lim\limits_{x\to \infty} \frac{\left(x^2-1\right)\frac{1}{x^2}}{\left(2x^2-3x-2\right)\frac{1}{x^2}}&&\text{Divide by highest term in den.}\\
+&=&\displaystyle  \displaystyle \lim\limits_{x\to \infty} \frac{1-\frac{1}{x^2}}{2-\frac{3}{x}-\frac{2}{x^2}} \\
+&=&\displaystyle  \displaystyle  \frac{\lim\limits_{x\to \infty}1-\lim\limits_{x\to \infty}\frac{1}{x^2}}{\lim\limits_{x\to \infty}2-\lim\limits_{x\to \infty}\frac{3}{x}-\lim\limits_{x\to \infty}\frac{2}{x^2}}&&\text{Step may be skipped}\\
+&=& \displaystyle \frac{1-0}{2-0-0}\\
+&=&\displaystyle \frac{1}{2}\\
+\end{array}
+\]
+A similar computation shows that 
+\[
+\begin{array}{rcll|l}\renewcommand{\arraystretch}{1.6}
+\displaystyle \lim\limits_{x\to \infty} \frac{x^2-1}{2x^2-3x-2} 
+&=&\displaystyle \frac{1}{2}\\
+\end{array}
+\]
+
+Therefore $y=\frac{1}{2}$ is the only horizontal asymptote, valid in both directions ($x\to \pm \infty$). 
+
+
+A computer generated graph confirms our computations.
+
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-16, -20)(16,17)
+\tiny
+\fcAxesStandard{-15}{-19.32133}{15}{16.190354}
+\fcXTick{10}
+\newcommand{\theFun}{x x mul 1 sub 2 x x mul mul -3 x mul -2 add add div }
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-15}{-0.508}{\theFun}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-0.49}{1.969}{\theFun}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{2.04}{15}{\theFun}
+\psline[linestyle=dotted](-0.5,-19.3)(-0.5,16.1)
+\psline[linestyle=dotted](2,-19.3)(2,16.1)
+\psline[linestyle=dashed, linecolor=blue](-15, 0.5)(15, 0.5)
+\rput[b](-8, 0.6){$y=\frac{1}{2}$}
+\rput[bl](5,2){$y= \frac{x^2-1}{2x^2-3x-2}$}
+\rput[l](2.6,-8){$x=2$}
+\rput[r](-0.6,8){$x=-\frac{1}{2}$}
+\end{pspicture}
+}
