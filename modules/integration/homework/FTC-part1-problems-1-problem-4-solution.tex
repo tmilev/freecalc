@@ -1,0 +1,25 @@
+\solution{\ref{problemd/dx(int_(ln x)^(e^x)t^3dt)}
+
+\[
+\begin{array}{rcl}
+f'(x)&=&\displaystyle \frac{\diff }{\diff x}\left( \int\limits_{\ln x}^{e^x} t^3\diff t  \right)\\
+&=&\displaystyle \frac{\diff }{\diff x}\left(\int \limits_{\ln x}^{0} t^3\diff t+ \int\limits_{0}^{e^x} t^3\diff t  \right)\\
+&=&\displaystyle \frac{\diff }{\diff x}\left(- \int \limits_{0}^{\ln x} t^3\diff t+ \int\limits_{0}^{e^x} t^3\diff t  \right).
+\end{array}
+\]
+The Fundamental Theorem of Calculus part I states that for an arbitrary constant $a$,  $\displaystyle \frac{\diff }{\diff u} \left(\int_{a}^{u}g(t)\diff t \right)=g(u) $ (for a continuous $g$). We use this two compute the two derivatives:
+\[
+\begin{array}{rcll|l}
+\displaystyle \frac{\diff }{\diff x}\left( \int \limits_{0}^{\ln x} t^3\diff t\right)&=&\displaystyle \frac{\diff }{\diff x}\left(\int \limits_{0}^{u} t^3\diff t\right)&&\text{Set } u=\ln x\\
+&=&\displaystyle  u^3 \cdot \frac{\diff u}{\diff x}\\
+&=&\displaystyle \frac{(\ln x)^3}{x}\\
+\displaystyle \frac{\diff }{\diff x}\left( \int \limits_{0}^{e^x} t^3\diff t\right)&= & \displaystyle \frac{\diff }{\diff x}\left( \int \limits_{0}^{w} t^3\diff t\right)&&\text{Set }w=e^{x}\\
+&=&\displaystyle w^3\cdot \frac{\diff w}{\diff x}\\
+&=&\displaystyle e^{3x}e^{x}=e^{4x}
+\end{array}
+\]
+Finally, we combine the above computations to a single answer. 
+\[
+f'(x)=e^{4x}-\frac{(\ln x)^3}{x}.
+\]
+}

@@ -1,13 +1,14 @@
 \solution{\ref{problemareabetweeny=x^2andy=2x^2+x-2}
 
 \textbf{Region plot.}
+
 \psset{xunit=0.5cm, yunit=0.5cm}
-\begin{pspicture}(-3,-3)(3,5.7)
-\fcAxesStandard{-3.5}{-3.5}{2.5}{5.5}
+\begin{pspicture}(-3.4,-3.4)(3,5.7)
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{%
 \psplot{-2}{1}{x x mul}%
 \psplot{1}{-2}{x x mul 2 mul x -2 add add}%
 }%
+\fcAxesStandardNoFrame{-3.5}{-3.5}{2.5}{5.5}
 \psplot{-3}{2}{x x mul}
 \psplot{-3}{2}{x x mul 2 mul x -2 add add}
 \fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-3}{5}{8}{1}{1}{}
