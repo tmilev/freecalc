@@ -1,0 +1,15 @@
+\solution{\ref{problemLimitxtominusinftysqrt(16x^6-3x)/(x^3+2)}.
+
+$
+\begin{array}{rcll|l}
+\displaystyle 
+\lim\limits_{x\to-\infty }\frac{\sqrt{16x^6-3x}}{x^3+2}&=&\displaystyle \lim\limits_{x\to-\infty } \frac{\sqrt{x^6\left(16-\frac{3}{x^5}\right)}}{x^3+2}\\
+&=&\displaystyle \lim\limits_{x\to-\infty } \frac{\sqrt{x^6}\sqrt{\left(16-\frac{3}{x^5}\right)}}{x^3 +2} &&\displaystyle\sqrt{x^6}={\color{red}{-}} x^3\text{ because }x<0 \text{ as }x\to-\infty\\
+&=&\displaystyle \lim\limits_{x\to-\infty } \frac{{\color{red}{-}}x^3 \sqrt{\left(16-\frac{3}{x^5}\right)}}{x^3 +2} &&\text{Divide by highest order term in denominator} \\
+&=&\displaystyle \lim\limits_{x\to-\infty } \frac{-x^3 \sqrt{\left(16-\frac{3}{x^5}\right)}}{x^3 +2} \\
+&=&\displaystyle \lim\limits_{x\to-\infty } \frac{-\cancel{x^3} \sqrt{\left(16-\frac{3}{ x^5}\right)}\frac{1}{\cancel{x^3}}}{\left(x^3 +2\right)\frac{1}{x^3}} \\
+&=&\displaystyle \lim\limits_{x\to-\infty } \frac{-\sqrt{\left(16-\underbrace{\frac{3}{ x^5}}_{\to 0}\right)} }{1+\underbrace{\frac{2}{x^3}}_{\to 0}} \\
+&=&\displaystyle \frac{-\sqrt{16}}{1}=-4.
+\end{array}
+$
+}
