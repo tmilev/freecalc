@@ -2,13 +2,14 @@
 First, plot $y=2x^2-x+1$ and $y=x^2+1$. 
 
 \psset{xunit=2cm, yunit=2cm}
-\begin{pspicture}(-0.5,-0.5)(1.3,3)
+\begin{pspicture}(-1,-0.5)(1.5,3.2)
 \tiny
 \fcAxesStandard{-1}{-0.4}{1.3}{3}
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{
 \psplot[linecolor=\fcColorGraph]{0}{1}{x x 2 mul mul x sub 1 add}
 \psplot[linecolor=\fcColorGraph]{1}{0}{x x mul 1 add}
 }
+\fcLabels{1.3}{3}
 \psplot[linecolor=\fcColorGraph]{-0.5}{1.2}{x x 2 mul mul x sub 1 add}
 \psplot[linecolor=\fcColorGraph]{-0.5}{1.2}{x x mul 1 add}
 \psline[](! 0.7 11 8 div)(! 0.8 11 8 div)
@@ -22,7 +23,7 @@ First, plot $y=2x^2-x+1$ and $y=x^2+1$.
 \fcFullDot[linecolor=blue]{1}{0}
 \end{pspicture}
 \psset{xunit=2cm, yunit=2cm}
-\begin{pspicture}(-1,-2.3)(3,3)
+\begin{pspicture}(-0.7,-2.3)(2.3,3)
 \renewcommand{\fcScreenStyle}{x}
 \renewcommand{\fcScreen}{[-0.2 -0.2 -1] 0}
 \fcStartIIIdScene
@@ -36,7 +37,7 @@ First, plot $y=2x^2-x+1$ and $y=x^2+1$.
 \fcDotIIId[linecolor=blue]{[1 0 0]}
 \end{pspicture}
 \psset{xunit=2cm, yunit=2cm}
-\begin{pspicture}(-1,-2)(3,3)
+\begin{pspicture}(-0.7,-2)(2.3,3)
 \renewcommand{\fcScreenStyle}{x}
 \renewcommand{\fcScreen}{[-0.2 -0.2 -1] 0}
 \fcStartIIIdScene
