@@ -1,0 +1,31 @@
+\solution{\ref{problemSketch(2 x^2-4 x+2)/(x^2-2 x)}
+
+\textbf{Vertical asymptotes.} The only candidates for vertical asymptotes are the points where $f$ is not defined, i.e., the points where $x^2-2x=0$. In other words, the candidates for vertical asymptotes are $0$ and $2$. A short computation (not presented here as the problem requests that we omit it) shows that both $x=0$ and $x=2$ are vertical asymptotes.
+
+\textbf{Intervals of increase and decrease. } The denominator of $f'$ is a square so its sign is dictated by its numerator. The numerator of $f'$ is positive for $x<1$ and negative for $x>1$. Therefore $f$ increases for $x\in (-\infty,0)\cup (0,1)$ decreases for $x\in (1,2)\cup (2,\infty)$.
+
+\textbf{Local maxima and minima.} From the preceding point, the only local extremum is located where the function changes from increasing to decreasing, i.e., the only local extremum is the local maximum at $x=1, y=\frac{2-4+2}{1-2}=0$.
+
+\textbf{Intervals of concavity. } The equation $12x^2-24x+16=0$ simplifies to $3x^2-6x+4=0$ and that has no real solutions (the solutions are $\frac{6\pm \sqrt{36-48}}{6}=\frac{3 \pm\sqrt{3}i}{3}$). Since $12x^2-24x+16=0$ is a parabola without real roots that opens up, it is strictly positive. Therefore the sign of $f''$ is determined by the sign of its denominator. The denominator is negative for $x\in (0,2)$ and positive otherwise. Therefore $f $ is concave up for $x\in (-\infty 0)\cup (2,\infty )$ and concave down for $x\in (0,2)$.
+
+\textbf{Curve sketch. } A computer generated plot is included below.
+
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-3.2,-9.2)(5.2,13.2)
+\fcAxesStandard{-3}{-8}{5}{13}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-9}{8}{22}{1}{1}{}
+\rput[t](0.9,-0.2){$1$}
+\fcLabels{5}{13}
+\newcommand{\theFun}{2 x x mul mul -4 x mul 2 add add x x mul -2 x mul add div\space}
+\fcFullDot{-3}{1 dict begin /x -3 def \theFun end}
+\fcFullDot{-0.1}{1 dict begin /x -0.1 def \theFun end}
+\fcFullDot{0.1}{1 dict begin /x 0.1 def \theFun end}
+\fcFullDot{1.9}{1 dict begin /x 1.9 def \theFun end}
+\fcFullDot{2.1}{1 dict begin /x 2.1 def \theFun end}
+\fcFullDot{5}{1 dict begin /x 5 def \theFun end}
+
+\psplot[linecolor=\fcColorGraph]{-3}{-0.1}{\theFun}
+\psplot[linecolor=\fcColorGraph]{0.1}{1.9}{\theFun}
+\psplot[linecolor=\fcColorGraph]{2.1}{5}{\theFun}
+\end{pspicture}
+}

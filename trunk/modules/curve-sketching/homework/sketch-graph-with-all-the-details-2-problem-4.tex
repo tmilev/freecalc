@@ -1,0 +1,38 @@
+\label{problemSketch(2 x^2-4 x+2)/(x^2-2 x)}
+Consider the function $\displaystyle f(x)=\frac{2 x^{2}-4 x+2}{x^{2}-2 x} $.
+
+\begin{itemize}
+\item Find the vertical asymptotes of $f$. \textbf{For this particular sub-question, and for this sub-question alone, no justification is required (just write the answer).}
+
+\item Computation shows that $\displaystyle f'(x)=\frac{-4 x+4}{\left(x^{2}-2 x\right)^{2}}$. Find the intervals of increase and decrease of $f$.
+\item Find the local maxima and minima of $f$. 
+\item Computation shows that $\displaystyle f''(x)=\frac{12 x^{2}-24 x+16}{\left(x^{2}-2 x\right)^{3}} $. Find where the function is concave up and where it is concave down.
+\item Sketch the function $f(x)$ roughly by hand. Make sure that your plot matches your computations from the preceding parts of the problem.
+
+
+You may use the provided grid and coordinate system. We recall that \\
+$\displaystyle f(x)=\frac{2 x^{2}-4 x+2}{x^{2}-2 x} $,\\ 
+$\displaystyle f'(x)=\frac{-4 x+4}{\left(x^{2}-2 x\right)^{2}}$,\\ $\displaystyle f''(x)=\frac{12 x^{2}-24 x+16}{\left(x^{2}-2 x\right)^{3}}$.
+
+The points plotted below are known to lie on the curve.
+
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-3.2,-9.2)(5.2,13.2)
+\fcAxesStandard{-3}{-8}{5}{13}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-9}{8}{22}{1}{1}{}
+\rput[t](0.9,-0.2){$1$}
+\fcLabels{5}{13}
+\newcommand{\theFun}{2 x x mul mul -4 x mul 2 add add x x mul -2 x mul add div\space}
+\fcFullDot{-3}{1 dict begin /x -3 def \theFun end}
+\fcFullDot{-0.1}{1 dict begin /x -0.1 def \theFun end}
+\fcFullDot{0.1}{1 dict begin /x 0.1 def \theFun end}
+\fcFullDot{1.9}{1 dict begin /x 1.9 def \theFun end}
+\fcFullDot{2.1}{1 dict begin /x 2.1 def \theFun end}
+\fcFullDot{5}{1 dict begin /x 5 def \theFun end}
+
+%\psplot{-3}{-0.1}{\theFun}
+%\psplot{0.1}{1.9}{\theFun}
+%\psplot{2.1}{5}{\theFun}
+\end{pspicture}
+
+\end{itemize}

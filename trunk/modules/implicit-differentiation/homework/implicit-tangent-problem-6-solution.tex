@@ -1,0 +1,22 @@
+\solution{\ref{problemImplicitTangenty^3+x^3+4xy=-4at(1,-1)}
+
+\[
+\begin{array}{rcll|l}
+\displaystyle y^{3}+x^3+4x y&=& \displaystyle -4 &&\text{apply }\frac{\diff }{\diff x}\\
+\displaystyle 3y^2 \frac{\diff y}{\diff x}+3x^2+4\left(y+x\frac{\diff y}{\diff x}\right)&=&0\\
+\displaystyle \frac{\diff y}{\diff x}\left(3y^2+4x\right)&=&\displaystyle -3x^2-4y\\
+\displaystyle \frac{\diff y}{\diff x}&=&\displaystyle  \frac{-3x^2-4y}{ 3y^2+4x}&&\text{substitute }x=1, y=-1\\
+\displaystyle \frac{\diff y}{\diff x}_{|x=1, y=-1}&=&\displaystyle  \frac{-3\left(1\right)^2-4\left(-1\right)}{ 3\left(-1\right)^2+4\left(1\right)} \\
+\displaystyle \frac{\diff y}{\diff x}_{|x=-\frac{1}{2}, y=-\frac{1}{2}}&=& \displaystyle  \frac{1}{7}
+\end{array}
+\]
+Therefore the equation of the tangent is $\displaystyle y-\left(- 1\right)= \frac{1}{7}\left(x-1\right)$ which simplifies to $\displaystyle  y=\frac{x}{7}-\frac{8}{7}$. A computer-generated plot visually confirms our computations.
+
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-3.1,-3.1)(3.1,3.1)
+\fcAxesStandard{-2}{-2}{2}{2}
+\fcImplicitIId[linecolor=red, linestyle=dashed, dashes={[1 1] 0}, showGridImplicitIId=false, useMidpointImplicitPlots=false]{-3}{-3}{300}{300}{0.02}{0.02}{y y y mul mul x x x mul mul add 4 x y mul mul add 4 add} 
+\fcFullDot{1}{-1}
+\psplot[linecolor=blue]{-3}{3}{x 7 div -8 7 div add}
+\end{pspicture}
+}
