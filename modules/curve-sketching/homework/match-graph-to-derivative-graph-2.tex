@@ -1,0 +1,83 @@
+\label{problemMatchGraphToDerivativeGraphProblem2}
+~\\
+\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{tabular}{ccccc}
+\multicolumn{5}{l}{Match each of the following function plots:}\\
+$1.$&$2.$&$3.$&$4.$&$5.$\\
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+% 1/4x^4-2x^2
+\psplot[linecolor=red]{-3}{3}{x x x x 0.25 mul mul mul mul -2 x x mul mul add}
+\end{pspicture}
+&
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+%sqrt(9-x^2)
+\psplot[linecolor=red]{-3}{3}{x x -1 mul mul 9 add sqrt}
+\end{pspicture}
+&
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+%1/4 (\frac{1}{5} x^{5}-\frac{10}{3} x^{3}+9 x)
+\psplot[linecolor=red]{-3}{3}{0.2 x x x x x mul mul mul mul mul -10 3 div x x x mul mul mul 9 x mul add add 0.25 mul}
+\end{pspicture}
+&
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+%cos(x*pi)
+\psplot[linecolor=red]{-3}{3}{x 180 mul cos}
+\end{pspicture}
+&
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+%\int 1/10(x-1)(x-2)(x-3)(x+3) (x+2)(x+1)dx
+\psplot[linecolor=red]{-3}{3}{x -3.6 mul x 3 exp 1.633333 mul add x 5 exp -0.28 mul add x 7 exp 0.014286 mul add}
+\end{pspicture}
+\\
+\multicolumn{5}{l}{to their derivative plots:}\\
+$(a)$&$(b)$&$(c)$&$(d)$&$(e)$\\
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+% -x/sqrt(9-x^2)
+%matches sqrt(9-x^2)
+\psplot[linecolor=blue]{-2.9}{2.9}{-1 x mul 9 x x -1 mul mul add sqrt div}
+\end{pspicture}
+&
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+% 3pi/4* (-sin)(x*pi)
+%matches cos(x*pi)
+\psplot[linecolor=blue, plotpoints=400]{-3}{3}{3.141592654 x 180 mul sin mul -1 mul}
+\end{pspicture}
+&
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+% (x+2)(x-2)x 
+%matches 1/4x^4-2x^2
+\psplot[linecolor=blue]{-2.38}{2.38}{x 2 add x -2 add x mul mul}
+\end{pspicture}
+&
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+%1/10(x-1)(x-2)(x-3)(x+3) (x+2)(x+1)
+%matches \int 1/10(x-1)(x-2)(x-3)(x+3) (x+2)(x+1)dx
+\psplot[linecolor=blue, plotpoints=400]{-3}{3}{1 10 div x x x mul mul dup mul mul -7 5 div x x mul dup mul mul 49 10 div x x mul mul -18 5 div add add add}
+\end{pspicture}
+&
+\begin{pspicture}(-3.1,-4.3)(3.1,4.1)
+\fcAxesStandard{-3}{-4}{3}{4}
+\fcGrid[linestyle=dashed, linewidth=0.5, linecolor=gray]{-3}{-4}{6}{8}{1}{1}{}
+% 1/4(x-1)(x-3)(x+3) (x+1)
+%matches 1/4 (\frac{1}{5} x^{5}-\frac{10}{3} x^{3}+9 x)
+\psplot[linecolor=blue, plotpoints=400]{-3}{3}{x 1 sub x 3 sub x 1 add x 3 add 0.25 mul mul mul mul}
+\end{pspicture}
+\end{tabular}

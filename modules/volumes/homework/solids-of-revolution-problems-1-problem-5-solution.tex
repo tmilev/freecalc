@@ -1,0 +1,78 @@
+\solution{\ref{problemVolumeRevolution-x^2+1aroundy=0andy=-4}
+
+First, we plot the 2d region. The two curves intersect when $-x^2+1=0$, i.e., when $x=\pm 1$.
+
+
+\hfil \hfil \begin{pspicture}(-6.2,-4.2)(6.2,3.2)\tiny
+\pscustom*[linecolor=\fcColorAreaUnderGraph]{
+\psplot[linecolor=\fcColorGraph]{-1}{1}{x x mul -1 mul 1 add}
+}
+\newcommand{\theFuN}{x x mul -1 mul 1 add\space}%
+\psplot[linecolor=\fcColorGraph]{-2}{2}{x x mul -1 mul 1 add}
+\psline[linecolor=\fcColorGraph](-2,0)(2,0)
+\fcAxesStandardNoFrame{-2}{-3.1}{2}{3}
+\rput[t](! 1  -0.1){$1$}
+\rput[t](! -1 -0.1){$-1$}
+\psline[arrows=<->](0.5, 0)(! 0.5 1 dict begin /x 0.5 def \theFuN end)
+\rput[l](0.6,0.3){cross-section rad., $y=0$}
+\psline[arrows=<->](-0.5, -4)(! -0.5 1 dict begin /x -0.5 def \theFuN end)
+\rput[r](-0.6,-2){cross-section rad., $y=-4$}
+\rput[b](-2,-4){axis $y=-4$}
+\psline[linecolor=green](-2,-4)(2,-4)
+\end{pspicture}
+
+\textbf{Rotation about $y=0$. }
+
+\hfil \hfil \begin{pspicture}(-3,-3)(4.2,3.2)%
+\newcommand{\theFun}{u u mul -1 mul 1 add\space}%
+\renewcommand{\fcScreenStyle}{x}
+\renewcommand{\fcScreen}{[-1 -1 -4] -1}
+\fcStartIIIdScene%
+\fcAxesIIIdFullInScene{-2}{-2}{-6}{2}{2}{6}%
+\fcSurfaceInScene[arrows=(none), iterationsV=15, iterationsU=8, colorVU={1 0.5 0.5}]{-0.99}{0}{0.99}{360}{[u v cos \theFun mul v sin \theFun mul]}{}%
+\fcSurfaceInScene[arrows=(none), iterationsV=4, iterationsU=3, colorUV={0.3 0.7 1}, forceForeground=true]{-1}{0}{1}{1}{[u \theFun v mul  0]}{}%
+\fcFinishIIIdScene[true]%
+\fcPutIIId{[3 0 0]}{$x$}
+\fcPutIIId{[0 3 0]}{$y$}
+\fcPutIIId{[0 0 3]}{$z$}
+\end{pspicture}
+
+The volume of a solid (and in particular, of a solid of revolution) is computed by integrating the area $A(x)=\pi(\text{radius cross-section})^2= \pi (-x^2+1)^2 $ of the cross-section of the solid. Therefore the volume $V$ equals
+\[
+\begin{array}{rcll|l}
+V&=&\displaystyle \int_{a}^bA(x)\diff x\\
+&=&\displaystyle\int_{-1}^{1}\pi (-x^2+1)^2  \diff x\\
+&=&\displaystyle\pi\left[\frac{1}{5} x^{5}-\frac{2}{3} x^{3}+x\right]_{-1}^{1}&&\text{step not required by problem}\\
+&=&\displaystyle \pi \frac{16}{15}&&\text{step not required by problem.}
+\end{array}
+\]
+
+
+\textbf{Rotation about $y=-4$. } The cross-section of this solid of revolution is a washer with inner radius $ 4$ and outer radius $-x^2+1-(-4)=5-x^2$. Therefore the area of the cross-section is $\pi (5-x^2)^2-\pi 4^2$ and the volume is computed via
+
+\[
+\begin{array}{rcll|l}
+V&=&\displaystyle \int_{a}^bA(x)\diff x\\
+&=&\displaystyle\int_{-1}^{1} \pi \left( (5-x^2)^2- 4^2\right)  \diff x\\
+&=&\displaystyle\pi\left[\frac{1}{5} x^{5}-\frac{10}{3} x^{3}+9 x   \right]_{-1}^{1}&&\text{step not required by problem}\\
+&=&\displaystyle \frac{176}{15} \pi &&\text{step not required by problem.}
+\end{array}
+\]
+\hfil \hfil 
+\begin{pspicture}(-4,-9)(5,4.2)%
+\newcommand{\theFuN}{u u mul -1 mul 1 add\space}%
+\renewcommand{\fcScreenStyle}{x}
+\fcStartIIIdScene%
+\fcAxesIIIdFullInScene{-3}{-9}{-4}{3}{3}{4}%
+\renewcommand{\fcScreen}{[-1 -1 -4] -1}%
+\fcSurfaceInScene[arrows=(none), iterationsV=15, iterationsU=8, colorVU={0.7 0.2 0.2}, colorUV={0.7 0.2 0.2}]{1 -1 mul }{0}{1 -0.001 add}{360}{[u v cos 4 mul -4 add v sin 4 mul]}{}%
+\fcSurfaceInScene[arrows=(none), iterationsV=15, iterationsU=8, linecolor=black,colorUV={1 0.5 0.5}, colorVU={1 0.5 0.5}]{-1 0.01 add}{0}{1 -0.01 add}{360}{[u v cos \theFuN 4 add mul -4 add v sin \theFuN 4 add mul]}{}%
+\fcSurfaceInScene[arrows=(none), iterationsV=1, iterationsU=8, colorUV={0.3 0.7 1}, forceForeground=true]{-1}{0}{1}{1}{[u \theFuN v mul  0]}{}%
+\fcLineIIIdInScene[linecolor=green, linewidth=2]{[-6 -4 0]}{[6 -4 0]}
+\fcCurveIIIdInScene[linecolor=red, arrows=(none), linewidth=2]{-1}{1}{[1 dict begin /u t def u \theFuN 0 end]}
+\fcFinishIIIdScene[true]%
+\fcPutIIId{[3 0 0]}{$x$}
+\fcPutIIId{[0 3 0]}{$y$}
+\fcPutIIId{[0 0 3]}{$z$}
+\end{pspicture}
+}
