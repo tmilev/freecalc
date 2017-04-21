@@ -2,8 +2,17 @@
 \addtolength{\textwidth}{6.8cm}
 \addtolength{\voffset}{-3cm}
 \addtolength{\textheight}{6cm}
-\input{../../lectures/system-specific-config-Ubuntu-texlive}
-\input{../homework-problems} %warning folder paths are relative to the file that uses the includepackage
+
+%Please keep the following command as a single line.
+%I need the one-line-command to simplify one of my auto-build scripts.
+\IfFileExists{../../lectures/system-specific-config-Ubuntu-texlive.tex}{\input{../../lectures/system-specific-config-Ubuntu-texlive}}{\IfFileExists{./system-specific-config-Ubuntu-texlive.tex} {\input{./system-specific-config-Ubuntu-texlive}}{}}
+
+%Please keep the following command as a single line.
+%I need the one-line-command to simplify one of my auto-build scripts.
+\IfFileExists{../homework-problems.tex}{\input{../homework-problems}}{\input{./homework-problems}} 
+
+%warning folder paths are relative to the file that uses the includepackage
+
 \renewcommand{\answer}[1]{\iftoggle{answers}{ \hfill{~} \rotatebox{180}{\tiny answer: #1}}{} }
 \renewcommand{\hiddenanswer}{\answer}
 \renewcommand{\points}[1]{\item}
