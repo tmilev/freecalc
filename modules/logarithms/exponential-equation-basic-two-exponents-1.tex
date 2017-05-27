@@ -2,17 +2,20 @@
 \begin{frame}
 \begin{example}
 Solve the equation.
-\[\renewcommand{\arraystretch}{1.7}
+
+\hfil\hfil$\renewcommand{\arraystretch}{1.6}
 \begin{array}{rcll|l}
-\displaystyle e^{x-3}&=&\displaystyle 2 e^{2x-1}&&\text{Divide by } e^{2x-1}\\
-\displaystyle \frac{e^{x-3}}{e^{2x-1}}&=&2\\
-\displaystyle e^{x-3-(2x-1)} &=& 2\\
-\displaystyle e^{-x-2} &=& 2&&\text{Apply }\ln\\
--x-2&=&\ln 2\\
-x&=&-(\ln 2+2)\\
-x&=&-\ln 2-2
+\displaystyle e^{x-3}&=&\displaystyle 2 \alertNoH{2}{ e^{2x-1}} \uncover<2->{&& \text{Divide by }\alertNoH{2}{ e^{2x-1}}}\\
+\uncover<2->{\displaystyle \frac{{\alertNoH{3}{e}}^{x-3}}{\alertNoH{2}{{\alertNoH{3}{e}}^{\alertNoH{4}{2x-1}}}}&=&2}\\
+\uncover<3->{\displaystyle {\alertNoH{3}{e}}^{ \alertNoH{5}{x}\alertNoH{6}{-3}\alertNoH{5,6}{-}(\alertNoH{4}{\alertNoH{5}{2x}\alertNoH{6}{-1}})} &=& 2}\\
+\uncover<5->{\displaystyle {\alertNoH{7}{e}}^{ \alertNoH{5}{-x}\alertNoH{6}{-2}} &=& \alertNoH{8}{2} \uncover<7->{&&\text{Apply }\alertNoH{7,8}{\ln}}}\\
+\uncover<7->{-x\alertNoH{9}{-2}&=&\alertNoH{8}{ \ln 2}}\\
+\uncover<9->{\alertNoH{10}{-}x&=&\ln 2+\alertNoH{9}{2}}\\
+\uncover<10->{x&=& \alertNoH{10}{-(}\ln 2+2\alertNoH{10}{)}}\\
+\uncover<11->{x&=&-\ln 2-2 && \text{Final answer}}\\
+\uncover<12->{x&\approx& -2.693&& \text{Calculator}}
 \end{array}
-\]
+$
 \end{example}
 \end{frame}
 % end module natural-logarithm-def-ex5
