@@ -5,14 +5,16 @@ Solve the equation.
 \[
 \renewcommand{\arraystretch}{1.7}
 \begin{array}{rcll|l}
-\displaystyle 3^{2x+5}&=&\displaystyle 5\cdot 2^{-x+1} &&\text{Common base}\\
-\displaystyle \left( 2^{\log_2 3}\right)^{2x+5}&=&\displaystyle 5\cdot 2^{-x+1} \\
-\displaystyle 2^{\left(\log_2 3\right)(2x+5)}&=&\displaystyle 5\cdot 2^{-x+1}\\
-\displaystyle \frac{2^{\left(\log_2 3\right)(2x+5)}}{2^{- x+1}}&=&\displaystyle 5\\
-\displaystyle 2^{\left( \log_2 3\right)(2x+5)- (-x+1)}&=& \displaystyle 5 && \text{Apply }\log_2 \\
-\displaystyle (\log_2 3)(2x+5)+x-1&=&\log_2 5\\
-x(2\log_2 3+1)+ 5\log_2 3&=&\displaystyle \log_2 5+1\\
-\displaystyle x&=&\displaystyle \frac{\log_2 5+1-5\log_2 3}{2 \log_2 3+1}\\
+\displaystyle {\alertNoH{2,3}{3}}^{2x+5}&=&\displaystyle 5\cdot {\alertNoH{2}{2}}^{-x+1} \uncover<2->{&& \text{Common base}}\\
+\uncover<3->{\displaystyle \left( \alertNoH{3}{ 2^{\alertNoH{4}{\log_2 3}}} \right)^{\alertNoH{4}{2x+5}}&=& \displaystyle 5\cdot 2^{-x+1} &&\alertNoH{3}{ a=b^{\log_b a}}} \\
+\uncover<4->{
+\displaystyle 2^{ \alertNoH{4}{\left(\log_2 3\right)(2x+5)}}&=&\displaystyle 5\cdot \alertNoH{5}{2^{-x+1}}}\\
+\uncover<5->{\displaystyle \frac{{\alertNoH{6}{ 2}}^{\left(\log_2 3\right)(2x+5)}}{\alertNoH{5}{ {\alertNoH{6}{ 2}}^{\alertNoH{7}{- x+1}}} }&=&\displaystyle 5}\\
+\uncover<6->{
+\displaystyle {\alertNoH{6,8}{ 2}}^{ \left( \log_2 3\right)(2x+5) \alertNoH{7}{- (-x+1)}}&=& \displaystyle \alertNoH{9}{5} &&\uncover<8->{ \text{Apply }\alertNoH{8,9}{ \log_2}}} \\
+\uncover<8->{\displaystyle  (\alertNoH{11,13}{\log_2 3})(\alertNoH{11}{2} \alertNoH{10}{x}+\alertNoH{13}{5}) +\alertNoH{10,12}{x} \alertNoH{14}{-1}&=&\alertNoH{9}{ \log_2 5}}\\
+\uncover<10->{\alertNoH{10,12}{ x}\left( \alertNoH{17}{ \uncoverAlert{11}{ 2\log_2 3} +\uncoverAlert{12}{1}} \right)+ \uncoverAlert{13}{\alertNoH{16}{5\log_2 3}}&=& \displaystyle \alertNoH{15}{ \log_2 5{}\uncoverAlert{14}{+1} }}\\
+\uncover<15->{\displaystyle x&=&\displaystyle \frac{\alertNoH{15}{\log_2 5+1}\uncoverAlert{16}{-5\log_2 3}}{\uncoverAlert{17}{ 2 \log_2 3+1}}} \\
 
 \end{array}
 \]

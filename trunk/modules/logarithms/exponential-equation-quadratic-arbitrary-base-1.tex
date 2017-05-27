@@ -2,21 +2,24 @@
 \begin{frame}
 \begin{example}
 \text{Solve the equation}
-\[
-\alertNoH{9}{\alertNoH{5,6}{4^{x+1}}-\alertNoH{7,8}{ 2^{x+2}}} -3 =  0
-\]
-\uncover<2->{Set $\alertNoH{2,3,14}{u= \fcAnswer{3}{2^x}}$.} \uncover<5->{Then $\alertNoH{5,6}{\alertNoH{9}{ 4^{x+1}=\fcAnswer{6}{4u^2} }}$,}
-\uncover<7->{$\alertNoH{7,8}{\alertNoH{9}{2^{x+2}=\fcAnswer{8}{4u} }}$.}
-\begin{align*}
-\uncover<9->{\alertNoH{10}{ \alertNoH{9}{ 4u^2-4u}-3 }&=0} \\
-\uncover<10->{\alertNoH{10,11}{4\left( \fcAnswer{11}{\alertNoH{12}{u- \frac{3}2}} \right) \left(\fcAnswer{11}{\alertNoH{13}{u+\frac12}}\right)} &=0}
-\end{align*}
-\begin{align*}
-\uncover<12->{\alertNoH{12}{u=\frac32} & &\text{or} & & \alertNoH{13}{u=-\frac12}}\\
-\uncover<14->{\alertNoH{14}{2^x}=\frac32  & &\text{or} & & \alertNoH{14}{2^x} =-\frac12}\\
-\uncover<15->{
-x=\log_2 \left(\frac32\right) =}\uncover<17->{ \frac{\alertNoH{17,18}{\ln \left(\fcAnswer{18}{\frac32}\right) } }{\alertNoH{17,18}{\ln \fcAnswer{18}{2}}} \uncover<19->{\approx 0.584962501} \quad  }  \uncover<16->{& &\text{or} & & \text{no real solution}}
-\end{align*}
+
+\hfil\hfil$
+\renewcommand{\arraystretch}{1.8}
+\begin{array}{rcll|l}
+\alertNoH{9}{\alertNoH{5,6}{4^{x+1}}-\alertNoH{7,8}{ {\alertNoH{3}{2}}^{\alertNoH{3}{x}+2}}} -3 &=&  0\\
+\multicolumn{3}{l}{\text{
+\uncover<2->{Set $\alertNoH{2,3,18}{u= \fcAnswer{3}{2^x}}$.} \uncover<5->{Then $\alertNoH{5,6}{\alertNoH{9}{ 4^{x+1}=\fcAnswer{6}{4u^2} }}$,}
+\uncover<7->{$\alertNoH{7,8}{\alertNoH{9}{2^{x+2}=\fcAnswer{8}{4u} }}$.}}}
+\\
+\uncover<9->{\alertNoH{10,11}{ \alertNoH{9}{ 4u^2-4u}-3 }&=&0} \\
+\uncover<10->{\alertNoH{10,11}{\left( \fcAnswer{11}{ \alertNoH{12}{ 2u - 3}} \right) \left( \fcAnswer{11}{ \alertNoH{13}{ 2u+1}}\right)} &=&0}\\
+
+\uncover<12->{\alertNoH{12}{\alertNoH{15}{2}u\alertNoH{14}{-3}=0} & \text{or} & \alertNoH{13}{\alertNoH{17}{2} u+ \alertNoH{16}{1} =0}}\\
+\displaystyle \uncover<14->{\alertNoH{18}{ u} = \frac{ \uncoverAlert{14}{3}}{\uncoverAlert{15}{2}} & \text{or} & \displaystyle \alertNoH{18}{ u} =\uncover<16->{ \uncoverAlert{16}{-} \frac{\uncoverAlert{16}{1}}{ \uncoverAlert{17}{2}} }}\\
+\displaystyle \uncover<18->{\alertNoH{19}{ \alertNoH{18}{2^x}=\frac{3}{2}}  & \text{or}  & \displaystyle \alertNoH{18}{2^x} =-\frac{1}{2}}\\
+\displaystyle  \uncover<19->{\alertNoH{19,21}{ x=\log_2 \left(\frac{3}{2}\right) }} \uncover<21->{= \frac{ \alertNoH{21, 22}{\ln \left( \fcAnswer{22}{\frac32}\right) } }{\alertNoH{21,22}{\ln \fcAnswer{22}{2}}} \uncover<23->{\approx 0.58496} \quad  }  \uncover<20->{& \text{or}  & \text{no real solution}}
+\end{array}
+$
 \end{example}
 \end{frame}
 % end module natural-logarithm-def-ex5
