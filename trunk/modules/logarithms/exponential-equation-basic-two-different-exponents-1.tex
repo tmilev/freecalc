@@ -2,8 +2,17 @@
 \begin{frame}
 \begin{example}
 Solve the equation.
-\[\begin{array}{rclll}
-3^{2x+5}&=&5\cdot 2^{-x+1}\\
+\[
+\renewcommand{\arraystretch}{1.7}
+\begin{array}{rcll|l}
+\displaystyle 3^{2x+5}&=&\displaystyle 5\cdot 2^{-x+1} &&\text{Common base}\\
+\displaystyle \left( 2^{\log_2 3}\right)^{2x+5}&=&\displaystyle 5\cdot 2^{-x+1} \\
+\displaystyle 2^{\left(\log_2 3\right)(2x+5)}&=&\displaystyle 5\cdot 2^{-x+1}\\
+\displaystyle \frac{2^{\left(\log_2 3\right)(2x+5)}}{2^{- x+1}}&=&\displaystyle 5\\
+\displaystyle 2^{\left( \log_2 3\right)(2x+5)- (-x+1)}&=& \displaystyle 5 && \text{Apply }\log_2 \\
+\displaystyle (\log_2 3)(2x+5)+x-1&=&\log_2 5\\
+x(2\log_2 3+1)+ 5\log_2 3&=&\displaystyle \log_2 5+1\\
+\displaystyle x&=&\displaystyle \frac{\log_2 5+1-5\log_2 3}{2 \log_2 3+1}\\
 
 \end{array}
 \]
