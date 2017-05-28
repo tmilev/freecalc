@@ -1,0 +1,115 @@
+
+\begin{frame}
+
+\frametitle{Integrals of the form $\int \frac{c}{\alertNoH{2}{a}x^2-\alertNoH{2}{b}}\diff x$, $\alertNoH{2}{a,b>0}$}
+\vskip -0.1cm
+
+\uncover<9->{
+$\!\!\alertNoH{14}{ \displaystyle \alertNoH{9}{ \frac{1}{(\alertNoH{10}{ax-b })(\alertNoH{10}{ax+b})} =  \frac{ \fcAnswerUncover{9}{13}{ \frac{1}{2b}} }{\alertNoH{10}{ax-b}} + \frac{\fcAnswerUncover{9}{13}{ -\frac{1}{2b}}}{\alertNoH{10}{ax+b}} }} \uncover<handout:0|11,12,13>{\!\!=\!\!\frac{ \left(\fcAnswerUncover{9}{13}{ \frac{1}{2b}}\right)(ax+b)+\left(\fcAnswerUncover{9}{13}{ -\frac{1}{2b}}\right)(ax-b)  }{(ax-b)(ax+b)}}  $
+}
+
+\vskip -0.1cm
+\begin{example}
+\vskip -0.1cm
+$
+\begin{array}{@{}r@{}c@{}l@{}l|l}
+\displaystyle\alertNoH{25}{ \int \frac{\alertNoH{3,29,31}{5} }{\alertNoH{4,7,8}{ \alertNoH{5}{ \alertNoH{2,29,30,31}{4}x^2}\alertNoH{30}{-} \alertNoH{2,6,29,30,31}{1} }}\diff x }
+\only<handout:1|1-25>{
+\uncover<3->{&=&
+\vphantom{
+\left(\ln\left|x-\frac{1}{2}\right| - \ln\left|x+\frac{1}{2}\right| \right)
+}
+\displaystyle \alertNoH{3}{5} \int \frac{1}{\alertNoH{7,8}{ \alertNoH{5}{\left(2x \right)^2}-\alertNoH{6}{1^2}}}\diff x}\\
+\uncover<7->{&=&\displaystyle 5\int  \alertNoH{9,14}{ \frac{1}{\left(\fcAnswer{8}{\alertNoH{10}{ 2x-1}}\right)\left(\fcAnswer{8}{\alertNoH{10}{2x+1}}\right)}} \diff x}\\
+\uncover<9->{&=&\displaystyle 5 \int \left(  \alertNoH{9,14}{ \frac{ \fcAnswerUncover{9}{13}{ \frac{1}{ \alertNoH{15}{2}}}}{\alertNoH{10}{2x-1}}+\frac{ \fcAnswerUncover{9}{13}{ \alertNoH{16}{-} \frac{1}{\alertNoH{15}{2}}} }{\alertNoH{10}{2x+1}}}\right) \diff x}\\
+\uncover<15->{&=&\displaystyle \frac{5}{\alertNoH{15}{2} \uncover<handout:0|19->{\cdot\alertNoH{19}{2}} }\alertNoH{20-23}{ \int} \left( 
+\alertNoH{20,21}{
+\frac{ 1}{ 
+\uncover<1-18>{\alertNoH{17,18}{2}}
+\only<handout:0|15,16>{\usebeamercolor[bg]{example}} 
+\only<handout:0|17>{\color{red}}
+\left(
+\only<handout:0|15,16,17>{\usebeamercolor[fg]{example}}
+x-\only<handout:0|15,16>{\usebeamercolor[bg]{example}}
+\only<handout:0|17>{\color{red}}
+\frac{\only<handout:0|15,16,17>{\usebeamercolor[fg]{example}}1 
+}{\alertNoH{17}{2}} \only<handout:0|15,16>{\usebeamercolor[bg]{example}}
+\right)
+}
+}
+\alertNoH{16}{-} 
+\alertNoH{22,23}{
+\frac{ 1 }{
+\uncover<1-18>{\alertNoH{17,18}{2}}
+\only<handout:0|15,16>{\usebeamercolor[bg]{example}}
+\only<handout:0|17>{\color{red}}
+\left(
+\only<handout:0|15,16,17>{\usebeamercolor[fg]{example}}
+x+
+\only<handout:0|15,16>{\usebeamercolor[bg]{example}}
+\only<handout:0|17>{\color{red}}
+\frac{\only<handout:0|15,16,17>{\usebeamercolor[fg]{example}} 1}{ \alertNoH{17}{2}}
+\right)}
+}
+\right) \alertNoH{20-23}{ \diff x} } \uncover<20->{&&\begin{array}{l} \alertNoH{20-24}{\int \frac{1}{x\pm a}\diff x=}\\\fcAnswer{21}{ \alertNoH{22,23,24}{\ln|x\pm a|}}+C\end{array}}\\
+} %only1-25
+\uncover<20->{&=&\displaystyle \alertNoH{25,26}{ \frac{\alertNoH{29,31}{5}}{\alertNoH{29,31}{4}}\left( \alertNoH{27}{ \fcAnswer{21}{ \alertNoH{27}{\alertNoH{28}{ \ln} \left|x-\frac{\alertNoH{29,31}{1} }{\alertNoH{29,31}{2}}\right| } \alertNoH{28}{-} \fcAnswerUncover{20}{23}{\alertNoH{28}{ \ln}\left|x+\frac{\alertNoH{29,31}{1}}{\alertNoH{29,31}{2}}\right| }}} \right)+C 
+\vphantom{
+\int \frac{1}{\left(2x \right)^2-1^2}\diff x
+}
+}}
+\\
+\only<handout:2|26->{
+\uncover<27->{&=&\displaystyle \frac{\alertNoH{29,31}{5}}{\alertNoH{29,31}{4}} \alertNoH{27}{ \alertNoH{28}{\ln}  
+\left| 
+\only<handout:0|28>{\color{red}}
+\frac{ 
+\usebeamercolor[fg]{example}
+x-\frac{\alertNoH{29,31}{1}}{ \alertNoH{29,31}{2}}
+}{
+\usebeamercolor[fg]{example}
+x+\frac{\alertNoH{29,31}{1}}{\alertNoH{29,31}{2}}
+}
+\only<handout:0|28>{\usebeamercolor[fg]{example}}
+\right|}+C }
+}
+\end{array}
+$
+\vskip -0.35cm
+\end{example}
+
+
+\vskip 20cm
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Integrals of the form $\int \frac{c}{a x^2-b}\diff x$, $a,b>0$}
+\vskip -0.1cm
+
+\uncover<0>{
+$\displaystyle  \frac{1}{(ax-b )(ax+b)} =  \frac{ \left(\frac{1}{2b}\right) }{\left(ax-b\right)} + \frac{ -\frac{1}{2b}}{ax+b} $
+}
+
+\vskip -0.1cm
+\begin{example}
+\vskip -0.1cm
+$
+\begin{array}{@{}r@{}c@{}l@{}l|l}
+\displaystyle \alertNoH{2}{\int \frac{\alertNoH{1}{c} }{ \alertNoH{1}{a}x^2- \alertNoH{1}{b} }\diff x }
+&\alertNoH{0}{=}&\displaystyle  \frac{\alertNoH{1}{c}}{\alertNoH{1}{a}}\left(  \ln \left|x-\alertNoH{1}{\sqrt{\frac{b}{a}}} \right| -  \ln \left|x+ \alertNoH{1}{\sqrt{\frac{b}{a}}} \right| \right)+C 
+\vphantom{
+\int \frac{1}{\left(2x \right)^2-1^2}\diff x
+}
+\\
+&\alertNoH{2}{=}&\displaystyle  \alertNoH{2}{\frac{\alertNoH{1}{c}  }{2\alertNoH{1}{\sqrt{a b}}} \ln \left| \frac{ x-\alertNoH{1}{\sqrt{\frac{b}{a}}} }{x+ \alertNoH{1}{\sqrt{\frac{b}{a}}} } \right|+C }
+\end{array}
+$
+\vskip -0.35cm
+\end{example}
+
+
+\vskip 20cm
+\end{frame}
+

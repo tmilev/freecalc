@@ -1,0 +1,22 @@
+\begin{frame}
+\frametitle{Integrals of the form $\int \frac{c}{b-a x^2}\diff x$, $a,b>0$}
+\uncover<4->{Already studied: $\displaystyle
+\alertNoH{4,6}{\int \frac{c }{ax^2- b }\diff x } 
+$, $a,b>0$.
+}
+\begin{example}
+$
+\begin{array}{@{}rcl}
+\displaystyle \int \frac{3}{\alertNoH{2}{1}\alertNoH{3}{\alertNoH{5}{-}2}x^2}\diff x \uncover<5->{&=&\displaystyle  \alertNoH{5}{-} \alertNoH{6}{\int \frac{3}{2x^2\alertNoH{5}{-}\alertNoH{2}{1}}\diff x}}
+\uncover<7->{
+=\displaystyle -3\int \frac{1}{\left(\sqrt{2}x-1\right)\left(\sqrt{2}x+1\right) }\diff x\\
+&=&\displaystyle -3\int \left( \frac{\frac{1}{2}}{\sqrt{2}x-1}-\frac{\frac{1}{2}}{\sqrt{2}x+1} \right)\diff x\\
+&=&\displaystyle -\frac{3}{2\sqrt{2}}\int \left( \frac{1}{x-\frac{1}{\sqrt{2}}}-\frac{1}{x+\frac{1}{\sqrt{2}}} \right)\diff x\\
+&=&\displaystyle -\frac{3}{2\sqrt{2}} \left( \ln\left|x-\frac{1}{\sqrt{2}}\right| -\ln \left|x+\frac{1}{\sqrt{2}}\right| \right)+C\\
+&=&\displaystyle - \frac{3}{2\sqrt{2}}\ln \left|\frac{x-\frac{1}{\sqrt{2}}}{x+\frac{1}{\sqrt{2}}} \right|
++C= \frac{3}{2\sqrt{2}}\ln \left|\frac{x+\frac{1}{\sqrt{2}}}{x-\frac{1}{\sqrt{2}}} \right|+C
+}
+\end{array}
+$
+\end{example}
+\end{frame}

@@ -1,0 +1,72 @@
+
+\begin{frame}
+
+\frametitle{Integrals of the form $\int \frac{c}{ \sqrt{a-bx^2}}\diff x$, $a,b>0$}
+\vskip -0.1cm
+
+\uncover<2->{\hfil\hfil $\displaystyle \alertNoH{2,14,15,16}{\int \frac{1}{\sqrt{\alertNoH{3,5}{1}-\alertNoH{7,8}{{\alertNoH{9}{ u}}^2}}}\diff u = \fcAnswerUncover{2}{15}{\Arcsin u}} +C$\uncover<16->{, because $\displaystyle  \alertNoH{16}{(\Arcsin u)'=\frac{1}{\sqrt{1-u^2}}}$.} }
+\vskip -0.1cm
+\begin{example}
+\vskip -0.1cm
+$
+\begin{array}{@{}r@{}c@{}l@{}l@{\!\!\!\!\!\!\!\!\!\!\!}|l}
+\displaystyle \alertNoH{18}{\int \frac{\alertNoH{19}{2}}{\sqrt{ \alertNoH{3,4,19}{3}-{\alertNoH{19}{5}}x^2}}\diff x} \uncover<4->{&=&\displaystyle  \int \frac{\alertNoH{19}{2}}{\only<handout:0|6>{\color{red}} \sqrt{\color{black} \alertNoH{4,6,19}{3}\left(\alertNoH{4, 5}{1}-\frac{\alertNoH{19}{5}}{\alertNoH{4,19}{3}}x^2\right) }}\diff x}\\
+\uncover<6->{&=& \displaystyle \int \frac{\alertNoH{19}{2}}{\alertNoH{6}{ \sqrt{\alertNoH{19}{3}}} \sqrt{1 -  \only<handout:0|6,7>{\usebeamercolor[bg]{example}}
+\only<handout:0|8>{\color{red}}
+{\left( 
+\alertNoH{9,11}{%
+\sqrt{
+\only<handout:0|6,7>{\usebeamercolor[fg]{example}}
+\alertNoH{7}{\frac{\alertNoH{19}{5}}{\alertNoH{19}{3}}}
+}
+\only<handout:0|6,7>{\usebeamercolor[fg]{example}}
+\alertNoH{7}{ x^{\uncover<handout:0|6,7>{2}}}
+\only<handout:0|6,7>{\usebeamercolor[bg]{example}} 
+}%alertNoH9
+\right)}^{\uncover<8->{2}} } }  \uncover<10->{\alertNoH{10}{\sqrt{\frac{\alertNoH{19}{3}}{\alertNoH{19}{5}}}}} \diff\left(\alertNoH{11}{ \uncover<10->{\alertNoH{10}{ \sqrt{\frac{\alertNoH{19}{5}}{\alertNoH{19}{3}}}}} x}\right)}\uncover<11->{&&\text{Set }\alertNoH{11,17}{\sqrt{\frac{\alertNoH{19}{5}}{\alertNoH{19}{3}}} x=u} }\\
+\uncover<11->{&=& \displaystyle \int \frac{\alertNoH{13,19}{ 2}}{ \fcCancel{12}{\sqrt{\alertNoH{19}{3}}} \sqrt{1-{\alertNoH{11}{u}}^2} } 
+\only<handout:0|13>{\color{red}}
+\sqrt{
+\only<handout:0|13>{\usebeamercolor[fg]{example}}
+\frac{\fcCancel{12}{\alertNoH{19}{3}} }{\alertNoH{13}{\alertNoH{19}{5}}}}
+\only<handout:0|13>{\usebeamercolor[fg]{example}}
+\diff \alertNoH{11}{u}   } \\
+\uncover<12->{&=&\displaystyle \frac{\alertNoH{13,19}{2}}{\alertNoH{13}{\sqrt{\alertNoH{19}{5}}}}\alertNoH{14,15,16}{ \int\frac{1}{\sqrt{1-u^2}} \diff u} } \\
+\uncover<14->{&=&\displaystyle  \frac{\alertNoH{19}{2}}{\sqrt{\alertNoH{19}{5}}} \fcAnswer{15}{\alertNoH{16}{ \Arcsin \alertNoH{17}{u} }}  +C }\uncover<17->{ \alertNoH{18}{= \frac{\alertNoH{19}{2}}{\sqrt{\alertNoH{19}{5}}} \Arcsin \left(\alertNoH{17}{\sqrt{\frac{\alertNoH{19}{5}}{\alertNoH{19}{3}} }x}\right)  +C}}
+\end{array}
+$
+\vskip -0.35cm
+\end{example}
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+
+\frametitle{Integrals of the form $\int \frac{c}{ \sqrt{a-bx^2}}\diff x$, $\alertNoH{2}{a,b>0}$}
+\vskip -0.1cm
+
+\hfil\hfil $\displaystyle \int \frac{1}{\sqrt{1- u^2}}\diff x = \Arcsin u +C$, because $\displaystyle (\Arcsin u)'=\frac{1}{\sqrt{1-u^2}}$. 
+\vskip -0.1cm
+\begin{example}
+\vskip -0.1cm
+$
+\begin{array}{@{}r@{}c@{}l@{}l@{\!\!\!\!\!\!\!\!\!\!\!}|l}
+\displaystyle \alertNoH{3}{\int \frac{\alertNoH{1}{c}}{\sqrt{ \alertNoH{1}{a}-{\alertNoH{1}{b}}x^2}}\diff x} &=&\displaystyle  \int \frac{\alertNoH{1}{c}}{ \sqrt{\alertNoH{1}{a}\left( 1-\frac{\alertNoH{1}{b}}{\alertNoH{1}{a}}x^2\right) }} \diff x\\
+&=& \displaystyle \int \frac{\alertNoH{1}{c}}{\sqrt{\alertNoH{1}{a}} \sqrt{1 -  
+\left(\sqrt{\frac{\alertNoH{1}{b}}{\alertNoH{1}{a}}}x\right)^2} }  \sqrt{\frac{\alertNoH{1}{a}}{\alertNoH{1}{b}}} \diff\left(  \sqrt{\frac{\alertNoH{1}{b}}{\alertNoH{1}{a}}} x\right)&&\text{Set }\sqrt{\frac{\alertNoH{1}{b}}{\alertNoH{1}{a}}} x=u \\
+&=& \displaystyle \int \frac{\alertNoH{1}{c}}{ \fcCancel{0}{\sqrt{\alertNoH{1}{a}}} \sqrt{1-u^2} } 
+\sqrt{\frac{\fcCancel{0}{\alertNoH{1}{a}} }{\alertNoH{1}{b}}}
+\diff u \\
+&=&\displaystyle \frac{\alertNoH{1}{c}}{\sqrt{\alertNoH{1}{b}}} \int\frac{1}{\sqrt{1-u^2}} \diff u \\
+&=&\displaystyle \frac{\alertNoH{1}{c}}{\sqrt{\alertNoH{1}{b}}} \Arcsin u   +C \alertNoH{3}{=   \frac{ \alertNoH{1}{c}}{\sqrt{\alertNoH{1}{b}}} \Arcsin \left( \sqrt{\frac{\alertNoH{1}{b}}{ \alertNoH{1}{a}} }x \right)  +C}
+\end{array}
+$
+\vskip -0.35cm
+\end{example}
+
+\end{frame}
