@@ -1,0 +1,21 @@
+\begin{frame}
+\begin{example}\renewcommand{\arraystretch}{1.8}
+\[\begin{array}{@{}r@{~}c@{~}l@{}l@{}|l}
+\displaystyle \int 7\tan^2 (\alertNoH{2,4}{3x})\diff x \uncover<3->{&=&\displaystyle \int \alertNoH{6}{7}\tan^2 (\alertNoH{4}{3x} )~\diff \left(\frac{\alertNoH{4}{ \alertNoH{3}{3} x} }{\alertNoH{3,5}{3}}\right)}\\
+\uncover<5->{&=&\displaystyle \frac{\alertNoH{6}{7}}{ \alertNoH{5}{3}}\int \tan^2 (\alertNoH{4,7}{3x} )~\diff \left(\alertNoH{7}{3 x} \right)}\uncover<7->{&&\text{Set }\alertNoH{7,15}{3x=u}}\\
+\uncover<7->{&=&\displaystyle \frac{7}{3} \alertNoH{8}{\int \alertNoH{9,10}{ \tan^2 \alertNoH{7}{u} }~\diff \alertNoH{7}{u}}} \uncover<9->{&& \renewcommand{\arraystretch}{1.2}
+\begin{array}{l}
+\text{Express }\tan^2 u \text{ via }\sec^2 u\\
+\alertNoH{9,10}{\tan^2 u=} \fcAnswer{10}{\sec^2 u -1 } }
+\end{array}
+\\
+\uncover<10->{ &=&\displaystyle \frac{7}{3} \alertNoH{11-14}{\int}\left( \alertNoH{10}{ \alertNoH{13,14}{\sec^2 u}-\alertNoH{11,12}{1}} \right) \alertNoH{11-14}{\diff u}}\\
+\uncover<11->{&=&\displaystyle \frac{7}{3}\left( \fcAnswerUncover{11}{14}{\tan \alertNoH{15}{u} }-\fcAnswer{12}{\alertNoH{15}{u}} \right)+C 
+\uncover<14->{&&\text{because }\alertNoH{14}{\frac{\diff}{\diff u}(\tan u)=\sec^2 u}}
+}\\
+\uncover<15->{&=&\displaystyle \frac{7}{\alertNoH{16}{3}} \left( \tan (\alertNoH{15}{3x})- \alertNoH{15}{\alertNoH{16}{ 3}x} \right)+C}\\
+\uncover<16->{&=&\displaystyle \frac{7}{3}\tan(3x)- 7x+C}
+\end{array}
+\]
+\end{example}
+\end{frame}

@@ -1,0 +1,46 @@
+\begin{frame}
+\frametitle{Trig review needed for $\int \tan^2 x\diff x$, $\int \cot^2 x\diff x$}
+\vskip -0.2cm
+\begin{theorem}
+\hfil\hfil$
+\begin{array}{rcl}
+\alertNoH{2,4}{(\sin x)'}&\alertNoH{2,4}{=}&\alertNoH{2,4}{\cos x}\\
+\alertNoH{3,4}{(\cos x)'}&\alertNoH{3,4}{=}&\alertNoH{3,4}{-\sin x}\\
+\end{array}
+$
+\end{theorem}
+\vskip -0.2cm\uncover<5->{
+\begin{corollary}
+\hfil\hfil$
+\begin{array}{rcl}
+\displaystyle \alertNoH{18}{(\tan x)'}&\alertNoH{18}{=}& \displaystyle\fcAnswerUncover{2}{18}{\sec^2x}\\
+\displaystyle \alertNoH{31}{(\cot x)'}&\alertNoH{31}{=}& \displaystyle\fcAnswerUncover{2}{31}{-\csc^2x}
+\end{array}
+$
+\end{corollary}
+
+\vskip -0.2cm
+\begin{proof}
+\only<handout:1|1-18>{
+\hfil\hfil$\renewcommand{\arraystretch}{2.2}
+\begin{array}{rcl}
+\uncover<6->{\alertNoH{18}{ \left(\alertNoH{6}{ \tan x} \right)'} &=& \displaystyle \left(\alertNoH{6}{ \frac{\alertNoH{7,9}{ \sin x}}{\alertNoH{8,10,11}{\cos x}}}\right)' \uncover<7->{=\frac{\alertNoH{7,12}{(\sin x)'} \alertNoH{8}{\cos x}-\alertNoH{9}{\sin x}\alertNoH{10,13}{(\cos x)'}}{\alertNoH{11}{\cos^2 x}} }}\\
+\uncover<12->{&=&\displaystyle \frac{\alertNoH{14}{ (\alertNoH{12}{\cos x})\cos x} \alertNoH{15}{-\sin x (\alertNoH{13}{-\sin x})}}{\cos^2x }}\\
+\uncover<14->{&=&\displaystyle \frac{ \alertNoH{16}{\alertNoH{14}{\cos^2 x}+\alertNoH{15}{\sin^2x}}}{\cos^2x}\uncover<16->{ =\frac{\alertNoH{16,17}{1}}{{\alertNoH{17}{\cos}}^2\alertNoH{17}{x}}} \uncover<17->{\alertNoH{18}{ ={\alertNoH{17}{ \sec}}^2 \alertNoH{17}{ x}}}}
+\end{array}
+$
+}%only<1-18>
+\only<handout:2|19->{
+\hfil\hfil$\renewcommand{\arraystretch}{2.2}
+\begin{array}{rcl}
+\uncover<19->{\alertNoH{31}{ \left(\alertNoH{19}{ \cot x} \right)'} &=& \displaystyle \left(\alertNoH{19}{ \frac{\alertNoH{20,22}{ \cos x}}{\alertNoH{21,23,24}{\sin x}}}\right)' \uncover<20->{=\frac{\alertNoH{20,25}{(\cos x)'} \alertNoH{21}{\sin x}-\alertNoH{22}{\cos x}\alertNoH{23,26}{(\sin x)'}}{\alertNoH{24}{\sin^2 x}} }}\\
+\uncover<25->{&=&\displaystyle \frac{\alertNoH{27}{ (\alertNoH{25}{-\sin x})\sin x} \alertNoH{28}{-\cos x (\alertNoH{26}{\cos x})}}{\sin^2x }}\\
+\uncover<27->{&=&\displaystyle \frac{ \alertNoH{29}{ \alertNoH{27}{-\sin^2 x} \alertNoH{28}{- \cos^2x} }}{\sin^2 x}\uncover<29->{ = \alertNoH{29}{-}\frac{\alertNoH{29, 30}{1}}{{ \alertNoH{30}{ \sin}}^2 \alertNoH{30}{x}}} \uncover<30->{\alertNoH{31}{ =-{\alertNoH{30}{ \csc}}^2 \alertNoH{30}{ x}}}}
+\end{array}
+$
+}%only<1-18>
+\end{proof}
+
+\vskip 5cm
+}
+\end{frame}

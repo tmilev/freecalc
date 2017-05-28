@@ -1,0 +1,38 @@
+% begin module 
+\begin{frame}
+%\frametitle{Examples: integrals of form $\displaystyle \int \frac{f'}{f}\diff x$}
+\begin{example}
+\[\renewcommand{\arraystretch}{2}
+\begin{array}{@{\!\!\!}r@{}c@{}l@{}l|l}
+\displaystyle \alertNoH{16}{\int \frac{\alertNoH{17}{5} \alertNoH{2,3}{ x\diff x} }{\alertNoH{17}{-3}x^2 +\alertNoH{17}{7}}}  \uncover<2->{&\alertNoH{0}{=}& \displaystyle \int \frac{ \alertNoH{5,17}{5} \alertNoH{2,3}{\diff\left( \fcAnswer{3}{ \frac{x^2}{\alertNoH{5}{2}}} \right) }}{\alertNoH{17}{-3}x^2+\alertNoH{17}{7}} \uncover<5->{ =\alertNoH{5}{ \frac{\alertNoH{17}{5}}{2}} \int \frac{\diff \left( x^2 \right)}{\alertNoH{17}{-3} x^2 + \alertNoH{17}{7}} } }
+\uncover<2->{& & \begin{array}{@{\!\!}r@{}c@{}l@{}} \alertNoH{2,3,4}{\text{Rewrite: } x\diff x}&\alertNoH{2,3,4}{=}&\alertNoH{2,3,4}{\diff \left( \fcAnswer{3}{ \frac{x^2}{2}} \right) } \\ \uncover<4->{ \text{'cause:}\alertNoH{4}{ \int x \diff x} &\alertNoH{4}{=}& \alertNoH{4}{\frac{x^2}{2}+C}} \end{array}} \\
+\uncover<6->{ &\alertNoH{0}{=}&\displaystyle \frac{\alertNoH{17}{5}}{2} \int \frac{\diff \left(  \frac{\alertNoH{9}{ \uncover<7->{\alertNoH{7,17}{ -3}}x^2 \uncover<8->{\alertNoH{8}{+\alertNoH{17}{7}}}}}{ \uncover<7->{ \alertNoH{7,10,17}{-3 }}} \right)}{\alertNoH{9}{\alertNoH{7,17}{-3}x^2 \alertNoH{8}{+\alertNoH{17}{7}}}} }\\
+\uncover<10->{&\alertNoH{0}{=}&\displaystyle \frac{\alertNoH{17}{5}}{\alertNoH{12}{2 (\alertNoH{10,17}{-3})}} \int \frac{\diff \left(\alertNoH{11}{ -3x^2+7} \right)}{\alertNoH{11}{ \alertNoH{17}{-3}x^2+\alertNoH{17}{7}}}}\uncover<11->{ &&\text{Set }\alertNoH{11,15}{\alertNoH{17}{-3}x^2+ \alertNoH{17}{7}=u}}\\
+\uncover<11->{&\alertNoH{0}{=}&\displaystyle \alertNoH{17}{ \alertNoH{12}{-}\frac{5}{\alertNoH{12}{6}}} \alertNoH{13,14} {\int \frac{\diff \alertNoH{11}{ u}}{\alertNoH{11}{u}}}}\\
+\uncover<13->{&\alertNoH{0}{=}&\displaystyle \alertNoH{17}{-\frac{5}{6}} \fcAnswer{14}{\ln |\alertNoH{15}{u}| +C}}\\
+\uncover<15->{&\alertNoH{16}{=}&\displaystyle \alertNoH{16}{\alertNoH{17}{-\frac{5}{6}} \ln |\alertNoH{15}{\alertNoH{17}{-3}x^2+\alertNoH{17}{7}}|+C}}
+\end{array}
+\]
+\end{example}
+\end{frame}
+
+\newcommand{\fixWidthAs}[2]{\begin{minipage}{\widthof{#1}}#2\end{minipage}}
+\newcommand{\fixedWidth}[2]{\begin{minipage}{#1}#2\end{minipage}}
+
+\begin{frame}
+%\frametitle{Examples: integrals of form $\displaystyle \int \frac{f'}{f}\diff x$}
+\begin{example}
+\[\renewcommand{\arraystretch}{2}
+\begin{array}{@{\!\!\!}r@{}c@{}l@{}l|l}
+\displaystyle \alertNoH{0}{\int \frac{\alertNoH{1}{a} \alertNoH{0}{ x\diff x} }{\alertNoH{1}{\phantom{-}b}x^2 +\alertNoH{1}{c}}}  \uncover<1->{&\alertNoH{0}{=}& \displaystyle \int \frac{ \alertNoH{1}{a} \alertNoH{0}{ \diff\left( \frac{x^2}{\alertNoH{0}{2}} \right) }}{\phantom{-} \alertNoH{1}{ b}x^2+\alertNoH{1}{c}} \uncover<1->{ =\alertNoH{0}{ \frac{\alertNoH{1}{a}}{2}} \int \frac{\diff \left( x^2 \right)}{\phantom{-}\alertNoH{1}{b} x^2 + \alertNoH{1}{c}} } }
+\uncover<1->{& & \begin{array}{@{\!\!}r@{}c@{}l@{}} \alertNoH{0}{\text{Rewrite: } x\diff x}&\alertNoH{0}{=}&\alertNoH{0}{\diff \left(  \frac{x^2}{2} \right) } \\ \uncover<1->{ \text{'cause:}\alertNoH{0}{ \int x \diff x} &\alertNoH{0}{=}& \alertNoH{0}{\frac{x^2}{2}+C}} \end{array}} \\
+\uncover<1->{ &\alertNoH{0}{=}&\displaystyle \frac{\alertNoH{1}{a}}{2} \int \frac{\diff \left(  \frac{\alertNoH{0}{ \uncover<1->{\alertNoH{1}{ b}}x^2 \uncover<1->{\alertNoH{0}{+\alertNoH{1}{c}}}}}{ \uncover<1->{ \alertNoH{1}{b }}} \right)}{\alertNoH{0}{\alertNoH{1}{b}x^2 \alertNoH{0}{+\alertNoH{1}{c}}}} }\\
+\uncover<1->{&\alertNoH{0}{=}&\displaystyle \frac{a}{ \alertNoH{0}{ 2 \alertNoH{1}{b}}} \int \frac{\diff \left( \alertNoH{0}{ bx^2+c} \right)}{\alertNoH{0}{ \alertNoH{1}{ b}x^2+\alertNoH{1}{c}}}}\uncover<1->{ &&\text{Set }\alertNoH{0}{\alertNoH{1}{b}x^2+ \alertNoH{1}{c}=u}}\\
+\uncover<1->{&\alertNoH{0}{=}&\displaystyle \alertNoH{1}{ \frac{\alertNoH{1}{a}}{\alertNoH{0}{2b}}} \alertNoH{0} {\int \frac{\diff \alertNoH{0}{ u}}{\alertNoH{11}{u}}}}\\
+\uncover<1->{&\alertNoH{0}{=}&\displaystyle \alertNoH{1}{\frac{a}{2b}} \ln |\alertNoH{0}{u}| +C}\\
+\uncover<1->{&\alertNoH{0}{=}&\displaystyle \alertNoH{0}{\alertNoH{1}{\frac{a}{2b}} \ln |\alertNoH{0}{\alertNoH{1}{b}x^2+\alertNoH{1}{c}}|+C}}
+\end{array}
+\]
+\end{example}
+\end{frame}
+% end module

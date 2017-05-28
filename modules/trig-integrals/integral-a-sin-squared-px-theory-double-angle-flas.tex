@@ -1,0 +1,38 @@
+
+
+\begin{frame}
+\frametitle{Trig review needed for $\int \sin^2 x\diff x$, $\int \cos^2 x\diff x$}
+\begin{itemize}
+\item Integrals $\int \sin^2 x \diff x$, $\int \cos^2 x \diff x$: used to prove ellipse area f-la.
+\item<2-> To solve these integrals we lower the trigonometric degree via the double angle formulas:
+\[
+\begin{array}{rcll|l}
+\alertNoH{2,3,6,8,14}{\cos (2x)}&\alertNoH{2,3}{=}&\fcAnswer{3}{\alertNoH{4}{\cos^2x}-\sin^2x}\\
+\uncover<4->{&\alertNoH{0}{=}& \alertNoH{4}{1\alertNoH{5}{- \sin^2 x}}\alertNoH{5}{-\sin^2 x} \\
+\uncover<5->{&\alertNoH{6}{=}&\alertNoH{6}{1} \alertNoH{5,6,7}{ -2 \alertNoH{11}{\sin^2x}}} }\\
+\uncover<11->{&\alertNoH{0}{=}&\alertNoH{13}{1 \alertNoH{12}{-}} \alertNoH{13}{2}( \alertNoH{11}{ \alertNoH{13}{1} \alertNoH{12}{-\cos^2 x}} ) }\\
+\uncover<12->{&\alertNoH{14}{=}&\alertNoH{14}{ \alertNoH{12}{2\cos^2 x}\alertNoH{13,15}{- 1} }}
+\\\hline 
+\uncover<7->{\alertNoH{7}{\alertNoH{9}{2}\sin^2x} &\alertNoH{0}{= }&1\alertNoH{8}{- \cos(2x)}} \uncover<6->{&&\text{Solve for }\sin^2x}\\
+\uncover<9->{\alertNoH{10,19}{\sin^2 x} &\alertNoH{10,19}{=}&\displaystyle \alertNoH{10,19}{ \frac{1-\cos(2x)}{\alertNoH{9}{2}} }} \uncover<14->{\\
+\hline \uncover<15->{\alertNoH{17}{ \cos(2x)\alertNoH{15}{+1}} &\alertNoH{0}{=}& \alertNoH{16}{2\cos^2 x} } &&\text{Solve for } \cos^2 x}\\
+\uncover<16->{\alertNoH{16}{\alertNoH{18}{2}\cos^2 x} &\alertNoH{0}{=}&\alertNoH{17}{ \cos (2x)+1 }}\\
+\uncover<18->{ \alertNoH{19}{\cos^2 x} &\alertNoH{19}{=}&\displaystyle \alertNoH{19}{\frac{\cos(2x)+1}{\alertNoH{18}{2}}}}
+\end{array}
+\]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Trig review needed for $\int \sin^2 x\diff x$, $\int \cos^2 x\diff x$}
+
+\begin{theorem}
+\[
+\begin{array}{rcl}
+\displaystyle \alertNoH{1}{\cos^2 x }&\alertNoH{1}{=}&\displaystyle \alertNoH{1}{\frac{\cos (2x)-1}{2}}\\
+\displaystyle \alertNoH{1}{\sin^2 x} &\alertNoH{1}{=}&\displaystyle  \alertNoH{1}{\frac{1-\cos(2x)}{2}}
+\end{array}
+\]
+\end{theorem}
+\end{frame}

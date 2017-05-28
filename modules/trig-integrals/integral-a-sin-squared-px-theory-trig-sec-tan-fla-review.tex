@@ -1,0 +1,26 @@
+\begin{frame}
+\frametitle{Trig review needed for $\int \tan^2 x\diff x$, $\int \cot^2 x\diff x$}
+\vskip -0.2cm
+\begin{observation}
+\[
+\begin{array}{rcl}
+\alertNoH{8}{\tan^2 x} &\alertNoH{8}{=}&\alertNoH{8}{\sec^2x -1}\\
+\alertNoH{9}{\cot^2x }&\alertNoH{9}{=}&\alertNoH{9}{\csc^2x-1}
+\end{array}
+\]
+\end{observation}
+\vskip -0.2cm
+\begin{proof}
+\[\renewcommand{\arraystretch}{2.2}
+\begin{array}{rcl}
+\uncover<2->{\alertNoH{2,8}{\tan^2 x} &=&\displaystyle \alertNoH{2}{ \frac{\alertNoH{3}{\sin^2 x}}{\cos^2 x}} \uncover<3->{=\displaystyle \frac{\alertNoH{3}{\alertNoH{4}{1}\alertNoH{5}{-\cos^2 x}}}{\alertNoH{4,5}{ \cos^2 x}}}} \\
+\uncover<4->{&=&\displaystyle  \alertNoH{4}{\frac{\alertNoH{6}{1}}{ {\alertNoH{6}{\cos}}^2\alertNoH{6}{ x}}}\alertNoH{5}{-\frac{\fcCancel{7}{ \cos^2 x}}{\fcCancel{7}{\cos^2 x}}}\uncover<6->{\alertNoH{8}{ =\displaystyle {\alertNoH{6}{\sec}}^2 \alertNoH{6}{x} -\alertNoH{7}{1}}}} \\
+\uncover<9->{
+\alertNoH{9}{\cot^2 x} &=& \displaystyle \frac{\cos^2 x}{\sin^2 x} =\displaystyle\frac{1-\sin^2x}{\sin^2 x}\\
+&=& \displaystyle \frac{1}{\sin^2 x}-\frac{\cancel{\sin^2 x}}{\cancel{\sin^2 x}} \alertNoH{9}{=\displaystyle\csc^2 x -1}\\
+}
+\end{array}
+\]
+
+\end{proof}
+\end{frame}

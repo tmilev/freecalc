@@ -1,0 +1,53 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{example}
+\hfil \hfil $
+\begin{array}{@{}r@{}c@{}l@{}l|l}
+\displaystyle \int \alertNoH{2,22}{ 3} {\alertNoH{3}{\sin}}^{\alertNoH{4}{2}}(\alertNoH{22}{\alertNoH{3}{-}5}x)\diff x\uncover<2->{ &=&\displaystyle \alertNoH{2,22}{3} \int \left(\alertNoH{3,5,22}{-} {\alertNoH{3}{\sin}} (\alertNoH{22}{5}x)\right)^{\alertNoH{4,5}{2}}\diff x} \uncover<3->{&&\sin \text{ is \alertNoH{3}{odd function}}}\\
+\uncover<5->{&=& \displaystyle \alertNoH{22}{ 3}\int \sin^2(\alertNoH{6,8}{\alertNoH{22}{5}x})    \uncover<5->{\diff  \left(
+%\frac{ \uncover<7->{ \alertNoH{7}{5} }x}{\uncover<7->{\alertNoH{7}{5}}}
+\begin{array}{@{}c@{}}
+\alertNoH{8}{\uncover<7->{ \alertNoH{7,22}{5}} x} 
+\uncover<7->{\\\hline \alertNoH{7,9,22}{5}}
+\end{array}
+\right) } }\\
+\uncover<9->{&=& \displaystyle \frac{\alertNoH{22}{ 3}}{\alertNoH{9,22}{5}}\int \sin^2 (\alertNoH{10}{\alertNoH{22}{5}x})~ \diff (\alertNoH{10}{\alertNoH{22}{5}x}) \uncover<10->{&&\text{Set }\alertNoH{10,19}{\alertNoH{22}{5}x=u}}}\\
+\uncover<10->{&=& \displaystyle \frac{\alertNoH{22}{ 3}}{\alertNoH{22}{5}} \alertNoH{11}{\int \alertNoH{12,13}{ \sin^2\alertNoH{10}{ u}} ~ \diff \alertNoH{10}{ u} }} \uncover<12->{&&\displaystyle  \alertNoH{12,13}{\sin^2 u =} \fcAnswer{13}{\frac{1-\cos(2u)}{2}}} \\
+\uncover<13->{&=&\displaystyle \frac{\alertNoH{22}{ 3}}{\alertNoH{14,22}{5}} \int \alertNoH{13}{\frac{1-\cos(2u)}{\alertNoH{14}{2}}} \diff u }\\
+\uncover<14->{&=&\displaystyle \frac{\alertNoH{22}{ 3}}{\alertNoH{14,22}{10}} \alertNoH{15,16,17,18}{\int} \left( \alertNoH{15,16}{1}- \alertNoH{17,18}{\cos (2u)} \right)\alertNoH{15,16,17,18}{\diff u}}\\
+\uncover<15->{&=&\displaystyle \frac{\alertNoH{22}{ 3}}{\alertNoH{20,22}{10}}\left( \fcAnswer{16}{ \alertNoH{19}{u} }- \fcAnswerUncover{15}{18}{ \frac{\sin(2\alertNoH{19}{u} )}{\alertNoH{20}{2}}} \right)+C}\\
+\uncover<19->{&=&\displaystyle \frac{\alertNoH{22}{ 3}}{\alertNoH{21,22}{10}}(\alertNoH{19}{\alertNoH{21,22}{5}x})- \frac{\alertNoH{22}{ 3}}{\alertNoH{20,22}{20}} \sin(\alertNoH{21}{ 2\cdot} \alertNoH{19}{\alertNoH{21,22}{5}x})+C}\\
+\uncover<21->{&=&\displaystyle \frac{\alertNoH{22}{ 3}}{\alertNoH{21}{2}}x-\frac{\alertNoH{22}{ 3}}{\alertNoH{22}{ 20}} \sin(\alertNoH{21,22}{10}x)+C}
+\end{array}
+$
+\vskip -0.2cm
+\end{example}
+\end{frame}
+
+
+\begin{frame}
+\vskip -0.2cm
+\begin{example}
+\hfil \hfil $
+\begin{array}{@{}r@{}c@{}l@{}l|l}
+\displaystyle \int \alertNoH{1}{a} \sin^2(~~~~px)\diff x &=&\displaystyle \alertNoH{1}{a} \int \left( \sin^2 (\alertNoH{1}{p}x)\right)\diff x \\
+&=& \displaystyle \alertNoH{1}{a}\int \sin^2(\alertNoH{1}{p}x)    \diff  \left(
+%\frac{ \uncover<7->{ \alertNoH{7}{5} }x}{\uncover<7->{\alertNoH{7}{5}}}
+\begin{array}{@{}c@{}}
+\alertNoH{1}{p} x
+\\\hline \alertNoH{1}{p}
+\end{array}
+\right)  \\
+&=& \displaystyle \frac{\alertNoH{1}{a} }{\alertNoH{1}{p}}\int \sin^2 (\alertNoH{1}{p}x)~ \diff (\alertNoH{1}{p}x) &&\text{Set }\alertNoH{1}{p}x=u\\
+&=& \displaystyle \frac{\alertNoH{1}{a}}{\alertNoH{1}{p}} \int  \sin^2 u ~ \diff  u &&\displaystyle  \sin^2 u =\frac{1-\cos(2u)}{2} \\
+&=&\displaystyle \frac{\alertNoH{1}{a}}{\alertNoH{1}{p}} \int \frac{1-\cos(2u)}{2} \diff u \\
+&=&\displaystyle \frac{\alertNoH{1}{a}}{\alertNoH{1}{2p}} \int \left( 1- \cos (2u) \right)\diff u\\
+&=&\displaystyle \frac{\alertNoH{1}{a}}{\alertNoH{1}{2p}}\left(  u -  \frac{\sin(2u )}{2} \right)+C\\
+&=&\displaystyle \frac{\alertNoH{1}{a}}{ \alertNoH{1}{2p}} (\alertNoH{1}{p}x)- \frac{\alertNoH{1}{a}}{\alertNoH{1}{4p}} \sin( 2\cdot \alertNoH{1}{p}x)+C\\
+&=&\displaystyle \frac{\alertNoH{1}{a}}{2}x-\frac{\alertNoH{1}{a}}{\alertNoH{1}{4p}} \sin(\alertNoH{1}{2p}x)+C
+\end{array}
+$
+\vskip -0.2cm
+\uncover<2>{}
+\end{example}
+\end{frame}

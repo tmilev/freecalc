@@ -1,0 +1,46 @@
+\begin{frame}
+\frametitle{Integrals of the form $\int \frac{1}{x^2+a}\diff x$, $a>0$}
+
+\hspace{3cm} $\displaystyle \alertNoH{13,14}{\int \frac{1}{\alertNoH{6,7}{{\alertNoH{9}{u}}^2}+\alertNoH{2,3}{1} }\diff u=\fcAnswerUncover{1}{14}{ \Arctan u}+C}$.
+\begin{example}
+\[
+\begin{array}{rcll|l}
+\displaystyle \alertNoH{16}{\int \frac{1}{x^2+\alertNoH{3,4,5,17}{2}}\diff x} \uncover<4->{ &=&\displaystyle \int\frac{1}{\alertNoH{4,5,17}{ 2} \left( \alertNoH{6,7}{ \frac{1}{\alertNoH{5,8,17}{2}}x^2} +\alertNoH{4}{1}\right)} \alertNoH{5}{\diff x} } \uncover<8->{&&\text{Use } \alertNoH{8}{\alertNoH{17}{2}=\left(\sqrt{\alertNoH{17}{2}}\right)^2}} \\
+\uncover<7->{&=&\displaystyle \int \frac{1}{\alertNoH{12,17}{2} \left( \alertNoH{7}{\left(\alertNoH{9,11}{ \frac{x}{\alertNoH{8}{ \sqrt{ \alertNoH{17}{2}}}}} \right)^{\alertNoH{8}{2}}} +1  \right)} \alertNoH{5}{ 
+\uncover<10->{\alertNoH{10,12}{\sqrt{\alertNoH{17}{2}}}}
+\diff\left(\alertNoH{11}{ 
+\begin{array}{@{}c@{}}
+x \uncover<10->{\\\hline \alertNoH{10}{\sqrt{\alertNoH{17}{2}}}}
+\end{array}
+}
+\right)}}
+\uncover<9->{ &&\text{ Set } \alertNoH{6,9,15}{ \frac{x}{\sqrt{\alertNoH{17}{2}}}=u} }\\
+\uncover<11->{&=&\displaystyle \alertNoH{12}{\frac{1}{\sqrt{\alertNoH{17}{2}}}} \alertNoH{13,14}{\int \frac{1}{{\alertNoH{11}{u}}^2+1}\diff \alertNoH{11}{u}}}\\
+\uncover<13->{&=&\displaystyle \frac{1}{\sqrt{\alertNoH{17}{2}}}\fcAnswer{14}{\Arctan (\alertNoH{15}{u})}+C} \\
+\uncover<15->{&=&\displaystyle \alertNoH{16}{ \frac{1}{\sqrt{\alertNoH{17}{2}}} \Arctan\left(\alertNoH{15}{\frac{x}{\sqrt{ \alertNoH{17}{2} }}}\right)+C}}
+\end{array}
+\]
+
+\end{example}
+\vspace{2cm}
+
+\end{frame}
+\begin{frame}
+\frametitle{Integrals of the form $\int \frac{1}{x^2+a}\diff x$, $a>0$}
+
+\hspace{3cm} $\displaystyle \int \frac{1}{x^2+1 }\diff x=\Arctan x+C$. \alertNoH{2}{\textbf{Let $a>0$.}}
+\begin{example}
+\[
+\begin{array}{rcll|l}
+\displaystyle \alertNoH{3}{\int \frac{1}{x^2+\alertNoH{1}{a}\vphantom{2}}\diff x } &=&\displaystyle \int\frac{1}{ \alertNoH{1}{a}\left(\frac{1}{\alertNoH{1}{a}\vphantom{2}}x^2 +1\right)} \diff x &&\text{Use } \alertNoH{1}{a}=\left(\sqrt{\alertNoH{1}{a}}\right)^2\\
+\uncover<1->{&=&\displaystyle \int \frac{1}{\alertNoH{1}{a}\left(\alertNoH{0}{ \left(\frac{x}{ \sqrt{\alertNoH{1}{a}\vphantom{2}}} \right)^2} +1  \right)} \sqrt{\alertNoH{1}{a}\vphantom{2}}\diff\left( \frac{ x}{\sqrt{\alertNoH{1}{a}\vphantom{2}}}\right)} \uncover<1->{&& \text{ Set } u= \frac{x}{\sqrt{\alertNoH{1}{a}}}} \\ %the uncover and alert commands are to preserve latex spacing. This may be a LaTeX bug, but please keep the two uncover<1-> and the alert commands where they are!
+&=&\displaystyle \frac{1}{\sqrt{\alertNoH{1}{a}\vphantom{2}}} \int \frac{1}{{u}^2+1}\diff u \\
+&=&\displaystyle \frac{1}{\sqrt{\alertNoH{1}{a}\vphantom{2}}}\Arctan (u)+C \\
+&=&\alertNoH{3}{ \displaystyle \frac{1}{\alertNoH{2,4}{\sqrt{\alertNoH{1}{a}}\vphantom{2}}} \Arctan\left(\frac{x}{\alertNoH{2,4}{\sqrt{\alertNoH{1}{a}}}}\right)+C}
+\end{array}
+\]
+
+\end{example}
+\vspace{2cm}
+
+\end{frame}
