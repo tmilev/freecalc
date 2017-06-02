@@ -1,0 +1,163 @@
+\begin{frame}
+Let $a<b$ be two real numbers.
+\begin{definition}[Interval notation]
+The set (interval) of all real numbers from $a$ to $b$ is denoted as follows.
+
+\medskip
+
+\begin{tabular}{ccc}
+Notation& Endpoints& Picture\\
+ $\alertNoH{2}{[a,b]}$&\uncover<2->{ including both $a$ and $b$& 
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph](-1,0)(1,0)
+\fcFullDot{-1}{0}
+\fcFullDot{1}{0}
+\rput[b](-1,0.3){$a$}
+\rput[b](1,0.3){$b$}
+\end{pspicture} 
+}
+or
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph](-1,0)(1,0)
+%\fcFullDot{-1}{0}
+%\fcFullDot{1}{0}
+\rput[b](-1,0.3){$a$}
+\rput[b](1,0.3){$b$}
+\rput(-1,0){$\color{\fcColorGraph} [$}
+\rput(1,0){$\color{\fcColorGraph}]$}
+\end{pspicture}
+}
+} \\
+$\alertNoH{3}{[a,b)}$&
+\uncover<3->{ 
+including $a$ but not $b$& 
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph](-1,0)(1,0)
+\fcFullDot{-1}{0}
+\fcHollowDot{1}{0}
+\rput[b](-1,0.3){$a$}
+\rput[b](1,0.3){$b$}
+\end{pspicture} 
+}
+or
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph](-1,0)(1,0)
+%\fcFullDot{-1}{0}
+%\fcFullDot{1}{0}
+\rput[b](-1,0.3){$a$}
+\rput[b](1,0.3){$b$}
+\rput(-1,0){$\color{\fcColorGraph} [$}
+\rput(1,0){$\color{\fcColorGraph})$}
+\end{pspicture}
+}
+} \\
+$\alertNoH{4}{(a,b]}$&
+\uncover<4->{
+including $b$ but not $a$& 
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph](-1,0)(1,0)
+\fcHollowDot{-1}{0}
+\fcFullDot{1}{0}
+\rput[b](-1,0.3){$a$}
+\rput[b](1,0.3){$b$}
+\end{pspicture} 
+}
+or
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph](-1,0)(1,0)
+%\fcFullDot{-1}{0}
+%\fcFullDot{1}{0}
+\rput[b](-1,0.3){$a$}
+\rput[b](1,0.3){$b$}
+\rput(-1,0){$\color{\fcColorGraph}($}
+\rput(1,0){$\color{\fcColorGraph}]$}
+\end{pspicture}
+}
+} \\
+$\alertNoH{5}{(a,b)}$&
+\uncover<5->{
+ including neither $a$ nor $b$& 
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph](-1,0)(1,0)
+\fcHollowDot{-1}{0}
+\fcHollowDot{1}{0}
+\rput[b](-1,0.3){$a$}
+\rput[b](1,0.3){$b$}
+\end{pspicture} 
+}
+or
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph](-1,0)(1,0)
+%\fcFullDot{-1}{0}
+%\fcFullDot{1}{0}
+\rput[b](-1,0.3){$a$}
+\rput[b](1,0.3){$b$}
+\rput(-1,0){$\color{\fcColorGraph} ($}
+\rput(1,0){$\color{\fcColorGraph})$}
+\end{pspicture}
+}
+} \\
+\end{tabular}
+
+\end{definition}
+\end{frame}
+
+\begin{frame}
+Let $a$ be a number.
+\begin{definition}[Infinite intervals]
+The set of all numbers greater than/smaller than $a$ is denoted with the help of the $\infty$ symbol.
+\psset{xunit=0.95cm, yunit=0.95cm}
+\begin{tabular}{ccc}
+Notation& Endpoint& Picture\\
+$(a,\infty)$&\uncover<2->{
+pts. to the right of $a$ excluding $a$& 
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(3.1,0.6)
+\psline[linecolor=\fcColorGraph, arrows=->](-1,0)(3,0)
+\rput(-1,0){$\color{red}($}
+\rput[b](-1,0.3){$a$}
+\end{pspicture} 
+}
+} \\
+$[a,\infty)$&\uncover<3->{
+pts. to the right of $a$ including $a$& 
+\raisebox{-0.15cm}{
+\begin{pspicture}(-1.1,-0.3)(3.1,0.6)
+\psline[linecolor=\fcColorGraph, arrows=->](-1,0)(3,0)
+\rput(-1,0){$\color{red}[$}
+\rput[b](-1,0.3){$a$}
+\end{pspicture} 
+}
+} \\
+$(-\infty,a)$&\uncover<4->{
+pts. to the left of $a$ excluding $a$& 
+\raisebox{-0.15cm}{
+\begin{pspicture}(-3.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph, arrows=<-](-3,0)(1,0)
+\rput(1,0){$\color{red})$}
+\rput[b](1,0.3){$a$}
+\end{pspicture} 
+}
+} \\
+$(-\infty,a]$&\uncover<5->{
+pts. to the left of $a$ including $a$& 
+\raisebox{-0.15cm}{
+\begin{pspicture}(-3.1,-0.3)(1.1,0.6)
+\psline[linecolor=\fcColorGraph, arrows=<-](-3,0)(1,0)
+\rput(1,0){$\color{red}]$}
+\rput[b](1,0.3){$a$}
+\end{pspicture} 
+}
+} \\
+\end{tabular}
+\end{definition}
+
+\end{frame}
