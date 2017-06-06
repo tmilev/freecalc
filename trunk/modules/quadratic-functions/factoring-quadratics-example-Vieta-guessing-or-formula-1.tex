@@ -1,0 +1,54 @@
+\begin{frame}
+\uncover<16->{$ ax^2+bx+c=\alertNoH{18}{a}\left( x- \alertNoH{19,35}{ x_1}\right) \left(x- \alertNoH{20,34}{x_2}\right)$\uncoverAlert{22}{, where $x_1, x_2 = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$.}}
+\begin{example}
+Factor the polynomial. If possible, guess the factorization.
+
+\hfil\hfil $\begin{array}{rcll|l}
+\alertNoH{14,15}{\alertNoH{24}{3}x^2+\alertNoH{25}{8} x\alertNoH{26}{- 11}}\uncover<2->{ &=& (\uncover<3->{\alertNoH{16}{3} x+}  \fcAnswerUncover{2}{15}{11})(\uncover<3->{x} \uncover<3-14>{+} \fcAnswerUncover{2}{15}{-1})}\\
+\uncover<16->{&=& \alertNoH{16,18}{3} \left(x \alertNoH{17}{-} \left(\alertNoH{19,35}{ \alertNoH{17}{-} \frac{11}{ \alertNoH{16}{3}}} \right) \right)(x- \alertNoH{20,34}{1}) }\\ 
+\end{array}
+$
+
+\begin{itemize}
+\only<handout:1|1-20>{%
+\item<3-> If there is a factorization using integers, it should be of the form 
+
+\hfil \hfil$
+\begin{array}{rcl}
+3 x^2+\alertNoH{10,12}{ 8}x \alertNoH{11,12}{-11} &\alertNoH{0}{=} &(\alertNoH{4,5}{3x} +\alertNoH{6,7,14,15}{p})(\alertNoH{4,6}{x}+ \alertNoH{5,7,14,15}{q})\\
+\uncover<4->{& \alertNoH{0}{=} &\alertNoH{4}{3x^2}+ \alertNoH{5}{ \alertNoH{9}{3}\alertNoH{8}{ x} \alertNoH{9}{q}}+ \alertNoH{6}{ \alertNoH{9}{p}\alertNoH{8}{x}}+\alertNoH{7}{pq}}\\
+\uncover<8->{&\alertNoH{0}{=} & 3x^2+\alertNoH{8}{x}( \alertNoH{9,10,12}{ 3q+p})+ \alertNoH{11,12}{ pq} }\\
+\multicolumn{3}{c}{\uncoverAlert{12}{\text{(Vieta's formulas)}} \uncover<10->{\text{This means that  :}}}\\
+\uncover<10->{\alertNoH{10,12,14}{8}&\alertNoH{12,14}{=}&\alertNoH{10,12,14}{3q +p}}\\
+\uncover<10->{\alertNoH{11,12,13,14}{-11}&\alertNoH{12,13,14}{=}&\alertNoH{11,12,13,14}{pq}}\\
+\multicolumn{3}{c}{\uncover<13->{\alertNoH{13}{p,q \text{ must be divisors of 11: }\pm 1,\pm 11 }}}\\
+\uncover<14->{\alertNoH{14,15}{p}&\alertNoH{14,15}{=}& \fcAnswer{15}{11} } \\
+\uncover<14->{\alertNoH{14,15}{q}&\alertNoH{14,15}{=}& \fcAnswer{15}{-1}} \\
+\end{array}
+$
+}
+\only<handout:2|21->{
+\item<21-> What if we can't guess the factorization?
+\item<22-> \alertNoH{22}{Use the formulas for $x_1, x_2$}.
+
+\hfil \hfil$\renewcommand{\arraystretch}{2}
+\begin{array}{rcl}
+\alertNoH{22,34,35}{x_1, x_2} &=& \displaystyle \frac{-\alertNoH{24}{ b}\pm \sqrt{{ \alertNoH{24}{ b}}^2-4\alertNoH{23}{a}\alertNoH{25}{ c} }}{2\alertNoH{23}{ a}}
+\uncover<23->{=\displaystyle \frac{-\alertNoH{24}{8}\pm \sqrt{{ \alertNoH{24}{8}}^2 \alertNoH{27}{-}  \alertNoH{26}{4}\cdot \alertNoH{23,26}{3} \cdot (\alertNoH{25}{\alertNoH{27}{-} \alertNoH{26}{11}})}}{\alertNoH{28}{ 2\cdot \alertNoH{23}{3}}}}\\
+\uncover<26->{&=&\displaystyle \frac{-8 \pm \sqrt{\alertNoH{29}{ 64 \alertNoH{27}{+} \alertNoH{26}{132}}}}{\alertNoH{28}{6}} \uncover<29->{=\frac{-8 \pm  \alertNoH{30}{\sqrt{\alertNoH{29}{196 }} } }{6}}}\\
+\uncover<30->{&=&\displaystyle \frac{-8 \pm\alertNoH{30}{ 14} }{6}\uncover<31->{= \left\{
+\begin{array}{l}
+\displaystyle \alertNoH{32}{\frac{-8+14 }{6}} \uncoverAlert{32}{ = \frac{6}{6}= \alertNoH{34}{1}} \\
+\displaystyle \alertNoH{33}{\frac{-8-14 }{6}} \uncoverAlert{33}{ =-\frac{22}{6} =\alertNoH{35}{-\frac{11}{3}}}
+\end{array}
+\right. 
+} } 
+\end{array}
+$
+}
+\end{itemize}
+
+\end{example}
+
+\vskip 10cm
+\end{frame}
