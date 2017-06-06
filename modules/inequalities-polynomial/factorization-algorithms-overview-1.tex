@@ -1,0 +1,36 @@
+\begin{frame}
+\frametitle{Factoring polynomials in practice}
+\begin{itemize}
+\item In theory every polynomial can be factored.
+\[a_0 x^{n}+a_1x^{n-1}+\dots + a_n=a_0 (x-x_1)\dots (x-x_n)
+\]
+\item Theory guarantees numerical approximations for roots $x_1,\dots, x_n$. 
+\item Can we find algebraic formulas for $x_1, \dots, x_n$?
+\item No, if using finitely many operations $+,-,*,/,\sqrt[n]{~}$. 
+\item \footnotesize{ Yes, with extra operations. Difficult: google Galois Theory to get started.}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{What does factorization mean?}
+\begin{itemize}
+\item Depending on context, ``to factor a polynomial'' means one of three things:
+\begin{itemize}
+\item  Factor the polynomial over the rational numbers. Use integers/quotients, but no $\sqrt[n]{~}$).
+\item Factor the polynomial over the real numbers. Use radicals and/or numerical approximations, no use of $i=\sqrt{-1}$.
+\item Fully factor the polynomial using complex numbers.
+\end{itemize}
+\end{itemize}
+\begin{tabular}{|c|c|}\hline
+These poly's are equal&Type of factorization\\\hline
+$x^4+1$& already factored rationals\\\hline
+$(x^2-\sqrt{2}x+1)(x^2+\sqrt{2}x+1)$& factored over the reals\\\hline
+$\begin{array}{r}
+\left(x-\left(\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}i\right)\right)
+\left(x-\left(-\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}i\right)\right)\\
+\left(x-\left(\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}i\right)\right)
+\left(x-\left(-\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}i\right)\right)
+\end{array}$& full complex factorization\\\hline
+\end{tabular}
+
+
+\end{frame}
