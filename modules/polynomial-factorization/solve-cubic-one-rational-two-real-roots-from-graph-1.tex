@@ -1,0 +1,39 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.17\textwidth}
+\uncover<2->{
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-5,-8)(6.1,13.2)
+\tiny
+\fcAxesStandard{-5}{-8}{5}{13}
+\fcLabels{5}{13}
+\renewcommand{\fcTickSize}{0.2}
+\psplot[linecolor=\fcColorGraph]{-3}{3.65}{x x x mul mul -1 x x mul mul -8 x mul 6 add add add}
+\fcXTickWithLabel{-1}{$-1$}
+\fcXTickWithLabel{-3}{$-3$}
+\fcXTickWithLabel{1}{$1$}
+\fcXTickWithLabel{2}{$2$}
+\fcXTickWithLabel{3}{$\alertNoH{4}{3}$}
+\uncover<4>{
+\psline[linecolor=blue](3, -0.3)(3, 0.3)
+\rput[lb](! -1 3 sqrt add 6){$\fcAnserUncover{3}{6}{\sqrt{3}-1}$}
+\psline[linecolor=blue](! -1 3 sqrt add -0.3)(! -1 3 sqrt add 0.3)
+\psline[linestyle=dotted, arrows=->](! -1 3 sqrt add 6)(! -1 3 sqrt add 0.3)
+\rput[b](! -1 3 sqrt sub 3){$\fcAnserUncover{3}{6}{-\sqrt{3}-1}$}
+\psline[linecolor=blue](! -1 3 sqrt sub -0.3)(! -1 3 sqrt sub 0.3)
+\psline[linestyle=dotted, arrows=->](! -1 3 sqrt sub 3)(! -1 3 sqrt sub 0.3)
+}
+\end{pspicture}
+}
+\column{0.83\textwidth}
+\alertNoH{2}{Plot the left hand side of the equation with a graphing calculator.} Solve the equation.
+
+\hfil\hfil $
+x^{3}- x^{2}-8 x+6=0
+$
+
+\uncover<3->{\alertNoH{3,4}{The graph appears to intersect the $x$ axis at:} \fcAnswer{4}{$\fcAnswerUncover{3}{6}{-\sqrt{3}-1}, \fcAnswerUncover{3}{6}{\sqrt{3}-1} , \alertNoH{3,4}{3}$.}} \uncover<5->{The left hand side should factor as:}
+\end{columns}
+\end{example}
+\end{frame}
