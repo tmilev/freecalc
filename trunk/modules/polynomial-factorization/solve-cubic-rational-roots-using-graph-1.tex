@@ -1,0 +1,47 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.17\textwidth}
+\uncover<2->{
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-3,-11)(3.1,4.2)
+\tiny
+\fcAxesStandard{-3}{-11}{3}{4}
+\fcLabels{3}{4}
+\renewcommand{\fcTickSize}{0.2}
+\psplot[linecolor=\fcColorGraph]{-2}{2.14}{2 x x x mul mul mul x x mul -7 x mul -6 add add add}
+\fcXTickWithLabel{-1}{$-1$}
+\fcXTickWithLabel{-2}{$-2$}
+\fcXTickWithLabel{1}{$1$}
+\fcXTickWithLabel{2}{$2$}
+\end{pspicture}
+}
+\column{0.83\textwidth}
+\alertNoH{2}{Plot the left hand side of the equation with a graphing calculator.} Solve the equation. 
+\[\begin{array}{rcl}
+\alertNoH{18}{ \alertNoH{7}{2} x^{3}+x^{2}-7 x-6}&=&0\\
+\uncover<18->{\alertNoH{18,19}{ (2x+3)(x+1)(x-2)} &=&0}\\
+\multicolumn{3}{c}{\uncover<19->{ \alertNoH{19}{x=-\frac{3}{2}} \qquad\textbf{or}\qquad \alertNoH{19}{x=-1} \qquad\textbf{or}\qquad \alertNoH{19}{x=2} }}
+\end{array}
+\]
+\uncoverAlert{2}{Make sure to practice with the graphing calculator you will on your exam(s).} \uncover<3->{\alertNoH{3,4,19}{The graph appears to intersect the $x$ axis at:} \fcAnswer{4}{$\alertNoH{6,19}{-1.5, -1, 2}$.}} \uncover<5->{The left hand side should factor as:}
+\end{columns}
+
+\uncover<5->{
+$\renewcommand{\arraystretch}{1.4}
+\begin{array}{l}
+\phantom{=}\fcAnswerUncover{5}{7}{ \alertNoH{9}{2} } (x\alertNoH{8}{-} \fcAnswer{6}{ (\alertNoH{8}{ - } \alertNoH{9}{1.5} )})(x\alertNoH{8}{-} \fcAnswer{6}{ (\alertNoH{8}{ -}1)} )( x-\fcAnswer{6}{2}) 
+\uncover<8->{ =} \uncover<8->{ \alertNoH{18}{ ( \alertNoH{10, 11}{ \alertNoH{9}{2}x} \alertNoH{8}{+} \alertNoH{9,12,13}{3 })(\alertNoH{10,12}{x} \alertNoH{8}{ +} \alertNoH{11,13}{1} )(x-2)} } \\
+\uncover<10->{ =(\alertNoH{14,15}{ \alertNoH{10}{2 x^2 }+\alertNoH{11,12}{5x} + \alertNoH{13}{3}} )(\alertNoH{14}{ x} -\alertNoH{15}{ 2}) } 
+\uncover<14->{= (\alertNoH{14}{2x^3 +\alertNoH{16}{5x^2}+\alertNoH{17} {3x} } ) \alertNoH{16,17}{-} (\alertNoH{15}{ \alertNoH{16}{4x^2} + \alertNoH{17}{10x} +6} ) }\\
+\uncover<16->{= 2x^3+\alertNoH{16}{x^2}\alertNoH{17}{-7x}- 6 }
+\end{array}
+$
+}
+
+\uncover<8->{\alertNoH{19}{
+Check work to make sure we guessed the roots correctly.
+}}
+
+\end{example}
+\end{frame}
