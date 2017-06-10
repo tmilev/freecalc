@@ -312,8 +312,10 @@ stroke
 }
 \newcommand{\fcXTickColored}[2]{\psline[linecolor=#1](#2, -0.1)(#2,0.1)}
 
-\newcommand{\fcXTick}[1]{\psline(! #1\space -0.1)(! #1 \space 0.1)}
-\newcommand{\fcYTick}[1]{\psline(! -0.1 #1)(! 0.1 #1)}
+\newcommand{\fcTickSize}{0.1}
+
+\newcommand{\fcXTick}[1]{\psline(! #1\space -\fcTickSize)(! #1 \space \fcTickSize)}
+\newcommand{\fcYTick}[1]{\psline(! -\fcTickSize #1)(! \fcTickSize #1)}
 \newcommand{\fcXYTick}[2]{\fcXTick{#1} \fcYTick{#2}}
 
 \newcommand{\fcXTickWithLabel}[2]{\fcXTick{#1}\rput[t](! #1\space -0.2){#2}}
