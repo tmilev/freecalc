@@ -318,7 +318,7 @@ stroke
 \newcommand{\fcYTick}[1]{\psline(! -\fcTickSize #1)(! \fcTickSize #1)}
 \newcommand{\fcXYTick}[2]{\fcXTick{#1} \fcYTick{#2}}
 
-\newcommand{\fcXTickWithLabel}[2]{\fcXTick{#1}\rput[t](! #1\space -0.2){#2}}
+\newcommand{\fcXTickWithLabel}[2]{\fcXTick{#1}\rput[t](! #1\space -\fcTickSize\space 2 mul){#2}}
 \newcommand{\fcYTickWithLabel}[2]{\fcYTick{#1}\rput[r](! -0.2 #1){#2}}
 
 \newcommand{\fcLabelNumberXaxis}[1]{\fcXTickWithLabel{#1}{#1}}
