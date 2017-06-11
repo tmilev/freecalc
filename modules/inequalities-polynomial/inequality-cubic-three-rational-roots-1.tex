@@ -17,24 +17,29 @@
 \fcXTickWithLabel{1}{$\fcAnswer{5}{1}$}
 \fcXTickWithLabel{2}{$\fcAnswer{5}{2}$}
 }
+\rput(-2,-0.5){$\uncoverAlert{16}{\alertNoH{18}{-}}$}
+\rput(0.25,0.5){$\uncoverAlert{16}{+}$}
+\rput(1.5,-0.5){$\uncoverAlert{16}{\alertNoH{18}{-}}$}
+\rput(3,0.5){$\uncoverAlert{16}{+}$}
 \end{pspicture}
 }
 
 \column{0.8\textwidth}
 \alertNoH{2}{Plot the function $2x^3-5x^2+x+2$}. Solve the inequality.
-\[
+$
 \begin{array}{rclll}
 \alertNoH{3,4}{\alertNoH{7}{ 2} x^{3}-5 x^{2}+x+2}  &\leq &0\\
 \uncover<3->{\fcAnswerUncover{3}{7}{2}\left(x-\fcAnswer{5}{\left(\alertNoH{8}{-\frac{1}{2}}\right)} \right) (x-\fcAnswer{5}{\alertNoH{9}{ 1}})(x-\fcAnswer{5}{\alertNoH{10}{2}}) &\leq &0}\\
-x\in
+\uncover<17->{\alertNoH{17,18}{x\in}\fcAnswer{18}{ \left(-\infty, -\frac{1}{2}\right)\cup \left( 1,2\right)} }
 \end{array}
-\]
+$
+
 \uncover<8->{Left hand side vanishes when $\alertNoH{8}{x=-\frac{1}{2}}$, when $\alertNoH{9}{x=1}$ and when $\alertNoH{10}{x=2}$. } \uncover<11->{The two roots split the real line into four intervals: $ \alertNoH{11}{\left(-\infty,-\frac{1}{2} \right)}, \alertNoH{12}{ \left(-\frac{1}{2},1\right)}, \alertNoH{13}{ \left(1,2 \right)} , \alertNoH{14}{\left(2,\infty \right)}$. }
 \end{columns}
 \uncover<8->{
 
 \hfil\hfil \psset{xunit=0.3cm, yunit=0.3cm}
-\begin{pspicture}(-7.7,-2.6)(6.2,2.1)
+\begin{pspicture}(-7.7,-1.6)(6.2,2.1)
 \tiny
 \psline[arrows=<->](-7.5,0)(6,0)
 \renewcommand{\fcTickSize}{0.2}
@@ -53,14 +58,19 @@ x\in
 \uncover<14->{
 \pscurve[linecolor=red](2,0)(2.1,1.3)(2.1,1.3)(6,1.3)
 }
-\rput(-5,0.5){$\fcAnswer{26}{+}$}
-\rput(-0.75,0.5){$\fcAnswer{20}{-}$}
-\rput(3.5,0.5){$\fcAnswer{14}{+}$}
+\rput(-2,0.5){$\fcAnswer{16}{\alertNoH{18}{-}}$}
+\rput(0.25,0.5){$\fcAnswer{16}{+}$}
+\rput(1.5,0.5){$\fcAnswer{16}{\alertNoH{18}{-}}$}
+\rput(3.5,0.5){$\fcAnswer{16}{+}$}
 \end{pspicture}
 }
-\begin{tabular}{@{}|c@{~}|c@{~}|c@{~}|c@{~}|c|}\hline
-Interval& Factor signs& Final sign from plot\\\hline
 
+\hfil \hfil \begin{tabular}{@{}|c@{~}|c@{~}|c@{~}|c@{~}|c|}\hline
+Interval&Factor signs & Final sign from plot\\\hline
+\uncover<11->{$\alertNoH{18}{\left(-\infty, -\frac{1}{2}\right)}$ & \fcAnswer{16}{$(-)(-)(-)$}& \fcAnswer{16}{$\alertNoH{18}{-}$}}\\
+\uncover<12->{$\left(-\frac{1}{2},1\right)$ & \fcAnswer{16}{$(+)(-)(-)$}& \fcAnswer{16}{$+$}}\\
+\uncover<13->{$\alertNoH{18}{\left(1,2 \right)}$ & \fcAnswer{16}{$(+)(+)(-)$}& \fcAnswer{16}{$\alertNoH{18}{-}$}}\\
+\uncover<14->{$\left(2, \infty \right)$ & \fcAnswer{16}{$(+)(+)(+)$}& \fcAnswer{16}{$+$}}\\\hline
 \end{tabular}
 
 \end{example}
