@@ -1,0 +1,67 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.2\textwidth}
+
+\uncover<2->{
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-3.5,-7.2)(3.7,5.4)
+\tiny 
+\renewcommand{\fcTickSize}{0.2}
+\fcAxesStandard{-3.5}{-7.2}{3.5}{5.2}
+\fcLabels{3.5}{5.2}
+\rput[l] (-3.4,3){$2 x^{3}-5 x^{2}+x+2$}
+\psplot[linecolor=\fcColorGraph]{-1}{2.5}{2 x x x mul mul mul -5 x x mul mul x 2 add add add}
+\uncover<3->{
+\fcXTickWithLabel{-0.5}{$\fcAnswer{5}{-\frac{1}{2}~~~~}$}
+\fcXTickWithLabel{1}{$\fcAnswer{5}{1}$}
+\fcXTickWithLabel{2}{$\fcAnswer{5}{2}$}
+}
+\end{pspicture}
+}
+
+\column{0.8\textwidth}
+\alertNoH{2}{Plot the function $2x^3-5x^2+x+2$}. Solve the inequality.
+\[
+\begin{array}{rclll}
+\alertNoH{3,4}{\alertNoH{7}{ 2} x^{3}-5 x^{2}+x+2}  &\leq &0\\
+\uncover<3->{\fcAnswerUncover{3}{7}{2}\left(x-\fcAnswer{5}{\left(\alertNoH{8}{-\frac{1}{2}}\right)} \right) (x-\fcAnswer{5}{\alertNoH{9}{ 1}})(x-\fcAnswer{5}{\alertNoH{10}{2}}) &\leq &0}\\
+x\in
+\end{array}
+\]
+\uncover<8->{Left hand side vanishes when $\alertNoH{8}{x=-\frac{1}{2}}$, when $\alertNoH{9}{x=1}$ and when $\alertNoH{10}{x=2}$. } \uncover<11->{The two roots split the real line into four intervals: $ \alertNoH{11}{\left(-\infty,-\frac{1}{2} \right)}, \alertNoH{12}{ \left(-\frac{1}{2},1\right)}, \alertNoH{13}{ \left(1,2 \right)} , \alertNoH{14}{\left(2,\infty \right)}$. }
+\end{columns}
+\uncover<8->{
+
+\hfil\hfil \psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-7.7,-2.6)(6.2,2.1)
+\tiny
+\psline[arrows=<->](-7.5,0)(6,0)
+\renewcommand{\fcTickSize}{0.2}
+\uncover<8->{\fcXTickWithLabel{-0.5}{$-\frac{1}{2}$}}
+\uncover<9->{\fcXTickWithLabel{1}{$1$}}
+\uncover<10->{\fcXTickWithLabel{2}{$2$}}
+\uncover<11->{
+\pscurve[linecolor=red](-7.5,1.3)(-0.6,1.3)(-0.6,1.3)(-0.5,0)
+}
+\uncover<12->{
+\pscurve[linecolor=red](-0.5,0)(-0.4,1.3)(-0.4,1.3)(0.9,1.3)(0.9,1.3)(1,0)
+}
+\uncover<13->{
+\pscurve[linecolor=red](1,0)(1.1,1.3)(1.1,1.3)(1.9,1.3)(1.9,1.3)(2,0)
+}
+\uncover<14->{
+\pscurve[linecolor=red](2,0)(2.1,1.3)(2.1,1.3)(6,1.3)
+}
+\rput(-5,0.5){$\fcAnswer{26}{+}$}
+\rput(-0.75,0.5){$\fcAnswer{20}{-}$}
+\rput(3.5,0.5){$\fcAnswer{14}{+}$}
+\end{pspicture}
+}
+\begin{tabular}{@{}|c@{~}|c@{~}|c@{~}|c@{~}|c|}\hline
+Interval& Factor signs& Final sign from plot\\\hline
+
+\end{tabular}
+
+\end{example}
+\end{frame}
