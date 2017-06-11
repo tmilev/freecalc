@@ -1,0 +1,179 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{enumitem}
+\usepackage{pst-plot}
+\usepackage{pstricks}
+\usepackage{lscape}
+
+\addtolength{\hoffset}{-3.5cm}
+\addtolength{\textwidth}{6.8cm}
+\addtolength{\voffset}{-3.3cm}
+\addtolength{\textheight}{6.3cm}
+
+\newcounter{topicsCounter}
+\newcounter{topicsSubCounter}[topicsCounter]
+\newcounter{topicsSubSubCounter}[topicsSubCounter]
+
+\usepackage{longtable}
+\usepackage{xr}
+\externaldocument{../../homework/UMB-All-Problems-By-Course/Calc-II-MasterProblemSheet}
+%\externaldocument{./Calc-I-MasterProblemSheetOneFile}
+
+\newcommand{\refBad}[1]{%
+\ifthenelse{\equal{\ref{#1}}{??}}%
+{(n/a)}%
+{\ref{#1}}%
+}%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
+
+
+\newcommand{\counterTopic}{ \refstepcounter{topicsCounter}\thetopicsCounter.&&& }
+\newcommand{\counterSubTopic}{&\refstepcounter{topicsSubCounter}\thetopicsCounter.\thetopicsSubCounter. && }
+\newcommand{\counterSubSubTopic}{&&\refstepcounter{topicsSubSubCounter}\thetopicsCounter.\thetopicsSubCounter.\thetopicsSubSubCounter.& }
+
+\newcommand{\apex}{A\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt X}
+
+
+\newcommand{\websitebase}{https://piazza.com/umb/spring2017/m141}
+
+\usepackage{pdfpages}
+
+\title{Math 141 Calculus II \\ Spring 2017}
+\date{}
+\begin{document}
+
+%\color{green}
+\maketitle
+%\noindent\textbf{Time and place.}
+%Monday, Wednesday, Friday 10-10:50, McCormack, Room 417, first floor. Monday 11:00-11:50,
+
+\noindent \textbf{Instructor(s).} 
+\begin{tabular}{ll}
+Todor Milev & \href{mailto:todor.milev@gmail.com}{\nolinkurl{todor.milev@gmail.com}} 
+\end{tabular}
+
+\medskip
+\noindent \textbf{Office hours. } \begin{tabular}{lp{12cm}}
+Todor Milev & By appointment, or after class. Office: S-03-65.\\
+\end{tabular}
+
+
+
+
+
+\medskip \noindent \textbf{Lecture slides. }  \url{\websitebase/resources}
+
+\medskip\noindent Lecture slides may be updated as the course progresses.
+
+
+\medskip \noindent \textbf{Master Problem Sheet. }  \url{\websitebase/resources} 
+
+\medskip\noindent The master problem sheet contains a collection of Calculus II problems. 
+
+\medskip
+\noindent \textbf{Homework.} You will be assigned homework, which will be posted on
+
+\url{\websitebase/resources} \quad \quad \quad .
+
+\noindent You will be expected to complete the homework in written form in a convenient for you format (notebook, folder, etc.). However, \textbf{the instructor(s) will not check/collect/proofread your homework.} 
+ 
+\medskip
+\noindent \textbf{Quizzes.} You will be given quizzes in class. \textbf{The time of the quiz will be announced in class}. Quizzes may be announced from one lecture day to the next. Your quiz problem will be one of your homework problems, verbatim (no number changes).
+
+\medskip\noindent \textbf{Textbook. } In our course, the primary purpose of the textbook is to supplement the lecture slides and provide more details should those be missing from the lecture files.
+
+There are two official textbooks for this course. It is  \textbf{mandatory} to have access to \textbf{at least one of the textbooks}. Having only one of the two textbooks is sufficient to complete the course. No homework will be assigned from either textbook. 
+
+\begin{itemize}
+\item Option I. The textbook \apex{} 3.0, Chapters 6-9. To download a free pdf file of the textbook, or to buy a physical copy of the textbook, visit the following site.
+
+\url{http://www.apexcalculus.com/downloads/} 
+\item Option II. James Stewart, Calculus, $7^{th}$ or $8^{th}$ edition (both editions are acceptable).
+\end{itemize}
+
+%\medskip
+%\noindent \textbf{Prerequisite. } A standard pre-calculus course or equivalent.
+
+
+\medskip
+\noindent \textbf{Grades.} Your grade will consist of two tests, a comprehensive final exam, and a number of quizzes. 
+\begin{itemize}
+\item The quizzes will account for 20\% of your total grade.
+\item The tests will account for 45\% (22.5\% each) of your total grade.
+\item The final will account for 35\% of your total grade.
+\end{itemize}
+Please note that missed tests can not be made up, unless there is a valid medical reason accompanied with an official signed document from a medical doctor. Letter grades will be assigned according to the scale currently recommended by the Math Department Curriculum Committee. 
+
+\begin{center}
+\begin{tabular}{lc|lc}
+A & 93-100 & C  & 73-75 \\
+A-& 90-92  & C- & 70-72 \\
+B+& 86-89  & D+ & 66-69 \\
+B & 83-85  & D  & 63-65\\
+B-& 80-82  & D- & 60-62\\
+C+& 76-79  & F  & below 60\\
+\end{tabular}
+
+\end{center}
+
+No books, notes, calculators or any other electronic device (such as mobile phones) are allowed during any exam unless otherwise stated.
+
+\medskip
+\noindent \textbf{Student conduct.} Students  are required to adhere the University Policy on Academic Standards and Cheating, to the University Statement of Plagiarism and the Documentation of Written Work, and to the Code of Student Conduct as described in the catalog of Undergraduate programs, pages 44-45 and 48-52. The code is available at the following web-page.
+
+\noindent\url{http://www.umb.edu/life_on_campus/policies/code/}
+\begin{landscape}
+
+\noindent \begin{longtable}{|@{}r@{}l@{}l@{~}l@{~}c cccc|}\hline
+\multicolumn{9}{|c|}{\textbf{List of topics.} The list of topics is a preliminary guideline, and will be subject to change.
+}\\\hline
+&&& Topic & \apex{} 3.0 textbook & \begin{tabular}{l}Stewart, \\ Calculus, $7^{th}$ ed. \end{tabular} & \begin{tabular}{l} Relevant problems \\ Master Problem\\ Sheet\end{tabular} & \begin{tabular}{l}Lecture  \end{tabular} & \begin{tabular}{l} Expected \\ Week \\ (total 14) \end{tabular}  \\ \hline
+\counterTopic Inverse trigonometric functions.     & & &  & 1& \\
+\counterSubTopic    Review of trigonometry.      & &   &  & 1& \\ 
+\counterSubTopic    Inverse trigonometric functions & & & & 1& \\
+\counterSubSubTopic Definitions of inverse trigonometric functions. & & & Section \refBad{secInverseTrig} & 1& \\
+\counterSubSubTopic Derivatives of inverse trigonometric functions. & & & & 1& \\
+\counterTopic Review of Integration. & & & & 2& \\
+\counterSubTopic The Fundamental Theorem of Calculus. & & & & 2& \\
+\counterSubTopic Differential forms.         & & & & 2& \\
+\counterSubTopic Integration and logarithms. & & & & 2& \\
+\counterTopic  Techniques of integration.    & & & & 2& \\
+\counterSubTopic Integration by parts. & Chapter 6.2 & Chapter 7.1& Section \refBad{secIntegrationByParts} & 3& \\
+\counterSubTopic Integration of rational functions. & Chapter 6.5 & Chapter 7.4 & Section \refBad{secIntegrationRationalFunctions}& & \\
+\counterSubSubTopic Building block integrals. & & & Section \refBad{secRationalFunctionBuildingBlocks}& 4& \\
+\counterSubSubTopic Partial fractions. & & & Section \refBad{secPartialFractionsCompleteAlgorithm}& 5& \\
+\counterSubTopic Trigonometric integrals. & Chapter 6.3 & Chapter 7.2 & Section \refBad{secTrigonometricIntegrals} & 6& \\
+\counterSubTopic Integrals of radicals of quadratics. & Chapter 6.4 & Chapter 7.3 & Section \refBad{secIntegrationRadicalsQuadratics} & 7& \\
+\counterSubSubTopic Trigonometric substitutions. & & & Section \refBad{secTrigSubstitution}& 7& \\
+\counterSubSubTopic Euler substitutions corresponding to trig substitutions.&  &  & Section \refBad{secEulerSubstitutions}& 7& \\
+\counterTopic L'Hospital's rule.  & Chapter 6.7 & Chapter 6.8  & Section \refBad{secLHospitalsRule} & 8& \\
+\counterTopic Improper integrals. & Chapter 6.8 & Chapter 7.8  & Section \refBad{secImproperIntegrals} & 9& \\
+\counterTopic Polar coordinates.  & Chapter 9.4 & Chapter 10.3 & & & \\
+\counterTopic Curves & & & Section \refBad{secCurves}& 10& \\
+\counterSubTopic Curve images and parametric curves. & Chapters 9.2, 9.3 & Chapter 10.1 & & 11& \\
+\counterSubTopic Curves in polar coordinates. & Chapter 10.4& & & 11& \\
+\counterSubTopic Curve (arc) length. & Chapter 7.4 & Chapter 10.2 & Section \refBad{secCurveLength} & 12&  \\
+\counterSubTopic Area locked by curves. & Chapter 9.5 & Chapter 10.4 & Section \refBad{secAreaLockedByPolarCurve} & 13& \\
+\counterTopic Surface area of solid of revolution. & & & & & \\
+\counterTopic Sequences. & Chapter 8.1 & Chapter 11.1 & Section \refBad{secSequences} & 15& \\
+\counterTopic Series. & Chapter 8.2& Chapter 11.2& Section \refBad{secSeries} & 16& \\
+\counterSubTopic Geometric and arithmetic sums.& & & Section \refBad{secGeometricSeries} & 16& \\
+\counterSubTopic Telescoping series. & & & Section \refBad{secTelescopingSeries} & 16& \\
+\counterSubTopic Basic test.& & & Section \refBad{secBasicSeriesDivergenceTests} & 17& \\
+\counterSubTopic Comparison test.& Chapter 8.3& Chapter 11.4& Section \refBad{secSeriesComparisonAndIntegralTest} & 17& \\
+\counterSubTopic Integral test.& Chapter 8.3& Chapter 11.3 & Section \refBad{secSeriesComparisonAndIntegralTest} & 17& \\
+\counterSubTopic Absolute convergence, alternating series.& Chapter 8.5 & Chapter 11.6 & & 18& \\
+\counterSubTopic Ratio and root tests.& Chapter 8.4& Chapter 11.6& Section \refBad{secSeriesRootRatioTests} & 18& \\
+\counterTopic  Power series. & Chapter 8.6& Chapter 11.8 & Section \refBad{PowerSeries} & 19& \\
+\counterSubTopic Radius and interval of convergence. & Chapter 11.10 & & Section \refBad{secIntervalOfConvergence} & 19& \\
+\counterSubTopic Maclaurin and Taylor series. & Chapters 8.7, 8.8& Chapter 11.10  & Section \refBad{secTaylorMaclaurinSeries} & 19& \\
+\counterSubTopic Integrating and differentiating Maclaurin and Taylor series. & & & Section \refBad{secTaylorMaclaurinSeries} & 19& \\
+\counterSubTopic Maclaurin series of $\ln(1+x), e^x, \sin x, \cos x, \arctan x, \arcsin x$. & & & Section \refBad{secTaylorMaclaurinSeries} & 19& \\
+\counterTopic  Differential equations.& & & & & \\
+\counterSubTopic Direction fields. & & & & & \\
+\counterSubTopic Separable equations. & & & & & \\
+\counterSubTopic The logistic (population growth) equation.& & & & & \\
+%\counterTopic  Complex numbers. & & & & & \\
+\hline
+\end{longtable}
+\end{landscape}
+\end{document}
