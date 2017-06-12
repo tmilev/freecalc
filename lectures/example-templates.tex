@@ -121,9 +121,9 @@ pdfcrop={},
 \newcommand{\cR}{{\mathcal{R}}}
 \newcommand{\cD}{{\mathcal{D}}}
 \newcommand{\cP}{{\mathcal{P}}}
-\newcommand{\fcUncoverAlert}[2]{\uncover<#1->{\alert<#1>{#2}}}
-\newcommand{\uncoverAlert}[2]{\uncover<#1-|handout:0>{\alert<#1>{#2}}}
 \newcommand{\alertNoH}[2]{\alert<handout:0|#1>{#2}}
+\newcommand{\fcUncoverAlert}[2]{\uncover<#1->{\alertNoH{#1}{#2}}}
+\newcommand{\uncoverAlert}[2]{\uncover<#1->{\alertNoH{#1}{#2}}}
 \newcommand{\rectangle}{{%
   \ooalign{$\sqsubset\mkern2mu$\cr$\mkern1mu\sqsupset$\cr}%
 }}
