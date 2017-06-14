@@ -1,0 +1,94 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{example}
+Find all solutions of the equation.
+
+\hfil\hfil $
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{rcll|l}
+\displaystyle \sin \theta&\alertNoH{0}{=} &\displaystyle \frac{3}{5} \\
+\uncover<5->{ \displaystyle \alertNoH{5-10,13}{\theta}&\alertNoH{5-10,13}{=}& \displaystyle \alertNoH{13}{ \fcAnswer{6}{ \Arcsin\left(\frac{3}{5}\right) }  \uncoverAlert{11}{ + k \cdot (2\pi)}} \uncover<6->{&&\Arcsin \text{ implies radians}}\\
+&&\uncover<7->{\alertNoH{13}{\textbf{or}}} \\
+&&\displaystyle \alertNoH{13}{\fcAnswerUncover{7}{10}{ \pi-\Arcsin\left(\frac{3}{5}\right)} \uncoverAlert{12}{+ k \cdot (2\pi)}}}
+\end{array}
+$
+
+
+\hfil\hfil \psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.2,-1.2)(1.4,1.2)
+\tiny%
+\pstVerb{5 dict begin /theSin 0.6 def /theCos 1 theSin dup mul sub sqrt def /theAngle theSin arcsin def}%
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\uncover<2->{%
+\rput[bl](! theCos theSin){$\left(\fcAnswer{4}{\frac{4}{5}} ,  \alertNoH{2}{\frac{3 }{5 }} \right) $}%
+}%
+\rput[t](! theCos -0.1){$\fcAnswer{4}{\frac{4}{5}}$}%
+\rput[t](! theCos -1 mul -0.1){$\fcAnswer{4}{-\frac{4}{5}}$}%
+\rput[lt](1.05, -0.1){$1$}%
+\uncover<2->{%
+\fcPerpendicular[linecolor=blue, linewidth=2pt]{[theCos theSin]}{[1 0]}{0.1}%
+\fcFullDot{0.8}{0.6}%
+}%
+\uncover<5->{%
+\psline(0,0)(! theCos theSin)%
+\fcAngleDegrees[linecolor=brown]{0}{theAngle}{0.2}{}%
+}%
+\only<5,6|handout:0>{%
+\parametricplot[linecolor=orange, linewidth=2pt]{0}{theAngle}{t cos t sin}%
+}%
+\only<7,8|handout:0>{%
+\parametricplot[linecolor=orange, linewidth=2pt]{0}{180 theAngle sub}{t cos t sin}%
+}%
+\uncover<11|handout:0>{%
+\parametricplot[linecolor=red, arrows=->]{0}{360 theAngle add}{t cos 0.2 t 6000 div add mul t sin 0.2 t 6000 div add mul}%
+}%
+\uncover<12|handout:0>{%
+\parametricplot[linecolor=red, arrows=->]{0}{540 theAngle sub}{t cos 0.4 t 6000 div add mul t sin 0.4 t 6000 div add mul}%
+}%
+\rput[l](0.3,0.2){$\fcAnswer{6}{ \Arcsin\left(\frac{3}{5}\right)}$}%
+\uncover<2->{%
+\fcPerpendicular[linecolor=blue, linewidth=2pt]{[theCos -1 mul theSin]}{[1 0]}{0.1}%
+\fcFullDot{theCos -1 mul}{theSin}%
+}%
+\uncover<7->{%
+\psline(0,0)(! theCos -1 mul theSin)%
+\fcAngleDegrees{0}{180 theAngle sub}{0.4}{}%
+}
+\uncover<8->{%
+\fcAngleDegrees[linecolor=brown]{180 theAngle sub}{180}{0.2}{}%
+}%
+\rput[b](0,0.4){$\fcAnswer{10}{ \pi-\Arcsin\left(\frac{3}{5}\right)}$}%
+\uncover<2->{%
+\rput[lb](! -1.1 theSin){$y=\frac{3}{5}$}%
+\psline[linestyle=dotted, linecolor=orange](! -1.1 theSin)(! 1.1 theSin)%
+}%
+\pstVerb{end}%
+\end{pspicture}
+\psset{xunit=1.5cm,yunit=1.5cm}
+\begin{pspicture}(-0.6,-1.2)(4.2,1.2)
+\tiny
+\fcBoundingBox{-0.6}{-1.2}{3.5}{1.2}
+\pstVerb{20 dict begin /pi 3.141592654 def /toDeg {180 mul pi div} def /theAngleDegs 0.6 arcsin def /theAngleRads 0.6 arcsin 180 div pi mul def}%
+\psaxes[labels=none, Dx=1.570796327, Dy=1] {<->}(0,0)(-0.5,-1.2)(3.5,1.2)
+%\psplot[linecolor=blue, plotpoints=1000]{-1.570796327}{1.570796327}{x 57.295779513 mul sin}
+\rput[bl](2.7, 1){$y=\sin x$ }
+\psplot[linecolor=red, plotpoints=1000]{-0.5}{3.5}{x 57.295779513 mul sin}
+\rput[t](-1.57, -0.3){$-\frac{\pi}{2}$}
+\rput[b](1.57, 0.15){$\frac{\pi}{2}$}
+\rput[b](3.14, 0.15){$\pi$}
+\rput[bl](0.2,1){\tiny $1$}
+\only<5,6|handout:0>{\psplot[linewidth=2pt, linecolor=orange]{0}{theAngleRads}{x 57.295779513 mul sin}}%
+\only<7,8|handout:0>{\psplot[linewidth=2pt, linecolor=orange]{0}{pi theAngleRads sub}{x 57.295779513 mul sin}}%
+\fcXTickWithLabel{theAngleRads}{$\fcAnswer{6}{\Arcsin\left(\frac{3}{5}\right)} $}%
+\fcXTickWithLabel{pi theAngleRads sub}{$\fcAnswer{8}{\pi-\Arcsin \left(\frac{3}{5} \right)}$}%
+\uncover<2->{%
+\psline[linecolor=blue](! theAngleRads 0)(! theAngleRads 0.6)%
+\psline[linecolor=blue](! pi theAngleRads sub 0)(! pi theAngleRads sub 0.6)%
+\fcYTickWithLabel{0.6}{$\frac{3}{5}$}%
+\psline[linestyle=dotted, linecolor=orange](-0.5,0.6)(3.5, 0.6)%
+}%
+\pstVerb{end}
+\end{pspicture}
+\end{example}
+\end{frame}

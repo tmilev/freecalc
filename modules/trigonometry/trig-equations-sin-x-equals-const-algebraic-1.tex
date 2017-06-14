@@ -11,8 +11,8 @@
 &&\uncover<7->{\alertNoH{15}{\textbf{or}}} &\uncoverAlert{11}{\dots} & \uncoverAlert{11}{{}_{k= -2}} &\uncoverAlert{12}{{}_{k=-1}} & \uncoverAlert{13}{{}_{k=0}} &\uncoverAlert{14 }{{}_{k=1}}&\uncoverAlert{14}{ \dots} \\
 &&\displaystyle \alertNoH{15}{\fcAnswer{8}{ 120^\circ} \uncoverAlert{10}{+ \alertNoH{11-14}{k} \cdot 360^{\circ}}} \uncover<11->{=&\uncoverAlert{11}{\alertNoH{16}{ \dots} } &\uncoverAlert{11}{ \alertNoH{16}{ -600^\circ},} &\uncoverAlert{12}{\alertNoH{16}{-240^\circ},} &\uncoverAlert{13}{\alertNoH{16}{120^\circ},} & \uncoverAlert{14}{\alertNoH{16}{480^{\circ}},}& \uncoverAlert{14}{ \alertNoH{16}{\dots}}} \\\hline 
 \displaystyle \uncover<16->{ \alertNoH{16}{\theta}&\alertNoH{16}{=}&\displaystyle & \only<17->{\alertNoH{17}{\cancel{{\dots}}}} \only<16|handout:0>{\alertNoH{16}{{\dots}}} &\only<17->{\alertNoH{17}{ \cancel{{-660^\circ}}}}\only<16|handout:0>{\alertNoH{16}{{-660^\circ}}}, &\alertNoH{16, 17}{-300^{\circ}}, &\alertNoH{16,17}{60^{\circ}}, & \only<17->{\alertNoH{17}{\cancel{{420^\circ}}}}\only<16|handout:0>{\alertNoH{16}{420^\circ}}, &\only<17->{\alertNoH{17}{\cancel{{\dots}}}}}\only<16|handout:0>{\alertNoH{16}{{\dots}}}\\
-&&\displaystyle & \only<17->{ \alertNoH{17}{\cancel{{\dots}}}} \only<16|handout:0>{\alertNoH{16}{{\dots}}} & \only<17->{\alertNoH{17}{\cancel{ -600^\circ}},} \only<16|handout:0>{\alertNoH{16}{{ -600^\circ}},} &\uncover<16->{\alertNoH{16,17}{-240^\circ},} &\uncover<16->{\alertNoH{16,17}{120^\circ},} & \only<16|handout:0>{\alertNoH{16}{480^{\circ}}}
-\only<17>{\alertNoH{17}{\cancel{480^{\circ}}},}&\only<17->{\alertNoH{17}{\cancel{\dots}}}\only<16>{\alertNoH{16}{{\dots}}}
+&&\displaystyle & \only<17->{ \alertNoH{17}{\cancel{{\dots}}}} \only<16|handout:0>{\alertNoH{16}{{\dots}}} & \only<17->{\alertNoH{17}{\cancel{ {-600^\circ}}},} \only<16|handout:0>{\alertNoH{16}{{ -600^\circ}},} &\uncover<16->{\alertNoH{16,17}{-240^\circ},} &\uncover<16->{\alertNoH{16,17}{120^\circ},} & \only<16|handout:0>{\alertNoH{16}{480^{\circ}}}
+\only<17>{\alertNoH{17}{\cancel{480^{\circ}}},}&\only<17->{\alertNoH{17}{\cancel{\dots}}}\only<16|handout:0>{\alertNoH{16}{{\dots}}}
 \end{array}
 $
 
@@ -27,7 +27,7 @@ $
 }%
 \rput[t](0.5, -0.1){$\fcAnswer{4}{\frac{1}{2}}$}%
 \rput[t](-0.5, -0.1){$\fcAnswer{4}{-\frac{1}{2}}$}%
-\rput[lt](1.05, -0.1){$\alertNoH{16}{1}$}%
+\rput[lt](1.05, -0.1){$1$}%
 \uncover<2->{%
 \fcPerpendicular[linecolor=blue, linewidth=2pt]{[0.5 3 sqrt 2 div]}{[1 0]}{0.1}%
 \fcFullDot{0.5}{3 sqrt 2 div}%
@@ -35,6 +35,12 @@ $
 \uncover<5->{%
 \psline(0,0)(! 0.5 3 sqrt 2 div)%
 \fcAngleDegrees{0}{60}{0.2}{}%
+}%
+\only<5,6|handout:0>{%
+\parametricplot[linecolor=orange, linewidth=2pt]{0}{60}{t cos t sin}%
+}%
+\only<7,8|handout:0>{%
+\parametricplot[linecolor=orange, linewidth=2pt]{0}{120}{t cos t sin}%
 }%
 \uncover<9|handout:0>{%
 \parametricplot[linecolor=red, arrows=->]{0}{420}{t cos 0.2 t 6000 div add mul t sin 0.2 t 6000 div add mul}%
@@ -69,11 +75,13 @@ $
 \rput[t](1.57, -0.3){$\frac{\pi}{2}$}
 \rput[t](3.14, -0.3){$\pi$}
 \rput[bl](0.2,1){\tiny $1$}
+\only<5,6|handout:0>{\psplot[linewidth=2pt, linecolor=orange]{0}{pi 3 div}{x 57.295779513 mul sin}}%
+\only<7,8|handout:0>{\psplot[linewidth=2pt, linecolor=orange]{0}{pi 3 div 2 mul}{x 57.295779513 mul sin}}%
+\fcXTickWithLabel{pi 3 div}{$\fcAnswer{6}{\frac{\pi}{3}} $}%
+\fcXTickWithLabel{pi 3 div 2 mul}{$\fcAnswer{8}{\frac{2\pi}{3}}$}%
+\uncover<2->{%
 \psline[linecolor=blue](! pi 3 div 0)(! pi 3 div 3 sqrt 2 div)%
 \psline[linecolor=blue](! pi 3 div 2 mul 0)(! pi 3 div 2 mul 3 sqrt 2 div)%
-\fcXTickWithLabel{pi 3 div}{$\frac{\pi}{3}$}%
-\fcXTickWithLabel{pi 3 div 2 mul}{$\frac{2\pi}{3}$}%
-\uncover<2->{%
 \fcYTickWithLabel{3 sqrt 2 div}{$\frac{\sqrt{3}}{2}$}%
 \psline[linestyle=dotted, linecolor=orange](! -0.5 3 sqrt 2 div)(! 3.5 3 sqrt 2 div)%
 }%
