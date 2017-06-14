@@ -315,11 +315,11 @@ stroke
 \newcommand{\fcTickSize}{0.1}
 
 \newcommand{\fcXTick}[1]{\psline(! #1\space -\fcTickSize)(! #1 \space \fcTickSize)}
-\newcommand{\fcYTick}[1]{\psline(! -\fcTickSize #1)(! \fcTickSize #1)}
+\newcommand{\fcYTick}[1]{\psline(! -\fcTickSize\space #1)(! \fcTickSize\space #1)}
 \newcommand{\fcXYTick}[2]{\fcXTick{#1} \fcYTick{#2}}
 
 \newcommand{\fcXTickWithLabel}[2]{\fcXTick{#1}\rput[t](! #1\space -\fcTickSize\space 2 mul){#2}}
-\newcommand{\fcYTickWithLabel}[2]{\fcYTick{#1}\rput[r](! -0.2 #1){#2}}
+\newcommand{\fcYTickWithLabel}[2]{\fcYTick{#1}\rput[r](! -0.2\space #1){#2}}
 
 \newcommand{\fcLabelNumberXaxis}[1]{\fcXTickWithLabel{#1}{#1}}
 \newcommand{\fcLabelNumberYaxis}[1]{\fcYTickWithLabel{#1}{#1}}
@@ -488,6 +488,10 @@ end
 \pstVerb{end}%
 }
 
+%argument 1: options
+%arguments 2,3: start, end angle in degrees
+%argument 4: arm length
+%argument 5: label
 \newcommand{\fcAngleDegrees}[5][linecolor=red]{%
 \parametricplot[#1]{#2}{#3}{t cos #4\space mul t sin #4\space mul}%
 \rput(! #2\space #3\space add 2 div dup cos #4\space 1.2 mul mul exch sin #4\space 1.2 mul mul){#5}%
@@ -3237,6 +3241,10 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 } def%
 }
 
+%argument 1: options
+%arguments 2: tip of perpendicular in format [a,b]
+%argument 3: direction vector of line through origin to drop perpendicular to.
+%argument 4: heel size 
 \newcommand{\fcPerpendicular}[4][ ]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{\fcPerpendicularComputeHeelCode{#2}{#3}{#4}}%

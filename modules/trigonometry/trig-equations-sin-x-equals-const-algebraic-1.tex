@@ -1,0 +1,83 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{example}
+\alertNoH{15}{Find all solutions} and then find \alertNoH{16,17}{those that lie between $-360^\circ $ and $360^\circ$}.
+
+\hfil\hfil $
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{rcl@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c}
+\displaystyle \sin \theta&\alertNoH{0}{=} &\displaystyle \alertNoH{2}{ \frac{\sqrt{3}}{2} } \\
+\uncover<5->{ \displaystyle \alertNoH{15}{\theta}&\alertNoH{15}{=}& \displaystyle \alertNoH{15}{\fcAnswer{6}{ 60^\circ}  \uncoverAlert{9}{ + \alertNoH{11-14}{k} \cdot 360^{\circ}}} \uncover<11->{= & \uncoverAlert{11}{\alertNoH{16}{\dots}} & \uncoverAlert{11}{\alertNoH{16}{-660^\circ}}, & \uncoverAlert{12 }{\alertNoH{16}{-300^{ \circ}},} & \uncoverAlert{13}{60^{\circ},} & \uncoverAlert{14 }{ \alertNoH{16}{420^\circ}, }& \uncoverAlert{14}{\alertNoH{16}{\dots}} }}\\
+&&\uncover<7->{\alertNoH{15}{\textbf{or}}} &\uncoverAlert{11}{\dots} & \uncoverAlert{11}{{}_{k= -2}} &\uncoverAlert{12}{{}_{k=-1}} & \uncoverAlert{13}{{}_{k=0}} &\uncoverAlert{14 }{{}_{k=1}}&\uncoverAlert{14}{ \dots} \\
+&&\displaystyle \alertNoH{15}{\fcAnswer{8}{ 120^\circ} \uncoverAlert{10}{+ \alertNoH{11-14}{k} \cdot 360^{\circ}}} \uncover<11->{=&\uncoverAlert{11}{\alertNoH{16}{ \dots} } &\uncoverAlert{11}{ \alertNoH{16}{ -600^\circ},} &\uncoverAlert{12}{\alertNoH{16}{-240^\circ},} &\uncoverAlert{13}{\alertNoH{16}{120^\circ},} & \uncoverAlert{14}{\alertNoH{16}{480^{\circ}},}& \uncoverAlert{14}{ \alertNoH{16}{\dots}}} \\\hline 
+\displaystyle \uncover<16->{ \alertNoH{16}{\theta}&\alertNoH{16}{=}&\displaystyle & \only<17->{\alertNoH{17}{\cancel{{\dots}}}} \only<16|handout:0>{\alertNoH{16}{{\dots}}} &\only<17->{\alertNoH{17}{ \cancel{{-660^\circ}}}}\only<16|handout:0>{\alertNoH{16}{{-660^\circ}}}, &\alertNoH{16, 17}{-300^{\circ}}, &\alertNoH{16,17}{60^{\circ}}, & \only<17->{\alertNoH{17}{\cancel{{420^\circ}}}}\only<16|handout:0>{\alertNoH{16}{420^\circ}}, &\only<17->{\alertNoH{17}{\cancel{{\dots}}}}}\only<16|handout:0>{\alertNoH{16}{{\dots}}}\\
+&&\displaystyle & \only<17->{ \alertNoH{17}{\cancel{{\dots}}}} \only<16|handout:0>{\alertNoH{16}{{\dots}}} & \only<17->{\alertNoH{17}{\cancel{ -600^\circ}},} \only<16|handout:0>{\alertNoH{16}{{ -600^\circ}},} &\uncover<16->{\alertNoH{16,17}{-240^\circ},} &\uncover<16->{\alertNoH{16,17}{120^\circ},} & \only<16|handout:0>{\alertNoH{16}{480^{\circ}}}
+\only<17>{\alertNoH{17}{\cancel{480^{\circ}}},}&\only<17->{\alertNoH{17}{\cancel{\dots}}}\only<16>{\alertNoH{16}{{\dots}}}
+\end{array}
+$
+
+
+\hfil\hfil \psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.2,-1.2)(1.2,1.2)
+\tiny%
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\uncover<2->{%
+\rput[bl](! 0.5 3 sqrt 2 div){$\left(\fcAnswer{4}{\frac{1}{2}} ,  \alertNoH{2}{\frac{\sqrt{3} }{2 }} \right) $}%
+}%
+\rput[t](0.5, -0.1){$\fcAnswer{4}{\frac{1}{2}}$}%
+\rput[t](-0.5, -0.1){$\fcAnswer{4}{-\frac{1}{2}}$}%
+\rput[lt](1.05, -0.1){$\alertNoH{16}{1}$}%
+\uncover<2->{%
+\fcPerpendicular[linecolor=blue, linewidth=2pt]{[0.5 3 sqrt 2 div]}{[1 0]}{0.1}%
+\fcFullDot{0.5}{3 sqrt 2 div}%
+}%
+\uncover<5->{%
+\psline(0,0)(! 0.5 3 sqrt 2 div)%
+\fcAngleDegrees{0}{60}{0.2}{}%
+}%
+\uncover<9|handout:0>{%
+\parametricplot[linecolor=red, arrows=->]{0}{420}{t cos 0.2 t 6000 div add mul t sin 0.2 t 6000 div add mul}%
+}%
+\uncover<10|handout:0>{%
+\parametricplot[linecolor=red, arrows=->]{0}{480}{t cos 0.4 t 6000 div add mul t sin 0.4 t 6000 div add mul}%
+}%
+\rput[l](0.3,0.2){$\fcAnswer{6}{ 60^{\circ}=\frac{\pi}{3}}$}%
+\uncover<2->{%
+\fcPerpendicular[linecolor=blue, linewidth=2pt]{[-0.5 3 sqrt 2 div]}{[1 0]}{0.1}%
+\fcFullDot{-0.5}{3 sqrt 2 div}%
+}%
+\uncover<7->{%
+\psline(0,0)(! -0.5 3 sqrt 2 div)%
+\fcAngleDegrees{0}{120}{0.4}{}}%
+\rput[lb](0.1,0.3){$\fcAnswer{8}{ 120^{\circ}=\frac{2\pi}{3}}$}%
+\uncover<2->{%
+\rput[lb](! -1.1 3 sqrt 2 div){$y=\frac{\sqrt{3}}{2}$}%
+\psline[linestyle=dotted, linecolor=orange](! -1.1 3 sqrt 2 div)(! 1.1 3 sqrt 2 div)%
+}%
+\end{pspicture}
+\psset{xunit=1.5cm,yunit=1.5cm}
+\begin{pspicture}(-0.6,-1.2)(4.2,1.2)
+\tiny
+\fcBoundingBox{-0.6}{-1.2}{3.5}{1.2}
+\pstVerb{20 dict begin /pi 3.141592654 def /toDeg {180 mul pi div} def}%
+\psaxes[labels=none, Dx=1.570796327, Dy=1] {<->}(0,0)(-0.5,-1.2)(3.5,1.2)
+%\psplot[linecolor=blue, plotpoints=1000]{-1.570796327}{1.570796327}{x 57.295779513 mul sin}
+\rput[bl](2.7, 1){$y=\sin x$ }
+\psplot[linecolor=red, plotpoints=1000]{-0.5}{3.5}{x 57.295779513 mul sin}
+\rput[t](-1.57, -0.3){$-\frac{\pi}{2}$}
+\rput[t](1.57, -0.3){$\frac{\pi}{2}$}
+\rput[t](3.14, -0.3){$\pi$}
+\rput[bl](0.2,1){\tiny $1$}
+\psline[linecolor=blue](! pi 3 div 0)(! pi 3 div 3 sqrt 2 div)%
+\psline[linecolor=blue](! pi 3 div 2 mul 0)(! pi 3 div 2 mul 3 sqrt 2 div)%
+\fcXTickWithLabel{pi 3 div}{$\frac{\pi}{3}$}%
+\fcXTickWithLabel{pi 3 div 2 mul}{$\frac{2\pi}{3}$}%
+\uncover<2->{%
+\fcYTickWithLabel{3 sqrt 2 div}{$\frac{\sqrt{3}}{2}$}%
+\psline[linestyle=dotted, linecolor=orange](! -0.5 3 sqrt 2 div)(! 3.5 3 sqrt 2 div)%
+}%
+\pstVerb{end}
+\end{pspicture}
+\end{example}
+\end{frame}
