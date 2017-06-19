@@ -3242,9 +3242,10 @@ heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 }
 
 %argument 1: options
-%arguments 2: tip of perpendicular in format [a,b]
+%arguments 2: tip of perpendicular in format [a b]
 %argument 3: direction vector of line through origin to drop perpendicular to.
 %argument 4: heel size 
+%example: \fcPerpendicular[linecolor=blue]{[1 1]}{[1 0]}{0.1}
 \newcommand{\fcPerpendicular}[4][ ]{%
 \setkeys{fcGraphics}{#1}%
 \pstVerb{\fcPerpendicularComputeHeelCode{#2}{#3}{#4}}%
