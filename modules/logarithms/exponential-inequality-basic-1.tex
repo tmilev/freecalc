@@ -1,0 +1,40 @@
+\begin{frame}
+\vskip -0.1cm
+\begin{example}
+Solve the inequality.
+
+\vskip -0.2cm
+$\begin{array}{rcll|l}
+\displaystyle \alertNoH{2}{ 2^{-3x-5}} &<&\displaystyle \alertNoH{3}{7} \uncover<4->{&& \begin{array}{l}\text{Logarithms preserve  }\\  \text{inequalities: apply } \alertNoH{5}{\log_2} \end{array}}\\
+\displaystyle \uncover<4->{ \alertNoH{5,6}{\log_2} {\alertNoH{6}{2}}^{-3x-5} &<&\displaystyle \alertNoH{5}{\log_2} 7} \\
+\displaystyle \uncover<6->{-3x- \alertNoH{7}{5} &<&\displaystyle \log_2 7}\\
+\displaystyle \uncover<7->{\alertNoH{8,9}{-3} x& \alertNoH{9}{{< }}&\displaystyle \log_2 7+\alertNoH{7}{ 5}}\\
+\displaystyle \uncover<8->{ x&\alertNoH{9,11}{{>}}&\displaystyle \alertNoH{8,9}{ -}\frac{\log_2 7+5}{\alertNoH{8, 9}{3}}&& \begin{array}{l} \alertNoH{9}{\text{Division by negative}} \\ \alertNoH{9}{\text{number flips inequalities}} \end{array}}\\
+\displaystyle \uncover<10->{ x&\in&\displaystyle \onlyNoH{11}{\color{red}} \left( \onlyNoH{11}{\color{black}} \alertNoH{12}{ -\frac{5+\log_2 7}{3}} , \infty  \right) }
+\end{array}
+$
+
+\hfil \hfil \psset{xunit=0.29cm, yunit=0.29cm}
+\begin{pspicture}(-5, -2)(6,9)
+\tiny%
+\pstVerb{20 dict begin /theFun {2 -3 x mul -5 add exp} def /leftPt 5 7 ln 2 ln div add -3 div def}
+\fcAxesStandard{-5}{-2}{6}{9}
+\uncover<2->{%
+\psplot[linecolor=\fcColorGraph]{-2.7}{6}{theFun}%
+}%
+\uncover<12->{%
+\psplot[linecolor=blue]{leftPt}{6}{theFun}%
+}%
+\uncover<3->{%
+\psline[linecolor=green](-5,7)(6,7)%
+}%
+\renewcommand{\fcTickSize}{0.25}
+\uncover<12->{%
+\fcXTickWithLabel{leftPt}{$\alertNoH{12}{-\frac{5+\log_2 7}{3}}$}%
+}%
+\rput[l](-5,3){$2^{-3x-5} $}
+\pstVerb{end}
+\end{pspicture}
+\vskip -0.35cm
+\end{example}
+\end{frame}
