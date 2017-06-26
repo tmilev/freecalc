@@ -1,0 +1,211 @@
+
+\begin{frame}
+\vskip -0.15cm
+\begin{example}
+\begin{columns}[T]
+\column{0.18\textwidth}
+\vskip 0.2cm
+
+\only<1-19|handout:1>{%
+\uncover<2->{
+\psset{xunit=0.7cm, yunit=0.7cm}
+\begin{pspicture}(-1.9,-0.7)(1.5,3.1)%
+\tiny%
+\fcAxesStandard{-1.9}{-0.7}{1.5}{3}%
+\psplot[linecolor=\fcColorGraph]{-1.63}{0.63}{2 x x mul mul 2 x mul 1 add add}%
+\uncover<3->{\psplot[linecolor=pink]{-1.63}{1}{x 2 add}}
+\uncover<11->{%
+\psplot[linecolor=blue, linewidth=2pt]{-1}{0.5}{2 x x mul mul 2 x mul 1 add add}%
+}%
+\uncover<9->{%
+\fcFullDot{0.5}{2.5}
+\fcFullDot{-1}{1}
+\fcXTickWithLabel{0.5}{$\frac{1}{2}$}
+\fcXTickWithLabel{-1}{$-1$}
+}
+\end{pspicture}
+}
+\uncover<6->{
+\vskip -0.2cm
+\begin{pspicture}(-1.9,-1.3)(1.5,3.1)%
+\tiny%
+\fcAxesStandard{-1.9}{-1.3}{1.5}{3}%
+\psplot[linecolor=\fcColorGraph]{-1.63}{1.13}{2 x x mul mul x -1 add add}
+\uncover<11->{%
+\psplot[linecolor=\fcColorGraph, linecolor=blue, linewidth=2pt]{-1}{0.5}{2 x x mul mul x -1 add add}
+}%
+\uncover<9->{%
+\fcFullDot{0.5}{0}
+\fcFullDot{-1}{0}
+\rput[b](-1,0.1){$-1$}
+\rput[b](0.5,0.1){$\frac{1}{2}$}
+}
+\rput[b](-1.4,0.3){$\fcAnswer{11}{+}$}
+\rput[b](0.9,0.3){$\fcAnswer{11}{+}$}
+\rput[t](-0.25,-0.2){$\fcAnswer{11}{-}$}
+\end{pspicture}
+}
+\uncover<9->{
+\vskip -0.2cm
+\begin{pspicture}(-1.9,-0.6)(1.5,0.7)%
+\tiny%
+\fcBoundingBox{-1.9}{-0.6}{1.5}{0.7}%
+\psline[arrows=<->](-1.9,0)(1.5,0)%
+\psline[linecolor=red](-1.9,0.5)(-1.1, 0.5)(-1,0)%
+\psline[linecolor=red](-1,0)(-0.9,0.5)(0.4,0.5)(0.5,0)%
+\psline[linecolor=red](0.5,0)(0.6,0.5)(1.5,0.5)%
+\uncover<11->{%
+\psline[linecolor=blue, linewidth=2pt](-1,0)(-0.9,0.5)(0.4,0.5)(0.5,0)%
+}%
+\rput[t](-1,-0.1){$-1$}
+\rput[t](0.5,-0.1){$\frac{1}{2}$}
+\rput(-1.4,0.25){$\fcAnswer{11}{+}$}
+\rput(-0.25,0.25){$\fcAnswer{11}{-}$}
+\rput(0.9,0.25){$\fcAnswer{11}{+}$}
+\end{pspicture}
+}
+}%only<1-19>
+
+\only<20-|handout:2,3>{
+\hfil\hfil \psset{xunit=1cm, yunit=1cm}
+\begin{pspicture}(-1.2,-1.3)(1.4,1.3)%
+\tiny%
+\fcAxesStandard{-1.2}{-1.3}{1.3}{1.3}%
+\pstVerb{20 dict begin}%
+\pstVerb{/angle1 60 def /angle2 180 def }%
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}%
+\uncover<25->{%
+\fcAngleDegrees[linecolor=purple]{0}{angle2}{0.3}{}%
+\fcAngleDegrees[linecolor=purple, linewidth=3.4pt]{0}{angle2}{1}{$\fcAnswer{26}{180^\circ}~~~~~~~~~$}%
+}
+\uncover<23->{%
+\psline(0,0)(! angle1 cos angle1 sin)
+\fcAngleDegrees[linecolor=blue]{0}{angle1}{0.2}{}%
+\fcAngleDegrees[linecolor=blue, linewidth=1.3pt]{0}{angle1}{1}{$~~~\fcAnswer{24}{60^\circ}$}%
+%\fcPerpendicular{[angle1 cos angle1 sin]}{[1 0]}{0.1}%
+}%
+\uncover<29->{%
+\fcAngleDegrees[linecolor=purple]{0}{angle2 -1 mul}{0.35}{}%
+\fcAngleDegrees[linecolor=purple, linewidth=3.4pt]{0}{angle2 -1 mul}{1}{$\fcAnswer{30}{-180^\circ} ~~~~~~~~~~~~~$}%
+}
+\uncover<27->{%
+\fcAngleDegrees[linecolor=blue]{0}{angle1 -1 mul}{0.25}{}%
+\fcAngleDegrees[linecolor=blue, linewidth=1.3pt]{0}{angle1 -1 mul}{1}{$~~ \fcAnswer{28}{-60^\circ}$}%
+\psline(0,0)(! angle1  -1 mul cos angle1  -1 mul sin)%
+}%
+%\fcPerpendicular{[angle1  -1 mul cos angle1  -1 mul sin]}{[1 0]}{0.1}%
+\uncover<21->{%
+\psline[linestyle=dotted](0.5,-1.3)(0.5,1.3)%
+}%
+\uncover<22->{%
+\psline[linestyle=dotted](-1,-1.3)(-1,1.3)%
+}
+\uncover<22->{%
+\psline[linecolor=green, linewidth=1.2pt](0,0)(! angle2 cos 0)%
+\rput[tl](-1,-0.1){$-1$}%
+}%
+\uncover<21->{%
+\psline[linecolor=cyan, linewidth=1.2pt](0,0)(! angle1 cos 0)%
+\rput[tl](0.5,-0.1){$\frac{1}{2}$}
+}%
+\pstVerb{end}%
+\end{pspicture}
+}
+
+\column{0.82\textwidth}
+\begin{itemize}
+\item \alertNoH{12}{Solve the inequality $2 u^{2}+2 u+1 \leq  u+2$}.
+\item Find all solutions of $\alertNoH{13}{{\alertNoH{43}{{ 2\cos^{2}\theta+2\cos \theta +1}} \leq  \alertNoH{44}{{\cos{}\theta+ 2}}}}$ lying in $[-360^\circ,360^\circ] $.
+\end{itemize}
+
+$
+\begin{array}{rcl}
+\only<1-19|handout:1>{
+\uncover<2->{ \alertNoH{2,15}{ 2u^2+\alertNoH{4}{2u} +\alertNoH{5}{1}} &\alertNoH{15}{{\leq}}& \alertNoH{3,15}{ \alertNoH{4}{u} +\alertNoH{5}{2}}}\\
+\uncover<4->{\alertNoH{6}{\alertNoH{7}{2}u^2+ \alertNoH{4}{u} \alertNoH{5}{-1}}&\leq& 0} \\
+\uncover<7->{\alertNoH{8}{2}\left(\fcAnswer{8}{u\alertNoH{9}{ -\frac{1}{2}}} \right)(\fcAnswer{8}{u  \alertNoH{9}{+1}})&\leq &0}\\
+\uncover<10->{ \alertNoH{12,15}{u}&\alertNoH{12,15}{{\in}}& \fcAnswer{11}{\alertNoH{12,15}{ \left[-1, \frac{1}{2} \right]}}} \uncover<13->{ \\\hline
+\alertNoH{13}{2{\alertNoH{14}{\cos}}^{2}\alertNoH{14}{\theta}+2\alertNoH{14}{\cos \theta} +1}& \alertNoH{13}{{\leq}}& \alertNoH{13}{\alertNoH{14}{ \cos{}\theta}+2} \uncover<14->{\text{\quad Set } \alertNoH{14,16}{\cos\theta=u}}} \\
+\uncover<14->{\alertNoH{15}{ 2{\alertNoH{14}{ u}}^2+2\alertNoH{14}{ u}+1}&\alertNoH{15}{{\leq}}&\alertNoH{15}{\alertNoH{14}{ u}+2}}\\
+\uncover<15->{\alertNoH{15,16}{u}&\alertNoH{15}{{\in}}&  \alertNoH{15}{\left[-1,\frac{1}{2}\right] \text{\qquad (solved above)} }}\\}
+\only<1-|handout:1,2>{
+\uncover<16->{ \hskip 2cm
+\alertNoH{16,19,20}{\cos\theta}&\alertNoH{19,20}{ \in} &\alertNoH{19,20}{ \only<18|handout:0>{\color{red}} \left[ \only<18|handout:0>{\color{black}} \alertNoH{17}{ {-1}},\alertNoH{17}{{\frac{1}{2}}}  \only<18|handout:0>{\color{red}} \right] \only<18|handout:0>{\color{black}} }}\\
+\uncover<17->{ \alertNoH{19,20,22}{ \alertNoH{17,22}{ -1} \alertNoH{18,22,32}{ \leq} \alertNoH{21,22}{ \cos\theta} } &\alertNoH{18,19, 20, 21,32}{{\leq}}& \alertNoH{17,19,20,21}{ \frac{1}{2}}} \\
+}
+\end{array}
+$
+
+
+\end{columns}
+
+$\begin{array}{@{}r@{~}c@{~}r@{}c@{}l@{\!\!\!\!\!\!\!\!\!}l}
+\only<20-|handout:2>{%
+\uncover<20-41>{
+\theta&\in&\uncover<27->{ \only<32>{\color{red}} \left[ \only<32|handout:0>{\color{black}} \alertNoH{34, 36}{ \fcAnswerUncover{20}{30}{{ -180^\circ}} \uncoverAlert{31}{{+ \alertNoH{33}{ k} 360^\circ}} }, \alertNoH{34,36}{ \fcAnswerUncover{20}{28}{{- 60^\circ}} \uncoverAlert{31}{{+\alertNoH{33}{ k} 360^\circ}} } \only<32|handout:0>{\color{red}}\right]\only<32>{\color{black}} }& \uncover<27->{\cup}& \only<32|handout:0>{\color{red}} \left[ \only<32>{\color{black}} \alertNoH{34,36}{ \fcAnswerUncover{20}{24}{ {60^\circ}} \uncoverAlert{31}{{+\alertNoH{33}{ k}  360^\circ}}} , \alertNoH{34, 36}{\fcAnswerUncover{20}{26}{{ 180^\circ}} \uncoverAlert{31}{ +\alertNoH{33}{ k} 360^\circ}} \only<32|handout:0>{\color{red}} \right] \only<32>{\color{black}}\\
+}
+}
+\only<20-41|handout:2>{%
+~\\
+&&&\fcCancel{38}{\uncoverAlert{37}{\dots}} \\
+\uncover<36->{&& \uncover<37->{\cup} \fcCancel{38}{ \left[\alertNoH{36}{-540^\circ}, \alertNoH{36}{-420^\circ}  \right]} &\cup& \alertNoH{39}{{\left[\alertNoH{36}{-300^\circ} , \alertNoH{36}{-180^\circ} \right]}} &\alertNoH{36}{k=-1} }\\
+\uncover<33->{\theta&\in& \alertNoH{39}{{\uncover<36->{\cup} \left[-180^\circ, -60^\circ \right]}} &\cup& \alertNoH{40}{{ \left[60^\circ, 180^\circ \right]}} & \alertNoH{33}{ k=0 }}\\
+\uncover<34->{&&\alertNoH{40}{\cup \left[ \alertNoH{34}{ 180^\circ}, \alertNoH{34}{300^\circ} \right]}&\cup& \fcCancel{38}{\left[ \alertNoH{34}{420^\circ}, \alertNoH{34}{540^\circ} \right]}& \alertNoH{34}{k=1}}\\
+&&&\fcCancel{38}{\uncoverAlert{35}{\dots}}\\
+}
+\only<20-|handout:2,3>{%
+\uncover<39->{
+\alertNoH{41,42}{\theta}&\alertNoH{41,42}{\in}&  \alertNoH{39,41,42, 46}{ \left[-300^\circ, -60^\circ \right]} & \alertNoH{41,42}{\cup} & \alertNoH{40,41,42, 46}{{ \left[60^\circ, 300^\circ \right]}}
+}
+}
+\end{array}
+$
+
+\only<42-|handout:3>{
+\uncover<43->{
+\hfil\hfil\psset{xunit=0.5cm, yunit=0.5cm}
+\begin{pspicture}(-9,-1)(9,5.7)
+\tiny%
+\fcAxesStandard{-9}{-1}{9}{5.6}
+\pstVerb{20 dict begin /pi 3.141592654 def  /toDeg {pi div 180 mul} def /angle1 pi 3 div def /angle2 pi def /fun1 {x toDeg cos dup mul 2 mul x toDeg cos 2 mul 1 add add} def /fun2 {x toDeg cos 2 add} def
+}
+\psplot[linecolor=\fcColorGraph, plotpoints=1000]{-9}{9}{fun1}
+\uncover<44->{%
+\psplot[linecolor=pink, plotpoints=1000]{-9}{9}{fun2}%
+}%
+\uncover<45->{%
+\psplot[linecolor=green, plotpoints=1000]{angle1 2 pi mul sub}{angle1 -1 mul}{fun1}%
+\psplot[linecolor=green, plotpoints=1000]{angle1 }{2 pi mul angle1 sub}{fun1}%
+}%
+\uncover<45->{%
+\psplot[linecolor=blue, plotpoints=1000]{angle1 2 pi mul sub}{angle1 -1 mul}{fun2}%
+\psplot[linecolor=blue, plotpoints=1000]{angle1 }{2 pi mul angle1 sub}{fun2}%
+}%
+\uncover<43->{%
+\rput[l](0.7,5.2){$\alertNoH{43}{ 2\cos^2\theta +2\cos\theta+1}$}%
+}%
+\uncover<44->{%
+\rput[lb](-4.5,2){$\alertNoH{44}{ 2\cos\theta +2}$}%
+}%
+\rput[rt] (9,-0.1){$\theta$}
+\uncover<45->{%
+\fcXTickWithLabel{pi 3 div 5 mul}{$\frac{5\pi}{3}=300^\circ$}%
+\fcXTickWithLabel{pi 3 div}{$\frac{\pi}{3}$}%
+\fcXTickWithLabel{pi -3 div 5 mul}{$-\frac{5\pi}{3}=-300^\circ$}%
+\fcXTickWithLabel{pi -3 div}{$-\frac{\pi}{3}$}%
+}%
+\fcXTickWithLabel{pi}{$\pi$}
+\fcYTickWithLabel{1}{$1$}
+\pstVerb{end}
+\end{pspicture}
+}
+}
+\end{example}
+
+\vskip 10cm
+
+\end{frame}
+
+
+
+

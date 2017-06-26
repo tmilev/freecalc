@@ -170,10 +170,10 @@ pdfcrop={},
 {#2}%
 {#3}%
 }%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
-\newcommand{\fcCancel}[2]{
-\FPeval{\fcResult}{clip(#1-1)}
-\only<handout:0|-\fcResult>{#2} \only<#1->{\alertNoH{#1}{\cancel{\alertNoH{0}{#2}}}}
-\vphantom{\cancel{#2}}
+\newcommand{\fcCancel}[2]{%
+\FPeval{\fcResult}{clip(#1-1)}%
+\only<handout:0|-\fcResult>{{#2}} \only<#1->{{\alertNoH{#1}{{\cancel{{\alertNoH{0}{{#2}}}}}}}}
+\vphantom{{\cancel{#2}}}%
 }
 %<-WARNING: the superflous-looking \alertNoH{0} is needed:
 % for some unknown to me reason it causes LaTeX to add the correct amount of spacing.
