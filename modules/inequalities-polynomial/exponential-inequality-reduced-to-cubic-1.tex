@@ -1,5 +1,158 @@
 \begin{frame}
+\vskip -0.15cm
 \begin{example}
+\begin{columns}[T]
+\column{0.24\textwidth}
+\vskip 0.1cm
+\psset{xunit=0.19cm, yunit=0.19cm}
+\begin{pspicture}(-3,-9.5)(14,10)
+\tiny
+\pstVerb{20 dict begin /theFun {3 x x x mul mul mul -59 x x mul mul 356 x mul -660 add add add} def}
+\fcBoundingBox{-3}{-9.5}{14}{10}
+\fcLabels[$u$][$y$]{13}{9.5}
+\psaxes[arrows=<->, Dx=2, Dy=8, labels=none, ticks=none](0,0)(-3,-9.5)(13,9.5)
+\uncover<2->{%
+\psplot[linecolor=\fcColorGraph]{3}{11}{theFun}%
+\rput[lb](-2,5){$y=3u^3-59u^2+356u-660$}%
+}%
+
+\uncover<31->{%
+\psplot[linecolor=blue]{3}{11 3 div}{theFun}%
+\psplot[linecolor=blue]{6}{10}{theFun}%
+}%
+\renewcommand{\fcTickSize}{0.4}
+\fcXTickWithLabel{2} {$2$}
+\fcXTickWithLabel{4} {$4$}
+\fcXTickWithLabel{6} {$\alertNoH{4,5}{6}$}
+\fcXTickWithLabel{8} {$8$}
+\fcXTickWithLabel{10}{$\alertNoH{4,5}{10}$}
+\fcYTickWithLabel{8}{$8$}
+\rput[t](2,-4){$\fcAnswer{29}{\alertNoH{31}{-}}$}
+\rput[t](! 11 3 div 6 add 2 div 4){$\fcAnswer{29}{+}$}
+\rput[t](8, -4){$\fcAnswer{29}{\alertNoH{31}{-}}$}
+\rput[t](11.5, 4){$\fcAnswer{29}{+}$}
+\pstVerb{end}
+\end{pspicture}
+
+\begin{pspicture}(-3,-2)(14,4)
+\tiny%
+\fcBoundingBox{-3}{-2}{14}{4}
+\psline[arrows=<->](-3,0)(13,0)
+\uncover<2->{%
+\renewcommand{\fcTickSize}{0.4}
+\fcXTick{11 3 div}%
+\fcXTick{6}%
+\fcXTick{10}%
+}%
+\uncover<28->{%
+\psline[linecolor=red](-3,3)(! 11 3 div 0.2 sub 3)(! 11 3 div 0)
+\psline[linecolor=red](! 11 3 div 0)(! 11 3 div 0.2 add 3)(5.8, 3)(6,0)
+\psline[linecolor=red](6,0)(6.2,3)(9.8,3)(10,0)
+\psline[linecolor=red](10,0)(10.2,3)(13,3)
+}%
+\uncover<31->{
+\psline[linecolor=blue](-3,3)(! 11 3 div 0.2 sub 3)(! 11 3 div 0)
+\psline[linecolor=blue](6,0)(6.2,3)(9.8,3)(10,0)
+}
+\rput[t](2,2){$\fcAnswer{29}{\alertNoH{31}{-}}$}
+\rput[t](! 11 3 div 6 add 2 div 2){$\fcAnswer{29}{+}$}
+\rput[t](8, 2){$\fcAnswer{29}{\alertNoH{31}{-}}$}
+\rput[t](11.5, 2){$\fcAnswer{29}{+}$}
+\rput[t](! 11 3 div -0.2){$\uncoverAlert{27}{ \frac{11}{3}}$}
+\rput[t](6, -0.5){$\fcAnswer{4}{\alertNoH{5}{6}}$}
+\rput[t](10, -0.5){$\fcAnswer{4}{\alertNoH{5}{10}}$}
+\end{pspicture}
+
+
+\column{0.76\textwidth}
+\begin{itemize}
+\item Solve with the aid of a plotting device.
+
+\hfil\hfil $\begin{array}{rcl}
+\alertNoH{2,26,36,37}{ \alertNoH{8}{3 u^{3}} -59 u^{2}+356 u \alertNoH{11}{- 660}} &\alertNoH{36, 37}{{<}}&\alertNoH{36,37}{{0}}\\
+\displaystyle \uncover<3->{ \alertNoH{12}{ \left( \fcAnswer{4}{  \alertNoH{8}{u} \alertNoH{11}{-} \alertNoH{5, 11}{10}}\right) \left( \fcAnswer{4 }{\alertNoH{8}{u} \alertNoH{11}{-} \alertNoH{5, 11}{6}}\right) \left( \fcAnswerUncover{ 3}{7}{\alertNoH{27}{  \alertNoH{8}{3 u} \alertNoH{11}{-} \fcAnswerUncover{7}{10}{ \alertNoH{11}{11} }}} \right) } &\alertNoH{31, 32}{{<}}&0}\\
+\uncover<30->{
+\alertNoH{37}{
+\alertNoH{30,31}{u\in\displaystyle } \fcAnswer{31}{ \onlyNoH{32}{\color{red}} \left( \onlyNoH{32}{\color{black}} -\infty, \frac{11}{3} \onlyNoH{32}{\color{red}} \right) \onlyNoH{32}{\color{black}} \cup \onlyNoH{32}{\color{red}}\left( \onlyNoH{32}{\color{black}} 6, 10 \onlyNoH{32}{\color{red}}\right) \onlyNoH{32}{\color{black}}}
+}
+}
+\end{array}$
+\item Use your solution to solve the following inequality.
+
+$
+\begin{array}{@{\!\!\!\!\!\!\!\!}r@{}c@{}l@{}l|l}
+3\cdot {\alertNoH{33, 34}{2}}^{\frac{\alertNoH{35}{ 3}}{\alertNoH{33,34}{5}} \alertNoH{33,34}{ x}}-59\cdot {\alertNoH{33, 34}{2} }^{\frac{\alertNoH{35 }{2}}{ \alertNoH{33, 34}{5}}\alertNoH{33, 34}{x} }+356\cdot \alertNoH{33, 34}{2^{ \frac{ \alertNoH{35 }{1}}{5} x}}-660&<&0\uncover<33-|handout:1>{&& \alertNoH{33,34,38}{ \text{Set } 2^{\frac{1}{5}x}=u}} \\
+\only<1-39|handout:1>{\uncover<34->{\alertNoH{36}{ 3{\alertNoH{ 34}{u}}^{ \alertNoH{35}{3}}-59 {\alertNoH{ 34}{u}}^{\alertNoH{35}{2}} +356{\alertNoH{34}{u}}- 660}&\alertNoH{36}{{<}} &\alertNoH{36}{{0}}} \\
+\uncoverAlert{37}{ \displaystyle \alertNoH{38}{u} \in \left(-\infty, \frac{11}{3}\right)\cup \left(6, 10\right)}\\}
+\displaystyle \uncover<38-|handout:2>{\alertNoH{39,40}{ \alertNoH{38,41,42}{ 2^{\frac{1}{5}x}} \alertNoH{41,42}{ \in} \displaystyle  \alertNoH{41}{ \left(-\infty, \frac{11}{3}\right)} \cup \alertNoH{42}{ \left(6, 10\right)}}
+}
+\end{array}
+$
+
+
+\end{itemize}
+\end{columns}
+
+
+\only<1-26|handout:1>{
+\vskip -0.9cm
+\uncover<12-26>{
+\alertNoH{12}{Check:} $
+\begin{array}{@{}r@{}c@{}l@{}}
+\alertNoH{12}{ \left(\alertNoH{13,15,16,19}{ u} \alertNoH{14,17,18,20}{-10} \right) \left(\alertNoH{13,14,16,18}{ u}\alertNoH{15,17, 19,20}{-6}\right) \left(\alertNoH{13,14,15,17}{ 3u}\alertNoH{16,18, 19,20}{-11} \right)} &=&\uncover<13->{ \alertNoH{13}{ 3 u^3}+ (\alertNoH{21}{ \alertNoH{ 14}{ - 10\cdot 3} \alertNoH{15}{-6\cdot 3}\alertNoH{16}{ -11} } )\alertNoH{14,15,16}{u^2}} \\
+&&
+\uncover<13->{+(\alertNoH{22}{ \alertNoH{17}{10\cdot 6\cdot 3} +\alertNoH{18}{10\cdot 11}+\alertNoH{19}{6\cdot 11}} )\alertNoH{17,18,19}{ u} }\\
+&&\uncover<13->{ \alertNoH{20,23}{-10 \cdot 6\cdot 11}}\\
+&=&3u^3+(\alertNoH{21,24}{-30-18-11})u^2\\
+&&+(\alertNoH{22,25}{180+110+66})-\alertNoH{23}{660}\\
+&=& \alertNoH{26}{3u^3 -\alertNoH{24}{59}u^2+ \alertNoH{25}{356}u-660}
+\end{array}
+$
+}
+}
+\only<40-|handout:2,3>{
+\uncover<41->{
+$\renewcommand{\arraystretch}{1.2}
+\begin{array}{@{}r@{~}c@{~}l@{~~~}c@{~~~}r@{~}c@{~}c@{~}c@{~}l@{}l|l}
+\only<40-47|handout:2>{%
+\alertNoH{41}{ {\alertNoH{43 }{2}}^{ \frac{1}{5}x}} &\alertNoH{ 41}{{<}}& \alertNoH{41}{\frac{11}{3}} &\text{~~or~~}& \alertNoH{42}{ 6}&\alertNoH{42}{{<}}& \alertNoH{42}{ {\alertNoH{43}{2}}^{ \frac{ 1}{5}x}} &\alertNoH{42}{{<}} &\alertNoH{42}{10} \uncover<43->{ && \text{Apply } \alertNoH{43}{\log_2}} \\
+\uncover<43->{ \frac{1}{\alertNoH{44}{5}}x &<& \alertNoH{43}{ \log_2} \left( \frac{11}{3}\right) &\text{~~or~~}&  \alertNoH{43}{\log_2} 6&<& \frac{1}{\alertNoH{44}{5}}x&<& \alertNoH{43}{\log_2} 10} \\
+\uncover<44->{ \alertNoH{45}{x} &\alertNoH{45}{{<}} &\alertNoH{45}{ \alertNoH{44}{ 5} \log_2 \left(\frac{11}{3}\right)} &\text{~~or~~}& \alertNoH{46}{ \alertNoH{44}{ 5}\log_2 6}&\alertNoH{46}{{<}}&\alertNoH{46}{x}&\alertNoH{46}{{<}}&\alertNoH{46}{\alertNoH{44}{ 5}\log_2 10}} \\}%
+~~~~~~~~&\multicolumn{9}{c}{
+\uncover<45->{ \alertNoH{47,48}{ \alertNoH{45,46}{x\in} \alertNoH{45 }{\left(-\infty, 5\log_2 \left( \frac{11}{3}\right) \right)} \cup \alertNoH{46}{ \left(5 \log_2 6, 5\log_2 10 \right)}
+}}}
+\end{array}
+$
+}}
+
+\only<48-|handout:3>{
+\psset{xunit=0.08cm, yunit=0.08cm}
+\begin{pspicture}(-3,-12.5)(35,14)
+\tiny
+\pstVerb{20 dict begin /u {2 0.2 x mul exp} def /theFun {3 u u u mul mul mul -59 u u mul mul 356 u mul -660 add add add} def /pt1 11 3 div ln 2 ln div 5 mul def /pt2 6 ln 2 ln div 5 mul def /pt3 10 ln 2 ln div 5 mul def}
+\fcBoundingBox{-3}{-12.5}{35}{14}
+\fcLabels{34}{12.5}
+\psaxes[arrows=<->, ticks=none, labels=none](0, 0)(-3,- 12.5)(34, 12.5)
+\psplot[linecolor=\fcColorGraph]{pt1 0.3 sub}{pt3 0.1 add}{theFun}
+\psplot[linecolor=blue]{pt1 0.3 sub}{pt1}{theFun}
+\psplot[linecolor=blue]{pt2}{pt3}{theFun}
+\renewcommand{\fcTickSize}{0.5}
+\fcYTickWithLabel{10}{$10$}
+\fcXTick{pt1}
+\rput[t] (5.4, -7){$5\log_2 \left(\frac{11}{3}\right)$}
+\psline[ arrows=->, linestyle=dotted](5.4, -7)(! pt1 0)
+\fcXTick{pt2}
+\rput[lb] (15,10){$5\log_2 6$}
+\psline[ arrows=->, linestyle=dotted](15,10)(! pt2 0)
+\fcXTick{pt3}
+\psline[ arrows=->, linestyle=dotted](26,-10)(! pt3 0)
+\rput[t] (26,-10){$5\log_2 10$}
+\pstVerb{end}
+\end{pspicture}
+}
+
 
 \end{example}
+
+\vskip 10cm
 \end{frame}
