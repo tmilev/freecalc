@@ -3,26 +3,26 @@
 \begin{itemize}
 \item When we want to define a function $f$ whose domain (input) is a number, we often use algebraic formulas, for example:
 \[
-f(\only<-16>{ {\color{blue}x}} \only<17->{ {\color{purple}t}} )=2{{\only<-16>{\color{blue}x}} {\only<17->{\color{purple}t}} }^2+ \only<-16>{{\color{blue}x}}\only<17->{{\color{purple}t}}+1.
+f(\only<handout:1,2|-16>{ {\color{blue}x}} \only<handout:3|17->{ {\color{purple}t}} )=2{{\only<handout:1,2|-16>{\color{blue}x}} {\only<handout:3|17->{\color{purple}t}} }^2+ \only<handout:1,2|-16>{{\color{blue}x}} \only<handout:3|17->{{\color{purple}t}}+ 1.
 \]
 \item<2-> In the notation above, ${\color{blue}x}$ is an \alertNoH{6}{independent}, \alertNoH{8}{bounded (dummy, placeholder)} variable - it denotes a substitution pattern. 
-\only<1-6>{
+\only<handout:1|1-6>{
 \item<3-> We could think of ${\color{blue}x}$ as a placeholder - instead of $f({\color{blue}x})=2{\color{blue}x}^2+{\color{blue}x}+1$ we could write $f({\color{blue}\Box}) = 2 {\color{blue}\Box} ^2 + {\color{blue}\Box}+1$. 
 \item<4-> Here, ${\color{blue}\Box}$ denotes our ability to substitute $f({\color{blue}\Box})$ by $2{\color{blue}\Box}^2+{\color{blue}\Box}+1$.
 \item<5-> For example $f(\alertNoH{5}{1})=2\cdot \alertNoH{5}{1}^2+\alertNoH{5}{1}+1$. 
 \item<6-> The word \alertNoH{6}{independent} refers to the fact that ${\color{blue}x}$ is no relation with any of the other variables in the text.
 }
-\only<7->{
+\only<handout:2|7->{
 \item Another example is $f({\color{red}x}^2)= 2 \left({\color{red}x}^2\right)^2+{\color{red}x}^2+1$.
 }
-\only<8-13>{
+\only<handout:2|8-13>{
 \item This example illustrates the meaning of the word \alertNoH{8}{bounded (dummy, placeholder)}: \uncover<9->{the dummy variable ${\color{blue}x}$ is only a convenient placeholder label,} \uncover<10->{and is a distinct mathematical object from the variable ${\color{red}x}$ which has meaning outside of the expression $f({\color{red}x}^2)$.} 
 \item<11-> If we omit the clarification colors, it is no longer clear whether $f(x)$ refers to the defining expression for $f({\color{blue}x})$, \uncover<12->{or to an expression $f({\color{red}x})$ where ${\color{red}x}$ has meaning outside of the definition of $f$.}
 }
-\only<13->{
+\only<handout:3|13->{
 \item Computer algebra systems will ``keep track of the colors'' and will not confuse the dummy ${\color{blue}x}$ with the non-dummy variable ${\color{red}x} $.
 }
-\only<14->{
+\only<handout:3|14->{
 \item<15-> For humans however the danger of confusion is real. 
 \item<16-> In case of human confusion, clarification should be sought through \alertNoH{16,17}{renaming variables}, \alertNoH{17}{as illustrated above}.
 \item<18-> The relabeling of the dummy variable to ${\color{purple}{t}}$ removes any confusion about the meaning of $f({\color{red}x}^2)$.
