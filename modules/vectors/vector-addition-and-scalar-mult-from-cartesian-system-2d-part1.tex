@@ -2,33 +2,22 @@
 \begin{columns}
 \column{0.3\textwidth}
 \psset{xunit=0.9cm, yunit=0.9cm}
-\begin{pspicture}(-0.5,-0.5)(3,3)
+\begin{pspicture}(-0.5,-0.5)(3.2,3.2)
 \tiny
 \fcAxesStandard{-0.5}{-0.5}{3}{3}
 \fcLabels{3}{3}
-\uncover<9->{%
-\fcFullDot{1}{0.5}
-\rput[b](1, 0.55){$P$}
-}%
 \uncover<9-13>{%
-\rput[t](1, 0.45){$(x_1, y_1)$}
+\rput[lt](1, 0.45){$(x_1, y_1)$}
 }
-\uncover<10->{%
-\fcFullDot{0.5}{1.5}
-\rput[t](0.5, 1.45){$Q$}
-}%
 \uncover<10-13>{%
-\rput[b](0.5, 1.55){$(x_2, y_2)$}
+\rput[br](0.5, 1.55){$(x_2, y_2)$}
 }
 \uncover<10->{%
 \fcFullDot{0}{0}
 \rput[tr](0, 0){$O~~$}
 }%
 \uncover<12->{\fcFullDot{1.5}{2}}
-\uncover<12,13>{\rput[b](1.5, 2.05){$(x_1+x_2, y_1+y_2)$}}
-\uncover<13->{
-\rput[t](1.5, 1.95){$P+Q$}
-}
+\uncover<12,13>{\rput[b](1.5, 2.05){$(x_1+x_2, y_1+ y_2)$}}
 \uncover<14,15>{
 \psline[linecolor=blue](3,1.5)(-0.5, -0.25) 
 \psline[linecolor=blue](3,2.75)(-0.5, 1) 
@@ -43,6 +32,17 @@
 \psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(0.5, 1.5)
 \psline[arrows=->, linecolor=red, linewidth=1.5pt](0,0)(1, 0.5)
 }
+\uncover<13->{
+\rput[lt](1.5, 1.95){$P+Q$}
+}
+\uncover<9->{%
+\fcFullDot{1}{0.5}
+\rput[br](1, 0.55){$P$}
+}%
+\uncover<10->{%
+\fcFullDot{0.5}{1.5}
+\rput[tl](0.5, 1.45){$Q$}
+}%
 \end{pspicture}
 \column{0.7\textwidth}
 \begin{definition}[$+, \cdot$ in $\mathbb R^2$]

@@ -565,8 +565,8 @@ terminalArmPoint ==
 /nVscaled nV 0.05 \fcVectorTimesScalar def
 }%
 \psline[linecolor=red, #1](! #2 #3)(! #4 #5)%
-\psline[linecolor=red, #1](! [#2 #3] nVscaled \fcVectorMinusVector \fcArrayToStack)(! [#2 #3] nVscaled \fcVectorPlusVector \fcArrayToStack)%
-\psline[linecolor=red, #1](! [#4 #5] nVscaled \fcVectorMinusVector \fcArrayToStack)(! [#4 #5] nVscaled \fcVectorPlusVector \fcArrayToStack)%
+\psline[linecolor=red, #1, arrows=none](! [#2 #3] nVscaled \fcVectorMinusVector \fcArrayToStack)(! [#2 #3] nVscaled \fcVectorPlusVector \fcArrayToStack)%
+\psline[linecolor=red, #1, arrows=none](! [#4 #5] nVscaled \fcVectorMinusVector \fcArrayToStack)(! [#4 #5] nVscaled \fcVectorPlusVector \fcArrayToStack)%
 \rput(! #2 #4 add 0.5 mul #3 #5 add 0.5 mul){\colorbox{white}{#6}}%
 \pstVerb{end}%
 }%

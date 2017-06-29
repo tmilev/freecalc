@@ -6,8 +6,8 @@
 \item<7-> The details of how this is done require integrals and we postpone this for later/another course.
 \item<8-> Until then we ask the reader to think of arc-length of a curve as the quantity obtained by ``aligning a rope along the curve'' and measuring the ``length of this rope''.
 \end{itemize}
-\begin{center}
-\begin{pspicture}(-0.4,-0.3)(2.3,1.994800)
+%warning: begin center does not compile! (probably a bug)
+\hfil\hfil\begin{pspicture}(-0.4,-0.3)(2.3,1.994800)
 \tiny
 \newcommand{\theCurve}{t 13 t -50 mul add t 2 exp 70 mul add t 3 exp -40 mul add t 4 exp 8 mul add}
 \newcommand{\lowBound}{0.4}
@@ -21,7 +21,5 @@
 \only<handout:0|5>{\parametricplot[linecolor=blue, plotpoints=16]{\lowBound}{\highBound}{\theCurve}}
 \only<handout:0|6->{\parametricplot[linecolor=blue, plotpoints=32]{\lowBound}{\highBound}{\theCurve}}
 \end{pspicture}
-\end{center}
-
 \end{frame}
 

@@ -3,8 +3,8 @@
 \begin{definition}
 Two positive angles are called complementary when they sum to a right angle, i.e., an angle of measure $\displaystyle \frac{\pi}{2}=90^\circ$.
 \end{definition}
-\begin{center}
-\psset{xunit=2cm, yunit=2cm}
+%warning: begin center does not compile! (probably a bug)
+\hfil\hfil\psset{xunit=2cm, yunit=2cm}
 \begin{pspicture}(-1,-1)(1,1)
 \fcPerpendicular[arrows=<-]{[0 1]}{[-1 0]}{0.1}
 \psline[arrows=->](0,0)(1.2,0)
@@ -12,8 +12,5 @@ Two positive angles are called complementary when they sum to a right angle, i.e
 \parametricplot[linecolor=\fcColorGraph]{60}{90}{t cos 0.4 mul t sin 0.4 mul}
 \psline[arrows=->](0,0)(! 60 cos 60 sin)
 \end{pspicture}
-
-\end{center}
-
 
 \end{frame}

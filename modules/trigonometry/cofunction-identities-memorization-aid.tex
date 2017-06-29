@@ -2,7 +2,8 @@
 \frametitle{Cofunction identities}
 \vskip -0.1cm
 \begin{proposition}[Cofunction identities]
-\hfil \hfil$
+\hfil \hfil
+$
 \renewcommand{\arraystretch}{1.4}
 \begin{array}{rclrcl}
 \displaystyle \sin \left(\frac{\pi}{2}-\alpha\right)&=&\cos \alpha &\displaystyle \sin \left(\frac{\pi}{2}+\alpha\right)&=&\cos \alpha \\
@@ -11,8 +12,9 @@
 $
 \end{proposition}
 To memorize the cofunction identities it suffices to memorize the Quadrant I case via the two diagrams below.
-\begin{center}
-\begin{tabular}{cc}
+
+\begin{columns}[T]
+\column{0.5\textwidth}
 \psset{xunit=1.5cm, yunit=1.5cm}
 \begin{pspicture}(-1.3,-0.4)(1.3,1.3)%
 \tiny
@@ -39,9 +41,17 @@ To memorize the cofunction identities it suffices to memorize the Quadrant I cas
 \rput[r](! -0.05 pY ){$Q$}%
 \pstVerb{end}%
 \end{pspicture}
-&
+
+$
+\begin{array}{rcl}
+\sin \left(\frac{\pi}{2}-\alpha\right)&=&\frac{|PQ|}{|OP|}\\
+\cos \left(\frac{\pi}{2}-\alpha\right)&=&\frac{|OQ|}{|OP|}
+\end{array}
+$
+
+\column{0.5\textwidth}
 \psset{xunit=1.5cm, yunit=1.5cm}
-\begin{pspicture}(-1.3,-1.3)(1.3,1.3)%
+\begin{pspicture}(-1.3,-0.4)(1.3,1.3)%
 \tiny
 \fcAxesStandard{-1.3}{-0.4}{1.3}{1.3}%
 \pstVerb{25 dict begin }%
@@ -75,16 +85,14 @@ To memorize the cofunction identities it suffices to memorize the Quadrant I cas
 \rput[l](! 0.05 pYother ){$Q'$}%
 \rput[b](! pXother 0.05){$R'$}%
 \pstVerb{end}%
-\end{pspicture}\\
-$\begin{array}{rcl}\sin \left(\frac{\pi}{2}-\alpha\right)&=&\frac{|PQ|}{|OP|}\\
-\cos \left(\frac{\pi}{2}-\alpha\right)&=&\frac{|OQ|}{|OP|}
-\end{array}
-$& $\begin{array}{rcl}
-\sin \left(\frac{\pi}{2}+\alpha\right)&=&\frac{|OQ'|}{|OP|}\\
+\end{pspicture}
+
+$
+\begin{array}{rcl}
+\sin \left(\frac{\pi}{2}+\alpha\right)&=&  \frac{|OQ'|}{|OP|}\\
 \cos \left(\frac{\pi}{2}+\alpha\right)&=&- \frac{|PQ'|}{|OP'|}=\frac{|PR|}{|OP|}
 \end{array}
 $
-\end{tabular}
-\end{center}
+\end{columns}
 \vskip 10cm
 \end{frame}
