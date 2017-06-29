@@ -1,20 +1,31 @@
 % begin module compare-linear
 \begin{frame}
-\ \only<handout:0| -1>{%
-\includegraphics[height=5cm]{../../modules/lines-2d/pictures/01-02-positivea.pdf}%
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-1,-4)(5.5,4.3)
+\tiny
+\fcAxesStandard{-1}{-4}{5}{4}
+\psline[linecolor=red](-1,-1)(4,4)
+\rput[lt](3,3){$y=x$}
+\uncover<2->{%
+\psline[linecolor=black](-1,-2)(2,4)%
+\rput[lt](1.8,3.6){$y=2x$}%
 }%
-\only<handout:0| 2>{%
-\includegraphics[height=5cm]{../../modules/lines-2d/pictures/01-02-positiveb.pdf}%
+\uncover<3->{%
+\psline[linecolor=blue](-1,-3)(! 4 3 div 4)%
+\rput[rt](1.3,3.9){$y=3x~$}%
 }%
-\only<handout:0| 3>{%
-\includegraphics[height=5cm]{../../modules/lines-2d/pictures/01-02-positivec.pdf}%
+\uncover<4->{%
+\psline[linecolor=black](-1,-0.5)(! 5 2.5)%
+\rput[br](3,1.5){$y=\frac{x}{2}$}%
 }%
-\only<handout:0| 4>{%
-\includegraphics[height=5cm]{../../modules/lines-2d/pictures/01-02-positived.pdf}%
+\uncover<5->{%
+\psline[linecolor=blue](!-1 -1 3 div)(! 5 5 3 div)%
+\rput[lt](!4 4 3 div){$y=\frac{x}{3}$}%
 }%
-\only<5>{%
-\includegraphics[height=5cm]{../../modules/lines-2d/pictures/01-02-positivee.pdf}%
-}%
+\fcLabels{5}{4}
+\fcXTickWithLabel{1}{$1$}
+\fcYTickWithLabel{1}{$1$}
+\end{pspicture}
 
 \begin{itemize}
 \item<1->  If two linear functions have positive slopes, the one with the bigger slope increases faster.
@@ -26,22 +37,32 @@
 \end{frame}
 
 \begin{frame}
-\ \only<handout:0| -1>{%
-\includegraphics[height=5cm]{precalculus/pictures/01-02-negativea.pdf}%
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-1,-4)(5.5,4.3)
+\tiny
+\fcAxesStandard{-1}{-4}{5}{4}
+\psline[linecolor=red](-1,1)(4,-4)
+\rput[lb](3,-3){$y=-x$}
+\uncover<2->{%
+\psline[linecolor=black](-1,2)(2,-4)%
+\rput[lb](1.8,-3.6){$y=-2x$}%
 }%
-\only<handout:0| 2>{%
-\includegraphics[height=5cm]{precalculus/pictures/01-02-negativeb.pdf}%
+\uncover<3->{%
+\psline[linecolor=blue](-1,3)(! 4 3 div -4)%
+\rput[rb](1.3,-3.9){$y=-3x~$}%
 }%
-\only<handout:0| 3>{%
-\includegraphics[height=5cm]{precalculus/pictures/01-02-negativec.pdf}%
+\uncover<4->{%
+\psline[linecolor=black](-1, 0.5)(! 5 -2.5)%
+\rput[tr](3,-1.5){$y=-\frac{x}{2}$}%
 }%
-\only<handout:0| 4>{%
-\includegraphics[height=5cm]{precalculus/pictures/01-02-negatived.pdf}%
+\uncover<5->{%
+\psline[linecolor=blue](!-1 1 3 div)(! 5 5 -3 div)%
+\rput[lb](!4 4 -3 div){$y=-\frac{x}{3}$}%
 }%
-\only<5>{%
-\includegraphics[height=5cm]{precalculus/pictures/01-02-negativee.pdf}%
-}%
-
+\fcLabels{5}{4}
+\fcXTickWithLabel{1}{$1$}
+\fcYTickWithLabel{1}{$1$}
+\end{pspicture}
 \begin{itemize}
 \item<1->  If two linear functions have negative slopes, the one with the lower slope decreases faster.
 \item<2->  $y = -2x$ decreases twice as fast as $y = -x$.
