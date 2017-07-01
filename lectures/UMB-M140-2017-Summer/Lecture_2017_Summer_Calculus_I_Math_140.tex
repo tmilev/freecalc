@@ -11,7 +11,7 @@
 [handout]%
 {beamer}
 %IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
-\newcommand{\currentLecture}{7}
+\newcommand{\currentLecture}{3}
 \newcommand{\semester}{Spring 2017}
 \input{../example-templates}
 \input{../system-specific-config-Ubuntu-texlive} %
@@ -44,19 +44,37 @@
 \fi
 }
 
+
+\setbeamertemplate{headline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{author in head/foot}{\insertsectionhead}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}{\insertsubsectionhead}
+  \end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}
+}
+}
+
 \setbeamertemplate{footline}
 {
   \leavevmode%
   \hbox{%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
     \usebeamerfont{author in head/foot}\insertshortauthor
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
     \usebeamerfont{title in head/foot}\insertshorttitle
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+\begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
     \usebeamerfont{date in head/foot}\insertshortdate{}
-  \end{beamercolorbox}}%
+  \end{beamercolorbox}
+  }%
   \vskip0pt%
 }
 
@@ -76,14 +94,10 @@
 ~
 }} Math 140}
 \subtitle{\insertlecture}
-\author[\raisebox{-0.115cm}{
-\includegraphics[height=0.4cm]{../University-Logos/UMass-logo-blue.png}
-~
-} FreeCalc \\ Math 140]{
-\begin{tabular}{c}
-%Instructor:\\
-%Todor Milev
-\end{tabular}
+\author[Todor Milev \& freecalc]{
+Todor Milev \\
+and \\
+the freecalc team
 }
 
 \institute[UMass Boston]{University of Massachusetts Boston}
