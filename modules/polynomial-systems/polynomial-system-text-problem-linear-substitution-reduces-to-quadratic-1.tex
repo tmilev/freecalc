@@ -1,6 +1,46 @@
 \begin{frame}
+\vskip -0.1cm
 \begin{example}
-The sum of two numbers $x$ and $y$ is $25$ and the sum of their squares is $313$. Given that $y\geq x$, find $x$ and $y$.
+The \alertNoH{2}{sum of two numbers $x$ and $y$ is $25$} and the \alertNoH{3}{sum of their squares is $313$}. Given that $y\geq x$, find $x$ and $y$.
 
+$\begin{array}{@{}r@{~}c@{~}l}
+\uncover<2->{  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  \alertNoH{2}{ \alertNoH{4}{x}+y} &\alertNoH{2}{{=}}&\alertNoH{2}{25}\qquad\uncover<4->{ | \alertNoH{5}{\text{Solve for }y }}}\\
+\uncover<4->{\alertNoH{5,6,29}{y}&\alertNoH{5,6, 29}{{=}} &\alertNoH{5,6, 29}{25-\alertNoH{4}{x}}}\\
+\uncover<3->{\alertNoH{3}{ x^2+ {\alertNoH{6}{y}} ^2} &\alertNoH{3}{{=}}&\alertNoH{ 3}{313} }\\
+\uncover<6->{x^2+\alertNoH{7}{(\alertNoH{6}{ \alertNoH{8}{ 25} - \alertNoH{9}{x}})^2}&=&\alertNoH{10}{313} }\\
+\only<handout:1|1-27>{
+
+\uncover<7->{\alertNoH{11}{ x^2}+ \left(\alertNoH{7}{ \alertNoH{13}{ {\alertNoH{8 }{25}}^2 } -\alertNoH{12}{ 2\cdot \alertNoH{8}{25}} \cdot \alertNoH{9}{x} +\alertNoH{11}{ {\alertNoH{9}{x}}^2} } \right) -\alertNoH{10}{313}&=&0 \qquad \left|
+\alertNoH{7}{({\alertNoH{8}{ a}}-{\alertNoH{9}{b}})^2={\alertNoH{8}{ a}}^2-2{\alertNoH{8}{ a}}{\alertNoH{9}{b}}+{\alertNoH{9}{b}}^2}\right.}\\
+\uncover<11->{\alertNoH{11}{ 2x^2} -\alertNoH{12}{50}x+ \alertNoH{14}{\alertNoH{13}{ 625}- 313}&=&0}\\
+\uncover<14->{\alertNoH{15,16}{ 2}x^2-\alertNoH{15,16}{50}x+ \alertNoH{14,15, 16}{312} &=&0\qquad \uncover<15->{ | \alertNoH{15,16}{\text{Divide by }2}}} \\
+\uncover<16->{ x^2 \alertNoH{17}{- \alertNoH{16}{25}}x+\alertNoH{16,19}{156}&=&0}\\
+
+}
+
+\uncover<17->{\alertNoH{27,28,30,32,33}{ x}& \alertNoH{27,28}{{=}}& \displaystyle \alertNoH{27,28}{ \frac{ \alertNoH{20}{-} (\alertNoH{17}{ \alertNoH{20}{-} 25})\pm \sqrt{ \alertNoH{21}{{\alertNoH{17}{25}}^2}- \alertNoH{22}{4}\cdot \alertNoH{18}{ 1}\cdot\alertNoH{19,22}{ 156}}}{2\cdot \alertNoH{18}{1} } }} \\
+\uncover<20->{ &\alertNoH{27,28}{{=}}&\displaystyle \alertNoH{27,28}{ \frac{\alertNoH{20}{25}\pm \sqrt{ \alertNoH{23}{\alertNoH{21}{ 625} -\alertNoH{22}{ 624}}} }{2} }}\\
+\uncover<23->{&\alertNoH{27,28}{{=}}&\displaystyle  \alertNoH{27,28}{\frac{25\alertNoH{24}{\pm} \alertNoH{23}{1} }{2}}\displaystyle \uncover<24->{\alertNoH{27,28}{= \onlyNoH{24}{\color{red}} \left\{ \onlyNoH{24}{\color{black}} \begin{array}{l} \alertNoH{25}{ \frac{25\alertNoH{24}{+}1 }{2}} \uncover<25->{\alertNoH{25,30,33}{ =13}} \\ \alertNoH{26}{ \frac{25\alertNoH{24}{-} 1}{2}} \uncover<26->{\alertNoH{26, 30,32}{=12}} \end{array}\right.}} }\\
+
+\only<handout:2|28->{
+\uncover<29->{\alertNoH{29,32,33}{y}&\alertNoH{29}{{=}}& \alertNoH{29}{25-\alertNoH{30}{x}}
+\uncover<30->{ =
+\left\{ \begin{array}{l}
+\alertNoH{31}{ 25-\alertNoH{30}{13}} 
+\uncover<31->{\alertNoH{31}{= 12}} \\
+\alertNoH{31}{25 -\alertNoH{30,32}{12}}\uncover<31->{\alertNoH{31,33}{ =13}} \end{array}\right.
+}
+}}
+\end{array}
+$
+
+\only<handout:2|28->{
+\uncover<32->{ The two solution candidates are $\alertNoH{32, 34}{x=12, y=13}$ and $\alertNoH{33}{x=13, y=12}$.}
+\uncover<34->{
+Since $\alertNoH{34}{y\geq x}$, one of the solutions needs to be discarded and our final answer is $\alertNoH{34}{ x=12, y=13}$.
+}
+}
 \end{example}
+
+\vskip 10cm
 \end{frame}
