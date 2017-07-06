@@ -1,40 +1,68 @@
 \begin{frame}
 \begin{example}
-\begin{columns}
-\column{0.3\textwidth}
+\vskip 0.15cm
+\begin{columns}[T]
+\column{0.28\textwidth}
+\uncover<2->{
 \psset{xunit=3cm, yunit=3cm}
-\begin{pspicture}(-0.5,-0.5)(1.5,1.5)
-\tiny
-\fcBoundingBox{-0.05}{-0.15}{1.15}{1.1}
-\psline(0,0)(1,0)(1,1)(0,0)
-\fcPerpendicular{[1 1]}{[1 0]}{0.1}
+\begin{pspicture}(-0.05,-0.15)(1.15,1.1)%
+\tiny%
+\fcBoundingBox{-0.05}{-0.15}{1.15}{1.1}%
+\psline(0,0)(1,0)(1,1)(0,0)%
+\onlyNoH{3}{%
+\psline[linecolor=red, linewidth=2pt](0,0)(1,0)
+}%
+\onlyNoH{5}{\renewcommand{\fcAngleLineWidth}{2pt}}%
+\fcPerpendicular{[1 1]}{[1 0]}{0.1}%
+\onlyNoH{11,12}{\psline[linecolor=red, linewidth=2pt](0,0)(1,0)(1,1)}%
+\onlyNoH{13,14,15,17,21}{\psline[linecolor=blue, linewidth=2pt](1,0)(1,1)}%
+\onlyNoH{14,15,19,21}{\psline[linecolor=green, linewidth=2pt](0,0)(1,0)}%
+\onlyNoH{14,15,17,19}{\psline[linecolor=orange, linewidth=2pt](1,1)(0,0)}%
 \parametricplot[linecolor=red]{0}{45}{t cos 0.2 mul t sin 0.2 mul}
-\parametricplot[linecolor=red]{-90}{-135}{t cos 0.2 mul 1 add t sin 0.2 mul 1 add}
-\rput[l](0.2, 0.1){$45^\circ$}
-\rput[t](0.9, 0.8){$\gamma=45^\circ$}
-\rput[t](0.5, -0.05){$1$}
-\rput[l](1.05, 0.5){$1$}
+\onlyNoH{2,4,5,10}{%
+\parametricplot[linecolor=red, linewidth=2pt]{0}{45}{t cos 0.2 mul t sin 0.2 mul}%
+}%
+\uncover<3->{%
+\parametricplot[linecolor=red]{-90}{-135}{t cos 0.2 mul 1 add t sin 0.2 mul 1 add}%
+}%
+\onlyNoH{4,5,10}{%
+\parametricplot[linewidth=2pt,linecolor=red]{-90}{-135}{t cos 0.2 mul 1 add t sin 0.2 mul 1 add}%
+}%
+
+\rput[l](0.2, 0.1){$\alertNoH{2,5}{45^\circ}$}
+\uncover<4->{%
+\rput[t](0.9, 0.8){$\alertNoH{4,5}{\gamma}\uncover<8->{=}\fcAnswer{9}{ 45^\circ}$}%
+}%
+\rput[t](0.5, -0.05){$\uncover<3->{\alertNoH{3,11,12,17,21}{1}}$}
+\rput[l](1.05, 0.5){$\uncover<13->{\alertNoH{13,19,21}{1}}$}
+\rput[b](0.5, 0.6){$\fcAnswer{15}{\alertNoH{17,19}{\sqrt{2}}}$}
 \end{pspicture}
-\column{0.7\textwidth}
+}
+\column{0.72\textwidth}
 Find the values of $\sin 45^{\circ}, \cos45^{\circ}, \tan45^{\circ}$.
 
-\uncover<2->{
-Realize the $45^\circ$ angle in a right angle triangle so that the adjacent side has length $1$ and let $\gamma$ be the other acute angle of the triangle. The angles in a triangle sum to $180^\circ$, and so 
-\[
+\begin{itemize}
+\item<2-> Draw the $\alertNoH{2}{45^\circ}$ angle in right angle triangle, \uncover<3->{adjacent side of length $\alertNoH{3}{1}$}.
+\item<4-> Let $\alertNoH{4}{\gamma}$ be the angle indicated on the plot.
+\item<5-> Angles in triangle sum to $\alertNoH{6}{180^\circ}$: 
+
+\hfil \hfil $
 \begin{array}{rcl}
-45^\circ+90^\circ +\gamma &=& 180^\circ\\
-\gamma&=&45^\circ.
+\alertNoH{5}{45^\circ} +\alertNoH{5}{90^\circ} +\alertNoH{5}{\gamma} &=& \alertNoH{6}{180^\circ}\\
+\uncover<7->{\gamma&=&\alertNoH{8,9}{180^\circ-\alertNoH{7}{90^\circ}-\alertNoH{7}{45^\circ}}\uncover<8->{= \fcAnswer{9}{45^\circ.}}}
 \end{array}
-\]
-}
-\end{columns}
-\uncover<2->{Then the right angle triangle has two equal angles and is therefore isosceles (has two sides of equal length). Thus the two legs are of length $1$ and the hypothenuse is of length $\sqrt{1^2+1^2}=\sqrt{2}$.
-
-Therefore 
-
-\hfil \hfil $ \displaystyle \sin 45^\circ = \frac{\sqrt{2}}{2}\qquad \cos 45^\circ = \frac{\sqrt{2}}{2}\qquad \tan 45^\circ = \frac{\sqrt{2}}{\sqrt{2}}=1.
 $
-}
+\end{itemize}
+\end{columns}
+\vskip -0.2cm
+\begin{itemize}
+\item<10-> Triangle has two equal angles \uncover<11->{$\!\Rightarrow\!$ is \alertNoH{11,12}{isosceles}}\uncover<12->{ \alertNoH{12}{(has two equal sides)}.} 
+\item<13-> $\Rightarrow$ \alertNoH{13}{Opposite leg: length $1$} \uncover<14->{$\Rightarrow$  $\text{length}( \text{hyp} ) =\fcAnswer{15}{ \sqrt{ 1^2+1^2}=\sqrt{2}}$}.
+\item<16->  $ \displaystyle \alertNoH{16,17}{\sin 45^\circ =\fcAnswer{17}{\frac{\text{opp}}{\text{hyp}} =\frac{\sqrt{2}}{2}}}$ \qquad $\displaystyle \alertNoH{18,19}{\cos 45^\circ= \fcAnswerUncover{16}{19}{\frac{\text{adj}}{\text{hyp}}= \frac{\sqrt{2}}{2}}} $ 
+
+$\displaystyle \alertNoH{20,21}{\tan 45^\circ =\fcAnswerUncover{16}{21}{\frac{\text{opp}}{\text{adj}}= \frac{\sqrt{2}}{\sqrt{2}}=1.}}
+$
+\end{itemize}
 \end{example}
 
 \end{frame}
