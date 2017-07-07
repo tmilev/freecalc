@@ -1,20 +1,63 @@
 
 \begin{frame}
 \begin{example}
-Find the exact value of the angle (using radicals).
+Find the exact value of the trigonometric function using radicals.
 
 $\begin{array}{@{}r@{}c@{}l@{}l|l}
-\cos (105^{\circ}) \uncover<2->{&=&\displaystyle  \cos(45^\circ +60^\circ) && 
-\begin{array}{rcl}
-\text{we know the trig} \\
-\text{f-ns of }45^\circ \text{ and } 60^\circ\end{array}
+\cos (\alertNoH{2,3}{105^{\circ}}) \uncover<2->{&=&\displaystyle  \alertNoH{4,5}{\cos(\alertNoH{2,3}{45^\circ +60^\circ})} \uncover<3->{&& 
+\begin{array}{@{}l@{}}
+\alertNoH{3}{\text{we know the trig}} \\
+\alertNoH{3}{\text{f-ns of }45^\circ \text{ and } 60^\circ}\end{array}}}
 \\
-&=&\displaystyle \cos (45^\circ) \cos (60^\circ)-\sin (45^\circ) \sin (60^\circ) \\
-&=&\displaystyle \frac{\sqrt{2}}{2}\cdot \frac{1}{2}-\frac{\sqrt{2}}{2}\cdot \frac{\sqrt{3}}{2}\\
-&=&\displaystyle \frac{\sqrt{2}-\sqrt{6} }{4}.
-}
+\uncover<4->{&=&\displaystyle \fcAnswer{5}{ \alertNoH{6,7}{\cos (45^\circ)} \alertNoH{8,9}{\cos (60^\circ)}-\alertNoH{10,11}{\sin (45^\circ)} \alertNoH{12,13}{ \sin (60^\circ)}}&& \alertNoH{4,5}{\text{Angle sum f-la}} }\\
+\uncover<6->{&=&\displaystyle \fcAnswerUncover{6}{7}{ \frac{\sqrt{2}}{\alertNoH{15}{2}} } \cdot \fcAnswerUncover{6}{9}{\frac{1}{\alertNoH{15}{2}}}-\fcAnswerUncover{6}{11}{ \frac{\alertNoH{14}{\sqrt{2}}}{\alertNoH{15}{2}}} \cdot \fcAnswerUncover{6}{13}{\frac{\alertNoH{14}{ \sqrt{3}} }{\alertNoH{15}{2}}}}\\
+\uncover<14->{&=&\displaystyle \frac{\sqrt{2}-\alertNoH{14}{\sqrt{6}} }{\alertNoH{15}{4}}.}
 \end{array}
 $
+
+\uncover<3->{
+\hfil\hfil 
+\psset{xunit=1.5cm, yunit=1.5cm}
+\begin{pspicture}(-1.2,-1.2)(1.3,1.3)
+\tiny
+\pstVerb{20 dict begin /theAngle 45 def}
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}
+\fcAngleDegrees[linecolor=orange]{0}{theAngle}{0.2}{$~~~~~45^\circ$}
+\psline (0,0)(! theAngle cos theAngle sin)
+\fcPerpendicular[linecolor=blue, linewidth=1.1pt]{[theAngle cos theAngle sin]}{[1 0]}{0.1}
+\psline[linecolor=green, linewidth=1.1pt](0,0)(! theAngle cos 0)
+\onlyNoH{6,7}{%
+\psline[linecolor=green, linewidth=2pt](0,0)(! theAngle cos 0)%
+}%
+\rput[t](! theAngle cos 2 div -0.05){$ \fcAnswer{7}{ \frac{\sqrt{2}}{2}}$}
+\onlyNoH{10,11}{%
+\psline[linecolor=blue, linewidth=2pt](! theAngle cos 0)(! theAngle cos theAngle sin)%
+}%
+\rput[l](! theAngle cos 0.05 add theAngle sin 2 div){$\fcAnswer{11}{\frac{\sqrt{2}}{2}}$}
+\pstVerb{end}
+\end{pspicture}
+\begin{pspicture}(-1.2,-1.2)(1.3,1.3)
+\tiny
+\pstVerb{20 dict begin /theAngle 60 def}
+\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}
+\parametricplot[linecolor=\fcColorGraph]{0}{360}{t cos t sin}
+\fcAngleDegrees[linecolor=orange]{0}{theAngle}{0.2}{$~~~~~60^\circ$}
+\psline (0,0)(! theAngle cos theAngle sin)
+\fcPerpendicular[linecolor=blue, linewidth=1.1pt]{[theAngle cos theAngle sin]}{[1 0]}{0.1}
+\psline[linecolor=green, linewidth=1.1pt](0,0)(! theAngle cos 0)
+\onlyNoH{8,9}{%
+\psline[linecolor=green, linewidth=2pt](0,0)(! theAngle cos 0)%
+}%
+\rput[t](! theAngle cos 2 div -0.05){$ \fcAnswer{9}{ \frac{1}{2}}$}
+\onlyNoH{12,13}{%
+\psline[linecolor=blue, linewidth=2pt](! theAngle cos 0)(! theAngle cos theAngle sin)%
+}%
+\rput[l](! theAngle cos 0.05 add theAngle sin 2 div){$\fcAnswer{13}{\frac{\sqrt{3}}{2}}$}
+\pstVerb{end}
+\end{pspicture}
+}
 \end{example}
+
 
 \end{frame}
