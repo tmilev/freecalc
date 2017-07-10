@@ -1,0 +1,37 @@
+\begin{frame}
+\begin{itemize}
+\item<2-> Recall \alertNoH{2,6}{Euler's formula: $ e^{i \alertNoH{3}{ \alpha} }=\cos \alertNoH{3}{\alpha} +i\sin \alertNoH{3}{\alpha} $}.
+\item<7-> Recall the formula: $\alertNoH{7,8,9}{(\alertNoH{10}{a}+ {\alertNoH{11}{b}})^3= \fcAnswer{8}{ {\alertNoH{10}{a}}^3+3{\alertNoH{10}{a}}^2{\alertNoH{11}{b}} +3{ \alertNoH{10}{a}}{\alertNoH{11}{b}}^2 +{\alertNoH{11}{b}}^3}} $.
+\end{itemize}
+\begin{example}
+Express $\sin (3x)$ and $\cos (3x)$ via $\cos x$ and $\sin x$.
+
+$
+\begin{array}{l@{}l|l}
+\phantom{=}\uncover<2->{ \alertNoH{19}{ \alertNoH{20}{ \cos( \alertNoH{3}{3x} )} +i\alertNoH{21}{\sin(\alertNoH{3}{3x} )} }&&\text{Euler's f-la}}\\
+\uncover<2->{={\alertNoH{5}{e}}^{\alertNoH{3,4}{3}\alertNoH{5}{i\alertNoH{3}{x}} }}\\
+\uncover<4->{=\left( \alertNoH{5,6}{ e^{ix}} \right)^{\alertNoH{4}{3}} \uncover<6->{=\alertNoH{8}{ (\alertNoH{6}{ \alertNoH{9}{\cos x} + {\alertNoH{10}{i\sin x}}})^3} &&\alertNoH{6}{\text{Euler's f-la}}}}\\
+\uncover<8->{= \alertNoH{8}{ {\alertNoH{9}{\cos }}^3\alertNoH{9}{x}+ 3{\alertNoH{9}{ \cos}}^2\alertNoH{9}{x} ({\alertNoH{10}{\alertNoH{11}{i} \sin x}})+3\alertNoH{9}{\cos x}({\alertNoH{10}{{\alertNoH{12}{i}} \sin x}})^{\alertNoH{12}{2}}+({\alertNoH{ 10}{ {\alertNoH{13}{i }} \sin x}})^{\alertNoH{13}{3}}} }\\
+\uncover<11->{=\cos^3x+3 \alertNoH{11}{i} \cos^2x\sin x+3 {\alertNoH{12,14}{ i^2}}\cos x\sin^2 x+{\alertNoH{13,15}{i^3}}\sin^3}\\
+\uncover<14->{=\alertNoH{16}{\cos^3x} +\alertNoH{18}{ 3} \alertNoH{17}{i}\alertNoH{18}{\cos^2x\sin x } \alertNoH{16}{\alertNoH{14}{-} 3\cos x\sin^2 x} \alertNoH{15}{\alertNoH{18}{-}\alertNoH{17}{i} }\alertNoH{18}{\sin^3 x}}&& \text{Use }\alertNoH{14,15}{ i^2=-1}\\
+\uncover<16->{\alertNoH{19}{ =(\alertNoH{16,20}{\cos^3x-3\cos x\sin^2x})+\alertNoH{17}{i}(\alertNoH{18,21}{3\cos^2x\sin x-\sin^3x})}}
+\end{array}
+$
+
+\medskip
+
+\uncover<20->{The real parts of the starting and final expression must be equal; \uncover<21->{likewise the imaginary parts must be equal;} therefore:}
+
+$
+\begin{array}{rcl}
+\uncover<20->{\alertNoH{20}{\cos(3x)}&\alertNoH{20}{=}&\alertNoH{20}{\cos^3x-3\cos x\sin^2x}} \\
+\uncover<21->{\alertNoH{21}{\sin(3x)}&\alertNoH{21}{=}&\alertNoH{21}{3\cos^2x\sin x-\sin^3x}}
+\end{array}
+$
+
+
+\end{example}
+
+\vskip 10cm
+
+\end{frame}
