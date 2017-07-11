@@ -1,0 +1,37 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-0.5,-0.5)(3,2)
+\tiny
+\pstVerb{
+10 dict begin 
+/xA 0 def /yA 0 def 
+/xB 2 def /yB 0 def 
+/theAngle 30 def
+/length2 3 def
+/xC theAngle cos length2 mul def
+/yC theAngle sin length2 mul def
+}
+\fcBoundingBox{-0.5}{-0.5}{4}{5}
+\fcAngleDegrees{0}{theAngle}{0.5}{}
+\onlyNoH{3,6}{\fcAngleDegrees[linewidth=3pt, linecolor=red]{0}{theAngle}{0.5}{}}
+\rput[lb] (0.6, 0.1){$\alertNoH{3,6}{30^\circ}$}
+\psline(! xA yA)(! xB yB)(! xC yC)(! xA yA)
+\onlyNoH{3,4}{\psline[linewidth=2pt, linecolor=red](! xA yA)(! xB yB)}
+\onlyNoH{3,5}{\psline[linewidth=2pt, linecolor=red](! xA yA)(! xC yC)}
+\rput[t](! xA xB add 2 div yA yB add 2 div -0.1 add){$2$}
+\rput[bl](! xA xC add 2 div yA yC add 2 div 0.1 add){$3$}
+\pstVerb{end}
+\end{pspicture}
+\column{0.7\textwidth}
+The two sides of a triangle have \alertNoH{4,5}{length} $\alertNoH{4}{2}$, $\alertNoH{5}{3}$, and the angle between them is $\alertNoH{6}{30^\circ}$. \alertNoH{2}{Find the area of the triangle.} 
+
+\end{columns}
+\[
+\uncover<2->{\alertNoH{2}{\text{Area}}} \uncover<3->{= \frac{1}{2} \alertNoH{4}{a}\alertNoH{5}{ b} \alertNoH{6}{ \sin \gamma}} \uncover<4->{= \alertNoH{8,9}{\frac{1}{ \fcCancel{7}{2}} \fcCancel{7}{\alertNoH{4}{2}}\cdot \alertNoH{5}{3}\alertNoH{6}{\sin 30^\circ}}} \uncover<8->{\alertNoH{8,9}{=}\fcAnswer{9}{\frac{3}{2}}}
+\]
+\end{example}
+
+\end{frame}
