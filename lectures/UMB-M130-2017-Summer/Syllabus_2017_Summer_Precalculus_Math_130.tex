@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref}
+\usepackage{enumitem}
+\usepackage{pst-plot}
+\usepackage{pstricks}
+\usepackage{lscape}
+
+\addtolength{\hoffset}{-3.5cm}
+\addtolength{\textwidth}{6.8cm}
+\addtolength{\voffset}{-3.3cm}
+\addtolength{\textheight}{6.3cm}
+
+\newcounter{topicsCounter}
+\newcounter{topicsSubCounter}[topicsCounter]
+\newcounter{topicsSubSubCounter}[topicsSubCounter]
+
+\newcommand{\skipped}{\begin{tabular}{@{}c}optional \\reading \\not on test \end{tabular}}
+
+\usepackage{longtable}
+\usepackage{xr}
+\externaldocument{../../homework/UMB-All-Problems-By-Course/Calc-I-MasterProblemSheet}
+%\externaldocument{./CalcIMasterProblemSheetOneFile}
+
+\newcommand{\refBad}[1]{%
+\ifthenelse{\equal{\ref{#1}}{??}}%
+{(n/a)}%
+{\ref{#1}}%
+}%example usage: \refBad{\ref{eqMacLaurinDef}}{their definition}{their definition (Definition \ref{eqMacLaurinDef})}
+
+
+\newcommand{\counterTopic}{\refstepcounter{topicsCounter}\thetopicsCounter. }
+\newcommand{\counterSubTopic}{\refstepcounter{topicsSubCounter}\thetopicsCounter.\thetopicsSubCounter.  }
+\newcommand{\counterSubSubTopic}{\refstepcounter{topicsSubSubCounter}\thetopicsCounter.\thetopicsSubCounter.\thetopicsSubSubCounter. }
+
+\newcommand{\apex}{A\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt X}
+
+
+\newcommand{\websitebase}{https://piazza.com/umb/summer2017/math130}
+
+\usepackage{pdfpages}
+
+\title{\vskip -2cm 
+ Math 130 Precalculus \\ Summer 2017\\ UMass Boston}
+\date{}
+\begin{document}
+
+\maketitle
+
+\noindent \textbf{Instructor.} Todor Milev, \href{mailto:todor.milev@umb.edu}{\nolinkurl{todor.milev@umb.edu}} \quad \quad \quad .
+
+\medskip
+\noindent \textbf{Office hours. } After class.
+
+\medskip\noindent \textbf{Materials. } We will be using pdf slides, homework files, and on-line homework.
+
+
+\medskip \noindent \textbf{Lecture slides. } \url{\websitebase/resources}.
+
+\medskip \noindent \textbf{On-line homework. } \url{calculator-algebra.org}. Login information can be found at: \url{\websitebase/home}.
+
+\medskip \noindent \textbf{Additional optional materials. } Additional (optional) homework files can be found here: \url{\websitebase/resources}. If you feel the need to do additional optional reading, you may consult the Precalculus textbook found here: \url{https://openstax.org/details/precalculus}.
+
+
+
+
+\medskip
+\noindent \textbf{Grades.} Your grade will consist of two tests, a comprehensive final exam, and an on-line homework.
+\begin{itemize}
+\item The homework will account for 20\% of your total grade.
+\item The tests will account for 45\% (22.5\% each) of your total grade.
+\item The final will account for 35\% of your total grade.
+\end{itemize}
+Please note that missed tests can not be made up, unless there is a valid medical reason accompanied with an official signed document from a medical doctor. Letter grades will be assigned as follows. 
+
+\begin{center}
+\begin{tabular}{lc|lc}
+A & 93-100 & C  & 73-75 \\
+A-& 90-92  & C- & 70-72 \\
+B+& 86-89  & D+ & 66-69 \\
+B & 83-85  & D  & 63-65\\
+B-& 80-82  & D- & 50-62\\
+C+& 76-79  & F  & below 50\\
+\end{tabular}
+
+\end{center}
+
+No books, notes, calculators or any other electronic device (such as mobile phones) are allowed during any exam unless otherwise stated.
+
+\medskip
+\noindent \textbf{Homework.} You will be assigned homework, which will be posted on
+
+\url{\websitebase/resources} \quad \quad \quad .
+
+\noindent I will expect you to complete the homework in written form in a convenient for you format (notebook, folder, etc.). However, \textbf{I will not check/collect/proofread homework.} 
+ 
+\medskip
+\noindent \textbf{Student conduct.} Students  are required to adhere the University Policy on Academic Standards and Cheating, to the University Statement of Plagiarism and the Documentation of Written Work, and to the Code of Student Conduct as described in the catalog of Undergraduate programs, pages 44-45 and 48-52. The code is available at the following web-page.
+
+\noindent\url{http://www.umb.edu/life_on_campus/policies/code/}
+
+\begin{longtable}{|@{}r@{}l@{}l@{~}l|}\hline
+\multicolumn{4}{|c|}{\textbf{List of topics.} 
+}\\\hline
+&&& Topic  \\\hline
+\counterTopic&&&Trigonometry and angles\\
+&\counterSubTopic&&Angles\\
+&\counterSubTopic &&Trigonometry definitions\\
+&\counterSubTopic &&Trigonometry formulas\\
+&\counterSubTopic &&Trigonometric identities\\
+&\counterSubTopic &&Graphs of the trigonometric functions\\
+&\counterSubTopic &&Inverse trig\\
+\counterTopic&&& \\
+
+
+\hline
+
+\end{longtable}
+
+
+\end{document}
