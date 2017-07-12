@@ -11,7 +11,7 @@
 /xB 2 def /yB 0 def
 /xC 2 3 sqrt mul 2 sub 30 cos mul def /yC 2 3 sqrt mul 2 sub 30 sin mul def
 }%
-\fcBoundingBox{-0.1}{-0.2}{2.5}{3.4}
+\fcBoundingBox{-0.1}{-0.2}{2.5}{3.4}%
 \onlyNoH{3}{%
 \fcAngleFromThreePoints[anglecolor=blue, linestyle=none, anglelinewidth=2pt]{[xA yA]}{[xB yB]}{[xC yC]}{0.2}%
 \fcAngleFromThreePoints[anglecolor=blue, linestyle=none, anglelinewidth=2pt]{[xA yA]}{[xB yB]}{[xC yC]}{0.25}%
@@ -39,20 +39,20 @@
 }%
 \onlyNoH{7, 35}{%
 \psline[linewidth=2pt, linecolor=blue](! xC yC)(! xB yB)%
-}
+}%
 \onlyNoH{7, 50, 51}{%
 \psline[linewidth=2pt, linecolor=blue](! xA yA)(! xC yC)%
 }%
 \onlyNoH{3,11,39,50}{\fcAngleFromThreePoints[anglecolor=red, anglelinewidth=4pt, linestyle=none]{[xC yC]}{[xA yA]}{[xB yB]}{0.2}}%
-\rput[t](! xA xB add 0.5 mul yA yB add 0.5 mul 0.1 sub){$~~~\uncover<2->{\alertNoH{2, 10, 50, 52}{c=2}}$}
-\rput[l](! xC xB add 0.5 mul yC yB add 0.5 mul){$~~\uncoverAlert{7}{ \alertNoH{35}{a}} \uncoverAlert{35}{=\sqrt{6} -\sqrt{2}}$}
-\rput[r](! xA xC add 0.5 mul yA yC add 0.5 mul){$\alertNoH{50,51}{ \uncover<48->{2\sqrt{3}-2=}\uncoverAlert{7}{b}}$}
+\rput[t](! xA xB add 0.5 mul yA yB add 0.5 mul 0.1 sub){$~~~\uncover<2->{\alertNoH{2, 10, 50, 52}{c=2}}$}%
+\rput[l](! xC xB add 0.5 mul yC yB add 0.5 mul){$~~\uncoverAlert{7}{ \alertNoH{35}{a}} \uncoverAlert{35}{=\sqrt{6} -\sqrt{2}}$}%
+\rput[r](! xA xC add 0.5 mul yA yC add 0.5 mul){$\alertNoH{50,51}{ \uncover<48->{2\sqrt{3}-2=}\uncoverAlert{7}{b}}$}%
 \rput[t](! xA yA){$A$}%
-\rput[bl](! xA 0.2 add yA 0.05 add){$\uncover<3->{\alertNoH{3, 53}{ \alpha=30^\circ} }$}
+\rput[bl](! xA 0.2 add yA 0.05 add){$\uncover<3->{\alertNoH{3, 53}{ \alpha=30^\circ} }$}%
 \rput[l](! xB yB){$B$}%
-\rput[r](! xB 0.2 sub yB 0.1 add ){$\uncover<3->{\alertNoH{3}{\beta=45^\circ}}$}
+\rput[r](! xB 0.2 sub yB 0.1 add ){$\uncover<3->{\alertNoH{3}{\beta=45^\circ}}$}%
 \rput[b](! xC yC){$C$}%
-\rput[t](! xC 0.05 sub yC 0.3 sub){$ \uncoverAlert{4}{ \alertNoH{4,5, 6,12, 40}{ \gamma \uncover<5->{= \fcAnswer{6}{105^\circ }}}}$}
+\rput[t](! xC 0.05 sub yC 0.3 sub){$ \uncoverAlert{4}{ \alertNoH{4,5, 6,12, 40}{ \gamma \uncover<5->{= \fcAnswer{6}{105^\circ }}}}$}%
 \pstVerb{end}%
 \end{pspicture}
 \column{0.63\textwidth}
@@ -75,7 +75,7 @@ $
 \uncover<13->{\alertNoH{13,27}{\sin \alertNoH{14}{105^\circ} }} \uncover<14->{ &=& \alertNoH{15,16}{\sin (\alertNoH{14}{60^\circ+45^\circ})}} \uncover<15->{ \alertNoH{15,16}{=} \fcAnswer{16}{ \alertNoH{17,18}{ \sin 60^\circ}  \alertNoH{19,20}{\cos 45^\circ}+\alertNoH{21,22}{\cos60^\circ}\alertNoH{23,24}{ \sin 45^\circ}}} \\
 \uncover<17->{&=&\displaystyle \fcAnswerUncover{17}{18}{ \frac{\alertNoH{25}{\sqrt{3}}}{\alertNoH{26}{2}}} \fcAnswerUncover{17}{20}{\frac{\alertNoH{25}{\sqrt{2}}}{\alertNoH{26}{2}}} + \fcAnswerUncover{17}{22}{\frac{1}{\alertNoH{26}{2}}} \fcAnswerUncover{17}{24}{\frac{\sqrt{2}}{\alertNoH{26}{2}}}} \uncover<25->{\alertNoH{27}{= \frac{ \alertNoH{25}{\sqrt{6}}+\sqrt{2}}{ \alertNoH{26}{4}}}} \\
 \displaystyle \uncover<8->{ \alertNoH{8}{\frac{a}{\alertNoH{10}{\sin \alpha}}} &\alertNoH{8}{{=}} &\displaystyle \alertNoH{8}{ \frac{ c}{ \sin\gamma}}  \qquad\qquad\qquad |\text{\alertNoH{8}{Law of sines}}}\\
-\uncover<9->{ \alertNoH{35}{a} &=&\displaystyle \frac{\alertNoH{10}{ c} \alertNoH{9}{ \sin\alertNoH{11}{ \alpha}} }{\sin\alertNoH{12}{ \gamma}} \uncover<10->{= \frac{\alertNoH{10}{ 2} \alertNoH{28, 29}{\sin \alertNoH{11}{ 30^\circ}} }{ \alertNoH{13, 27}{ \sin \alertNoH{12}{ 105^\circ}}} \uncover<27->{ = \frac{ \fcCancel{30}{2} \cdot \fcAnswer{29}{ \frac{1}{\fcCancel{ 30}{ 2}}}}{ \alertNoH{27}{ \frac{ \sqrt{6} +\sqrt{2}}{\alertNoH{31}{4}}} }} =\frac{ \alertNoH{31}{4} \uncover<32->{(\alertNoH{32}{\sqrt{6}-\sqrt{2}})}}{ \alertNoH{33}{ (\sqrt{6}+\sqrt{2}) \uncover<32->{( \alertNoH{32}{ \sqrt{6} -\sqrt{2}})}}} }}\\
+\uncover<9->{ \alertNoH{35}{a} &=&\displaystyle \frac{\alertNoH{10}{ c} \alertNoH{9}{ \sin\alertNoH{11}{ \alpha}} }{\sin\alertNoH{12}{ \gamma}} \uncover<10->{= \frac{\alertNoH{10}{ 2} \alertNoH{28, 29}{\sin \alertNoH{11}{ 30^\circ}} }{ \alertNoH{13, 27}{ \sin \alertNoH{12}{ 105^\circ}}} \uncover<27->{ = \frac{ \fcCancel{30}{2} \cdot \fcAnswerUncover{27}{29}{ \frac{1}{\fcCancel{ 30}{ 2}}}}{ \alertNoH{27}{ \frac{ \sqrt{6} +\sqrt{2}}{\alertNoH{31}{4}}} }} \uncover<31->{=\frac{ \alertNoH{31}{4} \uncover<32->{(\alertNoH{32}{\sqrt{6}-\sqrt{2}})}}{ \alertNoH{33}{ (\sqrt{6}+\sqrt{2}) \uncover<32->{( \alertNoH{32}{ \sqrt{6} -\sqrt{2}})}}} }}}\\
 \uncover<33->{&=&\displaystyle \frac{\alertNoH{34}{4}(\sqrt{6}-\sqrt{2})}{\alertNoH{33,34}{6-2}} \uncover<34->{\alertNoH{35}{= \sqrt{6}-\sqrt{2}}}} \\
 }
 \only<handout:3|36->{
