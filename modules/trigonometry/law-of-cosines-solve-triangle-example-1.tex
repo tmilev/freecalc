@@ -1,0 +1,76 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.9cm, yunit=0.9cm}
+\begin{pspicture}(-0.2, -0.3)(3.9,2.3)
+\tiny
+\fcBoundingBox{-0.2}{-0.3}{3.9}{2.3}
+\pstVerb{30 dict begin
+/xA 0 def /yA 0 def
+/xB 3 def /yB 0 def
+/lengthC 3 def
+/lengthA 6 sqrt 1 sub def
+/theAngle 120 def
+/lengthB 2 def
+/theArea lengthB lengthA 120 sin mul mul 2 div def
+/yC theArea lengthC div 2 mul def /xC lengthB dup mul yC dup mul sub sqrt def
+}%
+\onlyNoH{3,30}{%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none, anglelinewidth=3pt]{[xB yB]}{[xC yC]}{[xA yA]}{0.2}%
+}%
+\uncover<3->{%
+\fcAngleFromThreePoints[anglecolor=green, linestyle=none, anglelinewidth=1pt]{[xB yB]}{[xC yC]}{[xA yA]}{0.2}%
+}%
+\psline(! xA yA)(! xB yB)(! xC yC)(! xA yA)%
+\onlyNoH{2}{%
+\psline[linewidth=2pt, linecolor=green](! xA yA)(! xB yB)%
+}%
+\onlyNoH{5,30}{%
+\psline[linewidth=2pt, linecolor=red](! xC yC)(! xB yB)%
+}%
+\onlyNoH{4,30}{%
+\psline[linewidth=2pt, linecolor=blue](! xA yA)(! xC yC)%
+}%
+\rput[t](! xA xB add 0.5 mul yA yB add 0.5 mul 0.1 sub){$~~~\uncover<2->{\alertNoH{2,9}{c=3}}$}%
+\rput[l](! xC xB add 0.5 mul yC yB add 0.5 mul){$~~\uncoverAlert{5}{\alertNoH{30,31}{ a = \fcAnswerUncover{5}{8}{\sqrt{6} -1}}}$}%
+\rput[r](! xA xC add 0.5 mul yA yC add 0.5 mul){$\uncover<4->{\alertNoH{4, 8, 30,32}{2=b}}~~~$}%
+\rput[tr](! xA yA){$A$}%
+%\rput[bl](! xA 0.2 add yA 0.05 add){$\uncover<3->{\alertNoH{3, 53}{ \alpha=30^\circ} }$}%
+\rput[lt](! xB yB){$B$}%
+%\rput[r](! xB 0.2 sub yB 0.1 add ){$\uncover<3->{\alertNoH{3}{\beta=45^\circ}}$}%
+\rput[b](! xC yC){$C$}%
+\rput[t](! xC 0.05 sub yC 0.3 sub){$ \uncover<3->{ \alertNoH{3, 10, 33, 34}{ \gamma= 120^\circ }} $}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.7\textwidth}
+\alertNoH{2}{The longest side of a triangle has length $3$} \alertNoH{3}{and the angle opposite to it is $120^\circ$}. \alertNoH{4}{Another side of that triangle has length $2$}. 
+\begin{itemize}
+\item \alertNoH{5,27}{Find the length of the third side}.
+\item \alertNoH{38}{Find the area of the triangle}.
+\end{itemize}
+\end{columns}
+$\begin{array}{@{\!\!}r@{~}c@{~}l@{}l|@{}l}
+\displaystyle \fcAnswer{7}{ a^2+{\alertNoH{8}{b}}^2-2a\alertNoH{8}{b}\cos \alertNoH{10}{\gamma} }&\uncoverAlert{7}{{=}} &\uncoverAlert{7}{{\alertNoH{9}{c}}^2} {\hskip 4.25cm} \uncover<6->{&& \alertNoH{6,7}{\text{Law of cosines}}}\\
+\displaystyle \uncover<8->{{\alertNoH{11}{a}}^2+ \alertNoH{13}{{ \alertNoH{8}{2 }}^2}- \alertNoH{12}{2}{ \alertNoH{11}{a }}\cdot\alertNoH{8,12 }{2} \cdot \alertNoH{14,15}{\cos \alertNoH{10}{ 120^\circ}} &=& \alertNoH{13}{{\alertNoH{9}{3}}^2} } \uncover<11->{&& \text{Solve for }{\alertNoH{11}{a}}:}\\
+\only<1-27|handout:1>{%
+\displaystyle \uncover<12->{a^2 \alertNoH{16}{-} \alertNoH{12,17}{4} a\left(\fcAnswer{15}{\alertNoH{16}{-} \alertNoH{17}{\frac{1}{2}} } \right)\alertNoH{13}{-5}&=&0}\\
+\displaystyle \uncover<16->{ a^2\alertNoH{16}{+} \alertNoH{17,20}{2} a \alertNoH{22}{-5} &=&0} \\
+}%
+\uncover<18->{\alertNoH{18,19,27,28}{a}&\alertNoH{18,19,27,28}{{=}}&\displaystyle \alertNoH{27,28}{\fcAnswer{19}{ \frac{- \alertNoH{20}{2}\pm \sqrt{\alertNoH{23}{ { \alertNoH{ 20 }{2}}^2-4\cdot(\alertNoH{22}{-5})\cdot \alertNoH{21}{ 1} }}}{2\cdot \alertNoH{21}{1}}}}} \\
+\only<1-27|handout:1>{%
+\uncover<23->{&=&\displaystyle  \frac{-2 \alertNoH{25}{\pm} \alertNoH{ 24}{ \sqrt{\alertNoH{23}{ 24} }} }{2} \uncover<24->{=\frac{- \alertNoH{26}{2} \alertNoH{25}{+} \alertNoH{24}{\alertNoH{26}{2} \sqrt{6}}}{\alertNoH{26}{2}}} \uncover<25->{ &&\alertNoH{25}{a>0} }} \\
+}%
+\uncover<26->{ &\alertNoH{27,28}{{=}}&\displaystyle \alertNoH{27,28}{ -1 + \sqrt{6}}}\\
+\only<28-|handout:2>{
+\uncover<29->{
+\alertNoH{29,30, 38}{\textbf{Area}}&\alertNoH{29,30}{{=}}& \displaystyle \fcAnswer{30}{ \frac{\alertNoH{31}{a} \alertNoH{32}{b} \alertNoH{33, 34}{\sin \gamma} }{2}} \uncover<31->{= \frac{\left( \alertNoH{31}{ \alertNoH{36}{\sqrt{6}} -\alertNoH{37}{1}}\right) \fcCancel{35}{ \alertNoH{32}{ 2}}}{ \fcCancel{35}{2} }\fcAnswerUncover{31 }{34}{ \frac{\alertNoH{36,37}{\sqrt{3}}}{2}}}\\
+\uncover<36->{&\alertNoH{38}{{=}}&\displaystyle  \alertNoH{38}{ \frac{\alertNoH{36}{3\sqrt{2}} -\alertNoH{37}{ \sqrt{3}}}{2}}}
+}
+}
+\end{array}
+$
+\end{example}
+
+\vskip 10cm 
+\end{frame}
