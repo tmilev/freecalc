@@ -1,2 +1,79 @@
-Radius of earth: 6,371km. 
-Deck of ship: 10m.
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.3\textwidth}
+\begin{pspicture}(-1.5,-1.2)(1.5,1.2)%
+\tiny%
+\pstVerb{
+30 dict begin
+/radiusEarth 1 def
+/heightShip 0.2 def
+/heightToEarthCenter radiusEarth heightShip add def
+/theAngle 45 def
+/alpha radiusEarth heightToEarthCenter div arccos def
+/xSeamanTip theAngle cos heightToEarthCenter mul def
+/ySeamanTip theAngle sin heightToEarthCenter mul def
+/xHorizon alpha theAngle add cos def
+/yHorizon alpha theAngle add sin def
+}%
+\fcBoundingBox{-1.5}{-1.3}{1.5}{1.3}%
+\uncover<2->{%
+\parametricplot[linecolor=red]{0}{360}{t cos radiusEarth mul t sin radiusEarth mul}%
+}%
+\uncover<7->{%
+\parametricplot[linecolor=blue]{theAngle}{theAngle alpha add}{t cos radiusEarth mul t sin radiusEarth mul}%
+}%
+\onlyNoH{7}{%
+\parametricplot[linecolor=blue, linewidth=2pt]{theAngle}{theAngle alpha add}{t cos radiusEarth mul t sin radiusEarth mul}%
+}%
+%\fcFullDot[linecolor=blue]{xHorizon}{yHorizon}
+\uncover<4->{%
+\psline(0,0)(! xSeamanTip ySeamanTip)%
+}%
+\onlyNoH{4,16}{%
+\psline[linewidth=2pt, linecolor=orange](0,0)(! xSeamanTip ySeamanTip)%
+}%
+\uncover<3->{\psline(! xHorizon yHorizon)(0,0)}%
+\onlyNoH{3,5,9,16}{\psline[linecolor=green, linewidth=2pt](! xHorizon yHorizon)(0,0)}%
+\uncover<8->{%
+\fcPerpendicular{[ xSeamanTip ySeamanTip]}{[xHorizon yHorizon]}{0.1}%
+}%
+\onlyNoH{8}{%
+\fcPerpendicular[linecolor=blue, linewidth=2pt]{[ xSeamanTip ySeamanTip]}{[xHorizon yHorizon]}{0.1}%
+}%
+\onlyNoH{12,13}{\psline[linecolor=green, linewidth=3pt](0,0)(! theAngle cos radiusEarth mul theAngle sin radiusEarth mul)}%
+\onlyNoH{13}{\psline[linecolor=cyan, linewidth=3pt](! theAngle cos radiusEarth mul theAngle sin radiusEarth mul)(! xSeamanTip ySeamanTip)}%
+\uncover<6->{%
+\fcAngleDegrees[linecolor=blue]{theAngle}{theAngle alpha add}{0.25}{}%
+}%
+\onlyNoH{6,15,16}{%
+\fcAngleDegrees[linecolor=blue, linewidth=3pt]{theAngle}{theAngle alpha add}{0.25}{}%
+}%
+\rput[bl] (0.1, 0.3 ){$\uncover<6->{\alertNoH{6,15,16}{\alpha}}$}%
+\uncover<4->{%
+\rput[lt](! xSeamanTip 2 div ySeamanTip 2 div){$\alertNoH{4}{d}$}%
+}%
+\rput[r](! xHorizon 2 div yHorizon 2 div){$\uncover<5->{\alertNoH{5}{r}}~$}%
+\rput[t](! theAngle alpha 2 div add cos radiusEarth mul  theAngle alpha 2 div add sin radiusEarth mul -0.1 add){$\uncover<7->{\alertNoH{7}{x}}$}
+\uncover<4->{\rput[bl](-1.5, -1.2){not to scale}}
+\pstVerb{end}
+\end{pspicture}
+\column{0.7\textwidth}
+The horizon at sea is viewed at from a ship height of 10m. How far does the ship need to travel to reach the horizon just observed? \uncover<2->{\alertNoH{2}{Assume earth is round} with \alertNoH{9}{\alertNoH{3}{radius} 6371 km} and that \alertNoH{7}{the ship sails along the shortest curved path}.}
+\end{columns}
+\begin{itemize}
+\item<4-> Let $d$ be the distance from eyes of seaman to the center of earth. 
+\item<5-> Let $r$ be the radius of earth. \uncover<6->{Let $\alpha$ be the indicated angle.}
+\item<7-> \uncover<7->{ Let the distance to the horizon be $x$.}
+\end{itemize}
+$\begin{array}{@{\!\!}r@{}c@{}l}
+\uncover<9->{\alertNoH{9,21}{r}&\alertNoH{9,21}{{=}}&\alertNoH{9,21}{6371\text{km}}}\\
+\uncover<10->{\alertNoH{10,11,22}{d}&\alertNoH{10,11,22}{{=}}&\fcAnswer{11}{\alertNoH{12}{ 6371\text{km}}+\alertNoH{13}{0.01\text{km}}} \uncover<14->{=\alertNoH{22}{6371.01\text{km}}}}\\
+\uncover<15->{\alertNoH{15,16}{\alertNoH{17}{\cos} \alpha}&\alertNoH{15,16}{{=}}&\displaystyle \fcAnswer{16}{\frac{r}{d}}}\\
+\uncover<17->{\alertNoH{20}{\alpha} &\alertNoH{20}{{=}}&\displaystyle \alertNoH{20}{\alertNoH{17}{\Arccos} \left( \frac{r}{d}\right)}}\\
+\uncover<18->{\alertNoH{18,19}{ x}&\alertNoH{18,19}{ {=}}&\displaystyle \fcAnswer{19}{r \alertNoH{20}{\alpha}} \uncover<20->{= \alertNoH{21}{r} \alertNoH{20}{\Arccos\left( \frac{ \alertNoH{21}{r} }{d}\right)}} \uncover<21->{= \alertNoH{21}{6371 \text{km}} \Arccos\left( \frac{\alertNoH{21}{ 6371\text{km}}}{ \alertNoH{22}{6371.01\text{km}}} \right)}\uncover<23->{\approx 11.29 \text{km}}}
+
+\end{array}
+$
+\end{example}
+\end{frame}
