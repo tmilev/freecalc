@@ -2,20 +2,23 @@
 \begin{frame}
 \begin{example}[Solving a quadratic exponential equation]
 Solve for $x$.
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{align*}
-9^x & = 2\cdot 3^x + 63 \\
-\uncover<2-| handout:0>{\alertNoH{ 4-5}{9^x} -2\cdot \alertNoH{ 3}{3^x} - 63} & \uncover<2->{ = 0} \\
-\intertext{\uncover<3->{Substitute $\alertNoH{ 9}{u = \fcAnswerNoH{3}{3^x}}$:}}
-\uncover<handout:0|3->{\fcAnswerUncover{3}{5}{u^2} - 2\alertNoH{ 3}{u} - 63} & \uncover<3->{ = 0} \\
-\uncover<6->{(\fcAnswerNoH{7}{u-9})(\fcAnswerNoH{7}{u+7})} & \uncover<6->{ = 0 }
-\end{align*}
-\begin{align*}
-\uncover<8->{ \alertNoH{ 9}{u} } & \uncover<8->{ = \uncover<8-| handout:0>{9} } & \uncover<8->{\text{or}} & & \uncover<8->{\alertNoH{ 9}{u}} & \uncover<8->{ = \uncover<8-| handout:0>{-7}} \\
-\uncover<9-| handout:0>{ \alertNoH{ 9}{3^x} } & \uncover<9-| handout:0>{ = 9 } & \uncover<9-| handout:0>{\text{or}} & & \uncover<9-| handout:0>{\alertNoH{ 9}{3^x}} & \uncover<9-| handout:0>{ = -7} \invisible{99999999} \\
-\uncover<10-| handout:0>{ \alertNoH{ 10-11}{x} } & \uncover<10-| handout:0>{ \alertNoH{ 10-11}{ =} \fcAnswer{11}{2} } & & & \uncover<10-| handout:0>{\alertNoH{ 12-13}{\uncover<-12>{x}}} & \uncover<10-| handout:0>{ \alertNoH{ 12-13}{ \only<-12>{=\textbf{?}} \only<13->{\text{no real solution}} }}
-\end{align*}
+\[
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{rcll|l}
+\displaystyle 9^x & =&\displaystyle  2\cdot 3^x + 63 \\
+\displaystyle \uncover<2->{\worksheet{\alertNoH{ 4-5}{9^x} -2\cdot \alertNoH{ 3}{3^x} - 63}} \uncover<2->{ & =& 0}\uncover<3->{&&\displaystyle  \text{Substitute }\alertNoH{ 9}{u = \fcAnswer{3}{\worksheet{3^x}}}} \\
+\displaystyle \uncover<3->{\worksheet{\fcAnswerUncover{3}{5}{u^2} - 2\alertNoH{ 3}{u} - 63}} & \uncover<3->{ =& 0} \\
+\displaystyle \uncover<6->{(\fcAnswer{7}{\worksheet{u-9}})(\fcAnswer{7}{\worksheet{u+7}})} & \uncover<6->{ =& 0 }
+\end{array}
+\]
+\[
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{rclcrcl}
+\displaystyle  \uncover<8->{ \alertNoH{ 9}{u} } & \uncover<8->{ =& \uncover<8->{ \worksheet{9 }} } & \uncover<8->{\text{or}} &  \uncover<8->{\alertNoH{ 9}{u}} & \uncover<8->{ =& \uncover<8->{\worksheet{-7}}} \\
+\displaystyle \uncover<9->{\worksheet{ \alertNoH{ 9}{3^x} }} & \uncover<9->{\worksheet{ =& 9 }} & \uncover<9->{\worksheet{\text{or}}} & \displaystyle  \uncover<9->{\worksheet{ \alertNoH{ 9}{3^x}}} & \uncover<9->{\worksheet{ =& -7}} \\
+\uncover<10->{ \worksheet{ \alertNoH{ 10-11}{x} }} & \uncover<10->{\worksheet{ \alertNoH{ 10-11}{ =} \fcAnswer{11}{2} }} & & & \multicolumn{3}{c}{ \uncover<10->{\worksheet{ \alertNoH{ 12-13}{\fcAnswer{13}{\text{no real solution}} }}}}
+\end{array}
+\]
 \uncover<14-| handout:0>{Therefore $x = 2$ is the solution.}
 \end{example}
 \end{frame}
