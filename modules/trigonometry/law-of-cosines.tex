@@ -31,23 +31,21 @@ $
 \fcAngleFromThreePoints[anglecolor=green, linestyle=none]{[xB yB]}{[xC yC]}{[xA yA]}{0.3}%
 \fcAngleFromThreePoints[anglecolor=red, linestyle=none]{[xC yC]}{[xA yA]}{[xB yB]}{0.2}%
 \psline(! xA yA)(! xB yB)(! xC yC)(! xA yA)%
-\onlyNoH{2}{\psline[linewidth=2pt, linecolor=red](! xB yB)(! xA yA)}%
-\onlyNoH{3}{\psline[linewidth=2pt, linecolor=red](! xA yA)(! xC yC)(! xB yB)}%
-\onlyNoH{4}{\fcAngleFromThreePoints[anglecolor=green, anglelinewidth=4pt, linestyle=none]{[xA yA]}{[xC yC]}{[xB yB]}{0.27}}%
-\rput[t](! xA xB add 0.5 mul yA yB add 0.5 mul 0.1 sub){$~~~\alertNoH{2}{c}$}
-\rput[l](! xC xB add 0.5 mul yC yB add 0.5 mul){$~~ \alertNoH{3}{a}$}
-\rput[r](! xA xC add 0.5 mul yA yC add 0.5 mul){$ \alertNoH{3}{b} ~~$}
+\onlyNoH{0}{\psline[linewidth=2pt, linecolor=red](! xB yB)(! xA yA)}%
+\onlyNoH{0}{\psline[linewidth=2pt, linecolor=red](! xA yA)(! xC yC)(! xB yB)}%
+\onlyNoH{0}{\fcAngleFromThreePoints[anglecolor=green, anglelinewidth=4pt, linestyle=none]{[xA yA]}{[xC yC]}{[xB yB]}{0.27}}%
+\rput[t](! xA xB add 0.5 mul yA yB add 0.5 mul 0.1 sub){$~~~{c}$}
+\rput[l](! xC xB add 0.5 mul yC yB add 0.5 mul){$~~ {a}$}
+\rput[r](! xA xC add 0.5 mul yA yC add 0.5 mul){$ {b} ~~$}
 \rput[t](! xA yA){$A$}%
 \rput[bl](! xA 0.2 add yA 0.2 add){$\alpha$}
 \rput[l](! xB yB){$B$}%
 \rput[r](! xB 0.3 sub yB 0.1 add ){$\beta$}
 \rput[b](! xC yC){$C$}%
-\rput[t](! xC 0.05 sub yC 0.4 sub){$\alertNoH{4}{\gamma}$}
-\uncover<5->{%
-\rput[b](! \fcPerpendicularComputeHeelCode{[xB yB]}{[xA yA] [xC yC]}{0.1} heel thePoint \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack end ){$~~\alertNoH{8}{h}$}%
+\rput[t](! xC 0.05 sub yC 0.4 sub){${\gamma}$}
+\rput[b](! \fcPerpendicularComputeHeelCode{[xB yB]}{[xA yA] [xC yC]}{0.1} heel thePoint \fcVectorPlusVector 0.5 \fcVectorTimesScalar \fcArrayToStack end ){$~~{h}$}%
 \rput[l](! \fcPerpendicularComputeHeelCode{[xB yB]}{[xA yA] [xC yC]}{0.1} heel \fcArrayToStack end){~~$D$}%
 \fcPerpendicular[linestyle=dashed]{[xB yB]}{[xC yC][xA yA]}{0.1}%
-}%
 \pstVerb{end}%
 \end{pspicture}
 \column{0.8\textwidth}
