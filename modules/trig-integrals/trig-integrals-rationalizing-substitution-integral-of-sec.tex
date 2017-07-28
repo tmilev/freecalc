@@ -1,16 +1,16 @@
 \begin{frame}[t]
 The integral $\int \sec \theta \diff \theta$ appears often in practice. A quicker solution will be shown later, but first we show the standard method.
 \begin{example}
-Set $\displaystyle \alertNoH{9}{\theta=2\Arctan t}$, $\displaystyle \alertNoH{3}{ \cos \theta =} \frac{1- \tan^2 (\frac{\theta}{2}) }{ 1 + \tan^2\left(\frac{ \theta}{ 2}\right)}= \alertNoH{3}{\frac{1-t^2}{1+t^2}}$, $\displaystyle  \alertNoH{4}{\diff \theta = 2 \frac{1 }{ 1+t^2}\diff t}$.
+\uncover<3->{Set $\displaystyle \alertNoH{9,4}{\theta=2\Arctan t}$, $\displaystyle \alertNoH{3}{ \cos \theta =} \frac{1- \tan^2 (\frac{\theta}{2}) }{ 1 + \tan^2\left(\frac{ \theta}{ 2}\right)}= \alertNoH{3}{\frac{1-t^2}{1+t^2}}$,} \uncover<4->{$\displaystyle  \alertNoH{4}{\diff \theta = 2 \frac{1 }{ 1+t^2}\diff t}$}.
 $
-\begin{array}{rclll}
-\displaystyle \int \sec \theta\diff\theta &=& \displaystyle
+\begin{array}{rcll@{}|l}
+\displaystyle \int \sec \theta\diff\theta &\uncover<2->{=}& \displaystyle
 \vphantom{ %phantom to align formulas
 \ln \left|\frac{1+\tan \left(\frac{\theta}{2}\right)}{1-\tan \left(\frac{\theta}{2}\right)}\right|
 }
 \displaystyle
 \only<handout:1|1-10>{
-\uncover<2->{ \int \frac{1}{\alertNoH{3}{ \cos \theta}} \alertNoH{4}{\diff \theta}}\uncover<3->{ = \int \frac{1}{ \left( \alertNoH{3}{ \frac{1- t^2 }{ \alertNoH{5}{1+t^2}}} \right)} \alertNoH{4}{\frac{2}{(\alertNoH{5}{ 1+t^2})} \diff t} } \\
+\uncover<2->{ \int \frac{1}{\alertNoH{3}{ \cos \theta}} \alertNoH{4}{\diff \theta}}\uncover<3->{ = \int \frac{1}{ \left( \alertNoH{3}{ \frac{1- t^2 }{ \fcCancel{5}{{1+t^{{2}}}}}} \right)} \alertNoH{4}{\frac{2}{(\fcCancel{5}{{1+ t^{{2}}}})} \diff t} } \\
 \uncover<5->{ &=&\displaystyle \int \alertNoH{6}{\frac{2}{1-t^2}}\diff t}\uncover<6->{ =\int \left(\alertNoH{6}{ \frac{1}{1 -t}+ \frac{1}{ 1 +t}} \right)\diff t} \uncover<6->{&&\alertNoH{6}{ \text{part. fractions}}}\\
 \uncover<7->{&=&\displaystyle - \ln |1-t|+\ln |1+t| +C}\\
 \uncover<8->{&=&\displaystyle \ln \left|\frac{1+\alertNoH{9}{t}}{1-\alertNoH{9}{t}}\right|+C}\\
@@ -18,10 +18,10 @@ $
 \uncover<9->{&=&}
 }
 \only<handout:1,2|1-21>{
-\displaystyle \uncover<9->{ \alertNoH{10,11}{\alertNoH{21}{ \ln \left|\frac{1+\tan \left(\alertNoH{9}{ \frac{\theta}{2}} \right)}{1-\tan \left(\alertNoH{9}{\frac{\theta}{2}}\right)}\right|}+C} }
+\displaystyle \uncover<9->{ \alertNoH{10,11}{\alertNoH{21}{ \ln \left|\frac{1 +\alertNoH{9}{ \tan \left( \frac{\theta}{2} \right)} }{1-\alertNoH{9}{ \tan \left(\frac{\theta}{2}\right)}}\right|}+C} }
 }
 \only<handout:3|22->{
-\uncover<22->{\displaystyle  \alertNoH{22}{\ln \left|\tan \theta +\sec \theta\right|} +C}
+\uncover<22->{\displaystyle \ln \left| \alertNoH{22}{\tan \theta +\sec \theta} \right| +C}
 }
 \end{array}
 $

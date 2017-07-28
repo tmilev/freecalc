@@ -1,25 +1,54 @@
 %begin module area-under-hyperbola-ex1
 
-
+\vskip -0.05cm
 \begin{frame}
 \begin{example}
 Find the area locked b-n the hyperbolas $\alertNoH{2,3}{ y=\pm \sqrt{ x^2+1}}$ and $x=\pm 2\sqrt{ 2}$.
 \begin{columns}
 \column{.5\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}%
-\begin{pspicture}(-3.328427, -3)(3.328427,3)%
-\psframe*[linecolor=white](-3.328427,-3)(3.328427,3)%
+\begin{pspicture}(-4.15, -3.05)(4.15,3.05)%
+\psframe*[linecolor=white](-4.15,-3)(4.15,3)%
 \tiny%
+\pstVerb{20 dict begin 
+/rightX 2 sqrt 2 mul def /theFun {dup mul 1 add sqrt} def 
+/rightY rightX theFun def 
+/leftX rightX -1 mul def
+/leftY leftX theFun def
+}%
 \uncover<handout:3|31->{%
 \pscustom*[linecolor=\fcColorAreaUnderGraph]{%
-\psplot[linecolor=\fcColorGraph, plotpoints = 1000 ] {-2.828427} {2.828427}{1 x 2 exp add 0.5 exp }
-\psline[linecolor=\fcColorGraph](2.828427,-3)(2.828427,3)
-\psplot[linecolor=\fcColorGraph, plotpoints=1000] { 2.828427 } {-2.828427}{1 x 2 exp add 0.5 exp -1 mul }
-\psline[linecolor=\fcColorGraph](-2.828427,-3)(-2.828427,3)
+\psplot[plotpoints = 1000 ] {leftX} {rightX}{x theFun}
+\psline(! rightX -3)(! rightX 3)
+\psplot[plotpoints=1000] {rightX } {leftX}{x theFun -1 mul}
+\psline(! leftX -3)(! leftX 3)
+}%
+}%
+\uncover<handout:0|33->{%
+\pscustom*[linecolor=cyan!15]{%
+\psplot[plotpoints = 1000 ] {leftX} {0}{x theFun}
+\psline(0,1)(0,-1)
+\psplot[plotpoints=1000] { 0 } {leftX}{x theFun -1 mul}
+\psline(! leftX leftY -1 mul)(! leftX leftY)%
+}%
+}%
+\uncover<handout:0|37->{%
+\pscustom*[linecolor=orange]{%
+\psline(0,0)(! rightX rightY)(! rightX rightY -1 mul)(0, 0)
+}%
+}%
+\uncover<handout:0|38->{%
+\pscustom*[linecolor=green]{%
+\psplot[plotpoints = 1000 ] {0} {rightX}{x theFun}%
+\psline(! rightX rightY)(0,0)(! 0 0 theFun)%
+}%
+\pscustom*[linecolor=green]{%
+\psplot[plotpoints = 1000 ] {0} {rightX}{x theFun -1 mul}%
+\psline(! rightX rightY -1 mul)(0,0)(! 0 0 theFun)%
 }%
 }%
 \uncover<handout:1,3|1-26,28->{%
-\psaxes[arrows=<->,ticks=none, labels=none](0,0)(-3,-3)(3,3)%
+\psaxes[arrows=<->,ticks=none, labels=none](0,0)(-4,-3)(4,3)%
 }%
 \psline[linecolor=red!1](3.301,2)(3.302,2)%
 \psline[linecolor=red!1](-3.301,2)(-3.302,2)%
@@ -66,7 +95,28 @@ Find the area locked b-n the hyperbolas $\alertNoH{2,3}{ y=\pm \sqrt{ x^2+1}}$ a
 \uncover<handout:1|14-26>{
 \fcFullDot{2.2}{0.6}
 \rput[lt]( 2.2, 0.65){$(y,x)$}
+}%
+\uncover<handout:3|34->{%
+\psline[linecolor=black](! rightX rightY)(! leftX leftY -1 mul)%
+\psline[linecolor=black](! rightX rightY -1 mul)(! leftX leftY)%
+}%
+\uncover<handout:0|35>{%
+\psline[linecolor=brown, linewidth=2.5pt](0, 0)(! rightX 0)%
 }
+\uncover<handout:3|36->{%
+\psline[linecolor=brown, linewidth=1pt](0, 0)(! rightX 0)%
+}%
+\uncover<handout:3|35->{%
+\rput[t](! rightX 2 div -0.1){$\alertNoH{35}{x}$}%
+}%
+\uncover<handout:0|36>{%
+\fcPerpendicular[linewidth=2.5pt, linecolor=brown]{[rightX rightY]}{[1 0]}{0.2}%
+}%
+\uncover<handout:3|36->{%
+\fcPerpendicular[linewidth=1pt, linecolor=brown]{[rightX rightY]}{[1 0]}{0.2}%
+\rput[l](! rightX rightY 2 div ){$\alertNoH{36}{\sqrt{x^2+1}}$}%
+}%
+\pstVerb{end}%
 \end{pspicture}
 
 \vbox to 3.0cm {
@@ -110,12 +160,12 @@ The area in question is:
 $
 \begin{array}{l}
 \displaystyle\phantom{=} \int \limits^{{{  \fcAnswerUncover{ 28 }{30}{ 2 \sqrt{ 2} } } } }_{  \fcAnswer{29}{ -2 \sqrt{2 }}} 2\sqrt{x^2+1} \diff x \\
-\displaystyle \uncover<32->{= \uncover<33->{\alertNoH{33}{2}} \left[x\sqrt{x^2+1} \vphantom{\ln \left(\sqrt{x^2+1}+x\right) }\right.}\\
-\displaystyle \uncover<32->{\left. +\ln \left(\sqrt{x^2+1}+x\right)\right]^{2\sqrt{2}}_{\only<33->{\alertNoH{33}{0}} \uncover<1-32>{-2\sqrt{2}}}}\\
-\uncover<34->{=2\left(2\sqrt{2} \sqrt{(2\sqrt{2})^2+1}\right.} \\
-\uncover<34->{\left.+ \ln \left(\sqrt{(2 \sqrt{2 })^2+ 1} + 2 \sqrt{2} \right) \right)}\\
-\uncover<35->{=12\sqrt{2} +2\ln \left(3+2\sqrt{2}\right )}\\
-\uncover<36->{\approx 20.496}
+\displaystyle \uncover<32->{= \uncover<33->{\alertNoH{33}{2}} \left[ \alertNoH{35,37}{ x} \alertNoH{36,37}{\sqrt{x^2+1}} \vphantom{\ln \left(\sqrt{x^2+1}+x\right) } \right.}\\
+\displaystyle \uncover<32->{\left. + \alertNoH{38}{\ln \left(\sqrt{x^2+1}+x \right) }\right]^{2\sqrt{2}}_{\only<33->{\alertNoH{33}{0}} \uncover<handout:0|1-32>{-2\sqrt{2}}}}\\
+\uncover<39->{=2\left(2\sqrt{2} \sqrt{(2\sqrt{2})^2+1}\right.} \\
+\uncover<40->{\left.+ \ln \left(\sqrt{(2 \sqrt{2 })^2+ 1} + 2 \sqrt{2} \right) \right)}\\
+\uncover<41->{=12\sqrt{2} +2\ln \left(3+2\sqrt{2}\right )}\\
+\uncover<42->{\approx 20.496}
 \end{array}
 $
 }
