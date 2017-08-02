@@ -1,3 +1,24 @@
+% begin module ratio-test-related-to-e-as-a-limit-1
 \begin{frame}
+\begin{example}
+Test the convergence of the series $\displaystyle \sum_{n=1}^\infty \alertNoH{2}{\frac{n^n}{3^n n!} }$.
 
+
+\[
+\renewcommand{\arraystretch}{2}
+\begin{array}{rcl}
+\uncover<2->{\displaystyle \left| \frac{ \alertNoH{3}{a_{n+1}} }{\alertNoH{2}{ a_n} }\right|}%
+& \uncover<2->{=} &\displaystyle \displaystyle \uncover<2->{ \left| \frac{\alertNoH{3}{ \frac{(n+1)^{n+1}}{ \alertNoH{5}{ 3^{n+1}(n +1)!} }}}{ \alertNoH{2}{\frac{n^n}{\alertNoH{4}{ 3^{n} n!}}}} \right|} \\%
+&\uncover<4->{ = &\displaystyle \frac{\alertNoH{ 6}{(n+ 1)^{n+1 }}}{n^n}\cdot \frac{\alertNoH{4}{ 3^n n!} }{\alertNoH{ 5}{\alertNoH{5}{ 3^{n+1} \alertNoH{7}{(n+1)!}} }}}\\%
+& \uncover<6->{=} &\displaystyle \uncover<6->{ \frac{\alertNoH{ 6}{ \fcCancel{8}{(n +1)}(n +1)^{ \alertNoH{12}{n} }}}{n^{\alertNoH{12}{n}}}\cdot \frac{\fcCancel{10}{3^n} \fcCancel{9 }{n!} }{\alertNoH{ 5}{{\alertNoH{11}{3}}^{{\fcCancel{10}{n}+ \alertNoH{11}{1} }} \alertNoH{7}{ \fcCancel{8}{(n+ 1)}\fcCancel{9}{n!}} }}} \\%
+& \uncover<11->{=} &\displaystyle \uncover<11->{ \frac{1}{\alertNoH{11}{3} }\left( \frac{ \alertNoH{13}{n}+1}{\alertNoH{13}{n}}\right)^{ \alertNoH{12}{n}}}
+\uncover<13->{= \alertNoH{ 14-15}{\frac{1}{3} \alertNoH{16}{ \left( \alertNoH{13}{ 1} + \frac{1}{n}\right)^n } } } \\%
+& \uncover<14->{\alertNoH{ 14-15}{\to} &\displaystyle  \fcAnswer{15}{ \alertNoH{18}{ \frac{\alertNoH{16}{e}}{3}}} \uncover<18->{ \alertNoH{18}{ < 1} } }%
+\end{array}
+\]
+\uncover<17->{%
+Therefore the series is \fcAnswer{18}{convergent} by the Ratio Test.%
+}%
+\end{example}
 \end{frame}
+% end module ratio-test-related-to-e-as-a-limit-1
