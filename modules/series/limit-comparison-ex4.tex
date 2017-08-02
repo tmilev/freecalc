@@ -1,41 +1,29 @@
 % begin module limit-comparison-ex4
 \begin{frame}
-\begin{example}[Example 4, p. 743]
-Test the series $\sum_{n=1}^\infty \frac{2n^2+3n}{\sqrt{5+n^5}}$ for convergence or divergence.
+\vskip -0.15cm
+\begin{example}
+Test the series $\displaystyle \sum_{n=1}^\infty \frac{2n^2+3n}{\sqrt{7+n^5}}$ for convergence or divergence.
 
 \begin{itemize}
 \item<2->  \alertNoH{ 2-3}{The dominant part of the numerator is \uncover<3->{$2n^2$}} and \alertNoH{ 4-5}{the dominant part of the denominator is \uncover<5->{$\sqrt{n^5} = n^{5/2}$.}}
-\end{itemize}
-\uncover<2->{%
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
+
+\abovedisplayskip 0cm
+\belowdisplayskip 0cm
 \[
-a_n = \frac{\alertNoH{ 3}{2n^2} + 3n}{\sqrt{5+\alertNoH{ 5}{n^5}}}, \qquad b_n = \frac{\uncover<3->{\alertNoH{ 3}{2n^2}}}{\uncover<5->{\alertNoH{ 5}{n^{5/2}}}} \uncover<6->{=  \frac{2}{n^{1/2}}}
+\begin{array}{rcl}
+\displaystyle 
+\uncover<2->{%
+a_n &=&\displaystyle \frac{\alertNoH{ 3}{2n^2} + 3n}{\sqrt{7+\alertNoH{ 5}{n^5}}}, \qquad b_n = \frac{\uncover<3->{\alertNoH{ 3}{2n^2}}}{\uncover<5->{\alertNoH{ 5}{n^{5/2}}}} \uncover<6->{=  \frac{2}{n^{1/2}}}
+}%
+\\
+\displaystyle \uncover<7->{\lim_{n\to\infty} \frac{a_n}{b_n}}%
+& \uncover<7->{ = } &\displaystyle \uncover<7->{\lim_{n\to\infty} \frac{2n^2+3n}{\sqrt{7+n^5}}\cdot \frac{n^{1/2}}{2}}  \uncover<8->{ = } \uncover<8->{\lim_{n\to\infty} \frac{2n^{5/2} + 3n^{3/2}}{2\sqrt{7+\alertNoH{ 9}{n^5}}}\uncover<9->{\alertNoH{ 9}{\frac{\frac{1}{n^{5/2}}}{\frac{1}{n^{5/2}}}}}}\\%
+& \uncover<10->{ = } &\displaystyle \uncover<10->{\lim_{n\to\infty} \frac{2 + \frac{3}{n}}{2\sqrt{\frac{7}{n^5} + 1}}}\uncover<11->{= 1 > 0}%
+\end{array}
 \]
-}%
-\abovedisplayskip=0pt
-\belowdisplayskip=0pt
-\begin{eqnarray*}
-\uncover<7->{%
-\lim_{n\to\infty} \frac{a_n}{b_n}%
-}%
-& \uncover<7->{ = } &%
-\uncover<7->{%
-\lim_{n\to\infty} \frac{2n^2+3n}{\sqrt{5+n^5}}\cdot \frac{n^{1/2}}{2}%
-}  \uncover<8->{ = } \uncover<8->{%
-\lim_{n\to\infty} \frac{2n^{5/2} + 3n^{3/2}}{2\sqrt{5+\alertNoH{ 9}{n^5}}}\uncover<9->{\alertNoH{ 9}{\frac{\frac{1}{n^{5/2}}}{\frac{1}{n^{5/2}}}}}%
-}\\%
-& \uncover<10->{ = } &%
-\uncover<10->{%
-\lim_{n\to\infty} \frac{2 + \frac{3}{n}}{2\sqrt{\frac{5}{n^5} + 1}}%
-}%
-\uncover<11->{%
- = 1 > 0%
-}%
-\end{eqnarray*}
-\begin{itemize}
-\item<12->  $\sum \frac{2}{n^{\alertNoH{ 13}{1/2}}}$ is a constant multiple of a $p$-series with \alertNoH{ 12-13}{$p = $ \uncover<13->{$\frac{1}{2}$.}}
-\item<14-| alert@14-15> Therefore $\sum \frac{2}{n^{1/2}}$ is \uncover<15->{divergent}\uncover<16->{, and so is $\sum  \frac{2n^2+3n}{\sqrt{5+n^5}}$.}%
+
+\item<12-> $ \sum \frac{2}{n^{\alertNoH{ 13}{\frac{1}{2}}}}$ is a constant multiple of a $p$-series with \alertNoH{ 12-13}{$p = $ \uncover<13->{$\frac{1}{2}$.}}
+\item<14-| alert@14-15> Therefore $ \sum \frac{2}{n^{\frac{1}{2}}}$ is \uncover<15->{divergent}\uncover<16->{, and so is $ \sum  \frac{2n^2+3n}{\sqrt{7+n^5}}$.}%
 \end{itemize}
 \end{example}
 \end{frame}
