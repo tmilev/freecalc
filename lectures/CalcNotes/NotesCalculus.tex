@@ -25,6 +25,7 @@
 
 
 \input{../pstricks-commands}
+\input{../system-specific-config-Ubuntu-texlive}
 \input{../example-templates}
 \renewcommand{\optionalDisplay}[1]{#1}
 
@@ -621,8 +622,7 @@ In Figure \ref{figAngleDef}, the vertex of the angle is denoted by $O$. Since a 
 
 By definition, we distinguish between two angles that have the same pair of rays but in the opposite order. For example $\angle AOB $ and angle $\angle BOA $ are by definition not equal. To indicate on a picture which ray comes first, we draw a small arc with an arrow from the first ray to the second as shown in Figure \ref{figAngleDef}.
 
-\begin{figureFixed}
-\begin{center}
+\hfil\hfil \begin{figureFixed}
 \begin{pspicture}(-1,-1)(6, 4)
 \tiny
 \psline[arrows=->](0,0)(4,0)
@@ -640,12 +640,11 @@ By definition, we distinguish between two angles that have the same pair of rays
 \rput[rt] (0.6, 1.5){$B$}
 \end{pspicture}
 \caption{ Angle definition. \\ $\angle AOB$ and $\angle A'OB$\\ represent the same angle.} \label{figAngleDef}
-\end{center}
+
 \end{figureFixed}
 
 
 \begin{figureFixed}
-\begin{center}
 \begin{pspicture}(-1,-1)(6, 4)
 \tiny
 \psline[arrows=->](0,0)(2,0)
@@ -671,7 +670,6 @@ By definition, we distinguish between two angles that have the same pair of rays
 }
 \end{pspicture}
 \caption{Equal angles. \\ $\angle AOB=\angle A_1OB_1$}\label{figEqualAngles}
-\end{center}
 \end{figureFixed}
 
 Two geometric angles are considered \emph{congruent(equivalent)} when the two figures can be transformed to one another with a sequence of rotations and translations in the plane. In other words, two geometric angles are considered congruent when one can be mapped onto the other by a rigid motion in the plane - the matching should respect the order of the rays of the angle (first ray goes to first, second to second). In Figure  \ref{figEqualAngles}, if we first translate vertex $O_1$ onto vertex $O$, and then rotate about vertex $O$, we can match the two rays of the angles in the correct order. 
@@ -685,8 +683,7 @@ Two geometric angles are congruent if and only if their angle measures are equal
 \subsection{Angle measure}~
 
 
-\begin{figureFixed}
-\begin{center}
+\hfil\hfil\begin{figureFixed}
 \begin{pspicture}(-1,-1)(6, 4)
 \tiny
 \psline[arrows=->](0,0)(2,0)
@@ -703,7 +700,6 @@ Two geometric angles are congruent if and only if their angle measures are equal
 \end{pspicture}
 \caption{ \label{figAngleMeasureDef} Angle measure definition.\\ $\angle AOB$ is measured by the \\
 length of the arc \\ that it cuts off the unit circle.} 
-\end{center}
 \end{figureFixed}
 
 To the angle given in Figure \ref{figAngleMeasureDef}, we can assign a measure in the following fashion. Draw a circle of radius $1$ (unit circle) with center at $O$. Let the first ray intersect the unit circle in point $A$ and the second ray - at point $B$. Define the \emph{measure of the angle} $\angle AOB$, or \emph{angle} for short, as the length of the shorter of the two arcs of the unit circle that start at $A$ and end at $B$, taken with positive sign if the ray $OA $ lies clockwise from the ray $OB$, and taken with negative sign else. 
@@ -757,7 +753,6 @@ for some numbers $m$ and $c$, where $m$ is called the slope
 of the line and $c$ is called the $y$-intercept of the line. As the tangent line passes through the point $P=(2,2)$, it has equation $y-2=m(x-2)$ for some slope $m$ that we yet need to define.
 
 \begin{figureFixed}
-\begin{center}
 \optionalDisplay{
 %\psset{xunit=1cm, yunit=1cm}
 %\begin{pspicture}(-1, -5)(3,5)
@@ -905,7 +900,6 @@ of the line and $c$ is called the $y$-intercept of the line. As the tangent line
 \psplot[linecolor=\fcColorGraph, plotpoints=1000]{-1}{3.1}{x 2 exp 0.5 mul }
 \end{pspicture}
 }
-\end{center}
 \caption{A tangent line touches the graph of a function, and is approximated by secant lines \label{figTangentIdeaFor}}
 \end{figureFixed}
 It is natural to approximate the tangent line using secant lines passing through the point $ P=(2, 2)$ and nearby points $Q=(t,f(t))=(t, \frac{t^2}{2})$ lying on the graph of $f(x)$. The line passing through $P=(2,2) $ and $Q=(t,f(t))$ has slope $m_Q:=\frac{f(t)-2}{t-2}$ and therefore has equation
@@ -3978,8 +3972,7 @@ A motivation for the definition may be given as follows. Let $[a,b]$ be subdivid
 \]
 As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by the definition of derivative, the radical term tends uniformly to $\sqrt{f_1'(t)^2+f_2'(t)^2}$. Therefore the entire sum approximates the integral \eqref{eqDefLengthCurve}.
 
-\begin{figureFixed}
-\begin{center}
+\hfil\hfil\begin{figureFixed}
 \optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture}(-1,-1)(4,4.3)
@@ -4005,7 +3998,6 @@ As the number of intervals $N$ tends to $\infty$, $\Delta$ approaches 0, and by 
 }
 \caption{The length of a curve is the limit of \\
 lengths of approximating polygon lines.}\label{figCurveLengthDef}
-\end{center}
 \end{figureFixed}
 
 %\chapter{Polar coordinates}
