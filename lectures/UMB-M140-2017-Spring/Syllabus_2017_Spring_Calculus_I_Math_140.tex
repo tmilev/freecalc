@@ -18,8 +18,11 @@
 
 \usepackage{longtable}
 \usepackage{xr}
+\IfFileExists{../../homework/UMB-All-Problems-By-Course/Calc-I-MasterProblemSheet}{
 \externaldocument{../../homework/UMB-All-Problems-By-Course/Calc-I-MasterProblemSheet}
-%\externaldocument{./CalcIMasterProblemSheetOneFile}
+}{
+\externaldocument{./CalcIMasterProblemSheetOneFile}
+}
 
 \newcommand{\refBad}[1]{%
 \ifthenelse{\equal{\ref{#1}}{??}}%

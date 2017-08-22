@@ -16,8 +16,9 @@
 
 \usepackage{longtable}
 \usepackage{xr}
-\externaldocument{../../homework/UMB-All-Problems-By-Course/Calc-II-MasterProblemSheet}
-%\externaldocument{./Calc-I-MasterProblemSheetOneFile}
+\IfFileExists{../../homework/UMB-All-Problems-By-Course/Calc-II-MasterProblemSheet}
+{\externaldocument{../../homework/UMB-All-Problems-By-Course/Calc-II-MasterProblemSheet}}
+{\externaldocument{./Calc-I-MasterProblemSheetOneFile}}
 
 \newcommand{\refBad}[1]{%
 \ifthenelse{\equal{\ref{#1}}{??}}%
@@ -125,51 +126,52 @@ No books, notes, calculators or any other electronic device (such as mobile phon
 \multicolumn{9}{|c|}{\textbf{List of topics.} The list of topics is a preliminary guideline, and will be subject to change.
 }\\\hline
 &&& Topic & \apex{} 3.0 textbook & \begin{tabular}{l}Stewart, \\ Calculus, $7^{th}$ ed. \end{tabular} & \begin{tabular}{l} Relevant problems \\ Master Problem\\ Sheet\end{tabular} & \begin{tabular}{l}Lecture  \end{tabular} & \begin{tabular}{l} Expected \\ Week \\ (total 14) \end{tabular}  \\ \hline
-\counterTopic Inverse trigonometric functions.     & & &  & 1& \\
+\counterTopic Inverse trigonometric functions.     & & &  & 1&1 \\
 \counterSubTopic    Review of trigonometry.      & &   &  & 1& \\ 
 \counterSubTopic    Inverse trigonometric functions & & & & 1& \\
 \counterSubSubTopic Definitions of inverse trigonometric functions. & & & Section \refBad{secInverseTrig} & 1& \\
 \counterSubSubTopic Derivatives of inverse trigonometric functions. & & & & 1& \\
-\counterTopic Review of Integration. & & & & 2& \\
+\counterTopic Review of Integration. & & & & 2&2 \\
 \counterSubTopic The Fundamental Theorem of Calculus. & & & & 2& \\
 \counterSubTopic Differential forms.         & & & & 2& \\
 \counterSubTopic Integration and logarithms. & & & & 2& \\
 \counterTopic  Techniques of integration.    & & & & 2& \\
-\counterSubTopic Integration by parts. & Chapter 6.2 & Chapter 7.1& Section \refBad{secIntegrationByParts} & 3& \\
+\counterSubTopic Integration by parts. & Chapter 6.2 & Chapter 7.1& Section \refBad{secIntegrationByParts} & 3&2 \\
 \counterSubTopic Integration of rational functions. & Chapter 6.5 & Chapter 7.4 & Section \refBad{secIntegrationRationalFunctions}& & \\
-\counterSubSubTopic Building block integrals. & & & Section \refBad{secRationalFunctionBuildingBlocks}& 4& \\
-\counterSubSubTopic Partial fractions. & & & Section \refBad{secPartialFractionsCompleteAlgorithm}& 5& \\
-\counterSubTopic Trigonometric integrals. & Chapter 6.3 & Chapter 7.2 & Section \refBad{secTrigonometricIntegrals} & 6& \\
-\counterSubTopic Integrals of radicals of quadratics. & Chapter 6.4 & Chapter 7.3 & Section \refBad{secIntegrationRadicalsQuadratics} & 7& \\
-\counterSubSubTopic Trigonometric substitutions. & & & Section \refBad{secTrigSubstitution}& 7& \\
-\counterSubSubTopic Euler substitutions corresponding to trig substitutions.&  &  & Section \refBad{secEulerSubstitutions}& 7& \\
-\counterTopic L'Hospital's rule.  & Chapter 6.7 & Chapter 6.8  & Section \refBad{secLHospitalsRule} & 8& \\
-\counterTopic Improper integrals. & Chapter 6.8 & Chapter 7.8  & Section \refBad{secImproperIntegrals} & 9& \\
-\counterTopic Polar coordinates.  & Chapter 9.4 & Chapter 10.3 & & & \\
+\counterSubSubTopic Building block integrals. & & & Section \refBad{secRationalFunctionBuildingBlocks}& 4&3 \\
+\counterSubSubTopic Partial fractions. & & & Section \refBad{secPartialFractionsCompleteAlgorithm}& 5&3 \\
+\counterSubTopic Trigonometric integrals. & Chapter 6.3 & Chapter 7.2 & Section \refBad{secTrigonometricIntegrals} & 6&4 \\
+\counterSubTopic Integrals of radicals of quadratics. & Chapter 6.4 & Chapter 7.3 & Section \refBad{secIntegrationRadicalsQuadratics} & 7&5 \\
+\counterSubSubTopic Trigonometric substitutions. & & & Section \refBad{secTrigSubstitution}& 7&5 \\
+\counterSubSubTopic Euler substitutions corresponding to trig substitutions.&  &  & Section \refBad{secEulerSubstitutions}& 7&5 \\
+\counterTopic L'Hospital's rule.  & Chapter 6.7 & Chapter 6.8  & Section \refBad{secLHospitalsRule} & 8&6 \\
+\counterTopic Improper integrals. & Chapter 6.8 & Chapter 7.8  & Section \refBad{secImproperIntegrals} & 9&6 \\
+\counterTopic Polar coordinates.  & Chapter 9.4 & Chapter 10.3 & & &7 \\
 \counterTopic Curves & & & Section \refBad{secCurves}& 10& \\
-\counterSubTopic Curve images and parametric curves. & Chapters 9.2, 9.3 & Chapter 10.1 & & 11& \\
-\counterSubTopic Curves in polar coordinates. & Chapter 10.4& & & 11& \\
-\counterSubTopic Curve (arc) length. & Chapter 7.4 & Chapter 10.2 & Section \refBad{secCurveLength} & 12&  \\
-\counterSubTopic Area locked by curves. & Chapter 9.5 & Chapter 10.4 & Section \refBad{secAreaLockedByPolarCurve} & 13& \\
-\counterTopic Surface area of solid of revolution. & & & & & \\
-\counterTopic Sequences. & Chapter 8.1 & Chapter 11.1 & Section \refBad{secSequences} & 15& \\
-\counterTopic Series. & Chapter 8.2& Chapter 11.2& Section \refBad{secSeries} & 16& \\
-\counterSubTopic Geometric and arithmetic sums.& & & Section \refBad{secGeometricSeries} & 16& \\
-\counterSubTopic Telescoping series. & & & Section \refBad{secTelescopingSeries} & 16& \\
-\counterSubTopic Basic test.& & & Section \refBad{secBasicSeriesDivergenceTests} & 17& \\
-\counterSubTopic Comparison test.& Chapter 8.3& Chapter 11.4& Section \refBad{secSeriesComparisonAndIntegralTest} & 17& \\
-\counterSubTopic Integral test.& Chapter 8.3& Chapter 11.3 & Section \refBad{secSeriesComparisonAndIntegralTest} & 17& \\
-\counterSubTopic Absolute convergence, alternating series.& Chapter 8.5 & Chapter 11.6 & & 18& \\
-\counterSubTopic Ratio and root tests.& Chapter 8.4& Chapter 11.6& Section \refBad{secSeriesRootRatioTests} & 18& \\
+\counterSubTopic Curve images and parametric curves. & Chapters 9.2, 9.3 & Chapter 10.1 & & 11&7 \\
+\counterSubTopic Curves in polar coordinates. & Chapter 10.4& & & 11&7 \\
+\counterSubTopic Curve (arc) length. & Chapter 7.4 & Chapter 10.2 & Section \refBad{secCurveLength} & 12&7  \\
+\counterSubTopic Area locked by curves. & Chapter 9.5 & Chapter 10.4 & Section \refBad{secAreaLockedByPolarCurve} & 13&8 \\
+\counterTopic Surface area of solid of revolution (optional). & & & & &8 \\
+\counterTopic Sequences. & Chapter 8.1 & Chapter 11.1 & Section \refBad{secSequences} & 15&9 \\
+\counterTopic Series (Review). & Chapter 8.2& Chapter 11.2& Section \refBad{secSeries} & 16&9 \\
+\counterSubTopic Geometric and arithmetic sums.& & & Section \refBad{secGeometricSeries} & 16&9 \\
+\counterSubTopic Telescoping series. & & & Section \refBad{secTelescopingSeries} & 16&9 \\
+\counterSubTopic Basic test.& & & Section \refBad{secBasicSeriesDivergenceTests} & 17&10 \\
+\counterSubTopic Comparison test.& Chapter 8.3& Chapter 11.4& Section \refBad{secSeriesComparisonAndIntegralTest} & 17&10 \\
+\counterSubTopic Integral test.& Chapter 8.3& Chapter 11.3 & Section \refBad{secSeriesComparisonAndIntegralTest} & 17&10 \\
+\counterSubTopic Absolute convergence, alternating series.& Chapter 8.5 & Chapter 11.6 & & 18&10 \\
+\counterSubTopic Ratio and root tests.& Chapter 8.4& Chapter 11.6& Section \refBad{secSeriesRootRatioTests} & 18&10 \\
 \counterTopic  Power series. & Chapter 8.6& Chapter 11.8 & Section \refBad{PowerSeries} & 19& \\
-\counterSubTopic Radius and interval of convergence. & Chapter 11.10 & & Section \refBad{secIntervalOfConvergence} & 19& \\
-\counterSubTopic Maclaurin and Taylor series. & Chapters 8.7, 8.8& Chapter 11.10  & Section \refBad{secTaylorMaclaurinSeries} & 19& \\
-\counterSubTopic Integrating and differentiating Maclaurin and Taylor series. & & & Section \refBad{secTaylorMaclaurinSeries} & 19& \\
-\counterSubTopic Maclaurin series of $\ln(1+x), e^x, \sin x, \cos x, \arctan x, \arcsin x$. & & & Section \refBad{secTaylorMaclaurinSeries} & 19& \\
-\counterTopic  Differential equations.& & & & & \\
+\counterSubTopic Radius and interval of convergence. & Chapter 11.10 & & Section \refBad{secIntervalOfConvergence} & 19&11 \\
+\counterSubTopic Maclaurin and Taylor series. & Chapters 8.7, 8.8& Chapter 11.10  & Section \refBad{secTaylorMaclaurinSeries} & 19&12 \\
+\counterSubTopic Integrating and differentiating Maclaurin and Taylor series. & & & Section \refBad{secTaylorMaclaurinSeries} & 19&12 \\
+\counterSubTopic Maclaurin series of $\ln(1+x), e^x, \sin x, \cos x, \arctan x, \arcsin x$. & & & Section \refBad{secTaylorMaclaurinSeries} & 19&12 \\
+\counterTopic  Differential equations.& & & & &13 \\
 \counterSubTopic Direction fields. & & & & & \\
 \counterSubTopic Separable equations. & & & & & \\
 \counterSubTopic The logistic (population growth) equation.& & & & & \\
+\counterTopic Review \& catch-up.& & & & & \\
 %\counterTopic  Complex numbers. & & & & & \\
 \hline
 \end{longtable}
