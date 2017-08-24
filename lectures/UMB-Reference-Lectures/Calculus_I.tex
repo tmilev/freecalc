@@ -1,9 +1,3 @@
-\documentclass%
-[handout]
-{beamer}
-\newcommand{\currentLecture}{5}
-\newcommand{\semester}{}
-% % % % % % % %
 % % % % % % % %
 % % % % % % % %
 %IMPORTANT
@@ -12,11 +6,24 @@
 %IMPORTANT
 % % % % % % % %
 % % % % % % % %
-% % % % % % % %
+%On windows: comment out the line \input{../system-specific-config-Ubuntu-texlive}
+\documentclass%
+[handout]%
+{beamer}
+%IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
+\newcommand{\currentLecture}{3}
+\newcommand{\semester}{Summer 2017}
 \input{../example-templates}
-\input{../system-specific-config-Ubuntu-texlive}
+\input{../system-specific-config-Ubuntu-texlive} %
 \input{../pstricks-commands}
-\mode<handout>{\pgfpagesuselayout{1 on A4}[a4paper,landscape]}
+\usepackage{truncate}
+\renewcommand{\Arcsin}{\arcsin}
+\renewcommand{\Arccos}{\arccos}
+\renewcommand{\Arctan}{\arctan}
+\renewcommand{\Arccot}{\text{arccot\hspace{0.03cm}}}
+\renewcommand{\Arcsec}{\text{arcsec\hspace{0.03cm}}}
+\renewcommand{\Arccsc}{\text{arccsc\hspace{0.03cm}}}
+
 
 \mode<presentation>
 {
@@ -25,15 +32,13 @@
 \usecolortheme{orchid}
 \usecolortheme{whale}
 }
+%\setbeamertemplate{footline}{%
+%  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber}}}}
 
-
-\usepackage[T1]{fontenc}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 
 \graphicspath{{../../modules/}}
-
-\setbeamertemplate{navigation symbols}{}
 
 \newcommand{\lect}[4]{
 \ifnum#3=\currentLecture
@@ -45,6 +50,22 @@
 \fi
 }
 
+
+\setbeamertemplate{headline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}{\insertsectionhead}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}{\insertsubsectionhead}
+  \end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}
+}
+}
 \setbeamertemplate{footline}
 {
   \leavevmode%
@@ -61,6 +82,8 @@
   \vskip0pt%
 }
 
+\setbeamertemplate{navigation symbols}{}
+
 % If you have a file called "university-logo-filename.xxx", where xxx
 % is a graphic format that can be processed by latex or pdflatex,
 % resp., then you can add a logo as follows:
@@ -68,26 +91,23 @@
 %\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
 %\logo{\pgfuseimage{logo}}
 
-\begin{document}
-
 \AtBeginLecture{%
 
-\title[\insertlecture]{Calculus I}
-\subtitle{\insertlecture}
-\author[The freecalc team]{\Large The freecalc project team \\~\\
-\normalsize Reference Lectures\\~\\ 
+\title[\textbf{\color{green}{\insertlecture}}]{\hspace{-1.3cm} {\raisebox{-0.7cm}[0cm][0cm]{ \includegraphics[height =1.2cm]{../University-Logos/UMass-logo-blue.png}}} Math 140, Calculus I \\ \insertlecture }
+
+\author[\raisebox{-0.115cm}{\includegraphics[height=0.4cm]{../University-Logos/UMass-logo-blue.png}} Todor Milev]{\Large \\
+\normalsize Reference Lectures\\Todor Milev\\ 
 \url{https://github.com/tmilev/freecalc}
 }
 
-\date{2017}
+\date{\insertshortlecture}
 \begin{frame}
-  \titlepage
+\titlepage
 \end{frame}
+\input{../../modules/lecture-frequently-encountered-elements/table-of-contents-and-license}
+}
+\begin{document}
 
-\begin{frame}{Outline}
-  \tableofcontents[pausesections]
-\end{frame}
-}%
 
 \lect{\semester}{Lecture  0}{0}{
 %DesiredLectureName: Review_Representing_Functions

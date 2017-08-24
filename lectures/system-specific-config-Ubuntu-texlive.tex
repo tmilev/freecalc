@@ -13,24 +13,5 @@ crop=off%without crop=off breaks in windows
 }
 
 \usepackage{pgfpages}
-\pgfpagesdeclarelayout{1 on A4}
-{
-  \edef\pgfpageoptionheight{\the\paperheight} 
-  \edef\pgfpageoptionwidth{\the\paperwidth}
-  \edef\pgfpageoptionborder{0pt}
-}
-{
-  \pgfpagesphysicalpageoptions
-  {%
-    logical pages=1,%
-    physical height=\pgfpageoptionheight,%
-    physical width=\pgfpageoptionwidth%
-  }
-  \pgfpageslogicalpageoptions{1}
-  {%
-    border shrink=\pgfpageoptionborder,%
-    resized width=\pgfphysicalwidth,%
-    resized height=\pgfphysicalheight,%
-    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}%
-  }%
-}
+%\mode<handout>{\pgfpagesuselayout{4 on 1}[landscape, border shrink=5mm]}
+
