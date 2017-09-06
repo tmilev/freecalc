@@ -73,23 +73,23 @@ If we make $P(0)=f(0) $, and ensure the first, second, third and fourth derivati
 
 \begin{tikzpicture}
 \begin{axis}[ 
-	xmin=-2, xmax=2,
-	ymin=-3, ymax=3,
-	xtick={-2,...,2}, ytick={-3,...,3},
-	major tick length={5},
-	line width=1pt,
-	axis lines=center
-	] 
-	\addplot[blue,smooth,domain=-0.95:2] {ln(x+1)};
-	\only<2>{\addplot[red,smooth,domain=-2:2] {0};}
-	\only<3>{\addplot[red,smooth,domain=-2:2] {0+x};}
-	\only<4>{\addplot[red,smooth,domain=-2:2] {0+x-(x^2)/2};}
- 	\only<5>{\addplot[red,smooth,domain=-2:2] {0+x-(x^2)/2+(x^3)/3};}
- 	\only<6->{\addplot[red,smooth,domain=-2:2] {0+x-x^2/2+(x^3)/3-(x^4)/4};}
- 	\only<3->{\addplot[gray,smooth,thin,domain=-2:2] {0};}
- 	\only<4->{\addplot[gray,smooth,thin,domain=-2:2] {0+x};}
- 	\only<5->{\addplot[gray,smooth,thin,domain=-2:2]{0+x-(x^2)/2};}
- 	\only<6->{\addplot[gray,smooth,thin,domain=-2:2] {0+x-(x^2)/2+(x^3)/3};}
+xmin=-2, xmax=2,
+ymin=-3, ymax=3,
+xtick={-2,...,2}, ytick={-3,...,3},
+major tick length={5},
+line width=1pt,
+axis lines=center
+] 
+\addplot[blue,smooth,domain=-0.95:2] {ln(x+1)};
+\only<2>{\addplot[red,smooth,domain=-2:2] {0};}
+\only<3>{\addplot[red,smooth,domain=-2:2] {0+x};}
+\only<4>{\addplot[red,smooth,domain=-2:2] {0+x-(x^2)/2};}
+\only<5>{\addplot[red,smooth,domain=-2:2] {0+x-(x^2)/2+(x^3)/3};}
+\only<6->{\addplot[red,smooth,domain=-2:2] {0+x-x^2/2+(x^3)/3-(x^4)/4};}
+\only<3->{\addplot[gray,smooth,thin,domain=-2:2] {0};}
+\only<4->{\addplot[gray,smooth,thin,domain=-2:2] {0+x};}
+\only<5->{\addplot[gray,smooth,thin,domain=-2:2]{0+x-(x^2)/2};}
+\only<6->{\addplot[gray,smooth,thin,domain=-2:2] {0+x-(x^2)/2+(x^3)/3};}
 \end{axis}
 \end{tikzpicture}
 \[
