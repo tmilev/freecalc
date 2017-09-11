@@ -6,17 +6,24 @@ f(x)=ax^2+bx+c
 \]
 is called a \emph{quadratic function}.
 \end{definition}
-
+\begin{itemize}
+\item<2-> The graph of a quadratic function is called a parabola.
+\end{itemize}
+\uncover<2->{
 \hfil\hfil\begin{pspicture}(-1,-1)(2.5,2.3)
 \tiny
 \fcAxesStandard{-1}{-1}{2.5}{2.3}
 \psplot[linecolor=\fcColorGraph]{-1}{7 3 div}{0.75 x x mul mul x sub 0.2 add}
 \rput[l](0.3,1.5){$y=ax^2+bx+c$}
+
+\rput(0.75,-0.5){$a>0$}
 \end{pspicture}
 \begin{pspicture}(-1,-1)(2.5,2.3)
 \tiny
 \fcAxesStandard{-1}{-1}{2.5}{2.3}
 \psplot[linecolor=\fcColorGraph]{-1}{7 3 div}{-0.75 x x mul mul x add 1.2 add}
 \rput[l](0.5,1.7){$y=ax^2+bx+c$}
+\rput(0.75,-0.5){$a<0$}
 \end{pspicture}
+}
 \end{frame}

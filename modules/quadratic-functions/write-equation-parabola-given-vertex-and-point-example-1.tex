@@ -1,23 +1,36 @@
 \begin{frame}
 \begin{example}
 \begin{columns}
-\column{0.4\textwidth}
-\begin{pspicture}(-2,-2)(2.6,2.2)
+\column{0.3\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-2,-2)(3.7,2.2)
 \tiny
-\fcAxesStandard{-2}{-2}{2.6}{2.2}
-\fcLabels{2.5}{2}
+\fcAxesStandard{-2}{-2}{3.6}{2.2}
+\fcLabels{3.6}{2}
 \fcFullDot{1}{2}
 \fcFullDot{2}{1.5}
-\uncover<2->{
-\psplot[linecolor=\fcColorGraph]{-1.8}{2.5}{-0.5 x x mul mul x add 1.5 add }
-\rput[l](0.1,1){$\displaystyle y=-\frac{1}{2}x^2+x+\frac{3}{2}$}
-
+\uncover<15->{
+\psplot[linecolor=\fcColorGraph]{-1.8}{3.6}{-0.5 x x mul mul x add 1.5 add }
+\rput[l](-1,-1){$\displaystyle y=-\frac{1}{2}x^2+x+\frac{3}{2}$}
 }
+\rput[tl](1,2){$(1,2)$}
+\rput[tl](2,1.5){$(2,\frac{3}{2})$}
 \end{pspicture}
-\column{0.6\textwidth}
-Write an equation of a parabola with vertex at $(1,2)$ that passes through the point $(2,\frac{3}{2})$.
+\column{0.7\textwidth}
+\alertNoH{14,15}{Write an equation of a parabola} with \alertNoH{4}{vertex at $(\alertNoH{5}{1}, \alertNoH{6}{2})$} that \alertNoH{7}{passes through the point $\left(\alertNoH{8}{2},\alertNoH{9}{\frac{3}{2}}\right)$}.
 \end{columns}
-\uncover<2->{Answer: $\displaystyle f(x)=-\frac{1}{2}(x-1)^2+2=-\frac{1}{2} x^{2}+x+\frac{3}{2}$}
+
+\hfil\hfil$
+\renewcommand{\arraystretch}{1.7}
+\begin{array}{rcll|l}
+\displaystyle \uncover<2->{y=a(x-\alertNoH{3,4}{h})^2+\alertNoH{3,4}{k}&=&0&&\text{Standard form}}\\
+\displaystyle \uncover<3->{a(x-\fcAnswer{4}{\alertNoH{5}{ 1}})^2+\fcAnswer{4}{\alertNoH{6}{2}}&=&0 \uncover<4->{&&\text{Vertex at }(\alertNoH{5}{ 1}, \alertNoH{6}{2})}} \\
+\uncover<7->{\displaystyle a\alertNoH{10}{ (\alertNoH{7,8}{2}-1)^2} + \alertNoH{11}{2}&=&\displaystyle \alertNoH{7,9}{\frac{3}{2}}&& \alertNoH{7}{\text{Passes through }\left(\alertNoH{8}{2},\alertNoH{9}{\frac{2}{3}}\right) }} \\
+\uncover<10->{a &=&\displaystyle \alertNoH{12}{ \frac{3}{2}\alertNoH{11}{-2}} }\uncover<12->{= \alertNoH{12,13}{-\frac{1}{2}}}\\
+\uncover<13->{\alertNoH{14}{y}&\alertNoH{14}{{=}}&\displaystyle \alertNoH{14}{\alertNoH{13}{-\frac{1}{2}}(x-1)^2+2 }&&\alertNoH{14}{\text{Final answer}}}\\
+\uncover<15->{\alertNoH{15}{y}&\alertNoH{15}{{=}}&\displaystyle \alertNoH{15}{-\frac{1}{2} x^{2}+x+\frac{3}{2}} &&\text{Alternative answer}}
+\end{array}
+$
 \end{example}
 
 \end{frame}
