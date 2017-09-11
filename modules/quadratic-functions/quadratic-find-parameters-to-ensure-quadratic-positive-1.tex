@@ -1,9 +1,73 @@
 \begin{frame}
+\newcommand{\theParam}{1\space}
+\vskip -0.2cm
 \begin{example}
-Find the values of the parameter $k$ for which the inequality 
-\[ x^2+(k+1)x+k>0
-\]
-holds for all real $x$.
+\begin{columns}
+\column{0.25\textwidth}
 
+\hfil\hfil
+\uncover<4->{\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-4,-1)(3,5)
+\fcAxesStandard{-3.5}{-0.5}{2}{5}
+\pstVerb{10 dict begin
+/tipX \theParam 1 add -2 div def
+}
+\psplot[linecolor=\fcColorGraph]{tipX 1.6 sub}{tipX 1.6 add}{x x mul \theParam 1 add x mul \theParam 2 mul add add}
+\uncover<handout:0|5>{\psplot[linecolor=\fcColorGraph, linewidth=2pt]{tipX 1.6 sub}{tipX 1.6 add}{x x mul \theParam 1 add x mul \theParam 2 mul add add}
+\psline[linecolor=\fcColorGraph, linewidth=2pt](-3.5,0)(2,0)
+}
+\pstVerb{end}
+\end{pspicture}
+}
+\column{0.75\textwidth}
+Find the values of the parameter $k$ for which $
+\alertNoH{3}{x^2} +\alertNoH{10}{(k+1)}x+\alertNoH{12}{2k}>0
+$ holds for all real $x$.
+\begin{itemize}
+\item<2-> In order for the quadratic to be positive, its graph must lie entirely above the $x$ axis.
+\end{itemize}
+\end{columns}
+\vskip -0.05cm
+\begin{itemize}
+\item<3-> \alertNoH{3}{Leading coefficient is positive} \uncover<4->{$\Rightarrow$ graph opens up} \uncover<5->{$\Rightarrow$ is above $x$ axis if it does not intersect it} \uncover<6->{$\Rightarrow$ \alertNoH{9}{the quadratic has no real solutions}.} 
+\item<7-> The roots of a quadratic are $\alertNoH{7,8}{x_1, x_2=} \fcAnswer{8}{\frac{-b\pm\alertNoH{9}{\sqrt{{\alertNoH{10}{b}}^2-4{\alertNoH{11}{a}}{\alertNoH{12}{c}}}}}{2a}}$\uncover<8->{.}
+\end{itemize}
+\hfil\hfil $
+\begin{array}{rcl}
+\uncover<9->{\alertNoH{9}{{\alertNoH{10}{b}}^2-4{\alertNoH{11}{a}}{\alertNoH{12}{c}}}&{{\alertNoH{9}{{<}}}}&\alertNoH{9}{0}}\\
+\uncover<10->{ \alertNoH{13}{(\alertNoH{10}{k+1} )^2}-\alertNoH{14}{ 4\cdot {\alertNoH{11}{1}}\cdot} {\alertNoH{12}{\alertNoH{14}{2}k}}&<&0}\\
+\only<handout:1|1-24>{
+\uncover<13->{\alertNoH{13}{ k^2+\alertNoH{15}{2k}+1} \alertNoH{15}{- \alertNoH{14}{8} k} &<&0}\\
+\uncover<15->{\alertNoH{16}{ k^2 \alertNoH{15}{\alertNoH{19}{-6}k} +\alertNoH{21}{1}}&<&0}\\
+}
+\uncover<16->{\alertNoH{16,36}{(k-\alertNoH{17,18}{ k_1})(k-\alertNoH{17,18}{k_2})}&\alertNoH{36,38}{{<}}&\alertNoH{36}{0}}\\
+\uncover<17->{ \alertNoH{17,18,24,25,30,31,37}{k_1,k_2}
+
+&{\alertNoH{17,18,24,25,30,31}{{=}}}&\only<handout:2|1-30>{\displaystyle \alertNoH{24,25}{ \fcAnswer{18}{ \frac{\alertNoH{22}{-( \alertNoH{19}{ -6})} \pm \sqrt{\alertNoH{23}{ {\alertNoH{19}{(-6)}}^2-4\cdot \alertNoH{20}{ 1}\cdot \alertNoH{21}{1}}} }{2\cdot \alertNoH{20}{1}}} \uncover<22->{ =\frac{\alertNoH{22,26}{6} \pm \sqrt{\alertNoH{23,27}{ 32}}}{2}}} \\
+\uncover<26->{&=&} }}
+\uncover<26->{\displaystyle \alertNoH{30,31}{ \frac{\alertNoH{26}{\alertNoH{28}{ 2}\cdot 3} \pm \alertNoH{28}{\sqrt{\alertNoH{27}{4}}}\sqrt{\alertNoH{27}{8}}}{2} \uncover<28->{ =\frac{\alertNoH{28}{\fcCancel{29}{2}}\left(3\pm \sqrt{8}\right)}{\fcCancel{29}{ 2}}} \uncover<29->{=\alertNoH{37}{ 3\pm \sqrt{8}} }}} {~~~~~~~~~}   \vphantom{ \frac{-( \alertNoH{19}{ -6}) \pm \sqrt{ {(-6)}^2-4\cdot  1\cdot 1} }{2\cdot 1}} \\
+\only<handout:3|31->{\uncover<32->{
+\alertNoH{35,36}{k}& {\alertNoH{35,36}{{\in}}} &\fcAnswerUncover{32}{36}{  \onlyNoH{38}{\color{red}} \left( \onlyNoH{38}{\color{black}} \alertNoH{37}{k_1, k_2} \onlyNoH{38}{\color{red}}\right) \onlyNoH{38}{\color{black}}= \onlyNoH{38}{\color{red}}\left( \alertNoH{37}{ \onlyNoH{38}{\color{black}} 3-\sqrt{8}, 3+\sqrt{8} \onlyNoH{38}{\color{red}}} \right)\onlyNoH{38}{\color{red}}}
+}}
+\end{array}
+$
+
+\hfil\hfil
+\uncover<handout:3|32->{
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-6,-1.5)(12,1.5)
+\tiny
+\psline[arrows=<->](-6,0)(12,0)
+\renewcommand{\fcTickSize}{0.2}
+\uncover<33->{\fcIntervalOnRealLineFromMinusInfty{-6}{3 8 sqrt sub}{}{$\fcAnswer{35}{+}$}}
+\uncover<33->{\fcIntervalOnRealLine{3 8 sqrt sub}{3 8 sqrt add}{}{}{$\fcAnswer{35}{-}$}}
+\uncover<33->{\fcIntervalOnRealLineToPlusInfty{3 8 sqrt add}{12}{}{$\fcAnswer{35}{+}$}}
+\uncover<36->{ \fcIntervalOnRealLine[linecolor=red, linewidth=2pt]{3 8 sqrt sub}{3 8 sqrt add}{}{}{}}
+\fcXTickWithLabel{3 8 sqrt sub}{$k_1$}
+\fcXTickWithLabel{3 8 sqrt add}{$k_2$}
+\end{pspicture}
+}
 \end{example}
+
+\vskip 10cm
 \end{frame}
