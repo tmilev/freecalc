@@ -1,0 +1,35 @@
+\begin{frame}
+\begin{theorem}
+\begin{columns}
+\column{0.3\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-1,-1.5)(5,3)
+\tiny
+\fcAxesStandard{-0.5}{-1.5}{5}{3}
+\psplot[linecolor=\fcColorGraph]{0.2}{3.8}{x 1 sub x 3 sub mul}
+\fcFullDot{1}{0}
+\rput[lb](1,0.1){$x_1$}
+\fcFullDot{3}{0}
+\rput[br](3,0.1){$x_2$}
+\end{pspicture}
+\column{0.7\textwidth}
+The solutions of the quadratic equation 
+\[
+ax^2+bx+c=0
+\]
+are the numbers 
+\[
+x_1=\frac{-b+ \sqrt{b^2-4ac}}{2a} \qquad x_2=\frac{-b- \sqrt{b^2-4ac}}{2a}.
+\]
+
+\end{columns}
+\end{theorem}
+\begin{itemize}
+\item Abbreviated as 
+\[
+x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}=\frac{-b\pm \sqrt{D}}{2a}, \qquad \text{ where }D=b^2-4ac.
+\]
+\item If $D<0$ then $\sqrt{D}$ is not a real $\Rightarrow$ quadratic has no real solutions.
+\item If $D=0$ then $x_1=x_2$, the equation has only one zero (with multiplicity two). The zero is located at the vertex of the parabola.
+\end{itemize}
+\end{frame}
