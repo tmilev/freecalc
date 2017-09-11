@@ -1,0 +1,69 @@
+\begin{frame}
+\newcommand{\theParam}{6}
+\only<23->{\renewcommand{\theParam}{4}}
+\only<24->{\renewcommand{\theParam}{2}}
+\only<25->{\renewcommand{\theParam}{0}}
+\only<26->{\renewcommand{\theParam}{-2}}
+\only<27->{\renewcommand{\theParam}{-4}}
+\only<28->{\renewcommand{\theParam}{-6}}
+\begin{example}
+
+Find the values of the parameter $k$ for which the equation $\alertNoH{7}{3} x^2 \alertNoH{6}{- k} x+\alertNoH{8}{1}$ has two real distinct roots. 
+
+\begin{columns}
+\column{0.18\textwidth}
+\psset{xunit=0.28cm, yunit=0.28cm}
+\begin{pspicture}(-5,-5)(5,10)%
+\tiny%
+\fcAxesStandard{-5}{-5}{5}{10}%
+\pstVerb{20 dict begin 
+/theParam \theParam\space def
+}%
+\pstVerb{
+/theFun {3 x x mul mul theParam x -1 mul mul 1 add add} def
+/tipX theParam 6 div def
+}%
+\uncover<22->{%
+\rput[t](! tipX 1 dict begin /x tipX def theFun end ){$y=3x^2-kx+1$}%
+\psplot[linecolor=\fcColorGraph]{tipX -1.65 add}{tipX 1.65 add}{theFun}%
+\rput[bl](2,-5){$k=\theParam$}%
+}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.82\textwidth}
+\begin{itemize}
+\item<2-> Quadratic roots: $x_1,x_2= \fcAnswer{3}{\frac{-b\pm \only<5>{\color{red}} \sqrt{ \only<5>{\color{black}} \alertNoH{4}{b^2-4ac} }}{2a}}$.
+\item<4-> $\Rightarrow$ The \alertNoH{5}{roots $x_1,x_2$ are real and distinct} when
+$
+\begin{array}{@{\!\!}r@{~}c@{~}l}
+\uncover<4->{\alertNoH{4}{{\alertNoH{6}{ b}}^2-4\alertNoH{7}{a}\alertNoH{8}{c}} &\alertNoH{5}{>}&\alertNoH{5}{0}}\\
+\uncover<6->{(\alertNoH{6}{\alertNoH{9}{-}k})^{\alertNoH{9}{2}}-\alertNoH{10}{4\cdot \alertNoH{7}{3} \cdot \alertNoH{8}{1}} &>&0}\\
+\uncover<9->{k^2- \alertNoH{10,11}{12}&>&0}\\
+\uncover<11->{ \alertNoH{12}{k^2- \alertNoH{11}{\sqrt{12}^2}}&>&0}\\
+\uncover<12->{\alertNoH{12}{\left(\alertNoH{13}{ k-\sqrt{12}} \right)\left(\alertNoH{14}{ k+\sqrt{12}} \right)}&>&0} \\
+\uncover<20->{\alertNoH{20,21}{k}&{\alertNoH{20, 21}{\in}}& \fcAnswer{21}{\left(-\infty, -\sqrt{12}\right) \cup \left(\sqrt{12},\infty\right)}}\\
+\end{array}
+$
+
+\uncover<28>{}
+\hfil\hfil
+\uncover<13->{
+\psset{xunit=0.3cm, yunit=0.3cm}
+\begin{pspicture}(-8,-2.6)(8,2.1)
+\tiny
+\psline[arrows=<->](-8,0)(8,0)
+\renewcommand{\fcTickSize}{0.2}
+\uncover<15->{\fcIntervalOnRealLineFromMinusInfty{-8}{12 sqrt -1 mul}{}{$\fcAnswer{19}{+}$}}
+\uncover<16->{\fcIntervalOnRealLine{12 sqrt -1 mul}{12 sqrt}{}{}{$\fcAnswer{19}{-}$}}
+\uncover<17->{\fcIntervalOnRealLineToPlusInfty{12 sqrt}{8}{}{$\fcAnswer{19}{+}$}}
+\uncover<21->{\fcIntervalOnRealLineToPlusInfty[linecolor=red, linewidth=1.5pt]{12 sqrt}{8}{}{$\fcAnswer{19}{+}$}}
+\uncover<21->{\fcIntervalOnRealLineFromMinusInfty[linecolor=red, linewidth=1.5pt]{-8}{12 sqrt -1 mul}{}{$\fcAnswer{19}{+}$}}
+\fcXTickWithLabel{12 sqrt -1 mul}{$\uncover<14->{\alertNoH{14}{-\sqrt{12}}}$}
+\fcXTickWithLabel{12 sqrt }{$\uncover<13->{\alertNoH{13}{\sqrt{12}}}$}
+\uncover<22->{\fcXTickWithLabel{\theParam}{$k$}}
+\end{pspicture}
+}
+\end{itemize}
+\end{columns}
+\end{example}
+\end{frame}
