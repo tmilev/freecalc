@@ -202,6 +202,25 @@ string exch          % s1 s2 s3 .. sN str   n
 pop  % str'
 }
 
+\newcommand{\fcIntervalOnRealLineFromMinusInfty}[5][]{%
+\pscurve[linecolor=blue, #1](! #2\space 1.3)(! #3\space -0.1 add 1.3)(! #3\space -0.1 add 1.3)(! #3 \space 0)%
+\fcXTickWithLabel{#3}{#4}%
+\rput[b](! #2\space #3\space add 2 div 0.2){#5}%
+}%
+
+\newcommand{\fcIntervalOnRealLineToPlusInfty}[5][]{%
+\pscurve[linecolor=blue, #1](! #3\space 1.3)(! #2\space 0.1 add 1.3)(! #2\space 0.1 add 1.3)(! #2 \space 0) 
+\fcXTickWithLabel{#2}{#4}
+\rput[b](! #2\space #3\space add 2 div 0.2){#5}
+}%
+
+\newcommand{\fcIntervalOnRealLine}[6][]{%
+\pscurve[linecolor=blue, #1](! #2\space 0)(! #2 \space 0.1 add 1.3)(! #2 \space 0.1 add 1.3)(! #3\space 0.1 sub 1.3 )(! #3\space 0.1 sub 1.3 )(! #3\space 0)
+\rput[b](! #2\space #3\space add 2 div 0.2){#6}
+\fcXTickWithLabel{#2}{#4}
+\fcXTickWithLabel{#3}{#5}
+}%
+
 \newcommand{\fcRiemannSum}[6][linecolor=\fcColorGraph]{%
 \pstVerb{%
 15 dict begin

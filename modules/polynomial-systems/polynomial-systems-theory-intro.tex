@@ -1,7 +1,7 @@
 \begin{frame}
 \frametitle{Systems of polynomial equations}
 \begin{definition}
-A system of polynomial equations is a system of one or more polynomial equations with one or more variables.
+A collection of one or more simultaneous polynomial equations in one or more variables is called a \emph{polynomial system}.
 \end{definition}
 \begin{itemize}
 \only<handout:1|1-7>{
@@ -9,12 +9,12 @@ A system of polynomial equations is a system of one or more polynomial equations
 
 \hfil\hfil$x^2+2x-3=0$
 
-\item<3-> Typical polynomial systems would have more than one variable:
+\item<3-> Typical polynomial systems have more than one variable/equation:
 
 \hfil\hfil$
 \left|\begin{array}{rcl}
 y^{2}+x y-4 y-2 x+4&=&0\\
-y^{2} x-3 y x+x y- y-2 x+4&=&0.
+y^{2} x-2 y x- y-2 x+4&=&0.
 \end{array}\right.
 $
 
@@ -58,18 +58,18 @@ y+z &=&1.
 $
 \uncover<13->{If we set $x=0$, $y=1-z$, we produce infinitely many solutions for every possible value of $z$.}
 }
-\only<handout:3|14->{
-\item<14-> The branch of mathematics that studies exact solutions of such systems is called Algebraic Geometry.
+\only<handout:3|14-17>{
+\item<14-> The branch of mathematics that studies exact solutions of polynomial systems is called Algebraic Geometry.
 \item<15-> The practical aspects of solving such systems are covered under the subject of Elimination Theory.
 \item<16-> Solving polynomial systems is an indispensable mathematical tool used in other branches of science and mathematics.
 \item<17-> Polynomial systems also have direct practical applications, for example kinematics - the configurations of a robotic arm can be parametrized with polynomials. 
 }
-\only<handout:4|15->{
-\item<18-> Whether a system has no, finitely many or infinitely many solutions, as well as what are those solutions, can be computed with a computer algorithm. 
-\item<19-> Algorithm: find so-called Gr\"obner (1899-1980) basis using the Buchberger (born 1942) algorithm.
+\only<handout:4|18->{
+\item<18-> Whether a system has finitely or infinitely many solutions and what are they can be computed with a computer algorithm. 
+\item<19-> Algorithm: find so-called Gr\"obner basis (named after the Austrian W. Gr\"obner, 1899-1980) using the Buchberger algorithm(named after the Austrian B. Buchberger, 1942-).
 \item<20-> These algorithms are too advanced to cover here.
 \item<21-> Not well-suited for pen and paper computations: can get notoriously large and require computers/super-computers.
-\item<22-> A system doable by hand would typically take milliseconds on a modern computer.
+\item<22-> A system doable by hand would typically be solved milliseconds on a modern computer.
 \item<23-> A system doable by hand would typically be solved easily using ad-hoc techniques.
 }
 \end{itemize}
