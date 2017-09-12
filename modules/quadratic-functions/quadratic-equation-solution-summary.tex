@@ -3,14 +3,26 @@
 \begin{columns}
 \column{0.3\textwidth}
 \psset{xunit=0.6cm, yunit=0.6cm}
-\begin{pspicture}(-1,-1.5)(5,3)
+\begin{pspicture}(-1,-1.5)(5,4)
 \tiny
-\fcAxesStandard{-0.5}{-1.5}{5}{3}
-\psplot[linecolor=\fcColorGraph]{0.2}{3.8}{x 1 sub x 3 sub mul}
+\fcAxesStandard{-0.5}{-1.5}{5}{4}
+\newcommand{\extraSummand}{0}
+\onlyNoH{3}{\renewcommand{\extraSummand}{1.5}}
+\onlyNoH{4-}{\renewcommand{\extraSummand}{1}}
+\psplot[linecolor=\fcColorGraph]{0.2}{3.8}{x 1 sub x 3 sub mul \extraSummand\space add}
+\only<handout:1|1-2>{
 \fcFullDot{1}{0}
-\rput[lb](1,0.1){$x_1$}
+\rput[lt](1,-0.1){$x_1$}
 \fcFullDot{3}{0}
-\rput[br](3,0.1){$x_2$}
+\rput[tr](3,-0.1){$x_2$}
+}
+\only<handout:0|4->{
+\fcFullDot{2}{0}
+\rput[t](2,-0.1){$x_1=x_2$}
+}
+\only<handout:1|1-2>{\rput[tl](-1.5, 5){$\alertNoH{2}{D > 0}$}}
+\only<handout:0|3>{\rput[tl](-1.5, 5){$\alertNoH{3}{D < 0}$}}
+\only<handout:0|4->{\rput[tl](-1.5, 5){$\alertNoH{4}{D =0}$}}
 \end{pspicture}
 \column{0.7\textwidth}
 The solutions of the quadratic equation 
@@ -19,17 +31,17 @@ ax^2+bx+c=0
 \]
 are the numbers 
 \[
-x_1=\frac{-b+ \sqrt{b^2-4ac}}{2a} \qquad x_2=\frac{-b- \sqrt{b^2-4ac}}{2a}.
+x_1=\frac{-b+ \alertNoH{3}{\sqrt{\alertNoH{2}{b^2-4ac}}}}{2a} \qquad x_2=\frac{-b- \alertNoH{3}{\sqrt{\alertNoH{2}{b^2-4ac}}}}{2a}.
 \]
 
 \end{columns}
 \end{theorem}
 \begin{itemize}
-\item Abbreviated as 
+\item<2-> Abbreviated as 
 \[
-x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}=\frac{-b\pm \sqrt{D}}{2a}, \qquad \text{ where }D=b^2-4ac.
+x_1,x_2=\frac{-b\alertNoH{4}{\pm \alertNoH{3}{\sqrt{\alertNoH{2}{b^2-4ac}}}} }{2a}=\frac{-b\alertNoH{4}{ \pm \alertNoH{3}{\sqrt{ \alertNoH{2}{D}} }}}{2a}, \qquad \text{ where }\alertNoH{2}{D} =\alertNoH{2}{b^2-4ac}.
 \]
-\item If $D<0$ then $\sqrt{D}$ is not a real $\Rightarrow$ quadratic has no real solutions.
-\item If $D=0$ then $x_1=x_2$, the equation has only one zero (with multiplicity two). The zero is located at the vertex of the parabola.
+\item<3-> If $\alertNoH{3}{D < 0}$ then $\alertNoH{3}{\sqrt{ D} }$ is not a real $\Rightarrow$ quadratic has no real solutions.
+\item<4-> If $\alertNoH{4}{D=0}$ then $x_1=x_2$, the equation has only one zero (with multiplicity two). \uncover<5->{The zero is located at the vertex of the parabola.}
 \end{itemize}
 \end{frame}
