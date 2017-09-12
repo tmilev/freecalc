@@ -1,6 +1,20 @@
 \begin{frame}
 \begin{proposition}
-Let $ax^2+bx+c$, $a\neq 0$ be a quadratic with discriminant $D=b^2-4ac$ and roots $x_1$ and $x_2$. Then $D=a^2(x_1-x_2)^2$.
+Let $ax^2+bx+c$, $a\neq 0$ be a quadratic with discriminant $D=b^2-4ac$ and roots $x_1$ and $x_2$. \alertNoH{10}{Then $D=\alertNoH{2}{a^2\left( \alertNoH{11}{x_1- x_2}\right)^2}$}.
 \end{proposition}
+\begin{proof}
+\[
+\begin{array}{rcl}
+\displaystyle \uncover<2->{ \alertNoH{2,10}{ a^2(\alertNoH{3}{x_1} -\alertNoH{3}{ x_2})^2} &=&\displaystyle a^2\left( \alertNoH{3}{\frac{\fcCancel{4}{ -b}+ \alertNoH{5}{\sqrt{D}}}{2a}}\alertNoH{4,5}{-} \alertNoH{3}{\frac{\fcCancel{4}{ -b}\alertNoH{5}{-\sqrt{D}}}{2a}} \right) }\\
+\uncover<5->{&=&\displaystyle a^2\left(\frac{\alertNoH{5}{\fcCancel{6}{2} \alertNoH{7}{ \sqrt{D}}} }{\fcCancel{6}{2} \alertNoH{8}{a} } \right)^{\alertNoH{7, 8}{2}}}\\
+\uncover<7->{&=&\displaystyle \fcCancel{9}{ a^2} \frac{\alertNoH{7}{ D}}{\alertNoH{8}{\fcCancel{9}{ a^2}}} }  \\
+\uncover<9->{&\alertNoH{10}{{=}}&\displaystyle \alertNoH{10}{D}}\uncover<10->{\alertNoH{10}{, \qquad\text{as desired.}}}
+\end{array}
+\]
+\vskip -0.2cm
+\end{proof}
+\begin{itemize}
+\item<11-> Discriminant is zero $\Leftrightarrow$ the quadratic has non-distinct roots\uncover<12->{, hence the discriminant discriminates between the two roots.}
+\end{itemize}
 
 \end{frame}

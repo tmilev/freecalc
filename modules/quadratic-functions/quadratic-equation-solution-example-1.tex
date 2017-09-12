@@ -2,18 +2,30 @@
 \begin{example}
 \begin{columns}
 \column{0.5\textwidth}
-\psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-2,-1.6)(2.5,2.5)%
+\psset{xunit=0.8cm, yunit=0.8cm}
+\begin{pspicture}(-2,-1.6)(3.1,2.5)%
 \tiny%
-\fcAxesStandard{-2 }{-1.5}{2}{2}%
-\psplot[linecolor=\fcColorGraph]{-1.05}{2}{x x mul x sub 1 sub}
+\fcAxesStandard{-2 }{-1.5}{3}{2}%
+\fcLabels{3}{2}
+\psplot[linecolor=\fcColorGraph]{-1.25}{2.25}{x x mul x sub 1 sub}
+\uncover<8->{
 \fcFullDot{1 5 sqrt add 2 div}{0}
 \fcFullDot{1 5 sqrt sub 2 div}{0}
+\rput[tr](! 1 5 sqrt sub 2 div -0.1){$\frac{1-\sqrt{5}}{2}$}
+\rput[tl](! 1 5 sqrt add 2 div -0.1){$\frac{1+\sqrt{5}}{2}$}
+}
+\rput[b](0.5, 1){$y=x^2-x-1$}
 \end{pspicture}
 \column{0.5\textwidth}
-Find the $x$-intercepts of $x^2-x-1$. 
+Find the $x$-intercepts of $x^2\alertNoH{3}{-}x\alertNoH{5}{-1}$. 
 \end{columns}
-
+\[
+\begin{array}{rcl}
+\displaystyle \uncover<2->{\alertNoH{8}{ x_1,x_2}&=&\displaystyle \frac{- {\alertNoH{3}{b}}\pm \sqrt{{\alertNoH{3}{b}}^2-4{\alertNoH{4}{a}}{\alertNoH{5}{c}}}}{2{\alertNoH{4}{a}}}} \\
+\uncover<3->{&=&\displaystyle \frac{ \alertNoH{6}{-(\alertNoH{3}{-1})} \pm\sqrt{\alertNoH{7}{ (\alertNoH{3}{-1})^2-4\cdot \alertNoH{4}{1}\cdot (\alertNoH{5}{-1} ) } }}{2\cdot \alertNoH{4}{1}}}\\
+\uncover<6->{&\alertNoH{8}{{=}}&\displaystyle  \alertNoH{8}{\frac{\alertNoH{6}{1}\pm \sqrt{ \alertNoH{7}{5}}}{2}}}
+\end{array}
+\]
 \end{example}
 
 \end{frame}
