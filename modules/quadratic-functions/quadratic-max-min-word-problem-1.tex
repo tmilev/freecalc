@@ -1,20 +1,34 @@
 \begin{frame}
 \begin{example}
-Let $x,z$ be two numbers that add to $12$. Choose $x$ and $z$ so that the product $x\cdot z$ is maximal. 
-\uncover<2->{
+Let \alertNoH{3}{$x,z$ be two numbers that add to $12$}. \alertNoH{23}{Choose $x$ and $z$ so that the product \alertNoH{2}{$x\cdot z$ is maximal}}. 
 \begin{columns}
-\column{0.3\textwidth}
+\column{0.2\textwidth}
+\uncover<9->{
 \psset{xunit=0.1cm, yunit=0.1cm}
 \begin{pspicture}(-6,-15)(16,44)
 \tiny
 \fcAxesStandard{-5}{-15}{14}{40}
 \psplot[linecolor=\fcColorGraph]{-1}{13}{x 12 x sub mul}
-\fcFullDot{6}{36}
-\rput[l](7, 36){$(6,36)$}
+\uncover<10->{\fcFullDot{6}{36}}
+\rput[l](7, 36){$(\fcAnswerUncover{10}{15}{6},\fcAnswerUncover{10}{22}{36})$}
 \end{pspicture}
-\column{0.7\textwidth}
-We have that $x+z=12$ and so $z=12-x$. We are seeking to maximize $xz=x(12-x)=-x^2+12x$. This is quadratic with $a<0$ and therefore achieves its maximum for $x=-\frac{b}{2a}=-\frac{12}{-2}=6$ and $z=12-x=12-6=6$. The maximum product is $6\cdot 6=36$. 
-\end{columns}
 }
+\column{0.8\textwidth}
+\[
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{rcl}
+\uncover<3->{\alertNoH{3}{\alertNoH{4}{x}+z}&\alertNoH{3}{{=}}&\alertNoH{3}{12}}\\
+\uncover<4->{\alertNoH{5,16}{z}&\alertNoH{5,16}{{=}}& \alertNoH{5,16}{12 \alertNoH{4}{-x}}}\\
+\multicolumn{2}{l}{\uncover<2->{\text{\alertNoH{2,19}{Maximizing:}}}}\\
+\uncover<2->{\alertNoH{2,19}{x\alertNoH{5}{ z}}&=&\alertNoH{6,7}{x} (\alertNoH{5}{\alertNoH{7}{12}\alertNoH{6}{-x}})}\\
+&=&\alertNoH{8}{ \alertNoH{6}{\alertNoH{9,14}{ -}x^2}+\alertNoH{7}{\alertNoH{13}{ 12} x}}\\
+\multicolumn{3}{l}{ \text{\alertNoH{9}{ \uncover<8->{ \alertNoH{8}{Parabola}} \uncover<9->{\alertNoH{9,10}{opens down}}}} \uncover<10->{\Rightarrow \text{\alertNoH{11}{ \alertNoH{10}{has maximum}, attained at: }}}}\\
+\uncover<11->{\alertNoH{17,20,23}{x}&=&\displaystyle \fcAnswer{12}{-\frac{\alertNoH{13}{b}}{2\alertNoH{14}{a}}}} \\
+\uncover<13->{&=&\displaystyle \alertNoH{15}{- \frac{\alertNoH{13}{ 12}} {\alertNoH{14}{-}2} } \uncover<15->{\alertNoH{15,17,20,23}{=6}}} \\
+\uncover<16->{\alertNoH{16,21,23}{z}&\alertNoH{16}{{=}}&\alertNoH{16}{12-\alertNoH{17}{x} }\uncover<17->{=\alertNoH{18}{ 12-\alertNoH{17}{6}}} \uncover<18->{\alertNoH{18,21,23}{=6}}}\\
+\uncover<19->{\alertNoH{19}{ \text{Max. product}}&\alertNoH{19}{{=}}& \alertNoH{19}{\alertNoH{20}{x}\alertNoH{21}{z}}\uncover<20->{=\alertNoH{22}{ \alertNoH{20}{6}\cdot \alertNoH{21}{6}}} \uncover<22->{ \alertNoH{22}{= 36}.}}
+\end{array}
+\]
+\end{columns}
 \end{example}
 \end{frame}
