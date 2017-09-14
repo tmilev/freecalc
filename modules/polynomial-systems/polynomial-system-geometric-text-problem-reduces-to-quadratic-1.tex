@@ -1,9 +1,10 @@
 \begin{frame}
+\vskip -0.1cm
 \begin{example}
 \begin{columns}
 \column{0.3\textwidth}
 \psset{xunit=0.07cm, yunit=0.07cm}
-\begin{pspicture}(-5,-10)(50,35)
+\begin{pspicture}(-5,-6)(50,35)
 \tiny
 \pstVerb{20 dict begin
 /ySolution 30 def
@@ -14,7 +15,7 @@
 /sideXtwo xSolution 3 mul def
 /sideHF sideXtwo sideY add def
 }
-\fcBoundingBox{-5}{-5}{50}{35}
+\fcBoundingBox{-5}{-5}{50}{35}%
 \psline(0,0)(! sideHF 0)(! sideHF sideKnown)(! sideY sideKnown)(! sideY sideKnown sideXone add)(!0 sideKnown sideXone add)(0,0)%
 \fcPerpendicular{[0 sideKnown sideXone add]}{[-1 0]}{2}%
 \fcPerpendicular{[sideHF sideKnown]}{[1 0]}{2}%
@@ -24,6 +25,43 @@
 \fcPerpendicular{[0 0]}{ [0 sideKnown sideXone add] [sideY sideKnown sideXone add] }{2}%
 \psline[linewidth=2pt, linecolor=blue](0,0)(! 0 sideKnown)%
 \psline[linewidth=1pt, linestyle=dashed](! sideY 0)(! sideY sideKnown)%
+\uncover<handout:0|2>{%
+\psline[linewidth=3pt, linecolor=purple](0,0)(! 0 sideKnown)%
+}%
+\uncover<handout:0|3,8,12>{%
+\psline[linecolor=red, linewidth=2pt](0,0)(! sideHF 0)(! sideHF sideKnown)(! sideY sideKnown)(! sideY sideKnown sideXone add)(!0 sideKnown sideXone add)(! 0 sideKnown)%
+}%
+\uncover<handout:0|9, 21, 22, 23>{%
+\psline*[linecolor=\fcColorAreaUnderGraph](! 0 0)(! sideY 0)(! sideY sideKnown sideXone add)(! 0 sideKnown sideXone add)(0,0)%
+}%
+\uncover<handout:0|10,24,25,26>{%
+\psline*[linecolor=\fcColorAreaUnderGraph](! sideY 0 )(! sideHF 0)(! sideHF sideKnown)(! sideY sideKnown)(! sideY 0)%
+}%
+\uncover<handout:0|4,16,26>{%
+\psline[linecolor=red, linewidth=2pt](! sideHF 0)(! sideHF sideKnown)%
+}%
+\uncover<handout:0|5,13,22>{%
+\psline[linecolor=red, linewidth=2pt](! 0 sideKnown sideXone add)(! sideY sideKnown sideXone add)%
+}%
+\uncover<handout:0|13>{%
+\psline[linecolor=red, linewidth=2pt](! 0 0)(! sideY 0)%
+}%
+\uncover<handout:0|6,14>{%
+\psline[linecolor=red, linewidth=2pt](! 0 sideKnown)(! 0 sideKnown sideXone add)%
+\psline[linecolor=red, linewidth=2pt](! sideY sideKnown)(! sideY sideKnown sideXone add)%
+}%
+\uncover<handout:0|7,15,25>{%
+\psline[linecolor=red, linewidth=2pt](! sideY sideKnown)(! sideHF sideKnown)%
+}%
+\uncover<handout:0|15>{%
+\psline[linecolor=red, linewidth=2pt](! sideY 0)(! sideHF 0)%
+}%
+\uncover<handout:0|11,45>{%
+\psline[linecolor=red, linewidth=2pt](! 0 0 )(! sideHF 0)%
+}%
+\uncover<handout:0|23>{%
+\psline[linecolor=red, linewidth=2pt](! 0 0 )(! 0 sideKnown sideXone add)%
+}%
 \rput[t] (-1,-1){$H$}
 \rput[t] (! sideY -1){$G$}
 \rput[t] (! sideHF -1){$F$}
@@ -32,35 +70,42 @@
 \rput[lb] (! sideY 1 add sideKnown sideXone 1 add add){$C$}
 \rput[rb] (! -1 sideKnown sideXone 1 add add){$B$}
 \rput[r] (! -1 sideKnown ){$A$}
-\rput[b](! sideY 2 div sideKnown sideXone add){$y$}
-\rput[r](! -1 sideKnown sideXone 2 div add){$2x$}
-\rput[l](! sideY 1 add sideKnown sideXone 2 div add){$2x$}
-\rput[t](! sideY sideXtwo 2 div add sideKnown -1 add){$3x$}
-\rput[l](! sideHF 1 add sideKnown 2 div){$20$}
+\rput[b](! sideY 2 div sideKnown sideXone add){$\alertNoH{5,13,22,45}{y}$}
+\rput[r](! -1 sideKnown sideXone 2 div add){$\alertNoH{6,14,23}{2x}$}
+\rput[l](! sideY 1 add sideKnown sideXone 2 div add){$\alertNoH{6,14}{2x}$}
+\rput[t](! sideY sideXtwo 2 div add sideKnown -1 add){$\alertNoH{7,15,25,45}{3x}$}
+\rput[l](! sideHF 1 add sideKnown 2 div){$\alertNoH{4,16,26}{20} $}
+\rput[r](! -1  sideKnown 2 div){$\alertNoH{4,23}{20} $}
+\rput[b] (15, -5){units= $m$}
 \pstVerb{end}
 \end{pspicture}
 \column{0.7\textwidth}
-A field is enclosed by a wall \(AH\) and fencing at the rest of the boundary. Given: $EF=20$ $m$, $BC=y$ $m$, $AB=DC=2x$ $m$, $DE=3x$ $m$; the total fencing length (excluding the wall) is $130$ m; the area of $HBCG$ is $3$ times that of $DEFG$. Find the length $HF$.
+A field is enclosed by \alertNoH{2}{a wall \(AH\)} and \alertNoH{3}{fencing at the rest of the boundary}, as depicted. Given: $\alertNoH{4}{|EF|=|AH|=20}$ $m$, $\alertNoH{5}{|BC|=y}$ $m$, $\alertNoH{6}{|AB|=|DC|=2x}$ $m$, $\alertNoH{7}{|DE|=3x}$ $m$; \alertNoH{8}{fencing length, excluding wall, is $130$} m; \alertNoH{9}{area of $HBCG$} \alertNoH{10}{is $3$ times that of $DEFG$}. \alertNoH{11,45,48}{ Find the length $|HF|$}.
 \end{columns}
-$\begin{array}{rcl}
-\only<handout:1|1>{\text{Fence length}&=&130 m\\
-2\cdot 2x+2y+2\cdot 3x +20&=&130\\
-10x+2y&=&110\\
-5x+y&=&55\\}
-y&=&55-5x\\
-Area(HBCG)&=&3\cdot Area(DEFH)\\
-\only<handout:1|1>{y\cdot(2x+20)&=&3\cdot3x\cdot 20\\
-(55-5x)(2x+20)-180x&=&0\\
-110x+1100-10x^2-100x-180x&=&0\\
--10x^2-170x+1100&=&0\\}
-x^2+17x-110&=&0\\
-(x-5)(x+22)&=&0\\
-
-x=5&\text{or}&\fcCancel{2}{x=-22}, \quad x>0\\
-y&=&55-5x=55-5\cdot 5= 30\\
-HF&=&(y+3x)m=(30+3\cdot 5)m= 45 m
+$\begin{array}{@{}r@{~}c@{~}l@{}l@{}|l}
+\only<handout:1|1-34>{ 
+\uncover<8->{\alertNoH{8,12}{\text{Fence length}}& \alertNoH{8}{{= }}&\alertNoH{8}{130} m} \\
+\uncover<12->{\alertNoH{12}{\alertNoH{13}{2y}+\alertNoH{14,17}{ 2\cdot 2x} +\alertNoH{15,17}{2\cdot 3x} +\alertNoH{16,18}{20}} &=&\alertNoH{18}{ 130}}\\
+\uncover<17->{ \alertNoH{17}{\alertNoH{19}{10}x}+\alertNoH{19}{2}y &=&\alertNoH{18,19}{ 110} } \uncover<19->{& & \alertNoH{19}{ \text{Div. by } 2} }\\
+\uncover<19->{ \alertNoH{20}{ \alertNoH{19}{5}x} +y&=& \alertNoH{19}{ 55}}\\}
+\uncover<20->{\alertNoH{27,34,35,42}{y}&\alertNoH{27,34,35,42}{{=}}&\alertNoH{27,34,35,42}{55\alertNoH{20}{-5x}}}\\
+\only<handout:1|1-34>{
+\uncover<9->{\alertNoH{9,21}{Area(HBCG)} &=&\alertNoH{10}{3\cdot  \alertNoH{24}{Area(DEFH)} }}\\
+\uncover<21->{ \alertNoH{21}{\alertNoH{22,27}{y}\cdot( \alertNoH{23}{2x+20} )}&=& \alertNoH{28}{3\cdot\alertNoH{24}{ \alertNoH{25}{3x} \cdot \alertNoH{26}{20}}}}\\
+(\alertNoH{27}{\alertNoH{29,30}{55}\alertNoH{31,32}{-5x}})(\alertNoH{29,31}{2x}+\alertNoH{30,32}{20}) \alertNoH{28}{-180x}&=&0\\
+\alertNoH{29,33}{110x}+\alertNoH{30}{1100}\alertNoH{31}{-10x^2}\alertNoH{32,33}{-100x} \alertNoH{33}{-180x}&=&0\\}
+\uncover<33->{\hspace{2.2cm} \alertNoH{34,35}{\alertNoH{36}{-10}x^2 \alertNoH{33}{\alertNoH{36}{-170}x}+\alertNoH{36}{1100}}&\alertNoH{34,35}{{=}}&\alertNoH{34,35}{0}}\uncover<36->{&& \alertNoH{36}{ \text{Div. by }-10}} \\
+\uncover<36->{\alertNoH{37,38}{x^2\alertNoH{36}{+17}x\alertNoH{36}{-110}}&=&0}\\
+\uncover<37->{\alertNoH{37, 38}{( \alertNoH{39}{x \uncover< handout:0 |37>{+} \fcAnswer{38}{-5}} )(\alertNoH{40}{ x+ \fcAnswer{38}{22}} )}& =&0}\\
+\uncover<39->{\alertNoH{39,43,46}{x=5} &\text{or}&\fcCancel{41}{\alertNoH{40}{x=-22}}\uncover<41->{&& \alertNoH{41}{x>0} }}\\
+\uncover<42->{\alertNoH{42,46}{y}&\alertNoH{42,46}{{=}}&\alertNoH{42}{55-5\alertNoH{43}{x}}}\\
+\uncover<43->{&=&\alertNoH{44}{55-5\cdot \alertNoH{43}{5}} \uncover<44->{= \alertNoH{44,46}{30}}}\\
+\uncover<45->{\alertNoH{45,48}{|HF|}&\alertNoH{45,48}{{=}}&(\alertNoH{45}{\alertNoH{46}{y} +3\alertNoH{46}{x}})m}\\
+\uncover<46->{&=&(\alertNoH{47}{ \alertNoH{46}{30}+3\cdot \alertNoH{46}{5}} )m}\\
+\uncover<47->{&=& \alertNoH{48}{ \alertNoH{47}{45} m}}
 \end{array}
 $
 \end{example}
 
+\vskip 10cm
 \end{frame}
