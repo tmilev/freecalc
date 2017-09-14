@@ -1,0 +1,75 @@
+\begin{frame}
+\begin{example}
+\begin{columns}
+\column{0.4\textwidth}
+\psset{xunit=0.25cm, yunit=0.25cm}
+\begin{pspicture}(-1,-1)(9,8)
+\tiny
+\fcBoundingBox{-1}{-1}{9}{8}
+\pstVerb{20 dict begin
+/xSolution 3 def
+/ySolution 7 def
+/sideX xSolution 2 mul def
+/sideY ySolution def
+/theUnit 0.4 def
+}
+\renewcommand{\fcColorAngle}{gray}
+\psline(0,0)(! sideX 0)(! sideX sideY)(! 0 sideY )(0,0)%
+\fcPerpendicular[linestyle=dashed, linecolor=blue]{[xSolution xSolution]}{[1 0]}{theUnit}%
+\fcPerpendicular[linestyle=dashed, linecolor=blue]{[xSolution xSolution]}{[0 1]}{theUnit}%
+\fcPerpendicular{[sideX sideY]}{[1 0]}{theUnit}%
+\fcPerpendicular{[0 0]}{ [0 sideY] [sideX sideY]}{theUnit}%
+\fcPerpendicular{[sideX 0]}{[0 -1]}{theUnit}%
+\psline[linecolor=red](! xSolution xSolution)(! sideX sideY)
+\rput[t](! xSolution 2 div theUnit -1 mul){$x$}
+\rput[r](! theUnit -1 mul xSolution 2 div){$x$}
+\rput[l](! sideX theUnit add sideY 2 div){$y$}
+\rput[b](! sideX 2 div sideY theUnit add){$2x$}
+\rput[tr](! theUnit -1 mul theUnit -1 mul){$D$}
+\rput[tr](! xSolution theUnit -1 mul){$G$}
+\rput[tl](! sideX theUnit add theUnit -1 mul){$C$}
+\rput[bl](! sideX theUnit add sideY theUnit add){$B$}
+\rput[br](! theUnit -1 mul sideY theUnit add){$A$}
+\rput[r](! -1 theUnit mul xSolution ){$E$}
+\rput[b](! xSolution  xSolution theUnit add){$F$}
+
+\fcPerpendicular{[xSolution xSolution]}{[sideX 0] [sideX sideY]}{theUnit}
+\rput[rt](! sideX  xSolution theUnit 2 div sub){$H$}
+%\rput[r](! sideX theUnit sub xSolution sideY xSolution sub 2 div add){$ y-x$}
+\rput[t](! sideX xSolution sub 2 div xSolution add xSolution theUnit sub){$x$}
+\pstVerb{end}
+\end{pspicture}
+\column{0.6\textwidth}
+ABCD is a rectangle.  Points $E$, $F$ and $G$ are chosen as indicated on the diagram. Given: $|AB|=2x$ $cm$,  $|BC|=y$ $cm$, $|BF|=5$ $cm$, $Perimeter(ABCD)=26$ $cm$. Find $x$ and $y$.
+\end{columns}
+$\begin{array}{rcl}
+\only<handout:1|1>{Perimeter&=&26\\
+2\cdot(2x+y)&=&26\\
+2x+y&=&13\\}
+y&=&13-2x\\
+\only<handout:1|1>{|BF|&=&5 ~cm\\
+|FH|^2+|BH|^2&=&|BF|^2\\
+(2x-x)^2+(y-x)^2&=&5^2\\
+x^2+y^2-2xy+x^2-5^2&=&0\\}
+\only<handout:1|1>{2x^2+y^2-2xy-25&=&0\\
+2x^2+(13-2x)^2-2x(13-2x)-25&=&0\\
+2x^2+169-52x+4x^2-26x+4x^2-25&=&0\\
+10x^2-78x+144&=&0\\}
+\only<handout:1,2|1,2>{
+5x^2-39x+72&=&0\\}
+x_1, x_2\only<handout:2|2>{ &=& \displaystyle \frac{39\pm\sqrt{39^2-4\cdot 5\cdot 72 }}{2\cdot 5}\\
+&=&\displaystyle\frac{39\pm \sqrt{ 1521 -1440}}{10}\\
+&=&\displaystyle\frac{39\pm \sqrt{81 }}{10}\\}
+&=&\displaystyle \frac{39\pm 9}{10}\\
+\text{Case 1. } x&=&\displaystyle\frac{39+ 9}{10}=4.8\\
+y&=& 13-2x=13-2\cdot 4.8=13-9.6=3.4<4.8\\
+\multicolumn{3}{c}{\text{Solution rejected as problem requires }y>x }\\
+\text{Case 2. }x&=&\displaystyle \frac{39- 9}{10}=3\\
+y&=&\displaystyle 13-2\cdot x=13-2\cdot 3= 7\\
+\multicolumn{3}{c}{\text{Solution is valid as }y>x }\\
+\end{array}
+$
+\end{example}
+\uncover<3>{}
+\vskip 10cm
+\end{frame}
