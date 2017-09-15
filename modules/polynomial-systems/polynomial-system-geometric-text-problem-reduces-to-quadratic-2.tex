@@ -1,11 +1,12 @@
 \begin{frame}
+\vskip -0.1cm
 \begin{example}
 \begin{columns}
-\column{0.4\textwidth}
-\psset{xunit=0.25cm, yunit=0.25cm}
-\begin{pspicture}(-1,-1)(9,8)
+\column{0.2\textwidth}
+\psset{xunit=0.22cm, yunit=0.22cm}
+\begin{pspicture}(-1,-2)(8,8.2)
 \tiny
-\fcBoundingBox{-1}{-1}{9}{8}
+\fcBoundingBox{-1}{-2}{8}{8.2}
 \pstVerb{20 dict begin
 /xSolution 3 def
 /ySolution 7 def
@@ -14,62 +15,100 @@
 /theUnit 0.4 def
 }
 \renewcommand{\fcColorAngle}{gray}
-\psline(0,0)(! sideX 0)(! sideX sideY)(! 0 sideY )(0,0)%
 \fcPerpendicular[linestyle=dashed, linecolor=blue]{[xSolution xSolution]}{[1 0]}{theUnit}%
 \fcPerpendicular[linestyle=dashed, linecolor=blue]{[xSolution xSolution]}{[0 1]}{theUnit}%
 \fcPerpendicular{[sideX sideY]}{[1 0]}{theUnit}%
 \fcPerpendicular{[0 0]}{ [0 sideY] [sideX sideY]}{theUnit}%
 \fcPerpendicular{[sideX 0]}{[0 -1]}{theUnit}%
+\psline(0,0)(! sideX 0)(! sideX sideY)(! 0 sideY )(0,0)%
+\uncover<handout:0|2,8,11>{%
+\psline[linecolor=red, linewidth=2pt](0,0)(! sideX 0)(! sideX sideY)(! 0 sideY )(0,0)%
+}%
 \psline[linecolor=red](! xSolution xSolution)(! sideX sideY)
-\rput[t](! xSolution 2 div theUnit -1 mul){$x$}
-\rput[r](! theUnit -1 mul xSolution 2 div){$x$}
-\rput[l](! sideX theUnit add sideY 2 div){$y$}
-\rput[b](! sideX 2 div sideY theUnit add){$2x$}
+\rput[t](! xSolution 2 div theUnit -1 mul){$\alertNoH{4,9}{x}$}
+\rput[r](! theUnit -1 mul xSolution 2 div){$\alertNoH{4}{x}$}
+\rput[l](! sideX theUnit add sideY 2 div){$\alertNoH{6,9,11}{y}$}
+\rput[b](! sideX 2 div sideY theUnit add){$\alertNoH{5,11}{2x}$}
 \rput[tr](! theUnit -1 mul theUnit -1 mul){$D$}
 \rput[tr](! xSolution theUnit -1 mul){$G$}
 \rput[tl](! sideX theUnit add theUnit -1 mul){$C$}
 \rput[bl](! sideX theUnit add sideY theUnit add){$B$}
 \rput[br](! theUnit -1 mul sideY theUnit add){$A$}
 \rput[r](! -1 theUnit mul xSolution ){$E$}
-\rput[b](! xSolution  xSolution theUnit add){$F$}
-
-\fcPerpendicular{[xSolution xSolution]}{[sideX 0] [sideX sideY]}{theUnit}
-\rput[rt](! sideX  xSolution theUnit 2 div sub){$H$}
+\rput[tr](! xSolution theUnit sub xSolution theUnit sub){$F$}
+\uncover<14->{%
+\fcPerpendicular{[xSolution xSolution]}{[sideX 0] [sideX sideY]}{theUnit}%
+}%
+\uncover<handout:0|3>{%
+\psline[linecolor=red, linewidth=2pt](0,0)(! xSolution 0)(! xSolution xSolution)(! 0 xSolution)(0, 0)%
+}%
+\uncover<handout:0|4,9>{%
+\psline[linecolor=red, linewidth=2pt](0,0)(! xSolution 0)%
+}%
+\uncover<handout:0|4>{%
+\psline[linecolor=red, linewidth=2pt](0,0)(! 0 xSolution)%
+}%
+\uncover<handout:0|5>{%
+\psline[linecolor=red, linewidth=2pt](! 0 sideY)(! sideX sideY)%
+}%
+\uncover<handout:0|6,9>{%
+\psline[linecolor=red, linewidth=2pt](! sideX 0)(! sideX sideY)%
+}%
+\uncover<handout:0|7, 18>{%
+\psline[linecolor=red, linewidth=2pt](! xSolution xSolution)(! sideX sideY)%
+}%
+\uncover<handout:0|15>{%
+\psline[linecolor=red, linewidth=2pt](! xSolution xSolution)(! sideX xSolution)(! sideX sideY)(! xSolution xSolution)%
+}%
+\rput[br](! xSolution sideX add 2 div theUnit sub xSolution sideY add 2 div){$\alertNoH{7}{5}$}
+\uncover<14->{%
+\rput[rt](! sideX theUnit sub xSolution theUnit sub){$H$}%
+}%
 %\rput[r](! sideX theUnit sub xSolution sideY xSolution sub 2 div add){$ y-x$}
-\rput[t](! sideX xSolution sub 2 div xSolution add xSolution theUnit sub){$x$}
+\uncover<14->{%
+\rput[b](! sideX xSolution sub 2 div xSolution add xSolution theUnit add){$\alertNoH{15}{x}$}%
+}%
+\uncover<handout:0|16>{%
+\psline[linewidth=2pt, linecolor=red](! xSolution xSolution)(! sideX xSolution)%
+}%
+\uncover<handout:0|17>{%
+\psline[linewidth=2pt, linecolor=red](! sideX xSolution)(! sideX sideY)%
+}%
 \pstVerb{end}
+\rput[b](3, -2){unit: cm}
 \end{pspicture}
-\column{0.6\textwidth}
-ABCD is a rectangle.  Points $E$, $F$ and $G$ are chosen as indicated on the diagram. Given: $|AB|=2x$ $cm$,  $|BC|=y$ $cm$, $|BF|=5$ $cm$, $Perimeter(ABCD)=26$ $cm$. Find $x$ and $y$.
+\column{0.8\textwidth}
+\alertNoH{2}{$ABCD$ is a rectangle}. \alertNoH{3}{Points $E$, $F$, $G$ and $D$ form a square as indicated}. Given: $\alertNoH{4}{|ED|=|DG|=x}$ $cm$ $\alertNoH{5}{|AB|=2x}$ $cm$,  $\alertNoH{6}{|BC|=y} $ $cm$, $\alertNoH{7,18}{|BF|=5}$ $cm$, $\alertNoH{8, 10}{ \alertNoH{11}{Perimeter(ABCD)}=26}$ $cm$. \alertNoH{9}{Find $x$ and $y$}.
 \end{columns}
-$\begin{array}{rcl}
-\only<handout:1|1>{Perimeter&=&26\\
-2\cdot(2x+y)&=&26\\
-2x+y&=&13\\}
-y&=&13-2x\\
-\only<handout:1|1>{|BF|&=&5 ~cm\\
-|FH|^2+|BH|^2&=&|BF|^2\\
-(2x-x)^2+(y-x)^2&=&5^2\\
-x^2+y^2-2xy+x^2-5^2&=&0\\}
-\only<handout:1|1>{2x^2+y^2-2xy-25&=&0\\
-2x^2+(13-2x)^2-2x(13-2x)-25&=&0\\
-2x^2+169-52x+4x^2-26x+4x^2-25&=&0\\
-10x^2-78x+144&=&0\\}
-\only<handout:1,2|1,2>{
-5x^2-39x+72&=&0\\}
-x_1, x_2\only<handout:2|2>{ &=& \displaystyle \frac{39\pm\sqrt{39^2-4\cdot 5\cdot 72 }}{2\cdot 5}\\
-&=&\displaystyle\frac{39\pm \sqrt{ 1521 -1440}}{10}\\
-&=&\displaystyle\frac{39\pm \sqrt{81 }}{10}\\}
-&=&\displaystyle \frac{39\pm 9}{10}\\
-\text{Case 1. } x&=&\displaystyle\frac{39+ 9}{10}=4.8\\
-y&=& 13-2x=13-2\cdot 4.8=13-9.6=3.4<4.8\\
-\multicolumn{3}{c}{\text{Solution rejected as problem requires }y>x }\\
-\text{Case 2. }x&=&\displaystyle \frac{39- 9}{10}=3\\
-y&=&\displaystyle 13-2\cdot x=13-2\cdot 3= 7\\
-\multicolumn{3}{c}{\text{Solution is valid as }y>x }\\
+$\begin{array}{@{}r@{~}c@{~}l}
+\only<handout:1|1-31>{
+\uncover<10->{\alertNoH{10,11}{\alertNoH{12}{2} \cdot(2x+y) }&\alertNoH{10}{{=}}&\alertNoH{10, 12}{26} \uncover<12->{\alertNoH{ 12}{\qquad \text{|Div. by }2}}} \\
+\uncover<12->{\alertNoH{13}{2x}+y&=& \alertNoH{12}{13} }\\}
+\uncover<13->{\alertNoH{23, 31,32, 33, 50, 58}{y}&\alertNoH{23, 31, 32, 33, 50, 58 }{{=}}& \alertNoH{23, 31, 32, 33, 50, 58}{13\alertNoH{13}{ -2x }}}\\
+\only<handout:1|1-31>{
+\uncover<15->{\alertNoH{15}{ {\alertNoH{16}{|FH|}}^2+ {\alertNoH{17}{ |BH|}}^2 }&\alertNoH{15}{{=}} & \alertNoH{15}{ {\alertNoH{18}{|BF|}}^2}}\\
+\uncover<16->{{\alertNoH{16}{x}}^2+ \alertNoH{19}{ (\alertNoH{17}{y-x})^2} &=& \alertNoH{20}{{ \alertNoH{18}{5}}^2 }}\\
+\uncover<19->{\alertNoH{21}{ x^2} +\alertNoH{19}{y^2-2xy+ \alertNoH{21}{ x^2} }\alertNoH{20}{- \alertNoH{22}{5^2}}&=&0}\\
+\uncover<21->{\alertNoH{21}{ 2x^2} +{\alertNoH{23}{y}}^2 -2x \alertNoH{23 }{y}-\alertNoH{22}{25} &=&0}\\
+\uncover<23->{2x^2+\alertNoH{24}{ (\alertNoH{23}{13-2x})^2} \alertNoH{25,26}{-2x}(\alertNoH{23}{\alertNoH{25}{13}-\alertNoH{26}{2x}} )-25&=&0}\\
+\uncover<24->{\alertNoH{27}{ 2x^2} + \alertNoH{24}{ \alertNoH{29 }{169} \alertNoH{28}{- 52x}+ \alertNoH{27}{4x^2}} \alertNoH{25, 28}{-26x}+ \alertNoH{26, 27}{4x^2}\alertNoH{29}{-25} &= &0}\\
+\uncover<27->{ \alertNoH{27}{ \alertNoH{30}{10} x^2} \alertNoH{28}{ \alertNoH{30}{-78} x}+\alertNoH{29,30}{144} &=&0 \uncover<30->{  \phantom{6}\qquad\alertNoH{30}{ \text{|Div. by }2}} } \\}
+\only<handout:1,2|1->{
+\uncover<30->{ \only<handout:1|1-32>{ \hspace{4.6cm}} \alertNoH{31, 32,33}{ \alertNoH{30, 37}{5}x^2- \alertNoH{ 30 , 36 }{39}x +\alertNoH{30, 38}{72}} & \alertNoH{31, 32,33}{{=}}& \alertNoH{31, 32,33}{0}} \\}
+\uncover<handout:2,3|34->{   \alertNoH{34, 35, 45, 46}{x_1, x_2}} \only<handout:2|1-45>{ & \uncover<34->{ \alertNoH{34, 35}{{=}}} &\displaystyle  \fcAnswer{35}{ \frac{- \alertNoH{36}{b} \pm \sqrt{ { \alertNoH{36}{b}}^2-4\alertNoH{37}{a}\alertNoH{38}{c}}}{2\alertNoH{37}{a}} }   \vphantom{ \frac{ \sqrt{\sqrt{1}}}{1^2}}  \\
+\uncover<36->{ &=& \displaystyle \frac{ \alertNoH{39}{-}( \alertNoH{36}{\alertNoH{39}{-}39}) \pm \sqrt{ \alertNoH{40}{ {\alertNoH{36}{39}}^2} - \alertNoH{41}{ 4\cdot \alertNoH{37}{5} \cdot \alertNoH{38}{72 } } }}{\alertNoH{42}{ 2\cdot \alertNoH{37 }{5}} }}\\
+\uncover<39->{&=&\displaystyle\frac{39\pm \sqrt{ \alertNoH{43}{ \alertNoH{40 }{ 1521} - \alertNoH{41}{1440}}}}{\alertNoH{42}{10}}}\\
+\uncover<43->{&=&\displaystyle\frac{39\pm \alertNoH{44}{ \sqrt{ \alertNoH{43}{81} } }}{10}}\\}
+\uncover<handout:2,3|44->{&\alertNoH{45, 46}{{=}}& \displaystyle \alertNoH{45, 46, 55}{ \frac{39 \alertNoH{47,56}{\pm} \alertNoH{44}{ 9}  }{10} } } \vphantom{\frac{\sqrt{\sqrt{1}}}{ 1^2 }}  \\
+\uncover<handout:3|47->{\alertNoH{47}{ \text{Case 1. }} \alertNoH{51, 54}{x} &=& \displaystyle \frac{ \alertNoH{48}{ 39 \alertNoH{47}{+} 9} }{10} \uncover<48->{ = \alertNoH{49}{ \frac{\alertNoH{48}{48}}{10}} } \uncover<49->{\alertNoH{49,51,54}{=4.8}} }\\
+\uncover<handout:3|50->{\alertNoH{50}{y}&\alertNoH{50}{{=}}&\alertNoH{50}{ 13-2\alertNoH{51}{x}} \uncover<51->{=13- \alertNoH{52}{2\cdot \alertNoH{51}{ 4.8}} } \uncover<52->{=\alertNoH{53}{ 13- \alertNoH{52}{ 9.6}} } \uncover<53->{ \alertNoH{53}{=\alertNoH{54}{ 3.4}}}\uncover<54->{ \alertNoH{54}{< 4.8=x}} }\\
+\multicolumn{3}{c}{\uncover<handout:3|54->{ \alertNoH{54}{ \text{Solution rejected as problem requires }y>x. }}}\\
+\uncover<handout:3|55->{\text{Case 2. } \alertNoH{55,59,61}{x} &\alertNoH{ 55}{{=}} &\displaystyle \alertNoH{55,57}{ \frac{39 \alertNoH{56}{ -} 9}{10}} \uncover<57->{ \alertNoH{57, 59, 61}{= 3}}}\\
+\uncover<handout:3|58->{\alertNoH{58,61}{y}&\alertNoH{58}{{=}}& \displaystyle \alertNoH{58}{13-2\cdot \alertNoH{59}{x} } \uncover<59->{= \alertNoH{60}{ 13- 2\cdot \alertNoH{59}{3}}} \uncover<60->{ \alertNoH{60, 61}{= 7}} }\\
+\multicolumn{3}{c}{\uncover<61->{\alertNoH{61}{ \text{Solution is valid as }y>x. } }}
 \end{array}
 $
 \end{example}
-\uncover<3>{}
+
 \vskip 10cm
 \end{frame}
