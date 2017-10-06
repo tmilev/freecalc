@@ -1,0 +1,73 @@
+ 
+\begin{frame}
+\begin{question}
+Let $L$ be a line with slope $k\neq 0$. \alertNoH{2}{What is the slope of a line perpendicular to $L$?}
+\end{question}
+\begin{columns}
+\column{0.25\textwidth}
+\psset{xunit=1.4cm, yunit=1.4cm}
+\begin{pspicture}(-1.4,-1.4)(1.4,1.4)
+\tiny
+\uncover<3->{\fcAxesStandard{-1.2}{-1.2}{1.2}{1.2}}%
+\psline(-1.2, -0.6)(1.2, 0.6)%
+\uncover<handout:0|13>{\psline[linecolor=orange, linewidth=2pt](-1.2, -0.6)(1.2, 0.6)}%
+\uncover<4->{\fcFullDot{1}{0.5}}%
+\rput[b](1,0.6){$\uncover<4->{\alertNoH{4}{P}}$}%
+\uncover<5->{\psline[linewidth=1pt, linecolor=green](0,0)(1,0)}%
+\uncover<handout:0|6,10,12>{\psline[linewidth=2pt, linecolor=green](0,0)(1,0)}%
+\uncover<5->{\fcPerpendicular[linewidth=1pt, linecolor=blue]{[1 0.5]}{[1 0]}{0.1}}%
+\uncover<handout:0|9,12>{\psline[linewidth=2pt, linecolor=blue](1,0.5)(1,0)}%
+\rput[t](0.5, -0.1){$\uncover<6->{\alertNoH{6,10,12}{1}}$}%
+\rput[l](1.1, 0.25){$\uncover<12->{\alertNoH{12}{k}}$}%
+\uncover<2->{%
+\psline(-0.6,1.2)(0.6, -1.2)%
+}%
+\uncover<13->{%
+\rput[l](0.7,-1.2){$M$}%
+}%
+\uncover<17->{%
+\psline[linewidth=1pt, linecolor=green](0,0)(0,1)%
+}%
+\uncover<handout:0|21,23>{\psline[linewidth=2pt, linecolor=green](0,0)(0,1)}%
+\uncover<2->{%
+\fcPerpendicular{[-0.5 1]}{[-1 -0.5]}{0.1}%
+}%
+\uncover<16->{%
+\fcPerpendicular[linewidth=1pt, linecolor=blue]{[-0.5 1]}{[ 0 1]}{0.1}%
+}%
+\uncover<handout:0|13>{%
+\psline[linewidth=2pt, linecolor=red](-0.6,1.2)(0.6, -1.2)%
+}%
+\uncover<14->{\fcFullDot{-0.5}{1}}
+\uncover<3->{%
+\rput[tr](-0.1,-0.1){$O$}%
+}%
+\uncover<14->{\rput[r](-0.6,1){$\alertNoH{14-18}{P'}$}}
+\uncover<20,24>{\psline[linewidth=2pt, linecolor=blue](-0.5,1)(0,1)}%
+\rput[t](-1,-0.6){$L$}
+\uncover<20->{%
+\rput[b](-0.25, 1.1){$\alertNoH{20,24}{-k}$}
+}%
+\uncover<21->{%
+\rput[l](0.1, 0.5){$\alertNoH{21,23}{1}$}
+}%
+\end{pspicture}
+\column{0.75\textwidth}
+\begin{itemize}
+\item<3-> Slopes don't change under translation $\Rightarrow$ choose line to pass through origin $O$.
+\item<4-> \alertNoH{4}{Let $P$ - point on $L$} \alertNoH{6}{with $x$-coordinate $1$.}
+\item<7-> \alertNoH{7,8}{Slope of $L$:} $\alertNoH{7,8}{\alertNoH{12}{k}= \frac{\fcAnswer{8}{\alertNoH{9}{\text{rise}}}}{\fcAnswer{8}{\alertNoH{10}{ \text{run}}} }}\uncover<9->{ = \alertNoH{11}{\frac{\alertNoH{9}{y}}{\alertNoH{10}{1} }}}\uncover<11->{ \alertNoH{11,12}{ =y} .}$
+\item<12-> $\Rightarrow$ coordinates of $P$ are $\alertNoH{12}{(1,k)}$.
+\item<13-> Rotate by $90^\circ$ the line $L$ around origin $O$ to get line $M$. \uncover<14->{\alertNoH{14}{Let the image of $P$ be $P'$.} }
+\item<15-> $\Rightarrow$ \alertNoH{15-19}{ coordinates of $P'$ are $(\fcAnswerUncover{15}{19}{ \alertNoH{20}{-k}}, \fcAnswerUncover{15}{19}{\alertNoH{21}{1}})$}.
+\item<22-> $\Rightarrow$ slope of line $M$ is $\frac{\alertNoH{23}{\text{rise}}}{\alertNoH{24}{\text{run}}}=\frac{\alertNoH{23}{1}}{\alertNoH{24}{-k}}$.
+\end{itemize}
+\end{columns}
+\uncover<25->{
+\begin{theorem}
+A line that is perpendicular to a line of slope $k$ has slope $-\frac{1}{k}$.
+\end{theorem}
+}
+
+
+\end{frame}
