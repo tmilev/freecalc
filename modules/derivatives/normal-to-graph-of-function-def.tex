@@ -1,0 +1,42 @@
+\begin{frame}
+\begin{theorem}
+A line that is perpendicular to a line of slope $k$ has slope $-\frac{1}{k}$.
+\end{theorem}
+Let $f$ be a function differentiable at a point $a$, and let $m=f'(a)$.
+\begin{columns}
+\column{0.25\textwidth}
+\psset{xunit=0.45cm, yunit=0.45cm}
+\begin{pspicture}(-1,-2.5)(5.7,4.6)
+\tiny
+\psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-2.5)(5.4,4.6)
+\pstVerb{ 20 dict begin
+/theFun {-11 8 div 5 18 div x x x mul mul mul -1 81 div x x x x mul mul mul mul -73 36 div x x mul mul 43 8 div x mul add add add add} def
+/theDerivative {5.375 x -4.05555556 mul add x 2 exp 0.83333333 mul add x 3 exp -0.04938272 mul add}def
+/theY 1 dict begin /x 0.5 def theFun end def
+/theSlope 1 dict begin /x 0.5 def theDerivative end def
+/normalLineAsFun {x 0.5 sub -1 theSlope div mul theY add} def
+/normalStart [-1 1 dict begin /x -1 def normalLineAsFun end] def
+}
+%Function formula: -11/8+5/18 ((x) ((x) (x)))-1/81 ((x) ((x) ((x) (x))))-73/36 ((x) (x))+43/8 (x)
+\psplot[linecolor=red, plotpoints=1000]{0}{5}{
+theFun
+}
+\fcPerpendicular{normalStart}{ [0.5 theY] [1 theSlope 0.5 mul theY add ]}{0.3}
+\psline[linecolor=blue](0, -0.935185185)(1.531304348, 4.5)
+\psplot[linecolor=green]{-1}{5.7}{normalLineAsFun}
+\fcFullDot{0.5}{theY}
+\rput[lb] (0.7,0.92){\tiny$P=(a, f(a))$}
+\rput[t](0.5, -0.1){\tiny$a$}
+\pstVerb{end}
+\end{pspicture}
+\column{0.75\textwidth}
+\begin{definition}
+\begin{itemize}
+\item The line with equation $\displaystyle y-f(a)=m(x-a) $ is called the tangent line to the graph of $f$ at the point $a$.
+\item The line with equation $\displaystyle -m(y-f(a))=x-a$ is called the normal line to the graph of $f$ at the point $a$. 
+\item If $m\neq 0$, the normal line is also described by the equation $\displaystyle y-f(a)=-\frac{1}{m}(x-a)$.
+
+\end{itemize}
+\end{definition}
+\end{columns}
+\end{frame}
