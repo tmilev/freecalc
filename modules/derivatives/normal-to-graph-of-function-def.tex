@@ -1,8 +1,5 @@
 \begin{frame}
-\begin{theorem}
-A line that is perpendicular to a line of slope $k$ has slope $-\frac{1}{k}$.
-\end{theorem}
-Let $f$ be a function differentiable at a point $a$, and let $m=f'(a)$.
+Let $f$ be a function differentiable \alertNoH{5,8}{at a point $a$}, and let $\alertNoH{4,9,12}{m=f'(a)}$.
 \begin{columns}
 \column{0.25\textwidth}
 \psset{xunit=0.45cm, yunit=0.45cm}
@@ -10,33 +7,64 @@ Let $f$ be a function differentiable at a point $a$, and let $m=f'(a)$.
 \tiny
 \psaxes[ticks=none, labels=none]{<->}(0,0)(-1,-2.5)(5.4,4.6)
 \pstVerb{ 20 dict begin
-/theFun {-11 8 div 5 18 div x x x mul mul mul -1 81 div x x x x mul mul mul mul -73 36 div x x mul mul 43 8 div x mul add add add add} def
-/theDerivative {5.375 x -4.05555556 mul add x 2 exp 0.83333333 mul add x 3 exp -0.04938272 mul add}def
+/theFun {-11 8 div x 43 8 div mul add x 2 1 div exp -73 36 div mul add x 3 1 div exp 5 18 div mul add x 4 1 div exp -1 81 div mul add} def
+/theDerivative {43 8 div x -73 18 div mul add x 2 1 div exp 5 6 div mul add x 3 1 div exp -4 81 div mul add}def
 /theY 1 dict begin /x 0.5 def theFun end def
 /theSlope 1 dict begin /x 0.5 def theDerivative end def
 /normalLineAsFun {x 0.5 sub -1 theSlope div mul theY add} def
+/derivativeLineAsFun {x 0.5 sub theSlope mul theY add} def
 /normalStart [-1 1 dict begin /x -1 def normalLineAsFun end] def
 }
 %Function formula: -11/8+5/18 ((x) ((x) (x)))-1/81 ((x) ((x) ((x) (x))))-73/36 ((x) (x))+43/8 (x)
-\psplot[linecolor=red, plotpoints=1000]{0}{5}{
+\psplot[linecolor=red, plotpoints=1000]{0}{5}{%
 theFun
-}
-\fcPerpendicular{normalStart}{ [0.5 theY] [1 theSlope 0.5 mul theY add ]}{0.3}
-\psline[linecolor=blue](0, -0.935185185)(1.531304348, 4.5)
-\psplot[linecolor=green]{-1}{5.7}{normalLineAsFun}
+}%
+\uncover<11->{\fcPerpendicular[linecolor=green]{normalStart}{ [0.5 theY] [1 theSlope 0.5 mul theY add ]}{0.3}}%
+\uncover<2->{%
+\psline[linecolor=blue](! 1 dict begin /x -0.5 def x derivativeLineAsFun end)(! 1 dict begin /x 1.531 def x derivativeLineAsFun end)%
+}%
+\uncover<handout:0|2,11,12,13>{%
+\psline[linecolor=blue, linewidth=2pt](! 1 dict begin /x -0.5 def x derivativeLineAsFun end)(! 1 dict begin /x 1.531 def x derivativeLineAsFun end)%
+}%
+\uncover<6->{%
+\psplot[linecolor=green]{-1}{5.4}{normalLineAsFun}%
+}%
+\uncover<handout:0|6,11,12,13>{%
+\psplot[linecolor=green, linewidth=2pt]{-1}{5.4}{normalLineAsFun}%
+}%
+\uncover<5->{\fcXTickWithLabel{0.5}{$\alertNoH{5,8}{a}$}}
+\uncover<3->{\fcYTickWithLabel{1 dict begin /x 0.5 def theFun end}{$\alertNoH{3,7}{f(a)}$}}%
 \fcFullDot{0.5}{theY}
-\rput[lb] (0.7,0.92){\tiny$P=(a, f(a))$}
-\rput[t](0.5, -0.1){\tiny$a$}
+\rput[lb](0.7,0.92){\tiny$P=(\alertNoH{5,8}{a}, \alertNoH{3,7}{f(a)})$}
 \pstVerb{end}
 \end{pspicture}
 \column{0.75\textwidth}
-\begin{definition}
+\begin{definition}[Tangent, normal]
 \begin{itemize}
-\item The line with equation $\displaystyle y-f(a)=m(x-a) $ is called the tangent line to the graph of $f$ at the point $a$.
-\item The line with equation $\displaystyle -m(y-f(a))=x-a$ is called the normal line to the graph of $f$ at the point $a$. 
-\item If $m\neq 0$, the normal line is also described by the equation $\displaystyle y-f(a)=-\frac{1}{m}(x-a)$.
+\item \textbf{\alertNoH{2}{Tangent.}} \uncover<2->{The line with equation 
 
+\hfil\hfil$\displaystyle \alertNoH{11}{ y-\alertNoH{3}{f(a)}= \alertNoH{4, 12}{m}(x-\alertNoH{5}{a})} $ 
+
+is called the tangent line to the graph of $f$ at the point $a$.
+}
+\item \textbf{\alertNoH{6}{Normal.}} \uncover<6->{The line with equation 
+
+\hfil \hfil $\displaystyle
+\begin{array}{rcll|l}
+\displaystyle \alertNoH{10}{-\alertNoH{9}{ m}}(y- \alertNoH{7}{f(a)}) &=& \displaystyle x - \alertNoH{ 8}{a}\\
+ \uncover<10->{\displaystyle \alertNoH{11}{y-f(a)}&\alertNoH{11}{{=}}&\displaystyle \alertNoH{11}{\alertNoH{10,13}{ -\frac{1}{m}} (x-a)} &&\alertNoH{10}{ m\neq 0} }
+ \end{array}
+ $ 
+
+is called the normal line to the graph of $f$ at the point $a$. }
 \end{itemize}
 \end{definition}
 \end{columns}
+\uncover<11->{
+The normal is perpendicular to the tangent because of the following.
+\begin{theorem}
+A line that is perpendicular to a \alertNoH{12}{ line of slope $\displaystyle m$} has slope $\displaystyle \alertNoH{13}{-\frac{1}{m}}$.
+\end{theorem}
+}
+
 \end{frame}
