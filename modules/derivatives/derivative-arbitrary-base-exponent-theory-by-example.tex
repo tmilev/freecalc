@@ -1,0 +1,32 @@
+\begin{frame}
+\begin{example}
+Differentiate $(3x+1)^{\ln x}$, \alertNoH{3}{where $3x+1>0$}.
+
+$
+\renewcommand{\arraystretch}{1.7}
+\begin{array}{@{\!\!}r@{~}c@{~}ll@{\hspace{-4.6cm}}|l}
+\displaystyle \alertNoH{20,21}{ \frac{\diff}{\diff x}\left(\alertNoH{14}{ {(\alertNoH{2,3, 23}{3x + 1 })}^{\alertNoH{24}{ \ln x} }} \right)}  
+\only<1-20|handout:1>{
+\uncover<2->{&=&\displaystyle \frac{\diff}{\diff x}\left(\alertNoH{14}{ \left(  \alertNoH{2,3}{e^{ \fcAnswer{3}{ \alertNoH{4}{ \ln (3x+1)}}}} \right)^{\alertNoH{4}{\ln x}}} \right)} \uncover<2->{&& \alertNoH{2,3}{ \text{Convert base to }e^{?}}}\\
+\uncover<4->{&=&\displaystyle \frac{\diff}{\diff x}\left(\alertNoH{14}{ e^{\alertNoH{4,5}{ \ln (3x+1) \ln x} }} \right)}\\
+\uncover<5->{&=&\displaystyle \alertNoH{6}{\frac{\diff}{\diff x}\left(e^{\alertNoH{5}{u}} \right)} \uncover<6->{ =\alertNoH{6}{ \alertNoH{8,9}{ \frac{\diff }{\diff u}\left(e^u\right) } \frac{\diff \alertNoH{7}{u} }{\diff x}}}  && \alertNoH{5,7,10}{\text{Set }  \ln (3x+1) \ln x=u}}\\
+\uncover<7->{&=& \displaystyle \fcAnswerUncover{7}{9}{e^{\alertNoH{10}{u}}} \alertNoH{11}{\frac{\diff }{\diff x} \left(\alertNoH{7}{ \alertNoH{12}{\ln (3x+1)} \alertNoH{13}{\ln x}} \right)}}\\
+\uncover<10->{&=&\displaystyle \alertNoH{14}{ e^{ \alertNoH{10}{\ln (3x+1) \ln x}} }  \left( \alertNoH{11}{ \alertNoH{15,16}{( \alertNoH{12}{\ln (3x+1)})'} \alertNoH{13}{\ln x}+\alertNoH{12}{\ln (3x+1)} \alertNoH{17,18}{\left(\alertNoH{13}{\ln x} \right)'}} \right)} \\
+\uncover<14->{&=&\displaystyle  \alertNoH{14}{(3x+1)^{\ln x}} \left( \fcAnswerUncover{14}{16}{\frac{\alertNoH{19}{(3x+1)'}}{3x+1}} \ln x+ \ln (3x+1)\fcAnswerUncover{14}{18}{ \frac{1}{x}} \right)}\\
+}
+\uncover<19->{&=&\displaystyle \alertNoH{20,21}{  \alertNoH{25}{ (3x+1)^{\ln x}} \left( \frac{\alertNoH{19,26}{3} \alertNoH{28}{\ln x}}{\alertNoH{27}{ 3x+1}} + \alertNoH{29}{\ln (3x+1)}\alertNoH{30}{\frac{1}{x}} \right)}}
+\end{array}
+$
+\end{example}
+\uncover<handout:2|22->{
+\begin{theorem}
+$\displaystyle \frac{\diff }{\diff x}\left(  \left(\alertNoH{23}{a(x)}\right)^{\alertNoH{24}{b(x)} }\right)
+= \alertNoH{25}{\left(a(x)\right)^{b(x)}} \left( 
+\frac{\alertNoH{26}{ a'(x)}}{ \alertNoH{27}{a(x)}} 
+\alertNoH{28}{b(x)} + \alertNoH{29}{\ln(a(x))} \alertNoH{30}{ b'(x)} 
+\right),\quad a(x)>0
+$
+\end{theorem}
+}
+\vskip 10cm
+\end{frame}

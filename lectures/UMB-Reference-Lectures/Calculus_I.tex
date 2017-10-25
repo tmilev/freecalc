@@ -11,12 +11,12 @@
 [handout]%
 {beamer}
 %IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
-\newcommand{\currentLecture}{3}
+\newcommand{\currentLecture}{14}
 \newcommand{\semester}{Summer 2017}
 \input{../example-templates}
 \input{../system-specific-config-Ubuntu-texlive} %
 \input{../pstricks-commands}
-\usepackage{truncate}
+\usepackage[breakwords]{truncate}
 \renewcommand{\Arcsin}{\arcsin}
 \renewcommand{\Arccos}{\arccos}
 \renewcommand{\Arctan}{\arctan}
@@ -66,19 +66,21 @@
   \end{beamercolorbox}
 }
 }
+
 \setbeamertemplate{footline}
 {
   \leavevmode%
   \hbox{%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
     \usebeamerfont{author in head/foot}\insertshortauthor
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
     \usebeamerfont{title in head/foot}\insertshorttitle
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+\begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
     \usebeamerfont{date in head/foot}\insertshortdate{}
-  \end{beamercolorbox}}%
+  \end{beamercolorbox}
+  }%
   \vskip0pt%
 }
 
@@ -106,8 +108,8 @@
 \end{frame}
 \input{../../modules/lecture-frequently-encountered-elements/table-of-contents-and-license}
 }
-\begin{document}
 
+\begin{document}
 
 \lect{\semester}{Lecture  0}{0}{
 %DesiredLectureName: Review_Representing_Functions
@@ -162,7 +164,7 @@
 %\input{../../modules/function-graph-linear-transformations/transformations-absolute-value}
 }% end lecture
 
-\lect{\semester}{Lecture  2}{2}{%begin lecture
+\lect{\semester}{Lecture 2}{2}{%begin lecture
 %DesiredLectureName: Review_Trigonometry
 \fcLicense
 \section{Trigonometry}
@@ -184,7 +186,6 @@
 \input{../../modules/trigonometry/trig-identities-strategy-note}
 \input{../../modules/trigonometry/trig-identities-example-2}
 \section{Trigonometric equations}
-
 \input{../../modules/trigonometry/trig-equations-intro}
 \input{../../modules/trigonometry/trig-equations-example}
 \input{../../modules/trigonometry/trig-equations-strategy}
@@ -195,7 +196,6 @@
 \input{../../modules/trigonometry/trig-Euler-formula} 
 \youWillNotBeTested
 \input{../../modules/trigonometry/trig-using-euler-formula}
-
 \subsection{Graphs of the Trigonometric Functions}
 \input{../../modules/trigonometry/graph-sin-extended}
 \input{../../modules/trigonometry/graph-cos-extended}
@@ -333,11 +333,11 @@
 \input{../../modules/logarithms/logarithm-properties-ex2}
 \subsection{Natural Logarithms}
 \input{../../modules/logarithms/natural-logarithm-def}
-\input{../../modules/logarithms/log-notation-note}
+\input{../../modules/logarithms/log-notation-summary}
 
-\input{../../modules/logarithms/natural-logarithm-def-ex5}
-\input{../../modules/logarithms/natural-logarithm-def-ex-exponent-quadratic1}
-\input{../../modules/logarithms/natural-logarithm-def-ex-exponent-quadratic2}
+\input{../../modules/logarithms/exponential-equation-basic-natural-base-1}
+\input{../../modules/logarithms/exponential-equation-quadratic-natural-base-1}
+\input{../../modules/logarithms/exponential-equation-quadratic-arbitrary-base-1}
 \input{../../modules/logarithms/natural-logarithm-def-ex8}
 \input{../../modules/inverse-functions/inverse-function-solve-for-ex2-freeCalc}
 }% end lecture
@@ -513,7 +513,10 @@
 \input{../../modules/logarithms/natural-log-derivative-from-general}
 \input{../../modules/logarithms/natural-log-derivative-ex-simplify}
 \input{../../modules/logarithms/natural-logarithm-derivative-ex7}
-\subsection{Logarithmic Differentiation}
+\section{Derivative of $a(x)^{b(x)}$}
+\input{../../modules/derivatives/derivative-arbitrary-base-exponent-example-1}
+\input{../../modules/derivatives/derivative-arbitrary-base-exponent-theory-by-example}
+\section{Logarithmic Differentiation}
 \input{../../modules/logarithms/logarithmic-differentiation-ex}
 \input{../../modules/logarithms/logarithmic-differentiation}
 \input{../../modules/logarithms/logarithmic-differentiation-ex-base-and-power1}
@@ -622,28 +625,27 @@
 \input{../../modules/integration/areas-ex1}
 \input{../../modules/integration/areas-ex2}
 
+\section{The Definite Integral}
+\subsection{Review of the \(\sum\) notation}
 \input{../../modules/series/notation-through-example-1}
 \input{../../modules/integration/summation-notation-def}
-\input{../../modules/integration/summation-power-sum-formulas}
-%\input{../../modules/integration/summation-notation-and-riemann-sums}
-
+\subsection{Riemann sums, areas and integrals}
 \input{../../modules/integration/riemann-sum-def}
 \input{../../modules/integration/area-def}
 
 \section{The Definite Integral}
 \input{../../modules/integration/definite-integral-def}
-\input{../../modules/integration/continuous-functions-integrable}
 \input{../../modules/integration/definite-integral-negative}
-\subsection{Evaluating Integrals}
+\input{../../modules/integration/continuous-functions-integrable}
+\subsection{Evaluating Integrals with Riemann Sums}
+\input{../../modules/integration/summation-power-sum-formulas}
 \input{../../modules/integration/definite-integral-ex2}
 \subsection{Properties of the Definite Integral}
 % WARNING: This next module could use some pictures.
 \input{../../modules/integration/definite-integral-properties}
 \input{../../modules/integration/definite-integral-properties-ex6}
-% WARNING: This next module could use some pictures.
 \input{../../modules/integration/definite-integral-properties-split}
 \input{../../modules/integration/definite-integral-properties-ex7}
-% WARNING: This next module could use some pictures.
 \input{../../modules/integration/definite-integral-properties-comparison}
 }% end lecture
 

@@ -1,0 +1,20 @@
+\begin{frame}
+\begin{example}
+Differentiate $x^{\tan x}$, \alertNoH{3}{where $x>0$}.
+
+$
+\renewcommand{\arraystretch}{1.7}
+\begin{array}{@{\!\!}r@{~}c@{~}l@{}l@{\!\!}|@{~}l}
+\displaystyle \alertNoH{19}{ \frac{\diff}{\diff x}\left(\alertNoH{14}{ {\alertNoH{2,3}{x}}^{\tan x}} \right)}  \uncover<2->{&=&\displaystyle \frac{\diff}{\diff x}\left(\alertNoH{14}{ \left(  \alertNoH{2,3}{e^{ \fcAnswer{3}{ \alertNoH{4}{ \ln x}}}} \right)^{\alertNoH{4}{\tan x}}} \right)} \uncover<2->{&& \alertNoH{2,3}{ \text{Convert base to }e^{?}}}\\
+\uncover<4->{&=&\displaystyle \frac{\diff}{\diff x}\left(\alertNoH{14}{ e^{\alertNoH{4,5}{ (\ln x) \tan x} }} \right)}\\
+\uncover<5->{&=&\displaystyle \alertNoH{6}{\frac{\diff}{\diff x}\left(e^{\alertNoH{5}{u}} \right)} \hspace{2cm} && \alertNoH{5,7,10}{\text{Set }  (\ln x) \tan x=u}}\\
+\uncover<6->{&=&\displaystyle \alertNoH{6}{ \alertNoH{8,9}{ \frac{\diff }{\diff u}\left(e^u\right) } \frac{\diff \alertNoH{7}{u} }{\diff x}} &&\alertNoH{6}{\text{Chain rule}}}\\
+\uncover<7->{&=& \displaystyle \fcAnswerUncover{7}{9}{e^{\alertNoH{10}{u}}} \alertNoH{11}{\frac{\diff }{\diff x} \left(\alertNoH{7}{ (\alertNoH{12}{\ln x}) \alertNoH{13}{\tan x}} \right)}}\\
+\uncover<10->{&=&\displaystyle \alertNoH{14}{ e^{ \alertNoH{10}{(\ln x) \tan x}} }  \left( \alertNoH{11}{ \alertNoH{15,16}{( \alertNoH{12}{\ln x})'} \alertNoH{13}{\tan x}+(\alertNoH{12}{\ln x}) \alertNoH{17,18}{\left(\alertNoH{13}{\tan x} \right)'}} \right)} \uncover<11->{&& \alertNoH{11,12,13}{\text{Prod. rule}}}\\
+\uncover<14->{&=&\displaystyle \alertNoH{19}{ \alertNoH{14}{x^{\tan x}} \left( \fcAnswerUncover{14}{16}{\frac{1}{x}} \tan x+ (\ln x)\fcAnswerUncover{14}{18}{ \sec^2 x} \right)}}
+\end{array}
+$
+
+
+\end{example}
+\end{frame}
