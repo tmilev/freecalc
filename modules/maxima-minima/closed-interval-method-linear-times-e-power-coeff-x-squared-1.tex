@@ -1,0 +1,77 @@
+\begin{frame}
+\vskip -0.15cm
+\begin{example}
+\vskip -0.1cm
+\begin{columns}
+\column{0.5\textwidth}
+\psset{xunit=0.6cm, yunit=0.6cm}
+\begin{pspicture}(-5.2,-1)(5.4,2.4)
+\tiny
+\fcAxesStandard{-5}{-1}{5}{2}
+\rput[l](0.6,1.4){$\displaystyle y=(x+1)e^{-x^2}$}
+\pstVerb{20 dict begin /e 2.718281828 def /theFun {x 1 add e x x -1 mul mul exp mul} def} 
+\psplot[plotpoints=500, linecolor=\fcColorGraph]{-5}{5}{theFun} 
+\fcXTickWithLabel{1}{$1$}
+\fcYTickWithLabel{1}{$1$}
+\fcLabels{5}{2}
+\uncover<36-|handout:3>{\fcFullDotBlue{-5}{1 dict begin /x -5 def theFun end }}
+\uncover<37-|handout:3>{\fcFullDotBlue{-1 3 sqrt sub 2 div}{1 dict begin /x -1 3 sqrt sub 2 div def theFun end }}
+\uncover<38-|handout:3>{\fcFullDotBlue{-1 3 sqrt add 2 div}{1 dict begin /x -1 3 sqrt add 2 div def theFun end }
+\psline[linecolor=green](! -1 3 sqrt add 2 div 0) (!  -1 3 sqrt add 2 div 1 dict begin /x -1 3 sqrt add 2 div def theFun end )
+}
+\uncover<39-|handout:3>{\fcFullDotBlue{5}{1 dict begin /x 5 def theFun end }}
+\pstVerb{end}
+\end{pspicture}
+\column{0.5\textwidth}
+Find the value of \(x\) for which
+
+\hfil \hfil$\displaystyle f(x)=(x+1)e^{-x^2}$ 
+
+attains its maximum in the interval \([\alertNoH{34}{-5},\alertNoH{34}{5}]\). \alertNoH{36-40}{Use the given plot.}
+\end{columns}
+
+$
+\begin{array}{@{}r@{~}c@{~}l}
+\displaystyle \uncover<2->{\alertNoH{15,16}{{ \frac{\diff}{\diff x}\left(\alertNoH{2}{ (\alertNoH{3}{ x+1}) \alertNoH{4}{e^{-x^2}} } \right)} }}
+\only<1-15|handout:1>{
+\uncover<3->{&=& \displaystyle  \alertNoH{5,6}{ \frac{\diff }{\diff x}(\alertNoH{3}{x+ 1})} \alertNoH{4}{e^{-x^2}}+ (\alertNoH{3}{x+1}) \alertNoH{7,8}{ \frac{\diff}{\diff x} \left(\alertNoH{4}{ e^{-x^2}}\right) }} \\
+\uncover<5->{ &=&\displaystyle \fcAnswer{6}{ 1} \cdot e^{-x^2}+(x+1) \fcAnswerUncover{5}{8}{e^{-x^2} \alertNoH{9,10}{\left(-x^2\right)'}}}\\
+\uncover<9->{&=&\displaystyle \alertNoH{12}{ 1} \cdot \alertNoH{11}{e^{-x^2}} +\alertNoH{12}{(x+1)}\alertNoH{11}{ e^{-x^2}} \alertNoH{12}{(\fcAnswer{10}{-2x})}}\\
+}
+\uncover<11->{&\alertNoH{15,16}{{=}} &\displaystyle \alertNoH{15,16}{ \left(\alertNoH{12}{1+ (\alertNoH{13}{x} +\alertNoH{14}{1} )(\alertNoH{13, 14}{ -2x} )} \right) \alertNoH{11}{ e^{-x^2}} \uncover<13->{= \alertNoH{17}{{ \left(\!\! \alertNoH{13}{-2x^2} \alertNoH{14}{-2x} +1\right) e^{-x^2 }}}}}}
+\end{array}
+$
+
+\only<handout:2,3|16->{
+
+\uncover<17->{Find critical points: set $\alertNoH{17}{ f'(x)=0 }$ and solve for $x$:}
+
+$
+\begin{array}{r@{~}c@{~}l@{}l@{\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!}|@{}l}
+\displaystyle \uncover<17->{ \alertNoH{17}{ (\alertNoH{20}{-2x^2-2x+1} ) \alertNoH{18,19}{e^{-x^2}}} &\alertNoH{17}{{=}} & \alertNoH{17}{ 0} \uncover<18->{& &\alertNoH{18,19}{\text{Div. by } e^{-x^2} \uncover<19->{\neq 0}}}} \\
+\only<16-31|handout:2>{
+\displaystyle \uncover<20->{\alertNoH{20}{ \alertNoH{24}{-2}x^2\alertNoH{23}{-2}x+\alertNoH{25}{1}} &=&0} \\}
+ \displaystyle \uncover<21->{\alertNoH{21,22,31,32, 35}{ x_1,x_2}} \only<16-31|handout:2>{ \uncover<21->{ &\alertNoH{21, 22}{{=}} & \displaystyle \fcAnswer{22}{ \frac{\alertNoH{26}{-}(\alertNoH{23}{ \alertNoH{26}{-} 2}) \pm \sqrt{\alertNoH{27}{ (\alertNoH{23}{-2})^2-4(\alertNoH{24}{-2})\cdot \alertNoH{25}{1}}}}{2(\alertNoH{24}{-2} )}}} \\}
+\only<16-|handout:2,3>{\uncover<26->{ &\alertNoH{31,32}{{=}}&\displaystyle\alertNoH{31,32}{{ \uncover<26->{ \frac{ 2\alertNoH{28}{\pm}  \alertNoH{29}{\sqrt{\alertNoH{27}{12} }}}{\alertNoH{28}{-} 4}} \uncover<28->{ =\frac{\alertNoH{28}{-} \alertNoH{30}{2} \alertNoH{28}{\mp}\alertNoH{29}{ \alertNoH{30}{2} \sqrt{3}} }{\alertNoH{30}{4}}}\uncover<30->{= \alertNoH{35}{\frac{- \alertNoH{30}{1} \pm \sqrt{3}}{\alertNoH{30}{2}}}}}}}}
+\end{array}
+$
+\only<32-|handout:3>{
+\uncover<33->{
+\alertNoH{33}{Compare the values of $f$ at \alertNoH{34}{the endpoints} and \alertNoH{35}{the critical points}:} 
+
+\hfil \hfil $
+\begin{array}{r|c}
+x&f(x)\\\hline
+\alertNoH{34}{-5}& \uncover<36->{\alertNoH{36}{\text{close to $0$ from plot}}}\\
+\alertNoH{35}{\frac{-1-\sqrt{3}}{2}} &\uncover<37->{\alertNoH{37}{\text{negative, min from plot}}}\\
+\alertNoH{40}{\uncover<40->{\text{Final answer: }} \alertNoH{35}{\frac{-1+\sqrt{3}}{2}}} &\uncover<38->{\alertNoH{38,40}{\text{positive, max from plot}}}\\
+\alertNoH{34}{5}& \uncover<39->{\alertNoH{39}{\text{close to $0$ from plot}}}\\
+\end{array}
+$
+}
+}
+}
+\end{example}
+
+\vskip 10cm
+\end{frame}
