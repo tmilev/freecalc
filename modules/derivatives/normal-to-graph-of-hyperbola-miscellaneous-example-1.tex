@@ -1,0 +1,73 @@
+\begin{frame}
+\vskip -0.175cm
+\begin{example}
+\begin{columns}
+\column{0.17\textwidth}
+\psset{xunit=0.2cm, yunit=0.2cm}
+\begin{pspicture}(-7,-7)(4,6)
+\tiny%
+\pstVerb{
+20 dict begin /theFun {1 dict begin /x exch def 3 x 2 add div x add end} def
+/theTangent {1 dict begin /x exch def -2 x 1 add mul 2 add end} def
+/theNormal {1 dict begin /x exch def 0.5 x 1 add mul 2 add end} def
+}%
+\fcAxesStandard{-7}{-7}{4}{6}%
+\psplot[linecolor=\fcColorGraph]{-6}{-2.72}{x theFun}%
+\psplot[linecolor=\fcColorGraph]{-1.6}{4}{x theFun}%
+\uncover<23->{\psline[linecolor=blue](! -3 dup theTangent)(! 2 dup theTangent)}%
+\uncover<52->{\psline[linecolor=brown](! -6 dup theNormal)(! 1 dup theNormal)}%
+\uncover<55->{\fcPerpendicular{[-5 0]}{[-1 2]}{0.7}}%
+\onlyNoH{54,55}{\psline[linecolor=red, linewidth=2pt](0, 0) (-1,2)(-5,0)(0,0)}%
+\onlyNoH{56}{\psline[linecolor=red, linewidth=2pt](0, 0) (-1,2)(-5,0)}%
+\uncover<2->{\fcFullDot[linecolor=blue, scale=0.75]{-1}{-1 theFun}}%
+\uncover<52->{\fcFullDot[linecolor=brown, scale=0.75]{-5}{0}}%
+\uncover<24->{\fcFullDot[linecolor=green, scale=0.75]{0}{0}}%
+\uncover<52->{\rput[t]( -5, -0.3){$N$}}%
+\uncover<24->{\rput[tr]( -0.3, -0.3){$T$}}%
+\uncover<2->{\rput[b]( -1, 2.4){$~P$}}%
+\pstVerb{end}%
+\end{pspicture}
+\column{0.83\textwidth} 
+Let $\displaystyle \alertNoH{4}{ y=\frac{3}{x+2}+x} $. \alertNoH{2}{Fix a curve point $P=( \alertNoH{ 20,41,61,66}{ -1}, \alertNoH{19,40,63,68}{2} )$. }\alertNoH{3,18,23}{Compute the tangent at $P$.} \alertNoH{24,64}{The tangent intersects the $x$-axis at pt. $T$. }\alertNoH{25}{Find the $x$-coordinate $x_T$ of $T$. }\alertNoH{35,36,39}{Compute the normal at $N$. }\alertNoH{44}{\alertNoH{69}{The normal intersect the $x$-axis at pt. $N$.} Find the $x$-coordinate $x_N$ of $N$. }\alertNoH{54, 55, 75}{Find the area of $\triangle TNP$.}
+\end{columns}
+$\renewcommand{\arraystretch}{1.2}
+\begin{array}{@{\!\!\!}r@{~}c@{~}l@{}l@{}l}%
+\only<1-16|handout:1>{%
+\displaystyle 
+\uncover<4->{\frac{\diff \alertNoH{4}{y}}{\diff x}%
+&=&
+\displaystyle \alertNoH{5,6}{\frac{\diff }{\diff x}} \left(\alertNoH{4}{ \frac{\alertNoH{6}{3} }{ \alertNoH{7}{x + 2}} +\alertNoH{5}{x}} \right)\uncover<5->{= \alertNoH{6}{3 \frac{\diff}{\diff x}} \left( \alertNoH{7}{\frac{1}{x +2 }} \right)+ \alertNoH{5 }{1}} \uncover<7->{&&  \alertNoH{7,10,11}{ \Big|\text{Set }x+2=u} }}\\
+\uncover<7->{&=&\displaystyle 3 \alertNoH{8}{\frac{\diff}{\diff x}\left(\alertNoH{7}{ u^{-1}} \right)} +1 =\displaystyle \alertNoH{9}{3} \left(\alertNoH{8}{\alertNoH{9}{-} \alertNoH{10}{u^{-2}} } \right)\alertNoH{8}{\frac{\diff \alertNoH{11}{u}}{\diff x}}+1} \\
+\uncover<9->{&=&\displaystyle \onlyNoH{10}{\color{red}}\frac{\onlyNoH{10}{\color{black}} \alertNoH{9 }{-3}  }{(x+2)^2} \onlyNoH{10}{\color{black}} \alertNoH{12}{\frac{\diff }{\diff x}(\alertNoH{11}{ x+2})} +1 \uncover<12->{= \frac{- 3}{(\alertNoH{14}{ x}+2)^2} + 1}}\\%
+}%
+\uncover<13->{
+\alertNoH{13,16,17,21,37}{\text{~~Tangent slope}} &\alertNoH{13,16,17}{{=}}&\displaystyle \alertNoH{16,17}{ \alertNoH{13}{ \frac{\diff y}{\diff x}_{|\alertNoH{14}{x=-1}}} \uncover<14->{=\alertNoH{15}{ \frac{-3}{(\alertNoH{14}{ -1}+2)^2}+1} }\uncover<15->{\alertNoH{15,21,37}{=-2}} \text{\hspace{1.1cm} } }  && \phantom{\text{Set }x+2=u}} \\%
+\only<17-33|handout:2>{%
+\uncover<18->{ \alertNoH{23}{ \alertNoH{18}{\text{Tangent: }} \uncover<19->{\alertNoH{26}{y} -\alertNoH{19}{2}} } &\uncover<19->{\alertNoH{23}{{=}}} & \uncover<19->{ \alertNoH{21}{-2} (x\alertNoH{22}{-}(\alertNoH{20}{ \alertNoH{22}{-}1})) \uncover<22->{=\alertNoH{23}{ -2(\alertNoH{26 }{x}\alertNoH{22}{+} 1)}} }}\\
+\multicolumn{3}{c}{\uncover<25->{\text{\alertNoH{25}{ To find $x_T$, set $\alertNoH{26}{y=0}$ and $\alertNoH{26}{x=x_T}$:}}}} \\
+\uncover<25->{\alertNoH{26}{0}\alertNoH{29}{-2}&=&\alertNoH{27,28}{-2}(\alertNoH{26,27}{x_T}+\alertNoH{28}{1})} \\
+\uncover<27->{\alertNoH{31,32}{0}&=&\alertNoH{27}{-2x_T}\alertNoH{28}{-\fcCancel{30}{2}}\alertNoH{29}{+\fcCancel{30}{2}} \uncover<30->{\alertNoH{32}{=} \alertNoH{31}{-2} \alertNoH{32}{x_T}}}\\%
+}%
+\only<17-|handout:2->{\uncover<32->{\alertNoH{32,33,34,62}{x_T}&\alertNoH{32,33,34,62}{{=}}&\alertNoH{32,33,34,62}{0}} \\}%
+\only<34-52|handout:3>{%
+\uncover<35->{ \alertNoH{35, 36, 42}{ \text{Normal slope}} &\alertNoH{35,36}{{=}}&\displaystyle \fcAnswer{36}{ -\frac{1}{ \alertNoH{37}{\text{tangent slope}}} } \uncover<37->{=\alertNoH{38}{-}\frac{1 }{\alertNoH{37 }{ \alertNoH{38}{-}2} }} \uncover<38->{ \alertNoH{42}{=\frac{1}{2}} }} \\
+\uncover<39->{\text{Normal: } \alertNoH{39}{\alertNoH{46}{y} -\alertNoH{40}{2}} &\alertNoH{39}{{ =}} &\displaystyle \alertNoH{39}{ \alertNoH{42}{\frac{1}{2}} \left(x\alertNoH{43}{- }(\alertNoH{41}{ \alertNoH{43}{-} 1})\right)} \uncover<43->{ =\frac{1 }{2}( \alertNoH{45}{x}\alertNoH{43}{ +} 1)}}\\
+\multicolumn{3}{c}{ \uncover<44->{\text{\alertNoH{44}{ To find $x_N$, set $y=0$ and $x=x_N$:}}}} \\
+\uncover<45->{\frac{1}{\alertNoH{48}{2}} \left(\alertNoH{45,50}{x_N} \alertNoH{49}{+1}\right) &=& \alertNoH{46}{0}\alertNoH{47}{-2}\\}%
+}%
+\only<3-|handout:3->{
+\uncover<47->{ \alertNoH{50, 52, 53, 67}{x_N} &\alertNoH{52, 53}{{=}}& \alertNoH{51, 52, 53}{ \alertNoH{48}{2}\cdot (\alertNoH{47}{-2}) \alertNoH{49}{ -1}} \uncover<51->{\alertNoH{51, 52, 53, 67}{=-5} } } \\%
+\multicolumn{5}{l}{\uncover<56->{ \alertNoH{56, 57, 60, 65}{\text{Distance b-n pts. f-la: }(\alertNoH{58}{x_1} ,\alertNoH{59}{y_1} )\text{, }(\alertNoH{58}{x_2}, \alertNoH{59}{y_2} ) = \fcAnswer{57}{\alertNoH{60,65}{ \sqrt{ (\alertNoH{58}{ \alertNoH{61,66}{ x_1} -\alertNoH{62,67}{ x_2} } )^2+(\alertNoH{59}{\alertNoH{63,68}{y_1}-\alertNoH{64,69}{y_2} })^2 }}}}} }\\ 
+}%
+\only<54-|handout:4>{%
+\alertNoH{54,55,75}{\text{Area}(\triangle NTP)} &\alertNoH{54,55}{{ =}} &\displaystyle \fcAnswer{55}{ \frac{\alertNoH{56-59}{ \alertNoH{60}{|PT|} \alertNoH{65}{|PN|}} }{2}} \\
+\uncover<60->{&=&\displaystyle \frac{\alertNoH{60}{\sqrt{\alertNoH{70}{ (\alertNoH{61}{ -1}-\alertNoH{62}{ 0} )^2+(\alertNoH{63}{2}-\alertNoH{64}{0})^2}}} \alertNoH{65}{ \sqrt{\alertNoH{71}{(\alertNoH{66}{ -1}-(\alertNoH{67}{-5}))^2+(\alertNoH{68}{2}-\alertNoH{69}{0})^2 }} }}{2}} \\
+\uncover<70->{&=&\displaystyle \frac{\sqrt{\alertNoH{70,72}{ 1+4} }\sqrt{\alertNoH{71,72}{36+4}} }{2} \uncover<72->{=\frac{\alertNoH{73}{ \sqrt{\alertNoH{72}{5\cdot 40 }}} }{2}} \uncover<73->{=\frac{ \alertNoH{73}{ \alertNoH{74}{10} \sqrt{2}} }{\alertNoH{74}{2}}}\uncover<74->{  \alertNoH{75}{= \alertNoH{74}{5}\sqrt{2}}}}\\
+}
+\end{array}%
+$
+
+\end{example}
+\vskip 10cm
+
+\end{frame}
