@@ -4,20 +4,20 @@
 \begin{columns}
 \column{0.2\textwidth}
 \psset{xunit=0.7cm, yunit=0.7cm}
-\begin{pspicture}(-1.7,-1.7)(1.8,1.7)
-\tiny
-\parametricplot[linecolor=\fcColorGraph]{0}{60}{t cos t sin}
-\parametricplot[linecolor=\fcColorGraph, linestyle=dotted]{60}{360}{t cos t sin}
-\parametricplot[linecolor=\fcColorGraph]{0}{60}{t cos 1.5 mul t sin 1.5 mul}
-\parametricplot[linecolor=\fcColorGraph, linestyle=dotted]{60}{360}{t cos 1.5 mul t sin 1.5 mul}
-\psline[arrows=->](0, 0 )(! 60 cos 1.9 mul 60 sin 1.9 mul)
-\psline[arrows=->](0, 0 )(1.9,0)
-\rput[tr](0.9, 0.5 ){$M$}
-\rput[bl](1.4, 0.8 ){$L$}
-\fcLengthIndicator[linecolor=blue]{0}{-0.3}{1.5}{-0.3}{$r$}
-\fcLengthIndicator[linecolor=blue]{150 cos 0.3 mul}{150 sin 0.3 mul}{150 cos 0.3 mul 60 cos add}{150 sin 0.3 mul 60 sin add}{$s$}
-\fcFullDot[linecolor=blue]{0}{0}
-\end{pspicture}
+\begin{pspicture}(-1.65,-1.7)(1.87,1.73)%
+\tiny%
+\parametricplot[linecolor=\fcColorGraph]{0}{60}{t cos t sin}%
+\parametricplot[linecolor=\fcColorGraph, linestyle=dotted]{60}{360}{t cos t sin}%
+\parametricplot[linecolor=\fcColorGraph]{0}{60}{t cos 1.5 mul t sin 1.5 mul}%
+\parametricplot[linecolor=\fcColorGraph, linestyle=dotted]{60}{360}{t cos 1.5 mul t sin 1.5 mul}%
+\psline[arrows=->](0, 0 )(! 60 cos 1.9 mul 60 sin 1.9 mul)%
+\psline[arrows=->](0, 0 )(1.9,0)%
+\rput[tr](0.9, 0.5 ){$M$}%
+\rput[bl](1.4, 0.8 ){$L$}%
+\fcLengthIndicator[linecolor=blue]{0}{-0.3}{1.5}{-0.3}{$r$}%
+\fcLengthIndicator[linecolor=blue]{150 cos 0.3 mul}{150 sin 0.3 mul}{150 cos 0.3 mul 60 cos add}{150 sin 0.3 mul 60 sin add}{$s$}%
+\fcFullDot[linecolor=blue]{0}{0}%
+\end{pspicture}%
 \column{0.8\textwidth}
 \begin{proposition}
 Let two circles have common center and radii $s$ and $r$. Suppose an arbitrary geometric angle with vertex at the common center of the circles cuts off short arcs of length $M$ and $L$. Then $\displaystyle \frac{s}{r}=\frac{M}{L}.

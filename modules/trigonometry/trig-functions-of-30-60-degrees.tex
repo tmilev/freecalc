@@ -1,51 +1,113 @@
 \begin{frame}
+\vskip -0.1cm
 \begin{example}
 \begin{columns}
-\column{0.3\textwidth}
-\psset{xunit=1.5cm, yunit=1.5cm}
-\begin{pspicture}(-0.1,-0.2)(2.1,1.8)
+\column{0.25\textwidth}
+\psset{xunit=1.3cm, yunit=1.3cm}
+\uncover<2->{
+\begin{pspicture}(-0.1,-0.25)(2.2,1.95)
 \tiny
-\fcBoundingBox{-0.1}{-0.2}{2.1}{1.8}
+\fcBoundingBox{-0.1}{-0.25}{2.2}{2}
+\only<handout:0|4,7,21,22,23>{\renewcommand{\fcAngleLineWidth}{2pt}}
 \fcPerpendicular{[1 3 sqrt ]}{[1 0]}{0.1}
 \parametricplot[linecolor=red]{0}{60}{t cos 0.3 mul t sin 0.3 mul}
-\parametricplot[linecolor=red]{120}{180}{t cos 0.3 mul 2 add t sin 0.3 mul}
+\uncover<handout:0|3,7,13,16,28,29,30,31,32,33>{\parametricplot[linecolor=red, linewidth=2pt]{0}{60}{t cos 0.3 mul t sin 0.3 mul}
+}
+\uncover<13->{\parametricplot[linecolor=red]{120}{180}{t cos 0.3 mul 2 add t sin 0.3 mul}}
+\uncover<handout:0|13,16>{\parametricplot[linecolor=red, linewidth=2pt]{120}{180}{t cos 0.3 mul 2 add t sin 0.3 mul}}
 \parametricplot[linecolor=red]{-90}{-120}{t cos 0.3 mul 1 add t sin 0.3 mul 3 sqrt add}
-\parametricplot[linecolor=red]{-90}{-60}{t cos 0.3 mul 1 add t sin 0.3 mul 3 sqrt add}
-\psline(0,0)(1, 0)(! 1 3 sqrt )(0,0)
-\psline[linestyle=dashed](1, 0)(2,0)(! 1 3 sqrt )
-\rput[t](0.5, -0.1){$1$}
-\rput[t](1.5, -0.1){$1$}
-\rput[br](0.4, 0.8){$2$}
-\rput[bl](1.6, 0.8){$2$}
-\rput[l](0.3, 0.2){$60^\circ$}
-\rput[r](1.7, 0.2){$60^\circ$}
-\rput[tr](1, 1.2){$30^\circ=\gamma$}
-\rput[tl](1, 1.2){$~30^\circ$}
-\rput[l](! 1 3 sqrt 2 div){$\sqrt{3}$}
-
+\uncover<handout:0|5,7,14,16, 34-39>{
+\parametricplot[linecolor=red, linewidth=2pt]{-90}{-120}{t cos 0.3 mul 1 add t sin 0.3 mul 3 sqrt add}
+}
+\uncover<14->{\parametricplot[linecolor=purple]{-90}{-60}{t cos 0.3 mul 1 add t sin 0.3 mul 3 sqrt add}}
+\uncover<handout:0|14,16>{\parametricplot[linecolor=purple, linewidth=2pt]{-90}{-60}{t cos 0.3 mul 1 add t sin 0.3 mul 3 sqrt add}}
+\uncover<2->{\psline(0,0)(1, 0)(! 1 3 sqrt )(0,0)}
+\uncover<handout:0|2,6>{\psline[linewidth=2pt, linecolor=red](0,0)(1, 0)(! 1 3 sqrt )(0,0)(1,0)}
+\uncover<handout:0|12>{\psline[linewidth=2pt, linecolor=blue](0,0)(1, 0)(! 1 3 sqrt )(0,0)(1,0)}
+\uncover<11->{\psline[linestyle=dashed](1, 0)(2,0)(! 1 3 sqrt )}
+\uncover<handout:0|11,12>{\psline[linecolor=red, linewidth=2pt, linestyle=dashed](1, 0)(2,0)(! 1 3 sqrt )(1,0)}
+\rput[t](0.5, -0.1){$\alertNoH{15,18,19,25,31,33,35,39}{1}$}
+\uncover<11->{\rput[t](1.5, -0.1){$\uncover<15->{\alertNoH{15,18,19}{1}}$}}
+\uncover<handout:0|15,35,39>{
+\psline[linecolor=blue, linewidth=2pt](0,0)(1,0)
+}
+\uncover<handout:0|15>{
+\psline[linecolor=red, linewidth=2pt](1,0)(2,0)
+}
+\uncover<handout:0|16>{
+\psline[linecolor=blue, linewidth=2pt](0,0)(2,0)(! 1 3 sqrt )(0,0)(2,0)
+}
+\uncover<handout:0|17,18,19,23,25>{
+\psline[linecolor=purple, linewidth=2pt](0,0)(1,0)
+}
+\uncover<handout:0|17>{
+\psline[linecolor=purple, linewidth=2pt](1,0)(2,0)
+}
+\uncover<handout:0|17,18,19,22,23,24>{
+\psline[linecolor=blue, linewidth=2pt](0,0)(! 1 3 sqrt)
+}
+\uncover<handout:0|29,31,35,37>{
+\psline[linecolor=orange, linewidth=2pt](0,0)(! 1 3 sqrt)
+}
+\uncover<handout:0|18,19>{
+\psline[linecolor=blue, linewidth=2pt](1,0)(2,0)
+}
+\uncover<handout:0|20,21,22,23,27>{
+\psline[linewidth=2pt, linecolor=red](1,0)(! 1 3 sqrt)
+}
+\uncover<handout:0|29,33>{
+\psline[linewidth=2pt, linecolor=blue](1,0)(! 1 3 sqrt)
+}
+\uncover<handout:0|37,39>{
+\psline[linewidth=2pt, linecolor=green](1,0)(! 1 3 sqrt)
+}
+\uncover<handout:0|31,33>{
+\psline[linewidth=2pt, linecolor=green](0,0)(1,0)
+}
+\rput[br](0.4, 0.8){$\uncover<19->{\alertNoH{19,24,29,31,35,37}{2}}$}
+\rput[bl](1.6, 0.8){$\uncover<19->{\alertNoH{19}{2}}$}
+\rput[l](0.3, 0.2){$\alertNoH{3,7,13,16,28,29,30,31,32,33}{60^\circ}$}
+\rput[r](1.7, 0.2){$\uncover<13->{\alertNoH{13,16}{60^\circ}}$}
+\rput[br](0.94, 1.2){$\uncover<10->{\alertNoH{10,14,16,34- 39}{30^\circ=}} \alertNoH{5, 7, 14, 16, 34-39}{\gamma}$}
+\rput[bl](1, 1.2){$\uncover<14->{~\alertNoH{14,16}{30^\circ}}$}
+\rput[l](! 1 3 sqrt 2 div){$\uncover<26->{\alertNoH{26,27,29,33,37,39}{\sqrt{3}}}$}
+\rput[tl](-0.1,-0.1){$A$}
+\rput[t](1,-0.1){$H$}
+\rput[b](! 1 3 sqrt 0.1 add){$C$}
+\uncover<11->{\rput[tl](! 2 -0.1){$B$}}
 \end{pspicture}
-\column{0.7\textwidth}
-Find the values of $\sin 60^{\circ}, \cos 60^{\circ}, \tan 60^{\circ}$, $\sin 30^{\circ}, \cos30^{\circ}, \tan30^{\circ}$.
+}
+\column{0.75\textwidth}
+\alertNoH{41}{
+Find the values of $ \alertNoH{28,29}{\sin 60^{\circ}}, \alertNoH{30,31}{\cos 60^{\circ}}, \alertNoH{32,33}{\tan 60^{\circ}}$, $\alertNoH{34,35}{\sin 30^{\circ}}, \alertNoH{36,37}{\cos 30^{\circ}}, \alertNoH{38,39}{\tan 30^{\circ}}$.}
 
 \uncover<2->{
-Realize the $60^\circ$ angle in right triangle with adjacent side of length $1$. Let $\gamma$ be the indicated angle. The angles in triangle sum to $180^\circ$:
+Construct a right angled $\triangle AHC$ as indicated: \uncover<3->{angles $\alertNoH{3}{60^\circ}, \alertNoH{4}{90^\circ}, \alertNoH{5}{\gamma}$.} \uncover<6->{Angles \alertNoH{6}{in $\triangle$} \alertNoH{7}{sum to $180^\circ$}:}
 
 \hfil \hfil$
 \begin{array}{rcl}
-60^\circ+90^\circ +\gamma &=& 180^\circ\\
-\gamma&=&30^\circ.
+\uncover<6->{\alertNoH{7}{ \alertNoH{8}{60^\circ+90^\circ +}\gamma} &\alertNoH{7}{{=}}& \alertNoH{7}{180^\circ} }\\
+\uncover<8->{\alertNoH{14}{\gamma}&=&\alertNoH{9,10}{ 180^\circ\alertNoH{8}{ -90^\circ - 60^\circ} } \uncover<9->{\alertNoH{9,10,14}{=} } \fcAnswer{10}{\alertNoH{14}{ 30^\circ}} \uncover<10->{.}}
 \end{array}
 $
 }
 \end{columns}
-\uncover<2->{Construct a triangle congruent to the original right angle triangle as shown. The larger triangle has three equal angles ($=60^\circ$) and so is equilateral (sides are of equal length). Thus the side of the large triangle equals $1+1=2$. Therefore the large leg in the right angle triangle has length $\sqrt{2^2-1^2}=\sqrt{3}$. Finally we can compute:
+\uncover<11->{Construct $\alertNoH{11}{\triangle HBC}$ as indicated so that $ \alertNoH{13}{ \alertNoH{11}{ \triangle HBC}\cong\alertNoH{12}{\triangle HAC}}$. \uncover<16->{$\triangle ABC$ has three equal angles ($=60^\circ$)} \uncover<17->{$\Rightarrow$ its sides are of equal length. Therefore }
 
-\hfil \hfil $ \displaystyle \sin 30^\circ = \frac{1}{2}\qquad \cos 30^\circ = \frac{\sqrt{3}}{2}\qquad \tan 30^\circ= \frac{\frac{1}{2}}{\frac{\sqrt{3}}{2}}=\frac{\sqrt{3}}{3}.
+\hfil\hfil $
+\begin{array}{rcll|l}
+\uncover<17->{\alertNoH{17}{|AC|}&\alertNoH{17}{{=}}&\alertNoH{17,18}{|AB|}\uncover<18->{\alertNoH{18}{=}\alertNoH{18,19}{1+1} \uncover<19->{\alertNoH{19}{=2}}} }\\
+\uncover<20->{\alertNoH{20,21,27}{|CH|}&\alertNoH{20,21}{{=}}& \fcAnswer{21}{ \sqrt{|\alertNoH{22,24}{AC}|^2-|\alertNoH{23,25}{AH}|^2 }}  \uncover<21->{&&\alertNoH{21}{\text{Pythagorean theorem}}}} \\
+\uncover<24->{&=&\alertNoH{26}{\sqrt{{\alertNoH{24}{2}}^2- {\alertNoH{25}{1}}^2}}}  \uncover<26->{\alertNoH{26,27}{=\sqrt{3}}}
+\end{array}
+$ 
+
+$ 
+\begin{array}{rcl@{\qquad}rcl@{\qquad}rcl}
+\displaystyle \uncover<28->{ \alertNoH{28,29,41}{\sin 60^\circ} &\alertNoH{28,29,41}{{=}}& \displaystyle  \fcAnswer{29}{ \alertNoH{41}{ \frac{\sqrt{3}}{2}} } &\displaystyle  \alertNoH{30,31,41}{\cos 60^\circ }&\alertNoH{30,31,41}{{=}}&\displaystyle  \fcAnswerUncover{ 28 }{31}{\alertNoH{41}{ \frac{1}{2}} } &\displaystyle  \alertNoH{32,33,41}{\tan 60^\circ  }&\alertNoH{32, 33,41}{{=}}& \displaystyle \fcAnswerUncover{28}{33}{ \frac{\sqrt{ 3}} {1}=\alertNoH{41}{\sqrt{3}}}}\\
+\displaystyle\uncover<34->{ \alertNoH{34,35,41}{ \sin 30^\circ} &\alertNoH{34,35,41}{{=}}&\displaystyle  \fcAnswerUncover{34}{35}{ \alertNoH{41}{\frac{1}{2}}} &\displaystyle  \alertNoH{36,37,41}{\cos 30^\circ} &\alertNoH{36,37,41}{ {=} }&\displaystyle  \fcAnswerUncover{34}{37}{\alertNoH{41}{\frac{ \sqrt{3}}{2}}} &\displaystyle  \alertNoH{38,39,41}{\tan 30^\circ }&\alertNoH{38,39, 41}{{= }}& \displaystyle \fcAnswerUncover{34}{39}{\alertNoH{40}{ \frac{ 1}{\sqrt{3}}} \uncover<40->{\alertNoH{40}{=\alertNoH{41}{\frac{\sqrt{3}}{3}}}} } \uncover<40->{.}}
+\end{array}
 $
-
-\hfil \hfil $ \displaystyle \sin 60^\circ = \frac{1}{2}\qquad \cos 60^\circ = \frac{\sqrt{3}}{2}\qquad \tan 60^\circ  = \frac{\frac{\sqrt{3}}{2}}{\frac{1}{2}}=\sqrt{3}.
-$
-
 }
 \end{example}
 
