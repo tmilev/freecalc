@@ -3,7 +3,23 @@
 \addtolength{\voffset}{-3cm}
 \addtolength{\textheight}{6cm}
 
-\input{../../lectures/system-specific-config-Ubuntu-texlive}
+\providecommand{\autopstpdfConflictResolutionTemporary}{}
+
+\renewcommand{\autopstpdfConflictResolutionTemporary}{
+\usepackage[
+dvips={-o -Ppdf}, 
+pspdf={
+-dNOSAFER
+-dAutoRotatePages=/None %<-breaks in windows:%
+}, 
+pdfcrop={}, 
+crop=off%without crop=off breaks in windows
+]{auto-pst-pdf}
+}
+
+\usepackage{pgfpages}
+%\mode<handout>{\pgfpagesuselayout{4 on 1}[landscape, border shrink=5mm]}
+
 
 %Please keep the following command as a single line.
 %I need the one-line-command to simplify one of my auto-build scripts.
