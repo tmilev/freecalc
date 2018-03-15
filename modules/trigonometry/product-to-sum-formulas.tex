@@ -3,24 +3,24 @@
 \begin{proposition}[Product to sum formulas]
 \[
 \begin{array}{rcl}
-\sin \alpha \sin \beta &=&\displaystyle \frac{1}{2}\left(\cos( \alpha -\beta) -\cos(\alpha+\beta) \right)\\
-\cos \alpha \cos \beta &=&\displaystyle \frac{1}{2}\left( \cos( \alpha -\beta) +\cos(\alpha+\beta) \right)\\
-\sin \alpha \cos \beta &=&\displaystyle \frac{1}{2}\left(\sin( \alpha +\beta) +\sin(\alpha-\beta) \right)\\
+\alertNoH{13}{\sin \alpha \sin \beta} &\alertNoH{13}{{=}}&\displaystyle \alertNoH{13}{\frac{1}{2}\left(\cos( \alpha -\beta) -\cos(\alpha+\beta) \right)}\\
+\alertNoH{11}{\cos \alpha \cos \beta} &\alertNoH{11}{{=}}&\displaystyle \alertNoH{11}{ \frac{1}{\alertNoH{12}{2}} \left( \cos( \alpha -\beta) +\cos(\alpha+\beta) \right)} \\
+\alertNoH{14}{\sin \alpha \cos \beta} &\alertNoH{14}{{=}}&\displaystyle \alertNoH{14}{\frac{1}{2}\left(\sin( \alpha +\beta) +\sin(\alpha-\beta) \right)}\\
 \end{array}
 \]
 \end{proposition}
 \begin{proof}
 $
 \begin{array}{lrcl}
-\multirow{2}{*}{$+$}&\cos\alpha\cos\beta+\sin\alpha\sin\beta &=&\cos(\alpha-\beta)\\
-&\cos\alpha\cos\beta-\sin\alpha\sin\beta &=&\cos(\alpha+\beta)\\
-&2\cos\alpha \cos \beta &=&\cos(\alpha-\beta)+\cos(\alpha+\beta)\\\hline 
-\multirow{2}{*}{$-$}&\cos\alpha\cos\beta+\sin\alpha\sin\beta &=&\cos(\alpha-\beta)\\
-&\cos\alpha\cos\beta-\sin\alpha\sin\beta &=&\cos(\alpha+\beta)\\
-&2\sin\alpha \sin \beta &=&\cos(\alpha-\beta)-\cos(\alpha+\beta)\\\hline 
-\multirow{2}{*}{$+$}&\sin\alpha\cos\beta+\cos\alpha\sin\beta &=&\sin(\alpha+\beta)\\
-&\sin\alpha\cos\beta-\cos\alpha\sin\beta &=&\sin(\alpha-\beta)\\
-&2\sin\alpha \cos \beta &=&\sin(\alpha+\beta)+\sin(\alpha+\beta)\\
+\multirow{2}{*}{$\uncover<6->{\alertNoH{6,7,8,9,10}{+}}$}& \uncover<4->{ \fcAnswer{5}{ \alertNoH{6,8,9}{\alertNoH{10}{\cos\alpha\cos\beta} + \fcCancel{9}{ \sin\alpha\sin\beta}} } &\alertNoH{4,5,6}{{=}}& \uncover<4->{\alertNoH{4,5,6,7}{{\cos(\alpha-\beta)}}}}\\
+\uncover<2->{& \fcAnswer{3}{\alertNoH{6,8,9}{ \alertNoH{10}{\cos\alpha\cos\beta} - \fcCancel{9}{\sin\alpha \sin\beta}}} &\alertNoH{2,3,6}{{=}}& \uncover<2->{\alertNoH{2,3,6,7}{{ \cos(\alpha+\beta)}}}}\\
+\uncover<7->{&\fcAnswerUncover{7}{9}{\alertNoH{10,11}{ \alertNoH{12}{2}\cos\alpha \cos \beta}} &\alertNoH{11}{{=}}& \alertNoH{7,11}{{ \cos(\alpha-\beta)+\cos(\alpha+\beta)}}} \uncover<13->{\\\hline} \uncover<13->{  
+\multirow{2}{*}{$\alertNoH{13}{-}$} &\cos\alpha\cos\beta+\sin\alpha\sin\beta &=&\alertNoH{13}{{\cos(\alpha-\beta)}}} \\
+\uncover<13->{&\cos\alpha\cos\beta-\sin\alpha\sin\beta &=&\alertNoH{13}{{\cos(\alpha+\beta)}}}\\
+\uncover<13->{&2\sin\alpha \sin \beta &=&\cos(\alpha-\beta)-\cos(\alpha+\beta)} \uncover<14->{\\\hline} \uncover<14->{ 
+\multirow{2}{*}{$\alertNoH{14}{+}$}&\sin\alpha\cos\beta+\cos\alpha\sin\beta &=&\alertNoH{14}{{\sin(\alpha+\beta)}}}\\
+\uncover<14->{&\sin\alpha\cos\beta-\cos\alpha\sin\beta &=&\alertNoH{14}{{\sin(\alpha-\beta)}}} \\
+\uncover<14->{&2\sin\alpha \cos \beta &=&\sin(\alpha+\beta)+\sin(\alpha+\beta)}\\
 \end{array}
 $
 \end{proof}

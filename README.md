@@ -27,7 +27,7 @@ with viewing depth color shading. The quality is higher than most commercially a
   - All graphics are accurately drawn in accordance with the problem.
 quality than most mathematical textbooks. 
 - Technical aspects:
-  - All slides are compiled in the pdf file. 
+  - All slides are compiled as pdfs. 
   - Each slide is compiled in two modes: projector mode (for showing to students) and printable mode. 
 The printable mode is intended for quick reference/printing on paper and lacks step-by-step uncovering of computations.
   - Each slide phase is a separate pdf page. The slides display correctly out-of-the-box
