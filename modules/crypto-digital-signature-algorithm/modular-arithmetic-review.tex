@@ -1,0 +1,60 @@
+\begin{frame}
+\frametitle{Review of modular arithmetic $\left(\mathbb Z/n \mathbb Z\right)$}
+\begin{definition}[Modular arithmetic notation]
+Let $\alertNoH{3}{n\geq 0}$. If \alertNoH{2}{$a,b$ have same remainder} \alertNoH{3}{when divided by $n$}, we say that:
+
+\hfil\hfil$
+ a\alertNoH{2}{\equiv} b \alertNoH{3}{\mod n}
+$
+\end{definition}
+\uncover<4->{Every number is equivalent $\mod n$ to one lying between $0$ and $n-1$:
+\begin{example}
+$\begin{array}{@{}r@{~}c@{~}l@{}ll|l}
+\alertNoH{4,5,6}{10} &\alertNoH{4,5}{{\equiv}}& \fcAnswer{5}{\alertNoH{7}{3}} &\alertNoH{4,5,8}{\mod  7} &&\uncover<5->{\text{$\alertNoH{6}{ 10= \alertNoH{8}{7}\cdot 1 + \alertNoH{7}{3}}$  has \alertNoH{7}{remainder $3$} when \alertNoH{8}{div. by $7$}.}}\\
+\uncover<9->{\alertNoH{9,10,11}{15} &\alertNoH{9,10}{{\equiv}}&\fcAnswer{10}{\alertNoH{12}{0}} &\alertNoH{9,10,13}{ \mod 5}&} &\uncover<10->{\text{$ \alertNoH{11}{15= 3\cdot \alertNoH{13}{ 5} +\alertNoH{12}{0} }$ has \alertNoH{12}{remainder $0$} when \alertNoH{13}{div. by $5$}.}}\\
+\uncover<14->{\alertNoH{14,15,16}{-2} &\alertNoH{14,15}{{\equiv}}& \fcAnswer{15}{\alertNoH{17}{1}}& \alertNoH{14,15,18}{\mod 3}& } &\uncover<15->{\text{$\alertNoH{16}{-2 = \alertNoH{18}{3}\cdot (-1) + \alertNoH{17}{1}}$ has \alertNoH{17}{remainder $1$} when \alertNoH{18}{div. by $3$}}}
+\end{array}
+$
+\end{example}
+}
+\uncover<19->{
+Finding the number between $0 $ and $n-1$ as described above is called ``reducing a number modulo $n$''.
+}
+\end{frame}
+
+\begin{frame}
+\vskip -0.17cm
+\begin{lemma}
+Let $a_1 \equiv a_2 \mod n$ and $b_1\equiv b_2 \mod n$. 
+\begin{itemize}
+\item $a_1\pm b_1 \equiv a_2 \pm b_2 \mod n$\hfill (Mod. arithm. respects addition).
+\item $a_1\cdot b_1 \equiv a_2 \cdot b_2 \mod n$\hfill  (Mod. arithm. respects multiplication).
+\end{itemize}
+\end{lemma}
+\vskip -0.17cm
+\begin{proof}[Proof. {[Mult. respected]}]
+Since $a_1 \equiv a_2  \mod n$ $\Rightarrow$ $a_1 = n\cdot p + a_2 $ for some $p$.
+
+Since $b_1 \equiv b_2  \mod n$ $\Rightarrow$ $b_1 = n\cdot q + b_2 $ for some $q$.	
+
+\hfil\hfil  $\begin{array}{rclll}
+a_1 \cdot b_1 &=& ( n\cdot p + a_2)\cdot (n\cdot q + b_2 ) \\
+&=& n^2 (p+q) + n(b_2+a_2) + b_2 + a_2 \\
+&\equiv& b_2 + a_2\mod n
+\end{array}
+$
+\end{proof}
+
+\vskip -0.17cm
+\uncover<2->{\begin{example}
+Reduce $2030\cdot 201700003 \mod 2017$.
+
+$\begin{array}{r@{~}c@{~}ll}
+2030 &=& 2017+13 \equiv 13 &\mod 2018\\  
+201800003 &=& 20180000+3 = 2018\cdot 10^4+3 \equiv 3 &\mod 2018\\  
+2030\cdot 201800003&\equiv & 13\cdot 3= 39 &\mod 2018\\
+\end{array}
+$
+\end{example}
+}
+\end{frame}
