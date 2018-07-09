@@ -1,0 +1,23 @@
+\begin{frame}
+\begin{emptyTheorem}[Schnorr signature: key generation (same as gen. DSA)]
+\begin{itemize}
+\item Private key: $\mathrm{secret}$. Public key: $\mathrm{pub} = g^{\mathrm{secret}}$, $g$- generator of $\mathcal G$, $|\mathcal G|= p$ is prime. 
+\end{itemize}
+\end{emptyTheorem}
+\begin{emptyTheorem}[Schnorr signature: signing]
+\begin{itemize}
+\item Given: a number $\mathrm{digest}$ (message digest). 
+\item Choose at random $\mathrm{nonce} \in \left\{0,\dots, p-1\right\}$.
+\item Compute $\mathrm{R} = g^{\mathrm{nonce}}$.
+\item Compute $s = \mathrm{nonce} +  \mathrm{secret}\cdot \mathrm{digest} $.
+\item $(\mathrm{R},s)$ - final signature.
+\end{itemize}
+\end{emptyTheorem}
+\begin{emptyTheorem}[Schnorr signature: verification]
+\begin{itemize} 
+\item Compute $a=\mathrm{R} \cdot \mathrm{pub}^{\mathrm{digest}} = g^{\mathrm{nonce}} \cdot \left(g^{\mathrm{secret}}\right)^{\mathrm{digest}} = g^{\mathrm{nonce} + \mathrm{secret}\cdot \mathrm{digest}} $.
+\item Compute $b=g^{s} = g^{\mathrm{nonce} + \mathrm{secret}\cdot \mathrm{digest}}$.
+\item If $a= b$ the signature is valid (invalid otherwise).
+\end{itemize}
+\end{emptyTheorem}
+\end{frame}

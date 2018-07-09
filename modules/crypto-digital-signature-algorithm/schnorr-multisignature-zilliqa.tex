@@ -1,0 +1,13 @@
+\begin{frame}
+\frametitle{Zilliqa non-PBFT Schnorr multi-signature}
+Secr.: $\mathrm{secret}_1, \dots, \mathrm{secret}_n$, pub. keys: $\mathrm{pub}_1 = g^{ \mathrm{secret }_1 }, \dots, \mathrm{pub}_n= g^{\mathrm{secret}_n}$.
+\begin{emptyTheorem}[Zilliqa non-PBFT signing]
+\begin{itemize}
+\item<2-> Setup a special aggregator node.
+\item {}[Each signer:] choose random $\mathrm{nonce}_i$, compute $q_i = g^{\mathrm{nonce}_i}$.
+\item \uncover<2->{[Aggregator:]} compute $\displaystyle \mathrm{Pub} =\prod_{i} \mathrm{pub}_i =\mathrm{pub}_1\cdot \dots \cdot \mathrm{pub}_n$.
+\item \uncover<2->{[Aggregator:]} compute $\displaystyle Q = \prod_i q_i$.
+\item \uncover<2->{[Aggregator:]} compute 
+\end{itemize}
+\end{emptyTheorem}
+\end{frame}

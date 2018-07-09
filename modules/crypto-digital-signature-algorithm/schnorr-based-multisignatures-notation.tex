@@ -1,0 +1,17 @@
+\begin{frame}
+\begin{itemize}
+\item To generate a multi-signature (aggregate signature) means to have independent parties combine their signatures into a single smaller signature.
+\item We describe several Schnorr-based multi-signatures. 
+\item Schnorr-based multi-signature schemes assumptions:
+\begin{emptyTheorem}[Schnorr-based multi-signature setup]
+\begin{itemize}
+\item $\mathcal G$ - cyclic group with generator $g$, $\left|\mathcal G\right| = p$ prime.
+\item Secrets $\mathrm{secret}_1, \dots, \mathrm{secret}_n $ corresponding to public keys $\mathrm{pub}_1 = g^{\mathrm{secret}_1}, \dots, \mathrm{pub}_n = g^{\mathrm{secret}_n}.$
+\end{itemize}
+\end{emptyTheorem}
+\item The secrets $\mathrm{secret}_i$ are assumed to have distinct owners. 
+\item Communication between key owners happens over open network. 
+\item Malicious signers may craft $\left(\mathrm{secret}_i, \mathrm{pub}_i\right)$ to attack the system.
+\end{itemize}
+
+\end{frame}

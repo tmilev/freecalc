@@ -1,3 +1,64 @@
 \begin{frame}
-\frametitle{Digital signature algorithm (DSA)}
+\vskip -0.15cm
+\begin{emptyTheorem}[Generalized Digital Signature Algorithm: generate public key]
+\begin{itemize}
+
+\item Given: cyclic group $\mathcal G$ of prime order $p=|\mathcal G|$, generator $g\in \mathcal G$.
+\item Choose at random the private key $\mathrm{secret} \in \left\{0,1,\dots, p-1 \right\}$.
+\item Compute the public key $\mathrm{pub} = g^{\mathrm{secret}}$.
+\end{itemize}
+\end{emptyTheorem}
+\vskip -0.15cm
+
+
+Public key $\mathrm{pub}$ is element of $\mathcal G$ and the secret key $\mathrm{secret}$ is a number! 
+\vskip -0.15cm
+\begin{emptyTheorem}[Generalized DSA: sign message]
+\begin{enumerate}
+\item Given: a number $\mathrm{digest}$ (message digest). 
+\item Given: function $\mathrm{toNumber}:\mathcal G\to \mathbb Z$.
+\item Choose at random $\mathrm{nonce} \in \left\{0,\dots, p-1\right\}$.
+\item Compute $w= g^{\mathrm{nonce}}$.
+\item Compute $ r = \mathrm{toNumber} (w) \mod p $.
+\item Compute $s = \frac{\mathrm{digest} + r\cdot \mathrm{secret}}{\mathrm{nonce}} \mod p$.
+\item $(r,s)$ - final signature.
+\end{enumerate}
+\end{emptyTheorem}
+\vskip -0.15cm
+
+\begin{itemize}
+\item Usually: $\mathrm{digest}= H(M)$, where $H$ - hash f-n, $M$ - message to sign. 
+\item $M$ and $\textrm{pub}$ are not part of the signature.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\vskip -0.15cm
+\begin{emptyTheorem}[Generalized DSA: signing, key generation summary]
+\begin{itemize}
+\item Private key: $\mathrm{secret}$. Public key: $\mathrm{pub} = g^{\mathrm{secret}}$, $g$- generator of $\mathcal G$. 
+\item $\mathrm{nonce} \in \left\{0,\dots, p-1\right\}$ - secret random use-once num.; $p=|\mathcal G|$.
+\item $r = \mathrm{toNumber}\left(g^{\mathrm{nonce}}\right) \mod p$ and  $s = \frac{\mathrm{digest} + r\cdot \mathrm{secret}}{\mathrm{nonce}} \mod p$.
+\item $(r,s)$ - final signature.
+\end{itemize}
+\end{emptyTheorem}
+\vskip -0.15cm
+\begin{emptyTheorem}[Generalized DSA: verify signature]
+\begin{enumerate}
+\item $a = \frac{1}{s} = \frac{1}{\frac{\mathrm{digest} + r\cdot \mathrm{secret}}{\mathrm{nonce}}} = \frac{\mathrm{nonce}}{\mathrm{digest}+ r\cdot \mathrm{secret}} \mod p$.
+\item $u_1 = a\cdot \mathrm{digest} = \frac{a\cdot \mathrm{nonce}}{\mathrm{digest} + r\cdot \mathrm{secret}} \mod p$.
+\item $u_2 = a \cdot r = \frac{ r\cdot \mathrm{nonce}}{\mathrm{digest} + r\cdot \mathrm{secret}} \mod p$.
+\item $
+\begin{array}{r@{~}c@{~}l}
+X &=&g^{u_1} \mathrm{pub}^{u_2} = g^{\frac{a\cdot \mathrm{nonce}}{\mathrm{digest}+ r\cdot \mathrm{secret}}} \cdot \left(g^{\mathrm{secret}}\right)^{ \frac{ r\cdot \mathrm{nonce}}{\mathrm{digest} + r\cdot \mathrm{secret}}} \\
+&=& g^{\frac{a\cdot \mathrm{nonce}}{\mathrm{digest}+ r\cdot \mathrm{secret}} +  \frac{ \mathrm{secret}\cdot r\cdot \mathrm{nonce}}{\mathrm{digest} + t r\cdot \mathrm{secret}}} = g^{\frac{\mathrm{nonce}\cdot(\mathrm{digest} + r\cdot \mathrm{nonce}) }{\mathrm{digest} +  r\cdot \mathrm{secret}}} = g^{\mathrm{nonce}}
+\end{array}
+$
+\item If $\mathrm{toNumber} \left(X\right) = r$, the signature is valid (invalid otherwise).
+\end{enumerate}
+\end{emptyTheorem}
+\begin{itemize}
+\item If $\mathrm{nonce}$ is revealed $\mathrm{secret}$ can be computed.
+\end{itemize}
 \end{frame}
