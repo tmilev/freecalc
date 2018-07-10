@@ -1,0 +1,74 @@
+\begin{frame}
+\begin{definition}
+The set of points $\{(x,y)\}$ for which 
+
+\hfil \hfil $
+y^2 = x^3 + a x + b
+$
+
+is called an elliptic curve (possibly degenerate).
+\end{definition}
+\begin{itemize}
+\item Precise definition of all curves that are ``elliptic'': outside our scope.
+\item Precise definition of ``degenerate'': outside our scope.
+\item We do not fix the number types of $x,y$: possibly $\mathbb Q, \mathbb R, \mathbb C, \mathbb Z_p, \dots$.
+\item Over $\mathbb R$, graph of elliptic has five types:
+
+\psset{xunit=0.4cm, yunit= 0.4cm}
+\begin{pspicture}(-2,-4)(3.4,4.5)
+\tiny
+\fcAxesStandard{-2}{-4.4}{3.3}{4.4}
+\pstVerb{20 dict begin /a 0.2 def /b 1.2 def /c 0 def /theFun {x x x mul mul x x c mul mul x a mul b add add add sqrt} def} 
+\psplot[linecolor=\fcColorGraph]{-1}{2.5}{theFun}
+\psplot[linecolor=\fcColorGraph]{-1}{2.5}{theFun -1 mul}
+\pstVerb{end}
+\rput[l](-1.9, 2){$y=\sqrt{x^3 + ax +b}$}
+\rput[l](-1.9, -2){$y=-\sqrt{x^3 + ax +b}$}
+\end{pspicture}
+\psset{xunit=0.4cm, yunit= 0.4cm}
+\begin{pspicture}(-2,-4)(3.1,4.5)
+\fcAxesStandard{-2}{-4.4}{3}{4.4}
+\pstVerb{20 dict begin /a -1 def /b 0 def /c 0 def /theFun {x x x mul mul x x c mul mul x a mul b add add add sqrt} def} 
+\psplot[linecolor=\fcColorGraph]{-1}{0}{theFun}
+\psplot[linecolor=\fcColorGraph]{1}{2.5}{theFun}
+\psplot[linecolor=\fcColorGraph]{-1}{0}{theFun -1 mul}
+\psplot[linecolor=\fcColorGraph]{1}{2.5}{theFun -1 mul}
+\pstVerb{end}
+%\rput[tl](-2, -3){$3$ }
+\end{pspicture}
+\psset{xunit=0.4cm, yunit= 0.4cm}
+\begin{pspicture}(-2.2,-4)(3.1,4.5)
+\fcAxesStandard{-2.2}{-4.4}{3}{4.4}
+\pstVerb{20 dict begin /a -3 def /b 2 def /c 0 def /theFun {x x x mul mul x x c mul mul x a mul b add add add sqrt} def} 
+\psplot[linecolor=\fcColorGraph]{-2}{2.5}{theFun}
+\psplot[linecolor=\fcColorGraph]{-2}{2.5}{theFun -1 mul}
+\pstVerb{end}
+\tiny
+\rput[t](0,-3){degenerate}
+%\rput[tl](-2, -3){$3$ roots, two same}
+\end{pspicture}
+\psset{xunit=0.4cm, yunit= 0.4cm}
+\begin{pspicture}(-2,-4)(3.1,4.5)
+\fcAxesStandard{-2}{-4.4}{3}{4.4}
+\pstVerb{20 dict begin /a -3 def /b -2 def /c 0 def /theFun {x x x mul mul x x c mul mul x a mul b add add add sqrt} def} 
+\psplot[linecolor=\fcColorGraph]{2}{3}{theFun}
+\psplot[linecolor=\fcColorGraph]{2}{3}{theFun -1 mul}
+\pstVerb{end}
+\tiny
+\rput[t](0,-3){degenerate}
+%\rput[tl](-2, -3){$3$ roots, two coincide}
+\end{pspicture}
+\psset{xunit=0.4cm, yunit= 0.4cm}
+\begin{pspicture}(-2,-4)(4.5,4.5)
+\fcAxesStandard{-2}{-4.4}{4}{4.4}
+\pstVerb{20 dict begin /a 0 def /b 0 def /c 0 def /theFun {x x x mul mul x x c mul mul x a mul b add add add sqrt} def} 
+\psplot[linecolor=\fcColorGraph]{0}{2}{theFun}
+\psplot[linecolor=\fcColorGraph]{0}{2}{theFun -1 mul}
+\pstVerb{end}
+\tiny
+\rput[t](0,-3){degenerate}
+%\rput[tl](-2, -3){$3$ roots, two coincide}
+\end{pspicture}
+
+\end{itemize}
+\end{frame}
