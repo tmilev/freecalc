@@ -1,0 +1,67 @@
+\begin{frame}
+Secr.: $\mathrm{secret}_1, \dots, \mathrm{secret}_n$, pub. keys: $\mathrm{pub}_1 = g^{ \mathrm{secret }_1 }, \dots, \mathrm{pub}_n= g^{\mathrm{secret}_n}$.
+\begin{emptyTheorem}[Zilliqa non-PBFT Schnorr multi-signature: preparation (once)]
+\begin{itemize}
+\item Select a special node called an aggregator.
+\item Each signer: one-time send public key to aggregator.
+\item Aggregator: send back challenge message to be signed.
+\item Each signer: send signed challenge back.
+\end{itemize}
+\end{emptyTheorem}
+
+\vskip 15cm
+
+\end{frame}
+
+\begin{frame}
+Secr.: $\mathrm{secret}_1, \dots, \mathrm{secret}_n$, pub. keys: $\mathrm{pub}_1 = g^{ \mathrm{secret }_1 }, \dots, \mathrm{pub}_n= g^{\mathrm{secret}_n}$.
+
+\begin{emptyTheorem}[Zilliqa \fcCancel{3}{non-}PBFT Schnorr multi-signature: signing]
+\begin{itemize}
+\item \uncover<2->{Each signer:} choose random $\mathrm{nonce}_i$, compute $q_i = g^{\mathrm{nonce}_i}$.
+\item<2-> Each signer: send $q_i$ to aggregator.  \uncover<3->{\alertNoH{3}{Let $\mathcal A$: set of healthy nodes.}}
+\item \uncover<2->{Aggregator:} compute $ \mathrm{Pub} =\prod_{i \uncover<3->{ \alertNoH{3}{\in \mathcal A} }} \mathrm{pub}_i \uncover<-2>{=\mathrm{pub}_1\cdot \dots \cdot \mathrm{pub}_n}$. \item \uncover<2->{Aggregator:} compute $ Q = \prod_i q_i$.
+\item \uncover<2->{Aggregator:} compute  $\mathrm{challenge} = H(Q, \mathrm{Pub}, \mathrm{digest})$.
+\item<2-> Aggregator: send $\mathrm{challenge},\mathrm{Pub}, \mathrm{digest}$ to signers.
+\item<2-> Each signer: verify $\mathrm{challenge} = H(Q, \mathrm {Pub}, \mathrm{digest}) $.
+\item \uncover<2->{Each signer:} compute $\mathrm{solution}_i = {\mathrm{nonce}_i - \mathrm{challenge} \cdot \mathrm{secret}_i} $
+\item<2-> Each signer: send $\mathrm{solution}_i$ to aggregator.
+\item \uncover<2->{Aggregator:} compute $\mathrm{solution} = \sum_i \mathrm{solution}_i $.
+\item \uncover<2->{Aggregator:} final signature: $(\mathrm{challenge}, \mathrm{solution})$.
+\end{itemize}
+\end{emptyTheorem}
+
+\vskip 15cm
+\end{frame}
+
+\begin{frame}
+Secr.: $\mathrm{secret}_1, \dots, \mathrm{secret}_n$, pub. keys: $\mathrm{pub}_1 = g^{ \mathrm{secret }_1 }, \dots, \mathrm{pub}_n= g^{\mathrm{secret}_n}$.
+
+\begin{emptyTheorem}[Zilliqa non-PBFT Schnorr multi-signature: verification]
+\begin{itemize}
+\item Given: aggregate public key: $\mathrm{Pub} $, message: $\mathrm{digest}$, aggregate signature: $(\mathrm{challenge}, \mathrm{solution})$.
+
+\vskip -0.25cm
+\hfil\hfil$
+\begin{array}{rcl}
+\mathrm{Pub}&=& \prod_i \mathrm{pub}_i\\
+\mathrm{challenge} &\stackrel{?}{=}& H\left( \prod_i g^{\mathrm{nonce}_i}, \mathrm{Pub}, \mathrm{digest} \right) = H\left( g^{\sum_i \mathrm{nonce}_i}, \mathrm{Pub}, \mathrm{digest} \right)  \\
+\mathrm{solution} &\stackrel{?}{=}& \sum _i \left(\mathrm{nonce}_i - \mathrm{challenge}\cdot \mathrm{secret}_i \right)
+\end{array}
+$
+\item Compute
+
+\noindent $\hskip -1cm
+\begin{array}{r@{}c@{}l} 
+X&=&\displaystyle g^{\mathrm{solution} } \mathrm{Pub}^{\mathrm{challenge}}=\displaystyle g^{\mathrm{solution}} \left(\prod_i \mathrm{pub}_i\right)^{\!\!\!\!\mathrm{challenge}} 
+\!\!\!\!\!\!\!\!\!\!\! =\displaystyle  g^{\mathrm{solution}} \left(\prod_i g^{\mathrm{secret}_i}\right)^{\!\!\!\!\mathrm{challenge}}\\
+&=&\displaystyle g^{\mathrm{solution}}\prod_i g^{\mathrm{secret}_i\cdot \mathrm{challenge}}= \displaystyle g^{\sum_i \left(\mathrm{nonce}_i - \mathrm{secret}_i\mathrm{challenge}\right)} g^ { \sum_i \mathrm{secret}_i\cdot \mathrm{challenge} }\\
+&=&\displaystyle g^{\sum_i \left(\mathrm{nonce}_i - \mathrm{secret}_i\mathrm{challenge}\right)+ \sum_i \mathrm{secret}_i\cdot \mathrm{challenge} }=g^{\sum_i\mathrm{nonce_i}}
+\end{array}
+$
+\item If $H\left(X, \mathrm{Pub}, \mathrm{digest}\right) = \mathrm{challenge}$  signature - valid (otherwise invalid).
+\end{itemize}
+\end{emptyTheorem}
+
+\vskip 15cm
+\end{frame}
