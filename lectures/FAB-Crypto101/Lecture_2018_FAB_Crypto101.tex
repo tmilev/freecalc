@@ -24,6 +24,7 @@
 \renewcommand{\Arcsec}{\text{arcsec\hspace{0.03cm}}}
 \renewcommand{\Arccsc}{\text{arccsc\hspace{0.03cm}}}
 
+\bibliographystyle{plain}
 
 \mode<presentation>
 {
@@ -123,19 +124,23 @@ FA Enterprise System, Inc.
 %\input{../../modules/crypto-digital-signature-algorithm/modular-arithmetic-review}
 %\input{../../modules/crypto-digital-signature-algorithm/elliptic-curves}
 
-%\input{../../modules/crypto-digital-signature-algorithm/elliptic-curve-group-law}
+\input{../../modules/crypto-digital-signature-algorithm/elliptic-curve-group-law-definition-geometric}
+\input{../../modules/crypto-digital-signature-algorithm/elliptic-curve-group-law-justification-promise}
 
 %\input{../../modules/crypto-digital-signature-algorithm/abelian-group-definition}
 
 
-\input{../../modules/crypto-digital-signature-algorithm/digital-signature-algorithm-generalized}
-\input{../../modules/crypto-digital-signature-algorithm/schnorr-signature-generalized}
-\input{../../modules/crypto-digital-signature-algorithm/schnorr-based-multisignatures-notation}
+%\input{../../modules/crypto-digital-signature-algorithm/digital-signature-algorithm-generalized}
+%\input{../../modules/crypto-digital-signature-algorithm/schnorr-signature-generalized}
+%\input{../../modules/crypto-digital-signature-algorithm/schnorr-based-multisignatures-notation}
 
 \input{../../modules/crypto-digital-signature-algorithm/schnorr-multisignature-zilliqa-non-pbft}
+\input{../../modules/crypto-digital-signature-algorithm/schnorr-multisignature-simple-with-application-to-bitcoin}
+
+\begin{frame}[t, allowframebreaks]
+\frametitle{References}
+\bibliography{../../bibliography/bibliography-crypto}
+\end{frame}
 } %end lecture
 
-%\section{(Appendix G) Complex Numbers}
-% WARNING:  Appendix G is missing here.
-% end lecture
 \end{document}

@@ -1,0 +1,88 @@
+\begin{frame}[fragile]
+\begin{columns}
+	\column{0.25\textwidth}
+	\vskip -0.1cm
+	\psset{xunit=0.4cm, yunit=0.4cm}
+	\begin{pspicture}(-2,-4.4)(4.4,4.45)%
+	\tiny%
+	\newcommand{\tangentWidth}{1pt}%
+	\newcommand{\tangentColor}{black}%
+	\fcAxesStandard{-2}{-4.4}{4.4}{4.4}%
+	\pstVerb{%
+		40 dict begin /stickingCoeffOne 1.2 def /stickingCoeffTwo -0.2 def  /coeffA 0.2 def /coeffB 1.2 def /theFun {x x x mul mul x coeffA mul coeffB add add sqrt} def%
+	}%
+	\pstVerb{%
+		/xOne -1 def %
+		/xTwo 0 def %
+	}%
+%	\onlyNoH{9}{\pstVerb{%
+%			/xOne -0.6 def %
+%			/xTwo -0.4 def %
+%	}}%
+	\pstVerb{%
+		%Input: xA yA xB yB. Let (xA, yA) * (xB, yB) = (xC, yC). 
+		%This function outputs xC, and the next function outputs yC.
+		/xNew {
+			20 dict begin /a coeffA def /b coeffB def
+			/yB exch def /xB exch def /yA exch def /xA exch def 
+			b 2 1 div mul xA a mul add xB a mul add yB yA mul -2 1 div mul add xB 2 1 div exp xA mul add xB xA 2 1 div exp mul add xB xA mul -2 1 div mul xA 2 1 div exp add xB 2 1 div exp add div
+			end
+		} def %
+		/yNew {
+			20 dict begin /a coeffA def /b coeffB def
+			/yB exch def /xB exch def /yA exch def /xA exch def 
+			yA b mul 2 1 div mul yB b mul -4 1 div mul add b yA mul 2 1 div mul add yA xA mul a mul add yB xA mul a mul -3 1 div mul add yA xB mul a mul add yB xB mul a mul -1 1 div mul add xB a mul yA mul 2 1 div mul add xB 3 1 div exp yA mul 2 1 div mul add yB xA 3 1 div exp mul -1 1 div mul add yA xB 3 1 div exp mul -1 1 div mul add yA xB 2 1 div exp mul xA mul 3 1 div mul add yB xB mul xA 2 1 div exp mul -3 1 div mul add xA 3 1 div exp -1 1 div mul xB 3 1 div exp add xB 2 1 div exp xA mul -3 1 div mul add xB xA 2 1 div exp mul 3 1 div mul add div
+			end
+		} def %
+		/yOne 1 dict begin /x xOne def theFun end def%
+		/yTwo 1 dict begin /x xTwo def theFun end def%
+	}%
+	\psplot[linecolor=\fcColorGraph, plotpoints = 300]{-1}{2.5}{theFun}%
+	\psplot[linecolor=\fcColorGraph, plotpoints = 300]{-1}{2.5}{theFun -1 mul}%
+		\pstVerb{%
+			/xThree xOne yOne xTwo yTwo xNew def%
+			/yThree xOne yOne xTwo yTwo yNew def%
+		}%
+			\psline[linewidth=\tangentWidth, linecolor=\tangentColor](!%
+			xOne stickingCoeffOne mul xThree stickingCoeffTwo mul add %
+			yOne stickingCoeffOne mul yThree -1 mul stickingCoeffTwo mul add %
+			)(!%
+			xOne stickingCoeffTwo mul xThree stickingCoeffOne mul add %
+			yOne stickingCoeffTwo mul yThree -1 mul stickingCoeffOne mul add %
+			)%
+			\rput[tl](! xThree yThree -1 mul){$C'$}%
+		%
+		\fcFullDot[linecolor=blue]{xThree}{yThree -1 mul}%
+			\fcFullDot{xThree}{yThree}%
+			\fcPerpendicular[linestyle=dotted]{[xThree yThree -1 mul]}{[1 0]}{0.2}%
+			\psline[linestyle=dotted](! xThree yThree)(! xThree 0)%
+			\rput[bl](! xThree yThree){$C$}%
+		%
+	%
+	\fcFullDot{xOne}{yOne}%
+	\fcFullDot{xTwo}{yTwo}%
+	\rput[tl](! xOne yOne){$A$}%
+	\rput[br](! xTwo yTwo){$B$}%
+	\pstVerb{end}%
+	\end{pspicture}
+	
+	\column{0.75\textwidth}
+	\begin{definition}[Elliptic curve group law]
+		\begin{itemize}
+			\item If line through $A,B$ non-vertical, define $A\cdot B = C$.
+			\item Define $A\cdot A$ similarly but use the tangent through $A$ in place of the line through $A, B$.
+			\item If line through $A,B$ vertical, define $A\cdot B= \mathbf 1$.
+			\item Define $\mathbf 1\cdot A = A\cdot \mathbf 1 = A$ for all $ A$.
+		\end{itemize}
+	\end{definition}
+\end{columns}
+\begin{itemize}
+	\item $\cdot$ turns the points on the curve into a group.
+	\item The reason for this
+\end{itemize}
+
+
+
+\vskip 10cm
+
+\end{frame}

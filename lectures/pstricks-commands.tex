@@ -3239,7 +3239,7 @@ end %
 \newcommand{\fcZeroVector}{[exch {0} repeat]}
 
 \newcommand{\fcPerpendicularComputeHeelCode}[3]{%
-7 dict begin%
+8 dict begin%
 /thePoint #1\space def%
 /heelSize #3\space def %
 mark #2 \space%
@@ -3258,7 +3258,7 @@ heel directionUnitVector heelSize \fcVectorTimesScalar \fcVectorMinusVector %
 dup perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector %
 heel perpendicularUnitVector heelSize \fcVectorTimesScalar \fcVectorPlusVector%
 } def%
-}
+}%
 
 %argument 1: options
 %arguments 2: tip of perpendicular in format [a b]
