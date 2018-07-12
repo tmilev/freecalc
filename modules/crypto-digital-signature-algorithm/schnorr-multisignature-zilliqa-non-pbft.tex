@@ -1,14 +1,22 @@
 \begin{frame}
-Secr.: $\mathrm{secret}_1, \dots, \mathrm{secret}_n$, pub. keys: $\mathrm{pub}_1 = g^{ \mathrm{secret }_1 }, \dots, \mathrm{pub}_n= g^{\mathrm{secret}_n}$.
+\alertNoH{1}{Secr.: $\mathrm{secret}_1, \dots, \mathrm{secret}_n$, pub. keys: $\mathrm{pub}_1 = g^{ \mathrm{secret }_1 }, \dots, \mathrm{pub}_n= g^{\mathrm{secret}_n}$}.
 \begin{emptyTheorem}[Zilliqa non-PBFT Schnorr multi-signature: preparation (once)]
 \begin{itemize}
-\item Select a special node called an aggregator.
-\item Each signer: one-time send public key to aggregator.
-\item Aggregator: send back challenge message to be signed.
-\item Each signer: send signed challenge back.
+\item<2-> Select a special node called an aggregator.
+\item<3-> Each signer: one-time send public key $\mathrm{pub}_i \stackrel{?}{=} g^{\mathrm{secret}_i}$.
+\item<4-> Aggregator: send back challenge message to be signed.
+\item<5-> Each signer: send signed challenge back.
 \end{itemize}
 \end{emptyTheorem}
 
+\begin{itemize}
+\item<6-> The preparation simply ensures each signer owns $\mathrm{secret}_i$ from which $\mathrm{pub}_i $ is computed. 
+\item<7-> If preparation skipped: malicious signer can spoof public key by 
+\[
+\mathrm{pub}_i \cdot \prod_{j \in \mathcal V} \left(\mathrm{pub}_j \right)^{-1} 
+\] 
+allowing him to single-handedly fake the aggregate signature for himself and the victim nodes in the set $\mathcal V$. 
+\end{itemize}
 \vskip 15cm
 
 \end{frame}
@@ -18,9 +26,9 @@ Secr.: $\mathrm{secret}_1, \dots, \mathrm{secret}_n$, pub. keys: $\mathrm{pub}_1
 
 \begin{emptyTheorem}[Zilliqa \fcCancel{3}{non-}PB\alertNoH{3,4}{FT} Schnorr aggregate signature: signing]
 \begin{itemize}
-\item \uncover<2->{Each signer:} choose random $\mathrm{nonce}_i$, compute $q_i = g^{\mathrm{nonce}_i}$.
-\item<2-> Each signer: send $q_i$ to aggregator.  \uncover<3->{\alertNoH{3}{Let $\mathcal A$: set of healthy nodes.}}
-\item \uncover<2->{Aggregator:} compute $ \mathrm{Pub} =\prod_{i \uncover<3->{ \alertNoH{3}{\in \mathcal A} }} \mathrm{pub}_i \uncover<-2>{=\mathrm{pub}_1\cdot \dots \cdot \mathrm{pub}_n}$. 
+\item<2-> \uncover<2->{Each signer:} choose random $\alertNoH{2}{ \mathrm{nonce}_i}$, compute $ \alertNoH{2}{q_i = g^{\mathrm{nonce}_i}} $.
+\item<10-> Each signer: send $q_i$ to aggregator.  \uncover<3->{\alertNoH{3}{Let $\mathcal A$: set of healthy nodes.}}
+\item<3-> \uncover<2->{Aggregator:} compute $ \mathrm{Pub} =\prod_{i \uncover<3->{ \alertNoH{3}{\in \mathcal A} }} \mathrm{pub}_i \uncover<-2>{=\mathrm{pub}_1\cdot \dots \cdot \mathrm{pub}_n}$. 
 \item \uncover<2->{Aggregator:} compute $ Q = \prod_{i \uncover<3->{ \alertNoH{3}{\in \mathcal A} }} q_i$.
 \item \uncover<2->{Aggregator:} compute  $\mathrm{challenge} = H(Q, \mathrm{Pub}, \mathrm{digest})$.
 \item<2-> Aggregator: send $\mathrm{challenge},\mathrm{Pub}, \mathrm{digest}$ to signers. \uncover<3->{\alertNoH{3,4}{Bad net: reset.}}

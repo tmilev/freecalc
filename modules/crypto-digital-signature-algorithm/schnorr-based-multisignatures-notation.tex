@@ -1,17 +1,16 @@
 \begin{frame}
 \begin{itemize}
 \item To generate an aggregate signature (multi-signature) means to have independent parties combine their signatures into a single smaller signature.
-\item We describe several Schnorr-based aggregate signatures. 
-\item Schnorr-based aggregate signature schemes assumptions:
-\begin{emptyTheorem}[Schnorr-based aggregate signature setup]
+\item<2-> We describe two Schnorr-based aggregate signatures. 
+\begin{emptyTheorem}[Schnorr-based aggregate signature assumptions]
 \begin{itemize}
-\item $\mathcal G$ - cyclic group with generator $g$, $\left|\mathcal G\right| = p$ prime.
-\item Secrets $\mathrm{secret}_1, \dots, \mathrm{secret}_n $ corresponding to public keys $\mathrm{pub}_1 = g^{\mathrm{secret}_1}, \dots, \mathrm{pub}_n = g^{\mathrm{secret}_n}.$
+\item<3-> $\mathcal G$ - cyclic group with generator $g$, $\left|\mathcal G\right| = p$ prime.
+\item<4-> \alertNoH{8}{ Secrets $\mathrm{secret}_1, \dots, \mathrm{secret}_n $} corresponding to \alertNoH{8}{public keys $\mathrm{pub}_1 = g^{\mathrm{secret}_1}, \dots, \mathrm{pub}_n = g^{\mathrm{secret}_n}$}.
 \end{itemize}
 \end{emptyTheorem}
-\item The secrets $\mathrm{secret}_i$ are assumed to have distinct owners. 
-\item Communication between key owners happens over open network. 
-\item Malicious signers may craft $\left(\mathrm{secret}_i, \mathrm{pub}_i\right)$ to attack the system.
+\item<5-> The secrets $\mathrm{secret}_i$ are assumed to have distinct owners. 
+\item<6-> Communication between key owners happens over open network. 
+\item<7-> Malicious signers may craft $\left(\mathrm{secret}_i, \mathrm{pub}_i\right)$ to attack the system.
 \end{itemize}
 
 \end{frame}

@@ -1,64 +1,63 @@
 \begin{frame}
 \vskip -0.15cm
-\begin{emptyTheorem}[Generalized Digital Signature Algorithm: generate public key]
+\begin{emptyTheorem}[Generalized Digital Signature Algorithm: \alertNoH{1}{generate public key}]
 \begin{itemize}
 
-\item Given: cyclic group $\mathcal G$ of prime order $p=|\mathcal G|$, generator $g\in \mathcal G$.
-\item Choose at random the private key $\mathrm{secret} \in \left\{0,1,\dots, p-1 \right\}$.
-\item Compute the public key $\mathrm{pub} = g^{\mathrm{secret}}$.
+\item Given: cyclic group $\mathcal G$ of prime order $\alertNoH{2,7,12,17,21}{p=|\mathcal G|}$, \alertNoH{5,21}{generator} $\alertNoH{5}{g} \in \mathcal G$.
+\item<2-> Choose at random the private key $\alertNoH{2}{ \alertNoH{4,14,21}{\mathrm{secret} \in \left\{0,1,\dots, p -1 \right\} }}$.
+\item<3-> Compute the public key $\alertNoH{3,21}{\mathrm{pub} = {\alertNoH{5}{g}}^{\alertNoH{4}{\mathrm{secret}}}}$.
 \end{itemize}
 \end{emptyTheorem}
 \vskip -0.15cm
 
 
 \vskip -0.15cm
-\begin{emptyTheorem}[Generalized DSA: sign message]
+\begin{emptyTheorem}[Generalized DSA: \alertNoH{6}{sign message}]
 \begin{enumerate}
-\item Given: a number $\mathrm{digest}$ (message digest). 
-\item Given: function $\mathrm{toNumber}:\mathcal G\to \mathbb Z$.
-\item Choose at random $\mathrm{nonce} \in \left\{0,\dots, p-1\right\}$.
-\item Compute $\mathrm{challenge} = \mathrm{toNumber} (g^{\mathrm{nonce}}) \mod p $.
-\item Compute $\mathrm{solution} = \frac{\mathrm{digest} + \mathrm{challenge}\cdot \mathrm{secret}}{\mathrm{nonce}} \mod p$.
-\item $(\mathrm{challenge}, \mathrm{solution})$ - final signature. 
+\item<6-> Given: a number \alertNoH{15}{$\mathrm{digest}$ (message)}, f-n: $\alertNoH{9}{\mathrm{toNumber}:\mathcal G\to \mathbb Z}$.
+\item<7-> Choose at \alertNoH{7}{random} $\alertNoH{7,10,16,21}{\mathrm{nonce} \in \left\{0,\dots, p-1\right\}}$.
+\item<8-> Compute $\alertNoH{8,14,18,21}{ \mathrm{challenge} =  \alertNoH{9}{\mathrm{toNumber}} ({\alertNoH{11} {g}}^{\alertNoH{10}{ \mathrm{nonce}}}) \mod \alertNoH{12}{p}} $.
+\item<13-> Compute $\alertNoH{13,18,21}{ \mathrm{solution} = \onlyNoH{17}{\color{red}} \frac{\onlyNoH{17}{\color{black}} \alertNoH{15}{\mathrm{digest}} + \alertNoH{14}{\mathrm{challenge}\cdot \mathrm{secret}}  }{ \onlyNoH{17}{\color{black}} \alertNoH{16}{\mathrm{nonce}}}  \alertNoH{17}{\mod  p} }$.
+\item<18-> $\alertNoH{20,21}{(\alertNoH{18}{\mathrm{challenge}}, \alertNoH{18}{\mathrm{solution}})} $ - final signature. 
 \end{enumerate}
 \end{emptyTheorem}
 \vskip -0.2cm
 \begin{itemize}
-\item Public key $\mathrm{pub}$ - element of $\mathcal G$ but secret key $\mathrm{secret}$ is a number! 
-\item Usually: $\mathrm{digest}= H(M)$, where $H$ - hash f-n, $M$ - message to sign. 
-\item $M$ and $\textrm{pub}$ are not part of the signature.
-\item Signature often denoted by $(r,s)$: $r= \mathrm{challenge}, s= \mathrm{solution}$.
+\item<3-> \alertNoH{3}{Public key $\mathrm{pub}$ - element of $\mathcal G$} but \alertNoH{4}{secret key $\mathrm{secret}$ is a number}! 
+\item<9-> \alertNoH{9}{$\textrm{toNumber}$ must be close to one-to-one}: diff. in's $\Rightarrow$ diff. out's.
+\item<15-> Usually: \alertNoH{15}{$\mathrm{digest}= H(M)$}, where \alertNoH{15}{$H$ - hash f-n}, \alertNoH{15}{$M$ - message to sign}. 
+\item<19-> $M$, $\textrm{pub}$: not part of signature, but implied to be accessible.
+\item<20-> Signature often denoted by \alertNoH{20}{$(r,s)$: $r= \mathrm{challenge}, s= \mathrm{solution}$}.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\vskip -0.15cm
+\vskip -0.2cm
 \begin{emptyTheorem}[Generalized DSA: signing, key generation summary]
 \begin{itemize}
-\item Private key: $\mathrm{secret}$. Public key: $\mathrm{pub} = g^{\mathrm{secret}}$, $g$- generator of $\mathcal G$. 
-\item $\mathrm{nonce} \in \left\{0,\dots, p-1\right\}$ - secret random use-once num.; $p=|\mathcal G|$.
-\item $\mathrm{challenge} = \mathrm{toNumber}\left(g^{\mathrm{nonce}}\right)$,  $\mathrm{solution} = \frac{\mathrm{digest} + \mathrm{challenge}\cdot \mathrm{secret}}{\mathrm{nonce}} \mod p$.
-\item $(\mathrm{challenge},\mathrm{solution})$ - final signature.
+\item Private key: $\alertNoH{1}{\mathrm{secret}}$. Public key: $\alertNoH{1,16}{\mathrm{pub}  \alertNoH{2}{\stackrel{?}{=}} g^{\mathrm{secret}}}$, \alertNoH{1}{$g$- generator of $\mathcal G$}. 
+\item $\alertNoH{1}{\mathrm{nonce} \in \left\{0,\dots, p-1\right\}}$ - secret random use-once num.; $\alertNoH{1}{p=|\mathcal G|}$.
+\item $\alertNoH{1}{ \onlyNoH{24}{\color{blue}} \mathrm{challenge} \alertNoH{2}{\stackrel{?}{=}} \mathrm{toNumber}\left(\alertNoH{23,24}{ g^{\mathrm{nonce}}} \right)}$,  $\alertNoH{1,6,25}{\mathrm{solution} \alertNoH{2}{ \stackrel{?}{=}}  \frac{\mathrm{digest} + \mathrm{challenge}\cdot \alertNoH{26}{\mathrm{secret}} }{ \alertNoH{26}{\mathrm{nonce}}}  \mod p}$.
+\item $\alertNoH{1}{(\mathrm{challenge}, \alertNoH{4}{\mathrm{solution}})}$ - final signature.
 \end{itemize}
 \end{emptyTheorem}
-\vskip -0.15cm
-\begin{emptyTheorem}[Generalized DSA: verify signature]
-\vskip -0.15cm
+\vskip -0.2cm
+\begin{emptyTheorem}[\alertNoH{3}{Generalized DSA: verify signature}]
+\vskip -0.2cm
 \begin{enumerate}
-\item $a = \frac{1}{\mathrm{solution}} \stackrel{?}{=} \frac{1}{\frac{\mathrm{digest} + \mathrm{challenge}\cdot \mathrm{secret}}{\mathrm{nonce}}} = \frac{\mathrm{nonce}}{\mathrm{digest}+ \mathrm{challenge}\cdot \mathrm{secret}} \mod p$.
-\item $u_1 = a\cdot \mathrm{digest}\stackrel{?}{=}  \frac{\mathrm{nonce}\cdot \mathrm{digest} }{\mathrm{digest} + \mathrm{challenge}\cdot \mathrm{secret}} \mod p$.
-\item $u_2 = a \cdot \mathrm{challenge} \stackrel{?}{=}  \frac{ \mathrm{nonce} \cdot \mathrm{challenge} }{\mathrm{digest} + \mathrm{challenge}\cdot \mathrm{secret}} \mod p$.
-\item $
+\item<4-> $\alertNoH{9,11}{a} = \onlyNoH{5}{ \color{red}} \frac{\onlyNoH{5}{ \color{black}} 1}{\onlyNoH{5}{ \color{black}} \alertNoH{4,6}{ \mathrm{solution}}}  \uncover<6->{\alertNoH{6,9,11}{ \stackrel{?}{=}} \frac{1}{\alertNoH{6}{ \frac{\mathrm{digest} + \mathrm{challenge}\cdot \mathrm{secret}}{\alertNoH{7}{ \mathrm{nonce}}}}}} \uncover<7->{=  \alertNoH{9,11}{\frac{ \alertNoH{7}{\mathrm{nonce}} }{\mathrm{digest}+ \mathrm{challenge}\cdot \mathrm{secret}}}} \uncover<4->{\alertNoH{5}{\mod p}} $.
+\item<8-> $\alertNoH{14}{u_1} = \alertNoH{9}{a} \cdot \mathrm{digest} \uncover<9->{\alertNoH{14}{ \alertNoH{9}{ \stackrel{?}{=}} \onlyNoH{9}{\color{red}}  \frac{\mathrm{nonce} \cdot \onlyNoH{9}{\color{black}} \mathrm{digest} }{\mathrm{digest} + \mathrm{challenge}\cdot \mathrm{secret}} \onlyNoH{9}{\color{black}} }} \mod p$.
+\item<10-> $\alertNoH{15}{ u_2} =\alertNoH{11}{ a} \cdot \mathrm{challenge} \uncover<11->{ \alertNoH{15}{\alertNoH{11}{\stackrel{?}{=}} \onlyNoH{11}{\color{red}}  \frac{ \mathrm{nonce} \cdot \onlyNoH{11}{\color{black}}\mathrm{challenge} }{\mathrm{digest} + \mathrm{challenge}\cdot \mathrm{secret}}} \onlyNoH{11}{\color{black}}} \mod p$.
+\item<12-> $
 \begin{array}{r@{~}c@{~}l}
-X &=&g^{u_1} \mathrm{pub}^{u_2} \stackrel{?}{=}  g^{\frac{ \mathrm{nonce}\cdot \mathrm{digest} }{\mathrm{digest}+ \mathrm{challenge} \cdot \mathrm{secret}}} \cdot \left(g^{\mathrm{secret}} \right)^{ \frac{ \mathrm{nonce}\cdot \mathrm{challenge} }{\mathrm{digest} + \mathrm{challenge} \cdot \mathrm{secret}}} \\
-&=& g^{\frac{\mathrm{nonce}\cdot \mathrm{digest}}{\mathrm{digest}+ \mathrm{challenge} \cdot \mathrm{secret}} +  \frac{\mathrm{nonce}\cdot \mathrm{secret}\cdot \mathrm{challenge} }{\mathrm{digest} + \mathrm{challenge} \cdot \mathrm{secret}}} = g^{\frac{\mathrm{nonce}\cdot(\mathrm{digest} + \mathrm{challenge} \cdot \mathrm{nonce}) }{\mathrm{digest} +  \mathrm{challenge} \cdot \mathrm{secret}}} = g^{\mathrm{nonce}}
+\alertNoH{22,23,24}{X} &=& \alertNoH{13}{ g^{ \alertNoH{14}{ u_1}} \mathrm{\alertNoH{16}{pub}}^{\alertNoH{15} {u_2}} }\uncover<13->{\alertNoH{13}{ \alertNoH{14,15,16,22,23,24}{\stackrel{?}{=}}  {\alertNoH{18}{g}}^{\alertNoH{14}{ \frac{ \mathrm{nonce}\cdot \mathrm{digest}  }{\mathrm{digest} + \mathrm{challenge} \cdot \mathrm{secret}}}} \alertNoH{18}{\cdot} \left(\alertNoH{16}{ {\alertNoH{18}{g}}^{\alertNoH{17}{\mathrm{secret}}} } \right)^{\alertNoH{15}{ \frac{ \mathrm{nonce}\cdot \mathrm{challenge} }{\mathrm{digest} + \mathrm{challenge} \cdot \mathrm{secret}}}}}  } \\
+\uncover<17->{ &=& {\alertNoH{18}{g}}^{ \frac{\alertNoH{19}{ \mathrm{nonce}} \cdot \alertNoH{20}{\mathrm{digest}}}{\alertNoH{19}{\mathrm{digest} + \mathrm{challenge} \cdot \mathrm{secret}}} \alertNoH{18}{ +}  \frac{\alertNoH{19}{\mathrm{nonce}}\cdot  \alertNoH{20}{\alertNoH{17}{ \mathrm{secret}} \cdot \mathrm{challenge}} }{\alertNoH{19}{\mathrm{digest} + \mathrm{challenge} \cdot \mathrm{secret}}}}  \uncover<19->{= g^{\frac{\alertNoH{19}{\mathrm{nonce}} \cdot( \fcCancel{21}{ \alertNoH{20} { \mathrm{digest} + \mathrm{challenge} \cdot \mathrm{nonce}}} ) }{\fcCancel{21}{ \alertNoH{19}{ \mathrm{digest} +  \mathrm{challenge} \cdot \mathrm{secret}}}}} } \uncover<21->{= \alertNoH{22,23,24}{g^{\mathrm{nonce}}}} }
 \end{array}
 $
-\item If $\mathrm{toNumber} \left(X\right) = \mathrm{challenge}$: signature is valid (invalid otherwise).
+
+\item<23->\vskip -0.2cm If $ \onlyNoH{24}{\color{blue}} \mathrm{toNumber} \left(\alertNoH{23,24}{ X} \right) \stackrel{?}{=} \mathrm{challenge}$: signature is valid (invalid otherwise).
 \end{enumerate}
 \end{emptyTheorem}
-\vskip -0.15cm
-\begin{itemize}
-\item If $\mathrm{nonce}$ is revealed $\mathrm{secret}$ can be computed.
-\end{itemize}
+\vskip -0.2cm
+\uncover<2->{\alertNoH{2}{$?$ = potential for cheating}.} \uncover<25->{\alertNoH{25}{ If $\alertNoH{26}{\mathrm{nonce}}$ is revealed $\alertNoH{26}{\mathrm{secret}}$ can be computed.}}
 \end{frame}

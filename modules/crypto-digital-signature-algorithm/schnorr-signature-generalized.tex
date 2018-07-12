@@ -1,23 +1,23 @@
 \begin{frame}
-\begin{emptyTheorem}[Schnorr signature: key generation (same as gen. DSA)]
+\begin{emptyTheorem}[\alertNoH{1}{Schnorr signature: key generation (same as gen. DSA)}]
 \begin{itemize}
-\item Private key: $\mathrm{secret}$. Public key: $\mathrm{pub} = g^{\mathrm{secret}}$, $g$- generator of $\mathcal G$, $|\mathcal G|= p$ is prime. 
+\item Private key: $\alertNoH{1,8}{\mathrm{secret}}$. Public key: $\alertNoH{1}{\mathrm{pub} = g^{\mathrm{secret}}}$, \alertNoH{5}{$g$- generator of $\mathcal G$}, $|\mathcal G|= p$ is prime. 
 \end{itemize}
 \end{emptyTheorem}
-\begin{emptyTheorem}[Schnorr signature: signing]
+\begin{emptyTheorem}[\alertNoH{2}{Schnorr signature: signing}]
 \begin{itemize}
-\item Given: a number $\mathrm{digest}$ (message digest). 
-\item Choose at random $\mathrm{nonce} \in \left\{0,\dots, p-1\right\}$.
-\item Compute $\mathrm{R} = g^{\mathrm{nonce}}$.
-\item Compute $s = \mathrm{nonce} +  \mathrm{secret}\cdot \mathrm{digest} $.
-\item $(\mathrm{R},s)$ - final signature.
+\item<2-> Given: a number $\alertNoH{9}{\mathrm{digest}} $ (message). 
+\item<3-> Choose at random $\alertNoH{3,4,7}{ \mathrm{nonce} \in \left\{0,\dots, p-1\right\}}$.
+\item<4-> Compute $ \alertNoH{10}{ \mathrm{challenge} = {\alertNoH{5}{g}}^{ \alertNoH{4}{\mathrm{nonce}} }} $.
+\item<6-> Compute $\alertNoH{6,10,17}{ \mathrm{solution} =  \alertNoH{7}{\mathrm{nonce}} + \alertNoH{8}{ \mathrm{secret}}\cdot\alertNoH{9}{ \mathrm{digest}} }$.
+\item<10-> $(\alertNoH{10}{\mathrm{challenge},\mathrm{solution}})$ - final signature.
 \end{itemize}
 \end{emptyTheorem}
-\begin{emptyTheorem}[Schnorr signature: verification]
+\begin{emptyTheorem}[\alertNoH{11}{Schnorr signature: verification}]
 \begin{itemize} 
-\item Compute $a=\mathrm{R} \cdot \mathrm{pub}^{\mathrm{digest}} = g^{\mathrm{nonce}} \cdot \left(g^{\mathrm{secret}}\right)^{\mathrm{digest}} = g^{\mathrm{nonce} + \mathrm{secret}\cdot \mathrm{digest}} $.
-\item Compute $b=g^{s} = g^{\mathrm{nonce} + \mathrm{secret}\cdot \mathrm{digest}}$.
-\item If $a= b$ the signature is valid (invalid otherwise).
+\item<11-> $\alertNoH{11}{ \alertNoH{18} {a} = \alertNoH{12}{ \alertNoH{13}{ \mathrm{challenge}} \cdot {\alertNoH{14}{\mathrm{pub}}}^{\mathrm{digest}}}} \uncover<12->{ \alertNoH{12}{  \alertNoH{13,14,18}{\stackrel{?}{=}}  \alertNoH{13}{ g^{\alertNoH{15}{ \mathrm{nonce}} } } \cdot \left(\alertNoH{14}{ g^{\alertNoH{15}{ \mathrm{secret}} } }\right)^{\alertNoH{15}{ \mathrm{digest}} } } }  \uncover<15->{ = \alertNoH{18}{g^{\alertNoH{15}{ \mathrm{nonce} + \mathrm{secret}\cdot \mathrm{digest}}}}} $\uncover<15->{.}
+\item<16-> $\alertNoH{18}{b} =g^{\alertNoH{17}{ \mathrm{solution} } } \uncover<17->{ \alertNoH{17,18}{ \stackrel{?}{=} } \alertNoH{18}{g^{\alertNoH{17}{\mathrm{nonce} + \mathrm{secret}\cdot \mathrm{digest}}}}}$\uncover<17->{.}
+\item<18-> If $\alertNoH{18}{a \stackrel{?}{=} b} $ the signature is valid (invalid otherwise).
 \end{itemize}
 \end{emptyTheorem}
 \end{frame}
