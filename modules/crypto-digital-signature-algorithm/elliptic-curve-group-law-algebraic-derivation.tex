@@ -1,5 +1,5 @@
 \begin{frame}[t]
-\vskip -0.2cm
+\vskip -0.4cm
 \begin{columns}[T]
 \column{0.2\textwidth}
 \psset{xunit=0.4cm, yunit=0.4cm}
@@ -65,14 +65,19 @@ Let $A=\left(x_A, y_A\right), B=\left(x_B, y_B\right)$. Let $s$ be the slope of 
 
 $
 \begin{array}{r@{~}c@{~}l@{}l|l}
-s&=&\displaystyle \frac{y_B-y_A}{x_B-x_A}\\
+s&=&\displaystyle \text{line slope}\\
+\uncover<-2>{
 \displaystyle \frac{-y - y_A}{x-x_A}&=& s \\
--y&=& s\left(x-x_A\right) + y_A  && (*) \begin{array}{l}x=x_C, y=y_C\\ \text{solves this} \end{array}\\
-x^3+a x +b  &=& (-y)^2  && (**)\begin{array}{l}x=x_C, y=y_C\\ \text{solves this} \end{array}\\
-x^3 + a x + b &=& \left(s\left(x-x_A\right) + y_A\right)^2\\
+-y&=& s\left(x-x_A\right) + y_A  && (*) %\begin{array}{l}x=x_C, y=y_C\\ \text{solves this} \end{array}
+\\
+x^3+a x +b  &=& (-y)^2  && (**)
+%\begin{array}{l}x=x_C, y=y_C\\ \text{solves this} \end{array}
+\\
+x^3 + a x + b &=& \left(s\left(x-x_A\right) + y_A\right)^2}
 \end{array}
 $
 \end{columns}
+\only<handout:1|1>{
 $
 \begin{array}{rcl}
 x^3+ax+b - \left(s^2 (x-x_A)^2 + 2s y_A(x-x_A) +y_A^2\right)&=&0\\
@@ -81,13 +86,43 @@ x^3 - x^2s^2 + x(2s^2 x_A-2sy_A+a) + s^2x_A^2+2sy_Ax_A-y_A^2+b &=& 0\\
 \end{array}
 $
 
-If $x=x_A$, then $(*)$ implies $y$ becomes $y_A$ and so $x=x_A$ solves equation $(**)$. Similarly $x=x_B$ solves $(**)$. $(**)$ is cubic $\Rightarrow$ its unknown $3^{rd}$ root is $x_C$. By Vieta's formulas, 
-
+Setting  $x=x_A$ solves $(*), (**)$. Similarly setting $x=x_B$ solves $(*),(**)$. Since $(**)$ is cubic $\Rightarrow$ its unknown $3^{rd}$ root is $x_C$. By Vieta's formulas, 
+}
 $
-\begin{array}{rcl}
-x_A+x_B+x_C &=&s^2\\
-x_C &=& s^2- x_A-x_B \\
-y_C &=& -s(x_C-x_A)-y_A
+\begin{array}{rcll|l}
+\uncover<-2>{x_A + x_B + x_C &=& s^2} \\
+\alertNoH{3}{x_C} &\alertNoH{3}{{=}}& \alertNoH{3}{s^2 - x_A-x_B} \\
+\alertNoH{3}{y_C} &\alertNoH{3}{{=}}& \alertNoH{3}{- s\left(x_C-x_A\right)-y_A}\\
+\only<handout:2|2->{
+\alertNoH{3}{s} &\alertNoH{3}{{=}}& \displaystyle \alertNoH{3}{\frac{y_B-y_A}{x_B-x_A}}&& \alertNoH{3}{\text{if } x_A\neq x_B} \\
+\alertNoH{3}{s} &\alertNoH{3}{{=}}& \uncover<-2>{\displaystyle \frac{\diff y}{\diff x} =} \alertNoH{3}{\frac{3x_A^2+a}{2y_A}} && \alertNoH{3}{\text{if } x_A =x_B, y_A=y_B}\\
+\uncover<-2>{
+y^2 &=& x^3 + ax +b &&\text{apply }\diff \\
+2y\diff y &=& 3x^2\diff x + a \diff x\\
+\displaystyle \frac{\diff y}{\diff x}& =&\displaystyle \frac{3x^2+a}{2y}
+}}
 \end{array}
 $
+
+\vskip 10cm
+\end{frame}
+
+\begin{frame}
+\begin{emptyTheorem}[Elliptic curve group law, algebraic definition]
+Let $\left(x_A, y_A\right), \left(x_B, y_B\right)$ be two points on the elliptic curve. 
+\begin{itemize}
+\item Suppose $y_A\neq -y_B$. Define:
+
+$\begin{array}{rcl|l}
+s&=& \left\{ \begin{array}{ll}\displaystyle\frac{y_A-y_B}{x_A-x_B} &\displaystyle\text{if } x_A\neq x_B \\\displaystyle \frac{3x_A^2+a}{2y_A}&\text{if }x_A=x_B, y_A=y_B \end{array} \right.\\
+x_C &=& s^2 - x_A-x_B &\text{if } y_A\neq -y_B\\
+y_C &=& -s(x_C-x_A)-y_A&\text{if } y_A\neq -y_B 
+\end{array}
+$
+\item If $y_A= -y_B$, define $(x_C, y_C) = \mathbf 1$.
+\item Define $\mathbf 1\cdot \left(x_A, y_A\right) = \left(x_A,y_A\right)$.
+\item Define $\mathbf 1\cdot \mathbf 1 = \mathbf 1$.
+
+\end{itemize}
+\end{emptyTheorem}
 \end{frame}
