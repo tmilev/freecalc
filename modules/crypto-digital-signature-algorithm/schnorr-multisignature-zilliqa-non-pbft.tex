@@ -22,27 +22,27 @@ allowing him to single-handedly fake the aggregate signature for himself and the
 \end{frame}
 
 \begin{frame}
-Secr.: $\mathrm{secret}_1, \dots, \mathrm{secret}_n$, pub. keys: $\mathrm{pub}_1 = g^{ \mathrm{secret }_1 }, \dots, \mathrm{pub}_n= g^{\mathrm{secret}_n}$.
+Secr.: $ \alertNoH{12}{ \mathrm{secret}_1, \dots, \mathrm{secret}_n }$, pub. keys: $\alertNoH{7}{ \mathrm{pub}_1 = g^{\alertNoH{12}{ \mathrm{secret }_1} }, \dots, \mathrm{pub}_n= g^{ \alertNoH{12}{ \mathrm{secret}_n} }}$.
 
-\begin{emptyTheorem}[Zilliqa \fcCancel{3}{non-}PB\alertNoH{3,4}{FT} Schnorr aggregate signature: signing]
+\begin{emptyTheorem}[Zilliqa $\fcCancel{3}{{\text{non-}}}$PB\alertNoH{3,4}{FT} Schnorr aggregate signature: signing]
 \begin{itemize}
-\item<2-> \uncover<2->{Each signer:} choose random $\alertNoH{2}{ \mathrm{nonce}_i}$, compute $ \alertNoH{2}{q_i = g^{\mathrm{nonce}_i}} $.
-\item<10-> Each signer: send $q_i$ to aggregator.  \uncover<3->{\alertNoH{3}{Let $\mathcal A$: set of healthy nodes.}}
-\item<3-> \uncover<2->{Aggregator:} compute $ \mathrm{Pub} =\prod_{i \uncover<3->{ \alertNoH{3}{\in \mathcal A} }} \mathrm{pub}_i \uncover<-2>{=\mathrm{pub}_1\cdot \dots \cdot \mathrm{pub}_n}$. 
-\item \uncover<2->{Aggregator:} compute $ Q = \prod_{i \uncover<3->{ \alertNoH{3}{\in \mathcal A} }} q_i$.
-\item \uncover<2->{Aggregator:} compute  $\mathrm{challenge} = H(Q, \mathrm{Pub}, \mathrm{digest})$.
-\item<2-> Aggregator: send $\mathrm{challenge},\mathrm{Pub}, \mathrm{digest}$ to signers. \uncover<3->{\alertNoH{3,4}{Bad net: reset.}}
-\item<2-> Each signer: verify $\mathrm{challenge} = H(Q, \mathrm {Pub}, \mathrm{digest}) $.
-\item \uncover<2->{Each signer:} compute $\mathrm{solution}_i = {\mathrm{nonce}_i - \mathrm{challenge} \cdot \mathrm{secret}_i} $.
-\item<2-> Each signer: send $\mathrm{solution}_i$ to aggregator. \uncover<3->{\alertNoH{3,4}{Bad net: reset.}}
-\item \uncover<2->{Aggregator:} compute $\mathrm{solution} = \sum_i \mathrm{solution}_i $.
-\item \uncover<2->{Aggregator:} final signature: $(\mathrm{challenge}, \mathrm{solution}), \uncover<3->{\alertNoH{3}{\mathcal A}}$.
+\item<2-> \uncover<16->{\alertNoH{16}{Each signer:}} choose random $\alertNoH{2,10}{ \mathrm{nonce}_i}$, compute $ \alertNoH{2,4}{q_i = g^{\mathrm{nonce}_i}} $.
+\item<17-> \alertNoH{17}{ Each signer: send $q_i$ to aggregator.}  \uncover<19->{\alertNoH{19}{Let $\mathcal A$: set of healthy nodes.}}
+\item<3-> \uncover<16->{\alertNoH{16}{Aggregator:}} compute $\alertNoH{7}{ \mathrm{Pub} =\prod_{i \uncover<19->{ \alertNoH{19}{\in \mathcal A} }} \mathrm{pub}_i \uncover<-18>{=\mathrm{pub}_1\cdot \dots \cdot \mathrm{pub}_n } }$ \uncover<18->{.} 
+\item<4-> \uncover<16->{\alertNoH{16}{Aggregator:}} compute $ \alertNoH{6}{Q = \prod_{i \uncover<19->{ \alertNoH{19}{\in \mathcal A} }} \alertNoH{4}{ q_i}} $.
+\item<5-> \uncover<16->{\alertNoH{16}{Aggregator:}} compute  $\alertNoH{5,11,15}{\mathrm{challenge} = H(\alertNoH{6}{Q}, \alertNoH{7}{\mathrm{Pub}} ,\alertNoH{8}{ \mathrm{digest}} ) } $, $H$- hash f-n.
+\item<17-> \alertNoH{17}{Aggregator: \alertNoH{20}{send} $\mathrm{challenge},\mathrm{Pub}, \mathrm{digest}$ to signers. \uncover<20->{\alertNoH{20}{Bad net: reset.}}}
+\item<17-> \alertNoH{17}{Each signer: verify $ \alertNoH{15}{ \mathrm{challenge}} = H(Q, \mathrm {Pub}, \mathrm{digest}) $.}
+\item<9-> \uncover<16->{\alertNoH{16}{Each signer:}} compute $\alertNoH{9,14}{ \mathrm{solution}_i = {\alertNoH{10}{ \mathrm{nonce}_i} - \alertNoH{11}{ \mathrm{challenge} } \cdot \alertNoH{12}{ \mathrm{secret}_i }}} $.
+\item<17-> \alertNoH{17}{Each signer: \alertNoH{20}{send} $\mathrm{solution}_i$ to aggregator. \uncover<20>{\alertNoH{20}{Bad net: reset.}}}
+\item<13-> \uncover<16->{\alertNoH{16}{Aggregator:}} compute $\alertNoH{13,15}{\mathrm{solution} = \sum_i \alertNoH{14}{\mathrm{solution}_i} } $.
+\item<15-> \uncover<16->{\alertNoH{16}{Aggregator:}} final signature: $(\alertNoH{15}{ \mathrm{challenge}} , \alertNoH{15}{ \mathrm{solution}}), \uncover<19->{\alertNoH{19}{\mathcal A}}$\uncover<19->{.}
 \end{itemize}
 \end{emptyTheorem}
 \vskip -0.15cm
 \begin{itemize}
-\item \uncover<3->{\alertNoH{3}{To make algorithm fault tolerant: add highlighted steps.}}
-\item \uncover<4->{\alertNoH{4}{Requires black-listing bad actors from second net transaction on.}}
+\item<19-> \alertNoH{19}{To make algorithm fault tolerant: add highlighted steps.}
+\item<20-> \alertNoH{20}{Requires black-listing bad actors from second net transaction on.}
 \end{itemize}
 \vskip 15cm
 \end{frame}
