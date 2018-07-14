@@ -1,0 +1,47 @@
+\begin{frame}
+Product: $
+s= \left\{ \begin{array}{ll}\displaystyle\frac{y_B-y_A}{x_B-x_A} &\displaystyle\text{if } x_A\neq x_B \\\displaystyle \frac{3x_A^2+a}{2y_A}&\text{if } A=B \end{array} \right.$,   
+$\begin{array}{rcl}
+y_C &=& -s(x_C-x_A)-y_A\\ 
+x_C &=& s^2 - x_A-x_B \end{array}
+$
+\begin{example}
+Let  
+$
+{\alertNoH{2}{y}}^2 = {\alertNoH{2}{x}}^3-\alertNoH{2}{x}  +1
+$. 
+Show $g= (\alertNoH{2}{3}, \alertNoH{2}{5}) $ is a point on the curve. Compute $\alertNoH{4}{g^2 = g\cdot g}$ and $\alertNoH{11}{g^3 = g\cdot g\cdot g}$.
+
+\begin{itemize}
+\only<-3>{
+\item<2-> That the point is on the curve can be seen from:
+
+$
+\uncover<3->{25=}{\alertNoH{2}{5}}^2 \stackrel{?}{=} {\alertNoH{2}{3}}^3 - \alertNoH{2}{3} + 1 =\uncover<3->{25}
+$
+}
+\item<4-> 
+$
+\begin{array}{rcl}
+\alertNoH{4}{g^2} &=&\alertNoH{4}{(3, 5)  \cdot (3,5)} =\fcAnswer{10}{\left(-\frac{19}{25},   \frac{103}{125}\right)} \\
+\uncover<5->{s_2 &=&\displaystyle \fcAnswer{6}{  \frac{3\cdot 3^2 +1}{2 \cdot 5}=  \frac{13}{5} }} \\
+\uncover<7->{x_{2} &=&\displaystyle \fcAnswer{8}{ \left(\frac{13}{5}\right)^2 - 3-3 = \alertNoH{12}{ -\frac{19}{25}} }}\\
+\uncover<9->{y_{2}&=&\displaystyle \fcAnswer{10}{ -\frac{13}{5}\left(x_{2}-3 \right)-5 = \alertNoH{12}{ \frac{103}{125} } } } \\
+\end{array}
+$
+\item<11-> $
+\begin{array}{rcl}
+\alertNoH{11}{g^3} &=&\alertNoH{12}{g^2}\cdot g\uncover<12->{ =\alertNoH{12}{ \left( -\frac{19}{25}, \frac{103}{125}\right) }\cdot (3,5) =\fcAnswer{18}{ \left(-\frac{223}{784} , -\frac{28414}{46225} \right)}} \\
+\uncover<13->{s_3 &=& \fcAnswer{14}{ \frac{ \frac{103}{125}  -5}{ -\frac{19}{25} - 3}   = -\frac{261}{140} } } \\
+\uncover<15->{x_3 &=&\fcAnswer{16}{ s_3^2- \left( -\frac{87}{64}\right) - 2} = -\frac{223}{784}}\\
+\uncover<17->{y_3 &=& \fcAnswer{18}{-\frac{28414}{46225}}}
+\end{array}
+$
+\end{itemize}
+
+
+
+\end{example}
+
+\vskip 10cm
+\end{frame}
