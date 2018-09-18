@@ -42,6 +42,8 @@ function NumberHighlighted(/** @type {string} */ inputString) {
     this.inputString = inputString;
     /** @type {DigitHighlighted[]} */
     this.digits = [];
+    this.digitPrefix = "";
+    this.digitSuffix = "";
     this.sanitizeInput();
 }
 
@@ -68,7 +70,7 @@ NumberHighlighted.prototype.getTableRow = function(totalNumberOfDigits) {
 
     for (var counterColumn = 0; counterColumn < this.digits.length; counterColumn ++) {
         result += "&";
-        result += this.digits[this.digits.length - 1 - counterColumn].toString(); 
+        result += this.digitPrefix + this.digits[this.digits.length - 1 - counterColumn].toString() + this.digitSuffix; 
     }
     return result;
 }
@@ -226,11 +228,11 @@ Slide.prototype.processColumnNonBase10 = function(
     intermediateContent.showFrame = this.currentFrameNumber;
     if (topContent !== undefined) {
         topContent.content = topDigit;
-        topContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+        topContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
     }
     if (bottomContent !== undefined) {
         bottomContent.content = bottomDigit;
-        bottomContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+        bottomContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
     }
     resultDigitContent.content = nextDigit;
     resultDigitContent.questionMarkFrame = this.currentFrameNumber;
@@ -242,7 +244,7 @@ Slide.prototype.processColumnNonBase10 = function(
     leftSide.content = [];
     leftSide.highlightFrames.push(this.currentFrameNumber);
     if (carryOverOld > 0) {
-        carryOverOldContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+        carryOverOldContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
         leftSide.content.push(carryOverOldContent);
         leftSide.content.push(` + `);
     }
@@ -254,20 +256,18 @@ Slide.prototype.processColumnNonBase10 = function(
         leftSide.content.push(bottomContent);
     }
     leftSide.content.push("=");
-    leftSide.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+    leftSide.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
     var middle = new HighlightedContent();
     middle.content = [];    
     var rightDecimal = new HighlightedContent();
     rightDecimal.content = `\\underbrace{\\overline{${digitSum}} }_{\\text{base }10}`;
     rightDecimal.showFrame = this.currentFrameNumber + 1;
     rightDecimal.answerFrame = this.currentFrameNumber + 1;
-    rightDecimal.highlightFrames.push(this.currentFrameNumber + 2);
-    rightDecimal.highlightFrames.push(this.currentFrameNumber + 3);
+    rightDecimal.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3, this.currentFrameNumber + 4);
     middle.content.push(rightDecimal);    
     var equality = new HighlightedContent();
     equality.content = "=";
-    equality.highlightFrames.push(this.currentFrameNumber + 2);
-    equality.highlightFrames.push(this.currentFrameNumber + 3);
+    equality.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3, this.currentFrameNumber + 4);
     equality.showFrame = this.currentFrameNumber + 2;
     middle.content.push(equality);
     var rightSide = new HighlightedContent();
@@ -303,6 +303,7 @@ Slide.prototype.computeResultDigits = function () {
         this.intermediates.push( new HighlightedContent());
         this.carryOvers.digits.push( new HighlightedContent());
         this.resultNumber.digits.push( new HighlightedContent());
+        this.intermediatesBaseConversions.push( new HighlightedContent());
         if (this.base !== 10) {
             this.processColumnNonBase10(
                 topDigit, bottomDigit, carryOver, 
@@ -365,6 +366,8 @@ Slide.prototype.computeSlideContent = function () {
     this.currentFrameNumber = this.startingFrameNumber;
     this.initializeInputs();
     this.computeResultDigits();
+    this.carryOvers.digitPrefix = "{}^{";
+    this.carryOvers.digitSuffix = "}";
     this.slideContent = "";
     this.slideContent += "\\begin{frame}\n<br>";
     this.slideContent += "$ \\begin{array}{r";
