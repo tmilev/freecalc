@@ -33,6 +33,19 @@ function Slide(
     this.initializeInputs();
 }
 
+Slide.prototype.getDigitSymbol = function (/**@type {number} */ input) {
+    if (input >= this.base) {
+        return input;
+    }
+    if (input < 10) {
+        return input;
+    }
+    if (input - 9 > 25) {
+        return input;
+    }
+    return String.fromCharCode((input - 10) + 'a'.charCodeAt(0));
+}
+
 Slide.prototype.init = function() {
     this.startingFrameNumber = document.getElementById(this.idStartSlideNumber).value;
     this.base = document.getElementById(this.idBase).value;
@@ -198,7 +211,7 @@ Slide.prototype.initializeInputs = function () {
     this.numberOfDigits = Math.max(this.topNumber.digits.length, this.bottomNumber.digits.length);
 }
 
-Slide.prototype.processColumnNonBase10 = function(
+Slide.prototype.processColumnBase10 = function(
     topDigit, 
     bottomDigit, 
     carryOverOld,
@@ -212,9 +225,7 @@ Slide.prototype.processColumnNonBase10 = function(
     resultDigitContent,
     /**@type {HighlightedContent} */ 
     carryOverContent,
-    /**@type {HighlightedContent} */ 
-    intermediateContent,
-    /**@type {HighlightedContent} */ 
+    /**@type {HighlightedContent} */
     plusSign,
 ) {
     var carryOver = 0;
@@ -234,7 +245,7 @@ Slide.prototype.processColumnNonBase10 = function(
         bottomContent.content = bottomDigit;
         bottomContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
     }
-    resultDigitContent.content = nextDigit;
+    resultDigitContent.content = this.getDigitSymbol(nextDigit);
     resultDigitContent.questionMarkFrame = this.currentFrameNumber;
     resultDigitContent.highlightFrames.push(this.currentFrameNumber + 4);
     carryOverContent.highlightFrames.push(this.currentFrameNumber + 5);
@@ -261,13 +272,142 @@ Slide.prototype.processColumnNonBase10 = function(
     middle.content = [];    
     var rightDecimal = new HighlightedContent();
     rightDecimal.content = `\\underbrace{\\overline{${digitSum}} }_{\\text{base }10}`;
+    if (digitSum >= 10 || digitSum >= this.base) {
+        intermediateBaseConversion.content = [];
+        intermediateBaseConversion.content.push(`Because $${digitSum} =`);
+        if (digitSum >= this.base) {
+            intermediateBaseConversion.content.push(carryOverContent);
+            intermediateBaseConversion.content.push(`\\cdot ${this.base} + `);
+            intermediateBaseConversion.content.push(resultDigitContent);
+            intermediateBaseConversion.content.push("$");
+            intermediateBaseConversion.hideFrame = this.currentFrameNumber + 6;
+        } else {
+            intermediateBaseConversion.content.push(resultDigitContent);
+            intermediateBaseConversion.content.push("$");
+            intermediateBaseConversion.hideFrame = this.currentFrameNumber + 5;
+        }
+        intermediateBaseConversion.flagUseOnly = true;
+        intermediateBaseConversion.showFrame = this.currentFrameNumber + 3;
+        intermediateBaseConversion.highlightFrames.push(this.currentFrameNumber + 3);
+    }
     rightDecimal.showFrame = this.currentFrameNumber + 1;
     rightDecimal.answerFrame = this.currentFrameNumber + 1;
-    rightDecimal.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3, this.currentFrameNumber + 4);
-    middle.content.push(rightDecimal);    
+    rightDecimal.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3);
+    middle.content.push(rightDecimal);
     var equality = new HighlightedContent();
     equality.content = "=";
-    equality.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3, this.currentFrameNumber + 4);
+    equality.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3);
+    equality.showFrame = this.currentFrameNumber + 2;
+    middle.content.push(equality);
+    var rightSide = new HighlightedContent();
+    rightSide.content = [];
+    rightSide.showFrame = this.currentFrameNumber + 2;
+    rightSide.content.push("\\underbrace{ ");
+    rightSide.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3);
+    var resultWithCarryOver = new HighlightedContent();
+    resultWithCarryOver.answerFrame = this.currentFrameNumber + 3;
+    carryOverContent.answerFrame = this.currentFrameNumber + 3;
+    resultDigitContent.answerFrame = this.currentFrameNumber + 3;
+    resultWithCarryOver.content = [carryOverContent, resultDigitContent];
+
+    rightSide.content.push(resultWithCarryOver);
+    rightSide.content.push(`}_{\\text{base } ${this.base}}`);
+    
+    intermediateContent.content = [leftSide, middle, rightSide];
+    intermediateContent.hideFrame = this.currentFrameNumber + 5 + carryOver;
+    this.currentFrameNumber += 5 + carryOver;
+}
+
+Slide.prototype.processColumnNonBase10 = function(
+    topDigit, 
+    bottomDigit, 
+    carryOverOld,
+    /**@type {HighlightedContent} */ 
+    carryOverOldContent,
+    /**@type {HighlightedContent} */ 
+    topContent,
+    /**@type {HighlightedContent} */ 
+    bottomContent,
+    /**@type {HighlightedContent} */ 
+    resultDigitContent,
+    /**@type {HighlightedContent} */ 
+    carryOverContent,
+    /**@type {HighlightedContent} */ 
+    intermediateContent,
+    /**@type {HighlightedContent} */ 
+    intermediateBaseConversion,
+    /**@type {HighlightedContent} */
+    plusSign,
+) {
+    var carryOver = 0;
+    var digitSum = topDigit + bottomDigit + carryOverOld;
+    if (digitSum >= this.base) {
+        carryOver = 1;
+        carryOverContent.content = 1;
+    }
+    var nextDigit = (topDigit + bottomDigit + carryOverOld) % this.base;
+    intermediateContent.flagUseOnly = true;
+    intermediateContent.showFrame = this.currentFrameNumber;
+    if (topContent !== undefined) {
+        topContent.content = topDigit;
+        topContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
+    }
+    if (bottomContent !== undefined) {
+        bottomContent.content = bottomDigit;
+        bottomContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
+    }
+    resultDigitContent.content = this.getDigitSymbol(nextDigit);
+    resultDigitContent.questionMarkFrame = this.currentFrameNumber;
+    resultDigitContent.highlightFrames.push(this.currentFrameNumber + 4);
+    carryOverContent.highlightFrames.push(this.currentFrameNumber + 5);
+    plusSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+    intermediateContent.content = [];
+    var leftSide = new HighlightedContent();
+    leftSide.content = [];
+    leftSide.highlightFrames.push(this.currentFrameNumber);
+    if (carryOverOld > 0) {
+        carryOverOldContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
+        leftSide.content.push(carryOverOldContent);
+        leftSide.content.push(` + `);
+    }
+    if (topContent !== undefined) {
+        leftSide.content.push(topContent);
+        leftSide.content.push("+");
+    }
+    if (bottomContent !== undefined) {
+        leftSide.content.push(bottomContent);
+    }
+    leftSide.content.push("=");
+    leftSide.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1, this.currentFrameNumber + 2, this.currentFrameNumber + 3);
+    var middle = new HighlightedContent();
+    middle.content = [];    
+    var rightDecimal = new HighlightedContent();
+    rightDecimal.content = `\\underbrace{\\overline{${digitSum}} }_{\\text{base }10}`;
+    if (digitSum >= 10 || digitSum >= this.base) {
+        intermediateBaseConversion.content = [];
+        intermediateBaseConversion.content.push(`Because $${digitSum} =`);
+        if (digitSum >= this.base) {
+            intermediateBaseConversion.content.push(carryOverContent);
+            intermediateBaseConversion.content.push(`\\cdot ${this.base} + `);
+            intermediateBaseConversion.content.push(resultDigitContent);
+            intermediateBaseConversion.content.push("$");
+            intermediateBaseConversion.hideFrame = this.currentFrameNumber + 6;
+        } else {
+            intermediateBaseConversion.content.push(resultDigitContent);
+            intermediateBaseConversion.content.push("$");
+            intermediateBaseConversion.hideFrame = this.currentFrameNumber + 5;
+        }
+        intermediateBaseConversion.flagUseOnly = true;
+        intermediateBaseConversion.showFrame = this.currentFrameNumber + 3;
+        intermediateBaseConversion.highlightFrames.push(this.currentFrameNumber + 3);
+    }
+    rightDecimal.showFrame = this.currentFrameNumber + 1;
+    rightDecimal.answerFrame = this.currentFrameNumber + 1;
+    rightDecimal.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3);
+    middle.content.push(rightDecimal);
+    var equality = new HighlightedContent();
+    equality.content = "=";
+    equality.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3);
     equality.showFrame = this.currentFrameNumber + 2;
     middle.content.push(equality);
     var rightSide = new HighlightedContent();
@@ -303,8 +443,8 @@ Slide.prototype.computeResultDigits = function () {
         this.intermediates.push( new HighlightedContent());
         this.carryOvers.digits.push( new HighlightedContent());
         this.resultNumber.digits.push( new HighlightedContent());
-        this.intermediatesBaseConversions.push( new HighlightedContent());
-        if (this.base !== 10) {
+        this.intermediatesBaseConversions.push(new HighlightedContent());
+        if (this.base !== 10 && this.base !== "10") {
             this.processColumnNonBase10(
                 topDigit, bottomDigit, carryOver, 
                 this.carryOvers.digits[this.carryOvers.digits.length - 2],
@@ -313,6 +453,7 @@ Slide.prototype.computeResultDigits = function () {
                 this.resultNumber.digits[counterInteger],
                 this.carryOvers.digits[this.carryOvers.digits.length - 1],
                 this.intermediates[this.intermediates.length - 1],
+                this.intermediatesBaseConversions[this.intermediatesBaseConversions.length -1],
                 this.plusDigit
             );
         } else {
@@ -323,7 +464,6 @@ Slide.prototype.computeResultDigits = function () {
                 this.bottomNumber.digits[counterInteger],
                 this.resultNumber.digits[counterInteger],
                 this.carryOvers.digits[this.carryOvers.digits.length - 1],
-                this.intermediates[this.intermediates.length - 1],
                 this.plusDigit
             );
         }
@@ -361,6 +501,16 @@ Slide.prototype.computeIntermediateNotes = function (/** @type {DigitHighlighted
     return result;
 }
 
+Slide.prototype.computeIntermediateBaseConversions = function (/** @type {DigitHighlighted[]}*/ inputNotes) {
+    var result = "";
+    result += `\n<br>\n<br>\n`;
+    result += "$\\displaystyle \\phantom{ \\underbrace{\\int}_{\\text{base } 10}}${}";
+    for (var counter = inputNotes.length - 1; counter >= 0; counter --) {
+        result += inputNotes[counter].toString();
+    }
+    return result;
+}
+
 Slide.prototype.computeSlideContent = function () {
     this.init();
     this.currentFrameNumber = this.startingFrameNumber;
@@ -387,7 +537,7 @@ Slide.prototype.computeSlideContent = function () {
     this.slideContent += this.resultNumber.getTableRow(this.numberOfDigits);
     this.slideContent += "\\end{array}$";
     this.slideContent += this.computeIntermediateNotes(this.intermediates);
-    this.slideContent += this.computeIntermediateNotes(this.intermediatesBaseConversions);
+    this.slideContent += this.computeIntermediateBaseConversions(this.intermediatesBaseConversions);
 
     this.slideContent += "\\end{frame}";
 }
