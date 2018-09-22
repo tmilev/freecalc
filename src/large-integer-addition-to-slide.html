@@ -1,11 +1,12 @@
 <html>
 <script type = "text/javascript" src = "generate_slides.js"></script>
-<body onload = "initSlide()">
+<body onload = "initializeElements()">
 <input id = "idFirstSlideNumber" value = "1" size = "1" placeholder = "first slide"> </input>
 <input id = "idBase" value = "10" size = "1" placeholder = "base"> </input><hr>
-<input id = "idInputTop" onchange = "theSlide.generate()" value = "1545"></input><br>
-<input id = "idInputBottom" onchange = "theSlide.generate()" value = "4426"></input>
-<button onclick = "theSlide.generate()">generate</button>
+<input id = "idInputTop" onchange = "theElements.generateAddition()" value = "31"></input><br>
+<input id = "idInputBottom" onchange = "theElements.generateAddition()" value = "32"></input>
+<button onclick = "theElements.generateAddition()">addition</button>
+<button onclick = "theElements.generateMultiplication()">multiplication</button>
 <br>
 <span id = "idSpanOutput">
 </span>
