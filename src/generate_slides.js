@@ -4,13 +4,13 @@
 function FreeCalcAdditionAlgorithm() {
   /**@type {HighlightedContent} */
   this.slideContent = null;
-  /**@type {NumberHighlighted} */
+  /**@type {ColumnsHighlighted} */
   this.topNumber = null;
-  /**@type {NumberHighlighted} */
+  /**@type {ColumnsHighlighted} */
   this.bottomNumber = null;
-  /**@type {NumberHighlighted} */
+  /**@type {ColumnsHighlighted} */
   this.resultNumber = null;
-  /**@type {NumberHighlighted} */
+  /**@type {ColumnsHighlighted} */
   this.carryOvers = null;
   /**@type {HighlightedContent[][]} */
   this.intermediates = null;
@@ -38,7 +38,7 @@ FreeCalcAdditionAlgorithm.prototype.getDigitSymbol = function (/**@type {number}
   return String.fromCharCode((input - 10) + 'a'.charCodeAt(0));
 }
 
-function NumberHighlighted(/** @type {string} */ inputString) {
+function ColumnsHighlighted(/** @type {string} */ inputString) {
   this.inputString = inputString;
   /** @type {HighlightedContent[]} */
   this.digits = [];
@@ -47,28 +47,30 @@ function NumberHighlighted(/** @type {string} */ inputString) {
   this.sanitizeInput();
 }
 
-NumberHighlighted.prototype.getDigit = function (integerIndex) {
+ColumnsHighlighted.prototype.getDigit = function (integerIndex) {
   if (integerIndex >= this.digits.length) {
     return 0;
   }
   return this.digits[integerIndex].content;
 }
 
-NumberHighlighted.prototype.highlightDigitOnFrame = function(integerIndex, frameNumber) {
+ColumnsHighlighted.prototype.highlightDigitOnFrame = function(integerIndex, frameNumber) {
   if (integerIndex >= this.digits.length) {
     return;
   }
   return this.digits[integerIndex].highlightFrames.push(frameNumber);
 }
 
-NumberHighlighted.prototype.getTableRow = function(numExtraColumns) {
+ColumnsHighlighted.prototype.getTableRow = function(numExtraColumns) {
   var result = "";
   for (var counterColumn = 0; counterColumn < numExtraColumns; counterColumn ++) {
     result += "&";
   }
   for (var counterColumn = 0; counterColumn < this.digits.length; counterColumn ++) {
     result += "&";
-    result += this.digitPrefix + this.digits[this.digits.length - 1 - counterColumn].toString() + this.digitSuffix; 
+    if (! this.digits[this.digits.length - 1 - counterColumn].isEmpty()) {
+      result += this.digitPrefix + this.digits[this.digits.length - 1 - counterColumn].toString() + this.digitSuffix; 
+    }
   }
   return result;
 }
@@ -187,7 +189,7 @@ HighlightedContent.prototype.toString = function () {
   return result;
 }
 
-NumberHighlighted.prototype.sanitizeInput = function () {
+ColumnsHighlighted.prototype.sanitizeInput = function () {
   if (typeof this.inputString !== "string") {
     this.inputString = "";
   }
@@ -400,8 +402,8 @@ FreeCalcAdditionAlgorithm.prototype.toString = function () {
 }
 
 FreeCalcAdditionAlgorithm.prototype.computeResultDigits = function () {
-  this.resultNumber = new NumberHighlighted();
-  this.carryOvers = new NumberHighlighted();
+  this.resultNumber = new ColumnsHighlighted();
+  this.carryOvers = new ColumnsHighlighted();
   this.carryOvers.digits.push(new HighlightedContent({content: ""}));
   this.intermediates = [];
   this.intermediatesBaseConversions = [];
@@ -488,8 +490,8 @@ FreeCalcAdditionAlgorithm.prototype.init = function(
   inputData
 ) {
   this.startingFrameNumber = inputData.startingFrameNumber;
-  this.topNumber = new NumberHighlighted(inputData.topNumber);
-  this.bottomNumber = new NumberHighlighted(inputData.bottomNumber);
+  this.topNumber = new ColumnsHighlighted(inputData.topNumber);
+  this.bottomNumber = new ColumnsHighlighted(inputData.bottomNumber);
   this.base = inputData.base;
 }
 
@@ -566,17 +568,19 @@ function FreeCalcMultiplicationAlgorithm() {
   /**@type {HighlightedContent} */
   this.slideContent = null;
 
-  /**@type {NumberHighlighted} */
+  /**@type {ColumnsHighlighted} */
   this.numberLeft = null;
-  /**@type {NumberHighlighted} */
+  /**@type {ColumnsHighlighted} */
   this.numberRight = null;
-  /**@type {NumberHighlighted} */
+  /**@type {ColumnsHighlighted} */
   this.resultNumber = null;
-  /**@type {NumberHighlighted[]} */
+  /**@type {ColumnsHighlighted[]} */
   this.carryOvers = null;
-  /**@type {NumberHighlighted} */
+  /**@type {ColumnsHighlighted} */
+  this.carryOversAddition;
+  /**@type {ColumnsHighlighted} */
   this.carryOversCombined = null;
-  /**@type {NumberHighlighted[]} */
+  /**@type {ColumnsHighlighted[]} */
   this.intermediates = null;
   /**@type {HighlightedContent[][]} */
   this.startingFrameNumber = 1;
@@ -597,15 +601,13 @@ FreeCalcMultiplicationAlgorithm.prototype.init = function(
   inputData
 ) {
   this.startingFrameNumber = Number(inputData.startingFrameNumber);
-  this.numberLeft = new NumberHighlighted(inputData.topNumber);
-  this.numberRight = new NumberHighlighted(inputData.bottomNumber);
+  this.numberLeft = new ColumnsHighlighted(inputData.topNumber);
+  this.numberRight = new ColumnsHighlighted(inputData.bottomNumber);
   this.numbersIntermediate = [];
   this.base = Number(inputData.base);
 }
 
 FreeCalcMultiplicationAlgorithm.prototype.oneProduct = function (
-  /**@type {number} */
-  rightIndex,
   /**@type {HighlightedContent} */
   leftDigit,
   /**@type {HighlightedContent} */
@@ -615,9 +617,19 @@ FreeCalcMultiplicationAlgorithm.prototype.oneProduct = function (
   /**@type {HighlightedContent} */
   currentNote,
   /**@type {HighlightedContent} */
-  carryOverDigit
+  carryOverDigitContainer, 
+  /**@type {HighlightedContent} */
+  carryOverOld,
 ) {
-  var product = leftDigit.content * rightDigit.content;
+  var carryOverOldContent = 0;
+  if (carryOverOld !== undefined) {
+    if (Array.isArray(carryOverOld.content)) {
+      if (typeof carryOverOld.content[0].content === "number") {
+        carryOverOldContent = carryOverOld.content[0].content;
+      }
+    }
+  }
+  var product = carryOverOldContent + leftDigit.content * rightDigit.content;
   var carryOver = Math.floor(product / this.base);
   var digit = product % this.base;
   resultDigit.content = digit;
@@ -626,19 +638,33 @@ FreeCalcMultiplicationAlgorithm.prototype.oneProduct = function (
   leftDigit.highlightFrames.push(this.currentFrameNumber + 1, this.currentFrameNumber + 2);
   resultDigit.highlightFrames.push(this.currentFrameNumber + 3);
   var currentNote = new HighlightedContent();
-
-
   currentNote.push("$");
   currentNote.push(leftDigit);
   currentNote.push("\\cdot");
   currentNote.push(rightDigit);
+  if (carryOverOldContent > 0) {
+    currentNote.push("+");
+    currentNote.push(carryOverOld);
+    carryOverOld.highlightFrames.push(this.currentFrameNumber + 1, this.currentFrameNumber + 2);
+  }
   currentNote.push("=");
+  if (leftDigit.content > 1 && rightDigit.content > 1 && carryOverOldContent > 0) {
+    currentNote.push(leftDigit.content * rightDigit.content);
+    currentNote.push("+");
+    currentNote.push(carryOverOldContent);
+    currentNote.push("=");
+  }
   if (carryOver > 0) {
+    var carryOverDigit = new HighlightedContent();
     carryOverDigit.content = carryOver;
     carryOverDigit.showFrame = this.currentFrameNumber + 2;
+    carryOverDigit.answerFrame = this.currentFrameNumber + 2;
+    carryOverDigit.highlightFrames.push(this.currentFrameNumber + 4);
+    carryOverDigit.flagUseOnly = false;
+    carryOverDigitContainer.push(carryOverDigit);
+    carryOverDigitContainer.showFrame = this.currentFrameNumber + 2;
+    currentNote.push(carryOverDigitContainer);
   }
-  carryOverDigit.flagUseOnly = true;
-  currentNote.push(carryOverDigit);
   currentNote.push(resultDigit);
   currentNote.push("$ ");
   currentNote.showFrame = this.currentFrameNumber + 1;
@@ -653,27 +679,38 @@ FreeCalcMultiplicationAlgorithm.prototype.oneProduct = function (
 }
 
 FreeCalcMultiplicationAlgorithm.prototype.computeIntermediate = function (rightDigitIndex) {
-  this.intermediates[rightDigitIndex] = new NumberHighlighted();
-  this.carryOvers[rightDigitIndex] = new NumberHighlighted();
+  this.intermediates[rightDigitIndex] = new ColumnsHighlighted();
+  var currentIntermediate = this.intermediates[rightDigitIndex];
+  this.carryOvers[rightDigitIndex] = new ColumnsHighlighted();
+  var carryOversCurrent = this.carryOvers[rightDigitIndex];
   /**@type {HighlightedContent} */
   var rightDigit = this.numberRight.digits[rightDigitIndex];
   for (var i = 0; i < this.numberLeft.digits.length; i ++) {
     var leftDigit = this.numberLeft.digits[i];
-    this.intermediates[rightDigitIndex].digits[i] = new HighlightedContent();
-    var resultDigit = this.intermediates[rightDigitIndex].digits[i];
+    currentIntermediate.digits[i] = new HighlightedContent();
+    var resultDigit = currentIntermediate.digits[i];
     this.notes.push(new HighlightedContent());
-    if (this.carryOvers[rightDigitIndex].digits[i] === undefined) {
-      this.carryOvers[rightDigitIndex].digits[i] = new HighlightedContent();
+    if (carryOversCurrent.digits[i] === undefined) {
+      carryOversCurrent.digits[i] = new HighlightedContent();
     }
     this.oneProduct(
-      rightDigitIndex,
       leftDigit, 
       rightDigit, 
       resultDigit,
       this.notes.content[this.notes.content.leftDigit],
-      this.carryOvers[rightDigitIndex].digits[i]
+      carryOversCurrent.digits[i],
+      carryOversCurrent.digits[i - 1]
     );
-
+  }
+  var carryOverLast = carryOversCurrent.digits[carryOversCurrent.digits.length - 1];
+  if (!carryOverLast.isEmpty()) {
+    this.currentFrameNumber ++;
+    var carryOverDigitContainer = new HighlightedContent();
+    carryOverDigitContainer.push(carryOverLast.content[0]);
+    carryOverDigitContainer.showFrame = this.currentFrameNumber;
+    carryOverDigitContainer.highlightFrames.push(this.currentFrameNumber);
+    carryOverLast.highlightFrames.push(this.currentFrameNumber);
+    currentIntermediate.digits.push(carryOverDigitContainer);   
   }
 }
 
@@ -690,10 +727,10 @@ FreeCalcMultiplicationAlgorithm.prototype.hasCarryOvers = function() {
 }
 
 FreeCalcMultiplicationAlgorithm.prototype.combineCarryOvers = function() {
-  this.carryOversCombined = new NumberHighlighted();
+  this.carryOversCombined = new ColumnsHighlighted();
   this.carryOversCombined.digits = new Array(this.numberLeft.digits.length);
-  this.carryOversCombined.digitPrefix = "{}^{";
-  this.carryOversCombined.digitSuffix = "}";
+  this.carryOversCombined.digitPrefix = "\\text{{\\tiny ${{ ";
+  this.carryOversCombined.digitSuffix = "}}$}}";
   for (var i = 0; i < this.numberRight.digits.length; i ++ ) {
     this.carryOversCombined.digits[i] = new HighlightedContent();
     var currentCarryOver = this.carryOversCombined.digits[i];
@@ -703,6 +740,7 @@ FreeCalcMultiplicationAlgorithm.prototype.combineCarryOvers = function() {
         continue;
       }
       this.carryOvers[j].digits[i].hideFrame = this.carryOverHideFrames[j];
+      this.carryOvers[j].digits[i].flagUseOnly = true;
       currentCarryOver.push(this.carryOvers[j].digits[i]);
     }
   }
@@ -713,21 +751,23 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   this.currentFrameNumber = this.startingFrameNumber;
   this.slideContent = new HighlightedContent();
   this.plusSign = new HighlightedContent();
-  this.plusSign.showFrame = this.currentFrameNumber + 1;
   this.notes = new HighlightedContent();
   this.slideContent.content = [];
   this.slideContent.push("\\begin{frame}\n<br>\n");
   this.intermediates = new Array(this.numberRight.digits.length);
   this.carryOvers = new Array(this.numberRight.digits.length);
   this.carryOverHideFrames = new Array(this.numberRight.digits.length);
-  for (var i = 0; i < this.numberRight.digits.length; i ++){
+  for (var i = 0; i < this.numberRight.digits.length; i ++) {
     this.computeIntermediate(i);
-    this.carryOverHideFrames[i] = this.currentFrameNumber;
+    this.carryOverHideFrames[i] = this.currentFrameNumber + 1;
   }
+  this.plusSign.showFrame = this.currentFrameNumber + 1;
+
+
   var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
 
   var slideStart = "";
-  slideStart += "\\[ \\begin{array}{l";
+  slideStart += "\\[ \\begin{array}{ll";
   for (var i = 0; i < lastIntermediateLength + this.numberRight.digits.length; i ++) {
     slideStart += "@{}l";
   }
@@ -739,11 +779,11 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   this.slideContent.push(slideStart);
   this.combineCarryOvers();
   if (this.hasCarryOvers()) {
-    this.slideContent.push("\\displaystyle \\vphantom{\\frac{~}{~}}");
+    this.slideContent.push("\\displaystyle \\phantom{\\frac{\\int}{~}}");
     this.slideContent.push(this.carryOversCombined.getTableRow(lastIntermediateLength));
     this.slideContent.push("\\\\\n<br>\n");
   }
-  this.slideContent.push(this.numberLeft.getTableRow(lastIntermediateLength));
+  this.slideContent.push(this.numberLeft.getTableRow(lastIntermediateLength + 1));
   this.slideContent.push("&\\cdot");
   this.slideContent.push(this.numberRight.getTableRow(0));
   for (var i = 0; i < this.intermediates.length; i ++) {
@@ -769,9 +809,27 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   this.slideContent.push("\n<br>\n\\end{frame}");
 }
 
+FreeCalcElements.prototype.selectOutput = function () {
+  var outputNode = document.getElementById(this.idOutput);
+  if (document.body.createTextRange) {
+    const range = document.body.createTextRange();
+    range.moveToElementText(outputNode);
+    range.select();
+  } else if (window.getSelection) {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(outputNode);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  } else {
+    console.warn("Could not select text in node: Unsupported browser.");
+  }
+}
+
 FreeCalcElements.prototype.generateMultiplication = function () {
   this.multiplicationAlgorithm.computeSlideContent(this.getInputs());
   document.getElementById(this.idOutput).innerHTML = this.multiplicationAlgorithm.toString();
+  this.selectOutput();
 }
 
 /**@type {FreeCalcElements} */
