@@ -893,8 +893,16 @@ FreeCalcMultiplicationAlgorithm.prototype.highlightIntermediateFinal = function 
 }
 
 FreeCalcMultiplicationAlgorithm.prototype.highlightFinal = function () {
+  this.currentFrameNumber ++;
   for (var i = 0; i < this.numberLeft.digits.length; i ++) {
     this.numberLeft.digits[i].highlightFrames.push(this.currentFrameNumber);
+  }
+  for (var i = 0; i < this.numberRight.digits.length; i ++) {
+    this.numberRight.digits[i].highlightFrames.push(this.currentFrameNumber);
+  }
+  this.multiplicationSign.highlightFrames.push(this.currentFrameNumber);
+  for (var i = 0; i < this.resultNumber.digits.length; i ++) {
+    this.resultNumber.digits[i].highlightFrames.push(this.currentFrameNumber)
   }
 }
 
@@ -912,6 +920,7 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideResult = function () {
   var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
   var currentLength = this.resultNumber.digits.length;
   var offset = lastIntermediateLength + this.numberRight.digits.length - currentLength + 1;
+  this.highlightFinal();
   this.multiplicationResult.push(this.resultNumber.getTableRow(offset));
 }
 
