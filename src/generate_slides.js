@@ -794,6 +794,9 @@ FreeCalcMultiplicationAlgorithm.prototype.oneAdditionResult = function (
   }
   for (var i = 0; i < column.length; i ++) {
     column[i].highlightFrames.push(this.currentFrameNumber);
+    if (column.length > 1 || carryOverOldContent > 0) {
+      column[i].highlightFrames.push(this.currentFrameNumber + 1);
+    }
     resultDigitContent += column[i].getDigit();
   }
   var carryOverContent = Math.floor(resultDigitContent / this.base);
@@ -803,6 +806,8 @@ FreeCalcMultiplicationAlgorithm.prototype.oneAdditionResult = function (
     carryOver.content = carryOverContent;
   }  
   if (carryOverOldContent === 0 && column.length === 1) {
+    resultDigit.showFrame = this.currentFrameNumber;
+    resultDigit.highlightFrames.push(this.currentFrameNumber);
     return;
   }
   for (var i = 0; i < column.length; i ++) {
@@ -812,6 +817,24 @@ FreeCalcMultiplicationAlgorithm.prototype.oneAdditionResult = function (
       currentNote.push("+");
     }
   }
+  currentNote.push("=");
+  currentNote.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  if (carryOverContent > 0) {
+    var carryOverContainer = new HighlightedContent();
+    carryOver.answerFrame = this.currentFrameNumber + 1;
+    carryOverContainer.push(carryOver);
+    carryOverContainer.showFrame = this.currentFrameNumber + 1;
+    currentNote.push(carryOverContainer);
+  }
+  resultDigit.answerFrame = this.currentFrameNumber + 1;
+  resultDigit.highlightFrames.push(this.currentFrameNumber + 2);
+  this.currentFrameNumber += 2;
+  if (carryOverContent > 0) {
+    this.currentFrameNumber ++;
+    carryOver.highlightFrames.push (this.currentFrameNumber);
+  }
+  currentNote.push(resultDigit);
+  currentNote.hideFrame = this.currentFrameNumber + 1;
   var currentNoteContainer = new HighlightedContent();
   currentNoteContainer.push("$ ");
   currentNoteContainer.push(currentNote);
@@ -844,6 +867,14 @@ FreeCalcMultiplicationAlgorithm.prototype.computeAdditionResult = function () {
       this.carryOversAddition.digits[i]
     );
   }
+  var leadingCarryOver = this.carryOversAddition.digits[this.carryOversAddition.digits.length - 1];
+  if (leadingCarryOver.getDigit() !== undefined) {
+    this.currentFrameNumber ++;
+    var leadingDigitResult = new HighlightedContent();
+    leadingDigitResult.push(leadingCarryOver);
+    leadingDigitResult.showFrame = this.currentFrameNumber;
+    this.resultNumber.digits.push(leadingDigitResult);
+  }
 }
 
 FreeCalcMultiplicationAlgorithm.prototype.highlightIntermediateFinal = function () {
@@ -867,8 +898,11 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideResult = function () {
   horizontalLine.content = "\\\\\\hline";
   horizontalLine.showFrame = this.currentFrameNumber; 
   this.multiplicationResult.push(horizontalLine);
-  this.computeAdditionResult();
-  this.multiplicationResult.push(this.resultNumber.getTableRow(2));
+  this.computeAdditionResult();  
+  var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
+  var currentLength = this.resultNumber.digits.length;
+  var offset = lastIntermediateLength + this.numberRight.digits.length - currentLength + 1;
+  this.multiplicationResult.push(this.resultNumber.getTableRow(offset));
 }
 
 FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputData) {
@@ -896,13 +930,13 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
 
   var slideStart = "";
-  slideStart += "\\[ \\begin{array}{ll";
+  slideStart += "\\[ \\begin{array}{rr";
   for (var i = 0; i < lastIntermediateLength + this.numberRight.digits.length; i ++) {
-    slideStart += "@{}l";
+    slideStart += "@{}r";
   }
   slideStart += "@{~}l@{~}";
   for (var i = 0; i < this.numberRight.digits.length; i ++) {
-    slideStart += "@{}l";
+    slideStart += "@{}r";
   }
   slideStart += "}";
   this.slideContent.push(slideStart);
@@ -917,7 +951,7 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   this.slideContent.push(this.numberRight.getTableRow(0));
   this.slideContent.push("\\\\\\hline \n<br>\n");
   var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
-  this.slideContent.push(this.carryOversAddition.getTableRow(2));
+  this.slideContent.push(this.carryOversAddition.getTableRow(1));
   this.slideContent.push("\\\\\n<br>\n");
 
 
