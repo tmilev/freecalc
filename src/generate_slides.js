@@ -150,9 +150,9 @@ HighlightedContent.prototype.toString = function () {
       result += `${this.hideFrame - 1}`;
     }
     if (!this.flagUseOnly) {
-      result += ">{{";
+      result += ">{";
     } else {
-      result += `}{{`;
+      result += `}{`;
     }
   }
   if (this.highlightFrames.length > 0) {
@@ -166,7 +166,7 @@ HighlightedContent.prototype.toString = function () {
     }
     result += "}{{";
   }
-  if (! Array.isArray(this.content)) {
+  if (!Array.isArray(this.content)) {
     result += this.content;
   } else {
     for (var counter = 0; counter < this.content.length; counter ++) {
@@ -181,7 +181,7 @@ HighlightedContent.prototype.toString = function () {
       result += "}}";
   }
   if (this.showFrame >= 0 || this.hideFrame >= 0) {
-      result += `}}`;
+      result += `}`;
   }
   if (this.answerFrame >= 0) {
       result += "}}";
@@ -587,6 +587,8 @@ function FreeCalcMultiplicationAlgorithm() {
   /**@type {HighlightedContent} */
   this.plusSign = null;
   /**@type {HighlightedContent} */
+  this.multiplicationResult = null;
+  /**@type {HighlightedContent} */
   this.notes = null;
   /**@type {number[]} */
   this.carryOverHideFrames = null;
@@ -649,10 +651,13 @@ FreeCalcMultiplicationAlgorithm.prototype.oneProduct = function (
   }
   currentNote.push("=");
   if (leftDigit.content > 1 && rightDigit.content > 1 && carryOverOldContent > 0) {
-    currentNote.push(leftDigit.content * rightDigit.content);
-    currentNote.push("+");
-    currentNote.push(carryOverOldContent);
-    currentNote.push("=");
+    var intermediate = new HighlightedContent();
+    intermediate.push(leftDigit.content * rightDigit.content);
+    intermediate.push("+");
+    intermediate.push(carryOverOldContent);
+    intermediate.push("=");
+    intermediate.showFrame = this.currentFrameNumber + 2;
+    currentNote.push(intermediate);
   }
   if (carryOver > 0) {
     var carryOverDigit = new HighlightedContent();
@@ -746,23 +751,79 @@ FreeCalcMultiplicationAlgorithm.prototype.combineCarryOvers = function() {
   }
 }
 
+FreeCalcMultiplicationAlgorithm.prototype.oneAdditionResult = function (
+  /**@type {HighlightedContent[]} */
+  column
+) {
+  this.currentFrameNumber ++;
+  for (var i = 0; i < column.length; i ++) {
+    column[i].highlightFrames.push(this.currentFrameNumber);
+  }
+}
+
+FreeCalcMultiplicationAlgorithm.prototype.computeAdditionResult = function () {
+  if (this.numberRight.digits.length <= 1) {
+    return;
+  } 
+  var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
+  var numberOfColumns = lastIntermediateLength + this.numberRight.digits.length - 1;
+  for (var i = 0; i < numberOfColumns; i ++) {
+    var currentColumn = [];
+    for (var j = 0; j < this.intermediates.length; j ++) {
+      var currentDigitIndex = i - j;
+      if (currentDigitIndex >= 0 && currentDigitIndex < this.intermediates[j].digits.length) {
+        currentColumn.push(this.intermediates[j].digits[currentDigitIndex]);
+      }
+    }
+    this.oneAdditionResult(currentColumn);
+  }
+}
+
+FreeCalcMultiplicationAlgorithm.prototype.highlightIntermediateFinal = function () {
+  if (this.numberRight.digits.length <= 1) {
+    return;
+  }
+  for (var i = 0; i < this.intermediates.length; i ++ ) {
+    for (var j = 0; j < this.intermediates[i].digits.length; j ++) {
+      this.intermediates[i].digits[j].highlightFrames.push(this.currentFrameNumber + 1);
+    }
+  }
+}
+
+FreeCalcMultiplicationAlgorithm.prototype.computeSlideResult = function () {
+  if (this.numberRight.digits.length <= 1) {
+    return;
+  }
+  this.plusSign.showFrame = this.currentFrameNumber;
+  this.plusSign.highlightFrames.push(this.currentFrameNumber);
+  var horizontalLine = new HighlightedContent();
+  horizontalLine.content = "\\\\\\hline";
+  horizontalLine.showFrame = this.currentFrameNumber; 
+  this.multiplicationResult.push(horizontalLine);
+  this.computeAdditionResult();
+  this.multiplicationResult.push(this.carryOversAddition.getTableRow());
+}
+
 FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputData) {
   this.init(inputData);
   this.currentFrameNumber = this.startingFrameNumber;
   this.slideContent = new HighlightedContent();
   this.plusSign = new HighlightedContent();
   this.notes = new HighlightedContent();
+  this.multiplicationResult = new HighlightedContent();
   this.slideContent.content = [];
   this.slideContent.push("\\begin{frame}\n<br>\n");
   this.intermediates = new Array(this.numberRight.digits.length);
   this.carryOvers = new Array(this.numberRight.digits.length);
   this.carryOverHideFrames = new Array(this.numberRight.digits.length);
+  this.carryOversAddition = new ColumnsHighlighted();
   for (var i = 0; i < this.numberRight.digits.length; i ++) {
     this.computeIntermediate(i);
     this.carryOverHideFrames[i] = this.currentFrameNumber + 1;
   }
-  this.plusSign.showFrame = this.currentFrameNumber + 1;
-
+  this.highlightIntermediateFinal();
+  this.currentFrameNumber ++;
+  this.computeSlideResult();
 
   var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
 
@@ -786,19 +847,26 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   this.slideContent.push(this.numberLeft.getTableRow(lastIntermediateLength + 1));
   this.slideContent.push("&\\cdot");
   this.slideContent.push(this.numberRight.getTableRow(0));
+  this.slideContent.push("\\\\\\hline \n<br>\n");
+  var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
+  this.slideContent.push(this.carryOversAddition.getTableRow(lastIntermediateLength));
+  this.slideContent.push("\\\\\n<br>\n");
+
+
   for (var i = 0; i < this.intermediates.length; i ++) {
-    this.slideContent.push ("\\\\");
     if (i === 0) {
-      this.slideContent.push("\\hline");
-      if (this.numberRight.digits.length > 1) {
-        this.slideContent.push(`\\multirow{${this.numberRight.digits.length}}{*}{$`);
-        this.plusSign.content = "+";
-        this.slideContent.push(this.plusSign);
-        this.slideContent.push(`$}`);
-      }    
+      this.slideContent.push(`\\multirow{${this.numberRight.digits.length}}{*}{$`);
+      this.plusSign.content = "+";
+      this.slideContent.push(this.plusSign);
+      this.slideContent.push(`$}`);  
     }
-    this.slideContent.push(" \n<br>\n");
     this.slideContent.push(this.intermediates[i].getTableRow(lastIntermediateLength - i));
+    if (i !== this.intermediates.length - 1) {
+      this.slideContent.push("\\\\\n<br>\n");
+    }
+  }
+  if (this.numberRight.digits.length > 1) {
+    this.slideContent.push(this.multiplicationResult);
   }
 
   var flaFinish = "";
