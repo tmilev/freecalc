@@ -602,6 +602,8 @@ function FreeCalcMultiplicationAlgorithm() {
   /**@type {HighlightedContent} */
   this.plusSign = null;
   /**@type {HighlightedContent} */
+  this.multiplicationSign = null;
+  /**@type {HighlightedContent} */
   this.multiplicationResult = null;
   /**@type {HighlightedContent} */
   this.notes = null;
@@ -791,6 +793,7 @@ FreeCalcMultiplicationAlgorithm.prototype.oneAdditionResult = function (
       currentNote.push("+");
       resultDigitContent += carryOverOldContent;
     }
+    carryOverOld.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   }
   for (var i = 0; i < column.length; i ++) {
     column[i].highlightFrames.push(this.currentFrameNumber);
@@ -873,6 +876,7 @@ FreeCalcMultiplicationAlgorithm.prototype.computeAdditionResult = function () {
     var leadingDigitResult = new HighlightedContent();
     leadingDigitResult.push(leadingCarryOver);
     leadingDigitResult.showFrame = this.currentFrameNumber;
+    leadingCarryOver.highlightFrames.push(this.currentFrameNumber);
     this.resultNumber.digits.push(leadingDigitResult);
   }
 }
@@ -885,6 +889,12 @@ FreeCalcMultiplicationAlgorithm.prototype.highlightIntermediateFinal = function 
     for (var j = 0; j < this.intermediates[i].digits.length; j ++) {
       this.intermediates[i].digits[j].highlightFrames.push(this.currentFrameNumber + 1);
     }
+  }
+}
+
+FreeCalcMultiplicationAlgorithm.prototype.highlightFinal = function () {
+  for (var i = 0; i < this.numberLeft.digits.length; i ++) {
+    this.numberLeft.digits[i].highlightFrames.push(this.currentFrameNumber);
   }
 }
 
@@ -910,6 +920,7 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   this.currentFrameNumber = this.startingFrameNumber;
   this.slideContent = new HighlightedContent();
   this.plusSign = new HighlightedContent();
+  this.multiplicationSign = new HighlightedContent();
   this.notes = new HighlightedContent();
   this.multiplicationResult = new HighlightedContent();
   this.slideContent.content = [];
@@ -947,13 +958,14 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
     this.slideContent.push("\\\\\n<br>\n");
   }
   this.slideContent.push(this.numberLeft.getTableRow(lastIntermediateLength + 1));
-  this.slideContent.push("&\\cdot");
+  this.multiplicationSign.content = "\\cdot";
+  this.slideContent.push("&");
+  this.slideContent.push(this.multiplicationSign);
   this.slideContent.push(this.numberRight.getTableRow(0));
   this.slideContent.push("\\\\\\hline \n<br>\n");
   var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
   this.slideContent.push(this.carryOversAddition.getTableRow(1));
   this.slideContent.push("\\\\\n<br>\n");
-
 
   for (var i = 0; i < this.intermediates.length; i ++) {
     if (i === 0) {
