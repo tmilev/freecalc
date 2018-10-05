@@ -1,22 +1,21 @@
 \begin{frame}
 Find: digit as large as possible so divisor $\cdot$ digit $\leq $ dividend 
 \[\setlength\extrarowheight{-5pt} 
-\begin{array}{@{}l@{}l@{}l@{}l@{}l@{}l@{}l}&&&&\fcAnswerUncover{11}{11}{{\alertNoH{12}{{1}}}}\\ 
-&&&&\fcAnswerUncover{10}{10}{{\alertNoH{11}{{1}}}}\\ 
-&&&&\\ 
-&&&&\fcAnswerUncover{2}{8}{{\alertNoH{9}{{4}}}}\\ 
-&&&&\\\cline{3 - 6} 
-\text{{\tiny ${{ 2}}$}}&&\multicolumn{1}{|@{}l@{}}{}& \\ 
-\alertNoH{2, 3, 4, 7, 8, 9, 10, 11, 12}{{1}}&\alertNoH{9, 10, 11, 12}{{7}}&\multicolumn{1}{|l@{}}{~}&~~~&\alertNoH{2, 3, 4, 7, 8}{{8}}&6&\\\cline{4-4} 
-&&&&6&8&\\\cline{5 - 6} 
-&&&&1&8&\\\cline{4-4} 
-&&&&-2&-7&\\\cline{5 - 6} 
-&&&&3&15&\\\cline{4-4} 
-&&&&1&7&\\\cline{5 - 6} 
-&&&&2&8&\\\cline{4-4} 
-&&&&1&7&\\\cline{5 - 6} 
-&&&&1&1&\\ 
+\begin{array}{@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l}&&&&&\fcAnswerUncover{11}{11}{{\alertNoH{12}{{1}}}}\\ 
+&&&&&\fcAnswerUncover{10}{10}{{\alertNoH{11}{{1}}}}\\ 
+&&&&\fcAnswerUncover{2}{8}{{\alertNoH{9}{{1}}}}&\fcAnswerUncover{9}{9}{{\alertNoH{10}{{4}}}}\\ 
+&&&&1&6&\\\cline{3 - 7} 
+\text{{\tiny ${{ 1}}$}}&&\multicolumn{1}{|@{}l@{}}{}& \\ 
+\alertNoH{2, 3, 4, 7, 8, 9, 10, 11, 12}{{1}}&\alertNoH{9, 10, 11, 12}{{4}}&\multicolumn{1}{|l@{}}{~}&~~~&\alertNoH{2, 3, 4, 7, 8}{{2}}&0&1&\\\cline{4-4} 
+&&&&1&4&\\\cline{5 - 7} 
+&&&&&8&7&\\\cline{4-4} 
+&&&&5&6&\\\cline{5 - 7} 
+&&&&&3&1&\\\cline{4-4} 
+&&&&1&4&\\\cline{5 - 7} 
+&&&&&1&7&\\\cline{4-4} 
+&&&&1&4&\\\cline{5 - 7} 
+&&&&&0&3&\\ 
 \end{array}\]
 
 
-\uncover<3->{\uncover<3->{\alertNoH{3}{{Current leading digit $>$ divisor leading digit}}}\uncover<4->{\alertNoH{4}{{ $\Rightarrow$ divide leading digit by divisor digit}}\alertNoH{5}{{ plus one}}. \alertNoH{6}{{Round down if needed. }}}\uncover<4->{\[\alertNoH{7, 8}{{\onlyNoH{6}{\color{red}}\left\lfloor\onlyNoH{6}{\color{black}}\frac{\alertNoH{2, 3, 4, 7, 8}{{8}}}{\alertNoH{2, 3, 4, 7, 8, 9, 10, 11, 12}{{1}}\alertNoH{5}{{+1}}}\onlyNoH{6}{\color{red}}\right\rfloor\onlyNoH{6}{\color{black}}}}\uncover<7->{\alertNoH{7, 8}{{=}}}\uncover<8->{\alertNoH{8}{{\left\lfloor\frac{8}{2}\right\rfloor = \left\lfloor\frac{8}{2} \right\rfloor=\left\lfloor4 \right\rfloor=}}}\uncover<7->{\fcAnswerUncover{2}{8}{{\alertNoH{9}{{4}}}}}\]}\[\left\lfloor\frac{3}{\alertNoH{2, 3, 4, 7, 8, 9, 10, 11, 12}{{1}}+1}\right\rfloor=\left\lfloor\frac{3}{2}\right\rfloor = \left\lfloor\frac{2}{2} + \frac{1}{2} \right\rfloor=\left\lfloor1 + \frac{1}{2} \right\rfloor=\fcAnswerUncover{10}{10}{{\alertNoH{11}{{1}}}}\]\[\left\lfloor\frac{2}{\alertNoH{2, 3, 4, 7, 8, 9, 10, 11, 12}{{1}}+1}\right\rfloor=\left\lfloor\frac{2}{2}\right\rfloor = \left\lfloor\frac{2}{2} \right\rfloor=\left\lfloor1 \right\rfloor=\fcAnswerUncover{11}{11}{{\alertNoH{12}{{1}}}}\]}\end{frame}
+\uncover<3->{\uncover<3->{\alertNoH{3}{{Current leading digit $>$ divisor leading digit}}}\uncover<4->{\alertNoH{4}{{ $\Rightarrow$ divide leading digit by divisor digit}}\alertNoH{5}{{ plus one}}. \alertNoH{6}{{Round down if needed. }}}\uncover<4->{\[\alertNoH{7, 8}{{\onlyNoH{6}{\color{red}}\left\lfloor\onlyNoH{6}{\color{black}}\frac{\alertNoH{2, 3, 4, 7, 8}{{2}}}{\alertNoH{2, 3, 4, 7, 8, 9, 10, 11, 12}{{1}}\alertNoH{5}{{+1}}}\onlyNoH{6}{\color{red}}\right\rfloor\onlyNoH{6}{\color{black}}}}\uncover<7->{\alertNoH{7, 8}{{=}}}\uncover<8->{\alertNoH{8}{{\left\lfloor\frac{2}{2}\right\rfloor = \left\lfloor\frac{2}{2} \right\rfloor=\left\lfloor1 \right\rfloor=}}}\uncover<7->{\fcAnswerUncover{2}{8}{{\alertNoH{9}{{1}}}}}\]}\[\left\lfloor\frac{8}{\alertNoH{2, 3, 4, 7, 8, 9, 10, 11, 12}{{1}}+1}\right\rfloor=\left\lfloor\frac{8}{2}\right\rfloor = \left\lfloor\frac{8}{2} \right\rfloor=\left\lfloor4 \right\rfloor=\fcAnswerUncover{9}{9}{{\alertNoH{10}{{4}}}}\]\[\left\lfloor\frac{3}{\alertNoH{2, 3, 4, 7, 8, 9, 10, 11, 12}{{1}}+1}\right\rfloor=\left\lfloor\frac{3}{2}\right\rfloor = \left\lfloor\frac{2}{2} + \frac{1}{2} \right\rfloor=\left\lfloor1 + \frac{1}{2} \right\rfloor=\fcAnswerUncover{10}{10}{{\alertNoH{11}{{1}}}}\]}\end{frame}
