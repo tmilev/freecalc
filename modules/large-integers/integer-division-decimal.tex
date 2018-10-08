@@ -1,17 +1,17 @@
 \begin{frame} \tiny
 Find: digit as large as possible so divisor $\cdot$ digit $\leq $ dividend 
 \[\setlength\extrarowheight{-5pt} 
-\begin{array}{@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l}&&&&&&\fcAnswerUncover{2}{4}{{\alertNoH{5, 5, 6}{{1}}}}&\fcAnswerUncover{7}{7}{{\alertNoH{8, 8, 9}{{1}}}}&\\\cline{4 - 8} 
+\begin{array}{@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l}&&&&&&\fcAnswerUncover{2}{4}{{\alertNoH{5, 5, 6}{{1}}}}&\fcAnswerUncover{13}{13}{{\alertNoH{14, 14, 15}{{1}}}}&\\\cline{4 - 8} 
 &&&\multicolumn{1}{|@{}l@{}}{}& &&&&\\ 
-&\alertNoH{2, 3, 4, 5, 6, 8, 9}{{2}}&\alertNoH{3, 4, 5, 6, 8, 9}{{5}}&\multicolumn{1}{|l@{}}{~}&~~~&\alertNoH{2, 3, 4}{{2}}&\alertNoH{3, 4}{{7}}&6&\\\cline{5-5} 
-&&&&&\fcAnswer{6}{{2}}&\fcAnswer{6}{{5}}&\uncover<7->{\alertNoH{7}{{0}}}&\\\cline{6 - 8} 
+&\alertNoH{2, 3, 4, 5, 6, 14, 15}{{2}}&\alertNoH{3, 4, 5, 6, 14, 15}{{5}}&\multicolumn{1}{|l@{}}{~}&~~~&\alertNoH{2, 3, 4, 12, 13}{{2}}&\alertNoH{3, 4, 10, 11}{{7}}&\alertNoH{8, 9}{{6}}&\\\cline{5-5} 
+&&&&&\fcAnswer{6}{{\alertNoH{12, 13}{{2}}}}&\fcAnswer{6}{{\alertNoH{10, 11}{{5}}}}&\uncover<7->{\alertNoH{7, 8, 9}{{0}}}&\\\cline{6 - 8} 
 &&&&&&&&\\ 
-&&&&&&2&6&\\\cline{5-5} 
-&&&&&&\fcAnswer{9}{{2}}&\fcAnswer{9}{{5}}&\\\cline{6 - 8} 
-&&&&&&&1&\\ 
+&&&&&&\fcAnswer{11}{{\alertNoH{18, 19}{{2}}}}&\fcAnswer{9}{{\alertNoH{16, 17}{{6}}}}&\\\cline{5-5} 
+&&&&&&\fcAnswer{15}{{\alertNoH{18, 19}{{2}}}}&\fcAnswer{15}{{\alertNoH{16, 17}{{5}}}}&\\\cline{6 - 8} 
+&&&&&&&\fcAnswer{17}{{1}}&\\ 
 \end{array}\]
 
 
 \uncover<2->{\alertNoH{2}{{$\bullet$ Equal leading digits;}}\uncover<3->{\alertNoH{3}{{ divisor start $<$ current leading start }}}\uncover<4->{\alertNoH{4}{{ $\Rightarrow$ set quotient digit to $1$. }}}} 
 
-\end{frame}
+\uncover<8->{\[\alertNoH{8, 9}{{\alertNoH{8, 9}{{6}}-\uncover<7->{\alertNoH{7, 8, 9}{{0}}}}}\alertNoH{8, 9}{{=}}\fcAnswer{9}{{\alertNoH{16, 17}{{6}}}}\]}\uncover<10->{\[\alertNoH{10, 11}{{\alertNoH{3, 4, 10, 11}{{7}}-\fcAnswer{6}{{\alertNoH{10, 11}{{5}}}}}}\alertNoH{10, 11}{{=}}\fcAnswer{11}{{\alertNoH{18, 19}{{2}}}}\]}\uncover<12->{\[\alertNoH{12, 13}{{\alertNoH{2, 3, 4, 12, 13}{{2}}-\fcAnswer{6}{{\alertNoH{12, 13}{{2}}}}}}\alertNoH{12, 13}{{=}}\fcAnswer{13}{{0}}\]}\uncover<16->{\[\alertNoH{16, 17}{{\fcAnswer{9}{{\alertNoH{16, 17}{{6}}}}-\fcAnswer{15}{{\alertNoH{16, 17}{{5}}}}}}\alertNoH{16, 17}{{=}}\fcAnswer{17}{{1}}\]}\uncover<18->{\[\alertNoH{18, 19}{{\fcAnswer{11}{{\alertNoH{18, 19}{{2}}}}-\fcAnswer{15}{{\alertNoH{18, 19}{{2}}}}}}\alertNoH{18, 19}{{=}}\fcAnswer{19}{{0}}\]}\end{frame}

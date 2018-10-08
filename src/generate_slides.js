@@ -208,6 +208,114 @@ ColumnsHighlighted.prototype.sanitizeInput = function () {
   }
 }
 
+function OneDigitSubtractionWithCarryOver(
+  /**@type {{base: number, top: HighlightedContent, bottom: HighlightedContent, startingFrame: number, newCarryOver: HighlightedContent, oldCarryOver: HighlightedContent, resultDigit: HighlightedContent}} */
+  inputData
+) {
+  this.base = inputData.base;
+  this.top = inputData.top; 
+  this.bottom = inputData.bottom;
+  /** @type {HighlightedContent} */
+  this.newCarryOver = inputData.newCarryOver;
+  /** @type {HighlightedContent} */
+  this.newCarryOverExtraZero = null;
+  /** @type {HighlightedContent} */
+  this.resultDigitNegative = null;
+  this.newCarryOverContent = 0;
+  if (this.newCarryOver !== null && this.newCarryOver !== undefined) {
+    this.newCarryOverContent = this.newCarryOver.getDigit();
+  }
+  this.oldCarryOver = inputData.oldCarryOver;
+  this.resultDigit = inputData.resultDigit;
+  this.startingFrame = inputData.startingFrame;
+  this.endFrame = this.startingFrame;
+  /** @type {HighlightedContent} */
+  this.content = null;
+  /** @type {HighlightedContent} */
+  this.leftHandSide = null;
+  /** @type {HighlightedContent} */
+  this.equalityFirst = null;
+  /** @type {HighlightedContent} */
+  this.equalitySecond = null;
+  /** @type {HighlightedContent} */
+  this.rightHandSide = null;
+  if (typeof this.top === "number") {
+    this.top = new HighlightedContent(this.top);
+  }
+  if (typeof this.bottom === "number") {
+    this.bottom = new HighlightedContent(this.bottom);
+  }
+  if (this.startingFrame === undefined || this.startingFrame === null) {
+    this.startingFrame = 1;
+  } 
+}
+
+OneDigitSubtractionWithCarryOver.prototype.computeContent = function () {
+  this.content = new HighlightedContent();
+  this.content.push("\\[");
+  this.leftHandSide = new HighlightedContent();
+  this.equalityFirst = new HighlightedContent("=")
+  this.rightHandSide = new HighlightedContent();
+  this.content.push(this.leftHandSide);
+  this.content.push(this.equalityFirst);
+  this.content.push(this.rightHandSide);
+  this.leftHandSide.push(this.top);
+  this.leftHandSide.push("-");
+  this.leftHandSide.push (this.bottom);
+  if (this.oldCarryOver !== null && this.oldCarryOver !== undefined) {
+    if (this.oldCarryOver.getDigit() !== 0) {
+      this.leftHandSide.push(this.oldCarryOver);
+    } 
+  }
+  if (this.base === 10) {
+    if (this.newCarryOver !== undefined && this.newCarryOver !== null) {
+      var theDigit = this.newCarryOver.getDigit(); 
+      if (theDigit !== 0 && theDigit !== undefined) {
+        this.newCarryOverExtraZero = new HighlightedContent(0);
+      }
+    }
+    if (this.newCarryOverExtraZero !== null) {
+      this.resultDigitNegative = new HighlightedContent(this.top.getDigit() - this.bottom.getDigit() + this.base);
+      this.rightHandSide.push(this.resultDigitNegative);
+      this.equalitySecond = new HighlightedContent("=");
+      this.rightHandSide.push(this.equalitySecond)
+      this.rightHandSide.push(this.newCarryOver);
+      this.rightHandSide.push(this.newCarryOverExtraZero);
+      this.rightHandSide.push("+");
+      this.rightHandSide.push(this.resultDigit);
+    } else {
+      this.rightHandSide.push(this.resultDigit);
+    }
+  } 
+  this.content.push("\\]");
+  this.highlightContent();
+}
+
+OneDigitSubtractionWithCarryOver.prototype.highlightContent = function () {
+  this.content.showFrame = this.startingFrame;
+  this.leftHandSide.highlightFrames.push(this.startingFrame, this.startingFrame + 1);
+  this.equalityFirst.highlightFrames.push(this.startingFrame, this.startingFrame + 1);
+  this.top.highlightFrames.push(this.startingFrame, this.startingFrame + 1);
+  this.bottom.highlightFrames.push(this.startingFrame, this.startingFrame + 1);
+  this.endFrame = this.startingFrame + 1;
+  this.resultDigit.answerFrame = this.startingFrame + 1;
+  if (this.newCarryOverExtraZero !== null) {
+    this.newCarryOver.showFrame = this.startingFrame + 1;
+    this.resultDigit.highlightFrames.push(this.startingFrame + 2);
+    this.newCarryOver.highlightFrames.push(this.startingFrame + 3);
+    this.endFrame = this.startingFrame + 3;
+  }
+}
+
+/**  
+ * @returns {HighlightedContent} 
+ * */
+OneDigitSubtractionWithCarryOver.prototype.getHighlightedContent = function () {
+  this.computeContent();
+  return this.content;
+}
+
+
 function OneDigitMultiplicationWithCarryOverSplit(
   /**@type {{base: number, left: HighlightedContent, right: HighlightedContent, startingFrame: number, newCarryOver: HighlightedContent, oldCarryOver: HighlightedContent, resultDigit: HighlightedContent}}*/ 
   inputData
@@ -298,7 +406,6 @@ OneDigitMultiplicationWithCarryOverSplit.prototype.getHighlightedContent = funct
   this.computeContent();
   return this.content;
 }
-
 
 function HighlightedContent(/** @type {{content: any, useOnly: boolean, showFrame: number, hideFrame: number, answerFrame: number}} */ input) {
   /** @type {HighlightedContent[]} */
@@ -1465,6 +1572,10 @@ function FreeCalcDivisionAlgorithm() {
     resultDigitContent: null,
     /**@type {ColumnsHighlighted} */    
     result: null,
+    /**@type {OneDigitSubtractionWithCarryOver} */
+    oneDigitSubtractionNote: null,
+    /**@type {HighlightedContent} */
+    note: null,
   };
 }
 
@@ -1504,7 +1615,6 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRoundSmallLeadingDigitConsideratio
   currentNoteDivisorSmallLeadingDigit.push(consequence);
   this.notes.push(this.currentNoteDivisorSmallLeadingDigit.content);
   this.notes.push("\n\n<br>\n<br>\n");
-
 }
 
 FreeCalcDivisionAlgorithm.prototype.computeOneRoundEqualLeadingDigitConsiderations = function () {
@@ -1720,6 +1830,7 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRoundMultiplicationOneDigit = func
 }
 
 FreeCalcDivisionAlgorithm.prototype.computeOneRoundSubtractionOneDigit = function (digitIndex) {
+  this.currentFrameNumber ++;
   var subtraction = this.subtractionCurrent;
   if (digitIndex == 0) {
     subtraction.oldCarryOver = new HighlightedContent();
@@ -1743,6 +1854,17 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRoundSubtractionOneDigit = functio
   subtraction.oldCarryOverContent = subtraction.newCarryOverContent;
   subtraction.resultDigit.content = subtraction.resultDigitContent;
   subtraction.result.digits.push(subtraction.resultDigit);
+  subtraction.oneDigitSubtractionNote = new OneDigitSubtractionWithCarryOver({
+    base: this.base,
+    top: subtraction.topDigit,
+    bottom: subtraction.bottomDigit,
+    startingFrame: this.currentFrameNumber,
+    newCarryOver: subtraction.newCarryOver,
+    oldCarryOver: subtraction.oldCarryOver,
+    resultDigit: subtraction.resultDigit
+  });
+  subtraction.note.push(subtraction.oneDigitSubtractionNote.getHighlightedContent());
+  this.currentFrameNumber = subtraction.oneDigitSubtractionNote.endFrame;
 }
 
 FreeCalcDivisionAlgorithm.prototype.beefupRemainderWithZeroes = function () {
@@ -1759,11 +1881,14 @@ FreeCalcDivisionAlgorithm.prototype.beefupRemainderWithZeroes = function () {
 }
 
 FreeCalcDivisionAlgorithm.prototype.beefupRemainderWithZeroesHighlight = function () {
+  /** @type {number} */
+  var numberOfZeroesToBeefUp = this.subtracandComputation.numberOfZeroesToBeefUp;
+  if (numberOfZeroesToBeefUp === 0) {
+    return;
+  }
   this.currentFrameNumber ++;
   /** @type {ColumnsHighlighted} */
   var subtracand = this.subtracandComputation.currentSubtracand;
-  /** @type {number} */
-  var numberOfZeroesToBeefUp = this.subtracandComputation.numberOfZeroesToBeefUp;
   for (var i = 0; i < numberOfZeroesToBeefUp; i ++) {
     subtracand.digits[i].showFrame = this.currentFrameNumber;
     subtracand.digits[i].highlightFrames.push(this.currentFrameNumber);
@@ -1790,6 +1915,7 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRoundSecondPart = function () {
   this.subtracandComputation.currentCarryOver = new ColumnsHighlighted();
   this.subtracandComputation.note = new HighlightedContent();
   subtraction.carryOvers = new ColumnsHighlighted();
+  subtraction.note = new HighlightedContent();
   this.subtracandComputation.oldCarryOverContent = 0;
   subtraction.intermediate = this.intermediates[this.intermediates.length - 1];
   for (var counter = 0; counter < this.divisor.digits.length; counter ++) {
@@ -1816,6 +1942,7 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRoundSecondPart = function () {
   this.intermediates.push(subtraction.result);
   this.intermediateCarryOvers.push(subtraction.carryOvers);
   this.notesComputations.push(this.subtracandComputation.note);
+  this.notesComputations.push(subtraction.note);
 }
 
 FreeCalcDivisionAlgorithm.prototype.initializeCurrentQuotientDigit = function () {
