@@ -1,17 +1,17 @@
-\begin{frame}
+\begin{frame} \tiny
 Find: digit as large as possible so divisor $\cdot$ digit $\leq $ dividend 
 \[\setlength\extrarowheight{-5pt} 
-\begin{array}{@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l}&&&&&&&\fcAnswerUncover{3}{9}{{\alertNoH{10}{{1}}}}\\ 
-&&&&&&&\fcAnswerUncover{2}{2}{{\alertNoH{3}{{8}}}}\\ 
-&&&&&&&9&\\\cline{4 - 8} 
-\text{{\tiny ${{ 2}}$}}&\text{{\tiny ${{ 5}}$}}&&\multicolumn{1}{|@{}l@{}}{}& &&&&\\ 
-&\alertNoH{3, 3, 4, 5, 8, 9, 10}{{2}}&\alertNoH{3, 10}{{7}}&\multicolumn{1}{|l@{}}{~}&~~~&2&4&7&\\\cline{5-5} 
-&&&&&2&1&6&\\\cline{6 - 8} 
-&&&&&\text{{\tiny ${{ -1}}$}}&&\\ 
-&&&&&&\alertNoH{3, 4, 5, 8, 9}{{3}}&1&\\\cline{5-5} 
-&&&&&&2&7&\\\cline{6 - 8} 
-&&&&&&&4&\\ 
+\begin{array}{@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l}&&&&&&\fcAnswerUncover{2}{4}{{\alertNoH{5, 5, 6}{{1}}}}&\fcAnswerUncover{7}{7}{{\alertNoH{8, 8, 9}{{1}}}}&\\\cline{4 - 8} 
+&&&\multicolumn{1}{|@{}l@{}}{}& &&&&\\ 
+&\alertNoH{2, 3, 4, 5, 6, 8, 9}{{2}}&\alertNoH{3, 4, 5, 6, 8, 9}{{5}}&\multicolumn{1}{|l@{}}{~}&~~~&\alertNoH{2, 3, 4}{{2}}&\alertNoH{3, 4}{{7}}&6&\\\cline{5-5} 
+&&&&&\fcAnswer{6}{{2}}&\fcAnswer{6}{{5}}&\uncover<7->{\alertNoH{7}{{0}}}&\\\cline{6 - 8} 
+&&&&&&&&\\ 
+&&&&&&2&6&\\\cline{5-5} 
+&&&&&&\fcAnswer{9}{{2}}&\fcAnswer{9}{{5}}&\\\cline{6 - 8} 
+&&&&&&&1&\\ 
 \end{array}\]
 
 
-\uncover<4->{\uncover<4->{\alertNoH{4}{{Current leading digit $>$ divisor leading digit}}}\uncover<5->{\alertNoH{5}{{ $\Rightarrow$ divide leading digit by divisor digit}}\alertNoH{6}{{ plus one}}. \alertNoH{7}{{Round down if needed. }}}\uncover<5->{\[\alertNoH{8, 9}{{\onlyNoH{7}{\color{red}}\left\lfloor\onlyNoH{7}{\color{black}}\frac{\alertNoH{3, 4, 5, 8, 9}{{3}}}{\alertNoH{3, 3, 4, 5, 8, 9, 10}{{2}}\alertNoH{6}{{+1}}}\onlyNoH{7}{\color{red}}\right\rfloor\onlyNoH{7}{\color{black}}}}\uncover<8->{\alertNoH{8, 9}{{=}}}\uncover<9->{\alertNoH{9}{{\left\lfloor\frac{3}{3}\right\rfloor = \left\lfloor\frac{3}{3} \right\rfloor=\left\lfloor1 \right\rfloor=}}}\uncover<8->{\fcAnswerUncover{3}{9}{{\alertNoH{10}{{1}}}}}\]}}\end{frame}
+\uncover<2->{\alertNoH{2}{{$\bullet$ Equal leading digits;}}\uncover<3->{\alertNoH{3}{{ divisor start $<$ current leading start }}}\uncover<4->{\alertNoH{4}{{ $\Rightarrow$ set quotient digit to $1$. }}}} 
+
+\end{frame}
