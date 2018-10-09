@@ -2029,27 +2029,27 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRound = function () {
 FreeCalcDivisionAlgorithm.prototype.computeIntermediateQuotients = function () {
   var numberOfIntermediateQuotients = 0;
   this.quotientMain = new ColumnsHighlighted();
+  var oneLayerOnly = true;
+  for (var counterDigit = this.quotientExtras.length - 1; counterDigit >= 0; counterDigit --) {
+    if (this.quotientExtras[counterDigit].length > 1) {
+      oneLayerOnly = false;
+      break;
+    }
+  }
   for (var counterDigit = this.quotientExtras.length - 1; counterDigit >= 0; counterDigit --) {
     var currentDigit = 0;
     /** @type {HighlightedContent} */
-    var currentDigitContainer = null;
     if (this.quotientExtras[counterDigit] !== undefined) {
       numberOfIntermediateQuotients = Math.max(numberOfIntermediateQuotients, this.quotientExtras[counterDigit].length);
       for (var i = 0; i < this.quotientExtras[counterDigit].length; i ++) {
         currentDigit += this.quotientExtras[counterDigit][i].content;
-        currentDigitContainer = this.quotientExtras[counterDigit][i];
       }
     }
-    if (currentDigitContainer !== null) {
-      if (currentDigitContainer.getDigit() !== currentDigit) {
-        currentDigitContainer = null;
-      }
-    }    
-    if (currentDigitContainer === null) {
-      currentDigitContainer = new HighlightedContent();
-      currentDigitContainer.content = currentDigit;
+    if (! oneLayerOnly) {
+      this.quotientMain.digits.push(new HighlightedContent(currentDigit));
+    } else {
+      this.quotientMain.digits.push(this.quotientExtras[counterDigit][0]);
     }
-    this.quotientMain.digits.push(currentDigitContainer);
   }
   this.quotientMain.removeLeadingZeroesAccountRemovedAsExtraColumns();
   if (numberOfIntermediateQuotients <= 1) {
