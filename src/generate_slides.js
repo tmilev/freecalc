@@ -25,7 +25,7 @@ function FreeCalcAdditionAlgorithm() {
   /**@type {HighlightedContent[]} */
   this.result = null
   this.plusSign = null;
-  this.startingFrameNumber =1;
+  this.startingFrameNumber = 1;
   this.base = 10;
   this.numberOfDigits = 0;
   this.currentFrameNumber = 0;
@@ -297,6 +297,8 @@ function OneDigitSubtractionWithCarryOver(
   /**@type {{base: number, top: HighlightedContent, bottom: HighlightedContent, startingFrame: number, newCarryOver: HighlightedContent, oldCarryOver: HighlightedContent, resultDigit: HighlightedContent, useColumns: boolean}} */
   inputData
 ) {
+  /** @type {boolean} */
+  this.flagIsNonTrivial = true;
   this.base = inputData.base;
   /** @type {HighlightedContent} */
   this.topInput = inputData.top;
@@ -304,8 +306,27 @@ function OneDigitSubtractionWithCarryOver(
   this.top = null;
   /** @type {HighlightedContent} */
   this.bottomInput = inputData.bottom;
+  /** @type {HighlightedContent} */
+  this.resultDigitInput = inputData.resultDigit;
+  /** @type {HighlightedContent} */
+  this.resultDigit = null;
+  /** @type {number} */
+  this.startingFrame = inputData.startingFrame;
+  /** @type {number} */
+  this.endFrame = this.startingFrame;
+  if (this.bottomInput === undefined || this.bottomInput === null) {
+    if (inputData.oldCarryOver === null || inputData.oldCarryOver === undefined) {
+      this.flagIsNonTrivial = false;
+      return;
+    }
+    if (inputData.oldCarryOver.getDigit() === undefined || inputData.oldCarryOver.getDigit() === null || inputData.oldCarryOver.getDigit() === 0) {
+      this.flagIsNonTrivial = false;
+      return;
+    }
+  }
+
   if (this.bottomInput === null || this.bottomInput === undefined) {
-    this.bottomInput = new HighlightedContent();
+    this.bottomInput = new HighlightedContent(0);
   }
   /** @type {HighlightedContent} */
   this.bottom = null;
@@ -324,12 +345,6 @@ function OneDigitSubtractionWithCarryOver(
     this.newCarryOverContent = this.newCarryOver.getDigit();
   }
   this.oldCarryOver = inputData.oldCarryOver;
-  /** @type {HighlightedContent} */
-  this.resultDigitInput = inputData.resultDigit;
-  /** @type {HighlightedContent} */
-  this.resultDigit = null;
-  this.startingFrame = inputData.startingFrame;
-  this.endFrame = this.startingFrame;
   /** @type {HighlightedContent} */
   this.content = null;
   /** @type {HighlightedContent} */
@@ -353,6 +368,9 @@ function OneDigitSubtractionWithCarryOver(
 
 OneDigitSubtractionWithCarryOver.prototype.computeContent = function () {
   this.content = new HighlightedContent();
+  if (!this.flagIsNonTrivial) {
+    return;
+  }
   if (!this.flagUseColumns) {
     this.content.push("<br><br>\\hfil\\hfil$");
   }
@@ -414,6 +432,13 @@ OneDigitSubtractionWithCarryOver.prototype.computeContent = function () {
 }
 
 OneDigitSubtractionWithCarryOver.prototype.highlightContent = function () {
+  if (!this.flagIsNonTrivial) {
+    this.resultDigitInput.showFrame = this.startingFrame;
+    this.resultDigitInput.highlightFrames.push(this.startingFrame);
+    this.topInput.highlightFrames.push(this.startingFrame);
+    this.endFrame = this.startingFrame;
+    return;
+  }
   this.content.showFrame = this.startingFrame;
   if (this.oldCarryOver !== null && this.oldCarryOver !== undefined) {
     if (this.oldCarryOver.getDigit() !== 0) {
@@ -3102,12 +3127,12 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
   this.solution.push(`\\cline{${this.divisor.digits.length + 2} - ${this.numberOfColumns}}`); 
   this.solution.push("<br>");
   this.solution.push(this.carryOverDivisor.getTableRow(0));
-  this.solution.push(`\\multicolumn{1}{|@{}l@{}}{}& `);
+  this.solution.push(`&\\multicolumn{1}{|@{}l@{}}{}& `);
   this.solution.push(this.intermediateCarryOvers[0].getTableRow(1));
   this.solution.push(`\\\\`);
   this.solution.push("\n<br>\n");
   this.solution.push(this.divisor.getTableRow(1));
-  this.solution.push("\\multicolumn{1}{|l@{}}{~}&");
+  this.solution.push("&\\multicolumn{1}{|l@{}}{~}&");
   this.solution.push(`~~~&`);
   this.solution.push(this.dividend.getTableRow(0));
   for (var counterIntermediate = 0; counterIntermediate < this.intermediates.length; counterIntermediate ++) {
@@ -3187,6 +3212,12 @@ function FreeCalcSubtractionAlgorithm() {
   
   /**@type {HighlightedContent} */
   this.slideContent = null;
+  /**@type {HighlightedContent} */
+  this.algorithmMain = null;
+  /**@type {HighlightedContent} */
+  this.minusSign = null;
+  /**@type {HighlightedContent} */
+  this.lineSubtraction = null;
   /**@type {ColumnsReversedHighlighted} */
   this.summand = null;
   /**@type {ColumnsReversedHighlighted} */
@@ -3200,9 +3231,9 @@ function FreeCalcSubtractionAlgorithm() {
     /**@type {OneDigitSubtractionWithCarryOver} */
     computation: null,
     /** @type {number} */
-    oldCarryOverContent: -1,
+    oldCarryOverContent: - 1,
     /** @type {number} */
-    newCarryOverContent: -1,
+    newCarryOverContent: - 1,
     /** @type {HighlightedContent} */
     newCarryOverContainer: null,
     /** @type {number} */
@@ -3212,9 +3243,24 @@ function FreeCalcSubtractionAlgorithm() {
   };
 
   this.notes = {
+    considerations: {
+      /**@type {HighlightedContent} */
+      content: null,
+      /**@type {HighlightedContent} */
+      removeLeadingZeroes: null,
+      /**@type {HighlightedContent} */
+      ensureSummandLarger: null,
+    },
     /**@type {HighlightedContent} */
-    considerations: null,
     computations: null,
+    problemStatement: {
+      /**@type {HighlightedContent} */
+      content: null,
+      /**@type {HighlightedContent} */
+      subtracand: null,
+      /**@type {HighlightedContent} */
+      summand: null,
+    }
   };
 }
 
@@ -3230,16 +3276,27 @@ FreeCalcSubtractionAlgorithm.prototype.init = function(
 ) {
   this.inputSummand = inputData.topNumber;
   this.inputSubtracand = inputData.bottomNumber;
-  this.base = inputData.base;
+  this.inputBase = inputData.base;
   this.startingFrame = inputData.startingFrameNumber;
 }
 
 FreeCalcSubtractionAlgorithm.prototype.computeOneRound = function(digitIndex) {
-  this.oneRound.newCarryOverContent = new HighlightedContent();
-  this.carryOvers.digits[digitIndex + 1] = this.oneRound.newCarryOverContent;
-  this.oneRound.resultDigitContent
-  this.result.digits[digitIndex] = new HighlightedContent();
+  this.oneRound.newCarryOverContainer = new HighlightedContent();
+  this.oneRound.resultDigitContainer = new HighlightedContent();
+  this.result.digits[digitIndex] = this.oneRound.resultDigitContainer;
+  //computations here
+  this.oneRound.newCarryOverContent = 0;
+  this.oneRound.resultDigitContent = this.oneRound.oldCarryOverContent + this.summand.getDigit(digitIndex) - this.subtracand.getDigit(digitIndex);
+  if (this.oneRound.resultDigitContent < 0) {
+    this.oneRound.resultDigitContent += this.base;
+    this.oneRound.newCarryOverContent = - 1;
+  }
+  this.oneRound.newCarryOverContainer.push(this.oneRound.newCarryOverContent);
+  this.oneRound.resultDigitContainer.push(this.oneRound.resultDigitContent);
 
+  if (this.oneRound.newCarryOverContent !== 0) {
+    this.carryOvers.digits[digitIndex + 1] = this.oneRound.newCarryOverContainer;
+  }
 
   /** @type {{base: number, top: HighlightedContent, bottom: HighlightedContent, startingFrame: number, newCarryOver: HighlightedContent, oldCarryOver: HighlightedContent, resultDigit: HighlightedContent, useColumns: boolean}} */
   var subtractionData = {
@@ -3247,14 +3304,63 @@ FreeCalcSubtractionAlgorithm.prototype.computeOneRound = function(digitIndex) {
     top: this.summand.digits[digitIndex],
     bottom: this.subtracand.digits[digitIndex],
     startingFrame: this.currentFrameNumber,
-    newCarryOver: this.carryOvers.digits[digitIndex + 1],
+    newCarryOver: this.oneRound.newCarryOverContainer,
     oldCarryOver: this.carryOvers.digits[digitIndex],
     resultDigit: this.result.digits[digitIndex],
     useColumns: true
   };
-  this.oneRound.currentDigitComputation = new OneDigitSubtractionWithCarryOver(subtractionData);
-  this.oneRound.currentDigitComputation.computeContent();
-  this.notes.computations.push(this.oneRound.currentDigitComputation.content);
+  this.oneRound.computation = new OneDigitSubtractionWithCarryOver(subtractionData);
+  this.oneRound.computation.computeContent();
+  this.notes.computations.push(this.oneRound.computation.content);
+  this.oneRound.oldCarryOverContent = this.oneRound.newCarryOverContent;
+}
+
+FreeCalcSubtractionAlgorithm.prototype.computeProblemStatement = function(){
+  var problemStatement = this.notes.problemStatement; 
+  problemStatement.content.push("Subtract ");
+  problemStatement.subtracand = new HighlightedContent(this.inputSubtracand);
+  problemStatement.summand = new HighlightedContent(this.inputSummand);
+  problemStatement.content.push(problemStatement.subtracand);
+  problemStatement.content.push(" from ");
+  problemStatement.content.push(problemStatement.summand);
+  problemStatement.content.push(". ");
+  this.currentFrameNumber ++;
+  this.algorithmMain.showFrame = this.currentFrameNumber;
+  problemStatement.subtracand.highlightFrames.push(this.currentFrameNumber);
+  this.subtracand.highlightAll(this.currentFrameNumber);
+  this.currentFrameNumber ++;
+  problemStatement.summand.highlightFrames.push(this.currentFrameNumber);
+  this.summand.highlightAll(this.currentFrameNumber);
+  this.currentFrameNumber ++;
+  this.notes.considerations.ensureSummandLarger = new HighlightedContent("$\\bullet$ Ensure summand $>$ subtracand. ");
+  this.notes.considerations.ensureSummandLarger.highlightFrames.push(this.currentFrameNumber);
+  this.notes.considerations.ensureSummandLarger.showFrame = this.currentFrameNumber;
+  this.notes.considerations.content.push(this.notes.considerations.ensureSummandLarger);
+  this.subtracand.highlightAll(this.currentFrameNumber);
+  this.summand.highlightAll(this.currentFrameNumber);
+  this.currentFrameNumber ++;
+  this.lineSubtraction.showFrame = this.currentFrameNumber;
+  this.minusSign.showFrame = this.currentFrameNumber;
+}
+
+FreeCalcSubtractionAlgorithm.prototype.removeLeadingZeroesAndHighlight = function() {
+  var found = false;
+  for (var i = this.result.digits.length - 1; i >= 1; i --) {
+    if (!(this.result.digits[i].getDigit() === 0)) {
+      break;
+    }
+    found = true;
+    this.result.digits[i].hideFrame = this.currentFrameNumber + 2;
+    this.result.digits[i].highlightFrames.push(this.currentFrameNumber + 1);
+  }
+  if (!found) {
+    return;
+  }
+  this.notes.considerations.removeLeadingZeroes = new HighlightedContent("<br><br>$\\bullet$ Remove leading zeroes. ");
+  this.notes.considerations.removeLeadingZeroes.showFrame = this.currentFrameNumber + 1;
+  this.notes.considerations.removeLeadingZeroes.highlightFrames.push(this.currentFrameNumber + 1, this.currentFrameNumber + 2);
+  this.currentFrameNumber += 2;
+  this.notes.considerations.content.push(this.notes.considerations.removeLeadingZeroes);
 }
 
 FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function (inputData) {
@@ -3265,35 +3371,68 @@ FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function (inputData
   this.subtracand = new ColumnsReversedHighlighted(this.inputSubtracand);
   this.result = new ColumnsReversedHighlighted();
   this.carryOvers = new ColumnsReversedHighlighted();
-  this.currentDigitComputation = null;
+  this.oneRound.computation = null;
   this.slideContent = new HighlightedContent();
-  this.notes.considerations = new HighlightedContent();
-  this.notes.computations = new HighlightedContent();
-  this.notes.considerations.push("<br><br>$\\bullet$ Ensure top number (summand) $>$ bottom number (subtracand). ")
-  this.carryOvers.digits[0] = new HighlightedContent();
+  this.algorithmMain = new HighlightedContent();
+  this.minusSign = new HighlightedContent("\\\\\\cline{1-1}");
+  this.lineSubtraction = new HighlightedContent(`\\\\\\cline{2-${this.summand.digits.length + 1}}`);
+  this.notes.considerations.content = new HighlightedContent();
 
-  this.notes.computations.push("\\begin{array}{rcl}");
+
+  this.notes.computations = new HighlightedContent();
+  this.notes.problemStatement.content = new HighlightedContent();
+
+
+  this.carryOvers.digits[0] = new HighlightedContent();
+  this.oneRound.oldCarryOverContent = 0;
+  this.computeProblemStatement();
+  this.notes.computations.push("\\begin{array}{@{}r@{~}c@{~}l}");
   for (var i = 0; i < this.summand.digits.length; i ++) {
+    this.currentFrameNumber ++;
     this.computeOneRound(i);
+    this.oneRound.computation.highlightContent();
+    this.currentFrameNumber = this.oneRound.computation.endFrame;
   }
+  this.removeLeadingZeroesAndHighlight();
   this.notes.computations.push("\\end{array}");
 
   this.slideContent.push("\\begin{frame}");
-  this.slideContent.push("\\hfil\\hfil$\\begin{array}{c");
+  
+  this.slideContent.push (this.notes.problemStatement.content);
+  this.slideContent.push("<br><br> \\begin{columns}");
+
+  this.slideContent.push("\\column{0.4\\textwidth}")
+
+  this.slideContent.push("\\hfil\\hfil");
+
+  this.algorithmMain.push("$\\begin{array}{c");
   for (var i = 0; i < this.summand.digits.length + 1; i ++) {
-    this.slideContent.push("c");
+    this.algorithmMain.push("c");
   }
-  this.slideContent.push("}");
-  this.slideContent.push(this.carryOvers.getTableRow(1));
-  this.slideContent.push("\\\\");
-  this.slideContent.push(this.summand.getTableRow(2));
-  this.slideContent.push("\\\\");
-  var offset = this.summand.digits.length - this.subtracand.digits.length;
-  this.slideContent.push(this.subtracand.getTableRow(2 + offset));
-  this.slideContent.push("\\\\\\hline");
+  this.algorithmMain.push("}");
+  var offset = this.summand.digits.length - this.carryOvers.digits.length;
+  this.algorithmMain.push(this.carryOvers.getTableRow(1 + offset));
+  this.algorithmMain.push("\\\\");
+  this.algorithmMain.push(this.summand.getTableRow(1));
+  this.algorithmMain.push(this.minusSign);
+  offset = this.summand.digits.length - this.subtracand.digits.length;
+  this.algorithmMain.push(this.subtracand.getTableRow(1 + offset));
+  this.algorithmMain.push(this.lineSubtraction);
   offset = this.summand.digits.length - this.result.digits.length;
-  this.slideContent.push(this.result.getTableRow(2 + offset));
-  this.slideContent.push("\\end{array}$");
+  this.algorithmMain.push(this.result.getTableRow(1 + offset));
+  this.algorithmMain.push("\\end{array}$");
+  this.slideContent.push(this.algorithmMain);
+
+  this.slideContent.push("\\column{0.6\\textwidth}")
+  this.slideContent.push(this.notes.considerations.content);
+  this.slideContent.push("\\end{columns}");
+  this.slideContent.push("<br><br>\\vskip 2cm<br><br>");
+  this.slideContent.push("\\hfil\\hfil $");
+  this.slideContent.push(this.notes.computations);
+  this.slideContent.push("$");
+  var emptyContent = new HighlightedContent("");
+  emptyContent.showFrame = this.currentFrameNumber;
+  this.slideContent.push(emptyContent);
   this.slideContent.push("<br>\\end{frame}");
 }
 
