@@ -1,0 +1,28 @@
+<html>
+<script type = "text/javascript" src = "generate_slides.js"></script>
+<body onload = "initializeElements()">
+
+Pairs to test.
+<hr>
+1,3; 4,7; 2, 8; 9, 8; 5,5;
+<br>
+3,5; 7,6; 9,2
+<br>
+5,3; 4,0; 7,4; 8, 2; 9, 7
+<hr>
+6,1; 9,3; 8,2
+<hr>
+<input id = "idFirstSlideNumber" value = "1" size = "1" placeholder = "first slide"> </input>
+<input id = "idBase" value = "10" size = "1" placeholder = "base"> </input><hr>
+<input id = "idPairsToAdd" value = "6,1; 9,3; 8,2"></input><br>
+<button onclick = "theElements.generateOneDigitAdditions(false, true)">add one-digits</button>
+<button onclick = "theElements.generateOneDigitAdditions(true, false)">add one-digits cols</button>
+<button onclick = "theElements.generateOneDigitSubtractions(false, true, false)">subtract one-digits no table</button>
+<button onclick = "theElements.generateOneDigitSubtractions(false, true, true)">subtract one-digits</button>
+<button onclick = "theElements.generateOneDigitSubtractions(true, false, true)">subtract one-digit cols</button>
+
+<br>
+<span id = "idSpanOutput">
+</span>
+</body>
+</html>

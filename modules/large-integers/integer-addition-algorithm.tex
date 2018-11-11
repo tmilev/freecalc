@@ -1,0 +1,17 @@
+\begin{frame}
+We covered addition by example; algorithm follows. Feel free to skip.
+\begin{algorithm}[Addition base 10]
+\begin{itemize}
+\item[1.] Set $\bf maxNumberOfDigits$ to the larger number of digits.
+\item[2.] For each digit position $\bf{i}$, starting at position $\bf 0$:
+\item[2.1.] - Let $\bf{topDigit}$ and $\bf{bottomDigit}$ be the two digits in $\bf{i}^{th}$ position. If smaller number has no digit at the position,  set its digit to $\bf 0$.
+\item[2.2.] - Set $\bf{digitSum}$ to $\bf{topDigit} + \bf{bottomDigit}$.
+\item[2.3.] 
+- If $\bf{digitSum} \geq 10$, set $\bf{resultDigit}=\bf{digitSum} - 10$ and $\bf{carryOver} = 1$.
+
+- Else  $\bf{digitSum} < 10$, so set $\bf{resultDigit}=\bf{digitSum}$ and $\bf{carryOver} = 0$.
+\item[2.4.] - Set the result's $\bf i^{th}$ digit to $\bf {resultDigit}$.
+\item[3.] If after last step $\bf carryOver$ is $\bf 1$, set $\bf 1$ as the result's $\bf (maxNumberOfDigits +1)^{th}$ digit.
+\end{itemize}
+\end{algorithm}
+\end{frame}
