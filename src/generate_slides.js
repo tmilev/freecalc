@@ -45,6 +45,7 @@ function FreeCalcAdditionAlgorithm() {
     /**@type {HighlightedContent} */
     bottom: null, 
   };
+  /**@type {OperationTable} */
   this.additionTableExternal = null;
 }
 
@@ -617,7 +618,10 @@ OneDigitMultiplicationWithCarryOverSplit.prototype.highlightContent = function (
   }
 }
 
-function HighlightedContent(/** @type {{content: any, useOnly: boolean, showFrame: number, hideFrame: number, answerFrame: number}} */ input) {
+function HighlightedContent(
+  /** @type {{content: any, useOnly: boolean, showFrame: number, hideFrame: number, answerFrame: number}} */ 
+  input
+) {
   /** @type {HighlightedContent[]} */
   this.content = [];
   /**@type {Number[]} */
@@ -654,6 +658,20 @@ function HighlightedContent(/** @type {{content: any, useOnly: boolean, showFram
   if (input.useOnly !== undefined) {
     this.flagUseOnly = input.useOnly;
   }
+}
+
+/**@returns {boolean} */
+HighlightedContent.prototype.hasHighlight = function() {
+  if (this.showFrame > 0 ) {
+    return true;
+  }
+  if (this.answerFrame > 0) {
+    return true;
+  }
+  if (this.highlightFrames.length > 0) {
+    return true;
+  }
+  return false;
 }
 
 HighlightedContent.prototype.isEmpty = function () {
@@ -882,8 +900,8 @@ FreeCalcAdditionAlgorithm.prototype.processColumnBase10 = function(
   rightSide.content.push(resultWithCarryOver);
   
   if (this.additionTableExternal !== null && carryOverOld === 0) {
-    this.additionTableExternal.plusSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
-    this.additionTableExternal.products[topDigit][bottomDigit].answerFrame = this.currentFrameNumber + 1;
+    this.additionTableExternal.operationSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+    this.additionTableExternal.contentOperation[topDigit][bottomDigit].answerFrame = this.currentFrameNumber + 1;
     this.additionTableExternal.rowLabels[topDigit].highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
     this.additionTableExternal.columnLabels[bottomDigit].highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   }
@@ -3265,7 +3283,7 @@ function FreeCalcSubtractionAlgorithm() {
   this.inputSubtracand = "";
 
   /** @type {string} */
-  this.startingFrame = "";
+  this.startingFrameNumber = "";
   /** @type {number} */
   this.currentFrameNumber = - 1;
 
@@ -3316,6 +3334,8 @@ function FreeCalcSubtractionAlgorithm() {
       ensureSummandLarger: null,
     },
     /**@type {HighlightedContent} */
+    computationsWithEquationStartAndEnd: null,
+    /**@type {HighlightedContent} */
     computations: null,
     problemStatement: {
       /**@type {HighlightedContent} */
@@ -3326,16 +3346,6 @@ function FreeCalcSubtractionAlgorithm() {
       summand: null,
     }
   };
-}
-
-FreeCalcSubtractionAlgorithm.prototype.init = function(
-  /** @type{{topNumber: string, bottomNumber: string, startingFrameNumber: string, base: string}} */ 
-  inputData
-) {
-  this.inputSummand = inputData.topNumber;
-  this.inputSubtracand = inputData.bottomNumber;
-  this.inputBase = inputData.base;
-  this.startingFrame = inputData.startingFrameNumber;
 }
 
 FreeCalcSubtractionAlgorithm.prototype.computeOneRound = function(digitIndex) {
@@ -3421,10 +3431,30 @@ FreeCalcSubtractionAlgorithm.prototype.removeLeadingZeroesAndHighlight = functio
   this.notes.considerations.content.push(this.notes.considerations.removeLeadingZeroes);
 }
 
-FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function (inputData) {
-  this.init(inputData);
-  this.currentFrameNumber = Number(this.startingFrame);
+FreeCalcSubtractionAlgorithm.prototype.init = function(
+  /** @type{{topNumber: string, bottomNumber: string, startingFrameNumber: string, base: string}} */ 
+  inputData
+) {
+  this.inputSummand = inputData.topNumber;
+  this.inputSubtracand = inputData.bottomNumber;
+  this.inputBase = inputData.base;
+  this.startingFrameNumber = inputData.startingFrameNumber;
+}
+
+FreeCalcSubtractionAlgorithm.prototype.initComputeInputs = function(){
+  this.topNumber = new ColumnsReversedHighlighted(this.topInput);
+  this.bottomNumber = new ColumnsReversedHighlighted(this.bottomInput);
   this.base = Number(this.inputBase);
+  if (typeof this.base !== "number") {
+    throw (`Failed to convert base to integer`);
+  }
+  this.numberOfDigits = Math.max(this.topNumber.digits.length, this.bottomNumber.digits.length);
+  this.currentFrameNumber = Number(this.startingFrameNumber);
+}
+
+FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function(inputData) {
+  this.init(inputData);
+  this.initComputeInputs();
   this.summand = new ColumnsReversedHighlighted(this.inputSummand);
   this.subtracand = new ColumnsReversedHighlighted(this.inputSubtracand);
   this.result = new ColumnsReversedHighlighted();
@@ -3438,13 +3468,14 @@ FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function (inputData
 
 
   this.notes.computations = new HighlightedContent();
+  this.notes.computationsWithEquationStartAndEnd = new HighlightedContent();
   this.notes.problemStatement.content = new HighlightedContent();
 
 
   this.carryOvers.digits[0] = new HighlightedContent();
   this.oneRound.oldCarryOverContent = 0;
   this.computeProblemStatement();
-  this.notes.computations.push("\\begin{array}{@{}r@{~}c@{~}l}");
+  this.notes.computationsWithEquationStartAndEnd.push("\\begin{array}{@{}r@{~}c@{~}l}");
   for (var i = 0; i < this.summand.digits.length; i ++) {
     this.currentFrameNumber ++;
     this.computeOneRound(i);
@@ -3452,7 +3483,8 @@ FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function (inputData
     this.currentFrameNumber = this.oneRound.computation.endFrame;
   }
   this.removeLeadingZeroesAndHighlight();
-  this.notes.computations.push("\\end{array}");
+  this.notes.computationsWithEquationStartAndEnd.push(this.notes.computations);
+  this.notes.computationsWithEquationStartAndEnd.push("\\end{array}");
 
   this.slideContent.push("\\begin{frame}");
   
@@ -3504,7 +3536,7 @@ function OperationTable(operationFunction, operationSymbol, base) {
   /**@type {HighlightedContent} */
   this.content = new HighlightedContent();
   /**@type {HighlightedContent} */
-  this.plusSign = new HighlightedContent();
+  this.operationSign = new HighlightedContent();
   /**@type {HighlightedContent[][]} */
   this.contentOperation = null;
   /**@type {HighlightedContent[]} */
@@ -3516,17 +3548,17 @@ function OperationTable(operationFunction, operationSymbol, base) {
   this.init(operationFunction, operationSymbol, base);
 }
 
-OperationTable.prototype.init = function (operationFunction, operationSymbol, base) {
+OperationTable.prototype.init = function(operationFunction, operationSymbol, base) {
   this.operationFunction = operationFunction;
   this.operationSymbol = operationSymbol;
   this.base = base;
 }
 
-OperationTable.prototype.addition = function (left, right) {
+OperationTable.prototype.addition = function(left, right) {
   return left + right;
 }
 
-OperationTable.prototype.subtraction = function (left, right) {
+OperationTable.prototype.subtraction = function(left, right) {
   return left - right;
 }
 
@@ -3534,10 +3566,21 @@ OperationTable.prototype.highlightTable = function () {
   this.currentFrameNumber ++;
   for (var i = 0; i < this.base; i ++) {
     for (var j = 0; j < this.base; j ++) {
-      if (this.contentOperation[i][j].answerFrame > 0) {
+      var currentEntry = this.contentOperation[i][j];
+      if (currentEntry.answerFrame > 0 || currentEntry.highlightFrames.length > 0) {
         continue;
       }
-      this.contentOperation[i][j].answerFrame = this.currentFrameNumber;
+      currentEntry.answerFrame = this.currentFrameNumber;
+    }
+  }
+  for (var i = 0; i < this.base; i ++ ) {
+    var currentRow = this.rowLabels[i];
+    var currentColumn = this.columnLabels[i];
+    if (!currentRow.hasHighlight()) {
+      currentRow.answerFrame = this.currentFrameNumber;
+    }
+    if (!currentColumn.hasHighlight()) {
+      currentColumn.answerFrame = this.currentFrameNumber;
     }
   }
 }
@@ -3548,7 +3591,7 @@ OperationTable.prototype.prepareTable = function() {
   this.contentOperation = new Array(this.base);
   this.rowLabels = new Array(this.base);
   this.columnLabels = new Array(this.base);
-  this.plusSign = new HighlightedContent("+");
+  this.operationSign = new HighlightedContent(this.operationSymbol);
   var rowLabels = this.rowLabels;
   var columnLabels = this.columnLabels;
   var contentOperation = this.contentOperation;
@@ -3643,10 +3686,19 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeOnePairHorizontal = function(
   this.onePair.equality.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   this.onePair.right.answerFrame = this.currentFrameNumber + 1;
 
-  this.additionTable.plusSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
-  this.additionTable.contentOperation[leftNumber][rightNumber].answerFrame = this.currentFrameNumber + 1;
-  this.additionTable.rowLabels[leftNumber].highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
-  this.additionTable.columnLabels[rightNumber].highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  var currentRowLabel = this.additionTable.rowLabels[leftNumber];
+  var currentColumnLabel = this.additionTable.columnLabels[rightNumber];
+  var sumBox = this.additionTable.contentOperation[leftNumber][rightNumber];
+  this.additionTable.operationSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  sumBox.answerFrame = this.currentFrameNumber + 1;
+  currentRowLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  currentColumnLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  if (currentColumnLabel.showFrame <= 0) {
+    currentColumnLabel.showFrame = this.currentFrameNumber;
+  }
+  if (sumBox.showFrame <= 0) {
+    sumBox.showFrame = this.currentFrameNumber;
+  }
 
   this.currentFrameNumber += 2;
 }
@@ -3654,7 +3706,6 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeOnePairHorizontal = function(
 FreeCalcOneDigitAdditionAlgorithm.prototype.computeOnePairVertical = function(index) {
  
 }
-
 
 FreeCalcOneDigitAdditionAlgorithm.prototype.computeSlideContent = function(inputData, useColumns, makeTableNote) {
   this.slideContent = new HighlightedContent();
@@ -3730,6 +3781,7 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeSlideContent = function(input
     this.slideContent.push(notes);
     this.currentFrameNumber ++;
   }
+  this.additionTable.currentFrameNumber = this.currentFrameNumber;
   this.additionTable.highlightTable();
   this.slideContent.push("\\end{example}");
   this.slideContent.push("<br><br>");
@@ -3745,14 +3797,17 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeSlideContent = function(input
   this.slideContent.push("\\end{frame}");
 }
 
-
 function FreeCalcOneDigitSubtractionAlgorithm() {
   /**@type {HighlightedContent} */
   this.slideContent = null;
+  /**@type {HighlightedContent} */
+  this.solution = null;
+  /**@type {HighlightedContent} */
+  this.horizontalExposition = null;
   /**@type {number} */
   this.base = - 1;
   /**@type {number[][]} */
-  this.pairsToAdd = [];
+  this.pairsToOperate = [];
   /**@type {string} */
   this.inputPairs = "";
   /**@type {string} */
@@ -3790,17 +3845,21 @@ FreeCalcOneDigitSubtractionAlgorithm.prototype.computeOnePairHorizontal = functi
   this.onePair.equality = new HighlightedContent("=");
   this.onePair.reason = new HighlightedContent();
 
-  var leftNumber = this.pairsToAdd[index][0];
-  var rightNumber = this.pairsToAdd[index][1];
+  var leftNumber = this.pairsToOperate[index][0];
+  var rightNumber = this.pairsToOperate[index][1];
+  var reasonContent = new HighlightedContent();
   this.onePair.right = new HighlightedContent(leftNumber - rightNumber);
 
   this.onePair.reason.push("&")
   this.onePair.reason.push("\\text{because }");
-  this.onePair.reason.push(rightNumber);
-  this.onePair.reason.push("+");
-  this.onePair.reason.push(this.onePair.right);
-  this.onePair.reason.push("=");
-  this.onePair.reason.push(leftNumber);
+  this.onePair.reason.push(reasonContent);
+
+  reasonContent.push(rightNumber);
+  reasonContent.push("+");
+  reasonContent.push(this.onePair.right);
+  reasonContent.push("=");
+  reasonContent.push(leftNumber);
+  reasonContent.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1)
   this.onePair.reason.showFrame = this.currentFrameNumber;
 
   this.onePair.left.push(leftNumber);
@@ -3813,27 +3872,91 @@ FreeCalcOneDigitSubtractionAlgorithm.prototype.computeOnePairHorizontal = functi
   this.onePair.content.push("&")
   this.onePair.content.push(this.onePair.right);
   this.onePair.content.push(this.onePair.reason);
-  this.onePair.left.highlightFrames.push (this.currentFrameNumber, this.currentFrameNumber + 1);
+  this.onePair.left.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   this.onePair.equality.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   this.onePair.right.answerFrame = this.currentFrameNumber + 1;
 
-  this.additionTable.plusSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
-  this.additionTable.contentOperation[leftNumber][rightNumber].answerFrame = this.currentFrameNumber + 1;
-  this.additionTable.rowLabels[leftNumber].highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
-  this.additionTable.columnLabels[rightNumber].highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
 
+
+  var leftAdditionNumber = leftNumber - rightNumber;
+  var topAdditionNumber = rightNumber;
+
+  this.additionTable.operationSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  var theSum = this.additionTable.contentOperation[leftAdditionNumber][topAdditionNumber];
+  var theRow = this.additionTable.rowLabels[leftAdditionNumber];
+  var theColumn = this.additionTable.columnLabels[topAdditionNumber];
+  theSum.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  theRow.answerFrame = this.currentFrameNumber + 1;
+  theColumn.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  if (!theSum.showFrame <= 0) {
+    theSum.showFrame = this.currentFrameNumber;
+  }
+  if (!theColumn.showFrame <= 0) {
+    theColumn.showFrame = this.currentFrameNumber;
+  }
   this.currentFrameNumber += 2;
+}
+
+FreeCalcOneDigitSubtractionAlgorithm.prototype.computeOnePairVertical = function(
+  /** @type {number} */
+  index
+) {
+  var theAlgorithm = new FreeCalcSubtractionAlgorithm();
+  //theAlgorithm.additionTableExternal = this.additionTable;
+  var topNumber = this.pairsToOperate[index][0];
+  var bottomNumber = this.pairsToOperate[index][1];
+  theAlgorithm.computeSlideContent({
+    topNumber: `${topNumber}`,
+    bottomNumber: `${bottomNumber}`,
+    startingFrameNumber: this.currentFrameNumber,
+    base: this.base,
+  });
+  this.solution.push("\\hfil");
+  this.solution.push(theAlgorithm.algorithmMain);
+  this.currentFrameNumber = theAlgorithm.currentFrameNumber;
+  var left = new HighlightedContent(topNumber);
+  var right = new HighlightedContent(bottomNumber);
+  var minus = new HighlightedContent(" ~-~ ");
+  var equality = new HighlightedContent("=");
+  var result = new HighlightedContent(topNumber - bottomNumber);
+  this.horizontalExposition.push(left);
+  this.horizontalExposition.push(minus);
+  this.horizontalExposition.push(right);
+  this.horizontalExposition.push("&");
+  this.horizontalExposition.push(equality);
+  this.horizontalExposition.push("&");
+  this.horizontalExposition.push(result);
+  this.horizontalExposition.push("\\\\");  
+  result.answerFrame = this.currentFrameNumber;
+  var columnEntry = this.additionTable.columnLabels[bottomNumber];
+  var sumEntry = this.additionTable.contentOperation[topNumber - bottomNumber][bottomNumber];
+  var rowEntry = this.additionTable.rowLabels[topNumber - bottomNumber];
+  columnEntry.showFrame = this.currentFrameNumber - 5;
+  sumEntry.showFrame = this.currentFrameNumber - 5;
+  rowEntry.answerFrame = this.currentFrameNumber;
+
+
+  right.highlightFrames.push(this.currentFrameNumber - 5, this.currentFrameNumber - 3, this.currentFrameNumber - 1, this.currentFrameNumber);
+  columnEntry.highlightFrames.push(this.currentFrameNumber - 5, this.currentFrameNumber - 3, this.currentFrameNumber - 1, this.currentFrameNumber);
+  left.highlightFrames.push (this.currentFrameNumber - 4, this.currentFrameNumber - 3, this.currentFrameNumber - 1, this.currentFrameNumber);
+  sumEntry.highlightFrames.push(this.currentFrameNumber - 4, this.currentFrameNumber - 3, this.currentFrameNumber - 1, this.currentFrameNumber);
+  minus.highlightFrames.push(this.currentFrameNumber - 2, this.currentFrameNumber - 1, this.currentFrameNumber);
+  equality.highlightFrames.push(this.currentFrameNumber - 1, this.currentFrameNumber);
+
 }
 
 FreeCalcOneDigitSubtractionAlgorithm.prototype.computeSlideContent = function(inputData, useColumns, makeTableNote, makeTable) {
   this.slideContent = new HighlightedContent();
+  this.solution = new HighlightedContent();
+
+  this.horizontalExposition = new HighlightedContent();
 
   this.inputBase = inputData.base;
   this.inputPairs = inputData.pairsToAdd;
   this.base = Number(this.inputBase);
   this.startingFrameNumber = inputData.startingFrameNumber;
   this.currentFrameNumber = Number(this.startingFrameNumber);
-  this.pairsToAdd = [];
+  this.pairsToOperate = [];
   this.flagUseColumns = useColumns;
   this.flagShowMakeTableNote = makeTableNote;
   var splitBySemicolumn = this.inputPairs.split(";");
@@ -3846,51 +3969,40 @@ FreeCalcOneDigitSubtractionAlgorithm.prototype.computeSlideContent = function(in
     if (splitByComma.length < 2) {
       continue; 
     }
-    this.pairsToAdd.push([Number(splitByComma[0]), Number(splitByComma[1])]);
+    this.pairsToOperate.push([Number(splitByComma[0]), Number(splitByComma[1])]);
   }
   this.slideContent.push("\\begin{frame}");
-  this.slideContent.push("<br><br>\\vskip -0.1cm<br><br>");
-  this.slideContent.push("\\begin{example}[One digit subtraction, result $>0$]")
-  this.slideContent.push("Subtract the one-digit numbers."); 
-  this.slideContent.push("<br><br>");
   if (!this.flagUseColumns) {
+    this.slideContent.push("<br><br>\\vskip -0.1cm<br><br>");
+    this.slideContent.push("\\begin{example}[One digit subtraction, result $>0$]")
+    this.slideContent.push("Subtract the one-digit numbers."); 
+    this.slideContent.push("<br><br>");
     this.slideContent.push("\\hfil\\hfil$\\begin{array}{rcl@{~~~~}|l}");
     this.currentFrameNumber ++;
-    for (var i = 0; i < this.pairsToAdd.length; i ++) {
+    for (var i = 0; i < this.pairsToOperate.length; i ++) {
       this.computeOnePairHorizontal(i);
       this.slideContent.push(this.onePair.content);
       this.slideContent.push("\\\\");
     }
     this.slideContent.push("\\end{array}$");
   } else {
-    var notes = new HighlightedContent();
-    this.slideContent.push("\\hfil");
-    for (var i = 0; i < this.pairsToAdd.length; i ++) {
-      var theAlgorithm = new FreeCalcAdditionAlgorithm();
-      theAlgorithm.additionTableExternal = this.additionTable;
-      var topNumber = this.pairsToAdd[i][0];
-      var bottomNumber = this.pairsToAdd[i][1];
-      theAlgorithm.init({
-        topNumber: `${topNumber}`,
-        bottomNumber: `${bottomNumber}`,
-        startingFrameNumber: this.currentFrameNumber,
-        base: this.base,
-      });
-      theAlgorithm.initComputeInputs();
-      theAlgorithm.computeResultDigits();
-      theAlgorithm.computeSolution();
-      this.slideContent.push("\\hfil");
-      this.slideContent.push(theAlgorithm.solution);
-      this.currentFrameNumber = theAlgorithm.currentFrameNumber;
-      notes.push(" $");
-      notes.push(theAlgorithm.intermediates);
-      notes.push("$ ");
+    this.slideContent.push("<br><br>\\vskip -0.15cm<br><br>");
+    this.slideContent.push("\\begin{example}[One digit subtraction, result $>0$]")
+    this.slideContent.push("Subtract the one-digit numbers.<br><br>\n\n"); 
+    this.horizontalExposition.push(" \\hfil\\hfil $\\begin{array}{rcl}");
+    this.solution.push("\\hfil");
+    for (var i = 0; i < this.pairsToOperate.length; i ++) {
+      this.computeOnePairVertical(i);
     }
-    this.slideContent.push("<br><br>");
-    this.slideContent.push("$\\displaystyle \\vphantom{\\int}$ ");
-    this.slideContent.push(notes);
+    this.horizontalExposition.push("\\end{array}$");
+    //this.slideContent.push("Subtract the one-digit numbers."); 
+    this.slideContent.push(this.horizontalExposition);
+    this.slideContent.push("<br><br>\\vskip -0.35cm");
+    //this.slideContent.push("$\\displaystyle \\vphantom{\\int}$ ");
+    this.slideContent.push(this.solution);
     this.currentFrameNumber ++;
   }
+  this.additionTable.currentFrameNumber = this.currentFrameNumber;
   this.additionTable.highlightTable();
   this.slideContent.push("\\end{example}");
   if (makeTable) {
@@ -3900,10 +4012,12 @@ FreeCalcOneDigitSubtractionAlgorithm.prototype.computeSlideContent = function(in
     this.slideContent.push(this.additionTable.content);
     this.slideContent.push("\\column{0.5\\textwidth}");
     if (this.flagShowMakeTableNote) {
-      this.slideContent.push("<br><br>$\\bullet$ To do one-digit addition quickly: make table with all possibilities. ");
+      this.slideContent.push("<br><br>$\\bullet$ To do one-digit subtraction: guess from addition table. ");
     }
     if (this.flagUseColumns) {
-      this.slideContent.push("<br><br>$\\bullet$ Addition can also be written in columns. ");
+      var note = new HighlightedContent("<br><br>$\\bullet$ Subtraction can also be written in columns. ");
+      note.showFrame = 2;
+      this.slideContent.push(note);
     }
     this.slideContent.push("\\end{columns}");
   }
