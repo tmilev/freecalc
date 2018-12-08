@@ -3458,7 +3458,7 @@ FreeCalcSubtractionAlgorithm.prototype.init = function(
 }
 
 /**@returns {String[]} */
-function NumberToString(
+function NumberToStringLittleEndian(
   /**@type {Number} */
   input,
   /**@type {String[]} */
@@ -3473,11 +3473,11 @@ function NumberToString(
     resultDigitsReversed.push(input % base);
     input = Math.floor(input / base);
   }
-  return resultDigitsReversed.reverse();
+  return resultDigitsReversed;
 }
 
 /**@returns {String[]} */
-function NumberToStringDefaultDigits(
+function NumberToStringLittleEndianDefaultDigits(
   /**@type {Number} */
   input,
   /**@type {Number} */
@@ -3492,15 +3492,15 @@ function NumberToStringDefaultDigits(
       digits.push(`${i}`);
     }
   }
-  var result = NumberToString(input, digits);
+  var result = NumberToStringLittleEndian(input, digits);
   console.log("DEBUG: And the result is: " + result);
   return result;
 }
 
 FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.init(inputData);
-  this.summand = new ColumnsReversedHighlighted(NumberToStringDefaultDigits(Number(this.inputSummand), this.base));
-  this.subtracand = new ColumnsReversedHighlighted(NumberToStringDefaultDigits(Number(this.inputSubtracand), this.base));
+  this.summand = new ColumnsReversedHighlighted(NumberToStringLittleEndianDefaultDigits(Number(this.inputSummand), this.base));
+  this.subtracand = new ColumnsReversedHighlighted(NumberToStringLittleEndianDefaultDigits(Number(this.inputSubtracand), this.base));
   this.result = new ColumnsReversedHighlighted();
   this.carryOvers = new ColumnsReversedHighlighted();
   this.oneRound.computation = null;
@@ -3562,7 +3562,8 @@ FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function(inputData)
   this.slideContent.push("\\end{columns}");
   this.slideContent.push("<br><br>\\vskip 2cm<br><br>");
   this.slideContent.push("\\hfil\\hfil $");
-  this.slideContent.push(this.notes.computations);
+  
+  this.slideContent.push(this.notes.computationsWithEquationStartAndEnd);
   this.slideContent.push("$");
   var emptyContent = new HighlightedContent("");
   emptyContent.showFrame = this.currentFrameNumber;

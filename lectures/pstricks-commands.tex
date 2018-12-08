@@ -57,6 +57,7 @@ pdfcrop={},
 \newcommand{\fcPlotPoints}{200}
 \newcommand{\fcLineStyle}{0}
 \newcommand{\fcDashLength}{1}
+\newcommand{\fcTickSizeToLengthRatio}{0.05}
 \newcommand{\fcContourOptions}{
 [(\fcArrows) (->) eq (\fcArrows) (<-) eq (\fcArrows) (<->) eq or or [\fcGetColorCode{\fcColorLine}] \fcLineWidth [\fcDashes] (\fcLineStyle)]
 }
@@ -107,6 +108,7 @@ ifelse\space %
 %\define@key{fcGraphics}{debugContour}[\renewcommand{\fcContourDebugged}{-1\space}]{\renewcommand{\fcContourDebugged}{#1\space}}
 \define@key{fcGraphics}{iterationsY}[\renewcommand{\fcIterationsY}{9\space}]{\renewcommand{\fcIterationsY}{#1\space}}
 \define@key{fcGraphics}{screenStyle}[\renewcommand{\fcScreenStyle}{z}]{\renewcommand{\fcScreenStyle}{#1}}
+\define@key{fcGraphics}{ticksizeToLengthRatio}[\renewcommand{\fcTickSizeToLengthRatio}{0.05}]{\renewcommand{\fcTickSizeToLengthRatio}{#1}}
 \define@key{fcGraphics}{xLabel}[\renewcommand{\fcXLabel}{$x$}]{\renewcommand{\fcXLabel}{#1}}
 \define@key{fcGraphics}{yLabel}[\renewcommand{\fcYLabel}{$y$}]{\renewcommand{\fcYLabel}{#1}}
 \define@key{fcGraphics}{zLabel}[\renewcommand{\fcZLabel}{$z$}]{\renewcommand{\fcZLabel}{#1}}
@@ -573,6 +575,22 @@ terminalArmPoint ==
 \makeatother
 
 \newcommand{\fcDistance}{ \fcVectorMinusVector \fcVectorNorm\space}
+
+
+%Indicates length with options #1
+%from point (argument2, argument3) to point (argument4, argument5)
+\newcommand{\fcLengthIndicatorNoLabel}[5][]{%
+\setkeys{fcGraphics}{#1}%
+\pstVerb{5 dict begin
+/oV [#3 #5 sub #4 #2 sub] def 
+/nV oV \fcVectorNormalize def
+/nVscaled nV \fcTickSizeToLengthRatio\space \fcVectorTimesScalar def
+}%
+\psline[linecolor=red, #1](! #2 #3)(! #4 #5)%
+\psline[linecolor=red, #1, arrows=none](! [#2 #3] nVscaled \fcVectorMinusVector \fcArrayToStack)(! [#2 #3] nVscaled \fcVectorPlusVector \fcArrayToStack)%
+\psline[linecolor=red, #1, arrows=none](! [#4 #5] nVscaled \fcVectorMinusVector \fcArrayToStack)(! [#4 #5] nVscaled \fcVectorPlusVector \fcArrayToStack)%
+\pstVerb{end}%
+}%
 
 %Indicates length with options #1
 %from point (argument2, argument3) to point (argument4, argument5)
