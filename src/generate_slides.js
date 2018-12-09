@@ -74,7 +74,7 @@ function ColumnsReversedHighlighted(
       this.digits.push(new HighlightedContent({content: input[i]}));
     }
   } else {
-    this.input = input;
+    this.inputString = input;
     this.sanitizeInput();
   } 
   this.digitPrefix = "";
@@ -89,7 +89,6 @@ ColumnsReversedHighlighted.prototype.isGreaterThanOrEqualTo = function (/**@type
   }
   return this.hasGreaterThanOrEqualToStart(other);
 }
-
 
 ColumnsReversedHighlighted.prototype.hasGreaterThanOrEqualToStart = function (/**@type {ColumnsReversedHighlighted} */ other) {
   var numberOfDigits = this.getNumberSignificantDigits();
@@ -718,7 +717,7 @@ HighlightedContent.prototype.getDigit = function () {
   if (digitContainer === undefined) {
     return undefined;
   }
-  if (typeof this.content === "number") {
+  if (typeof digitContainer.content === "number") {
     return digitContainer.content;
   }
   if (Array.isArray(digitContainer.content)) {
@@ -1275,7 +1274,7 @@ function FreeCalcMultiplicationAlgorithm() {
   /**@type {ColumnsReversedHighlighted} */
   this.numberRight = null;
   /**@type {ColumnsReversedHighlighted} */
-  this.resultNumber = null;
+  this.multiplicationResultNumber = null;
   /**@type {ColumnsReversedHighlighted[]} */
   this.carryOvers = null;
   /**@type {ColumnsReversedHighlighted} */
@@ -1389,15 +1388,15 @@ FreeCalcMultiplicationAlgorithm.prototype.oneProduct = function (
   this.notes.push(currentNote);
 }
 
-FreeCalcMultiplicationAlgorithm.prototype.computeIntermediate = function (rightDigitIndex) {
-  this.intermediates[rightDigitIndex] = new ColumnsReversedHighlighted();
-  var currentIntermediate = this.intermediates[rightDigitIndex];
-  this.carryOvers[rightDigitIndex] = new ColumnsReversedHighlighted();
-  var carryOversCurrent = this.carryOvers[rightDigitIndex];
+FreeCalcMultiplicationAlgorithm.prototype.computeIntermediate = function(leftDigitIndex) {
+  this.intermediates[leftDigitIndex] = new ColumnsReversedHighlighted();
+  var currentIntermediate = this.intermediates[leftDigitIndex];
+  this.carryOvers[leftDigitIndex] = new ColumnsReversedHighlighted();
+  var carryOversCurrent = this.carryOvers[leftDigitIndex];
   /**@type {HighlightedContent} */
-  var rightDigit = this.numberRight.digits[rightDigitIndex];
-  for (var i = 0; i < this.numberLeft.digits.length; i ++) {
-    var leftDigit = this.numberLeft.digits[i];
+  var leftDigit = this.numberLeft.digits[leftDigitIndex];
+  for (var i = 0; i < this.numberRight.digits.length; i ++) {
+    var rightDigit = this.numberRight.digits[i];
     currentIntermediate.digits[i] = new HighlightedContent();
     var resultDigit = currentIntermediate.digits[i];
     this.notes.push(new HighlightedContent());
@@ -1442,17 +1441,24 @@ FreeCalcMultiplicationAlgorithm.prototype.combineCarryOvers = function() {
   this.carryOversCombined.digits = new Array(this.numberLeft.digits.length);
   this.carryOversCombined.digitPrefix = "\\text{{\\tiny ${{ ";
   this.carryOversCombined.digitSuffix = "}}$}}";
-  for (var i = 0; i < this.numberRight.digits.length; i ++ ) {
+  for (var i = 0; i < this.numberRight.digits.length; i ++) {
     this.carryOversCombined.digits[i] = new HighlightedContent();
     var currentCarryOver = this.carryOversCombined.digits[i];
     currentCarryOver.content = [];
     for (var j = 0; j < this.carryOvers.length; j ++) {
-      if (this.carryOvers[j].digits[i].isEmpty()) {
+      if (this.carryOvers[j] === undefined) {
         continue;
       }
-      this.carryOvers[j].digits[i].hideFrame = this.carryOverHideFrames[j];
-      this.carryOvers[j].digits[i].flagUseOnly = true;
-      currentCarryOver.push(this.carryOvers[j].digits[i]);
+      var currentDigit = this.carryOvers[j].digits[i];
+      if (currentDigit === undefined) {
+        continue;
+      }
+      if (currentDigit.isEmpty()) {
+        continue;
+      }
+      currentDigit.hideFrame = this.carryOverHideFrames[j];
+      currentDigit.flagUseOnly = true;
+      currentCarryOver.push(currentDigit);
     }
   }
 }
@@ -1487,7 +1493,8 @@ FreeCalcMultiplicationAlgorithm.prototype.oneAdditionResult = function (
     if (column.length > 1 || carryOverOldContent > 0) {
       column[i].highlightFrames.push(this.currentFrameNumber + 1);
     }
-    resultDigitContent += column[i].getDigit();
+    var incomingDigit = column[i].getDigit();
+    resultDigitContent += incomingDigit;
   }
   var carryOverContent = Math.floor(resultDigitContent / this.base);
   resultDigitContent %= this.base;
@@ -1532,14 +1539,14 @@ FreeCalcMultiplicationAlgorithm.prototype.oneAdditionResult = function (
   this.notes.push(currentNoteContainer);
 }
 
-FreeCalcMultiplicationAlgorithm.prototype.computeAdditionResult = function () {
-  if (this.numberRight.digits.length <= 1) {
+FreeCalcMultiplicationAlgorithm.prototype.computeAdditionResult = function() {
+  if (this.numberLeft.digits.length <= 1) {
     return;
   } 
   this.carryOversAddition.digitPrefix = "\\text{{\\tiny ~ ${{ ";
   this.carryOversAddition.digitSuffix = "}}$}}";
   var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
-  var numberOfColumns = lastIntermediateLength + this.numberRight.digits.length - 1;
+  var numberOfColumns = lastIntermediateLength + this.numberLeft.digits.length - 1;
   for (var i = 0; i < numberOfColumns; i ++) {
     var currentColumn = [];
     for (var j = 0; j < this.intermediates.length; j ++) {
@@ -1549,9 +1556,9 @@ FreeCalcMultiplicationAlgorithm.prototype.computeAdditionResult = function () {
       }
     }
     this.carryOversAddition.digits[i] = new HighlightedContent();
-    this.resultNumber.digits[i] = new HighlightedContent();
+    this.multiplicationResultNumber.digits[i] = new HighlightedContent();
     this.oneAdditionResult(
-      this.resultNumber.digits[i], 
+      this.multiplicationResultNumber.digits[i], 
       currentColumn, 
       this.carryOversAddition.digits[i - 1], 
       this.carryOversAddition.digits[i]
@@ -1564,12 +1571,12 @@ FreeCalcMultiplicationAlgorithm.prototype.computeAdditionResult = function () {
     leadingDigitResult.push(leadingCarryOver);
     leadingDigitResult.showFrame = this.currentFrameNumber;
     leadingCarryOver.highlightFrames.push(this.currentFrameNumber);
-    this.resultNumber.digits.push(leadingDigitResult);
+    this.multiplicationResultNumber.digits.push(leadingDigitResult);
   }
 }
 
 FreeCalcMultiplicationAlgorithm.prototype.highlightIntermediateFinal = function () {
-  if (this.numberRight.digits.length <= 1) {
+  if (this.numberLeft.digits.length <= 1) {
     return;
   }
   for (var i = 0; i < this.intermediates.length; i ++ ) {
@@ -1588,13 +1595,13 @@ FreeCalcMultiplicationAlgorithm.prototype.highlightFinal = function () {
     this.numberRight.digits[i].highlightFrames.push(this.currentFrameNumber);
   }
   this.multiplicationSign.highlightFrames.push(this.currentFrameNumber);
-  for (var i = 0; i < this.resultNumber.digits.length; i ++) {
-    this.resultNumber.digits[i].highlightFrames.push(this.currentFrameNumber)
+  for (var i = 0; i < this.multiplicationResultNumber.digits.length; i ++) {
+    this.multiplicationResultNumber.digits[i].highlightFrames.push(this.currentFrameNumber)
   }
 }
 
 FreeCalcMultiplicationAlgorithm.prototype.computeSlideResult = function () {
-  if (this.numberRight.digits.length <= 1) {
+  if (this.numberLeft.digits.length <= 1) {
     return;
   }
   this.plusSign.showFrame = this.currentFrameNumber;
@@ -1604,29 +1611,28 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideResult = function () {
   horizontalLine.showFrame = this.currentFrameNumber; 
   this.multiplicationResult.push(horizontalLine);
   this.computeAdditionResult();  
-  var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
-  var currentLength = this.resultNumber.digits.length;
-  var offset = lastIntermediateLength + this.numberRight.digits.length - currentLength + 1;
+  var currentLength = this.multiplicationResultNumber.digits.length;
+  var offset = this.numberLeft.digits.length + this.numberRight.digits.length + 3 - currentLength;
   this.highlightFinal();
-  this.multiplicationResult.push(this.resultNumber.getTableRow(offset));
+  this.multiplicationResult.push(this.multiplicationResultNumber.getTableRow(offset));
 }
 
-FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputData) {
+FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.init(inputData);
   this.currentFrameNumber = this.startingFrameNumber;
   this.slideContent = new HighlightedContent();
   this.plusSign = new HighlightedContent();
-  this.multiplicationSign = new HighlightedContent();
+  this.multiplicationSign = new HighlightedContent("~\\cdot~~");
   this.notes = new HighlightedContent();
   this.multiplicationResult = new HighlightedContent();
   this.slideContent.content = [];
   this.slideContent.push("\\begin{frame}\n<br>\n");
-  this.intermediates = new Array(this.numberRight.digits.length);
+  this.intermediates = new Array(this.numberLeft.digits.length);
   this.carryOvers = new Array(this.numberRight.digits.length);
   this.carryOverHideFrames = new Array(this.numberRight.digits.length);
   this.carryOversAddition = new ColumnsReversedHighlighted();
-  this.resultNumber = new ColumnsReversedHighlighted();
-  for (var i = 0; i < this.numberRight.digits.length; i ++) {
+  this.multiplicationResultNumber = new ColumnsReversedHighlighted();
+  for (var i = 0; i < this.numberLeft.digits.length; i ++) {
     this.computeIntermediate(i);
     this.carryOverHideFrames[i] = this.currentFrameNumber + 1;
   }
@@ -1634,14 +1640,12 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   this.currentFrameNumber ++;
   this.computeSlideResult();
 
-  var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
-
   var slideStart = "";
-  slideStart += "\\[ \\begin{array}{rr";
-  for (var i = 0; i < lastIntermediateLength + this.numberRight.digits.length; i ++) {
+  slideStart += "\\[ \\begin{array}{@{}r@{}r";
+  for (var i = 0; i < this.numberLeft.digits.length; i ++) {
     slideStart += "@{}r";
   }
-  slideStart += "@{~}l@{~}";
+  slideStart += "@{}r";
   for (var i = 0; i < this.numberRight.digits.length; i ++) {
     slideStart += "@{}r";
   }
@@ -1649,35 +1653,38 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function (inputD
   this.slideContent.push(slideStart);
   this.combineCarryOvers();
   if (this.hasCarryOvers()) {
-    this.slideContent.push("\\displaystyle \\phantom{\\frac{\\int}{~}}");
-    this.slideContent.push(this.carryOversCombined.getTableRow(lastIntermediateLength));
+    //this.slideContent.push("\\displaystyle \\phantom{\\frac{\\int}{~}}");
+    var offset = 2 + this.numberRight.digits.length + this.numberLeft.digits.length;
+    offset -= this.carryOversCombined.digits.length;
+    this.slideContent.push(this.carryOversCombined.getTableRow(offset));
     this.slideContent.push("\\\\\n<br>\n");
   }
-  this.slideContent.push(this.numberLeft.getTableRow(lastIntermediateLength + 1));
-  this.multiplicationSign.content = "\\cdot";
+  this.slideContent.push(this.numberLeft.getTableRow(2));
   this.slideContent.push("&");
   this.slideContent.push(this.multiplicationSign);
+  this.slideContent.push("&");
   this.slideContent.push(this.numberRight.getTableRow(0));
   this.slideContent.push("\\\\\\hline \n<br>\n");
-  var lastIntermediateLength = this.intermediates[this.intermediates.length - 1].digits.length; 
-  this.slideContent.push(this.carryOversAddition.getTableRow(1));
-  this.slideContent.push("\\\\\n<br>\n");
+  if (this.carryOversAddition.getNumberSignificantDigits() > 0) {
+    this.slideContent.push(this.carryOversAddition.getTableRow(3));
+    this.slideContent.push("\\\\\n<br>\n");
+  }
 
   for (var i = 0; i < this.intermediates.length; i ++) {
-    if (i === 0) {
+    if (i === 0 && this.intermediates.length > 1) {
       this.slideContent.push(`\\multirow{${this.numberRight.digits.length}}{*}{$`);
       this.plusSign.content = "+";
       this.slideContent.push(this.plusSign);
       this.slideContent.push(`$}`);  
     }
     var currentLength = this.intermediates[i].digits.length;
-    var offset = lastIntermediateLength + this.numberRight.digits.length - currentLength - i + 1;
+    var offset = this.numberRight.digits.length + this.numberLeft.digits.length - currentLength - i + 3; 
     this.slideContent.push(this.intermediates[i].getTableRow(offset));
     if (i !== this.intermediates.length - 1) {
       this.slideContent.push("\\\\\n<br>\n");
     }
   }
-  if (this.numberRight.digits.length > 1) {
+  if (this.numberLeft.digits.length > 1) {
     this.slideContent.push(this.multiplicationResult);
   }
 
