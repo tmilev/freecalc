@@ -14,17 +14,24 @@ Pairs to test.
 <hr>
 9,2; 8,4; 7,7
 <hr>
- 11,3; 12,8; 18,9
+11,3; 12,8; 18,9
+<hr>
+3,2; 4,3; 0,8; 6,7; 7,9
+<hr>
+4,4; 3,0; 6,9; 7,8; 
 <hr>
 <input id = "idFirstSlideNumber" value = "1" size = "1" placeholder = "first slide"> </input>
 <input id = "idBase" value = "10" size = "1" placeholder = "base"> </input>
 <input id = "idBaseAdditionTable" value = "10" size = "1" placeholder = "base addition table"> </input><hr>
-<input id = "idPairsToAdd" value = "11,3; 12,8; 18,9"></input><br>
-<button onclick = "theElements.generateOneDigitAdditions(false, true)">add one-digits</button>
-<button onclick = "theElements.generateOneDigitAdditions(true, false)">add one-digits cols</button>
+<input id = "idPairsToAdd" value = "3,2; 4,3; 0,8; 6,7; 7,9"></input><br>
+<button onclick = "theElements.generateOneDigitAdditions({useColumns: false, makeTableNote: true, makeTable: true})">add one-digits</button>
+<button onclick = "theElements.generateOneDigitAdditions({useColumns: true, makeTableNote: false, makeTable: true})">add one-digits cols</button>
 <button onclick = "theElements.generateOneDigitSubtractions(false, true, false)">subtract one-digits no table</button>
 <button onclick = "theElements.generateOneDigitSubtractions(false, true, true)">subtract one-digits</button>
 <button onclick = "theElements.generateOneDigitSubtractions(true, false, true)">subtract one-digit cols</button>
+<br>
+<button onclick = "theElements.generateOneDigitMultiplications({useColumns: false, makeTableNote: false, makeTable: false})">multiplication no table</button>
+<button onclick = "theElements.generateOneDigitMultiplications({useColumns: false, makeTableNote: true, makeTable: true})">multiplication</button>
 
 <br>
 <span id = "idSpanOutput">

@@ -1213,7 +1213,8 @@ function FreeCalcElements() {
   this.multiplicationAlgorithm = new FreeCalcMultiplicationAlgorithm();
   this.divisionAlgorithm = new FreeCalcDivisionAlgorithm();
   this.subtractionAlgorithm = new FreeCalcSubtractionAlgorithm();
-  this.oneDigitAdditions = new FreeCalcOneDigitAdditionAlgorithm();
+  this.oneDigitAdditions = new FreeCalcOneDigitOperationAlgorithm("+");
+  this.oneDigitMultiplications = new FreeCalcOneDigitOperationAlgorithm("\\cdot");
   this.oneDigitSubtractions = new FreeCalcOneDigitSubtractionAlgorithm();
 }
 
@@ -1223,9 +1224,21 @@ FreeCalcElements.prototype.generateAddition = function() {
   this.selectOutput();
 }
 
-FreeCalcElements.prototype.generateOneDigitAdditions = function(useColumns, makeTableNote) {
-  this.oneDigitAdditions.computeSlideContent(this.getInputs(), useColumns, makeTableNote);
+FreeCalcElements.prototype.generateOneDigitAdditions = function(
+  /**@type {{useColumns: Boolean, makeTableNote: Boolean, makeTable: Boolean}} */
+  options,
+) {
+  this.oneDigitAdditions.computeSlideContent(this.getInputs(), options);
   document.getElementById(this.idOutput).innerHTML = this.oneDigitAdditions.slideContent.toString();
+  this.selectOutput();
+}
+
+FreeCalcElements.prototype.generateOneDigitMultiplications = function(
+  /**@type {{useColumns: Boolean, makeTableNote: Boolean, makeTable: Boolean}} */
+  options,
+) {
+  this.oneDigitMultiplications.computeSlideContent(this.getInputs(), options);
+  document.getElementById(this.idOutput).innerHTML = this.oneDigitMultiplications.slideContent.toString();
   this.selectOutput();
 }
 
@@ -3578,7 +3591,7 @@ FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function(inputData)
   this.slideContent.push("<br>\\end{frame}");
 }
 
-function OperationTable(operationFunction, operationSymbol, base) {
+function OperationTable(operationSymbol, base) {
   this.operationFunction = null;
   this.operationSymbol = null;
   /** @type {boolean} */
@@ -3597,7 +3610,16 @@ function OperationTable(operationFunction, operationSymbol, base) {
   this.columnLabels = null;
   /**@type {HighlightedContent} */
   this.note = new HighlightedContent();
-  this.init(operationFunction, operationSymbol, base);
+  switch (operationSymbol) {
+    case "+":
+      this.init(this.addition, operationSymbol, base);
+      break;
+    case "\\cdot":
+      this.init(this.multiplication, operationSymbol, base);
+      break;
+    default:
+      throw (`Uknown operation ${operationSymbol}`);
+  }
 }
 
 OperationTable.prototype.init = function(operationFunction, operationSymbol, base) {
@@ -3608,6 +3630,10 @@ OperationTable.prototype.init = function(operationFunction, operationSymbol, bas
 
 OperationTable.prototype.addition = function(left, right) {
   return left + right;
+}
+
+OperationTable.prototype.multiplication = function(left, right) {
+  return left * right;
 }
 
 OperationTable.prototype.subtraction = function(left, right) {
@@ -3669,7 +3695,7 @@ OperationTable.prototype.prepareTable = function() {
     content.push(rowLabels[i]);
     for (var j = 0; j < this.base; j ++) {
       content.push("&");
-      contentOperation[i][j] = new HighlightedContent(i + j);
+      contentOperation[i][j] = new HighlightedContent(this.operationFunction(i,j));
       content.push(contentOperation[i][j]);
     }
     content.push("\\\\\\hline");
@@ -3677,7 +3703,7 @@ OperationTable.prototype.prepareTable = function() {
   content.push("\\end{array}$}");
 }
 
-function FreeCalcOneDigitAdditionAlgorithm() {
+function FreeCalcOneDigitOperationAlgorithm(operation) {
   /**@type {HighlightedContent} */
   this.slideContent = null;
   /**@type {number} */
@@ -3695,7 +3721,9 @@ function FreeCalcOneDigitAdditionAlgorithm() {
   /**@type {boolean} */
   this.flagUseColumns = false;
   /**@type {boolean} */
-  this.flagShowMakeTableNote = true;
+  this.flagShowMakeTableNote = false;
+  /**@type {boolean} */
+  this.flagMakeTable = false;
   this.onePair = {
     /**@type {HighlightedContent} */
     content: null,
@@ -3707,26 +3735,36 @@ function FreeCalcOneDigitAdditionAlgorithm() {
     equality: null,
     /**@type {HighlightedContent} */
     plus: null,
-  }
+  };
   /**@type {OperationTable} */
-  this.additionTable = null;
+  this.operationTable = null;
   this.notes = {
     /**@type {HighlightedContent} */
     content: null,
     /**@type {HighlightedContent} */
     useColumns: null,
-  }
+  };
+  this.operation = {  
+    /**@type {String} */
+    name: operation,
+    /**@type {String} */
+    verb: "",
+    /**@type {String} */
+    noun: "",
+    /**@type {function} */
+    operator: null,
+  };
 } 
 
-FreeCalcOneDigitAdditionAlgorithm.prototype.computeOnePairHorizontal = function(index) {
+FreeCalcOneDigitOperationAlgorithm.prototype.computeOnePairHorizontal = function(index) {
   this.onePair.left = new HighlightedContent();
   this.onePair.equality = new HighlightedContent("=");
 
   var leftNumber = this.pairsToAdd[index][0];
   var rightNumber = this.pairsToAdd[index][1];
-  this.onePair.right = new HighlightedContent(leftNumber + rightNumber);
+  this.onePair.right = new HighlightedContent(this.operation.operator(leftNumber, rightNumber));
   this.onePair.left.push(leftNumber);
-  this.onePair.left.push("+");
+  this.onePair.left.push(this.operation.name);
   this.onePair.left.push(rightNumber);
   this.onePair.content = new HighlightedContent();
   this.onePair.content.push(this.onePair.left);
@@ -3738,10 +3776,10 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeOnePairHorizontal = function(
   this.onePair.equality.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   this.onePair.right.answerFrame = this.currentFrameNumber + 1;
 
-  var currentRowLabel = this.additionTable.rowLabels[leftNumber];
-  var currentColumnLabel = this.additionTable.columnLabels[rightNumber];
-  var sumBox = this.additionTable.contentOperation[leftNumber][rightNumber];
-  this.additionTable.operationSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  var currentRowLabel = this.operationTable.rowLabels[leftNumber];
+  var currentColumnLabel = this.operationTable.columnLabels[rightNumber];
+  var sumBox = this.operationTable.contentOperation[leftNumber][rightNumber];
+  this.operationTable.operationSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   sumBox.answerFrame = this.currentFrameNumber + 1;
   currentRowLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   currentColumnLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
@@ -3755,26 +3793,53 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeOnePairHorizontal = function(
   this.currentFrameNumber += 2;
 }
 
-FreeCalcOneDigitAdditionAlgorithm.prototype.computeOnePairVertical = function(index) {
+FreeCalcOneDigitOperationAlgorithm.prototype.computeOnePairVertical = function(index) {
  
 }
 
-FreeCalcOneDigitAdditionAlgorithm.prototype.computeSlideContent = function(inputData, useColumns, makeTableNote) {
+FreeCalcOneDigitOperationAlgorithm.prototype.computeSlideContent = function(
+  inputData, 
+  /**@type {{makeTable: Boolean, useColumns: Boolean, makeTableNote: Boolean}} */
+  inputOptions,
+) {
   this.slideContent = new HighlightedContent();
   this.notes.useColumns = new HighlightedContent();
   this.notes.content = new HighlightedContent();
-
   this.inputBase = inputData.base;
   this.inputPairs = inputData.pairsToAdd;
   this.base = Number(this.inputBase);
   this.startingFrameNumber = inputData.startingFrameNumber;
   this.currentFrameNumber = Number(this.startingFrameNumber);
   this.pairsToAdd = [];
-  this.flagUseColumns = useColumns;
-  this.flagShowMakeTableNote = makeTableNote;
+  this.flagUseColumns = inputOptions.useColumns;
+  if (this.flagUseColumns === undefined) {
+    this.flagUseColumns = false;
+  }
+  this.flagShowMakeTableNote = inputOptions.makeTableNote;
+  if (this.flagShowMakeTableNote === undefined) {
+    this.flagShowMakeTableNote = false;
+  }
+  this.flagMakeTable = inputOptions.makeTable;
+  if (this.flagMakeTable === undefined) {
+    this.flagMakeTable = false;
+  }  
   var splitBySemicolumn = this.inputPairs.split(";");
-  this.additionTable = new OperationTable(OperationTable.prototype.addition, "+", this.base);
-  this.additionTable.prepareTable();
+  switch(this.operation.name) {
+    case "+": 
+      this.operation.noun = "addition";
+      this.operation.verb = "Add";
+      this.operation.operator = OperationTable.prototype.addition;
+      break;
+    case "\\cdot":
+      this.operation.noun = "multiplication";
+      this.operation.verb = "Multiply"
+      this.operation.operator = OperationTable.prototype.multiplication;
+      break;
+    default:
+      throw(`Uknown operation ${this.operation.name}`);
+  }
+  this.operationTable = new OperationTable(this.operation.name, this.base);
+  this.operationTable.prepareTable();
   for (var counter = 0; counter < splitBySemicolumn.length; counter ++) {
     var splitByComma = splitBySemicolumn[counter].split(",");
     if (splitByComma.length < 2) {
@@ -3784,16 +3849,16 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeSlideContent = function(input
   }
   if (this.flagShowMakeTableNote) {
     this.currentFrameNumber ++;
-    this.additionTable.note.showFrame = this.currentFrameNumber;
-    this.additionTable.content.showFrame = this.currentFrameNumber;
-    this.additionTable.content.highlightFrames.push(this.currentFrameNumber);
-    this.additionTable.note.highlightFrames.push(this.currentFrameNumber);
-    this.additionTable.note.push("<br><br>$\\bullet$ To do one-digit addition quickly: make table with all possibilities. ");  
+    this.operationTable.note.showFrame = this.currentFrameNumber;
+    this.operationTable.content.showFrame = this.currentFrameNumber;
+    this.operationTable.content.highlightFrames.push(this.currentFrameNumber);
+    this.operationTable.note.highlightFrames.push(this.currentFrameNumber);
+    this.operationTable.note.push("<br><br>$\\bullet$ To do one-digit multiplication quickly: make table with all possibilities. ");  
   }
   this.slideContent.push("\\begin{frame}");
   this.slideContent.push("<br><br>\\vskip -0.1cm<br><br>");
   this.slideContent.push("\\begin{example}")
-  this.slideContent.push("Add the one-digit numbers."); 
+  this.slideContent.push(`${this.operation.verb} the one-digit numbers.`); 
   this.slideContent.push("<br><br>");
   if (!this.flagUseColumns) {
     this.slideContent.push("\\hfil\\hfil$\\begin{array}{rcl}");
@@ -3809,7 +3874,7 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeSlideContent = function(input
     this.slideContent.push("\\hfil");
     for (var i = 0; i < this.pairsToAdd.length; i ++) {
       var theAlgorithm = new FreeCalcAdditionAlgorithm();
-      theAlgorithm.additionTableExternal = this.additionTable;
+      theAlgorithm.additionTableExternal = this.operationTable;
       var topNumber = this.pairsToAdd[i][0];
       var bottomNumber = this.pairsToAdd[i][1];
       theAlgorithm.init({
@@ -3833,19 +3898,22 @@ FreeCalcOneDigitAdditionAlgorithm.prototype.computeSlideContent = function(input
     this.slideContent.push(notes);
     this.currentFrameNumber ++;
   }
-  this.additionTable.currentFrameNumber = this.currentFrameNumber;
-  this.additionTable.highlightTable();
+  this.operationTable.currentFrameNumber = this.currentFrameNumber;
+  this.operationTable.highlightTable();
   this.slideContent.push("\\end{example}");
-  this.slideContent.push("<br><br>");
-  this.slideContent.push("\\begin{columns}");
-  this.slideContent.push("\\column{0.5\\textwidth}");
-  this.slideContent.push(this.additionTable.content);
-  this.slideContent.push("\\column{0.5\\textwidth}");
-  this.slideContent.push(this.additionTable.note)
-  if (this.flagUseColumns) {
-    this.slideContent.push("<br><br>$\\bullet$ Addition can also be written in columns. ");
-  }
-  this.slideContent.push("\\end{columns}");
+  if (this.flagMakeTable) {
+    this.slideContent.push("<br><br>");
+    this.slideContent.push("\\begin{columns}");
+    this.slideContent.push("\\column{0.5\\textwidth}");
+    this.slideContent.push(this.operationTable.content);
+    this.slideContent.push("\\column{0.5\\textwidth}");
+    this.slideContent.push(this.operationTable.note)
+    if (this.flagUseColumns) {
+      this.slideContent.push("<br><br>$\\bullet$ Addition can also be written in columns. ");
+    }
+    this.slideContent.push("\\end{columns}"); 
+  } 
+  this.slideContent.push("\\vskip 10cm");
   this.slideContent.push("\\end{frame}");
 }
 
@@ -4014,7 +4082,7 @@ FreeCalcOneDigitSubtractionAlgorithm.prototype.computeSlideContent = function(in
   this.flagUseColumns = useColumns;
   this.flagShowMakeTableNote = makeTableNote;
   var splitBySemicolumn = this.inputPairs.split(";");
-  this.additionTable = new OperationTable(OperationTable.prototype.addition, "+", this.baseAdditionTable);
+  this.additionTable = new OperationTable("+", this.baseAdditionTable);
   this.additionTable.prepareTable();
   for (var counter = 0; counter < splitBySemicolumn.length; counter ++) {
     var splitByComma = splitBySemicolumn[counter].split(",");
