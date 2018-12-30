@@ -3593,7 +3593,8 @@ FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function(inputData)
 
 function OperationTable(operationSymbol, base) {
   this.operationFunction = null;
-  this.operationSymbol = null;
+  /**@type {String} */
+  this.operationSymbol = operationSymbol;
   /** @type {boolean} */
   this.flagOperationInTheBottom = false;
   /**@type {HighlightedContent}*/
@@ -3610,15 +3611,15 @@ function OperationTable(operationSymbol, base) {
   this.columnLabels = null;
   /**@type {HighlightedContent} */
   this.note = new HighlightedContent();
-  switch (operationSymbol) {
+  switch (this.operationSymbol) {
     case "+":
-      this.init(this.addition, operationSymbol, base);
+      this.init(this.addition, this.operationSymbol, base);
       break;
     case "\\cdot":
-      this.init(this.multiplication, operationSymbol, base);
+      this.init(this.multiplication, this.operationSymbol, base);
       break;
     default:
-      throw (`Uknown operation ${operationSymbol}`);
+      throw (`Uknown operation ${this.operationSymbol}`);
   }
 }
 
@@ -3679,7 +3680,7 @@ OperationTable.prototype.prepareTable = function() {
   }
   content.push("}");
   content.push("\\hline");
-  content.push(this.operationSymbol);
+  content.push(this.operationSign);
   for (var i = 0; i < this.base; i ++ ) {
     rowLabels[i] = new HighlightedContent(i);
     columnLabels[i] = new HighlightedContent(i);
@@ -3695,7 +3696,7 @@ OperationTable.prototype.prepareTable = function() {
     content.push(rowLabels[i]);
     for (var j = 0; j < this.base; j ++) {
       content.push("&");
-      contentOperation[i][j] = new HighlightedContent(this.operationFunction(i,j));
+      contentOperation[i][j] = new HighlightedContent(this.operationFunction(i, j));
       content.push(contentOperation[i][j]);
     }
     content.push("\\\\\\hline");
@@ -3785,6 +3786,9 @@ FreeCalcOneDigitOperationAlgorithm.prototype.computeOnePairHorizontal = function
   currentColumnLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   if (currentColumnLabel.showFrame <= 0) {
     currentColumnLabel.showFrame = this.currentFrameNumber;
+  }
+  if (currentRowLabel.showFrame <= 0) {
+    currentRowLabel.showFrame = this.currentFrameNumber;
   }
   if (sumBox.showFrame <= 0) {
     sumBox.showFrame = this.currentFrameNumber;

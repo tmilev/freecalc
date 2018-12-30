@@ -19,13 +19,12 @@ These are intended for teaching in class with projector, with or without the aid
   - Various aspects of the comptuations are highlighted on and off depending on their use in the last computation step. 
   - Problems of considerable technical difficulty are presented in full detail.
   - While doing computations, some computation entries are initially marked with a question mark, 
-prompting the students to guess what going to be uncovered in the next step. 
+prompting the students to guess what is going to be uncovered in the next step. 
   - The slides have high quality step-by-step drawn graphics with LaTeX formula labels, achieving the 
 effect of highest-quality blackboard graphics. 
   - The 3d graphics are drawn using orthographic projections, with dashed background contours and 
 with viewing depth color shading. The quality is higher than most commercially available textbooks.
   - All graphics are accurately drawn in accordance with the problem.
-quality than most mathematical textbooks. 
 - Technical aspects:
   - All slides are compiled as pdfs. 
   - Each slide is compiled in two modes: projector mode (for showing to students) and printable mode. 
