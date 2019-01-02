@@ -596,10 +596,11 @@ terminalArmPoint ==
 %from point (argument2, argument3) to point (argument4, argument5)
 %with label argument6
 \newcommand{\fcLengthIndicator}[6][]{%
+\setkeys{fcGraphics}{#1}%
 \pstVerb{5 dict begin
 /oV [#3 #5 sub #4 #2 sub] def 
 /nV oV \fcVectorNormalize def
-/nVscaled nV 0.05 \fcVectorTimesScalar def
+/nVscaled nV \fcTickSizeToLengthRatio\space \fcVectorTimesScalar def
 }%
 \psline[linecolor=red, #1](! #2 #3)(! #4 #5)%
 \psline[linecolor=red, #1, arrows=none](! [#2 #3] nVscaled \fcVectorMinusVector \fcArrayToStack)(! [#2 #3] nVscaled \fcVectorPlusVector \fcArrayToStack)%
