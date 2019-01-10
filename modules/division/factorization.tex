@@ -1,0 +1,26 @@
+\begin{frame}
+\begin{definition}[Factor positive integer completely]
+To factor a positive integer completely means to write it as a product of prime factors.
+\[
+x= p_1\cdot p_2 \cdots p_n
+\]
+\end{definition}
+\begin{itemize}
+\item<2-> It is best practice to sort (order) the prime factors. Most frequently used order: smaller factors come first.
+\uncover<3->{
+\begin{lemma}[Unique prime factorization]
+Up to shuffling prime factors, there is only one way to factor a number.
+\end{lemma}
+}
+\item<4-> Consequence: two numbers are equal if and only if their sorted prime factorizations are equal.
+\item<5-> When factoring, we may or may not use exponent notation:
+\[
+\begin{array}{rcl}
+\alertNoH{5,6}{16} &\alertNoH{5,6}{=}& \fcAnswer{6}{ \alertNoH{7}{4} \cdot\alertNoH{8}{ 4} } \uncover<6->{= \onlyNoH{4-8}{\color{white}} \underbrace{\color{black} \alertNoH{9}{ \alertNoH{7}{\alertNoH{10}{2}\cdot \alertNoH{10}{2}}\cdot \alertNoH{8}{\alertNoH{10}{2}\cdot \alertNoH{10}{2}}}}_{ \uncover<9->{ \alertNoH{9}{\alertNoH{11}{4} \text{ \alertNoH{10}{copies}}}} }\uncover<9->{ =\alertNoH{9}{ {\alertNoH{10}{2}} ^{\alertNoH{11}{4}}}} }\\
+\alertNoH{12,13}{36} &\alertNoH{12,13}{=}& \fcAnswer{13}{\alertNoH{14}{ 4} \cdot\alertNoH{15}{ 9} = \alertNoH{16}{ \only<1-15>{\color{white}} \underbrace{\color{black} \alertNoH{14,16}{2\cdot 2} }_{2\text{ copies}}} \cdot \alertNoH{17}{\only<1-15>{\color{white}} \underbrace{\color{black} \alertNoH{15,17}{3\cdot 3}}_{2\text{ copies}}}} \uncover<16->{ = \alertNoH{16}{2^2} \cdot \alertNoH{17}{ 3^2} }
+\end{array}
+\] 
+
+\end{itemize}
+
+\end{frame}
