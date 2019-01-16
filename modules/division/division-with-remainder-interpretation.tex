@@ -1,0 +1,112 @@
+\begin{frame}
+%\frametitle{Geometric interpretation of integer division}
+\vskip -0.1cm
+\begin{itemize}
+\item Recall integer division of $p$ by $d$ with remainder: $p = q\cdot d + r$.
+\item<2-> Integer division of $p$ by $d$ answers the following question:
+\end{itemize}
+\vskip -0.1cm
+\uncover<2->{
+\begin{question}
+How many times does the length $d$ fit inside the length $p$?
+\end{question}
+}
+\vskip -0.1cm
+\begin{itemize}
+\item<12-> $p$ may be divisible by $d$ an exact number of times. 
+\item $p$ may fail to be integer-divisible by $d$, then we have remainder.
+\end{itemize}
+\vskip -0.1cm
+\uncover<4->{
+\begin{example}
+\alertNoH{4,5}{Divide $\alertNoH{6}{6}$ by $\alertNoH{7}{2}$ with remainder.}  Solution: \uncover<4->{\alertNoH{4,5}{$ \alertNoH{6}{6}\!=\!\fcAnswer{5}{\alertNoH{11}{ 3} \cdot \alertNoH{7}{2}+\alertNoH{12}{ 0}}$}\uncover<5->{.}} 
+
+\begin{pspicture}(-0.5, -0.3)(9,0.6)
+\tiny
+\psline[arrows=<->](-0.45,0)(7,0)
+\newcommand{\dividend}{6}
+\newcommand{\divisor}{2}
+\newcommand{\quotient}{3}
+\newcommand{\numberOfFits}{3}%
+\pstVerb{20 dict begin
+/dividend \dividend\space def
+/divisor \divisor\space def
+/quotient \quotient\space def
+}%
+\fcFullDot{0}{0}%
+\uncover<6->{\fcFullDot{dividend}{0}}%
+\uncover<7->{\fcFullDot{divisor}{0}}%
+\rput[t](0, -0.1){$0$}%
+\uncover<6->{\rput[t](! dividend -0.1){$\alertNoH{6}{ \dividend}$}}%
+\uncover<7->{\rput[t](! divisor -0.1){$\alertNoH{7}{\divisor}$}}%
+\uncover<6->{%
+\fcLengthIndicatorNoLabel[linewidth=2pt, ticksizeToLengthRatio=0.1]{0}{0.4}{dividend}{0.4}%
+}%
+\onlyNoH{1-8}{\renewcommand{\numberOfFits}{1}}%
+\onlyNoH{9}{\renewcommand{\numberOfFits}{2}}%
+\uncover<7->{%
+\multido{\ia=0+1}{\numberOfFits}{%
+\pstVerb{/counter \ia\space def}%
+\fcLengthIndicatorNoLabel[linewidth=1pt, linecolor=blue, ticksizeToLengthRatio=0.09]{counter divisor mul}{0.4}{counter 1 add divisor mul}{0.4}%
+}%
+}%
+\pstVerb{end}
+\end{pspicture}
+
+\uncover<8->{\alertNoH{8,9,10,11}{$2$ divides $6$} \uncover<12->{\alertNoH{12}{exactly}} \fcAnswerUncover{8}{11}{{$3$}} \alertNoH{8,9,10,11}{times}.}
+
+\medskip
+\medskip
+
+\alertNoH{13,14}{Divide $\alertNoH{15}{7}$ by $\alertNoH{16}{3}$}. \uncover<13->{Solution: $\alertNoH{13,14}{\alertNoH{15}{7}=\fcAnswer{14}{\alertNoH{18}{2} \cdot \alertNoH{16}{3} + \alertNoH{19}{1} }}$\uncover<14>{.}} 
+\begin{pspicture}(-0.5, -0.3)(9,0.6)
+\tiny
+\psline[arrows=<->](-0.45,0)(9,0)
+\newcommand{\dividend}{7}
+\newcommand{\divisor}{3}
+\newcommand{\quotient}{2}
+\newcommand{\numberOfFits}{2}%
+\pstVerb{20 dict begin
+/dividend \dividend\space def
+/divisor \divisor\space def
+/quotient \quotient\space def
+}
+\fcFullDot{0}{0}
+\uncover<15->{%
+\fcFullDot{dividend}{0}%
+}%
+\uncover<16->{%
+\fcFullDot{divisor}{0}%
+}%
+\rput[t](0, -0.1){$0$}
+\uncover<15->{%
+\rput[t](! dividend -0.1){$\alertNoH{15}{\dividend}$}%
+}%
+\uncover<16->{%
+\rput[t](! divisor -0.1){$\alertNoH{16}{\divisor}$}%
+}%
+\uncover<15->{%
+\fcLengthIndicatorNoLabel[linewidth=2pt, ticksizeToLengthRatio=0.1]{0}{0.4}{dividend}{0.4}%
+}%
+\onlyNoH{1-17}{\renewcommand{\numberOfFits}{1}}%
+\uncover<16->{%
+\multido{\ia=0+1}{\numberOfFits}{%
+\pstVerb{/counter \ia\space def}%
+\fcLengthIndicatorNoLabel[linewidth=1pt, linecolor=blue, ticksizeToLengthRatio=0.09]{counter divisor mul}{0.4}{counter 1 add divisor mul}{0.4}%
+}%
+}%
+\uncover<18->{%
+\fcFullDot{6}{0}%
+\rput[t](6,-0.1){$6$}%
+}%
+\uncover<19->{%
+\fcLengthIndicatorNoLabel[linewidth=3pt, linecolor=purple]{divisor quotient mul}{0.4}{dividend}{0.4}
+}%
+\pstVerb{end}
+\end{pspicture}
+
+\uncover<17->{ $3$ divides $7$ \uncover<19->{\alertNoH{19}{non-exactly}} $\fcAnswer{18}{2}$ times \uncover<19->{\alertNoH{19}{with remainder $1$}.}} 
+\end{example}
+}
+
+\end{frame}

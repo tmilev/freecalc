@@ -1,0 +1,37 @@
+\begin{frame}
+\vskip -0.05cm
+\begin{example}
+Compute the floor (round-down) function.
+
+\hfil\hfil $
+\renewcommand{\arraystretch}{1.8}
+\begin{array}{rcl}
+\displaystyle \alertNoH{1,2,3}{\left\lfloor \frac{\alertNoH{4}{1}}{\alertNoH{5}{3}}\right\rfloor} &\alertNoH{1,2,3}{=}&\fcAnswer{2}{\alertNoH{3,6}{0}}\\
+\displaystyle \alertNoH{7,8}{\left\lfloor \frac{6}{7}\right\rfloor} &\alertNoH{7,8}{=}& \fcAnswer{8}{0} \\
+\displaystyle \alertNoH{9,10,11}{ \onlyNoH{13}{\color{red}} \left\lfloor \onlyNoH{13}{\color{black}} \alertNoH{12}{2}+\alertNoH{13}{ \frac{3}{11}} \onlyNoH{13}{\color{red}} \right\rfloor \onlyNoH{13}{\color{black}} }  &\alertNoH{9,10,11}{=}&\displaystyle \fcAnswer{10}{ \alertNoH{11}{\alertNoH{12}{2}+ \alertNoH{13,14}{ \left\lfloor\frac{3}{11} \right\rfloor}} =2}\\
+\displaystyle \alertNoH{15,16}{\left\lfloor 10 + \frac{1}{7}\right\rfloor} &\alertNoH{15,16}{=}&\displaystyle \fcAnswer{16}{10+ \left\lfloor\frac{1}{7}\right\rfloor =10} \\
+\end{array}
+$
+\end{example}
+\vskip -0.05cm
+\uncover<3->{
+\begin{observation}
+\hfil\hfil $
+\displaystyle \alertNoH{3,8,14}{ \left\lfloor 
+\frac{\alertNoH{4}{p}}{\alertNoH{5}{q}} 
+\right\rfloor = \alertNoH{6}{0}
+\quad \quad
+\text{whenever~~} 0\leq \alertNoH{4}{p} < \alertNoH{5}{q}
+}
+$
+\end{observation}
+}
+\vskip -0.05cm
+\uncover<11->{
+\begin{observation}
+\[
+\alertNoH{11}{ \onlyNoH{13}{\color{red}}  \left\lfloor\onlyNoH{13}{ \color{black}} \alertNoH{12}{ n} + \alertNoH{13}{ x} \onlyNoH{13}{\color{red}}  \right\rfloor \onlyNoH{13}{\color{black}} = \alertNoH{12}{n} +\alertNoH{13}{ \left\lfloor x\right\rfloor} \quad \quad \text{whenever } \alertNoH{12}{n\text{ is integer}}}
+\]
+\end{observation}
+}
+\end{frame}
