@@ -2,9 +2,17 @@
 \begin{itemize}
 \item We introduce multiple-digit divisors. 
 \item The multi-digit division algorithm is similar to the one-digit divisor, with some differences.
-\begin{itemize}
 \item The multi-digit division uses the \alertNoH{2}{leading digit of the divisor plus one}, where as the single-digit division uses leading digit as is.
 \item An extra step to collect the quotient digits is needed.
+\item In the division step, there are three major cases:
+\begin{enumerate}
+\item Leading digit of remaining dividend is larger than leading digit of divisor.
+\item Leading digits of remaining dividend equals the divisor leading digit and the start of the dividend is larger than the divisor.
+\item The remaining case: either: 
+\begin{itemize}
+\item leading digit of remaining dividend equals the divisor leading digit, but the dividend start is smaller than the divisor 
+\item leading digit of remaining dividend is smaller than the divisor leading digit.
 \end{itemize}
+\end{enumerate}
 \end{itemize}
 \end{frame}

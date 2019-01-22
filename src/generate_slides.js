@@ -1208,6 +1208,8 @@ function FreeCalcElements() {
     base: "idBase",
     baseAdditionTable: "idBaseAdditionTable",
     pairsToAdd: "idPairsToAdd",
+    negativeCarryOverPrefix: "idNegativeCarryOverPrefix",
+    fontSize: "idFontSize",
   };
   this.idOutput = this.inputPairs.output;
   this.startingFrameNumber = 0;
@@ -1788,6 +1790,11 @@ function FreeCalcDivisionAlgorithm() {
   this.inputDividend = "";
   /**@type {string} */
   this.inputDivisor = "";
+
+  this.options = {
+    fontSize: "\\tiny",
+    negativeCarryOverPrefix: "\\!\\!",
+  };
   
   /**@type {ColumnsReversedHighlighted} */
   this.dividend = null;
@@ -2117,6 +2124,13 @@ FreeCalcDivisionAlgorithm.prototype.init = function (inputData) {
   if (typeof this.base !== "number") {
     throw (`Failed to convert base ${inputData.base} to integer. `);
   }
+  if (inputData.fontSize !== undefined) {
+    this.options.fontSize = inputData.fontSize;
+  }
+  if (inputData.negativeCarryOverPrefix !== undefined) {
+    this.options.negativeCarryOverPrefix = inputData.negativeCarryOverPrefix;
+  }
+
 }
 
 FreeCalcDivisionAlgorithm.prototype.computeQuotientDigitSmallDivisorDigitConsiderations = function () {
@@ -2894,9 +2908,8 @@ FreeCalcDivisionAlgorithm.prototype.computeRoundPartThree = function () {
   if (this.flagFirstRun) {
     this.notes.subtraction.considerations.highlightFrames.push(this.currentFrameNumber);
   }
-
   subtraction.carryOvers.allocateDigits(this.quotientDigitCurrent.remainder.digits.length);
-  subtraction.carryOvers.digitPrefix = "\\text{{\\tiny $\\!\\!\\!\\!\\!";
+  subtraction.carryOvers.digitPrefix = `\\text{{\\tiny $${this.options.negativeCarryOverPrefix}`;
   subtraction.carryOvers.digitSuffix = "$}}";
   subtraction.note.push("<br><br>\\hfil\\hfil$\\begin{array}{@{}r@{~}c@{~}l}");
   for (var counter = 0; counter < this.multiplicationCurrent.currentSubtracand.digits.length; counter ++) {
@@ -2911,26 +2924,22 @@ FreeCalcDivisionAlgorithm.prototype.computeRoundPartThree = function () {
   }
   subtraction.note.push("\\end{array}$");
   subtraction.result.removeLeadingZeroesAccountRemovedAsExtraColumns();
-
   this.currentFrameNumber = subtraction.oneDigitSubtractionNote.endFrame + 1;
   this.intermediates.push(subtraction.result);
   this.intermediateCarryOvers.push(subtraction.carryOvers);
-  if (! showNotes) {
+  if (!showNotes) {
     subtraction.intermediate.highlightAll(this.currentFrameNumber);
     this.multiplicationCurrent.currentSubtracand.highlightAll(this.currentFrameNumber);
     subtraction.result.setAnswerFrame(this.currentFrameNumber + 1);
     subtraction.carryOvers.highlightAll(this.currentFrameNumber + 1);
     subtraction.carryOvers.setShowFrame(this.currentFrameNumber + 1);
-    subtraction.note.showFrame = this.currentFrameNumber + 1
+    subtraction.note.showFrame = this.currentFrameNumber + 1;
     subtraction.note.highlightFrames.push(this.currentFrameNumber + 1);
   }
-
-
   this.highlightSubtraction();
-
   this.notes.subtraction.computations.push(subtraction.note);
   if (this.flagFirstRun) {
-    this.notes.finalNotesPartOne.push("<br><br>$\\bullet$ Repeat. ") 
+    this.notes.finalNotesPartOne.push("<br><br>$\\bullet$ Repeat. ");
   }
   this.highlightRepeat();
 }
@@ -3159,6 +3168,7 @@ FreeCalcDivisionAlgorithm.prototype.computeIntermediateQuotientConsiderations = 
     }
   }
   computations.push("\\end{array}$ ");
+  computations.hideFrame = this.currentFrameNumber + 1;
 }
 
 FreeCalcDivisionAlgorithm.prototype.computeAbridgedDisplayConsiderations = function () {
@@ -3283,7 +3293,6 @@ FreeCalcDivisionAlgorithm.prototype.highlightFinalAnswerCheck = function() {
   finalAnswer.remainder.highlightFrames.push(this.currentFrameNumber + 3);
   finalAnswerCheck.remainder.highlightFrames.push(this.currentFrameNumber + 3);
   this.intermediates[this.intermediates.length - 1].highlightAll(this.currentFrameNumber + 3);
-
 }
 
 FreeCalcDivisionAlgorithm.prototype.computeProblemSetup = function () {
@@ -3306,7 +3315,7 @@ FreeCalcDivisionAlgorithm.prototype.computeProblemSetup = function () {
   this.currentFrameNumber ++;
 }
 
-FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
+FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.init(inputData);
   this.dividend = new ColumnsReversedHighlighted(inputData.topNumber);
   this.divisor = new ColumnsReversedHighlighted(inputData.bottomNumber);
@@ -3433,7 +3442,6 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
       var currentCarryOver = this.intermediateCarryOvers[counterIntermediate + 1];
       var offsetCarryOver = this.divisor.digits.length + 3;
       offsetCarryOver += this.dividend.digits.length - nextIntermediate.digits.length; 
-      
       this.solution.push(currentCarryOver.getTableRow(offsetCarryOver));
       this.solution.push("\\\\<br>");
     }
@@ -3458,7 +3466,7 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
   this.notes.contentComputations.push(this.notes.multiplication.computations);
   this.notes.contentComputations.push(this.notes.subtraction.computations);
   this.notes.contentComputations.push(this.notes.quotientCollection.computations);
-  this.slideContent.push("\\begin{frame} \\tiny<br>");
+  this.slideContent.push(`\\begin{frame} ${this.options.fontSize}<br>`);
   this.slideContent.push(this.notes.goal.content);
   this.slideContent.push("<br><br>\\begin{columns}");
   this.slideContent.push("<br><br>\\column{0.4\\textwidth}");
@@ -3469,13 +3477,12 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
   this.slideContent.push("\\end{columns}");
   this.slideContent.push("\n\n<br>\n<br>\n");
   this.slideContent.push(this.notes.contentComputations);
-  this.slideContent.push ("<br><br>\\vskip 10 cm<br>")
+  this.slideContent.push ("<br><br>\\vskip 10 cm<br>");
   this.slideContent.push("\\end{frame}\n");
 }
 
 
 function FreeCalcSubtractionAlgorithm() {
-
   /**@type {string} */
   this.inputSummand = "";
   /**@type {string} */

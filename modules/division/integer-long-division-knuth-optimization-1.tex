@@ -1,0 +1,27 @@
+\begin{frame}
+\frametitle{The Knuth optimization}
+\begin{itemize}
+\item Let the leading digit of the divisor be $q$.
+\item Observation: when the leading divisor digit $q$ is large, there are fewer quotient rows. 
+\item Observation: if we multiply the divisor and the dividend by a number $s$, this doesn't change the quotient and multiplies the remainder by the same factor $s$.
+\item Donald Knuth suggests the following long division optimization. 
+\item Before division, multiply dividend \& divisor by one-digit $q$. 
+\item Choose $q$ to make the divisor leading digit as large as possible. 
+\item More precisely, for divisor leading digit $d$, choose $q$ to be 
+\[
+q = \left\lfloor\frac{10}{d + 1}\right\rfloor
+\]
+\item Divide integers re-scaled by $q$ in the usual way. 
+\item The new quotient coincides with that of the original problem; the original remainder is obtained by dividing the new one by $q$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Knuth optimization in other bases}
+\begin{itemize}
+\item The Knuth optimization is intended for large examples and computations by computer. 
+\item Thus, the Knuth optimization is not very beneficial when computing by hand.
+\item When using non-decimal counting systems with more than $10$ digits on a computer, the Knuth optimization yields significant benefits. 
+\item Important cases for the Knuth optimization would be the use of $2^8 = 256, 2^{16}= 65536, 2^{32}=4294967296 $ digits, as they are easily available on most modern computers.
+\end{itemize}
+\end{frame}
