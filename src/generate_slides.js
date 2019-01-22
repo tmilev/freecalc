@@ -1042,7 +1042,7 @@ FreeCalcAdditionAlgorithm.prototype.computeResultDigits = function () {
   this.resultNumber = new ColumnsReversedHighlighted();
   this.carryOvers = new ColumnsReversedHighlighted();
   this.carryOvers.digits.push(new HighlightedContent({content: ""}));
-  this.carryOvers.digitPrefix = "\\text{\\tiny{$ ";
+  this.carryOvers.digitPrefix = "\\text{\\tiny{$";
   this.carryOvers.digitSuffix = "$}}";
   this.intermediates = [];
   this.intermediatesBaseConversions = [];
@@ -1065,7 +1065,7 @@ FreeCalcAdditionAlgorithm.prototype.computeResultDigits = function () {
         this.resultNumber.digits[counterInteger],
         this.carryOvers.digits[this.carryOvers.digits.length - 1],
         this.intermediates[this.intermediates.length - 1],
-        this.intermediatesBaseConversions[this.intermediatesBaseConversions.length -1],
+        this.intermediatesBaseConversions[this.intermediatesBaseConversions.length - 1],
         this.plusSign
       );
     } else {
@@ -1854,7 +1854,7 @@ function FreeCalcDivisionAlgorithm() {
     /**@type {number} */
     indexReverseQuotientDigit: - 1,
     /**@type {number} */
-    numberRelevantIntermediateDigits: -1,
+    numberRelevantIntermediateDigits: - 1,
   };
   this.notes = {
     goal: {
@@ -2081,11 +2081,11 @@ function FreeCalcDivisionAlgorithm() {
     /**@type {HighlightedContent} */
     oldCarryOver: null,
     /**@type {number} */
-    oldCarryOverContent: -1,
+    oldCarryOverContent: - 1,
     /**@type {HighlightedContent} */
     newCarryOver: null,
     /**@type {number} */
-    newCarryOverContent: -1,
+    newCarryOverContent: - 1,
     /**@type {HighlightedContent} */
     topDigit: null,
     /**@type {number} */
@@ -2896,8 +2896,8 @@ FreeCalcDivisionAlgorithm.prototype.computeRoundPartThree = function () {
   }
 
   subtraction.carryOvers.allocateDigits(this.quotientDigitCurrent.remainder.digits.length);
-  subtraction.carryOvers.digitPrefix = "\\text{{\\tiny ${{ ";
-  subtraction.carryOvers.digitSuffix = "}}$}}";
+  subtraction.carryOvers.digitPrefix = "\\text{{\\tiny $\\!\\!\\!\\!\\!";
+  subtraction.carryOvers.digitSuffix = "$}}";
   subtraction.note.push("<br><br>\\hfil\\hfil$\\begin{array}{@{}r@{~}c@{~}l}");
   for (var counter = 0; counter < this.multiplicationCurrent.currentSubtracand.digits.length; counter ++) {
     if (showNotes) {
@@ -3339,7 +3339,7 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
   this.quotientMain = new ColumnsReversedHighlighted();
   this.quotientExtras = [new ColumnsReversedHighlighted()];
   this.carryOverDivisor = new ColumnsReversedHighlighted();
-  this.carryOverDivisor.digitPrefix = "\\text{{\\tiny ${{ ";
+  this.carryOverDivisor.digitPrefix = "\\text{{\\tiny $\\phantom{1}\\!\\!\\!\\!\\!~{{ ";
   this.carryOverDivisor.digitSuffix = "}}$}}"; 
   this.intermediates = [];
   this.intermediateCarryOvers = [];
@@ -3379,15 +3379,15 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
   
   this.solution.push("\\hfil\\hfil$");
   this.solution.push("\\setlength\\extrarowheight{-5pt}<br>"); 
-  this.solution.push("\\begin{array}{@{}l");
+  this.solution.push("\\begin{array}{@{}r");
   for (var i = 0; i < this.divisor.digits.length; i ++) {
-    this.solution.push("@{}l");
+    this.solution.push("@{}r");
   }
-  this.solution.push("@{}l@{}l");
+  this.solution.push("@{}r@{}r");
   for (var i = 0; i < this.dividend.digits.length; i ++) {
-    this.solution.push("@{}l");
+    this.solution.push("@{}r");
   }
-  this.solution.push("@{}l");
+  this.solution.push("@{}r");
   this.solution.push("}");
 
   this.computeIntermediateQuotientConsiderationsFillGaps();
@@ -3400,7 +3400,7 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
   this.computeFinalAnswerCheckContent();
   this.highlightFinalAnswerCheck();
 
-  this.solution.push( "{~~}")
+  this.solution.push("{~~}");
   this.solution.push(this.quotientMain.getTableRow(this.divisor.digits.length + 3 + this.dividend.digits.length - this.quotientMain.digits.length));
   this.solution.push("\\\\");
   this.solution.push(`\\cline{${this.divisor.digits.length + 2} - ${this.numberOfColumns}}`); 
@@ -3410,6 +3410,7 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
   this.solution.push(this.intermediateCarryOvers[0].getTableRow(1));
   this.solution.push(`\\\\`);
   this.solution.push("\n<br>\n");
+  this.solution.push("\\phantom{m}");
   this.solution.push(this.divisor.getTableRow(1));
   this.solution.push("&\\multicolumn{1}{|l@{}}{~}&");
   this.solution.push(`~~~&`);
@@ -3517,7 +3518,7 @@ function FreeCalcSubtractionAlgorithm() {
     /** @type {HighlightedContent} */
     newCarryOverContainer: null,
     /** @type {number} */
-    resultDigitContent: -1,
+    resultDigitContent: - 1,
     /** @type {HighlightedContent} */
     resultDigitContainer: null,    
   };
@@ -3722,7 +3723,7 @@ FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function(inputData)
   this.slideContent.push (this.notes.problemStatement.content);
   this.slideContent.push("<br><br> \\begin{columns}");
 
-  this.slideContent.push("\\column{0.4\\textwidth}")
+  this.slideContent.push("\\column{0.4\\textwidth}");
 
   this.slideContent.push("\\hfil\\hfil");
 
@@ -3854,7 +3855,7 @@ OperationTable.prototype.prepareTable = function() {
     contentOperation[i] = new Array(this.base);
   }
   for (var i = 0; i < this.base; i ++) {
-    content.push ("&");
+    content.push("&");
     content.push(columnLabels[i]);
   };
   content.push(`\\\\\\hline\\cline{1-${this.base + 1}}`);
@@ -4004,7 +4005,7 @@ FreeCalcOneDigitOperationAlgorithm.prototype.computeSlideContent = function(
       break;
     case "\\cdot":
       this.operation.noun = "multiplication";
-      this.operation.verb = "Multiply"
+      this.operation.verb = "Multiply";
       this.operation.operator = OperationTable.prototype.multiplication;
       break;
     default:
@@ -4029,7 +4030,7 @@ FreeCalcOneDigitOperationAlgorithm.prototype.computeSlideContent = function(
   }
   this.slideContent.push("\\begin{frame}");
   this.slideContent.push("<br><br>\\vskip -0.1cm<br><br>");
-  this.slideContent.push("\\begin{example}")
+  this.slideContent.push("\\begin{example}");
   this.slideContent.push(`${this.operation.verb} the one-digit numbers.`); 
   this.slideContent.push("<br><br>");
   if (!this.flagUseColumns) {
@@ -4079,7 +4080,7 @@ FreeCalcOneDigitOperationAlgorithm.prototype.computeSlideContent = function(
     this.slideContent.push("\\column{0.5\\textwidth}");
     this.slideContent.push(this.operationTable.content);
     this.slideContent.push("\\column{0.5\\textwidth}");
-    this.slideContent.push(this.operationTable.note)
+    this.slideContent.push(this.operationTable.note);
     if (this.flagUseColumns) {
       this.slideContent.push("<br><br>$\\bullet$ Addition can also be written in columns. ");
     }

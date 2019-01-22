@@ -1,0 +1,45 @@
+\begin{frame} 
+\frametitle{Introducing long integer division}
+\alertNoH{1}{{Divide $\alertNoH{2}{{13}}$ by $\alertNoH{3}{{4}}$ with quotient and remainder. Use long integer division notation.}}
+
+\begin{columns}
+
+\column{0.4\textwidth}\uncover<2->{\hfil\hfil$\setlength\extrarowheight{-5pt}
+\begin{array}{@{}r@{}r@{}r@{}r@{}r@{}r@{}r}{~~}&&&&&\alertNoH{5}{{\fcAnswerUncover{5}{11}{{\uncover<5->{\alertNoH{5, 13, 12, 13, 14, 19, 31, 35}{{3}}}}}}}\\\cline{3 - 6}
+\text{{\tiny ${{ \fcAnswer{14}{{\onlyNoH{13-17}{\alertNoH{16, 17}{{1}}}}}}}$}}&&\multicolumn{1}{|@{}l@{}}{}& &&\\ 
+&\alertNoH{3, 4, 6, 6, 8, 13, 12, 13, 14, 19, 30, 34}{{4}}&\multicolumn{1}{|l@{}}{~}&~~~&\alertNoH{2, 4, 5, 6, 6, 7, 20, 23, 24, 26, 29, 33}{{1}}&\alertNoH{2, 4, 5, 6, 7, 20, 21, 22, 26, 29, 33}{{3}}\uncover<20->{\\\cline{4-4}
+}&&&&\fcAnswer{16}{{\alertNoH{16, 19, 20, 23, 24, 26}{{1}}}}&\fcAnswer{14}{{\alertNoH{15, 19, 20, 21, 22, 26}{{2}}}}\uncover<20->{\\\cline{5 - 6}
+}&&&&&\fcAnswer{22}{{\alertNoH{26, 32, 36}{{1}}}}\end{array} $ 
+}
+
+\column{0.6\textwidth}
+
+\uncover<5->{\alertNoH{5}{{$\bullet$ Put result digit above the dividend in the position indicated. }}}
+
+\uncover<6->{\alertNoH{6}{{$\bullet$ Divide the two-digit integers by single-digit integers by guessing. }}}
+
+
+\uncover<12->{\alertNoH{12, 19}{{$\bullet$ Multiply quotient digit by divisor, put result under current dividend.}}}
+
+\uncover<20->{\alertNoH{20, 20, 26}{{$\bullet$ Subtract.}}}
+
+\uncover<29->{$\bullet$ Final answer. \alertNoH{29, 33}{{Dividend = $13$}}. \alertNoH{30, 34}{{Divisor = $4$}}. \alertNoH{31, 35}{{Quotient = $3$}}. \alertNoH{32, 36}{{Remainder = $1$}}. }\uncover<33->{
+
+$\bullet$ Check. $\alertNoH{33}{{13}} \stackrel{?}{=} \alertNoH{34}{{4}}\cdot\alertNoH{35}{{3}} + \alertNoH{32,36}{{1}} $ }
+
+\end{columns} 
+
+
+
+
+\onlyNoH{7-11}{
+\hfil\hfil$ \displaystyle\alertNoH{10, 11}{{\onlyNoH{9}{\color{red}}\left\lfloor\onlyNoH{9}{\color{black}}\frac{\alertNoH{7}{{13}}}{\alertNoH{8}{{4}}}\onlyNoH{9}{\color{red}}\right\rfloor\onlyNoH{9}{\color{black}}}}\uncover<10->{\alertNoH{10, 11}{{=}}}\fcAnswer{11}{{\left\lfloor\frac{12}{4} + \frac{1}{4} \right\rfloor=\left\lfloor3 + \frac{1}{4} \right\rfloor=}}\uncover<11->{\alertNoH{7, 11}{{3}}}$}\onlyNoH{-17}{\alertNoH{17}{{
+
+\hfil\hfil$\begin{array}{r@{~}c@{~}l}\uncover<13->{\alertNoH{13, 14}{{\alertNoH{5}{{\fcAnswerUncover{5}{11}{{\uncover<5->{\alertNoH{5, 13, 12, 13, 14, 19, 30, 33, 37}{{3}}}}}}}\cdot\alertNoH{3, 4, 6, 6, 8, 13, 12, 13, 14, 19, 29, 32, 36}{{4}}}}&\alertNoH{13, 14}{{=}}&\fcAnswer{14}{{\fcAnswer{14}{{\onlyNoH{13-17}{\alertNoH{16, 17}{{1}}}}}\fcAnswer{14}{{\alertNoH{15, 19, 20, 21, 22, 26}{{2}}}}}}\\}\end{array} $
+
+}}}\onlyNoH{-27}{\alertNoH{27}{{
+
+\hfil\hfil$\begin{array}{@{}r@{~}c@{~}l}\uncover<21->{\alertNoH{21, 22}{{\alertNoH{21, 22}{{3}}-\alertNoH{21, 22}{{2}}}} & \alertNoH{21, 22}{{=}} & \fcAnswer{22}{{1}} \\ }\uncover<23->{\alertNoH{23, 24}{{\alertNoH{23, 24}{{1}}-\alertNoH{23, 24}{{1}}}} & \alertNoH{23, 24}{{=}} & \fcAnswer{24}{{0}} \\ }\end{array}$}}}
+
+\vskip 10 cm
+\end{frame}
