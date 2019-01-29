@@ -36,11 +36,11 @@ LaTeX editor.
   - We wrote a custom 2d/3d graphics package which is included in the freecalc project. 
 Feel free to change the default function graph color or the default perpendicular heel size, or anything else you like.
   - The postscript graphics are coordinated with the LaTeX content using the standard beamer class and \uncover<> commands.
-  - The slides are done in LaTeX, the same format used for professional matheamtical publications/scientific articles.
+  - The slides are done in LaTeX, the same format used for professional mathematical publications/scientific articles.
 
 ## Homework problems
 - Educational aspects:
-  - With more than a thousand problems, we have sufficient materials so you don't need to use any external materials. 
+  - With more than a thousand problems, we have sufficient materials so you don't need to use any external ones. 
   - Our homework sets are split into separate pdfs matching the lecture slides.
   - We also include an all-problems-in-the-course pdf file, complete with table of contents.
   - All our problem pdfs come in two versions: with and without an answer key. 
@@ -52,5 +52,4 @@ providing a consistent experience to your students.
 ## Textbook
 Our textbook is work in progress, despite the fact that composing the textbook is a lot less work than composing the projector slides.
 The reason we have not completed our textbook yet is that 
-we have found through our teaching experience that 
-students do not need or use the textbook when given all slides and homework files.
+we have found that students do not need or use the textbook when given all slides and homework files.
