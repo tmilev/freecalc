@@ -1,0 +1,71 @@
+\begin{frame}
+\begin{observation}
+\[
+x\cdot \frac{a}{b}=\frac{x\cdot a}{b}
+\]
+Multiplying a fraction by a number is equivalent to multiplying its numerator by that number.
+\end{observation}
+\uncover<2->{
+\begin{example}
+\[
+\alertNoH{11}{\alertNoH{7,8}{2 \cdot} \alertNoH{5}{\frac{\alertNoH{3,7,8}{2} }{\alertNoH{4}{3}}} } = \alertNoH{10}{ \frac{\alertNoH{7,8}{ 4} }{\alertNoH{9}{ 3}}}
+\]
+\psset{xunit=2cm, yunit=2cm}
+\begin{pspicture}(-0.5,-0.7)(5,1)%
+\psline[arrows=<->](-0.5,0)(5,0)%
+\fcFullDot{0}{0}%
+\newcommand{\numerator}{2}%
+\newcommand{\multiplier}{2}%
+\newcommand{\numeratorTimesMultiplier}{4}%
+\newcommand{\denominator}{3}%
+\pstVerb{
+20 dict begin
+/numerator \numerator\space def
+/denominator \denominator\space def
+/fraction numerator denominator div def
+/multiplier \multiplier\space def
+/numeratorTimesMultiplier numerator multiplier mul def
+}%
+\fcFullDot{numerator}{0}%
+\rput[t](\numerator,-0.15){$\numerator$}%
+\rput[t](0,-0.15){$0$}%
+\uncover<3-7>{%
+\fcLengthIndicatorNoLabel[linecolor=blue]{0}{0.5}{\numerator}{0.5}%
+}%
+\uncover<4,5>{%
+\multido{\ia=0+1}{\denominator}{%
+\pstVerb{/counter \ia\space def}%
+\fcLengthIndicatorNoLabel{counter fraction mul}{0.5}{counter 1 add fraction mul}{0.5}%
+}%
+}%
+\uncover<11->{%
+\fcLengthIndicatorNoLabel[linecolor=red]{0}{0.25}{fraction multiplier mul}{0.25}%
+}%
+\uncover<5->{%
+\fcLengthIndicatorNoLabel[linecolor=purple]{0}{0.25}{fraction}{0.25}%
+\fcFullDot{fraction}{0}%
+\rput[t](! fraction -0.15){$\frac{\numerator}{\denominator}$}%
+}%
+\uncover<7->{%
+\fcLengthIndicatorNoLabel[linecolor=blue, ticksizeToLengthRatio=0.1]{0}{0.5}{numeratorTimesMultiplier}{0.5}%
+\fcFullDot{numeratorTimesMultiplier}{0}%
+\rput[t](\numeratorTimesMultiplier,-0.15){$\numeratorTimesMultiplier$}%
+}%
+\uncover<9->{%
+\multido{\ia=0+1}{\denominator}{%
+\pstVerb{/counter \ia\space def}%
+\fcLengthIndicatorNoLabel[linecolor=blue]{counter fraction multiplier mul mul}{0.5}{counter 1 add fraction multiplier mul mul}{0.5}%
+}%
+}%
+\uncover<10->{%
+\fcLengthIndicatorNoLabel[linewidth=2pt, linecolor=red]{0}{0.5}{fraction multiplier mul}{0.5}%
+\fcFullDot{fraction multiplier mul}{0}%
+\rput[t](! fraction multiplier mul -0.15){$\frac{\numeratorTimesMultiplier}{\denominator}$}
+}%
+\pstVerb{
+end
+}
+\end{pspicture}
+\end{example}
+}
+\end{frame}

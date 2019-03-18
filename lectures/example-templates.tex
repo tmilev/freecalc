@@ -94,6 +94,7 @@ pdfcrop={},
 \newcommand{\ds}{\displaystyle}
 \newtheorem{question}{Question}
 \newtheorem{emptyTheorem}{}
+\newtheorem{mathematicalRule}{Rule}
 \newtheorem{observation}{Observation}
 \newtheorem{algorithm}{Algorithm}
 \newtheorem{proposition}{Proposition}
@@ -150,7 +151,7 @@ pdfcrop={},
 \uncover<handout:0|\fcResult>{\alertNoH{\fcResult}{\textbf{?} }} \worksheet{\uncover<handout:0| #1->{\alertNoH{#1}{\!\!\!#2}}}
 }
 \newcommand{\fcAnswer}[2]{%
-\uncover<handout:0|\the\numexpr#1-1\relax>{\alertNoH{\the\numexpr#1-1\relax}{\textbf{?}}}\worksheet{\uncover<#1->{\alertNoH{#1}{\!\!\!#2}}}%
+\uncover<handout:0|\the\numexpr#1-1\relax>{\alertNoH{{\the\numexpr#1-1\relax}}{{\textbf{?}}}}\worksheet{\uncover<#1->{{\alertNoH{#1}{\!\!\!#2}}}}%
 }%
 
 \newcommand{\fcAnswerUncover}[3]{%

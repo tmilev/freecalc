@@ -1,0 +1,85 @@
+\begin{frame}
+\begin{observation}
+Fractions do not change when we multiply their numerator and denominator by the same number.
+\[
+\alertNoH{4}{\frac{\alertNoH{2}{ a} }{\alertNoH{3}{b}} } =\frac{\alertNoH{6}{  \alertNoH{5,12}{ x} \cdot a} }{ \alertNoH{5,12}{x}\cdot b}
+\]
+
+\end{observation}
+
+\begin{example}
+\hfil\hfil$\renewcommand{\arraystretch}{1.8}
+\begin{array}{rcl}
+\displaystyle \alertNoH{4,10}{\frac{\alertNoH{2}{2}}{\alertNoH{3}{3}}} &\uncover<5->{=}&\displaystyle \uncover<5->{ \frac{ \alertNoH{6}{ \alertNoH{5}{2} \cdot 2}  }{\alertNoH{7}{ \alertNoH{5}{2}\cdot 3}} } \uncover<8->{ = \alertNoH{10}{ \frac{\alertNoH{8}{ 4} }{ \alertNoH{9}{6} }} }\\
+\uncover<12->{ &=&\displaystyle  \frac{\alertNoH{13}{ \alertNoH{12}{ 3} \cdot 2} }{\alertNoH{14}{\alertNoH{12}{3} \cdot 3}} \uncover<15->{= \alertNoH{17}{ \frac{\alertNoH{15}{6}}{\alertNoH{16}{9}}}}} \\
+\end{array}$
+
+\begin{pspicture}(-1, -0.5)(9, 2)%
+\tiny%
+\psline[arrows=<->](-1,0)(8,0)%
+\fcFullDot{0}{0}%
+\rput[t](0, -0.2){$0$}%
+\newcommand{\denominator}{3}%
+\newcommand{\numerator}{2\space}%
+\newcommand{\numeratorTimesMultiplier}{4}%
+\newcommand{\multiplier}{2}%
+\onlyNoH{11-}{%
+\renewcommand{\multiplier}{3}%
+\renewcommand{\numeratorTimesMultiplier}{6}%
+}%
+\pstVerb{%
+20 dict begin
+/numberOfSegments 3 def
+/numerator \numerator\space def
+/fraction numerator numberOfSegments div def
+/multiplier \multiplier\space def
+}%
+\uncover<2->{%
+\fcLengthIndicatorNoLabel[linecolor=blue, linewidth=2pt, ticksizeToLengthRatio=0.07]{0}{0.7}{numerator}{0.7}%
+\rput[t](! \numerator -0.2){$\numerator$}%
+\fcFullDot{\numerator}{0}%
+}%
+\uncover<3->{%
+\multido{\ia=0+1}{\denominator}{%
+\pstVerb{
+/counter \ia\space def
+}%
+\fcLengthIndicatorNoLabel[linecolor=blue, linewidth=2pt, ticksizeToLengthRatio=0.07]{counter fraction mul}{0.7}{counter 1 add fraction mul}{0.7}%
+}%
+}%
+\uncover<4->{%
+\fcLengthIndicatorNoLabel[linecolor=purple,linewidth=2pt, ticksizeToLengthRatio=0.12]{0}{0.7}{fraction}{0.7}%
+\fcFullDot{fraction}{0}%
+\rput[t](! fraction -0.2){$\alertNoH{10}{\frac{\numerator}{\denominator}}$}%
+}%
+\uncover<6-10,13->{%
+\multido{\ia=0+1}{\multiplier}{%
+\pstVerb{
+/counter \ia\space def
+}%
+\uncover<6,7,13,14>{%
+\fcLengthIndicatorNoLabel[linecolor=blue,linewidth=2pt,ticksizeToLengthRatio=0.12]{counter numerator mul}{1}{counter 1 add numerator mul}{1}%
+}%
+\uncover<7,9-11,14,16->{%
+\multido{\ib=0+1}{\denominator}{%
+\pstVerb{
+/fractionCounter \ib\space def
+}%
+\fcLengthIndicatorNoLabel[linecolor=blue,linewidth=2pt,ticksizeToLengthRatio=0.07]{counter numerator mul fractionCounter fraction mul add}{1}{counter numerator mul fractionCounter 1 add fraction mul add}{1}%
+}%
+}%
+}%
+}%
+\uncover<8-10,15->{%
+\fcLengthIndicatorNoLabel[linecolor=blue,linewidth=2pt,ticksizeToLengthRatio=0.12]{0}{1}{numerator multiplier mul}{1}%
+\fcFullDot{numerator multiplier mul}{0}%
+\rput[t](! numerator multiplier mul -0.2){$\numeratorTimesMultiplier$}%
+}%
+\uncover<10,17->{%
+\fcLengthIndicatorNoLabel[linecolor=purple,linewidth=2pt,ticksizeToLengthRatio=0.12]{0}{1}{fraction}{1}%
+}%
+\pstVerb{end}%
+\end{pspicture}
+\end{example}
+
+\end{frame}

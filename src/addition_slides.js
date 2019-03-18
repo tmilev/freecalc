@@ -1,4 +1,10 @@
 "use strict"
+var require;
+if (require === undefined) {
+  require = function(){};
+}
+require('./')
+
 
 /**@type {FreeCalcElements} */
 var theElements = null;
@@ -1042,7 +1048,7 @@ FreeCalcAdditionAlgorithm.prototype.computeResultDigits = function () {
   this.resultNumber = new ColumnsReversedHighlighted();
   this.carryOvers = new ColumnsReversedHighlighted();
   this.carryOvers.digits.push(new HighlightedContent({content: ""}));
-  this.carryOvers.digitPrefix = "\\text{\\tiny{$";
+  this.carryOvers.digitPrefix = "\\text{\\tiny{$ ";
   this.carryOvers.digitSuffix = "$}}";
   this.intermediates = [];
   this.intermediatesBaseConversions = [];
@@ -1065,7 +1071,7 @@ FreeCalcAdditionAlgorithm.prototype.computeResultDigits = function () {
         this.resultNumber.digits[counterInteger],
         this.carryOvers.digits[this.carryOvers.digits.length - 1],
         this.intermediates[this.intermediates.length - 1],
-        this.intermediatesBaseConversions[this.intermediatesBaseConversions.length - 1],
+        this.intermediatesBaseConversions[this.intermediatesBaseConversions.length -1],
         this.plusSign
       );
     } else {
@@ -1208,8 +1214,6 @@ function FreeCalcElements() {
     base: "idBase",
     baseAdditionTable: "idBaseAdditionTable",
     pairsToAdd: "idPairsToAdd",
-    negativeCarryOverPrefix: "idNegativeCarryOverPrefix",
-    fontSize: "idFontSize",
   };
   this.idOutput = this.inputPairs.output;
   this.startingFrameNumber = 0;
@@ -1283,11 +1287,9 @@ FreeCalcElements.prototype.getInputs = function() {
 }
 
 function FreeCalcMultiplicationAlgorithm() {
+  /**@type {HighlightedContent} */
+  this.slideContent = null;
 
-  /**@type {String} */
-  this.inputLeft = "";
-  /**@type {String} */
-  this.inputRight = "";
   /**@type {ColumnsReversedHighlighted} */
   this.numberLeft = null;
   /**@type {ColumnsReversedHighlighted} */
@@ -1310,44 +1312,23 @@ function FreeCalcMultiplicationAlgorithm() {
   this.multiplicationSign = null;
   /**@type {HighlightedContent} */
   this.multiplicationResult = null;
-  this.content = {
-    /**@type {HighlightedContent} */
-    computation: null,    
-    /**@type {HighlightedContent} */
-    computationNotes: null,
-    problemStatement: {
-      /**@type {HighlightedContent} */
-      content: null,
-      /**@type {HighlightedContent} */
-      leftNumber: null,
-      /**@type {HighlightedContent} */
-      rightNumber: null,
-    },
-    /**@type {HighlightedContent} */
-    slide: null,
-  };
-  /**@type {Number[]} */
+  /**@type {HighlightedContent} */
+  this.notes = null;
+  /**@type {number[]} */
   this.carryOverHideFrames = null;
   this.base = 10;
   this.currentFrameNumber = 0;
 }
 
-FreeCalcMultiplicationAlgorithm.prototype.toString = function () {
-  if (this.content.slide === null) {
-    return "(uninitialized)";
-  }
-  return this.content.slide.toString();
-}
+FreeCalcMultiplicationAlgorithm.prototype.toString = FreeCalcAdditionAlgorithm.prototype.toString;
 
 FreeCalcMultiplicationAlgorithm.prototype.init = function( 
   /**@type {{startingFrameNumber: number, topNumber: string, bottomNumber: string, base: number}} */
   inputData
 ) {
   this.startingFrameNumber = Number(inputData.startingFrameNumber);
-  this.inputLeft = inputData.topNumber;
-  this.inputRight = inputData.bottomNumber;
-  this.numberLeft = new ColumnsReversedHighlighted(this.inputLeft);
-  this.numberRight = new ColumnsReversedHighlighted(this.inputRight);
+  this.numberLeft = new ColumnsReversedHighlighted(inputData.topNumber);
+  this.numberRight = new ColumnsReversedHighlighted(inputData.bottomNumber);
   this.numbersIntermediate = [];
   this.base = Number(inputData.base);
 }
@@ -1642,8 +1623,6 @@ FreeCalcMultiplicationAlgorithm.prototype.highlightFinal = function () {
 
 FreeCalcMultiplicationAlgorithm.prototype.computeSlideResult = function () {
   if (this.numberLeft.digits.length <= 1) {
-    this.currentFrameNumber ++;
-    this.intermediates[this.intermediates.length - 1].highlightAll(this.currentFrameNumber);
     return;
   }
   this.plusSign.showFrame = this.currentFrameNumber;
@@ -1659,40 +1638,16 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideResult = function () {
   this.multiplicationResult.push(this.multiplicationResultNumber.getTableRow(offset));
 }
 
-FreeCalcMultiplicationAlgorithm.prototype.computeProblemStatement = function() {
-  this.content.problemStatement.content = new HighlightedContent();
-  this.content.problemStatement.leftNumber = new HighlightedContent(this.inputLeft);
-  this.content.problemStatement.rightNumber = new HighlightedContent(this.inputRight);
-  this.content.problemStatement.content.push("Multiply ");
-  this.content.problemStatement.content.push(this.content.problemStatement.leftNumber);
-  this.content.problemStatement.content.push(" by ");
-  this.content.problemStatement.content.push(this.content.problemStatement.rightNumber);
-  this.content.problemStatement.content.push(". \n<br>\n");
-}
-
-FreeCalcMultiplicationAlgorithm.prototype.highlightProblemStatement = function() {
-  this.content.computation.showFrame = this.currentFrameNumber + 1;
-  this.numberLeft.highlightAll(this.currentFrameNumber + 1);
-  this.content.problemStatement.leftNumber.highlightFrames.push(this.currentFrameNumber + 1);
-  this.numberRight.highlightAll(this.currentFrameNumber + 2);
-  this.content.problemStatement.rightNumber.highlightFrames.push(this.currentFrameNumber + 2);
-  this.currentFrameNumber += 2;
-}
-
 FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.init(inputData);
   this.currentFrameNumber = this.startingFrameNumber;
-  this.content.slide = new HighlightedContent();
-  this.content.computation = new HighlightedContent();
+  this.slideContent = new HighlightedContent();
   this.plusSign = new HighlightedContent();
-  this.multiplicationSign = new HighlightedContent("\\cdot");
+  this.multiplicationSign = new HighlightedContent("~\\cdot~~");
   this.notes = new HighlightedContent();
   this.multiplicationResult = new HighlightedContent();
-
-  this.computeProblemStatement();
-  this.highlightProblemStatement();
-  this.content.slide.push("\\begin{frame}\n<br>\n\\begin{example}");
-  this.content.slide.push(this.content.problemStatement.content);
+  this.slideContent.content = [];
+  this.slideContent.push("\\begin{frame}\n<br>\n");
   this.intermediates = new Array(this.numberLeft.digits.length);
   this.carryOvers = new Array(this.numberRight.digits.length);
   this.carryOverHideFrames = new Array(this.numberRight.digits.length);
@@ -1706,7 +1661,6 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function(inputDa
   this.currentFrameNumber ++;
   this.computeSlideResult();
 
-  this.content.slide.push(this.content.computation);
   var slideStart = "";
   slideStart += "\\[ \\begin{array}{@{}r@{}r";
   for (var i = 0; i < this.numberLeft.digits.length; i ++) {
@@ -1717,50 +1671,50 @@ FreeCalcMultiplicationAlgorithm.prototype.computeSlideContent = function(inputDa
     slideStart += "@{}r";
   }
   slideStart += "}";
-  this.content.computation.push(slideStart);
+  this.slideContent.push(slideStart);
   this.combineCarryOvers();
   if (this.hasCarryOvers()) {
-    //this.content.slide.push("\\displaystyle \\phantom{\\frac{\\int}{~}}");
+    //this.slideContent.push("\\displaystyle \\phantom{\\frac{\\int}{~}}");
     var offset = 2 + this.numberRight.digits.length + this.numberLeft.digits.length;
     offset -= this.carryOversCombined.digits.length;
-    this.content.computation.push(this.carryOversCombined.getTableRow(offset));
-    this.content.computation.push("\\\\\n<br>\n");
+    this.slideContent.push(this.carryOversCombined.getTableRow(offset));
+    this.slideContent.push("\\\\\n<br>\n");
   }
-  this.content.computation.push(this.numberLeft.getTableRow(2));
-  this.content.computation.push("&");
-  this.content.computation.push(this.multiplicationSign);
-  this.content.computation.push("&");
-  this.content.computation.push(this.numberRight.getTableRow(0));
-  this.content.computation.push("\\\\\\hline \n<br>\n");
+  this.slideContent.push(this.numberLeft.getTableRow(2));
+  this.slideContent.push("&");
+  this.slideContent.push(this.multiplicationSign);
+  this.slideContent.push("&");
+  this.slideContent.push(this.numberRight.getTableRow(0));
+  this.slideContent.push("\\\\\\hline \n<br>\n");
   if (this.carryOversAddition.getNumberSignificantDigits() > 0) {
-    this.content.computation.push(this.carryOversAddition.getTableRow(3));
-    this.content.computation.push("\\\\\n<br>\n");
+    this.slideContent.push(this.carryOversAddition.getTableRow(3));
+    this.slideContent.push("\\\\\n<br>\n");
   }
 
   for (var i = 0; i < this.intermediates.length; i ++) {
     if (i === 0 && this.intermediates.length > 1) {
-      this.content.computation.push(`\\multirow{${this.numberRight.digits.length}}{*}{$`);
+      this.slideContent.push(`\\multirow{${this.numberRight.digits.length}}{*}{$`);
       this.plusSign.content = "+";
-      this.content.computation.push(this.plusSign);
-      this.content.computation.push(`$}`);  
+      this.slideContent.push(this.plusSign);
+      this.slideContent.push(`$}`);  
     }
     var currentLength = this.intermediates[i].digits.length;
     var offset = this.numberRight.digits.length + this.numberLeft.digits.length - currentLength - i + 3; 
-    this.content.computation.push(this.intermediates[i].getTableRow(offset));
+    this.slideContent.push(this.intermediates[i].getTableRow(offset));
     if (i !== this.intermediates.length - 1) {
-      this.content.computation.push("\\\\\n<br>\n");
+      this.slideContent.push("\\\\\n<br>\n");
     }
   }
   if (this.numberLeft.digits.length > 1) {
-    this.content.computation.push(this.multiplicationResult);
+    this.slideContent.push(this.multiplicationResult);
   }
 
   var flaFinish = "";
-  flaFinish += "\\end{array}\\]$"
-  this.content.computation.push(flaFinish);
-  this.content.slide.push(" <br>\n \\displaystyle \\phantom{\\underbrace{\\int 1}_{a}}$");
-  this.content.slide.push(this.notes);  
-  this.content.slide.push("\\end{example}\n<br>\n\\end{frame}");
+  flaFinish += "\\end{array}\\] <br>\n$\\displaystyle \\phantom{\\underbrace{\\int 1}_{a}}$";
+  this.slideContent.push(flaFinish);
+  this.slideContent.push(this.notes);
+  
+  this.slideContent.push("\n<br>\n\\end{frame}");
 }
 
 FreeCalcElements.prototype.selectOutput = function () {
@@ -1790,11 +1744,6 @@ function FreeCalcDivisionAlgorithm() {
   this.inputDividend = "";
   /**@type {string} */
   this.inputDivisor = "";
-
-  this.options = {
-    fontSize: "\\tiny",
-    negativeCarryOverPrefix: "\\!\\!",
-  };
   
   /**@type {ColumnsReversedHighlighted} */
   this.dividend = null;
@@ -1838,7 +1787,6 @@ function FreeCalcDivisionAlgorithm() {
   this.flagRoundLargeDivisorLeadingDigitReasoned = false; 
   this.flagOneDigitMultiplicationIllustrated = false;
   this.flagOneSubtractionIllustrated = false;
-  this.flagIsOneDigitDivision = false;
   this.flagFirstRun = true;
   this.quotientDigitsOffset = - 1;
   this.quotientDigitCurrent = {
@@ -1861,7 +1809,7 @@ function FreeCalcDivisionAlgorithm() {
     /**@type {number} */
     indexReverseQuotientDigit: - 1,
     /**@type {number} */
-    numberRelevantIntermediateDigits: - 1,
+    numberRelevantIntermediateDigits: -1,
   };
   this.notes = {
     goal: {
@@ -1931,19 +1879,7 @@ function FreeCalcDivisionAlgorithm() {
       quotient: null,
       /**@type {HighlightedContent} */
       remainder: null,
-    },
-    finalAnswerCheck: {
-      /**@type {HighlightedContent} */
-      content: null,
-      /**@type {HighlightedContent} */
-      dividend: null,
-      /**@type {HighlightedContent} */
-      divisor: null,
-      /**@type {HighlightedContent} */
-      quotient: null,
-      /**@type {HighlightedContent} */
-      remainder: null,
-    },
+    }
   };
   this.currentNoteLargeDivisor = {
     /**@type {HighlightedContent} */
@@ -2088,11 +2024,11 @@ function FreeCalcDivisionAlgorithm() {
     /**@type {HighlightedContent} */
     oldCarryOver: null,
     /**@type {number} */
-    oldCarryOverContent: - 1,
+    oldCarryOverContent: -1,
     /**@type {HighlightedContent} */
     newCarryOver: null,
     /**@type {number} */
-    newCarryOverContent: - 1,
+    newCarryOverContent: -1,
     /**@type {HighlightedContent} */
     topDigit: null,
     /**@type {number} */
@@ -2124,13 +2060,6 @@ FreeCalcDivisionAlgorithm.prototype.init = function (inputData) {
   if (typeof this.base !== "number") {
     throw (`Failed to convert base ${inputData.base} to integer. `);
   }
-  if (inputData.fontSize !== undefined) {
-    this.options.fontSize = inputData.fontSize;
-  }
-  if (inputData.negativeCarryOverPrefix !== undefined) {
-    this.options.negativeCarryOverPrefix = inputData.negativeCarryOverPrefix;
-  }
-
 }
 
 FreeCalcDivisionAlgorithm.prototype.computeQuotientDigitSmallDivisorDigitConsiderations = function () {
@@ -2144,16 +2073,11 @@ FreeCalcDivisionAlgorithm.prototype.computeQuotientDigitSmallDivisorDigitConside
   var consequence = this.currentNoteDivisorSmallLeadingDigit.consequence.content;
   remarks.partOne = new HighlightedContent(" $\\Rightarrow$ divide leading digit");
   remarks.partOnePointFive = new HighlightedContent(" by divisor digit");
-  if (!this.flagIsOneDigitDivision) {
-    remarks.partTwo = new HighlightedContent(" plus one");
-  }
+  remarks.partTwo = new HighlightedContent(" plus one");
   consequence.push(remarks.partOne);
   consequence.push(remarks.partOnePointFive);
   consequence.push(remarks.partTwo);
   consequence.push(". ");
-  if (this.flagIsOneDigitDivision) {
-    consequence.push("Unlike division by multi-digit divisor, don't add one to divisor leading digit. ");
-  }
   this.currentNoteDivisorSmallLeadingDigit.consequence.partThree = new HighlightedContent();
   var consequencePartThree = this.currentNoteDivisorSmallLeadingDigit.consequence.partThree;
   consequencePartThree.push("Round down if needed. ");
@@ -2190,17 +2114,12 @@ FreeCalcDivisionAlgorithm.prototype.computeQuotientDigitLargerDivisorConsiderati
   consequence.content = new HighlightedContent();
   consequence.partOne = new HighlightedContent(" $\\Rightarrow$ divide leading two digits ");
   consequence.partOnePointFive = new HighlightedContent(" by divisor digit");
+  consequence.partTwo = new HighlightedContent(" plus one");
   consequence.partThree = new HighlightedContent("Round down if needed. ");
   consequence.content.push(consequence.partOne);
   consequence.content.push(consequence.partOnePointFive);
-  if (!this.flagIsOneDigitDivision) {
-    consequence.partTwo = new HighlightedContent(" plus one");
-    consequence.content.push(consequence.partTwo);
-  } 
+  consequence.content.push(consequence.partTwo);
   consequence.content.push(". ");
-  if (this.flagIsOneDigitDivision) {
-    consequence.content.push("Unlike division by multi-digit divisor, don't add one to divisor leading digit. ");
-  }
   consequence.content.push(consequence.partThree);
   currentNote.content.push(consequence.content);
   currentNote.content.push(currentNote.finalPart);
@@ -2278,12 +2197,7 @@ FreeCalcDivisionAlgorithm.prototype.quotientDigitPlacementHighlight = function()
 
 FreeCalcDivisionAlgorithm.prototype.computeQuotientDigitSmallDivisorDigitContent = function () {
   var quotientDigitContainer = this.quotientDigitCurrent.quotientDigitContainer;
-  var divisor = this.divisorLeadingDigitPlusOne;
-  if (this.flagIsOneDigitDivision) {
-    divisor --;
-  }
-
-  this.quotientDigitCurrent.quotientDigitContent = Math.floor(this.quotientDigitCurrent.remainderLeadingDigitContent / divisor);
+  this.quotientDigitCurrent.quotientDigitContent = Math.floor(this.quotientDigitCurrent.remainderLeadingDigitContent / this.divisorLeadingDigitPlusOne);
   var quotientDigitContent = this.quotientDigitCurrent.quotientDigitContent;
   quotientDigitContainer.content = quotientDigitContent;
   var computation = this.currentNoteDivisorSmallLeadingDigit.computation;
@@ -2302,39 +2216,28 @@ FreeCalcDivisionAlgorithm.prototype.computeQuotientDigitSmallDivisorDigitContent
   partOne.denominator = new HighlightedContent();
   partOne.denominatorNoPlusOne = new HighlightedContent(this.divisorLeadingDigitContent);
   partOne.denominator.push(partOne.denominatorNoPlusOne);
-if (!this.flagIsOneDigitDivision) {
-    partOne.plusOne = new HighlightedContent("+ 1");
-    partOne.denominator.push(partOne.plusOne);
-  }
+  partOne.plusOne = new HighlightedContent("+ 1");
+  partOne.denominator.push(partOne.plusOne);
   partOne.content.push(partOne.denominator);
   partOne.content.push("}");
   partOne.content.push(partOne.rfloor);
   computation.content.push(partOne.content);
-  computation.partTwo = new HighlightedContent();
-  var partTwoContent = "";
   computation.partOneEqualsPartTwo = new HighlightedContent("=");
+  computation.partTwo = new HighlightedContent();
   computation.content.push(computation.partOneEqualsPartTwo);
-  var endsInEquality = true;
-  if (!this.flagIsOneDigitDivision) {
-    partTwoContent += `\\left\\lfloor\\frac{${this.quotientDigitCurrent.remainderLeadingDigitContent}}{${divisor}}\\right\\rfloor`;
-    endsInEquality = false;
-  }
-  var remainderDigit = this.quotientDigitCurrent.remainderLeadingDigitContent - quotientDigitContent * divisor;
+  var partTwoContent = "";
+  partTwoContent += `\\left\\lfloor\\frac{${this.quotientDigitCurrent.remainderLeadingDigitContent}}{${this.divisorLeadingDigitPlusOne}}\\right\\rfloor`;
+  var remainderDigit = this.quotientDigitCurrent.remainderLeadingDigitContent - quotientDigitContent * this.divisorLeadingDigitPlusOne;
   if (remainderDigit > 0 && quotientDigitContent > 0) {
-    if (!endsInEquality) {
-      partTwoContent += " = ";
-    }
-    partTwoContent += `\\left\\lfloor\\frac{${quotientDigitContent * divisor}}{${divisor}} `;
-    partTwoContent += ` + \\frac{${remainderDigit}}{${divisor}}`;
+
+    partTwoContent += " = ";
+    partTwoContent += `\\left\\lfloor\\frac{${quotientDigitContent * this.divisorLeadingDigitPlusOne}}{${this.divisorLeadingDigitPlusOne}} `;
+    partTwoContent += ` + \\frac{${remainderDigit}}{${this.divisorLeadingDigitPlusOne}}`;
     partTwoContent += ` \\right\\rfloor`;
-    endsInEquality = false;
   }
-  if (!endsInEquality) {
-    partTwoContent += `=`;
-  }
-  partTwoContent += `\\left\\lfloor${quotientDigitContent} `;
+  partTwoContent += `=\\left\\lfloor${quotientDigitContent} `;
   if (remainderDigit > 0) {
-    partTwoContent += ` + \\frac{${remainderDigit}}{${divisor}}`;
+    partTwoContent += ` + \\frac{${remainderDigit}}{${this.divisorLeadingDigitPlusOne}}`;
   }
   partTwoContent += ` \\right\\rfloor`;
 
@@ -2361,12 +2264,8 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRoundLargeDivisorContent = functio
   var quotientDigitContainer = this.quotientDigitCurrent.quotientDigitContainer;
   var currentComputation = this.currentNoteLargeDivisor.computation;
   var partOne = currentComputation.partOne;
-  var divisor = this.divisorLeadingDigitPlusOne;
-  if (this.flagIsOneDigitDivision) {
-    divisor = this.divisorLeadingDigitContent;
-  }
   partOne.numeratorContent = this.quotientDigitCurrent.remainderLeadingDigitContent * this.base + this.quotientDigitCurrent.remainderSecondToLeadingDigitContent;
-  this.quotientDigitCurrent.quotientDigitContent = Math.floor(partOne.numeratorContent / divisor);
+  this.quotientDigitCurrent.quotientDigitContent = Math.floor(partOne.numeratorContent / this.divisorLeadingDigitPlusOne);
   var quotientDigitContent = this.quotientDigitCurrent.quotientDigitContent;
   quotientDigitContainer.content = quotientDigitContent;
 
@@ -2391,10 +2290,8 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRoundLargeDivisorContent = functio
   partOne.content.push("}{");
   partOne.denominator = new HighlightedContent();
   partOne.denominator.push(partOne.divisorLeadingDigitContainer);
-  if (!this.flagIsOneDigitDivision) {
-    partOne.plusOne = new HighlightedContent("+ 1");
-    partOne.denominator.push(partOne.plusOne);
-  }
+  partOne.plusOne = new HighlightedContent("+ 1");
+  partOne.denominator.push(partOne.plusOne);
   partOne.content.push(partOne.denominator);
   partOne.content.push("}");
   partOne.content.push(partOne.rfloor);
@@ -2402,27 +2299,24 @@ FreeCalcDivisionAlgorithm.prototype.computeOneRoundLargeDivisorContent = functio
   currentComputation.partOneEqualsPartTwo = new HighlightedContent("=");
   currentComputation.content.push(currentComputation.partOneEqualsPartTwo);
   currentComputation.partTwo = new HighlightedContent();
-
   var partTwoContent = new HighlightedContent();
-  if (! this.flagIsOneDigitDivision) {
-    partTwoContent.push(partOne.lfloor);
-    partTwoContent.push(`\\frac{`);
-    partTwoContent.push(partOne.numeratorContent);
-    partTwoContent.push(`}{`);
-    partTwoContent.push(divisor);
-    partTwoContent.push(`}`);
-    partTwoContent.push(partOne.rfloor);
-    partTwoContent.push(" = ");
-  }
-  var remainderDigit = partOne.numeratorContent - quotientDigitContent * divisor;
+  partTwoContent.push(partOne.lfloor);
+  partTwoContent.push(`\\frac{`);
+  partTwoContent.push(partOne.numeratorContent);
+  partTwoContent.push(`}{`);
+  partTwoContent.push(this.divisorLeadingDigitPlusOne);
+  partTwoContent.push(`}`);
+  partTwoContent.push(partOne.rfloor);
+  partTwoContent.push(" = ");
+  var remainderDigit = partOne.numeratorContent - quotientDigitContent * this.divisorLeadingDigitPlusOne;
   if (remainderDigit > 0) {
-    partTwoContent.push(`\\left\\lfloor\\frac{${quotientDigitContent * divisor}}{${divisor}} `);
-    partTwoContent.push(` + \\frac{${remainderDigit}}{${divisor}}`);
+    partTwoContent.push(`\\left\\lfloor\\frac{${quotientDigitContent * this.divisorLeadingDigitPlusOne}}{${this.divisorLeadingDigitPlusOne}} `);
+    partTwoContent.push(` + \\frac{${remainderDigit}}{${this.divisorLeadingDigitPlusOne}}`);
     partTwoContent.push(` \\right\\rfloor=`);
   }
   partTwoContent.push(`\\left\\lfloor${quotientDigitContent} `);
   if (remainderDigit > 0) {
-    partTwoContent.push(` + \\frac{${remainderDigit}}{${divisor}}`);
+    partTwoContent.push(` + \\frac{${remainderDigit}}{${this.divisorLeadingDigitPlusOne}}`);
   }
   partTwoContent.push(` \\right\\rfloor`);
   currentComputation.partTwo.push(partTwoContent);
@@ -2483,24 +2377,18 @@ FreeCalcDivisionAlgorithm.prototype.computeQuotientDigitLargerDivisorHighlight =
   currentNote.consequence.partOnePointFive.highlightFrames.push(this.currentFrameNumber + 1);
   this.divisorLeadingDigitContainer.highlightFrames.push(this.currentFrameNumber + 1);
   computation.partOne.divisorLeadingDigitContainer.highlightFrames.push(this.currentFrameNumber + 1);
-  computation.answer.highlightFrames.push(this.currentFrameNumber);
-  if (!this.flagIsOneDigitDivision) {
-    currentNote.consequence.partTwo.highlightFrames.push(this.currentFrameNumber + 2);
-    computation.partOne.plusOne.highlightFrames.push(this.currentFrameNumber + 2);
-    this.currentFrameNumber += 3;
-  } else {
-    this.currentFrameNumber += 2;
-  }
-  computation.partTwo.answerFrame = this.currentFrameNumber + 2;
-  currentNote.consequence.partThree.highlightFrames.push(this.currentFrameNumber);
-  computation.partOne.lfloor.redFrames.push(this.currentFrameNumber);
-  computation.partOne.rfloor.redFrames.push(this.currentFrameNumber);
-  computation.partOne.content.highlightFrames.push(this.currentFrameNumber + 1, this.currentFrameNumber + 2);
-  computation.partOneEqualsPartTwo.showFrame = this.currentFrameNumber + 1;
-  computation.partOneEqualsPartTwo.highlightFrames.push(this.currentFrameNumber + 1, this.currentFrameNumber + 2)
-  computation.answer.highlightFrames.push(this.currentFrameNumber + 2);
-  computation.answer.showFrame = this.currentFrameNumber + 2;
-  this.currentFrameNumber += 2;
+  currentNote.consequence.partTwo.highlightFrames.push(this.currentFrameNumber + 2);
+  computation.partOne.plusOne.highlightFrames.push(this.currentFrameNumber + 2);
+  currentNote.consequence.partThree.highlightFrames.push(this.currentFrameNumber + 3);
+  computation.partOne.lfloor.redFrames.push(this.currentFrameNumber + 3);
+  computation.partOne.rfloor.redFrames.push(this.currentFrameNumber + 3);
+  computation.partOne.content.highlightFrames.push(this.currentFrameNumber + 4, this.currentFrameNumber + 5);
+  computation.partOneEqualsPartTwo.showFrame = this.currentFrameNumber + 4;
+  computation.partOneEqualsPartTwo.highlightFrames.push(this.currentFrameNumber + 4, this.currentFrameNumber + 5)
+  computation.answer.showFrame = this.currentFrameNumber + 5;
+  computation.partTwo.answerFrame = this.currentFrameNumber + 5;
+  computation.answer.highlightFrames.push(this.currentFrameNumber + 5, this.currentFrameNumber);
+  this.currentFrameNumber += 5;
   computation.content.hideFrame = this.currentFrameNumber + 1;
 }
 
@@ -2568,30 +2456,25 @@ FreeCalcDivisionAlgorithm.prototype.computeQuotientDigitSmallDivisorDigitHighlig
   this.divisor.leadingColumnContainer().highlightFrames.push(this.currentFrameNumber + 2);
   computation.partOne.denominatorNoPlusOne.highlightFrames.push(this.currentFrameNumber + 2);
   //frame 3
-  if (!this.flagIsOneDigitDivision) {
-    remarks.consequence.partTwo.highlightFrames.push(this.currentFrameNumber + 3);
-    computation.partOne.plusOne.highlightFrames.push(this.currentFrameNumber + 3);
-    this.currentFrameNumber += 3;
-  } else {
-    this.currentFrameNumber += 2;
-  }
+  remarks.consequence.partTwo.highlightFrames.push(this.currentFrameNumber + 3);
+  computation.partOne.plusOne.highlightFrames.push(this.currentFrameNumber + 3);
   
-  remarks.consequence.partThree.highlightFrames.push(this.currentFrameNumber + 1);
-  computation.partOne.lfloor.redFrames.push(this.currentFrameNumber + 1);
-  computation.partOne.rfloor.redFrames.push(this.currentFrameNumber + 1);
-  computation.partOneEqualsPartTwo.showFrame = this.currentFrameNumber + 2;
-  computation.answer.showFrame = this.currentFrameNumber + 2;
-  computation.partOneEqualsPartTwo.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3);
-  computation.partOne.content.highlightFrames.push(this.currentFrameNumber + 2, this.currentFrameNumber + 3);
-  computation.partTwo.showFrame = this.currentFrameNumber + 3;
-  computation.partTwo.highlightFrames.push(this.currentFrameNumber + 3);
+  remarks.consequence.partThree.highlightFrames.push(this.currentFrameNumber + 4);
+  computation.partOne.lfloor.redFrames.push(this.currentFrameNumber + 4);
+  computation.partOne.rfloor.redFrames.push(this.currentFrameNumber + 4);
+  computation.partOneEqualsPartTwo.showFrame = this.currentFrameNumber + 5;
+  computation.answer.showFrame = this.currentFrameNumber + 5;
+  computation.partOneEqualsPartTwo.highlightFrames.push(this.currentFrameNumber + 5, this.currentFrameNumber + 6);
+  computation.partOne.content.highlightFrames.push(this.currentFrameNumber + 5, this.currentFrameNumber + 6);
+  computation.partTwo.showFrame = this.currentFrameNumber + 6;
+  computation.partTwo.highlightFrames.push(this.currentFrameNumber + 6);
   computation.partOne.numeratorContainer.highlightFrames.push(
-    this.currentFrameNumber + 2, this.currentFrameNumber + 3
+    this.currentFrameNumber + 5, this.currentFrameNumber + 6
   );
   this.divisor.leadingColumnContainer().highlightFrames.push(
-    this.currentFrameNumber + 2, this.currentFrameNumber + 3
+    this.currentFrameNumber + 5, this.currentFrameNumber + 6
   );
-  this.currentFrameNumber += 3;
+  this.currentFrameNumber += 6;
   computation.content.hideFrame = this.currentFrameNumber + 1;
 }
 
@@ -2908,9 +2791,10 @@ FreeCalcDivisionAlgorithm.prototype.computeRoundPartThree = function () {
   if (this.flagFirstRun) {
     this.notes.subtraction.considerations.highlightFrames.push(this.currentFrameNumber);
   }
+
   subtraction.carryOvers.allocateDigits(this.quotientDigitCurrent.remainder.digits.length);
-  subtraction.carryOvers.digitPrefix = `\\text{{\\tiny $${this.options.negativeCarryOverPrefix}`;
-  subtraction.carryOvers.digitSuffix = "$}}";
+  subtraction.carryOvers.digitPrefix = "\\text{{\\tiny ${{ ";
+  subtraction.carryOvers.digitSuffix = "}}$}}";
   subtraction.note.push("<br><br>\\hfil\\hfil$\\begin{array}{@{}r@{~}c@{~}l}");
   for (var counter = 0; counter < this.multiplicationCurrent.currentSubtracand.digits.length; counter ++) {
     if (showNotes) {
@@ -2924,22 +2808,26 @@ FreeCalcDivisionAlgorithm.prototype.computeRoundPartThree = function () {
   }
   subtraction.note.push("\\end{array}$");
   subtraction.result.removeLeadingZeroesAccountRemovedAsExtraColumns();
+
   this.currentFrameNumber = subtraction.oneDigitSubtractionNote.endFrame + 1;
   this.intermediates.push(subtraction.result);
   this.intermediateCarryOvers.push(subtraction.carryOvers);
-  if (!showNotes) {
+  if (! showNotes) {
     subtraction.intermediate.highlightAll(this.currentFrameNumber);
     this.multiplicationCurrent.currentSubtracand.highlightAll(this.currentFrameNumber);
     subtraction.result.setAnswerFrame(this.currentFrameNumber + 1);
     subtraction.carryOvers.highlightAll(this.currentFrameNumber + 1);
     subtraction.carryOvers.setShowFrame(this.currentFrameNumber + 1);
-    subtraction.note.showFrame = this.currentFrameNumber + 1;
+    subtraction.note.showFrame = this.currentFrameNumber + 1
     subtraction.note.highlightFrames.push(this.currentFrameNumber + 1);
   }
+
+
   this.highlightSubtraction();
+
   this.notes.subtraction.computations.push(subtraction.note);
   if (this.flagFirstRun) {
-    this.notes.finalNotesPartOne.push("<br><br>$\\bullet$ Repeat. ");
+    this.notes.finalNotesPartOne.push("<br><br>$\\bullet$ Repeat. ") 
   }
   this.highlightRepeat();
 }
@@ -2997,10 +2885,7 @@ FreeCalcDivisionAlgorithm.prototype.computeRound = function () {
     this.quotientDigitCurrent.remainderSecondToLeadingDigitContent = - 1;
   } 
   this.quotientDigitCurrent.quotientDigitContent = - 1;
-  if (
-    this.divisorLeadingDigitContent < this.quotientDigitCurrent.remainderLeadingDigitContent //|| 
-    //(this.flagIsOneDigitDivision && this.divisorLeadingDigitContent === this.quotientDigitCurrent.remainderLeadingDigitContent)
-  ) {
+  if (this.divisorLeadingDigitContent < this.quotientDigitCurrent.remainderLeadingDigitContent) {
     this.quotientDigitCurrent.numberRelevantIntermediateDigits = 1;
     this.computeOneRoundSmallerLeadingDigit();
   } else if (this.quotientDigitCurrent.remainder.hasGreaterThanOrEqualToStart(this.divisor)) {
@@ -3168,7 +3053,6 @@ FreeCalcDivisionAlgorithm.prototype.computeIntermediateQuotientConsiderations = 
     }
   }
   computations.push("\\end{array}$ ");
-  computations.hideFrame = this.currentFrameNumber + 1;
 }
 
 FreeCalcDivisionAlgorithm.prototype.computeAbridgedDisplayConsiderations = function () {
@@ -3248,51 +3132,6 @@ FreeCalcDivisionAlgorithm.prototype.highlightFinalAnswer = function() {
   this.quotientMain.highlightAll(this.currentFrameNumber + 2);
   finalAnswer.remainder.highlightFrames.push(this.currentFrameNumber + 3);
   this.intermediates[this.intermediates.length - 1].highlightAll(this.currentFrameNumber + 3);
-  this.currentFrameNumber += 3;
-}
-
-FreeCalcDivisionAlgorithm.prototype.computeFinalAnswerCheckContent = function () {
-  var finalAnswerCheck       = this.notes.finalAnswerCheck;
-  finalAnswerCheck.content   = new HighlightedContent();
-  finalAnswerCheck.dividend  = new HighlightedContent();
-  finalAnswerCheck.divisor   = new HighlightedContent();
-  finalAnswerCheck.quotient  = new HighlightedContent();
-  finalAnswerCheck.remainder = new HighlightedContent();
-  finalAnswerCheck.content.push("<br><br>$\\bullet$ Check. ")
-
-  finalAnswerCheck.content.push("$");
-  finalAnswerCheck.content.push(finalAnswerCheck.dividend);
-  finalAnswerCheck.content.push(" \\stackrel{?}{=} ");
-  finalAnswerCheck.content.push(finalAnswerCheck.divisor);
-  finalAnswerCheck.content.push("\\cdot")
-  finalAnswerCheck.content.push(finalAnswerCheck.quotient);
-  finalAnswerCheck.content.push(" + ");
-  finalAnswerCheck.content.push(finalAnswerCheck.remainder);
-  finalAnswerCheck.content.push(" $ ");
-
-  finalAnswerCheck.dividend.push(this.dividend.getTableRow(0, ""));
-  finalAnswerCheck.divisor.push(this.divisor.getTableRow(0, ""));
-  finalAnswerCheck.quotient.push(this.quotientMain.getTableRow(0, ""));
-  finalAnswerCheck.remainder.push(this.intermediates[this.intermediates.length - 1].getTableRow(0, ""));
-}
-
-FreeCalcDivisionAlgorithm.prototype.highlightFinalAnswerCheck = function() {
-  this.currentFrameNumber ++;
-  var finalAnswer = this.notes.finalAnswer;
-  var finalAnswerCheck = this.notes.finalAnswerCheck;
-  finalAnswerCheck.content.showFrame = this.currentFrameNumber;
-  finalAnswer.dividend.highlightFrames.push(this.currentFrameNumber);
-  finalAnswerCheck.dividend.highlightFrames.push(this.currentFrameNumber);
-  this.dividend.highlightAll(this.currentFrameNumber);
-  finalAnswer.divisor.highlightFrames.push(this.currentFrameNumber + 1);
-  finalAnswerCheck.divisor.highlightFrames.push(this.currentFrameNumber + 1);
-  this.divisor.highlightAll(this.currentFrameNumber + 1);
-  finalAnswer.quotient.highlightFrames.push(this.currentFrameNumber + 2);
-  finalAnswerCheck.quotient.highlightFrames.push(this.currentFrameNumber + 2);
-  this.quotientMain.highlightAll(this.currentFrameNumber + 2);
-  finalAnswer.remainder.highlightFrames.push(this.currentFrameNumber + 3);
-  finalAnswerCheck.remainder.highlightFrames.push(this.currentFrameNumber + 3);
-  this.intermediates[this.intermediates.length - 1].highlightAll(this.currentFrameNumber + 3);
 }
 
 FreeCalcDivisionAlgorithm.prototype.computeProblemSetup = function () {
@@ -3315,14 +3154,10 @@ FreeCalcDivisionAlgorithm.prototype.computeProblemSetup = function () {
   this.currentFrameNumber ++;
 }
 
-FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
+FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function (inputData) {
   this.init(inputData);
   this.dividend = new ColumnsReversedHighlighted(inputData.topNumber);
   this.divisor = new ColumnsReversedHighlighted(inputData.bottomNumber);
-  this.flagIsOneDigitDivision = false;
-  if (this.divisor.digits.length === 1) {
-    this.flagIsOneDigitDivision = true;
-  }
   this.currentFrameNumber = Number(this.startingFrameNumber);
   this.slideContent = new HighlightedContent();
   this.solution = new HighlightedContent(); 
@@ -3348,7 +3183,7 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.quotientMain = new ColumnsReversedHighlighted();
   this.quotientExtras = [new ColumnsReversedHighlighted()];
   this.carryOverDivisor = new ColumnsReversedHighlighted();
-  this.carryOverDivisor.digitPrefix = "\\text{{\\tiny $\\phantom{1}\\!\\!\\!\\!\\!~{{ ";
+  this.carryOverDivisor.digitPrefix = "\\text{{\\tiny ${{ ";
   this.carryOverDivisor.digitSuffix = "}}$}}"; 
   this.intermediates = [];
   this.intermediateCarryOvers = [];
@@ -3388,15 +3223,15 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
   
   this.solution.push("\\hfil\\hfil$");
   this.solution.push("\\setlength\\extrarowheight{-5pt}<br>"); 
-  this.solution.push("\\begin{array}{@{}r");
+  this.solution.push("\\begin{array}{@{}l");
   for (var i = 0; i < this.divisor.digits.length; i ++) {
-    this.solution.push("@{}r");
+    this.solution.push("@{}l");
   }
-  this.solution.push("@{}r@{}r");
+  this.solution.push("@{}l@{}l");
   for (var i = 0; i < this.dividend.digits.length; i ++) {
-    this.solution.push("@{}r");
+    this.solution.push("@{}l");
   }
-  this.solution.push("@{}r");
+  this.solution.push("@{}l");
   this.solution.push("}");
 
   this.computeIntermediateQuotientConsiderationsFillGaps();
@@ -3406,10 +3241,8 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.computeAbridgedDisplayConsiderations();
   this.computeFinalAnswerContent();
   this.highlightFinalAnswer();
-  this.computeFinalAnswerCheckContent();
-  this.highlightFinalAnswerCheck();
 
-  this.solution.push("{~~}");
+  this.solution.push( "{~~}")
   this.solution.push(this.quotientMain.getTableRow(this.divisor.digits.length + 3 + this.dividend.digits.length - this.quotientMain.digits.length));
   this.solution.push("\\\\");
   this.solution.push(`\\cline{${this.divisor.digits.length + 2} - ${this.numberOfColumns}}`); 
@@ -3419,7 +3252,6 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.solution.push(this.intermediateCarryOvers[0].getTableRow(1));
   this.solution.push(`\\\\`);
   this.solution.push("\n<br>\n");
-  this.solution.push("\\phantom{m}");
   this.solution.push(this.divisor.getTableRow(1));
   this.solution.push("&\\multicolumn{1}{|l@{}}{~}&");
   this.solution.push(`~~~&`);
@@ -3442,6 +3274,7 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
       var currentCarryOver = this.intermediateCarryOvers[counterIntermediate + 1];
       var offsetCarryOver = this.divisor.digits.length + 3;
       offsetCarryOver += this.dividend.digits.length - nextIntermediate.digits.length; 
+      
       this.solution.push(currentCarryOver.getTableRow(offsetCarryOver));
       this.solution.push("\\\\<br>");
     }
@@ -3460,13 +3293,12 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.notes.contentNotes.push(this.notes.finalNotesPartOne);
   this.notes.contentNotes.push(this.notes.quotientCollection.considerations);
   this.notes.contentNotes.push(this.notes.finalAnswer.content);
-  this.notes.contentNotes.push(this.notes.finalAnswerCheck.content);
 
   this.notes.contentComputations.push(this.notes.quotientDigit.computations);
   this.notes.contentComputations.push(this.notes.multiplication.computations);
   this.notes.contentComputations.push(this.notes.subtraction.computations);
   this.notes.contentComputations.push(this.notes.quotientCollection.computations);
-  this.slideContent.push(`\\begin{frame} ${this.options.fontSize}<br>`);
+  this.slideContent.push("\\begin{frame} \\tiny<br>");
   this.slideContent.push(this.notes.goal.content);
   this.slideContent.push("<br><br>\\begin{columns}");
   this.slideContent.push("<br><br>\\column{0.4\\textwidth}");
@@ -3477,12 +3309,13 @@ FreeCalcDivisionAlgorithm.prototype.computeSlideContent = function(inputData) {
   this.slideContent.push("\\end{columns}");
   this.slideContent.push("\n\n<br>\n<br>\n");
   this.slideContent.push(this.notes.contentComputations);
-  this.slideContent.push ("<br><br>\\vskip 10 cm<br>");
+  this.slideContent.push ("<br><br>\\vskip 10 cm<br>")
   this.slideContent.push("\\end{frame}\n");
 }
 
 
 function FreeCalcSubtractionAlgorithm() {
+
   /**@type {string} */
   this.inputSummand = "";
   /**@type {string} */
@@ -3525,7 +3358,7 @@ function FreeCalcSubtractionAlgorithm() {
     /** @type {HighlightedContent} */
     newCarryOverContainer: null,
     /** @type {number} */
-    resultDigitContent: - 1,
+    resultDigitContent: -1,
     /** @type {HighlightedContent} */
     resultDigitContainer: null,    
   };
@@ -3730,7 +3563,7 @@ FreeCalcSubtractionAlgorithm.prototype.computeSlideContent = function(inputData)
   this.slideContent.push (this.notes.problemStatement.content);
   this.slideContent.push("<br><br> \\begin{columns}");
 
-  this.slideContent.push("\\column{0.4\\textwidth}");
+  this.slideContent.push("\\column{0.4\\textwidth}")
 
   this.slideContent.push("\\hfil\\hfil");
 
@@ -3862,7 +3695,7 @@ OperationTable.prototype.prepareTable = function() {
     contentOperation[i] = new Array(this.base);
   }
   for (var i = 0; i < this.base; i ++) {
-    content.push("&");
+    content.push ("&");
     content.push(columnLabels[i]);
   };
   content.push(`\\\\\\hline\\cline{1-${this.base + 1}}`);
@@ -3952,24 +3785,23 @@ FreeCalcOneDigitOperationAlgorithm.prototype.computeOnePairHorizontal = function
   this.onePair.equality.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
   this.onePair.right.answerFrame = this.currentFrameNumber + 1;
 
-  if (this.flagMakeTable) {
-    var currentRowLabel = this.operationTable.rowLabels[leftNumber];
-    var currentColumnLabel = this.operationTable.columnLabels[rightNumber];
-    var sumBox = this.operationTable.contentOperation[leftNumber][rightNumber];
-    this.operationTable.operationSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
-    sumBox.answerFrame = this.currentFrameNumber + 1;
-    currentRowLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
-    currentColumnLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
-    if (currentColumnLabel.showFrame <= 0) {
-      currentColumnLabel.showFrame = this.currentFrameNumber;
-    }
-    if (currentRowLabel.showFrame <= 0) {
-      currentRowLabel.showFrame = this.currentFrameNumber;
-    }
-    if (sumBox.showFrame <= 0) {
-      sumBox.showFrame = this.currentFrameNumber;
-    }
+  var currentRowLabel = this.operationTable.rowLabels[leftNumber];
+  var currentColumnLabel = this.operationTable.columnLabels[rightNumber];
+  var sumBox = this.operationTable.contentOperation[leftNumber][rightNumber];
+  this.operationTable.operationSign.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  sumBox.answerFrame = this.currentFrameNumber + 1;
+  currentRowLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  currentColumnLabel.highlightFrames.push(this.currentFrameNumber, this.currentFrameNumber + 1);
+  if (currentColumnLabel.showFrame <= 0) {
+    currentColumnLabel.showFrame = this.currentFrameNumber;
   }
+  if (currentRowLabel.showFrame <= 0) {
+    currentRowLabel.showFrame = this.currentFrameNumber;
+  }
+  if (sumBox.showFrame <= 0) {
+    sumBox.showFrame = this.currentFrameNumber;
+  }
+
   this.currentFrameNumber += 2;
 }
 
@@ -4012,7 +3844,7 @@ FreeCalcOneDigitOperationAlgorithm.prototype.computeSlideContent = function(
       break;
     case "\\cdot":
       this.operation.noun = "multiplication";
-      this.operation.verb = "Multiply";
+      this.operation.verb = "Multiply"
       this.operation.operator = OperationTable.prototype.multiplication;
       break;
     default:
@@ -4037,7 +3869,7 @@ FreeCalcOneDigitOperationAlgorithm.prototype.computeSlideContent = function(
   }
   this.slideContent.push("\\begin{frame}");
   this.slideContent.push("<br><br>\\vskip -0.1cm<br><br>");
-  this.slideContent.push("\\begin{example}");
+  this.slideContent.push("\\begin{example}")
   this.slideContent.push(`${this.operation.verb} the one-digit numbers.`); 
   this.slideContent.push("<br><br>");
   if (!this.flagUseColumns) {
@@ -4087,7 +3919,7 @@ FreeCalcOneDigitOperationAlgorithm.prototype.computeSlideContent = function(
     this.slideContent.push("\\column{0.5\\textwidth}");
     this.slideContent.push(this.operationTable.content);
     this.slideContent.push("\\column{0.5\\textwidth}");
-    this.slideContent.push(this.operationTable.note);
+    this.slideContent.push(this.operationTable.note)
     if (this.flagUseColumns) {
       this.slideContent.push("<br><br>$\\bullet$ Addition can also be written in columns. ");
     }
@@ -4324,3 +4156,5 @@ FreeCalcOneDigitSubtractionAlgorithm.prototype.computeSlideContent = function(in
   this.slideContent.push("\\end{frame}");
 }
 initializeElements();
+
+module

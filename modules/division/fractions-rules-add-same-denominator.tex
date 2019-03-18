@@ -1,0 +1,95 @@
+\begin{frame}
+\begin{observation}
+Fractions with same denominator are added by adding their numerators. 
+\[
+\alertNoH{2}{ \frac{\alertNoH{3}{ a}}{c}\onlyNoH{1-16}{+}\only<17->{\alertNoH{17}{\pm}}  \frac{\alertNoH{4}{b}}{c} = \frac{\alertNoH{5}{a \onlyNoH{1-16}{+}\only<17->{\alertNoH{17}{\pm}}  b}}{c}}
+\]
+\uncover<17->{\alertNoH{17}{A similar rule holds for subtraction.}}
+\end{observation}
+\begin{example}
+\hfil\hfil $\renewcommand{\arraystretch}{1.9}
+\begin{array}{rcl}
+\displaystyle \alertNoH{2}{ \alertNoH{7}{ \frac{\alertNoH{3}{2}}{3}} + \alertNoH{8}{ \frac{\alertNoH{4}{5}}{3}}}  &\uncover<2->{\alertNoH{2}{=}}&\displaystyle \uncover<2->{\alertNoH{2}{ \frac{\alertNoH{5}{2+5} }{3} = \alertNoH{16}{ \frac{\alertNoH{5}{7}}{3}}}}\\
+\uncover<17->{\displaystyle \alertNoH{17}{ \frac{4}{3}-\frac{1}{3} }} &\uncover<17->{\alertNoH{17}{=}} & \displaystyle \uncover<17->{\alertNoH{17}{ \frac{4-1}{3}=\frac{3}{3}} }
+\end{array}
+$
+
+\uncover<1-16>{
+\begin{pspicture}(-2,-1)(8,1)
+\tiny
+\newcommand{\numberOfSegments}{3}%
+\newcommand{\leftNumber}{2}%
+\newcommand{\rightNumber}{5}%
+\newcommand{\leftHeight}{0.3}%
+\newcommand{\rightHeight}{0.6}%
+\newcommand{\shift}{0}%
+\onlyNoH{9}{\renewcommand{\shift}{0.2}}%
+\onlyNoH{10}{\renewcommand{\shift}{0.4}}%
+\onlyNoH{11}{\renewcommand{\shift}{0.6}}%
+\onlyNoH{12}{\renewcommand{\shift}{0.8}}%
+\onlyNoH{13-}{\renewcommand{\shift}{1}}%
+\onlyNoH{14}{\renewcommand{\leftHeight}{0.45}}%
+\onlyNoH{15-}{\renewcommand{\leftHeight}{0.6}}%
+\pstVerb{20 dict begin}
+\pstVerb{
+/leftNumber \leftNumber\space def
+/rightNumber \rightNumber\space def
+/shift \shift\space def
+/numberOfSegments \numberOfSegments\space def
+/leftHeight \leftHeight\space def
+/rightHeight \rightHeight\space def
+/leftLength leftNumber numberOfSegments div def
+/rightLength rightNumber numberOfSegments div def
+}%
+\psline[arrows=<->](-2,0)(8,0)
+\rput(0, -0.3){$0$}
+\fcFullDot{ 0}{0}
+\fcFullDot{leftNumber}{0}
+\fcFullDot{rightNumber}{0}
+\rput(! leftNumber -0.3){$\leftNumber$}%
+\rput(! rightNumber -0.3){$\rightNumber$}%
+%
+\uncover<3->{%
+\fcLengthIndicatorNoLabel[linecolor=purple, linewidth=2pt, ticksizeToLengthRatio=0.1]{0}{0.1}{leftNumber}{0.1}%
+}%
+\uncover<4->{%
+\fcLengthIndicatorNoLabel[linecolor=blue, linewidth=2pt, ticksizeToLengthRatio=0.1]{0}{0.8}{rightNumber}{0.8}%
+}%
+\uncover<5->{%
+\fcLengthIndicatorNoLabel[linecolor=purple, linewidth=2pt, ticksizeToLengthRatio=0.1]{rightNumber }{0.8}{rightNumber leftNumber add}{0.8}%
+}%
+\uncover<6->{%
+\multido{\ra=0+1}{\numberOfSegments}{%
+\pstVerb{
+/counter \ra\space def
+/leftEnd  counter numberOfSegments div leftNumber  mul counter 1 add shift mul rightLength mul add def 
+/rightEnd counter numberOfSegments div rightNumber mul counter       shift mul leftLength  mul add def
+}%
+\fcLengthIndicatorNoLabel[ticksizeToLengthRatio=0.05, linecolor=purple]{leftEnd}{leftHeight}{leftEnd leftLength add}{leftHeight}%
+\fcLengthIndicatorNoLabel[linecolor=blue]{rightEnd}{rightHeight}{rightEnd rightLength add}{rightHeight}%
+}%
+}%
+\onlyNoH{7-}{%
+\fcLengthIndicatorNoLabel[linecolor=red, linewidth=2pt, ticksizeToLengthRatio=0.09]{0}{0.1 }{leftLength}{0.1}%
+}%
+\onlyNoH{8-}{%
+\fcLengthIndicatorNoLabel[linecolor=red, linewidth=2pt, ticksizeToLengthRatio=0.09]{0}{0.8 }{rightLength}{0.8}%
+}%
+\onlyNoH{7}{%
+\fcLengthIndicatorNoLabel[linecolor=red, linewidth=2pt, ticksizeToLengthRatio=0.09]{0}{leftHeight }{leftLength }{ leftHeight}%
+}%
+\onlyNoH{8}{%
+\fcLengthIndicatorNoLabel[linecolor=red, linewidth=2pt, ticksizeToLengthRatio=0.09]{0}{rightHeight}{rightLength }{ rightHeight}%
+}%
+\onlyNoH{8}{%
+\fcLengthIndicatorNoLabel[linecolor=red, linewidth=2pt, ticksizeToLengthRatio=0.09]{0}{rightHeight}{rightLength }{ rightHeight}%
+}%
+\onlyNoH{16}{%
+\fcLengthIndicatorNoLabel[linecolor=red, linewidth=2pt, ticksizeToLengthRatio=0.09]{0}{rightHeight}{rightLength leftLength add}{ rightHeight}%
+\fcLengthIndicatorNoLabel[linecolor=red, linewidth=2pt, ticksizeToLengthRatio=0.09]{0}{0.8}{rightLength leftLength add }{0.8 }%
+}%
+\pstVerb{end}%
+\end{pspicture}
+}
+\end{example}
+\end{frame}

@@ -1,0 +1,57 @@
+\begin{frame}
+\frametitle{Division and the number line}
+\begin{itemize}
+\item Numbers represent lengths by measuring distances.
+\begin{pspicture}(-6,-1)(6,1)
+\tiny
+\psline[arrows=<->](-5,0)(5,0)
+\fcFullDot{-3}{0}
+\fcFullDot{-2}{0}
+\fcFullDot{-1}{0}
+\fcFullDot{ 0}{0}
+\rput(0, -0.3){$0$}
+\fcFullDot{ 1}{0}
+\fcFullDot{ 2}{0}
+\fcFullDot{ 3}{0}
+\rput(3, -0.3){$3$}%
+\newcommand{\currentColorLongSegment}{blue}%
+\onlyNoH{8}{\renewcommand{\currentColorLongSegment}{red}}%
+\uncover<2->{%
+\psline[linewidth=2pt, linecolor=blue](! 3 4 div 1 mul 0.2 0.1 sub)(! 3 4 div 1 mul 0.2 0.1 add)%
+\psline[linewidth=2pt, linecolor=blue](! 3 4 div 2 mul 0.2 0.1 sub)(! 3 4 div 2 mul 0.2 0.1 add)%
+\psline[linewidth=2pt, linecolor=blue](! 3 4 div 3 mul 0.2 0.1 sub)(! 3 4 div 3 mul 0.2 0.1 add)%
+}%
+\uncover<1,4-8>{\fcLengthIndicator[linewidth=2pt,ticksizeToLengthRatio=0.1, linecolor=\currentColorLongSegment]{0}{0.2}{3}{0.2}{$\alertNoH{4,5,7,8}{3}$}}%
+\onlyNoH{2-3,9-}{\fcLengthIndicatorNoLabel[linewidth=2pt,ticksizeToLengthRatio=0.1, linecolor=\currentColorLongSegment]{0}{0.2}{3}{0.2}}%
+\onlyNoH{3}{%
+\fcLengthIndicatorNoLabel[linewidth=2pt, linecolor=blue]{0}{0.5}{3 4 div}{0.5}%
+}%
+\uncover<4->{%
+\fcLengthIndicator[linewidth=2pt, linecolor=blue]{0}{0.5}{3 4 div}{0.5}{$\fcAnswer{5}{\frac{ \alertNoH{7,8}{ 3}}{\alertNoH{9}{4}}}$}%
+}%
+\onlyNoH{10,11,12,13}{\renewcommand{\currentColorLongSegment}{red}}%
+\onlyNoH{10}{%
+\fcLengthIndicatorNoLabel[linewidth=2pt]{3 4 div 0 mul}{0.2}{3 4 div 1 mul}{0.2}%
+}%
+\onlyNoH{11}{%
+\fcLengthIndicatorNoLabel[linewidth=2pt]{3 4 div 1 mul}{0.2}{3 4 div 2 mul}{0.2}%
+}%
+\onlyNoH{12}{%
+\fcLengthIndicatorNoLabel[linewidth=2pt]{3 4 div 2 mul}{0.2}{3 4 div 3 mul}{0.2}%
+}%
+\onlyNoH{13}{%
+\fcLengthIndicatorNoLabel[linewidth=2pt]{3 4 div 3 mul}{0.2}{3 4 div 4 mul}{0.2}%
+}%
+\end{pspicture}
+\item<2-> A segment can be divided into equal parts. 
+\item<3-> The parts may no longer have lengths that are exact integers.
+\item<5-> Such lengths are represented by fractions.
+\item<6-> These lengths are called \alertNoH{6}{\textbf{fractions}} and are denoted by:
+\[
+\frac{\alertNoH{7,8}{a}}{\alertNoH{9,10,11,12}{b}} \quad \quad \text{or}\quad\quad  \alertNoH{7,8}{a} / \alertNoH{9,10,11,12}{b}
+\]
+\item<7-> Number on top: \alertNoH{7}{\textbf{numerator}}\uncover<8->{, \alertNoH{8}{represents length of divided segment}.}
+\item<9-> Number on bottom: \alertNoH{9}{\textbf{denominator}}\uncover<10->{, \alertNoH{10-13}{represents the number of segments we are dividing into}.}
+\end{itemize}
+
+\end{frame}

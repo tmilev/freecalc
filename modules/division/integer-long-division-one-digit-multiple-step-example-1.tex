@@ -1,0 +1,60 @@
+\begin{frame} \tiny
+\alertNoH{1}{{Divide $\alertNoH{2}{{97}}$ by $\alertNoH{3}{{3}}$ with quotient and remainder.}}
+
+\begin{columns}
+
+\column{0.4\textwidth}\uncover<2->{\hfil\hfil$\setlength\extrarowheight{-5pt}
+\begin{array}{@{}r@{}r@{}r@{}r@{}r@{}r@{}r}{~~}&&&&\alertNoH{5}{{\fcAnswerUncover{5}{11}{{\uncover<5->{\alertNoH{5, 13, 12, 13, 14, 17, 43, 46, 50}{{3}}}}}}}&\alertNoH{30}{{\fcAnswerUncover{30}{32}{{\uncover<30->{\alertNoH{30, 34, 33, 36, 43, 46, 50}{{2}}}}}}}\\\cline{3 - 6}
+&&\multicolumn{1}{|@{}l@{}}{}& &&\\ 
+&\alertNoH{3, 4, 6, 8, 10, 11, 13, 12, 13, 14, 17, 28, 29, 31, 32, 34, 33, 36, 42, 45, 49}{{3}}&\multicolumn{1}{|l@{}}{~}&~~~&\alertNoH{2, 4, 5, 6, 7, 19, 22, 23, 25, 44, 48}{{9}}&\alertNoH{2, 19, 20, 21, 25, 44, 48}{{7}}\uncover<19->{\\\cline{4-4}
+}&&&&\fcAnswer{14}{{\alertNoH{17, 19, 22, 23, 25}{{9}}}}&\uncover<18->{\alertNoH{18, 19, 20, 21, 25}{{0}}}\uncover<19->{\\\cline{5 - 6}
+}&&&&&\\
+&&&&&\fcAnswer{21}{{\alertNoH{25, 28, 29, 30, 31, 32, 37, 38, 39}{{7}}}}\uncover<37->{\\\cline{4-4}
+}&&&&&\fcAnswer{34}{{\alertNoH{36, 37, 38, 39}{{6}}}}\uncover<37->{\\\cline{5 - 6}
+}&&&&&\fcAnswer{39}{{\alertNoH{39, 42, 47, 51}{{1}}}}\end{array} $ 
+}
+
+\column{0.6\textwidth}\uncover<4->{\alertNoH{4, 29}{{$\bullet$ Find shortest dividend start larger than divisor. }}}\uncover<43->{\alertNoH{43}{{ If none, we're done. }}} 
+
+\uncover<5->{\alertNoH{5, 30}{{ $\bullet$ Next quotient digit: put above last digit of that start. }}}\uncover<5->{ If this leaves gaps: fill with $0$. } 
+
+\alertNoH{31, 32}{{\uncover<6->{\alertNoH{6}{{$~~-$ Current leading digit $>$ divisor leading digit}}}\uncover<7->{\alertNoH{7}{{ $\Rightarrow$ divide leading digit}}\alertNoH{8}{{ by divisor digit}}. Unlike division by multi-digit divisor, don't add one to divisor leading digit. \alertNoH{9}{{Round down if needed. }}}}}
+
+
+
+\uncover<12->{\alertNoH{12, 17, 33, 36}{{$\bullet$ Multiply quotient digit by divisor, put result under current dividend.}}\uncover<18->{\alertNoH{18}{{ Fill gaps with zeroes. }}}
+
+}\uncover<19->{\alertNoH{19, 19, 25, 39}{{
+
+$\bullet$ Subtract.}}}\uncover<28->{\alertNoH{28, 42, 43}{{
+
+$\bullet$ Repeat. }}}\uncover<44->{
+
+$\bullet$ Final answer. \alertNoH{44, 48}{{Dividend = $\alertNoH{2, 4, 5, 6, 7, 19, 22, 23, 25}{{9}}\alertNoH{2, 19, 20, 21, 25}{{7}}$}}. \alertNoH{45, 49}{{Divisor = $\alertNoH{3, 4, 6, 8, 10, 11, 13, 12, 13, 14, 17, 28, 29, 31, 32, 34, 33, 36, 42}{{3}}$}}. \alertNoH{46, 50}{{Quotient = $\alertNoH{5}{{\fcAnswerUncover{5}{11}{{\uncover<5->{\alertNoH{5, 13, 12, 13, 14, 17, 43}{{3}}}}}}}\alertNoH{30}{{\fcAnswerUncover{30}{32}{{\uncover<30->{\alertNoH{30, 34, 33, 36, 43}{{2}}}}}}}$}}. \alertNoH{47, 51}{{Remainder = $\fcAnswer{39}{{\alertNoH{39, 42}{{1}}}}$}}. }\uncover<48->{
+
+$\bullet$ Check. $\alertNoH{48}{{\alertNoH{2, 4, 5, 6, 7, 19, 22, 23, 25, 44}{{9}}\alertNoH{2, 19, 20, 21, 25, 44}{{7}}}} \stackrel{?}{=} \alertNoH{49}{{\alertNoH{3, 4, 6, 8, 10, 11, 13, 12, 13, 14, 17, 28, 29, 31, 32, 34, 33, 36, 42, 45}{{3}}}}\cdot\alertNoH{50}{{\alertNoH{5}{{\fcAnswerUncover{5}{11}{{\uncover<5->{\alertNoH{5, 13, 12, 13, 14, 17, 43, 46}{{3}}}}}}}\alertNoH{30}{{\fcAnswerUncover{30}{32}{{\uncover<30->{\alertNoH{30, 34, 33, 36, 43, 46}{{2}}}}}}}}} + \alertNoH{51}{{\fcAnswer{39}{{\alertNoH{39, 42, 47}{{1}}}}}} $ }
+
+\end{columns} 
+
+
+
+
+\onlyNoH{7-11}{\hfil\hfil$ \displaystyle \alertNoH{10, 11}{{\onlyNoH{9}{\color{red}}\left\lfloor\onlyNoH{9}{\color{black}}\frac{\alertNoH{7, 10, 11}{{9}}}{\alertNoH{8}{{3}}}\onlyNoH{9}{\color{red}}\right\rfloor\onlyNoH{9}{\color{black}}}}\uncover<10->{\alertNoH{10, 11}{{=}}}\uncover<11->{\alertNoH{11}{{\left\lfloor3 \right\rfloor=}}}\uncover<10->{\alertNoH{5}{{\fcAnswerUncover{5}{11}{{\uncover<5->{\alertNoH{5, 13, 12, 13, 14, 17, 43, 46, 50}{{3}}}}}}}}$} 
+
+
+\onlyNoH{31-32}{\alertNoH{31, 32}{{\hfil\hfil$ \displaystyle \left\lfloor\frac{7}{3}\right\rfloor=\fcAnswer{32}{{\left\lfloor\frac{6}{3} + \frac{1}{3} \right\rfloor=\left\lfloor2 + \frac{1}{3} \right\rfloor=}}\uncover<32->{\alertNoH{30}{{\fcAnswerUncover{30}{32}{{\uncover<30->{\alertNoH{30, 34, 33, 36, 43, 46, 50}{{2}}}}}}}}$}}}\onlyNoH{-15}{\alertNoH{15}{{
+
+\hfil\hfil$\begin{array}{r@{~}c@{~}l}\uncover<13->{\alertNoH{13, 14}{{\alertNoH{5}{{\fcAnswerUncover{5}{11}{{\uncover<5->{\alertNoH{5, 13, 12, 13, 14, 17, 43, 46, 50}{{3}}}}}}}\cdot\alertNoH{3, 4, 6, 8, 10, 11, 13, 12, 13, 14, 17, 28, 29, 31, 32, 34, 33, 36, 42, 45, 49}{{3}}}}&\alertNoH{13, 14}{{=}}&\fcAnswer{14}{{\fcAnswer{14}{{\alertNoH{17, 19, 22, 23, 25}{{9}}}}}}\\}\end{array} $
+
+}}}\onlyNoH{34-34}{\alertNoH{34}{{
+
+\hfil\hfil$\begin{array}{r@{~}c@{~}l}\alertNoH{30}{{\fcAnswerUncover{30}{32}{{\uncover<30->{\alertNoH{30, 34, 33, 36, 43, 46, 50}{{2}}}}}}}\cdot\alertNoH{3, 4, 6, 8, 10, 11, 13, 12, 13, 14, 17, 28, 29, 31, 32, 34, 33, 36, 42, 45, 49}{{3}}&=&\fcAnswer{34}{{\alertNoH{36, 37, 38, 39}{{6}}}}\\\end{array} $
+
+}}}\onlyNoH{-26}{\alertNoH{26}{{
+
+\hfil\hfil$\begin{array}{@{}r@{~}c@{~}l}\uncover<20->{\alertNoH{20, 21}{{\alertNoH{20, 21}{{7}}-\alertNoH{20, 21}{{0}}}} & \alertNoH{20, 21}{{=}} & \fcAnswer{21}{{7}} \\ }\uncover<22->{\alertNoH{22, 23}{{\alertNoH{22, 23}{{9}}-\alertNoH{22, 23}{{9}}}} & \alertNoH{22, 23}{{=}} & \fcAnswer{23}{{0}} \\ }\end{array}$}}}\onlyNoH{39-40}{\alertNoH{39, 40}{{
+
+\hfil\hfil$\begin{array}{@{}r@{~}c@{~}l}7-6 & = & 1 \\ \end{array}$}}}
+
+\vskip 10 cm
+\end{frame}

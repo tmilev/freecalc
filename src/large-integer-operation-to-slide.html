@@ -1,0 +1,28 @@
+<html>
+<script type = "text/javascript" id = "scriptGenerateSlides" src = "generate_slides.js"></script>
+<script type = "text/javascript" src = "browserify.js"></script>
+
+<body>
+Test: 30:9, 3400: 33, 3200: 33, 4200: 83, 8400: 23, 940: 11
+
+<hr>
+
+<input id = "idFirstSlideNumber" value = "1" size = "1" placeholder = "first slide"> </input>
+<input id = "idBase" value = "10" size = "1" placeholder = "base"> </input>
+<input id = "idFontSize" value = "\tiny" size = "2" placeholder = "fontSize"> </input>
+<input id = "idNegativeCarryOverPrefix" value = "\!" size = "2" placeholder = "neg. carry prefix"> </input>
+
+<hr>
+
+<input id = "idInputTop" value = "3600"></input><br>
+<input id = "idInputBottom" value = "33"></input>
+
+<button onclick = "window.freecalc.elements.generateAddition()">addition</button>
+<button onclick = "window.freecalc.elements.generateSubtraction()">subtraction</button>
+<button onclick = "window.freecalc.elements.generateMultiplication()">multiplication</button>
+<button onclick = "window.freecalc.elements.generateDivision()">division</button>
+<br>
+<span id = "idSpanOutput">
+</span>
+</body>
+</html>

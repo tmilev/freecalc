@@ -1,0 +1,41 @@
+\begin{frame}
+\frametitle{Division algorithm: how many quotient rows?}
+\begin{itemize}
+\item When dividing with remainder, we sometimes have to collect multiple quotient rows.
+\item In the example of dividing $99$ by $11$, we saw had to collect the quotients $4,2,1,1,1$ from $5$ different rows.
+\item Can it get any worse? No, example shows worst case scenario.
+\end{itemize}
+\begin{lemma}
+\begin{itemize}
+\item With $10$ digits, there are at most $5$ quotient rows during division.
+\item \color{gray} With $N$ digits, there are at most $\left\lfloor \log_2 N\right\rfloor + 2$ quotient rows during division.
+\end{itemize}
+\end{lemma}
+\begin{itemize}
+\item We study counting systems that do not use $10$ digits later.
+\item Reader not familiar with logarithms may ignore the second part.
+\item The lemma follows from the fact that each quotient digit that appears higher in the same column is at most half of the one below it, except possibly the highest two digits.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{The Knuth optimization, part 1}
+\begin{itemize}
+\item When dividing with remainder, we sometimes have to collect multiple quotient rows.
+\item How much of a slow down does this cause?
+\item In the example of dividing $99$ by $11$, we saw had to collect the quotients $4,2,1,1,1$ from $5$ different rows.
+\item Can it get any worse? No, the example shows the worst case scenario.
+\item In fact, one can prove the following.
+\end{itemize}
+\begin{lemma}
+\begin{itemize}
+\item Using $10$ digits, there are at most $5$ quotient rows in the division algorithm.
+\item Using $N$ digits, there are at most $\left\lfloor \log_2 N\right\rfloor + 2$ quotient rows in the division algorithm.
+\end{itemize}
+\end{lemma}
+\begin{itemize}
+\item Later on we study computations using different digit systems.
+\end{itemize}
+
+\end{frame}

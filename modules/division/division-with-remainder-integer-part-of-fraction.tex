@@ -1,0 +1,30 @@
+\begin{frame}
+\vskip -0.12cm
+\begin{example}
+Compute the floor (round-down) of $\frac{8}{3}$. 
+
+\hfil \hfil $
+\begin{array}{rcll|l}
+\displaystyle \left\lfloor \alertNoH{2}{ \frac{\alertNoH{3,11,12}{8}}{\alertNoH{4}{3} }} \right\rfloor &=& \displaystyle  \uncover<10->{\left\lfloor \onlyNoH{13}{\color{red}} \frac{\color{black}  \alertNoH{11,12}{ \alertNoH{10}{2\cdot 3} \alertNoH{13}{+} } \fcAnswerUncover{10}{12}{2}  }{\color{black} 3}\color{black} \right\rfloor} && \uncover<2->{ \begin{array}{l} \alertNoH{2}{ \text{Divide }\alertNoH{3}{8} \text{ by }\alertNoH{4}{3} \text{ with}} \\ \text{\alertNoH{2}{remainder}. \uncover<5->{Try:}}\end{array} 
+\begin{array}{rcl}
+\uncover<5->{\alertNoH{5}{0\cdot 3} &\alertNoH{5}{=}& \alertNoH{5}{0}}\\
+\uncover<6->{\alertNoH{6}{1\cdot 3} &\alertNoH{6}{=}& \alertNoH{6}{3}}\\
+\uncover<7->{\alertNoH{7,10}{2 \cdot 3} &\alertNoH{7}{=}& \alertNoH{7}{6}}\\
+\uncover<8->{\alertNoH{8}{3\cdot 3} &\alertNoH{8}{=}& \alertNoH{8,9}{9}\uncover<9->{\alertNoH{9}{> 8}}}
+\end{array}} \\
+\uncover<13->{ &=&\displaystyle \left\lfloor\onlyNoH{13}{\color{red}} \frac{\color{black} 2\cdot \fcCancel{14}{3} }{\color{black} \fcCancel{14}{3} } + \frac{\color{black}2}{\color{black}3}\onlyNoH{13}{\color{black}} \right\rfloor} \\~\\
+\uncover<14->{&=&\displaystyle\alertNoH{15}{ \left\lfloor \alertNoH{17}{ 2 +\frac{2}{3}} \right\rfloor} \uncover<15->{ \alertNoH{15}{=\alertNoH{16}{ 2} } } \uncover<15->{&& \text{because }\displaystyle  \alertNoH{16}{2} \leq\alertNoH{17}{ 2+ \frac{2}{3} } \alertNoH{18}{< 3}}}
+\end{array}
+$
+\end{example}
+\vskip -0.12cm
+
+
+\begin{observation}
+The floor (round-down) of $\frac{p}{q}$ is computed as 
+
+\[\left\lfloor\frac{p}{d} \right\rfloor=q,\]
+where $q$ is the the quotient obtained by integer division of $p$ by $d$.
+\end{observation}
+
+\end{frame}
