@@ -1,81 +1,81 @@
 \begin{frame}[fragile]
 \begin{columns}
-	\column{0.25\textwidth}
-	\vskip -0.1cm
-	\psset{xunit=0.4cm, yunit=0.4cm}
-	\begin{pspicture}(-2,-4.4)(4.4,4.45)%
-	\tiny%
-	\newcommand{\tangentWidth}{1pt}%
-	\newcommand{\tangentColor}{black}%
-	\fcAxesStandard{-2}{-4.4}{4.4}{4.4}%
-	\pstVerb{%
-		40 dict begin /stickingCoeffOne 1.2 def /stickingCoeffTwo -0.2 def  /coeffA 0.2 def /coeffB 1.2 def /theFun {x x x mul mul x coeffA mul coeffB add add sqrt} def%
-	}%
-	\pstVerb{%
-		/xOne -1 def %
-		/xTwo 0 def %
-    /xFour -1 def %
-	}%
-\onlyNoH{3-}{\pstVerb{%
-	/xOne -0.8 def %
-	/xTwo 0 def %
+\column{0.25\textwidth}
+\vskip -0.1cm
+\psset{xunit=0.4cm, yunit=0.4cm}
+\begin{pspicture}(-2,-4.4)(4.4,4.45)%
+\tiny%
+\newcommand{\tangentWidth}{1pt}%
+\newcommand{\tangentColor}{black}%
+\fcAxesStandard{-2}{-4.4}{4.4}{4.4}%
+\pstVerb{%
+40 dict begin /stickingCoeffOne 1.2 def /stickingCoeffTwo -0.2 def  /coeffA 0.2 def /coeffB 1.2 def /theFun {x x x mul mul x coeffA mul coeffB add add sqrt} def%
+}%
+\pstVerb{%
+/xOne -1 def %
+/xTwo 0 def %
+/xFour -1 def %
+}%
+\only<3->{\pstVerb{%
+/xOne -0.8 def %
+/xTwo 0 def %
 }}%
-	\pstVerb{%
-		%Input: xA yA xB yB. Let (xA, yA) * (xB, yB) = (xC, yC). 
-		%This function outputs xC, and the next function outputs yC.
-		/xNew {
-			20 dict begin /a coeffA def /b coeffB def
-			/yB exch def /xB exch def /yA exch def /xA exch def 
-			b 2 1 div mul xA a mul add xB a mul add yB yA mul -2 1 div mul add xB 2 1 div exp xA mul add xB xA 2 1 div exp mul add xB xA mul -2 1 div mul xA 2 1 div exp add xB 2 1 div exp add div
-			end
-		} def %
-		/yNew {
-			20 dict begin /a coeffA def /b coeffB def
-			/yB exch def /xB exch def /yA exch def /xA exch def 
-			yA b mul 2 1 div mul yB b mul -4 1 div mul add b yA mul 2 1 div mul add yA xA mul a mul add yB xA mul a mul -3 1 div mul add yA xB mul a mul add yB xB mul a mul -1 1 div mul add xB a mul yA mul 2 1 div mul add xB 3 1 div exp yA mul 2 1 div mul add yB xA 3 1 div exp mul -1 1 div mul add yA xB 3 1 div exp mul -1 1 div mul add yA xB 2 1 div exp mul xA mul 3 1 div mul add yB xB mul xA 2 1 div exp mul -3 1 div mul add xA 3 1 div exp -1 1 div mul xB 3 1 div exp add xB 2 1 div exp xA mul -3 1 div mul add xB xA 2 1 div exp mul 3 1 div mul add div
-			end
-		} def %
-		/yOne  1 dict begin /x xOne def theFun end def%
-		/yTwo  1 dict begin /x xTwo def theFun end def%
-		/yFour 1 dict begin /x xFour def theFun -1 mul end def%
-	}%
-	\psplot[linecolor=\fcColorGraph, plotpoints = 300]{-1}{2.5}{theFun}%
-	\psplot[linecolor=\fcColorGraph, plotpoints = 300]{-1}{2.5}{theFun -1 mul}%
-	\pstVerb{%
-		/xThree xOne yOne xTwo yTwo xNew def%
-		/yThree xOne yOne xTwo yTwo yNew def%
-    /xFive xThree yThree xFour yFour xNew def%
-    /yFive xThree yThree xFour yFour yNew def%
-    /xSix xTwo yTwo xFour yFour xNew def%
-    /ySix xTwo yTwo xFour yFour yNew def%
-	}%
+\pstVerb{%
+%Input: xA yA xB yB. Let (xA, yA) * (xB, yB) = (xC, yC). 
+%This function outputs xC, and the next function outputs yC.
+/xNew {
+20 dict begin /a coeffA def /b coeffB def
+/yB exch def /xB exch def /yA exch def /xA exch def 
+b 2 1 div mul xA a mul add xB a mul add yB yA mul -2 1 div mul add xB 2 1 div exp xA mul add xB xA 2 1 div exp mul add xB xA mul -2 1 div mul xA 2 1 div exp add xB 2 1 div exp add div
+end
+} def %
+/yNew {
+20 dict begin /a coeffA def /b coeffB def
+/yB exch def /xB exch def /yA exch def /xA exch def 
+yA b mul 2 1 div mul yB b mul -4 1 div mul add b yA mul 2 1 div mul add yA xA mul a mul add yB xA mul a mul -3 1 div mul add yA xB mul a mul add yB xB mul a mul -1 1 div mul add xB a mul yA mul 2 1 div mul add xB 3 1 div exp yA mul 2 1 div mul add yB xA 3 1 div exp mul -1 1 div mul add yA xB 3 1 div exp mul -1 1 div mul add yA xB 2 1 div exp mul xA mul 3 1 div mul add yB xB mul xA 2 1 div exp mul -3 1 div mul add xA 3 1 div exp -1 1 div mul xB 3 1 div exp add xB 2 1 div exp xA mul -3 1 div mul add xB xA 2 1 div exp mul 3 1 div mul add div
+end
+} def %
+/yOne  1 dict begin /x xOne def theFun end def%
+/yTwo  1 dict begin /x xTwo def theFun end def%
+/yFour 1 dict begin /x xFour def theFun -1 mul end def%
+}%
+\psplot[linecolor=\fcColorGraph, plotpoints = 300]{-1}{2.5}{theFun}%
+\psplot[linecolor=\fcColorGraph, plotpoints = 300]{-1}{2.5}{theFun -1 mul}%
+\pstVerb{%
+/xThree xOne yOne xTwo yTwo xNew def%
+/yThree xOne yOne xTwo yTwo yNew def%
+/xFive xThree yThree xFour yFour xNew def%
+/yFive xThree yThree xFour yFour yNew def%
+/xSix xTwo yTwo xFour yFour xNew def%
+/ySix xTwo yTwo xFour yFour yNew def%
+}%
 \newcommand{\secant}{%
-	\psline[linewidth=\tangentWidth, linecolor=\tangentColor](!%
-	\pointOneX\space stickingCoeffOne mul \pointTwoX\space stickingCoeffTwo mul add %
-	\pointOneY\space stickingCoeffOne mul \pointTwoY\space -1 mul stickingCoeffTwo mul add %
-	)(!%
-	\pointOneX\space stickingCoeffTwo mul \pointTwoX\space stickingCoeffOne mul add %
-	\pointOneY\space stickingCoeffTwo mul \pointTwoY\space -1 mul stickingCoeffOne mul add %
-	)%
+\psline[linewidth=\tangentWidth, linecolor=\tangentColor](!%
+\pointOneX\space stickingCoeffOne mul \pointTwoX\space stickingCoeffTwo mul add %
+\pointOneY\space stickingCoeffOne mul \pointTwoY\space -1 mul stickingCoeffTwo mul add %
+)(!%
+\pointOneX\space stickingCoeffTwo mul \pointTwoX\space stickingCoeffOne mul add %
+\pointOneY\space stickingCoeffTwo mul \pointTwoY\space -1 mul stickingCoeffOne mul add %
+)%
 }%
 \newcommand{\doublePerpendicular}{%
-	\fcPerpendicular[linestyle=dotted]{[\pointTwoX\space \pointTwoY\space -1 mul]}{[-1 0]}{0.12}%
-	\psline[linestyle=dotted](! \pointTwoX\space \pointTwoY\space)(! \pointTwoX\space 0)%
-	\fcFullDot[linecolor=green]{\pointTwoX\space}{\pointTwoY\space -1 mul}%
+\fcPerpendicular[linestyle=dotted]{[\pointTwoX\space \pointTwoY\space -1 mul]}{[-1 0]}{0.12}%
+\psline[linestyle=dotted](! \pointTwoX\space \pointTwoY\space)(! \pointTwoX\space 0)%
+\fcFullDot[linecolor=green]{\pointTwoX\space}{\pointTwoY\space -1 mul}%
 }%
 \uncover<1,5->{%
-	\rput[tl](! xThree yThree -1 mul){$C'$}%
-	\fcFullDot{xThree}{yThree}%
+\rput[tl](! xThree yThree -1 mul){$C'$}%
+\fcFullDot{xThree}{yThree}%
 \newcommand{\pointOneX}{xOne}%
 \newcommand{\pointOneY}{yOne}%
 \newcommand{\pointTwoX}{xThree}%
 \newcommand{\pointTwoY}{yThree}%
-  \secant%
+\secant%
 \doublePerpendicular%
-	\rput[bl](! xThree yThree){$\alertNoH{9}{C}$}%
+\rput[bl](! xThree yThree){$\alertNoH{9}{C}$}%
 }%
 \onlyNoH{5}{%
-	\fcFullDot[linecolor=blue]{xThree}{yThree}%
+\fcFullDot[linecolor=blue]{xThree}{yThree}%
 }%
 \uncover<6->{%
 \renewcommand{\pointOneX}{xThree}%
@@ -116,19 +116,19 @@
 \doublePerpendicular%
 }%
 \onlyNoH{6,8}{\fcFullDot[linecolor=blue]{xFive}{yFive}}%
-	\fcFullDot{xOne}{yOne}%
-	\fcFullDot{xTwo}{yTwo}%
+\fcFullDot{xOne}{yOne}%
+\fcFullDot{xTwo}{yTwo}%
 \uncover<4->{%
-  \fcFullDot{xFour}{yFour}%
+\fcFullDot{xFour}{yFour}%
 \onlyNoH{4}{%
-  \fcFullDot[linecolor=blue]{xFour}{yFour}%
+\fcFullDot[linecolor=blue]{xFour}{yFour}%
 }%
 \rput[t](! xFour yFour -0.15 add){$\alertNoH{9}{D}$}%
 }%
 \renewcommand{\tangentColor}{pink}%
 \renewcommand{\tangentWidth}{1.5pt}%
-\onlyNoH{9}{%
-\renewcommand{\pointTwoY}{ySix -1 mul}
+\only<9>{%
+\renewcommand{\pointTwoY}{ySix -1 mul}%
 \secant%
 \renewcommand{\pointOneX}{xThree}%
 \renewcommand{\pointOneY}{yThree}%
@@ -137,10 +137,10 @@
 \secant%
 \fcFullDot[linecolor=brown]{xFive}{yFive -1 mul}%
 }%
-	\rput[tl](! xOne yOne){$\alertNoH{9}{A}$}%
-	\rput[br](! xTwo yTwo){$B$}%
-	\pstVerb{end}%
-	\end{pspicture}
+\rput[tl](! xOne yOne){$\alertNoH{9}{A}$}%
+\rput[br](! xTwo yTwo){$B$}%
+\pstVerb{end}%
+\end{pspicture}
 	
 	\column{0.75\textwidth}
 	\begin{definition}[Elliptic curve group law]
