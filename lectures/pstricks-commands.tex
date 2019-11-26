@@ -3174,7 +3174,8 @@ thePatch \fcPatchGetNormal \fcScreen\space pop \fcVectorScalarVector 0 gt
 { thePatch \fcPatchGetColorUV }
 ifelse]
 def
-0.5 setalpha
+% Breaks on Ubuntu 18.04:
+% 0.5 setalpha
 newpathVirtual
 thePatch \fcPatchGetContour 0 get \fcCoordsIIIdToPS movetoVirtual
 thePatch \fcPatchGetContour{\fcCoordsIIIdToPS linetoVirtual}forall

@@ -16,14 +16,14 @@ These are intended for teaching in class with projector, with or without the aid
 - Educational aspects:
   - Both example problems and theoretical considerations are presented in a step by step fashion. 
   - Each slide is uncovered gradually, showing one step at a time. Some slides have upwards of 60 separate steps. 
-  - Various aspects of the comptuations are highlighted on and off depending on their use in the last computation step. 
+  - Various aspects of the computations are highlighted on and off depending on their use in the last computation step. 
   - Problems of considerable technical difficulty are presented in full detail.
   - While doing computations, some computation entries are initially marked with a question mark, 
-prompting the students to guess what is going to be uncovered in the next step. 
+prompting the students to guess what is coming next. 
   - The slides have high quality step-by-step drawn graphics with LaTeX formula labels, achieving the 
 effect of highest-quality blackboard graphics. 
   - The 3d graphics are drawn using orthographic projections, with dashed background contours and 
-with viewing depth color shading. The quality is higher than most commercially available textbooks.
+viewing depth color shading. The quality is higher than most commercially available textbooks.
   - All graphics are accurately drawn in accordance with the problem.
 - Technical aspects:
   - All slides are compiled as pdfs. 
@@ -40,7 +40,7 @@ Feel free to change the default function graph color or the default perpendicula
 
 ## Homework problems
 - Educational aspects:
-  - With more than a thousand problems, we have sufficient materials so you don't need to use any external ones. 
+  - We have more than a thousand problems, should be enough for a regular-sized Calculus I/II course. 
   - Our homework sets are split into separate pdfs matching the lecture slides.
   - We also include an all-problems-in-the-course pdf file, complete with table of contents.
   - All our problem pdfs come in two versions: with and without an answer key. 
