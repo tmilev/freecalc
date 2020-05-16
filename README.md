@@ -8,6 +8,22 @@ There are 3 types of materials:
 - homework problem collections, 
 - textbook [work in progress]. 
 
+## Prebuilt pdfs.
+
+You can directly download the prebuilt from this folder:
+
+https://github.com/tmilev/freecalc/tree/master/lectures/referencelectures
+
+The prebuilt courses are here:
+
+[Precalculus](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/precalculus_pdf.zip)
+
+[Calculus I](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/calculusi_pdf.zip)
+
+[Calculus II](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/calculusii_pdf.zip)
+
+[Calculus III (multivariable)](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/calculusiiimultivariable_pdf.zip)
+
 ## Getting the project on your machine.
 
 ## Projector slides
