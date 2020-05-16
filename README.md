@@ -27,7 +27,7 @@ The homework pdfs are organized by lecture.
 
 https://github.com/tmilev/freecalc/tree/master/homework/referenceallproblemsbycourse
 
-Zip files of the 4 prebuilt homeworks (Precalculus, Calculus I, Calculus II, Calculus III) can be found in the following link.
+Prebuilt homeworks (Precalculus, Calculus I, Calculus II, Calculus III) can be found in the following link.
 
 https://github.com/tmilev/freecalc/tree/master/homework/referenceallproblemsbycourse/prebuilt
 
