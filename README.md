@@ -10,13 +10,17 @@ There are 3 types of materials:
 
 ## Prebuilt pdfs.
 
-You can directly download the prebuilt from this folder:
+You can directly download pre-built pdfs from the following folder.
 
 https://github.com/tmilev/freecalc/tree/master/lectures/referencelectures
 
-Zip files of the 4 prebuilt courses (Precalculus, Calculus I, Calculus II, Calculus III):
+Zip files of the 4 prebuilt courses (Precalculus, Calculus I, Calculus II, Calculus III) can be found in the following link.
 
 [Pre-compiled courses](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/prebuilt)
+
+If you see errors in the pdfs, post the issues in the github bug tracker.
+
+https://github.com/tmilev/freecalc/issues
 
 
 ## Getting the project on your machine.
