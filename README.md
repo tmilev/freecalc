@@ -8,8 +8,10 @@ There are 3 types of materials:
 - homework problem collections, 
 - textbook [work in progress]. 
 
-## Prebuilt pdfs
+## Pre-built pdfs
 
+
+### Pre-built lecture pdfs.
 You can directly download pre-built pdfs from the following folder.
 
 https://github.com/tmilev/freecalc/tree/master/lectures/referencelectures
@@ -17,6 +19,21 @@ https://github.com/tmilev/freecalc/tree/master/lectures/referencelectures
 Zip files of the 4 prebuilt courses (Precalculus, Calculus I, Calculus II, Calculus III) can be found in the following link.
 
 [Pre-compiled courses](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/prebuilt)
+
+
+### Pre-built homework pdfs.
+You can directly download pre-built pdfs from the following folder. 
+The homework pdfs are organized by lecture.
+
+https://github.com/tmilev/freecalc/tree/master/homework/referenceallproblemsbycourse
+
+Zip files of the 4 prebuilt homeworks (Precalculus, Calculus I, Calculus II, Calculus III) can be found in the following link.
+
+https://github.com/tmilev/freecalc/tree/master/homework/referenceallproblemsbycourse/prebuilt
+
+### Pre-built master problem sheets.
+
+### Report errors in the pdfs.
 
 If you see errors in the pdfs, post the issues in the github bug tracker.
 
