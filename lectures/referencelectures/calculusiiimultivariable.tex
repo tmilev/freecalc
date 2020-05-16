@@ -7,10 +7,14 @@
 % % % % % % % %
 % % % % % % % %
 \documentclass%
-%[handout]%
+[handout]%
 {beamer}
+
 %IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
 \newcommand{\currentLecture}{11}
+\newcommand{\semester}{2020}
+\newcommand{\lecturername}{Todor Milev}
+\newcommand{\coursename}{Calculus III}
 
 
 \mode<presentation>
@@ -29,9 +33,7 @@
 \input{../example-templates}
 \input{../system-specific-config-Ubuntu-texlive}
 \input{../pstricks-commands}
-\mode<handout>{\pgfpagesuselayout{1 on A4}[a4paper,landscape]}
 
-\newcommand{\currentSemester}{2017}
 
 \usepackage[T1]{fontenc}
 % Or whatever. Note that the encoding and the font should match. If T1
@@ -77,37 +79,25 @@
 \renewcommand{\Arccsc}{\text{arccsc\hspace{0.03cm}}}
 
 
-% If you have a file called "university-logo-filename.xxx", where xxx
-% is a graphic format that can be processed by latex or pdflatex,
-% resp., then you can add a logo as follows:
+\author[\lecturername]{
+\normalsize \lecturername\\ 
+\url{https://github.com/tmilev/freecalc}
+}
 
-%\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
-%\logo{\pgfuseimage{logo}}
+\AtBeginLecture{%
+\title[{\truncate{4.2cm}{\textbf{\color{green}{\insertlecture}}}}]{\coursename\\ \textbf{\color{green}{\insertlecture}}}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\input{../../modules/lecture-frequently-encountered-elements/table-of-contents-and-license}
+}
 
 \begin{document}
 
-\AtBeginLecture{%
-
-\title[\insertlecture]{Calculus III (Multivariate)}
-\subtitle{\insertlecture}
-\author[The freecalc team]{
-\normalsize Reference Lectures\\~\\ 
-\url{https://github.com/tmilev/freecalc}
-}
-\date{2016}
-\begin{frame}
-  \titlepage
-\end{frame}
-
-\begin{frame}{Outline}
-  \tableofcontents[pausesections]
-\end{frame}
-}%
-
 % begin lecture
-\lect{\currentSemester}{Lecture  1}{1}{
+\lect{\semester}{Lecture  1}{1}{
 %DesiredLectureName: Space_Cartesian_Coordinates
-\fcLicense
 \section{Space}
 %\input{../../modules/coordinate-systems/space-intro}<-needs rewrite from ground up.
 \input{../../modules/coordinate-systems/space-configurations-pairs-lines-or-planes}
@@ -123,11 +113,10 @@
 }
 
 % begin lecture
-\lect{\currentSemester}{Lecture  2}{2}{
+\lect{\semester}{Lecture  2}{2}{
 %DesiredLectureName: Vector_Basics_Dot_Product
-\fcLicense
 \section{Vectors}
-%\input{../../modules/vectors/vectors-outline} %<-needs rewrite from ground up.
+%%\input{../../modules/vectors/vectors-outline} %<-needs rewrite from ground up.
 \input{../../modules/vectors/vectors-definition}
 \input{../../modules/vectors/displacement-vectors}
 \input{../../modules/vectors/displacement-vector-equality}
@@ -136,10 +125,10 @@
 \input{../../modules/vectors/vector-addition-commutativity-associativity}
 \input{../../modules/vectors/vector-difference}
 \input{../../modules/vectors/linear-combinations}
-%\input{../../modules/vectors/vector-decomposition-along-directions} %<-slide needs rewrite from ground up.
+%%\input{../../modules/vectors/vector-decomposition-along-directions} %<-slide needs rewrite from ground up.
 \input{../../modules/vectors/vectors-in-coordinates}
 \input{../../modules/vectors/vectors-operations-in-coordinates}
-%\input{../../modules/vectors/work-constant-force} %<-needs a ground-up rewrite
+%%\input{../../modules/vectors/work-constant-force} %<-needs a ground-up rewrite
 
 \section{Dot product of vectors}
 \input{../../modules/vectors/dot-product-def}
@@ -150,13 +139,12 @@
 \input{../../modules/vectors/projections-in-coordinates-examples}
 \input{../../modules/vectors/angles}
 \input{../../modules/vectors/direction-angles}
-%\input{../../modules/vectors/rotational-effect} %<-needs to be rewritten from ground up
-%\input{../../modules/vectors/torque} %<-needs to be rewritten from ground up
+%%\input{../../modules/vectors/rotational-effect} %<-needs to be rewritten from ground up
+%%%\input{../../modules/vectors/torque} %<-needs to be rewritten from ground up
 }
 
-\lect{\currentSemester}{Lecture 3}{3}{
+\lect{\semester}{Lecture 3}{3}{
 %DesiredLectureName: Cross_Product_Determinants
-\fcLicense
 \section{Cross product of vectors}
 \input{../../modules/vectors/torque-wrench-example}
 \input{../../modules/vectors/cross-product}
@@ -185,9 +173,8 @@
 } %end lecture
 
 % begin lecture
-\lect{\currentSemester}{Lecture 4}{4}{
+\lect{\semester}{Lecture 4}{4}{
 %DesiredLectureName: Distances_Angles_Between_Points_Lines_Planes
-\fcLicense
 \input{../../modules/vectors/incidence-questions-intro}
 \section{Equations of Lines}
 \subsection{Line from point and direction}
@@ -235,9 +222,8 @@
 } %end lecture
 
 % begin lecture
-\lect{\currentSemester}{Lecture  5}{5}{
+\lect{\semester}{Lecture  5}{5}{
 %DesiredLectureName: Polar_Cylindrical_Spherical_Coordinates
-\fcLicense
 \section{Polar Coordinates}
 \input{../../modules/polar-coordinates/polar-intro}
 \input{../../modules/polar-coordinates/polar-questions}
@@ -246,7 +232,6 @@
 \input{../../modules/polar-coordinates/polar-to-cartesian}
 \input{../../modules/polar-coordinates/polar-to-cartesian-ex2}
 \input{../../modules/polar-coordinates/polar-to-cartesian-ex3}
-%\input{../../modules/polar-coordinates/polar-intersection-ex3}
 
 \section{Cylindrical Coordinates}
 \input{../../modules/cylindrical-coordinates/cylindrical-coordinates-def}
@@ -263,9 +248,8 @@
 \input{../../modules/coordinate-systems/curvilinear-boxes-spherical}
 }% end lecture
 
-\lect{\currentSemester}{Lecture 6}{6}{
+\lect{\semester}{Lecture 6}{6}{
 %DesiredLectureName: Curves_in_Space
-\fcLicense
 \section{Curves in space}
 \input{../../modules/coordinate-systems/r-two-r-n}
 \input{../../modules/parametric-curves/parametric-equation-line-segment}
@@ -303,9 +287,8 @@
 }
 
 % begin lecture
-\lect{\currentSemester}{Lecture 7}{7}{
+\lect{\semester}{Lecture 7}{7}{
 %DesiredLectureName: Multivariable_Functions
-\fcLicense
 \section{Functions of Several Variables}
 \input{../../modules/multivariable-functions/multivariable-functions-intro}
 \subsection{Verbal description}
@@ -323,12 +306,11 @@
 \input{../../modules/multivariable-functions/level-sets}
 \subsection{Vector Fields}
 \input{../../modules/multivariable-functions/vector-fields}
-%\input{../../modules/multivariable-functions/vector-fields-decomposition-wrt-other-vector-fields} %<- needs rewrite.
+\input{../../modules/multivariable-functions/vector-fields-decomposition-wrt-other-vector-fields} %<- needs rewrite.
 }
 
-\lect{\currentSemester}{Lecture 8}{8}{
+\lect{\semester}{Lecture 8}{8}{
 %DesiredLectureName: Multivariable_Limits_and_Continuity
-\fcLicense
 \section{Limits of Functions of Several Variables}
 \input{../../modules/continuity-multivariable/limits-intro}
 \input{../../modules/continuity-multivariable/limit-example}
@@ -345,9 +327,8 @@
 \input{../../modules/continuity-multivariable/continuity-vector-fields-example}
 }
 
-\lect{\currentSemester}{Lecture 9}{9}{
+\lect{\semester}{Lecture 9}{9}{
 %DesiredLectureName: Partial_Derivatives_Differentiability_Differentials
-\fcLicense
 \section{Partial Derivatives}
 \input{../../modules/partial-derivatives/rate-of-change-example}
 \input{../../modules/partial-derivatives/rate-of-change-along-lines}
@@ -368,10 +349,8 @@
 \input{../../modules/partial-derivatives/total-differential-and-linearization-example}
 }
 
-\lect{\currentSemester}{Lecture 10}{10}{
+\lect{\semester}{Lecture 10}{10}{
 %DesiredLectureName: Multivariable_Chain_Rule_Differential_Operators
-\fcLicense
-
 \section{Multivariable Chain Rule}
 \input{../../modules/chain-rule-multivariable/multivariable-chain-rule-motivation}
 \input{../../modules/chain-rule-multivariable/multivariable-chain-rule}
@@ -400,16 +379,8 @@
 \input{../../modules/harmonic-functions/harmonic-functions-definition}
 }
 
-\lect{\currentSemester}{Lecture 11}{11}{
+\lect{\semester}{Lecture 11}{11}{
 %DesiredLectureName: Surfaces_Quadratic_Surfaces_Tangent_Planes
-\begin{frame}
-\begin{center}
-\Large Please view this lecture in full screen mode. 
-
-Scroll down the slides (in full screen mode) to see a demo of the freecalc graphics and presentation.
-\end{center}
-\end{frame}
-\fcLicense
 \section{Surfaces}
 % % % % %\input{../../modules/surfaces/surfaces-intro} %<-needs a rewrite
 % % % % %\input{../../modules/surfaces/surfaces-parametrizations}<-needs a rewrite
@@ -458,7 +429,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 % % % % %\input{../../modules/surfaces/implicit-differentiation-and-tangent-plane-example-1}
 }
 
-\lect{\currentSemester}{Lecture 12}{12}{
+\lect{\semester}{Lecture 12}{12}{
 %DesiredLectureName: Maxima_Minima_Lagrange_Multipliers
 \section{Minima, Maxima}
 \input{../../modules/optimization-multivariable/maxima-minima-definitions}
@@ -484,7 +455,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 }
 
 % begin lecture
-\lect{\currentSemester}{Lecture 13}{13}{
+\lect{\semester}{Lecture 13}{13}{
 %DesiredLectureName: Double_Integrals
 \section{Double Integrals}
 \subsection{Riemann Sums, Double Integral Definition}
@@ -515,7 +486,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 \input{../../modules/integration-multivariable/double-integrals-curvilinear-trapezoids-example-5}
 }
 
-\lect{\currentSemester}{Lecture 14}{14}{
+\lect{\semester}{Lecture 14}{14}{
 %DesiredLectureName: Triple_Integrals
 \section{Triple Integrals}
 \input{../../modules/integration-multivariable/triple-integrals-intro-density-mass}
@@ -527,7 +498,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 \input{../../modules/integration-multivariable/triple-integrals-example-volume-1-rods}
 }
 
-\lect{\currentSemester}{Lecture 15}{15}{
+\lect{\semester}{Lecture 15}{15}{
 %DesiredLectureName: Parallelotopes_Variable_Changes_In_Multivariable_Integrals
 \section{Parallelotopes}
 \input{../../modules/integration-multivariable-variable-change/parallelotope-definition}
@@ -566,7 +537,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 %\input{../../modules/integration-multivariable-variable-change/area-of-ellipse}
 }
 
-\lect{\currentSemester}{Lecture 16}{16}{%
+\lect{\semester}{Lecture 16}{16}{%
 %DesiredLectureName: Double_Integrals_Polar_Coordinates
 \section{Double Integrals in Polar Coordinates}
 \input{../../modules/integration-multivariable-variable-change/double-integrals-in-polar-coordinates} 
@@ -585,7 +556,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 \input{../../modules/integration-multivariable-variable-change/triple-integrals-in-spherical-coordinates-example-centroid-half-ball}
 }
 
-\lect{\currentSemester}{Lecture 17}{17}{%
+\lect{\semester}{Lecture 17}{17}{%
 %DesiredLectureName: Line_Integrals
 \section{Line integrals}
 \input{../../modules/integration-line-integrals/line-surface-integrals-intro}
@@ -618,7 +589,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 \input{../../modules/integration-line-integrals/exact-1-forms}
 }
 
-\lect{\currentSemester}{Lecture 18}{18}{%
+\lect{\semester}{Lecture 18}{18}{%
 %DesiredLectureName: 2d_orientation_Greens_Theorem
 % % % % % %\input{../../modules/integration-line-integrals/conservation-of-energy}<-needs a rewrite
 % % % % % %\input{../../modules/integration-line-integrals/vector-fields-2d-tangents-normals-intro}<-needs a rewrite
@@ -654,7 +625,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 % % % % % %%\input{../../modules/integration-line-integrals/centroids-mass-centers-2d-regions}
 }
 
-\lect{\currentSemester}{Lecture 19}{19}{
+\lect{\semester}{Lecture 19}{19}{
 %DesiredLectureName: Surface_Integrals
 \section{Surface Integrals}
 \input{../../modules/integration-surface-integrals/surface-integrals-intro}
@@ -682,7 +653,7 @@ Scroll down the slides (in full screen mode) to see a demo of the freecalc graph
 \input{../../modules/integration-surface-integrals/flux-example-2}
 }
 
-\lect{\currentSemester}{Lecture 20}{20}{
+\lect{\semester}{Lecture 20}{20}{
 %DesiredLectureName: Divergence_Theorem_Stokes_Theorem
 \section{Divergence Theorem}
 \input{../../modules/integration-surface-integrals/divergence-theorem}

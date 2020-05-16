@@ -11,8 +11,12 @@
 [handout]%
 {beamer}
 %IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
-\newcommand{\currentLecture}{1}
-\newcommand{\semester}{Summer 2017}
+\newcommand{\currentLecture}{2}
+\newcommand{\semester}{2020}
+\newcommand{\lecturername}{Todor Milev}
+\newcommand{\coursename}{Calculus I}
+
+
 \input{../example-templates}
 \input{../system-specific-config-Ubuntu-texlive} %
 \input{../pstricks-commands}
@@ -86,33 +90,25 @@
 
 \setbeamertemplate{navigation symbols}{}
 
-% If you have a file called "university-logo-filename.xxx", where xxx
-% is a graphic format that can be processed by latex or pdflatex,
-% resp., then you can add a logo as follows:
 
-%\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
-%\logo{\pgfuseimage{logo}}
-
-\AtBeginLecture{%
-
-\title[\textbf{\color{green}{\insertlecture}}]{Calculus I \\ \insertlecture
-
-\author[Todor Milev]{\Large \\
-\normalsize Reference Lectures\\Todor Milev\\ 
+\author[\lecturername]{
+\normalsize \lecturername\\ 
 \url{https://github.com/tmilev/freecalc}
 }
-}
 
-\date{\insertshortlecture}
+\AtBeginLecture{%
+\title[{\truncate{4.2cm}{\textbf{\color{green}{\insertlecture}}}}]{\coursename\\ \textbf{\color{green}{\insertlecture}}}
+
 \begin{frame}
 \titlepage
 \end{frame}
 \input{../../modules/lecture-frequently-encountered-elements/table-of-contents-and-license}
 }
 
+
 \begin{document}
 
-\lect{\semester}{Lecture  0}{0}{
+\lect{\semester}{Lecture  0 \\ Representing Functions}{0}{
 %DesiredLectureName: Review_Representing_Functions
 \fcLicense
 \section{Ways to Represent a Function}
@@ -134,7 +130,7 @@
 \input{../../modules/functions-basics/domains}
 }% end lecture
 
-\lect{\semester}{Lecture  1}{1}{
+\lect{\semester}{Lecture  1\\ Construcing Functions}{1}{
 %DesiredLectureName: Review_Basic_Functions_New_Functions_From_Old
 \fcLicense
 \section{A Catalog of Essential Functions}
@@ -165,7 +161,7 @@
 %\input{../../modules/function-graph-linear-transformations/transformations-absolute-value}
 }% end lecture
 
-\lect{\semester}{Lecture 2}{2}{%begin lecture
+\lect{\semester}{Lecture 2 \\ Trigonometry Review}{2}{%begin lecture
 %DesiredLectureName: Review_Trigonometry
 \fcLicense
 \section{Trigonometry}
@@ -206,7 +202,7 @@
 \input{../../modules/trigonometry/graphs-sec-and-csc}
 }% end lecture
 
-\lect{\semester}{Lecture  3}{3}{% begin lecture
+\lect{\semester}{Lecture  3 \\ Limits}{3}{% begin lecture
 %DesiredLectureName: Limits
 \fcLicense
 \section{The Limit of a Function}
@@ -236,7 +232,7 @@
 \input{../../modules/limits/squeeze-theorem-ex11}
 }% end lecture
 
-\lect{\semester}{Lecture 4}{4}{% begin lecture
+\lect{\semester}{Lecture 4 \\ Continuity}{4}{% begin lecture
 %DesiredLectureName: Continuity
 \fcLicense
 \section{Continuity}
@@ -259,7 +255,7 @@
 \input{../../modules/continuity/IVT-ex9}
 } %end lecture
 
-\lect{\semester}{Lecture 5}{5}{% begin lecture
+\lect{\semester}{Lecture 5 \\ Limits Involving Infinity}{5}{% begin lecture
 %DesiredLectureName: Limits_Involving_Infinity
 \fcLicense
 \section{Limits Involving Infinity}
@@ -288,7 +284,7 @@
 \input{../../modules/curve-sketching/infinite-limit-at-infinity-ex11}
 }% end lecture
 
-\lect{\semester}{Lecture  6}{6}{% begin lecture
+\lect{\semester}{Lecture  6 \\ Inverse Functions Review}{6}{% begin lecture
 %DesiredLectureName: Review_Inverse_Functions
 \fcLicense
 \section{Inverse Functions}
@@ -307,7 +303,7 @@
 \input{../../modules/inverse-functions/inverse-function-solve-for-ex3-freeCalc}
 }
 
-\lect{\semester}{Lecture  7}{7}{% begin lecture
+\lect{\semester}{Lecture  7 \\ Exponents and Logarithms}{7}{% begin lecture
 %DesiredLectureName: Review_Exponents_Logarithms
 \fcLicense
 \section{Exponential Functions}
@@ -343,7 +339,7 @@
 \input{../../modules/inverse-functions/inverse-function-solve-for-ex2-freeCalc}
 }% end lecture
 
-\lect{\semester}{Lecture 8}{8}{% begin lecture
+\lect{\semester}{Lecture 8 \\ Derivatives}{8}{% begin lecture
 %DesiredLectureName: Derivatives_Basics
 \fcLicense
 \section{Tangents}
@@ -387,7 +383,7 @@
 \input{../../modules/derivatives/differentiation-formulas-the-circle-area-perimeter-secret}
 }% end lecture
 
-\lect{\semester}{Lecture 9}{9}{% begin lecture
+\lect{\semester}{Lecture 9 \\ Product and Quotient Rule}{9}{% begin lecture
 %DesiredLectureName: Differentiation_Product_Quotient_Rule
 \fcLicense
 \section{Differentiation Formulas}
@@ -421,7 +417,7 @@
 \input{../../modules/product-quotient/quotient-rule-rational}
 }% end lecture
 
-\lect{\semester}{Lecture 10}{10}{% begin lecture
+\lect{\semester}{Lecture 10 \\ Trigonometric Derivatives}{10}{% begin lecture
 %DesiredLectureName: Trig_Derivatives
 \fcLicense
 \section{Derivatives of Trigonometric Functions}
@@ -439,7 +435,7 @@
 \input{../../modules/derivatives-trig/derivatives-trig-ex4}
 }% end lecture
 
-\lect{\semester}{Lecture 11}{11}{% begin lecture
+\lect{\semester}{Lecture 11 \\ The Chain Rule}{11}{% begin lecture
 %DesiredLectureName: The_Chain_Rule
 \fcLicense
 \section{The Chain Rule}
@@ -472,7 +468,7 @@
 \input{../../modules/chain-rule/chain-rule-proof}
 }% end lecture
 
-\lect{\semester}{Lecture 12}{12}{% begin lecture
+\lect{\semester}{Lecture 12 \\ More on Derivative Formulas}{12}{% begin lecture
 %DesiredLectureName: Understanding_Derivatives
 \fcLicense
 \section{Understanding computations with derivatives}
@@ -489,7 +485,7 @@
 \input{../../modules/derivatives-computation-understanding/sin-cos-rules-from-exponent}
 }% end lecture
 
-\lect{\semester}{Lecture 13}{13}{% begin lecture
+\lect{\semester}{Lecture 13 \\ Implicit Differentiation}{13}{% begin lecture
 %DesiredLectureName: Implicit_Differentiation_Related_Rates
 
 \section{Implicit Differentiation}
@@ -506,7 +502,7 @@
 %\input{../../modules/related-rates/related-rates-ex3_new}
 } %end lecture
 
-\lect{\semester}{Lecture 14}{14}{% begin lecture
+\lect{\semester}{Lecture 14 \\ Logarithmic Differentiation}{14}{% begin lecture
 %DesiredLectureName: Logarithmic_Differentiation
 \section{Derivatives of Logarithmic Functions}
 \input{../../modules/logarithms/general-log-derivative-implicit}
@@ -528,7 +524,7 @@
 
 %Test April 9
 
-\lect{\semester}{Lecture 15}{15}{% begin lecture
+\lect{\semester}{Lecture 15 \\ Extreme Values}{15}{% begin lecture
 %DesiredLectureName: Maxima_Minima_Extreme_Value_Theorem_Mean_Value_Theorem
 \fcLicense
 \section{Maximum and Minimum Values}
@@ -554,7 +550,7 @@
 \input{../../modules/maxima-minima/MVT-corollary2}
 }
 
-\lect{\semester}{Lecture 16}{16}{% begin lecture
+\lect{\semester}{Lecture 16 \\ Optimization in One Variable}{16}{% begin lecture
 %DesiredLectureName: Optimization_One_Variable
 \section{One Variable Optimization Problems}
 \subsection{The Closed Interval Method}
@@ -570,7 +566,7 @@
 } %end lecture
 
 
-\lect{\semester}{Lecture 17}{17}{% begin lecture
+\lect{\semester}{Lecture 17 \\ Curve Sketching and Derivatives}{17}{% begin lecture
 %DesiredLectureName: Derivatives_And_Curve_Sketching
 \fcLicense
 \section{Derivatives and the Shapes of Curves}
@@ -617,7 +613,7 @@
 \input{../../modules/differentials/differentials-example2}
 }% end lecture
 
-\lect{\semester}{Lecture 20}{20}{% begin lecture
+\lect{\semester}{Lecture 20 \\ Areas, Integration}{20}{% begin lecture
 %DesiredLectureName: Areas_And_Integration
 \fcLicense
 \section{Areas and Distances}
@@ -650,7 +646,7 @@
 \input{../../modules/integration/definite-integral-properties-comparison}
 }% end lecture
 
-\lect{\semester}{Lecture 21}{21}{% begin lecture
+\lect{\semester}{Lecture 21 \\The Fundamental Theorem of Calculus\\Part I}{21}{% begin lecture
 %DesiredLectureName: Antiderivatives_Fundamental_Theorem_Of_Calculus
 \fcLicense
 \section{Antiderivatives}
@@ -676,7 +672,7 @@
 \input{../../modules/integration/indefinite-integral-ex5}
 }% end lecture
 
-\lect{\semester}{Lecture 22}{22}{% begin lecture
+\lect{\semester}{Lecture 22 \\ The Substitution Rule}{22}{% begin lecture
 %DesiredLectureName: The_Substitution_Rule
 \fcLicense
 \section{The Substitution Rule}
@@ -693,7 +689,7 @@
 \input{../../modules/substitution-rule/substitution-rule-definite-integrals-ex7}
 }
 
-\lect{\semester}{Lecture 23}{23}{% begin lecture
+\lect{\semester}{Lecture 23\\The Fundamental Theorem Of Calculus\\Part II}{23}{% begin lecture
 %DesiredLectureName: The_Fundamental_Theorem_Of_Calculus_Both_Parts
 \fcLicense
 \section{The Fundamental Theorem of Calculus}
@@ -721,7 +717,7 @@
 \input{../../modules/antiderivatives/rectilinear-motion-ex7}
 }% end lecture
 
-\lect{\semester}{Lecture 24}{24}{% begin lecture
+\lect{\semester}{Lecture 24\\Area between Graphs}{24}{% begin lecture
 %DesiredLectureName: Integration_And_Symmetry_Areas_Between_Function_Graphs
 \fcLicense
 \section{Integration and symmetry}
@@ -740,7 +736,7 @@
 \input{../../modules/area-between-curves/area-between-curves-ex5}
 }% end lecture
 
-\lect{\semester}{Lecture 25}{25}{% begin lecture
+\lect{\semester}{Lecture 25\\Volumes of Solids of Revolution}{25}{% begin lecture
 %DesiredLectureName: Volumes_Of_Solids_Of_Revolution
 \fcLicense
 \section{Volumes}

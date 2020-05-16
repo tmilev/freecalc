@@ -1,8 +1,13 @@
 \documentclass
 [handout]
 {beamer}
-\newcommand{\currentLecture}{3}
-\newcommand{\semester}{Summer 2017}
+
+%IMPORTANT: the following line selects the current lecture. Change number to select a different lecture.
+\newcommand{\currentLecture}{2}
+\newcommand{\semester}{2020}
+\newcommand{\lecturername}{Todor Milev}
+\newcommand{\coursename}{Precalculus}
+
 \input{../example-templates}
 \input{../system-specific-config-Ubuntu-texlive} %
 \input{../pstricks-commands}
@@ -76,27 +81,14 @@
   \vskip0pt%
 }
 
-% If you have a file called "university-logo-filename.xxx", where xxx
-% is a graphic format that can be processed by latex or pdflatex,
-% resp., then you can add a logo as follows:
-
-%\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
-%\logo{\pgfuseimage{logo}}
+\author[\lecturername]{
+\normalsize \lecturername\\ 
+\url{https://github.com/tmilev/freecalc}
+}
 
 \AtBeginLecture{%
-\title[{\truncate{4.2cm}{\insertlecture}}]{ 
-{\normalsize Precalculus}\\
- \insertlecture \\
-{\normalsize \color{green}{\textbf{calculator-algebra.org}}}
-}
-\author[Todor Milev, 
-{\color{green}{\bf calculator-algebra.org}}]{
-\begin{tabular}{c}
-\Large Todor Milev\\
-\end{tabular}
-}
+\title[{\truncate{4.2cm}{\textbf{\color{green}{\insertlecture}}}}]{\coursename\\ \textbf{\color{green}{\insertlecture}}}
 
-\date{\insertshortlecture}
 \begin{frame}
 \titlepage
 \end{frame}
@@ -108,7 +100,7 @@
 
 
 
-\lect{\semester}{Angles}{2}{% begin lecture
+\lect{\semester}{Lecture 1 \\ Angles}{1}{% begin lecture
 %DesiredLectureName: Angles
 \section{Angles}
 \subsection{The Unit circle}
@@ -142,7 +134,7 @@
 
 
 
-\lect{\semester}{Lecture 2}{2}{% begin lecture
+\lect{\semester}{Lecture 2 \\ Trigonometry Definitions}{2}{% begin lecture
 %DesiredLectureName: Trigonometry_Definitions
 \section{Trigonometry}
 \subsection{Definition of the Trigonometric Functions}
@@ -170,7 +162,7 @@
 %\input{../../modules/trigonometry/trig-identities-angle-sum-summary}
 }
 
-\lect{\semester}{Lecture 3}{3}{% begin lecture
+\lect{\semester}{Lecture 3 \\ Angle Sum Formulas}{3}{% begin lecture
 %DesiredLectureName: Trigonometry_Cofunction_Identities_Angle_Sum_Formulas
 \section{Cofunction identities}
 \input{../../modules/trigonometry/cofunction-identities-part1}
@@ -196,7 +188,7 @@
 \input{../../modules/trigonometry/power-reducing-formulas-ex1}
 }
 
-\lect{\semester}{Lecture 4}{4}{% begin lecture
+\lect{\semester}{Lecture 4 \\ Complex Numbers}{4}{% begin lecture
 %DesiredLectureName: Complex-numbers-basics
 \section{Complex Numbers}
 \input{../../modules/complex-numbers/complex-numbers-definition}
@@ -205,7 +197,7 @@
 \input{../../modules/complex-numbers/overview-of-numbers}
 }
 
-\lect{\semester}{Lecture 5}{5}{% begin lecture
+\lect{\semester}{Lecture 5 \\ Trigonometric Identities}{5}{% begin lecture
 %DesiredLectureName: Trigonometric_Identities
 \section{Trigonometric Identities}
 \subsection{Trigonometric Identities and Complex Numbers}
@@ -230,7 +222,7 @@
 \input{../../modules/trigonometry/trig-identities-exercises-1}
 }
 
-\lect{\semester}{Lecture 6}{6}{% begin lecture
+\lect{\semester}{Lecture 6 \\ Inverse Functions}{6}{% begin lecture
 %DesiredLectureName: Inverse_Functions
 \section{Inverse Functions}
 \subsection{One-to-one Functions}
@@ -248,7 +240,7 @@
 \input{../../modules/inverse-functions/inverse-function-solve-for-ex3-freeCalc}
 }
 
-\lect{\semester}{Lecture 7}{7}{% begin lecture
+\lect{\semester}{Lecture 7 \\ Trigonometric Graphs}{7}{% begin lecture
 %DesiredLectureName: Trigonometric_Function_Graphs_Inverse_Trig
 \section{Graphs of the Trigonometric Functions}
 \subsection{Graphs of $\sin $ and $\cos$}
@@ -283,7 +275,7 @@
 \input{../../modules/inverse-trig/arcsec-def}
 }
 
-\lect{\semester}{Lecture 8}{8}{% begin lecture
+\lect{\semester}{Lecture 8 \\ Trigonometric Equations}{8}{% begin lecture
 %DesiredLectureName: Trig_Equations_Inequalities
 \section{Trigonometric equations and inequalities}
 \input{../../modules/trigonometry/trig-equations-intro}
@@ -304,7 +296,7 @@
 \input{../../modules/inequalities-polynomial/trig-inequality-reduced-to-quadratic-1}
 }
 
-\lect{\semester}{Lecture 9}{9}{% begin lecture
+\lect{\semester}{Lecture 9 \\ Laws of Sines and Cosines}{9}{% begin lecture
 %DesiredLectureName: Law_of_Sines_Law_of_Cosines_Trig_Applications
 \section{Law of sines}
 \input{../../modules/trigonometry/area-of-triangle-from-base-and-height}
@@ -316,7 +308,7 @@
 \input{../../modules/trigonometry/law-of-cosines-solve-triangle-example-1}
 }
 
-\lect{\semester}{Lecture 10}{10}{
+\lect{\semester}{Lecture 10 \\ Exponents}{10}{
 %DesiredLectureName: Exponents
 \section{Exponents}
 \input{../../modules/exponential-functions/exponential-properties}
@@ -337,7 +329,7 @@
 \input{../../modules/logarithms/e-limit-compound-interest-rule-of-72}
 }
 
-\lect{\semester}{Lecture 11}{11}{% begin lecture
+\lect{\semester}{Lecture 11 \\ Logarithms}{11}{% begin lecture
 %DesiredLectureName: Logarithm_Basics
 \section{Logarithmic Functions}
 \subsection{Logarithm basics}
@@ -364,7 +356,7 @@
 \input{../../modules/logarithms/logarithm-properties-proofs}
 }
 
-\lect{\semester}{Lecture 12}{12}{% begin lecture
+\lect{\semester}{Lecture 12 \\ Equations with Logarithms and Exponents}{12}{% begin lecture
 %DesiredLectureName: Equations_involving_logarithms_and_exponents
 \section{Equations involving logarithms}
 \input{../../modules/logarithms/logarithms-equations-ex1}
@@ -386,7 +378,7 @@
 \input{../../modules/logarithms/exponential-inequality-basic-1}
 }
 
-\lect{\semester}{Lecture 13}{13}{% begin lecture
+\lect{\semester}{Lecture 13 \\ Exponential and Logarithmic Models}{13}{% begin lecture
 %DesiredLectureName: Exponential_and_Logarithmic_models
 \section{Models Involving Logarithms and Exponents}
 \input{../../modules/logarithms/models-involving-logarithms-and-exponents}
@@ -399,38 +391,7 @@
 \input{../../modules/logarithms/logarithmic-models-ex1}
 }
 
-\lect{\semester}{Lecture 14}{14}{
-%DesiredLectureName: Factoring_polynomials_and_polynomial_inequalities
-\section{Factoring quadratics}
-\input{../../modules/polynomial-factorization/factorization-meaning-1}
-\input{../../modules/quadratic-functions/factoring-quadratics-theory-1}
-\input{../../modules/quadratic-functions/factoring-quadratics-example-Vieta-guessing-or-formula-1}
-\input{../../modules/quadratic-functions/vietas-formulas}
-\input{../../modules/quadratic-functions/factoring-quadratics-example-example-Vieta-guessing-1}
-\input{../../modules/quadratic-functions/factoring-quadratics-example-by-formula-1}
-\input{../../modules/quadratic-functions/factoring-quadratics-example-by-formula-no-real-roots-1}
-\section{Factorization overview}
-\input{../../modules/polynomial-factorization/factorization-examples-no-theory-1}
-\input{../../modules/polynomial-factorization/fundamental-theorem-of-algebra-statement}
-\input{../../modules/polynomial-factorization/factorization-examples-1}
-\input{../../modules/polynomial-factorization/factorization-algebraic-overview-1}
-\input{../../modules/polynomial-factorization/factorization-over-basic-three-fields-explanation}
-\input{../../modules/polynomial-factorization/factorization-over-rationals}
-%DesiredLectureName: Factoring_cubics_with_rational_root
-\section{Polynomial division}
-\input{../../modules/polynomial-factorization/polynomial-division-example-1}
-\input{../../modules/polynomial-factorization/polynomial-division-use-to-factor-1}
-\section{Factoring cubics with rational root}
-\input{../../modules/polynomial-factorization/solve-cubic-rational-roots-using-graph-1}
-\input{../../modules/polynomial-factorization/solve-cubic-one-rational-two-real-roots-from-graph-1}
-\input{../../modules/polynomial-factorization/solve-cubic-one-rational-two-complex-roots-from-graph-1}
-\section{Polynomial inequalities}
-%DesiredLectureName: Polynomial_inequalities
-\input{../../modules/inequalities-polynomial/inequality-quadratic-1}
-\input{../../modules/inequalities-polynomial/inequality-cubic-three-rational-roots-1}
-}
-
-\lect{\semester}{Lecture 98}{98}{
+\lect{\semester}{Lecture 14 \\ Graphing Equations}{14}{
 %DesiredLectureName: Graphing-Equations-Circle-Equation
 \section{Graph of an equation}
 \input{../../modules/equation-graph/equation-graph-def}
@@ -450,7 +411,7 @@
 \input{../../modules/equation-graph/find-circle-equation-from-radius-and-point-1}
 }% end lecture
 
-\lect{\semester}{Lecture 99}{99}{
+\lect{\semester}{Lecture 15}{15}{
 %DesiredLectureName: Quadratic_Functions
 \section{Quadratic Functions}
 \subsection{Standard Form}
@@ -486,7 +447,31 @@
 \input{../../modules/quadratic-functions/quadratic-max-min-word-problem-1}
 }
 
-\lect{\semester}{Lecture 100}{100}{
+\lect{\semester}{Lecture 16 \\ Factoring Polynomials}{16}{
+%DesiredLectureName: Factoring_polynomials_and_polynomial_inequalities
+\section{Factorization overview}
+\input{../../modules/polynomial-factorization/factorization-examples-no-theory-1}
+\input{../../modules/polynomial-factorization/fundamental-theorem-of-algebra-statement}
+\input{../../modules/polynomial-factorization/factorization-examples-1}
+\input{../../modules/polynomial-factorization/factorization-algebraic-overview-1}
+\input{../../modules/polynomial-factorization/factorization-over-basic-three-fields-explanation}
+\input{../../modules/polynomial-factorization/factorization-over-rationals}
+%DesiredLectureName: Factoring_cubics_with_rational_root
+\section{Polynomial division}
+\input{../../modules/polynomial-factorization/polynomial-division-example-1}
+\input{../../modules/polynomial-factorization/polynomial-division-use-to-factor-1}
+\section{Factoring cubics with rational root}
+\input{../../modules/polynomial-factorization/solve-cubic-rational-roots-using-graph-1}
+\input{../../modules/polynomial-factorization/solve-cubic-one-rational-two-real-roots-from-graph-1}
+\input{../../modules/polynomial-factorization/solve-cubic-one-rational-two-complex-roots-from-graph-1}
+\section{Polynomial inequalities}
+%DesiredLectureName: Polynomial_inequalities
+\input{../../modules/inequalities-polynomial/inequality-quadratic-1}
+\input{../../modules/inequalities-polynomial/inequality-cubic-three-rational-roots-1}
+}
+
+
+\lect{\semester}{Lecture 17}{17}{
 %DesiredLectureName: Cartesian_Coordinates_Vector_Addition_Scalar_Product
 \section{Cartesian coordinate system}
 \input{../../modules/coordinate-systems/cartesian-coordinates-2d-part1}
@@ -511,7 +496,7 @@
 \input{../../modules/coordinate-systems/find-midpoint-1}
 }% end lecture
 
-\lect{\semester}{Lecture 101}{101}{
+\lect{\semester}{Lecture 18}{18}{
 %DesiredLectureName: Lines
 \section{Lines}
 \input{../../modules/coordinate-systems/r-two-r-n}
@@ -535,7 +520,7 @@
 \input{../../modules/lines-2d/parallel-lines-equal-slopes}
 }% end lecture
 
-\lect{\semester}{Lecture 102}{102}{
+\lect{\semester}{Lecture 19}{19}{
 %DesiredLectureName: Functions
 \section{The Definition of a Function}
 \input{../../modules/functions-basics/function-def-uses-arrows}
@@ -567,8 +552,8 @@
 
 }% end lecture
 
-\lect{\semester}{Lecture 103}{103}{
-%DesiredLectureName: Functions
+\lect{\semester}{Lecture 20}{20}{
+%DesiredLectureName: Function_Examples
 \section{A Catalog of Essential Functions}
 \subsection{Linear Functions}
 \input{../../modules/lines-2d/linear-functions}
@@ -587,14 +572,16 @@
 \input{../../modules/precalculus/transcendental-functions-version2}
 \subsection{Miscellaneous}
 \input{../../modules/continuity/greatest-integer-function}
+}
+
+\lect{\semester}{Lecture 21}{21}{
+%DesiredLectureName: Function_Construction
 \section{New Functions from Old Functions}
 \input{../../modules/precalculus/combinations-functions}
 \input{../../modules/precalculus/composition-functions}
 \input{../../modules/precalculus/composition-example}
 \input{../../modules/precalculus/composition-example-2}
-}
 
-\lect{\semester}{Lecture 104}{104}{
 \section{Composing Functions with Linear Transformations}
 \input{../../modules/function-graph-linear-transformations/transformations-shifts}
 \input{../../modules/function-graph-linear-transformations/transformations-shifts-example}
