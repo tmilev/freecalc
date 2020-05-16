@@ -8,7 +8,7 @@ There are 3 types of materials:
 - homework problem collections, 
 - textbook [work in progress]. 
 
-## Prebuilt pdfs.
+## Prebuilt pdfs
 
 You can directly download pre-built pdfs from the following folder.
 
@@ -23,7 +23,7 @@ If you see errors in the pdfs, post the issues in the github bug tracker.
 https://github.com/tmilev/freecalc/issues
 
 
-## Getting the project on your machine.
+## Getting the project on your machine
 
 ## Projector slides
 These are intended for teaching in class with projector, with or without the aid of additional blackboard work. 
