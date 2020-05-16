@@ -14,15 +14,10 @@ You can directly download the prebuilt from this folder:
 
 https://github.com/tmilev/freecalc/tree/master/lectures/referencelectures
 
-The prebuilt courses are here:
+Zipfiles of the 4 prebuilt courses (Precalculus, Calculus I, Calculus II, Calculus III):
 
-[Precalculus](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/precalculus_pdf.zip)
+[Zip files with pdfs](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/prebuilt)
 
-[Calculus I](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/calculusi_pdf.zip)
-
-[Calculus II](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/calculusii_pdf.zip)
-
-[Calculus III (multivariable)](https://github.com/tmilev/freecalc/blob/master/lectures/referencelectures/calculusiiimultivariable_pdf.zip)
 
 ## Getting the project on your machine.
 
