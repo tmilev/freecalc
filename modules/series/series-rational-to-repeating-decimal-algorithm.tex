@@ -1,0 +1,26 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{algorithm}[Write a fraction to periodic base \uncover<handout:1|1>{\alert<1>{10}}\only<handout:2|2->{\alert<2>{X}} ]
+Input: a fraction $\frac{p}{q}$. Output: integer $A$ and two groups of digits such that 
+$
+\frac{p}{q} = A + 0.b_1\dots b_m\overline{c_1\dots c_n}.
+$
+\begin{itemize} 
+	
+\item[1] Initialize $\textbf{digits}=()$ as the empty sequence.
+\item[2] Initialize $\textbf{remainders}=()$ as the empty sequence.
+\item[2] Divide $p$ by $q$ with remainder $r$ and set $A$ to be the quotient. Append $r$ to $\text{remainders}$.
+\item[3] While $r$ is not equal to zero:
+\begin{itemize}
+\item[3.1] Multiply $r$ by \only<handout:1|1>{\alert<1>{$10$}}\only<handout:2|2->{\alert<2>{$X$}}. 
+\item[3.2] Divide the result by $q$ with remainder $r'$ and quotient $d$.  
+\item[3.3] If $r'$ belongs to $\textbf{remainders}$ with first occurrence at position $m+1$, slice digits into two sequences $b_1, \dots b_{m} $ and $c_1, \dots c_n$. Return $A$ and $b_1, ..., b_m$, $c_1, \dots, c_n$ as the desired digits.
+\item[3.4] Append $d$ to $\textbf{digits}$ and $r$ to $\textbf{remainders}$.
+\item[3.5] Set $r=r'$ and go back to Step 3.
+\end{itemize}
+\item[4] If $r$ attained the value $0$ in the execution of the loop, the fraction $\frac{p}{q}$ has a finite decimal representation given by $A$ and \textbf{digits}.
+	
+\end{itemize}
+\end{algorithm}
+
+\end{frame}
