@@ -5,10 +5,11 @@
 
 %Notes: modify command \optionalDisplay to speed up computation times.
 \usepackage{etex}
-\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref,ifthen}
+\usepackage{amsmath, amsfonts, amssymb, verbatim, hyperref, ifthen}
 \usepackage{amsthm}
 \usepackage{makeidx}
 
+\usepackage{pstricks}
 \usepackage{pst-math}
 \usepackage{pst-solides3d}
 \usepackage{pst-3dplot}
@@ -22,7 +23,6 @@
 \usepackage{etoolbox}
 \usepackage{comment}
 \usepackage{cleveref}
-
 
 \input{../pstricks-commands}
 \input{../system-specific-config-Ubuntu-texlive}
@@ -93,7 +93,7 @@
 
 \makeindex
 \author{Authors: the freecalc project contributors \\~\\ Notes composition started by Todor Milev.}
-\title{Calculus for beginners \\Draft version \\ ~\\
+\title{Calculus for beginners \\{\color{red}{Draft version}} \\ ~\\
 \[
 \lim\limits_{x\to 5^+}\frac{1}{x-5}= ?
 \]
@@ -105,33 +105,14 @@
 $\Rightarrow$
 ~\\
 \[
-\lim\limits_{x\to 5^+}\frac{1}{x-5}= \begin{postscript}\rotatebox{90}{5}\end{postscript}
+\lim\limits_{x\to 5^+}\frac{1}{x-5}= 
+\rotatebox{90}{5}
 \]
+
+%\raisebox{-5cm}{\Huge{\color{red}\rotatebox{45}{\textbf{ DRAFT VERSION}}}}
 }
 \begin{document}
 \maketitle
-
-{
-~
-
-\bigskip
-
-~
-
-\bigskip
-
-~
-
-\bigskip
-
-~
-
-\bigskip
-
-\begin{center}
-\Huge{\color{red}\rotatebox{45}{\textbf{ DRAFT VERSION}}}
-\end{center}
-} %end centering
 
 %\noindent \textbf{Study materials. } The present notes and the textbook by James Stewart, Calculus, 7th edition, published by Brooks Cole, 2012. ISBN-13: 978-0-538-49781-7, ISBN-10: 0-538-49781-5.
 
@@ -1245,9 +1226,7 @@ and
 \end{equation}
 
 
-
-
-\chapter{Exponents, complex numbers and trigonometric functions: power series approach} \label{chapterExponentsTrigFromPowerSeries}
+\chapter[Euler formula and Trig]{Exponents, complex numbers and trigonometric functions: power series approach} \label{chapterExponentsTrigFromPowerSeries}
 In Chapter \ref{chapterExponentsTrigFromEuclideanGeometry} we presented a construction of the trigonometric functions and exponents through Euclidean geometry. The present chapter is an alternative exposition of the topics of trigonometric function and exponents by using power series. The two expositions are of course equivalent: we prove that in the end of this chapter.
 
 
@@ -4064,13 +4043,16 @@ r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
 \index{cardioid}\index{spiral} Sometimes a curve is given in polar coordinates by specifying a relationship between $r$ and $\theta$, such as $r=\theta$ (spiral) or $r=1+\sin \theta$ (cardioid), $r=2\cos \theta$ (circle of radius one centered at $(1,0)$).
 
 \optionalDisplay{
+
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture*}(-5,-5)(5,5)
 \rput (3,3){$r=\theta$}
 \psaxes[labels=none, ticks=x]{<->}(0,0)(-4.5,-4.5)(4.5,4.5)
 \parametricplot[linecolor=red, plotpoints=500]{0}{720}{t cos t mul 180 div t sin t mul 180 div }
 \end{pspicture*}
+} %optionalDisplay
 
+\optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture*}(-5,-5)(5,5)
 \rput (3,3){$r=1+\sin\theta$}
@@ -4078,7 +4060,9 @@ r&=&\sqrt{x^2+y^2}&=& |z|&=&\sqrt{z\bar z}\\
 \parametricplot[linecolor=red, plotpoints=500]{0}{360}{1 t sin add t cos mul
  1 t sin add t sin mul}
 \end{pspicture*}
+} %optionalDisplay
 
+\optionalDisplay{
 \psset{xunit=1cm,yunit=1cm}
 \begin{pspicture*}(-5,-5)(5,5)
 \rput (3,3){$r=2\cos\theta$}
