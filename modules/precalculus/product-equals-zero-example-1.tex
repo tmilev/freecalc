@@ -1,0 +1,75 @@
+% begin module series-geometric-ex4
+\begin{frame}
+\begin{example}
+	Solve. 
+
+\hfil \hfil$
+\left(\alertNoH{2}{\log_2 x}\right)\left(\alertNoH{3}{2-2x}\right)\left(\alertNoH{4}{x^2-1}\right)=\alertNoH{2,3,4}{0}
+$
+
+\uncover<2->{
+A product of numbers equals zero, therefore one of the numbers must be zero:
+
+
+\hfil\hfil$\alertNoH{2,5} {\alertNoH{28}{\log_2x} =0} \qquad\text{or} \qquad \alertNoH{3,11}{2-2x =0} \qquad \text{or} \qquad\alertNoH{4,17}{ x^2-1=0}$
+}
+
+\uncover<5->{
+Case 1. 
+
+\hfil \hfil$
+\begin{array}{rcll|l}
+\only<1-15>{
+\alertNoH{5,7}{\log_2 x}&\alertNoH{5}{=}&\alertNoH{5,7}{0} \uncover<6->{ && \text{apply } 
+{\alertNoH{6}{2}}^{\alertNoH{7}{\bullet}}} \\
+{\alertNoH{6,8}{2}}^{\alertNoH{7}{\alertNoH{8}{\log_2} \alertNoH{9}{x}}} &=& {\alertNoH{6}{2}}^{\alertNoH{7}{0}} \\}
+\uncover<8->{\alertNoH{9,15,16}{x}&=&\alertNoH{10}{2^{0}}\uncover<10->{=\alertNoH{10,15,16}{1}}}
+\end{array}
+$
+}
+
+\uncover<11->{
+Case 2. 
+
+\hfil \hfil$
+\begin{array}{rcll|l}
+\only<1-15>{
+\alertNoH{11}{\alertNoH{12}{2}-2x}&\alertNoH{11}{=}&\alertNoH{11}{0} \\
+\uncover<12->{\alertNoH{13}{-2}x&=&\alertNoH{12,13}{-2} }\\}
+\uncover<13->{\alertNoH{15,16}{x}&=&\alertNoH{14}{ \frac{\alertNoH{13}{-2}}{\alertNoH{13}{-2}}} \uncover<14->{= \alertNoH{14,15,16}{1}}}
+\end{array}
+$
+}
+
+\uncover<17->{
+Case 3.
+
+\hfil\hfil$
+\begin{array}{rcll|l}
+\alertNoH{17,18,19}{x^2-1}&\alertNoH{17}{=}&\alertNoH{17}{0} \\
+\uncover<20->{ \alertNoH{21} {x^2} \alertNoH{20}{\alertNoH{22} {-x}+x}-1&=&0} \\
+\uncover<21->{\alertNoH{21,22} {x}\left(\alertNoH{23} {\alertNoH{21} {x}-\alertNoH{22} {1}}\right)+\alertNoH{23} {x-1} &=&0}\\
+\fcAnswer{19}{(\alertNoH{24}{x+1})(\alertNoH{23,25} {x-1})} &=&\alertNoH{24,25}{0}\\
+\uncover<24->{
+\begin{array}{rcl}
+\alertNoH{24}{x+1}&\alertNoH{24}{=}&\alertNoH{24}{0} \\
+\uncover<26->{
+x&=&-1
+}
+\end{array}
+&\text{or}& 
+\begin{array}{rcl}
+\alertNoH{25}{x-1}&=&\alertNoH{25}{0} \\
+\uncover<26->{
+x&=&1
+}
+\end{array}
+}
+\end{array}
+$
+
+}
+\uncover<27-> {Final answer: $x=\fcCancel{28}{-1}, 1$\uncover<28->{, where we discard $x=-1$ as $\log_2 x$ is not real.}}
+\end{example}
+\end{frame}
+% end module series-geometric-ex4
