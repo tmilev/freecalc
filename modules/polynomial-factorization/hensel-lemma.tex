@@ -1,0 +1,135 @@
+
+
+\begin{frame}
+\footnotesize
+\begin{lemma}
+Let $h\in \mathbb Z[x]$ with leading coefficient $C$. Let $p$-prime, $p$ does not divide $C$. Let $a_1, a_2\in \mathbb Z_{p}[x]$ be co-prime monic polynomials for which 
+
+\hfil\hfil $h\equiv C a_1 a_2 \mod p$
+
+ $\Rightarrow$ there exist unique monic polynomials $b_1, b_2\in \mathbb Z_{p^{n}}[x]$ such that
+
+\hfil\hfil$
+\begin{array}{rcll}
+h &\equiv& C b_1 b_2 &\mod p^n \\
+b_1 &\equiv& a_1 &\mod p\\
+b_2&\equiv& a_2 &\mod p
+\end{array}
+$
+\end{lemma}
+\tiny
+$a_1, a_2$ - coprime $\stackrel{\text{Bezout's lemma}}{ \Rightarrow}$  $\exists r, s\in \mathbb Z_p[x]$ with $ra_1+ sa_2\equiv 1 \mod p$.
+
+\only<1|handout:1>{
+\begin{proof}[Existence proof for $n=2$]
+Let $h = Ca_1a_2 + pg$. We claim
+$
+b_1 = a_1 + p C^{-1}sg$, $
+b_2=a_2+ pC^{-1}rg$ satisfy the lemma. Ineed, compute:
+
+
+
+
+$
+\begin{array}{rcll}
+C(a_1+p C^{-1}sg)(a_2+pC^{-1}rg)&\equiv& C\left(a_1a_2 + pC^{-1}g\left(s a_2 + r a_1\right)+ p^2C^{-2}g^2rs \right) &\mod p^2\\
+&\equiv&Ca_1a_2 + pg\left(s a_2 + r a_1\right) &\mod p^2\\
+&\equiv&Ca_1a_2+pg&\mod p^2
+\end{array}
+$
+\end{proof}
+}
+
+\only<2|handout:2>{
+\begin{proof}[Existence proof]
+Suppose by induction we've already found $c_1, c_2$ such that $ h\equiv C(a_1 +pc_1)(a_2+pc_2)  \mod p^{n}$, and let $h\equiv C(a_1+pc_1)(a_2+pc_2)+ Xp^{n} \mod p^{n+1}$
+
+
+We claim
+$b_1 = a_1 + pc_1 +p^n sC^{-1}X$, 
+$b_2 = a_2+ pc_2 + p^n rC^{-1}X$ 
+satisfy the lemma. Indeed, compute:
+	
+$
+\begin{array}{rcll}
+C\left(a_1+pc_1+p^n sC^{-1}X \right)\left(a_2+pc_2+p^nrC^{-1}X \right)&\equiv& h-Xp^n+ p^nC\left(a_2sC^{-1}X+a_1rC^{-1}X\right)     & \mod p^{n+1}\\
+&\equiv&h-Xp^n+  p^nC\cdot C^{-1}X\left(a_2s+a_1r\right)&\mod p^{n+1}\\
+&\equiv&h-Xp^n+ p^nX\left(s a_2 + r a_1\right) &\mod p^{n+1}\\
+&\equiv&h-Xp^n+ p^nX&\mod p^{n+1}\\
+&\equiv & h&\mod p^{n+1}
+\end{array}
+$
+\end{proof}
+}
+
+
+\only<2|handout:3>{
+\begin{proof}[Uniqueness proof]
+Suppose by induction we've proved uniqueness for $n$, i.e., we've found unique $c_1, c_2$ with $ h\equiv C(a_1 +pc_1)(a_2+pc_2)  \mod p^{n}$, and let $h\equiv C(a_1+pc_1)(a_2+pc_2)+ Xp^{n} \mod p^{n+1}$
+		
+
+$
+\begin{array}{rcll}
+C\left(a_1+pc_1+p^n d_1\right)\left(a_2+pc_2+p^n d_2 \right)&\equiv& h-Xp^n+  p^nC\left(a_2d_1+a_1d_2\right)&\mod p^{n+1}\\
+&\Rightarrow&\\
+X&\equiv& C\left(a_2 d_1 +  a_1d_2\right) &\mod p
+\end{array}
+$
+\end{proof}
+}
+
+\vskip 10cm
+\end{frame}
+
+
+
+\begin{frame}
+	
+	\begin{theorem}
+		Let $C\in \mathbb Z$, let $p$ be prime that does not divide $C$ and $a\in \mathbb Z_{p}[x]$ be a polynomial with square-free unique factorization
+		
+		\hfil\hfil$
+		(C\mod p) a_1\dots a_k =  a,
+		$ 
+		 
+		where $a_1, \dots, a_k$ are monic. Suppose $b\in \mathbb Z_{p^n}[x]$ is a polynomial with leading coefficient $\left(C \mod p^k\right) $ for which \[b \equiv  a \mod p \]
+		
+		
+		Then $b$ has a unique factorization of the form:
+		
+		\[
+		b =(C \mod p^{k}) b_1\dots b_k 
+		\]
+		
+		where $b_1, \dots, b_k $ are monic.
+		Furthermore, the $b_i$'s can be reordered so that 
+		
+		\hfil\hfil$
+		\begin{array}{rcl}
+		b_1 &=& a_1 \mod p\\
+		&\vdots\\
+		b_k&=& a_k \mod p
+		\end{array}
+		$
+	\end{theorem}
+	
+\end{frame}
+
+\begin{frame}
+	\begin{theorem}
+
+$\phantom{\Rightarrow}\text{Unique factorization: }
+a=C a_1\dots a_k  \mod p$
+
+$\Rightarrow\text{Unique factorization: }
+b =D b_1\dots b_k \mod p^{n}
+$ 
+
+where $a=b \mod p$ and the $a_i$'s, $b_i$'s are monic 
+
+	\end{theorem}
+\begin{proof}[Proof. Partial case: k=2, n=2]
+	Explore the partial case of $k=2, n=2 $, that is: $a=a_1a_2$, $b= a \mod p$.
+	Suppose $b=b_1b_2$ is a factorizations of $b$. Let  $d_1= b_1 \mod p$ and $d_2 = b_2 \mod p$. Then $a=d_1 d_2$ is a factorization of $a$. Since the factorization of $a$ is unique, we must have $d_1, d_2$ be the same as $ $
+\end{proof}
+\end{frame}

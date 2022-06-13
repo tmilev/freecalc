@@ -1,0 +1,23 @@
+\begin{frame}
+\frametitle{\alertNoH{11}{Should we use Cardano's formula to factor? \uncover<11->{No.}}}
+
+\begin{example}
+Try to factor $\begin{array}{rcl} 
+x^{3} {\alertNoH{4}{-6}} x+{\alertNoH{5}{4}}\uncover<7->{ &=&(x-2)(x^{2}+2 x-2)}\\
+\uncover<8->{&=&(\alertNoH{9}{x-2})\left(\alertNoH{9}{x-1+\sqrt{3}}\right)\left(\alertNoH{9}{x-1-\sqrt{3}}\right)}\end{array}$ using Cardano's formula.\uncover<2->{ \alertNoH{2}{By Fundamental Theorem of Algebra} $\Rightarrow$ can factor if we know \alertNoH{2}{roots}.} \uncover<3->{We know roots from \alertNoH{3}{Cardano's f-la}.}
+
+$\begin{array}{@{}c@{}l}
+\uncover<2->{=&\alertNoH{2}{ (x- \alertNoH{3}{x_1} )(x-x_2)(x-x_3)} }\\
+\uncover<3->{=&\left(x- \alertNoH{3}{ \sqrt[3]{-\frac{{\alertNoH{5}{q}}}{2}-\sqrt{\frac{{\alertNoH{5}{q}}^2}{4}-\frac{{\alertNoH{4}{p}}^3}{27}}} - \sqrt[3]{-\frac{{\alertNoH{5}{q}}}{2}+ \sqrt{\frac{{\alertNoH{5}{q}}^2}{4} -\frac{{ \alertNoH{ 4}{p}}^3}{27}}}} \right)(x-x_2)(x-x_3)} \\
+\uncover<4->{
+=&\left(x-\alertNoH{6}{ \sqrt[3]{-\frac{{\alertNoH{5}{4}}}{2}-\sqrt{\frac{{\alertNoH{5}{4}}^2}{4}-\frac{{\alertNoH{4}{(-6)}}^3}{27}}} - \sqrt[3]{-\frac{{\alertNoH{5}{4}} }{2}+ \sqrt{\frac{{\alertNoH{5}{4}}^2}{4} -\frac{{\alertNoH{4}{(-6)}}^3}{27}}}} \right)(x-x_2)(x-x_3)}\\
+\uncover<6->{
+=&\left(\alertNoH{9}{ x-  \alertNoH{6,10}{ \sqrt[3]{-2\sqrt{-1}-2}- \sqrt[3]{2\sqrt{-1}-2}}} \right)(x-x_2)(x-x_3)
+}
+\end{array}
+$
+
+\uncover<10->{ Problem: $\alertNoH{10}{ \sqrt[3]{-2\sqrt{-1}-2}- \sqrt[3]{2\sqrt{-1}-2}}$ is not simplified (in fact, it equals $2$).}
+\end{example}
+
+\end{frame}

@@ -1,5 +1,5 @@
 \documentclass%
-%[handout]
+[handout]
 {beamer}
 % % % % % % % %
 % % % % % % % %
@@ -47,7 +47,7 @@
 %\DeclareMathOperator{\diff}{d}
 \setbeamertemplate{navigation symbols}{}
 
-\includeonlylecture{1}
+\includeonlylecture{2}
 
 \newcommand{\lect}[3]{
   \date{#1}
@@ -87,7 +87,7 @@
 
 \AtBeginLecture{%
 
-\title[\insertlecture]{Bloom}
+\title[\insertlecture]{A bit of algebra}
 \subtitle{\insertlecture}
 \author[Todor Milev]{}
 \institute[]{}
@@ -100,21 +100,68 @@
 % begin lecture
 
 
-\lect{\today}{Product equals zero}{1}
-\input{../../modules/precalculus/product-equals-zero-example-1}
-%\input{../../modules/series/series-geometric-repeating-decimal-as-rational-example-1}
-%\input{../../modules/series/series-rational-to-repeating-decimal-example-1}
-%\input{../../modules/series/series-rational-to-repeating-decimal-example-2}
-%\input{../../modules/series/series-rational-to-repeating-decimal-algorithm}
+\lect{\today}{Factoring polynomials for beginners}{1}{
+\section{Factorization of quadratics}
+\input{../../modules/quadratic-functions/factoring-quadratics-theory-1}
+\input{../../modules/quadratic-functions/vietas-formulas}
+\input{../../modules/history/vieta}
 
-%\input{../../modules/volumes/cylindrical-shells-otherline}
-%\input{../../modules/volumes/volumes-guidelines}
+\input{../../modules/quadratic-functions/factoring-quadratics-example-example-Vieta-guessing-1}
+\input{../../modules/quadratic-functions/factoring-quadratics-example-by-formula-1}
+\section{Factorization overview}
+\input{../../modules/polynomial-factorization/factorization-examples-no-theory-1}
+\input{../../modules/polynomial-factorization/fundamental-theorem-of-algebra-statement}
+\input{../../modules/polynomial-factorization/factorization-examples-1}
+\input{../../modules/polynomial-factorization/factorization-algebraic-overview-1}
+\input{../../modules/polynomial-factorization/factorization-over-basic-three-fields-explanation}
+\input{../../modules/polynomial-factorization/factorization-over-rationals}
 
-%\input{../../modules/trig-integrals/trig-integrals-tann-secm-strategy}
-%\input{../../modules/trig-integrals/trig-integrals-tan-sec}
-%\input{../../modules/trig-integrals/trig-integrals-ex7}
-%\input{../../modules/trig-integrals/trig-integrals-ex8-version2}
-%\input{../../modules/trig-integrals/trig-integrals-sinm-cosn}
-%\input{../../modules/trig-integrals/trig-integrals-sinm-cosn-ex9}
+\input{../../modules/polynomial-factorization/factorization-over-rationals-advanced-examples}
+
+
+\section{Factorizations using formulas}
+\input{../../modules/quadratic-functions/factoring-quadratics-theory-1}
+\input{../../modules/quadratic-functions/factoring-quadratics-example-Vieta-guessing-or-formula-1}
+\input{../../modules/cubic-functions/cardanos-formula-depressed-monic-cubic}
+\input{../../modules/history/cardano}
+\input{../../modules/cubic-functions/should-we-factor-using-cardanos-formula-example1}
+\section{Polynomial division}
+\input{../../modules/polynomial-factorization/polynomial-division-example-1}
+\section{Factorization using the Rational root theorem}
+\input{../../modules/polynomial-factorization/rational-root-theorem}
+\input{../../modules/polynomial-factorization/guess-the-rational-root-cubic-example1}
+\input{../../modules/polynomial-factorization/guess-the-rational-root-and-newtons-method}
+\input{../../modules/history/newton}
+\input{../../modules/polynomial-factorization/polynomial-division-use-to-factor-1}
+\input{../../modules/polynomial-factorization/general-case-kronecker-intro}
+\input{../../modules/history/kronecker}
+\input{../../modules/polynomial-factorization/gauss-lemma}
+\input{../../modules/history/gauss}
+\input{../../modules/polynomial-factorization/n-plus-one-values-determine-n-degree-polynomial}
+\input{../../modules/history/lagrange}
+\input{../../modules/polynomial-factorization/kronecker-method}
+
+\input{../../modules/polynomial-factorization/kronecker-method-example1}
+\input{../../modules/polynomial-factorization/kronecker-doesnt-work-for-large-examples}
+\input{../../modules/polynomial-factorization/cantor-zassenhaus-intro}
+\input{../../modules/history/david-cantor}
+\input{../../modules/history/zassenhaus}
+\input{../../modules/polynomial-factorization/cantor-zassenhaus-algorithm-idea}
+\input{../../modules/polynomial-factorization/cantor-zassenhaus-algorithm}
+}
+
+\lect{\today}{Bloom}{2}{
+%\input{../../modules/finite-fields/modular-arithmetic-review}
+%\input{../../modules/finite-fields/notation-subscript}
+
+%\input{../../modules/finite-fields/equivalent-vs-equal}
+%\input{../../modules/polynomial-factorization/monic-polynomial-definition}
+%\input{../../modules/finite-fields/bezouts-lemma}
+\input{../../modules/finite-fields/bezouts-lemma-uniqueness-prime-modulus}
+\input{../../modules/polynomial-factorization/hensel-lemma}
+%\input{../../modules/precalculus/product-equals-zero-example-1}
+}
 
 \end{document}
+
+

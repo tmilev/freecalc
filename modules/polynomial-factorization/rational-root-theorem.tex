@@ -1,0 +1,17 @@
+\begin{frame}\frametitle{Rational root theorem}
+\begin{theorem}[Rational root theorem]
+If a polynomial with rational coefficients $f(x)=a_0 x^n +a_1 x^{n-1}+\dots+a_{n-1}x+ a_n$ has rational root with reduced fraction $\frac{p}{q}$, then $p$ is a divisor of $a_n$ and $q$ is a divisor of $a_0$.
+\end{theorem}
+\uncover<2->{
+\begin{proof}
+Suppose $\frac{p}{q}$ is a root and so $
+\begin{array}{rcll|l}
+0=f\left(\frac{p}{q}\right) &=& a_0\left(\frac{p}{q}\right)^n + \dots +a_1\cdot \frac{p}{q} &&\text{mult. by }q^n \\
+0&=& a_0 p^n + a_1  p^{n-1} q+ \dots + a_1 p q^{n-1} + a_0 q^n
+\end{array}
+$.
+
+Since $0$ is divisible by $p$, so is the right hand side. All summands save the last one have a multiple of $p$, and so are divisible by $p$. It follows that the last summand $a_0 q^n$ is divisible by $p$. But $q$ is relatively prime to $p$, so $a_0$ must be divisible by $p$. The fact that $a_0$ is divisible by $q$ follows from a similar argument applied to the left-most summand.
+\end{proof}
+}
+\end{frame}

@@ -1,0 +1,19 @@
+\begin{frame}
+\frametitle{Kronecker's method for polynomial factorization}
+\begin{itemize}
+\item Suppose $f(x)=p(x)q(x)$: factorization over the rationals.
+\item<2-> Multiply by a rational constant so that $f(x)$ has integer coefficients.
+\item<3-> Gauss lemma: $p(x), q(x)$ can be chosen with integer coefficients.
+\item<4-> Let $p(x)$ be the smaller-degree divisor of degree $k$, $k\leq \frac{n}{2} $.
+\item<5-> If we know $p(x)$ in $k+1$ points, we can reconstruct it.
+\item<6-> Since $f(a)=p(a)q(a)$ so if $a$ is an integer $p(a)$ divides $f(a)$.
+
+\item<7-> Pick the smallest $k+1$ integers: $0, \pm 1, \pm 2, \dots$.
+\item<8-> Evaluate $f(x)$ at each of them: $f(0), f(\pm 1), f(\pm 2),\dots$.
+\item<9-> Factor each of the numbers above and enumerate all possible divisors of $f(0)$, $f(\pm 1)$, $f(\pm 2)$ \dots. 
+\item<10-> $\Rightarrow$ finitely many possibilities for factors $p(0), p(\pm 1), p(\pm 2), \dots $. 
+\item<11-> Reconstruct all possible $p(x)$'s with Lagrange interpolation.
+\item<12-> Try all candidates with polynomial division. 
+\item<13-> If no candidate works, $f(x)$ cannot be factored over the rationals.
+\end{itemize}
+\end{frame}

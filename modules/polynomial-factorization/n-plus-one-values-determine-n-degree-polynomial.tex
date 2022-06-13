@@ -1,0 +1,26 @@
+\begin{frame}
+\frametitle{A polynomial lemma}
+Suppose we a polynomial $f(x)$ is prescribed $n+1$ values at $n+1$ distinct points: $f(x_0)=y_0, \dots, f(x_n)=y_n$.
+\begin{lemma}[Lagrange interpolation]
+There exists a unique polynomial $f(x)$ of degree $n$ with the values prescribed in $n+1$ distinct points.
+\end{lemma}
+\only<1-2>{
+\uncover<2->{
+\begin{proof}[Uniqueness]
+Suppose we have two such polynomials: $f(x)$ and $\bar f(x)$. Then $h(x)=f(x)-\bar f(x)$ is a polynomial of degree $n$. We have that $h(x_0) = f(x_0)-\bar f(x_0)=0, \dots, h(x_n)= f(x_n)-\bar f(x_n)=0$, and so h vanishes at $n+1$ points. However, by the fundamental theorem of algebra, a non-zero polynomial of degree $n$ vanishes at at most $n$ points. Therefore $h(x)$ must be the zero polynomial, or $f(x)=\bar f(x)$, which establishes the uniqueness.
+\end{proof}
+}
+}
+\only<3->{
+\begin{proof}[Existence]
+Let $L_j(x)$ be the $j^{th}$ Lagrange polynomial:
+
+\[L_j(x) = \frac{ (x-x_0)\dots \widehat{(x-x_j)} \dots (x-x_n) }{(x_j-x_0)\dots \widehat{(x_j-x_j)} \dots (x_j-x_n) },
+\]
+
+where the hat symbol indicates that the term is to be skipped. Then $L_j(x_j) = 1 $ and $L_j(x_i)=0$ for $i\neq j$. Therefore $f(x)=\sum_{j=0}^n y_j\cdot L_j(x)$ is the desired $n^{th}$-degree polynomial.
+
+\end{proof}
+}
+\vskip 5cm
+\end{frame}

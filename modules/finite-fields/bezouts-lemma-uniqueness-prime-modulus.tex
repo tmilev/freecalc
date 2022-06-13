@@ -1,0 +1,31 @@
+\begin{frame}
+\begin{lemma}
+Let $a,b\in \mathbb  Z_p[x]$ be two polynomials with greatest common divisor $1$ and let $p$ be prime.
+
+Then there exist unique polynomials $r,s\in \mathbb Z_p[x]$ such that 
+\[
+ra+sb\equiv 1 \mod p
+\]
+
+
+\end{lemma}
+The existence follows from B\'ezout's lemma and we omit it.
+\begin{proof}[Uniqueness proof.]
+
+Take another two pairs $r,s$ and $r', s'$ with 
+\[
+\begin{array}{rcl}
+ra(ra+sb)+sb&\equiv& 1 \mod p\\
+r^2 a a+(ras+s)b&\equiv& 1\mod p
+\end{array}
+\]
+Subtract the two:
+\[
+\begin{array}{rcl}
+(r-r')a+(s-s')b &\equiv& 0 \mod p\\
+\end{array}
+\]
+
+
+\end{proof}
+\end{frame}

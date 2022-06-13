@@ -1,0 +1,43 @@
+\begin{frame}
+\begin{example}
+Use the Kronecker method to factor the polynomial: $f(x)=x^4-11x^2+1$. 
+\only<1-11>{
+\begin{itemize}
+\item<2-> By Rational Root theorem, only possible rational roots are $\pm 1$ and none of them work.
+\item<3-> $\Rightarrow$ we need to look for a $\deg 2$ factor $p(x)$. 
+\item<4-> $\Rightarrow$ We need to know the value of $p(x)$ at $3$ points.
+\item<5-> Evaluate $f(x)$ at $3$ points:
+$\begin{array}{rclcl}
+f(0)&=&0^4-11\cdot 0^2+1&=&1\\
+f(1)&=&1^4-11\cdot 1^2+1&=&-9\\
+f(-1)&=&(-1)^4-11\cdot (-1)^2+1&=&-9\\
+\end{array}
+$
+\end{itemize}
+\uncover<6->{
+The possible divisors of $f(0)$ are $\alertNoH{6}{\pm 1}$, and of $f(-1), f(1)$: $\alertNoH{6}{\pm 1, \pm 3, \pm 9}$\uncover<7->{, for a total of $\alertNoH{7}{2\cdot 6\cdot 6=72}$ different possibilities.}} \uncover<8->{Suppose we try the divisors $p(0) = \alertNoH{9}{1}, p(1)=\alertNoH{9}{3}, p(-1)=\alertNoH{9}{-3}$.} 
+}
+
+
+\uncover<9->{ 
+$
+\alertNoH{11,12}{p(x)} = \alertNoH{10}{ \alertNoH{9}{1}\cdot \frac{(x-1)(x+1)}{(0-1)(0+1)} + \alertNoH{9}{3}\cdot \frac{x(x+1)}{1\cdot (1+1)} \alertNoH{9}{-3}\cdot \frac{x(x-1)}{-1\cdot(-1-1)}} \uncover<10->{=\alertNoH{10,11,12}{-x^{2}+3 x+1}}.
+$
+}
+
+\only<12->{
+\uncover<13->{
+\footnotesize
+Divide $\alertNoH{13}{x^4-11x^2+1}$ by $\alertNoH{13}{-x^{2}+3 x+1}$: 
+\renewcommand{\arraystretch}{1.2}\begin{longtable}{|cccccc|} \hline\textbf{Divisor} &\multicolumn{5}{|c|}{\textbf{Quotient(s)}}\\$\alertNoH{13}{-x^{2}+3x +1}$& \multicolumn{5}{|l|}{$\alertNoH{13}{-x^{2}-3x +1}$}\\\hline$\underline{~}$&$\alertNoH{13}{x^{4}}$ & &$\alertNoH{13}{-11x^{2}}$ & &$\alertNoH{13}{+1}$ \\ &$x^{4}$ & $-3x^{3}$ & $-x^{2}$ & &\\\cline{2-6}$\underline{~}$&&$3x^{3}$ & $-10x^{2}$ & &$+1$ \\ &&$3x^{3}$ & $-9x^{2}$ & $-3x $ & \\\cline{2-6}$\underline{~}$&&&$-x^{2}$ & $+3x $ & $+1$ \\ &&&$-x^{2}$ & $+3x $ & $+1$ \\\cline{2-6}&&&&& \alertNoH{13}{0}\\ \hline\end{longtable}
+}
+\vskip -0.2cm
+
+\uncover<14->{
+\normalsize
+Therefore $x^4-11x^2+1=\left(-x^2+3x+1\right)\left(-x^2-3x+1\right)=\left(x^2-3x-1\right)\left(x^2+3x-1\right)$
+is the desired factorization.
+}
+}
+\end{example}
+\end{frame}
