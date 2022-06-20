@@ -1,31 +1,87 @@
 \begin{frame}
-\begin{lemma}
-Let $a,b\in \mathbb  Z_p[x]$ be two polynomials with greatest common divisor $1$ and let $p$ be prime.
-
-Then there exist unique polynomials $r,s\in \mathbb Z_p[x]$ such that 
+	\vskip -0.2cm
+	\footnotesize
+\begin{lemma}[Bezout's lemma]
+Let $a,b\in \mathbb  K[x]$ be non-constant monic polynomials with greatest common divisor $d$ with $\mathbb K$ - field (can be $\mathbb Q, \mathbb R, \mathbb Z_p$). $\Rightarrow$ there exist monic polynomials $r,s\in  \mathbb K[x]$ such that 
 \[
-ra+sb\equiv 1 \mod p
+ra+sb=d
 \]
+Furthermore $\deg r < \deg b$ and $\deg s < \deg a$
 
 
 \end{lemma}
-The existence follows from B\'ezout's lemma and we omit it.
-\begin{proof}[Uniqueness proof.]
+\begin{proof}
+\tiny 
+\only<1|handout:1>{
+Carry out the consecutive divisions with remainder
 
-Take another two pairs $r,s$ and $r', s'$ with 
-\[
-\begin{array}{rcl}
-ra(ra+sb)+sb&\equiv& 1 \mod p\\
-r^2 a a+(ras+s)b&\equiv& 1\mod p
-\end{array}
-\]
-Subtract the two:
-\[
-\begin{array}{rcl}
-(r-r')a+(s-s')b &\equiv& 0 \mod p\\
-\end{array}
-\]
 
+\hfil\hfil$
+\begin{array}{rcll|l|lcl}
+a&=& q_1b &+c_3 &\deg c_3 < \deg b &c_{n+1}|b, c_{n+1}|c_3&\Rightarrow& c_{n+1} | a\\
+b&=& q_2c_3 &+c_4& \deg c_4 < \deg c_3& c_{n+1}|c_4, c_{n+1}|c_3&\Rightarrow& c_{n+1} | b \\
+c_3&=&q_3 c_4&+c_5& \deg c_5 < \deg c_4& c_{n+1}|c_4, c_{n+1}|c_3&\Rightarrow& c_{n+1} | c_3 \\
+&\vdots&&&&\vdots \\
+c_{n-1}&=&q_{n-1} c_{n}&+c_{n+1}  & \deg c_{n+1} < \deg c_n& c_{n+1}|c_n, c_{n+1}|c_{n+1}&\Rightarrow& c_{n+1}|c_{n-1}\\
+c_n&=&q_n c_{n+1}&+0  & \deg c_k \text{ decreases so we must reach }0& c_{n+1}|c_n
+\end{array}
+$
+
+By reading the equations above in reverse order, we see that $c_{n+1}|c_n, c_{n+1}|c_{n-1}, \dots$ and so $c_{n+1}|a$ and $c_{n+1}|b$, i.e., $c_{n+1}$ is a common divisor of $a,b$. Transfer each term $q_{k-1}c_k $ to the left hand side and solve for $c_{n+1}$ as shown below:
+
+\hfil\hfil$
+\begin{array}{rrcl|lcr}
+a&- q_1b &=&c_3 &c_3 \text{ is of the form } \bullet \cdot a+ \bullet \cdot b \\
+b&- q_2c_3 &=&c_4& c_4\text{ is of the form } \bullet \cdot b+ \bullet \cdot c_3&\Rightarrow &c_4 \text{ is of the form } \bullet \cdot a+ \bullet \cdot b\\
+c_3&-q_3 c_4&=&c_5&   c_5\text{ is of the form } \bullet \cdot c_3+ \bullet \cdot c_4&\Rightarrow& c_5 \text{ is of the form } \bullet \cdot a+ \bullet \cdot b\\
+&&\vdots&&\vdots \\
+c_{n-1}&-q_{n-1} c_{n}&=&c_{n+1}  & c_{n+1}\text{ is of the form } \bullet \cdot c_{n-1}+ \bullet \cdot c_{n}&\Rightarrow& c_{n+1} \text{ is of the form } \bullet \cdot a+ \bullet \cdot b
+\end{array}
+$
+
+Thus $c_{n+1}$ is a linear combination $\bullet \cdot a+ \bullet \cdot b$. So every common divisor of $a,b$ is a divisor of $c_{n+1}$. $\Rightarrow$ $c_{n+1}=d$.
+}
+\only<2-|handout:2>{
+	
+After possible swap of $a$ and $b$, assume $\deg a \geq  \deg b$.
+	
+\hfil\hfil$
+\begin{array}{rclcl|ll}
+a&-& q_1b &=&c_3 &\deg q_1 = \deg a- \deg b& \deg c_3 <\deg b  \\
+b&-& q_2c_3 &=&c_4&  \deg q_2 = \deg b - \deg c_3& \deg c_4 < \deg c_3\\
+c_3&-&q_3 c_4&=&c_5&   \deg q_3 = \deg c_3-\deg c_4& \deg c_5 < \deg c_4\\
+&&&\vdots&&\vdots \\
+c_{n-2}&-&q_{n-2} c_{n-1}&=&c_{n} &\deg q_{n-2} = \deg c_{n-2}-\deg c_{n-1}& \deg c_{n}<\deg c_{n-1}\\
+c_{n-1}&-&q_{n-1} c_{n}&=&c_{n+1}=d  &\deg q_{n-1} = \deg c_{n-1}-\deg c_n& \deg c_{n+1}<\deg c_n\\
+\end{array}
+$
+
+Expand $d$ as a combination of $a$ and $b$:
+
+\hfil \hfil
+$\begin{array}{rclcl}
+d&=&c_{n-1}&-&q_{n-1}c_n \\
+&=& c_{n-1}&-& q_{n-1}\left( c_{n-2}-q_{n-2}c_{n-1} \right)\\
+&=& \left(c_{n-3}-q_{n-3}c_{n-2}\right) &-& \alert<handout:2>{ q_{n-1}} \left( c_{n-2}- \alert<handout:2>{q_{n-2}}\left(c_{n-3}-\alert<handout:2>{q_{n-3}c_{n-2}} \right) \right)\\
+&\vdots&
+\end{array}
+$
+
+$\Rightarrow$ Highest order summand involving $b$ in full expansion of $d$ is: 
+
+\hfil \hfil $q_{n-1}\cdot q_{n-2}\cdots q_{1}\cdot b$
+
+with degree 
+
+\hfil \hfil$
+\deg \left(q_{n-1} \cdots q_1\right) = (\deg a-\deg b) + \left(\deg b-\deg c_3\right) + \dots + \left( \deg c_{n-1}-\deg c_n\right) = \deg a-\deg c_n<\deg q
+$
+
+Similarly, the highest order summand involving $a$ is $q_{n-1}\cdot q_{n-2}\cdots q_2\cdot a $, with coefficient of degree less than $b$.
+	
+}
 
 \end{proof}
+
+\vskip 5cm
 \end{frame}
