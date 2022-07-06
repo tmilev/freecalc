@@ -1,0 +1,34 @@
+\begin{frame}
+\frametitle{Factorization over $\mathbb Z$ using finite fields: the problems}
+\begin{itemize}
+\item We just described a plan for extracting a factorization over $\mathbb Z$ from a factorization $\mod p$.
+\item The plan had a few problems / open questions.
+\begin{itemize}
+\item How to choose the prime $p$?
+\item How to efficiently factor $\mod p$? 
+\item What happens when factoring $\mod p$ yields more factors than we have over $\mathbb Z$?
+\item \alert<1->{How does one choose $n$ large enough so that factorization $\mod p^n$ helps us read off factorization over $\mathbb Z$?}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{question}
+How does one choose $n$ large enough so that factorization $\mod p^n$ helps us read off factorization over $\mathbb Z$?
+\end{question}
+
+\begin{itemize}
+\item<2-> Let $g$ be a factor of $f$. 
+\item<3-> To convert coefficients of a factor over $\mathbb Z_{p^n}[x]$ to coefficients over $\mathbb Z$:
+\item<4-> $\Rightarrow$ we need that $\frac{p^n}{2}$ be larger than the absolute value of each coefficient of $g $.
+\item<5-> Let $G$ be the largest absolute value of a coefficient of $g$. Let $F$ be the largest absolute value of a coefficient of $f$.
+\uncover<6->{
+\begin{lemma}[Mahler: Gelfond's inequality]
+$G \leq 2^{\deg f-1} \sqrt{\deg f+1} F$
+\end{lemma}
+}
+\item<7-> The proof is not very easy. See inequality (II), K. Mahler, On some inequalities for polynomials in several variables, Journal London Mathematical Society 37, 1962, pages 341-344.
+\end{itemize}
+
+\end{frame}

@@ -1,0 +1,25 @@
+\begin{frame}
+\begin{itemize}
+\item How do we factor in $\mathbb Z_p[x]$?
+\item<2-> Suppose $a$ - irreducible polynomial $\mathbb Z_p[x]$, $\deg a=n$. \uncover<3-> Then:
+\[
+x^{p^n}-x \equiv 0 \mod a
+\]
+and $n$ is the smallest number for which the above holds. 
+
+\item<4-> Above follows from theory of finite fields; google Galois Fields.
+\item<5-> Suppose $a,b$-irreducible with $n=\deg a<\deg b$. \uncover<6->{ Then $a$ divides $x^{p^n}-x$ and $b$ doesn't divide it, so $gcd\left(a\cdot b, x^{p^n}-x\right)=a$.}
+\item<7-> To separate all factors of different degrees of $f$, compute 
+\[
+\begin{array}{c}
+\gcd(f, x^{p^{1}}-x)\\
+\gcd(f, x^{p^{2}}-x)\\
+\vdots\\
+\gcd(f, x^{p^{\deg g}}- x)
+\end{array}
+\]
+\item<8-> If any of these comes out different from $1$, then we've found a factor of $f$. 
+\item<9-> Divide $f$ by that factor to simplify the problem.
+\end{itemize}
+
+\end{frame}

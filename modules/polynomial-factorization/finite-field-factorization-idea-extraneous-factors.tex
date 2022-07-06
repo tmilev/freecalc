@@ -1,0 +1,52 @@
+\begin{frame}
+\frametitle{Factorization over $\mathbb Z$ using finite fields: the problems}
+\begin{itemize}
+\item We just described a plan for extracting a factorization over $\mathbb Z$ from a factorization $\mod p$.
+\item The plan had a few problems / open questions.
+\begin{itemize}
+\item How to choose the prime $p$?
+\item How to efficiently factor $\mod p$? 
+\item \alert<1->{What happens when factoring $\mod p$ yields more factors than we have over $\mathbb Z$?}
+\item How to choose $n$ large enough so that factorization $\mod p^n$ helps us read off factorization over $\mathbb Z$?
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Suppose $g$ is an irreducible factor of $f$ over $\mathbb Z$.
+\item<2-> Suppose $g$ factors $\mod p$ into irreducibles: 
+	
+\[
+\begin{array}{rcll|l}
+g&\equiv& a_1\cdots a_s & \mod p  \\
+g&\equiv& d_1\cdots d_s & \mod p^n &d_i \text{ is Hensel-lifted from } a_i
+\end{array}
+\]
+\item<3-> Then the coefficients of $g$ can be read off the coefficients of the expanded product $d_1\cdots d_s$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{question}
+What happens when factoring $\mod p$ yields more factors than we have over $\mathbb Z$?
+\end{question}
+\begin{itemize}
+\item<2-> Suppose $f\equiv d_1\cdots d_k \mod p^n$.
+\item<3-> Suppose $C$ is the leading coefficient of $f$.
+\item<4-> For every subset $\{i_1, \dots, i_s\}\subset \{1,\dots, k\}$:
+\begin{itemize}
+\item<5-> Expand $g=C\cdot d_{i_1}\cdots d_{i_s} \mod p^n$ fully.
+\item<6-> Convert $g \in \mathbb Z_{p}^n[x]$ to integer-valued $\bar g \in \mathbb Z[x]$: \uncover<7->{replace every positive (representative) coefficient $z$ larger than $\frac{p^n}{2}$ to $z-p$.}
+\item<8-> Divide $f$ by $\bar g$ over $\mathbb Q$; if remainder is zero, we've found a factor of $f$.
+\end{itemize}  
+\item<9-> We could try all subsets of $\{1,\dots, k\}$ (total $2^k$ possibilities).
+\item<10-> However, if a factor involves more than half of the indices, its complement factor has fewer than half of the indices. 
+\item<11-> $\Rightarrow$ we need to go \alertNoH{12}{up to subsets of size $\lfloor \frac{k}{2}\rfloor$}.  
+\item<12-> $ \alertNoH{12}{\text{total subsets to try}=\begin{cases}
+2^{k-1}& \text{ if } k-\text{odd}\\
+2^{k-1} + \frac{1}{2}\binom{k}{\frac{k}{2}}& \text{ if } k-\text{odd}\\
+\end{cases}}$ .
+\item<13-> Try smaller subsets first $\Rightarrow$ discover irreducible factors first.
+\end{itemize}
+\end{frame}

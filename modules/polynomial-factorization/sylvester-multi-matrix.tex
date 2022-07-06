@@ -1,0 +1,118 @@
+\begin{frame}
+\tiny 
+
+Let $h\in \mathbb Z$ and $h\equiv a_1\cdots a_k \mod p$. \uncover<2->{Suppose we want to \alertNoH{2}{Hensel-lift} a factorization $\alertNoH{2}{a_1\cdots a_k \mod p}$ to a factorization  $\alertNoH{2}{ \alertNoH{3}{\left(a_1+ pb_1\right) \cdots \left(a_k+pb_k\right)} \mod p^2}$.}
+
+
+~\\
+
+\uncover<3->{
+$\begin{array}{rcll}
+\alertNoH{3}{ \left( \alertNoH{4,6,7}{ a_1}+\alertNoH{5}{pb_1}\right)\left( \alertNoH{4,5,7}{a_2} +\alertNoH{6}{p b_2}\right)  \cdots \left(\alertNoH{4,5,6}{a_k} + \alertNoH{7}{ pb_k} \right)} &=&\alertNoH{4}{ a_1\cdot a_2\cdots a_k}+\\
+&&\alertNoH{5,6,7}{  p}\left( \alertNoH{5}{\alertNoH{10,17}{b_1} \alertNoH{11,12}{ a_2 \cdots a_k} } + \alertNoH{6}{\alertNoH{11,12}{a_1} \alertNoH{10,17}{b_2} \alertNoH{11,12}{\cdots a_k}}+\dots + \alertNoH{7}{ \alertNoH{11,12}{a_1a_2\cdots}\alertNoH{10,17}{ b_k}} \right)+ \\
+&&\alertNoH{8}{ \cancel{ p^2\left(\dots\right)}} &\alertNoH{8}{\mod p^2}\\
+\uncover<9->{ &\equiv& h &\mod p^2}
+\end{array}$
+}
+
+~\\
+~\\
+
+\uncover<10->{ To find the lift above, we need to \alertNoH{10}{solve for $b_1, \dots, b_k$}.} \uncover<11->{ Let 
+\alertNoH{11,12}{$A_j$ be the product of the $a_i$'s with the $j^{th}$ factor omitted}, that is, }
+
+\uncover<12->{
+\hfil\hfil$
+\alertNoH{12,14,22}{ A_j=\frac{a_1\cdots a_k}{a_j}}
+$
+}
+
+\uncover<13->{\alertNoH{18}{Let $H=\deg h$.}} \uncover<14->{ Let the \alertNoH{15,17,20}{coefficients} of $\alertNoH{14,15}{A_j}$, $\alertNoH{16,17}{b_j}$, $\alertNoH{19,20}{h-a_1\cdots a_k}$ be as follows: } 
+
+\[
+\begin{array}{rcl}
+\uncover<14->{\alertNoH{14,22}{A_j} &\alertNoH{14,22}{=}& \alertNoH{14,22}{ \alertNoH{15}{A_{j,0}} x^{\alertNoH{18}{s_j}}+ \alertNoH{15}{A_{j, 1}} x^{s_j-1}+\dots}} \\
+\uncover<16->{ \alertNoH{16}{b_j} &\alertNoH{16}{=}& \alertNoH{16}{\alertNoH{17}{b_{j,0}} x^{\alertNoH{18}{t_j}}+\alertNoH{17}{b_{j,1}}x^{t_j-1}+\dots}} \\
+\uncover<18->{ \alertNoH{18}{H} &\alertNoH{18}{=}& \alertNoH{18}{s_j+ t_j}} \\
+\uncover<19->{ \alertNoH{19}{h-a_1\cdots a_k}   &\alertNoH{19}{=}& \alertNoH{19}{\alertNoH{20}{h_0} x^{H} + \alertNoH{20}{h_1} x^{H-1} +\dots}}
+\end{array}
+\]
+
+\uncover<21->{
+Then to solve for $b_1, \dots, b_k$, we need to solve the linear system:
+
+
+$	
+\alertNoH{22}{\left( \begin{array}{cccc|c|ccccc}
+A_{1,0}   &0        &\dots &0        && A_{k,0}  & 0&\dots &0\\
+A_{1,1}   &A_{1,0}  &\dots &0        && A_{k,1}  & A_{k,0} &\dots&0 \\
+\vdots    &         &\ddots&         && \vdots&&\ddots \\
+A_{1,s_1} &         &      &A_{1,0}  &\dots &\\
+0         &A_{1,s_1}&      &         &&A_{k,s_k}&&&A_{k,0}\\
+&         &         &      &         &0&A_{k,s_k}& \\
+\vdots    &         &\ddots&\vdots   &&\vdots  & &\ddots &\vdots \\
+0         &\dots    &      &A_{1,s_1}&&0&\dots &0&A_{k,s_k}
+\end{array}
+\right)} \left( 
+\begin{array}{c}
+b_{1,0} \\
+b_{1,1}\\
+\vdots\\ 
+b_{1,s_1}\\\hline
+\vdots \\\hline
+b_{k,0} \\
+b_{k,1}\\
+\vdots\\
+b_{k,s_k}
+\end{array}\right) =  \left( 
+\begin{array}{c}
+h_0 \\
+h_1\\
+\vdots\\ 
+h_{s_1}\\\hline
+\vdots \\\hline
+h_{H-s_k+1}\\
+h_{H-s_k+2}\\
+\vdots\\
+h_{H}
+\end{array}\right)
+$
+}
+
+\end{frame}
+
+\begin{frame}
+\tiny
+\begin{definition}[Sylvester multi-matrix]
+We call
+\[
+\alertNoH{1}{\left( \begin{array}{cccc|c|ccccc}
+A_{1,0}   &0        &\dots &0        && A_{k,0}  & 0&\dots &0\\
+A_{1,1}   &A_{1,0}  &\dots &0        && A_{k,1}  & A_{k,0} &\dots&0 \\
+\vdots    &         &\ddots&         && \vdots&&\ddots \\
+A_{1,s_1} &         &      &A_{1,0}  &\dots &\\
+0         &A_{1,s_1}&      &         &&A_{k,s_k}&&&A_{k,0}\\
+&         &         &      &         &0&A_{k,s_k}& \\
+\vdots    &         &\ddots&\vdots   &&\vdots  & &\ddots &\vdots \\
+0         &\dots    &      &A_{1,s_1}&&0&\dots &0&A_{k,s_k}
+\end{array}
+\right)} 
+\]
+the Sylvester multi-matrix of the polynomials $a_1, \dots a_k$ where each  $A_j$ is given by:
+
+
+\[
+\alertNoH{1}{
+A_j=\frac{a_1\cdots a_k}{a_j}
+}
+\]
+
+and $A_{j,k}$ are the coefficients of the polynomial $A_j$:
+
+\[
+\alertNoH{1}{
+A_j =A_{j,0} x^{s_j}+A_{j, 1} x^{s_j-1}+\dots 
+}
+\]
+\end{definition}
+\end{frame}

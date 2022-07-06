@@ -1,0 +1,92 @@
+\begin{frame}
+\footnotesize
+\vskip -0.22cm
+\begin{example}\vskip -0.1cm
+Compute the remainder of  $x^{3^{6}}-x \mod 3$ divided by $x^2+x+1\mod 3$. Use the fact that $\alertNoH{26}{3^{6}=729=1+2^3+2^4+2^6+2^7+2^9}$.
+\uncover<2->{\alertNoH{17,35,36}{All computations are $\mod 3$.}}
+
+\begin{itemize}
+\item<2-> \only<-8|handout:1>{ Regular polynomial division would yield $3^{6}=729$ rows. 
+\item<3-> Instead, we will compute in the ring $\mathbb Z_3[x]/\langle x^2+x+1\mod 3 \rangle$.
+\item<4->In other words, we will compute $\left( x^{3^{6}}-x\right) \mod \left(x^2+x+1 \right)$.
+
+\uncover<5->{
+Computing $\mod \left(x^2+x+1 \right)$ amounts to declaring 
+}
+}
+
+\uncover<5->{
+\hfil\hfil$
+\alertNoH{8,9} {
+\begin{array}{rcll}
+\alertNoH{20}{ x^2+\alertNoH{6}{x+1}}&\alertNoH{20}{ \equiv}&\alertNoH{20}{  0} &\mod 3\\
+\uncover<6->{ \alertNoH{12,22,29,31,33}{ x^2} &\alertNoH{12,22,29}{\equiv} & \alertNoH{7}{-}(\alertNoH{6}{x+1})\uncover<6->{\equiv\alertNoH{12,22,29,31,33}{ \alertNoH{7}{2}x+\alertNoH{7}{2}} } &\mod 3}
+\end{array}
+}
+$
+}
+
+
+\only<handout:2|9->{
+$
+\begin{array}{rcrclcl}
+\uncover<10->{ \alertNoH{27}{ x^{2^0}} &=& x^1&&& \equiv&\alertNoH{23,27}{ x}}\\
+\uncover<11->{ x^{2^1} &=& \alertNoH{12,15,22}{x^2} &&& \alertNoH{12,15,22}{ \equiv}& \alertNoH{12,15,22,23}{ 2x+2}}\\
+\uncover<13->{x^{2^2} &=& \alertNoH{13,14,21}{x^4}& \alertNoH{13,14}{\equiv}& \fcAnswer{14}{ \alertNoH{ 30}{ (\alertNoH{15}{ \alertNoH{16}{2}x+ \alertNoH{16}{2}} )^{ \alertNoH{16}{2}}}} \uncover<16->{ =\alertNoH{16,17}{4}(x+1)^2 \uncover<17->{=\alertNoH{18}{ ( x + 1)^2}}} }\\
+\uncover<18->{ &&&\equiv&\alertNoH{18}{ x^2+ \alertNoH{19}{ 2x} +1}\uncover<19->{=\alertNoH{20}{x^2+\alertNoH{19}{x}}+\alertNoH{19}{x}\alertNoH{20}{+1}} } \uncover<20->{&\equiv& \alertNoH{21,23,30}{x} } \\
+\uncover<21->{ \alertNoH{28}{ x^{2^3}} &=&\alertNoH{21}{ x^8} & \equiv& \alertNoH{21,22}{x^2} \uncover<22->{ &\alertNoH{22}{=} &\alertNoH{22,23,28}{2x+2}} }\\
+\uncover<23->{
+\alertNoH{27}{x^{2^4}}&=&x^{16}&&&\equiv&\alertNoH{23,27}{ x}\\
+x^{2^5}&=&x^{32}&&&\equiv&\alertNoH{23}{ 2x+2}\\
+} 
+\uncover<24->{
+\alertNoH{27}{x^{2^6}}&&&&&\equiv&\alertNoH{27}{x}\\
+\alertNoH{28}{x^{2^7}}&&&&&\equiv&\alertNoH{28}{2x+2}\\
+} 
+\uncover<25->{
+x^{2^8}&&&&&\equiv&x\\
+\alertNoH{28}{x^{2^9}}&&&&&\equiv&\alertNoH{28}{2x+2}\\
+}
+\uncover<26->{x^{\alertNoH{26}{729} }&&&=& {\alertNoH{27,28}{ x}}^{ \alertNoH{26}{ \alertNoH{27}{1}+\alertNoH{28}{2^3}+ \alertNoH{27}{ 2^4}+ \alertNoH{27}{ 2^6 }+\alertNoH{28}{2^7}+\alertNoH{28}{2^9}}} \uncover<27->{ \equiv \alertNoH{27,29}{x^3} (\alertNoH{28}{2x +2})^{ \alertNoH{28}{3}}}}\\
+\uncover<29->{
+&&&=&\alertNoH{29}{x} \alertNoH{30}{(\alertNoH{29}{2x+ 2})^4}\uncover<30->{= x\cdot \alertNoH{30,31}{ x^2}}\uncover<31->{= \alertNoH{32}{x(\alertNoH{31}{2x+2})}}\\
+\uncover<32->{&&&=& \alertNoH{32}{2 \alertNoH{33}{x^2}+2x} \uncover<33->{ =2(\alertNoH{33}{2x+2})+2x}\uncover<34->{ =\alertNoH{35}{6x}+\alertNoH{36}{4}} \uncover<35->{&\equiv&\alertNoH{36}{1}}}
+}
+\end{array}
+$
+}
+\end{itemize}
+\end{example}
+\vskip 10cm
+\end{frame}
+
+\begin{frame}
+\footnotesize
+\vskip -0.22cm
+\begin{example}\vskip -0.1cm
+Compute the remainder of  $x^{3^{6}}-x \mod 3$ divided by $x^2+x+1\mod 3$.
+\end{example}
+\begin{itemize}
+\item<2-> As we saw on the preceding slide, the answer is $1$.
+\item<3-> We could have computed faster: 
+\begin{itemize}
+\footnotesize
+\item<3-> $ x^{3}\equiv x\left(2x+2\right)\equiv 2x^2+2\equiv 6x+4\equiv 1 \mod \left(x^2+x+1\mod 3\right) $.
+\item<4-> $x^{3^6}= \left( x^3\right)^{3^5}\equiv 1^{3^5}=1\mod \left(x^2+x+1\mod 3\right)$.
+\end{itemize}
+\item<5-> However, the previous method works for all examples.
+\begin{itemize}
+\footnotesize
+\item<6-> We used consecutive squares to raise $x$ to a huge exponent.
+\item<7-> We reduced all intermediates $\mod$ the polynomial before squaring again.
+\item<8-> $\Rightarrow$ computations were small = good news when coding on a computer!
+\end{itemize}
+\item<9-> To find the gcd of a polynomial $g$ and $x^{p^n}-x$, we use the Euclidean algorithm.
+\item<10-> The Euclidean algorithm only uses the remainder of $x^{p^n}-x$ divided by $g$.
+\item<11-> $\Rightarrow$ finding $\gcd\left( x^{p^n}-x,g\right)$ is efficient computationally.
+\item<12-> This is so efficient it's doable by hand on not-so-small-examples.
+\end{itemize}
+
+
+\vskip 10cm
+\end{frame}

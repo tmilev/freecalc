@@ -1,0 +1,36 @@
+\begin{frame}
+\frametitle{Factor polynomials of the same degree over $\mathbb Z_p$, $p>2$}
+\begin{itemize}
+\item Suppose $ g=a_1\cdot a_2\cdot \dots \cdot a_k$ with $a_i$-irreducible and $\deg a_i=\deg a_j$ for all $i,j$.
+\item How do we factor $g$?
+\item Suppose $g$ is not square-free, say $a_1=a_2$
+\begin{itemize}
+\item $g= a_1a_2 a_3\cdots= a_1^2  h$.
+\item $g'= 2a_1 a_1' h+ a_1^2 h'=a_1(2a_1'h+a_1h')$ 
+\item $\Rightarrow$ $a_1$ divides $g, g' $ $\Rightarrow$ $\gcd(g,g')$ is a factor of $g$.
+\end{itemize} 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Factor polynomials of the same degree over $\mathbb Z_p$, $p>2$}
+\begin{itemize}
+\item For simplicity, assume: $g=a_1\cdot a_2$, $a_1\neq a_2$, $\deg a_1=\deg a_2=d$, $\deg g=n=2d$. 
+\item  Take random $h\in \mathbb Z_p$ with $\gcd(h,g)=1$. We have:
+
+\hfil \hfil $
+\begin{array}{rcll}
+h^{p^d}-h &\equiv &0&\mod g\\
+h\left(h^{p^d-1}-1 \right)& \equiv &0&\mod g \\
+h^{p^d-1}-1&\equiv&0&\mod g\\
+\left( h^{\frac{p^d-1}{2}}\right)^2 - 1&\equiv&0& \mod g\\
+\left( h^{\frac{p^d-1}{2}} - 1\right)\left( h^{\frac{p^d-1}{2}}+ 1\right) &\equiv&0& \mod g\\
+\end{array}
+$
+
+So $h^{\frac{p^d-1}{2}} - 1$ divides $g$. If lucky, $\gcd\left(h^{\frac{p^d-1}{2}} - 1,g\right)=a_1$ or $a_2$.
+
+\item Chance for this to happen = $\frac{1}{2}$, so doing the above $s$ times factors $g$ with probability $1-\left(\frac{1}{2} \right)^s$. 
+\item Take $s=10$: chance to factor = $1023$ in $1024$.
+\end{itemize}
+\end{frame}

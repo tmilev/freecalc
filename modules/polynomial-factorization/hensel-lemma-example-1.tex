@@ -1,0 +1,105 @@
+\begin{frame}[fragile]
+\vskip -0.2cm
+\tiny 
+\begin{example}
+\begin{itemize}
+\item Factor $\alertNoH{12,29,31,44}{325x^{2}-38x-312}$ modulo  $3$.
+\item \alertNoH{ 33}{Lift the modulo $3$ factorization to modulo $3^6=729$}. 
+\item<handout:4|34->{ \alertNoH{34,44} {Why should we care?}}
+\end{itemize}
+\uncover<2->{
+$
+\begin{array}{rcll}
+\alertNoH{2,3}{325x^{2}-38x-312} &\alertNoH{2}{\equiv}&\fcAnswer{3}{\alertNoH{4,5} { x^2+x}} &\mod 3 \\
+\uncover<4->{&\equiv&  (\fcAnswer{5}{\alertNoH{11}{x+1}})(\fcAnswer{5}{\alertNoH{11}{x}}) &\mod 3} \\
+\uncover<6->{&=& (\alertNoH{8}{1}\cdot x+\alertNoH{8}{1})(\alertNoH{9}{1}\cdot x+\alertNoH{9}{0}) &\mod 3}
+
+\end{array}$
+}
+
+\uncover<7->{
+\alertNoH{7}{Sylvester matrix:} $\uncover<7->{S=\begin{pmatrix}\alertNoH{8}{1}&\alertNoH{9}{1}\\\alertNoH{8}{1}&\alertNoH{9}{0}\end{pmatrix}}\uncover<10->{, \alertNoH{19}{S^{-1}}=\begin{pmatrix}0&1\\1&-1\end{pmatrix}= \alertNoH{19}{ \begin{pmatrix}0&1\\1&2\end{pmatrix}}} \mod 3$.
+}
+\begin{itemize}
+\only<handout:1|-27>{ 
+\item<11->[1] $
+\begin{array}{rcll}\alertNoH{13,14}{f_1}&\equiv &\alertNoH{13,14}{(\alertNoH{11}{x})(\alertNoH{11}{x+1} )}&\mod3\\
+\alertNoH{23}{a_{1}} &\alertNoH{23}{\equiv} & \alertNoH{11,23}{x} & \mod 3 \\
+\alertNoH{23}{b_{1}} &\alertNoH{23}{\equiv} & \alertNoH{11,23}{x+1} & \mod 3 \end{array}$.
+
+
+\item<12->[2] $
+\begin{array}{rcllllll}\alertNoH{13,14}{f_2}&\equiv & \alertNoH{12,13,14}{x^{2}+7x+3} &&&&\alertNoH{12}{\mod 9} \\
+\uncover<13->{\alertNoH{17,18} {g_2}&\equiv & \alertNoH{13}{f_2}-\alertNoH{13}{f_1}\uncover<14->{&=\alertNoH{15,16}{ \alertNoH{14}{x^{2}+7x+3}- \alertNoH{14}{(x)(x+1)}}} \uncover<15->{ &\alertNoH{15,16}{\equiv} &\fcAnswer{16}{\alertNoH{17,18}{ 6x+3}}}&\mod 9} \\
+\uncover<17->{ \alertNoH{17,18}{ \frac{g_2}{3}}&\alertNoH{17,18}{ \equiv} & \fcAnswer{18}{\alertNoH{20}{ 2}x+\alertNoH{20}{1} } &&&&\alertNoH{17,18}{ \mod 3}} \\
+\uncover<19->{\alertNoH{19}{ S^{-1}}\cdot \frac{g_2}{\alertNoH{25}{ 3} }&=& \alertNoH{21}{ \alertNoH{19}{\begin{pmatrix}0&1\\1&2\end{pmatrix}} \begin{pmatrix} \alertNoH{20}{ 2} \\\alertNoH{20}{1} \end{pmatrix}} \uncover<21->{ &&\equiv &\alertNoH{21}{ \begin{pmatrix}\alertNoH{24}{1}\\\alertNoH{24}{1} \end{pmatrix}}} &\mod3} \\ 
+\uncover<22->{ 
+\alertNoH{22,23,24,25,26}{a_{2}}&\equiv &\alertNoH{23}{x}  &+\alertNoH{25}{3} \cdot (\alertNoH{24}{1} ) \uncover<26->{&\equiv &\alertNoH{26}{x+3} &}\mod9 \\
+\alertNoH{22,23,24,25,26}{b_{2}}&\equiv &\alertNoH{23}{x+1}&+\alertNoH{25}{3} \cdot (\alertNoH{24}{1}) \uncover<26->{&\equiv &\alertNoH{26}{x+4}&}\mod9
+}
+\end{array}
+$	
+
+\item<27>[3] $
+\begin{array}{rclcllll}f_{3}&\equiv &x^{2}+16x+12&&&&\mod27\\g_{3}&\equiv &f_{3}-(x+3)(x+4)&&\equiv &9x&\mod27\\\frac{g_{3}}{9}&\equiv &x&&&&\mod3\\S^{-1}\cdot \frac{g_{3}}{9}&=&\begin{pmatrix}0&1\\1&2\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}&&\equiv &\begin{pmatrix}0\\1\end{pmatrix}&\mod3\\
+\alertNoH{27}{a_{3}} & \equiv &x+3&+9\cdot (0)&\alertNoH{27}{\equiv} & \alertNoH{27}{x+3} &\mod27\\
+\alertNoH{27}{b_{3}} & \equiv &x+4&+9\cdot (1)&\alertNoH{27}{\equiv} & \alertNoH{27}{x+13} &\mod27\end{array}
+$
+}
+
+\only<handout:2|28>{
+\item[4]
+$\begin{array}{rclcllll}f_{4}&\equiv &x^{2}+43x+12&&&&\mod81\\g_{4}&\equiv &f_{4}-(x+3)(x+13)&&\equiv &27x+54&\mod81\\\frac{g_{4}}{27}&\equiv &x+2&&&&\mod3\\S^{-1}\cdot \frac{g_{4}}{27}&=&\begin{pmatrix}0&1\\1&2\end{pmatrix}\begin{pmatrix}1\\2\end{pmatrix}&&\equiv &\begin{pmatrix}2\\2\end{pmatrix}&\mod 3\\
+\alertNoH{28}{a_{4}} &\equiv &x+3&+27\cdot (2)&\equiv &\alertNoH{28}{x+57}&\mod 81\\
+\alertNoH{28}{b_{4}} &\equiv &x+13&+27\cdot (2)&\equiv &\alertNoH{28}{x+67}&\mod 81\end{array}$
+}
+
+\only<handout:3|29-30>{ 
+\item[5] ~
+$\begin{array}{rcllllll}
+\alertNoH{29}{h_{5}} & \equiv &\alertNoH{29}{ \alertNoH{30}{82}x^{2}+205x+174} 
+&&&& \alertNoH{29}{\mod 243} \\
+\alertNoH{30}{ f_{5}} =\frac{\alertNoH{30}{ h_{5}}}{
+\alertNoH{30}{ 82}
+}&\equiv &x^{2}+124x+174&&&&\mod 243\\
+g_{5}&\equiv &f_{5}-f_{4}&=x^{2}+124x+174-(x+57)(x+67)&\equiv &0&\mod243\\
+\frac{g_{5}}{81}&\equiv &0&&&&\mod3\\
+S^{-1}\cdot \frac{g_{5}}{81}&=&\begin{pmatrix}0&1\\1&2\end{pmatrix}\begin{pmatrix}0\\0\end{pmatrix}&&\equiv &\begin{pmatrix}0\\0\end{pmatrix}&\mod3\\a_{5}&\equiv &x+57&+81\cdot (0)&\equiv &x+57&\mod243\\b_{5}&\equiv &x+67&+81\cdot (0)&\equiv &x+67&\mod243\end{array}
+$
+}
+
+\only<handout:4|31->{ 
+\item[6]
+$\begin{array}{rcllllll}\alertNoH{31}{ h_{6}}&\equiv & \alertNoH{31}{ \alertNoH{32}{325} x^{2}+691x+417} &&&&\mod729\\
+f_{6}=\frac{h_{6}}{\alertNoH{32}{325}}&\equiv &x^{2}+610x+174&&&&\mod729\\g_{6}&\equiv &f_{6}-f_{5}&=x^{2}+610x+174-(x+57)(x+67)&\equiv &486x&\mod729\\\frac{g_{6}}{243}&\equiv &2x&&&&\mod3\\S^{-1}\cdot \frac{g_{6}}{243}&=&\begin{pmatrix}0&1\\1&2\end{pmatrix}\begin{pmatrix}2\\0\end{pmatrix}&&\equiv &\begin{pmatrix}0\\2\end{pmatrix}&\mod3\\
+a_{6}&\equiv &x+57&+243\cdot (0)&\equiv &\alertNoH{34}{x+57} & \mod 729\\
+b_{6}&\equiv &x+67&+243\cdot (2)&\equiv &\alertNoH{34}{x+553}& \mod 729 \end{array}$
+}
+\end{itemize}
+
+\only<handout:4|31->{ 
+\uncover<33->{ Answer: $\alertNoH{33}{ \alertNoH{34}{h_6=325 \left( x+57 \right)\left(  x+553  \right)} \equiv 325x^{2}-38x-312 \mod 729} $.}
+
+\uncover<34->{
+\!\!$
+\begin{array}{@{}rcll|l}
+\alertNoH{34}{325 h_6} &=& \alertNoH{34,35}{325^2} \left(\alertNoH{34}{ x+57} \right)\left(\alertNoH{34}{ x+553} \right) \\
+\uncover<35->{ &=& \left(\alertNoH{35}{325} x+ \alertNoH{36}{ \alertNoH{35}{325}\cdot 57} \right)\left(\alertNoH{35}{325} x+\alertNoH{36}{\alertNoH{35}{325}\cdot 553} \right)} \\
+\uncover<36->{&\equiv& \left(325x+\alertNoH{36}{300}\right)\left(325 x+\alertNoH{36,37,38}{391}\right) & \alertNoH{36}{\mod 729} }  \uncover<37->{&  \alertNoH{37,38}{ 391>\frac{729}{2}} \uncover<38->{\text{\alertNoH{38}{ so convert it to negative}} }} \\
+\uncover<38->{
+&=& \left(\alertNoH{39}{325x+300} \right) \left( \alertNoH{40}{ 325 x \alertNoH{38}{-338}} \right)  &\mod 729 & \alertNoH{ 38}{391\equiv 391-729=-338 \mod 729} }\\
+\uncover<39->{ 
+&=&  \alertNoH{39,41}{25}\left(\alertNoH{39}{13x+12}\right)\alertNoH{40,41}{13}\left(\alertNoH{40}{25x-26} \right) &\mod 729} \\
+\uncover<41->{&=&\alertNoH{41}{ 325}  \alertNoH{42}{ \left(13x+12\right)\left(25x-26\right)}&\mod 729}\\
+\uncover<42->{
+\alertNoH{42,43,44}{\left(13x+12\right)\left(25x-26\right)}&\alertNoH{43,44}{=} & \fcAnswer{44}{325x^{2}-38x-312}& \alertNoH{43,44}{\text{over }\mathbb Z }
+}
+\end{array}
+$
+}}
+
+
+
+\end{example}
+\vskip 10cm
+\end{frame}

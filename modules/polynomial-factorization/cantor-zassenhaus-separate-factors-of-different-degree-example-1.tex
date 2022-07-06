@@ -1,0 +1,24 @@
+\begin{frame}
+\begin{example}
+\begin{itemize}
+\item Factor $x^{5}+x^{3}+2x^{2}+2$ $\mod 7$.
+
+\item<2-> Compute 
+\[
+\begin{array} {rcll}
+\gcd(x^{7^1}-x, x^{5}+x^{3}+2x^{2}+2)&\equiv& 1&\mod 7\\
+\uncover<3->{\gcd(x^{7^2}-x, x^{5}+x^{3}+2x^{2}+2)&\equiv&x^2+ 1&\mod 7\\
+\vdots}
+\end{array}
+\]
+\item<4-> Found non-unit gcd $x^2+1$ $\Rightarrow$ don't compute $x^{7^3}-x, x^{7^4}-x, \dots$. 
+
+\item<5-> Divide $x^{5}+x^{3}+2x^{2}+2$ by $x^2+1$: remainder $=0$, quotient $=x^3+2$. 
+\item<6-> $\gcd(x^{7^1}-x, x^{5}+x^{3}+2x^{2}+2)=1$ $\Rightarrow$ polynomial has no linear factors $\Rightarrow$ $\left(x^2+1\right),\left( x^3+2\right)$ are irreducible $\mod 7$.
+\item<7-> Answer:
+\[
+x^{5}+x^{3}+2x^{2}+2=\left(x^2+1\right)\left( x^3+2\right) \mod 7
+\]
+\end{itemize}
+\end{example}
+\end{frame}

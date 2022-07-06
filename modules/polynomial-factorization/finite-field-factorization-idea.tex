@@ -1,0 +1,72 @@
+\begin{frame}
+\frametitle{Is factorization over $\mathbb Z$ related to factorization $\mod p$?}
+\begin{itemize}
+\item<1-> Suppose we know a factorization of a polynomial over $\mathbb Z$:
+\[
+h=c_1c_2\cdots c_k
+\]
+\item<2-> Then $h$ can also be factored $\mod p$ (for any $p$): simply take:
+\[
+h\equiv c_1c_2\cdots c_k \mod p
+\]
+\item<3-> Here, factorization $\mod p$ carries good information for the factorization of the original $h$ assuming:
+\begin{itemize}
+\item<4-> $h$ does not reduce to zero $\mod p$.
+\item<5-> Each factor $c_i$ does not reduce its degree $\mod p$.
+\end{itemize}
+\item<6-> Since there are infinitely many primes, we can always find a $p$ that satisfies these two.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Factorization over $\mathbb Z$ using finite fields: the main idea}
+\begin{itemize}
+\item The Hensel lift lemma leads to a factorization idea for $h$.
+\item<2-> Suppose $h$ has $k$ unknown factors. 
+\item<3-> Let $C$ be the leading coefficient of $H$.
+\item<4-> Pick a prime $p$.
+\item<5-> Factor fully $h \equiv C\cdot c_1\cdots c_s \mod p$ - easier than factoring over $\mathbb Z$.
+\item<6-> For simplicity, suppose $s=k$ ($h$ - no additional factors $\mod p$).
+\item<7-> For simplicity, suppose $c_i$'s are distinct ($h$ - square-free $\mod p$).
+\item<8-> Hensel-lift factorization to $h \equiv C d_1\cdots d_s \mod p^n$
+\item<9-> Represent every negative number $z$ larger than $-\frac{p^n}{2}$ by itself $\mod p$.
+\item<10-> Compute $C^{n-1}h= \left(Cd_1\right)\cdots\left(Cd_s\right) \mod p^n$.
+\item<11-> Choose $n$ large enough so $\frac{p^n}{2}$ is larger than the absolute value of every coefficient of $C f_i$ for every unknown factor $f_i$ of $h$ over $\mathbb Z$.
+\item<12-> Then the integer coefficients of $C f_i$ are the the integer coefficients of one of the $Cd_i$'s.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Factorization over $\mathbb Z$ using finite fields: the problems}
+\begin{itemize}
+\item We just described a plan for extracting a factorization over $\mathbb Z$ from a factorization $\mod p$.
+\item<2-> The plan had a few problems / open questions.
+\begin{itemize}
+\item<3-> How to choose the prime $p$?
+\item<4-> How to efficiently factor $\mod p$? 
+\item<5-> What happens when factoring $\mod p$ yields more factors than we have over $\mathbb Z$? Example:
+\begin{itemize}
+\item  $
+\begin{array}{rcl}
+x^3+\alertNoH{7}{2x}-3&=& \uncover<6->{\alertNoH{8}{  x^3}+\alertNoH{6}{ \alertNoH{8} {x^2} \alertNoH{9}{-x^2}} +\alertNoH{7}{\alertNoH{8}{3x} \alertNoH{9}{-x}}\alertNoH{9}{-3}}\\
+\uncover<8->{&=& \left(\alertNoH{8,10}{x^3+x^2+3x}\right)\alertNoH{9}{\alertNoH{11}{-} x^2\alertNoH{11}{-}x\alertNoH{11}{-}3}}  \\
+\uncover<10->{&=& \alertNoH{10}{\alertNoH{13}{x}\left(\alertNoH{12}{x^2+x+3} \right)} \alertNoH{11,13}{-}\left(\alertNoH{12}{x^2\alertNoH{11}{+}x\alertNoH{11}{+}3} \right)}\\
+\uncover<12->{&=&(\alertNoH{13,15}{x-1})\left(\alertNoH{12,15}{x^2+x+3}\right)}
+\end{array}$
+
+\fcAnswerUncover{5}{14}{2} factors over $\mathbb Z$.
+~\\
+~\\
+\item $
+\begin{array}{rcll}
+\alertNoH{15}{x^3+2x-3}&\alertNoH{15}{=}& \uncover<15->{ (\alertNoH{15}{x \alertNoH{16}{-1} })\left(\alertNoH{15}{x^2+x+\alertNoH{17}{3}}\right)} &\alertNoH{15,16,17}{\mod 3}\\
+\uncover<16->{&\equiv& (x+\alertNoH{16}{2})\left(\alertNoH{18}{x^2+x}\right)& \alertNoH{16,17}{\mod 3}}\\
+\uncover<18->{&=&(x+2) \alertNoH{18}{x(x+1)}&\mod 3}
+\end{array}$
+
+\fcAnswerUncover{5}{18}{3} factors over $\mathbb Z_3$
+\end{itemize}
+\item<19-> How to choose $n$ large enough so that factorization $\mod p^n$ helps us read off factorization over $\mathbb Z$?
+\end{itemize}
+\end{itemize}
+\end{frame}

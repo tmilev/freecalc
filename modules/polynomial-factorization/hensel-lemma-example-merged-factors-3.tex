@@ -1,0 +1,77 @@
+\begin{frame}
+\tiny 
+\begin{example}
+\begin{itemize}
+\item \alertNoH{12}{ Factor }
+$\begin{array}{rclclcl}
+\alertNoH{12, 39, 61}{x^3+\alertNoH{4}{2x} \alertNoH{40}{-3}}&\uncover<2->{=}& \uncover<3->{ \alertNoH{5}{  x^3}+\alertNoH{3}{ \alertNoH{5} {x^2} \alertNoH{6}{- x^2}} +\alertNoH{4}{\alertNoH{5}{3x} \alertNoH{6}{- x}}\alertNoH{6}{-3}}
+\uncover<5->{&=& \left(\alertNoH{5,7}{x^3+ x^2+3x}\right)\alertNoH{6}{ \alertNoH{8}{-} x^2 \alertNoH{8}{-} x\alertNoH{8}{-}3}}  \\
+\uncover<7->{&=& \alertNoH{7}{\alertNoH{10}{x}\left(\alertNoH{9}{x^2+x+3} \right)} \alertNoH{8,10}{-}\left(\alertNoH{9}{x^2\alertNoH{8}{+}x\alertNoH{8}{+}3} \right)}
+\uncover<9->{&=&\alertNoH{61}{ (\alertNoH{10,12}{x-1} )\left( \alertNoH{9, 12}{x^2 + x+3}\right)}}
+\end{array} $
+
+\item \alertNoH{13}{ Factor $x^3+2x-3$ over $\mod 3$}.
+\item Lift the factorization $\mod 9$. 
+\item \alertNoH{61}{ Explain the connection between the $\mod 9$ and regular factorization.}
+\end{itemize}
+
+\uncover<13->{
+$\begin{array}{rclclcll}
+\alertNoH{13,37,38,42}{f_{1}} \only<-37|handout:1>{ &\alertNoH{13}{= }&\alertNoH{13}{x^3+2x\alertNoH{14}{-3}} \uncover<14->{& \equiv& \alertNoH{15}{ x^3 + 2x}} \uncover<15->{& \equiv& \alertNoH{15}{x(x^2+2)}}& \alertNoH{13,14}{\mod 3} \\
+\uncover<16->{&\equiv& x(x^2+\alertNoH{16,17}{ 3x} +2)\uncover<17->{&\equiv& x( \alertNoH{18}{x^2+}\alertNoH{17}{\alertNoH{18}{x}+\alertNoH{19}{2x}}\alertNoH{19}{+2})}}
+\uncover<18->{&\equiv&x(\alertNoH{18}{\alertNoH{21}{x}(\alertNoH{20}{x+1})}\alertNoH{21}{+}\alertNoH{19}{\alertNoH{21}{2}(\alertNoH{20}{x+1})})}&\mod 3\\}
+\uncover<20->{&\alertNoH{37,38}{ \equiv} &\alertNoH{37,38,42}{ \alertNoH{22}{ x}( \alertNoH{20,22}{x + 1})(\alertNoH{21,22}{x+2})} &&&&&\mod 3}\\
+\uncover<22->{
+\alertNoH{26,27,28,29,37,38,49}{a_{1}} &\alertNoH{26, 27, 28, 29, 37, 38, 49}{ \equiv} &\alertNoH{22,26,27,28,29,37,38, 49}{x}&&&&&\mod 3\\
+\alertNoH{23,24,28,29,37,38,49}{b_{1}}&\alertNoH{23,24,28,29,37, 38, 49}{\equiv} &\alertNoH{22,23,24,28,29,37,38, 49}{x +1}&&&&&\mod 3\\
+\phantom{a_1\cdot } \alertNoH{23,24,26, 27,37,38, 49}{c_{1}}& \alertNoH{23, 24, 26, 27, 37, 38, 49}{\equiv} &\alertNoH{22,23,24,26,27,37,38, 49}{ x+2}&&&&&\mod 3\\
+}
+\only<-37|handout:1>{
+\uncover<23->{ \alertNoH{23,24}{b_1\cdot c_1} &\alertNoH{23,24}{=}& \fcAnswer{24}{ x^2 + \alertNoH{25}{3x}+2} \uncover<25->{&\equiv& x^2+2 }\uncover<32->{&=&\alertNoH{32}{1}\cdot x^2+\alertNoH{32}{0}\cdot x +\alertNoH{32}{2}} &\alertNoH{25}{\mod 3}\\
+\alertNoH{26,27}{ a_1\cdot c_1} &\alertNoH{26,27}{=}& \fcAnswerUncover{23}{27}{x^2 + 2x}&&\uncover<33->{&=&\alertNoH{33}{1}\cdot x^2+\alertNoH{33}{2}\cdot x+\alertNoH{33}{0}} &\mod 3\\
+\alertNoH{28,29}{a_1\cdot b_1} &\alertNoH{28,29}{=}& \fcAnswerUncover{23}{29}{x^2 + x}&&\uncover<34->{&=&\alertNoH{34}{1}\cdot x^2+\alertNoH{34}{1}\cdot x+\alertNoH{34}{0}} &\mod 3}
+}
+\end{array}
+$
+
+\uncover<23->{ Sylvester multi-matrix: $S= \fcAnswerUncover{23}{31}{
+\begin{pmatrix}
+\alertNoH{32}{1} &\alertNoH{33}{1}&\alertNoH{34}{1}\\
+\alertNoH{32}{0} &\alertNoH{33}{2}&\alertNoH{34}{1}\\
+\alertNoH{32}{2} &\alertNoH{33}{0}&\alertNoH{34}{0}\end{pmatrix}
+}$.} \uncover<35->{
+$\alertNoH{35}{S^{-1}=} \alertNoH{35,36}{ \begin{pmatrix}0&0&\frac{1}{2} \\ -1&1&\frac{1}{2} \\ 2&-1&-1\end{pmatrix}} \uncover<36->{\equiv  \alertNoH{36}{ \begin{pmatrix}0 &0&2\\ 2&1&2\\2&2&2\end{pmatrix}} \alertNoH{36}{ \mod 3}} $
+}
+}
+
+\only<handout:2|39->{
+$
+\begin{array}{rcllllll}
+\alertNoH{41}{f_{2}} &\equiv &\alertNoH{39,41}{ x^{3}+2x+\alertNoH{40}{6}} &&&&\alertNoH{39,40}{ \mod 9} \\
+\uncover<41->{ \alertNoH{44}{ g_{2}} &\equiv &\alertNoH{41}{ f_{2}} - \alertNoH{42}{f_{1}}& = \alertNoH{43}{\alertNoH{41}{ x^{3}+2x+6} - \alertNoH{42}{ (x)(x+1)(x+2)}} \uncover<43->{ &\equiv & \alertNoH{43, 44}{ 6x^{2}+ 6}}&\alertNoH{44}{ \mod 9}} \\
+\uncover<44->{ \alertNoH{44,46}{ \frac{g_{2}}{ \alertNoH{50}{3}}} &\alertNoH{44}{ \equiv} & \alertNoH{44}{ 2x^{2}+2} \uncover<46->{ &= \alertNoH{46}{2} \cdot x^2 + \alertNoH{46}{0} \cdot x + \alertNoH{46}{2}  }&&&\alertNoH{44}{ \mod 3}} \\
+\uncover<45->{ \alertNoH{45}{ S^{-1}\cdot \alertNoH{46}{ \frac{g_{2}}{3}}} &\alertNoH{45}{=}& 
+\alertNoH{45,47}{ 
+\begin{pmatrix} 0&0&2\\2&1&2\\2&2&2 \end{pmatrix} 
+\begin{pmatrix} \alertNoH{46}{ 2} \\ \alertNoH{46}{0}\\ \alertNoH{46}{2} \end{pmatrix} 
+} \uncover<47->{ 
+&& \alertNoH{47}{\equiv} & 
+\alertNoH{47}{ \begin{pmatrix} \alertNoH{51}{1} \\ \alertNoH{51}{2} \\ \alertNoH{51}{2} \end{pmatrix} }
+} 
+&\mod 3} \\
+\uncover<48->{
+\alertNoH{48}{a_{2}} & \alertNoH{48}{\equiv} &\alertNoH{48,49, 52}{ x} &\alertNoH{48, 52}{ + \alertNoH{50}{3}\cdot (\alertNoH{51}{1})} &\uncover<52->{ \alertNoH{52}{\equiv} &\alertNoH{52, 53}{x+3}} &\mod 9\\
+\alertNoH{48}{b_{2}} & \alertNoH{48}{\equiv} &\alertNoH{48,49, 52}{ x+1} &\alertNoH{48, 52}{+ \alertNoH{50}{3} \cdot (\alertNoH{51}{2})} &\uncover<52->{ \alertNoH{52}{\equiv} &\alertNoH{52, 53}{x+7}} &\mod 9\\
+\alertNoH{48}{c_{2}} & \alertNoH{48}{\equiv} &\alertNoH{48,49, 52}{ x+2} &\alertNoH{48, 52}{ + \alertNoH{50}{3} \cdot (\alertNoH{51}{2})} & \uncover<52->{ \alertNoH{52}{\equiv} &\alertNoH{52, 53}{ x +8} } &\mod 9\\
+\uncover<53->{ f_2&\equiv & (\alertNoH{53}{\alertNoH{54,55}{x} + \alertNoH{56, 57}{3} } )(\alertNoH{53}{\alertNoH{54,56}{x}+\alertNoH{55, 57}{7}})( \alertNoH{53}{x +8})&\uncover<54->{ =  \left( x +\alertNoH{58}{ 8} \right) \left( \alertNoH{54}{ x^2} + \alertNoH{55,56,59}{10x} + \alertNoH{57,60}{21} \right)} &&& \mod 9 }\\
+\uncover<58->{
+&\equiv& \alertNoH{61}{ \left(x\alertNoH{58}{-1}\right) \left(x^2+\alertNoH{59}{x} +\alertNoH{60}{3}\right) } &&&&\alertNoH{58,59,60,61}{\mod 9}
+}
+\end{array}
+}
+$
+}
+\end{example}
+
+\vskip 10cm
+\end{frame}
