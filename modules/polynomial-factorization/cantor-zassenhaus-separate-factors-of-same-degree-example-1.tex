@@ -1,5 +1,71 @@
 \begin{frame}
+\footnotesize
 \begin{example}
-Factor $x^{4}+x^{3}+6x^{2}+x+5 \mod 3$.
+Find two irreducible factors of $\alertNoH{2,3,4,73}{f=} \alertNoH{2,3,4,73}{x^{4}+x^{3}+x+2 \alertNoH{6}{\mod 3}}$ of degree $\alertNoH{9,73}{2}$.
+
+\begin{itemize}
+\item<2-> Compute in $\mathbb Z_3[x]/\langle \alertNoH{2}{x^{4}+x^{3}+x+2\mod 3} \rangle $.
+\item<3-> $\Rightarrow$ compute $ \mod \alertNoH{3}{f}$, that is, $\mod  (\alertNoH{3}{x^{4}+x^{3}+x+2 \mod 3})$.
+
+\uncover<4->{
+$\begin{array}{rcll}
+\alertNoH{4}{x^{4}\alertNoH{5}{ +x^{3}+x+2}} &\equiv&\alertNoH{4}{ 0}&\alertNoH{4}{ \mod f} \\
+\uncover<5->{x^4&\equiv& \alertNoH{5}{\alertNoH{6}{-}x^3 \alertNoH{6}{-} x\alertNoH{6}{-2}} \uncover<6->{ \equiv \alertNoH{11}{\alertNoH{6}{ 2}x^3+\alertNoH{6}{2}x+\alertNoH{6}{1}}& \alertNoH{11}{\mod f}}}\\
+
+\end{array}
+$
+}
+
+\item<7-> Choose the \alertNoH{8}{``random polynomial'' $x$}. \uncover<8->{ Compute $\alertNoH{9}{ {\alertNoH{8}{x}}^{\frac{3^{\alertNoH{9}{2} }-1}{2}} +1}$:}
+
+$ 
+\uncover<9->{\alertNoH{9}{ x^{\alertNoH{10}{\frac{3^{2}-1}{2}}}+ 1} =\uncover<10->{\alertNoH{11}{x^{\alertNoH{10}{4}} } +1} \uncover<11->{ \equiv \alertNoH{11}{2x^3+2x+\alertNoH{12}{1}} \alertNoH{12}{+1}} \uncover<12->{
+= 2x^3+2x+\alertNoH{12}{2}} \alertNoH{11}{\mod f}}
+$
+
+\item<12-> Compute $\gcd (f, 2x^3+2x+2)$. Use Euclidean algorithm $\mod 3$:
+
+\tiny
+\begin{columns}
+\column[t]{0.4\textwidth}
+
+$
+\begin{array}{rcl}
+\alertNoH{13,49}{x^4+x^3+x+2} &=& (\fcAnswerUncover{13}{30}{ 2x+2} ) \left( \alertNoH{32,50}{2x^3 +2x+2} \right)+\fcAnswerUncover{13}{31}{ \alertNoH{33,51}{ 2x^2 +2x+1}}\\
+\uncover<32->{\alertNoH{32}{2x^3+2x+2}&=&(\fcAnswerUncover{32}{47}{x+2 }) \left(\alertNoH{33,51}{ 2x^2+2x+1} \right)+\fcAnswerUncover{32}{48}{0} }\\
+\uncover<49->{\Rightarrow \gcd\left( \alertNoH{49}{ f}, \alertNoH{50}{2x^3+2x+2} \right) &=&\alertNoH{51}{2x^2 +2x+1}}\\
+\uncover<52->{ \alertNoH{53}{ x^4+x^3+x+2}&=&\left( \fcAnswerUncover{52}{68}{ \alertNoH{70}{2} x^2+\alertNoH{70}{2}} \right)\left( \alertNoH{54}{ \alertNoH{71}{2}x^2 +\alertNoH{71}{2}x+\alertNoH{71}{1}} \right)}\\
+\uncover<70->{
+&=&\alertNoH{70}{2}\cdot \alertNoH{71}{2} \left( x^2+1 \right)\left(  x^2 +x+\alertNoH{71}{2} \right)
+}\\
+\uncover<72->{
+\alertNoH{73}{x^4+x^3+x+2} &=&\left(\alertNoH{73}{ x^2+1} \right)\left( \alertNoH{73}{ x^2 +x+2} \right)
+}
+\end{array}
+$
+\column[t]{0.6\textwidth}
+
+\only<handout:1|-31>{
+\renewcommand{\arraystretch}{1.2}\begin{longtable}{@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c}\uncover<30->{\alertNoH{30}{\textbf{Quotient: }}}&\multicolumn{10}{c}{ \fcAnswer{16}{\alertNoH{17, 18, 30, 16}{$2x $}} \uncover<22->{\alertNoH{23, 24, 30, 22}{$+$}} \fcAnswer{22}{\alertNoH{23, 24, 30, 22}{$2$}} }\\ \cline{2-11} \cline{2-11}\multicolumn{1}{c|}{ \alertNoH{14, 15, 16, 17, 18, 21, 22, 23, 24}{$2x^3$} \alertNoH{14, 17, 18, 23, 24}{$+$} \alertNoH{14, 17, 18, 23, 24}{$2x $} \alertNoH{14, 17, 18, 23, 24}{$+$} \alertNoH{14, 17, 18, 23, 24}{$2$} }&&\alertNoH{13, 15, 16, 19, 20}{$x^4$}&\alertNoH{13, 19, 20}{$+$}&\alertNoH{13, 19, 20}{$x^3$}&&&\alertNoH{13, 19, 20}{$+$}&\alertNoH{13, 19, 20}{$x $}&\alertNoH{13, 19, 20}{$+$}&\alertNoH{13, 19, 20}{$2$}\\\uncover<17->{\uncover<19->{\alertNoH{19, 20}{$\overline{\phantom{A}}$}}&&\fcAnswer{18}{\alertNoH{19, 20, 18}{$x^4$}}&&&\uncover<18->{\alertNoH{19, 20, 18}{$+$}}&\fcAnswer{18}{\alertNoH{19, 20, 18}{$x^2$}}&\uncover<18->{\alertNoH{19, 20, 18}{$+$}}&\fcAnswer{18}{\alertNoH{19, 20, 18}{$x $}}&\\\cline{2-11}}\uncover<19->{&&&&\fcAnswer{20}{\alertNoH{21, 22, 25, 26, 20}{$x^3$}}&\uncover<20->{\alertNoH{25, 26, 20}{$+$}}&\fcAnswer{20}{\alertNoH{25, 26, 20}{$2x^2$}}&&&\uncover<20->{\alertNoH{25, 26, 20}{$+$}}&\fcAnswer{20}{\alertNoH{25, 26, 20}{$2$}}\\\uncover<23->{\uncover<25->{\alertNoH{25, 26}{$\overline{\phantom{A}}$}}&&&&\fcAnswer{24}{\alertNoH{25, 26, 24}{$x^3$}}&&&\uncover<24->{\alertNoH{25, 26, 24}{$+$}}&\fcAnswer{24}{\alertNoH{25, 26, 24}{$x $}}&\uncover<24->{\alertNoH{25, 26, 24}{$+$}}&\fcAnswer{24}{\alertNoH{25, 26, 24}{$1$}}\\\cline{2-11}}}\uncover<25->{\uncover<31->{\textbf{\color{orange}Remainder: }}&&&&&&\fcAnswer{26}{\alertNoH{26}{{\only<27->{\color{orange}}$2x^2$}}}&\uncover<26->{\alertNoH{26}{{\only<28->{\color{orange}}$+$}}}&\fcAnswer{26}{\alertNoH{26}{{\only<28->{\color{orange}}$2x $}}}&\uncover<26->{\alertNoH{26}{{\only<29->{\color{orange}}$+$}}}&\fcAnswer{26}{\alertNoH{26}{{\only<29->{\color{orange}}$1$}}}\\}\end{longtable}
+$\vphantom{\frac{x^1}{x^1}}$\only<15,16| handout:0>{Divide \alertNoH{15,16}{$x^4$ } by \alertNoH{15,16}{$2x^3$}.}\only<17, 18| handout:0>{Multiply \alertNoH{17, 18}{$2x $} by divisor. }\only<19, 20| handout:0>{subtract last two polynomials.}\only<21,22| handout:0>{Divide \alertNoH{21,22}{$x^3$ } by \alertNoH{21,22}{$2x^3$}.}\only<23, 24| handout:0>{Multiply \alertNoH{23, 24}{$2$} by divisor. }\only<25, 26| handout:0>{subtract last two polynomials.}
+}
+
+\only<handout:2|32-48>{
+\renewcommand{\arraystretch}{1.2}\begin{longtable}{@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c}\uncover<47->{\alertNoH{47}{\textbf{Quotient: }}}&\multicolumn{8}{c}{ \fcAnswer{35}{\alertNoH{36, 37, 47, 35}{$x $}} \uncover<41->{\alertNoH{42, 43, 47, 41}{$+$}} \fcAnswer{41}{\alertNoH{42, 43, 47, 41}{$2$}} }\\ \cline{2-9} \cline{2-9}\multicolumn{1}{c|}{ \alertNoH{33, 34, 35, 36, 37, 40, 41, 42, 43}{$2x^2$} \alertNoH{33, 36, 37, 42, 43}{$+$} \alertNoH{33, 36, 37, 42, 43}{$2x $} \alertNoH{33, 36, 37, 42, 43}{$+$} \alertNoH{33, 36, 37, 42, 43}{$1$} }&&\alertNoH{32, 34, 35, 38, 39}{$2x^3$}&&&\alertNoH{32, 38, 39}{$+$}&\alertNoH{32, 38, 39}{$2x $}&\alertNoH{32, 38, 39}{$+$}&\alertNoH{32, 38, 39}{$2$}\\\uncover<36->{\uncover<38->{\alertNoH{38, 39}{$\overline{\phantom{A}}$}}&&\fcAnswer{37}{\alertNoH{38, 39, 37}{$2x^3$}}&\uncover<37->{\alertNoH{38, 39, 37}{$+$}}&\fcAnswer{37}{\alertNoH{38, 39, 37}{$2x^2$}}&\uncover<37->{\alertNoH{38, 39, 37}{$+$}}&\fcAnswer{37}{\alertNoH{38, 39, 37}{$x $}}&\\\cline{2-9}}\uncover<38->{&&&&\fcAnswer{39}{\alertNoH{40, 41, 44, 45, 39}{$x^2$}}&\uncover<39->{\alertNoH{44, 45, 39}{$+$}}&\fcAnswer{39}{\alertNoH{44, 45, 39}{$x $}}&\uncover<39->{\alertNoH{44, 45, 39}{$+$}}&\fcAnswer{39}{\alertNoH{44, 45, 39}{$2$}}\\\uncover<42->{\uncover<44->{\alertNoH{44, 45}{$\overline{\phantom{A}}$}}&&&&\fcAnswer{43}{\alertNoH{44, 45, 43}{$x^2$}}&\uncover<43->{\alertNoH{44, 45, 43}{$+$}}&\fcAnswer{43}{\alertNoH{44, 45, 43}{$x $}}&\uncover<43->{\alertNoH{44, 45, 43}{$+$}}&\fcAnswer{43}{\alertNoH{44, 45, 43}{$2$}}\\\cline{2-9}}}\uncover<44->{\uncover<48->{\textbf{\color{orange}Remainder: }}&&&&&&&&$ { \only<46->{\color{orange}}\fcAnswer{45}{0}}$\\}\end{longtable}
+$\vphantom{\frac{x^1}{x^1}}$\only<34,35| handout:0>{Divide \alertNoH{34,35}{$2x^3$ } by \alertNoH{34,35}{$2x^2$}.}\only<36, 37| handout:0>{Multiply \alertNoH{36, 37}{$x $} by divisor. }\only<38, 39| handout:0>{subtract last two polynomials.}\only<40,41| handout:0>{Divide \alertNoH{40,41}{$x^2$ } by \alertNoH{40,41}{$2x^2$}.}\only<42, 43| handout:0>{Multiply \alertNoH{42, 43}{$2$} by divisor. }\only<44, 45| handout:0>{subtract last two polynomials.}
+}
+
+\only<handout:3|49->{
+\uncover<53-69>{
+\renewcommand{\arraystretch}{1.2}\begin{longtable}{@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c}\uncover<68->{\alertNoH{68}{\textbf{Quotient: }}}&\multicolumn{10}{c}{ \fcAnswer{56}{\alertNoH{57, 58, 68, 56}{$2x^2$}} \uncover<62->{\alertNoH{63, 64, 68, 62}{$+$}} \fcAnswer{62}{\alertNoH{63, 64, 68, 62}{$2$}} }\\ \cline{2-11} \cline{2-11}\multicolumn{1}{c|}{ \alertNoH{54, 55, 56, 57, 58, 61, 62, 63, 64}{$2x^2$} \alertNoH{54, 57, 58, 63, 64}{$+$} \alertNoH{54, 57, 58, 63, 64}{$2x $} \alertNoH{54, 57, 58, 63, 64}{$+$} \alertNoH{54, 57, 58, 63, 64}{$1$} }&&\alertNoH{53, 55, 56, 59, 60}{$x^4$}&\alertNoH{53, 59, 60}{$+$}&\alertNoH{53, 59, 60}{$x^3$}&&&\alertNoH{53, 59, 60}{$+$}&\alertNoH{53, 59, 60}{$x $}&\alertNoH{53, 59, 60}{$+$}&\alertNoH{53, 59, 60}{$2$}\\\uncover<57->{\uncover<59->{\alertNoH{59, 60}{$\overline{\phantom{A}}$}}&&\fcAnswer{58}{\alertNoH{59, 60, 58}{$x^4$}}&\uncover<58->{\alertNoH{59, 60, 58}{$+$}}&\fcAnswer{58}{\alertNoH{59, 60, 58}{$x^3$}}&\uncover<58->{\alertNoH{59, 60, 58}{$+$}}&\fcAnswer{58}{\alertNoH{59, 60, 58}{$2x^2$}}&&&\\\cline{2-11}}\uncover<59->{&&&&&&\fcAnswer{60}{\alertNoH{61, 62, 65, 66, 60}{$x^2$}}&\uncover<60->{\alertNoH{65, 66, 60}{$+$}}&\fcAnswer{60}{\alertNoH{65, 66, 60}{$x $}}&\uncover<60->{\alertNoH{65, 66, 60}{$+$}}&\fcAnswer{60}{\alertNoH{65, 66, 60}{$2$}}\\\uncover<63->{\uncover<65->{\alertNoH{65, 66}{$\overline{\phantom{A}}$}}&&&&&&\fcAnswer{64}{\alertNoH{65, 66, 64}{$x^2$}}&\uncover<64->{\alertNoH{65, 66, 64}{$+$}}&\fcAnswer{64}{\alertNoH{65, 66, 64}{$x $}}&\uncover<64->{\alertNoH{65, 66, 64}{$+$}}&\fcAnswer{64}{\alertNoH{65, 66, 64}{$2$}}\\\cline{2-11}}}\uncover<65->{\uncover<69->{\textbf{\color{orange}Remainder: }}&&&&&&&&&&$ { \only<67->{\color{orange}}\fcAnswer{66}{0}}$\\}\end{longtable}
+$\vphantom{\frac{x^1}{x^1}}$\only<55,56| handout:0>{Divide \alertNoH{55,56}{$x^4$ } by \alertNoH{55,56}{$2x^2$}.}\only<57, 58| handout:0>{Multiply \alertNoH{57, 58}{$2x^2$} by divisor. }\only<59, 60| handout:0>{subtract last two polynomials.}\only<61,62| handout:0>{Divide \alertNoH{61,62}{$x^2$ } by \alertNoH{61,62}{$2x^2$}.}\only<63, 64| handout:0>{Multiply \alertNoH{63, 64}{$2$} by divisor. }\only<65, 66| handout:0>{subtract last two polynomials.}
+}}
+\end{columns}
+
+
+
+\end{itemize}
 \end{example}
+
+\vskip 10cm
 \end{frame}
