@@ -4,15 +4,15 @@
 Input: a polynomial $f\in \mathbb Z_p[x]$. Output: a list of of probably irreducible factors $R$.
 \begin{itemize}
 \item<2->[0] Initialize the list of non-reduced factors  $N=(f)$ and the list of fully reduced factors as the empty list $R=()$. 
-\item<3->[1] If $N$ is empty, terminate the algorithm;\uncover<4->{ else remove the first element $f$ of $N$.  }
-\item<5->[2]  If $\gcd(f,f')\neq 1$, add $\gcd(f,f')$ and $f/\gcd(f,f')$ to $N$. Go back to Step 1.
-\item<6->[3] Compute $\gcd (x^{p^n}-x, f)$ for $n=1,..., \deg f$. If a non-trivial factor $h$ is found, add $h,\frac{f}{h}$ to $N$ and go back to Step 1.
+\item<3->[1] If $N$ is empty, terminate the algorithm;\uncover<4->{ else remove the first element $g$ of $N$.  }
+\item<5->[2]  If $\gcd(g,g')\neq 1$, add $\gcd(g,g')$ and $g/\gcd(g,g')$ to $N$. Go back to Step 1.
+\item<6->[3] Compute $\gcd (x^{p^n}-x, g)$ for $n=1,..., \deg g$. If a non-trivial factor $h$ is found, add $h,\frac{g}{h}$ to $N$ and go back to Step 1.
 \item<7->[4] For $X$ rounds, repeat:
 \item<8->[4.1] Pick a (pseudo-) random $h$.
-\item<9->[4.2] For every positive divisor $k$ of $\deg f$:
-\item<10->[4.2.1] Compute $a=\gcd \left(h^{\frac{p^k-1}{2}}-1 \right)$.
-\item<11->[4.2.2] If $a$ is non-trivial, add $a,\gcd(a,f)$ to $N$ and go back to Step 1.
-\item<12->[5] If $X$ rounds did not produce a divisor of $f$, declare $f$ to be probably irreducible with error probability $1$ in $2^X$. 
+\item<9->[4.2] For every positive divisor $k$ of $\deg g$:
+\item<10->[4.2.1] Compute $a=\gcd \left(h^{\frac{p^k-1}{2}}-1,g \right)$.
+\item<11->[4.2.2] If $a$ is non-trivial, add $a,\frac{g}{a}$ to $N$ and go back to Step 1.
+\item<12->[5] If $X$ rounds did not produce a divisor of $g$, declare $g$ to be probably irreducible with error probability $1$ in $2^X$. 
 \item<13->[6] Append $f$ to $R$ and go back to Step 1.
 \end{itemize}
 \end{frame}
