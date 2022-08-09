@@ -1,0 +1,54 @@
+\begin{frame}
+\begin{example}
+Find the greatest common divisor of 
+$
+\begin{array}{rcl}
+\alertNoH{7}{f}&\alertNoH{7}{=}&\alertNoH{7}{2x^{2}y^{3}+3x^{2}y^{2}+4x^{3}y+2x^{2}y+7x y^{3}+3y^{5}+2x^{4}+x^{3}}\\
+\alertNoH{9}{g}&\alertNoH{9}{=}&\alertNoH{9}{3x^{3}y^{2}+2x^{2}y^{3}+4x^{3}y+2x^{2}y+7x y^{3}+3y^{5}+2x^{5}+x^{4}}
+\end{array}
+$
+
+\uncover<2->{
+Solution. 
+\begin{itemize}
+\item<2-> \href{https://calculator-algebra.org/appNoCache\#\%7B\%22currentPage\%22\%3A\%22calculator\%22\%2C\%22calculatorInput\%22\%3A\%22f\%3D2x\%5E\%7B2\%7Dy\%5E\%7B3\%7D\%2B3x\%5E\%7B2\%7Dy\%5E\%7B2\%7D\%2B4x\%5E\%7B3\%7Dy\%2B2x\%5E\%7B2\%7Dy\%2B7x\%20y\%5E\%7B3\%7D\%2B3y\%5E\%7B5\%7D\%2B2x\%5E\%7B4\%7D\%2Bx\%5E\%7B3\%7D\%3B\%5Cng\%3D3x\%5E\%7B3\%7Dy\%5E\%7B2\%7D\%2B2x\%5E\%7B2\%7Dy\%5E\%7B3\%7D\%2B4x\%5E\%7B3\%7Dy\%2B2x\%5E\%7B2\%7Dy\%2B7x\%20y\%5E\%7B3\%7D\%2B3y\%5E\%7B5\%7D\%2B2x\%5E\%7B5\%7D\%2Bx\%5E\%7B4\%7D\%3B\%22\%2C\%22inputFocus\%22\%3Atrue\%7D}{Min. red. Gr\"obner basis} of $\langle t f, (1-t)g\rangle $ w.r.t. lex. order $t>x>y$:
+
+\uncover<3->{
+$
+\begin{array}{l}
+\uncover<4->{\alertNoH{4}{	\text{lcm}(f,g)}=}\\
+\alertNoH{4}{
+2x^{7}+4x^{6}y+x^{6}+2x^{5}y^{3}+3x^{5}y^{2}+6x^{5}y+9x^{4}y^{3}+8x^{4}y^{2}+} \\
+\alertNoH{4}{
+2x^{4}y+3x^{3}y^{5}+8x^{3}y^{4}+7x^{3}y^{3}+ 4x^{3}y^{2}+2x^{2}y^{6}+3x^{2}y^{5}+} \\
+\alertNoH{4}{16x^{2}y^{4}+13xy^{6}+3y^{8}},\\\hline
+2tx^{2}y^{8}+4tx^{2}y^{6}+\dots+55xy^{5}+28xy^{4}-12y^{8}+21y^{7}+12y^{6},\\
+4tx^{3}y-40tx^{2}y^{7}+\dots-1232xy^{4}-7xy^{3}+240y^{7}-528y^{6}-3y^{5},\\
+2tx^{4}+tx^{3}+\dots +1232xy^{4}+7xy^{3}-240y^{7}+528y^{6}+3y^{5}
+\end{array}
+$
+}
+
+\uncover<5->{
+$\Rightarrow $ 
+$
+\begin{array}{rcl}
+\gcd(f,g) &=&\frac{fg}{ \text{lcm}(f,g)}=\alertNoH{6,8}{2x^{2}+3y^{2}+x}\\
+\uncover<6->{
+\alertNoH{7}{f}&\alertNoH{7}{=}&\alertNoH{7}{\left(\alertNoH{6}{ 2x^{2}+ 3y^{2} + x}\right)\left(y^{3}+x^{2}+2xy\right)}}\\
+\uncover<8->{
+\alertNoH{9}{g}&\alertNoH{9}{=}&\alertNoH{9}{\left(\alertNoH{8}{  2x^{2}+ 3y^{2}+x} \right)\left(y^{3}+x^3+2xy\right)}}\\
+\end{array}
+$
+}
+
+\end{itemize}
+}
+
+{\tiny
+\hfill 
+}
+\end{example}
+
+
+\end{frame}

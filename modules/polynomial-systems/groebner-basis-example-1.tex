@@ -1,3 +1,47 @@
 \begin{frame}
+\begin{example}
+Find the greatest common divisor of 
+$
+\begin{array}{rcl}
+\alertNoH{12}{f}&=&\alertNoH{12}{x^3-8y^3}\\
+\alertNoH{12}{g}&=&\alertNoH{12}{x^2-4x y+4y^2}
+\end{array}
+$
+
+\uncover<2->{
+Solution 1.
+\begin{itemize}
+\item $f=\alertNoH{2,3}{x^3-8y^3 }=\fcAnswer{3 }{(x-2y)\left(x^2+2xy+4y^2 \right)}$
+\item<4-> $g=\alertNoH{4,5}{x^2-4xy+4y^2}= \fcAnswer{5 }{(x-2y)^2}$
+\item<6-> So, the gcd of $f,g$ is $\fcAnswer{7}{x-2y}$.
+\end{itemize}
+}
+
+\uncover<8->{
+Solution 2. 
+\begin{itemize}
+\item<8-> \href{https://calculator-algebra.org/appNoCache\#\%7B\%22currentPage\%22\%3A\%22calculator\%22\%2C\%22calculatorInput\%22\%3A\%22f\%3Dx\%5E3-8y\%5E3\%3B\%5Cng\%3Dx\%5E2-4x\%20y\%2B4y\%5E2\%3B\%22\%2C\%22inputFocus\%22\%3Atrue\%7D}{Min. red. Gr\"obner basis} of $\langle tf, (1-t)g\rangle $ w.r.t. lex. order $t>x>y$:
+
+\uncover<9->{
+\[
+\begin{array}{l}
+\alertNoH{10,14}{x^{4}-2x^{3}y-8xy^{3}+16y^{4}},\\
+12txy^{2}-24ty^{3}+x^{3}-12xy^{2}+16y^{3},\\
+tx^{2}-4txy+4ty^{2}-x^{2}+4xy-4y^{2}
+\end{array}
+\]
+}
+\uncover<10->{
+$\Rightarrow$ $\alertNoH{14}{ \text{lcm}(f,g)= \alertNoH{10}{ x^{4}-2x^{3} y- 8xy^{3}+ 16y^{4}} } $.
+}
+\uncover<11->{
+$\Rightarrow $ $\gcd(f,g) =\frac{\alertNoH{12}{f} \alertNoH{13}{g}}{ \text{lcm}(f,g)}\uncover<12->{=\frac{\left(\alertNoH{12}{x^3-8y^3}\right)\left(\alertNoH{13}{x^2-4xy+4y^2} \right) }{\alertNoH{14}{ x^{4}-2x^{3}y-8xy^{3}+16y^{4}}} } \uncover<15->{ =x-2y}$
+}
+\end{itemize}
+}
+
+
+\end{example}
+
 
 \end{frame}

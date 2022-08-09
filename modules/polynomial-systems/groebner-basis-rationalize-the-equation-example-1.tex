@@ -1,0 +1,57 @@
+\begin{frame}
+\vskip -0.2cm
+\begin{example}
+Solve the equation
+$\alertNoH{2,4,15,20}{ \sqrt{x^2-24}} =\alertNoH{16,21}{ 3\alertNoH{3,4}{\sqrt[3]{76x-316}} -x-6}$
+
+
+$
+\begin{array}{@{}r@{~}c@{~}l@{}}
+\uncover<2->{\alertNoH{2}{ u}&=& \alertNoH{2}{\onlyNoH{5}{\color{red}} \sqrt{ \onlyNoH{5}{\color{black}} x^2-24}}}\\
+\uncover<3->{\alertNoH{3}{ v}&=&\alertNoH{3}{ \onlyNoH{5}{\color{red}} \sqrt[3]{ \onlyNoH{5}{\color{black}} 76x-316}}}\\
+\uncover<4->{\alertNoH{4}{ u} &=&3\alertNoH{4}{v}-x-6}
+\end{array}
+\uncover<5->{
+\Rightarrow
+\begin{array}{@{}r@{~}c@{~}l@{}}
+u^{\alertNoH{5}{2}}&=&\alertNoH{6}{x^2-24}\\
+v^{\alertNoH{5}{3}}&=&\alertNoH{6}{76x-316}\\
+u&=&\alertNoH{6}{3v-x-6}
+\end{array}
+}
+\uncover<6->{
+\Rightarrow
+\begin{array}{@{}r@{~}c@{~}l@{}}
+\alertNoH{7}{ u^2\alertNoH{6}{ -x^2+24}} &=&0\\
+\alertNoH{7}{ v^3\alertNoH{6}{-76x+316}} &=&0\\
+\alertNoH{7}{u+\alertNoH{6}{x+6-3v}} &=&0
+\end{array}
+}
+$
+
+\uncover<7->{To eliminate $u,v$: mon. order: $u>v>x$.} \uncover<8->{Min. red. Gr\"obner basis:}
+
+\hfil\hfil$
+\begin{array}{l}
+\uncover<0|handout:0>{\dots}\uncover<8->{\alertNoH{8,9}{38x^{4}+180x^{3}-10887x^{2}+77280x-160475}}\\
+\uncover<9-|handout:0>{\dots}\uncover<8>{\alertNoH{8}{105469v+950x^{3}+8262x^{2}-308163x+793639}}\\
+\uncover<9-|handout:0>{\dots}\uncover<8>{\alertNoH{8}{105469u+2850x^{3}+24786x^{2}-819020x+3013731}}
+\end{array}
+$
+
+\uncover<9->{ Factor 
+$\begin{array}{l}
+\alertNoH{9,10}{ 38x^{4}+180x^{3}-10887x^{2}+77280x-160475}\\
+= \fcAnswer{10}{ (\alertNoH{23}{x-7})(\alertNoH{23}{x-5})\left(\alertNoH{11}{  38x^{2}+636x-4585} \right)} \end{array}$
+\uncover<10->{, [say, using the Cantor-Zassenhaus algorithm].} }
+
+\uncover<11->{Solve $\alertNoH{11}{38x^{2}+636x-4585=0} $: \uncover<12->{ $x=\alertNoH{12}{ -\frac{159}{19} \alertNoH{13,18}{\pm} \frac{61}{38}\sqrt{74}}$.}}
+
+\uncover<13->{Subst. back $x=  \alertNoH{14}{-\frac{159}{19} \alertNoH{13}{-} \frac{61}{38}\sqrt{74}} \uncover<14->{ \alertNoH{14}{\approx -22.177}}$} \uncover<15->{ to get: $\alertNoH{15}{ 21.630} \uncover<17->{\alertNoH{17}{ \not\approx} } \alertNoH{16}{-21.630}$}\uncover<17->{; \alertNoH{17}{ solution is extraneous}.} \uncover<18->{ Subst. back $x=\alertNoH{19}{-\frac{159}{19} \alertNoH{18}{+} \frac{61}{38}\sqrt{74}} \uncover<19->{\alertNoH{19}{\approx 5.441}}$ \uncover<20->{to get: $\alertNoH{20}{2.366} \uncover<22->{\alertNoH{22}{\approx}} \alertNoH{21}{2.366} $}\uncover<22->{; \alertNoH{22}{solution is genuine}.}} \uncover<23->{Similarly check: $\alertNoH{23}{x=5,7}$ \uncover<24->{\alertNoH{24}{are genuine}.}} \uncover<25->{Final answer: $\alertNoH{25}{x=5,7, -\frac{159}{19} + \frac{61}{38}\sqrt{74}}$.} \hfill 
+{\tiny
+	\href{https://calculator-algebra.org/appNoCache\#\%7B\%22currentPage\%22\%3A\%22calculator\%22\%2C\%22calculatorInput\%22\%3A\%22a\%3D\%20u\%5E2-x\%5E2\%2B24\%3B\%5Cnb\%3D\%20v\%5E3-76x\%2B316\%3B\%5Cnc\%3Du\%2Bx\%2B6-3v\%3B\%5CnGroebnerLex(a\%2Cb\%2Cc)\%22\%2C\%22inputFocus\%22\%3Atrue\%7D}{backup}
+}
+
+
+\end{example}
+\end{frame}

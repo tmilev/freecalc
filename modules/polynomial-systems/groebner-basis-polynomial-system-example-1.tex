@@ -1,0 +1,44 @@
+\begin{frame}
+\begin{example}
+Solve the polynomial system
+$
+\begin{array}{rcl}
+x^2+2x y-y^2&=&\alertNoH{2}{2}\\
+y^2-3x y + 5 x ^2&=&\alertNoH{2}{3} 
+\end{array} \uncover<2->{\Rightarrow 
+\begin{array}{rcl}
+\alertNoH{3}{x^2+2x y-y^2-\alertNoH{2}{2}}&=&0\\
+\alertNoH{3}{y^2-3x y + 5 x ^2-\alertNoH{2}{3}}&=&0 
+\end{array}
+}
+$
+
+\uncover<3->{To eliminate $x$, find the \alertNoH{3,4}{min. red. Gr\"obner basis} w.r.t $x>y$:}
+
+\uncover<4->{
+\hfil\hfil$
+\begin{array}{l}
+\alertNoH{4,5,16}{23y^{4}-72y^{2}+49}\\
+\alertNoH{4,10,17}{23y^{3}-114y+91\alertNoH{11}{x}}
+\end{array}
+$
+}
+
+\uncover<5->{Factor $ \alertNoH{5,6}{23y^{4}-72y^{2}+49}=\fcAnswer{6}{ (y \alertNoH{7}{- 1})( y \alertNoH{8}{+ 1}) \left(\alertNoH{9}{23y^2-49}\right)}$.}  \uncover<7->{Therefore the solution candidates for $y$ are $y=\alertNoH{7}{1},\alertNoH{8}{-1}, \alertNoH{9}{ \pm \frac{7}{\sqrt{23}}}$.} \uncover<10->{\alertNoH{10}{Second polynomial of Gr\"obner basis}: \alertNoH{11}{linear w.r.t. $x$}\uncover<12->{, so each solution for $y$ produces one solution for $x$.}} \uncover<13->{The system given by the Gr\"obner basis is equivalent to the original} \uncover<14->{$\Rightarrow$ all of  $\alertNoH{16}{y=1,-1, \pm \frac{7}{\sqrt{23}}} $ yield unique genuine solutions.}
+
+\uncover<15->{
+Final answer: $ 
+\begin{array}{ll}
+\alertNoH{16}{ y=1},& \alertNoH{17}{x=1}\\
+\alertNoH{16}{y=-1},& \alertNoH{17}{x=-1}\\
+\alertNoH{16}{y=\frac{7}{23}\sqrt{23}},& \alertNoH{17}{x=\frac{5}{23}\sqrt{23}}\\
+\alertNoH{16}{y=-\frac{7}{23}\sqrt{23}},& \alertNoH{17}{x=-\frac{5}{23}\sqrt{23}} \\
+\end{array}
+}
+$
+\hfill 
+{\tiny
+\href{https://calculator-algebra.org/appNoCache\#\%7B\%22currentPage\%22\%3A\%22calculator\%22\%2C\%22calculatorInput\%22\%3A\%22a\%3Dx\%5E2\%2B2x\%20y-y\%5E2-2\%3B\%5Cnb\%3Dy\%5E2-3x\%20y\%20\%2B\%205\%20x\%20\%5E2-3\%3B\%20\%5CnGroebnerLex(a\%2Cb)\%22\%2C\%22inputFocus\%22\%3Atrue\%7D}{backup}
+}
+\end{example}
+\end{frame}
