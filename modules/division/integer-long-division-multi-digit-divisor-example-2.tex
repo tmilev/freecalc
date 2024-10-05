@@ -2,22 +2,20 @@
 \frametitle{Divisor leading digit large relative to dividend}
 \small
 \alertNoH{1}{{Divide $\alertNoH{2}{{200}}$ by $\alertNoH{3}{{77}}$ with quotient and remainder.}}
-
 \begin{columns}
-
-\column{0.37\textwidth}\uncover<2->{\hfil\hfil$\setlength\extrarowheight{-5pt}
+\column{0.4\textwidth}\uncover<2->{\hfil\hfil$\setlength\extrarowheight{-5pt}
 \begin{array}{@{}r@{}r@{}r@{}r@{}r@{}r@{}r@{}r@{}r}{~~}&&&&&&&\alertNoH{5}{{\fcAnswerUncover{5}{12}{{\uncover<5->{\alertNoH{5, 14, 13, 14, 15, 18, 19, 24, 45, 48, 52}{{2}}}}}}}\\\cline{4 - 8}
-\text{{\tiny $\phantom{1}\!\!\!\!\!~{{ \fcAnswer{19}{{\onlyNoH{18-22}{\alertNoH{21, 22}{{1}}}}}}}$}}&\text{{\tiny $\phantom{1}\!\!\!\!\!~{{ \fcAnswer{15}{{\onlyNoH{14-22}{\alertNoH{17, 18, 19, 22}{{1}}}}}}}$}}&&\multicolumn{1}{|@{}l@{}}{}& &\text{{\tiny $\!\uncover<34-42>{\alertNoH{34, 35, 37, 38, 39, 42}{{-1}}}$}}&\text{{\tiny $\!\uncover<28-42>{\alertNoH{28, 29, 31, 32, 33, 42}{{-1}}}$}}&\\ 
+\text{{\tiny $\phantom{1}\!\!\!\!\!~{{ \fcAnswer{19}{{\onlyNoH{18-22}{\alertNoH{21, 22}{{1}}}}}}}$}}&\text{{\tiny $\phantom{1}\!\!\!\!\!~{{ \fcAnswer{15}{{\onlyNoH{14-22}{\alertNoH{17, 18, 19, 22}{{1}}}}}}}$}}&&\multicolumn{1}{|@{}l@{}}{}& &\text{{\tiny $\!\uncover<34-42>{\alertNoH{34, 35, 37, 38, 39, 42}{{-1}}}$}}&\text{{\tiny $\!\uncover<28-42>{\alertNoH{28, 29, 31, 32, 33, 42}{{-1}}}$}}&\\
 \phantom{m}&\alertNoH{3, 4, 6, 6, 8, 14, 13, 18, 19, 24, 44, 47, 51}{{7}}&\alertNoH{3, 4, 6, 14, 13, 14, 15, 24, 44, 47, 51}{{7}}&\multicolumn{1}{|l@{}}{~}&~~~&\alertNoH{2, 4, 5, 6, 6, 7, 25, 38, 39, 41, 46, 50}{{2}}&\alertNoH{2, 4, 5, 6, 7, 25, 32, 33, 41, 46, 50}{{0}}&\alertNoH{2, 4, 5, 6, 25, 26, 27, 41, 46, 50}{{0}}\uncover<25->{\\\cline{5-5}
 }&&&&&\fcAnswer{21}{{\alertNoH{21, 24, 25, 38, 39, 41}{{1}}}}&\fcAnswer{19}{{\alertNoH{20, 24, 25, 32, 33, 41}{{5}}}}&\fcAnswer{15}{{\alertNoH{16, 24, 25, 26, 27, 41}{{4}}}}\uncover<25->{\\\cline{6 - 8}
-}&&&&&&\fcAnswer{35}{{\alertNoH{36, 41, 44, 49, 53}{{4}}}}&\fcAnswer{29}{{\alertNoH{30, 41, 44, 49, 53}{{6}}}}\end{array} $ 
+}&&&&&&\fcAnswer{35}{{\alertNoH{36, 41, 44, 49, 53}{{4}}}}&\fcAnswer{29}{{\alertNoH{30, 41, 44, 49, 53}{{6}}}}\end{array} $
 }
 
-\column{0.63\textwidth}\uncover<4->{\alertNoH{4}{{$\bullet$ Find shortest dividend start larger than divisor. }}}\uncover<45->{\alertNoH{45}{{ If none, we're done. }}} 
+\column{0.6\textwidth}\uncover<4->{\alertNoH{4}{{$\bullet$ Find shortest dividend start larger than divisor. }}}\uncover<45->{\alertNoH{45}{{ If none, we're done. }}}
 
-\uncover<5->{\alertNoH{5}{{ $\bullet$ Next quotient digit: put above last digit of that start. }}}\uncover<5->{ If this leaves gaps: fill with $0$. } 
-
-\uncover<6->{\alertNoH{6}{{$~~-$ Larger divisor start has more digits }}\uncover<7->{\alertNoH{7}{{ $\Rightarrow$ divide leading two digits }}\alertNoH{8}{{ by divisor digit}}\alertNoH{9}{{ plus one}}. \alertNoH{10}{{Round down if needed. }}}}
+\uncover<5->{\alertNoH{5}{{ $\bullet$ Next quotient digit: put above last digit of that start. }}}\uncover<5->{ If this leaves gaps: fill with $0$. }
+		
+\uncover<6->{\alertNoH{6}{{$~~-$ Dividend start has more digits }}\uncover<7->{\alertNoH{7}{{ $\Rightarrow$ divide leading two digits }}\alertNoH{8}{{ by divisor digit}}\alertNoH{9}{{ plus one}}. \alertNoH{10}{{Round down if needed. }}}}
 
 
 
@@ -33,7 +31,7 @@ $\bullet$ Final answer. \alertNoH{46, 50}{{Dividend = $\alertNoH{2, 4, 5, 6, 6, 
 
 $\bullet$ Check. $\alertNoH{50}{{\alertNoH{2, 4, 5, 6, 6, 7, 25, 38, 39, 41, 46}{{2}}\alertNoH{2, 4, 5, 6, 7, 25, 32, 33, 41, 46}{{0}}\alertNoH{2, 4, 5, 6, 25, 26, 27, 41, 46}{{0}}}} \stackrel{?}{=} \alertNoH{51}{{\alertNoH{3, 4, 6, 6, 8, 14, 13, 18, 19, 24, 44, 47}{{7}}\alertNoH{3, 4, 6, 14, 13, 14, 15, 24, 44, 47}{{7}}}}\cdot\alertNoH{52}{{\alertNoH{5}{{\fcAnswerUncover{5}{12}{{\uncover<5->{\alertNoH{5, 14, 13, 14, 15, 18, 19, 24, 45, 48}{{2}}}}}}}}} + \alertNoH{53}{{\fcAnswer{35}{{\alertNoH{36, 41, 44, 49}{{4}}}}\fcAnswer{29}{{\alertNoH{30, 41, 44, 49}{{6}}}}}} $ }
 
-\end{columns} 
+\end{columns}
 
 
 
