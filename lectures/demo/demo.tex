@@ -1,5 +1,5 @@
 \documentclass%
-%[handout]
+[handout]
 {beamer}
 % % % % % % % %
 % % % % % % % %
@@ -11,10 +11,10 @@
 % % % % % % % %
 % % % % % % % %
 % % % % % % % %
-\input{../example-templates}
-\input{../system-specific-config-Ubuntu-texlive}
+%\input{../example-templates}
+%\input{../system-specific-config-Ubuntu-texlive}
 %uncomment to make handout formulas marked via the worksheet command disappear
-\turnOnWorksheetMode
+%\turnOnWorksheetMode
 
 
 \mode<presentation>
@@ -30,10 +30,12 @@
 \usepackage[all,cmtip]{xy}
 \usepackage{times}
 \usepackage[T1]{fontenc}
-\input{../pstricks-commands}
+%\input{../pstricks-commands}
 
 \usepackage{auto-pst-pdf}
-\usepackage{pst-plot}
+\usepackage{pstricks}
+
+%\usepackage{pst-plot}
 %\usepackage{pstricks-add}
 
 % Or whatever. Note that the encoding and the font should match. If T1
@@ -47,7 +49,7 @@
 %\DeclareMathOperator{\diff}{d}
 \setbeamertemplate{navigation symbols}{}
 
-\includeonlylecture{3}
+\includeonlylecture{4}
 
 \newcommand{\lect}[3]{
   \date{#1}
@@ -76,14 +78,14 @@
 
 %\pgfdeclareimage[height=0.8cm]{logo}{bluelogo}
 %\logo{\pgfuseimage{logo}}
-\renewcommand{\Arcsin}{\arcsin}
-\renewcommand{\Arccos}{\arccos}
-\renewcommand{\Arctan}{\arctan}
-\renewcommand{\Arccot}{\text{arccot\hspace{0.03cm}}}
-\renewcommand{\Arcsec}{\text{arcsec\hspace{0.03cm}}}
-\renewcommand{\Arccsc}{\text{arccsc\hspace{0.03cm}}}
+%\renewcommand{\Arcsin}{\arcsin}
+%\renewcommand{\Arccos}{\arccos}
+%\renewcommand{\Arctan}{\arctan}
+%\renewcommand{\Arccot}{\text{arccot\hspace{0.03cm}}}
+%\renewcommand{\Arcsec}{\text{arcsec\hspace{0.03cm}}}
+%\renewcommand{\Arccsc}{\text{arccsc\hspace{0.03cm}}}
 
-\turnOffWorksheetMode
+%\turnOffWorksheetMode
 
 \begin{document}
 
@@ -101,109 +103,12 @@
 
 % begin lecture
 
-\lect{\today}{Polynomial factorization}{1}{
-\section{Factorization of quadratics}
-\input{../../modules/quadratic-functions/factoring-quadratics-theory-1}
-\input{../../modules/quadratic-functions/vietas-formulas}
-\input{../../modules/history/vieta}
-
-\input{../../modules/quadratic-functions/factoring-quadratics-example-example-Vieta-guessing-1}
-\input{../../modules/quadratic-functions/factoring-quadratics-example-by-formula-1}
-\section{Factorization overview}
-\input{../../modules/polynomial-factorization/factorization-examples-no-theory-1}
-\input{../../modules/polynomial-factorization/fundamental-theorem-of-algebra-statement}
-\input{../../modules/polynomial-factorization/factorization-examples-1}
-\input{../../modules/polynomial-factorization/factorization-algebraic-overview-1}
-\input{../../modules/polynomial-factorization/factorization-over-basic-three-fields-explanation}
-\input{../../modules/polynomial-factorization/factorization-over-rationals}
-
-\input{../../modules/polynomial-factorization/factorization-over-rationals-advanced-examples}
 
 
-\section{Factorizations using formulas}
-\input{../../modules/quadratic-functions/factoring-quadratics-theory-1}
-\input{../../modules/quadratic-functions/factoring-quadratics-example-Vieta-guessing-or-formula-1}
-\input{../../modules/cubic-functions/cardanos-formula-depressed-monic-cubic}
-\input{../../modules/history/cardano}
-\input{../../modules/cubic-functions/should-we-factor-using-cardanos-formula-example1}
-\section{Polynomial division}
-\input{../../modules/polynomial-factorization/polynomial-division-example-1}
-\section{Factorization using the Rational root theorem}
-\input{../../modules/polynomial-factorization/rational-root-theorem}
-\input{../../modules/polynomial-factorization/guess-the-rational-root-cubic-example1}
-\input{../../modules/polynomial-factorization/guess-the-rational-root-and-newtons-method}
-\input{../../modules/history/newton}
-\input{../../modules/polynomial-factorization/polynomial-division-use-to-factor-1}
-\input{../../modules/polynomial-factorization/general-case-kronecker-intro}
-\input{../../modules/history/kronecker}
-\input{../../modules/polynomial-factorization/gauss-lemma}
-\input{../../modules/history/gauss}
-\input{../../modules/polynomial-factorization/n-plus-one-values-determine-n-degree-polynomial}
-\input{../../modules/history/lagrange}
-\input{../../modules/polynomial-factorization/kronecker-method}
-
-\input{../../modules/polynomial-factorization/kronecker-method-example1}
-\input{../../modules/polynomial-factorization/kronecker-doesnt-work-for-large-examples}
-
-\section{Connection between factorization with integers and modular one} 
-\input{../../modules/finite-fields/modular-arithmetic-review}
-\input{../../modules/finite-fields/notation-subscript}
-
-\input{../../modules/finite-fields/equivalent-vs-equal}
-\input{../../modules/polynomial-factorization/monic-polynomial-definition}
-\input{../../modules/finite-fields/bezouts-lemma}
-\input{../../modules/finite-fields/bezouts-lemma-uniqueness-prime-modulus}
-\input{../../modules/finite-fields/bezout-equation-no-solution-coprime-polynomials}
-\input{../../modules/polynomial-factorization/hensel-lemma}
-\input{../../modules/history/hensel}
-\input{../../modules/history/sylvester}
-\input{../../modules/polynomial-factorization/hensel-lemma-example-1}
-\input{../../modules/polynomial-factorization/hensel-lemma-example-2}
-\input{../../modules/polynomial-factorization/finite-field-factorization-idea}
-
-\input{../../modules/polynomial-factorization/sylvester-multi-matrix-motivation}
-\input{../../modules/polynomial-factorization/sylvester-multi-matrix}
-
-\input{../../modules/polynomial-factorization/hensel-lemma-example-merged-factors-3}
-\input{../../modules/polynomial-factorization/finite-field-factorization-idea-extraneous-factors}
-\input{../../modules/polynomial-factorization/finite-field-factorization-idea-how-to-choose-p}
-
-\section{Factoring over finite fields: Cantor-Zassenhaus algorithm}
-\input{../../modules/polynomial-factorization/finite-field-factorization-idea-how-to-factor-over-p}
-\input{../../modules/polynomial-factorization/cantor-zassenhaus-intro}
-\input{../../modules/history/david-cantor}
-\input{../../modules/history/zassenhaus}
-\input{../../modules/polynomial-factorization/cantor-zassenhaus-separate-factors-of-different-degree}
-\input{../../modules/history/galois}
-\input{../../modules/polynomial-factorization/cantor-zassenhaus-separate-factors-of-different-degree-example-1}
-\input{../../modules/polynomial-factorization/cantor-zassenhaus-gcd-x-power-p-n-minus-x-with-small-polynomial-example-1}
-
-\input{../../modules/polynomial-factorization/cantor-zassenhaus-separate-factors-of-same-degree}
-\input{../../modules/polynomial-factorization/cantor-zassenhaus-separate-factors-of-same-degree-example-1}
-
-\input{../../modules/polynomial-factorization/cantor-zassenhaus-algorithm}
-
+\lect{\today}{a}{4}{
+%	\input{../../modules/improper-integrals/improper-integral-type1-arctan-geometric-interpretation}
+	\input{../../modules/improper-integrals/temp}
 }
-
-\lect{\today}{}{2}{
-
-%\input{../../modules/precalculus/product-equals-zero-example-1}
-}
-
-\lect{\today}{Uses of Gr\"obner bases}{3}{
-\input{../../modules/polynomial-systems/lexicographic-order-dark-secret}
-
-\input{../../modules/polynomial-systems/groebner-basis-to-find-multivariable-gcd}
-\input{../../modules/polynomial-systems/groebner-basis-example-1}
-\input{../../modules/polynomial-systems/groebner-basis-example-2}
-
-\input{../../modules/polynomial-systems/groebner-basis-rationalize-the-equation-example-1}
-
-\input{../../modules/polynomial-systems/groebner-basis-polynomial-system-example-1}
-
-\input{../../modules/polynomial-systems/groebner-basis-polynomial-relations-example-1}
-}
-
 
 \end{document}
 

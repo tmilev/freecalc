@@ -4,11 +4,11 @@ This variant uses the standard method for solving trigonometric integrals with t
 
 \noindent 
 $\begin{array}{rcll|l}
-\displaystyle \int \sec x \diff x&=&\displaystyle \int \sec (2\arctan t) \diff (2\arctan t)&& \text{Set } x= 2\arctan t\\
-&=&\displaystyle \int \frac{1}{\cos (2\arctan t)} \frac{2}{1+t^2}\diff t&& \text{Use \refBad{\ref{eqsin2zViaTanzcos2zViaTanz}}{}{\eqref{\label{eqsin2zViaTanzcos2zViaTanz}}:}} \cos (2 z)= \frac{1-\tan^2 z }{1+\tan^2 z}\\
-&=&\displaystyle \int \frac{1}{\frac{1 -t^2}{1 +t^2}} \frac{ 2 }{ 1+t^2}\diff t\\
-&=&\displaystyle \int \frac{2}{1-t^2}\diff t&&\text{part. fractions}\\
-&=&\displaystyle \int \left(\frac{1}{1-t}+ \frac{1}{ 1+t} \right)\diff t\\
+\displaystyle \int \sec x \text{d} x&=&\displaystyle \int \sec (2\arctan t) \text{d} (2\arctan t)&& \text{Set } x= 2\arctan t\\
+&=&\displaystyle \int \frac{1}{\cos (2\arctan t)} \frac{2}{1+t^2}\text{d} t&& \text{Use } \cos (2 z)= \frac{1-\tan^2 z }{1+\tan^2 z}\\
+&=&\displaystyle \int \frac{1}{\frac{1 -t^2}{1 +t^2}} \frac{ 2 }{ 1+t^2}\text{d} t\\
+&=&\displaystyle \int \frac{2}{1-t^2}\text{d} t&&\text{part. fractions}\\
+&=&\displaystyle \int \left(\frac{1}{1-t}+ \frac{1}{ 1+t} \right)\text{d} t\\
 &=&\displaystyle  -\ln |1-t|+\ln |1+t|+C \\
 &=&\displaystyle \ln \left|\frac{1+t}{1-t}\right| &&\text{Subst. } t=\tan \left(\frac{x}{2}\right) \\
 &=&\displaystyle \ln \left|\frac{1+\tan \left( \frac{ x}{2} \right)}{ 1-\tan \left(\frac{x}{2}\right)} \right|+C&& \text{Last step: see below}\\
@@ -28,15 +28,15 @@ $\begin{array}{@{}r@{}c@{}l@{}l@{}|l}
 \end{array}
 $
 
-\ref{problemintsecxdx}. \textbf{Variant II.} This variant is based on the following observation. For an odd number $m>0 $, we studied a quick technique for integrating $\int \sin^n x \cos^m x \diff x $: namely, use the transformation $\cos x \diff x = \diff (\sin x)$ and change variables $u=\sin x $. This trick relies heavily on the fact that $m$ is odd (as we need to express the remaining even power of $\cos x$ via $\sin x$). However, the positivity of $m$ is not essential: by multiplying top and bottom by $\cos x$ we can make this technique work also for odd negative values of $m$. We illustrate the technique in the solution below.
+\ref{problemintsecxdx}. \textbf{Variant II.} This variant is based on the following observation. For an odd number $m>0 $, we studied a quick technique for integrating $\int \sin^n x \cos^m x \text{d} x $: namely, use the transformation $\cos x \text{d} x = \text{d} (\sin x)$ and change variables $u=\sin x $. This trick relies heavily on the fact that $m$ is odd (as we need to express the remaining even power of $\cos x$ via $\sin x$). However, the positivity of $m$ is not essential: by multiplying top and bottom by $\cos x$ we can make this technique work also for odd negative values of $m$. We illustrate the technique in the solution below.
 
 $\begin{array}{rcll|l}
-\displaystyle \int \sec x \diff x&=&\displaystyle \int \frac{1}{\cos x}\diff x\\
-&=&\displaystyle \int \frac{\cos x}{\cos^2x}\diff x\\
-&=&\displaystyle \int \frac{\diff (\sin x)}{1-\sin^2x}&&\text{Set }u=\sin x\\
-&=&\displaystyle \int \frac{\diff u}{1-u^2}\\
-&=&\displaystyle \int \frac{\diff u}{(1+u)(1-u)}&&\text{part. fractions}\\
-&=&\displaystyle \int \left(\frac{\frac{1}{2}}{1+u} +\frac{ \frac{1}{ 2}}{1 -u} \right)\diff u \\
+\displaystyle \int \sec x \text{d} x&=&\displaystyle \int \frac{1}{\cos x}\text{d} x\\
+&=&\displaystyle \int \frac{\cos x}{\cos^2x}\text{d} x\\
+&=&\displaystyle \int \frac{\text{d} (\sin x)}{1-\sin^2x}&&\text{Set }u=\sin x\\
+&=&\displaystyle \int \frac{\text{d} u}{1-u^2}\\
+&=&\displaystyle \int \frac{\text{d} u}{(1+u)(1-u)}&&\text{part. fractions}\\
+&=&\displaystyle \int \left(\frac{\frac{1}{2}}{1+u} +\frac{ \frac{1}{ 2}}{1 -u} \right)\text{d} u \\
 &=&\displaystyle \frac{1}{2}\left(\ln |1+u|-\ln|1-u| \right)+C\\
 &=&\displaystyle \frac{1}{2}\ln \left|\frac{1+u}{1-u} \right|+C &&\text{Subst. back } u=\sin x \\
 &=&\displaystyle \frac{1}{2} \ln \left|\frac{1+\sin x}{1-\sin x}\right|+C&&\text{Last step: see below}\\
@@ -59,14 +59,14 @@ $
 \ref{problemintsecxdx}. \textbf{Variant III. } This variant present a quick solution by multiplying and dividing our integrand by the multiplier $\sec x+\tan x$. Of course, the idea of using that multiplier comes from knowing the answer to the problem in advance (which can be obtained, for example, by using the preceding solution variants).
 
 $\begin{array}{rcll|l}
-\displaystyle \int \sec x \diff x&=&\displaystyle \int \sec x \frac{\sec x +\tan x }{\sec x+\tan x }\diff x  \\
-&=& \displaystyle \int \frac{\sec^2 x+\sec x\tan x }{\sec x +\tan x }\diff x&&
+\displaystyle \int \sec x \text{d} x&=&\displaystyle \int \sec x \frac{\sec x +\tan x }{\sec x+\tan x }\text{d} x  \\
+&=& \displaystyle \int \frac{\sec^2 x+\sec x\tan x }{\sec x +\tan x }\text{d} x&&
 \begin{array}{rcl}
-\diff (\tan x )&=&\sec^2 x\diff x\\
-\diff (\sec x)&=&\sec x\tan x \diff x
+\text{d} (\tan x )&=&\sec^2 x\text{d} x\\
+\text{d} (\sec x)&=&\sec x\tan x \text{d} x
 \end{array}\\
-&=&\displaystyle  \int \frac{\diff (\sec x+\tan x) }{\sec x +\tan x} &&\text{Set }u=\sec x +\tan x\\
-&=&\displaystyle \int \frac{\diff u}{u}\\
+&=&\displaystyle  \int \frac{\text{d} (\sec x+\tan x) }{\sec x +\tan x} &&\text{Set }u=\sec x +\tan x\\
+&=&\displaystyle \int \frac{\text{d} u}{u}\\
 &=&\displaystyle \ln |u|+C\\
 &=&\displaystyle \ln |\sec x +\tan x|+C\quad .
 \end{array}
@@ -80,12 +80,12 @@ $
 
 \noindent $
 \begin{array}{rcll|l}
-\displaystyle \int \sec^3 x \diff x&=&\displaystyle \int  \frac{1}{\cos^3 x} \diff x \\
-&=&\displaystyle \int  \frac{\cos x}{\cos^4 x} \diff x  && \text{use }\diff (\sin x)=\cos x \diff x\\
-&=&\displaystyle \int  \frac{1}{\cos^4 x} \diff (\sin x)&& \text{use }\cos^2x=1-\sin^2x \\
-&=&\displaystyle \int  \frac{1}{\left(1-\sin^2x\right)^2} \diff (\sin x) &&\text{Set }\sin x=u\\
-&=&\displaystyle \int  \frac{1}{\left(1-u^2\right)^2} \diff u&&\text{split in part. frac.}\\
-&=&\displaystyle \int\left(\frac{\frac{1}{4}}{u +1}+\frac{\frac{1}{4}}{(u +1)^{2}}+\frac{-\frac{1}{4}}{u -1}+\frac{\frac{1}{4}}{(u -1)^{2}}  \right) \diff u\\
+\displaystyle \int \sec^3 x \text{d} x&=&\displaystyle \int  \frac{1}{\cos^3 x} \text{d} x \\
+&=&\displaystyle \int  \frac{\cos x}{\cos^4 x} \text{d} x  && \text{use }\text{d} (\sin x)=\cos x \text{d} x\\
+&=&\displaystyle \int  \frac{1}{\cos^4 x} \text{d} (\sin x)&& \text{use }\cos^2x=1-\sin^2x \\
+&=&\displaystyle \int  \frac{1}{\left(1-\sin^2x\right)^2} \text{d} (\sin x) &&\text{Set }\sin x=u\\
+&=&\displaystyle \int  \frac{1}{\left(1-u^2\right)^2} \text{d} u&&\text{split in part. frac.}\\
+&=&\displaystyle \int\left(\frac{\frac{1}{4}}{u +1}+\frac{\frac{1}{4}}{(u +1)^{2}}+\frac{-\frac{1}{4}}{u -1}+\frac{\frac{1}{4}}{(u -1)^{2}}  \right) \text{d} u\\
 &=&\displaystyle \frac{1}{4}\left(\ln |u+1|-\ln|u-1|-\frac{1}{u+1}-\frac{1}{u-1} \right)+C\\
 &=&\displaystyle\frac{1}{4}\left(\ln \left|\frac{u+1}{u-1}\right|-\frac{2u}{u^2-1} \right)+C\\
 &=&\displaystyle\frac{1}{4}\left(\ln \left|\frac{\sin x+1}{\sin x-1}\right|+\frac{2\sin x}{\cos^2x} \right)+C.\\
@@ -96,15 +96,15 @@ $
 
 \noindent $
 \begin{array}{rcll|l}
-\displaystyle \int \sec^3 x \diff x&=&\displaystyle \int  \sec x \diff (\tan x) &&\text{int. by parts}\\
-&=&\displaystyle  \sec x\tan x - \int \tan x \diff (\sec x)\\
-&=&\displaystyle \sec x \tan x - \int \sec x \tan^2 x\diff x &&\tan^2 x =\sec^2x-1\\
-&=&\displaystyle \sec x \tan x - \int\sec x (\sec^2x-1)\diff x\\
-&=&\displaystyle \sec x \tan x - \int \sec^3 x \diff x+\int \sec x \diff x &&\text{Use Problem }\ref{problemintsecxdx}\\
-&=&\displaystyle \sec x \tan x -\int \sec^3x \diff x+\ln |\sec x +\tan x|&& \begin{array}{l} + \int \sec^3x \diff x \\ 
+\displaystyle \int \sec^3 x \text{d} x&=&\displaystyle \int  \sec x \text{d} (\tan x) &&\text{int. by parts}\\
+&=&\displaystyle  \sec x\tan x - \int \tan x \text{d} (\sec x)\\
+&=&\displaystyle \sec x \tan x - \int \sec x \tan^2 x\text{d} x &&\tan^2 x =\sec^2x-1\\
+&=&\displaystyle \sec x \tan x - \int\sec x (\sec^2x-1)\text{d} x\\
+&=&\displaystyle \sec x \tan x - \int \sec^3 x \text{d} x+\int \sec x \text{d} x &&\text{Use Problem }\ref{problemintsecxdx}\\
+&=&\displaystyle \sec x \tan x -\int \sec^3x \text{d} x+\ln |\sec x +\tan x|&& \begin{array}{l} + \int \sec^3x \text{d} x \\ 
 \text{ to both sides}\end{array} \\
-\displaystyle 2\int \sec^3x \diff x&=&\displaystyle \left(\sec x\tan x +\ln |\sec x+\tan x| \right) +C\\
-\displaystyle \int \sec^3x \diff x&=&\displaystyle \frac{1}{2}\left(\sec x\tan x +\ln |\sec x+\tan x| \right) +K\quad .
+\displaystyle 2\int \sec^3x \text{d} x&=&\displaystyle \left(\sec x\tan x +\ln |\sec x+\tan x| \right) +C\\
+\displaystyle \int \sec^3x \text{d} x&=&\displaystyle \frac{1}{2}\left(\sec x\tan x +\ln |\sec x+\tan x| \right) +K\quad .
 \end{array}
 $
 }
